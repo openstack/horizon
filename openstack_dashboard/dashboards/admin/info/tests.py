@@ -28,7 +28,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('service_list',
                                    'availability_zone_list',
-                                   'aggregate_list')})
+                                   'aggregate_list'),
+                        api.neutron: ('agent_list',)})
     def test_index(self):
         services = self.services.list()
         api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
@@ -36,6 +37,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
             .AndReturn(self.availability_zones.list())
         api.nova.aggregate_list(IsA(http.HttpRequest)) \
             .AndReturn(self.aggregates.list())
+        agents = self.agents.list()
+        api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn(agents)
 
         self.mox.ReplayAll()
 
@@ -63,3 +66,9 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         aggregates_tab = res.context['tab_group'].get_tab('aggregates')
         self.assertQuerysetEqual(aggregates_tab._tables['aggregates'].data,
                                  ['<Aggregate: 1>', '<Aggregate: 2>'])
+
+        network_agents_tab = res.context['tab_group'].get_tab('network_agents')
+        self.assertQuerysetEqual(
+            network_agents_tab._tables['network_agents'].data,
+            [agent.__repr__() for agent in self.agents.list()]
+        )

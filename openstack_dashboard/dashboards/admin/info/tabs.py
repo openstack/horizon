@@ -19,7 +19,9 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import tabs
 
+from openstack_dashboard.api import base
 from openstack_dashboard.api import keystone
+from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
 
 from openstack_dashboard.dashboards.admin.info import tables
@@ -92,7 +94,30 @@ class NovaServicesTab(tabs.TableTab):
         return services
 
 
+class NetworkAgentsTab(tabs.TableTab):
+    table_classes = (tables.NetworkAgentsTable,)
+    name = _("Network Agents")
+    slug = "network_agents"
+    template_name = ("horizon/common/_detail_table.html")
+
+    def allowed(self, request):
+        return base.is_service_enabled(request, 'network')
+
+    def get_network_agents_data(self):
+        try:
+            agents = neutron.agent_list(self.tab_group.request)
+        except Exception:
+            agents = []
+            msg = _('Unable to get network agents list.')
+            exceptions.check_message(["Connection", "refused"], msg)
+            raise
+
+        return agents
+
+
 class SystemInfoTabs(tabs.TabGroup):
     slug = "system_info"
-    tabs = (ServicesTab, NovaServicesTab, ZonesTab, HostAggregatesTab)
+    tabs = (ServicesTab, NovaServicesTab,
+            ZonesTab, HostAggregatesTab,
+            NetworkAgentsTab)
     sticky = True
