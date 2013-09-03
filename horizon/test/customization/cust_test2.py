@@ -1,9 +1,13 @@
 import horizon
+from horizon import base
 
-dogs = horizon.get_dashboard("dogs")
+try:
+    dogs = horizon.get_dashboard("dogs")
+    puppies = dogs.get_panel("puppies")
+except base.NotRegistered:
+    puppies = None
 
-puppies = dogs.get_panel("puppies")
-
-permissions = list(getattr(puppies, 'permissions', []))
-permissions.append('horizon.test')
-puppies.permissions = tuple(permissions)
+if puppies:
+    permissions = list(getattr(puppies, 'permissions', []))
+    permissions.append('horizon.test')
+    puppies.permissions = tuple(permissions)
