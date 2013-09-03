@@ -34,7 +34,6 @@ class CreateForm(forms.SelfHandlingForm):
     type = forms.ChoiceField(label=_("Type"),
                              required=False)
     size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
-    encryption = forms.ChoiceField(label=_("Encryption"), required=False)
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
                                            required=False)
     snapshot_source = forms.ChoiceField(label=_("Use snapshot as a source"),
@@ -61,24 +60,6 @@ class CreateForm(forms.SelfHandlingForm):
         self.fields['type'].choices = [("", "")] + \
                                       [(type.name, type.name)
                                        for type in volume_types]
-
-        # Hide the volume encryption field if the hypervisor doesn't support it
-        # NOTE: as of Grizzly this is not yet supported in Nova so enabling
-        # this setting will not do anything useful
-        hypervisor_features = getattr(settings,
-                                      "OPENSTACK_HYPERVISOR_FEATURES",
-                                      {})
-        can_encrypt_volumes = hypervisor_features.get("can_encrypt_volumes",
-                                                      False)
-
-        if can_encrypt_volumes:
-            # TODO(laura-glendenning) get from api call in future
-            encryption_options = {"LUKS": "dmcrypt LUKS"}
-            self.fields['encryption'].choices = [("", "")] + \
-                [(enc, display) for enc, display in encryption_options.items()]
-        else:
-            self.fields['encryption'].widget = forms.widgets.HiddenInput()
-            self.fields['encryption'].required = False
 
         if ("snapshot_id" in request.GET):
             try:
@@ -213,9 +194,6 @@ class CreateForm(forms.SelfHandlingForm):
                 raise ValidationError(error_message)
 
             metadata = {}
-
-            if data['encryption']:
-                metadata['encryption'] = data['encryption']
 
             volume = cinder.volume_create(request,
                                           data['size'],
