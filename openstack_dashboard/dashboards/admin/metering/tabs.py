@@ -188,18 +188,18 @@ class GlobalStatsTab(tabs.Tab):
                         "vcpus": _("Number of VCPUs"),
                         "disk.read.requests": _("Number of read requests"),
                         "disk.write.requests": _("Number of write requests"),
-                        "disk.read.bytes": _("Volume of read in B"),
-                        "disk.write.bytes": _("Volume of write in B"),
+                        "disk.read.bytes": _("Volume of reads in B"),
+                        "disk.write.bytes": _("Volume of writes in B"),
                         "disk.root.size": _("Size of root disk in GB"),
                         "disk.ephemeral.size": _("Size of ephemeral disk "
                             "in GB"),
-                        "network.incoming.bytes": _("number of incoming bytes "
+                        "network.incoming.bytes": _("Number of incoming bytes "
                             "on the network for a VM interface"),
-                        "network.outgoing.bytes": _("number of outgoing bytes "
+                        "network.outgoing.bytes": _("Number of outgoing bytes "
                             "on the network for a VM interface"),
-                        "network.incoming.packets": _("number of incoming "
+                        "network.incoming.packets": _("Number of incoming "
                             "packets for a VM interface"),
-                        "network.outgoing.packets": _("number of outgoing "
+                        "network.outgoing.packets": _("Number of outgoing "
                             "packets for a VM interface")}
 
         class MetersWrap(object):
