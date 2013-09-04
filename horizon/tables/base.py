@@ -1249,7 +1249,11 @@ class DataTable(object):
         request = self.request
         table_name, action_name, obj_id = self.check_handler(request)
         if table_name == self.name and action_name:
-            return self.take_action(action_name, obj_id)
+            action_names = [action.name for action in
+                self.base_actions.values() if not action.preempt]
+            # do not run preemptive actions here
+            if action_name in action_names:
+                return self.take_action(action_name, obj_id)
         return None
 
     def sanitize_id(self, obj_id):
