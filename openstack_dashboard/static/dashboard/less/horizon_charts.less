@@ -11,7 +11,7 @@
         position: relative;
         min-height: @min_height_fullscreen_chart;
         min-width: @min_width_fullscreen_chart;
-        .rickshaw_graph .detail {
+        .detail {
             .x_label { display: none }
             .item { line-height: 1.4; padding: 0.5em }
             .date { color: #a0a0a0 }
@@ -67,3 +67,13 @@
     left: 40%;
 }
 
+//small fix for rickshaw, for a better visual integration with Horizon
+.rickshaw_legend {
+  background: white;
+  color: #404040;
+
+  .action {
+    text-decoration: none;
+    color: #000000;
+  }
+}
