@@ -162,6 +162,24 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_security_group': True,
 }
 
+# The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
+# in the OpenStack Dashboard related to the Image service, such as the list
+# of supported image formats.
+OPENSTACK_IMAGE_BACKEND = {
+    'image_formats': [
+        ('', ''),
+        ('aki', _('AKI - Amazon Kernel Image')),
+        ('ami', _('AMI - Amazon Machine Image')),
+        ('ari', _('ARI - Amazon Ramdisk Image')),
+        ('iso', _('ISO - Optical Disk Image')),
+        ('qcow2', _('QCOW2 - QEMU Emulator')),
+        ('raw', _('Raw')),
+        ('vdi', _('VDI')),
+        ('vhd', _('VHD')),
+        ('vmdk', _('VMDK'))
+    ]
+}
+
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
 # external to the OpenStack environment. The default is 'publicURL'.

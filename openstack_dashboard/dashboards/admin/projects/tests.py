@@ -189,7 +189,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('get_default_role',
                                        'user_list',
                                        'group_list',
-                                       'role_list'),
+                                       'role_list',
+                                       'domain_get'),
                         api.neutron: ('is_extension_supported',
                                       'tenant_quota_get'),
                         quotas: ('get_default_quota_data',)})
@@ -237,7 +238,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'tenant_create',
                                        'user_list',
                                        'group_list',
-                                       'role_list'),
+                                       'role_list',
+                                       'domain_get'),
                         quotas: ('get_default_quota_data',),
                         api.cinder: ('tenant_quota_update',),
                         api.nova: ('tenant_quota_update',)})
