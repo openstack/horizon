@@ -83,12 +83,12 @@ class GlobalNetworkTrafficUsageTable(tables.DataTable):
     tenant = tables.Column("id", verbose_name=_("Tenant"), sortable=True)
     network_incoming_bytes = tables\
             .Column("network_incoming_bytes",
-                    verbose_name=_("Network incoming Bytes"),
+                    verbose_name=_("Network Incoming Bytes"),
                     filters=(filesizeformat,),
                     sortable=True)
     network_incoming_packets = tables\
             .Column("network_incoming_packets",
-                    verbose_name=_("Network incoming Packets"),
+                    verbose_name=_("Network Incoming Packets"),
                     sortable=True)
     network_outgoing_bytes = tables\
             .Column("network_outgoing_bytes",
