@@ -63,7 +63,7 @@ class HorizonMiddleware(object):
         if last_activity and (timestamp - last_activity).seconds > timeout:
             request.session.pop('last_activity')
             response = HttpResponseRedirect(
-                    '%s?next=%s' % (settings.LOGOUT_URL, request.path))
+                '%s?next=%s' % (settings.LOGOUT_URL, request.path))
             reason = _("Session timed out.")
             utils.add_logout_reason(request, response, reason)
             return response

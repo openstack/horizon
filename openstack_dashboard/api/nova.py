@@ -232,9 +232,10 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                                         % instance_id)
         if body:
             # Wrap data in SG objects as novaclient would.
-            sg_objs = [nova_security_groups.SecurityGroup(
-                nclient.security_groups, sg, loaded=True)
-                    for sg in body.get('security_groups', [])]
+            sg_objs = [
+                nova_security_groups.SecurityGroup(
+                    nclient.security_groups, sg, loaded=True)
+                for sg in body.get('security_groups', [])]
             # Then wrap novaclient's object with our own. Yes, sadly wrapping
             # with two layers of objects is necessary.
             security_groups = [SecurityGroup(sg) for sg in sg_objs]
@@ -365,7 +366,7 @@ def server_vnc_console(request, instance_id, console_type='novnc'):
 
 def server_spice_console(request, instance_id, console_type='spice-html5'):
     return SPICEConsole(novaclient(request).servers.get_spice_console(
-            instance_id, console_type)['console'])
+        instance_id, console_type)['console'])
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
@@ -402,13 +403,13 @@ def flavor_access_list(request, flavor=None):
 def add_tenant_to_flavor(request, flavor, tenant):
     """Add a tenant to the given flavor access list."""
     return novaclient(request).flavor_access.add_tenant_access(
-            flavor=flavor, tenant=tenant)
+        flavor=flavor, tenant=tenant)
 
 
 def remove_tenant_from_flavor(request, flavor, tenant):
     """Remove a tenant from the given flavor access list."""
     return novaclient(request).flavor_access.remove_tenant_access(
-            flavor=flavor, tenant=tenant)
+        flavor=flavor, tenant=tenant)
 
 
 def flavor_get_extras(request, flavor_id, raw=False):
@@ -460,12 +461,12 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   block_device_mapping_v2=None, nics=None,
                   availability_zone=None, instance_count=1, admin_pass=None):
     return Server(novaclient(request).servers.create(
-            name, image, flavor, userdata=user_data,
-            security_groups=security_groups,
-            key_name=key_name, block_device_mapping=block_device_mapping,
-            block_device_mapping_v2=block_device_mapping_v2,
-            nics=nics, availability_zone=availability_zone,
-            min_count=instance_count, admin_pass=admin_pass), request)
+        name, image, flavor, userdata=user_data,
+        security_groups=security_groups,
+        key_name=key_name, block_device_mapping=block_device_mapping,
+        block_device_mapping_v2=block_device_mapping_v2,
+        nics=nics, availability_zone=availability_zone,
+        min_count=instance_count, admin_pass=admin_pass), request)
 
 
 def server_delete(request, instance):

@@ -41,19 +41,14 @@ class CreateForm(forms.SelfHandlingForm):
         widget=fields.SelectWidget(
             attrs={'class': 'snapshot-selector'},
             data_attrs=('size', 'display_name'),
-            transform=lambda x:
-                ("%s (%sGB)" % (x.display_name,
-                                x.size))),
+            transform=lambda x: "%s (%sGB)" % (x.display_name, x.size)),
         required=False)
     image_source = forms.ChoiceField(
         label=_("Use image as a source"),
         widget=fields.SelectWidget(
             attrs={'class': 'image-selector'},
             data_attrs=('size', 'name'),
-            transform=lambda x:
-                ("%s (%s)" %
-                    (x.name,
-                     filesizeformat(x.bytes)))),
+            transform=lambda x: "%s (%s)" % (x.name, filesizeformat(x.bytes))),
         required=False)
 
     def __init__(self, request, *args, **kwargs):
@@ -258,8 +253,8 @@ class AttachForm(forms.SelfHandlingForm):
         instances = []
         for instance in instance_list:
             if instance.status in tables.ACTIVE_STATES and \
-                        not any(instance.id == att["server_id"]
-                                for att in volume.attachments):
+                    not any(instance.id == att["server_id"]
+                            for att in volume.attachments):
                 instances.append((instance.id, '%s (%s)' % (instance.name,
                                                             instance.id)))
         if instances:

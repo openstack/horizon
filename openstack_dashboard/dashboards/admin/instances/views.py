@@ -69,10 +69,10 @@ class AdminIndexView(tables.DataTableView):
             project_tables.AdminInstancesTable._meta.pagination_param, None)
         try:
             instances, self._more = api.nova.server_list(
-                                        self.request,
-                                        search_opts={'marker': marker,
-                                                     'paginate': True},
-                                        all_tenants=True)
+                self.request,
+                search_opts={'marker': marker,
+                             'paginate': True},
+                all_tenants=True)
         except Exception:
             self._more = False
             exceptions.handle(self.request,
@@ -105,7 +105,7 @@ class AdminIndexView(tables.DataTableView):
                         # If the flavor_id is not in full_flavors list,
                         # gets it via nova api.
                         inst.full_flavor = api.nova.flavor_get(
-                                            self.request, flavor_id)
+                            self.request, flavor_id)
                 except Exception:
                     msg = _('Unable to retrieve instance size information.')
                     exceptions.handle(self.request, msg)

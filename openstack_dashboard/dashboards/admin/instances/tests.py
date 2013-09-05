@@ -71,7 +71,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                                  AndReturn([tenants, False])
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
-                                AndReturn(full_flavors[server.flavor["id"]])
+                AndReturn(full_flavors[server.flavor["id"]])
 
         self.mox.ReplayAll()
 
@@ -104,7 +104,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                                  AndReturn([tenants, False])
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
-                                AndRaise(self.exceptions.nova)
+                AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:admin:instances:index'))

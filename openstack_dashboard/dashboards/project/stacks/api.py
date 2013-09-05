@@ -52,10 +52,10 @@ def d3_data(request, stack_id=''):
     if resources:
         for resource in resources:
             resource_image = mappings.get_resource_image(
-                                            resource.resource_status,
-                                            resource.resource_type)
+                resource.resource_status,
+                resource.resource_type)
             resource_status = mappings.get_resource_status(
-                                            resource.resource_status)
+                resource.resource_status)
             if resource_status in ('IN_PROGRESS', 'INIT'):
                 in_progress = True
             else:

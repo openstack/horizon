@@ -63,9 +63,9 @@ class IndexView(tables.DataTableView):
         # Gather our instances
         try:
             instances, self._more = api.nova.server_list(
-                                        self.request,
-                                        search_opts={'marker': marker,
-                                                     'paginate': True})
+                self.request,
+                search_opts={'marker': marker,
+                             'paginate': True})
         except Exception:
             self._more = False
             instances = []

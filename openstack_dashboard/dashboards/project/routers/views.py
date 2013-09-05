@@ -104,7 +104,7 @@ class DetailView(tables.MultiTableView):
                 router.set_id_as_name_if_empty(length=0)
             except Exception:
                 msg = _('Unable to retrieve details for router "%s".') \
-                        % (router_id)
+                    % (router_id)
                 exceptions.handle(self.request, msg, redirect=self.failure_url)
 
             if router.external_gateway_info:

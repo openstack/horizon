@@ -29,11 +29,12 @@ class VPNaasApiTests(test.APITestCase):
     def test_vpnservice_create(self):
         vpnservice1 = self.api_vpnservices.first()
         form_data = {
-                        'name': vpnservice1['name'],
-                        'description': vpnservice1['description'],
-                        'subnet_id': vpnservice1['subnet_id'],
-                        'router_id': vpnservice1['router_id'],
-                        'admin_state_up': vpnservice1['admin_state_up']}
+            'name': vpnservice1['name'],
+            'description': vpnservice1['description'],
+            'subnet_id': vpnservice1['subnet_id'],
+            'router_id': vpnservice1['router_id'],
+            'admin_state_up': vpnservice1['admin_state_up']
+        }
 
         vpnservice = {'vpnservice': self.api_vpnservices.first()}
         neutronclient.create_vpnservice(
@@ -76,16 +77,15 @@ class VPNaasApiTests(test.APITestCase):
     def test_ikepolicy_create(self):
         ikepolicy1 = self.api_ikepolicies.first()
         form_data = {
-                        'name': ikepolicy1['name'],
-                        'description': ikepolicy1['description'],
-                        'auth_algorithm': ikepolicy1['auth_algorithm'],
-                        'encryption_algorithm': ikepolicy1[
-                            'encryption_algorithm'],
-                        'ike_version': ikepolicy1['ike_version'],
-                        'lifetime': ikepolicy1['lifetime'],
-                        'phase1_negotiation_mode': ikepolicy1[
-                            'phase1_negotiation_mode'],
-                        'pfs': ikepolicy1['pfs']}
+            'name': ikepolicy1['name'],
+            'description': ikepolicy1['description'],
+            'auth_algorithm': ikepolicy1['auth_algorithm'],
+            'encryption_algorithm': ikepolicy1['encryption_algorithm'],
+            'ike_version': ikepolicy1['ike_version'],
+            'lifetime': ikepolicy1['lifetime'],
+            'phase1_negotiation_mode': ikepolicy1['phase1_negotiation_mode'],
+            'pfs': ikepolicy1['pfs']
+        }
 
         ikepolicy = {'ikepolicy': self.api_ikepolicies.first()}
         neutronclient.create_ikepolicy(
@@ -128,17 +128,15 @@ class VPNaasApiTests(test.APITestCase):
     def test_ipsecpolicy_create(self):
         ipsecpolicy1 = self.api_ipsecpolicies.first()
         form_data = {
-                        'name': ipsecpolicy1['name'],
-                        'description': ipsecpolicy1['description'],
-                        'auth_algorithm': ipsecpolicy1['auth_algorithm'],
-                        'encryption_algorithm': ipsecpolicy1[
-                            'encryption_algorithm'],
-                        'encapsulation_mode': ipsecpolicy1[
-                            'encapsulation_mode'],
-                        'lifetime': ipsecpolicy1['lifetime'],
-                        'pfs': ipsecpolicy1['pfs'],
-                        'transform_protocol': ipsecpolicy1[
-                            'transform_protocol']}
+            'name': ipsecpolicy1['name'],
+            'description': ipsecpolicy1['description'],
+            'auth_algorithm': ipsecpolicy1['auth_algorithm'],
+            'encryption_algorithm': ipsecpolicy1['encryption_algorithm'],
+            'encapsulation_mode': ipsecpolicy1['encapsulation_mode'],
+            'lifetime': ipsecpolicy1['lifetime'],
+            'pfs': ipsecpolicy1['pfs'],
+            'transform_protocol': ipsecpolicy1['transform_protocol']
+        }
 
         ipsecpolicy = {'ipsecpolicy': self.api_ipsecpolicies.first()}
         neutronclient.create_ipsecpolicy(
@@ -181,21 +179,20 @@ class VPNaasApiTests(test.APITestCase):
     def test_ipsecsiteconnection_create(self):
         ipsecsiteconnection1 = self.api_ipsecsiteconnections.first()
         form_data = {
-                        'name': ipsecsiteconnection1['name'],
-                        'description': ipsecsiteconnection1['description'],
-                        'dpd': ipsecsiteconnection1['dpd'],
-                        'ikepolicy_id': ipsecsiteconnection1['ikepolicy_id'],
-                        'initiator': ipsecsiteconnection1['initiator'],
-                        'ipsecpolicy_id': ipsecsiteconnection1[
-                            'ipsecpolicy_id'],
-                        'mtu': ipsecsiteconnection1['mtu'],
-                        'peer_address': ipsecsiteconnection1['peer_address'],
-                        'peer_cidrs': ipsecsiteconnection1['peer_cidrs'],
-                        'peer_id': ipsecsiteconnection1['peer_id'],
-                        'psk': ipsecsiteconnection1['psk'],
-                        'vpnservice_id': ipsecsiteconnection1['vpnservice_id'],
-                        'admin_state_up': ipsecsiteconnection1[
-                            'admin_state_up']}
+            'name': ipsecsiteconnection1['name'],
+            'description': ipsecsiteconnection1['description'],
+            'dpd': ipsecsiteconnection1['dpd'],
+            'ikepolicy_id': ipsecsiteconnection1['ikepolicy_id'],
+            'initiator': ipsecsiteconnection1['initiator'],
+            'ipsecpolicy_id': ipsecsiteconnection1['ipsecpolicy_id'],
+            'mtu': ipsecsiteconnection1['mtu'],
+            'peer_address': ipsecsiteconnection1['peer_address'],
+            'peer_cidrs': ipsecsiteconnection1['peer_cidrs'],
+            'peer_id': ipsecsiteconnection1['peer_id'],
+            'psk': ipsecsiteconnection1['psk'],
+            'vpnservice_id': ipsecsiteconnection1['vpnservice_id'],
+            'admin_state_up': ipsecsiteconnection1['admin_state_up']
+        }
 
         ipsecsiteconnection = {'ipsec_site_connection':
                                self.api_ipsecsiteconnections.first()}

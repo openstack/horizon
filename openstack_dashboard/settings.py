@@ -28,7 +28,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from openstack_dashboard import exceptions
 
 warnings.formatwarning = lambda message, category, *args, **kwargs: \
-                                '%s: %s' % (category.__name__, message)
+    '%s: %s' % (category.__name__, message)
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 BIN_DIR = os.path.abspath(os.path.join(ROOT_PATH, '..', 'bin'))

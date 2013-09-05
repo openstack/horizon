@@ -127,7 +127,7 @@ class AddRuleView(forms.ModalFormView):
         security_groups = []
         for group in groups:
             if group.id == filters.get_int_or_uuid(
-                                self.kwargs['security_group_id']):
+                    self.kwargs['security_group_id']):
                 security_groups.append((group.id,
                                         _("%s (current)") % group.name))
             else:

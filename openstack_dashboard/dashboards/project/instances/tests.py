@@ -108,7 +108,7 @@ class InstanceTests(test.TestCase):
             .AndRaise(self.exceptions.nova)
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
-                                AndReturn(full_flavors[server.flavor["id"]])
+                AndReturn(full_flavors[server.flavor["id"]])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
@@ -143,7 +143,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
-                                AndRaise(self.exceptions.nova)
+                AndRaise(self.exceptions.nova)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
 
@@ -1328,9 +1328,9 @@ class InstanceTests(test.TestCase):
                                    'availability_zone_list',)})
     def test_launch_flavorlist_error(self):
         cinder.volume_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.volumes.list())
+            .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.volumes.list())
+            .AndReturn(self.volumes.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \

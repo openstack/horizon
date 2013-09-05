@@ -63,7 +63,7 @@ class KeyPairViewTests(test.TestCase):
 
     def test_create_keypair_get(self):
         res = self.client.get(
-                reverse('horizon:project:access_and_security:keypairs:create'))
+            reverse('horizon:project:access_and_security:keypairs:create'))
         self.assertTemplateUsed(res,
                         'project/access_and_security/keypairs/create.html')
 
@@ -74,7 +74,7 @@ class KeyPairViewTests(test.TestCase):
                       kwargs={'keypair_name': keypair_name})
         res = self.client.get(url, context)
         self.assertTemplateUsed(
-                res, 'project/access_and_security/keypairs/download.html')
+            res, 'project/access_and_security/keypairs/download.html')
 
     def test_generate_keypair_get(self):
         keypair = self.keypairs.first()
@@ -141,4 +141,4 @@ class KeyPairViewTests(test.TestCase):
         res = self.client.get(url, context)
 
         self.assertRedirectsNoFollow(
-                res, reverse('horizon:project:access_and_security:index'))
+            res, reverse('horizon:project:access_and_security:index'))

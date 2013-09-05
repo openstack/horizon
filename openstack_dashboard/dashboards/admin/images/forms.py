@@ -19,7 +19,7 @@
 #    under the License.
 
 from openstack_dashboard.dashboards.project.images_and_snapshots \
-        .images import forms
+    .images import forms
 
 
 class AdminCreateImageForm(forms.CreateImageForm):

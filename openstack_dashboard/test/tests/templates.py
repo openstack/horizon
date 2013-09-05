@@ -34,9 +34,9 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://tests.com",
             "tenant_name": "ENG Perf R&D"}
         out = loader.render_to_string(
-                'project/access_and_security/api_access/openrc.sh.template',
-                context,
-                template.Context(context))
+            'project/access_and_security/api_access/openrc.sh.template',
+            context,
+            template.Context(context))
 
         self.assertFalse("&amp;" in out)
         self.assertTrue("ENG Perf R&D" in out)
@@ -48,9 +48,9 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://tests.com",
             "tenant_name": 'o"; sudo rm -rf /'}
         out = loader.render_to_string(
-                'project/access_and_security/api_access/openrc.sh.template',
-                context,
-                template.Context(context))
+            'project/access_and_security/api_access/openrc.sh.template',
+            context,
+            template.Context(context))
 
         self.assertFalse('o"' in out)
         self.assertTrue('\"' in out)
@@ -62,9 +62,9 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://tests.com",
             "tenant_name": 'o\"; sudo rm -rf /'}
         out = loader.render_to_string(
-                'project/access_and_security/api_access/openrc.sh.template',
-                context,
-                template.Context(context))
+            'project/access_and_security/api_access/openrc.sh.template',
+            context,
+            template.Context(context))
 
         self.assertFalse('o\"' in out)
         self.assertFalse('o"' in out)

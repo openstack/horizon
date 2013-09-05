@@ -50,16 +50,16 @@ def filesizeformat(bytes, filesize_number_format):
                 "%(size)d", bytes) % {'size': bytes}
     if bytes < 1024 * 1024:
         return translation.ugettext_lazy("%s KB") % \
-                filesize_number_format(bytes / 1024)
+            filesize_number_format(bytes / 1024)
     if bytes < 1024 * 1024 * 1024:
         return translation.ugettext_lazy("%s MB") % \
-                filesize_number_format(bytes / (1024 * 1024))
+            filesize_number_format(bytes / (1024 * 1024))
     if bytes < 1024 * 1024 * 1024 * 1024:
         return translation.ugettext_lazy("%s GB") % \
-                filesize_number_format(bytes / (1024 * 1024 * 1024))
+            filesize_number_format(bytes / (1024 * 1024 * 1024))
     if bytes < 1024 * 1024 * 1024 * 1024 * 1024:
         return translation.ugettext_lazy("%s TB") % \
-                filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024))
+            filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024))
     return translation.ugettext_lazy("%s PB") % \
             filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024 * 1024))
 

@@ -775,8 +775,8 @@ class Workflow(html.HTMLElement):
         missing = self.depends_on - set(self.context.keys())
         if missing:
             raise exceptions.WorkflowValidationError(
-                    "Unable to complete the workflow. The values %s are "
-                    "required but not present." % ", ".join(missing))
+                "Unable to complete the workflow. The values %s are "
+                "required but not present." % ", ".join(missing))
 
         # Validate each step. Cycle through all of them to catch all errors
         # in one pass before returning.

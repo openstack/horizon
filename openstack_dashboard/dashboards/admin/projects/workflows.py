@@ -522,11 +522,11 @@ class UpdateProject(workflows.Workflow):
         # update project info
         try:
             project = api.keystone.tenant_update(
-                                            request,
-                                            project_id,
-                                            name=data['name'],
-                                            description=data['description'],
-                                            enabled=data['enabled'])
+                request,
+                project_id,
+                name=data['name'],
+                description=data['description'],
+                enabled=data['enabled'])
             # Use the domain_id from the project if available
             domain_id = getattr(project, "domain_id", None)
         except Exception:

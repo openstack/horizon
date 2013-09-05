@@ -40,12 +40,12 @@ class ImagesViewTest(test.BaseAdminViewTests):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
                                        paginate=True) \
-                                .AndReturn([self.images.list(),
-                                            False])
+            .AndReturn([self.images.list(),
+                        False])
         self.mox.ReplayAll()
 
         res = self.client.get(
-                reverse('horizon:admin:images:index'))
+            reverse('horizon:admin:images:index'))
         self.assertTemplateUsed(res, 'admin/images/index.html')
         self.assertEqual(len(res.context['images_table'].data),
                          len(self.images.list()))

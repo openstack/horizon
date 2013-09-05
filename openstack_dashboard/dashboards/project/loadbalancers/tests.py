@@ -777,5 +777,5 @@ class LoadBalancerTests(test.TestCase):
         self.assertEqual(workflow.name, workflows.DeletePMAssociation.name)
 
         expected_objs = [
-                    '<DeletePMAssociationStep: deletepmassociationaction>', ]
+            '<DeletePMAssociationStep: deletepmassociationaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)

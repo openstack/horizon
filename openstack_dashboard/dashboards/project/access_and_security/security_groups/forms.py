@@ -97,8 +97,8 @@ class AddRule(forms.SelfHandlingForm):
     id = forms.CharField(widget=forms.HiddenInput())
     rule_menu = forms.ChoiceField(label=_('Rule'),
                                   widget=forms.Select(attrs={
-                                          'class': 'switchable',
-                                          'data-slug': 'rule_menu'}))
+                                      'class': 'switchable',
+                                      'data-slug': 'rule_menu'}))
 
     # "direction" field is enabled only when custom mode.
     # It is because most common rules in local_settings.py is meaningful
@@ -365,15 +365,15 @@ class AddRule(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             rule = api.network.security_group_rule_create(
-                        request,
-                        filters.get_int_or_uuid(data['id']),
-                        data['direction'],
-                        data['ethertype'],
-                        data['ip_protocol'],
-                        data['from_port'],
-                        data['to_port'],
-                        data['cidr'],
-                        data['security_group'])
+                request,
+                filters.get_int_or_uuid(data['id']),
+                data['direction'],
+                data['ethertype'],
+                data['ip_protocol'],
+                data['from_port'],
+                data['to_port'],
+                data['cidr'],
+                data['security_group'])
             messages.success(request,
                              _('Successfully added rule: %s') % unicode(rule))
             return rule
