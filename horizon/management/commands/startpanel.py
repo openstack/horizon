@@ -12,23 +12,23 @@ import horizon
 class Command(TemplateCommand):
     args = "[name] [dashboard name] [optional destination directory]"
     option_list = TemplateCommand.option_list + (
-                      make_option('--dashboard', '-d',
-                                  dest='dashboard',
-                                  action='store',
-                                  default=None,
-                                  help='The dotted python path to the '
-                                       'dashboard which this panel will be '
-                                       'registered with.'),
-                      make_option('--target',
-                                  dest='target',
-                                  action='store',
-                                  default=None,
-                                  help='The directory in which the panel '
-                                       'should be created. Defaults to the '
-                                       'current directory. The value "auto" '
-                                       'may also be used to automatically '
-                                       'create the panel inside the specified '
-                                       'dashboard module.'),)
+        make_option('--dashboard', '-d',
+                    dest='dashboard',
+                    action='store',
+                    default=None,
+                    help='The dotted python path to the '
+                         'dashboard which this panel will be '
+                         'registered with.'),
+        make_option('--target',
+                    dest='target',
+                    action='store',
+                    default=None,
+                    help='The directory in which the panel '
+                         'should be created. Defaults to the '
+                         'current directory. The value "auto" '
+                         'may also be used to automatically '
+                         'create the panel inside the specified '
+                         'dashboard module.'),)
     template = os.path.join(horizon.__path__[0], "conf", "panel_template")
     help = ("Creates a Django app directory structure for a new panel "
             "with the given name in the current directory or optionally in "

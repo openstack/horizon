@@ -165,7 +165,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                         api.keystone: ('tenant_list',)})
     def test_index_options_before_migrate(self):
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
-                                 AndReturn([self.tenants.list(), False])
+            AndReturn([self.tenants.list(), False])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
@@ -173,7 +173,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)).\
-                             AndReturn(self.flavors.list())
+            AndReturn(self.flavors.list())
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:admin:instances:index'))

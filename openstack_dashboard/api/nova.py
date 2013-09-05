@@ -234,7 +234,7 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
             # Wrap data in SG objects as novaclient would.
             sg_objs = [nova_security_groups.SecurityGroup(
                 nclient.security_groups, sg, loaded=True)
-                       for sg in body.get('security_groups', [])]
+                    for sg in body.get('security_groups', [])]
             # Then wrap novaclient's object with our own. Yes, sadly wrapping
             # with two layers of objects is necessary.
             security_groups = [SecurityGroup(sg) for sg in sg_objs]

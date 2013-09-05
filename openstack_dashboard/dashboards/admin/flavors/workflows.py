@@ -72,13 +72,13 @@ class CreateFlavorInfoAction(workflows.Action):
             for flavor in flavors:
                 if flavor.name == name:
                     raise forms.ValidationError(
-                      _('The name "%s" is already used by another flavor.')
-                      % name
+                        _('The name "%s" is already used by another flavor.')
+                        % name
                     )
                 if flavor.id == flavor_id:
                     raise forms.ValidationError(
-                      _('The ID "%s" is already used by another flavor.')
-                      % flavor_id
+                        _('The ID "%s" is already used by another flavor.')
+                        % flavor_id
                     )
         return cleaned_data
 

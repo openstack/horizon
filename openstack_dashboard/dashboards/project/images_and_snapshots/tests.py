@@ -42,10 +42,10 @@ class ImagesAndSnapshotsTests(test.TestCase):
             volume.volume_id = volume.id
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
@@ -82,14 +82,14 @@ class ImagesAndSnapshotsTests(test.TestCase):
             volume.volume_id = volume.id
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-                                .AndReturn(volumes)
+            .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([(), False])
         self.mox.ReplayAll()
@@ -106,17 +106,17 @@ class ImagesAndSnapshotsTests(test.TestCase):
             volume.volume_id = volume.id
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-                                .AndReturn(volumes)
+            .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None) \
-                                .AndRaise(self.exceptions.glance)
+            .AndRaise(self.exceptions.glance)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -132,10 +132,10 @@ class ImagesAndSnapshotsTests(test.TestCase):
             volume.volume_id = volume.id
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
         for volume in volumes:
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                          .AndReturn(volume)
+                .AndReturn(volume)
             api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
 
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \

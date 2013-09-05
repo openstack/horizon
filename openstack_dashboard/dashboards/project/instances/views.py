@@ -210,7 +210,7 @@ class DetailView(tabs.TabView):
                 instance.full_flavor = api.nova.flavor_get(
                     self.request, instance.flavor["id"])
                 instance.security_groups = api.network.server_security_groups(
-                                           self.request, instance_id)
+                    self.request, instance_id)
             except Exception:
                 redirect = reverse('horizon:project:instances:index')
                 exceptions.handle(self.request,

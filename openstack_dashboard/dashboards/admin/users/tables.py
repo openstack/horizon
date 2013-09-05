@@ -96,7 +96,7 @@ class DeleteUsersAction(tables.DeleteAction):
 
     def allowed(self, request, datum):
         if not api.keystone.keystone_can_edit_user() or \
-               (datum and datum.id == request.user.id):
+                (datum and datum.id == request.user.id):
             return False
         return True
 

@@ -67,7 +67,7 @@ class CreatePort(forms.SelfHandlingForm):
             return port
         except Exception:
             msg = _('Failed to create a port for network %s') \
-                  % data['network_id']
+                % data['network_id']
             LOG.info(msg)
             redirect = reverse('horizon:admin:networks:detail',
                                args=(data['network_id'],))
