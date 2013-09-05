@@ -457,12 +457,12 @@ class FixedFilterAction(FilterAction):
         """Returns a list of dictionaries describing the fixed buttons
         to use for filtering.
 
-        Each list item should be a dict with the keys:
-            text:  Text to display on the button
-            icon:  Icon class for icon element (inserted before text).
-            value: Value returned when the button is clicked.
-                   This value is passed to ``filter()`` as
-                   ``filter_string``.
+        Each list item should be a dict with the following keys:
+
+        * ``text``: Text to display on the button
+        * ``icon``: Icon class for icon element (inserted before text).
+        * ``value``: Value returned when the button is clicked. This value is
+          passed to ``filter()`` as ``filter_string``.
         """
         raise NotImplementedError("The get_fixed_buttons method has "
                                   "not been implemented by %s." %
