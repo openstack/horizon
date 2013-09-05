@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Cisco Nexus 1000V Networking" %}{% endblock %}
+
+{% block page_header %}
+    {% include "horizon/common/_page_header.html" with title=_("Cisco Nexus 1000V") %}
+{% endblock page_header %}
+
+{% block main %}
+    <div id="network_profile">
+        {{ network_profile_table.render }}
+    </div>
+    <div id="policy_profile">
+        {{ policy_profile_table.render }}
+    </div>
+    {% comment %}
+    <div class="row-fluid">
+        <div class="span12">
+            {{ tab_group.render }}
+        </div>
+    </div>
+    {% endcomment %}
+{% endblock %}
