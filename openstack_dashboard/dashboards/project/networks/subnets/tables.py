@@ -95,7 +95,7 @@ class SubnetsTable(tables.DataTable):
                 network.set_id_as_name_if_empty(length=0)
             except Exception:
                 msg = _('Unable to retrieve details for network "%s".') \
-                      % (network_id)
+                    % (network_id)
                 exceptions.handle(self.request, msg, redirect=self.failure_url)
             self._network = network
         return self._network

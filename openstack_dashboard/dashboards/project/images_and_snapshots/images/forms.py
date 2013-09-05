@@ -54,24 +54,24 @@ class CreateImageForm(forms.SelfHandlingForm):
         choices=[('url', _('Image Location')),
                  ('file', _('Image File'))],
         widget=forms.Select(attrs={
-              'class': 'switchable',
-              'data-slug': 'source'}))
+            'class': 'switchable',
+            'data-slug': 'source'}))
 
     copy_from = forms.CharField(max_length="255",
                                 label=_("Image Location"),
                                 help_text=_("An external (HTTP) URL to load "
                                             "the image from."),
                                 widget=forms.TextInput(attrs={
-                                      'class': 'switched',
-                                      'data-switch-on': 'source',
-                                      'data-source-url': _('Image Location')}),
+                                    'class': 'switched',
+                                    'data-switch-on': 'source',
+                                    'data-source-url': _('Image Location')}),
                                 required=False)
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=_("A local image to upload."),
                                  widget=forms.FileInput(attrs={
-                                      'class': 'switched',
-                                      'data-switch-on': 'source',
-                                      'data-source-file': _('Image File')}),
+                                     'class': 'switched',
+                                     'data-switch-on': 'source',
+                                     'data-source-file': _('Image File')}),
                                  required=False)
     disk_format = forms.ChoiceField(label=_('Format'),
                                     required=True,
@@ -158,20 +158,20 @@ class UpdateImageForm(forms.SelfHandlingForm):
     kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
                              required=False,
                              widget=forms.TextInput(
-                                attrs={'readonly': 'readonly'}
+                                 attrs={'readonly': 'readonly'}
                              ))
     ramdisk = forms.CharField(max_length="36", label=_("Ramdisk ID"),
                               required=False,
                               widget=forms.TextInput(
-                                attrs={'readonly': 'readonly'}
+                                  attrs={'readonly': 'readonly'}
                               ))
     architecture = forms.CharField(label=_("Architecture"), required=False,
                                    widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}
+                                       attrs={'readonly': 'readonly'}
                                    ))
     disk_format = forms.CharField(label=_("Format"),
                                   widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}
+                                      attrs={'readonly': 'readonly'}
                                   ))
     public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)

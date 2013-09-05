@@ -36,7 +36,7 @@ class SetFlavorChoiceAction(workflows.Action):
     old_flavor_name = forms.CharField(label=_("Old Flavor"),
                                  required=False,
                                  widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}
+                                     attrs={'readonly': 'readonly'}
                                  ))
     flavor = forms.ChoiceField(label=_("New Flavor"),
                                required=True,

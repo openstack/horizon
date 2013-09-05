@@ -27,7 +27,7 @@ from horizon.utils import filters
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.database_backups \
-     import tables as backup_tables
+    import tables as backup_tables
 
 
 LOG = logging.getLogger(__name__)

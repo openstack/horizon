@@ -207,8 +207,8 @@ class TestCase(horizon_helpers.TestCase):
         errors = response.context[context_name]._errors
         if count:
             assert len(errors) == count, \
-               "%d errors were found on the form, %d expected" % \
-               (len(errors), count)
+                "%d errors were found on the form, %d expected" % \
+                (len(errors), count)
             if message and message not in unicode(errors):
                 self.fail("Expected message not found, instead found: %s"
                           % ["%s: %s" % (key, [e for e in field_errors]) for

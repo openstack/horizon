@@ -82,10 +82,10 @@ class IndexView(tables.DataTableView):
         domain_context = self.request.session.get('domain_context', None)
         try:
             tenants, self._more = api.keystone.tenant_list(
-                                               self.request,
-                                               domain=domain_context,
-                                               paginate=True,
-                                               marker=marker)
+                self.request,
+                domain=domain_context,
+                paginate=True,
+                marker=marker)
         except Exception:
             self._more = False
             exceptions.handle(self.request,
@@ -120,14 +120,15 @@ class CreateProjectView(workflows.WorkflowView):
 
             try:
                 if api.base.is_service_enabled(self.request, 'network') and \
-                       api.neutron.is_quotas_extension_supported(self.request):
+                        api.neutron.is_quotas_extension_supported(
+                            self.request):
                     # TODO(jpichon): There is no API to access the Neutron
                     # default quotas (LP#1204956). For now, use the values
                     # from the current project.
                     project_id = self.request.user.project_id
                     quota_defaults += api.neutron.tenant_quota_get(
-                                                          self.request,
-                                                          tenant_id=project_id)
+                        self.request,
+                        tenant_id=project_id)
             except Exception:
                 error_msg = _('Unable to retrieve default Neutron quota '
                               'values.')
@@ -167,8 +168,8 @@ class UpdateProjectView(workflows.WorkflowView):
                     initial["domain_name"] = domain.name
                 except Exception:
                     exceptions.handle(self.request,
-                              _('Unable to retrieve project domain.'),
-                              redirect=reverse(INDEX_URL))
+                        _('Unable to retrieve project domain.'),
+                        redirect=reverse(INDEX_URL))
 
             # get initial project quota
             quota_data = quotas.get_tenant_quota_data(self.request,

@@ -36,23 +36,25 @@ class CreateForm(forms.SelfHandlingForm):
     size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
                                            required=False)
-    snapshot_source = forms.ChoiceField(label=_("Use snapshot as a source"),
-                                        widget=fields.SelectWidget(
-                                          attrs={'class': 'snapshot-selector'},
-                                          data_attrs=('size', 'display_name'),
-                                          transform=lambda x:
-                                                ("%s (%sGB)" % (x.display_name,
-                                                                x.size))),
-                                        required=False)
-    image_source = forms.ChoiceField(label=_("Use image as a source"),
-                                     widget=fields.SelectWidget(
-                                         attrs={'class': 'image-selector'},
-                                         data_attrs=('size', 'name'),
-                                         transform=lambda x:
-                                             ("%s (%s)" %
-                                                 (x.name,
-                                                  filesizeformat(x.bytes)))),
-                                     required=False)
+    snapshot_source = forms.ChoiceField(
+        label=_("Use snapshot as a source"),
+        widget=fields.SelectWidget(
+            attrs={'class': 'snapshot-selector'},
+            data_attrs=('size', 'display_name'),
+            transform=lambda x:
+                ("%s (%sGB)" % (x.display_name,
+                                x.size))),
+        required=False)
+    image_source = forms.ChoiceField(
+        label=_("Use image as a source"),
+        widget=fields.SelectWidget(
+            attrs={'class': 'image-selector'},
+            data_attrs=('size', 'name'),
+            transform=lambda x:
+                ("%s (%s)" %
+                    (x.name,
+                     filesizeformat(x.bytes)))),
+        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
