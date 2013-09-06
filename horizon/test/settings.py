@@ -21,8 +21,6 @@
 import os
 import socket
 
-from django.utils.translation import ugettext_lazy as _  # noqa
-
 
 socket.setdefaulttimeout(1)
 
@@ -114,7 +112,7 @@ HORIZON_CONFIG = {
     'default_dashboard': 'cats',
     "password_validator": {
         "regex": '^.{8,18}$',
-        "help_text": _("Password must be between 8 and 18 characters.")
+        "help_text": "Password must be between 8 and 18 characters."
     },
     'user_home': None,
     'help_url': "http://example.com"

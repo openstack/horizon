@@ -16,7 +16,6 @@
 
 from django import forms
 from django import http
-from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon.test import helpers as test
@@ -40,11 +39,11 @@ def extra_callback_func(request, context):
 
 
 class TestActionOne(workflows.Action):
-    project_id = forms.ChoiceField(label=_("Project"))
-    user_id = forms.ChoiceField(label=_("User"))
+    project_id = forms.ChoiceField(label="Project")
+    user_id = forms.ChoiceField(label="User")
 
     class Meta:
-        name = _("Test Action One")
+        name = "Test Action One"
         slug = "test_action_one"
 
     def populate_project_id_choices(self, request, context):
@@ -58,10 +57,10 @@ class TestActionOne(workflows.Action):
 
 
 class TestActionTwo(workflows.Action):
-    instance_id = forms.CharField(label=_("Instance"))
+    instance_id = forms.CharField(label="Instance")
 
     class Meta:
-        name = _("Test Action Two")
+        name = "Test Action Two"
         slug = "test_action_two"
 
 
@@ -69,15 +68,15 @@ class TestActionThree(workflows.Action):
     extra = forms.CharField(widget=forms.widgets.Textarea)
 
     class Meta:
-        name = _("Test Action Three")
+        name = "Test Action Three"
         slug = "test_action_three"
 
 
 class AdminAction(workflows.Action):
-    admin_id = forms.CharField(label=_("Admin"))
+    admin_id = forms.CharField(label="Admin")
 
     class Meta:
-        name = _("Admin Action")
+        name = "Admin Action"
         slug = "admin_action"
         permissions = ("horizon.test",)
 

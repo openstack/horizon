@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-06 06:25+0000\n"
+"POT-Creation-Date: 2013-09-06 06:51+0000\n"
 "PO-Revision-Date: 2013-04-29 08:35+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/"
@@ -7365,39 +7365,39 @@ msgstr ""
 msgid "From here you can modify dashboard settings for your user."
 msgstr ""
 
-#: local/local_settings.py:171 test/settings.py:112
+#: local/local_settings.py:171
 msgid "AKI - Amazon Kernel Image"
 msgstr ""
 
-#: local/local_settings.py:172 test/settings.py:113
+#: local/local_settings.py:172
 msgid "AMI - Amazon Machine Image"
 msgstr ""
 
-#: local/local_settings.py:173 test/settings.py:114
+#: local/local_settings.py:173
 msgid "ARI - Amazon Ramdisk Image"
 msgstr ""
 
-#: local/local_settings.py:174 test/settings.py:115
+#: local/local_settings.py:174
 msgid "ISO - Optical Disk Image"
 msgstr ""
 
-#: local/local_settings.py:175 test/settings.py:116
+#: local/local_settings.py:175
 msgid "QCOW2 - QEMU Emulator"
 msgstr ""
 
-#: local/local_settings.py:176 test/settings.py:117
+#: local/local_settings.py:176
 msgid "Raw"
 msgstr ""
 
-#: local/local_settings.py:177 test/settings.py:118
+#: local/local_settings.py:177
 msgid "VDI"
 msgstr ""
 
-#: local/local_settings.py:178 test/settings.py:119
+#: local/local_settings.py:178
 msgid "VHD"
 msgstr ""
 
-#: local/local_settings.py:179 test/settings.py:120
+#: local/local_settings.py:179
 msgid "VMDK"
 msgstr ""
 
@@ -7446,10 +7446,6 @@ msgstr ""
 
 #: templates/_header.html:9
 msgid "Sign Out"
-msgstr ""
-
-#: test/settings.py:66
-msgid "Password must be between 8 and 18 characters."
 msgstr ""
 
 #: usage/base.py:75

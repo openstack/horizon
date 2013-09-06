@@ -1,7 +1,5 @@
 import os
 
-from django.utils.translation import ugettext_lazy as _  # noqa
-
 from horizon.test.settings import *  # noqa
 from horizon.utils import secret_key
 
@@ -63,7 +61,7 @@ HORIZON_CONFIG = {
     'default_dashboard': 'project',
     "password_validator": {
         "regex": '^.{8,18}$',
-        "help_text": _("Password must be between 8 and 18 characters.")
+        "help_text": "Password must be between 8 and 18 characters."
     },
     'user_home': None,
     'help_url': "http://docs.openstack.org",
@@ -109,15 +107,15 @@ OPENSTACK_HYPERVISOR_FEATURES = {
 OPENSTACK_IMAGE_BACKEND = {
     'image_formats': [
         ('', ''),
-        ('aki', _('AKI - Amazon Kernel Image')),
-        ('ami', _('AMI - Amazon Machine Image')),
-        ('ari', _('ARI - Amazon Ramdisk Image')),
-        ('iso', _('ISO - Optical Disk Image')),
-        ('qcow2', _('QCOW2 - QEMU Emulator')),
-        ('raw', _('Raw')),
-        ('vdi', _('VDI')),
-        ('vhd', _('VHD')),
-        ('vmdk', _('VMDK'))
+        ('aki', 'AKI - Amazon Kernel Image'),
+        ('ami', 'AMI - Amazon Machine Image'),
+        ('ari', 'ARI - Amazon Ramdisk Image'),
+        ('iso', 'ISO - Optical Disk Image'),
+        ('qcow2', 'QCOW2 - QEMU Emulator'),
+        ('raw', 'Raw'),
+        ('vdi', 'VDI'),
+        ('vhd', 'VHD'),
+        ('vmdk', 'VMDK')
     ]
 }
 

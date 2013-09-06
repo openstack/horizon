@@ -29,7 +29,7 @@ from horizon.test import helpers as test
 class MessageTests(test.TestCase):
     def test_middleware_header(self):
         req = self.request
-        string = _("Giant ants are attacking San Francisco!")
+        string = "Giant ants are attacking San Francisco!"
         expected = ["error", force_unicode(string), ""]
         self.assertTrue("async_messages" in req.horizon)
         self.assertItemsEqual(req.horizon['async_messages'], [])
@@ -43,7 +43,7 @@ class MessageTests(test.TestCase):
 
     def test_safe_message(self):
         req = self.request
-        string = mark_safe(_("We are now safe from ants! Go <a>here</a>!"))
+        string = mark_safe("We are now safe from ants! Go <a>here</a>!")
         expected = ["error", force_unicode(string), " safe"]
         self.assertTrue("async_messages" in req.horizon)
         self.assertItemsEqual(req.horizon['async_messages'], [])

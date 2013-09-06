@@ -1,9 +1,8 @@
 {% extends 'cats/base.html' %}
-{% load i18n %}
-{% block title %}{% trans "Kittens" %}{% endblock %}
+{% block title %}Kittens{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Kittens") %}
+  {% include "horizon/common/_page_header.html" with title="Kittens" %}
 {% endblock page_header %}
 
 {% block cats_main %}

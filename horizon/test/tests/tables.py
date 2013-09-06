@@ -17,7 +17,6 @@
 from django.core.urlresolvers import reverse  # noqa
 from django import http
 from django import shortcuts
-from django.utils.translation import ugettext_lazy as _  # noqa
 
 from mox import IsA  # noqa
 
@@ -104,10 +103,10 @@ class MyRow(tables.Row):
 
 class MyBatchAction(tables.BatchAction):
     name = "batch"
-    action_present = _("Batch")
-    action_past = _("Batched")
-    data_type_singular = _("Item")
-    data_type_plural = _("Items")
+    action_present = "Batch"
+    action_past = "Batched"
+    data_type_singular = "Item"
+    data_type_plural = "Items"
 
     def action(self, request, object_ids):
         pass
@@ -115,10 +114,10 @@ class MyBatchAction(tables.BatchAction):
 
 class MyToggleAction(tables.BatchAction):
     name = "toggle"
-    action_present = (_("Down"), _("Up"))
-    action_past = (_("Downed"), _("Upped"))
-    data_type_singular = _("Item")
-    data_type_plural = _("Items")
+    action_present = ("Down", "Up")
+    action_past = ("Downed", "Upped")
+    data_type_singular = "Item"
+    data_type_plural = "Items"
 
     def allowed(self, request, obj=None):
         if not obj:
@@ -184,7 +183,7 @@ class NoActionsTable(tables.DataTable):
 
     class Meta:
         name = "no_actions_table"
-        verbose_name = _("No Actions Table")
+        verbose_name = "No Actions Table"
         table_actions = ()
         row_actions = ()
 
@@ -681,7 +680,7 @@ class DataTableTests(test.TestCase):
 
 class SingleTableView(table_views.DataTableView):
     table_class = MyTable
-    name = _("Single Table")
+    name = "Single Table"
     slug = "single"
     template_name = "horizon/common/_detail_table.html"
 

@@ -1,12 +1,10 @@
-from django.utils.translation import ugettext_lazy as _  # noqa
-
 import horizon
 from horizon import base
 
 # Rename "cats" to "wildcats", ignore if panel doesn't exist
 try:
     cats = horizon.get_dashboard("cats")
-    cats.name = _("WildCats")
+    cats.name = "WildCats"
 except base.NotRegistered:
     cats = None
 

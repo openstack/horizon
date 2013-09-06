@@ -1,12 +1,10 @@
-from django.utils.translation import ugettext_lazy as _  # noqa
-
 import horizon
 
 from horizon.test.test_dashboards.cats import dashboard
 
 
 class Tigers(horizon.Panel):
-    name = _("Tigers")
+    name = "Tigers"
     slug = "tigers"
     permissions = ("horizon.test",)
 

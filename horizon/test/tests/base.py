@@ -23,7 +23,6 @@ from django.conf import settings  # noqa
 from django.contrib.auth.models import User  # noqa
 from django.core import urlresolvers
 from django.utils.importlib import import_module  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
 
 import horizon
 from horizon import base
@@ -37,19 +36,19 @@ from horizon.test.test_dashboards.dogs.puppies.panel import Puppies  # noqa
 
 
 class MyDash(horizon.Dashboard):
-    name = _("My Dashboard")
+    name = "My Dashboard"
     slug = "mydash"
     default_panel = "myslug"
 
 
 class MyPanel(horizon.Panel):
-    name = _("My Panel")
+    name = "My Panel"
     slug = "myslug"
     urls = 'horizon.test.test_dashboards.cats.kittens.urls'
 
 
 class AdminPanel(horizon.Panel):
-    name = _("Admin Panel")
+    name = "Admin Panel"
     slug = "admin_panel"
     permissions = ("horizon.test",)
     urls = 'horizon.test.test_dashboards.cats.kittens.urls'
@@ -314,7 +313,7 @@ class CustomPanelTests(BaseHorizonTests):
     def tearDown(self):
         # Restore dash
         cats = horizon.get_dashboard("cats")
-        cats.name = _("Cats")
+        cats.name = "Cats"
         horizon.register(Dogs)
         self._discovered_dashboards.append(Dogs)
         Dogs.register(Puppies)

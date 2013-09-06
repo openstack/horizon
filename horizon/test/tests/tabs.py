@@ -17,7 +17,6 @@
 import copy
 
 from django import http
-from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tabs as horizon_tabs
@@ -34,20 +33,20 @@ class BaseTestTab(horizon_tabs.Tab):
 
 class TabOne(BaseTestTab):
     slug = "tab_one"
-    name = _("Tab One")
+    name = "Tab One"
     template_name = "_tab.html"
 
 
 class TabDelayed(BaseTestTab):
     slug = "tab_delayed"
-    name = _("Delayed Tab")
+    name = "Delayed Tab"
     template_name = "_tab.html"
     preload = False
 
 
 class TabDisabled(BaseTestTab):
     slug = "tab_disabled"
-    name = _("Disabled Tab")
+    name = "Disabled Tab"
     template_name = "_tab.html"
 
     def enabled(self, request):
@@ -56,7 +55,7 @@ class TabDisabled(BaseTestTab):
 
 class TabDisallowed(BaseTestTab):
     slug = "tab_disallowed"
-    name = _("Disallowed Tab")
+    name = "Disallowed Tab"
     template_name = "_tab.html"
 
     def allowed(self, request):
@@ -74,7 +73,7 @@ class Group(horizon_tabs.TabGroup):
 
 class TabWithTable(horizon_tabs.TableTab):
     table_classes = (MyTable,)
-    name = _("Tab With My Table")
+    name = "Tab With My Table"
     slug = "tab_with_table"
     template_name = "horizon/common/_detail_table.html"
 
@@ -83,7 +82,7 @@ class TabWithTable(horizon_tabs.TableTab):
 
 
 class RecoverableErrorTab(horizon_tabs.Tab):
-    name = _("Recoverable Error Tab")
+    name = "Recoverable Error Tab"
     slug = "recoverable_error_tab"
     template_name = "_tab.html"
 
