@@ -51,19 +51,59 @@ class SamplesView(TemplateView):
         resource = request.GET.get('resource', None)
         stats_attr = request.GET.get('stats_attr', 'avg')
 
+        # TODO(lsmola) all timestamps should probably work with
+        # current timezone. And also show the current timezone in chart.
         if (date_options == "other"):
             try:
                 if date_from:
                     date_from = datetime.strptime(date_from,
                                                   "%Y-%m-%d")
+                else:
+                    # TODO(lsmola) there should be probably the date
+                    # of the first sample as default, so it correctly
+                    # counts the time window. Though I need ordering
+                    # and limit of samples to obtain that.
+                    pass
                 if date_to:
                     date_to = datetime.strptime(date_to,
                                                 "%Y-%m-%d")
-            except ValueError:
-                raise exceptions.NotFound
+                    # It return beginning of the day, I want the and of
+                    # the day, so i will add one day without a second.
+                    date_to = (date_to + timedelta(days=1) -
+                               timedelta(seconds=1))
+                else:
+                    date_to = datetime.now()
+            except Exception:
+                raise ValueError("The dates haven't been "
+                                 "recognized")
         else:
-            date_from = datetime.now() - timedelta(days=int(date_options))
-            date_to = datetime.now()
+            try:
+                date_from = datetime.now() - timedelta(days=int(date_options))
+                date_to = datetime.now()
+            except Exception:
+                raise ValueError("The time delta must be an "
+                                 "integer representing days.")
+
+        if date_from and date_to:
+            if date_to < date_from:
+                # TODO(lsmola) propagate the Value error through Horizon
+                # handler to the client with verbose message.
+                raise ValueError("Date to must be bigger than date "
+                                 "from.")
+            # get the time delta in seconds
+            delta = date_to - date_from
+            if delta.days <= 0:
+                # it's one day
+                delta_in_seconds = 3600 * 24
+            else:
+                delta_in_seconds = delta.days * 24 * 3600 + delta.seconds
+            # Lets always show 400 samples in the chart. Know that it is
+            # maximum amount of samples and it can be lower.
+            number_of_samples = 400
+            period = delta_in_seconds / number_of_samples
+        else:
+            # If some date is missing, just set static window to one day.
+            period = 3600 * 24
 
         query = [{"field": "metadata.OS-EXT-AZ:availability_zone",
                   "op": "eq",
@@ -101,7 +141,7 @@ class SamplesView(TemplateView):
 
             ceilometer_usage = ceilometer.CeilometerUsage(request)
             resources = ceilometer_usage.resource_aggregates_with_statistics(
-                queries, [meter], period=1000, stats_attr=None,
+                queries, [meter], period=period, stats_attr=None,
                 additional_query=additional_query)
 
             series = []
@@ -123,7 +163,7 @@ class SamplesView(TemplateView):
             ceilometer_usage = ceilometer.CeilometerUsage(request)
             try:
                 resources = ceilometer_usage.resources_with_statistics(
-                    query, [meter], period=1000, stats_attr=None,
+                    query, [meter], period=period, stats_attr=None,
                     additional_query=additional_query)
             except Exception:
                 resources = []
