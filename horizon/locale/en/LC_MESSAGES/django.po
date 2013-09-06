@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-28 14:34+0800\n"
+"POT-Creation-Date: 2013-09-06 06:24+0000\n"
 "PO-Revision-Date: 2013-04-29 08:33+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/"
@@ -44,6 +44,14 @@ msgstr ""
 msgid "Unauthorized. Please try logging in again."
 msgstr "Unauthorized. Please try logging in again."
 
+#: middleware.py:67
+msgid "Session timed out."
+msgstr ""
+
+#: middleware.py:98
+msgid "Unauthorized."
+msgstr ""
+
 #: browsers/base.py:90
 msgid "Navigation Item"
 msgstr ""
@@ -57,40 +65,40 @@ msgstr ""
 msgid "Password is not accepted"
 msgstr "Password is not accepted"
 
-#: tables/actions.py:350
+#: tables/actions.py:381
 #: templates/horizon/common/_data_table_table_actions.html:13
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:529
+#: tables/actions.py:560
 #, python-format
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:563
+#: tables/actions.py:594
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:591
+#: tables/actions.py:622
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "You do not have permission to %(action)s: %(objs)s"
 
-#: tables/actions.py:597
+#: tables/actions.py:628
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Unable to %(action)s: %(objs)s"
 
-#: tables/actions.py:603
+#: tables/actions.py:634
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:613
+#: tables/actions.py:644
 msgid "Delete"
 msgstr "Delete"
 
-#: tables/actions.py:614
+#: tables/actions.py:645
 msgid "Deleted"
 msgstr "Deleted"
 
@@ -149,7 +157,7 @@ msgstr ""
 msgid "home page"
 msgstr ""
 
-#: templates/auth/_login.html:28
+#: templates/auth/_login.html:33
 msgid "Sign In"
 msgstr ""
 
@@ -340,7 +348,7 @@ msgstr "%s PB"
 msgid "Password must be between 8 and 18 characters."
 msgstr "Password must be between 8 and 18 characters."
 
-#: test/customization/cust_test1.py:7
+#: test/customization/cust_test1.py:9
 #, fuzzy
 msgid "WildCats"
 msgstr "Cats"
@@ -511,32 +519,32 @@ msgstr "Invalid subnet mask"
 msgid "Processing..."
 msgstr "Processing..."
 
-#: workflows/base.py:482
+#: workflows/base.py:493
 msgid "All available"
 msgstr ""
 
-#: workflows/base.py:483
+#: workflows/base.py:494
 msgid "Members"
 msgstr ""
 
-#: workflows/base.py:484
+#: workflows/base.py:495
 msgid "None available."
 msgstr ""
 
-#: workflows/base.py:485
+#: workflows/base.py:496
 msgid "No members."
 msgstr ""
 
-#: workflows/base.py:590
+#: workflows/base.py:601
 msgid "Save"
 msgstr "Save"
 
-#: workflows/base.py:591
+#: workflows/base.py:602
 #, python-format
 msgid "%s completed successfully."
 msgstr "%s completed successfully."
 
-#: workflows/base.py:592
+#: workflows/base.py:603
 #, python-format
 msgid "%s did not complete."
 msgstr "%s did not complete."
