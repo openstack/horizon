@@ -1,4 +1,5 @@
 {% load i18n sizeformat parse_date %}
+{% load url from future %}
 
 <div class="info row-fluid detail">
   <hr class="header_rule">
@@ -16,15 +17,18 @@
     <dd>{{ vpnservice.tenant_id }}</dd>
 
     <dt>{% trans "Router ID" %}</dt>
-    <dd>{{ vpnservice.router_id }}</dd>
+    {% url 'horizon:project:routers:detail' vpnservice.router_id as router_url %}
+    <dd><a href="{{ router_url}}">{{ vpnservice.router.name_or_id }}</a></dd>
 
     <dt>{% trans "Subnet ID" %}</dt>
-    <dd>{{ vpnservice.subnet_id }}</dd>
+    {% url 'horizon:project:networks:subnets:detail' vpnservice.subnet_id as subnet_url %}
+    <dd><a href="{{ subnet_url}}">{{ vpnservice.subnet.name_or_id }}</a></dd>
 
     <dt>{% trans "VPN Connections" %}</dt>
     <dd>
       {% for conn in vpnservice.vpnconnections %}
-      {{ conn.id }}<br>
+      {% url 'horizon:project:vpn:ipsecsiteconnectiondetails' conn.id as conn_url %}
+      <a href="{{ conn_url }}">{{ conn.name_or_id }}</a><br>
       {% endfor %}
     </dd>
 
