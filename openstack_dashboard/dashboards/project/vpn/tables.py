@@ -31,28 +31,28 @@ LOG = logging.getLogger(__name__)
 
 class AddIKEPolicyLink(tables.LinkAction):
     name = "addikepolicy"
-    verbose_name = _("Add IKEPolicy")
+    verbose_name = _("Add IKE Policy")
     url = "horizon:project:vpn:addikepolicy"
     classes = ("ajax-modal", "btn-addikepolicy",)
 
 
 class AddIPSecPolicyLink(tables.LinkAction):
     name = "addipsecpolicy"
-    verbose_name = _("Add IPSecPolicy")
+    verbose_name = _("Add IPSec Policy")
     url = "horizon:project:vpn:addipsecpolicy"
     classes = ("ajax-modal", "btn-addipsecpolicy",)
 
 
 class AddVPNServiceLink(tables.LinkAction):
     name = "addvpnservice"
-    verbose_name = _("Add VPNService")
+    verbose_name = _("Add VPN Service")
     url = "horizon:project:vpn:addvpnservice"
     classes = ("ajax-modal", "btn-addvpnservice",)
 
 
 class AddIPSecSiteConnectionLink(tables.LinkAction):
     name = "addipsecsiteconnection"
-    verbose_name = _("Add IPSecSiteConnection")
+    verbose_name = _("Add IPSec Site Connection")
     url = "horizon:project:vpn:addipsecsiteconnection"
     classes = ("ajax-modal", "btn-addipsecsiteconnection",)
 
@@ -61,32 +61,32 @@ class DeleteVPNServiceLink(tables.DeleteAction):
     name = "deletevpnservice"
     action_present = _("Delete")
     action_past = _("Scheduled deletion of")
-    data_type_singular = _("VPNService")
-    data_type_plural = _("VPNServices")
+    data_type_singular = _("VPN Service")
+    data_type_plural = _("VPN Services")
 
 
 class DeleteIKEPolicyLink(tables.DeleteAction):
     name = "deleteikepolicy"
     action_present = _("Delete")
     action_past = _("Scheduled deletion of")
-    data_type_singular = _("IKEPolicy")
-    data_type_plural = _("IKEPolicies")
+    data_type_singular = _("IKE Policy")
+    data_type_plural = _("IKE Policies")
 
 
 class DeleteIPSecPolicyLink(tables.DeleteAction):
     name = "deleteipsecpolicy"
     action_present = _("Delete")
     action_past = _("Scheduled deletion of")
-    data_type_singular = _("IPSecPolicy")
-    data_type_plural = _("IPSecPolicies")
+    data_type_singular = _("IPSec Policy")
+    data_type_plural = _("IPSec Policies")
 
 
 class DeleteIPSecSiteConnectionLink(tables.DeleteAction):
     name = "deleteipsecsiteconnection"
     action_present = _("Delete")
     action_past = _("Scheduled deletion of")
-    data_type_singular = _("IPSecSiteConnection")
-    data_type_plural = _("IPSecSiteConnections")
+    data_type_singular = _("IPSec Site Connection")
+    data_type_plural = _("IPSec Site Connections")
 
 
 class IPSecSiteConnectionsTable(tables.DataTable):
@@ -99,11 +99,11 @@ class IPSecSiteConnectionsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
                          link="horizon:project:vpn:ipsecsiteconnectiondetails")
     vpnservice_name = tables.Column('vpnservice_name',
-                                    verbose_name=_('VPNService'))
+                                    verbose_name=_('VPN Service'))
     ikepolicy_name = tables.Column('ikepolicy_name',
-                                   verbose_name=_('IKEPolicy'))
+                                   verbose_name=_('IKE Policy'))
     ipsecpolicy_name = tables.Column('ipsecpolicy_name',
-                                     verbose_name=_('IPSecPolicy'))
+                                     verbose_name=_('IPSec Policy'))
     status = tables.Column("status",
                            filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),
@@ -112,7 +112,7 @@ class IPSecSiteConnectionsTable(tables.DataTable):
 
     class Meta:
         name = "ipsecsiteconnectionstable"
-        verbose_name = _("IPSecSiteConnections")
+        verbose_name = _("IPSec Site Connections")
         table_actions = (AddIPSecSiteConnectionLink,
                          DeleteIPSecSiteConnectionLink)
         row_actions = (DeleteIPSecSiteConnectionLink,)
@@ -138,7 +138,7 @@ class VPNServicesTable(tables.DataTable):
 
     class Meta:
         name = "vpnservicestable"
-        verbose_name = _("VPNServices")
+        verbose_name = _("VPN Services")
         table_actions = (AddVPNServiceLink, DeleteVPNServiceLink)
         row_actions = (DeleteVPNServiceLink,)
 
@@ -156,7 +156,7 @@ class IKEPoliciesTable(tables.DataTable):
 
     class Meta:
         name = "ikepoliciestable"
-        verbose_name = _("IKEPolicies")
+        verbose_name = _("IKE Policies")
         table_actions = (AddIKEPolicyLink, DeleteIKEPolicyLink)
         row_actions = (DeleteIKEPolicyLink,)
 
@@ -174,6 +174,6 @@ class IPSecPoliciesTable(tables.DataTable):
 
     class Meta:
         name = "ipsecpoliciestable"
-        verbose_name = _("IPSecPolicies")
+        verbose_name = _("IPSec Policies")
         table_actions = (AddIPSecPolicyLink, DeleteIPSecPolicyLink,)
         row_actions = (DeleteIPSecPolicyLink,)

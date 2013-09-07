@@ -52,28 +52,28 @@ class IndexView(tabs.TabbedTableView):
                     api.vpn.vpnservice_delete(request, obj_id)
                 except Exception:
                     exceptions.handle(request,
-                                      _('Unable to delete VPNService.'))
+                                      _('Unable to delete VPN Service.'))
         elif m == 'ikepolicy':
             for obj_id in obj_ids:
                 try:
                     api.vpn.ikepolicy_delete(request, obj_id)
                 except Exception:
                     exceptions.handle(request,
-                                      _('Unable to delete IKEPolicy.'))
+                                      _('Unable to delete IKE Policy.'))
         elif m == 'ipsecpolicy':
             for obj_id in obj_ids:
                 try:
                     api.vpn.ipsecpolicy_delete(request, obj_id)
                 except Exception:
                     exceptions.handle(request,
-                                      _('Unable to delete IPSecPolicy.'))
+                                      _('Unable to delete IPSec Policy.'))
         elif m == 'ipsecsiteconnection':
             for obj_id in obj_ids:
                 try:
                     api.vpn.ipsecsiteconnection_delete(request, obj_id)
                 except Exception:
                     exceptions.handle(request,
-                        _('Unable to delete IPSecSiteConnection.'))
+                        _('Unable to delete IPSec Site Connection.'))
 
         return self.get(request, *args, **kwargs)
 
