@@ -18,6 +18,7 @@
 import logging
 
 from django.core.urlresolvers import reverse  # noqa
+from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
@@ -126,11 +127,28 @@ class RemoveRuleFromPolicyLink(tables.LinkAction):
         return base_url
 
 
+def get_rules_name(datum):
+    return ', '.join([rule.name or rule.id[:13]
+                      for rule in datum.rules])
+
+
+def get_policy_name(datum):
+    if datum.policy:
+        return datum.policy.name or datum.policy.id
+
+
+def get_policy_link(datum):
+    return reverse('horizon:project:firewalls:policydetails',
+                   kwargs={'policy_id': datum.policy.id})
+
+
 class RulesTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:ruledetails")
     protocol = tables.Column("protocol",
+                             filters=(lambda v: filters.default(v, _("ANY")),
+                                      filters.upper,),
                              verbose_name=_("Protocol"))
     source_ip_address = tables.Column("source_ip_address",
                                       verbose_name=_("Source IP"))
@@ -141,10 +159,12 @@ class RulesTable(tables.DataTable):
     destination_port = tables.Column("destination_port",
                                      verbose_name=_("Destination Port"))
     action = tables.Column("action",
+                           filters=(filters.upper,),
                            verbose_name=_("Action"))
     enabled = tables.Column("enabled",
                            verbose_name=_("Enabled"))
-    firewall_policy_id = tables.Column("firewall_policy_id",
+    firewall_policy_id = tables.Column(get_policy_name,
+                                       link=get_policy_link,
                                        verbose_name=_("In Policy"))
 
     class Meta:
@@ -158,7 +178,7 @@ class PoliciesTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:policydetails")
-    firewall_rules = tables.Column("firewall_rules",
+    firewall_rules = tables.Column(get_rules_name,
                                    verbose_name=_("Rules"))
     audited = tables.Column("audited",
                             verbose_name=_("Audited"))
@@ -175,7 +195,8 @@ class FirewallsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:firewalldetails")
-    firewall_policy_id = tables.Column("firewall_policy_id",
+    firewall_policy_id = tables.Column(get_policy_name,
+                                       link=get_policy_link,
                                        verbose_name=_("Policy"))
     status = tables.Column("status",
                            verbose_name=_("Status"))

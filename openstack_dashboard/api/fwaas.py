@@ -16,6 +16,8 @@
 
 from __future__ import absolute_import
 
+from django.utils.datastructures import SortedDict  # noqa
+
 from openstack_dashboard.api import neutron
 
 neutronclient = neutron.neutronclient
@@ -71,14 +73,33 @@ def rule_create(request, **kwargs):
 
 
 def rules_list(request, **kwargs):
+    return _rules_list(request, expand_policy=True, **kwargs)
+
+
+def _rules_list(request, expand_policy, **kwargs):
     rules = neutronclient(request).list_firewall_rules(
         **kwargs).get('firewall_rules')
+    if expand_policy:
+        policies = _policies_list(request, expand_rule=False)
+        policy_dict = SortedDict((p.id, p) for p in policies)
+        for rule in rules:
+            rule['policy'] = policy_dict.get(rule['firewall_policy_id'])
     return [Rule(r) for r in rules]
 
 
 def rule_get(request, rule_id):
+    return _rule_get(request, rule_id, expand_policy=True)
+
+
+def _rule_get(request, rule_id, expand_policy):
     rule = neutronclient(request).show_firewall_rule(
         rule_id).get('firewall_rule')
+    if expand_policy:
+        if rule['firewall_policy_id']:
+            rule['policy'] = _policy_get(request, rule['firewall_policy_id'],
+                                         expand_rule=False)
+        else:
+            rule['policy'] = None
     return Rule(rule)
 
 
@@ -111,14 +132,36 @@ def policy_create(request, **kwargs):
 
 
 def policies_list(request, **kwargs):
+    return _policies_list(request, expand_rule=True, **kwargs)
+
+
+def _policies_list(request, expand_rule, **kwargs):
     policies = neutronclient(request).list_firewall_policies(
         **kwargs).get('firewall_policies')
+    if expand_rule:
+        rules = _rules_list(request, expand_policy=False)
+        rule_dict = SortedDict((rule.id, rule) for rule in rules)
+        for p in policies:
+            p['rules'] = [rule_dict.get(rule) for rule in p['firewall_rules']]
     return [Policy(p) for p in policies]
 
 
 def policy_get(request, policy_id):
+    return _policy_get(request, policy_id, expand_rule=True)
+
+
+def _policy_get(request, policy_id, expand_rule):
     policy = neutronclient(request).show_firewall_policy(
         policy_id).get('firewall_policy')
+    if expand_rule:
+        policy_rules = policy['firewall_rules']
+        if policy_rules:
+            rules = _rules_list(request, expand_policy=False,
+                                firewall_policy_id=policy_id)
+            rule_dict = SortedDict((rule.id, rule) for rule in rules)
+            policy['rules'] = [rule_dict.get(rule) for rule in policy_rules]
+        else:
+            policy['rules'] = []
     return Policy(policy)
 
 
@@ -162,14 +205,34 @@ def firewall_create(request, **kwargs):
 
 
 def firewalls_list(request, **kwargs):
+    return _firewalls_list(request, expand_policy=True, **kwargs)
+
+
+def _firewalls_list(request, expand_policy, **kwargs):
     firewalls = neutronclient(request).list_firewalls(
         **kwargs).get('firewalls')
+    if expand_policy:
+        policies = _policies_list(request, expand_rule=False)
+        policy_dict = SortedDict((p.id, p) for p in policies)
+        for fw in firewalls:
+            fw['policy'] = policy_dict.get(fw['firewall_policy_id'])
     return [Firewall(f) for f in firewalls]
 
 
 def firewall_get(request, firewall_id):
+    return _firewall_get(request, firewall_id, expand_policy=True)
+
+
+def _firewall_get(request, firewall_id, expand_policy):
     firewall = neutronclient(request).show_firewall(
         firewall_id).get('firewall')
+    if expand_policy:
+        policy_id = firewall['firewall_policy_id']
+        if policy_id:
+            firewall['policy'] = _policy_get(request, policy_id,
+                                             expand_rule=False)
+        else:
+            firewall['policy'] = None
     return Firewall(firewall)
 
 
