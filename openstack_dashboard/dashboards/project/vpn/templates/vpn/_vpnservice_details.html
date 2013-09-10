@@ -3,34 +3,31 @@
 <div class="info row-fluid detail">
   <hr class="header_rule">
   <dl>
-    <dt>{% trans "ID:" %}</dt>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ vpnservice.name|default:_("None") }}</dd>
+
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ vpnservice.description|default:_("None") }}</dd>
+
+    <dt>{% trans "ID" %}</dt>
     <dd>{{ vpnservice.id }}</dd>
 
-    <dt>{% trans "Tenant ID:" %}</dt>
+    <dt>{% trans "Project ID" %}</dt>
     <dd>{{ vpnservice.tenant_id }}</dd>
 
-    <dt>{% trans "Name:" %}</dt>
-    <dd>{{ vpnservice.name }}</dd>
-
-    <dt>{% trans "Description:" %}</dt>
-    <dd>{{ vpnservice.description }}</dd>
-
-    <dt>{% trans "VPN type:" %}</dt>
-    <dd>{{ vpnservice.vpn_type }}</dd>
-
-    <dt>{% trans "Router ID:" %}</dt>
+    <dt>{% trans "Router ID" %}</dt>
     <dd>{{ vpnservice.router_id }}</dd>
 
-    <dt>{% trans "Subnet ID:" %}</dt>
+    <dt>{% trans "Subnet ID" %}</dt>
     <dd>{{ vpnservice.subnet_id }}</dd>
 
-    <dt>{% trans "VPNConnections:" %}</dt>
+    <dt>{% trans "VPN Connections" %}</dt>
     <dd>{{ vpnservice.vpnconnections }}</dd>
 
-    <dt>{% trans "Admin State Up:" %}</dt>
+    <dt>{% trans "Admin State" %}</dt>
     <dd>{{ vpnservice.admin_state_up }}</dd>
 
-    <dt>{% trans "Status:" %}</dt>
+    <dt>{% trans "Status" %}</dt>
     <dd>{{ vpnservice.status }}</dd>
   </dl>
 </div>

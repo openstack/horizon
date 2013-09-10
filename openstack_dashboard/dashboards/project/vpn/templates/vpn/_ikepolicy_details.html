@@ -3,37 +3,37 @@
 <div class="info row-fluid detail">
   <hr class="header_rule">
   <dl>
-    <dt>{% trans "ID:" %}</dt>
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ ikepolicy.name|default:_("None") }}</dd>
+
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ ikepolicy.description|default:_("None") }}</dd>
+
+    <dt>{% trans "ID" %}</dt>
     <dd>{{ ikepolicy.id }}</dd>
 
-    <dt>{% trans "Tenant ID:" %}</dt>
+    <dt>{% trans "Project ID" %}</dt>
     <dd>{{ ikepolicy.tenant_id }}</dd>
 
-    <dt>{% trans "Name:" %}</dt>
-    <dd>{{ ikepolicy.name }}</dd>
-
-    <dt>{% trans "Description:" %}</dt>
-    <dd>{{ ikepolicy.description }}</dd>
-
-    <dt>{% trans "Authorization algorithm:" %}</dt>
+    <dt>{% trans "Authorization algorithm" %}</dt>
     <dd>{{ ikepolicy.auth_algorithm }}</dd>
 
-    <dt>{% trans "Encryption algorithm:" %}</dt>
+    <dt>{% trans "Encryption algorithm" %}</dt>
     <dd>{{ ikepolicy.encryption_algorithm }}</dd>
 
-    <dt>{% trans "IKE version:" %}</dt>
+    <dt>{% trans "IKE version" %}</dt>
     <dd>{{ ikepolicy.ike_version }}</dd>
 
-    <dt>{% trans "Lifetime Units:" %}</dt>
+    <dt>{% trans "Lifetime Units" %}</dt>
     <dd>{{ ikepolicy.lifetime.units }}</dd>
 
-    <dt>{% trans "Lifetime Value:" %}</dt>
+    <dt>{% trans "Lifetime Value" %}</dt>
     <dd>{{ ikepolicy.lifetime.value }}</dd>
 
-    <dt>{% trans "Perfect Forward Secrecy:" %}</dt>
+    <dt>{% trans "Perfect Forward Secrecy" %}</dt>
     <dd>{{ ikepolicy.pfs }}</dd>
 
-    <dt>{% trans "IKE Phase1 negotiation mode:" %}</dt>
+    <dt>{% trans "IKE Phase1 negotiation mode" %}</dt>
     <dd>{{ ikepolicy.phase1_negotiation_mode }}</dd>
   </dl>
 </div>
