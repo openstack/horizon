@@ -161,6 +161,12 @@ class VPNServiceDetailsTab(tabs.Tab):
             vpnservice = []
             exceptions.handle(request,
                               _('Unable to retrieve VPN Service details.'))
+        try:
+            filters = {'vpnservice_id': sid}
+            connections = api.vpn.ipsecsiteconnections_get(request, **filters)
+            vpnservice.vpnconnections = connections
+        except Exception:
+            vpnservice.vpnconnections = []
         return {'vpnservice': vpnservice}
 
 

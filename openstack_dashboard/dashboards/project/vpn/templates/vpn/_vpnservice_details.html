@@ -22,7 +22,11 @@
     <dd>{{ vpnservice.subnet_id }}</dd>
 
     <dt>{% trans "VPN Connections" %}</dt>
-    <dd>{{ vpnservice.vpnconnections }}</dd>
+    <dd>
+      {% for conn in vpnservice.vpnconnections %}
+      {{ conn.id }}<br>
+      {% endfor %}
+    </dd>
 
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ vpnservice.admin_state_up }}</dd>
