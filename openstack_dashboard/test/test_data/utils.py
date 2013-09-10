@@ -55,9 +55,9 @@ class TestData(object):
         >>> import glance_data
         >>> TEST = TestData(glance_data.data)
         >>> TEST.images.list()
-        ... [<Image: visible_image>, <Image: invisible_image>]
+        [<Image: visible_image>, <Image: invisible_image>]
         >>> TEST.images.first()
-        ... <Image: visible_image>
+        <Image: visible_image>
 
     You can load as little or as much data as you like as long as the loaders
     don't conflict with each other.
