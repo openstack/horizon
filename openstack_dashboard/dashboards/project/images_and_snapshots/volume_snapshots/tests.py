@@ -40,7 +40,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
                        'volumesUsed': len(self.volumes.list()),
                        'maxTotalVolumes': 6}
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:volumes:create_snapshot',
@@ -58,7 +58,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
                                       volume.id,
                                       snapshot.display_name,
                                       snapshot.display_description) \
-                                      .AndReturn(snapshot)
+            .AndReturn(snapshot)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateSnapshotForm',
@@ -102,3 +102,64 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.assertIn("Scheduled deletion of Volume Snapshot: test snapshot",
                       [m.message for m in res.context['messages']])
+
+    @test.create_stubs({api.cinder: ('volume_snapshot_get', 'volume_get')})
+    def test_volume_snapshot_detail_get(self):
+        volume = self.volumes.first()
+        snapshot = self.volume_snapshots.first()
+
+        api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
+            AndReturn(volume)
+        api.cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id). \
+            AndReturn(snapshot)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:images_and_snapshots:detail',
+                      args=[snapshot.id])
+        res = self.client.get(url)
+
+        self.assertContains(res,
+                            "<h2>Volume Snapshot Details: %s</h2>" %
+                            snapshot.display_name,
+                            1, 200)
+        self.assertContains(res, "<dd>test snapshot</dd>", 1, 200)
+        self.assertContains(res,
+                            "<dd>40f3fabf-3613-4f5e-90e5-6c9a08333fc3</dd>",
+                            1,
+                            200)
+        self.assertContains(res, "<dd>Available</dd>", 1, 200)
+
+    @test.create_stubs({api.cinder: ('volume_snapshot_get',)})
+    def test_volume_snapshot_detail_get_with_exception(self):
+        # Test to verify redirect if get volume snapshot fails
+        snapshot = self.volume_snapshots.first()
+
+        api.cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id).\
+            AndRaise(self.exceptions.cinder)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:images_and_snapshots:detail',
+                      args=[snapshot.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.cinder: ('volume_snapshot_get', 'volume_get')})
+    def test_volume_snapshot_detail_with_volume_get_exception(self):
+        # Test to verify redirect if get volume fails
+        volume = self.volumes.first()
+        snapshot = self.volume_snapshots.first()
+
+        api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
+            AndRaise(self.exceptions.cinder)
+        api.cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id). \
+            AndReturn(snapshot)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:images_and_snapshots:detail',
+                      args=[snapshot.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)

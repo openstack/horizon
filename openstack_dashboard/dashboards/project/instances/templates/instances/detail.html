@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n sizeformat %}
-{% block title %}{% trans "Instance Detail" %}{% endblock %}
+{% block title %}{% trans "Instance Details" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title="Instance Detail: "|add:instance.name %}
+  {% include "horizon/common/_page_header.html" with title=_("Instance Details: ")|add:instance.name %}
 {% endblock page_header %}
 
 {% block main %}

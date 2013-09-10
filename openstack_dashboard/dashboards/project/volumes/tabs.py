@@ -17,11 +17,7 @@
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
-from horizon import exceptions
 from horizon import tabs
-
-from openstack_dashboard.api import cinder
-from openstack_dashboard.api import nova
 
 
 class OverviewTab(tabs.Tab):
@@ -31,17 +27,7 @@ class OverviewTab(tabs.Tab):
                      "_detail_overview.html")
 
     def get_context_data(self, request):
-        volume_id = self.tab_group.kwargs['volume_id']
-        try:
-            volume = cinder.volume_get(request, volume_id)
-            for att in volume.attachments:
-                att['instance'] = nova.server_get(request, att['server_id'])
-        except Exception:
-            redirect = reverse('horizon:project:volumes:index')
-            exceptions.handle(self.request,
-                              _('Unable to retrieve volume details.'),
-                              redirect=redirect)
-        return {'volume': volume}
+        return {"volume": self.tab_group.kwargs['volume']}
 
 
 class VolumeDetailTabs(tabs.TabGroup):

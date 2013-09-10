@@ -22,6 +22,8 @@
 """
 Views for managing Images and Snapshots.
 """
+
+from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
@@ -87,3 +89,26 @@ class IndexView(tables.MultiTableView):
 class DetailView(tabs.TabView):
     tab_group_class = vol_snsh_tabs.SnapshotDetailTabs
     template_name = 'project/images_and_snapshots/snapshots/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context["snapshot"] = self.get_data()
+        return context
+
+    def get_data(self):
+        if not hasattr(self, "_snapshot"):
+            try:
+                snapshot_id = self.kwargs['snapshot_id']
+                self._snapshot = api.cinder.volume_snapshot_get(self.request,
+                                                          snapshot_id)
+            except Exception:
+                url = reverse('horizon:project:images_and_snapshots:index')
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve snapshot details.'),
+                                  redirect=url)
+
+        return self._snapshot
+
+    def get_tabs(self, request, *args, **kwargs):
+        snapshot = self.get_data()
+        return self.tab_group_class(request, snapshot=snapshot, **kwargs)

@@ -163,10 +163,13 @@ class ImageViewTests(test.TestCase):
         res = self.client.get(
             reverse('horizon:project:images_and_snapshots:images:detail',
             args=[image.id]))
+
         self.assertTemplateUsed(res,
                             'project/images_and_snapshots/images/detail.html')
         self.assertEqual(res.context['image'].name, image.name)
         self.assertEqual(res.context['image'].protected, image.protected)
+        self.assertContains(res, "<h2>Image Details: %s</h2>" % image.name,
+                            1, 200)
 
     @test.create_stubs({api.glance: ('image_get',)})
     def test_protected_image_detail_get(self):

@@ -30,18 +30,16 @@ class OverviewTab(tabs.Tab):
                      "_detail_overview.html")
 
     def get_context_data(self, request):
-        snapshot_id = self.tab_group.kwargs['snapshot_id']
         try:
-            snapshot = cinder.volume_snapshot_get(request, snapshot_id)
+            snapshot = self.tab_group.kwargs['snapshot']
             volume = cinder.volume_get(request, snapshot.volume_id)
-            volume.display_name = None
         except Exception:
             redirect = reverse('horizon:project:images_and_snapshots:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve snapshot details.'),
                               redirect=redirect)
-        return {'snapshot': snapshot,
-                'volume': volume}
+        return {"snapshot": snapshot,
+                "volume": volume}
 
 
 class SnapshotDetailTabs(tabs.TabGroup):

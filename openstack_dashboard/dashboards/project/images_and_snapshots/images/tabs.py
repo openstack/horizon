@@ -17,10 +17,7 @@
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
-from horizon import exceptions
 from horizon import tabs
-
-from openstack_dashboard import api
 
 
 class OverviewTab(tabs.Tab):
@@ -29,15 +26,7 @@ class OverviewTab(tabs.Tab):
     template_name = "project/images_and_snapshots/images/_detail_overview.html"
 
     def get_context_data(self, request):
-        image_id = self.tab_group.kwargs['image_id']
-        try:
-            image = api.glance.image_get(self.request, image_id)
-        except Exception:
-            redirect = reverse('horizon:project:images_and_snapshots:index')
-            exceptions.handle(request,
-                              _('Unable to retrieve image details.'),
-                              redirect=redirect)
-        return {'image': image}
+        return {"image": self.tab_group.kwargs['image']}
 
 
 class ImageDetailTabs(tabs.TabGroup):
