@@ -312,5 +312,7 @@ class VPNTests(test.TestCase):
         self.assertEqual(workflow.name, workflows.AddIPSecSiteConnection.name)
 
         expected_objs = ['<AddIPSecSiteConnectionStep: '
-                         'addipsecsiteconnectionaction>', ]
+                         'addipsecsiteconnectionaction>',
+                         '<AddIPSecSiteConnectionOptionalStep: '
+                         'addipsecsiteconnectionoptionalaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
