@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-06 06:24+0000\n"
+"POT-Creation-Date: 2013-09-10 18:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,16 +22,17 @@ msgstr ""
 msgid "An error occurred. Please try again later."
 msgstr ""
 
+#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.instances.js:30
+msgid "There was a problem communicating with the server, please try again."
+msgstr ""
+
 #: static/horizon/js/horizon.forms.js:91
 msgid "Additional information here..."
 msgstr ""
 
 #: static/horizon/js/horizon.forms.js:97
 msgid "Filter"
-msgstr ""
-
-#: static/horizon/js/horizon.instances.js:30
-msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 
 #: static/horizon/js/horizon.membership.js:185
