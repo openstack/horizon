@@ -53,6 +53,11 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
     def items(self):
         return self._apidict.items()
 
+    @property
+    def name_or_id(self):
+        return (self._apidict.get('name') or
+                '(%s)' % self._apidict['id'][:13])
+
 
 class Agent(NeutronAPIDictWrapper):
     """Wrapper for neutron agents"""

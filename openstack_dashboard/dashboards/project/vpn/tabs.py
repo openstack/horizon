@@ -17,6 +17,7 @@
 # @author: Tatiana Mazur
 
 
+from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
@@ -25,6 +26,27 @@ from horizon import tabs
 from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.vpn import tables
+
+
+def get_resource_or_fake(request, base_obj, resource, api_module):
+    """Return a resource detail or a fake object if it fails.
+
+    This methods retrieves a specified resource of base_obj.
+    It gets the resource ID from base_obj.<resource>_id and then
+    calls api_module.<resource>_get(resource_id).
+    If the api call fails, it returns a fake object which contains
+    only resource_id for the specified resouce.
+    The retrieved object is set to base_obj.<resource>.
+    """
+    obj_id = getattr(base_obj, '%s_id' % resource)
+    try:
+        obj_getter = getattr(api_module, '%s_get' % resource)
+        obj = obj_getter(request, obj_id)
+        setattr(base_obj, resource, obj)
+    except Exception:
+        fake_dict = {'id': obj_id, 'name': ''}
+        setattr(base_obj, resource,
+                api.neutron.NeutronAPIDictWrapper(fake_dict))
 
 
 class IPSecSiteConnectionsTab(tabs.TableTab):
@@ -110,15 +132,15 @@ class IKEPolicyDetailsTab(tabs.Tab):
     name = _("IKE Policy Details")
     slug = "ikepolicydetails"
     template_name = "project/vpn/_ikepolicy_details.html"
+    failure_url = reverse_lazy('horizon:project:vpn:index')
 
     def get_context_data(self, request):
         pid = self.tab_group.kwargs['ikepolicy_id']
         try:
             ikepolicy = api.vpn.ikepolicy_get(request, pid)
         except Exception:
-            ikepolicy = []
-            exceptions.handle(request,
-                              _('Unable to retrieve IKE Policy details.'))
+            msg = _('Unable to retrieve IKE Policy details.')
+            exceptions.handle(request, msg, redirect=self.failure_url)
         return {'ikepolicy': ikepolicy}
 
 
@@ -131,15 +153,15 @@ class IPSecPolicyDetailsTab(tabs.Tab):
     name = _("IPSec Policy Details")
     slug = "ipsecpolicydetails"
     template_name = "project/vpn/_ipsecpolicy_details.html"
+    failure_url = reverse_lazy('horizon:project:vpn:index')
 
     def get_context_data(self, request):
         pid = self.tab_group.kwargs['ipsecpolicy_id']
         try:
             ipsecpolicy = api.vpn.ipsecpolicy_get(request, pid)
         except Exception:
-            ipsecpolicy = []
-            exceptions.handle(request,
-                              _('Unable to retrieve IPSec Policy details.'))
+            msg = _('Unable to retrieve IPSec Policy details.')
+            exceptions.handle(request, msg, redirect=self.failure_url)
         return {'ipsecpolicy': ipsecpolicy}
 
 
@@ -152,21 +174,24 @@ class VPNServiceDetailsTab(tabs.Tab):
     name = _("VPN Service Details")
     slug = "vpnservicedetails"
     template_name = "project/vpn/_vpnservice_details.html"
+    failure_url = reverse_lazy('horizon:project:vpn:index')
 
     def get_context_data(self, request):
         sid = self.tab_group.kwargs['vpnservice_id']
         try:
             vpnservice = api.vpn.vpnservice_get(request, sid)
         except Exception:
-            vpnservice = []
-            exceptions.handle(request,
-                              _('Unable to retrieve VPN Service details.'))
+            msg = _('Unable to retrieve VPN Service details.')
+            exceptions.handle(request, msg, redirect=self.failure_url)
         try:
-            filters = {'vpnservice_id': sid}
-            connections = api.vpn.ipsecsiteconnections_get(request, **filters)
+            connections = api.vpn.ipsecsiteconnections_get(
+                request, vpnservice_id=sid)
             vpnservice.vpnconnections = connections
         except Exception:
             vpnservice.vpnconnections = []
+
+        get_resource_or_fake(request, vpnservice, 'router', api.neutron)
+        get_resource_or_fake(request, vpnservice, 'subnet', api.neutron)
         return {'vpnservice': vpnservice}
 
 
@@ -179,16 +204,20 @@ class IPSecSiteConnectionDetailsTab(tabs.Tab):
     name = _("IPSec Site Connection Details")
     slug = "ipsecsiteconnectiondetails"
     template_name = "project/vpn/_ipsecsiteconnection_details.html"
+    failure_url = reverse_lazy('horizon:project:vpn:index')
 
     def get_context_data(self, request):
         cid = self.tab_group.kwargs['ipsecsiteconnection_id']
         try:
-            ipsecsiteconnection = api.vpn.ipsecsiteconnection_get(request, cid)
+            ipsecsiteconn = api.vpn.ipsecsiteconnection_get(request, cid)
         except Exception:
-            ipsecsiteconnection = []
-            exceptions.handle(request,
-                _('Unable to retrieve IPSec Site Connection details.'))
-        return {'ipsecsiteconnection': ipsecsiteconnection}
+            msg = _('Unable to retrieve IPSec Site Connection details.')
+            exceptions.handle(request, msg, redirect=self.failure_url)
+
+        get_resource_or_fake(request, ipsecsiteconn, 'vpnservice', api.vpn)
+        get_resource_or_fake(request, ipsecsiteconn, 'ipsecpolicy', api.vpn)
+        get_resource_or_fake(request, ipsecsiteconn, 'ikepolicy', api.vpn)
+        return {'ipsecsiteconnection': ipsecsiteconn}
 
 
 class IPSecSiteConnectionDetailsTabs(tabs.TabGroup):
