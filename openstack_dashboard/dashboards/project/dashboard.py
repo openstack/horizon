@@ -32,11 +32,11 @@ class BasePanels(horizon.PanelGroup):
 class NetworkPanels(horizon.PanelGroup):
     slug = "network"
     name = _("Manage Network")
-    panels = ('networks',
+    panels = ('network_topology',
+              'networks',
               'routers',
               'loadbalancers',
               'firewalls',
-              'network_topology',
               'vpn',)
 
 
