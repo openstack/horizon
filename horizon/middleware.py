@@ -94,8 +94,6 @@ class HorizonMiddleware(object):
                 response_401 = http.HttpResponse(status=401)
                 response_401['X-Horizon-Location'] = response['location']
                 return response_401
-            else:
-                utils.add_logout_reason(request, response, _("Unauthorized."))
 
             return response
 
