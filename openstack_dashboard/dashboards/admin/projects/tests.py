@@ -692,6 +692,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
+        proj_users = self._get_proj_users(project.id)
 
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 self.tenant.id, admin=True) \
@@ -710,8 +711,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
-
-        for user in users:
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               project=self.tenant.id).AndReturn(proj_users)
+        for user in proj_users:
             api.keystone.roles_for_user(IsA(http.HttpRequest),
                                         user.id,
                                         self.tenant.id).AndReturn(roles)
@@ -792,9 +794,10 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
-
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               project=self.tenant.id).AndReturn(proj_users)
         workflow_data = {}
-        for user in users:
+        for user in proj_users:
             api.keystone.roles_for_user(IsA(http.HttpRequest),
                                         user.id,
                                         self.tenant.id).AndReturn(roles)
@@ -1000,6 +1003,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
+        proj_users = self._get_proj_users(project.id)
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
@@ -1019,9 +1023,11 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               project=self.tenant.id).AndReturn(proj_users)
 
         workflow_data = {}
-        for user in users:
+        for user in proj_users:
             api.keystone.roles_for_user(IsA(http.HttpRequest),
                                         user.id,
                                         self.tenant.id).AndReturn(roles)
@@ -1119,10 +1125,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
+        api.keystone.user_list(IsA(http.HttpRequest),
+                       project=self.tenant.id).AndReturn(proj_users)
 
         workflow_data = {}
 
-        for user in users:
+        for user in proj_users:
             api.keystone.roles_for_user(IsA(http.HttpRequest),
                                         user.id,
                                         self.tenant.id).AndReturn(roles)
@@ -1276,9 +1284,11 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
+        api.keystone.user_list(IsA(http.HttpRequest),
+                       project=self.tenant.id).AndReturn(proj_users)
 
         workflow_data = {}
-        for user in users:
+        for user in proj_users:
             api.keystone.roles_for_user(IsA(http.HttpRequest),
                                         user.id,
                                         self.tenant.id).AndReturn(roles)

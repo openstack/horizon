@@ -192,7 +192,13 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
 
         # Figure out users & roles
         if project_id:
-            for user in all_users:
+            try:
+                project_members = api.keystone.user_list(request,
+                    project=project_id)
+            except Exception:
+                exceptions.handle(request, err_msg)
+
+            for user in project_members:
                 try:
                     roles = api.keystone.roles_for_user(self.request,
                                                         user.id,
