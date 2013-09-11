@@ -133,8 +133,8 @@ pool from which the IP should be allocated and to select a specific IP address
 when associating one with an instance.
 
 
-OpenStack Settings
-==================
+OpenStack Settings (Partial)
+============================
 
 The following settings inform the OpenStack Dashboard of information about the
 other OpenStack projects which are part of this cloud and control the behavior
@@ -262,11 +262,22 @@ define the policy rules actions are verified against.
 ``POLICY_FILES``
 ----------------
 
-Default: { 'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}
+Default: ``{ 'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}``
 
 This should essentially be the mapping of the contents of ``POLICY_FILES_PATH``
 to service types.  When policy.json files are added to ``POLICY_FILES_PATH``,
 they should be included here too.
+
+``OPENSTACK_IMAGE_BACKEND``
+---------------------------
+
+Default: ``{ 'image_formats': [('', ''), ('aki', _('AKI - Amazon Kernel Image')),
+('ami', _('AMI - Amazon Machine Image')), ('ari', _('ARI - Amazon Ramdisk Image')),
+('iso', _('ISO - Optical Disk Image')), ('qcow2', _('QCOW2 - QEMU Emulator')),
+('raw', _('Raw')), ('vdi', _('VDI')), ('vhd', _('VHD')), ('vmdk', _('VMDK'))] }``
+
+Used to customize features related to the image service, such as the list of
+supported image formats.
 
 Django Settings (Partial)
 =========================

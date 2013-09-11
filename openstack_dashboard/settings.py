@@ -23,6 +23,8 @@ import os
 import sys
 import warnings
 
+from django.utils.translation import ugettext_lazy as _  # noqa
+
 from openstack_dashboard import exceptions
 
 warnings.formatwarning = lambda message, category, *args, **kwargs: \
@@ -81,6 +83,24 @@ HORIZON_CONFIG = {
 # When enabled, a file form field will appear on the create image form.
 # See documentation for deployment considerations.
 HORIZON_IMAGES_ALLOW_UPLOAD = True
+
+# The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
+# in the OpenStack Dashboard related to the Image service, such as the list
+# of supported image formats.
+OPENSTACK_IMAGE_BACKEND = {
+    'image_formats': [
+        ('', ''),
+        ('aki', _('AKI - Amazon Kernel Image')),
+        ('ami', _('AMI - Amazon Machine Image')),
+        ('ari', _('ARI - Amazon Ramdisk Image')),
+        ('iso', _('ISO - Optical Disk Image')),
+        ('qcow2', _('QCOW2 - QEMU Emulator')),
+        ('raw', _('Raw')),
+        ('vdi', _('VDI')),
+        ('vhd', _('VHD')),
+        ('vmdk', _('VMDK'))
+    ]
+}
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
