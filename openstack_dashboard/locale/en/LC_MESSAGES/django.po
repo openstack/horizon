@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-06 06:51+0000\n"
+"POT-Creation-Date: 2013-09-10 18:21-0500\n"
 "PO-Revision-Date: 2013-04-29 08:35+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/"
@@ -97,37 +97,37 @@ msgstr ""
 msgid "User %s has no role defined for that project."
 msgstr ""
 
-#: api/neutron.py:191
+#: api/neutron.py:196
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
 
-#: api/neutron.py:588
+#: api/neutron.py:593
 #, python-format
 msgid "profile_list(): profile_type=%(profile_type)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:601
+#: api/neutron.py:606
 #, python-format
 msgid "profile_get(): profileid=%(profileid)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:610
+#: api/neutron.py:615
 #, python-format
 msgid "profile_create(): kwargs=%s"
 msgstr ""
 
-#: api/neutron.py:619
+#: api/neutron.py:624
 #, python-format
 msgid "profile_delete(): profile_id=%s"
 msgstr ""
 
-#: api/neutron.py:624
+#: api/neutron.py:629
 #, python-format
 msgid "profile_modify(): profileid=%(profileid)s, kwargs=%(kwargs)s"
 msgstr ""
 
-#: api/neutron.py:634
+#: api/neutron.py:639
 #, python-format
 msgid ""
 "profile_bindings_list(): profile_type=%(profile_type)s params=%(params)s"
@@ -427,6 +427,18 @@ msgstr ""
 #: dashboards/project/databases/tables.py:218
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/databases/templates/databases/_launch_details_help.html:9
+#: dashboards/project/firewalls/forms.py:37
+#: dashboards/project/firewalls/forms.py:115
+#: dashboards/project/firewalls/forms.py:142
+#: dashboards/project/firewalls/tables.py:131
+#: dashboards/project/firewalls/tables.py:159
+#: dashboards/project/firewalls/tables.py:176
+#: dashboards/project/firewalls/workflows.py:38
+#: dashboards/project/firewalls/workflows.py:180
+#: dashboards/project/firewalls/workflows.py:238
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:6
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images_and_snapshots/images/forms.py:47
 #: dashboards/project/images_and_snapshots/images/forms.py:154
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
@@ -454,6 +466,16 @@ msgstr ""
 #: dashboards/project/volumes/tables.py:170
 #: dashboards/project/volumes/tables.py:199
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:10
+#: dashboards/project/vpn/tables.py:99 dashboards/project/vpn/tables.py:128
+#: dashboards/project/vpn/tables.py:148 dashboards/project/vpn/tables.py:166
+#: dashboards/project/vpn/workflows.py:35
+#: dashboards/project/vpn/workflows.py:117
+#: dashboards/project/vpn/workflows.py:216
+#: dashboards/project/vpn/workflows.py:313
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:7
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:7
 #: dashboards/router/nexus1000v/forms.py:52
 #: dashboards/router/nexus1000v/forms.py:123
 msgid "Name"
@@ -491,6 +513,15 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_upload.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
 #: dashboards/project/database_backups/workflows/create_backup.py:33
+#: dashboards/project/firewalls/forms.py:40
+#: dashboards/project/firewalls/forms.py:117
+#: dashboards/project/firewalls/forms.py:145
+#: dashboards/project/firewalls/workflows.py:42
+#: dashboards/project/firewalls/workflows.py:183
+#: dashboards/project/firewalls/workflows.py:241
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:9
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images_and_snapshots/images/forms.py:49
 #: dashboards/project/images_and_snapshots/images/forms.py:156
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:12
@@ -513,6 +544,14 @@ msgstr ""
 #: dashboards/project/volumes/tables.py:173
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/_limits.html:3
+#: dashboards/project/vpn/tables.py:130 dashboards/project/vpn/workflows.py:38
+#: dashboards/project/vpn/workflows.py:120
+#: dashboards/project/vpn/workflows.py:219
+#: dashboards/project/vpn/workflows.py:316
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:10
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:18
 msgid "Description"
 msgstr ""
@@ -530,6 +569,10 @@ msgstr ""
 #: dashboards/admin/projects/workflows.py:108
 #: dashboards/admin/projects/workflows.py:463
 #: dashboards/admin/users/tables.py:49 dashboards/admin/users/tables.py:128
+#: dashboards/project/firewalls/forms.py:71
+#: dashboards/project/firewalls/tables.py:146
+#: dashboards/project/firewalls/workflows.py:75
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:49
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
 msgid "Enabled"
 msgstr ""
@@ -742,6 +785,9 @@ msgstr ""
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
 #: dashboards/project/database_backups/templates/database_backups/details.html:44
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:13
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:12
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:13
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:15
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:12
 #: dashboards/project/instances/templates/instances/_detail_overview.html:12
@@ -758,6 +804,10 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:12
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:12
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:12
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:13
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:13
 #: dashboards/router/nexus1000v/forms.py:120
 msgid "ID"
 msgstr ""
@@ -967,6 +1017,11 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_copy.html:24
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/_upload.html:26
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:27
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:24
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:24
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:24
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:24
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:34
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_update.html:24
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:25
@@ -975,7 +1030,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:24
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:24
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:24
-#: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
+#: dashboards/project/network_topology/templates/network_topology/_create_router.html:21
 #: dashboards/project/networks/templates/networks/_create.html:24
 #: dashboards/project/networks/templates/networks/_update.html:24
 #: dashboards/project/networks/templates/networks/ports/_update.html:29
@@ -1122,11 +1177,18 @@ msgstr ""
 
 #: dashboards/admin/groups/tables.py:181
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
+#: dashboards/project/firewalls/workflows.py:110
+#: dashboards/project/firewalls/workflows.py:217
+#: dashboards/project/firewalls/workflows.py:293
 #: dashboards/project/loadbalancers/workflows.py:98
 #: dashboards/project/loadbalancers/workflows.py:205
 #: dashboards/project/loadbalancers/workflows.py:337
 #: dashboards/project/loadbalancers/workflows.py:478
 #: dashboards/project/loadbalancers/workflows.py:537
+#: dashboards/project/vpn/workflows.py:99
+#: dashboards/project/vpn/workflows.py:198
+#: dashboards/project/vpn/workflows.py:295
+#: dashboards/project/vpn/workflows.py:466
 msgid "Add"
 msgstr ""
 
@@ -1301,6 +1363,11 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/_update.html:17
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:17
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:17
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:17
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:17
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:18
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_update.html:17
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:18
@@ -1371,7 +1438,9 @@ msgstr ""
 msgid "System Info"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:42
+#: dashboards/admin/info/tables.py:42 dashboards/project/vpn/tables.py:98
+#: dashboards/project/vpn/tables.py:127 dashboards/project/vpn/tables.py:147
+#: dashboards/project/vpn/tables.py:165
 msgid "Id"
 msgstr ""
 
@@ -1428,6 +1497,8 @@ msgstr ""
 #: dashboards/project/databases/tables.py:173
 #: dashboards/project/databases/tables.py:226
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
+#: dashboards/project/firewalls/tables.py:181
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images_and_snapshots/images/tables.py:208
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:17
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
@@ -1449,6 +1520,9 @@ msgstr ""
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:32
 #: dashboards/project/volumes/tables.py:180
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:18
+#: dashboards/project/vpn/tables.py:109 dashboards/project/vpn/tables.py:135
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
 msgstr ""
 
@@ -1540,7 +1614,7 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:68
 #: dashboards/admin/projects/tables.py:91
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:38
-#: dashboards/project/dashboard.py:61
+#: dashboards/project/dashboard.py:63
 #: dashboards/project/images_and_snapshots/images/tables.py:129
 #: dashboards/project/instances/workflows/create_instance.py:49
 #: dashboards/router/nexus1000v/forms.py:82
@@ -2078,6 +2152,7 @@ msgstr ""
 #: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:81
 #: dashboards/admin/routers/ports/tables.py:41
+#: dashboards/project/firewalls/workflows.py:248
 #: dashboards/project/loadbalancers/forms.py:42
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:162
@@ -2094,12 +2169,23 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/ports/tables.py:90
+#: dashboards/project/vpn/workflows.py:41
+#: dashboards/project/vpn/workflows.py:416
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:68
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:35
 msgid "Admin State"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:42
 #: dashboards/admin/networks/forms.py:106
 #: dashboards/admin/networks/tables.py:73
+#: dashboards/project/firewalls/forms.py:70
+#: dashboards/project/firewalls/forms.py:118
+#: dashboards/project/firewalls/workflows.py:73
+#: dashboards/project/firewalls/workflows.py:185
+#: dashboards/project/firewalls/workflows.py:245
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:21
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:46
 #: dashboards/project/networks/tables.py:98
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
@@ -2359,6 +2445,7 @@ msgstr ""
 #: dashboards/project/networks/subnets/tables.py:45
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:32
+#: dashboards/project/vpn/tables.py:131 dashboards/project/vpn/workflows.py:40
 msgid "Subnet"
 msgstr ""
 
@@ -2421,6 +2508,11 @@ msgstr ""
 
 #: dashboards/admin/networks/templates/networks/_update.html:23
 #: dashboards/admin/networks/templates/networks/ports/_update.html:28
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:26
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:23
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:23
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:23
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:23
@@ -2520,9 +2612,16 @@ msgstr ""
 
 #: dashboards/admin/projects/tables.py:120
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:15
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:74
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
 msgid "Project ID"
 msgstr ""
 
@@ -2771,6 +2870,12 @@ msgid "Router Overview"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:8
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:11
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:10
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:16
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:39
@@ -2794,6 +2899,14 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/_detail_overview.html:3
 #: dashboards/project/routers/templates/routers/_detail_overview.html:8
 #: dashboards/project/routers/templates/routers/_detail_overview.html:10
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:7
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:10
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:8
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:11
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:8
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:11
 msgid "None"
 msgstr ""
 
@@ -2965,15 +3078,15 @@ msgstr ""
 msgid "Manage Network"
 msgstr ""
 
-#: dashboards/project/dashboard.py:43
+#: dashboards/project/dashboard.py:45
 msgid "Object Store"
 msgstr ""
 
-#: dashboards/project/dashboard.py:48
+#: dashboards/project/dashboard.py:50
 msgid "Orchestration"
 msgstr ""
 
-#: dashboards/project/dashboard.py:54
+#: dashboards/project/dashboard.py:56
 msgid "Manage Databases"
 msgstr ""
 
@@ -3255,6 +3368,7 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:98
 #: dashboards/project/access_and_security/security_groups/tables.py:96
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
+#: dashboards/project/firewalls/tables.py:54
 msgid "Rule"
 msgstr ""
 
@@ -3460,10 +3574,18 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
+#: dashboards/project/firewalls/tables.py:31
+#: dashboards/project/firewalls/workflows.py:109
 msgid "Add Rule"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:97
+#: dashboards/project/firewalls/tables.py:55
+#: dashboards/project/firewalls/tables.py:152
+#: dashboards/project/firewalls/tables.py:162
+#: dashboards/project/firewalls/workflows.py:137
+#: dashboards/project/firewalls/workflows.py:143
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:18
 msgid "Rules"
 msgstr ""
 
@@ -3828,23 +3950,33 @@ msgstr ""
 #: dashboards/project/database_backups/tables.py:61
 #: dashboards/project/databases/tables.py:68
 #: dashboards/project/databases/tables.py:84
+#: dashboards/project/firewalls/tables.py:52
+#: dashboards/project/firewalls/tables.py:60
+#: dashboards/project/firewalls/tables.py:68
 #: dashboards/project/loadbalancers/tables.py:72
 #: dashboards/project/loadbalancers/tables.py:85
 #: dashboards/project/loadbalancers/tables.py:93
 #: dashboards/project/loadbalancers/tables.py:101
 #: dashboards/project/loadbalancers/workflows.py:596
-#: dashboards/project/stacks/tables.py:43
+#: dashboards/project/stacks/tables.py:43 dashboards/project/vpn/tables.py:62
+#: dashboards/project/vpn/tables.py:70 dashboards/project/vpn/tables.py:78
+#: dashboards/project/vpn/tables.py:86
 msgid "Delete"
 msgstr ""
 
 #: dashboards/project/database_backups/tables.py:62
+#: dashboards/project/firewalls/tables.py:53
+#: dashboards/project/firewalls/tables.py:61
+#: dashboards/project/firewalls/tables.py:69
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:39
 #: dashboards/project/loadbalancers/tables.py:73
 #: dashboards/project/loadbalancers/tables.py:86
 #: dashboards/project/loadbalancers/tables.py:94
 #: dashboards/project/loadbalancers/tables.py:102
 #: dashboards/project/stacks/tables.py:44
-#: dashboards/project/volumes/tables.py:44
+#: dashboards/project/volumes/tables.py:44 dashboards/project/vpn/tables.py:63
+#: dashboards/project/vpn/tables.py:71 dashboards/project/vpn/tables.py:79
+#: dashboards/project/vpn/tables.py:87
 msgid "Scheduled deletion of"
 msgstr ""
 
@@ -4297,6 +4429,519 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:552
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:42
+#: dashboards/project/firewalls/tables.py:134
+#: dashboards/project/firewalls/workflows.py:45
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
+#: dashboards/project/loadbalancers/tables.py:194
+#: dashboards/project/loadbalancers/workflows.py:39
+#: dashboards/project/loadbalancers/workflows.py:133
+msgid "Protocol"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:43
+msgid "Protocol for the firewall rule"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:45
+#: dashboards/project/firewalls/tables.py:144
+#: dashboards/project/firewalls/workflows.py:51
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
+msgid "Action"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:46
+msgid "Action for the firewall rule"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:48
+#: dashboards/project/firewalls/workflows.py:55
+msgid "Source IP Address/Subnet"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:51
+msgid "Source IP address or subnet"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:53
+#: dashboards/project/firewalls/workflows.py:59
+msgid "Destination IP Address/Subnet"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:56
+msgid "Destination IP address or subnet"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:59
+#: dashboards/project/firewalls/workflows.py:64
+msgid "Source Port/Port Range"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:62
+msgid "Source port (integer in [1, 65535] or range in a:b)"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:65
+#: dashboards/project/firewalls/workflows.py:69
+msgid "Destination Port/Port Range"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:68
+msgid "Destination port (integer in [1, 65535] or rangein a:b)"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:82
+#: dashboards/project/firewalls/workflows.py:46
+#: dashboards/project/loadbalancers/workflows.py:364
+msgid "TCP"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:82
+#: dashboards/project/firewalls/workflows.py:47
+msgid "UDP"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:82
+#: dashboards/project/firewalls/workflows.py:48
+msgid "ICMP"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:88
+#: dashboards/project/firewalls/workflows.py:52
+msgid "ALLOW"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:88
+#: dashboards/project/firewalls/workflows.py:53
+msgid "DENY"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:102
+#, python-format
+msgid "Rule %s was successfully updated."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:107
+#, python-format
+msgid "Failed to update rule %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:119
+#: dashboards/project/firewalls/tables.py:164
+#: dashboards/project/firewalls/workflows.py:188
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:24
+msgid "Audited"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:128
+#, python-format
+msgid "Policy %s was successfully updated."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:133
+#, python-format
+msgid "Failed to update policy %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:147
+#: dashboards/project/firewalls/tables.py:62
+#: dashboards/project/firewalls/tables.py:179
+#: dashboards/project/firewalls/workflows.py:243
+#, fuzzy
+msgid "Policy"
+msgstr "Polish"
+
+#: dashboards/project/firewalls/forms.py:149
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:28
+msgid "Admin State Up"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:163
+#: dashboards/project/firewalls/workflows.py:262
+msgid "Unable to retrieve policy list."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:183
+#, python-format
+msgid "Firewall %s was successfully updated."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:188
+#, python-format
+msgid "Failed to update firewall %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:196
+#: dashboards/project/firewalls/tables.py:109
+msgid "Insert Rule"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:197
+msgid "Before"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:199
+msgid "After"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:226
+#, python-format
+msgid "Failed to retrieve available rules: %s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:242
+#, python-format
+msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:249
+#, python-format
+msgid "Failed to insert rule to policy %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:257
+#: dashboards/project/firewalls/tables.py:120
+msgid "Remove Rule"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:278
+#, python-format
+msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:292
+#, python-format
+msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:300
+#, python-format
+msgid "Failed to remove rule from policy %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/panel.py:10
+#: dashboards/project/firewalls/tables.py:71
+#: dashboards/project/firewalls/tables.py:185
+#: dashboards/project/firewalls/tabs.py:75
+#: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
+#: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
+msgid "Firewalls"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:38
+#: dashboards/project/firewalls/workflows.py:216
+msgid "Add Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:45
+msgid "Create Firewall"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:63
+#: dashboards/project/firewalls/tables.py:168
+#, fuzzy
+msgid "Policies"
+msgstr "Polish"
+
+#: dashboards/project/firewalls/tables.py:70
+msgid "Firewall"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:76
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
+#: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
+msgid "Edit Rule"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:87
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
+#: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
+msgid "Edit Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:98
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
+#: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
+msgid "Edit Firewall"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:136
+msgid "Source IP"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:138
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
+msgid "Source Port"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:140
+msgid "Destination IP"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:142
+msgid "Destination Port"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:148
+msgid "In Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:33
+msgid "Firewall Rules"
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:45
+msgid "Unable to retrieve rules list."
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:54
+msgid "Firewall Policies"
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:66
+msgid "Unable to retrieve policies list."
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:87
+msgid "Unable to retrieve firewall list."
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:96
+msgid "Firewall Rule Details"
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:107
+#: dashboards/project/firewalls/views.py:145
+msgid "Unable to retrieve rule details."
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:112
+msgid "Firewall Policy Details"
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:123
+#: dashboards/project/firewalls/views.py:177
+#: dashboards/project/firewalls/views.py:243
+#: dashboards/project/firewalls/views.py:277
+msgid "Unable to retrieve policy details."
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:128
+msgid "Firewall Details"
+msgstr ""
+
+#: dashboards/project/firewalls/tabs.py:139
+#: dashboards/project/firewalls/views.py:210
+msgid "Unable to retrieve firewall details."
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:73
+#, python-format
+msgid "Unable to delete rule. %s"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:81
+#, python-format
+msgid "Unable to delete policy. %s"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:89
+#, python-format
+msgid "Unable to delete firewall. %s"
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:49
+msgid "ANY"
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:81
+msgid "AddRule"
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:83
+msgid ""
+"Create a firewall rule.\n"
+"\n"
+"Protocol and action must be specified. Other fields are optional."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:111
+#, python-format
+msgid "Added Rule \"%s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:112
+#, python-format
+msgid "Unable to add Rule \"%s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:140
+msgid "Create a policy with selected rules."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:145
+msgid "Select rules for your policy."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:160
+msgid "Unable to retrieve rules."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:196
+msgid "AddPolicy"
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:198
+msgid ""
+"Create a firewall policy with an ordered listof firewall rules.\n"
+"\n"
+"A name must be given. Firewall rules are added in the order placed under the "
+"Rules tab."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:218
+#, python-format
+msgid "Added Policy \"%s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:219
+#, python-format
+msgid "Unable to add Policy \"%s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:255
+msgid "Select a Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:273
+msgid "AddFirewall"
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:275
+msgid ""
+"Create a firewall based on a policy.\n"
+"\n"
+"A policy must be selected. Other fields are optional."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:292
+msgid "Add Firewall"
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:294
+#, python-format
+msgid "Added Firewall \"%s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:295
+#, python-format
+msgid "Unable to add Firewall \"%s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
+msgid "Policy ID"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:8
+#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
+#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:6
+msgid "Insert Rule to Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:18
+msgid ""
+"Choose the rule you want to insert. Specify\n"
+"    either the rule you want to insert immediately before, or the rule\n"
+"    to insert immediately after. If both are specified, the prior\n"
+"    takes precedence."
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:8
+#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
+#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:6
+msgid "Remove Rule from Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:18
+msgid "Choose the rule you want to remove."
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:25
+msgid "Source IP Address"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:31
+msgid "Destination IP Address"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
+msgid "Destination Port: "
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:37
+msgid "Used in Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
+msgid "Position in Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_update_rule_help.html:3
+msgid ""
+"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
+"and drop,\n"
+"you may change their order by drag and drop as well. "
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_update_rules.html:8
+msgid "Selected Rules"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_update_rules.html:11
+msgid "Available Rules"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:18
+msgid "You may update firewall details here."
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:18
+msgid ""
+"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
+"instead to insert or remove a rule"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:18
+msgid "You may update rule details here."
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
+#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:6
+msgid "Add New Firewall"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
+#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:6
+msgid "Add New Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/addrule.html:3
+#: dashboards/project/firewalls/templates/firewalls/addrule.html:6
+msgid "Add New Rule"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:6
+msgid "Edit Firewall "
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:6
+msgid "Edit Policy "
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/updaterule.html:6
+msgid "Edit Rule "
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/panel.py:26
@@ -5516,12 +6161,6 @@ msgstr ""
 msgid "Delete Health Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:194
-#: dashboards/project/loadbalancers/workflows.py:39
-#: dashboards/project/loadbalancers/workflows.py:133
-msgid "Protocol"
-msgstr ""
-
 #: dashboards/project/loadbalancers/tables.py:223
 #: dashboards/project/loadbalancers/workflows.py:129
 #: dashboards/project/loadbalancers/workflows.py:265
@@ -5612,10 +6251,12 @@ msgid "Unable to retrieve pool."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:49
+#: dashboards/project/vpn/workflows.py:48
 msgid "Select a Subnet"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:54
+#: dashboards/project/vpn/workflows.py:54
 msgid "Unable to retrieve networks list."
 msgstr ""
 
@@ -5752,10 +6393,6 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:363
 msgid "PING"
-msgstr ""
-
-#: dashboards/project/loadbalancers/workflows.py:364
-msgid "TCP"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:365
@@ -6062,8 +6699,8 @@ msgstr ""
 msgid "NT_Routers"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/_create_router.html:8
-#: dashboards/project/network_topology/templates/network_topology/_create_router.html:19
+#: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
+#: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 msgid "Create router"
@@ -6408,6 +7045,7 @@ msgid "IP address:"
 msgstr ""
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:24
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
 msgid "Subnet ID"
 msgstr ""
 
@@ -6476,7 +7114,9 @@ msgstr ""
 msgid "Failed to create router \"%s\"."
 msgstr ""
 
-#: dashboards/project/routers/tables.py:33 dashboards/router/dashboard.py:25
+#: dashboards/project/routers/tables.py:33
+#: dashboards/project/vpn/tables.py:132 dashboards/project/vpn/workflows.py:39
+#: dashboards/router/dashboard.py:25
 msgid "Router"
 msgstr ""
 
@@ -6551,6 +7191,7 @@ msgstr ""
 
 #: dashboards/project/routers/ports/forms.py:41
 #: dashboards/project/routers/ports/forms.py:149
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:19
 msgid "Router ID"
 msgstr ""
 
@@ -7147,6 +7788,438 @@ msgstr ""
 msgid "Create a Volume Snapshot"
 msgstr ""
 
+#: dashboards/project/vpn/panel.py:28
+msgid "VPN"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:34 dashboards/project/vpn/workflows.py:197
+msgid "Add IKE Policy"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:41 dashboards/project/vpn/workflows.py:294
+msgid "Add IPSec Policy"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:48 dashboards/project/vpn/workflows.py:98
+msgid "Add VPN Service"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:55 dashboards/project/vpn/workflows.py:465
+msgid "Add IPSec Site Connection"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:64 dashboards/project/vpn/tables.py:102
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
+msgid "VPN Service"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:65 dashboards/project/vpn/tables.py:141
+#: dashboards/project/vpn/tabs.py:73
+msgid "VPN Services"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:72 dashboards/project/vpn/tables.py:104
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
+msgid "IKE Policy"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:73 dashboards/project/vpn/tables.py:159
+#: dashboards/project/vpn/tabs.py:92
+msgid "IKE Policies"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:80 dashboards/project/vpn/tables.py:106
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
+msgid "IPSec Policy"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:81 dashboards/project/vpn/tables.py:177
+#: dashboards/project/vpn/tabs.py:109
+msgid "IPSec Policies"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:88
+msgid "IPSec Site Connection"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:89 dashboards/project/vpn/tables.py:115
+#: dashboards/project/vpn/tabs.py:54
+msgid "IPSec Site Connections"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:151 dashboards/project/vpn/tables.py:169
+#: dashboards/project/vpn/workflows.py:121
+#: dashboards/project/vpn/workflows.py:220
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:18
+msgid "Authorization algorithm"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:154 dashboards/project/vpn/tables.py:172
+#: dashboards/project/vpn/workflows.py:122
+#: dashboards/project/vpn/workflows.py:222
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:24
+msgid "Encryption algorithm"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:155 dashboards/project/vpn/tables.py:173
+msgid "PFS"
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:67
+msgid "Unable to retrieve IPSec Site Connections list."
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:86 dashboards/project/vpn/workflows.py:375
+msgid "Unable to retrieve VPN Services list."
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:103 dashboards/project/vpn/workflows.py:349
+msgid "Unable to retrieve IKE Policies list."
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:120 dashboards/project/vpn/workflows.py:362
+msgid "Unable to retrieve IPSec Policies list."
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:132
+msgid "IKE Policy Details"
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:142
+msgid "Unable to retrieve IKE Policy details."
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:153
+msgid "IPSec Policy Details"
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:163
+msgid "Unable to retrieve IPSec Policy details."
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:174
+msgid "VPN Service Details"
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:184
+msgid "Unable to retrieve VPN Service details."
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:204
+msgid "IPSec Site Connection Details"
+msgstr ""
+
+#: dashboards/project/vpn/tabs.py:214
+msgid "Unable to retrieve IPSec Site Connection details."
+msgstr ""
+
+#: dashboards/project/vpn/views.py:55
+msgid "Unable to delete VPN Service."
+msgstr ""
+
+#: dashboards/project/vpn/views.py:62
+msgid "Unable to delete IKE Policy."
+msgstr ""
+
+#: dashboards/project/vpn/views.py:69
+msgid "Unable to delete IPSec Policy."
+msgstr ""
+
+#: dashboards/project/vpn/views.py:76
+msgid "Unable to delete IPSec Site Connection."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:63
+msgid "Select a Router"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:68
+msgid "Unable to retrieve routers list."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:76
+msgid "Add New VPN Service"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:78
+msgid ""
+"Create VPN Service for current project.\n"
+"\n"
+"Assign a name and description for the VPN Service. Select a router and a "
+"subnet. Admin State is Up (checked) by default."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:100
+#, python-format
+msgid "Added VPN Service \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:101
+#, python-format
+msgid "Unable to add VPN Service \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:123
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:24
+msgid "IKE version"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:124
+msgid "Lifetime units for IKE keys"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:126
+msgid "Lifetime value for IKE keys"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:128
+#: dashboards/project/vpn/workflows.py:227
+msgid "Equal to or more than 60"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:129
+#: dashboards/project/vpn/workflows.py:228
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:33
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:33
+msgid "Perfect Forward Secrecy"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:131
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:36
+msgid "IKE Phase1 negotiation mode"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:171
+msgid "Add New IKE Policy"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:173
+msgid ""
+"Create IKE Policy for current project.\n"
+"\n"
+"Assign a name and description for the IKE Policy. "
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:199
+#, python-format
+msgid "Added IKE Policy \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:200
+#, python-format
+msgid "Unable to add IKE Policy \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:221
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:21
+msgid "Encapsulation mode"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:223
+msgid "Lifetime units"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:225
+msgid "Lifetime value for IKE keys "
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:229
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:36
+msgid "Transform Protocol"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:268
+msgid "Add New IPSec Policy"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:270
+msgid ""
+"Create IPSec Policy for current project.\n"
+"\n"
+"Assign a name and description for the IPSec Policy. "
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:296
+#, python-format
+msgid "Added IPSec Policy \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:297
+#, python-format
+msgid "Unable to add IPSec Policy \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:318
+msgid "VPN Service associated with this connection"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:320
+msgid "IKE Policy associated with this connection"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:322
+msgid "IPSec Policy associated with this connection"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:323
+msgid "Remote Peer IP Address"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:324
+msgid "Remote peer IP address for the VPN Connection (e.g. 172.0.0.2)"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:330
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:34
+msgid "Remote branch router identity (Peer ID)"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:331
+msgid "IP address of remote branch router (e.g. 172.0.0.2)"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:334
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:37
+msgid "Remote peer subnet"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:335
+msgid "Remote peer subnet address with mask in CIDR format (e.g. 20.1.0.0/24)"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:341
+msgid "Pre-Shared Key (PSK) string"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:344
+msgid "Select IKE Policy"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:357
+msgid "Select IPSec Policy"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:370
+msgid "Select VPN Service"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:383
+msgid "Add New IPSec Site Connection"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:385
+msgid ""
+"Create IPSec Site Connection for current project.\n"
+"\n"
+"Assign a name and description for the IPSec Site Connection. All fields in "
+"this tab are required."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:402
+msgid "Maximum Transmission Unit size for the connection"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:404
+msgid ""
+"Equal to or more than 68 if the local subnet is IPv4. Equal to or more than "
+"1280 if the local subnet is IPv6."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:406
+msgid "Dead peer detection actions"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:408
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:56
+msgid "Dead peer detection interval"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:410
+msgid "Valid integer"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:412
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:59
+msgid "Dead peer detection timeout"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:414
+msgid "Valid integer greater than the DPD interval"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:415
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:50
+msgid "Initiator state"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:437
+msgid "Optional Parameters"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:439
+msgid ""
+"Fields in this tab are optional. You can configure the detail of IPSec site "
+"connection created."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:467
+#, python-format
+msgid "Added IPSec Site Connection \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:468
+#, python-format
+msgid "Unable to add IPSec Site Connection \"%s\"."
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:27
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:27
+msgid "Lifetime Units"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:30
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:30
+msgid "Lifetime Value"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:31
+msgid "Remote peer IP Address"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:44
+msgid "Pre-Shared Key string"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:47
+msgid "MTU"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:53
+msgid "Dead peer detection action"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:62
+msgid "Authorization mode"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:65
+msgid "Route mode"
+msgstr ""
+
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:27
+#, fuzzy
+msgid "VPN Connections"
+msgstr "Projects"
+
+#: dashboards/project/vpn/templates/vpn/details_tabs.html:3
+#: dashboards/project/vpn/templates/vpn/details_tabs.html:6
+#: dashboards/project/vpn/templates/vpn/index.html:3
+#: dashboards/project/vpn/templates/vpn/index.html:6
+msgid "Virtual Private Network"
+msgstr ""
+
 #: dashboards/router/nexus1000v/forms.py:34
 msgid "Select a tenant"
 msgstr ""
@@ -7363,42 +8436,6 @@ msgstr ""
 
 #: dashboards/settings/user/templates/user/_settings.html:19
 msgid "From here you can modify dashboard settings for your user."
-msgstr ""
-
-#: local/local_settings.py:171
-msgid "AKI - Amazon Kernel Image"
-msgstr ""
-
-#: local/local_settings.py:172
-msgid "AMI - Amazon Machine Image"
-msgstr ""
-
-#: local/local_settings.py:173
-msgid "ARI - Amazon Ramdisk Image"
-msgstr ""
-
-#: local/local_settings.py:174
-msgid "ISO - Optical Disk Image"
-msgstr ""
-
-#: local/local_settings.py:175
-msgid "QCOW2 - QEMU Emulator"
-msgstr ""
-
-#: local/local_settings.py:176
-msgid "Raw"
-msgstr ""
-
-#: local/local_settings.py:177
-msgid "VDI"
-msgstr ""
-
-#: local/local_settings.py:178
-msgid "VHD"
-msgstr ""
-
-#: local/local_settings.py:179
-msgid "VMDK"
 msgstr ""
 
 #: templates/403.html:5 templates/403.html.py:10
