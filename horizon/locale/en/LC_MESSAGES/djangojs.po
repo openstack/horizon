@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-10 18:20-0500\n"
+"POT-Creation-Date: 2013-09-11 18:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,6 +37,10 @@ msgstr ""
 
 #: static/horizon/js/horizon.membership.js:185
 msgid "No roles"
+msgstr ""
+
+#: static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:125

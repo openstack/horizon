@@ -30,7 +30,7 @@ horizon.modals.initModal = function (modal) {
 /* Creates a modal dialog from the client-side template. */
 horizon.modals.create = function (title, body, confirm, cancel) {
   if (!cancel) {
-    cancel = "Cancel";
+    cancel = gettext("Cancel");
   }
   var template = horizon.templates.compiled_templates["#modal_template"],
     params = {title: title, body: body, confirm: confirm, cancel: cancel},
