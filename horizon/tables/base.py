@@ -843,8 +843,8 @@ class DataTableMetaclass(type):
 
         # If the table is in a ResourceBrowser, the column number must meet
         # these limits because of the width of the browser.
-        if opts.browser_table == "navigation" and len(columns) > 1:
-            raise ValueError("You can only assign one column to %s."
+        if opts.browser_table == "navigation" and len(columns) > 3:
+            raise ValueError("You can only assign three column to %s."
                              % class_name)
         if opts.browser_table == "content" and len(columns) > 2:
             raise ValueError("You can only assign two columns to %s."

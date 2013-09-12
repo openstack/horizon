@@ -9,6 +9,14 @@
   <dl>
     <dt>{% trans "Container Name" %}</dt>
     <dd>{{ container.name }}</dd>
+    <dt>{% trans "Container Access" %}</dt>
+    {% if container.public_url %}
+    <dd>{% trans "Public" %}</dd>
+    <dt>{% trans "Public URL" %}</dt>
+    <dd>{{ container.public_url }}</dd>
+    {% else %}
+    <dd>{% trans "Private" %}</dd>
+    {% endif %}
     <dt>{% trans "Object Count" %}</dt>
     <dd>{{ container.container_object_count }}</dd>
     <dt>{% trans "Size" %}</dt>

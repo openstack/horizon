@@ -13,16 +13,26 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import logging
 
 from django.core.urlresolvers import reverse  # noqa
-from django.template.defaultfilters import filesizeformat  # noqa
+from django import shortcuts
+from django import template
+from django.template import defaultfilters as filters
 from django.utils import http
+from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _  # noqa
 
+from horizon import exceptions
+from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
+
+
+LOG = logging.getLogger(__name__)
+LOADING_IMAGE = '<img src="/static/dashboard/img/loading.gif" />'
 
 
 def wrap_delimiter(name):
@@ -41,6 +51,58 @@ class ViewContainer(tables.LinkAction):
         obj_id = self.table.get_object_id(datum)
         args = (http.urlquote(obj_id),)
         return reverse(self.url, args=args)
+
+
+class MakePublicContainer(tables.Action):
+    name = "make_public"
+    verbose_name = _("Make Public")
+    classes = ("btn-edit", )
+
+    def allowed(self, request, container):
+        # Container metadata have not been loaded
+        if not hasattr(container, 'is_public'):
+            return False
+        return not container.is_public
+
+    def single(self, table, request, obj_id):
+        try:
+            api.swift.swift_update_container(request,
+                                             obj_id,
+                                             metadata=({'is_public': True}))
+            LOG.info('Updating container "%s" access to public.' % obj_id)
+            messages.success(request,
+                             _('Successfully updated container access to '
+                               'public.'))
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to update container access.'))
+        return shortcuts.redirect('horizon:project:containers:index')
+
+
+class MakePrivateContainer(tables.Action):
+    name = "make_private"
+    verbose_name = _("Make Private")
+    classes = ("btn-edit", )
+
+    def allowed(self, request, container):
+        # Container metadata have not been loaded
+        if not hasattr(container, 'is_public'):
+            return False
+        return container.is_public
+
+    def single(self, table, request, obj_id):
+        try:
+            api.swift.swift_update_container(request,
+                                             obj_id,
+                                             metadata=({'is_public': False}))
+            LOG.info('Updating container "%s" access to private.' % obj_id)
+            messages.success(request,
+                             _('Successfully updated container access to '
+                               'private.'))
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to update container access.'))
+        return shortcuts.redirect('horizon:project:containers:index')
 
 
 class DeleteContainer(tables.DeleteAction):
@@ -141,7 +203,7 @@ class UploadObject(tables.LinkAction):
 
 
 def get_size_used(container):
-    return filesizeformat(container.bytes)
+    return filters.filesizeformat(container.bytes)
 
 
 def get_container_link(container):
@@ -149,16 +211,53 @@ def get_container_link(container):
                    args=(http.urlquote(wrap_delimiter(container.name)),))
 
 
+class ContainerAjaxUpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, container_name):
+        container = api.swift.swift_get_container(request, container_name)
+        return container
+
+
+def get_metadata(container):
+    # If the metadata has not been loading, display a loading image
+    if not hasattr(container, 'is_public'):
+        return safestring.mark_safe(LOADING_IMAGE)
+    template_name = 'project/containers/_container_metadata.html'
+    context = {"container": container}
+    return template.loader.render_to_string(template_name, context)
+
+
+def get_metadata_loaded(container):
+    # Determine if metadata has been loaded if the attribute is already set.
+    return hasattr(container, 'is_public') and container.is_public is not None
+
+
 class ContainersTable(tables.DataTable):
+    METADATA_LOADED_CHOICES = (
+        (False, None),
+        (True, True),
+    )
     name = tables.Column("name",
                          link=get_container_link,
                          verbose_name=_("Container Name"))
+    metadata = tables.Column(get_metadata,
+                             verbose_name=_("Container Details"),
+                             classes=('nowrap-col', ),)
+    metadata_loaded = tables.Column(get_metadata_loaded,
+                                    verbose_name=_("Metadata Loaded"),
+                                    status=True,
+                                    status_choices=METADATA_LOADED_CHOICES,
+                                    hidden=True)
 
     class Meta:
         name = "containers"
         verbose_name = _("Containers")
+        row_class = ContainerAjaxUpdateRow
+        status_columns = ['metadata_loaded', ]
         table_actions = (CreateContainer,)
-        row_actions = (ViewContainer, DeleteContainer,)
+        row_actions = (ViewContainer, MakePublicContainer,
+                       MakePrivateContainer, DeleteContainer,)
         browser_table = "navigation"
         footer = False
 
@@ -266,7 +365,7 @@ def sanitize_name(name):
 
 def get_size(obj):
     if obj.bytes:
-        return filesizeformat(obj.bytes)
+        return filters.filesizeformat(obj.bytes)
 
 
 def get_link_subfolder(subfolder):

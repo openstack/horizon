@@ -67,24 +67,45 @@ class SwiftApiTests(test.APITestCase):
         self.assertIsNone(cont.data)
 
     def test_swift_create_duplicate_container(self):
+        metadata = {'is_public': False}
         container = self.containers.first()
+        headers = api.swift._metadata_to_header(metadata=(metadata))
         swift_api = self.stub_swiftclient(expected_calls=2)
         # Check for existence, then create
         exc = self.exceptions.swift
         swift_api.head_container(container.name).AndRaise(exc)
-        swift_api.put_container(container.name).AndReturn(container)
+        swift_api.put_container(container.name, headers=headers) \
+            .AndReturn(container)
         self.mox.ReplayAll()
         # Verification handled by mox, no assertions needed.
-        api.swift.swift_create_container(self.request, container.name)
+        api.swift.swift_create_container(self.request,
+                                         container.name,
+                                         metadata=(metadata))
 
     def test_swift_create_container(self):
+        metadata = {'is_public': True}
         container = self.containers.first()
         swift_api = self.stub_swiftclient()
         swift_api.head_container(container.name).AndReturn(container)
         self.mox.ReplayAll()
         # Verification handled by mox, no assertions needed.
         with self.assertRaises(exceptions.AlreadyExists):
-            api.swift.swift_create_container(self.request, container.name)
+            api.swift.swift_create_container(self.request,
+                                             container.name,
+                                             metadata=(metadata))
+
+    def test_swift_update_container(self):
+        metadata = {'is_public': True}
+        container = self.containers.first()
+        swift_api = self.stub_swiftclient()
+        headers = api.swift._metadata_to_header(metadata=(metadata))
+        swift_api.post_container(container.name, headers=headers)\
+            .AndReturn(container)
+        self.mox.ReplayAll()
+        # Verification handled by mox, no assertions needed.
+        api.swift.swift_update_container(self.request,
+                                         container.name,
+                                         metadata=(metadata))
 
     def test_swift_get_objects(self):
         container = self.containers.first()
