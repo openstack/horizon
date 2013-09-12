@@ -64,7 +64,7 @@ class ViewFlavorExtras(tables.LinkAction):
 
 class ModifyAccess(tables.LinkAction):
     name = "projects"
-    verbose_name = "Modify Access"
+    verbose_name = _("Modify Access")
     url = "horizon:admin:flavors:update"
     classes = ("ajax-modal", "btn-edit")
 
@@ -106,7 +106,7 @@ class FlavorsTable(tables.DataTable):
     swap = tables.Column(get_swap_size,
                          verbose_name=_('Swap Disk'),
                          attrs={'data-type': 'size'})
-    flavor_id = tables.Column('id', verbose_name=('ID'))
+    flavor_id = tables.Column('id', verbose_name=_('ID'))
     public = tables.Column("is_public",
                            verbose_name=_("Public"),
                            empty_value=False,
