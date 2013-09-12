@@ -53,17 +53,17 @@ class HorizonMiddleware(object):
             timezone.activate(tz)
 
         # Check for session timeout
-        timeout = 1800
         try:
             timeout = settings.SESSION_TIMEOUT
         except AttributeError:
-            pass
+            timeout = 1800
 
         last_activity = request.session.get('last_activity', None)
         timestamp = datetime.datetime.now()
         if last_activity and (timestamp - last_activity).seconds > timeout:
             request.session.pop('last_activity')
-            response = HttpResponseRedirect(settings.LOGOUT_URL)
+            response = HttpResponseRedirect(
+                    '%s?next=%s' % (settings.LOGOUT_URL, request.path))
             reason = _("Session timed out.")
             utils.add_logout_reason(request, response, reason)
             return response
