@@ -37,7 +37,7 @@ class CreateNetworkProfile(tables.LinkAction):
 
 class DeleteNetworkProfile(tables.DeleteAction):
     data_type_singular = _("Network Profile")
-    data_type_plural = _("Netork Profiles")
+    data_type_plural = _("Network Profiles")
 
     def delete(self, request, obj_id):
         try:

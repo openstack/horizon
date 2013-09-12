@@ -188,7 +188,7 @@ class SetInstanceDetailsAction(workflows.Action):
                 raise forms.ValidationError(_("There are no image sources "
                                               "available; you must first "
                                               "create an image before "
-                                              "attemtping to launch an "
+                                              "attempting to launch an "
                                               "instance."))
 
         elif source_type == 'instance_snapshot_id':
@@ -196,7 +196,7 @@ class SetInstanceDetailsAction(workflows.Action):
                 raise forms.ValidationError(_("There are no snapshot sources "
                                               "available; you must first "
                                               "create an snapshot before "
-                                              "attemtping to launch an "
+                                              "attempting to launch an "
                                               "instance."))
 
         elif source_type == 'volume_id':

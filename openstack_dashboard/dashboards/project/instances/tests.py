@@ -1312,7 +1312,7 @@ class InstanceTests(test.TestCase):
         self.assertFormErrors(res, 1, "There are no image sources "
                                       "available; you must first "
                                       "create an image before "
-                                      "attemtping to launch an "
+                                      "attempting to launch an "
                                       "instance.")
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 

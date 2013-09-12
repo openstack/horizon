@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-10 18:21-0500\n"
+"POT-Creation-Date: 2013-09-12 07:01+0000\n"
 "PO-Revision-Date: 2013-04-29 08:35+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/"
@@ -23,59 +23,95 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings.py:165
+#: settings.py:93
+msgid "AKI - Amazon Kernel Image"
+msgstr ""
+
+#: settings.py:94
+msgid "AMI - Amazon Machine Image"
+msgstr ""
+
+#: settings.py:95
+msgid "ARI - Amazon Ramdisk Image"
+msgstr ""
+
+#: settings.py:96
+msgid "ISO - Optical Disk Image"
+msgstr ""
+
+#: settings.py:97
+msgid "QCOW2 - QEMU Emulator"
+msgstr ""
+
+#: settings.py:98
+msgid "Raw"
+msgstr ""
+
+#: settings.py:99
+msgid "VDI"
+msgstr ""
+
+#: settings.py:100
+msgid "VHD"
+msgstr ""
+
+#: settings.py:101
+msgid "VMDK"
+msgstr ""
+
+#: settings.py:185
 msgid "Bulgarian (Bulgaria)"
 msgstr ""
 
-#: settings.py:166
+#: settings.py:186
 msgid "Czech"
 msgstr ""
 
-#: settings.py:167
+#: settings.py:187
 msgid "English"
 msgstr "English"
 
-#: settings.py:168
+#: settings.py:188
 msgid "Spanish"
 msgstr "Spanish"
 
-#: settings.py:169
+#: settings.py:189
 msgid "French"
 msgstr "French"
 
-#: settings.py:170
+#: settings.py:190
 msgid "Italiano"
 msgstr "Italiano"
 
-#: settings.py:171
+#: settings.py:191
 msgid "Japanese"
 msgstr "Japanese"
 
-#: settings.py:172
+#: settings.py:192
 msgid "Korean (Korea)"
 msgstr ""
 
-#: settings.py:173
+#: settings.py:193
 msgid "Dutch (Netherlands)"
 msgstr ""
 
-#: settings.py:174
+#: settings.py:194
 msgid "Polish"
 msgstr "Polish"
 
-#: settings.py:175
+#: settings.py:195
 msgid "Portuguese"
 msgstr "Portuguese"
 
-#: settings.py:176
+#: settings.py:196
 msgid "Portuguese (Brazil)"
 msgstr ""
 
-#: settings.py:177
+#: settings.py:197
 msgid "Simplified Chinese"
 msgstr "Simplified Chinese"
 
-#: settings.py:178
+#: settings.py:198
 msgid "Traditional Chinese"
 msgstr "Traditional Chinese"
 
@@ -5669,13 +5705,13 @@ msgstr[1] ""
 #: dashboards/project/instances/workflows/create_instance.py:188
 msgid ""
 "There are no image sources available; you must first create an image before "
-"attemtping to launch an instance."
+"attempting to launch an instance."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:196
 msgid ""
 "There are no snapshot sources available; you must first create an snapshot "
-"before attemtping to launch an instance."
+"before attempting to launch an instance."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:204
@@ -8297,7 +8333,7 @@ msgid "Create Network Profile"
 msgstr ""
 
 #: dashboards/router/nexus1000v/tables.py:40
-msgid "Netork Profiles"
+msgid "Network Profiles"
 msgstr ""
 
 #: dashboards/router/nexus1000v/tables.py:46
