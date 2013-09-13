@@ -11,6 +11,12 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+try:
+    import troveclient
+    with_trove = True
+    assert troveclient
+except ImportError:
+    with_trove = False
 
 
 def load_test_data(load_onto=None):
@@ -23,7 +29,8 @@ def load_test_data(load_onto=None):
     from openstack_dashboard.test.test_data import neutron_data
     from openstack_dashboard.test.test_data import nova_data
     from openstack_dashboard.test.test_data import swift_data
-    from openstack_dashboard.test.test_data import trove_data
+    if with_trove:
+        from openstack_dashboard.test.test_data import trove_data
 
     # The order of these loaders matters, some depend on others.
     loaders = (exceptions.data,
@@ -34,8 +41,9 @@ def load_test_data(load_onto=None):
                neutron_data.data,
                swift_data.data,
                heat_data.data,
-               ceilometer_data.data,
-               trove_data.data)
+               ceilometer_data.data,)
+    if with_trove:
+        loaders += (trove_data.data,)
     if load_onto:
         for data_func in loaders:
             data_func(load_onto)

@@ -25,7 +25,11 @@ from keystoneclient import exceptions as keystoneclient
 from neutronclient.common import exceptions as neutronclient
 from novaclient import exceptions as novaclient
 from swiftclient import client as swiftclient
-from troveclient import exceptions as troveclient
+try:
+    from troveclient import exceptions as troveclient
+    with_trove = True
+except ImportError:
+    with_trove = False
 
 
 UNAUTHORIZED = (keystoneclient.Unauthorized,
@@ -38,8 +42,7 @@ UNAUTHORIZED = (keystoneclient.Unauthorized,
                 neutronclient.Unauthorized,
                 neutronclient.Forbidden,
                 heatclient.HTTPUnauthorized,
-                heatclient.HTTPForbidden,
-                troveclient.Unauthorized)
+                heatclient.HTTPForbidden,)
 
 NOT_FOUND = (keystoneclient.NotFound,
              cinderclient.NotFound,
@@ -47,8 +50,7 @@ NOT_FOUND = (keystoneclient.NotFound,
              glanceclient.NotFound,
              neutronclient.NetworkNotFoundClient,
              neutronclient.PortNotFoundClient,
-             heatclient.HTTPNotFound,
-             troveclient.NotFound)
+             heatclient.HTTPNotFound,)
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
 RECOVERABLE = (keystoneclient.ClientException,
@@ -66,5 +68,9 @@ RECOVERABLE = (keystoneclient.ClientException,
                neutronclient.AlreadyAttachedClient,
                neutronclient.StateInvalidClient,
                swiftclient.ClientException,
-               heatclient.HTTPException,
-               troveclient.ClientException)
+               heatclient.HTTPException,)
+
+if with_trove:
+    UNAUTHORIZED += (troveclient.Unauthorized,)
+    NOT_FOUND += (troveclient.NotFound,)
+    RECOVERABLE += (troveclient.ClientException,)

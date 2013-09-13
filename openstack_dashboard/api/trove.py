@@ -16,8 +16,12 @@
 
 from django.conf import settings  # noqa
 
-from troveclient import auth
-from troveclient import client
+try:
+    from troveclient import auth
+    from troveclient import client
+    with_trove = True
+except ImportError:
+    with_trove = False
 
 
 class TokenAuth(object):
@@ -39,12 +43,16 @@ class TokenAuth(object):
                 }
             }
         }
+        if not with_trove:
+            return None
         return auth.ServiceCatalog(catalog,
                                    service_type=self.service_type,
                                    service_name=self.service_name)
 
 
 def troveclient(request):
+    if not with_trove:
+        return None
     return client.Dbaas(username=request.user,
                         api_key=None,
                         auth_strategy=TokenAuth)

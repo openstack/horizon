@@ -27,6 +27,10 @@ DETAILS_URL = reverse('horizon:project:database_backups:detail', args=['id'])
 
 
 class DatabasesBackupsTests(test.TestCase):
+    def setUp(self):
+        if not api.trove.with_trove:
+            self.skipTest('Skip trove related tests.')
+        super(DatabasesBackupsTests, self).setUp()
 
     @test.create_stubs({api.trove: ('backup_list', )})
     def test_index(self):
@@ -61,7 +65,8 @@ class DatabasesBackupsTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(BACKUP_URL)
-        self.assertTemplateUsed(res, 'project/database_backups/backup.html')
+        self.assertTemplateUsed(res,
+            'project/database_backups/backup.html')
 
     @test.create_stubs({api.trove: ('instance_list',)})
     def test_launch_backup_exception(self):
@@ -72,7 +77,8 @@ class DatabasesBackupsTests(test.TestCase):
 
         res = self.client.get(BACKUP_URL)
         self.assertMessageCount(res, error=1)
-        self.assertTemplateUsed(res, 'project/database_backups/backup.html')
+        self.assertTemplateUsed(res,
+            'project/database_backups/backup.html')
 
     @test.create_stubs({api.trove: ('backup_get',)})
     def test_detail_backup(self):
@@ -83,7 +89,8 @@ class DatabasesBackupsTests(test.TestCase):
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
 
-        self.assertTemplateUsed(res, 'project/database_backups/details.html')
+        self.assertTemplateUsed(res,
+            'project/database_backups/details.html')
 
     @test.create_stubs({api.trove: ('backup_get',)})
     def test_detail_backup_notfound(self):
