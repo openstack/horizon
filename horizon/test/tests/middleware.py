@@ -15,6 +15,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import datetime
+
 from django.conf import settings  # noqa
 
 from horizon import exceptions
@@ -32,3 +34,18 @@ class MiddlewareTests(test.TestCase):
         resp.client = self.client
 
         self.assertRedirects(resp, url)
+
+    def test_redirect_session_timeout(self):
+        requested_url = '/project/instances/'
+        response_url = '%s?next=%s' % (settings.LOGOUT_URL, requested_url)
+        request = self.factory.get(requested_url)
+        try:
+            timeout = settings.SESSION_TIMEOUT
+        except AttributeError:
+            timeout = 1800
+        request.session['last_activity'] =\
+            datetime.datetime.now() - datetime.timedelta(seconds=timeout + 10)
+        mw = middleware.HorizonMiddleware()
+        resp = mw.process_request(request)
+        self.assertEqual(resp.status_code, 302)
+        self.assertEqual(resp.get('Location'), response_url)
