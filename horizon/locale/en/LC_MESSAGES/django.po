@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-11 18:57+0000\n"
+"POT-Creation-Date: 2013-09-13 09:07-0500\n"
 "PO-Revision-Date: 2013-04-29 08:33+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/"
@@ -351,6 +351,22 @@ msgstr "Invalid version for IP address"
 #: utils/fields.py:50
 msgid "Invalid subnet mask"
 msgstr "Invalid subnet mask"
+
+#: utils/validators.py:25 utils/validators.py:49
+msgid "Not a valid port number"
+msgstr ""
+
+#: utils/validators.py:30
+msgid "Not a valid ip protocol number"
+msgstr ""
+
+#: utils/validators.py:44
+msgid "One colon allowed in port range"
+msgstr ""
+
+#: utils/validators.py:51
+msgid "Port number must be integer"
+msgstr ""
 
 #: workflows/base.py:72
 msgid "Processing..."

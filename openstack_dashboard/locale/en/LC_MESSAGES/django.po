@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 07:01+0000\n"
+"POT-Creation-Date: 2013-09-13 09:07-0500\n"
 "PO-Revision-Date: 2013-04-29 08:35+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/"
@@ -482,6 +482,7 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:83
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
+#: dashboards/project/instances/workflows/update_instance.py:108
 #: dashboards/project/loadbalancers/forms.py:35
 #: dashboards/project/loadbalancers/forms.py:74
 #: dashboards/project/loadbalancers/tables.py:190
@@ -603,7 +604,7 @@ msgstr ""
 #: dashboards/admin/groups/tables.py:166 dashboards/admin/info/tables.py:47
 #: dashboards/admin/info/tables.py:168 dashboards/admin/projects/tables.py:121
 #: dashboards/admin/projects/workflows.py:108
-#: dashboards/admin/projects/workflows.py:463
+#: dashboards/admin/projects/workflows.py:469
 #: dashboards/admin/users/tables.py:49 dashboards/admin/users/tables.py:128
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:146
@@ -632,13 +633,13 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/domains/workflows.py:64
-#: dashboards/admin/projects/workflows.py:240
+#: dashboards/admin/projects/workflows.py:246
 msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 
 #: dashboards/admin/domains/workflows.py:76
 #: dashboards/admin/projects/workflows.py:157
-#: dashboards/admin/projects/workflows.py:254
+#: dashboards/admin/projects/workflows.py:260
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr ""
@@ -649,22 +650,22 @@ msgid "Domain Groups"
 msgstr ""
 
 #: dashboards/admin/domains/workflows.py:135
-#: dashboards/admin/projects/workflows.py:312
+#: dashboards/admin/projects/workflows.py:318
 msgid "All Groups"
 msgstr ""
 
 #: dashboards/admin/domains/workflows.py:137
-#: dashboards/admin/projects/workflows.py:314
+#: dashboards/admin/projects/workflows.py:320
 msgid "No groups found."
 msgstr ""
 
 #: dashboards/admin/domains/workflows.py:138
-#: dashboards/admin/projects/workflows.py:315
+#: dashboards/admin/projects/workflows.py:321
 msgid "No groups."
 msgstr ""
 
 #: dashboards/admin/domains/workflows.py:146
-#: dashboards/admin/projects/workflows.py:323
+#: dashboards/admin/projects/workflows.py:329
 msgid "Unable to retrieve role list."
 msgstr ""
 
@@ -690,8 +691,8 @@ msgstr ""
 #: dashboards/admin/flavors/workflows.py:260
 #: dashboards/admin/flavors/templates/flavors/_update.html:25
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:25
-#: dashboards/admin/projects/workflows.py:484
-#: dashboards/project/instances/workflows/update_instance.py:134
+#: dashboards/admin/projects/workflows.py:490
+#: dashboards/project/instances/workflows/update_instance.py:135
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Save"
 msgstr ""
@@ -2636,13 +2637,13 @@ msgid "View Usage"
 msgstr ""
 
 #: dashboards/admin/projects/tables.py:56
-#: dashboards/admin/projects/workflows.py:334
-#: dashboards/admin/projects/workflows.py:335
+#: dashboards/admin/projects/workflows.py:340
+#: dashboards/admin/projects/workflows.py:341
 msgid "Create Project"
 msgstr ""
 
 #: dashboards/admin/projects/tables.py:67
-#: dashboards/admin/projects/workflows.py:483
+#: dashboards/admin/projects/workflows.py:489
 msgid "Edit Project"
 msgstr ""
 
@@ -2704,7 +2705,7 @@ msgid "Domain Name"
 msgstr ""
 
 #: dashboards/admin/projects/workflows.py:123
-#: dashboards/admin/projects/workflows.py:466
+#: dashboards/admin/projects/workflows.py:472
 msgid "Project Info"
 msgstr ""
 
@@ -2716,104 +2717,104 @@ msgstr ""
 msgid "Unable to retrieve user list. Please try again later."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:209
-#: dashboards/admin/projects/workflows.py:216
+#: dashboards/admin/projects/workflows.py:215
+#: dashboards/admin/projects/workflows.py:222
 msgid "Project Members"
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:215
+#: dashboards/admin/projects/workflows.py:221
 msgid "All Users"
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:217
+#: dashboards/admin/projects/workflows.py:223
 msgid "No users found."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:218
+#: dashboards/admin/projects/workflows.py:224
 msgid "No users."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:226
+#: dashboards/admin/projects/workflows.py:232
 #: dashboards/admin/users/views.py:53
 msgid "Unable to retrieve user list."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:306
-#: dashboards/admin/projects/workflows.py:313
+#: dashboards/admin/projects/workflows.py:312
+#: dashboards/admin/projects/workflows.py:319
 #, fuzzy
 msgid "Project Groups"
 msgstr "Projects"
 
-#: dashboards/admin/projects/workflows.py:336
+#: dashboards/admin/projects/workflows.py:342
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:337
+#: dashboards/admin/projects/workflows.py:343
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:399
+#: dashboards/admin/projects/workflows.py:405
 msgid ", add project groups"
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:402
+#: dashboards/admin/projects/workflows.py:408
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:433
+#: dashboards/admin/projects/workflows.py:439
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:458
+#: dashboards/admin/projects/workflows.py:464
 msgid "Unable to set project quotas."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:468
+#: dashboards/admin/projects/workflows.py:474
 msgid "From here you can edit the project details."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:485
+#: dashboards/admin/projects/workflows.py:491
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:486
+#: dashboards/admin/projects/workflows.py:492
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:581
+#: dashboards/admin/projects/workflows.py:587
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:616
+#: dashboards/admin/projects/workflows.py:622
 msgid ", update project groups"
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:619
+#: dashboards/admin/projects/workflows.py:625
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update "
 "project quotas."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:691
+#: dashboards/admin/projects/workflows.py:697
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr ""
 
-#: dashboards/admin/projects/workflows.py:721
+#: dashboards/admin/projects/workflows.py:727
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -4083,7 +4084,7 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:6
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:7
 #: dashboards/project/instances/templates/instances/_detail_overview.html:7
-#: dashboards/project/instances/workflows/update_instance.py:120
+#: dashboards/project/instances/workflows/update_instance.py:121
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:7
@@ -4386,7 +4387,7 @@ msgstr ""
 #: dashboards/project/databases/templates/databases/update.html:3
 #: dashboards/project/databases/templates/databases/update.html:6
 #: dashboards/project/instances/tables.py:217
-#: dashboards/project/instances/workflows/update_instance.py:133
+#: dashboards/project/instances/workflows/update_instance.py:134
 msgid "Edit Instance"
 msgstr ""
 
@@ -4717,6 +4718,7 @@ msgid "Destination IP"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:142
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr ""
 
@@ -4831,7 +4833,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:198
 msgid ""
-"Create a firewall policy with an ordered listof firewall rules.\n"
+"Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the "
 "Rules tab."
@@ -4910,10 +4912,6 @@ msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:31
 msgid "Destination IP Address"
-msgstr ""
-
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
-msgid "Destination Port: "
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:37
@@ -5960,16 +5958,16 @@ msgstr ""
 msgid "No security groups enabled."
 msgstr ""
 
-#: dashboards/project/instances/workflows/update_instance.py:122
+#: dashboards/project/instances/workflows/update_instance.py:123
 msgid "From here you can edit the instance details."
 msgstr ""
 
-#: dashboards/project/instances/workflows/update_instance.py:135
+#: dashboards/project/instances/workflows/update_instance.py:136
 #, python-format
 msgid "Modified instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/workflows/update_instance.py:136
+#: dashboards/project/instances/workflows/update_instance.py:137
 #, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr ""
@@ -7952,18 +7950,38 @@ msgid "Unable to retrieve IPSec Site Connection details."
 msgstr ""
 
 #: dashboards/project/vpn/views.py:55
+#, python-format
+msgid "Deleted VPN Service %s"
+msgstr ""
+
+#: dashboards/project/vpn/views.py:58
 msgid "Unable to delete VPN Service."
 msgstr ""
 
-#: dashboards/project/vpn/views.py:62
+#: dashboards/project/vpn/views.py:64
+#, python-format
+msgid "Deleted IKE Policy %s"
+msgstr ""
+
+#: dashboards/project/vpn/views.py:67
 msgid "Unable to delete IKE Policy."
 msgstr ""
 
-#: dashboards/project/vpn/views.py:69
-msgid "Unable to delete IPSec Policy."
+#: dashboards/project/vpn/views.py:73
+#, python-format
+msgid "Deleted IPSec Policy %s"
 msgstr ""
 
 #: dashboards/project/vpn/views.py:76
+msgid "Unable to delete IPSec Policy."
+msgstr ""
+
+#: dashboards/project/vpn/views.py:82
+#, python-format
+msgid "Deleted IPSec Site Connection %s"
+msgstr ""
+
+#: dashboards/project/vpn/views.py:86
 msgid "Unable to delete IPSec Site Connection."
 msgstr ""
 
