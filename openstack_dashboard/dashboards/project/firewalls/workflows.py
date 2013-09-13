@@ -195,7 +195,7 @@ class AddPolicyAction(workflows.Action):
     class Meta:
         name = _("AddPolicy")
         permissions = ('openstack.services.network',)
-        help_text = _("Create a firewall policy with an ordered list"
+        help_text = _("Create a firewall policy with an ordered list "
                       "of firewall rules.\n\n"
                       "A name must be given. Firewall rules are "
                       "added in the order placed under the Rules tab.")
