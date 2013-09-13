@@ -19,6 +19,7 @@ import pytz
 
 from django.conf import settings  # noqa
 from django import shortcuts
+from django.utils import encoding
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -80,6 +81,8 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
         request.session['horizon_pagesize'] = data['pagesize']
 
-        messages.success(request, _("Settings saved."))
+        with translation.override(lang_code):
+            messages.success(request,
+                             encoding.force_unicode(_("Settings saved.")))
 
         return response
