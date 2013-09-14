@@ -250,7 +250,7 @@ def data(TEST):
     TEST.tenant = tenant  # Your "current" tenant
 
     tomorrow = datetime_safe.datetime.now() + timedelta(days=1)
-    expiration = datetime_safe.datetime.isoformat(tomorrow)
+    expiration = tomorrow.isoformat()
 
     scoped_token_dict = {
         'access': {
