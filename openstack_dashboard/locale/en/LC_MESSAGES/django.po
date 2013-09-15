@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 09:07-0500\n"
+"POT-Creation-Date: 2013-09-14 11:10-0500\n"
 "PO-Revision-Date: 2013-04-29 08:35+0000\n"
 "Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/openstack/"
@@ -6218,7 +6218,6 @@ msgid "Pool Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:99
-#: dashboards/project/loadbalancers/views.py:170
 msgid "Unable to retrieve pool details."
 msgstr ""
 
@@ -6235,7 +6234,6 @@ msgid "Member Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:131
-#: dashboards/project/loadbalancers/views.py:241
 msgid "Unable to retrieve member details."
 msgstr ""
 
@@ -6247,41 +6245,80 @@ msgstr ""
 msgid "Unable to retrieve monitor details."
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:56
-msgid "Unable to delete monitor."
+#: dashboards/project/loadbalancers/views.py:55
+#, python-format
+msgid "Deleted monitor %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/views.py:58
+#, python-format
+msgid "Unable to delete monitor. %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/views.py:63
-msgid "Must delete VIP first."
+#, python-format
+msgid "Deleted pool %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:70
-msgid "Unable to delete member."
+#: dashboards/project/loadbalancers/views.py:66
+#, python-format
+msgid "Unable to delete pool. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:77
-msgid "Unable to locate VIP to delete."
+#: dashboards/project/loadbalancers/views.py:71
+#, python-format
+msgid "Deleted member %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:83
-msgid "Unable to delete VIP."
+#: dashboards/project/loadbalancers/views.py:74
+#, python-format
+msgid "Unable to delete member. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:111
-msgid "Unable to retrieve pool subnet."
+#: dashboards/project/loadbalancers/views.py:81
+#, python-format
+msgid "Unable to locate VIP to delete. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:201
-msgid "Unable to retrieve vip details."
+#: dashboards/project/loadbalancers/views.py:86
+#, python-format
+msgid "Deleted VIP %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:272
-msgid "Unable to retrieve health monitor details."
+#: dashboards/project/loadbalancers/views.py:89
+#, python-format
+msgid "Unable to delete VIP. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:296
-#: dashboards/project/loadbalancers/views.py:312
-msgid "Unable to retrieve pool."
+#: dashboards/project/loadbalancers/views.py:117
+#, python-format
+msgid "Unable to retrieve pool subnet. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/views.py:176
+#, python-format
+msgid "Unable to retrieve pool details. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/views.py:207
+#, python-format
+msgid "Unable to retrieve VIP details. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/views.py:247
+#, python-format
+msgid "Unable to retrieve member details. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/views.py:278
+#, python-format
+msgid "Unable to retrieve health monitor details. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/views.py:302
+#: dashboards/project/loadbalancers/views.py:318
+#, python-format
+msgid "Unable to retrieve pool. %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:49
