@@ -41,15 +41,18 @@ def get_available_images(request, project_id=None, images_cache=None):
         try:
             owned_images, _more = glance.image_list_detailed(
                 request, filters=owner)
+            images_by_project[project_id] = owned_images
         except Exception:
+            owned_images = []
             exceptions.handle(request,
                               _("Unable to retrieve images for "
                                 "the current project."))
-        images_by_project[project_id] = owned_images
+    else:
+        owned_images = images_by_project[project_id]
+
     if 'images_by_project' not in images_cache:
         images_cache['images_by_project'] = images_by_project
 
-    owned_images = images_by_project[project_id]
     images = owned_images + public_images
 
     # Remove duplicate images
