@@ -749,6 +749,10 @@ msgstr ""
 msgid "View Extra Specs"
 msgstr ""
 
+#: dashboards/admin/flavors/tables.py:67
+msgid "Modify Access"
+msgstr ""
+
 #: dashboards/admin/flavors/tables.py:90 dashboards/admin/flavors/tables.py:94
 #, python-format
 msgid "%sMB"
@@ -784,35 +788,7 @@ msgstr ""
 msgid "Swap Disk"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:111
-#: dashboards/project/images_and_snapshots/images/forms.py:95
-#: dashboards/project/images_and_snapshots/images/forms.py:176
-#: dashboards/project/images_and_snapshots/images/tables.py:135
-#: dashboards/project/images_and_snapshots/images/tables.py:212
-#: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
-msgid "Public"
-msgstr ""
-
-#: dashboards/admin/flavors/views.py:55
-msgid "Unable to retrieve flavor list."
-msgstr ""
-
-#: dashboards/admin/flavors/views.py:78
-#: dashboards/admin/flavors/extras/views.py:48
-msgid "Unable to retrieve flavor data."
-msgstr ""
-
-#: dashboards/admin/flavors/workflows.py:34
-msgid ""
-"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
-"to set a random UUID4."
-msgstr ""
-
-#: dashboards/admin/flavors/workflows.py:40
-msgid ""
-"Name may only contain letters, numbers, underscores, periods and hyphens."
-msgstr ""
-
+#: dashboards/admin/flavors/tables.py:109
 #: dashboards/admin/flavors/workflows.py:43
 #: dashboards/admin/networks/forms.py:102
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
@@ -847,6 +823,35 @@ msgstr ""
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:13
 #: dashboards/router/nexus1000v/forms.py:120
 msgid "ID"
+msgstr ""
+
+#: dashboards/admin/flavors/tables.py:111
+#: dashboards/project/images_and_snapshots/images/forms.py:95
+#: dashboards/project/images_and_snapshots/images/forms.py:176
+#: dashboards/project/images_and_snapshots/images/tables.py:135
+#: dashboards/project/images_and_snapshots/images/tables.py:212
+#: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
+msgid "Public"
+msgstr ""
+
+#: dashboards/admin/flavors/views.py:55
+msgid "Unable to retrieve flavor list."
+msgstr ""
+
+#: dashboards/admin/flavors/views.py:78
+#: dashboards/admin/flavors/extras/views.py:48
+msgid "Unable to retrieve flavor data."
+msgstr ""
+
+#: dashboards/admin/flavors/workflows.py:34
+msgid ""
+"Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
+"to set a random UUID4."
+msgstr ""
+
+#: dashboards/admin/flavors/workflows.py:40
+msgid ""
+"Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr ""
 
 #: dashboards/admin/flavors/workflows.py:49
@@ -2645,6 +2650,10 @@ msgstr ""
 #: dashboards/admin/projects/tables.py:67
 #: dashboards/admin/projects/workflows.py:489
 msgid "Edit Project"
+msgstr ""
+
+#: dashboards/admin/projects/tables.py:78
+msgid "Modify Quotas"
 msgstr ""
 
 #: dashboards/admin/projects/tables.py:120
@@ -8498,23 +8507,23 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:30
+#: dashboards/settings/user/forms.py:31
 msgid "Language"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:31
+#: dashboards/settings/user/forms.py:32
 msgid "Timezone"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:32
+#: dashboards/settings/user/forms.py:33
 msgid "Items Per Page"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:37
+#: dashboards/settings/user/forms.py:38
 msgid "Number of items to show per page"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:83
+#: dashboards/settings/user/forms.py:86
 msgid "Settings saved."
 msgstr ""
 
