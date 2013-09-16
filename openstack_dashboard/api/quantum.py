@@ -122,10 +122,15 @@ class FloatingIpManager(network.FloatingIpManager):
                 in self.client.list_networks(**search_opts).get('networks')]
 
     def list(self):
-        fips = self.client.list_floatingips().get('floatingips')
+        tenant_id = self.request.user.tenant_id
+        # In Neutron, list_floatingips returns Floating IPs from all tenants
+        # when the API is called with admin role, so we need to filter them
+        # with tenant_id.
+        fips = self.client.list_floatingips(tenant_id=tenant_id)
+        fips = fips.get('floatingips')
         # Get port list to add instance_id to floating IP list
         # instance_id is stored in device_id attribute
-        ports = port_list(self.request)
+        ports = port_list(self.request, tenant_id=tenant_id)
         device_id_dict = SortedDict([(p['id'], p['device_id']) for p in ports])
         for fip in fips:
             if fip['port_id']:
@@ -167,7 +172,8 @@ class FloatingIpManager(network.FloatingIpManager):
                                       {'floatingip': update_dict})
 
     def list_targets(self):
-        ports = port_list(self.request)
+        tenant_id = self.request.user.tenant_id
+        ports = port_list(self.request, tenant_id=tenant_id)
         servers = nova.server_list(self.request)
         server_dict = SortedDict([(s.id, s.name) for s in servers])
         targets = []
