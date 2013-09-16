@@ -158,7 +158,7 @@ class ComputeApiTests(test.APITestCase):
                                                  all_tenants=True)
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
-        self.assertEquals(page_size, len(ret_val))
+        self.assertEqual(page_size, len(ret_val))
         self.assertTrue(has_more)
 
     def test_usage_get(self):
@@ -215,4 +215,4 @@ class ComputeApiTests(test.APITestCase):
         expected_results = {"maxTotalCores": float("inf"),
                             "maxTotalInstances": 10}
         for key in expected_results.keys():
-            self.assertEquals(ret_val[key], expected_results[key])
+            self.assertEqual(ret_val[key], expected_results[key])

@@ -506,10 +506,10 @@ class InstanceTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
-        self.assertEquals(res.context['instance'].volumes[0].device,
-                          "/dev/hda")
-        self.assertEquals(res.context['instance'].volumes[1].device,
-                          "/dev/hdk")
+        self.assertEqual(res.context['instance'].volumes[0].device,
+                         "/dev/hda")
+        self.assertEqual(res.context['instance'].volumes[1].device,
+                         "/dev/hdk")
 
     @test.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
