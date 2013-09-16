@@ -27,6 +27,12 @@ from horizon import forms
 from horizon import messages
 
 
+def _one_year():
+    now = datetime.utcnow()
+    return datetime(now.year + 1, now.month, now.day, now.hour,
+                    now.minute, now.second, now.microsecond, now.tzinfo)
+
+
 class UserSettingsForm(forms.SelfHandlingForm):
     language = forms.ChoiceField(label=_("Language"))
     timezone = forms.ChoiceField(label=_("Timezone"))
@@ -72,14 +78,18 @@ class UserSettingsForm(forms.SelfHandlingForm):
         if lang_code and translation.check_for_language(lang_code):
             if hasattr(request, 'session'):
                 request.session['django_language'] = lang_code
-            else:
-                response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code,
+                                expires=_one_year())
 
         # Timezone
         request.session['django_timezone'] = pytz.timezone(
             data['timezone']).zone
+        response.set_cookie('django_timezone', data['timezone'],
+                            expires=_one_year())
 
         request.session['horizon_pagesize'] = data['pagesize']
+        response.set_cookie('horizon_pagesize', data['pagesize'],
+                            expires=_one_year())
 
         with translation.override(lang_code):
             messages.success(request,
