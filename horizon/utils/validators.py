@@ -27,7 +27,7 @@ def validate_port_range(port):
 
 def validate_ip_protocol(ip_proto):
     if ip_proto not in range(-1, 256):
-        raise ValidationError(_("Not a valid ip protocol number"))
+        raise ValidationError(_("Not a valid IP protocol number"))
 
 
 def password_validator():
