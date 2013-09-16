@@ -349,8 +349,11 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
     def test_floating_ip_list(self):
         fips = self.api_q_floating_ips.list()
-        self.qclient.list_floatingips().AndReturn({'floatingips': fips})
-        self.qclient.list_ports().AndReturn({'ports': self.api_ports.list()})
+        filters = {'tenant_id': self.request.user.tenant_id}
+        self.qclient.list_floatingips(**filters) \
+            .AndReturn({'floatingips': fips})
+        self.qclient.list_ports(**filters) \
+            .AndReturn({'ports': self.api_ports.list()})
         self.mox.ReplayAll()
 
         rets = api.network.tenant_floating_ip_list(self.request)
@@ -449,8 +452,8 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         target_ports = [(self._get_target_id(p),
                          self._get_target_name(p)) for p in ports
                         if not p['device_owner'].startswith('network:')]
-
-        self.qclient.list_ports().AndReturn({'ports': ports})
+        filters = {'tenant_id': self.request.user.tenant_id}
+        self.qclient.list_ports(**filters).AndReturn({'ports': ports})
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
