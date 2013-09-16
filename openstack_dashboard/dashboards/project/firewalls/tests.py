@@ -264,6 +264,21 @@ class FirewallTests(test.TestCase):
                      'shared': policy.shared,
                      'audited': policy.audited
                      }
+        post_data = {'name': policy.name,
+                     'description': policy.description,
+                     'rule': policy.firewall_rules,
+                     'shared': policy.shared,
+                     'audited': policy.audited
+                     }
+
+        # NOTE: SelectRulesAction.populate_rule_choices() lists rule not
+        # associated with any policy. We need to ensure that rules specified
+        # in policy.firewall_rules in post_data (above) are not associated
+        # with any policy. Test data in neutron_data is data in a stable state,
+        # so we need to modify here.
+        for rule in rules:
+            if rule.id in policy.firewall_rules:
+                rule.firewall_policy_id = rule.policy = None
         api.fwaas.rules_list(
             IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(rules)
         api.fwaas.policy_create(
@@ -271,7 +286,7 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse(self.ADDPOLICY_PATH), form_data)
+        res = self.client.post(reverse(self.ADDPOLICY_PATH), post_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))

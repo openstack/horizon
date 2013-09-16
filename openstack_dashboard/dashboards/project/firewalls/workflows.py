@@ -170,7 +170,7 @@ class SelectRulesStep(workflows.Step):
 
     def contribute(self, data, context):
         if data:
-            rules = self.workflow.request.POST.getlist("firewall_rules")
+            rules = self.workflow.request.POST.getlist("rule")
             if rules:
                 rules = [r for r in rules if r != '']
                 context['firewall_rules'] = rules
