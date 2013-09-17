@@ -40,7 +40,7 @@ class ExtraSpecMixin(object):
                                                     self.kwargs['id'])
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve flavor data."))
+                              _("Unable to retrieve flavor details."))
         return context
 
 
@@ -85,7 +85,8 @@ class EditView(ExtraSpecMixin, forms.ModalFormView):
         except Exception:
             extra_specs = {}
             exceptions.handle(self.request,
-                              _("Unable to retrieve flavor extra spec data."))
+                              _('Unable to retrieve flavor extra spec '
+                                'details.'))
         return {'flavor_id': flavor_id,
                 'key': key,
                 'value': extra_specs.get(key, '')}
