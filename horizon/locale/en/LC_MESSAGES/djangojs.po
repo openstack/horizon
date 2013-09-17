@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-11 18:58+0000\n"
+"POT-Creation-Date: 2013-09-15 18:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,12 +55,14 @@ msgstr ""
 msgid "An error occurred while updating."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:143
-msgid "You have selected "
+#: static/horizon/js/horizon.tables.js:154
+#, c-format
+msgid "You have selected %s. "
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:156
-msgid "Confirm "
+#, c-format
+msgid "Confirm %s"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:157
