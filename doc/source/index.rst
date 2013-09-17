@@ -72,6 +72,7 @@ the following topic guides.
 .. toctree::
    :maxdepth: 1
 
+   topics/workflows
    topics/tables
    topics/policy
    topics/testing

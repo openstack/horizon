@@ -154,3 +154,95 @@ displayed solely based on the result of
 
 For more information on policy based Role Based Access Control see:
 :doc:`Horizon Policy Enforcement (RBAC: Role Based Access Control) </topics/policy>`.
+
+Table Cell filters (decorators)
+===============================
+
+DataTable displays lists of objects in rows and object attributes in cell.
+How should we proceed, if we want to decorate some column, e.g. if we have
+column ``memory`` which returns a number e.g. 1024, and we want to show
+something like 1024.00 GB inside table?
+
+Decorator pattern
+-----------------
+
+The clear anti-pattern is defining the new attributes on object like
+``ram_float_format_2_gb`` or to tweak a DataTable in any way for displaying
+purposes.
+
+The cleanest way is to use ``filters``. Filters are decorators, following GOF
+``Decorator pattern``. This way ``DataTable logic`` and ``displayed object
+logic`` are correctly separated from ``presentation logic`` of the object
+inside of the various tables. And therefore the filters are reusable in all
+tables.
+
+Filter function
+---------------
+
+Horizon DatablesTable takes a tuple of pointers to filter functions
+or anonymous lambda functions. When displaying a ``Cell``, ``DataTable``
+takes ``Column`` filter functions from left to right, using the returned value
+of the previous function as a parameter of the following function. Then
+displaying the returned value of the last filter function.
+
+A valid filter function takes one parameter and returns the decorated value.
+So e.g. these are valid filter functions ::
+
+    # Filter function.
+    def add_unit(v):
+      return str(v) + " GB"
+
+    # Or filter lambda function.
+    lambda v: str(v) + " GB"
+
+    # This is also a valid definition of course, although for the change of the
+    # unit parameter, function has to be wrapped by lambda
+    # (e.g. floatformat function example below).
+    def add_unit(v, unit="GB"):
+      return str(v) + " " + unit
+
+Using filters in DataTable column
+---------------------------------
+
+DataTable takes tuple of filter functions, so e.g. this is valid decorating
+of a value with float format and with unit ::
+
+    ram = tables.Column(
+        "ram",
+        verbose_name=_('Memory'),
+        filters=(lambda v: floatformat(v, 2),
+                 add_unit))
+
+It always takes tuple, so using only one filter would look like this ::
+
+    filters=(lambda v: floatformat(v, 2),)
+
+The decorated parameter doesn't have to be only a string or number, it can
+be anything e.g. list or an object. So decorating of object, that has
+attributes value and unit would look like this ::
+
+    ram = tables.Column(
+            "ram",
+            verbose_name=_('Memory'),
+            filters=(lambda x: getattr(x, 'value', '') +
+                     " " + getattr(x, 'unit', ''),))
+
+Available filters
+-----------------
+
+There are a load of filters, that can be used, defined in django already:
+https://github.com/django/django/blob/master/django/template/defaultfilters.py
+
+So it's enough to just import and use them, e.g. ::
+
+    from django.template import defaultfilters as filters
+
+    # code omitted
+    filters=(filters.yesno, filters.capfirst)
+
+
+    from django.template.defaultfilters import timesince
+    from django.template.defaultfilters import title
+
+    # code omitted
+    filters=(parse_isotime, timesince)
