@@ -37,7 +37,7 @@ horizon.membership = {
    * default role id.
    **/
   init_properties: function(step_slug) {
-    horizon.membership.has_roles[step_slug] = $("." + step_slug + "_membership").data('show-roles') !== "no";
+    horizon.membership.has_roles[step_slug] = $("." + step_slug + "_membership").data('show-roles') !== "False";
     horizon.membership.default_role_id[step_slug] = $('#id_default_' + step_slug + '_role').attr('value');
     horizon.membership.init_data_list(step_slug);
     horizon.membership.init_role_list(step_slug);
