@@ -1,4 +1,5 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls.defaults import patterns  # noqa
+from django.conf.urls.defaults import url  # noqa
 
 from .views import IndexView
 
