@@ -21,7 +21,7 @@
 
 from django.template.defaultfilters import capfirst  # noqa
 from django.template.defaultfilters import floatformat  # noqa
-from django.utils.translation import ugettext as _  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 from django.views.generic import TemplateView  # noqa
 
 from openstack_dashboard import usage

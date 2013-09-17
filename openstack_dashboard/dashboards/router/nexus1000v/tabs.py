@@ -15,7 +15,7 @@
 # @author: Abishek Subramanian, Cisco Systems, Inc.
 # @author: Sergey Sudakovich,   Cisco Systems, Inc.
 
-from django.utils.translation import ugettext as _  # noqa
+from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tabs
 
