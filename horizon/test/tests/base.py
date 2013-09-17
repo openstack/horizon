@@ -236,9 +236,9 @@ class HorizonTests(BaseHorizonTests):
         # Simulate ajax call
         resp = self.client.get(url, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         # Response should be HTTP 401 with redirect header
-        self.assertEquals(resp.status_code, 401)
-        self.assertEquals(resp["X-Horizon-Location"],
-                          redirect_url)
+        self.assertEqual(resp.status_code, 401)
+        self.assertEqual(resp["X-Horizon-Location"],
+                         redirect_url)
 
     def test_required_permissions(self):
         dash = horizon.get_dashboard("cats")
