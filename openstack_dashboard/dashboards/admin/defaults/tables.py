@@ -44,7 +44,23 @@ class UpdateDefaultQuotas(tables.LinkAction):
 
 
 def get_quota_name(quota):
-    QUOTA_NAMES = {'cores': _('VCPUs'), 'floating_ips': _('Floating IPs')}
+    QUOTA_NAMES = {
+        'injected_file_content_bytes': _('Injected File Content Bytes'),
+        'injected_file_path_bytes': _('Injected File Content Bytes'),
+        'metadata_items': _('Metadata Items'),
+        'cores': _('VCPUs'),
+        'instances': _('Instances'),
+        'injected_files': _('Injected Files'),
+        'volumes': _('Volumes'),
+        'snapshots': _('Snapshots'),
+        'gigabytes': _('Gigabytes'),
+        'ram': _('RAM (MB)'),
+        'floating_ips': _('Floating IPs'),
+        'security_groups': _('Security Groups'),
+        'security_group_rules': _('Security Group Rules'),
+        'key_pairs': _('Key Pairs'),
+        'fixed_ips': _('Fixed IPs'),
+    }
     return QUOTA_NAMES.get(quota.name, quota.name.replace("_", " ").title())
 
 
