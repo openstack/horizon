@@ -244,7 +244,8 @@ class AttachedInstanceColumn(tables.Column):
 class AttachmentsTable(tables.DataTable):
     instance = AttachedInstanceColumn(get_attachment_name,
                                       verbose_name=_("Instance"))
-    device = tables.Column("device")
+    device = tables.Column("device",
+                           verbose_name=_("Device"))
 
     def get_object_id(self, obj):
         return obj['id']
@@ -263,5 +264,6 @@ class AttachmentsTable(tables.DataTable):
 
     class Meta:
         name = "attachments"
+        verbose_name = _("Attachments")
         table_actions = (DetachVolume,)
         row_actions = (DetachVolume,)
