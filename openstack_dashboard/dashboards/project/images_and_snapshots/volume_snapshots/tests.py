@@ -32,12 +32,15 @@ INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 
 
 class VolumeSnapshotsViewTests(test.TestCase):
-    @test.create_stubs({quotas: ('tenant_quota_usages',)})
+    @test.create_stubs({quotas: ('tenant_limit_usages',)})
     def test_create_snapshot_get(self):
         volume = self.volumes.first()
-        usage = {'gigabytes': {'available': 250},
-                 'snapshots': {'available': 6}}
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).AndReturn(usage)
+        usage_limit = {'maxTotalVolumeGigabytes': 250,
+                       'gigabytesUsed': 20,
+                       'volumesUsed': len(self.volumes.list()),
+                       'maxTotalVolumes': 6}
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+                                AndReturn(usage_limit)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:volumes:create_snapshot',

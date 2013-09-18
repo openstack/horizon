@@ -2,6 +2,8 @@ from collections import defaultdict  # noqa
 import itertools
 import logging
 
+from django.utils.translation import ugettext_lazy as _  # noqa
+
 from horizon import exceptions
 from horizon.utils.memoized import memoized  # noqa
 
@@ -205,3 +207,27 @@ def tenant_quota_usages(request):
         usages.tally('ram', 0)
 
     return usages
+
+
+def tenant_limit_usages(request):
+    limits = {}
+
+    try:
+        limits.update(nova.tenant_absolute_limits(request))
+    except Exception:
+        msg = _("Unable to retrieve compute limit information.")
+        exceptions.handle(request, msg)
+
+    if base.is_service_enabled(request, 'volume'):
+        try:
+            limits.update(cinder.tenant_absolute_limits(request))
+            volumes = cinder.volume_list(request)
+            total_size = sum([getattr(volume, 'size', 0) for volume
+                              in volumes])
+            limits['gigabytesUsed'] = total_size
+            limits['volumesUsed'] = len(volumes)
+        except Exception:
+            msg = _("Unable to retrieve volume limit information.")
+            exceptions.handle(request, msg)
+
+    return limits
