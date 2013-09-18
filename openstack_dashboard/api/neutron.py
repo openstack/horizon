@@ -722,6 +722,11 @@ def agent_list(request):
     return [Agent(a) for a in agents['agents']]
 
 
+def provider_list(request):
+    providers = neutronclient(request).list_service_providers()
+    return providers['service_providers']
+
+
 @memoized
 def list_extensions(request):
     extensions_list = neutronclient(request).list_extensions()

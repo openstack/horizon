@@ -16,6 +16,7 @@
 
 
 from django.core.urlresolvers import reverse  # noqa
+from django.template import defaultfilters as filters
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -190,6 +191,8 @@ class PoolsTable(tables.DataTable):
                        verbose_name=_("Name"),
                        link="horizon:project:loadbalancers:pooldetails")
     description = tables.Column('description', verbose_name=_("Description"))
+    provider = tables.Column('provider', verbose_name=_("Provider"),
+                             filters=(lambda v: filters.default(v, _('N/A')),))
     subnet_name = tables.Column('subnet_name', verbose_name=_("Subnet"))
     protocol = tables.Column('protocol', verbose_name=_("Protocol"))
     vip_name = tables.Column('vip_name', verbose_name=_("VIP"),

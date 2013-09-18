@@ -32,6 +32,8 @@ class Pool(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer pool"""
 
     def __init__(self, apiresource):
+        if 'provider' not in apiresource:
+            apiresource['provider'] = None
         super(Pool, self).__init__(apiresource)
 
     class AttributeDict(dict):
@@ -46,7 +48,8 @@ class Pool(neutron.NeutronAPIDictWrapper):
                       'name': self.name,
                       'description': self.description,
                       'protocol': self.protocol,
-                      'health_monitors': self.health_monitors}
+                      'health_monitors': self.health_monitors,
+                      'provider': self.provider}
         try:
             pFormatted['subnet_id'] = self.subnet_id
             pFormatted['subnet_name'] = neutron.subnet_get(
@@ -173,7 +176,8 @@ def pool_create(request, **kwargs):
                      'subnet_id': kwargs['subnet_id'],
                      'protocol': kwargs['protocol'],
                      'lb_method': kwargs['lb_method'],
-                     'admin_state_up': kwargs['admin_state_up']
+                     'admin_state_up': kwargs['admin_state_up'],
+                     'provider': kwargs['provider'],
                      }}
     pool = neutronclient(request).create_pool(body).get('pool')
     return Pool(pool)

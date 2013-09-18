@@ -180,7 +180,9 @@ class LoadBalancerTests(test.TestCase):
                                 'horizon/common/_detail_table.html')
         self.assertEqual(len(res.context['monitorstable_table'].data), 0)
 
-    @test.create_stubs({api.neutron: ('network_list_for_tenant',),
+    @test.create_stubs({api.neutron: ('network_list_for_tenant',
+                                      'provider_list',
+                                      'is_extension_supported'),
                         api.lbaas: ('pool_create', )})
     def test_add_pool_post(self):
         pool = self.pools.first()
@@ -188,8 +190,12 @@ class LoadBalancerTests(test.TestCase):
         subnet = self.subnets.first()
         networks = [{'subnets': [subnet, ]}, ]
 
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'service-type').AndReturn(True)
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
+        api.neutron.provider_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.providers.list())
 
         api.lbaas.pool_create(
             IsA(http.HttpRequest),
@@ -198,7 +204,8 @@ class LoadBalancerTests(test.TestCase):
             subnet_id=pool.subnet_id,
             protocol=pool.protocol,
             lb_method=pool.lb_method,
-            admin_state_up=pool.admin_state_up).AndReturn(lbaas.Pool(pool))
+            admin_state_up=pool.admin_state_up,
+            provider=pool.provider).AndReturn(pool)
 
         self.mox.ReplayAll()
 
@@ -214,14 +221,40 @@ class LoadBalancerTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
-    @test.create_stubs({api.neutron: ('network_list_for_tenant',)})
+    @test.create_stubs({api.neutron: ('network_list_for_tenant',
+                                      'provider_list',
+                                      'is_extension_supported')})
     def test_add_pool_get(self):
+        self._test_add_pool_get(with_service_type=True)
+
+    @test.create_stubs({api.neutron: ('network_list_for_tenant',
+                                      'provider_list',
+                                      'is_extension_supported')})
+    def test_add_pool_get_provider_list_exception(self):
+        self._test_add_pool_get(with_service_type=True)
+
+    @test.create_stubs({api.neutron: ('network_list_for_tenant',
+                                      'is_extension_supported')})
+    def test_add_pool_get_without_service_type_support(self):
+        self._test_add_pool_get(with_service_type=False)
+
+    def _test_add_pool_get(self, with_service_type=True,
+                           with_provider_exception=False):
         subnet = self.subnets.first()
+        default_provider = self.providers.first()['name']
 
         networks = [{'subnets': [subnet, ]}, ]
 
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'service-type').AndReturn(with_service_type)
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
+        if with_service_type:
+            prov_list = api.neutron.provider_list(IsA(http.HttpRequest))
+            if with_provider_exception:
+                prov_list.AndRaise(self.exceptions.neutron)
+            else:
+                prov_list.AndReturn(self.providers.list())
 
         self.mox.ReplayAll()
 
@@ -233,6 +266,16 @@ class LoadBalancerTests(test.TestCase):
 
         expected_objs = ['<AddPoolStep: addpoolaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
+
+        if not with_service_type:
+            self.assertNotContains(res, default_provider)
+            self.assertContains(res, ('Provider for Load Balancer '
+                                      'is not supported.'))
+        elif with_provider_exception:
+            self.assertNotContains(res, default_provider)
+            self.assertContains(res, 'No provider is available.')
+        else:
+            self.assertContains(res, default_provider)
 
     @test.create_stubs({api.lbaas: ('pool_get', 'vip_create'),
                         api.neutron: ('subnet_get', )})
@@ -263,7 +306,7 @@ class LoadBalancerTests(test.TestCase):
             session_persistence=vip.session_persistence['type'],
             cookie_name=vip.session_persistence['cookie_name'],
             connection_limit=vip.connection_limit,
-            admin_state_up=vip.admin_state_up).AndReturn(lbaas.Vip(vip))
+            admin_state_up=vip.admin_state_up).AndReturn(vip)
 
         self.mox.ReplayAll()
 
