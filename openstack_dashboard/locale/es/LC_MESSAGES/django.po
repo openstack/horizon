@@ -2279,7 +2279,7 @@ msgstr "Descargar el par de claves \"%(keypair_name)s\""
 msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
 "group. A security group rule consists of three main parts:"
-msgstr "Las reglas definen el tráfico permitido a las instancias asociadas al grupo de seguridad. Una regla de un  grupo de seguridad contiene tres pastes principales:"
+msgstr "Las reglas definen el tráfico permitido a las instancias asociadas al grupo de seguridad. Una regla de un  grupo de seguridad contiene tres partes principales:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:19
 #: dashboards/project/loadbalancers/tables.py:115
