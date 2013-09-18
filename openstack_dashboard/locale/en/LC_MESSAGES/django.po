@@ -1,27 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Translators:
-# Translators:
-# Gabriel Hurley <gabriel@strikeawe.com>, 2012
-# johnpostlethwait <john.postlethwait@gmail.com>, 2012
-# johnpostlethwait <john.postlethwait@gmail.com>, 2012
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-14 11:10-0500\n"
-"PO-Revision-Date: 2013-04-29 08:35+0000\n"
-"Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/"
-"language/en/)\n"
-"Language: en\n"
+"POT-Creation-Date: 2013-09-17 05:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: settings.py:93
 msgid "AKI - Amazon Kernel Image"
@@ -69,23 +63,23 @@ msgstr ""
 
 #: settings.py:187
 msgid "English"
-msgstr "English"
+msgstr ""
 
 #: settings.py:188
 msgid "Spanish"
-msgstr "Spanish"
+msgstr ""
 
 #: settings.py:189
 msgid "French"
-msgstr "French"
+msgstr ""
 
 #: settings.py:190
 msgid "Italiano"
-msgstr "Italiano"
+msgstr ""
 
 #: settings.py:191
 msgid "Japanese"
-msgstr "Japanese"
+msgstr ""
 
 #: settings.py:192
 msgid "Korean (Korea)"
@@ -97,11 +91,11 @@ msgstr ""
 
 #: settings.py:194
 msgid "Polish"
-msgstr "Polish"
+msgstr ""
 
 #: settings.py:195
 msgid "Portuguese"
-msgstr "Portuguese"
+msgstr ""
 
 #: settings.py:196
 msgid "Portuguese (Brazil)"
@@ -109,11 +103,11 @@ msgstr ""
 
 #: settings.py:197
 msgid "Simplified Chinese"
-msgstr "Simplified Chinese"
+msgstr ""
 
 #: settings.py:198
 msgid "Traditional Chinese"
-msgstr "Traditional Chinese"
+msgstr ""
 
 #: api/cinder.py:90
 msgid "Unknown instance"
@@ -912,9 +906,8 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/flavors/workflows.py:157
-#, fuzzy
 msgid "All Projects"
-msgstr "Projects"
+msgstr ""
 
 #: dashboards/admin/flavors/workflows.py:158
 msgid "Selected projects"
@@ -2635,7 +2628,7 @@ msgstr ""
 #: dashboards/admin/projects/templates/projects/index.html:6
 #: templates/403.html:25 templates/404.html:24
 msgid "Projects"
-msgstr "Projects"
+msgstr ""
 
 #: dashboards/admin/projects/tables.py:48
 msgid "View Usage"
@@ -2750,9 +2743,8 @@ msgstr ""
 
 #: dashboards/admin/projects/workflows.py:312
 #: dashboards/admin/projects/workflows.py:319
-#, fuzzy
 msgid "Project Groups"
-msgstr "Projects"
+msgstr ""
 
 #: dashboards/admin/projects/workflows.py:342
 #, python-format
@@ -4057,9 +4049,8 @@ msgid "Database"
 msgstr ""
 
 #: dashboards/project/database_backups/views.py:52
-#, fuzzy
 msgid "Not Found"
-msgstr "Page Not Found"
+msgstr ""
 
 #: dashboards/project/database_backups/views.py:64
 msgid "Error getting database backup list."
@@ -4375,7 +4366,7 @@ msgstr ""
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:16
 msgid ""
 "Allow the user to connect from this host\n"
-"    only. If not provided this use will be allowed to connect from "
+"    only. If not provided this user will be allowed to connect from "
 "anywhere.\n"
 "    "
 msgstr ""
@@ -4595,9 +4586,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:62
 #: dashboards/project/firewalls/tables.py:179
 #: dashboards/project/firewalls/workflows.py:243
-#, fuzzy
 msgid "Policy"
-msgstr "Polish"
+msgstr ""
 
 #: dashboards/project/firewalls/forms.py:149
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:28
@@ -4687,9 +4677,8 @@ msgstr ""
 
 #: dashboards/project/firewalls/tables.py:63
 #: dashboards/project/firewalls/tables.py:168
-#, fuzzy
 msgid "Policies"
-msgstr "Polish"
+msgstr ""
 
 #: dashboards/project/firewalls/tables.py:70
 msgid "Firewall"
@@ -5562,9 +5551,8 @@ msgid "No volumes attached."
 msgstr ""
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:19
-#, fuzzy
 msgid "Project Limits"
-msgstr "Projects"
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:22
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:29
@@ -6752,9 +6740,8 @@ msgid "Cookie Name:"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
-#, fuzzy
 msgid "Connection Limit:"
-msgstr "Projects"
+msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:6
@@ -8309,9 +8296,8 @@ msgid "Route mode"
 msgstr ""
 
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:27
-#, fuzzy
 msgid "VPN Connections"
-msgstr "Projects"
+msgstr ""
 
 #: dashboards/project/vpn/templates/vpn/details_tabs.html:3
 #: dashboards/project/vpn/templates/vpn/details_tabs.html:6
@@ -8507,23 +8493,23 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:31
+#: dashboards/settings/user/forms.py:37
 msgid "Language"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:32
+#: dashboards/settings/user/forms.py:38
 msgid "Timezone"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:33
+#: dashboards/settings/user/forms.py:39
 msgid "Items Per Page"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:38
+#: dashboards/settings/user/forms.py:44
 msgid "Number of items to show per page"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:86
+#: dashboards/settings/user/forms.py:96
 msgid "Settings saved."
 msgstr ""
 
@@ -8540,23 +8526,23 @@ msgstr ""
 
 #: templates/403.html:5 templates/403.html.py:10
 msgid "Forbidden"
-msgstr "Forbidden"
+msgstr ""
 
 #: templates/403.html:21 templates/404.html:20 templates/500.html:73
 msgid "Home"
-msgstr "Home"
+msgstr ""
 
 #: templates/404.html:5
 msgid "Page Not Found"
-msgstr "Page Not Found"
+msgstr ""
 
 #: templates/404.html:10
 msgid "The page you were looking for doesn't exist"
-msgstr "The page you were looking for doesn't exist"
+msgstr ""
 
 #: templates/404.html:11
 msgid "You may have mistyped the address or the page may have moved."
-msgstr "You may have mistyped the address or the page may have moved."
+msgstr ""
 
 #: templates/500.html:20
 msgid "Server error"
