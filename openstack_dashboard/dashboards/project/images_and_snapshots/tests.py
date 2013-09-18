@@ -36,22 +36,16 @@ INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 
 class ImagesAndSnapshotsTests(test.TestCase):
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.cinder: ('volume_snapshot_list', 'volume_get')})
+                        api.cinder: ('volume_snapshot_list',
+                                     'volume_list',)})
     def test_index(self):
         images = self.images.list()
+        vol_snaps = self.volume_snapshots.list()
         volumes = self.volumes.list()
 
-        for volume in volumes:
-            volume.volume_id = volume.id
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
-
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+                                .AndReturn(vol_snaps)
+        api.cinder.volume_list(IsA(http.HttpRequest)) \
                                 .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([images, False])
@@ -77,21 +71,15 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.assertTrue(len(row_actions), 3)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.cinder: ('volume_snapshot_list', 'volume_get')})
+                        api.cinder: ('volume_snapshot_list',
+                                     'volume_list',)})
     def test_index_no_images(self):
+        vol_snaps = self.volume_snapshots.list()
         volumes = self.volumes.list()
 
-        for volume in volumes:
-            volume.volume_id = volume.id
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
-
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+            .AndReturn(vol_snaps)
+        api.cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([(), False])
@@ -101,21 +89,15 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.cinder: ('volume_snapshot_list', 'volume_get')})
+                        api.cinder: ('volume_snapshot_list',
+                                     'volume_list',)})
     def test_index_error(self):
+        vol_snaps = self.volume_snapshots.list()
         volumes = self.volumes.list()
 
-        for volume in volumes:
-            volume.volume_id = volume.id
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
-
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+            .AndReturn(vol_snaps)
+        api.cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None) \
@@ -126,22 +108,16 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/images_and_snapshots/index.html')
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
-                        api.cinder: ('volume_snapshot_list', 'volume_get')})
+                        api.cinder: ('volume_snapshot_list',
+                                     'volume_list',)})
     def test_snapshot_actions(self):
         snapshots = self.snapshots.list()
+        vol_snaps = self.volume_snapshots.list()
         volumes = self.volumes.list()
 
-        for volume in volumes:
-            volume.volume_id = volume.id
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-        for volume in volumes:
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id) \
-                .AndReturn(volume)
-            api.cinder.volume_get(IsA(http.HttpRequest), volume.volume_id)
-
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+            .AndReturn(vol_snaps)
+        api.cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(volumes)
         api.glance.image_list_detailed(IsA(http.HttpRequest), marker=None) \
             .AndReturn([snapshots, False])
