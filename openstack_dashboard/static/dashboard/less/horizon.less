@@ -565,31 +565,32 @@ table form {
   margin-left: 0;
 }
 
+.btn-icon(@x, @y, @icons: "/static/bootstrap/img/glyphicons-halflings.png") {
+    padding-left: 23px;
+    position: relative;
+
+    &:before {
+        display: inline-block;
+        content: "";
+        width: 18px;
+        height: 20px;
+        margin-top: 1px;
+        *margin-right: .3em;
+        line-height: 14px;
+        background-image: url(@icons);
+        background-position: @x @y;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+}
+
+.btn-icon-danger(@x, @y) {
+    .btn-icon(@x, @y, "/static/bootstrap/img/glyphicons-halflings-white.png");
+}
+
 .table_actions {
-    .btn-icon(@x, @y, @icons: "/static/bootstrap/img/glyphicons-halflings.png") {
-        padding-left: 23px;
-        position: relative;
-
-        &:before {
-            display: inline-block;
-            content: "";
-            width: 18px;
-            height: 20px;
-            margin-top: 1px;
-            *margin-right: .3em;
-            line-height: 14px;
-            background-image: url(@icons);
-            background-position: @x @y;
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-        }
-    }
-
-    .btn-icon-danger(@x, @y) {
-      .btn-icon(@x, @y, "/static/bootstrap/img/glyphicons-halflings-white.png");
-    }
 
     a.btn-create, a.btn-launch {
       .btn-icon(-403px, -92px);
@@ -1826,7 +1827,6 @@ label.log-length {
   &.noinfo {
     div.nodata {
       display: block;
-      
     }
     #topology_canvas {
       display: none;
