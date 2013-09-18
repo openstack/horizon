@@ -22,8 +22,9 @@ from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-from troveclient import common
 
+if api.trove.with_trove:
+    from troveclient import common
 
 INDEX_URL = reverse('horizon:project:databases:index')
 LAUNCH_URL = reverse('horizon:project:databases:launch')
@@ -31,6 +32,10 @@ DETAILS_URL = reverse('horizon:project:databases:detail', args=['id'])
 
 
 class DatabaseTests(test.TestCase):
+    def setUp(self):
+        if not api.trove.with_trove:
+            self.skipTest('Skip trove related tests.')
+        super(DatabaseTests, self).setUp()
 
     @test.create_stubs(
         {api.trove: ('instance_list', 'flavor_list')})
@@ -79,7 +84,8 @@ class DatabaseTests(test.TestCase):
         {api.trove: ('instance_list', 'flavor_list')})
     def test_index_pagination(self):
         # Mock database instances
-        databases = common.Paginated(self.databases.list(), next_marker="foo")
+        databases = common.Paginated(self.databases.list(),
+            next_marker="foo")
         api.trove.instance_list(IsA(http.HttpRequest), marker=None)\
             .AndReturn(databases)
         # Mock flavors

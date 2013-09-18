@@ -38,7 +38,11 @@ from keystoneclient.v2_0 import client as keystone_client
 from neutronclient.v2_0 import client as neutron_client
 from novaclient.v1_1 import client as nova_client
 from swiftclient import client as swift_client
-from troveclient import client as trove_client
+try:
+    from troveclient import client as trove_client
+    with_trove = True
+except ImportError:
+    with_trove = False
 
 import httplib2
 import mox
@@ -265,7 +269,8 @@ class APITestCase(TestCase):
         self._original_cinderclient = api.cinder.cinderclient
         self._original_heatclient = api.heat.heatclient
         self._original_ceilometerclient = api.ceilometer.ceilometerclient
-        self._original_troveclient = api.trove.troveclient
+        if with_trove:
+            self._original_troveclient = api.trove.troveclient
 
         # Replace the clients with our stubs.
         api.glance.glanceclient = lambda request: self.stub_glanceclient()
@@ -276,7 +281,8 @@ class APITestCase(TestCase):
         api.heat.heatclient = lambda request: self.stub_heatclient()
         api.ceilometer.ceilometerclient = lambda request: \
             self.stub_ceilometerclient()
-        api.trove.troveclient = lambda request: self.stub_troveclient()
+        if with_trove:
+            api.trove.troveclient = lambda request: self.stub_troveclient()
 
     def tearDown(self):
         super(APITestCase, self).tearDown()
@@ -287,7 +293,8 @@ class APITestCase(TestCase):
         api.cinder.cinderclient = self._original_cinderclient
         api.heat.heatclient = self._original_heatclient
         api.ceilometer.ceilometerclient = self._original_ceilometerclient
-        api.trove.troveclient = self._original_troveclient
+        if with_trove:
+            api.trove.troveclient = self._original_troveclient
 
     def stub_novaclient(self):
         if not hasattr(self, "novaclient"):
@@ -353,11 +360,12 @@ class APITestCase(TestCase):
                 CreateMock(ceilometer_client.Client)
         return self.ceilometerclient
 
-    def stub_troveclient(self):
-        if not hasattr(self, "troveclient"):
-            self.mox.StubOutWithMock(trove_client, 'Client')
-            self.troveclient = self.mox.CreateMock(trove_client.Client)
-        return self.troveclient
+    if with_trove:
+        def stub_troveclient(self):
+            if not hasattr(self, "troveclient"):
+                self.mox.StubOutWithMock(trove_client, 'Client')
+                self.troveclient = self.mox.CreateMock(trove_client.Client)
+            return self.troveclient
 
 
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),

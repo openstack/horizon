@@ -14,8 +14,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from troveclient import backups
-from troveclient import instances
+try:
+    from troveclient import backups
+    from troveclient import instances
+    with_trove = True
+except ImportError:
+    with_trove = False
 
 from openstack_dashboard.test.test_data import utils
 
@@ -66,14 +70,14 @@ BACKUP_TWO = {
     "description": "Longer description of backup"
 }
 
+if with_trove:
+    def data(TEST):
+        database = instances.Instance(instances.Instances(None), DATABASE_DATA)
+        bkup1 = backups.Backup(backups.Backups(None), BACKUP_ONE)
+        bkup2 = backups.Backup(backups.Backups(None), BACKUP_TWO)
 
-def data(TEST):
-    database = instances.Instance(instances.Instances(None), DATABASE_DATA)
-    bkup1 = backups.Backup(backups.Backups(None), BACKUP_ONE)
-    bkup2 = backups.Backup(backups.Backups(None), BACKUP_TWO)
-
-    TEST.databases = utils.TestDataContainer()
-    TEST.database_backups = utils.TestDataContainer()
-    TEST.databases.add(database)
-    TEST.database_backups.add(bkup1)
-    TEST.database_backups.add(bkup2)
+        TEST.databases = utils.TestDataContainer()
+        TEST.database_backups = utils.TestDataContainer()
+        TEST.databases.add(database)
+        TEST.database_backups.add(bkup1)
+        TEST.database_backups.add(bkup2)
