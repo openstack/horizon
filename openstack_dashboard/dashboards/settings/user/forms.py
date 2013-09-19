@@ -48,9 +48,16 @@ class UserSettingsForm(forms.SelfHandlingForm):
         super(UserSettingsForm, self).__init__(*args, **kwargs)
 
         # Languages
-        languages = [(k, "%s (%s)"
-                      % (translation.get_language_info(k)['name_local'], k))
-                      for k, v in settings.LANGUAGES]
+        def get_language_display_name(code, desc):
+            try:
+                desc = translation.get_language_info(code)['name_local']
+            except KeyError:
+                # If a language is not defined in django.conf.locale.LANG_INFO
+                # get_language_info raises KeyError
+                pass
+            return "%s (%s)" % (desc, code)
+        languages = [(k, get_language_display_name(k, v))
+                     for k, v in settings.LANGUAGES]
         self.fields['language'].choices = languages
 
         # Timezones
