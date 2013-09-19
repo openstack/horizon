@@ -241,17 +241,23 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
             security_groups = [SecurityGroup(sg) for sg in sg_objs]
         return security_groups
 
-    def update_instance_security_group(self, instance_id, new_sgs):
+    def update_instance_security_group(self, instance_id,
+                                       new_security_group_ids):
+        try:
+            all_groups = self.list()
+        except Exception:
+            raise Exception(_("Couldn't get security group list."))
+        wanted_groups = set([sg.name for sg in all_groups
+                             if sg.id in new_security_group_ids])
 
-        wanted_groups = set(new_sgs)
         try:
             current_groups = self.list_by_instance(instance_id)
         except Exception:
             raise Exception(_("Couldn't get current security group "
                               "list for instance %s.")
                             % instance_id)
+        current_group_names = set([sg.name for sg in current_groups])
 
-        current_group_names = set(map(lambda g: g.id, current_groups))
         groups_to_add = wanted_groups - current_group_names
         groups_to_remove = current_group_names - wanted_groups
 

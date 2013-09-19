@@ -211,6 +211,7 @@ class SecurityGroupManager(object):
         pass
 
     @abc.abstractmethod
-    def update_instance_security_group(self, instance_id, new_sgs):
+    def update_instance_security_group(self, instance_id,
+                                       new_security_group_ids):
         """Update security groups of a specified instance."""
         pass

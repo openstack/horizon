@@ -283,10 +283,11 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
             sg_ids += p.security_groups
         return self._list(id=set(sg_ids))
 
-    def update_instance_security_group(self, instance_id, new_sgs):
+    def update_instance_security_group(self, instance_id,
+                                       new_security_group_ids):
         ports = port_list(self.request, device_id=instance_id)
         for p in ports:
-            params = {'security_groups': new_sgs}
+            params = {'security_groups': new_security_group_ids}
             port_modify(self.request, p.id, **params)
 
 
