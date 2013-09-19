@@ -150,8 +150,8 @@ class IKEPoliciesTable(tables.DataTable):
     auth_algorithm = tables.Column('auth_algorithm',
                                    verbose_name=_('Authorization algorithm'))
     encryption_algorithm = tables.Column(
-                                'encryption_algorithm',
-                                verbose_name=_('Encryption algorithm'))
+        'encryption_algorithm',
+        verbose_name=_('Encryption algorithm'))
     pfs = tables.Column("pfs", verbose_name=_('PFS'))
 
     class Meta:
@@ -168,8 +168,8 @@ class IPSecPoliciesTable(tables.DataTable):
     auth_algorithm = tables.Column('auth_algorithm',
                                    verbose_name=_('Authorization algorithm'))
     encryption_algorithm = tables.Column(
-                                'encryption_algorithm',
-                                verbose_name=_('Encryption algorithm'))
+        'encryption_algorithm',
+        verbose_name=_('Encryption algorithm'))
     pfs = tables.Column("pfs", verbose_name=_('PFS'))
 
     class Meta:

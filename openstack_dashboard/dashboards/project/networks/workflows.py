@@ -97,18 +97,18 @@ class CreateSubnetInfoAction(workflows.Action):
     ip_version = forms.ChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
                                    label=_("IP Version"))
     gateway_ip = fields.IPField(
-                    label=_("Gateway IP"),
-                    required=False,
-                    initial="",
-                    help_text=_("IP address of Gateway (e.g. 192.168.0.254) "
-                                "The default value is the first IP of the "
-                                "network address (e.g. 192.168.0.1 for "
-                                "192.168.0.0/24). "
-                                "If you use the default, leave blank. "
-                                "If you want to use no gateway, "
-                                "check 'Disable Gateway' below."),
-                    version=fields.IPv4 | fields.IPv6,
-                    mask=False)
+        label=_("Gateway IP"),
+        required=False,
+        initial="",
+        help_text=_("IP address of Gateway (e.g. 192.168.0.254) "
+                    "The default value is the first IP of the "
+                    "network address (e.g. 192.168.0.1 for "
+                    "192.168.0.0/24). "
+                    "If you use the default, leave blank. "
+                    "If you want to use no gateway, "
+                    "check 'Disable Gateway' below."),
+        version=fields.IPv4 | fields.IPv6,
+        mask=False)
     no_gateway = forms.BooleanField(label=_("Disable Gateway"),
                                     initial=False, required=False)
 

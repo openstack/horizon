@@ -187,7 +187,7 @@ class SecurityGroupsViewTests(test.TestCase):
                                                rule.ip_range['cidr'],
                                                None).AndReturn(rule)
         api.network.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -219,7 +219,7 @@ class SecurityGroupsViewTests(test.TestCase):
                                                rule.ip_range['cidr'],
                                                None).AndReturn(rule)
         api.network.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -620,7 +620,7 @@ class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
                                                37, None, None, 'fe80::/48',
                                                None).AndReturn(rule)
         api.network.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -649,7 +649,7 @@ class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
                                                'udp', 80, 80, '10.1.1.0/24',
                                                None).AndReturn(rule)
         api.network.security_group_list(
-                        IsA(http.HttpRequest)).AndReturn(sec_group_list)
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',

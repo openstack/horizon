@@ -25,19 +25,20 @@ class UserSettingsView(forms.ModalFormView):
     template_name = 'settings/user/settings.html'
 
     def get_initial(self):
-        return {'language': self.request.session.get(
-                        settings.LANGUAGE_COOKIE_NAME,
-                        self.request.COOKIES.get(settings.LANGUAGE_COOKIE_NAME,
-                                                 self.request.LANGUAGE_CODE)),
-                'timezone': self.request.session.get(
-                        'django_timezone',
-                        self.request.COOKIES.get('django_timezone', 'UTC')),
-                'pagesize': self.request.session.get(
-                        'horizon_pagesize',
-                        self.request.COOKIES.get(
-                                'horizon_pagesize',
-                                getattr(settings,
-                                        'API_RESULT_PAGE_SIZE', 20)))}
+        return {
+            'language': self.request.session.get(
+                settings.LANGUAGE_COOKIE_NAME,
+                self.request.COOKIES.get(settings.LANGUAGE_COOKIE_NAME,
+                                         self.request.LANGUAGE_CODE)),
+            'timezone': self.request.session.get(
+                'django_timezone',
+                self.request.COOKIES.get('django_timezone', 'UTC')),
+            'pagesize': self.request.session.get(
+                'horizon_pagesize',
+                self.request.COOKIES.get(
+                    'horizon_pagesize',
+                    getattr(settings,
+                            'API_RESULT_PAGE_SIZE', 20)))}
 
     def form_valid(self, form):
         return form.handle(self.request, form.cleaned_data)

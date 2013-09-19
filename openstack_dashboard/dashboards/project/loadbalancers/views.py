@@ -272,7 +272,7 @@ class UpdateMonitorView(forms.ModalFormView):
             monitor_id = self.kwargs['monitor_id']
             try:
                 self._object = api.lbaas.pool_health_monitor_get(
-                                    self.request, monitor_id)
+                    self.request, monitor_id)
             except Exception as e:
                 redirect = self.success_url
                 msg = _('Unable to retrieve health monitor details. %s') % e

@@ -329,8 +329,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_UPDATE_URL, formData)
 
         self.assertFormError(
-                res, "form", 'password',
-                ['Password must be between 8 and 18 characters.'])
+            res, "form", 'password',
+            ['Password must be between 8 and 18 characters.'])
 
     @test.create_stubs({api.keystone: ('domain_get',
                                        'user_get',
@@ -360,8 +360,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_UPDATE_URL, formData)
 
         self.assertFormError(
-                res, "form", 'password',
-                ['Password must be between 8 and 18 characters.'])
+            res, "form", 'password',
+            ['Password must be between 8 and 18 characters.'])
 
     @test.create_stubs({api.keystone: ('user_update_enabled', 'user_list')})
     def test_enable_user(self):

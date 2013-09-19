@@ -85,8 +85,8 @@ class ImageViewTests(test.TestCase):
             'description': u'Login with admin/admin',
             'source_type': u'url',
             'copy_from': u'http://cloud-images.ubuntu.com/releases/'
-                        u'oneiric/release/ubuntu-11.10-server-cloudimg'
-                        u'-amd64-disk1.img',
+                         u'oneiric/release/ubuntu-11.10-server-cloudimg'
+                         u'-amd64-disk1.img',
             'disk_format': u'qcow2',
             'minimum_disk': 15,
             'minimum_ram': 512,
@@ -161,8 +161,8 @@ class ImageViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(
-                reverse('horizon:project:images_and_snapshots:images:detail',
-                args=[image.id]))
+            reverse('horizon:project:images_and_snapshots:images:detail',
+            args=[image.id]))
         self.assertTemplateUsed(res,
                             'project/images_and_snapshots/images/detail.html')
         self.assertEqual(res.context['image'].name, image.name)
@@ -177,8 +177,8 @@ class ImageViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(
-                reverse('horizon:project:images_and_snapshots:images:detail',
-                args=[image.id]))
+            reverse('horizon:project:images_and_snapshots:images:detail',
+            args=[image.id]))
         self.assertTemplateUsed(res,
                             'project/images_and_snapshots/images/detail.html')
         self.assertEqual(res.context['image'].protected, image.protected)

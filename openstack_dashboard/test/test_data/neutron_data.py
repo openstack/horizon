@@ -136,7 +136,7 @@ def data(TEST):
 
     TEST.api_network_profile_binding.add(network_profile_binding_dict)
     TEST.network_profile_binding.add(neutron.Profile(
-            network_profile_binding_dict))
+        network_profile_binding_dict))
 
     # policy profile binding
     policy_profile_binding_dict = {'profile_id':
@@ -145,7 +145,7 @@ def data(TEST):
 
     TEST.api_policy_profile_binding.add(policy_profile_binding_dict)
     TEST.policy_profile_binding.add(neutron.Profile(
-            policy_profile_binding_dict))
+        policy_profile_binding_dict))
 
     # ports on 1st network
     port_dict = {'admin_state_up': True,

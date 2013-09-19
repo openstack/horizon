@@ -154,7 +154,7 @@ class NetworkTests(test.BaseAdminViewTests):
     def test_network_create_get(self):
         tenants = self.tenants.list()
         api.keystone.tenant_list(IsA(
-                http.HttpRequest)).AndReturn([tenants, False])
+            http.HttpRequest)).AndReturn([tenants, False])
         # TODO(absubram): Remove if clause and create separate
         # test stubs for when profile_support is being used.
         # Additionally ensure those are always run even in default setting

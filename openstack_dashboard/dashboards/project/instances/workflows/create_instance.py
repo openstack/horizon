@@ -382,15 +382,15 @@ class SetAccessControlsAction(workflows.Action):
                                                    "authentication."),
                                        add_item_link=KEYPAIR_IMPORT_URL)
     admin_pass = forms.RegexField(
-            label=_("Admin Pass"),
-            required=False,
-            widget=forms.PasswordInput(render_value=False),
-            regex=validators.password_validator(),
-            error_messages={'invalid': validators.password_validator_msg()})
+        label=_("Admin Pass"),
+        required=False,
+        widget=forms.PasswordInput(render_value=False),
+        regex=validators.password_validator(),
+        error_messages={'invalid': validators.password_validator_msg()})
     confirm_admin_pass = forms.CharField(
-            label=_("Confirm Admin Pass"),
-            required=False,
-            widget=forms.PasswordInput(render_value=False))
+        label=_("Confirm Admin Pass"),
+        required=False,
+        widget=forms.PasswordInput(render_value=False))
     groups = forms.MultipleChoiceField(label=_("Security Groups"),
                                        required=True,
                                        initial=["default"],

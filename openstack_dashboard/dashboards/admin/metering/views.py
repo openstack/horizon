@@ -93,9 +93,9 @@ class SamplesView(TemplateView):
             queries = {}
             for tenant in tenants:
                 tenant_query = [{
-                        "field": "project_id",
-                        "op": "eq",
-                        "value": tenant.id}]
+                    "field": "project_id",
+                    "op": "eq",
+                    "value": tenant.id}]
 
                 queries[tenant.name] = tenant_query
 

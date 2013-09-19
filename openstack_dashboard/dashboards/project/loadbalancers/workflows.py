@@ -555,7 +555,7 @@ class DeletePMAssociationAction(workflows.Action):
 
     def __init__(self, request, *args, **kwargs):
         super(DeletePMAssociationAction, self).__init__(
-                                                request, *args, **kwargs)
+            request, *args, **kwargs)
 
     def populate_monitor_id_choices(self, request, context):
         self.fields['monitor_id'].label = (_("Select a health monitor of %s") %
@@ -585,7 +585,7 @@ class DeletePMAssociationStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(DeletePMAssociationStep, self).contribute(
-                                                            data, context)
+            data, context)
         if data:
             return context
 

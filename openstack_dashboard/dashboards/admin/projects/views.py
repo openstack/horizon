@@ -78,7 +78,7 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         tenants = []
         marker = self.request.GET.get(
-                    project_tables.TenantsTable._meta.pagination_param, None)
+            project_tables.TenantsTable._meta.pagination_param, None)
         domain_context = self.request.session.get('domain_context', None)
         try:
             tenants, self._more = api.keystone.tenant_list(

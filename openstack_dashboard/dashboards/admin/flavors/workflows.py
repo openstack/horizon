@@ -238,8 +238,8 @@ class UpdateFlavorInfoAction(CreateFlavorInfoAction):
             for flavor in flavors:
                 if flavor.name == name and flavor.id != flavor_id:
                     raise forms.ValidationError(
-                            _('The name "%s" is already used by another '
-                              'flavor.') % name)
+                        _('The name "%s" is already used by another '
+                          'flavor.') % name)
         return self.cleaned_data
 
 

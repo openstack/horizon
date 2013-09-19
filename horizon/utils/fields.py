@@ -119,12 +119,12 @@ class SelectWidget(widgets.Select):
         if not isinstance(option_label, (basestring, Promise)):
             for data_attr in self.data_attrs:
                 data_value = conditional_escape(
-                                    force_unicode(getattr(option_label,
-                                                          data_attr, "")))
+                    force_unicode(getattr(option_label,
+                                          data_attr, "")))
                 other_html += ' data-%s="%s"' % (data_attr, data_value)
 
             if self.transform:
                 option_label = self.transform(option_label)
         return u'<option value="%s"%s>%s</option>' % (
-                escape(option_value), other_html,
-                conditional_escape(force_unicode(option_label)))
+            escape(option_value), other_html,
+            conditional_escape(force_unicode(option_label)))

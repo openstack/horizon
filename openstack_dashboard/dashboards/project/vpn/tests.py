@@ -293,12 +293,11 @@ class VPNTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {
-                        'name': vpnservice['name'],
-                        'description': vpnservice['description'],
-                        'subnet_id': vpnservice['subnet_id'],
-                        'router_id': vpnservice['router_id'],
-                        'admin_state_up': vpnservice['admin_state_up']}
+        form_data = {'name': vpnservice['name'],
+                     'description': vpnservice['description'],
+                     'subnet_id': vpnservice['subnet_id'],
+                     'router_id': vpnservice['router_id'],
+                     'admin_state_up': vpnservice['admin_state_up']}
 
         res = self.client.post(reverse(self.ADDVPNSERVICE_PATH), form_data)
 
@@ -323,12 +322,11 @@ class VPNTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {
-                        'name': vpnservice['name'],
-                        'description': vpnservice['description'],
-                        'subnet_id': '',
-                        'router_id': '',
-                        'admin_state_up': vpnservice['admin_state_up']}
+        form_data = {'name': vpnservice['name'],
+                     'description': vpnservice['description'],
+                     'subnet_id': '',
+                     'router_id': '',
+                     'admin_state_up': vpnservice['admin_state_up']}
 
         res = self.client.post(reverse(self.ADDVPNSERVICE_PATH), form_data)
 
@@ -362,18 +360,17 @@ class VPNTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {
-                        'name': ikepolicy['name'],
-                        'description': ikepolicy['description'],
-                        'auth_algorithm': ikepolicy['auth_algorithm'],
-                        'encryption_algorithm': ikepolicy[
-                            'encryption_algorithm'],
-                        'ike_version': ikepolicy['ike_version'],
-                        'lifetime_units': ikepolicy['lifetime']['units'],
-                        'lifetime_value': ikepolicy['lifetime']['value'],
-                        'phase1_negotiation_mode': ikepolicy[
-                            'phase1_negotiation_mode'],
-                        'pfs': ikepolicy['pfs']}
+        form_data = {'name': ikepolicy['name'],
+                     'description': ikepolicy['description'],
+                     'auth_algorithm': ikepolicy['auth_algorithm'],
+                     'encryption_algorithm': ikepolicy[
+                         'encryption_algorithm'],
+                     'ike_version': ikepolicy['ike_version'],
+                     'lifetime_units': ikepolicy['lifetime']['units'],
+                     'lifetime_value': ikepolicy['lifetime']['value'],
+                     'phase1_negotiation_mode': ikepolicy[
+                         'phase1_negotiation_mode'],
+                     'pfs': ikepolicy['pfs']}
 
         res = self.client.post(reverse(self.ADDIKEPOLICY_PATH), form_data)
 
@@ -383,18 +380,17 @@ class VPNTests(test.TestCase):
     def test_add_ikepolicy_post_error(self):
         ikepolicy = self.ikepolicies.first()
 
-        form_data = {
-                        'name': ikepolicy['name'],
-                        'description': ikepolicy['description'],
-                        'auth_algorithm': ikepolicy['auth_algorithm'],
-                        'encryption_algorithm': ikepolicy[
-                            'encryption_algorithm'],
-                        'ike_version': ikepolicy['ike_version'],
-                        'lifetime_units': ikepolicy['lifetime']['units'],
-                        'lifetime_value': 10,
-                        'phase1_negotiation_mode': ikepolicy[
-                            'phase1_negotiation_mode'],
-                        'pfs': ikepolicy['pfs']}
+        form_data = {'name': ikepolicy['name'],
+                     'description': ikepolicy['description'],
+                     'auth_algorithm': ikepolicy['auth_algorithm'],
+                     'encryption_algorithm': ikepolicy[
+                         'encryption_algorithm'],
+                     'ike_version': ikepolicy['ike_version'],
+                     'lifetime_units': ikepolicy['lifetime']['units'],
+                     'lifetime_value': 10,
+                     'phase1_negotiation_mode': ikepolicy[
+                         'phase1_negotiation_mode'],
+                     'pfs': ikepolicy['pfs']}
 
         res = self.client.post(reverse(self.ADDIKEPOLICY_PATH), form_data)
 
@@ -428,19 +424,18 @@ class VPNTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {
-                        'name': ipsecpolicy['name'],
-                        'description': ipsecpolicy['description'],
-                        'auth_algorithm': ipsecpolicy['auth_algorithm'],
-                        'encryption_algorithm': ipsecpolicy[
-                            'encryption_algorithm'],
-                        'encapsulation_mode': ipsecpolicy[
-                            'encapsulation_mode'],
-                        'lifetime_units': ipsecpolicy['lifetime']['units'],
-                        'lifetime_value': ipsecpolicy['lifetime']['value'],
-                        'pfs': ipsecpolicy['pfs'],
-                        'transform_protocol': ipsecpolicy[
-                            'transform_protocol']}
+        form_data = {'name': ipsecpolicy['name'],
+                     'description': ipsecpolicy['description'],
+                     'auth_algorithm': ipsecpolicy['auth_algorithm'],
+                     'encryption_algorithm': ipsecpolicy[
+                         'encryption_algorithm'],
+                     'encapsulation_mode': ipsecpolicy[
+                         'encapsulation_mode'],
+                     'lifetime_units': ipsecpolicy['lifetime']['units'],
+                     'lifetime_value': ipsecpolicy['lifetime']['value'],
+                     'pfs': ipsecpolicy['pfs'],
+                     'transform_protocol': ipsecpolicy[
+                         'transform_protocol']}
 
         res = self.client.post(reverse(self.ADDIPSECPOLICY_PATH), form_data)
 
@@ -450,19 +445,18 @@ class VPNTests(test.TestCase):
     def test_add_ipsecpolicy_post_error(self):
         ipsecpolicy = self.ipsecpolicies.first()
 
-        form_data = {
-                        'name': ipsecpolicy['name'],
-                        'description': ipsecpolicy['description'],
-                        'auth_algorithm': ipsecpolicy['auth_algorithm'],
-                        'encryption_algorithm': ipsecpolicy[
-                            'encryption_algorithm'],
-                        'encapsulation_mode': ipsecpolicy[
-                            'encapsulation_mode'],
-                        'lifetime_units': ipsecpolicy['lifetime']['units'],
-                        'lifetime_value': 10,
-                        'pfs': ipsecpolicy['pfs'],
-                        'transform_protocol': ipsecpolicy[
-                            'transform_protocol']}
+        form_data = {'name': ipsecpolicy['name'],
+                     'description': ipsecpolicy['description'],
+                     'auth_algorithm': ipsecpolicy['auth_algorithm'],
+                     'encryption_algorithm': ipsecpolicy[
+                         'encryption_algorithm'],
+                     'encapsulation_mode': ipsecpolicy[
+                         'encapsulation_mode'],
+                     'lifetime_units': ipsecpolicy['lifetime']['units'],
+                     'lifetime_value': 10,
+                     'pfs': ipsecpolicy['pfs'],
+                     'transform_protocol': ipsecpolicy[
+                         'transform_protocol']}
 
         res = self.client.post(reverse(self.ADDIPSECPOLICY_PATH), form_data)
 
@@ -540,24 +534,23 @@ class VPNTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {
-                        'name': ipsecsiteconnection['name'],
-                        'description': ipsecsiteconnection['description'],
-                        'dpd_action': ipsecsiteconnection['dpd']['action'],
-                        'dpd_interval': ipsecsiteconnection['dpd']['interval'],
-                        'dpd_timeout': ipsecsiteconnection['dpd']['timeout'],
-                        'ikepolicy_id': ipsecsiteconnection['ikepolicy_id'],
-                        'initiator': ipsecsiteconnection['initiator'],
-                        'ipsecpolicy_id': ipsecsiteconnection[
-                            'ipsecpolicy_id'],
-                        'mtu': ipsecsiteconnection['mtu'],
-                        'peer_address': ipsecsiteconnection['peer_address'],
-                        'peer_cidrs': ipsecsiteconnection['peer_cidrs'],
-                        'peer_id': ipsecsiteconnection['peer_id'],
-                        'psk': ipsecsiteconnection['psk'],
-                        'vpnservice_id': ipsecsiteconnection['vpnservice_id'],
-                        'admin_state_up': ipsecsiteconnection[
-                            'admin_state_up']}
+        form_data = {'name': ipsecsiteconnection['name'],
+                     'description': ipsecsiteconnection['description'],
+                     'dpd_action': ipsecsiteconnection['dpd']['action'],
+                     'dpd_interval': ipsecsiteconnection['dpd']['interval'],
+                     'dpd_timeout': ipsecsiteconnection['dpd']['timeout'],
+                     'ikepolicy_id': ipsecsiteconnection['ikepolicy_id'],
+                     'initiator': ipsecsiteconnection['initiator'],
+                     'ipsecpolicy_id': ipsecsiteconnection[
+                         'ipsecpolicy_id'],
+                     'mtu': ipsecsiteconnection['mtu'],
+                     'peer_address': ipsecsiteconnection['peer_address'],
+                     'peer_cidrs': ipsecsiteconnection['peer_cidrs'],
+                     'peer_id': ipsecsiteconnection['peer_id'],
+                     'psk': ipsecsiteconnection['psk'],
+                     'vpnservice_id': ipsecsiteconnection['vpnservice_id'],
+                     'admin_state_up': ipsecsiteconnection[
+                         'admin_state_up']}
 
         res = self.client.post(reverse(self.ADDVPNCONNECTION_PATH), form_data)
 
@@ -587,23 +580,22 @@ class VPNTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {
-                        'name': ipsecsiteconnection['name'],
-                        'description': ipsecsiteconnection['description'],
-                        'dpd_action': ipsecsiteconnection['dpd']['action'],
-                        'dpd_interval': ipsecsiteconnection['dpd']['interval'],
-                        'dpd_timeout': ipsecsiteconnection['dpd']['timeout'],
-                        'ikepolicy_id': '',
-                        'initiator': ipsecsiteconnection['initiator'],
-                        'ipsecpolicy_id': '',
-                        'mtu': ipsecsiteconnection['mtu'],
-                        'peer_address': ipsecsiteconnection['peer_address'],
-                        'peer_cidrs': ipsecsiteconnection['peer_cidrs'],
-                        'peer_id': ipsecsiteconnection['peer_id'],
-                        'psk': ipsecsiteconnection['psk'],
-                        'vpnservice_id': '',
-                        'admin_state_up': ipsecsiteconnection[
-                            'admin_state_up']}
+        form_data = {'name': ipsecsiteconnection['name'],
+                     'description': ipsecsiteconnection['description'],
+                     'dpd_action': ipsecsiteconnection['dpd']['action'],
+                     'dpd_interval': ipsecsiteconnection['dpd']['interval'],
+                     'dpd_timeout': ipsecsiteconnection['dpd']['timeout'],
+                     'ikepolicy_id': '',
+                     'initiator': ipsecsiteconnection['initiator'],
+                     'ipsecpolicy_id': '',
+                     'mtu': ipsecsiteconnection['mtu'],
+                     'peer_address': ipsecsiteconnection['peer_address'],
+                     'peer_cidrs': ipsecsiteconnection['peer_cidrs'],
+                     'peer_id': ipsecsiteconnection['peer_id'],
+                     'psk': ipsecsiteconnection['psk'],
+                     'vpnservice_id': '',
+                     'admin_state_up': ipsecsiteconnection[
+                         'admin_state_up']}
 
         res = self.client.post(reverse(self.ADDVPNCONNECTION_PATH), form_data)
 

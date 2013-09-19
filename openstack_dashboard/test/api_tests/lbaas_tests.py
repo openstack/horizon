@@ -142,13 +142,13 @@ class LbaasApiTests(test.APITestCase):
     @test.create_stubs({neutronclient: ('list_pools',)})
     def test_pools_get(self):
         pools = {'pools': [{
-                    'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                    'name': 'pool1name',
-                    'description': 'pool1description',
-                    'subnet_id': '12381d38-c3eb-4fee-9763-12de3338041e',
-                    'protocol': 'HTTP',
-                    'lb_method': 'ROUND_ROBIN',
-                    'admin_state_up': True}, ]}
+            'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+            'name': 'pool1name',
+            'description': 'pool1description',
+            'subnet_id': '12381d38-c3eb-4fee-9763-12de3338041e',
+            'protocol': 'HTTP',
+            'lb_method': 'ROUND_ROBIN',
+            'admin_state_up': True}, ]}
         neutronclient.list_pools().AndReturn(pools)
         self.mox.ReplayAll()
 
@@ -207,14 +207,14 @@ class LbaasApiTests(test.APITestCase):
                      'admin_state_up': True
                      }
         monitor = {'health_monitor': {
-                'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                'type': 'PING',
-                'delay': '10',
-                'timeout': '10',
-                'max_retries': '10',
-                'admin_state_up': True}}
+            'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+            'type': 'PING',
+            'delay': '10',
+            'timeout': '10',
+            'max_retries': '10',
+            'admin_state_up': True}}
         neutronclient.create_health_monitor({
-                'health_monitor': form_data}).AndReturn(monitor)
+            'health_monitor': form_data}).AndReturn(monitor)
         self.mox.ReplayAll()
 
         ret_val = api.lbaas.pool_health_monitor_create(
@@ -224,15 +224,15 @@ class LbaasApiTests(test.APITestCase):
     @test.create_stubs({neutronclient: ('list_health_monitors',)})
     def test_pool_health_monitors_get(self):
         monitors = {'health_monitors': [
-                {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                 'type': 'PING',
-                 'delay': '10',
-                 'timeout': '10',
-                 'max_retries': '10',
-                 'http_method': 'GET',
-                 'url_path': '/monitor',
-                 'expected_codes': '200',
-                 'admin_state_up': True}, ]}
+            {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+             'type': 'PING',
+             'delay': '10',
+             'timeout': '10',
+             'max_retries': '10',
+             'http_method': 'GET',
+             'url_path': '/monitor',
+             'expected_codes': '200',
+             'admin_state_up': True}, ]}
 
         neutronclient.list_health_monitors().AndReturn(monitors)
         self.mox.ReplayAll()
@@ -287,13 +287,13 @@ class LbaasApiTests(test.APITestCase):
     @test.create_stubs({neutronclient: ('list_members',)})
     def test_members_get(self):
         members = {'members': [
-                {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                 'pool_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                 'address': '10.0.1.2',
-                 'protocol_port': '80',
-                 'weight': '10',
-                 'admin_state_up': True
-                 }, ]}
+            {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+             'pool_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
+             'address': '10.0.1.2',
+             'protocol_port': '80',
+             'weight': '10',
+             'admin_state_up': True
+             }, ]}
         neutronclient.list_members().AndReturn(members)
         self.mox.ReplayAll()
 

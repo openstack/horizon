@@ -33,7 +33,7 @@ class Breadcrumb(html.HTMLElement):
     def get_subfolders(self):
         if self.subfolder_path and not self._subfolders:
             (parent, slash, folder) = self.subfolder_path.strip('/') \
-                                                        .rpartition('/')
+                .rpartition('/')
             while folder:
                 path = "%s%s%s/" % (parent, slash, folder)
                 self._subfolders.insert(0, (folder, path))

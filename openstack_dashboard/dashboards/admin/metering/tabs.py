@@ -28,10 +28,10 @@ from openstack_dashboard.dashboards.admin.metering import tables
 def make_tenant_queries(request, days_before=30):
     try:
         tenants, more = api.keystone.tenant_list(
-                request,
-                domain=None,
-                paginate=True,
-                marker="tenant_marker")
+            request,
+            domain=None,
+            paginate=True,
+            marker="tenant_marker")
     except Exception:
         tenants = []
         exceptions.handle(request,
@@ -39,9 +39,9 @@ def make_tenant_queries(request, days_before=30):
     queries = {}
     for tenant in tenants:
         tenant_query = [{
-                "field": "project_id",
-                "op": "eq",
-                "value": tenant.id}]
+            "field": "project_id",
+            "op": "eq",
+            "value": tenant.id}]
 
         queries[tenant.name] = tenant_query
 
