@@ -33,6 +33,7 @@ class TokenAuth(object):
         self.username = username
         self.service_type = service_type
         self.service_name = service_name
+        self.region = region
 
     def authenticate(self):
         catalog = {
@@ -47,7 +48,8 @@ class TokenAuth(object):
             return None
         return auth.ServiceCatalog(catalog,
                                    service_type=self.service_type,
-                                   service_name=self.service_name)
+                                   service_name=self.service_name,
+                                   region=self.region)
 
 
 def troveclient(request):
@@ -55,7 +57,8 @@ def troveclient(request):
         return None
     return client.Dbaas(username=request.user,
                         api_key=None,
-                        auth_strategy=TokenAuth)
+                        auth_strategy=TokenAuth,
+                        region_name=request.user.services_region)
 
 
 def instance_list(request, marker=None):
