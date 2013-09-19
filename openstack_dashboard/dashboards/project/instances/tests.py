@@ -1309,11 +1309,7 @@ class InstanceTests(test.TestCase):
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
-        self.assertFormErrors(res, 1, "There are no image sources "
-                                      "available; you must first "
-                                      "create an image before "
-                                      "attempting to launch an "
-                                      "instance.")
+        self.assertFormErrors(res, 1, "You must select an image.")
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
