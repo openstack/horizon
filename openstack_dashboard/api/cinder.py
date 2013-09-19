@@ -4,7 +4,7 @@
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
 #
-# Copyright 2012 Openstack, LLC
+# Copyright 2012 OpenStack Foundation
 # Copyright 2012 Nebula, Inc.
 # Copyright (c) 2012 X.commerce, a business unit of eBay Inc.
 #

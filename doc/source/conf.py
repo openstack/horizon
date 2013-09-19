@@ -163,7 +163,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Horizon'
-copyright = u'2012, OpenStack, LLC'
+copyright = u'2012, OpenStack Foundation'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -316,7 +316,7 @@ latex_elements = {
 # [howto/manual]).
 latex_documents = [
     ('index', 'Horizon.tex', u'Horizon Documentation',
-     u'OpenStack, LLC', 'manual'),
+     u'OpenStack Foundation', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
