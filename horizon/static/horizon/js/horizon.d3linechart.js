@@ -241,7 +241,7 @@ horizon.d3_line_chart = {
         formatter: function(series, x, y) {
           var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
           var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
-          var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+          var content = swatch + series.name + ": " + parseInt(y) + " " + series.unit + '<br>' + date;
           return content;
         }
       });

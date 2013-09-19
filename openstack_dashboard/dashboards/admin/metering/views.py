@@ -79,6 +79,15 @@ class SamplesView(TemplateView):
                                   'op': 'le',
                                   'value': date_to}]
 
+        # TODO(lsmola) replace this by logic implemented in I1 in bugs
+        # 1226479 and 1226482, this is just a quick fix for RC1
+        try:
+            meter_list = [m for m in ceilometer.meter_list(request)
+                            if m.name == meter]
+            unit = meter_list[0].unit
+        except Exception:
+            unit = ""
+
         if request.GET.get('group_by', None) == "project":
             try:
                 tenants, more = api.keystone.tenant_list(
@@ -108,8 +117,7 @@ class SamplesView(TemplateView):
             for resource in resources:
                 name = resource.id
                 if getattr(resource, meter_name):
-                    serie = {'unit': getattr(getattr(resource, meter_name)[0],
-                                             'unit', ""),
+                    serie = {'unit': unit,
                              'name': name,
                              'data': []}
 
@@ -133,8 +141,7 @@ class SamplesView(TemplateView):
             series = []
             for resource in resources:
                 if getattr(resource, meter_name):
-                    serie = {'unit': getattr(getattr(resource, meter_name)[0],
-                                             'unit', ""),
+                    serie = {'unit': unit,
                              'name': resource.resource_id,
                              'data': []}
                     for statistic in getattr(resource, meter_name):
