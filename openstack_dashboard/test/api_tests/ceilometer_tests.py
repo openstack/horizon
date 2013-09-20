@@ -77,6 +77,85 @@ class CeilometerApiTests(test.APITestCase):
         for s in ret_list:
             self.assertIsInstance(s, api.ceilometer.Statistic)
 
+    @test.create_stubs({api.nova: ('flavor_list',),
+                        })
+    def test_meters_list_all(self):
+        meters = self.meters.list()
+
+        request = self.mox.CreateMock(http.HttpRequest)
+        api.nova.flavor_list(request, None).AndReturn([])
+
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.meters = self.mox.CreateMockAnything()
+        ceilometerclient.meters.list(None).AndReturn(meters)
+
+        self.mox.ReplayAll()
+
+        meters_object = api.ceilometer.Meters(self.request)
+
+        ret_list = meters_object.list_all()
+
+        for m in ret_list:
+            self.assertIsInstance(m, api.ceilometer.Meter)
+
+        self.assertEqual(len(ret_list), 3)
+
+        self.assertEqual(ret_list[0].name, "disk.read.bytes")
+        self.assertEqual(ret_list[1].name, "disk.write.bytes")
+        self.assertEqual(ret_list[2].name, "instance")
+
+    @test.create_stubs({api.nova: ('flavor_list',),
+                        })
+    def test_meters_list_all_only(self):
+        meters = self.meters.list()
+
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.meters = self.mox.CreateMockAnything()
+        ceilometerclient.meters.list(None).AndReturn(meters)
+
+        request = self.mox.CreateMock(http.HttpRequest)
+        api.nova.flavor_list(request, None).AndReturn([])
+        self.mox.ReplayAll()
+
+        meters_object = api.ceilometer.Meters(self.request)
+        ret_list = meters_object.list_all(only_meters=["disk.read.bytes"])
+
+        self.assertEqual(len(ret_list), 1)
+        self.assertEqual(ret_list[0].name, "disk.read.bytes")
+
+        ret_list = meters_object.list_all(only_meters=["disk.read.bytes",
+                                                       "instance"])
+
+        self.assertEqual(len(ret_list), 2)
+        self.assertEqual(ret_list[0].name, "disk.read.bytes")
+        self.assertEqual(ret_list[1].name, "instance")
+
+    @test.create_stubs({api.nova: ('flavor_list',),
+                        })
+    def test_meters_list_all_except(self):
+        meters = self.meters.list()
+
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.meters = self.mox.CreateMockAnything()
+        ceilometerclient.meters.list(None).AndReturn(meters)
+
+        request = self.mox.CreateMock(http.HttpRequest)
+        api.nova.flavor_list(request, None).AndReturn([])
+        self.mox.ReplayAll()
+
+        meters_object = api.ceilometer.Meters(self.request)
+        ret_list = meters_object.list_all(except_meters=["disk.write.bytes",
+                                                         "instance"])
+
+        self.assertEqual(len(ret_list), 1)
+        self.assertEqual(ret_list[0].name, "disk.read.bytes")
+
+        ret_list = meters_object.list_all(except_meters=["disk.write.bytes"])
+
+        self.assertEqual(len(ret_list), 2)
+        self.assertEqual(ret_list[0].name, "disk.read.bytes")
+        self.assertEqual(ret_list[1].name, "instance")
+
     #TODO(lsmola)
     #test resource aggregates
 

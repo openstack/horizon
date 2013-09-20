@@ -17,11 +17,27 @@ import threading
 
 from ceilometerclient import client as ceilometer_client
 from django.conf import settings  # noqa
+from django.utils import datastructures
+from django.utils.translation import ugettext_lazy as _  # noqa
+
+from horizon import exceptions
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import keystone
+from openstack_dashboard.api import nova
 
 LOG = logging.getLogger(__name__)
+
+
+def get_flavor_names(request):
+    # TODO(lsmola) The flavors can be set per project,
+    # so it should show only valid ones.
+    try:
+        flavors = nova.flavor_list(request, None)
+        return [f.name for f in flavors]
+    except Exception:
+        return ['m1.tiny', 'm1.small', 'm1.medium',
+            'm1.large', 'm1.xlarge']
 
 
 def is_iterable(var):
@@ -73,6 +89,26 @@ class Meter(base.APIResourceWrapper):
     """Represents one Ceilometer meter."""
     _attrs = ['name', 'type', 'unit', 'resource_id', 'user_id',
               'project_id']
+
+    def __init__(self, apiresource):
+        super(Meter, self).__init__(apiresource)
+
+        self._label = self.name
+        self._description = ""
+
+    def augment(self, label=None, description=None):
+        if label:
+            self._label = label
+        if description:
+            self._description = description
+
+    @property
+    def description(self):
+        return self._description
+
+    @property
+    def label(self):
+        return self._label
 
 
 class Resource(base.APIResourceWrapper):
@@ -647,3 +683,488 @@ class CeilometerUsage(object):
             stats_attr=stats_attr, additional_query=additional_query)
 
         return resource_aggregates
+
+
+def diff_lists(a, b):
+    if not a:
+        return []
+    elif not b:
+        return a
+    else:
+        return list(set(a) - set(b))
+
+
+class Meters(object):
+    """Class for listing of available meters
+
+    It is listing meters defined in this class that are available
+    in Ceilometer meter_list.
+
+    It is storing information that are not available in Ceiloemter, i.e.
+    label, description.
+
+    """
+
+    def __init__(self, request=None, ceilometer_meter_list=None):
+        # Storing the request.
+        self._request = request
+
+        # Storing the Ceilometer meter list
+        if ceilometer_meter_list:
+            self._ceilometer_meter_list = ceilometer_meter_list
+        else:
+            try:
+                self._ceilometer_meter_list = meter_list(request)
+            except Exception:
+                self._ceilometer_meter_list = []
+                exceptions.handle(self._request,
+                                  _('Unable to retrieve Ceilometer meter'
+                                    'list.'))
+
+        # Storing the meters info categorized by their services.
+        self._nova_meters_info = self._get_nova_meters_info()
+        self._neutron_meters_info = self._get_neutron_meters_info()
+        self._glance_meters_info = self._get_glance_meters_info()
+        self._cinder_meters_info = self._get_cinder_meters_info()
+        self._swift_meters_info = self._get_swift_meters_info()
+        self._kwapi_meters_info = self._get_kwapi_meters_info()
+
+        # Storing the meters info of all services together.
+        all_services_meters = (self._nova_meters_info,
+            self._neutron_meters_info, self._glance_meters_info,
+            self._cinder_meters_info, self._swift_meters_info,
+            self._kwapi_meters_info)
+        self._all_meters_info = {}
+        for service_meters in all_services_meters:
+            self._all_meters_info.update(dict([(meter_name, meter_info)
+                for meter_name,
+                    meter_info in service_meters.items()]))
+
+        # Here will be the cached Meter objects, that will be reused for
+        # repeated listing.
+        self._cached_meters = {}
+
+    def list_all(self, only_meters=None, except_meters=None):
+        """Returns a list of meters based on the meters names
+
+        :Parameters:
+          - `only_meters`: The list of meter_names we want to show
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=only_meters,
+            except_meters=except_meters)
+
+    def list_nova(self, except_meters=None):
+        """Returns a list of meters tied to nova
+
+        :Parameters:
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=self._nova_meters_info.keys(),
+            except_meters=except_meters)
+
+    def list_neutron(self, except_meters=None):
+        """Returns a list of meters tied to neutron
+
+        :Parameters:
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=self._neutron_meters_info.keys(),
+            except_meters=except_meters)
+
+    def list_glance(self, except_meters=None):
+        """Returns a list of meters tied to glance
+
+        :Parameters:
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=self._cinder_meters_info.keys(),
+            except_meters=except_meters)
+
+    def list_cinder(self, except_meters=None):
+        """Returns a list of meters tied to cinder
+
+        :Parameters:
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=self._cinder_meters_info.keys(),
+            except_meters=except_meters)
+
+    def list_swift(self, except_meters=None):
+        """Returns a list of meters tied to swift
+
+        :Parameters:
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=self._swift_meters_info.keys(),
+            except_meters=except_meters)
+
+    def list_kwapi(self, except_meters=None):
+        """Returns a list of meters tied to kwapi
+
+        :Parameters:
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=self._kwapi_meters_info.keys(),
+            except_meters=except_meters)
+
+    def _list(self, only_meters=None, except_meters=None):
+        """Returns a list of meters based on the meters names
+
+        :Parameters:
+          - `only_meters`: The list of meter_names we want to show
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        # Get all wanted meter names.
+        if only_meters:
+            meter_names = only_meters
+        else:
+            meter_names = [meter_name for meter_name
+                            in self._all_meters_info.keys()]
+
+        meter_names = diff_lists(meter_names, except_meters)
+        # Collect meters for wanted meter names.
+        return self._get_meters(meter_names)
+
+    def _get_meters(self, meter_names):
+        """Obtain meters based on meter_names
+
+        The meters that do not exist in Ceilometer meter list are left out.
+
+        :Parameters:
+          - `meter_names`: A list of meter names we want to fetch.
+        """
+
+        meters = []
+        for meter_name in meter_names:
+            meter = self._get_meter(meter_name)
+            if meter:
+                meters.append(meter)
+        return meters
+
+    def _get_meter(self, meter_name):
+        """Obtains a meter
+
+        Obtains meter either from cache or from Ceilometer meter list
+        joined with statically defined meter info like label and description.
+
+        :Parameters:
+          - `meter_name`: A meter name we want to fetch.
+        """
+        meter = self._cached_meters.get(meter_name, None)
+        if not meter:
+            meter_candidates = [m for m in self._ceilometer_meter_list
+                                if m.name == meter_name]
+
+            if meter_candidates:
+                meter_info = self._all_meters_info.get(meter_name, None)
+                if meter_info:
+                    label = meter_info["label"]
+                    description = meter_info["description"]
+                else:
+                    label = ""
+                    description = ""
+                meter = meter_candidates[0]
+                meter.augment(label=label, description=description)
+
+                self._cached_meters[meter_name] = meter
+
+        return meter
+
+    def _get_nova_meters_info(self):
+        """Returns additional info for each meter
+
+        That will be used for augmenting the Ceilometer meter.
+        """
+
+        # TODO(lsmola) Unless the Ceilometer will provide the information
+        # below, I need to define it as a static here. I will be joining this
+        # to info that I am able to obtain from Ceilometer meters, hopefully
+        # some day it will be supported all.
+        meters_info = datastructures.SortedDict([
+            ("instance", {
+                'label': '',
+                'description': _("Duration of instance"),
+            }),
+            ("instance:<type>", {
+                'label': '',
+                'description': _("Duration of instance <type> "
+                                 "(openstack types)"),
+            }),
+            ("memory", {
+                'label': '',
+                'description': _("Volume of RAM in MB"),
+            }),
+            ("cpu", {
+                'label': '',
+                'description': _("CPU time used"),
+            }),
+            ("cpu_util", {
+                'label': '',
+                'description': _("Average CPU utilization"),
+            }),
+            ("vcpus", {
+                'label': '',
+                'description': _("Number of VCPUs"),
+            }),
+            ("disk.read.requests", {
+                'label': '',
+                'description': _("Number of read requests"),
+            }),
+            ("disk.write.requests", {
+                'label': '',
+                'description': _("Number of write requests"),
+            }),
+            ("disk.read.bytes", {
+                'label': '',
+                'description': _("Volume of reads in B"),
+            }),
+            ("disk.write.bytes", {
+                'label': '',
+                'description': _("Volume of writes in B"),
+            }),
+            ("disk.root.size", {
+                'label': '',
+                'description': _("Size of root disk in GB"),
+            }),
+            ("disk.ephemeral.size", {
+                'label': '',
+                'description': _("Size of ephemeral disk "
+                                 "in GB"),
+            }),
+            ("network.incoming.bytes", {
+                'label': '',
+                'description': _("Number of incoming bytes "
+                                 "on the network for a VM interface"),
+            }),
+            ("network.outgoing.bytes", {
+                'label': '',
+                'description': _("Number of outgoing bytes "
+                                 "on the network for a VM interface"),
+            }),
+            ("network.incoming.packets", {
+                'label': '',
+                'description': _("Number of incoming "
+                                 "packets for a VM interface"),
+            }),
+            ("network.outgoing.packets", {
+                'label': '',
+                'description': _("Number of outgoing "
+                                 "packets for a VM interface"),
+            })
+        ])
+        # Adding flavor based meters into meters_info dict
+        # TODO(lsmola) this kind of meter will be probably deprecated
+        # https://bugs.launchpad.net/ceilometer/+bug/1208365 . Delete it then.
+        for flavor in get_flavor_names(self._request):
+            name = 'instance:%s' % flavor
+            meters_info[name] = dict(meters_info["instance:<type>"])
+
+            meters_info[name]['description'] = (
+                _('Duration of instance type %s (openstack flavor)') %
+                flavor)
+
+        # TODO(lsmola) allow to set specific in local_settings. For all meters
+        # because users can have their own agents and meters.
+        return meters_info
+
+    def _get_neutron_meters_info(self):
+        """Returns additional info for each meter
+
+        That will be used for augmenting the Ceilometer meter
+        """
+
+        # TODO(lsmola) Unless the Ceilometer will provide the information
+        # below, I need to define it as a static here. I will be joining this
+        # to info that I am able to obtain from Ceilometer meters, hopefully
+        # some day it will be supported all.
+        return datastructures.SortedDict([
+            ('network', {
+                'label': '',
+                'description': _("Duration of network"),
+            }),
+            ('network.create', {
+                'label': '',
+                'description': _("Creation requests for this network"),
+            }),
+            ('network.update', {
+                'label': '',
+                'description': _("Update requests for this network"),
+            }),
+            ('subnet', {
+                'label': '',
+                'description': _("Duration of subnet"),
+            }),
+            ('subnet.create', {
+                'label': '',
+                'description': _("Creation requests for this subnet"),
+            }),
+            ('subnet.update', {
+                'label': '',
+                'description': _("Update requests for this subnet"),
+            }),
+            ('port', {
+                'label': '',
+                'description': _("Duration of port"),
+            }),
+            ('port.create', {
+                'label': '',
+                'description': _("Creation requests for this port"),
+            }),
+            ('port.update', {
+                'label': '',
+                'description': _("Update requests for this port"),
+            }),
+            ('router', {
+                'label': '',
+                'description': _("Duration of router"),
+            }),
+            ('router.create', {
+                'label': '',
+                'description': _("Creation requests for this router"),
+            }),
+            ('router.update', {
+                'label': '',
+                'description': _("Update requests for this router"),
+            }),
+            ('ip.floating', {
+                'label': '',
+                'description': _("Duration of floating ip"),
+            }),
+            ('ip.floating.create', {
+                'label': '',
+                'description': _("Creation requests for this floating ip"),
+            }),
+            ('ip.floating.update', {
+                'label': '',
+                'description': _("Update requests for this floating ip"),
+            }),
+        ])
+
+    def _get_glance_meters_info(self):
+        """Returns additional info for each meter
+
+        That will be used for augmenting the Ceilometer meter
+        """
+
+        # TODO(lsmola) Unless the Ceilometer will provide the information
+        # below, I need to define it as a static here. I will be joining this
+        # to info that I am able to obtain from Ceilometer meters, hopefully
+        # some day it will be supported all.
+        return datastructures.SortedDict([
+            ('image', {
+                'label': '',
+                'description': _("Image polling -> it (still) exists"),
+            }),
+            ('image.size', {
+                'label': '',
+                'description': _("Uploaded image size"),
+            }),
+            ('image.update', {
+                'label': '',
+                'description': _("Number of update on the image"),
+            }),
+            ('image.upload', {
+                'label': '',
+                'description': _("Number of upload of the image"),
+            }),
+            ('image.delete', {
+                'label': '',
+                'description': _("Number of delete on the image"),
+            }),
+            ('image.download', {
+                'label': '',
+                'description': _("Image is downloaded"),
+            }),
+            ('image.serve', {
+                'label': '',
+                'description': _("Image is served out"),
+            }),
+        ])
+
+    def _get_cinder_meters_info(self):
+        """Returns additional info for each meter
+
+        That will be used for augmenting the Ceilometer meter
+        """
+
+        # TODO(lsmola) Unless the Ceilometer will provide the information
+        # below, I need to define it as a static here. I will be joining this
+        # to info that I am able to obtain from Ceilometer meters, hopefully
+        # some day it will be supported all.
+        return datastructures.SortedDict([
+            ('volume', {
+                'label': '',
+                'description': _("Duration of volune"),
+            }),
+            ('volume.size', {
+                'label': '',
+                'description': _("Size of volume"),
+            }),
+        ])
+
+    def _get_swift_meters_info(self):
+        """Returns additional info for each meter
+
+        That will be used for augmenting the Ceilometer meter
+        """
+
+        # TODO(lsmola) Unless the Ceilometer will provide the information
+        # below, I need to define it as a static here. I will be joining this
+        # to info that I am able to obtain from Ceilometer meters, hopefully
+        # some day it will be supported all.
+        return datastructures.SortedDict([
+            ('storage.objects', {
+                'label': '',
+                'description': _("Number of objects"),
+            }),
+            ('storage.objects.size', {
+                'label': '',
+                'description': _("Total size of stored objects"),
+            }),
+            ('storage.objects.containers', {
+                'label': '',
+                'description': _("Number of containers"),
+            }),
+            ('storage.objects.incoming.bytes', {
+                'label': '',
+                'description': _("Number of incoming bytes"),
+            }),
+            ('storage.objects.outgoing.bytes', {
+                'label': '',
+                'description': _("Number of outgoing bytes"),
+            }),
+            ('storage.api.request', {
+                'label': '',
+                'description': _("Number of API requests against swift"),
+            }),
+        ])
+
+    def _get_kwapi_meters_info(self):
+        """Returns additional info for each meter
+
+        That will be used for augmenting the Ceilometer meter
+        """
+
+        # TODO(lsmola) Unless the Ceilometer will provide the information
+        # below, I need to define it as a static here. I will be joining this
+        # to info that I am able to obtain from Ceilometer meters, hopefully
+        # some day it will be supported all.
+        return datastructures.SortedDict([
+            ('energy', {
+                'label': '',
+                'description': _("Amount of energy"),
+            }),
+            ('power', {
+                'label': '',
+                'description': _("Power consumption"),
+            }),
+        ])

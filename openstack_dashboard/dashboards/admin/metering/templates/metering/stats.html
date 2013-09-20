@@ -11,58 +11,66 @@
       <div class="controls line_chart_time_picker">
         <select data-line-chart-command="select_box_change"
                 name="meter" id="meter" class="span2 example">
-          <optgroup label='{% trans "Compute (Nova)" %}'>
-            {% for meter in meters %}
-            <option title="{{ meter.title }}"  value="{{ meter.name }}" data-unit="">
-            {{ meter.name }}
-            </option>
-            {% endfor %}
-          </optgroup>
 
-          <optgroup label='{% trans "Network (Neutron)" %}'>
-            <option title='{% trans "Duration of network" %}' value="network" data-unit="">network</option>
-            <option title='{% trans "Creation requests for this network" %}' value="network.create" data-unit="">network.create</option>
-            <option title='{% trans "Update requests for this network" %}' value="network.update" data-unit="">network.update</option>
-            <option title='{% trans "Duration of subnet" %}' value="subnet" data-unit="">subnet</option>
-            <option title='{% trans "Creation requests for this subnet" %}' value="subnet.create" data-unit="">subnet.create</option>
-            <option title='{% trans "Update requests for this subnet" %}' value="subnet.update" data-unit="">subnet.update</option>
-            <option title='{% trans "Creation requests for this port" %}' value="port.create" data-unit="">port.create</option>
-            <option title='{% trans "Update requests for this port" %}' value="port.update" data-unit="">port.update</option>
-            <option title='{% trans "Duration of router" %}' value="router" data-unit="">router</option>
-            <option title='{% trans "Creation requests for this router" %}' value="router.create" data-unit="">router.create</option>
-            <option title='{% trans "Update requests for this router" %}' value="router.update" data-unit="">router.update</option>
-            <option title='{% trans "Duration of floating ip" %}' value="ip.floating" data-unit="">ip.floating</option>
-            <option title='{% trans "Creation requests for this floating ip" %}' value="ip.floating.create" data-unit="">ip.floating.create</option>
-            <option title='{% trans "Update requests for this floating ip" %}' value="ip.floating.update" data-unit="">ip.floating.update</option>
-          </optgroup>
+          {% if nova_meters %}
+            <optgroup label='{% trans "Compute (Nova)" %}'>
+              {% for meter in nova_meters %}
+                <option title="{{ meter.description }}"  value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                  {{ meter.label }}
+                </option>
+              {% endfor %}
+            </optgroup>
+          {% endif %}
 
-          <optgroup label='{% trans "Image (Glance)" %}'>
-            <option title='{% trans "Uploaded image size" %}' value="image.size" data-unit="">image.size</option>
-            <option title='{% trans "Number of update on the image" %}' value="image.update " data-unit="">image.update </option>
-            <option title='{% trans "Number of upload of the image" %}' value="image.upload " data-unit="">image.upload </option>
-            <option title='{% trans "Number of delete on the image" %}' value="image.delete " data-unit="">image.delete </option>
-            <option title='{% trans "Image is downloaded" %}' value="image.download" data-unit="">image.download</option>
-            <option title='{% trans "Image is served out" %}' value="image.serve" data-unit="">image.serve</option>
-          </optgroup>
+          {% if neutron_meters %}
+            <optgroup label='{% trans "Network (Neutron)" %}'>
+              {% for meter in neutron_meters %}
+                <option title="{{ meter.description }}"  value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                  {{ meter.label }}
+                </option>
+              {% endfor %}
+            </optgroup>
+          {% endif %}
 
-          <optgroup label='{% trans "Volume (Cinder)" %}'>
-            <option title='{% trans "Duration of volume" %}' value="volume" data-unit="">volume</option>
-            <option title='{% trans "Size of volume" %}' value="volume.size" data-unit="">volume.size</option>
-          </optgroup>
+          {% if glance_meters %}
+            <optgroup label='{% trans "Image (Glance)" %}'>
+              {% for meter in glance_meters %}
+                <option title="{{ meter.description }}"  value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                  {{ meter.label }}
+                </option>
+              {% endfor %}
+            </optgroup>
+          {% endif %}
 
-          <optgroup label='{% trans "Object Storage (Swift)" %}'>
-            <option title='{% trans "Number of objects" %}' value="storage.objects" data-unit="">storage.objects</option>
-            <option title='{% trans "Total size of stored objects" %}' value="storage.objects.size" data-unit="">storage.objects.size</option>
-            <option title='{% trans "Number of containers" %}' value="storage.objects.containers" data-unit="">storage.objects.containers</option>
-            <option title='{% trans "Number of incoming bytes" %}' value="storage.objects.incoming.bytes" data-unit="">storage.objects.incoming.bytes</option>
-            <option title='{% trans "Number of outgoing bytes" %}' value="storage.objects.outgoing.bytes" data-unit="">storage.objects.outgoing.bytes</option>
-            <option title='{% trans "Number of API requests against swift" %}' value="storage.api.request" data-unit="">storage.api.request</option>
-          </optgroup>
+          {% if cinder_meters %}
+            <optgroup label='{% trans "Volume (Cinder)" %}'>
+              {% for meter in cinder_meters %}
+                <option title="{{ meter.description }}"  value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                  {{ meter.label }}
+                </option>
+              {% endfor %}
+            </optgroup>
+          {% endif %}
 
-          <optgroup label='{% trans "Energy (Kwapi)" %}'>
-            <option title='{% trans "Amount of energy" %}' value="energy" data-unit="">energy</option>
-            <option title='{% trans "Power consumption" %}' value="power" data-unit="">power</option>
-          </optgroup>
+          {% if swift_meters %}
+            <optgroup label='{% trans "Object Storage (Swift)" %}'>
+              {% for meter in swift_meters %}
+                <option title="{{ meter.description }}"  value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                  {{ meter.label }}
+                </option>
+              {% endfor %}
+            </optgroup>
+          {% endif %}
+
+          {% if kwapi_meters %}
+            <optgroup label='{% trans "Energy (Kwapi)" %}'>
+              {% for meter in kwapi_meters %}
+                <option title="{{ meter.description }}"  value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                  {{ meter.label }}
+                </option>
+              {% endfor %}
+            </optgroup>
+          {% endif %}
         </select>
       </div>
     </div>

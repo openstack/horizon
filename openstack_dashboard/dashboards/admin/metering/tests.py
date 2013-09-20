@@ -27,13 +27,9 @@ INDEX_URL = reverse("horizon:admin:metering:index")
 
 class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
     def test_stats_page(self):
-        resources = self.resources.list()
-        ceilometerclient = self.stub_ceilometerclient()
-        ceilometerclient.resources = self.mox.CreateMockAnything()
-        # I am returning only 1 resource
-        ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources[:1])
-
         meters = self.meters.list()
+
+        ceilometerclient = self.stub_ceilometerclient()
         ceilometerclient.meters = self.mox.CreateMockAnything()
         ceilometerclient.meters.list(None).AndReturn(meters)
 
@@ -183,8 +179,6 @@ class MeteringStatsTabTests(test.APITestCase):
         api.nova.flavor_list(request, None).AndReturn(self.flavors.list())
 
         ceilometerclient = self.stub_ceilometerclient()
-        ceilometerclient.resources = self.mox.CreateMockAnything()
-        ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources)
 
         meters = []
         for r in resources:
@@ -202,10 +196,10 @@ class MeteringStatsTabTests(test.APITestCase):
         tab = tabs.GlobalStatsTab(None)
         context_data = tab.get_context_data(request)
 
-        self.assertTrue('meters' in context_data)
+        self.assertTrue('nova_meters' in context_data)
         meter_hints = {}
-        for d in context_data['meters']:
-            meter_hints[d.name] = d.title
+        for d in context_data['nova_meters']:
+            meter_hints[d.name] = d.description
 
         expected_meters = ['instance:%s' % f for f in flavors]
         expected_meters.extend(['instance', 'cpu'])

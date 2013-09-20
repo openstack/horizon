@@ -15,7 +15,6 @@
 
 from django.utils.translation import ugettext_lazy as _  # noqa
 
-from horizon import exceptions
 from horizon import tabs
 from openstack_dashboard import api
 from openstack_dashboard.api import ceilometer
@@ -37,60 +36,17 @@ class GlobalStatsTab(tabs.Tab):
                     'm1.large', 'm1.xlarge']
 
     def get_context_data(self, request):
-        query = [{"field": "metadata.OS-EXT-AZ:availability_zone",
-                  "op": "eq",
-                  "value": "nova"}]
-        try:
-            instances = ceilometer.resource_list(request, query,
-                ceilometer_usage_object=None)
-            meters = ceilometer.meter_list(request)
-        except Exception:
-            instances = []
-            meters = []
-            exceptions.handle(request,
-                              _('Unable to retrieve Nova Ceilometer '
-                                'metering information.'))
-        instance_ids = set([i.resource_id for i in instances])
-        instance_meters = set([m.name for m in meters
-                               if m.resource_id in instance_ids])
+        meters = ceilometer.Meters(request)
 
-        meter_titles = {"instance": _("Duration of instance"),
-                        "memory": _("Volume of RAM in MB"),
-                        "cpu": _("CPU time used"),
-                        "cpu_util": _("Average CPU utilisation"),
-                        "vcpus": _("Number of VCPUs"),
-                        "disk.read.requests": _("Number of read requests"),
-                        "disk.write.requests": _("Number of write requests"),
-                        "disk.read.bytes": _("Volume of reads in B"),
-                        "disk.write.bytes": _("Volume of writes in B"),
-                        "disk.root.size": _("Size of root disk in GB"),
-                        "disk.ephemeral.size": _("Size of ephemeral disk "
-                            "in GB"),
-                        "network.incoming.bytes": _("Number of incoming bytes "
-                            "on the network for a VM interface"),
-                        "network.outgoing.bytes": _("Number of outgoing bytes "
-                            "on the network for a VM interface"),
-                        "network.incoming.packets": _("Number of incoming "
-                            "packets for a VM interface"),
-                        "network.outgoing.packets": _("Number of outgoing "
-                            "packets for a VM interface")}
+        context = {
+            'nova_meters': meters.list_nova(),
+            'neutron_meters': meters.list_neutron(),
+            'glance_meters': meters.list_glance(),
+            'cinder_meters': meters.list_cinder(),
+            'swift_meters': meters.list_swift(),
+            'kwapi_meters': meters.list_kwapi(),
+        }
 
-        for flavor in self._get_flavor_names(request):
-            name = 'instance:%s' % flavor
-            hint = (_('Duration of instance type %s (openstack flavor)') %
-                    flavor)
-            meter_titles[name] = hint
-
-        class MetersWrap(object):
-            """A quick wrapper for meter and associated titles."""
-            def __init__(self, meter, meter_titles):
-                self.name = meter
-                self.title = meter_titles.get(meter, "")
-
-        meters_objs = [MetersWrap(meter, meter_titles)
-                       for meter in sorted(instance_meters)]
-
-        context = {'meters': meters_objs}
         return context
 
 
