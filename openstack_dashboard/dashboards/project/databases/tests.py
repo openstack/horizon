@@ -117,10 +117,10 @@ class DatabaseTests(test.TestCase):
         self.assertMessageCount(res, error=1)
 
     @test.create_stubs({
-        api.nova: ('flavor_list', 'tenant_absolute_limits'),
-        api.trove: ('backup_list',)})
+        api.nova: ('tenant_absolute_limits',),
+        api.trove: ('flavor_list', 'backup_list',)})
     def test_launch_instance(self):
-        api.nova.flavor_list(IsA(http.HttpRequest))\
+        api.trove.flavor_list(IsA(http.HttpRequest))\
             .AndReturn(self.flavors.list())
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn([])
@@ -132,10 +132,9 @@ class DatabaseTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/databases/launch.html')
 
     @test.create_stubs({
-        api.nova: ('flavor_list',),
-        api.trove: ('backup_list', 'instance_create',)})
+        api.trove: ('flavor_list', 'backup_list', 'instance_create',)})
     def test_create_simple_instance(self):
-        api.nova.flavor_list(IsA(http.HttpRequest))\
+        api.trove.flavor_list(IsA(http.HttpRequest))\
             .AndReturn(self.flavors.list())
         api.trove.backup_list(IsA(http.HttpRequest))\
             .AndReturn(self.database_backups.list())
@@ -161,11 +160,10 @@ class DatabaseTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({
-        api.nova: ('flavor_list',),
-        api.trove: ('backup_list', 'instance_create',)})
+        api.trove: ('flavor_list', 'backup_list', 'instance_create',)})
     def test_create_simple_instance_exception(self):
         trove_exception = self.exceptions.nova
-        api.nova.flavor_list(IsA(http.HttpRequest))\
+        api.trove.flavor_list(IsA(http.HttpRequest))\
             .AndReturn(self.flavors.list())
         api.trove.backup_list(IsA(http.HttpRequest))\
             .AndReturn(self.database_backups.list())

@@ -44,7 +44,7 @@ class SetInstanceDetailsAction(workflows.Action):
     def flavors(self, request):
         if not hasattr(self, '_flavors'):
             try:
-                self._flavors = api.nova.flavor_list(request)
+                self._flavors = api.trove.flavor_list(request)
             except Exception:
                 LOG.exception("Exception while obtaining flavors list")
                 self._flavors = []
