@@ -74,10 +74,16 @@ def instance_delete(request, instance_id):
 
 def instance_create(request, name, volume, flavor, databases=None,
                     users=None, restore_point=None):
+    #TODO(dklyle): adding conditional to support trove without volume
+    # support for now until API supports checking for volume support
+    if volume > 0:
+        volume_params = {'size': volume}
+    else:
+        volume_params = None
     return troveclient(request).instances.create(
         name,
         flavor,
-        {'size': volume},
+        volume=volume_params,
         databases=databases,
         users=users,
         restorePoint=restore_point)

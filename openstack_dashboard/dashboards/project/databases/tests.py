@@ -117,13 +117,10 @@ class DatabaseTests(test.TestCase):
         self.assertMessageCount(res, error=1)
 
     @test.create_stubs({
-        api.nova: ('tenant_absolute_limits',),
         api.trove: ('flavor_list', 'backup_list',)})
     def test_launch_instance(self):
         api.trove.flavor_list(IsA(http.HttpRequest))\
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
-            .AndReturn([])
         api.trove.backup_list(IsA(http.HttpRequest))\
             .AndReturn(self.database_backups.list())
 
