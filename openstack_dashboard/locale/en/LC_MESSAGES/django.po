@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 06:44-0500\n"
+"POT-Creation-Date: 2013-09-19 21:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,32 +132,32 @@ msgstr ""
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
 
-#: api/neutron.py:593
+#: api/neutron.py:599
 #, python-format
 msgid "profile_list(): profile_type=%(profile_type)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:606
+#: api/neutron.py:612
 #, python-format
 msgid "profile_get(): profileid=%(profileid)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:615
+#: api/neutron.py:621
 #, python-format
 msgid "profile_create(): kwargs=%s"
 msgstr ""
 
-#: api/neutron.py:624
+#: api/neutron.py:630
 #, python-format
 msgid "profile_delete(): profile_id=%s"
 msgstr ""
 
-#: api/neutron.py:629
+#: api/neutron.py:635
 #, python-format
 msgid "profile_modify(): profileid=%(profileid)s, kwargs=%(kwargs)s"
 msgstr ""
 
-#: api/neutron.py:639
+#: api/neutron.py:645
 #, python-format
 msgid ""
 "profile_bindings_list(): profile_type=%(profile_type)s params=%(params)s"
@@ -173,12 +173,12 @@ msgstr ""
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr ""
 
-#: api/nova.py:249
+#: api/nova.py:250
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr ""
 
-#: api/nova.py:266
+#: api/nova.py:267
 #, python-format
 msgid "Failed to modify %d instance security groups."
 msgstr ""
@@ -314,7 +314,7 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/tables.py:34
 #: dashboards/project/access_and_security/security_groups/tables.py:80
 #: dashboards/project/instances/templates/instances/_detail_overview.html:58
-#: dashboards/project/instances/workflows/create_instance.py:394
+#: dashboards/project/instances/workflows/create_instance.py:393
 #: dashboards/project/instances/workflows/update_instance.py:82
 msgid "Security Groups"
 msgstr ""
@@ -591,8 +591,8 @@ msgstr ""
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
-#: dashboards/project/volumes/forms.py:33
-#: dashboards/project/volumes/forms.py:304
+#: dashboards/project/volumes/forms.py:34
+#: dashboards/project/volumes/forms.py:295
 #: dashboards/project/volumes/tables.py:173
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/_limits.html:3
@@ -1321,7 +1321,7 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/images/tables.py:204
 #: dashboards/project/loadbalancers/workflows.py:362
 #: dashboards/project/routers/ports/tables.py:88
-#: dashboards/project/volumes/forms.py:34
+#: dashboards/project/volumes/forms.py:35
 #: dashboards/project/volumes/tables.py:202
 msgid "Type"
 msgstr ""
@@ -1855,7 +1855,7 @@ msgstr ""
 
 #: dashboards/admin/metering/tables.py:174
 #: dashboards/admin/metering/tabs.py:74 dashboards/admin/metering/tabs.py:148
-#: dashboards/admin/metering/views.py:131
+#: dashboards/admin/metering/views.py:139
 msgid "Unable to retrieve statistics."
 msgstr ""
 
@@ -1879,7 +1879,7 @@ msgstr ""
 msgid "Global Object Store Usage (average of last 30 days)"
 msgstr ""
 
-#: dashboards/admin/metering/tabs.py:38 dashboards/admin/metering/views.py:92
+#: dashboards/admin/metering/tabs.py:38 dashboards/admin/metering/views.py:101
 msgid "Unable to retrieve tenant list."
 msgstr ""
 
@@ -2299,7 +2299,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:68
-#: dashboards/project/instances/workflows/create_instance.py:480
+#: dashboards/project/instances/workflows/create_instance.py:479
 #: dashboards/project/networks/panel.py:25
 #: dashboards/project/networks/tables.py:44
 #: dashboards/project/networks/tables.py:106
@@ -2982,7 +2982,7 @@ msgid "Router Detail"
 msgstr ""
 
 #: dashboards/admin/users/forms.py:62 dashboards/project/instances/forms.py:73
-#: dashboards/project/instances/workflows/create_instance.py:438
+#: dashboards/project/instances/workflows/create_instance.py:437
 #: dashboards/settings/password/forms.py:48
 msgid "Passwords do not match."
 msgstr ""
@@ -3142,7 +3142,7 @@ msgid "Manage Databases"
 msgstr ""
 
 #: dashboards/project/access_and_security/panel.py:26
-#: dashboards/project/instances/workflows/create_instance.py:402
+#: dashboards/project/instances/workflows/create_instance.py:401
 msgid "Access & Security"
 msgstr ""
 
@@ -3306,7 +3306,7 @@ msgid "Select a port"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:99
-#: dashboards/project/volumes/forms.py:266
+#: dashboards/project/volumes/forms.py:257
 msgid "Select an instance"
 msgstr ""
 
@@ -3315,7 +3315,7 @@ msgid "No ports available"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:105
-#: dashboards/project/volumes/forms.py:268
+#: dashboards/project/volumes/forms.py:259
 msgid "No instances available"
 msgstr ""
 
@@ -3359,7 +3359,7 @@ msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:30
 #: dashboards/project/instances/tables.py:557
-#: dashboards/project/instances/workflows/create_instance.py:379
+#: dashboards/project/instances/workflows/create_instance.py:378
 msgid "Keypair"
 msgstr ""
 
@@ -4165,14 +4165,14 @@ msgstr ""
 
 #: dashboards/project/database_backups/workflows/create_backup.py:64
 #: dashboards/project/databases/workflows/create_instance.py:169
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:552
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr ""
 
 #: dashboards/project/database_backups/workflows/create_backup.py:74
 #: dashboards/project/databases/workflows/create_instance.py:175
-#: dashboards/project/instances/workflows/create_instance.py:568
+#: dashboards/project/instances/workflows/create_instance.py:567
 msgid "instance"
 msgstr ""
 
@@ -4230,7 +4230,7 @@ msgstr ""
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/instances/tables.py:183
 #: dashboards/project/instances/tables.py:204
-#: dashboards/project/instances/workflows/create_instance.py:550
+#: dashboards/project/instances/workflows/create_instance.py:549
 #: dashboards/project/network_topology/templates/network_topology/index.html:27
 msgid "Launch Instance"
 msgstr ""
@@ -4418,7 +4418,7 @@ msgid "Size of the volume in GB."
 msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:66
-#: dashboards/project/instances/workflows/create_instance.py:281
+#: dashboards/project/instances/workflows/create_instance.py:257
 #: dashboards/project/instances/workflows/resize_instance.py:80
 #: usage/base.py:184
 msgid "Unable to retrieve quota information."
@@ -4470,13 +4470,13 @@ msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:167
 #: dashboards/project/images_and_snapshots/images/tables.py:37
-#: dashboards/project/instances/workflows/create_instance.py:551
+#: dashboards/project/instances/workflows/create_instance.py:550
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:168
-#: dashboards/project/instances/workflows/create_instance.py:552
+#: dashboards/project/instances/workflows/create_instance.py:551
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr ""
@@ -5006,7 +5006,7 @@ msgid "Unable to retrieve images."
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/views.py:77
-#: dashboards/project/volumes/forms.py:120
+#: dashboards/project/volumes/forms.py:116
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
 
@@ -5104,7 +5104,7 @@ msgid "Image was successfully updated."
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/tables.py:60
-#: dashboards/project/volumes/forms.py:126
+#: dashboards/project/volumes/forms.py:122
 msgid "Image"
 msgstr ""
 
@@ -5135,7 +5135,7 @@ msgid "Instance ID"
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/snapshots/forms.py:40
-#: dashboards/project/volumes/forms.py:302
+#: dashboards/project/volumes/forms.py:293
 msgid "Snapshot Name"
 msgstr ""
 
@@ -5246,7 +5246,7 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:113
 #: dashboards/project/instances/workflows/create_instance.py:109
-#: dashboards/project/instances/workflows/create_instance.py:294
+#: dashboards/project/instances/workflows/create_instance.py:270
 #: dashboards/project/volumes/tables.py:42
 #: dashboards/project/volumes/tables.py:220
 msgid "Volume"
@@ -5275,7 +5275,7 @@ msgid "Volume Snapshots"
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:86
-#: dashboards/project/volumes/forms.py:31
+#: dashboards/project/volumes/forms.py:32
 msgid "Volume Name"
 msgstr ""
 
@@ -5285,7 +5285,7 @@ msgstr ""
 
 #: dashboards/project/instances/forms.py:40
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:149
+#: dashboards/project/instances/workflows/create_instance.py:290
 msgid "Select Image"
 msgstr ""
 
@@ -5679,7 +5679,7 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:127
-#: dashboards/project/volumes/forms.py:232
+#: dashboards/project/volumes/forms.py:223
 msgid "Device Name"
 msgstr ""
 
@@ -5695,11 +5695,7 @@ msgstr ""
 msgid "Delete volume on instance terminate"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:160
-msgid "Unable to retrieve list of images ."
-msgstr ""
-
-#: dashboards/project/instances/workflows/create_instance.py:170
+#: dashboards/project/instances/workflows/create_instance.py:152
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your "
@@ -5710,192 +5706,196 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/workflows/create_instance.py:188
-msgid ""
-"There are no image sources available; you must first create an image before "
-"attempting to launch an instance."
+#: dashboards/project/instances/workflows/create_instance.py:170
+#: dashboards/project/instances/workflows/create_instance.py:192
+msgid "You must select an image."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:196
-msgid ""
-"There are no snapshot sources available; you must first create an snapshot "
-"before attempting to launch an instance."
+#: dashboards/project/instances/workflows/create_instance.py:175
+#: dashboards/project/instances/workflows/create_instance.py:203
+msgid "You must select a snapshot."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:204
-msgid ""
-"You can't select an instance source when booting from a Volume. The Volume "
-"is your source and should contain the operating system."
+#: dashboards/project/instances/workflows/create_instance.py:180
+msgid "You must select a volume."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:213
+#: dashboards/project/instances/workflows/create_instance.py:186
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:219
-msgid "volume_image_id"
-msgstr ""
-
-#: dashboards/project/instances/workflows/create_instance.py:222
+#: dashboards/project/instances/workflows/create_instance.py:195
 msgid "You must set volume size"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:224
-#: dashboards/project/instances/workflows/create_instance.py:231
+#: dashboards/project/instances/workflows/create_instance.py:198
+#: dashboards/project/instances/workflows/create_instance.py:206
 msgid "You must set device name"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:229
-msgid "You must select a snapshot."
-msgstr ""
-
-#: dashboards/project/instances/workflows/create_instance.py:251
+#: dashboards/project/instances/workflows/create_instance.py:227
 msgid "Unable to retrieve instance flavors."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:260
+#: dashboards/project/instances/workflows/create_instance.py:236
 msgid "Unable to retrieve availability zones."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:266
+#: dashboards/project/instances/workflows/create_instance.py:242
 msgid "Any Availability Zone"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:268
+#: dashboards/project/instances/workflows/create_instance.py:244
 msgid "No availability zones found."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:291
-#: dashboards/project/volumes/forms.py:113
+#: dashboards/project/instances/workflows/create_instance.py:267
+#: dashboards/project/volumes/forms.py:109
 msgid "Snapshot"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:296
+#: dashboards/project/instances/workflows/create_instance.py:272
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:310
+#: dashboards/project/instances/workflows/create_instance.py:288
+msgid "Unable to retrieve list of images ."
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:292
+msgid "No images available"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:304
 msgid "Select Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:312
+#: dashboards/project/instances/workflows/create_instance.py:306
 msgid "No snapshots available."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:316
-msgid "Select Volume"
-msgstr ""
-
-#: dashboards/project/instances/workflows/create_instance.py:324
+#: dashboards/project/instances/workflows/create_instance.py:317
 msgid "Unable to retrieve list of volumes."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:328
+#: dashboards/project/instances/workflows/create_instance.py:319
+msgid "Select Volume"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:321
+msgid "No volumes available."
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:332
+msgid "Unable to retrieve list of volume snapshots."
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:335
 msgid "Select Volume Snapshot"
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:337
-msgid "Unable to retrieve list of volume snapshots."
+msgid "No volume snapshots available."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:381
+#: dashboards/project/instances/workflows/create_instance.py:380
 msgid "Which keypair to use for authentication."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:385
+#: dashboards/project/instances/workflows/create_instance.py:384
 msgid "Admin Pass"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:391
+#: dashboards/project/instances/workflows/create_instance.py:390
 msgid "Confirm Admin Pass"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:398
+#: dashboards/project/instances/workflows/create_instance.py:397
 msgid "Launch instance in these security groups."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:403
+#: dashboards/project/instances/workflows/create_instance.py:402
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:413
+#: dashboards/project/instances/workflows/create_instance.py:412
 msgid "Unable to retrieve keypairs."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:417
+#: dashboards/project/instances/workflows/create_instance.py:416
 msgid "Select a keypair"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:419
+#: dashboards/project/instances/workflows/create_instance.py:418
 msgid "No keypairs available."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:428
+#: dashboards/project/instances/workflows/create_instance.py:427
 msgid "Unable to retrieve list of security groups"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:460
+#: dashboards/project/instances/workflows/create_instance.py:459
 msgid "Customization Script"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:462
+#: dashboards/project/instances/workflows/create_instance.py:461
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:469
+#: dashboards/project/instances/workflows/create_instance.py:468
 msgid "Post-Creation"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:485
+#: dashboards/project/instances/workflows/create_instance.py:484
 msgid "At least one network must be specified."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:487
+#: dashboards/project/instances/workflows/create_instance.py:486
 msgid "Launch instance with these networks"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:489
 msgid "Policy Profiles"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:491
 msgid "Launch instance with this policy profile"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:496
+#: dashboards/project/instances/workflows/create_instance.py:495
 msgid "Networking"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:498
+#: dashboards/project/instances/workflows/create_instance.py:497
 msgid "Select networks for your instance."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:510
+#: dashboards/project/instances/workflows/create_instance.py:509
 msgid "Unable to retrieve networks."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:519
+#: dashboards/project/instances/workflows/create_instance.py:518
 msgid "Unable to retrieve profiles."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:564
 #, python-format
 msgid "%s instances"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:616
+#: dashboards/project/instances/workflows/create_instance.py:615
 #, python-format
 msgid "Horizon->Create Port with %(netid)s %(profile_id)s"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:623
+#: dashboards/project/instances/workflows/create_instance.py:622
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr ""
@@ -7651,110 +7651,110 @@ msgstr ""
 msgid "Resource Detail: "
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:36
+#: dashboards/project/volumes/forms.py:37
 msgid "Size (GB)"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:37
+#: dashboards/project/volumes/forms.py:38
 msgid "Volume Source"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:40
+#: dashboards/project/volumes/forms.py:41
 msgid "Use snapshot as a source"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:49
+#: dashboards/project/volumes/forms.py:48
 msgid "Use image as a source"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:81
+#: dashboards/project/volumes/forms.py:77
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:88
+#: dashboards/project/volumes/forms.py:84
 msgid "Unable to load the specified snapshot."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:98
+#: dashboards/project/volumes/forms.py:94
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:104
+#: dashboards/project/volumes/forms.py:100
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:114
+#: dashboards/project/volumes/forms.py:110
 msgid "Choose a snapshot"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:127
+#: dashboards/project/volumes/forms.py:123
 msgid "Choose an image"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:138
+#: dashboards/project/volumes/forms.py:134
 msgid "No source, empty volume."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:166
+#: dashboards/project/volumes/forms.py:157
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:178
+#: dashboards/project/volumes/forms.py:169
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:187
+#: dashboards/project/volumes/forms.py:178
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
 "quota available."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:194
+#: dashboards/project/volumes/forms.py:185
 msgid "You are already using all of your available volumes."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:208
+#: dashboards/project/volumes/forms.py:199
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:216
+#: dashboards/project/volumes/forms.py:207
 msgid "Unable to create volume."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:229
+#: dashboards/project/volumes/forms.py:220
 msgid "Attach to Instance"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:230
+#: dashboards/project/volumes/forms.py:221
 msgid "Select an instance to attach to."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:274
+#: dashboards/project/volumes/forms.py:265
 msgid "Unknown instance (None)"
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:288
+#: dashboards/project/volumes/forms.py:279
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:297
+#: dashboards/project/volumes/forms.py:288
 msgid "Unable to attach volume."
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:321
+#: dashboards/project/volumes/forms.py:312
 #, python-format
 msgid "Creating volume snapshot \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/forms.py:327
+#: dashboards/project/volumes/forms.py:318
 msgid "Unable to create volume snapshot."
 msgstr ""
 
@@ -7773,7 +7773,7 @@ msgid "%sGB"
 msgstr ""
 
 #: dashboards/project/volumes/tables.py:128
-#: dashboards/project/volumes/views.py:171
+#: dashboards/project/volumes/views.py:165
 msgid "Unable to retrieve attachment information."
 msgstr ""
 
@@ -7816,8 +7816,8 @@ msgstr ""
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 
-#: dashboards/project/volumes/views.py:152
-#: dashboards/project/volumes/views.py:162
+#: dashboards/project/volumes/views.py:146
+#: dashboards/project/volumes/views.py:156
 msgid "Unable to retrieve volume information."
 msgstr ""
 
@@ -8614,6 +8614,14 @@ msgstr ""
 msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
+msgstr ""
+
+#: usage/quotas.py:218
+msgid "Unable to retrieve compute limit information."
+msgstr ""
+
+#: usage/quotas.py:230
+msgid "Unable to retrieve volume limit information."
 msgstr ""
 
 #: usage/tables.py:12
