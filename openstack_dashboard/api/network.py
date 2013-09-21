@@ -124,9 +124,10 @@ def server_security_groups(request, instance_id):
     return NetworkClient(request).secgroups.list_by_instance(instance_id)
 
 
-def server_update_security_groups(request, instance_id, new_sgs):
+def server_update_security_groups(request, instance_id,
+                                  new_security_group_ids):
     return NetworkClient(request).secgroups.update_instance_security_group(
-        instance_id, new_sgs)
+        instance_id, new_security_group_ids)
 
 
 def security_group_backend(request):
