@@ -66,7 +66,7 @@ class UpdateRule(forms.SelfHandlingForm):
         required=False,
         validators=[port_validator],
         help_text=_('Destination port (integer in [1, 65535] or range'
-                    'in a:b)'))
+                    ' in a:b)'))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     enabled = forms.BooleanField(label=_("Enabled"), required=False)
 
