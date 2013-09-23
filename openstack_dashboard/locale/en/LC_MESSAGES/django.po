@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-19 21:30-0500\n"
+"POT-Creation-Date: 2013-09-22 22:03-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,32 +132,32 @@ msgstr ""
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
 
-#: api/neutron.py:599
+#: api/neutron.py:600
 #, python-format
 msgid "profile_list(): profile_type=%(profile_type)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:612
+#: api/neutron.py:613
 #, python-format
 msgid "profile_get(): profileid=%(profileid)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:621
+#: api/neutron.py:622
 #, python-format
 msgid "profile_create(): kwargs=%s"
 msgstr ""
 
-#: api/neutron.py:630
+#: api/neutron.py:631
 #, python-format
 msgid "profile_delete(): profile_id=%s"
 msgstr ""
 
-#: api/neutron.py:635
+#: api/neutron.py:636
 #, python-format
 msgid "profile_modify(): profileid=%(profileid)s, kwargs=%(kwargs)s"
 msgstr ""
 
-#: api/neutron.py:645
+#: api/neutron.py:646
 #, python-format
 msgid ""
 "profile_bindings_list(): profile_type=%(profile_type)s params=%(params)s"
@@ -173,12 +173,16 @@ msgstr ""
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr ""
 
-#: api/nova.py:250
+#: api/nova.py:249
+msgid "Couldn't get security group list."
+msgstr ""
+
+#: api/nova.py:256
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr ""
 
-#: api/nova.py:267
+#: api/nova.py:273
 #, python-format
 msgid "Failed to modify %d instance security groups."
 msgstr ""
@@ -1691,7 +1695,7 @@ msgid "IP Address"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:103
-#: dashboards/project/containers/tables.py:250
+#: dashboards/project/containers/tables.py:251
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:169
@@ -3788,7 +3792,7 @@ msgid "Unable to create container."
 msgstr ""
 
 #: dashboards/project/containers/forms.py:79
-#: dashboards/project/containers/tables.py:247
+#: dashboards/project/containers/tables.py:248
 msgid "Object Name"
 msgstr ""
 
@@ -3858,23 +3862,23 @@ msgstr ""
 msgid "Upload Object"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:156
-#: dashboards/project/containers/tables.py:168
+#: dashboards/project/containers/tables.py:157
+#: dashboards/project/containers/tables.py:169
 #: dashboards/project/containers/templates/containers/_upload.html:19
 msgid "Object"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:157
-#: dashboards/project/containers/tables.py:169
-#: dashboards/project/containers/tables.py:254
+#: dashboards/project/containers/tables.py:158
+#: dashboards/project/containers/tables.py:170
+#: dashboards/project/containers/tables.py:255
 msgid "Objects"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:175
+#: dashboards/project/containers/tables.py:176
 msgid "Copy"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:188
+#: dashboards/project/containers/tables.py:189
 #: dashboards/project/database_backups/tables.py:105
 #: dashboards/project/databases/tables.py:221
 msgid "Download"
@@ -4539,7 +4543,7 @@ msgid "Destination Port/Port Range"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:68
-msgid "Destination port (integer in [1, 65535] or rangein a:b)"
+msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:82
