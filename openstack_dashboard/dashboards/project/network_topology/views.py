@@ -20,6 +20,7 @@
 
 import json
 
+from django.conf import settings  # noqa
 from django.core.urlresolvers import reverse  # noqa
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django.http import HttpResponse  # noqa
@@ -114,8 +115,14 @@ class JSONView(View):
             servers, more = api.nova.server_list(request)
         except Exception:
             servers = []
+        console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
+        if console_type == 'SPICE':
+            console = 'spice'
+        else:
+            console = 'vnc'
         data['servers'] = [{'name': server.name,
                             'status': server.status,
+                            'console': console,
                             'task': getattr(server, 'OS-EXT-STS:task_state'),
                             'id': server.id} for server in servers]
         self.add_resource_url('horizon:project:instances:detail',
