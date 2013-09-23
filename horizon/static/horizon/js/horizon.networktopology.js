@@ -531,6 +531,7 @@ horizon.network_topology = {
       });
     } else if (d.type == 'instance') {
       html_data.console_id = d.id;
+      html_data.console = d.console;
       html = balloon_tmpl.render(html_data,{
         table1:device_tmpl
       });
