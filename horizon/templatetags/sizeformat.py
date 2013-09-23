@@ -35,7 +35,7 @@ def int_format(value):
 
 
 def float_format(value):
-    return formats.number_format(round(value, 1), 0)
+    return formats.number_format(round(value, 1), 1)
 
 
 def filesizeformat(bytes, filesize_number_format):
@@ -69,6 +69,15 @@ def mbformat(mb):
     if not mb:
         return 0
     return filesizeformat(mb * 1024 * 1024, int_format).replace(' ', '')
+
+
+@register.filter(name='mb_float_format')
+def mb_float_format(mb):
+    """ Takes a size value in mb, and prints returns the data in a
+    saner unit. """
+    if not mb:
+        return 0
+    return filesizeformat(mb * 1024 * 1024, float_format)
 
 
 @register.filter(name='diskgbformat')
