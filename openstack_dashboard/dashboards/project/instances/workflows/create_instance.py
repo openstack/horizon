@@ -141,6 +141,11 @@ class SetInstanceDetailsAction(workflows.Action):
         help_text_template = ("project/instances/"
                               "_launch_details_help.html")
 
+    def __init__(self, request, context, *args, **kwargs):
+        self._init_images_cache()
+        super(SetInstanceDetailsAction, self).__init__(
+            request, context, *args, **kwargs)
+
     def clean(self):
         cleaned_data = super(SetInstanceDetailsAction, self).clean()
 
@@ -276,16 +281,13 @@ class SetInstanceDetailsAction(workflows.Action):
 
     def populate_image_id_choices(self, request, context):
         choices = []
-        try:
-            images = utils.get_available_images(request,
-                                                context.get('project_id'))
-            for image in images:
-                image.bytes = image.size
-                image.volume_size = functions.bytes_to_gigabytes(image.bytes)
-                choices.append((image.id, image))
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve list of images .'))
+        images = utils.get_available_images(request,
+                                            context.get('project_id'),
+                                            self._images_cache)
+        for image in images:
+            image.bytes = image.size
+            image.volume_size = functions.bytes_to_gigabytes(image.bytes)
+            choices.append((image.id, image))
         if choices:
             choices.insert(0, ("", _("Select Image")))
         else:
@@ -293,7 +295,6 @@ class SetInstanceDetailsAction(workflows.Action):
         return choices
 
     def populate_instance_snapshot_id_choices(self, request, context):
-        self._init_images_cache()
         images = utils.get_available_images(request,
                                             context.get('project_id'),
                                             self._images_cache)
