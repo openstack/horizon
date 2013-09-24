@@ -19,7 +19,7 @@
     <div class="d3_quota_bar">
     <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalRAMUsed usage.limits.maxTotalRAMSize 100 %}"></div>
     <strong>{% trans "RAM" %} <br />
-      {% blocktrans with used=usage.limits.totalRAMUsed|intcomma available=usage.limits.maxTotalRAMSize|intcomma %}Used <span> {{ used }} MB </span> of <span> {{ available }} MB </span>{% endblocktrans %}
+      {% blocktrans with used=usage.limits.totalRAMUsed|mb_float_format available=usage.limits.maxTotalRAMSize|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
     </strong>
     </div>
 
