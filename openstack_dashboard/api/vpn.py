@@ -279,9 +279,9 @@ def ipsecsiteconnection_create(request, **kwargs):
     :param initiator: initiator state
     :param ipsecpolicy_id: IPsecPolicy associated with this connection
     :param mtu: MTU size for the connection
-    :param peer_address: remote branch router public
+    :param peer_address: Peer gateway public address
     :param peer_cidrs: remote subnet(s) in CIDR format
-    :param peer_id: remote branch router identity"
+    :param peer_id:  Peer router identity for authentication"
     :param psk: Pre-Shared Key string
     :param vpnservice_id: VPNService associated with this connection
     :param admin_state_up: admin state (default on)
