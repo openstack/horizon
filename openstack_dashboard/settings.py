@@ -39,14 +39,6 @@ if ROOT_PATH not in sys.path:
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-# Ensure that we always have a SECRET_KEY set, even when no local_settings.py
-# file is present. See local_settings.py.example for full documentation on the
-# horizon.utils.secret_key module and its use.
-from horizon.utils import secret_key
-LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'local')
-SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH,
-                                                   '.secret_key_store'))
-
 SITE_BRANDING = 'OpenStack Dashboard'
 
 LOGIN_URL = '/auth/login/'
@@ -214,10 +206,22 @@ POLICY_FILES = {
     'compute': 'nova_policy.json'
 }
 
+SECRET_KEY = None
+
 try:
     from local.local_settings import *  # noqa
 except ImportError:
     logging.warning("No local_settings file found.")
+
+# Ensure that we always have a SECRET_KEY set, even when no local_settings.py
+# file is present. See local_settings.py.example for full documentation on the
+# horizon.utils.secret_key module and its use.
+if not SECRET_KEY:
+    from horizon.utils import secret_key
+    LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              'local')
+    SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH,
+                                                       '.secret_key_store'))
 
 from openstack_dashboard import policy
 POLICY_CHECK_FUNCTION = policy.check
