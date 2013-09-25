@@ -125,7 +125,7 @@ class UpdateNetworkProfileView(forms.ModalFormView):
             try:
                 self._object = api.neutron.profile_get(self.request,
                                                        profile_id)
-                LOG.debug(_("Network Profile object=%s") % self._object)
+                LOG.debug("Network Profile object=%s", self._object)
             except Exception:
                 redirect = self.success_url
                 msg = _('Unable to retrieve network profile details.')

@@ -88,7 +88,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.debug(_('request = %(req)s, params = %(params)s'),
+            LOG.debug('request = %(req)s, params = %(params)s',
                       {'req': request, 'params': data})
             profile = api.neutron.profile_create(request,
                                                  name=data['name'],
@@ -136,7 +136,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.debug(_('request = %(req)s, params = %(params)s'),
+            LOG.debug('request = %(req)s, params = %(params)s',
                       {'req': request, 'params': data})
             profile = api.neutron.profile_modify(request,
                                                  data['profile_id'],
@@ -153,7 +153,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
             messages.success(request, msg)
             return profile
         except Exception:
-            LOG.error(_('Failed to update network profile (%s).') %
+            LOG.error('Failed to update network profile (%s).',
                       data['profile_id'])
             redirect = reverse('horizon:router:nexus1000v:index')
             exceptions.handle(request, msg, redirect=redirect)
