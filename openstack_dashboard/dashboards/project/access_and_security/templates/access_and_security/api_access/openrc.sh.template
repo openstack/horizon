@@ -21,5 +21,5 @@ export OS_USERNAME="{{ user.username|shellfilter }}"
 
 # With Keystone you pass the keystone password.
 echo "Please enter your OpenStack Password: "
-read -s OS_PASSWORD_INPUT
+read -sr OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
