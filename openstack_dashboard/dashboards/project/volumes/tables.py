@@ -199,6 +199,8 @@ class VolumesTable(VolumesTableBase):
                                 empty_value="-")
     attachments = AttachmentColumn("attachments",
                                 verbose_name=_("Attached To"))
+    availability_zone = tables.Column("availability_zone",
+                         verbose_name=_("Availability Zone"))
 
     class Meta:
         name = "volumes"

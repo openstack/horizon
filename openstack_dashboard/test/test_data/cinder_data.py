@@ -12,7 +12,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from cinderclient.v1 import availability_zones
 from cinderclient.v1 import quotas
+
 from openstack_dashboard.api import base
 from openstack_dashboard.usage import quotas as usage_quotas
 
@@ -22,6 +24,7 @@ from openstack_dashboard.test.test_data import utils
 def data(TEST):
     TEST.cinder_quotas = utils.TestDataContainer()
     TEST.cinder_quota_usages = utils.TestDataContainer()
+    TEST.cinder_availability_zones = utils.TestDataContainer()
 
     # Quota Sets
     quota_data = dict(volumes='1',
@@ -44,3 +47,18 @@ def data(TEST):
         quota_usage.tally(k, v['used'])
 
     TEST.cinder_quota_usages.add(quota_usage)
+
+    # Availability Zones
+    # Cinder returns the following structure from os-availability-zone
+    # {"availabilityZoneInfo":
+    # [{"zoneState": {"available": true}, "zoneName": "nova"}]}
+    # Note that the default zone is still "nova" even though this is cinder
+    TEST.cinder_availability_zones.add(
+        availability_zones.AvailabilityZone(
+            availability_zones.AvailabilityZoneManager(None),
+            {
+                'zoneName': 'nova',
+                'zoneState': {'available': True}
+            }
+        )
+    )
