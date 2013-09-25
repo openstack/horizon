@@ -27,6 +27,8 @@ from django.conf import settings  # noqa
 from django.utils.datastructures import SortedDict  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
+from horizon.utils.memoized import memoized  # noqa
+
 from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
 from openstack_dashboard.api import nova
@@ -715,6 +717,12 @@ def tenant_quota_update(request, tenant_id, **kwargs):
     return neutronclient(request).update_quota(tenant_id, quotas)
 
 
+def agent_list(request):
+    agents = neutronclient(request).list_agents()
+    return [Agent(a) for a in agents['agents']]
+
+
+@memoized
 def list_extensions(request):
     extensions_list = neutronclient(request).list_extensions()
     if 'extensions' in extensions_list:
@@ -723,11 +731,7 @@ def list_extensions(request):
         return {}
 
 
-def agent_list(request):
-    agents = neutronclient(request).list_agents()
-    return [Agent(a) for a in agents['agents']]
-
-
+@memoized
 def is_extension_supported(request, extension_alias):
     extensions = list_extensions(request)
 
@@ -738,13 +742,18 @@ def is_extension_supported(request, extension_alias):
         return False
 
 
+@memoized
 def is_quotas_extension_supported(request):
     network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-    if network_config.get('enable_quotas', False) and \
-            is_extension_supported(request, 'quotas'):
+    if (network_config.get('enable_quotas', False) and
+            is_extension_supported(request, 'quotas')):
         return True
     else:
         return False
+
+
+def is_security_group_extension_supported(request):
+    return is_extension_supported(request, 'security-group')
 
 
 # Using this mechanism till a better plugin/sub-plugin detection

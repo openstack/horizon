@@ -274,7 +274,7 @@ class NeutronApiTests(test.APITestCase):
     def test_is_extension_supported(self):
         neutronclient = self.stub_neutronclient()
         neutronclient.list_extensions().MultipleTimes() \
-            .AndReturn(self.api_extensions.first())
+            .AndReturn({'extensions': self.api_extensions.list()})
         self.mox.ReplayAll()
 
         self.assertTrue(

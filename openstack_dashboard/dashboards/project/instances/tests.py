@@ -49,7 +49,10 @@ class InstanceTests(test.TestCase):
     @test.create_stubs({api.nova: ('flavor_list',
                                    'server_list',
                                    'tenant_absolute_limits',
-                                   'extension_supported',)})
+                                   'extension_supported',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',),
+                        })
     def test_index(self):
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
@@ -61,6 +64,8 @@ class InstanceTests(test.TestCase):
             .AndReturn([self.servers.list(), False])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -93,7 +98,10 @@ class InstanceTests(test.TestCase):
                                    'server_list',
                                    'flavor_get',
                                    'tenant_absolute_limits',
-                                   'extension_supported',)})
+                                   'extension_supported',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',),
+                        })
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -111,6 +119,8 @@ class InstanceTests(test.TestCase):
                 AndReturn(full_flavors[server.flavor["id"]])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -125,7 +135,10 @@ class InstanceTests(test.TestCase):
                                    'server_list',
                                    'flavor_get',
                                    'tenant_absolute_limits',
-                                   'extension_supported',)})
+                                   'extension_supported',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',),
+                        })
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -146,6 +159,8 @@ class InstanceTests(test.TestCase):
                 AndRaise(self.exceptions.nova)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -1521,7 +1536,10 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'tenant_absolute_limits',
-                                   'extension_supported',)})
+                                   'extension_supported',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',),
+                        })
     def test_launch_button_disabled_when_quota_exceeded(self):
         limits = self.limits['absolute']
         limits['totalInstancesUsed'] = limits['maxTotalInstances']
@@ -1536,6 +1554,8 @@ class InstanceTests(test.TestCase):
             .AndReturn([self.servers.list(), False])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .MultipleTimes().AndReturn(limits)
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -1554,7 +1574,10 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'tenant_absolute_limits',
-                                   'extension_supported',)})
+                                   'extension_supported',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',),
+                        })
     def test_index_options_after_migrate(self):
         server = self.servers.first()
         server.status = "VERIFY_RESIZE"
@@ -1568,6 +1591,8 @@ class InstanceTests(test.TestCase):
             .AndReturn([self.servers.list(), False])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 

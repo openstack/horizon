@@ -27,6 +27,43 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
+class NetworkClientTestCase(test.APITestCase):
+    def test_networkclient_no_neutron(self):
+        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .AndReturn(False)
+        self.mox.ReplayAll()
+
+        nc = api.network.NetworkClient(self.request)
+        self.assertIsInstance(nc.floating_ips, api.nova.FloatingIpManager)
+        self.assertIsInstance(nc.secgroups, api.nova.SecurityGroupManager)
+
+    def test_networkclient_neutron(self):
+        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .AndReturn(True)
+        self.neutronclient = self.stub_neutronclient()
+        self.neutronclient.list_extensions() \
+            .AndReturn({'extensions': self.api_extensions.list()})
+        self.mox.ReplayAll()
+
+        nc = api.network.NetworkClient(self.request)
+        self.assertIsInstance(nc.floating_ips, api.neutron.FloatingIpManager)
+        self.assertIsInstance(nc.secgroups, api.neutron.SecurityGroupManager)
+
+    def test_networkclient_neutron_with_nova_security_group(self):
+        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .AndReturn(True)
+        self.neutronclient = self.stub_neutronclient()
+        self.neutronclient.list_extensions().AndReturn({'extensions': []})
+        self.mox.ReplayAll()
+
+        nc = api.network.NetworkClient(self.request)
+        self.assertIsInstance(nc.floating_ips, api.neutron.FloatingIpManager)
+        self.assertIsInstance(nc.secgroups, api.nova.SecurityGroupManager)
+
+
 class NetworkApiNovaTestBase(test.APITestCase):
     def setUp(self):
         super(NetworkApiNovaTestBase, self).setUp()
@@ -183,6 +220,8 @@ class NetworkApiNeutronTestBase(test.APITestCase):
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .AndReturn(True)
         self.qclient = self.stub_neutronclient()
+        self.qclient.list_extensions() \
+            .AndReturn({'extensions': self.api_extensions.list()})
 
 
 class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
