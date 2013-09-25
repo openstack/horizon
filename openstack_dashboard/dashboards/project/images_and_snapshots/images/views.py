@@ -74,7 +74,7 @@ class UpdateView(forms.ModalFormView):
     def get_initial(self):
         image = self.get_object()
         return {'image_id': self.kwargs['image_id'],
-                'name': image.name,
+                'name': getattr(image, 'name', None) or image.id,
                 'description': image.properties.get('description', ''),
                 'kernel': image.properties.get('kernel_id', ''),
                 'ramdisk': image.properties.get('ramdisk_id', ''),
