@@ -501,7 +501,15 @@ def data(TEST):
                          'size': 40,
                          'status': 'available',
                          'volume_id': '41023e92-8008-4c8b-8059-7f2293ff3775'})
+    volume_snapshot2 = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),
+                        {'id': 'a374cbb8-3f99-4c3f-a2ef-3edbec842e31',
+                         'display_name': '',
+                         'display_description': 'vol snap 2!',
+                         'size': 80,
+                         'status': 'available',
+                         'volume_id': '3b189ac8-9166-ac7f-90c9-16c8bf9e01ac'})
     TEST.volume_snapshots.add(volume_snapshot)
+    TEST.volume_snapshots.add(volume_snapshot2)
 
     cert_data = {'private_key': 'private',
                  'data': 'certificate_data'}
