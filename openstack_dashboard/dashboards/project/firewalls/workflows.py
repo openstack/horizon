@@ -46,7 +46,7 @@ class AddRuleAction(workflows.Action):
         choices=[('tcp', _('TCP')),
                  ('udp', _('UDP')),
                  ('icmp', _('ICMP')),
-                 (None, _('ANY'))],)
+                 ('any', _('ANY'))],)
     action = forms.ChoiceField(
         label=_("Action"),
         choices=[('allow', _('ALLOW')),
@@ -95,6 +95,8 @@ class AddRuleStep(workflows.Step):
     def contribute(self, data, context):
         context = super(AddRuleStep, self).contribute(data, context)
         if data:
+            if context['protocol'] == 'any':
+                del context['protocol']
             for field in ['source_port',
                           'destination_port',
                           'source_ip_address',
