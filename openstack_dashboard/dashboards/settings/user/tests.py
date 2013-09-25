@@ -14,6 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings  # noqa
 from django.core.urlresolvers import reverse  # noqa
 
 from openstack_dashboard.test import helpers as test
@@ -31,3 +32,13 @@ class UserSettingsTest(test.TestCase):
         self.assertContains(res, "Europe/Moscow (UTC +04:00)")
         self.assertContains(res, "Atlantic/Stanley (UTC -03:00)")
         self.assertContains(res, "Pacific/Honolulu (UTC -10:00)")
+
+    def test_display_language(self):
+        # Add an unknown language to LANGUAGES list
+        settings.LANGUAGES += (('unknown', 'Unknown Language'),)
+
+        res = self.client.get(INDEX_URL)
+        # Known language
+        self.assertContains(res, 'English')
+        # Unknown language
+        self.assertContains(res, 'Unknown Language')
