@@ -243,10 +243,10 @@ class SetInstanceDetailsAction(workflows.Action):
         zone_list = [(zone.zoneName, zone.zoneName)
                       for zone in zones if zone.zoneState['available']]
         zone_list.sort()
-        if zone_list:
-            zone_list.insert(0, ("", _("Any Availability Zone")))
-        else:
+        if not zone_list:
             zone_list.insert(0, ("", _("No availability zones found.")))
+        elif len(zone_list) > 1:
+            zone_list.insert(0, ("", _("Any Availability Zone")))
         return zone_list
 
     def get_help_text(self):
