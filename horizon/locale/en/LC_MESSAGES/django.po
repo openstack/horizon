@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-17 05:18+0000\n"
+"POT-Creation-Date: 2013-09-26 00:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,6 +193,7 @@ msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
+#: templates/horizon/common/_limit_summary.html:22
 #: templates/horizon/common/_limit_summary.html:29
 #: templates/horizon/common/_limit_summary.html:36
 #, python-format
@@ -205,11 +206,6 @@ msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:22
-#, python-format
-msgid "Used <span> %(used)s MB </span> of <span> %(available)s MB </span>"
 msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:28

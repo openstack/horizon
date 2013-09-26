@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-24 14:00+0000\n"
+"POT-Creation-Date: 2013-09-26 00:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,37 +127,37 @@ msgstr ""
 msgid "User %s has no role defined for that project."
 msgstr ""
 
-#: api/neutron.py:196
+#: api/neutron.py:198
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
 
-#: api/neutron.py:600
+#: api/neutron.py:602
 #, python-format
 msgid "profile_list(): profile_type=%(profile_type)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:613
+#: api/neutron.py:615
 #, python-format
 msgid "profile_get(): profileid=%(profileid)s, params=%(params)s"
 msgstr ""
 
-#: api/neutron.py:622
+#: api/neutron.py:624
 #, python-format
 msgid "profile_create(): kwargs=%s"
 msgstr ""
 
-#: api/neutron.py:631
+#: api/neutron.py:633
 #, python-format
 msgid "profile_delete(): profile_id=%s"
 msgstr ""
 
-#: api/neutron.py:636
+#: api/neutron.py:638
 #, python-format
 msgid "profile_modify(): profileid=%(profileid)s, kwargs=%(kwargs)s"
 msgstr ""
 
-#: api/neutron.py:646
+#: api/neutron.py:648
 #, python-format
 msgid ""
 "profile_bindings_list(): profile_type=%(profile_type)s params=%(params)s"
@@ -254,9 +254,9 @@ msgstr ""
 #: dashboards/project/instances/tables.py:93
 #: dashboards/project/instances/tables.py:122
 #: dashboards/project/instances/tables.py:154
-#: dashboards/project/instances/tables.py:451
-#: dashboards/project/instances/tables.py:465
-#: dashboards/project/instances/tables.py:579
+#: dashboards/project/instances/tables.py:449
+#: dashboards/project/instances/tables.py:463
+#: dashboards/project/instances/tables.py:577
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 msgid "Instances"
@@ -489,8 +489,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:159
 #: dashboards/project/firewalls/tables.py:176
 #: dashboards/project/firewalls/workflows.py:38
-#: dashboards/project/firewalls/workflows.py:180
-#: dashboards/project/firewalls/workflows.py:238
+#: dashboards/project/firewalls/workflows.py:182
+#: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:6
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -498,7 +498,7 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/images/forms.py:154
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:10
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:83
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:87
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
 #: dashboards/project/instances/workflows/update_instance.py:108
@@ -507,6 +507,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:190
 #: dashboards/project/loadbalancers/workflows.py:34
 #: dashboards/project/loadbalancers/workflows.py:117
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/tables.py:94
 #: dashboards/project/networks/ports/forms.py:36
@@ -573,8 +575,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:117
 #: dashboards/project/firewalls/forms.py:145
 #: dashboards/project/firewalls/workflows.py:42
-#: dashboards/project/firewalls/workflows.py:183
-#: dashboards/project/firewalls/workflows.py:241
+#: dashboards/project/firewalls/workflows.py:185
+#: dashboards/project/firewalls/workflows.py:243
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:9
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -588,6 +590,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:192
 #: dashboards/project/loadbalancers/workflows.py:37
 #: dashboards/project/loadbalancers/workflows.py:120
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
 #: dashboards/project/networks/templates/networks/_create.html:17
 #: dashboards/project/routers/templates/routers/ports/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
@@ -828,6 +832,10 @@ msgstr ""
 #: dashboards/project/loadbalancers/forms.py:155
 #: dashboards/project/loadbalancers/forms.py:202
 #: dashboards/project/loadbalancers/tables.py:236
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
@@ -848,7 +856,7 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/images/forms.py:95
 #: dashboards/project/images_and_snapshots/images/forms.py:176
 #: dashboards/project/images_and_snapshots/images/tables.py:135
-#: dashboards/project/images_and_snapshots/images/tables.py:212
+#: dashboards/project/images_and_snapshots/images/tables.py:216
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
 msgid "Public"
 msgstr ""
@@ -1237,9 +1245,9 @@ msgstr ""
 
 #: dashboards/admin/groups/tables.py:181
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
-#: dashboards/project/firewalls/workflows.py:110
-#: dashboards/project/firewalls/workflows.py:217
-#: dashboards/project/firewalls/workflows.py:293
+#: dashboards/project/firewalls/workflows.py:112
+#: dashboards/project/firewalls/workflows.py:219
+#: dashboards/project/firewalls/workflows.py:295
 #: dashboards/project/loadbalancers/workflows.py:98
 #: dashboards/project/loadbalancers/workflows.py:205
 #: dashboards/project/loadbalancers/workflows.py:337
@@ -1322,8 +1330,10 @@ msgstr ""
 #: dashboards/admin/routers/ports/tables.py:39
 #: dashboards/project/access_and_security/security_groups/forms.py:175
 #: dashboards/project/access_and_security/security_groups/forms.py:182
-#: dashboards/project/images_and_snapshots/images/tables.py:204
+#: dashboards/project/images_and_snapshots/images/tables.py:208
 #: dashboards/project/loadbalancers/workflows.py:362
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:34
 #: dashboards/project/routers/ports/tables.py:88
 #: dashboards/project/volumes/forms.py:35
 #: dashboards/project/volumes/tables.py:202
@@ -1393,14 +1403,14 @@ msgstr ""
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/templates/images/index.html:6
 #: dashboards/project/images_and_snapshots/images/tables.py:61
-#: dashboards/project/images_and_snapshots/images/tables.py:225
+#: dashboards/project/images_and_snapshots/images/tables.py:229
 msgid "Images"
 msgstr ""
 
 #: dashboards/admin/images/tables.py:47
 #: dashboards/admin/instances/tables.py:98
-#: dashboards/project/images_and_snapshots/images/tables.py:202
-#: dashboards/project/instances/tables.py:550
+#: dashboards/project/images_and_snapshots/images/tables.py:206
+#: dashboards/project/instances/tables.py:548
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
 #: dashboards/project/instances/workflows/create_instance.py:115
 msgid "Image Name"
@@ -1431,12 +1441,10 @@ msgstr ""
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:18
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_update.html:17
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:18
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:17
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:17
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:17
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
 #: dashboards/project/networks/templates/networks/_update.html:17
 #: dashboards/project/networks/templates/networks/ports/_update.html:22
 #: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:17
@@ -1559,11 +1567,14 @@ msgstr ""
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/firewalls/tables.py:181
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images_and_snapshots/images/tables.py:208
+#: dashboards/project/images_and_snapshots/images/tables.py:212
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:17
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
-#: dashboards/project/instances/tables.py:560
+#: dashboards/project/instances/tables.py:558
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:27
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:45
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/ports/tables.py:61
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
@@ -1662,8 +1673,8 @@ msgstr ""
 #: dashboards/project/instances/tables.py:92
 #: dashboards/project/instances/tables.py:121
 #: dashboards/project/instances/tables.py:153
-#: dashboards/project/instances/tables.py:450
-#: dashboards/project/instances/tables.py:464
+#: dashboards/project/instances/tables.py:448
+#: dashboards/project/instances/tables.py:462
 #: dashboards/project/volumes/tables.py:246
 msgid "Instance"
 msgstr ""
@@ -1689,7 +1700,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/databases/tables.py:167
-#: dashboards/project/instances/tables.py:552
+#: dashboards/project/instances/tables.py:550
 #: dashboards/project/loadbalancers/tables.py:219
 msgid "IP Address"
 msgstr ""
@@ -1701,24 +1712,24 @@ msgstr ""
 #: dashboards/project/databases/tables.py:169
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:36
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:37
-#: dashboards/project/instances/tables.py:555
+#: dashboards/project/instances/tables.py:553
 #: dashboards/project/volumes/tables.py:176
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:27
 msgid "Size"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:114
-#: dashboards/project/instances/tables.py:565
+#: dashboards/project/instances/tables.py:563
 msgid "Task"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:121
-#: dashboards/project/instances/tables.py:572
+#: dashboards/project/instances/tables.py:570
 msgid "Power State"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:123
-#: dashboards/project/instances/tables.py:574
+#: dashboards/project/instances/tables.py:572
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: usage/tables.py:61
 msgid "Uptime"
@@ -2212,7 +2223,7 @@ msgstr ""
 #: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:81
 #: dashboards/admin/routers/ports/tables.py:41
-#: dashboards/project/firewalls/workflows.py:248
+#: dashboards/project/firewalls/workflows.py:250
 #: dashboards/project/loadbalancers/forms.py:42
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:162
@@ -2242,8 +2253,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/forms.py:118
 #: dashboards/project/firewalls/workflows.py:73
-#: dashboards/project/firewalls/workflows.py:185
-#: dashboards/project/firewalls/workflows.py:245
+#: dashboards/project/firewalls/workflows.py:187
+#: dashboards/project/firewalls/workflows.py:247
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:21
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:46
 #: dashboards/project/networks/tables.py:98
@@ -2672,6 +2683,10 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:15
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:74
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
@@ -3273,7 +3288,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:111
-#: dashboards/project/instances/tables.py:432
+#: dashboards/project/instances/tables.py:430
 msgid "Unable to disassociate floating IP."
 msgstr ""
 
@@ -3362,7 +3377,7 @@ msgid "Unable to import keypair."
 msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:30
-#: dashboards/project/instances/tables.py:557
+#: dashboards/project/instances/tables.py:555
 #: dashboards/project/instances/workflows/create_instance.py:379
 msgid "Keypair"
 msgstr ""
@@ -3630,7 +3645,7 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
 #: dashboards/project/firewalls/tables.py:31
-#: dashboards/project/firewalls/workflows.py:109
+#: dashboards/project/firewalls/workflows.py:111
 msgid "Add Rule"
 msgstr ""
 
@@ -3638,8 +3653,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:55
 #: dashboards/project/firewalls/tables.py:152
 #: dashboards/project/firewalls/tables.py:162
-#: dashboards/project/firewalls/workflows.py:137
-#: dashboards/project/firewalls/workflows.py:143
+#: dashboards/project/firewalls/workflows.py:139
+#: dashboards/project/firewalls/workflows.py:145
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:18
 msgid "Rules"
 msgstr ""
@@ -4249,12 +4264,17 @@ msgid "%(name)s | %(RAM)s RAM"
 msgstr ""
 
 #: dashboards/project/databases/tables.py:145
-#: dashboards/project/instances/tables.py:492
-#: dashboards/project/instances/tables.py:499
+#: dashboards/project/instances/tables.py:490
+#: dashboards/project/instances/tables.py:497
 msgid "Not available"
 msgstr ""
 
 #: dashboards/project/databases/tables.py:153
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:19
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:10
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:13
 msgid "-"
 msgstr ""
 
@@ -4492,6 +4512,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:194
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:133
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:24
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:27
 msgid "Protocol"
 msgstr ""
 
@@ -4584,7 +4606,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/forms.py:119
 #: dashboards/project/firewalls/tables.py:164
-#: dashboards/project/firewalls/workflows.py:188
+#: dashboards/project/firewalls/workflows.py:190
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:24
 msgid "Audited"
 msgstr ""
@@ -4602,17 +4624,21 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:147
 #: dashboards/project/firewalls/tables.py:62
 #: dashboards/project/firewalls/tables.py:179
-#: dashboards/project/firewalls/workflows.py:243
+#: dashboards/project/firewalls/workflows.py:245
 msgid "Policy"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:149
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:28
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:24
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:35
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:36
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:42
 msgid "Admin State Up"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:163
-#: dashboards/project/firewalls/workflows.py:262
+#: dashboards/project/firewalls/workflows.py:264
 msgid "Unable to retrieve policy list."
 msgstr ""
 
@@ -4684,7 +4710,7 @@ msgid "Firewalls"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:38
-#: dashboards/project/firewalls/workflows.py:216
+#: dashboards/project/firewalls/workflows.py:218
 msgid "Add Policy"
 msgstr ""
 
@@ -4820,33 +4846,33 @@ msgid ""
 "Protocol and action must be specified. Other fields are optional."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:111
+#: dashboards/project/firewalls/workflows.py:113
 #, python-format
 msgid "Added Rule \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:112
+#: dashboards/project/firewalls/workflows.py:114
 #, python-format
 msgid "Unable to add Rule \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:140
+#: dashboards/project/firewalls/workflows.py:142
 msgid "Create a policy with selected rules."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:145
+#: dashboards/project/firewalls/workflows.py:147
 msgid "Select rules for your policy."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:160
+#: dashboards/project/firewalls/workflows.py:162
 msgid "Unable to retrieve rules."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:196
+#: dashboards/project/firewalls/workflows.py:198
 msgid "AddPolicy"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:198
+#: dashboards/project/firewalls/workflows.py:200
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
@@ -4854,41 +4880,41 @@ msgid ""
 "Rules tab."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:218
+#: dashboards/project/firewalls/workflows.py:220
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:219
+#: dashboards/project/firewalls/workflows.py:221
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:255
+#: dashboards/project/firewalls/workflows.py:257
 msgid "Select a Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:273
+#: dashboards/project/firewalls/workflows.py:275
 msgid "AddFirewall"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:275
+#: dashboards/project/firewalls/workflows.py:277
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:292
+#: dashboards/project/firewalls/workflows.py:294
 msgid "Add Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:294
+#: dashboards/project/firewalls/workflows.py:296
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:295
+#: dashboards/project/firewalls/workflows.py:297
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr ""
@@ -5009,7 +5035,7 @@ msgstr ""
 msgid "Unable to retrieve images."
 msgstr ""
 
-#: dashboards/project/images_and_snapshots/views.py:77
+#: dashboards/project/images_and_snapshots/views.py:80
 #: dashboards/project/volumes/forms.py:116
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
@@ -5040,7 +5066,7 @@ msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:76
 #: dashboards/project/images_and_snapshots/images/forms.py:172
-#: dashboards/project/images_and_snapshots/images/tables.py:219
+#: dashboards/project/images_and_snapshots/images/tables.py:223
 msgid "Format"
 msgstr ""
 
@@ -5061,7 +5087,7 @@ msgstr ""
 
 #: dashboards/project/images_and_snapshots/images/forms.py:96
 #: dashboards/project/images_and_snapshots/images/forms.py:177
-#: dashboards/project/images_and_snapshots/images/tables.py:216
+#: dashboards/project/images_and_snapshots/images/tables.py:220
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:21
 msgid "Protected"
 msgstr ""
@@ -5167,6 +5193,7 @@ msgstr ""
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:18
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:26
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:75
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
@@ -5274,11 +5301,11 @@ msgid "Volume Snapshot"
 msgstr ""
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:38
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:91
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:95
 msgid "Volume Snapshots"
 msgstr ""
 
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:86
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:90
 #: dashboards/project/volumes/forms.py:32
 msgid "Volume Name"
 msgstr ""
@@ -5391,52 +5418,52 @@ msgid "Rebuild Instance"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:351
-#: dashboards/project/instances/tables.py:372
+#: dashboards/project/instances/tables.py:371
 msgid "Associate Floating IP"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:391
+#: dashboards/project/instances/tables.py:389
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:395
+#: dashboards/project/instances/tables.py:393
 msgid "Unable to associate floating IP."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:401
+#: dashboards/project/instances/tables.py:399
 msgid "Disassociate Floating IP"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:426
+#: dashboards/project/instances/tables.py:424
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:429
+#: dashboards/project/instances/tables.py:427
 msgid "No floating IPs to disassociate."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:448
+#: dashboards/project/instances/tables.py:446
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
 msgid "Start"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:449
+#: dashboards/project/instances/tables.py:447
 msgid "Started"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:462
-#: dashboards/project/instances/tables.py:463
+#: dashboards/project/instances/tables.py:460
+#: dashboards/project/instances/tables.py:461
 msgid "Shut Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:485
+#: dashboards/project/instances/tables.py:483
 #, python-format
 msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:548
+#: dashboards/project/instances/tables.py:546
 #: dashboards/project/instances/workflows/create_instance.py:90
 #: dashboards/project/overview/views.py:33 usage/tables.py:58
 msgid "Instance Name"
@@ -5748,11 +5775,11 @@ msgid "Unable to retrieve availability zones."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:247
-msgid "Any Availability Zone"
+msgid "No availability zones found."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:249
-msgid "No availability zones found."
+msgid "Any Availability Zone"
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:272
@@ -5984,6 +6011,7 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:41
 #: dashboards/project/loadbalancers/workflows.py:40
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "Load Balancing Method"
 msgstr ""
 
@@ -5999,11 +6027,13 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:82
 #: dashboards/project/loadbalancers/workflows.py:135
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:33
 msgid "Session Persistence"
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:86
 #: dashboards/project/loadbalancers/workflows.py:138
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:36
 msgid "Cookie Name"
 msgstr ""
 
@@ -6014,6 +6044,7 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:91
 #: dashboards/project/loadbalancers/workflows.py:142
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Connection Limit"
 msgstr ""
 
@@ -6043,6 +6074,7 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:159
 #: dashboards/project/loadbalancers/workflows.py:262
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:21
 msgid "Weight"
 msgstr ""
 
@@ -6063,6 +6095,7 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:207
 #: dashboards/project/loadbalancers/workflows.py:373
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr ""
 
@@ -6073,6 +6106,7 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:212
 #: dashboards/project/loadbalancers/workflows.py:378
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:61
 msgid "Timeout"
 msgstr ""
@@ -6162,6 +6196,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:104
 #: dashboards/project/loadbalancers/tables.py:229
 #: dashboards/project/loadbalancers/tabs.py:48
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:30
 msgid "Members"
 msgstr ""
 
@@ -6208,6 +6243,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:223
 #: dashboards/project/loadbalancers/workflows.py:129
 #: dashboards/project/loadbalancers/workflows.py:265
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:24
 msgid "Protocol Port"
 msgstr ""
 
@@ -6460,8 +6497,8 @@ msgid ""
 "Add member to selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight for this member Specify the port number the "
-"member(s) operate on; e.g., 80."
+"Assign a numeric weight for this member Specify the port number the member"
+"(s) operate on; e.g., 80."
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:338
@@ -6491,6 +6528,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:390
 #: dashboards/project/loadbalancers/workflows.py:395
 #: dashboards/project/loadbalancers/workflows.py:396
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
 msgid "HTTP Method"
 msgstr ""
 
@@ -6615,110 +6653,41 @@ msgstr ""
 msgid "Unable to delete association."
 msgstr ""
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
-msgid "ID:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
-msgid "Tenant ID:"
-msgstr ""
-
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:30
-msgid "Pool ID:"
+msgid "Pool ID"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:15
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:21
-msgid "Address:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:18
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:24
-msgid "Protocol Port:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:21
-msgid "Weight:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:35
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:36
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:42
-msgid "Admin State Up:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:27
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:45
-msgid "Status:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:34
-msgid "Type:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
-msgid "Delay:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
-msgid "Timeout:"
+msgid "Address"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:21
-msgid "Max Retries:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
-msgid "HTTP Method:"
+msgid "Max Retries"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:28
-msgid "URL Path:"
+msgid "URL Path"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:31
-msgid "Expected Codes:"
+msgid "Expected Codes"
 msgstr ""
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
-msgid "VIP ID:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
-msgid "Name:"
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
+msgid "VIP ID"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:21
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-msgid "Subnet ID:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:27
-msgid "Protocol:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
-msgid "Load Balancing Method:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:30
-msgid "Members:"
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:24
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
+msgid "Subnet ID"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
-msgid "Health Monitors:"
+msgid "Health Monitors"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:18
@@ -6742,18 +6711,6 @@ msgstr ""
 msgid ""
 "You may update VIP attributes here: edit name, description, pool, session "
 "persistence, connection limit  or admin state."
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:33
-msgid "Session Persistence:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:36
-msgid "Cookie Name:"
-msgstr ""
-
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
-msgid "Connection Limit:"
 msgstr ""
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
@@ -7122,11 +7079,6 @@ msgstr ""
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:23
 msgid "IP address:"
-msgstr ""
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:24
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
-msgid "Subnet ID"
 msgstr ""
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:30
@@ -8532,7 +8484,7 @@ msgstr ""
 msgid "Number of items to show per page"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:96
+#: dashboards/settings/user/forms.py:103
 msgid "Settings saved."
 msgstr ""
 
