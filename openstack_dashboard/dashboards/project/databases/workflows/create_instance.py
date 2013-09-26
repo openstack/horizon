@@ -15,7 +15,6 @@
 #    under the License.
 
 import logging
-import simplejson as json
 
 from django.conf import settings  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -33,13 +32,13 @@ class SetInstanceDetailsAction(workflows.Action):
     flavor = forms.ChoiceField(label=_("Flavor"),
                                help_text=_("Size of image to launch."))
     volume = forms.IntegerField(label=_("Volume Size"),
-                                min_value=1,
+                                min_value=0,
                                 initial=1,
                                 help_text=_("Size of the volume in GB."))
 
     class Meta:
         name = _("Details")
-        help_text_template = ("project/instances/_launch_details_help.html")
+        help_text_template = ("project/databases/_launch_details_help.html")
 
     def flavors(self, request):
         if not hasattr(self, '_flavors'):
@@ -53,18 +52,6 @@ class SetInstanceDetailsAction(workflows.Action):
     def populate_flavor_choices(self, request, context):
         flavor_list = [(f.id, "%s" % f.name) for f in self.flavors(request)]
         return sorted(flavor_list)
-
-    def get_help_text(self):
-        flavors = json.dumps([f._info for f in self.flavors(self.request)])
-        extra = {'flavors': flavors}
-        try:
-            LOG.debug("Obtaining absolute tenant limits")
-            extra['usages'] = api.nova.tenant_absolute_limits(self.request)
-            extra['usages_json'] = json.dumps(extra['usages'])
-        except Exception:
-            exceptions.handle(self.request,
-                              _("Unable to retrieve quota information."))
-        return super(SetInstanceDetailsAction, self).get_help_text(extra)
 
 
 TROVE_ADD_USER_PERMS = getattr(settings, 'TROVE_ADD_USER_PERMS', [])
