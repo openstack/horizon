@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create Pseudo-folder" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Create Pseudo-folder") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'project/containers/_create_pseudo_folder.html' %}
+{% endblock %}

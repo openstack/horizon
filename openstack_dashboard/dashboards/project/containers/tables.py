@@ -83,6 +83,34 @@ class ListObjects(tables.LinkAction):
         return reverse(self.url, args=args)
 
 
+class CreatePseudoFolder(tables.LinkAction):
+    name = "create_pseudo_folder"
+    verbose_name = _("Create Pseudo-folder")
+    url = "horizon:project:containers:create_pseudo_folder"
+    classes = ("ajax-modal", "btn-create")
+
+    def get_link_url(self, datum=None):
+        # Usable for both the container and object tables
+        if getattr(datum, 'container', datum):
+            container_name = http.urlquote(datum.name)
+        else:
+            container_name = self.table.kwargs['container_name']
+        subfolders = self.table.kwargs.get('subfolder_path', '')
+        args = (http.urlquote(bit) for bit in
+                (container_name, subfolders) if bit)
+        return reverse(self.url, args=args)
+
+    def allowed(self, request, datum=None):
+        if self.table.kwargs.get('container_name', None):
+            return True
+        return False
+
+    def update(self, request, obj):
+        # This will only be called for the row, so we can remove the button
+        # styles meant for the table action version.
+        self.attrs = {'class': 'ajax-modal'}
+
+
 class UploadObject(tables.LinkAction):
     name = "upload"
     verbose_name = _("Upload Object")
@@ -253,7 +281,7 @@ class ObjectsTable(tables.DataTable):
     class Meta:
         name = "objects"
         verbose_name = _("Objects")
-        table_actions = (ObjectFilterAction, UploadObject,
+        table_actions = (ObjectFilterAction, CreatePseudoFolder, UploadObject,
                          DeleteMultipleObjects)
         row_actions = (DownloadObject, CopyObject, ViewObject, DeleteObject)
         data_types = ("subfolders", "objects")

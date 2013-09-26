@@ -93,10 +93,15 @@ class ContainerView(browsers.ResourceBrowserView):
         content_type = "application/pseudo-folder"
         return getattr(item, "content_type", None) == content_type
 
+    def is_placeholder(self, item):
+        object_name = getattr(item, "name", "")
+        return object_name.endswith(api.swift.FOLDER_DELIMITER)
+
     def get_objects_data(self):
         """ Returns a list of objects within the current folder. """
         filtered_objects = [item for item in self.objects
-                            if not self.is_subdir(item)]
+                            if (not self.is_subdir(item) and
+                                not self.is_placeholder(item))]
         return filtered_objects
 
     def get_subfolders_data(self):
@@ -141,6 +146,28 @@ class CreateView(forms.ModalFormView):
         initial = super(CreateView, self).get_initial()
         initial['parent'] = self.kwargs['container_name']
         return initial
+
+
+class CreatePseudoFolderView(forms.ModalFormView):
+    form_class = project_forms.CreatePseudoFolder
+    template_name = 'project/containers/create_pseudo_folder.html'
+    success_url = "horizon:project:containers:index"
+
+    def get_success_url(self):
+        container_name = self.request.POST['container_name']
+        return reverse(self.success_url,
+                       args=(tables.wrap_delimiter(container_name),
+                             self.request.POST.get('path', '')))
+
+    def get_initial(self):
+        return {"container_name": self.kwargs["container_name"],
+                "path": self.kwargs['subfolder_path']}
+
+    def get_context_data(self, **kwargs):
+        context = super(CreatePseudoFolderView, self). \
+            get_context_data(**kwargs)
+        context['container_name'] = self.kwargs["container_name"]
+        return context
 
 
 class UploadView(forms.ModalFormView):

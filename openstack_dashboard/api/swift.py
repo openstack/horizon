@@ -245,6 +245,20 @@ def swift_upload_object(request, container_name, object_name, object_file):
     return StorageObject(obj_info, container_name)
 
 
+def swift_create_pseudo_folder(request, container_name, pseudo_folder_name):
+    headers = {}
+    etag = swift_api(request).put_object(container_name,
+                                         pseudo_folder_name,
+                                         None,
+                                         headers=headers)
+    obj_info = {
+        'name': pseudo_folder_name,
+        'etag': etag
+    }
+
+    return PseudoFolder(obj_info, container_name)
+
+
 def swift_delete_object(request, container_name, object_name):
     swift_api(request).delete_object(container_name, object_name)
     return True

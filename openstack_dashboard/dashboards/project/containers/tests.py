@@ -157,6 +157,34 @@ class SwiftTests(test.TestCase):
                             args=[tables.wrap_delimiter(container.name)])
         self.assertRedirectsNoFollow(res, index_url)
 
+    @test.create_stubs({api.swift: ('swift_create_pseudo_folder',)})
+    def test_create_pseudo_folder(self):
+        container = self.containers.first()
+        obj = self.objects.first()
+
+        api.swift.swift_create_pseudo_folder(IsA(http.HttpRequest),
+                                      container.name,
+                                      obj.name + "/").AndReturn(obj)
+        self.mox.ReplayAll()
+
+        create_pseudo_folder_url = reverse('horizon:project:containers:'
+                                           'create_pseudo_folder',
+                                           args=[container.name])
+
+        res = self.client.get(create_pseudo_folder_url)
+        self.assertTemplateUsed(res,
+                                'project/containers/create_pseudo_folder.html')
+
+        formData = {'method': forms.CreatePseudoFolder.__name__,
+                    'container_name': container.name,
+                    'name': obj.name}
+        res = self.client.post(create_pseudo_folder_url, formData)
+
+        index_url = reverse('horizon:project:containers:index',
+                            args=[tables.wrap_delimiter(container.name)])
+
+        self.assertRedirectsNoFollow(res, index_url)
+
     @test.create_stubs({api.swift: ('swift_delete_object',)})
     def test_delete(self):
         container = self.containers.first()
