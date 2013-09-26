@@ -28,10 +28,10 @@
     {% url 'horizon:project:vpn:ipsecpolicydetails' ipsecsiteconnection.ipsecpolicy_id as ipsecpolicy_url %}
     <dd><a href="{{ ipsecpolicy_url}}">{{ ipsecsiteconnection.ipsecpolicy.name_or_id }}</a></dd>
 
-    <dt>{% trans "Remote peer IP Address" %}</dt>
+    <dt>{% trans "Peer gateway public IPv4/IPv6 Address or FQDN" %}</dt>
     <dd>{{ ipsecsiteconnection.peer_address }}</dd>
 
-    <dt>{% trans "Remote branch router identity (Peer ID)" %}</dt>
+    <dt>{% trans "Peer router identity for authentication (Peer ID)" %}</dt>
     <dd>{{ ipsecsiteconnection.peer_id }}</dd>
 
     <dt>{% trans "Remote peer subnet" %}</dt>
