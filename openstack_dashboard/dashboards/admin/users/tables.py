@@ -1,5 +1,3 @@
-import logging
-
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -8,7 +6,6 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-LOG = logging.getLogger(__name__)
 
 ENABLE = 0
 DISABLE = 1

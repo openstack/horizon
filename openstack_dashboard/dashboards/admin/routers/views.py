@@ -18,8 +18,6 @@
 Views for managing Neutron Routers.
 """
 
-import logging
-
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -31,9 +29,6 @@ from openstack_dashboard.dashboards.project.routers import views as r_views
 from openstack_dashboard.dashboards.admin.routers.ports \
     import tables as ports_tables
 from openstack_dashboard.dashboards.admin.routers import tables
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(r_views.IndexView, n_views.IndexView):

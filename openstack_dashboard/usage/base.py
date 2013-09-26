@@ -4,7 +4,6 @@ from csv import DictWriter  # noqa
 from csv import writer  # noqa
 
 import datetime
-import logging
 from StringIO import StringIO  # noqa
 
 from django.conf import settings  # noqa
@@ -20,9 +19,6 @@ from horizon import messages
 
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
-
-
-LOG = logging.getLogger(__name__)
 
 
 class BaseUsage(object):

@@ -14,16 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django import template
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-
-
-LOG = logging.getLogger(__name__)
 
 
 def get_fixed_ips(port):

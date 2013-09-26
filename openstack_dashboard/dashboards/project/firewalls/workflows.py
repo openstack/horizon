@@ -15,8 +15,6 @@
 #
 # @author: KC Wang, Big Switch Networks
 
-import logging
-
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
@@ -28,8 +26,6 @@ from horizon import workflows
 from openstack_dashboard import api
 
 port_validator = validators.validate_port_or_colon_separated_port_range
-
-LOG = logging.getLogger(__name__)
 
 
 class AddRuleAction(workflows.Action):

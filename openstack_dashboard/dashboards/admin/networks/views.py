@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.datastructures import SortedDict  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -35,9 +33,6 @@ from openstack_dashboard.dashboards.admin.networks.subnets \
     import tables as subnets_tables
 from openstack_dashboard.dashboards.admin.networks \
     import tables as networks_tables
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):

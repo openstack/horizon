@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils import safestring
@@ -28,9 +26,6 @@ from openstack_dashboard.api import cinder
 
 from openstack_dashboard.dashboards.project.volumes \
     import tables as volume_tables
-
-
-LOG = logging.getLogger(__name__)
 
 
 class DeleteVolumeSnapshot(tables.DeleteAction):

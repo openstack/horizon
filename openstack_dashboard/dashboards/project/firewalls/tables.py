@@ -15,15 +15,10 @@
 #
 # @author: KC Wang, Big Switch Networks
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
-
-
-LOG = logging.getLogger(__name__)
 
 
 class AddRuleLink(tables.LinkAction):

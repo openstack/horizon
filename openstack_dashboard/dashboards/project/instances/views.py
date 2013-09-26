@@ -21,8 +21,6 @@
 """
 Views for managing instances.
 """
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django import http
@@ -45,9 +43,6 @@ from openstack_dashboard.dashboards.project.instances \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.instances \
     import workflows as project_workflows
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):

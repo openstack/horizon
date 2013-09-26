@@ -12,8 +12,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import logging
-
 from django.http import Http404  # noqa
 from django.template.defaultfilters import timesince  # noqa
 from django.template.defaultfilters import title  # noqa
@@ -27,8 +25,6 @@ from heatclient import exc
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.stacks import mappings
-
-LOG = logging.getLogger(__name__)
 
 
 class LaunchStack(tables.LinkAction):

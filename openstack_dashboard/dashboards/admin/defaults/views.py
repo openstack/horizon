@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tabs
@@ -25,9 +23,6 @@ from openstack_dashboard.dashboards.admin.defaults import tabs as project_tabs
 from openstack_dashboard.dashboards.admin.defaults import workflows as \
     project_workflows
 from openstack_dashboard.usage import quotas
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabbedTableView):

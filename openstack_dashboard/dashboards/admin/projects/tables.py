@@ -1,5 +1,3 @@
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -8,8 +6,6 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.api import keystone
-
-LOG = logging.getLogger(__name__)
 
 
 class ViewMembersLink(tables.LinkAction):

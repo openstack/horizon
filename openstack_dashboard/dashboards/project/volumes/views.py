@@ -27,8 +27,6 @@ from horizon import forms
 from horizon import tables
 from horizon import tabs
 
-import logging
-
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
@@ -40,9 +38,6 @@ from openstack_dashboard.dashboards.project.volumes \
     import tables as project_tables
 from openstack_dashboard.dashboards.project.volumes \
     import tabs as project_tabs
-
-
-LOG = logging.getLogger(__name__)
 
 
 class VolumeTableMixIn(object):

@@ -21,9 +21,6 @@
 """
 Views for managing images.
 """
-
-import logging
-
 from django.conf import settings  # noqa
 from django.forms import ValidationError  # noqa
 from django.forms.widgets import HiddenInput  # noqa
@@ -38,9 +35,6 @@ from openstack_dashboard import api
 
 IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
 IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateImageForm(forms.SelfHandlingForm):

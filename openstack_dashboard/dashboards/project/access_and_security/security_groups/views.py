@@ -21,8 +21,6 @@
 """
 Views for managing instances.
 """
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -38,9 +36,6 @@ from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups import forms as project_forms
 from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups import tables as project_tables
-
-
-LOG = logging.getLogger(__name__)
 
 
 class DetailView(tables.DataTableView):

@@ -14,15 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from openstack_dashboard.dashboards.project.networks.subnets \
     import views as project_views
 
 from openstack_dashboard.dashboards.admin.networks.subnets import workflows
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateView(project_views.CreateView):

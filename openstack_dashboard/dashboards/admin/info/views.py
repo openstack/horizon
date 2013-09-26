@@ -18,14 +18,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from horizon import tabs
 
 from openstack_dashboard.dashboards.admin.info import tabs as project_tabs
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabbedTableView):

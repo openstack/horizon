@@ -21,9 +21,6 @@
 """
 Views for managing instance snapshots.
 """
-
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -35,9 +32,6 @@ from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.images_and_snapshots.snapshots \
     import forms as project_forms
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateView(forms.ModalFormView):

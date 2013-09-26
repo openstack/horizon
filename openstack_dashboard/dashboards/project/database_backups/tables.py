@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -25,8 +23,6 @@ from horizon.utils import filters
 
 from openstack_dashboard import api
 
-
-LOG = logging.getLogger(__name__)
 
 STATUS_CHOICES = (
     ("BUILDING", None),

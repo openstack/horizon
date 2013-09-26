@@ -12,17 +12,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import logging
-
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
 from openstack_dashboard import api
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CommonFilterAction(tables.FilterAction):

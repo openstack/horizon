@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core import urlresolvers
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -29,8 +27,6 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.database_backups \
     import tables as backup_tables
 
-
-LOG = logging.getLogger(__name__)
 
 ACTIVE_STATES = ("ACTIVE",)
 

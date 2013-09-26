@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import NoReverseMatch  # noqa
 from django.core.urlresolvers import reverse  # noqa
 from django.template.defaultfilters import title  # noqa
@@ -32,8 +30,6 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-
-LOG = logging.getLogger(__name__)
 
 DELETABLE_STATES = ("available", "error")
 

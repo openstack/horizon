@@ -15,7 +15,6 @@
 #    under the License.
 
 from collections import defaultdict  # noqa
-import logging
 
 from django.conf import settings  # noqa
 from django.core.urlresolvers import reverse  # noqa
@@ -27,9 +26,6 @@ from horizon import tables
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
-
-
-LOG = logging.getLogger(__name__)
 
 
 class LaunchImage(tables.LinkAction):
