@@ -88,7 +88,7 @@ definition of table actions. When implementing a derived action class,
 setting the :attr:`~horizon.tables.Action.policy_rules` attribute to valid
 policy rules will force a policy check before the
 :meth:`horizon.tables.Action.allowed` method is called on the action. These
-rules are defined in the the policy files point to by ``POLICY_PATH`` and
+rules are defined in the policy files pointed to by ``POLICY_PATH`` and
 ``POLICY_FILES``. The rules are role based, where entity owner is also a
 role. The format for the ``policy_rules`` is a list of two item tuples. The
 first component of the tuple is the scope of the policy rule, this is the
@@ -110,7 +110,15 @@ The secondary way to add a role based check is to directly use the
 of actions, same format as the :attr:`~horizon.tables.Action.policy_rules`
 attribute detailed above; the current request object; and a dictionary of
 action targets. This is the method that :class:`horizon.tables.Action` class
-utilizes.
+utilizes.  Examples look like::
+
+    from openstack_dashboard import policy
+
+    allowed = policy.check((("identity", "identity:get_user"),
+                           ("identity", "identity:get_project"),), request)
+
+    can_see = policy.check((("identity", "identity:get_user"),), request,
+                           target={"domain_id": domainId})
 
 .. note::
 
