@@ -3,147 +3,156 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Translators:
-# Translators:
 # Erik-Martijn Kasimier <erik.kasimier@nouveaumedia.nl>, 2012
-# Erik-Martijn Kasimier <erik.kasimier@nouveaumedia.nl>, 2012
+# toMeloos <tom@server.biz>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-04-29 08:33+0000\n"
-"Last-Translator: Gabriel Hurley <gabriel@strikeawe.com>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/openstack/language/en/)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-26 00:30-0500\n"
+"PO-Revision-Date: 2013-09-26 17:56+0000\n"
+"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openstack/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:424
+#: base.py:429
 msgid "Other"
-msgstr "Andere"
+msgstr "Overig"
 
 #: decorators.py:55
 msgid "Please log in to continue."
-msgstr "Log in om door te gaan."
+msgstr "Meldt u zich aan om door te gaan."
 
 #: decorators.py:87
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "Je bent niet geauthoriseerd om %s te bekijken"
+msgstr "U bent niet gemachtigd voor toegang tot %s"
 
-#: exceptions.py:283
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Onbevoegd: %s"
+
+#: exceptions.py:284
 msgid "Unauthorized. Please try logging in again."
-msgstr "Je bent niet geautoriseerd. Probeer opnieuw in te loggen."
+msgstr "Onbevoegd. Meldt u zich opnieuw aan."
+
+#: middleware.py:67
+msgid "Session timed out."
+msgstr "Sessie verlopen."
 
 #: browsers/base.py:90
 msgid "Navigation Item"
-msgstr ""
+msgstr "Navigatie Artikel"
 
 #: browsers/views.py:42
 #, python-format
 msgid "Select a %s to browse."
-msgstr ""
+msgstr "Selecteer een %s om te bladeren."
 
 #: conf/default.py:29
 msgid "Password is not accepted"
 msgstr "Wachtwoord is niet geaccepteerd"
 
-#: tables/actions.py:349
+#: tables/actions.py:381
+#: templates/horizon/common/_data_table_table_actions.html:13
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:527
+#: tables/actions.py:560
 #, python-format
 msgid "%(action)s %(data_type)s"
-msgstr ""
+msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:561
+#: tables/actions.py:594
 msgid "N/A"
-msgstr ""
+msgstr "n.v.t."
 
-#: tables/actions.py:589
+#: tables/actions.py:622
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
-msgstr ""
+msgstr "U bent niet gemachtigd voor %(action)s: %(objs)s"
 
-#: tables/actions.py:595
+#: tables/actions.py:628
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Niet in staat om %(action)s: %(objs)s"
 
-#: tables/actions.py:601
+#: tables/actions.py:634
 #, python-format
 msgid "%(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:611
+#: tables/actions.py:644
 msgid "Delete"
 msgstr "Verwijder"
 
-#: tables/actions.py:612
+#: tables/actions.py:645
 msgid "Deleted"
 msgstr "Verwijderd"
 
-#: tables/base.py:275
+#: tables/base.py:287
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "Het attribuut %(attr)s bestaat niet op %(obj)s."
 
-#: tables/base.py:748
+#: tables/base.py:766
 msgid "No items to display."
-msgstr ""
+msgstr "Geen artikelen om weer te geven."
 
-#: tables/base.py:852
+#: tables/base.py:870
 msgid "Actions"
 msgstr "Acties"
 
-#: tables/base.py:1035
+#: tables/base.py:1063
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "Geen overeenkomsten gevonden voor de id \"%s\"."
 
-#: tables/base.py:1165
+#: tables/base.py:1193
 msgid "Please select a row before taking that action."
-msgstr ""
+msgstr "Selecteer alstublieft een rij voor het uitvoeren van die actie."
 
-#: templates/_header.html:3
-msgid "Logged in as"
-msgstr ""
+#: templates/_header.html:4
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Aangemeld als: %(username)s"
 
-#: templates/_header.html:5
+#: templates/_header.html:6
 msgid "Help"
-msgstr ""
+msgstr "Help"
 
-#: templates/_header.html:7
+#: templates/_header.html:8
 msgid "Sign Out"
-msgstr ""
+msgstr "Afmelden"
 
 #: templates/splash.html:7 templates/auth/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "Aanmelding"
 
-#: templates/auth/_login.html:4
+#: templates/auth/_login.html:5
 msgid "Log In"
-msgstr ""
+msgstr "Aanmelden"
 
-#: templates/auth/_login.html:14
+#: templates/auth/_login.html:15
 msgid "You don't have permissions to access:"
-msgstr ""
-
-#: templates/auth/_login.html:16
-msgid "Login as different user or go back to"
-msgstr ""
+msgstr "U ben niet gemachtigd voor toegang tot:"
 
 #: templates/auth/_login.html:17
-msgid "home page"
-msgstr ""
+msgid "Login as different user or go back to"
+msgstr "Meldt u zich aan als een andere gebruiker of ga terug naar"
 
-#: templates/auth/_login.html:27
+#: templates/auth/_login.html:18
+msgid "home page"
+msgstr "Thuis"
+
+#: templates/auth/_login.html:33
 msgid "Sign In"
-msgstr ""
+msgstr "Aanmelden"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
@@ -159,118 +168,124 @@ msgstr "Succesvol: "
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr "Error: "
+msgstr "Fout: "
 
 #: templates/horizon/common/_data_table.html:54
 msgid "Summary"
-msgstr ""
+msgstr "Samenvatting"
 
 #: templates/horizon/common/_data_table.html:63
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Toont %(counter)s artikel"
+msgstr[1] "Toont %(counter)s artikelen"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
-msgstr ""
+msgstr "Meer"
 
-#: templates/horizon/common/_quota_summary.html:4
-msgid "Quota Summary"
-msgstr ""
+#: templates/horizon/common/_limit_summary.html:4
+msgid "Limit Summary"
+msgstr "Limiteer Samenvatting"
 
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-#: templates/horizon/common/_quota_summary.html:15
-#: templates/horizon/common/_quota_summary.html:18
-msgid "Used"
-msgstr ""
+#: templates/horizon/common/_limit_summary.html:7
+msgid "Instances"
+msgstr "Exemplaren"
 
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-#: templates/horizon/common/_quota_summary.html:15
-#: templates/horizon/common/_quota_summary.html:18
-msgid "of"
-msgstr ""
+#: templates/horizon/common/_limit_summary.html:8
+#: templates/horizon/common/_limit_summary.html:15
+#: templates/horizon/common/_limit_summary.html:22
+#: templates/horizon/common/_limit_summary.html:29
+#: templates/horizon/common/_limit_summary.html:36
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Gebruikt <span> %(used)s </span> van <span> %(available)s </span>"
 
-#: templates/horizon/common/_quota_summary.html:5
-msgid "Available Instances"
-msgstr ""
+#: templates/horizon/common/_limit_summary.html:14
+msgid "VCPUs"
+msgstr "VCPUs"
 
-#: templates/horizon/common/_quota_summary.html:8
-msgid "Available vCPUs"
-msgstr ""
+#: templates/horizon/common/_limit_summary.html:21
+msgid "RAM"
+msgstr "Werkgeheugen"
 
-#: templates/horizon/common/_quota_summary.html:11
-msgid "Available RAM"
-msgstr ""
+#: templates/horizon/common/_limit_summary.html:28
+msgid "Floating IPs"
+msgstr "Volttende IPs"
 
-#: templates/horizon/common/_quota_summary.html:15
-msgid "Available volumes"
-msgstr ""
-
-#: templates/horizon/common/_quota_summary.html:18
-msgid "Available volume storage"
-msgstr ""
+#: templates/horizon/common/_limit_summary.html:35
+msgid "Security Groups"
+msgstr "Veiligheidsgroepen"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Toont %(nav_items)s artikel"
+msgstr[1] "Toont %(nav_items)s artikelen"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Toont %(content_items)s artikel"
+msgstr[1] "Toont %(content_items)s artikelen"
 
-#: templates/horizon/common/_sidebar.html:14
+#: templates/horizon/common/_sidebar.html:15
 msgid "Current Project"
-msgstr ""
+msgstr "Huidig Project"
+
+#: templates/horizon/common/_sidebar.html:39
+msgid "Managing Region"
+msgstr "Regio beheren"
 
 #: templates/horizon/common/_usage_summary.html:5
-msgid "Select a month to query its usage"
-msgstr ""
+msgid "Select a period of time to query its usage"
+msgstr "Selecteer een tijdsvlak om het gebruik uit te vragen"
+
+#: templates/horizon/common/_usage_summary.html:7
+#, python-format
+msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
+msgstr "<span>Van: %(start)s </span><span>Tot: %(end)s </span>"
+
+#: templates/horizon/common/_usage_summary.html:8
+msgid "Submit"
+msgstr "Indienen"
 
 #: templates/horizon/common/_usage_summary.html:9
-msgid "Submit"
-msgstr ""
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "De datum dient in het JJJJ-mm-dd formaat te zijn."
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr ""
+msgstr "Actieve Exemplaren"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
-msgstr ""
+msgstr "Actief werkgeheugen"
 
 #: templates/horizon/common/_usage_summary.html:16
-msgid "This Month's VCPU-Hours"
-msgstr ""
+msgid "This Period's VCPU-Hours"
+msgstr "VCPU-uren in dit tijdsvlak"
 
 #: templates/horizon/common/_usage_summary.html:17
-msgid "This Month's GB-Hours"
-msgstr ""
+msgid "This Period's GB-Hours"
+msgstr "GB-uren in dit tijdsvlak"
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr "Annuleren"
 
 #: templatetags/branding.py:35
 msgid "Horizon"
-msgstr ""
+msgstr "Horizon"
 
-#: templatetags/horizon.py:109
+#: templatetags/horizon.py:92
 msgid "No Limit"
-msgstr "Geen limiet"
+msgstr "Geen Limiet"
 
-#: templatetags/horizon.py:111 templatetags/horizon.py:113
+#: templatetags/horizon.py:94 templatetags/horizon.py:96
 msgid "Available"
 msgstr "Beschikbaar"
 
@@ -313,202 +328,64 @@ msgstr "%s TB"
 msgid "%s PB"
 msgstr "%s PB"
 
-#: test/settings.py:114
-msgid "Password must be between 8 and 18 characters."
-msgstr ""
-
-#: test/test_dashboards/cats/dashboard.py:8
-msgid "Cute Cats"
-msgstr "Schattige katten"
-
-#: test/test_dashboards/cats/dashboard.py:14
-msgid "Fierce Cats"
-msgstr "Felle katten"
-
-#: test/test_dashboards/cats/dashboard.py:19
-msgid "Cats"
-msgstr "Katten"
-
-#: test/test_dashboards/cats/kittens/panel.py:9
-#: test/test_dashboards/cats/kittens/templates/kittens/index.html:3
-#: test/test_dashboards/cats/kittens/templates/kittens/index.html:6
-msgid "Kittens"
-msgstr "Kittens"
-
-#: test/test_dashboards/cats/tigers/panel.py:9
-#: test/test_dashboards/cats/tigers/templates/tigers/index.html:3
-#: test/test_dashboards/cats/tigers/templates/tigers/index.html:6
-msgid "Tigers"
-msgstr "Tijgers"
-
-#: test/test_dashboards/dogs/dashboard.py:7
-msgid "Dogs"
-msgstr "Honden"
-
-#: test/test_dashboards/dogs/puppies/panel.py:9
-#: test/test_dashboards/dogs/puppies/templates/puppies/index.html:3
-#: test/test_dashboards/dogs/puppies/templates/puppies/index.html:6
-msgid "Puppies"
-msgstr "Puppy's"
-
-#: test/tests/base.py:39
-msgid "My Dashboard"
-msgstr "Mijn dashboard"
-
-#: test/tests/base.py:45
-msgid "My Panel"
-msgstr "Alle instances"
-
-#: test/tests/base.py:51
-msgid "Admin Panel"
-msgstr "Beheerderspaneel"
-
-#: test/tests/messages.py:32
-msgid "Giant ants are attacking San Francisco!"
-msgstr ""
-
-#: test/tests/messages.py:46
-msgid "We are now safe from ants! Go <a>here</a>!"
-msgstr ""
-
-#: test/tests/tables.py:107
-msgid "Batch"
-msgstr ""
-
-#: test/tests/tables.py:108
-msgid "Batched"
-msgstr ""
-
-#: test/tests/tables.py:109 test/tests/tables.py:120
-msgid "Item"
-msgstr "Item"
-
-#: test/tests/tables.py:110 test/tests/tables.py:121
-msgid "Items"
-msgstr "Items"
-
-#: test/tests/tables.py:118
-msgid "Down"
-msgstr ""
-
-#: test/tests/tables.py:118
-msgid "Up"
-msgstr ""
-
-#: test/tests/tables.py:119
-msgid "Downed"
-msgstr ""
-
-#: test/tests/tables.py:119
-msgid "Upped"
-msgstr ""
-
-#: test/tests/tables.py:187
-msgid "No Actions Table"
-msgstr ""
-
-#: test/tests/tables.py:684
-msgid "Single Table"
-msgstr ""
-
-#: test/tests/tabs.py:36
-msgid "Tab One"
-msgstr ""
-
-#: test/tests/tabs.py:42
-msgid "Delayed Tab"
-msgstr ""
-
-#: test/tests/tabs.py:49
-msgid "Disabled Tab"
-msgstr ""
-
-#: test/tests/tabs.py:58
-msgid "Disallowed Tab"
-msgstr ""
-
-#: test/tests/tabs.py:76
-msgid "Tab With My Table"
-msgstr ""
-
-#: test/tests/tabs.py:85
-msgid "Recoverable Error Tab"
-msgstr ""
-
-#: test/tests/workflows.py:43
-msgid "Project"
-msgstr "Project"
-
-#: test/tests/workflows.py:44
-msgid "User"
-msgstr "Gebruiker"
-
-#: test/tests/workflows.py:47
-msgid "Test Action One"
-msgstr "Testactie één"
-
-#: test/tests/workflows.py:61
-msgid "Instance"
-msgstr "Instance"
-
-#: test/tests/workflows.py:64
-msgid "Test Action Two"
-msgstr "Testactie twee"
-
-#: test/tests/workflows.py:72
-msgid "Test Action Three"
-msgstr "Testactie drie"
-
-#: test/tests/workflows.py:77
-msgid "Admin"
-msgstr "Beheerder"
-
-#: test/tests/workflows.py:80
-msgid "Admin Action"
-msgstr "Beheerdersactie"
-
-#: utils/fields.py:46
-msgid "Incorrect format for IP address"
-msgstr "Onjuist formaat IP adres"
-
-#: utils/fields.py:47
-msgid "Invalid version for IP address"
-msgstr "Invalide versie IP adres"
-
 #: utils/fields.py:48
+msgid "Incorrect format for IP address"
+msgstr "Onjuist formaat voor IP adres"
+
+#: utils/fields.py:49
+msgid "Invalid version for IP address"
+msgstr "Ongeldige versie voor IP adres"
+
+#: utils/fields.py:50
 msgid "Invalid subnet mask"
-msgstr "Invalide subnet mask"
+msgstr "Ongeldig subnet masker"
 
-#: workflows/base.py:71
+#: utils/validators.py:25 utils/validators.py:49
+msgid "Not a valid port number"
+msgstr "Geen valide poort nummer"
+
+#: utils/validators.py:30
+msgid "Not a valid IP protocol number"
+msgstr "Geen valide IP protocol nummer"
+
+#: utils/validators.py:44
+msgid "One colon allowed in port range"
+msgstr "Een dubbele punt toegestaan in poortbereik"
+
+#: utils/validators.py:51
+msgid "Port number must be integer"
+msgstr "Poortnummer moet een geheel getal zijn"
+
+#: workflows/base.py:72
 msgid "Processing..."
-msgstr "Verwerken..."
+msgstr "Aan het verwerken..."
 
-#: workflows/base.py:467
+#: workflows/base.py:493
 msgid "All available"
-msgstr ""
+msgstr "Alle beschikbare"
 
-#: workflows/base.py:468
+#: workflows/base.py:494
 msgid "Members"
-msgstr ""
+msgstr "Leden"
 
-#: workflows/base.py:469
+#: workflows/base.py:495
 msgid "None available."
-msgstr ""
+msgstr "Geen beschikbaar."
 
-#: workflows/base.py:470
+#: workflows/base.py:496
 msgid "No members."
-msgstr ""
+msgstr "Geen leden."
 
-#: workflows/base.py:569
+#: workflows/base.py:601
 msgid "Save"
 msgstr "Opslaan"
 
-#: workflows/base.py:570
+#: workflows/base.py:602
 #, python-format
 msgid "%s completed successfully."
 msgstr "%s succesvol afgerond."
 
-#: workflows/base.py:571
+#: workflows/base.py:603
 #, python-format
 msgid "%s did not complete."
 msgstr "%s was niet voltooid."

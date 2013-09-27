@@ -3,18 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Translators:
-# Translators:
 # Akihiro MOTOKI <amotoki@gmail.com>, 2013
 # bi.yamagata <bi.yamagata@gmail.com>, 2012
-# bi.yamagata <bi.yamagata@gmail.com>, 2012
-# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013
+# Tomoyuki KATO <tomo@dream.daynight.jp>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: https://launchpad.net/horizon\n"
-"POT-Creation-Date: 2013-03-12 04:08+0000\n"
-"PO-Revision-Date: 2013-05-07 10:24+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-26 00:30-0500\n"
+"PO-Revision-Date: 2013-09-26 17:56+0000\n"
 "Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +20,7 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:424
+#: base.py:429
 msgid "Other"
 msgstr "その他"
 
@@ -36,9 +33,18 @@ msgstr "続行するには、ログインしてください。"
 msgid "You are not authorized to access %s"
 msgstr "%s へのアクセスが許可されていません。"
 
-#: exceptions.py:283
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "権限がありません: %s"
+
+#: exceptions.py:284
 msgid "Unauthorized. Please try logging in again."
 msgstr "認証されていません。もう一度ログインしてください。"
+
+#: middleware.py:67
+msgid "Session timed out."
+msgstr "セッションがタイムアウトしました。"
 
 #: browsers/base.py:90
 msgid "Navigation Item"
@@ -53,73 +59,75 @@ msgstr "表示する %s を選択してください。"
 msgid "Password is not accepted"
 msgstr "パスワードを受け付けられません"
 
-#: tables/actions.py:349
+#: tables/actions.py:381
+#: templates/horizon/common/_data_table_table_actions.html:13
 msgid "Filter"
 msgstr "フィルター"
 
-#: tables/actions.py:527
+#: tables/actions.py:560
 #, python-format
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)sの%(action)s"
 
-#: tables/actions.py:561
+#: tables/actions.py:594
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:589
+#: tables/actions.py:622
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "%(action)s を実行する権限がありません: %(objs)s"
 
-#: tables/actions.py:595
+#: tables/actions.py:628
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s を実行できません: %(objs)s"
 
-#: tables/actions.py:601
+#: tables/actions.py:634
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:611
+#: tables/actions.py:644
 msgid "Delete"
 msgstr "削除"
 
-#: tables/actions.py:612
+#: tables/actions.py:645
 msgid "Deleted"
 msgstr "削除しました"
 
-#: tables/base.py:275
+#: tables/base.py:287
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s に 属性 %(attr)s が存在しません。"
 
-#: tables/base.py:748
+#: tables/base.py:766
 msgid "No items to display."
-msgstr "表示する項目がありません。"
+msgstr "表示する項目がありません"
 
-#: tables/base.py:852
+#: tables/base.py:870
 msgid "Actions"
 msgstr "アクション"
 
-#: tables/base.py:1035
+#: tables/base.py:1063
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "ID \"%s\" に一致するものがありません。"
 
-#: tables/base.py:1165
+#: tables/base.py:1193
 msgid "Please select a row before taking that action."
 msgstr "このアクションを実行する前に、対象を選択してください。"
 
-#: templates/_header.html:3
-msgid "Logged in as"
-msgstr "次の役割でログイン中"
+#: templates/_header.html:4
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "%(username)s としてログイン中"
 
-#: templates/_header.html:5
+#: templates/_header.html:6
 msgid "Help"
 msgstr "ヘルプ"
 
-#: templates/_header.html:7
+#: templates/_header.html:8
 msgid "Sign Out"
 msgstr "ログアウト"
 
@@ -127,23 +135,23 @@ msgstr "ログアウト"
 msgid "Login"
 msgstr "ログイン"
 
-#: templates/auth/_login.html:4
+#: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "ログイン"
 
-#: templates/auth/_login.html:14
+#: templates/auth/_login.html:15
 msgid "You don't have permissions to access:"
 msgstr "アクセスする権限がありません: "
 
-#: templates/auth/_login.html:16
-msgid "Login as different user or go back to"
-msgstr "他のユーザーとしてログインしてください。または、戻ってください。"
-
 #: templates/auth/_login.html:17
+msgid "Login as different user or go back to"
+msgstr "他のユーザーとしてログインするか、戻ってください。"
+
+#: templates/auth/_login.html:18
 msgid "home page"
 msgstr "ホームページ"
 
-#: templates/auth/_login.html:27
+#: templates/auth/_login.html:33
 msgid "Sign In"
 msgstr "ログイン"
 
@@ -175,47 +183,40 @@ msgstr[0] "%(counter)s 項目の表示中"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
-msgstr "さらに"
+msgstr " "
 
-#: templates/horizon/common/_quota_summary.html:4
-msgid "Quota Summary"
-msgstr "クォータ概要"
+#: templates/horizon/common/_limit_summary.html:4
+msgid "Limit Summary"
+msgstr "利用可能リソース概要"
 
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-#: templates/horizon/common/_quota_summary.html:15
-#: templates/horizon/common/_quota_summary.html:18
-msgid "Used"
-msgstr "使用済み"
+#: templates/horizon/common/_limit_summary.html:7
+msgid "Instances"
+msgstr "インスタンス"
 
-#: templates/horizon/common/_quota_summary.html:5
-#: templates/horizon/common/_quota_summary.html:8
-#: templates/horizon/common/_quota_summary.html:11
-#: templates/horizon/common/_quota_summary.html:15
-#: templates/horizon/common/_quota_summary.html:18
-msgid "of"
-msgstr "/"
+#: templates/horizon/common/_limit_summary.html:8
+#: templates/horizon/common/_limit_summary.html:15
+#: templates/horizon/common/_limit_summary.html:22
+#: templates/horizon/common/_limit_summary.html:29
+#: templates/horizon/common/_limit_summary.html:36
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(available)s </span> 個中 <span> %(used)s </span> 個使用中"
 
-#: templates/horizon/common/_quota_summary.html:5
-msgid "Available Instances"
-msgstr "利用可能なインスタンス"
+#: templates/horizon/common/_limit_summary.html:14
+msgid "VCPUs"
+msgstr "仮想 CPU"
 
-#: templates/horizon/common/_quota_summary.html:8
-msgid "Available vCPUs"
-msgstr "利用可能な仮想 CPU"
+#: templates/horizon/common/_limit_summary.html:21
+msgid "RAM"
+msgstr "メモリー"
 
-#: templates/horizon/common/_quota_summary.html:11
-msgid "Available RAM"
-msgstr "利用可能なメモリー"
+#: templates/horizon/common/_limit_summary.html:28
+msgid "Floating IPs"
+msgstr "Floating IP"
 
-#: templates/horizon/common/_quota_summary.html:15
-msgid "Available volumes"
-msgstr "利用可能なボリューム"
-
-#: templates/horizon/common/_quota_summary.html:18
-msgid "Available volume storage"
-msgstr "利用可能なボリュームストレージ"
+#: templates/horizon/common/_limit_summary.html:35
+msgid "Security Groups"
+msgstr "セキュリティグループ"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
@@ -229,17 +230,30 @@ msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "%(content_items)s 項目の表示中"
 
-#: templates/horizon/common/_sidebar.html:14
+#: templates/horizon/common/_sidebar.html:15
 msgid "Current Project"
 msgstr "現在のプロジェクト"
 
-#: templates/horizon/common/_usage_summary.html:5
-msgid "Select a month to query its usage"
-msgstr "使用量を問い合わせる月の選択"
+#: templates/horizon/common/_sidebar.html:39
+msgid "Managing Region"
+msgstr "リージョンの管理"
 
-#: templates/horizon/common/_usage_summary.html:9
+#: templates/horizon/common/_usage_summary.html:5
+msgid "Select a period of time to query its usage"
+msgstr "使用量を確認する期間を選択してください"
+
+#: templates/horizon/common/_usage_summary.html:7
+#, python-format
+msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
+msgstr "<span>開始: %(start)s </span><span>終了: %(end)s </span>"
+
+#: templates/horizon/common/_usage_summary.html:8
 msgid "Submit"
 msgstr "送信"
+
+#: templates/horizon/common/_usage_summary.html:9
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "日付は YYYY-mm-dd 形式にする必要があります。"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
@@ -250,14 +264,14 @@ msgid "Active RAM"
 msgstr "使用中のメモリー"
 
 #: templates/horizon/common/_usage_summary.html:16
-msgid "This Month's VCPU-Hours"
-msgstr "今月の仮想 CPU 時間"
+msgid "This Period's VCPU-Hours"
+msgstr "期間中の仮想 CPU 時間"
 
 #: templates/horizon/common/_usage_summary.html:17
-msgid "This Month's GB-Hours"
-msgstr "今月の GB 時間"
+msgid "This Period's GB-Hours"
+msgstr "期間中の GB 時間"
 
-#: templates/horizon/common/_workflow.html:33
+#: templates/horizon/common/_workflow.html:36
 msgid "Cancel"
 msgstr "取り消し"
 
@@ -265,11 +279,11 @@ msgstr "取り消し"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:109
+#: templatetags/horizon.py:92
 msgid "No Limit"
 msgstr "制限なし"
 
-#: templatetags/horizon.py:111 templatetags/horizon.py:113
+#: templatetags/horizon.py:94 templatetags/horizon.py:96
 msgid "Available"
 msgstr "利用可能"
 
@@ -310,202 +324,64 @@ msgstr "%s TB"
 msgid "%s PB"
 msgstr "%s PB"
 
-#: test/settings.py:114
-msgid "Password must be between 8 and 18 characters."
-msgstr "パスワードは 8 文字から 18 文字である必要があります。"
-
-#: test/test_dashboards/cats/dashboard.py:8
-msgid "Cute Cats"
-msgstr "かわいいネコ"
-
-#: test/test_dashboards/cats/dashboard.py:14
-msgid "Fierce Cats"
-msgstr "獰猛なネコ"
-
-#: test/test_dashboards/cats/dashboard.py:19
-msgid "Cats"
-msgstr "ネコ"
-
-#: test/test_dashboards/cats/kittens/panel.py:9
-#: test/test_dashboards/cats/kittens/templates/kittens/index.html:3
-#: test/test_dashboards/cats/kittens/templates/kittens/index.html:6
-msgid "Kittens"
-msgstr "子ネコ"
-
-#: test/test_dashboards/cats/tigers/panel.py:9
-#: test/test_dashboards/cats/tigers/templates/tigers/index.html:3
-#: test/test_dashboards/cats/tigers/templates/tigers/index.html:6
-msgid "Tigers"
-msgstr "トラ"
-
-#: test/test_dashboards/dogs/dashboard.py:7
-msgid "Dogs"
-msgstr "イヌ"
-
-#: test/test_dashboards/dogs/puppies/panel.py:9
-#: test/test_dashboards/dogs/puppies/templates/puppies/index.html:3
-#: test/test_dashboards/dogs/puppies/templates/puppies/index.html:6
-msgid "Puppies"
-msgstr "子イヌ"
-
-#: test/tests/base.py:39
-msgid "My Dashboard"
-msgstr "マイダッシュボード"
-
-#: test/tests/base.py:45
-msgid "My Panel"
-msgstr "マイパネル"
-
-#: test/tests/base.py:51
-msgid "Admin Panel"
-msgstr "管理パネル"
-
-#: test/tests/messages.py:32
-msgid "Giant ants are attacking San Francisco!"
-msgstr "巨大な蟻がサンフランシスコを攻撃しています！"
-
-#: test/tests/messages.py:46
-msgid "We are now safe from ants! Go <a>here</a>!"
-msgstr "私たちは蟻から守られています ! <a>こちらへ</a> !"
-
-#: test/tests/tables.py:107
-msgid "Batch"
-msgstr "バッチ"
-
-#: test/tests/tables.py:108
-msgid "Batched"
-msgstr "バッチを実行しました"
-
-#: test/tests/tables.py:109 test/tests/tables.py:120
-msgid "Item"
-msgstr "項目"
-
-#: test/tests/tables.py:110 test/tests/tables.py:121
-msgid "Items"
-msgstr "項目"
-
-#: test/tests/tables.py:118
-msgid "Down"
-msgstr "下へ"
-
-#: test/tests/tables.py:118
-msgid "Up"
-msgstr "上へ"
-
-#: test/tests/tables.py:119
-msgid "Downed"
-msgstr "下げました"
-
-#: test/tests/tables.py:119
-msgid "Upped"
-msgstr "上げました"
-
-#: test/tests/tables.py:187
-msgid "No Actions Table"
-msgstr "アクション表がありません"
-
-#: test/tests/tables.py:684
-msgid "Single Table"
-msgstr "単一テーブル"
-
-#: test/tests/tabs.py:36
-msgid "Tab One"
-msgstr "タブ 1"
-
-#: test/tests/tabs.py:42
-msgid "Delayed Tab"
-msgstr "遅延されたタブ"
-
-#: test/tests/tabs.py:49
-msgid "Disabled Tab"
-msgstr "無効化されたタブ"
-
-#: test/tests/tabs.py:58
-msgid "Disallowed Tab"
-msgstr "禁止されたタブ"
-
-#: test/tests/tabs.py:76
-msgid "Tab With My Table"
-msgstr "テーブルのあるタブ"
-
-#: test/tests/tabs.py:85
-msgid "Recoverable Error Tab"
-msgstr "修復可能なエラーのタブ"
-
-#: test/tests/workflows.py:43
-msgid "Project"
-msgstr "プロジェクト"
-
-#: test/tests/workflows.py:44
-msgid "User"
-msgstr "ユーザー"
-
-#: test/tests/workflows.py:47
-msgid "Test Action One"
-msgstr "テストアクション 1"
-
-#: test/tests/workflows.py:61
-msgid "Instance"
-msgstr "インスタンス"
-
-#: test/tests/workflows.py:64
-msgid "Test Action Two"
-msgstr "テストアクション 2"
-
-#: test/tests/workflows.py:72
-msgid "Test Action Three"
-msgstr "テストアクション 3"
-
-#: test/tests/workflows.py:77
-msgid "Admin"
-msgstr "管理"
-
-#: test/tests/workflows.py:80
-msgid "Admin Action"
-msgstr "管理アクション"
-
-#: utils/fields.py:46
+#: utils/fields.py:48
 msgid "Incorrect format for IP address"
 msgstr "不正な形式の IP アドレス"
 
-#: utils/fields.py:47
+#: utils/fields.py:49
 msgid "Invalid version for IP address"
 msgstr "無効な IP アドレスのバージョン"
 
-#: utils/fields.py:48
+#: utils/fields.py:50
 msgid "Invalid subnet mask"
 msgstr "無効なサブネットマスク"
 
-#: workflows/base.py:71
+#: utils/validators.py:25 utils/validators.py:49
+msgid "Not a valid port number"
+msgstr "有効なポート番号ではありません"
+
+#: utils/validators.py:30
+msgid "Not a valid IP protocol number"
+msgstr "有効な IP プロトコル番号ではありません"
+
+#: utils/validators.py:44
+msgid "One colon allowed in port range"
+msgstr "ポート範囲で使用できるコロンは一つだけです。"
+
+#: utils/validators.py:51
+msgid "Port number must be integer"
+msgstr "ポート番号は整数でなければなりません"
+
+#: workflows/base.py:72
 msgid "Processing..."
 msgstr "処理中..."
 
-#: workflows/base.py:467
+#: workflows/base.py:493
 msgid "All available"
 msgstr "利用可能な全項目"
 
-#: workflows/base.py:468
+#: workflows/base.py:494
 msgid "Members"
 msgstr "メンバー"
 
-#: workflows/base.py:469
+#: workflows/base.py:495
 msgid "None available."
 msgstr "利用可能な項目がありません。"
 
-#: workflows/base.py:470
+#: workflows/base.py:496
 msgid "No members."
 msgstr "メンバーがいません。"
 
-#: workflows/base.py:569
+#: workflows/base.py:601
 msgid "Save"
 msgstr "保存"
 
-#: workflows/base.py:570
+#: workflows/base.py:602
 #, python-format
 msgid "%s completed successfully."
 msgstr "%s が正常に完了しました。"
 
-#: workflows/base.py:571
+#: workflows/base.py:603
 #, python-format
 msgid "%s did not complete."
 msgstr "%s が完了しませんでした。"

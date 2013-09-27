@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Łukasz Jernaś <deejay1@srem.org>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-15 18:17+0000\n"
+"PO-Revision-Date: 2013-09-24 18:11+0000\n"
+"Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openstack/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: static/horizon/js/horizon.d3linechart.js:201
+#: static/horizon/js/horizon.modals.js:178
+msgid "An error occurred. Please try again later."
+msgstr "Wystąpił błąd. Proszę spróbować później."
+
+#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.instances.js:30
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Wystąpił problem w komunikacji z serwerem, proszę spróbować ponownie."
+
+#: static/horizon/js/horizon.forms.js:91
+msgid "Additional information here..."
+msgstr "Dodatkowe informacje…"
+
+#: static/horizon/js/horizon.forms.js:97
+msgid "Filter"
+msgstr "Filtr"
+
+#: static/horizon/js/horizon.membership.js:185
+msgid "No roles"
+msgstr "Brak ról"
+
+#: static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: static/horizon/js/horizon.modals.js:125
+msgid "There was an error submitting the form. Please try again."
+msgstr "Wystąpił błąd podczas wysyłania formularza. Proszę spróbować ponownie."
+
+#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
+msgid "Loading"
+msgstr "Wczytywanie"
+
+#: static/horizon/js/horizon.tables.js:47
+msgid "An error occurred while updating."
+msgstr "Wystąpił błąd podczas aktualizacji."
+
+#: static/horizon/js/horizon.tables.js:154
+#, c-format
+msgid "You have selected %s. "
+msgstr "Wybrano %s."
+
+#: static/horizon/js/horizon.tables.js:156
+#, c-format
+msgid "Confirm %s"
+msgstr "Potwierdź %s"
+
+#: static/horizon/js/horizon.tables.js:157
+msgid "Please confirm your selection. This action cannot be undone."
+msgstr "Należy potwierdzić zaznaczenie. Tej czynności nie można cofnąć."
+
+#: static/horizon/js/horizon.tables.js:171
+msgid "Working"
+msgstr "Praca"
+
+#: static/horizon/js/horizon.tables.js:221
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Wyświetlanie %s pozycji"
+msgstr[1] "Wyświetlanie %s pozycji"
+msgstr[2] "Wyświetlanie %s pozycji"
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "Hasła nie pasują"
