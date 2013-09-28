@@ -177,6 +177,14 @@ class UpdateSubnet(network_workflows.CreateNetwork):
             elif data['gateway_ip']:
                 params['gateway_ip'] = data['gateway_ip']
 
+            #We should send gateway_ip only when it is changed,
+            #because updating gateway_ip is prohibited
+            #when the ip is used.
+            #see bug 1227268
+            subnet = api.neutron.subnet_get(request, subnet_id)
+            if params['gateway_ip'] == subnet.gateway_ip:
+                del params['gateway_ip']
+
             self._setup_subnet_parameters(params, data, is_create=False)
 
             subnet = api.neutron.subnet_modify(request, subnet_id, **params)

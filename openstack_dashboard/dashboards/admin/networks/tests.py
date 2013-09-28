@@ -546,9 +546,10 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
         api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
-                                  gateway_ip=subnet.gateway_ip,
                                   enable_dhcp=subnet.enable_dhcp,
                                   dns_nameservers=[],
                                   host_routes=[])\

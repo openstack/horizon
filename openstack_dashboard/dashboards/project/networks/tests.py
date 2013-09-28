@@ -1111,9 +1111,10 @@ class NetworkSubnetTests(test.TestCase):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
         api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
-                                  gateway_ip=subnet.gateway_ip,
                                   enable_dhcp=subnet.enable_dhcp,
                                   dns_nameservers=[],
                                   host_routes=[])\
@@ -1132,8 +1133,39 @@ class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('subnet_modify',
                                       'subnet_get',)})
+    def test_subnet_update_post_with_gateway_ip(self):
+        subnet = self.subnets.first()
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
+        gateway_ip = '10.0.0.100'
+        api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
+                                  name=subnet.name,
+                                  gateway_ip=gateway_ip,
+                                  enable_dhcp=subnet.enable_dhcp,
+                                  dns_nameservers=[],
+                                  host_routes=[])\
+            .AndReturn(subnet)
+        self.mox.ReplayAll()
+
+        form_data = form_data_subnet(subnet,
+                                     gateway_ip=gateway_ip,
+                                     allocation_pools=[])
+        url = reverse('horizon:project:networks:editsubnet',
+                      args=[subnet.network_id, subnet.id])
+        res = self.client.post(url, form_data)
+
+        redir_url = reverse('horizon:project:networks:detail',
+                            args=[subnet.network_id])
+        self.assertRedirectsNoFollow(res, redir_url)
+
+    @test.create_stubs({api.neutron: ('subnet_modify',
+                                      'subnet_get',)})
     def test_subnet_update_post_no_gateway(self):
         subnet = self.subnets.first()
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
         api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
@@ -1162,9 +1194,10 @@ class NetworkSubnetTests(test.TestCase):
         subnet = self.subnets.list()[1]
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
         api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
-                                  gateway_ip=subnet.gateway_ip,
                                   enable_dhcp=False,
                                   dns_nameservers=subnet.dns_nameservers,
                                   host_routes=subnet.host_routes)\
