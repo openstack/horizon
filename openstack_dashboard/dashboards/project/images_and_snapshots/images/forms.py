@@ -103,10 +103,15 @@ class CreateImageForm(forms.SelfHandlingForm):
 
     def clean(self):
         data = super(CreateImageForm, self).clean()
-        if not data['copy_from'] and not data['image_file']:
+
+        # The image_file key can be missing based on particular upload
+        # conditions. Code defensively for it here...
+        image_file = data.get('image_file', None)
+
+        if not data['copy_from'] and not image_file:
             raise ValidationError(
                 _("A image or external image location must be specified."))
-        elif data['copy_from'] and data['image_file']:
+        elif data['copy_from'] and image_file:
             raise ValidationError(
                 _("Can not specify both image and external image location."))
         else:
@@ -134,7 +139,8 @@ class CreateImageForm(forms.SelfHandlingForm):
 
         if data['description']:
             meta['properties']['description'] = data['description']
-        if settings.HORIZON_IMAGES_ALLOW_UPLOAD and data['image_file']:
+        if (settings.HORIZON_IMAGES_ALLOW_UPLOAD and
+                data.get('image_file', None)):
             meta['data'] = self.files['image_file']
         else:
             meta['copy_from'] = data['copy_from']

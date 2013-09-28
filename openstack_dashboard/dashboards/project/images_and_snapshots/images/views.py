@@ -73,15 +73,16 @@ class UpdateView(forms.ModalFormView):
 
     def get_initial(self):
         image = self.get_object()
+        properties = getattr(image, 'properties', {})
         return {'image_id': self.kwargs['image_id'],
                 'name': getattr(image, 'name', None) or image.id,
-                'description': image.properties.get('description', ''),
-                'kernel': image.properties.get('kernel_id', ''),
-                'ramdisk': image.properties.get('ramdisk_id', ''),
-                'architecture': image.properties.get('architecture', ''),
-                'disk_format': image.disk_format,
-                'public': image.is_public,
-                'protected': image.protected}
+                'description': properties.get('description', ''),
+                'kernel': properties.get('kernel_id', ''),
+                'ramdisk': properties.get('ramdisk_id', ''),
+                'architecture': properties.get('architecture', ''),
+                'disk_format': getattr(image, 'disk_format', None),
+                'public': getattr(image, 'is_public', None),
+                'protected': getattr(image, 'protected', None)}
 
 
 class DetailView(tabs.TabView):
