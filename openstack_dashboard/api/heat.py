@@ -53,7 +53,7 @@ def heatclient(request, password=None):
 
 
 def stacks_list(request):
-    return heatclient(request).stacks.list()
+    return [stack for stack in heatclient(request).stacks.list()]
 
 
 def stack_delete(request, stack_id):
