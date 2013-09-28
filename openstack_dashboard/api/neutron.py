@@ -283,7 +283,7 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
         sg_ids = []
         for p in ports:
             sg_ids += p.security_groups
-        return self._list(id=set(sg_ids))
+        return self._list(id=set(sg_ids)) if sg_ids else []
 
     def update_instance_security_group(self, instance_id,
                                        new_security_group_ids):
