@@ -613,7 +613,7 @@ class LaunchInstance(workflows.Workflow):
         ## HACK for now use first network
         if api.neutron.is_port_profiles_supported():
             net_id = context['network_id'][0]
-            LOG.debug(_("Horizon->Create Port with %(netid)s %(profile_id)s"),
+            LOG.debug("Horizon->Create Port with %(netid)s %(profile_id)s",
                       {'netid': net_id, 'profile_id': context['profile_id']})
             try:
                 port = api.neutron.port_create(request, net_id,
