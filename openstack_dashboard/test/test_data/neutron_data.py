@@ -34,6 +34,7 @@ def data(TEST):
     TEST.q_floating_ips = utils.TestDataContainer()
     TEST.q_secgroups = utils.TestDataContainer()
     TEST.q_secgroup_rules = utils.TestDataContainer()
+    TEST.providers = utils.TestDataContainer()
     TEST.pools = utils.TestDataContainer()
     TEST.vips = utils.TestDataContainer()
     TEST.members = utils.TestDataContainer()
@@ -411,7 +412,8 @@ def data(TEST):
                  'protocol': 'HTTP',
                  'lb_method': 'ROUND_ROBIN',
                  'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff96'],
-                 'admin_state_up': True}
+                 'admin_state_up': True,
+                 'provider': 'haproxy'}
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(lbaas.Pool(pool_dict))
 
@@ -575,6 +577,13 @@ def data(TEST):
                       "ports": 1}}
     TEST.api_agents.add(agent_dict)
     TEST.agents.add(neutron.Agent(agent_dict))
+
+    #------------------------------------------------------------
+    # Service providers
+    provider_1 = {"service_type": "LOADBALANCER",
+                  "name": "haproxy",
+                  "default": True}
+    TEST.providers.add(provider_1)
 
     #------------------------------------------------------------
     # VPNaaS

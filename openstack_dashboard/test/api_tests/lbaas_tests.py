@@ -122,7 +122,8 @@ class LbaasApiTests(test.APITestCase):
                      'subnet_id': '12381d38-c3eb-4fee-9763-12de3338041e',
                      'protocol': 'HTTP',
                      'lb_method': 'ROUND_ROBIN',
-                     'admin_state_up': True
+                     'admin_state_up': True,
+                     'provider': 'dummy'
                      }
 
         pool = {'pool': {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
@@ -131,7 +132,8 @@ class LbaasApiTests(test.APITestCase):
                          'subnet_id': '12381d38-c3eb-4fee-9763-12de3338041e',
                          'protocol': 'HTTP',
                          'lb_method': 'ROUND_ROBIN',
-                         'admin_state_up': True
+                         'admin_state_up': True,
+                         'provider': 'dummy'
                          }}
         neutronclient.create_pool({'pool': form_data}).AndReturn(pool)
         self.mox.ReplayAll()

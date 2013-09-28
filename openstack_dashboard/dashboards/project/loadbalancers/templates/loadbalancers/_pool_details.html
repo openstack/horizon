@@ -18,6 +18,9 @@
     <dt>{% trans "VIP ID" %}</dt>
     <dd>{{ pool.vip_id|default:_("-") }}</dd>
 
+    <dt>{% trans "Provider" %}</dt>
+    <dd>{{ pool.provider|default:_("N/A") }}</dd>
+
     <dt>{% trans "Subnet ID" %}</dt>
     <dd>{{ pool.subnet_id }}</dd>
 
