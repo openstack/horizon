@@ -115,8 +115,19 @@ class UpdateVip(forms.SelfHandlingForm):
         session_persistence_choices = []
         for mode in ('SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'):
             session_persistence_choices.append((mode, mode))
+        session_persistence_choices.append(('', _('No session persistence')))
         self.fields[
             'session_persistence'].choices = session_persistence_choices
+
+    def clean(self):
+        cleaned_data = super(UpdateVip, self).clean()
+
+        persistence = cleaned_data.get('session_persistence')
+        if (persistence == 'APP_COOKIE' and
+                not cleaned_data.get('cookie_name')):
+            msg = _('Cookie name is required for APP_COOKIE persistence.')
+            self._errors['cookie_name'] = self.error_class([msg])
+        return cleaned_data
 
     def handle(self, request, context):
         if context['session_persistence']:

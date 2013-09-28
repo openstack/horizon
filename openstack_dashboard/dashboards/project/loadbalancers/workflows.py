@@ -194,7 +194,7 @@ class AddVipAction(workflows.Action):
         protocol_choices.append(('HTTPS', 'HTTPS'))
         self.fields['protocol'].choices = protocol_choices
 
-        session_persistence_choices = [('', _("Set Session Persistence"))]
+        session_persistence_choices = [('', _("No Session Persistence"))]
         for mode in ('SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'):
             session_persistence_choices.append((mode, mode))
         self.fields[

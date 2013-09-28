@@ -152,8 +152,11 @@ class UpdateMonitorLink(tables.LinkAction):
 
 
 def get_vip_link(pool):
-    return reverse("horizon:project:loadbalancers:vipdetails",
-                   args=(http.urlquote(pool.vip_id),))
+    if pool.vip_id:
+        return reverse("horizon:project:loadbalancers:vipdetails",
+                       args=(http.urlquote(pool.vip_id),))
+    else:
+        return None
 
 
 class AddPMAssociationLink(tables.LinkAction):
