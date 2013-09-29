@@ -106,10 +106,23 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
 
 
 def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
-    return _get_quota_data(request,
-                           "default_quota_get",
-                           disabled_quotas=disabled_quotas,
-                           tenant_id=tenant_id)
+    qs = _get_quota_data(request,
+                         "default_quota_get",
+                         disabled_quotas=disabled_quotas,
+                         tenant_id=tenant_id)
+
+    # Remove quotas information for resources provided by Neutron.
+    # TODO(amotoki): There is no API to get the default system quotas
+    # in Neutron (cf. LP#1204956), so we need to remove such quotas
+    # information from quotas set.
+    # This should be handled in _get_quota_data() eventually.
+    if base.is_service_enabled(request, 'network'):
+        if neutron.is_security_group_extension_supported(request):
+            sg_fields = ['security_groups', 'security_group_rules']
+            qs = [quota for quota in qs
+                  if quota.name not in sg_fields]
+
+    return qs
 
 
 def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):

@@ -103,40 +103,74 @@ class BaseUsage(object):
                                                     'end': init[1]})
         return self.form
 
+    def _get_neutron_usage(self, limits, resource_name):
+        resource_map = {
+            'floatingip': {
+                'api': api.network.tenant_floating_ip_list,
+                'limit_name': 'totalFloatingIpsUsed',
+                'message': _('Unable to retrieve floating IP addresses.')
+            },
+            'security_group': {
+                'api': api.network.security_group_list,
+                'limit_name': 'totalSecurityGroupsUsed',
+                'message': _('Unable to retrieve security gruops.')
+            }
+        }
+
+        resource = resource_map[resource_name]
+        try:
+            method = resource['api']
+            current_used = len(method(self.request))
+        except Exception:
+            current_used = 0
+            msg = resource['message']
+            exceptions.handle(self.request, msg)
+
+        limits[resource['limit_name']] = current_used
+
+    def _set_neutron_limit(self, limits, neutron_quotas, resource_name):
+        limit_name_map = {
+            'floatingip': 'maxTotalFloatingIps',
+            'security_group': 'maxSecurityGroups',
+        }
+        if neutron_quotas is None:
+            resource_max = float("inf")
+        else:
+            resource_max = getattr(neutron_quotas.get(resource_name),
+                                   'limit', float("inf"))
+            if resource_max == -1:
+                resource_max = float("inf")
+
+        limits[limit_name_map[resource_name]] = resource_max
+
     def get_neutron_limits(self):
         if not api.base.is_service_enabled(self.request, 'network'):
             return
 
-        # Retrieve number of floating IPs currently allocated
-        try:
-            floating_ips_current = len(
-                api.network.tenant_floating_ip_list(self.request))
-        except Exception:
-            floating_ips_current = 0
-            msg = _('Unable to retrieve floating IP addresses.')
-            exceptions.handle(self.request, msg)
+        neutron_sg_used = \
+            api.neutron.is_security_group_extension_supported(self.request)
 
-        self.limits['totalFloatingIpsUsed'] = floating_ips_current
+        self._get_neutron_usage(self.limits, 'floatingip')
+        if neutron_sg_used:
+            self._get_neutron_usage(self.limits, 'security_group')
 
         # Quotas are an optional extension in Neutron. If it isn't
         # enabled, assume the floating IP limit is infinite.
-        if not api.neutron.is_quotas_extension_supported(self.request):
-            self.limits['maxTotalFloatingIps'] = float("inf")
-            return
+        if api.neutron.is_quotas_extension_supported(self.request):
+            try:
+                neutron_quotas = api.neutron.tenant_quota_get(self.request,
+                                                              self.project_id)
+            except Exception:
+                neutron_quotas = None
+                msg = _('Unable to retrieve network quota information.')
+                exceptions.handle(self.request, msg)
+        else:
+            neutron_quotas = None
 
-        try:
-            neutron_quotas = api.neutron.tenant_quota_get(self.request,
-                                                          self.project_id)
-            floating_ips_max = getattr(neutron_quotas.get('floatingip'),
-                                       'limit', float("inf"))
-            if floating_ips_max == -1:
-                floating_ips_max = float("inf")
-        except Exception:
-            floating_ips_max = float("inf")
-            msg = _('Unable to retrieve network quota information.')
-            exceptions.handle(self.request, msg)
-
-        self.limits['maxTotalFloatingIps'] = floating_ips_max
+        self._set_neutron_limit(self.limits, neutron_quotas, 'floatingip')
+        if neutron_sg_used:
+            self._set_neutron_limit(self.limits, neutron_quotas,
+                                    'security_group')
 
     def get_limits(self):
         try:

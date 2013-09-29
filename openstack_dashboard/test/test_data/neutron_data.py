@@ -519,13 +519,14 @@ def data(TEST):
 
     #------------------------------------------------------------
     # Quotas
-    quota_data = dict(floatingip='50',
-                      network='10',
-                      port='50',
-                      router='10',
-                      security_groups='10',
-                      security_group_rules='100',
-                      subnet='10')
+    quota_data = {'network': '10',
+                  'subnet': '10',
+                  'port': '50',
+                  'router': '10',
+                  'floatingip': '50',
+                  'security_group': '20',
+                  'security_group_rule': '100',
+                  }
     TEST.neutron_quotas.add(base.QuotaSet(quota_data))
 
     #------------------------------------------------------------

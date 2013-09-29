@@ -40,7 +40,9 @@ class UsageViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('usage_list', 'tenant_absolute_limits', ),
                         api.keystone: ('tenant_list',),
-                        api.network: ('tenant_floating_ip_list',)})
+                        api.neutron: ('is_extension_supported',),
+                        api.network: ('tenant_floating_ip_list',
+                                      'security_group_list')})
     def test_usage(self):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
@@ -56,8 +58,12 @@ class UsageViewTests(test.BaseAdminViewTests):
                                               .AndReturn([usage_obj])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group').AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                            .AndReturn(self.floating_ips.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.q_secgroups.list())
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:admin:overview:index'))
@@ -79,7 +85,9 @@ class UsageViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('usage_list', 'tenant_absolute_limits', ),
                         api.keystone: ('tenant_list',),
-                        api.network: ('tenant_floating_ip_list',)})
+                        api.neutron: ('is_extension_supported',),
+                        api.network: ('tenant_floating_ip_list',
+                                      'security_group_list')})
     def test_usage_csv(self):
         now = timezone.now()
         usage_obj = [api.nova.NovaUsage(u) for u in self.usages.list()]
@@ -95,8 +103,12 @@ class UsageViewTests(test.BaseAdminViewTests):
                                               .AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group').AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                            .AndReturn(self.floating_ips.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+                           .AndReturn(self.q_secgroups.list())
         self.mox.ReplayAll()
 
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"

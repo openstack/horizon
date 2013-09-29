@@ -19,7 +19,6 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import tabs
 
-from openstack_dashboard.api import base
 from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.admin.defaults import tables
@@ -34,14 +33,7 @@ class DefaultQuotasTab(tabs.TableTab):
     def get_quotas_data(self):
         request = self.tab_group.request
         try:
-            quota_set = quotas.get_default_quota_data(request)
-            data = quota_set.items
-            # There is no API to get the default system quotas in
-            # Neutron (cf. LP#1204956). Remove the network-related
-            # quotas from the list for now to avoid confusion
-            if base.is_service_enabled(self.request, 'network'):
-                data = [quota for quota in data
-                        if quota.name not in ['floating_ips', 'fixed_ips']]
+            data = quotas.get_default_quota_data(request)
         except Exception:
             data = []
             exceptions.handle(self.request, _('Unable to get quota info.'))
