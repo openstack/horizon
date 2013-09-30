@@ -318,19 +318,20 @@ class LoadBalancerTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {'name': vip.name,
-                     'description': vip.description,
-                     'pool_id': vip.pool_id,
-                     'address': vip.address,
-                     'floatip_address': vip.floatip_address,
-                     'other_address': vip.other_address,
-                     'subnet_id': vip.subnet_id,
-                     'subnet': vip.subnet,
-                     'protocol_port': vip.protocol_port,
-                     'protocol': vip.protocol,
-                     'session_persistence': vip.session_persistence['type'],
-                     'cookie_name': vip.session_persistence['cookie_name'],
-                     'admin_state_up': vip.admin_state_up}
+        form_data = {
+            'name': vip.name,
+            'description': vip.description,
+            'pool_id': vip.pool_id,
+            'address': vip.address,
+            'floatip_address': vip.floatip_address,
+            'other_address': vip.other_address,
+            'subnet_id': vip.subnet_id,
+            'subnet': vip.subnet,
+            'protocol_port': vip.protocol_port,
+            'protocol': vip.protocol,
+            'session_persistence': vip.session_persistence['type'].lower(),
+            'cookie_name': vip.session_persistence['cookie_name'],
+            'admin_state_up': vip.admin_state_up}
         if with_conn_limit:
             form_data['connection_limit'] = vip.connection_limit
 
@@ -354,17 +355,18 @@ class LoadBalancerTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {'name': vip.name,
-                     'description': vip.description,
-                     'pool_id': vip.pool_id,
-                     'address': vip.address,
-                     'subnet_id': vip.subnet_id,
-                     'protocol_port': 65536,
-                     'protocol': vip.protocol,
-                     'session_persistence': vip.session_persistence['type'],
-                     'cookie_name': vip.session_persistence['cookie_name'],
-                     'connection_limit': -2,
-                     'admin_state_up': vip.admin_state_up}
+        form_data = {
+            'name': vip.name,
+            'description': vip.description,
+            'pool_id': vip.pool_id,
+            'address': vip.address,
+            'subnet_id': vip.subnet_id,
+            'protocol_port': 65536,
+            'protocol': vip.protocol,
+            'session_persistence': vip.session_persistence['type'].lower(),
+            'cookie_name': vip.session_persistence['cookie_name'],
+            'connection_limit': -2,
+            'admin_state_up': vip.admin_state_up}
 
         res = self.client.post(
             reverse(self.ADDVIP_PATH, args=(pool.id,)), form_data)
