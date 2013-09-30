@@ -52,6 +52,12 @@ class VPNTests(test.TestCase):
     VPNCONNECTION_DETAIL_PATH = 'horizon:%s:vpn:ipsecsiteconnectiondetails' %\
         DASHBOARD
 
+    UPDATEIKEPOLICY_PATH = 'horizon:%s:vpn:update_ikepolicy' % DASHBOARD
+    UPDATEIPSECPOLICY_PATH = 'horizon:%s:vpn:update_ipsecpolicy' % DASHBOARD
+    UPDATEVPNSERVICE_PATH = 'horizon:%s:vpn:update_vpnservice' % DASHBOARD
+    UPDATEVPNCONNECTION_PATH = 'horizon:%s:vpn:update_ipsecsiteconnection' %\
+        DASHBOARD
+
     def set_up_expect(self):
         # retrieves vpnservices
         vpnservice1, vpnservice2 = self.vpnservices.list()[:2]
@@ -732,6 +738,207 @@ class VPNTests(test.TestCase):
         res = self.client.post(reverse(self.ADDVPNCONNECTION_PATH), form_data)
 
         self.assertFormErrors(res, 1)
+
+    @test.create_stubs({api.vpn: ('vpnservice_get', )})
+    def test_update_vpnservice_get(self):
+        vpnservice = self.vpnservices.first()
+
+        api.vpn.vpnservice_get(IsA(http.HttpRequest), vpnservice.id)\
+            .AndReturn(vpnservice)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEVPNSERVICE_PATH, args=(vpnservice.id,)))
+
+        self.assertTemplateUsed(
+            res, 'project/vpn/update_vpnservice.html')
+
+    @test.create_stubs({api.vpn: ('vpnservice_get', 'vpnservice_update')})
+    def test_update_vpnservice_post(self):
+        vpnservice = self.vpnservices.first()
+
+        api.vpn.vpnservice_get(IsA(http.HttpRequest), vpnservice.id)\
+            .AndReturn(vpnservice)
+
+        data = {'name': vpnservice.name,
+                'description': vpnservice.description,
+                'admin_state_up': vpnservice.admin_state_up}
+
+        api.vpn.vpnservice_update(IsA(http.HttpRequest), vpnservice.id,
+                                  vpnservice=data).AndReturn(vpnservice)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+        form_data.update({'vpnservice_id': vpnservice.id})
+
+        res = self.client.post(reverse(
+            self.UPDATEVPNSERVICE_PATH, args=(vpnservice.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.vpn: ('ikepolicy_get', )})
+    def test_update_ikepolicy_get(self):
+        ikepolicy = self.ikepolicies.first()
+
+        api.vpn.ikepolicy_get(IsA(http.HttpRequest), ikepolicy.id)\
+            .AndReturn(ikepolicy)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEIKEPOLICY_PATH, args=(ikepolicy.id,)))
+
+        self.assertTemplateUsed(
+            res, 'project/vpn/update_ikepolicy.html')
+
+    @test.create_stubs({api.vpn: ('ikepolicy_get', 'ikepolicy_update')})
+    def test_update_ikepolicy_post(self):
+        ikepolicy = self.ikepolicies.first()
+
+        api.vpn.ikepolicy_get(IsA(http.HttpRequest), ikepolicy.id)\
+            .AndReturn(ikepolicy)
+
+        data = {'name': ikepolicy.name,
+                'description': ikepolicy.description,
+                'auth_algorithm': ikepolicy.auth_algorithm,
+                'encryption_algorithm': ikepolicy.encryption_algorithm,
+                'ike_version': ikepolicy.ike_version,
+                'lifetime': ikepolicy.lifetime,
+                'pfs': ikepolicy.pfs,
+                'phase1_negotiation_mode': ikepolicy.phase1_negotiation_mode}
+
+        api.vpn.ikepolicy_update(IsA(http.HttpRequest), ikepolicy.id,
+                                 ikepolicy=data).AndReturn(ikepolicy)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+
+        form_data.update({'lifetime_units': form_data['lifetime']['units']})
+        form_data.update({'lifetime_value': form_data['lifetime']['value']})
+        form_data.pop('lifetime')
+
+        form_data.update({'ikepolicy_id': ikepolicy.id})
+
+        res = self.client.post(reverse(
+            self.UPDATEIKEPOLICY_PATH, args=(ikepolicy.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.vpn: ('ipsecpolicy_get', )})
+    def test_update_ipsecpolicy_get(self):
+        ipsecpolicy = self.ipsecpolicies.first()
+
+        api.vpn.ipsecpolicy_get(IsA(http.HttpRequest), ipsecpolicy.id)\
+            .AndReturn(ipsecpolicy)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEIPSECPOLICY_PATH, args=(ipsecpolicy.id,)))
+
+        self.assertTemplateUsed(
+            res, 'project/vpn/update_ipsecpolicy.html')
+
+    @test.create_stubs({api.vpn: ('ipsecpolicy_get', 'ipsecpolicy_update')})
+    def test_update_ipsecpolicy_post(self):
+        ipsecpolicy = self.ipsecpolicies.first()
+
+        api.vpn.ipsecpolicy_get(IsA(http.HttpRequest), ipsecpolicy.id)\
+            .AndReturn(ipsecpolicy)
+
+        data = {'name': ipsecpolicy.name,
+                'description': ipsecpolicy.description,
+                'auth_algorithm': ipsecpolicy.auth_algorithm,
+                'encapsulation_mode': ipsecpolicy.encapsulation_mode,
+                'encryption_algorithm': ipsecpolicy.encryption_algorithm,
+                'lifetime': ipsecpolicy.lifetime,
+                'pfs': ipsecpolicy.pfs,
+                'transform_protocol': ipsecpolicy.transform_protocol}
+
+        api.vpn.ipsecpolicy_update(IsA(http.HttpRequest), ipsecpolicy.id,
+                                   ipsecpolicy=data).AndReturn(ipsecpolicy)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+
+        form_data.update({'lifetime_units': form_data['lifetime']['units']})
+        form_data.update({'lifetime_value': form_data['lifetime']['value']})
+        form_data.pop('lifetime')
+
+        form_data.update({'ipsecpolicy_id': ipsecpolicy.id})
+
+        res = self.client.post(reverse(
+            self.UPDATEIPSECPOLICY_PATH, args=(ipsecpolicy.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.vpn: ('ipsecsiteconnection_get', )})
+    def test_update_ipsecsiteconnection_get(self):
+        ipsecsiteconnection = self.ipsecsiteconnections.first()
+
+        api.vpn.ipsecsiteconnection_get(
+            IsA(http.HttpRequest), ipsecsiteconnection.id)\
+            .AndReturn(ipsecsiteconnection)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEVPNCONNECTION_PATH,
+                    args=(ipsecsiteconnection.id,)))
+
+        self.assertTemplateUsed(
+            res, 'project/vpn/update_ipsecsiteconnection.html')
+
+    @test.create_stubs({api.vpn: ('ipsecsiteconnection_get',
+                                  'ipsecsiteconnection_update')})
+    def test_update_ipsecsiteconnection_post(self):
+        ipsecsiteconnection = self.ipsecsiteconnections.first()
+
+        api.vpn.ipsecsiteconnection_get(
+            IsA(http.HttpRequest), ipsecsiteconnection.id)\
+            .AndReturn(ipsecsiteconnection)
+
+        data = {'name': ipsecsiteconnection.name,
+                'description': ipsecsiteconnection.description,
+                'peer_address': ipsecsiteconnection.peer_address,
+                'peer_id': ipsecsiteconnection.peer_id,
+                'peer_cidrs': ipsecsiteconnection.peer_cidrs,
+                'psk': ipsecsiteconnection.psk,
+                'mtu': ipsecsiteconnection.mtu,
+                'dpd': ipsecsiteconnection.dpd,
+                'initiator': ipsecsiteconnection.initiator,
+                'admin_state_up': ipsecsiteconnection.admin_state_up}
+
+        api.vpn.ipsecsiteconnection_update(
+            IsA(http.HttpRequest), ipsecsiteconnection.id,
+            ipsec_site_connection=data).AndReturn(ipsecsiteconnection)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+
+        form_data.update({'dpd_action': form_data['dpd']['action']})
+        form_data.update({'dpd_interval': form_data['dpd']['interval']})
+        form_data.update({'dpd_timeout': form_data['dpd']['timeout']})
+        form_data.pop('dpd')
+
+        form_data['peer_cidrs'] = ", ".join(ipsecsiteconnection['peer_cidrs'])
+
+        form_data.update({'ipsecsiteconnection_id': ipsecsiteconnection.id})
+
+        res = self.client.post(
+            reverse(self.UPDATEVPNCONNECTION_PATH,
+                    args=(ipsecsiteconnection.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
