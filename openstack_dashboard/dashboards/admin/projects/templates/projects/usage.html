@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block main %}
-  {% include "horizon/common/_usage_summary.html" %}
-  {{ table.render }}
+  {% if simple_tenant_usage_enabled %}
+    {% include "horizon/common/_usage_summary.html" %}
+    {{ table.render }}
+  {% endif %}
 {% endblock %}
