@@ -1,13 +1,14 @@
 {% load i18n sizeformat parse_date %}
+{% load url from future %}
 
 <div class="info row-fluid detail">
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ policy.name|default:_("None") }}</dd>
+    <dd>{{ policy.name|default:_("-") }}</dd>
 
     <dt>{% trans "Description" %}</dt>
-    <dd>{{ policy.description|default:_("None") }}</dd>
+    <dd>{{ policy.description|default:_("-") }}</dd>
 
     <dt>{% trans "ID" %}</dt>
     <dd>{{ policy.id }}</dd>
@@ -16,12 +17,21 @@
     <dd>{{ policy.tenant_id }}</dd>
 
     <dt>{% trans "Rules" %}</dt>
-    <dd>{{ policy.firewall_rules }}</dd>
+    <dd>
+      {% if policy.rules %}
+      {% for rule in policy.rules %}
+      {% url 'horizon:project:firewalls:ruledetails' rule.id as rule_url %}
+      {{ rule.position }} : <a href="{{ rule_url }}">{{ rule.name|default:rule.id }}</a><br>
+      {% endfor %}
+      {% else %}
+      {% trans "-" %}
+      {% endif %}
+    </dd>
 
     <dt>{% trans "Shared" %}</dt>
-    <dd>{{ policy.shared }}</dd>
+    <dd>{{ policy.shared|yesno|capfirst }}</dd>
 
     <dt>{% trans "Audited" %}</dt>
-    <dd>{{ policy.audited }}</dd>
+    <dd>{{ policy.audited|yesno|capfirst }}</dd>
   </dl>
 </div>

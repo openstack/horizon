@@ -234,14 +234,18 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
 
     def handle(self, request, context):
         policy_id = self.initial['policy_id']
+        policy_name_or_id = self.initial['name'] or policy_id
         try:
-            body = {'firewall_rule_id': context['firewall_rule_id'],
+            insert_rule_id = context['firewall_rule_id']
+            insert_rule = api.fwaas.rule_get(request, insert_rule_id)
+            body = {'firewall_rule_id': insert_rule_id,
                     'insert_before': context['insert_before'],
                     'insert_after': context['insert_after']}
             policy = api.fwaas.policy_insert_rule(request, policy_id, **body)
             msg = _('Rule %(rule)s was successfully inserted to policy '
                     '%(policy)s.' %
-                    {'rule': context['firewall_rule_id'], 'policy': policy_id})
+                    {'rule': insert_rule.name or insert_rule.id,
+                     'policy': policy_name_or_id})
             LOG.debug(msg)
             messages.success(request, msg)
             return policy
@@ -286,13 +290,16 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
 
     def handle(self, request, context):
         policy_id = self.initial['policy_id']
+        policy_name_or_id = self.initial['name'] or policy_id
         try:
-            body = {'firewall_rule_id': context['firewall_rule_id'], }
+            remove_rule_id = context['firewall_rule_id']
+            remove_rule = api.fwaas.rule_get(request, remove_rule_id)
+            body = {'firewall_rule_id': remove_rule_id}
             policy = api.fwaas.policy_remove_rule(request, policy_id, **body)
-            msg = _('Rule %(rule)s was successfully removed from policy '
+            msg = _('Rule %(rule)s was successfully remove from policy '
                     '%(policy)s.' %
-                    {'rule': context['firewall_rule_id'],
-                     'policy': self.initial['name']})
+                    {'rule': remove_rule.name or remove_rule.id,
+                     'policy': policy_name_or_id})
             LOG.debug(msg)
             messages.success(request, msg)
             return policy

@@ -5,10 +5,10 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ firewall.name|default:_("None") }}</dd>
+    <dd>{{ firewall.name|default:_("-") }}</dd>
 
     <dt>{% trans "Description" %}</dt>
-    <dd>{{ firewall.description|default:_("None") }}</dd>
+    <dd>{{ firewall.description|default:_("-") }}</dd>
 
     <dt>{% trans "ID" %}</dt>
     <dd>{{ firewall.id }} </dd>
@@ -19,13 +19,13 @@
     <dt>{% trans "Policy ID" %}</dt>
     <dd>
       {% url 'horizon:project:firewalls:policydetails' firewall.firewall_policy_id as policy_url%}
-      <a href="{{ policy_url }}">{{ firewall.firewall_policy_id }}</a>
+      <a href="{{ policy_url }}">{{ firewall.policy.name|default:firewall.policy.id }}</a>
     </dd>
 
     <dt>{% trans "Status" %}</dt>
     <dd>{{ firewall.status }}</dd>
 
     <dt>{% trans "Admin State Up" %}</dt>
-    <dd>{{ firewall.admin_state_up }}</dd>
+    <dd>{{ firewall.admin_state_up|yesno|capfirst }}</dd>
   </dl>
 </div>
