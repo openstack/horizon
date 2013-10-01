@@ -11,11 +11,11 @@ netaddr
 python-cinderclient>=1.0.5
 python-glanceclient>=0.9.0
 python-heatclient>=0.2.3
-python-keystoneclient>=0.3.0
-python-novaclient>=2.12.0
+python-keystoneclient>=0.3.2
+python-novaclient>=2.15.0
 python-neutronclient>=2.3.0,<3
-python-swiftclient>=1.2
-python-ceilometerclient>=1.0.2
+python-swiftclient>=1.5
+python-ceilometerclient>=1.0.5
 python-troveclient
 pytz>=2010h
 # Horizon Utility Requirements
