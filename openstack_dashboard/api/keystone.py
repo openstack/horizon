@@ -28,6 +28,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from keystoneclient import exceptions as keystone_exceptions
 
 from openstack_auth import backend
+from openstack_auth import utils as auth_utils
 
 from horizon import exceptions
 from horizon import messages
@@ -56,7 +57,8 @@ class IdentityAPIVersionManager(base.APIVersionManager):
         return manager
 
 
-VERSIONS = IdentityAPIVersionManager("identity", preferred_version=3)
+VERSIONS = IdentityAPIVersionManager(
+    "identity", preferred_version=auth_utils.get_keystone_version())
 
 
 # Import from oldest to newest so that "preferred" takes correct precedence.
