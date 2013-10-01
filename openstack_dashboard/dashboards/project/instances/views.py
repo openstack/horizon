@@ -71,7 +71,7 @@ class IndexView(tables.DataTableView):
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instances.'))
-        # Gather our flavors and correlate our instances to them
+        # Gather our flavors and images and correlate our instances to them
         if instances:
             try:
                 flavors = api.nova.flavor_list(self.request)
@@ -79,10 +79,24 @@ class IndexView(tables.DataTableView):
                 flavors = []
                 exceptions.handle(self.request, ignore=True)
 
+            try:
+                # TODO(gabriel): Handle pagination.
+                images, more = api.glance.image_list_detailed(self.request)
+            except Exception:
+                images = []
+                exceptions.handle(self.request, ignore=True)
+
             full_flavors = SortedDict([(str(flavor.id), flavor)
-                                        for flavor in flavors])
+                                       for flavor in flavors])
+            image_map = SortedDict([(str(image.id), image)
+                                    for image in images])
+
             # Loop through instances to get flavor info.
             for instance in instances:
+                if (hasattr(instance, 'image')
+                        and instance.image['id'] in image_map):
+                    instance.image = image_map[instance.image['id']]
+
                 try:
                     flavor_id = instance.flavor["id"]
                     if flavor_id in full_flavors:

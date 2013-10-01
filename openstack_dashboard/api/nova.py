@@ -80,17 +80,23 @@ class Server(base.APIResourceWrapper):
         super(Server, self).__init__(apiresource)
         self.request = request
 
+    # TODO(gabriel): deprecate making a call to Glance as a fallback.
     @property
     def image_name(self):
         import glanceclient.exc as glance_exceptions
         from openstack_dashboard.api import glance
         if not self.image:
             return "(not found)"
-        try:
-            image = glance.image_get(self.request, self.image['id'])
-            return image.name
-        except glance_exceptions.ClientException:
-            return "(not found)"
+        if hasattr(self.image, 'name'):
+            return self.image.name
+        if 'name' in self.image:
+            return self.image['name']
+        else:
+            try:
+                image = glance.image_get(self.request, self.image['id'])
+                return image.name
+            except glance_exceptions.ClientException:
+                return "(not found)"
 
     @property
     def internal_name(self):
