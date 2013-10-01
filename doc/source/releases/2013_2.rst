@@ -1,0 +1,254 @@
+=======================
+Horizon 2013.2 "Havana"
+=======================
+
+Release Overview
+================
+
+The Havana release cycle brings support for *three* new projects, plus
+significant new features for several existing projects. On top of that, many
+aspects of user experience have been improved for both end users and
+administrators. The community continues to grow and expand. The Havana release
+is solidly the best release of the OpenStack Dashboard project yet!
+
+Highlights
+==========
+
+New Features
+------------
+
+Heat
+~~~~
+
+The OpenStack Orchestration project (Heat) debuted in Havana, and Horizon
+delivers full support for managing your Heat stacks. Highlights include
+support for dynamic form generation from supported Heat template formats,
+stack topology visualizations, and full stack resource inspection.
+
+Ceilometer
+~~~~~~~~~~
+
+Also debuting in Havana is the OpenStack Metering project (Ceilometer). Initial
+support for Ceilometer is included in Horizon so that it is possible for an
+administrator to query the usage of the cloud through the OpenStack Dashboard
+and better understand how the system is functioning and being utilized.
+
+Domains, Groups, and More: Keystone v3 API Support
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With the OpenStack Identity Service (Keystone) v3 API fully fledged in the
+Havana release, Horizon has added full support for all the new features such
+as Domains and Groups, Role management and assignment to Domains and Groups,
+Domain-based authentication, and Domain context switching.
+
+Trove Databases
+~~~~~~~~~~~~~~~
+
+The OpenStack Database as a Service project (Trove) graduated from incubation
+in the Havana cycle, and thanks to their industriousness they delivered a
+set of panels for the OpenStack dashboard to allow for provisioning and managing
+your Trove databases and backups. Disclaimer: Given that Trove's first official
+release as an integrated project will not be until Icehouse this feature should
+still be considered experimental and may be subject to change.
+
+Nova Features
+~~~~~~~~~~~~~
+
+The number of OpenStack Compute (Nova) features that are supported in Horizon
+continues to grow. New features in the Havana release include:
+
+* Editable default quotas.
+* The ability for an administrator to reset the password of a server/instance.
+* Availablity zone support.
+* Improved region support.
+* Instance resizing.
+* Improved boot-from-volume support.
+* Per-project flavor support.
+
+All of these provide a richer set of options for controlling where, when and how
+instances are launched, and improving how they're managed once they're up and
+running.
+
+Neutron Features
+~~~~~~~~~~~~~~~~
+
+A number of important new OpenStack Networking (Neutron) features are showcased
+in the Havana release, most notably:
+
+* VPN as a Service.
+* Firewall as a Service.
+* Editable and interactive network topology visualizations.
+* Full security group and quota parity between Neutron and Nova network.
+
+These features allow for tremendous flexibility when constructing
+software-defined networks for your cloud using Neutron.
+
+
+User Experience Improvements
+----------------------------
+
+Self-Service Password Change
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Empowered by changes to the Keystone API, users can now change their own
+passwords without the need to involve an administrator. This is more secure and
+takes the hassle out of things for everyone.
+
+Better Admin Information Architecture
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Several sections of the Admin dashboard have been rearranged to more logically
+group information together. Additionally, new sources of information have been
+added to allow Admins to better understand the state of the hosts in the cloud
+and their relationship to host aggregates, availability zones, etc.
+
+Improved Messaging To Users On Logout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Several new indicators have been added to inform users why they've been logged
+out when they land on the login screen unexpectedly. These indicators make it
+clear whether the user's session has expired, they timed out due to inactivity,
+or they are not authorized for the section of the dashboard they attempted to
+access.
+
+Security Group Rule Templates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Since there are many very common security group rules which users tediously
+re-add each time (rules for SSH and ping, for example) the Horizon team has
+added pre-configured templates for common rules which a user can select and
+add to their security group with two clicks. These rules are configurable
+via the ``SECURITY_GROUP_RULES`` setting.
+
+
+Community
+---------
+
+Translation Team
+~~~~~~~~~~~~~~~~
+
+The OpenStack Translations team came fully into its own during the Havana cycle
+and the quality of the translations in Horizon are the best yet by far.
+Congratulations to that team for their success in building the community that
+started primarily within the OpenStack Dashboard project.
+
+User Experience Group
+~~~~~~~~~~~~~~~~~~~~~
+
+A fledgling OpenStack User Experience Group formed during the Havana cycle with
+the mission of improving UX throughout OpenStack. They have quickly made
+themselves indispensable to the process of designing and improving features in
+the OpenStack Dashboard. Expect significant future improvement in User
+Experience now that there are dedicated people actively collaborating in the
+open to raise the bar.
+
+
+Under The Hood
+--------------
+
+Less Complicated LESS Compilation: No More NodeJS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Due to outcry from various parties, and made possible by improvements in the
+Python community's support for LESS, Horizon has removed all traces of NodeJS
+from the project. We now use the ``lesscpy`` module to compile our LESS into
+the final stylesheets. This should not affect most users in any way, but it
+should make life easier for downstream distributions and the like.
+
+Role-Based Access Controls
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Horizon has begun the transition to using the other OpenStack projects'
+``policy.json`` files to enforce access controls in the dashboard if the files
+are provided. This means access controls are more configurable and can be kept
+in sync between the originating project and Horizon. Currently this is only
+supported for Keystone and parts of Nova's policy files. Full support will
+come in the next release. You will need to set the ``POLICY_FILES_PATH`` and
+``POLICY_FILES`` settings in order to enable this feature.
+
+
+Other Improvements and Fixes
+----------------------------
+
+* Swift container and object metadata are now supported.
+* New visualizations for utilization and quotas.
+* The Cisco N1K Router plugin's additional features are available through a
+  special additional dashboard when enabled and supported in Neutron.
+* Support for self-signed or other specified SSL certificate checking.
+* Glance image types are now configurable.
+* Sorting has been improved in many places through the dashboard.
+* API call efficiency optimizations.
+* Required fields in forms are now better indicated.
+* Session timeout can now be enabled to log out the user after a period of
+  inactivity as a security feature.
+* Significant PEP8 and code quality compliance improvements.
+* Hundreds of bugfixes and minor user experience improvements.
+
+
+Upgrade Information
+===================
+
+Allowed Hosts
+-------------
+
+For production deployments of Horizon you must add the ``ALLOWED_HOSTS``
+setting to your ``settings.py`` or ``local_settings.py`` file. This setting
+was added in Django 1.5 and is an important security feature. For more
+information on it please consult the ``local_settings.py.example`` file
+or Django's documentation.
+
+Enabling Keystone and Neutron Features
+--------------------------------------
+
+If you have existing configurations for the ``OPENSTACK_KEYSTONE_BACKEND``
+or ``OPENSTACK_NEUTRON_NETWORK`` settings, you will want to consult the
+``local_settings.example.py`` file for information on the new options that
+have been added. Existing configurations will continue to work, but may not
+have the correct keys to enable some of the new features in Havana.
+
+
+Known Issues and Limitations
+============================
+
+Session Creation and Health Checks
+----------------------------------
+
+If you use a health monitoring service that pings the home page combined with
+a database-backed session backend you may experience excessive session creation.
+This issue is slated to be fixed soon, but in the interim the recommended
+solution is to write a periodic job that deletes expired sessions from your
+session store on a regular basis.
+
+Deleting large numbers of resources simultaneously
+--------------------------------------------------
+
+Using the "select all" checkbox to delete large numbers of resources at once
+can cause network timeouts (depending on configuration). This is due to the
+underlying APIs not supporting bulk-deletion natively, and consequently Horizon
+has to send requests to delete each resource individually behind the scenes.
+
+Conflicting Security Group Names With Neutron
+---------------------------------------------
+
+Whereas Nova Network uses only the name of a security group when specifying
+security groups at instance launch time, Neutron can accept either a name or
+a UUID. In order to support both, Horizon passes in the name of the selected
+security groups. However, due to some data-isolation issues in Neutron there is
+an issue that can arise if an admin user tries to specify a security group with
+the same name as another security group in a different project which they also
+have access to. Neutron will find multiple matches for the security group
+name and will fail to launch the instance. The current workaround is to treat
+security group names as unique for admin users.
+
+
+Backwards Compatibility
+=======================
+
+The Havana Horizon release should be fully compatible with both Havana and
+Grizzly versions of the rest of the OpenStack integrated projects (Nova, Swift,
+etc.). New features in other OpenStack projects which did not exist in Grizzly
+will obviously only work in Horizon if the rest of the stack supports them as
+well.
+
+Overall, great effort has been made to maintain compatibility for
+third-party developers who have built on Horizon so far.
