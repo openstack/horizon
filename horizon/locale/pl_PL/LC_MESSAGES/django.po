@@ -1,0 +1,395 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Łukasz Jernaś <deejay1@srem.org>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-26 00:30-0500\n"
+"PO-Revision-Date: 2013-09-26 17:56+0000\n"
+"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openstack/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: base.py:429
+msgid "Other"
+msgstr "Inne"
+
+#: decorators.py:55
+msgid "Please log in to continue."
+msgstr "Należy się zalogować, aby można było kontynuować."
+
+#: decorators.py:87
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Brak uprawnień dostępu do %s"
+
+#: exceptions.py:281
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Nieupoważniono: %s"
+
+#: exceptions.py:284
+msgid "Unauthorized. Please try logging in again."
+msgstr "Brak uprawnień. Proszę spróbować się wylogować i zalogować ponownie."
+
+#: middleware.py:67
+msgid "Session timed out."
+msgstr "Sesja wygasła."
+
+#: browsers/base.py:90
+msgid "Navigation Item"
+msgstr "Pozycja nawigacyjna"
+
+#: browsers/views.py:42
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Wybierz %s by przeglądać."
+
+#: conf/default.py:29
+msgid "Password is not accepted"
+msgstr "Hasło nie zostało zaakceptowane"
+
+#: tables/actions.py:381
+#: templates/horizon/common/_data_table_table_actions.html:13
+msgid "Filter"
+msgstr "Filtr"
+
+#: tables/actions.py:560
+#, python-format
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#: tables/actions.py:594
+msgid "N/A"
+msgstr "n.d."
+
+#: tables/actions.py:622
+#, python-format
+msgid "You do not have permission to %(action)s: %(objs)s"
+msgstr "Brak uprawnień do %(action)s: %(objs)s"
+
+#: tables/actions.py:628
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Nie można %(action)s: %(objs)s"
+
+#: tables/actions.py:634
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
+
+#: tables/actions.py:644
+msgid "Delete"
+msgstr "Usuń"
+
+#: tables/actions.py:645
+msgid "Deleted"
+msgstr "Usunięto"
+
+#: tables/base.py:287
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Atrybut %(attr)s nie istnieje dla %(obj)s."
+
+#: tables/base.py:766
+msgid "No items to display."
+msgstr "Brak pozycji do wyświetlenia."
+
+#: tables/base.py:870
+msgid "Actions"
+msgstr "Czynności"
+
+#: tables/base.py:1063
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Nie znaleziono wyników dla identyfikatora „%s”."
+
+#: tables/base.py:1193
+msgid "Please select a row before taking that action."
+msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
+
+#: templates/_header.html:4
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Zalogowano jako: %(username)s"
+
+#: templates/_header.html:6
+msgid "Help"
+msgstr "Pomoc"
+
+#: templates/_header.html:8
+msgid "Sign Out"
+msgstr "Wyloguj"
+
+#: templates/splash.html:7 templates/auth/login.html:4
+msgid "Login"
+msgstr "Login"
+
+#: templates/auth/_login.html:5
+msgid "Log In"
+msgstr "Zaloguj"
+
+#: templates/auth/_login.html:15
+msgid "You don't have permissions to access:"
+msgstr "Brak uprawnień do:"
+
+#: templates/auth/_login.html:17
+msgid "Login as different user or go back to"
+msgstr "Należy zalogować się jako inny użytkownik lub wrócić do"
+
+#: templates/auth/_login.html:18
+msgid "home page"
+msgstr "strona domowa"
+
+#: templates/auth/_login.html:33
+msgid "Sign In"
+msgstr "Wpisz się"
+
+#: templates/horizon/_messages.html:7
+msgid "Info: "
+msgstr "Informacja:"
+
+#: templates/horizon/_messages.html:13
+msgid "Warning: "
+msgstr "Ostrzeżenie:"
+
+#: templates/horizon/_messages.html:19
+msgid "Success: "
+msgstr "Powodzenie:"
+
+#: templates/horizon/_messages.html:25
+msgid "Error: "
+msgstr "Błąd:"
+
+#: templates/horizon/common/_data_table.html:54
+msgid "Summary"
+msgstr "Podsumowanie"
+
+#: templates/horizon/common/_data_table.html:63
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Wyświetlanie %(counter)s pozycji"
+msgstr[1] "Wyświetlanie %(counter)s pozycji"
+msgstr[2] "Wyświetlanie %(counter)s pozycji"
+
+#: templates/horizon/common/_data_table_row_actions.html:10
+msgid "More"
+msgstr "Więcej"
+
+#: templates/horizon/common/_limit_summary.html:4
+msgid "Limit Summary"
+msgstr "Podsumowanie limitów"
+
+#: templates/horizon/common/_limit_summary.html:7
+msgid "Instances"
+msgstr "Instancje"
+
+#: templates/horizon/common/_limit_summary.html:8
+#: templates/horizon/common/_limit_summary.html:15
+#: templates/horizon/common/_limit_summary.html:22
+#: templates/horizon/common/_limit_summary.html:29
+#: templates/horizon/common/_limit_summary.html:36
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Wykorzystano <span> %(used)s </span> z <span> %(available)s </span>"
+
+#: templates/horizon/common/_limit_summary.html:14
+msgid "VCPUs"
+msgstr "VCPUs"
+
+#: templates/horizon/common/_limit_summary.html:21
+msgid "RAM"
+msgstr "RAM"
+
+#: templates/horizon/common/_limit_summary.html:28
+msgid "Floating IPs"
+msgstr "Pływające IP"
+
+#: templates/horizon/common/_limit_summary.html:35
+msgid "Security Groups"
+msgstr "Grupy zabezpieczeń"
+
+#: templates/horizon/common/_resource_browser.html:10
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Wyświetlanie %(nav_items)s pozycji"
+msgstr[1] "Wyświetlanie %(nav_items)s pozycji"
+msgstr[2] "Wyświetlanie %(nav_items)s pozycji"
+
+#: templates/horizon/common/_resource_browser.html:11
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Wyświetlanie %(content_items)s pozycji"
+msgstr[1] "Wyświetlanie %(content_items)s pozycji"
+msgstr[2] "Wyświetlanie %(content_items)s pozycji"
+
+#: templates/horizon/common/_sidebar.html:15
+msgid "Current Project"
+msgstr "Bieżący projekt"
+
+#: templates/horizon/common/_sidebar.html:39
+msgid "Managing Region"
+msgstr "Zarządzanie regionem"
+
+#: templates/horizon/common/_usage_summary.html:5
+msgid "Select a period of time to query its usage"
+msgstr "Podaj okres, za który wyświetlić wykorzystanie"
+
+#: templates/horizon/common/_usage_summary.html:7
+#, python-format
+msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
+msgstr "<span>Od: %(start)s </span><span>Do: %(end)s </span>"
+
+#: templates/horizon/common/_usage_summary.html:8
+msgid "Submit"
+msgstr "Wyślij"
+
+#: templates/horizon/common/_usage_summary.html:9
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "Data powinna być podana w formacie YYYY-mm-dd."
+
+#: templates/horizon/common/_usage_summary.html:14
+msgid "Active Instances"
+msgstr "Aktywne instancje"
+
+#: templates/horizon/common/_usage_summary.html:15
+msgid "Active RAM"
+msgstr "Aktywny RAM"
+
+#: templates/horizon/common/_usage_summary.html:16
+msgid "This Period's VCPU-Hours"
+msgstr "VCPU-godziny w tym okresie"
+
+#: templates/horizon/common/_usage_summary.html:17
+msgid "This Period's GB-Hours"
+msgstr "GB-godziny w tym okresie"
+
+#: templates/horizon/common/_workflow.html:36
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: templatetags/branding.py:35
+msgid "Horizon"
+msgstr "Horizon"
+
+#: templatetags/horizon.py:92
+msgid "No Limit"
+msgstr "Bez ograniczeń"
+
+#: templatetags/horizon.py:94 templatetags/horizon.py:96
+msgid "Available"
+msgstr "Dostępne"
+
+#: templatetags/sizeformat.py:45
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] "%(size)d bajt"
+msgstr[1] "%(size)d bajty"
+msgstr[2] "%(size)d bajtów"
+
+#: templatetags/sizeformat.py:49
+#, python-format
+msgid "%(size)d"
+msgid_plural "%(size)d"
+msgstr[0] "%(size)d"
+msgstr[1] "%(size)d"
+msgstr[2] "%(size)d"
+
+#: templatetags/sizeformat.py:52
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: templatetags/sizeformat.py:55
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#: templatetags/sizeformat.py:58
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: templatetags/sizeformat.py:61
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#: templatetags/sizeformat.py:63
+#, python-format
+msgid "%s PB"
+msgstr "%s PB"
+
+#: utils/fields.py:48
+msgid "Incorrect format for IP address"
+msgstr "Błędny format adresu IP"
+
+#: utils/fields.py:49
+msgid "Invalid version for IP address"
+msgstr "Błędna wersja adresu IP"
+
+#: utils/fields.py:50
+msgid "Invalid subnet mask"
+msgstr "Błędna maska podsieci"
+
+#: utils/validators.py:25 utils/validators.py:49
+msgid "Not a valid port number"
+msgstr "Błędny numer portu"
+
+#: utils/validators.py:30
+msgid "Not a valid IP protocol number"
+msgstr "Błędny numer protokołu IP"
+
+#: utils/validators.py:44
+msgid "One colon allowed in port range"
+msgstr "Tylko jeden dwukropek jest dozwolony w zakresie portów"
+
+#: utils/validators.py:51
+msgid "Port number must be integer"
+msgstr "Numer portu musi być liczbą całkowitą"
+
+#: workflows/base.py:72
+msgid "Processing..."
+msgstr "Przetwarzanie…"
+
+#: workflows/base.py:493
+msgid "All available"
+msgstr "Całość dostępna"
+
+#: workflows/base.py:494
+msgid "Members"
+msgstr "Członkowie"
+
+#: workflows/base.py:495
+msgid "None available."
+msgstr "Całość wykorzystana"
+
+#: workflows/base.py:496
+msgid "No members."
+msgstr "Brak członków."
+
+#: workflows/base.py:601
+msgid "Save"
+msgstr "Zapisz"
+
+#: workflows/base.py:602
+#, python-format
+msgid "%s completed successfully."
+msgstr "%s zakończona pomyślnie."
+
+#: workflows/base.py:603
+#, python-format
+msgid "%s did not complete."
+msgstr "%s nie została zakończona."

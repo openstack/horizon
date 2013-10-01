@@ -182,20 +182,17 @@ SESSION_TIMEOUT = 1800
 
 gettext_noop = lambda s: s
 LANGUAGES = (
-    ('bg', gettext_noop('Bulgarian (Bulgaria)')),
-    ('cs', gettext_noop('Czech')),
     ('en', gettext_noop('English')),
+    ('en-au', gettext_noop('Australian English')),
+    ('en-gb', gettext_noop('British English')),
     ('es', gettext_noop('Spanish')),
     ('fr', gettext_noop('French')),
-    ('it', gettext_noop('Italiano')),
     ('ja', gettext_noop('Japanese')),
     ('ko', gettext_noop('Korean (Korea)')),
     ('nl', gettext_noop('Dutch (Netherlands)')),
     ('pl', gettext_noop('Polish')),
-    ('pt', gettext_noop('Portuguese')),
     ('pt-br', gettext_noop('Portuguese (Brazil)')),
     ('zh-cn', gettext_noop('Simplified Chinese')),
-    ('zh-tw', gettext_noop('Traditional Chinese')),
 )
 LANGUAGE_CODE = 'en'
 LANGUAGE_COOKIE_NAME = 'horizon_language'
