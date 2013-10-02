@@ -17,8 +17,6 @@
 """
 Views for displaying database backups.
 """
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -31,8 +29,6 @@ from horizon import workflows as horizon_workflows
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.database_backups import tables
 from openstack_dashboard.dashboards.project.database_backups import workflows
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(horizon_tables.DataTableView):

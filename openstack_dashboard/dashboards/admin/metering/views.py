@@ -16,7 +16,6 @@ from datetime import datetime  # noqa
 from datetime import timedelta  # noqa
 
 import json
-import logging
 
 from django.http import HttpResponse   # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -30,8 +29,6 @@ from openstack_dashboard.api import ceilometer
 
 from openstack_dashboard.dashboards.admin.metering import tabs as \
     metering_tabs
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabbedTableView):

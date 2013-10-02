@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 
 from horizon import exceptions
@@ -28,9 +26,6 @@ from openstack_dashboard.dashboards.project.routers.ports \
     import forms as project_forms
 from openstack_dashboard.dashboards.project.routers.ports \
     import tabs as project_tabs
-
-
-LOG = logging.getLogger(__name__)
 
 
 class AddInterfaceView(forms.ModalFormView):

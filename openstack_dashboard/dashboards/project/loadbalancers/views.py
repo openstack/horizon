@@ -23,8 +23,6 @@ from horizon import messages
 from horizon import tabs
 from horizon import workflows
 
-import logging
-
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.loadbalancers \
     import forms as project_forms
@@ -34,8 +32,6 @@ from openstack_dashboard.dashboards.project.loadbalancers \
     import workflows as project_workflows
 
 import re
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabView):

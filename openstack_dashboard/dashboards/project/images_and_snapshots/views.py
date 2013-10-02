@@ -22,9 +22,6 @@
 """
 Views for managing Images and Snapshots.
 """
-
-import logging
-
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
@@ -40,8 +37,6 @@ from openstack_dashboard.dashboards.project.images_and_snapshots.\
     volume_snapshots import tables as vol_snsh_tables
 from openstack_dashboard.dashboards.project.images_and_snapshots.\
     volume_snapshots import tabs as vol_snsh_tabs
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.MultiTableView):

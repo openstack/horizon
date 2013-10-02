@@ -21,9 +21,6 @@
 """
 Views for managing images.
 """
-
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -38,9 +35,6 @@ from openstack_dashboard.dashboards.project.images_and_snapshots.images \
     import forms as project_forms
 from openstack_dashboard.dashboards.project.images_and_snapshots.images \
     import tabs as project_tabs
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateView(forms.ModalFormView):

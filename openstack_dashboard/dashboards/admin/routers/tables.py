@@ -14,17 +14,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.routers import tables as r_tables
-
-
-LOG = logging.getLogger(__name__)
 
 
 class DeleteRouter(r_tables.DeleteRouter):

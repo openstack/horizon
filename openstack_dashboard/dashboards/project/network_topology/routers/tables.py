@@ -18,8 +18,6 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from openstack_dashboard.dashboards.project.routers import\
     tables as r_tables
 
-#LOG = logging.getLogger(__name__)
-
 
 class DeleteRouter(r_tables.DeleteRouter):
     redirect_url = "horizon:project:network_topology:router"

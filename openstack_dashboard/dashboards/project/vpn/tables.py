@@ -17,16 +17,11 @@
 # @author: Tatiana Mazur
 
 
-import logging
-
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 from horizon.utils import filters
-
-
-LOG = logging.getLogger(__name__)
 
 
 class AddIKEPolicyLink(tables.LinkAction):

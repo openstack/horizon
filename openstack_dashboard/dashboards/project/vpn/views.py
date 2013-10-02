@@ -24,8 +24,6 @@ from horizon import messages
 from horizon import tabs
 from horizon import workflows
 
-import logging
-
 from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.vpn import tabs as vpn_tabs
@@ -33,8 +31,6 @@ from openstack_dashboard.dashboards.project.vpn import \
     workflows as vpn_workflow
 
 import re
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabbedTableView):

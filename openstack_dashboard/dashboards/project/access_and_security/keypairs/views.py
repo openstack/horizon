@@ -21,8 +21,6 @@
 """
 Views for managing keypairs.
 """
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django import http
@@ -38,9 +36,6 @@ from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.access_and_security.keypairs \
     import forms as project_forms
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateView(forms.ModalFormView):

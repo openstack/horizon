@@ -18,8 +18,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -37,7 +35,6 @@ from openstack_dashboard.dashboards.admin.projects \
 from openstack_dashboard.dashboards.admin.projects \
     import workflows as project_workflows
 
-LOG = logging.getLogger(__name__)
 
 PROJECT_INFO_FIELDS = ("domain_id",
                        "domain_name",

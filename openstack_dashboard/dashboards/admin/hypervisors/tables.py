@@ -14,14 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 from horizon.templatetags import sizeformat
-
-LOG = logging.getLogger(__name__)
 
 
 def get_memory(hypervisor):

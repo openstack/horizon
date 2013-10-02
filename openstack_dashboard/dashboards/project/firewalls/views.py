@@ -15,7 +15,6 @@
 #
 # @author: KC Wang, Big Switch Networks
 
-import logging
 import re
 
 from django.core.urlresolvers import reverse_lazy  # noqa
@@ -49,8 +48,6 @@ RuleDetailsTabs = fw_tabs.RuleDetailsTabs
 AddFirewall = fw_workflows.AddFirewall
 AddPolicy = fw_workflows.AddPolicy
 AddRule = fw_workflows.AddRule
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabView):

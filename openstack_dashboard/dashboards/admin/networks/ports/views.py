@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -28,8 +26,6 @@ from openstack_dashboard.dashboards.project.networks.ports \
 
 from openstack_dashboard.dashboards.admin.networks.ports \
     import forms as project_forms
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateView(forms.ModalFormView):

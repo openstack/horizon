@@ -19,8 +19,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.utils.datastructures import SortedDict  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -33,8 +31,6 @@ from openstack_dashboard.dashboards.admin.instances \
 from openstack_dashboard.dashboards.project.instances import views
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
-
-LOG = logging.getLogger(__name__)
 
 
 # re-use console from project.instances.views to make reflection work

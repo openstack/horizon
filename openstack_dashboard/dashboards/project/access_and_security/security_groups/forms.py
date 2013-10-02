@@ -18,8 +18,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 import netaddr
 
 from django.conf import settings  # noqa
@@ -36,9 +34,6 @@ from horizon.utils import validators as utils_validators
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateGroup(forms.SelfHandlingForm):

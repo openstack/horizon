@@ -16,7 +16,6 @@
 
 
 import json
-import logging
 
 from django.utils.translation import ugettext_lazy as _  # noqa
 from django.views.decorators.debug import sensitive_variables  # noqa
@@ -26,9 +25,6 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
-
-
-LOG = logging.getLogger(__name__)
 
 
 class SetFlavorChoiceAction(workflows.Action):

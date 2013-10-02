@@ -25,11 +25,6 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-import logging
-
-
-LOG = logging.getLogger(__name__)
-
 
 class AddPoolLink(tables.LinkAction):
     name = "addpool"

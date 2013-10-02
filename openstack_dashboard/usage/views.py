@@ -1,10 +1,5 @@
-import logging
-
 from horizon import tables
 from openstack_dashboard.usage import base
-
-
-LOG = logging.getLogger(__name__)
 
 
 class UsageView(tables.DataTableView):

@@ -17,8 +17,6 @@
 """
 Views for managing Neutron Subnets.
 """
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
@@ -32,9 +30,6 @@ from openstack_dashboard.dashboards.project.networks.subnets \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.networks.subnets \
     import workflows as project_workflows
-
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateView(workflows.WorkflowView):

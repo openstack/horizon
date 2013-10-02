@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse  # noqa
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils import http
@@ -25,9 +23,6 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
-
-
-LOG = logging.getLogger(__name__)
 
 
 def wrap_delimiter(name):

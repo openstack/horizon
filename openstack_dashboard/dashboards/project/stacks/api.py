@@ -1,13 +1,9 @@
 import json
-import logging
 
 from openstack_dashboard.api import heat
 
 from openstack_dashboard.dashboards.project.stacks import mappings
 from openstack_dashboard.dashboards.project.stacks import sro
-
-
-LOG = logging.getLogger(__name__)
 
 
 class Stack(object):
