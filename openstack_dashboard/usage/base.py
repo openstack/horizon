@@ -109,7 +109,7 @@ class BaseUsage(object):
             'security_group': {
                 'api': api.network.security_group_list,
                 'limit_name': 'totalSecurityGroupsUsed',
-                'message': _('Unable to retrieve security gruops.')
+                'message': _('Unable to retrieve security groups.')
             }
         }
 

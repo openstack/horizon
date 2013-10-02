@@ -296,7 +296,7 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
             remove_rule = api.fwaas.rule_get(request, remove_rule_id)
             body = {'firewall_rule_id': remove_rule_id}
             policy = api.fwaas.policy_remove_rule(request, policy_id, **body)
-            msg = _('Rule %(rule)s was successfully remove from policy '
+            msg = _('Rule %(rule)s was successfully removed from policy '
                     '%(policy)s.' %
                     {'rule': remove_rule.name or remove_rule.id,
                      'policy': policy_name_or_id})
