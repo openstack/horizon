@@ -778,7 +778,9 @@ class DataTableOptions(object):
         else:
             self._filter_action = None
 
-        self.template = 'horizon/common/_data_table.html'
+        self.template = getattr(options,
+                                'template',
+                                'horizon/common/_data_table.html')
         self.row_actions_template = \
                         'horizon/common/_data_table_row_actions.html'
         self.table_actions_template = \
