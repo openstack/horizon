@@ -1,0 +1,44 @@
+{% extends 'horizon/common/_data_table.html' %}
+{% load i18n %}
+
+{% block table_columns %}
+  {% if not table.is_browser_table %}
+  <tr>
+    {% for column in columns %}
+        <th {{ column.attr_string|safe }}><span
+            {% if column.name in table.get_required_columns %}
+                class="required"
+            {% endif %}
+        >{{ column }}</span></th>
+    {% endfor %}
+  </tr>
+  {% endif %}
+{% endblock table_columns %}
+
+{% block table %}
+    {% with table.get_formset as formset %}
+        {{ formset.management_form }}
+        {% if formset.non_field_errors %}
+            <div class="alert alert-error">
+                {{ formset.non_field_errors }}
+            </div>
+        {% endif %}
+    {% endwith %}
+    {{ block.super }}
+
+<script type="text/javascript">
+    ($ || addHorizonLoadEvent)(function () {
+        // prepare the js-enabled parts of the formset data table
+        var prefix = '{{ table.name|escapejs }}';
+        var empty_row_html = '{% filter escapejs %}{% include "horizon/common/_formset_table_row.html" with row=table.get_empty_row %}{% endfilter %}';
+        {% if table.formset_class.extra %}
+        var add_label = '{% filter escapejs %}{% trans "Add a row" %}{% endfilter %}';
+        {% else %}
+        var add_label = '';
+        {% endif %}
+
+
+        horizon.formset_table.init(prefix, empty_row_html, add_label);
+    });
+</script>
+{% endblock table %}

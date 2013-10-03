@@ -1,0 +1,24 @@
+<tr{{ row.attr_string|safe }}>
+  {% for cell in row %}
+  <td{{ cell.attr_string|safe }}>
+    {% if cell.field %}
+      {{ cell.field }}
+    {% else %}
+      {%if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{%if cell.wrap_list %}</ul>{% endif %}
+    {% endif %}
+    {% if forloop.first %}
+      {% for field in row.form.hidden_fields %}
+        {{ field }}
+        {% for error in field.errors %}
+          <span class="help-inline">{{ field.name }}: {{ error }}</span>
+        {% endfor %}
+      {% endfor %}
+      {% if row.form.non_field_errors %}
+        <div class="alert alert-error">
+          {{ row.form.non_field_errors }}
+        </div>
+      {% endif %}
+    {% endif %}
+  </td>
+  {% endfor %}
+</tr>

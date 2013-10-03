@@ -25,6 +25,7 @@ horizon.addInitFunction(function () {
         jsHintTest('horizon.d3piechart.js', '/static/horizon/js/horizon.d3piechart.js', config);
         jsHintTest('horizon.firewalls.js', '/static/horizon/js/horizon.firewalls.js', config);
         jsHintTest('horizon.forms.js', '/static/horizon/js/horizon.forms.js', config);
+        jsHintTest('horizon.formset_table.js', '/static/horizon/js/horizon.formset_table.js', config);
         jsHintTest('horizon.heattop.js', '/static/horizon/js/horizon.heattop.js', config);
         jsHintTest('horizon.instances.js', '/static/horizon/js/horizon.instances.js', config);
         jsHintTest('horizon.js', '/static/horizon/js/horizon.js', config);
