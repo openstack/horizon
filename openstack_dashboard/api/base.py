@@ -247,7 +247,7 @@ def get_url_for_service(service, region, endpoint_type):
     return None
 
 
-def url_for(request, service_type, endpoint_type=None):
+def url_for(request, service_type, endpoint_type=None, region=None):
     endpoint_type = endpoint_type or getattr(settings,
                                              'OPENSTACK_ENDPOINT_TYPE',
                                              'publicURL')
@@ -256,12 +256,14 @@ def url_for(request, service_type, endpoint_type=None):
     catalog = request.user.service_catalog
     service = get_service_from_catalog(catalog, service_type)
     if service:
+        if not region:
+            region = request.user.services_region
         url = get_url_for_service(service,
-                                  request.user.services_region,
+                                  region,
                                   endpoint_type)
         if not url and fallback_endpoint_type:
             url = get_url_for_service(service,
-                                      request.user.services_region,
+                                      region,
                                       fallback_endpoint_type)
         if url:
             return url
