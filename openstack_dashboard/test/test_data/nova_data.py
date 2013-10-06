@@ -159,6 +159,7 @@ def data(TEST):
     TEST.volumes = utils.TestDataContainer()
     TEST.quotas = utils.TestDataContainer()
     TEST.quota_usages = utils.TestDataContainer()
+    TEST.disabled_quotas = utils.TestDataContainer()
     TEST.floating_ips = utils.TestDataContainer()
     TEST.floating_ips_uuid = utils.TestDataContainer()
     TEST.usages = utils.TestDataContainer()
@@ -361,6 +362,11 @@ def data(TEST):
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
     TEST.quotas.nova = base.QuotaSet(quota)
     TEST.quotas.add(base.QuotaSet(quota))
+
+    # nova quotas disabled when neutron is enabled
+    disabled_quotas_nova = ['floating_ips', 'fixed_ips',
+                            'security_groups', 'security_group_rules']
+    TEST.disabled_quotas.add(disabled_quotas_nova)
 
     # Quota Usages
     quota_usage_data = {'gigabytes': {'used': 0,

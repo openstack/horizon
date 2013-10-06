@@ -202,6 +202,8 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
             .AndReturn(self.snapshots.list())
         api.cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.cinder_quotas.first())
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'security-group').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
             .AndReturn(True)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
