@@ -103,11 +103,14 @@ class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('default_quota_update', ),
                         api.cinder: ('default_quota_update', ),
-                        quotas: ('get_default_quota_data', )})
+                        quotas: ('get_default_quota_data',
+                                 'get_disabled_quotas')})
     def test_update_default_quotas(self):
         quota = self.quotas.first()
 
         # init
+        quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
+            .AndReturn(self.disabled_quotas.first())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         # update some fields

@@ -64,6 +64,10 @@ class UpdateProjectQuotaAction(workflows.Action):
                                               label=_("Security Group Rules"))
 
     # Neutron
+    security_group = forms.IntegerField(min_value=-1,
+                                        label=_("Security Groups"))
+    security_group_rule = forms.IntegerField(min_value=-1,
+                                             label=_("Security Group Rules"))
     floatingip = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
     network = forms.IntegerField(min_value=-1, label=_("Networks"))
     port = forms.IntegerField(min_value=-1, label=_("Ports"))

@@ -39,7 +39,10 @@ NEUTRON_QUOTA_FIELDS = ("network",
                         "subnet",
                         "port",
                         "router",
-                        "floatingip",)
+                        "floatingip",
+                        "security_group",
+                        "security_group_rule",
+                        )
 
 QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS + NEUTRON_QUOTA_FIELDS
 
@@ -106,23 +109,10 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
 
 
 def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
-    qs = _get_quota_data(request,
-                         "default_quota_get",
-                         disabled_quotas=disabled_quotas,
-                         tenant_id=tenant_id)
-
-    # Remove quotas information for resources provided by Neutron.
-    # TODO(amotoki): There is no API to get the default system quotas
-    # in Neutron (cf. LP#1204956), so we need to remove such quotas
-    # information from quotas set.
-    # This should be handled in _get_quota_data() eventually.
-    if base.is_service_enabled(request, 'network'):
-        if neutron.is_security_group_extension_supported(request):
-            sg_fields = ['security_groups', 'security_group_rules']
-            qs = [quota for quota in qs
-                  if quota.name not in sg_fields]
-
-    return qs
+    return _get_quota_data(request,
+                           "default_quota_get",
+                           disabled_quotas=disabled_quotas,
+                           tenant_id=tenant_id)
 
 
 def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
@@ -163,6 +153,13 @@ def get_disabled_quotas(request):
     else:
         # Remove the nova network quotas
         disabled_quotas.extend(['floating_ips', 'fixed_ips'])
+
+        if neutron.is_security_group_extension_supported(request):
+            # If Neutron security group is supported, disable Nova quotas
+            disabled_quotas.extend(['security_groups', 'security_group_rules'])
+        else:
+            # If Nova security group is used, disable Neutron quotas
+            disabled_quotas.extend(['security_group', 'security_group_rule'])
 
         try:
             if not neutron.is_quotas_extension_supported(request):
