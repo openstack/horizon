@@ -431,6 +431,29 @@ class SimpleDisassociateIP(tables.Action):
         return shortcuts.redirect("horizon:project:instances:index")
 
 
+def instance_fault_to_friendly_message(instance):
+    fault = getattr(instance, 'fault', {})
+    message = fault.get('message', _("Unknown"))
+    default_message = _("Please try again later [Error: %s].") % message
+    fault_map = {
+        'NoValidHost': _("There is not enough capacity for this "
+                         "flavor in the selected availability zone. "
+                         "Try again later or select a different availability "
+                         "zone.")
+    }
+    return fault_map.get(message, default_message)
+
+
+def get_instance_error(instance):
+    if instance.status.lower() != 'error':
+        return None
+    message = instance_fault_to_friendly_message(instance)
+    preamble = _('Failed to launch instance "%s"'
+                 ) % instance.name or instance.id
+    message = string_concat(preamble, ': ', message)
+    return message
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -438,6 +461,9 @@ class UpdateRow(tables.Row):
         instance = api.nova.server_get(request, instance_id)
         instance.full_flavor = api.nova.flavor_get(request,
                                                    instance.flavor["id"])
+        error = get_instance_error(instance)
+        if error:
+            messages.error(request, error)
         return instance
 
 
