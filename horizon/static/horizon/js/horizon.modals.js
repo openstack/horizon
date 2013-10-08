@@ -121,8 +121,12 @@ horizon.addInitFunction(function() {
         }
       },
       error: function (jqXHR, status, errorThrown) {
-        $form.closest(".modal").modal("hide");
-        horizon.alert("error", gettext("There was an error submitting the form. Please try again."));
+        if (jqXHR.getResponseHeader('logout')) {
+          location.href = jqXHR.getResponseHeader("X-Horizon-Location");
+        } else {
+          $form.closest(".modal").modal("hide");
+          horizon.alert("error", gettext("There was an error submitting the form. Please try again."));
+        }
       }
     });
   });
