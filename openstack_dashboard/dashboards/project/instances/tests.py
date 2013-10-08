@@ -18,6 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import json
 import uuid
 
 from django.core.urlresolvers import reverse  # noqa
@@ -2043,3 +2044,88 @@ class InstanceTests(test.TestCase):
                                           password=password,
                                           confirm_password=password)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+
+class InstanceAjaxTests(test.TestCase):
+    @test.create_stubs({api.nova: ("server_get",
+                                   "flavor_get",
+                                   "extension_supported"),
+                        api.neutron: ("is_extension_supported",)})
+    def test_row_update(self):
+        server = self.servers.first()
+        instance_id = server.id
+        flavor_id = server.flavor["id"]
+        flavors = self.flavors.list()
+        full_flavors = SortedDict([(f.id, f) for f in flavors])
+
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group')\
+            .MultipleTimes().AndReturn(True)
+        api.nova.server_get(IsA(http.HttpRequest), instance_id)\
+            .AndReturn(server)
+        api.nova.flavor_get(IsA(http.HttpRequest), flavor_id)\
+            .AndReturn(full_flavors[flavor_id])
+
+        self.mox.ReplayAll()
+
+        params = {'action': 'row_update',
+                  'table': 'instances',
+                  'obj_id': instance_id,
+                  }
+        res = self.client.get('?'.join((INDEX_URL, urlencode(params))),
+                              HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertContains(res, server.name)
+
+    @test.create_stubs({api.nova: ("server_get",
+                                   "flavor_get",
+                                   "extension_supported"),
+                        api.neutron: ("is_extension_supported",)})
+    def test_row_update_instance_error(self):
+        server = self.servers.first()
+        instance_id = server.id
+        flavor_id = server.flavor["id"]
+        flavors = self.flavors.list()
+        full_flavors = SortedDict([(f.id, f) for f in flavors])
+
+        server.status = 'ERROR'
+        server.fault = {"message": "NoValidHost",
+                        "code": 500,
+                        "details": "No valid host was found. \n  "
+                                   "File \"/mnt/stack/nova/nova/"
+                                   "scheduler/filter_scheduler.py\", "
+                                   "line 105, in schedule_run_instance\n    "
+                                   "raise exception.NoValidHost"
+                                   "(reason=\"\")\n",
+                        "created": "2013-10-07T00:08:32Z"}
+
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group')\
+            .MultipleTimes().AndReturn(True)
+        api.nova.server_get(IsA(http.HttpRequest), instance_id)\
+            .AndReturn(server)
+        api.nova.flavor_get(IsA(http.HttpRequest), flavor_id)\
+            .AndReturn(full_flavors[flavor_id])
+
+        self.mox.ReplayAll()
+
+        params = {'action': 'row_update',
+                  'table': 'instances',
+                  'obj_id': instance_id,
+                  }
+        res = self.client.get('?'.join((INDEX_URL, urlencode(params))),
+                              HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertContains(res, server.name)
+        self.assertTrue(res.has_header('X-Horizon-Messages'))
+        messages = json.loads(res['X-Horizon-Messages'])
+        self.assertEqual(len(messages), 1)
+        # (Pdb) messages
+        # [[u'error', u'Failed to launch instance "server_1": \
+        # There is not enough capacity for this flavor in the \
+        # selected availability zone. Try again later or select \
+        # a different availability zone.', u'']]
+        self.assertEqual(messages[0][0], 'error')
+        self.assertTrue(messages[0][1].startswith('Failed'))
