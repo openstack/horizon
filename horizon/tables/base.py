@@ -585,7 +585,7 @@ class Cell(html.HTMLElement):
             link_classes = ' '.join(self.column.link_classes)
             # Escape the data inside while allowing our HTML to render
             data = mark_safe('<a href="%s" class="%s">%s</a>' %
-                             (self.url, link_classes, escape(data)))
+                             (self.url, link_classes, escape(unicode(data))))
         return data
 
     @property
