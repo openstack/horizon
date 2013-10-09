@@ -208,7 +208,8 @@ POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 # Map of local copy of service policy files
 POLICY_FILES = {
     'identity': 'keystone_policy.json',
-    'compute': 'nova_policy.json'
+    'compute': 'nova_policy.json',
+    'volume': 'cinder_policy.json'
 }
 
 SECRET_KEY = None

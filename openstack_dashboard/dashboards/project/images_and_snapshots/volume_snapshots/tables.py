@@ -33,6 +33,15 @@ class DeleteVolumeSnapshot(tables.DeleteAction):
     data_type_singular = _("Volume Snapshot")
     data_type_plural = _("Volume Snapshots")
     action_past = _("Scheduled deletion of %(data_type)s")
+    policy_rules = (("volume", "volume:delete_snapshot"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum,
+                                 "os-extended-snapshot-attributes:project_id",
+                                 None)
+        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         api.cinder.volume_snapshot_delete(request, obj_id)
@@ -43,6 +52,7 @@ class CreateVolumeFromSnapshot(tables.LinkAction):
     verbose_name = _("Create Volume")
     url = "horizon:project:volumes:create"
     classes = ("ajax-modal", "btn-camera")
+    policy_rules = (("volume", "volume:create"),)
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)

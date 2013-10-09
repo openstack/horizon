@@ -38,9 +38,17 @@ class PolicyTestCase(test.TestCase):
                              request=self.request)
         self.assertFalse(value)
 
-    def test_check_nova_admin_required_false(self):
+    def test_check_identity_rule_not_found_false(self):
         policy.reset()
-        value = policy.check((("compute", "admin__or_owner"),),
+        value = policy.check((("identity", "i_dont_exist"),),
+                             request=self.request)
+        # this should fail because the default check for
+        # identity is admin_required
+        self.assertFalse(value)
+
+    def test_check_nova_context_is_admin_false(self):
+        policy.reset()
+        value = policy.check((("compute", "context_is_admin"),),
                              request=self.request)
         self.assertFalse(value)
 
@@ -65,6 +73,14 @@ class PolicyTestCaseAdmin(test.BaseAdminViewTests):
                              request=self.request)
         self.assertTrue(value)
 
+    def test_check_identity_rule_not_found_true(self):
+        policy.reset()
+        value = policy.check((("identity", "i_dont_exist"),),
+                             request=self.request)
+        # this should succeed because the default check for
+        # identity is admin_required
+        self.assertTrue(value)
+
     def test_compound_check_true(self):
         policy.reset()
         value = policy.check((("identity", "admin_required"),
@@ -72,8 +88,8 @@ class PolicyTestCaseAdmin(test.BaseAdminViewTests):
                              request=self.request)
         self.assertTrue(value)
 
-    def test_check_nova_admin_required_true(self):
+    def test_check_nova_context_is_admin_true(self):
         policy.reset()
-        value = policy.check((("compute", "admin__or_owner"),),
+        value = policy.check((("compute", "context_is_admin"),),
                              request=self.request)
         self.assertTrue(value)

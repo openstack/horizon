@@ -12,6 +12,8 @@
     "compute:get_all": "",
     "compute:get_all_tenants": "",
     "compute:unlock_override": "rule:admin_api",
+    "compute:attach_volume" : "rule:default",
+    "compute:detach_volume" : "rule:default",
 
     "compute:shelve": "",
     "compute:shelve_offload": "",
