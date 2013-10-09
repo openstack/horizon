@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Erik-Martijn Kasimier <erik.kasimier@nouveaumedia.nl>, 2012
+# RoyB <roy@server.biz>, 2013
 # toMeloos <tom@server.biz>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-26 00:30-0500\n"
-"PO-Revision-Date: 2013-09-26 17:56+0000\n"
-"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2013-10-08 23:48-0500\n"
+"PO-Revision-Date: 2013-09-30 19:39+0000\n"
+"Last-Translator: RoyB <roy@server.biz>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openstack/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +42,7 @@ msgstr "Onbevoegd: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Onbevoegd. Meldt u zich opnieuw aan."
 
-#: middleware.py:67
+#: middleware.py:72
 msgid "Session timed out."
 msgstr "Sessie verlopen."
 
@@ -132,7 +133,7 @@ msgstr "Afmelden"
 
 #: templates/splash.html:7 templates/auth/login.html:4
 msgid "Login"
-msgstr "Aanmelding"
+msgstr "Aanmelden"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -238,7 +239,7 @@ msgstr "Huidig Project"
 
 #: templates/horizon/common/_sidebar.html:39
 msgid "Managing Region"
-msgstr "Regio beheren"
+msgstr "Beherende Regio"
 
 #: templates/horizon/common/_usage_summary.html:5
 msgid "Select a period of time to query its usage"

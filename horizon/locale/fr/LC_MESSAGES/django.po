@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-26 00:30-0500\n"
+"POT-Creation-Date: 2013-10-08 23:48-0500\n"
 "PO-Revision-Date: 2013-09-27 08:29+0000\n"
 "Last-Translator: jftalta <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/openstack/language/fr/)\n"
@@ -48,7 +48,7 @@ msgstr "%s : non autorisé"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Accès non autorisé. Merci de vous reconnecter."
 
-#: middleware.py:67
+#: middleware.py:72
 msgid "Session timed out."
 msgstr "La session a expiré."
 
