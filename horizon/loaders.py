@@ -35,11 +35,8 @@ class TemplateLoader(BaseLoader):
     def load_template_source(self, template_name, template_dirs=None):
         for path in self.get_template_sources(template_name):
             try:
-                file = open(path)
-                try:
+                with open(path) as file:
                     return (file.read().decode(settings.FILE_CHARSET), path)
-                finally:
-                    file.close()
             except IOError:
                 pass
         raise TemplateDoesNotExist(template_name)
