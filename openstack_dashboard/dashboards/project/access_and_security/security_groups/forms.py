@@ -273,6 +273,10 @@ class AddRule(forms.SelfHandlingForm):
     def clean(self):
         cleaned_data = super(AddRule, self).clean()
 
+        def update_cleaned_data(key, value):
+            cleaned_data[key] = value
+            self.errors.pop(key, None)
+
         rule_menu = cleaned_data.get('rule_menu')
         port_or_range = cleaned_data.get("port_or_range")
         remote = cleaned_data.get("remote")
@@ -285,7 +289,7 @@ class AddRule(forms.SelfHandlingForm):
         port = cleaned_data.get("port", None)
 
         if rule_menu == 'icmp':
-            cleaned_data['ip_protocol'] = rule_menu
+            update_cleaned_data('ip_protocol', rule_menu)
             if icmp_type is None:
                 msg = _('The ICMP type is invalid.')
                 raise ValidationError(msg)
@@ -298,17 +302,21 @@ class AddRule(forms.SelfHandlingForm):
             if icmp_code not in xrange(-1, 256):
                 msg = _('The ICMP code not in range (-1, 255)')
                 raise ValidationError(msg)
-            cleaned_data['from_port'] = icmp_type
-            cleaned_data['to_port'] = icmp_code
+            update_cleaned_data('from_port', icmp_type)
+            update_cleaned_data('to_port', icmp_code)
+            update_cleaned_data('port', None)
         elif rule_menu == 'tcp' or rule_menu == 'udp':
-            cleaned_data['ip_protocol'] = rule_menu
+            update_cleaned_data('ip_protocol', rule_menu)
+            update_cleaned_data('icmp_code', None)
+            update_cleaned_data('icmp_type', None)
             if port_or_range == "port":
-                cleaned_data["from_port"] = port
-                cleaned_data["to_port"] = port
+                update_cleaned_data('from_port', port)
+                update_cleaned_data('to_port', port)
                 if port is None:
                     msg = _('The specified port is invalid.')
                     raise ValidationError(msg)
             else:
+                update_cleaned_data('port', None)
                 if from_port is None:
                     msg = _('The "from" port number is invalid.')
                     raise ValidationError(msg)
@@ -337,9 +345,9 @@ class AddRule(forms.SelfHandlingForm):
             cleaned_data['direction'] = 'ingress'
 
         if remote == "cidr":
-            cleaned_data['security_group'] = None
+            update_cleaned_data('security_group', None)
         else:
-            cleaned_data['cidr'] = None
+            update_cleaned_data('cidr', None)
 
         # If cleaned_data does not contain cidr, cidr is already marked
         # as invalid, so skip the further validation for cidr.
