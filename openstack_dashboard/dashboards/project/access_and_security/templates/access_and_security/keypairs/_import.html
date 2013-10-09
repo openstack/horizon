@@ -15,8 +15,15 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans "Keypairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)." %}</p>
-    <p>{% trans "Protect and use the key as you would any normal ssh private key." %}</p>
+    <p>{% trans "Keypairs are how you login to your instance after it is launched." %}</p>
+    <p>{% trans "Choose a keypair name you will recognise and paste your SSH public key into the space provided." %}</p>
+    <p>{% trans "SSH keypairs can be generated with the ssh-keygen command:" %}</p>
+    <p><pre>ssh-keygen -t rsa -f cloud.key</pre></p>
+    <p>{% trans "This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here." %}</p>
+    <p>{% trans "After launching an instance, you login using the private key (the username might be different depending on the image you launched):" %}</p>
+    <p><pre>ssh -i cloud.key ubuntu@&lt;instance_ip&gt;</pre></p>
+    <p>{% trans "or:" %}</p>
+    <p><pre>ssh -i cloud.key ec2_user@&lt;instance_ip&gt;</pre></p>
 </div>
 {% endblock %}
 
