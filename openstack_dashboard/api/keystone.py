@@ -576,16 +576,26 @@ def get_default_role(request):
     return DEFAULT_ROLE
 
 
+def ec2_manager(request):
+    client = keystoneclient(request)
+    if hasattr(client, 'ec2'):
+        return client.ec2
+
+    # Keystoneclient 4.0 was released without the ec2 creds manager.
+    from keystoneclient.v2_0 import ec2
+    return ec2.CredentialsManager(client)
+
+
 def list_ec2_credentials(request, user_id):
-    return keystoneclient(request).ec2.list(user_id)
+    return ec2_manager(request).list(user_id)
 
 
 def create_ec2_credentials(request, user_id, tenant_id):
-    return keystoneclient(request).ec2.create(user_id, tenant_id)
+    return ec2_manager(request).create(user_id, tenant_id)
 
 
 def get_user_ec2_credentials(request, user_id, access_token):
-    return keystoneclient(request).ec2.get(user_id, access_token)
+    return ec2_manager(request).get(user_id, access_token)
 
 
 def keystone_can_edit_domain():
