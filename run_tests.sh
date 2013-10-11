@@ -137,6 +137,15 @@ function run_pylint {
 
 function run_pep8 {
   echo "Running flake8 ..."
+  set +o errexit
+  ${command_wrapper} python -c "import hacking" 2>/dev/null
+  no_hacking=$?
+  set -o errexit
+  if [ $never_venv -eq 1 -a $no_hacking -eq 1 ]; then
+      echo "**WARNING**:" >&2
+      echo "OpenStack hacking is not installed on your host. Its detection will be missed." >&2
+      echo "Please install or use virtual env if you need OpenStack hacking detection." >&2
+  fi
   DJANGO_SETTINGS_MODULE=openstack_dashboard.test.settings ${command_wrapper} flake8
 }
 
