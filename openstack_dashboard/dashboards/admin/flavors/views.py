@@ -71,7 +71,7 @@ class UpdateView(workflows.WorkflowView):
             flavor = api.nova.flavor_get(self.request, flavor_id)
         except Exception:
             exceptions.handle(self.request,
-                              _('Unable to retrieve flavor data.'),
+                              _('Unable to retrieve flavor details.'),
                               redirect=reverse_lazy(INDEX_URL))
         return {'flavor_id': flavor.id,
                 'name': flavor.name,
