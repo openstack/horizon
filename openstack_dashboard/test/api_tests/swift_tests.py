@@ -42,6 +42,30 @@ class SwiftApiTests(test.APITestCase):
         self.assertEqual(len(conts), len(containers))
         self.assertFalse(more)
 
+    def test_swift_get_container_with_data(self):
+        container = self.containers.first()
+        objects = self.objects.list()
+        swift_api = self.stub_swiftclient()
+        swift_api.get_object(container.name, "") \
+            .AndReturn((container, objects))
+        self.mox.ReplayAll()
+
+        cont = api.swift.swift_get_container(self.request, container.name)
+        self.assertEqual(cont.name, container.name)
+        self.assertEqual(len(cont.data), len(objects))
+
+    def test_swift_get_container_without_data(self):
+        container = self.containers.first()
+        swift_api = self.stub_swiftclient()
+        swift_api.head_container(container.name).AndReturn(container)
+        self.mox.ReplayAll()
+
+        cont = api.swift.swift_get_container(self.request,
+                                             container.name,
+                                             with_data=False)
+        self.assertEqual(cont.name, container.name)
+        self.assertIsNone(cont.data)
+
     def test_swift_create_duplicate_container(self):
         container = self.containers.first()
         swift_api = self.stub_swiftclient(expected_calls=2)

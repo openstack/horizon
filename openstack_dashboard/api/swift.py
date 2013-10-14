@@ -132,8 +132,12 @@ def swift_get_containers(request, marker=None):
         return (container_objs, False)
 
 
-def swift_get_container(request, container_name):
-    headers, data = swift_api(request).get_object(container_name, "")
+def swift_get_container(request, container_name, with_data=True):
+    if with_data:
+        headers, data = swift_api(request).get_object(container_name, "")
+    else:
+        data = None
+        headers = swift_api(request).head_container(container_name)
     timestamp = None
     try:
         ts_float = float(headers.get('x-timestamp'))
@@ -145,6 +149,7 @@ def swift_get_container(request, container_name):
         'container_object_count': headers.get('x-container-object-count'),
         'container_bytes_used': headers.get('x-container-bytes-used'),
         'timestamp': timestamp,
+        'data': data,
     }
     return Container(container_info)
 

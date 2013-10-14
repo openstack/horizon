@@ -236,7 +236,8 @@ class SwiftTests(test.TestCase):
         container = self.containers.first()
 
         api.swift.swift_get_container(IsA(http.HttpRequest),
-                                      container.name) \
+                                      container.name,
+                                      with_data=False) \
             .AndReturn(container)
         self.mox.ReplayAll()
 
