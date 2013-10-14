@@ -55,6 +55,30 @@ class SecurityGroupsViewTests(test.TestCase):
                                 'security_groups:add_rule',
                                 args=[sec_group.id])
 
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
+    def _add_security_group_rule_fixture(self, **kwargs):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(
+            IsA(http.HttpRequest),
+            kwargs.get('sec_group', sec_group.id),
+            kwargs.get('ingress', 'ingress'),
+            kwargs.get('ethertype', 'IPv4'),
+            kwargs.get('ip_protocol', rule.ip_protocol),
+            kwargs.get('from_port', int(rule.from_port)),
+            kwargs.get('to_port', int(rule.to_port)),
+            kwargs.get('cidr', rule.ip_range['cidr']),
+            kwargs.get('security_group', u'%s' % sec_group.id)).AndReturn(rule)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        return sec_group, rule
+
     @test.create_stubs({api.network: ('security_group_get',)})
     def test_update_security_groups_get(self):
         sec_group = self.security_groups.first()
@@ -168,26 +192,9 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(self.detail_url)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
-                                      'security_group_list',
-                                      'security_group_backend')})
     def test_detail_add_rule_cidr(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
-
-        api.network.security_group_backend(
-            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
-        api.network.security_group_rule_create(IsA(http.HttpRequest),
-                                               sec_group.id,
-                                               'ingress', 'IPv4',
-                                               rule.ip_protocol,
-                                               int(rule.from_port),
-                                               int(rule.to_port),
-                                               rule.ip_range['cidr'],
-                                               None).AndReturn(rule)
-        api.network.security_group_list(
-            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        sec_group, rule = self._add_security_group_rule_fixture(
+            security_group=None)
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -198,6 +205,72 @@ class SecurityGroupsViewTests(test.TestCase):
                     'cidr': rule.ip_range['cidr'],
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    def test_detail_add_rule_cidr_with_invalid_unused_fields(self):
+        sec_group, rule = self._add_security_group_rule_fixture(
+            security_group=None)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'port',
+                    'port': rule.from_port,
+                    'to_port': 'INVALID',
+                    'from_port': 'INVALID',
+                    'icmp_code': 'INVALID',
+                    'icmp_type': 'INVALID',
+                    'security_group': 'INVALID',
+                    'ip_protocol': 'INVALID',
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    def test_detail_add_rule_securitygroup_with_invalid_unused_fields(self):
+        sec_group, rule = self._add_security_group_rule_fixture(
+            cidr=None, ethertype='')
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'port',
+                    'port': rule.from_port,
+                    'to_port': 'INVALID',
+                    'from_port': 'INVALID',
+                    'icmp_code': 'INVALID',
+                    'icmp_type': 'INVALID',
+                    'security_group': sec_group.id,
+                    'ip_protocol': 'INVALID',
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': 'INVALID',
+                    'remote': 'sg'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    def test_detail_add_rule_icmp_with_invalid_unused_fields(self):
+        sec_group, rule = self._add_security_group_rule_fixture(
+            ip_protocol='icmp', security_group=None)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'port',
+                    'port': 'INVALID',
+                    'to_port': 'INVALID',
+                    'from_port': 'INVALID',
+                    'icmp_code': rule.to_port,
+                    'icmp_type': rule.from_port,
+                    'security_group': sec_group.id,
+                    'ip_protocol': 'INVALID',
+                    'rule_menu': 'icmp',
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
     @test.create_stubs({api.network: ('security_group_rule_create',
