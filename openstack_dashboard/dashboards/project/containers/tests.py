@@ -255,7 +255,8 @@ class SwiftTests(test.TestCase):
 
         api.swift.swift_get_object(IsA(http.HttpRequest),
                                    container.name,
-                                   obj.name) \
+                                   obj.name,
+                                   with_data=False) \
             .AndReturn(obj)
         self.mox.ReplayAll()
 
