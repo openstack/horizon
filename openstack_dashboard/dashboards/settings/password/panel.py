@@ -18,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 import horizon
 
+from openstack_dashboard.api import keystone
 from openstack_dashboard.dashboards.settings import dashboard
 
 
@@ -25,5 +26,7 @@ class PasswordPanel(horizon.Panel):
     name = _("Change Password")
     slug = 'password'
 
-
-dashboard.Settings.register(PasswordPanel)
+# TODO(mrunge): remove restriction, when keystone v3 has a update own user
+# function and checks passwords properly.
+if keystone.VERSIONS.active == 2:
+    dashboard.Settings.register(PasswordPanel)
