@@ -135,6 +135,11 @@ class NotFound(HorizonException):
     status_code = 404
 
 
+class Conflict(HorizonException):
+    """Generic error to replace all "Conflict"-type API errors."""
+    status_code = 409
+
+
 class RecoverableError(HorizonException):
     """Generic error to replace any "Recoverable"-type API errors."""
     status_code = 100  # HTTP status code "Continue"
@@ -189,7 +194,7 @@ class HandledException(HorizonException):
 
 UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
 NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
-RECOVERABLE = (AlreadyExists,)
+RECOVERABLE = (AlreadyExists, Conflict,)
 RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
 
