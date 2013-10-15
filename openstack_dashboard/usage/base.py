@@ -181,6 +181,9 @@ class BaseUsage(object):
         raise NotImplementedError("You must define a get_usage_list method.")
 
     def summarize(self, start, end):
+        if not api.nova.extension_supported('SimpleTenantUsage', self.request):
+            return
+
         if start <= end and start <= self.today:
             # The API can't handle timezone aware datetime, so convert back
             # to naive UTC just for this last step.
