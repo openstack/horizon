@@ -8,13 +8,13 @@
     <div class="left">
       <div class="fake_table fake_table_header fake_{{ step.slug }}_table">
         <span class="members_title">{{ step.available_list_title }}</span>
-        <input type="text" name="available_{{ step.slug }}_filter" id="available_{{ step.slug }}" class="filter {{ step.slug }}_filter" placeholder="Filter">
+        <input type="text" name="available_{{ step.slug }}_filter" id="available_{{ step.slug }}" class="filter {{ step.slug }}_filter" placeholder="{% trans "Filter" %}">
       </div>
     </div>
     <div class="right">
       <div class="fake_table fake_table_header fake_{{ step.slug }}_table">
         <span class="members_title">{{ step.members_list_title }}</span>
-        <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter" placeholder="Filter">
+        <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter" placeholder="{% trans "Filter" %}">
       </div>
     </div>
   </div>
