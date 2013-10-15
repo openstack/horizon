@@ -58,6 +58,8 @@ msgstr ""
 
 #: tables/actions.py:381
 #: templates/horizon/common/_data_table_table_actions.html:13
+#: templates/horizon/common/_workflow_step_update_members.html:11
+#: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr ""
 
