@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-26 00:30-0500\n"
+"POT-Creation-Date: 2013-10-14 09:00-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
-#: middleware.py:67
+#: middleware.py:72
 msgid "Session timed out."
 msgstr ""
 
@@ -102,16 +102,16 @@ msgstr ""
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:870
+#: tables/base.py:872
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1063
+#: tables/base.py:1065
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1193
+#: tables/base.py:1195
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -137,18 +137,16 @@ msgid "Log In"
 msgstr ""
 
 #: templates/auth/_login.html:15
-msgid "You don't have permissions to access:"
+msgid "You do not have permission to access the resource:"
 msgstr ""
 
 #: templates/auth/_login.html:17
-msgid "Login as different user or go back to"
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
 msgstr ""
 
-#: templates/auth/_login.html:18
-msgid "home page"
-msgstr ""
-
-#: templates/auth/_login.html:33
+#: templates/auth/_login.html:32
 msgid "Sign In"
 msgstr ""
 
@@ -234,7 +232,7 @@ msgstr[1] ""
 msgid "Current Project"
 msgstr ""
 
-#: templates/horizon/common/_sidebar.html:39
+#: templates/horizon/common/_sidebar.html:41
 msgid "Managing Region"
 msgstr ""
 
