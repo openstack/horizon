@@ -142,7 +142,7 @@ def vip_create(request, **kwargs):
 
 
 def vips_get(request, **kwargs):
-    vips = neutronclient(request).list_vips().get('vips')
+    vips = neutronclient(request).list_vips(**kwargs).get('vips')
     return [Vip(v) for v in vips]
 
 
@@ -184,7 +184,7 @@ def pool_create(request, **kwargs):
 
 
 def pools_get(request, **kwargs):
-    pools = neutronclient(request).list_pools().get('pools')
+    pools = neutronclient(request).list_pools(**kwargs).get('pools')
     return [Pool(p) for p in pools]
 
 
@@ -239,8 +239,8 @@ def pool_health_monitor_create(request, **kwargs):
 
 
 def pool_health_monitors_get(request, **kwargs):
-    monitors = neutronclient(request
-                             ).list_health_monitors().get('health_monitors')
+    monitors = neutronclient(request).list_health_monitors(
+        **kwargs).get('health_monitors')
     return [PoolMonitor(m) for m in monitors]
 
 
@@ -281,7 +281,7 @@ def member_create(request, **kwargs):
 
 
 def members_get(request, **kwargs):
-    members = neutronclient(request).list_members().get('members')
+    members = neutronclient(request).list_members(**kwargs).get('members')
     return [Member(m) for m in members]
 
 
