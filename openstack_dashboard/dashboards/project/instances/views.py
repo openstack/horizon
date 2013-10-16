@@ -89,6 +89,7 @@ class IndexView(tables.DataTableView):
             # Loop through instances to get flavor info.
             for instance in instances:
                 if (hasattr(instance, 'image')
+                        and hasattr(instance.image, 'id')
                         and instance.image['id'] in image_map):
                     instance.image = image_map[instance.image['id']]
 
