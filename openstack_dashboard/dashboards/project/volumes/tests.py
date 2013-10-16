@@ -35,12 +35,15 @@ from openstack_dashboard.usage import quotas
 class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
-                                 'volume_type_list',),
+                                 'volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume(self):
         volume = self.volumes.first()
         volume_type = self.volume_types.first()
+        az = self.cinder_availability_zones.first().zoneName
         usage_limit = {'maxTotalVolumeGigabytes': 250,
                        'gigabytesUsed': 20,
                        'volumesUsed': len(self.volumes.list()),
@@ -50,7 +53,8 @@ class VolumeViewTests(test.TestCase):
                     'method': u'CreateForm',
                     'type': volume_type.name,
                     'size': 50,
-                    'snapshot_source': ''}
+                    'snapshot_source': '',
+                    'availability_zone': az}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
                                 AndReturn(self.volume_types.list())
@@ -66,6 +70,12 @@ class VolumeViewTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
@@ -73,7 +83,9 @@ class VolumeViewTests(test.TestCase):
                              formData['type'],
                              metadata={},
                              snapshot_id=None,
-                             image_id=None).AndReturn(volume)
+                             image_id=None,
+                             availability_zone=formData['availability_zone'])\
+            .AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -85,7 +97,9 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
-                                 'volume_type_list',),
+                                 'volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_dropdown(self):
@@ -117,6 +131,12 @@ class VolumeViewTests(test.TestCase):
                   .AndReturn([[], False])
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
                                 AndReturn(usage_limit)
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
@@ -124,8 +144,8 @@ class VolumeViewTests(test.TestCase):
                              '',
                              metadata={},
                              snapshot_id=None,
-                             image_id=None).\
-                             AndReturn(volume)
+                             image_id=None,
+                             availability_zone=None).AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -138,7 +158,9 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_get',
                                  'volume_get',
-                                 'volume_type_list',),
+                                 'volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_snapshot(self):
         volume = self.volumes.first()
@@ -162,6 +184,12 @@ class VolumeViewTests(test.TestCase):
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
                           AndReturn(self.volumes.first())
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
@@ -169,8 +197,8 @@ class VolumeViewTests(test.TestCase):
                              '',
                              metadata={},
                              snapshot_id=snapshot.id,
-                             image_id=None).\
-                             AndReturn(volume)
+                             image_id=None,
+                             availability_zone=None).AndReturn(volume)
         self.mox.ReplayAll()
 
         # get snapshot from url
@@ -186,7 +214,9 @@ class VolumeViewTests(test.TestCase):
                                  'volume_snapshot_list',
                                  'volume_snapshot_get',
                                  'volume_get',
-                                 'volume_type_list',),
+                                 'volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_snapshot_dropdown(self):
@@ -220,6 +250,12 @@ class VolumeViewTests(test.TestCase):
                                 AndReturn(usage_limit)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
@@ -227,8 +263,8 @@ class VolumeViewTests(test.TestCase):
                              '',
                              metadata={},
                              snapshot_id=snapshot.id,
-                             image_id=None).\
-                             AndReturn(volume)
+                             image_id=None,
+                             availability_zone=None).AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -241,7 +277,9 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_snapshot_get',
                                  'volume_type_list',
-                                 'volume_get',),
+                                 'volume_get',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_snapshot_invalid_size(self):
@@ -263,6 +301,12 @@ class VolumeViewTests(test.TestCase):
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
                           AndReturn(self.volumes.first())
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
                                 AndReturn(usage_limit)
 
@@ -278,7 +322,9 @@ class VolumeViewTests(test.TestCase):
                              "snapshot size (40GB)")
 
     @test.create_stubs({cinder: ('volume_create',
-                                 'volume_type_list',),
+                                 'volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_get',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_image(self):
@@ -301,6 +347,12 @@ class VolumeViewTests(test.TestCase):
                                 AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
@@ -308,8 +360,8 @@ class VolumeViewTests(test.TestCase):
                              '',
                              metadata={},
                              snapshot_id=None,
-                             image_id=image.id).\
-                             AndReturn(volume)
+                             image_id=image.id,
+                             availability_zone=None).AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -324,7 +376,9 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_type_list',
-                                 'volume_snapshot_list',),
+                                 'volume_snapshot_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_get',
                                      'image_list_detailed'),
                         quotas: ('tenant_limit_usages',)})
@@ -360,6 +414,12 @@ class VolumeViewTests(test.TestCase):
                   .AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
                              formData['name'],
@@ -367,8 +427,8 @@ class VolumeViewTests(test.TestCase):
                              '',
                              metadata={},
                              snapshot_id=None,
-                             image_id=image.id).\
-                             AndReturn(volume)
+                             image_id=image.id,
+                             availability_zone=None).AndReturn(volume)
 
         self.mox.ReplayAll()
 
@@ -379,7 +439,9 @@ class VolumeViewTests(test.TestCase):
         redirect_url = reverse('horizon:project:volumes:index')
         self.assertRedirectsNoFollow(res, redirect_url)
 
-    @test.create_stubs({cinder: ('volume_type_list',),
+    @test.create_stubs({cinder: ('volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_get',
                                      'image_list_detailed'),
                         quotas: ('tenant_limit_usages',)})
@@ -400,6 +462,10 @@ class VolumeViewTests(test.TestCase):
                                 AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
                                 AndReturn(usage_limit)
 
@@ -414,7 +480,10 @@ class VolumeViewTests(test.TestCase):
                              "The volume size cannot be less than the "
                              "image size (20.0 GB)")
 
-    @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
+    @test.create_stubs({cinder: ('volume_snapshot_list',
+                                 'volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_gb_used_over_alloted_quota(self):
@@ -441,6 +510,10 @@ class VolumeViewTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
                                 AndReturn(usage_limit)
 
@@ -453,7 +526,10 @@ class VolumeViewTests(test.TestCase):
                           ' have 20GB of your quota available.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
-    @test.create_stubs({cinder: ('volume_snapshot_list', 'volume_type_list',),
+    @test.create_stubs({cinder: ('volume_snapshot_list',
+                                 'volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_number_over_alloted_quota(self):
@@ -480,6 +556,10 @@ class VolumeViewTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
                   .AndReturn([[], False])
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
                                 AndReturn(usage_limit)
 

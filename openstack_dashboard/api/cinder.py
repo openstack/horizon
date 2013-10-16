@@ -28,8 +28,10 @@ from django.conf import settings  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from cinderclient.v1 import client as cinder_client
+from cinderclient.v1.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
+from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
@@ -92,10 +94,12 @@ def volume_get(request, volume_id):
 
 
 def volume_create(request, size, name, description, volume_type,
-                  snapshot_id=None, metadata=None, image_id=None):
+                  snapshot_id=None, metadata=None, image_id=None,
+                  availability_zone=None):
     return cinderclient(request).volumes.create(size, display_name=name,
             display_description=description, volume_type=volume_type,
-            snapshot_id=snapshot_id, metadata=metadata, imageRef=image_id)
+            snapshot_id=snapshot_id, metadata=metadata, imageRef=image_id,
+            availability_zone=availability_zone)
 
 
 def volume_delete(request, volume_id):
@@ -163,3 +167,25 @@ def tenant_absolute_limits(request):
         else:
             limits_dict[limit.name] = limit.value
     return limits_dict
+
+
+def availability_zone_list(request, detailed=False):
+    return cinderclient(request).availability_zones.list(detailed=detailed)
+
+
+@memoized
+def list_extensions(request):
+    return cinder_list_extensions.ListExtManager(cinderclient(request))\
+        .show_all()
+
+
+@memoized
+def extension_supported(request, extension_name):
+    """
+    This method will determine if Cinder supports a given extension name.
+    """
+    extensions = list_extensions(request)
+    for extension in extensions:
+        if extension.name == extension_name:
+            return True
+    return False
