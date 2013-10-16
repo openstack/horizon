@@ -88,9 +88,15 @@ class IndexView(tables.DataTableView):
 
             # Loop through instances to get flavor info.
             for instance in instances:
-                if (hasattr(instance, 'image')
-                        and instance.image['id'] in image_map):
-                    instance.image = image_map[instance.image['id']]
+                if hasattr(instance, 'image'):
+                    # Instance from image returns dict
+                    if isinstance(instance.image, dict):
+                        if instance.image.get('id') in image_map:
+                            instance.image = image_map[instance.image['id']]
+                    else:
+                        # Instance from volume returns a string
+                        instance.image = {'name':
+                                instance.image if instance.image else _("-")}
 
                 try:
                     flavor_id = instance.flavor["id"]

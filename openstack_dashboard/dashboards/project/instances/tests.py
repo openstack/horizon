@@ -181,6 +181,45 @@ class InstanceTests(test.TestCase):
         self.assertMessageCount(res, error=len(servers))
         self.assertItemsEqual(instances, self.servers.list())
 
+    @test.create_stubs({api.nova: ('flavor_list',
+                                   'server_list',
+                                   'tenant_absolute_limits',
+                                   'extension_supported',),
+                        api.glance: ('image_list_detailed',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',),
+                        })
+    def test_index_with_instance_booted_from_volume(self):
+        volume_server = self.servers.first()
+        volume_server.image = ""
+        volume_server.image_name = "(not found)"
+        servers = self.servers.list()
+        servers[0] = volume_server
+
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, 'project/instances/index.html')
+        instances = res.context['instances_table'].data
+        self.assertEqual(len(instances), len(servers))
+        self.assertContains(res, "(not found)")
+
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
                                    'server_delete',),
