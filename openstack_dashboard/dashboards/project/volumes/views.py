@@ -18,6 +18,7 @@
 Views for managing volumes.
 """
 
+from django.core.urlresolvers import reverse  # noqa
 from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.datastructures import SortedDict  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -90,6 +91,31 @@ class IndexView(tables.DataTableView, VolumeTableMixIn):
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.VolumeDetailTabs
     template_name = 'project/volumes/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context["volume"] = self.get_data()
+        return context
+
+    def get_data(self):
+        if not hasattr(self, "_volume"):
+            try:
+                volume_id = self.kwargs['volume_id']
+                self._volume = cinder.volume_get(self.request, volume_id)
+                for att in self._volume.attachments:
+                    att['instance'] = api.nova.server_get(self.request,
+                                                          att['server_id'])
+            except Exception:
+                redirect = reverse('horizon:project:volumes:index')
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve volume details.'),
+                                  redirect=redirect)
+
+        return self._volume
+
+    def get_tabs(self, request, *args, **kwargs):
+        volume = self.get_data()
+        return self.tab_group_class(request, volume=volume, **kwargs)
 
 
 class CreateView(forms.ModalFormView):

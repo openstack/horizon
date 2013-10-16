@@ -82,3 +82,25 @@ class UpdateView(forms.ModalFormView):
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.ImageDetailTabs
     template_name = 'project/images_and_snapshots/images/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context["image"] = self.get_data()
+        return context
+
+    def get_data(self):
+        if not hasattr(self, "_image"):
+            try:
+                image_id = self.kwargs['image_id']
+                self._image = api.glance.image_get(self.request, image_id)
+            except Exception:
+                url = reverse('horizon:project:images_and_snapshots:index')
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve image details.'),
+                                  redirect=url)
+
+        return self._image
+
+    def get_tabs(self, request, *args, **kwargs):
+        image = self.get_data()
+        return self.tab_group_class(request, image=image, **kwargs)

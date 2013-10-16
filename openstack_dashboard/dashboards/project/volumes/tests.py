@@ -32,6 +32,9 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
+VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
+
+
 class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
@@ -754,6 +757,8 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.get(url)
 
+        self.assertContains(res, "<h2>Volume Details: Volume name</h2>",
+                            1, 200)
         self.assertContains(res, "<dd>Volume name</dd>", 1, 200)
         self.assertContains(res,
                             "<dd>41023e92-8008-4c8b-8059-7f2293ff3775</dd>",
@@ -786,3 +791,21 @@ class VolumeViewTests(test.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(volume.display_name, volume.id)
+
+    @test.create_stubs({cinder: ('volume_get',)})
+    def test_detail_view_with_exception(self):
+        volume = self.volumes.first()
+        server = self.servers.first()
+
+        volume.attachments = [{"server_id": server.id}]
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).\
+            AndRaise(self.exceptions.cinder)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:detail',
+                      args=[volume.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
