@@ -16,7 +16,7 @@ python-novaclient>=2.15.0
 python-neutronclient>=2.3.0,<3
 python-swiftclient>=1.5
 python-ceilometerclient>=1.0.6
-python-troveclient<1
+python-troveclient>=1.0.0
 pytz>=2010h
 # Horizon Utility Requirements
 # for SECURE_KEY generation

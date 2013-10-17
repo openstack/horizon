@@ -14,56 +14,33 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.conf import settings  # noqa
+from troveclient.v1 import client
 
-try:
-    from troveclient.compat import auth
-    from troveclient.compat import client
-    with_trove = True
-except ImportError:
-    try:
-        from troveclient import auth
-        from troveclient import client
-        with_trove = True
-    except ImportError:
-        with_trove = False
+from openstack_dashboard.api import base
 
 
-class TokenAuth(object):
-    """Simple Token Authentication handler for trove api."""
-
-    def __init__(self, client, auth_strategy, auth_url, username, password,
-                 tenant, region, service_type, service_name, service_url):
-        # TODO(rmyers): handle some of these other args
-        self.username = username
-        self.service_type = service_type
-        self.service_name = service_name
-        self.region = region
-
-    def authenticate(self):
-        catalog = {
-            'access': {
-                'serviceCatalog': self.username.service_catalog,
-                'token': {
-                    'id': self.username.token.id,
-                }
-            }
-        }
-        if not with_trove:
-            return None
-        return auth.ServiceCatalog(catalog,
-                                   service_type=self.service_type,
-                                   service_name=self.service_name,
-                                   region=self.region)
+LOG = logging.getLogger(__name__)
 
 
 def troveclient(request):
-    if not with_trove:
-        return None
-    return client.Dbaas(username=request.user,
-                        api_key=None,
-                        auth_strategy=TokenAuth,
-                        region_name=request.user.services_region)
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+    trove_url = base.url_for(request, 'database')
+    LOG.debug('troveclient connection created using token "%s" and url "%s"' %
+              (request.user.token.id, trove_url))
+    c = client.Client(request.user.username,
+                      request.user.token.id,
+                      project_id=request.user.project_id,
+                      auth_url=trove_url,
+                      insecure=insecure,
+                      cacert=cacert,
+                      http_log_debug=settings.DEBUG)
+    c.client.auth_token = request.user.token.id
+    c.client.management_url = trove_url
+    return c
 
 
 def instance_list(request, marker=None):

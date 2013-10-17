@@ -27,11 +27,6 @@ DETAILS_URL = reverse('horizon:project:database_backups:detail', args=['id'])
 
 
 class DatabasesBackupsTests(test.TestCase):
-    def setUp(self):
-        if not api.trove.with_trove:
-            self.skipTest('Skip trove related tests.')
-        super(DatabasesBackupsTests, self).setUp()
-
     @test.create_stubs({api.trove: ('backup_list', )})
     def test_index(self):
         api.trove.backup_list(IsA(http.HttpRequest))\
