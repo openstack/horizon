@@ -39,13 +39,32 @@ class IndexView(tabs.TabbedTableView):
 class SamplesView(TemplateView):
     template_name = "admin/metering/samples.csv"
 
+    @staticmethod
+    def _series_for_meter(aggregates,
+                          resource_name,
+                          meter_name,
+                          stats_name,
+                          unit):
+        """Construct datapoint series for a meter from resource aggregates."""
+        series = []
+        for resource in aggregates:
+            if getattr(resource, meter_name):
+                point = {'unit': unit,
+                         'name': getattr(resource, resource_name),
+                         'data': []}
+                for statistic in getattr(resource, meter_name):
+                    date = statistic.duration_end[:19]
+                    value = float(getattr(statistic, stats_name))
+                    point['data'].append({'x': date, 'y': value})
+                series.append(point)
+        return series
+
     def get(self, request, *args, **kwargs):
         meter = request.GET.get('meter', None)
         meter_name = meter.replace(".", "_")
         date_options = request.GET.get('date_options', None)
         date_from = request.GET.get('date_from', None)
         date_to = request.GET.get('date_to', None)
-        resource = request.GET.get('resource', None)
         stats_attr = request.GET.get('stats_attr', 'avg')
 
         # TODO(lsmola) all timestamps should probably work with
@@ -150,20 +169,11 @@ class SamplesView(TemplateView):
                 queries, [meter], period=period, stats_attr=None,
                 additional_query=additional_query)
 
-            series = []
-            for resource in resources:
-                name = resource.id
-                if getattr(resource, meter_name):
-                    serie = {'unit': unit,
-                             'name': name,
-                             'data': []}
-
-                    for statistic in getattr(resource, meter_name):
-                        date = statistic.duration_end[:19]
-                        value = int(getattr(statistic, stats_attr))
-                        serie['data'].append({'x': date, 'y': value})
-
-                    series.append(serie)
+            series = self._series_for_meter(resources,
+                                            'id',
+                                            meter_name,
+                                            stats_attr,
+                                            unit)
         else:
             ceilometer_usage = ceilometer.CeilometerUsage(request)
             try:
@@ -175,18 +185,11 @@ class SamplesView(TemplateView):
                 exceptions.handle(request,
                                   _('Unable to retrieve statistics.'))
 
-            series = []
-            for resource in resources:
-                if getattr(resource, meter_name):
-                    serie = {'unit': unit,
-                             'name': resource.resource_id,
-                             'data': []}
-                    for statistic in getattr(resource, meter_name):
-                        date = statistic.duration_end[:19]
-                        value = int(getattr(statistic, stats_attr))
-                        serie['data'].append({'x': date, 'y': value})
-
-                    series.append(serie)
+            series = self._series_for_meter(resources,
+                                            'resource_id',
+                                            meter_name,
+                                            stats_attr,
+                                            unit)
 
         ret = {}
         ret['series'] = series
