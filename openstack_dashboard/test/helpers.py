@@ -69,7 +69,7 @@ def create_stubs(stubs_to_create={}):
 
     def inner_stub_out(fn):
         @wraps(fn)
-        def instance_stub_out(self):
+        def instance_stub_out(self, *args, **kwargs):
             for key in stubs_to_create:
                 if not (isinstance(stubs_to_create[key], tuple) or
                         isinstance(stubs_to_create[key], list)):
@@ -80,7 +80,7 @@ def create_stubs(stubs_to_create={}):
 
                 for value in stubs_to_create[key]:
                     self.mox.StubOutWithMock(key, value)
-            return fn(self)
+            return fn(self, *args, **kwargs)
         return instance_stub_out
     return inner_stub_out
 
