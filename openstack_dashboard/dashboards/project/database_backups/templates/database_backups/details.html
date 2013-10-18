@@ -3,7 +3,7 @@
 {% block title %}{% trans "Backup Detail" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title="Backup Detail: "|add:backup.name %}
+  {% include "horizon/common/_page_header.html" with title=_("Backup Detail: ")|add:backup.name %}
 {% endblock page_header %}
 
 {% block main %}

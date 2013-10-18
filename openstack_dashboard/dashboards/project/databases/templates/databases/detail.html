@@ -3,7 +3,7 @@
 {% block title %}{% trans "Database Detail" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title="Database Detail: "|add:instance.name %}
+  {% include "horizon/common/_page_header.html" with title=_("Database Detail: ")|add:instance.name %}
 {% endblock page_header %}
 
 {% block main %}
