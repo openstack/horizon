@@ -136,9 +136,10 @@ def vip_create(request, **kwargs):
                     'protocol': kwargs['protocol'],
                     'pool_id': kwargs['pool_id'],
                     'session_persistence': kwargs['session_persistence'],
-                    'connection_limit': kwargs['connection_limit'],
                     'admin_state_up': kwargs['admin_state_up']
                     }}
+    if kwargs.get('connection_limit'):
+        body['vip']['connection_limit'] = kwargs['connection_limit']
     vip = neutronclient(request).create_vip(body).get('vip')
     return Vip(vip)
 
@@ -275,9 +276,10 @@ def member_create(request, **kwargs):
     body = {'member': {'pool_id': kwargs['pool_id'],
                        'address': kwargs['address'],
                        'protocol_port': kwargs['protocol_port'],
-                       'weight': kwargs['weight'],
                        'admin_state_up': kwargs['admin_state_up']
                        }}
+    if kwargs.get('weight'):
+        body['member']['weight'] = kwargs['weight']
     member = neutronclient(request).create_member(body).get('member')
     return Member(member)
 
