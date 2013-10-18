@@ -448,7 +448,7 @@ class VolumeViewTests(test.TestCase):
                         api.glance: ('image_get',
                                      'image_list_detailed'),
                         quotas: ('tenant_limit_usages',)})
-    def test_create_volume_from_image_invalid_size(self):
+    def test_create_volume_from_image_under_image_size(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
                        'gigabytesUsed': 20,
                        'volumesUsed': len(self.volumes.list()),
@@ -482,6 +482,47 @@ class VolumeViewTests(test.TestCase):
         self.assertFormError(res, 'form', None,
                              "The volume size cannot be less than the "
                              "image size (20.0 GB)")
+
+    @test.create_stubs({cinder: ('volume_type_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
+                        api.glance: ('image_get',
+                                     'image_list_detailed'),
+                        quotas: ('tenant_limit_usages',)})
+    def test_create_volume_from_image_under_image_min_disk_size(self):
+        usage_limit = {'maxTotalVolumeGigabytes': 100,
+                       'gigabytesUsed': 20,
+                       'volumesUsed': len(self.volumes.list()),
+                       'maxTotalVolumes': 6}
+        image = self.images.get(name="protected_images")
+        formData = {'name': u'A Volume I Am Making',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'size': 5, 'image_source': image.id}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                AndReturn(self.volume_types.list())
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+                                AndReturn(usage_limit)
+        api.glance.image_get(IsA(http.HttpRequest),
+                             str(image.id)).AndReturn(image)
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+                                AndReturn(usage_limit)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:create')
+        res = self.client.post("?".join([url,
+                                         "image_id=" + str(image.id)]),
+                               formData, follow=True)
+        self.assertEqual(res.redirect_chain, [])
+        self.assertFormError(res, 'form', None,
+                             "The volume size cannot be less than the "
+                             "image minimum disk size (30GB)")
 
     @test.create_stubs({cinder: ('volume_snapshot_list',
                                  'volume_type_list',

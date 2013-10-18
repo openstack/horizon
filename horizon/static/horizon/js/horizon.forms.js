@@ -28,8 +28,13 @@ horizon.forms = {
       var $volSize = $form.find('input#id_size');
       var volSize = parseInt($volSize.val(), 10) || -1;
       var dataSize = parseInt($option.data("size"), 10) || -1;
-      if (volSize < dataSize) {
-        $volSize.val(dataSize);
+      var minDiskSize = parseInt($option.data("min_disk"), 10) || -1;
+      var defaultVolSize = dataSize;
+      if (minDiskSize > defaultVolSize) {
+        defaultVolSize = minDiskSize;
+      }
+      if (volSize < defaultVolSize) {
+        $volSize.val(defaultVolSize);
       }
     });
   },

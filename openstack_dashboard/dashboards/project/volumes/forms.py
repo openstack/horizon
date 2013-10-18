@@ -48,7 +48,7 @@ class CreateForm(forms.SelfHandlingForm):
         label=_("Use image as a source"),
         widget=fields.SelectWidget(
             attrs={'class': 'image-selector'},
-            data_attrs=('size', 'name'),
+            data_attrs=('size', 'name', 'min_disk'),
             transform=lambda x: "%s (%s)" % (x.name, filesizeformat(x.bytes))),
         required=False)
     availability_zone = forms.ChoiceField(label=_("Availability Zone"),
@@ -79,8 +79,8 @@ class CreateForm(forms.SelfHandlingForm):
                 except Exception:
                     pass
                 self.fields['size'].help_text = _('Volume size must be equal '
-                                'to or greater than the snapshot size (%sGB)'
-                                % snapshot.size)
+                            'to or greater than the snapshot size (%sGB)') \
+                            % snapshot.size
                 del self.fields['image_source']
                 del self.fields['volume_source_type']
             except Exception:
@@ -92,12 +92,21 @@ class CreateForm(forms.SelfHandlingForm):
                                        request.GET["image_id"])
                 image.bytes = image.size
                 self.fields['name'].initial = image.name
-                self.fields['size'].initial = functions.bytes_to_gigabytes(
+                min_vol_size = functions.bytes_to_gigabytes(
                     image.size)
+                size_help_text = _('Volume size must be equal to or greater '
+                                   'than the image size (%s)') \
+                                 % filesizeformat(image.size)
+                min_disk_size = getattr(image, 'min_disk', 0)
+                if (min_disk_size > min_vol_size):
+                    min_vol_size = min_disk_size
+                    size_help_text = _('Volume size must be equal to or '
+                                       'greater than the image minimum '
+                                       'disk size (%sGB)') \
+                                     % min_disk_size
+                self.fields['size'].initial = min_vol_size
+                self.fields['size'].help_text = size_help_text
                 self.fields['image_source'].choices = ((image.id, image),)
-                self.fields['size'].help_text = _('Volume size must be equal '
-                                'to or greater than the image size (%s)'
-                                % filesizeformat(image.size))
                 del self.fields['snapshot_source']
                 del self.fields['volume_source_type']
             except Exception:
@@ -187,8 +196,7 @@ class CreateForm(forms.SelfHandlingForm):
                 snapshot_id = snapshot.id
                 if (data['size'] < snapshot.size):
                     error_message = _('The volume size cannot be less than '
-                                      'the snapshot size (%sGB)' %
-                                      snapshot.size)
+                        'the snapshot size (%sGB)') % snapshot.size
                     raise ValidationError(error_message)
             elif (data.get("image_source", None) and
                   source_type in [None, 'image_source']):
@@ -199,8 +207,12 @@ class CreateForm(forms.SelfHandlingForm):
                 image_size = functions.bytes_to_gigabytes(image.size)
                 if (data['size'] < image_size):
                     error_message = _('The volume size cannot be less than '
-                                      'the image size (%s)' %
-                                      filesizeformat(image.size))
+                        'the image size (%s)') % filesizeformat(image.size)
+                    raise ValidationError(error_message)
+                min_disk_size = getattr(image, 'min_disk', 0)
+                if (min_disk_size > 0 and data['size'] < image.min_disk):
+                    error_message = _('The volume size cannot be less than '
+                        'the image minimum disk size (%sGB)') % min_disk_size
                     raise ValidationError(error_message)
             else:
                 if type(data['size']) is str:
