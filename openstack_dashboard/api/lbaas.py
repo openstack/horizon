@@ -47,6 +47,7 @@ class Pool(neutron.NeutronAPIDictWrapper):
         pFormatted = {'id': self.id,
                       'name': self.name,
                       'description': self.description,
+                      'status': self.status,
                       'protocol': self.protocol,
                       'health_monitors': self.health_monitors,
                       'provider': self.provider}
@@ -88,6 +89,7 @@ class Member(neutron.NeutronAPIDictWrapper):
 
     def readable(self, request):
         mFormatted = {'id': self.id,
+                      'status': self.status,
                       'address': self.address,
                       'protocol_port': self.protocol_port}
         try:
