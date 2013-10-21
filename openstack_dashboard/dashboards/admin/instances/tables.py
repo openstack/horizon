@@ -117,7 +117,9 @@ class AdminInstancesTable(tables.DataTable):
                           verbose_name=_("Power State"))
     created = tables.Column("created",
                             verbose_name=_("Uptime"),
-                            filters=(filters.parse_isotime, timesince))
+                            filters=(filters.parse_isotime,
+                                     filters.timesince_sortable),
+                            attrs={'data-type': 'timesince'})
 
     class Meta:
         name = "instances"
