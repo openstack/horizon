@@ -11,6 +11,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+import json
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http  # noqa
@@ -230,6 +231,21 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/metering/index.html')
         self.assertTemplateUsed(res, 'admin/metering/stats.html')
 
+    def _verify_series(self, series, value, date, expected_names):
+        expected_names.reverse()
+        data = json.loads(series)
+        self.assertTrue('series' in data)
+        self.assertEqual(len(data['series']), len(expected_names))
+        for d in data['series']:
+            self.assertTrue('data' in d)
+            self.assertEqual(len(d['data']), 1)
+            self.assertAlmostEqual(d['data'][0].get('y'), value)
+            self.assertEqual(d['data'][0].get('x'), date)
+            self.assertEqual(d.get('name'), expected_names.pop())
+            self.assertEqual(d.get('unit'), '')
+
+        self.assertEquals(data.get('settings'), {})
+
     @test.create_stubs({api.keystone: ('tenant_list',)})
     def test_stats_for_line_chart(self):
         statistics = self.statistics.list()
@@ -256,19 +272,11 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         self.assertEqual(res._headers['content-type'],
                          ('Content-Type', 'application/json'))
-        self.assertEqual(res._container,
-                        ['{"series": [{"data": [{"y": 4, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "test_tenant", "unit": ""}, '
-                                     '{"data": [{"y": 4, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "disabled_tenant", '
-                                      '"unit": ""}, '
-                                     '{"data": [{"y": 4, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "\\u4e91\\u89c4\\u5219", '
-                                      '"unit": ""}], '
-                          '"settings": {}}'])
+        expected_names = ['test_tenant',
+                          'disabled_tenant',
+                          u'\u4e91\u89c4\u5219']
+        self._verify_series(res._container[0], 4.55, '2012-12-21T11:00:55',
+                            expected_names)
 
     @test.create_stubs({api.keystone: ('tenant_list',)})
     def test_stats_for_line_chart_attr_max(self):
@@ -296,19 +304,11 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         self.assertEqual(res._headers['content-type'],
                          ('Content-Type', 'application/json'))
-        self.assertEqual(res._container,
-                        ['{"series": [{"data": [{"y": 9, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "test_tenant", "unit": ""}, '
-                                     '{"data": [{"y": 9, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "disabled_tenant", '
-                                      '"unit": ""}, '
-                                     '{"data": [{"y": 9, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "\\u4e91\\u89c4\\u5219", '
-                                      '"unit": ""}], '
-                          '"settings": {}}'])
+        expected_names = ['test_tenant',
+                          'disabled_tenant',
+                          u'\u4e91\u89c4\u5219']
+        self._verify_series(res._container[0], 9.0, '2012-12-21T11:00:55',
+                            expected_names)
 
     def test_stats_for_line_chart_no_group_by(self):
         resources = self.resources.list()
@@ -333,13 +333,7 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         self.assertEqual(res._headers['content-type'],
                          ('Content-Type', 'application/json'))
-        self.assertEqual(res._container,
-                        ['{"series": [{"data": [{"y": 4, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "fake_resource_id", '
-                                      '"unit": ""}, '
-                                     '{"data": [{"y": 4, '
-                                      '"x": "2012-12-21T11:00:55"}], '
-                                      '"name": "fake_resource_id2", '
-                                      '"unit": ""}], '
-                          '"settings": {}}'])
+        expected_names = ['fake_resource_id',
+                          'fake_resource_id2']
+        self._verify_series(res._container[0], 4.55, '2012-12-21T11:00:55',
+                            expected_names)
