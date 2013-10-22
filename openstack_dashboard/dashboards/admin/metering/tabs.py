@@ -173,20 +173,18 @@ class GlobalStatsTab(tabs.Tab):
                   "op": "eq",
                   "value": "nova"}]
         try:
-            resources = ceilometer.resource_list(request, query,
+            instances = ceilometer.resource_list(request, query,
                 ceilometer_usage_object=None)
+            meters = ceilometer.meter_list(request)
         except Exception:
-            resources = []
+            instances = []
+            meters = []
             exceptions.handle(request,
                               _('Unable to retrieve Nova Ceilometer '
-                                'resources.'))
-        try:
-            resource = resources[0]
-            meters = [link['rel'] for link in resource.links
-                if link['rel'] != "self"]
-        except IndexError:
-            resource = None
-            meters = []
+                                'metering information.'))
+        instance_ids = set([i.resource_id for i in instances])
+        instance_meters = set([m.name for m in meters
+                               if m.resource_id in instance_ids])
 
         meter_titles = {"instance": _("Duration of instance"),
                         "memory": _("Volume of RAM in MB"),
@@ -221,9 +219,8 @@ class GlobalStatsTab(tabs.Tab):
                 self.name = meter
                 self.title = meter_titles.get(meter, "")
 
-        meters_objs = []
-        for meter in meters:
-            meters_objs.append(MetersWrap(meter, meter_titles))
+        meters_objs = [MetersWrap(meter, meter_titles)
+                       for meter in sorted(instance_meters)]
 
         context = {'meters': meters_objs}
         return context
