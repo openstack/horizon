@@ -12,6 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 import json
+import uuid
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http  # noqa
@@ -225,6 +226,10 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
         # I am returning only 1 resource
         ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources[:1])
 
+        meters = self.meters.list()
+        ceilometerclient.meters = self.mox.CreateMockAnything()
+        ceilometerclient.meters.list(None).AndReturn(meters)
+
         self.mox.ReplayAll()
 
         # getting all resources and with statistics
@@ -353,18 +358,19 @@ class MeteringStatsTabTests(test.APITestCase):
 
         def _get_link(meter):
             link = ('http://localhost:8777/v2/meters/%s?'
-                    'q.field=resource_id&q.value=fake_resource_id')
+                    'q.field=resource_id&q.value=ignored')
             return dict(href=link % meter, rel=meter)
 
+        flavors = ['m1.tiny', 'm1.massive', 'm1.secret']
         resources = [
-            Struct(dict(resource_id='fake_resource_id',
+            Struct(dict(resource_id=uuid.uuid4(),
                         project_id='fake_project_id',
                         user_id='fake_user_id',
                         timestamp='2013-10-22T12:42:37',
                         metadata=dict(ramdisk_id='fake_image_id'),
-                        links=[_get_link('instance:m1.massive'),
+                        links=[_get_link('instance:%s' % f),
                                _get_link('instance'),
-                               _get_link('cpu')])),
+                               _get_link('cpu')])) for f in flavors
         ]
         request = self.mox.CreateMock(http.HttpRequest)
         api.nova.flavor_list(request, None).AndReturn(self.flavors.list())
@@ -372,6 +378,17 @@ class MeteringStatsTabTests(test.APITestCase):
         ceilometerclient = self.stub_ceilometerclient()
         ceilometerclient.resources = self.mox.CreateMockAnything()
         ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources)
+
+        meters = []
+        for r in resources:
+            for link in r.links:
+                meters.append(Struct(dict(resource_id=r.resource_id,
+                                          project_id=r.project_id,
+                                          user_id=r.user_id,
+                                          timestamp=r.timestamp,
+                                          name=link['rel'])))
+        ceilometerclient.meters = self.mox.CreateMockAnything()
+        ceilometerclient.meters.list(None).AndReturn(meters)
 
         self.mox.ReplayAll()
 
@@ -383,6 +400,8 @@ class MeteringStatsTabTests(test.APITestCase):
         for d in context_data['meters']:
             meter_hints[d.name] = d.title
 
-        for meter in ['instance:m1.massive', 'instance', 'cpu']:
+        expected_meters = ['instance:%s' % f for f in flavors]
+        expected_meters.extend(['instance', 'cpu'])
+        for meter in expected_meters:
             self.assertTrue(meter in meter_hints)
             self.assertNotEqual(meter_hints[meter], '')
