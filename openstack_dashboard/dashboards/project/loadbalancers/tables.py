@@ -193,6 +193,7 @@ class PoolsTable(tables.DataTable):
                              filters=(lambda v: filters.default(v, _('N/A')),))
     subnet_name = tables.Column('subnet_name', verbose_name=_("Subnet"))
     protocol = tables.Column('protocol', verbose_name=_("Protocol"))
+    status = tables.Column('status', verbose_name=_("Status"))
     vip_name = tables.Column('vip_name', verbose_name=_("VIP"),
                              link=get_vip_link)
 
@@ -224,6 +225,7 @@ class MembersTable(tables.DataTable):
                                   verbose_name=_("Protocol Port"))
     pool_name = tables.Column("pool_name",
                             verbose_name=_("Pool"), link=get_pool_link)
+    status = tables.Column('status', verbose_name=_("Status"))
 
     class Meta:
         name = "memberstable"

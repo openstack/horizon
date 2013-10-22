@@ -431,6 +431,7 @@ def data(TEST):
                  'lb_method': 'ROUND_ROBIN',
                  'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff96'],
                  'admin_state_up': True,
+                 'status': 'ACTIVE',
                  'provider': 'haproxy'}
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(lbaas.Pool(pool_dict))
@@ -480,6 +481,7 @@ def data(TEST):
                    'address': '10.0.0.11',
                    'protocol_port': 80,
                    'weight': 10,
+                   'status': 'ACTIVE',
                    'admin_state_up': True}
     TEST.api_members.add(member_dict)
     TEST.members.add(lbaas.Member(member_dict))
@@ -491,6 +493,7 @@ def data(TEST):
                   'address': '10.0.0.12',
                   'protocol_port': 80,
                   'weight': 10,
+                  'status': 'ACTIVE',
                   'admin_state_up': True}
     TEST.api_members.add(member_dict)
     TEST.members.add(lbaas.Member(member_dict))
@@ -505,6 +508,7 @@ def data(TEST):
                  'protocol': 'HTTPS',
                  'lb_method': 'ROUND_ROBIN',
                  'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff97'],
+                 'status': 'PENDING_CREATE',
                  'admin_state_up': True}
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(lbaas.Pool(pool_dict))
