@@ -121,10 +121,6 @@ class SamplesView(TemplateView):
             # If some date is missing, just set static window to one day.
             period = 3600 * 24
 
-        query = [{"field": "metadata.OS-EXT-AZ:availability_zone",
-                  "op": "eq",
-                  "value": "nova"}]
-
         additional_query = []
         if date_from:
             additional_query += [{'field': 'timestamp',
@@ -175,11 +171,26 @@ class SamplesView(TemplateView):
                                             stats_attr,
                                             unit)
         else:
+            query = []
+
+            def filter_by_meter_name(resource):
+                """ Function for filtering of the list of resources.
+
+                Will pick the right resources according to currently selected
+                meter.
+                """
+                for link in resource.links:
+                    if link['rel'] == meter:
+                        # If resource has the currently chosen meter.
+                        return True
+                return False
+
             ceilometer_usage = ceilometer.CeilometerUsage(request)
             try:
                 resources = ceilometer_usage.resources_with_statistics(
                     query, [meter], period=period, stats_attr=None,
-                    additional_query=additional_query)
+                    additional_query=additional_query,
+                    filter_func=filter_by_meter_name)
             except Exception:
                 resources = []
                 exceptions.handle(request,
