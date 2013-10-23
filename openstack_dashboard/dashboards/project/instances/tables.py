@@ -528,21 +528,21 @@ def get_power_state(instance):
 
 
 STATUS_DISPLAY_CHOICES = (
-    ("resize", "Resize/Migrate"),
-    ("verify_resize", "Confirm or Revert Resize/Migrate"),
-    ("revert_resize", "Revert Resize/Migrate"),
+    ("resize", _("Resize/Migrate")),
+    ("verify_resize", _("Confirm or Revert Resize/Migrate")),
+    ("revert_resize", _("Revert Resize/Migrate")),
 )
 
 
 TASK_DISPLAY_CHOICES = (
-    ("image_snapshot", "Snapshotting"),
-    ("resize_prep", "Preparing Resize or Migrate"),
-    ("resize_migrating", "Resizing or Migrating"),
-    ("resize_migrated", "Resized or Migrated"),
-    ("resize_finish", "Finishing Resize or Migrate"),
-    ("resize_confirming", "Confirming Resize or Nigrate"),
-    ("resize_reverting", "Reverting Resize or Migrate"),
-    ("unpausing", "Resuming"),
+    ("image_snapshot", _("Snapshotting")),
+    ("resize_prep", _("Preparing Resize or Migrate")),
+    ("resize_migrating", _("Resizing or Migrating")),
+    ("resize_migrated", _("Resized or Migrated")),
+    ("resize_finish", _("Finishing Resize or Migrate")),
+    ("resize_confirming", _("Confirming Resize or Migrate")),
+    ("resize_reverting", _("Reverting Resize or Migrate")),
+    ("unpausing", _("Resuming")),
 )
 
 
