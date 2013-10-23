@@ -30,6 +30,9 @@
     <dt>{% trans "Pool ID" %}</dt>
     <dd>{{ vip.pool_id }}</dd>
 
+    <dt>{% trans "Port ID" %}</dt>
+    <dd>{{ vip.port_id }}</dd>
+
     <dt>{% trans "Session Persistence" %}</dt>
     {% if vip.session_persistence %}
     <dd>{% trans "Type" %}: {{ vip.session_persistence.type }}</dd>
