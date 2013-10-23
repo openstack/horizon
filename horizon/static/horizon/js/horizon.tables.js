@@ -196,6 +196,20 @@ $.tablesorter.addParser({
     type: 'numeric'
 });
 
+$.tablesorter.addParser({
+    // set a unique id
+    id: 'timesinceSorter',
+    is: function(s) {
+        // Not an auto-detected parser
+        return false;
+    },
+    // compare int values
+    format: function(s, table, cell, cellIndex) {
+        return $(cell).find('span').data('seconds');
+    },
+    type: 'numeric'
+});
+
 horizon.datatables.disable_buttons = function() {
   $("table .table_actions").on("click", ".btn.disabled", function(event){
     event.preventDefault();
@@ -260,6 +274,8 @@ $(parent).find("table.datatable").each(function () {
         header_options[i] = {sorter: 'sizeSorter'};
       } else if ($th.data('type') == 'ip'){
         header_options[i] = {sorter: 'ipAddress'};
+      } else if ($th.data('type') == 'timesince'){
+        header_options[i] = {sorter: 'timesinceSorter'};
       }
     });
     $table.tablesorter({

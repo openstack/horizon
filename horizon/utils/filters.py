@@ -17,6 +17,9 @@
 import iso8601
 
 from django.template.defaultfilters import register  # noqa
+from django.template.defaultfilters import timesince  # noqa
+from django.utils.safestring import mark_safe  # noqa
+from django.utils import timezone
 
 
 @register.filter
@@ -36,3 +39,12 @@ def parse_isotime(timestr):
         raise ValueError(e.message)
     except TypeError as e:
         raise ValueError(e.message)
+
+
+@register.filter
+def timesince_sortable(dt):
+    delta = timezone.now() - dt
+    # timedelta.total_seconds() not supported on python < 2.7
+    seconds = delta.seconds + (delta.days * 24 * 3600)
+    return mark_safe("<span data-seconds=\"%d\">%s</span>" %
+                     (seconds, timesince(dt)))

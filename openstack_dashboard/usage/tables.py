@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 from horizon.templatetags import sizeformat
+from horizon.utils import filters
 
 
 class CSVSummary(tables.LinkAction):
@@ -59,7 +60,8 @@ class ProjectUsageTable(BaseUsageTable):
                              link=get_instance_link)
     uptime = tables.Column('uptime_at',
                            verbose_name=_("Uptime"),
-                           filters=(timesince,))
+                           filters=(filters.timesince_sortable,),
+                           attrs={'data-type': 'timesince'})
 
     def get_object_id(self, datum):
         return datum.get('instance_id', id(datum))
