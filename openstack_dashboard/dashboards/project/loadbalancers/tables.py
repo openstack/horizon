@@ -83,6 +83,11 @@ class DeletePoolLink(tables.DeleteAction):
     data_type_singular = _("Pool")
     data_type_plural = _("Pools")
 
+    def allowed(self, request, datum=None):
+        if datum and datum.vip_id:
+            return False
+        return True
+
 
 class DeleteMonitorLink(tables.DeleteAction):
     name = "deletemonitor"
