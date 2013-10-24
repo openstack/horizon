@@ -244,7 +244,7 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
             self.assertEqual(d.get('name'), expected_names.pop())
             self.assertEqual(d.get('unit'), '')
 
-        self.assertEquals(data.get('settings'), {})
+        self.assertEqual(data.get('settings'), {})
 
     @test.create_stubs({api.keystone: ('tenant_list',)})
     def test_stats_for_line_chart(self):
