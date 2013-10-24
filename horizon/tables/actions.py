@@ -38,17 +38,60 @@ ACTION_CSS_CLASSES = ("btn", "btn-small")
 STRING_SEPARATOR = "__"
 
 
+class BaseActionMetaClass(type):
+    """Metaclass for adding all actions options from inheritance tree
+    to action.
+    This way actions can inherit from each other but still use
+    the class attributes DSL. Meaning, all attributes of Actions are
+    defined as class attributes, but in the background, it will be used as
+    parameters for the initializer of the object. The object is then
+    initialized clean way. Similar principle is used in DataTableMetaclass.
+    """
+    def __new__(mcs, name, bases, attrs):
+        # Options of action are set ass class attributes, loading them.
+        options = {}
+        if attrs:
+            options = attrs
+
+        # Iterate in reverse to preserve final order
+        for base in bases[::-1]:
+            # It actualy throws all super classes away except immediate
+            # superclass. But it's fine, immediate super-class base_options
+            # includes everything because superclasses was created also by
+            # this metaclass. Same principle is used in DataTableMetaclass.
+            if hasattr(base, 'base_options') and base.base_options:
+                base_options = {}
+                # Updating options by superclasses.
+                base_options.update(base.base_options)
+                # Updating superclass options by actual class options.
+                base_options.update(options)
+                options = base_options
+        # Saving all options to class attribute, this will be used for
+        # instantiating of the specific Action.
+        attrs['base_options'] = options
+
+        return type.__new__(mcs, name, bases, attrs)
+
+    def __call__(cls, *args, **kwargs):
+        cls.base_options.update(kwargs)
+        # Adding cls.base_options to each init call.
+        klass = super(BaseActionMetaClass, cls).__call__(
+            *args, **cls.base_options)
+        return klass
+
+
 class BaseAction(html.HTMLElement):
     """Common base class for all ``Action`` classes."""
-    table = None
-    handles_multiple = False
-    requires_input = False
-    preempt = False
-    policy_rules = None
+    __metaclass__ = BaseActionMetaClass
 
-    def __init__(self, datum=None):
+    def __init__(self, **kwargs):
         super(BaseAction, self).__init__()
-        self.datum = datum
+        self.datum = kwargs.get('datum', None)
+        self.table = kwargs.get('table', None)
+        self.handles_multiple = kwargs.get('handles_multiple', False)
+        self.requires_input = kwargs.get('requires_input', False)
+        self.preempt = kwargs.get('preempt', False)
+        self.policy_rules = kwargs.get('policy_rules', None)
 
     def data_type_matched(self, datum):
         """Method to see if the action is allowed for a certain type of data.
@@ -204,28 +247,17 @@ class Action(BaseAction):
         to ``handle`` with the calls from ``single`` being transformed
         into a list containing only the single object id.
     """
-    method = "POST"
-    requires_input = True
 
-    def __init__(self, verbose_name=None, verbose_name_plural=None,
-                 single_func=None, multiple_func=None, handle_func=None,
-                 handles_multiple=False, attrs=None, requires_input=True,
-                 allowed_data_types=[], datum=None):
-        super(Action, self).__init__(datum=datum)
-        # Priority: constructor, class-defined, fallback
-        self.verbose_name = verbose_name or getattr(self, 'verbose_name',
-                                                    self.name.title())
-        self.verbose_name_plural = verbose_name_plural or \
-                                    getattr(self, 'verbose_name_plural',
-                                           "%ss" % self.verbose_name)
-        self.handles_multiple = getattr(self,
-                                        "handles_multiple",
-                                        handles_multiple)
-        self.requires_input = getattr(self,
-                                      "requires_input",
-                                      requires_input)
-        self.allowed_data_types = getattr(self, "allowed_data_types",
-                                          allowed_data_types)
+    def __init__(self, single_func=None, multiple_func=None, handle_func=None,
+                 attrs=None, **kwargs):
+        super(Action, self).__init__(**kwargs)
+
+        self.method = kwargs.get('method', "POST")
+        self.requires_input = kwargs.get('requires_input', True)
+        self.verbose_name = kwargs.get('verbose_name', self.name.title())
+        self.verbose_name_plural = kwargs.get('verbose_name_plural',
+            "%ss" % self.verbose_name)
+        self.allowed_data_types = kwargs.get('allowed_data_types', [])
 
         if attrs:
             self.attrs.update(attrs)
@@ -298,21 +330,21 @@ class LinkAction(BaseAction):
         Defaults to be an empty list (``[]``). When set to empty, the action
         will accept any kind of data.
     """
-    method = "GET"
-    bound_url = None
+    # class attribute name is used for ordering of Actions in table
+    name = "link"
 
-    def __init__(self, verbose_name=None, allowed_data_types=[],
-                 url=None, attrs=None):
-        super(LinkAction, self).__init__()
-        self.verbose_name = verbose_name or getattr(self,
-                                                    "verbose_name",
-                                                    self.name.title())
-        self.url = getattr(self, "url", url)
-        if not self.verbose_name:
+    def __init__(self, attrs=None, **kwargs):
+        super(LinkAction, self).__init__(**kwargs)
+        self.method = kwargs.get('method', "GET")
+        self.bound_url = kwargs.get('bound_url', None)
+        self.name = kwargs.get('name', self.name)
+        self.verbose_name = kwargs.get('verbose_name', self.name.title())
+        self.url = kwargs.get('url', None)
+        self.allowed_data_types = kwargs.get('allowed_data_types', [])
+
+        if not kwargs.get('verbose_name', None):
             raise NotImplementedError('A LinkAction object must have a '
                                       'verbose_name attribute.')
-        self.allowed_data_types = getattr(self, "allowed_data_types",
-                                          allowed_data_types)
         if attrs:
             self.attrs.update(attrs)
 
@@ -375,16 +407,18 @@ class FilterAction(BaseAction):
     # but given the form structure of the table that's currently impossible.
     # At some future date this needs to be reworked to get the filter action
     # separated from the table's POST form.
-    method = "POST"
-    name = "filter"
-    verbose_name = _("Filter")
-    filter_type = "query"
-    needs_preloading = False
 
-    def __init__(self, verbose_name=None, param_name=None):
-        super(FilterAction, self).__init__()
-        self.verbose_name = verbose_name or self.name
-        self.param_name = param_name or 'q'
+    # class attribute name is used for ordering of Actions in table
+    name = "filter"
+
+    def __init__(self, **kwargs):
+        super(FilterAction, self).__init__(**kwargs)
+        self.method = kwargs.get('method', "POST")
+        self.name = kwargs.get('name', self.name)
+        self.verbose_name = kwargs.get('verbose_name', _("Filter"))
+        self.filter_type = kwargs.get('filter_type', "query")
+        self.needs_preloading = kwargs.get('needs_preloading', False)
+        self.param_name = kwargs.get('param_name', 'q')
 
     def get_param_name(self):
         """Returns the full query parameter name for this action.
@@ -433,11 +467,12 @@ class FilterAction(BaseAction):
 
 class FixedFilterAction(FilterAction):
     """A filter action with fixed buttons."""
-    filter_type = 'fixed'
-    needs_preloading = True
 
-    def __init__(self, *args, **kwargs):
-        super(FixedFilterAction, self).__init__(args, kwargs)
+    def __init__(self, **kwargs):
+        super(FixedFilterAction, self).__init__(**kwargs)
+        self.filter_type = kwargs.get('filter_type', "fixed")
+        self.needs_preloading = kwargs.get('needs_preloading', True)
+
         self.fixed_buttons = self.get_fixed_buttons()
         self.filter_string = ''
 
@@ -516,21 +551,26 @@ class BatchAction(Action):
        Optional location to redirect after completion of the delete
        action. Defaults to the current page.
     """
-    success_url = None
 
-    def __init__(self):
+    def __init__(self, **kwargs):
+        super(BatchAction, self).__init__(**kwargs)
+        self.success_url = kwargs.get('success_url', None)
+        self.data_type_singular = kwargs.get('data_type_singular', None)
+        self.data_type_plural = kwargs.get('data_type_plural',
+            self.data_type_singular + 's')
+        # If setting a default name, don't initialize it too early
+        self.verbose_name = kwargs.get('verbose_name', self._conjugate)
+        self.verbose_name_plural = kwargs.get('verbose_name_plural',
+            lambda: self._conjugate('plural'))
+
+        if not kwargs.get('data_type_singular', None):
+            raise NotImplementedError('A batchAction object must have a '
+                                      'data_type_singular attribute.')
+
         self.current_present_action = 0
         self.current_past_action = 0
-        self.data_type_plural = getattr(self, 'data_type_plural',
-                                        self.data_type_singular + 's')
-        # If setting a default name, don't initialise it too early
-        self.verbose_name = getattr(self, "verbose_name",
-                                    self._conjugate)
-        self.verbose_name_plural = getattr(self, "verbose_name_plural",
-                                           lambda: self._conjugate('plural'))
         # Keep record of successfully handled objects
         self.success_ids = []
-        super(BatchAction, self).__init__()
 
     def _allowed(self, request, datum=None):
         # Override the default internal action method to prevent batch
@@ -636,9 +676,14 @@ class BatchAction(Action):
 
 
 class DeleteAction(BatchAction):
+    """Doc missing."""
     name = "delete"
-    action_present = _("Delete")
-    action_past = _("Deleted")
+
+    def __init__(self, **kwargs):
+        super(DeleteAction, self).__init__(**kwargs)
+        self.name = kwargs.get('name', self.name)
+        self.action_present = kwargs.get('action_present', _("Delete"))
+        self.action_past = kwargs.get('action_past', _("Deleted"))
 
     def action(self, request, obj_id):
         return self.delete(request, obj_id)

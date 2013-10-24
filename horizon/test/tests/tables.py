@@ -596,7 +596,7 @@ class DataTableTests(test.TestCase):
 
         # Verbose names
         table_actions = self.table.get_table_actions()
-        self.assertEqual(unicode(table_actions[0].verbose_name), "filter")
+        self.assertEqual(unicode(table_actions[0].verbose_name), "Filter")
         self.assertEqual(unicode(table_actions[1].verbose_name), "Delete Me")
 
         row_actions = self.table.get_row_actions(TEST_DATA[0])
