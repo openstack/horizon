@@ -47,8 +47,8 @@ or, as a shortcut::
   $ ./run_tests.sh --runserver
 
 
-Settings Up OpenStack
-=====================
+Setting Up OpenStack
+====================
 
 The recommended tool for installing and configuring the core OpenStack
 components is `Devstack`_. Refer to their documentation for getting
