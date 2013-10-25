@@ -192,7 +192,7 @@ Panel Classes
 -------------
 
 To connect a :class:`~horizon.Panel` with a :class:`~horizon.Dashboard` class
-you register it in a ``panels.py`` file like so::
+you register it in a ``panel.py`` file like so::
 
     import horizon
 
