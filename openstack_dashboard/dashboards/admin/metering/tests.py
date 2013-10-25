@@ -213,7 +213,8 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
         self.assertEqual(first.storage_objects_incoming_bytes, 4.55)
         self.assertEqual(first.storage_objects_outgoing_bytes, 4.55)
 
-        self.assertEqual(len(table_stats), len(resources))
+        # There are only 2 resources regarding object storage in test data
+        self.assertEqual(len(table_stats), 2)
         self.assertIsInstance(first, api.ceilometer.GlobalObjectStoreUsage)
 
     def test_stats_page(self):
@@ -316,7 +317,7 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         ceilometerclient = self.stub_ceilometerclient()
         ceilometerclient.resources = self.mox.CreateMockAnything()
-        ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources)
+        ceilometerclient.resources.list(q=[]).AndReturn(resources)
 
         ceilometerclient.statistics = self.mox.CreateMockAnything()
         ceilometerclient.statistics.list(meter_name="storage.objects",
