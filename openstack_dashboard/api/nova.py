@@ -25,6 +25,7 @@ from __future__ import absolute_import
 import logging
 
 from django.conf import settings  # noqa
+from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from novaclient.v1_1 import client as nova_client
@@ -151,15 +152,13 @@ class SecurityGroup(base.APIResourceWrapper):
     """
     _attrs = ['id', 'name', 'description', 'tenant_id']
 
-    @property
+    @cached_property
     def rules(self):
         """Wraps transmitted rule info in the novaclient rule class."""
-        if "_rules" not in self.__dict__:
-            manager = nova_rules.SecurityGroupRuleManager(None)
-            rule_objs = [nova_rules.SecurityGroupRule(manager, rule)
-                         for rule in self._apiresource.rules]
-            self._rules = [SecurityGroupRule(rule) for rule in rule_objs]
-        return self.__dict__['_rules']
+        manager = nova_rules.SecurityGroupRuleManager(None)
+        rule_objs = [nova_rules.SecurityGroupRule(manager, rule)
+                     for rule in self._apiresource.rules]
+        return [SecurityGroupRule(rule) for rule in rule_objs]
 
 
 class SecurityGroupRule(base.APIResourceWrapper):
