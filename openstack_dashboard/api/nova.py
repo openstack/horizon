@@ -563,6 +563,13 @@ def server_migrate(request, instance_id):
     novaclient(request).servers.migrate(instance_id)
 
 
+def server_live_migrate(request, instance_id, host, block_migration=False,
+                        disk_over_commit=False):
+    novaclient(request).servers.live_migrate(instance_id, host,
+                                             block_migration,
+                                             disk_over_commit)
+
+
 def server_resize(request, instance_id, flavor, **kwargs):
     novaclient(request).servers.resize(instance_id, flavor, **kwargs)
 

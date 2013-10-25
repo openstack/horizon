@@ -15,8 +15,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core.urlresolvers import reverse  # noqa
 from django.template.defaultfilters import timesince  # noqa
 from django.template.defaultfilters import title  # noqa
+from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
@@ -46,6 +48,17 @@ class MigrateInstance(tables.BatchAction):
 
     def action(self, request, obj_id):
         api.nova.server_migrate(request, obj_id)
+
+
+class LiveMigrateInstance(tables.LinkAction):
+    name = "live_migrate"
+    verbose_name = _("Live Migrate Instance")
+    url = "horizon:admin:instances:live_migrate"
+    classes = ("ajax-modal", "btn-migrate", "btn-danger")
+
+    def allowed(self, request, instance):
+        return ((instance.status in project_tables.ACTIVE_STATES)
+                and not project_tables.is_deleting(instance))
 
 
 class AdminUpdateRow(project_tables.UpdateRow):
@@ -137,6 +150,7 @@ class AdminInstancesTable(tables.DataTable):
                        project_tables.TogglePause,
                        project_tables.ToggleSuspend,
                        MigrateInstance,
+                       LiveMigrateInstance,
                        project_tables.SoftRebootInstance,
                        project_tables.RebootInstance,
                        project_tables.TerminateInstance)

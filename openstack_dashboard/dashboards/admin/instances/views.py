@@ -19,13 +19,18 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse_lazy  # noqa
 from django.utils.datastructures import SortedDict  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
+from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.admin.instances \
+    import forms as project_forms
 from openstack_dashboard.dashboards.admin.instances \
     import tables as project_tables
 from openstack_dashboard.dashboards.project.instances import views
@@ -108,3 +113,46 @@ class AdminIndexView(tables.DataTableView):
                 tenant = tenant_dict.get(inst.tenant_id, None)
                 inst.tenant_name = getattr(tenant, "name", None)
         return instances
+
+
+class LiveMigrateView(forms.ModalFormView):
+    form_class = project_forms.LiveMigrateForm
+    template_name = 'admin/instances/live_migrate.html'
+    context_object_name = 'instance'
+    success_url = reverse_lazy("horizon:admin:instances:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(LiveMigrateView, self).get_context_data(**kwargs)
+        context["instance_id"] = self.kwargs['instance_id']
+        return context
+
+    def get_hosts(self, *args, **kwargs):
+        if not hasattr(self, "_hosts"):
+            try:
+                self._hosts = api.nova.hypervisor_list(self.request)
+            except Exception:
+                redirect = reverse("horizon:admin:instances:index")
+                msg = _('Unable to retrieve hypervisor information.')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self._hosts
+
+    def get_object(self, *args, **kwargs):
+        if not hasattr(self, "_object"):
+            instance_id = self.kwargs['instance_id']
+            try:
+                self._object = api.nova.server_get(self.request, instance_id)
+            except Exception:
+                redirect = reverse("horizon:admin:instances:index")
+                msg = _('Unable to retrieve instance details.')
+                exceptions.handle(self.request, msg, redirect=redirect)
+        return self._object
+
+    def get_initial(self):
+        initial = super(LiveMigrateView, self).get_initial()
+        _object = self.get_object()
+        if _object:
+            current_host = getattr(_object, 'OS-EXT-SRV-ATTR:host', '')
+            initial.update({'instance_id': self.kwargs['instance_id'],
+                            'current_host': current_host,
+                            'hosts': self.get_hosts()})
+        return initial

@@ -37,4 +37,6 @@ urlpatterns = patterns('openstack_dashboard.dashboards.admin.instances.views',
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),
+    url(INSTANCES % 'live_migrate', views.LiveMigrateView.as_view(),
+        name='live_migrate'),
 )
