@@ -26,6 +26,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import tables as horizon_tables
 from horizon import tabs as horizon_tabs
+from horizon.utils import memoized
 from horizon import workflows as horizon_workflows
 
 from openstack_dashboard import api
@@ -44,17 +45,18 @@ class IndexView(horizon_tables.DataTableView):
     def has_more_data(self, table):
         return self._more
 
+    @memoized.memoized_method
+    def get_flavors(self):
+        try:
+            flavors = api.trove.flavor_list(self.request)
+        except Exception:
+            flavors = []
+            msg = _('Unable to retrieve database size information.')
+            exceptions.handle(self.request, msg)
+        return SortedDict((unicode(flavor.id), flavor) for flavor in flavors)
+
     def _extra_data(self, instance):
-        if not hasattr(self, '_flavors'):
-            try:
-                flavors = api.trove.flavor_list(self.request)
-            except Exception:
-                flavors = []
-                msg = _('Unable to retrieve database size information.')
-                exceptions.handle(self.request, msg)
-            self._flavors = SortedDict([(unicode(flavor.id), flavor)
-                                       for flavor in flavors])
-        flavor = self._flavors.get(instance.flavor["id"])
+        flavor = self.get_flavors().get(instance.flavor["id"])
         if flavor is not None:
             instance.full_flavor = flavor
         return instance
@@ -95,25 +97,24 @@ class DetailView(horizon_tabs.TabbedTableView):
         context["instance"] = self.get_data()
         return context
 
+    @memoized.memoized_method
     def get_data(self):
-        if not hasattr(self, "_instance"):
-            try:
-                LOG.info("Obtaining instance for detailed view ")
-                instance_id = self.kwargs['instance_id']
-                instance = api.trove.instance_get(self.request, instance_id)
-            except Exception:
-                redirect = reverse('horizon:project:databases:index')
-                msg = _('Unable to retrieve details '
-                        'for database instance: %s') % instance_id
-                exceptions.handle(self.request, msg, redirect=redirect)
-            try:
-                instance.full_flavor = api.trove.flavor_get(
-                    self.request, instance.flavor["id"])
-            except Exception:
-                LOG.error('Unable to retrieve flavor details'
-                          ' for database instance: %s') % instance_id
-            self._instance = instance
-        return self._instance
+        try:
+            LOG.info("Obtaining instance for detailed view ")
+            instance_id = self.kwargs['instance_id']
+            instance = api.trove.instance_get(self.request, instance_id)
+        except Exception:
+            redirect = reverse('horizon:project:databases:index')
+            msg = _('Unable to retrieve details '
+                    'for database instance: %s') % instance_id
+            exceptions.handle(self.request, msg, redirect=redirect)
+        try:
+            instance.full_flavor = api.trove.flavor_get(
+                self.request, instance.flavor["id"])
+        except Exception:
+            LOG.error('Unable to retrieve flavor details'
+                      ' for database instance: %s') % instance_id
+        return instance
 
     def get_tabs(self, request, *args, **kwargs):
         instance = self.get_data()

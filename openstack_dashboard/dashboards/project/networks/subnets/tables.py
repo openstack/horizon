@@ -22,6 +22,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -87,18 +88,17 @@ class SubnetsTable(tables.DataTable):
     gateway_ip = tables.Column("gateway_ip", verbose_name=_("Gateway IP"))
     failure_url = reverse_lazy('horizon:project:networks:index')
 
+    @memoized.memoized_method
     def _get_network(self):
-        if not hasattr(self, "_network"):
-            try:
-                network_id = self.kwargs['network_id']
-                network = api.neutron.network_get(self.request, network_id)
-                network.set_id_as_name_if_empty(length=0)
-            except Exception:
-                msg = _('Unable to retrieve details for network "%s".') \
-                    % (network_id)
-                exceptions.handle(self.request, msg, redirect=self.failure_url)
-            self._network = network
-        return self._network
+        try:
+            network_id = self.kwargs['network_id']
+            network = api.neutron.network_get(self.request, network_id)
+            network.set_id_as_name_if_empty(length=0)
+        except Exception:
+            msg = _('Unable to retrieve details for network "%s".') \
+                % (network_id)
+            exceptions.handle(self.request, msg, redirect=self.failure_url)
+        return network
 
     class Meta:
         name = "subnets"

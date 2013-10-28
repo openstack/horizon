@@ -21,6 +21,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import views as user_views
@@ -39,18 +40,17 @@ class IndexView(tables.DataTableView):
     table_class = networks_tables.NetworksTable
     template_name = 'admin/networks/index.html'
 
+    @memoized.memoized_method
     def _get_tenant_list(self):
-        if not hasattr(self, "_tenants"):
-            try:
-                tenants, has_more = api.keystone.tenant_list(self.request)
-            except Exception:
-                tenants = []
-                msg = _('Unable to retrieve instance project information.')
-                exceptions.handle(self.request, msg)
+        try:
+            tenants, has_more = api.keystone.tenant_list(self.request)
+        except Exception:
+            tenants = []
+            msg = _('Unable to retrieve instance project information.')
+            exceptions.handle(self.request, msg)
 
-            tenant_dict = SortedDict([(t.id, t) for t in tenants])
-            self._tenants = tenant_dict
-        return self._tenants
+        tenant_dict = SortedDict([(t.id, t) for t in tenants])
+        return tenant_dict
 
     def get_data(self):
         try:
@@ -107,20 +107,19 @@ class DetailView(tables.MultiTableView):
             p.set_id_as_name_if_empty()
         return ports
 
+    @memoized.memoized_method
     def _get_data(self):
-        if not hasattr(self, "_network"):
-            try:
-                network_id = self.kwargs['network_id']
-                network = api.neutron.network_get(self.request, network_id)
-                network.set_id_as_name_if_empty(length=0)
-            except Exception:
-                redirect = self.failure_url
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve details for '
-                                    'network "%s".') % network_id,
-                                    redirect=redirect)
-            self._network = network
-        return self._network
+        try:
+            network_id = self.kwargs['network_id']
+            network = api.neutron.network_get(self.request, network_id)
+            network.set_id_as_name_if_empty(length=0)
+        except Exception:
+            redirect = self.failure_url
+            exceptions.handle(self.request,
+                              _('Unable to retrieve details for '
+                                'network "%s".') % network_id,
+                                redirect=redirect)
+        return network
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

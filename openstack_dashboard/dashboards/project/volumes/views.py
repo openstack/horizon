@@ -27,6 +27,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
@@ -97,21 +98,20 @@ class DetailView(tabs.TabView):
         context["volume"] = self.get_data()
         return context
 
+    @memoized.memoized_method
     def get_data(self):
-        if not hasattr(self, "_volume"):
-            try:
-                volume_id = self.kwargs['volume_id']
-                self._volume = cinder.volume_get(self.request, volume_id)
-                for att in self._volume.attachments:
-                    att['instance'] = api.nova.server_get(self.request,
-                                                          att['server_id'])
-            except Exception:
-                redirect = reverse('horizon:project:volumes:index')
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve volume details.'),
-                                  redirect=redirect)
-
-        return self._volume
+        try:
+            volume_id = self.kwargs['volume_id']
+            volume = cinder.volume_get(self.request, volume_id)
+            for att in volume.attachments:
+                att['instance'] = api.nova.server_get(self.request,
+                                                      att['server_id'])
+        except Exception:
+            redirect = reverse('horizon:project:volumes:index')
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume details.'),
+                              redirect=redirect)
+        return volume
 
     def get_tabs(self, request, *args, **kwargs):
         volume = self.get_data()
@@ -156,16 +156,15 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     template_name = 'project/volumes/attach.html'
     success_url = reverse_lazy("horizon:project:volumes:index")
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            volume_id = self.kwargs['volume_id']
-            try:
-                self._object = cinder.volume_get(self.request, volume_id)
-            except Exception:
-                self._object = None
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve volume information.'))
-        return self._object
+        volume_id = self.kwargs['volume_id']
+        try:
+            return cinder.volume_get(self.request, volume_id)
+        except Exception:
+            self._object = None
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume information.'))
 
     def get_data(self):
         try:
@@ -187,11 +186,10 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
         return {'volume': self.get_object(),
                 'instances': instances}
 
+    @memoized.memoized_method
     def get_form(self):
-        if not hasattr(self, "_form"):
-            form_class = self.get_form_class()
-            self._form = super(EditAttachmentsView, self).get_form(form_class)
-        return self._form
+        form_class = self.get_form_class()
+        return super(EditAttachmentsView, self).get_form(form_class)
 
     def get_context_data(self, **kwargs):
         context = super(EditAttachmentsView, self).get_context_data(**kwargs)

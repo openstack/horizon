@@ -27,6 +27,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.routers\
     import forms as project_forms
@@ -90,31 +91,29 @@ class DetailView(tabs.TabbedTableView):
     template_name = 'project/routers/detail.html'
     failure_url = reverse_lazy('horizon:project:routers:index')
 
+    @memoized.memoized_method
     def _get_data(self):
-        if not hasattr(self, "_router"):
+        try:
+            router_id = self.kwargs['router_id']
+            router = api.neutron.router_get(self.request, router_id)
+            router.set_id_as_name_if_empty(length=0)
+        except Exception:
+            msg = _('Unable to retrieve details for router "%s".') \
+                % (router_id)
+            exceptions.handle(self.request, msg, redirect=self.failure_url)
+        if router.external_gateway_info:
+            ext_net_id = router.external_gateway_info['network_id']
             try:
-                router_id = self.kwargs['router_id']
-                router = api.neutron.router_get(self.request, router_id)
-                router.set_id_as_name_if_empty(length=0)
+                ext_net = api.neutron.network_get(self.request, ext_net_id,
+                                                  expand_subnet=False)
+                ext_net.set_id_as_name_if_empty(length=0)
+                router.external_gateway_info['network'] = ext_net.name
             except Exception:
-                msg = _('Unable to retrieve details for router "%s".') \
-                    % (router_id)
-                exceptions.handle(self.request, msg, redirect=self.failure_url)
-            if router.external_gateway_info:
-                ext_net_id = router.external_gateway_info['network_id']
-                try:
-                    ext_net = api.neutron.network_get(self.request, ext_net_id,
-                                                      expand_subnet=False)
-                    ext_net.set_id_as_name_if_empty(length=0)
-                    router.external_gateway_info['network'] = ext_net.name
-                except Exception:
-                    msg = _('Unable to retrieve an external network "%s".') \
-                        % (ext_net_id)
-                    exceptions.handle(self.request, msg)
-                    router.external_gateway_info['network'] = ext_net_id
-
-            self._router = router
-        return self._router
+                msg = _('Unable to retrieve an external network "%s".') \
+                    % (ext_net_id)
+                exceptions.handle(self.request, msg)
+                router.external_gateway_info['network'] = ext_net_id
+        return router
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

@@ -32,6 +32,7 @@ from django.views import generic
 from horizon import browsers
 from horizon import exceptions
 from horizon import forms
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
@@ -265,19 +266,18 @@ class CopyView(forms.ModalFormView):
 class ContainerDetailView(forms.ModalFormMixin, generic.TemplateView):
     template_name = 'project/containers/container_detail.html'
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                self._object = api.swift.swift_get_container(
-                    self.request,
-                    self.kwargs["container_name"],
-                    with_data=False)
-            except Exception:
-                redirect = reverse("horizon:project:containers:index")
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve details.'),
-                                  redirect=redirect)
-        return self._object
+        try:
+            return api.swift.swift_get_container(
+                self.request,
+                self.kwargs["container_name"],
+                with_data=False)
+        except Exception:
+            redirect = reverse("horizon:project:containers:index")
+            exceptions.handle(self.request,
+                              _('Unable to retrieve details.'),
+                              redirect=redirect)
 
     def get_context_data(self, **kwargs):
         context = super(ContainerDetailView, self).get_context_data(**kwargs)
@@ -288,20 +288,19 @@ class ContainerDetailView(forms.ModalFormMixin, generic.TemplateView):
 class ObjectDetailView(forms.ModalFormMixin, generic.TemplateView):
     template_name = 'project/containers/object_detail.html'
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                self._object = api.swift.swift_get_object(
-                    self.request,
-                    self.kwargs["container_name"],
-                    self.kwargs["object_path"],
-                    with_data=False)
-            except Exception:
-                redirect = reverse("horizon:project:containers:index")
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve details.'),
-                                  redirect=redirect)
-        return self._object
+        try:
+            return api.swift.swift_get_object(
+                self.request,
+                self.kwargs["container_name"],
+                self.kwargs["object_path"],
+                with_data=False)
+        except Exception:
+            redirect = reverse("horizon:project:containers:index")
+            exceptions.handle(self.request,
+                              _('Unable to retrieve details.'),
+                              redirect=redirect)
 
     def get_context_data(self, **kwargs):
         context = super(ObjectDetailView, self).get_context_data(**kwargs)

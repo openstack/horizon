@@ -98,5 +98,9 @@ def memoized(func):
                 UnhashableKeyWarning, 2)
             value = func(*args, **kwargs)
         return value
-
     return wrapped
+
+# We can use @memoized for methods now too, because it uses weakref and so
+# it doesn't keep the instances in memory forever. We might want to separate
+# them in the future, however.
+memoized_method = memoized

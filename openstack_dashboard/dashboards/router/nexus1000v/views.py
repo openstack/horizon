@@ -25,6 +25,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -119,18 +120,18 @@ class UpdateNetworkProfileView(forms.ModalFormView):
         context["profile_id"] = self.kwargs['profile_id']
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            profile_id = self.kwargs['profile_id']
-            try:
-                self._object = api.neutron.profile_get(self.request,
-                                                       profile_id)
-                LOG.debug("Network Profile object=%s", self._object)
-            except Exception:
-                redirect = self.success_url
-                msg = _('Unable to retrieve network profile details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        profile_id = self.kwargs['profile_id']
+        try:
+            profile = api.neutron.profile_get(self.request,
+                                                   profile_id)
+            LOG.debug("Network Profile object=%s", profile)
+            return profile
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve network profile details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         profile = self._get_object()

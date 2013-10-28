@@ -23,6 +23,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -75,17 +76,15 @@ class UpdateView(forms.ModalFormView):
         context["network_id"] = self.kwargs['network_id']
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            network_id = self.kwargs['network_id']
-            try:
-                self._object = api.neutron.network_get(self.request,
-                                                       network_id)
-            except Exception:
-                redirect = self.success_url
-                msg = _('Unable to retrieve network details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        network_id = self.kwargs['network_id']
+        try:
+            return api.neutron.network_get(self.request, network_id)
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve network details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         network = self._get_object()
@@ -125,18 +124,17 @@ class DetailView(tables.MultiTableView):
             p.set_id_as_name_if_empty()
         return ports
 
+    @memoized.memoized_method
     def _get_data(self):
-        if not hasattr(self, "_network"):
-            try:
-                network_id = self.kwargs['network_id']
-                network = api.neutron.network_get(self.request, network_id)
-                network.set_id_as_name_if_empty(length=0)
-            except Exception:
-                msg = _('Unable to retrieve details for network "%s".') \
-                    % (network_id)
-                exceptions.handle(self.request, msg, redirect=self.failure_url)
-            self._network = network
-        return self._network
+        try:
+            network_id = self.kwargs['network_id']
+            network = api.neutron.network_get(self.request, network_id)
+            network.set_id_as_name_if_empty(length=0)
+        except Exception:
+            msg = _('Unable to retrieve details for network "%s".') \
+                % (network_id)
+            exceptions.handle(self.request, msg, redirect=self.failure_url)
+        return network
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

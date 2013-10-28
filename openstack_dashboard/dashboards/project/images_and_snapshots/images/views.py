@@ -28,6 +28,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tabs
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -49,16 +50,14 @@ class UpdateView(forms.ModalFormView):
     template_name = 'project/images_and_snapshots/images/update.html'
     success_url = reverse_lazy("horizon:project:images_and_snapshots:index")
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                self._object = api.glance.image_get(self.request,
-                                                    self.kwargs['image_id'])
-            except Exception:
-                msg = _('Unable to retrieve image.')
-                url = reverse('horizon:project:images_and_snapshots:index')
-                exceptions.handle(self.request, msg, redirect=url)
-        return self._object
+        try:
+            return api.glance.image_get(self.request, self.kwargs['image_id'])
+        except Exception:
+            msg = _('Unable to retrieve image.')
+            url = reverse('horizon:project:images_and_snapshots:index')
+            exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
@@ -88,18 +87,15 @@ class DetailView(tabs.TabView):
         context["image"] = self.get_data()
         return context
 
+    @memoized.memoized_method
     def get_data(self):
-        if not hasattr(self, "_image"):
-            try:
-                image_id = self.kwargs['image_id']
-                self._image = api.glance.image_get(self.request, image_id)
-            except Exception:
-                url = reverse('horizon:project:images_and_snapshots:index')
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve image details.'),
-                                  redirect=url)
-
-        return self._image
+        try:
+            return api.glance.image_get(self.request, self.kwargs['image_id'])
+        except Exception:
+            url = reverse('horizon:project:images_and_snapshots:index')
+            exceptions.handle(self.request,
+                              _('Unable to retrieve image details.'),
+                              redirect=url)
 
     def get_tabs(self, request, *args, **kwargs):
         image = self.get_data()

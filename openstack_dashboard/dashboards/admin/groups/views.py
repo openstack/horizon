@@ -21,6 +21,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -58,17 +59,16 @@ class UpdateView(forms.ModalFormView):
     template_name = constants.GROUPS_UPDATE_VIEW_TEMPLATE
     success_url = reverse_lazy(constants.GROUPS_INDEX_URL)
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                self._object = api.keystone.group_get(self.request,
-                                                      self.kwargs['group_id'])
-            except Exception:
-                redirect = reverse(constants.GROUPS_INDEX_URL)
-                exceptions.handle(self.request,
-                                  _('Unable to update group.'),
-                                  redirect=redirect)
-        return self._object
+        try:
+            return api.keystone.group_get(self.request,
+                self.kwargs['group_id'])
+        except Exception:
+            redirect = reverse(constants.GROUPS_INDEX_URL)
+            exceptions.handle(self.request,
+                              _('Unable to update group.'),
+                              redirect=redirect)
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
@@ -83,29 +83,24 @@ class UpdateView(forms.ModalFormView):
 
 
 class GroupManageMixin(object):
+    @memoized.memoized_method
     def _get_group(self):
-        if not hasattr(self, "_group"):
-            group_id = self.kwargs['group_id']
-            self._group = api.keystone.group_get(self.request, group_id)
-        return self._group
+        group_id = self.kwargs['group_id']
+        return api.keystone.group_get(self.request, group_id)
 
+    @memoized.memoized_method
     def _get_group_members(self):
-        if not hasattr(self, "_group_members"):
-            group_id = self.kwargs['group_id']
-            self._group_members = api.keystone.user_list(self.request,
-                                                         group=group_id)
-        return self._group_members
+        group_id = self.kwargs['group_id']
+        return api.keystone.user_list(self.request, group=group_id)
 
+    @memoized.memoized_method
     def _get_group_non_members(self):
-        if not hasattr(self, "_group_non_members"):
-            domain_id = self._get_group().domain_id
-            all_users = api.keystone.user_list(self.request,
-                                               domain=domain_id)
-            group_members = self._get_group_members()
-            group_member_ids = [user.id for user in group_members]
-            self._group_non_members = filter(
-                lambda u: u.id not in group_member_ids, all_users)
-        return self._group_non_members
+        domain_id = self._get_group().domain_id
+        all_users = api.keystone.user_list(self.request,
+                                           domain=domain_id)
+        group_members = self._get_group_members()
+        group_member_ids = [user.id for user in group_members]
+        return filter(lambda u: u.id not in group_member_ids, all_users)
 
 
 class ManageMembersView(GroupManageMixin, tables.DataTableView):
