@@ -2,7 +2,7 @@
 {% load url from future %}
 
 <div class='sidebar'>
-  <h1 class="brand clearfix"><a href="{% url 'horizon:user_home' %}">{% site_branding %}</a></h1>
+  <h1 class="brand clearfix"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
 
   {% horizon_main_nav %}
 
