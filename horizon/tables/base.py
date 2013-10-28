@@ -63,7 +63,8 @@ class Column(html.HTMLElement):
 
         The name for this column which should be used for display purposes.
         Defaults to the value of ``transform`` with the first letter
-        of each word capitalized.
+        of each word capitalized if the ``transform`` is not callable,
+        otherwise it defaults to an empty string (``""``).
 
     .. attribute:: sortable
 
@@ -216,20 +217,22 @@ class Column(html.HTMLElement):
 
         if callable(transform):
             self.transform = transform
-            self.name = transform.__name__
+            self.name = "<%s callable>" % transform.__name__
         else:
             self.transform = unicode(transform)
             self.name = self.transform
 
         # Empty string is a valid value for verbose_name
         if verbose_name is None:
-            verbose_name = self.transform.title()
+            if callable(transform):
+                self.verbose_name = ''
+            else:
+                self.verbose_name = self.transform.title()
         else:
-            verbose_name = verbose_name
+            self.verbose_name = verbose_name
 
         self.auto = auto
         self.sortable = sortable
-        self.verbose_name = verbose_name
         self.link = link
         self.allowed_data_types = allowed_data_types
         self.hidden = hidden
