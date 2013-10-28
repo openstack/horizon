@@ -349,7 +349,8 @@ function run_tests_all {
 }
 
 function run_makemessages {
-  OPTS="-l en --extension html,txt,csv --no-obsolete"
+  OPTS="-l en --no-obsolete"
+  DASHBOARD_OPTS="--extension=html,txt,csv --ignore=openstack/common/*"
   echo -n "horizon: "
   cd horizon
   ${command_wrapper} $root/manage.py makemessages $OPTS
@@ -359,7 +360,7 @@ function run_makemessages {
   HORIZON_JS_RESULT=$?
   echo -n "openstack_dashboard: "
   cd ../openstack_dashboard
-  ${command_wrapper} $root/manage.py makemessages --ignore=openstack/common/* $OPTS
+  ${command_wrapper} $root/manage.py makemessages $DASHBOARD_OPTS $OPTS
   DASHBOARD_RESULT=$?
   cd ..
   exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT))
