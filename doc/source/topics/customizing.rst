@@ -198,7 +198,7 @@ partial template, which is included in Horizon's base template in ``block js``.
 To add custom javascript files, create an ``_scripts.html`` partial template in
 your dashboard ``openstack_dashboard/dashboards/my_custom_dashboard/
 templates/my_custom_dashboard/_scripts.html`` which extends
-``horizon/_scripts.html.``. In this template override the
+``horizon/_scripts.html``. In this template override the
 ``block custom_js_files`` including your custom javascript files::
 
     {% extends 'horizon/_scripts.html' %}
