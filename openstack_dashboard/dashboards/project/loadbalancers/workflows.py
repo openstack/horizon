@@ -565,10 +565,10 @@ class AddPMAssociationStep(workflows.Step):
 
 class AddPMAssociation(workflows.Workflow):
     slug = "addassociation"
-    name = _("Add Association")
-    finalize_button_name = _("Add")
-    success_message = _('Added association.')
-    failure_message = _('Unable to add association.')
+    name = _("Associate Monitor")
+    finalize_button_name = _("Associate")
+    success_message = _('Associated monitor.')
+    failure_message = _('Unable to associate monitor.')
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddPMAssociationStep,)
 
@@ -578,8 +578,8 @@ class AddPMAssociation(workflows.Workflow):
                 request, **context)
             return True
         except Exception:
-            exceptions.handle(request, _("Unable to add association."))
-        return False
+            exceptions.handle(request, _("Unable to associate monitor."))
+            return False
 
 
 class DeletePMAssociationAction(workflows.Action):
@@ -624,10 +624,10 @@ class DeletePMAssociationStep(workflows.Step):
 
 class DeletePMAssociation(workflows.Workflow):
     slug = "deleteassociation"
-    name = _("Delete Association")
-    finalize_button_name = _("Delete")
-    success_message = _('Deleted association.')
-    failure_message = _('Unable to delete association.')
+    name = _("Disassociate Monitor")
+    finalize_button_name = _("Disassociate")
+    success_message = _('Disassociated monitor.')
+    failure_message = _('Unable to disassociate monitor.')
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (DeletePMAssociationStep,)
 
@@ -637,5 +637,5 @@ class DeletePMAssociation(workflows.Workflow):
                 request, **context)
             return True
         except Exception:
-            exceptions.handle(request, _("Unable to delete association."))
+            exceptions.handle(request, _("Unable to disassociate monitor."))
         return False

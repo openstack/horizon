@@ -156,7 +156,7 @@ def get_vip_link(pool):
 
 class AddPMAssociationLink(tables.LinkAction):
     name = "addassociation"
-    verbose_name = _("Add Health Monitor")
+    verbose_name = _("Associate Monitor")
     url = "horizon:project:loadbalancers:addassociation"
     classes = ("ajax-modal", "btn-create",)
 
@@ -174,7 +174,7 @@ class AddPMAssociationLink(tables.LinkAction):
 
 class DeletePMAssociationLink(tables.LinkAction):
     name = "deleteassociation"
-    verbose_name = _("Delete Health Monitor")
+    verbose_name = _("Disassociate Monitor")
     url = "horizon:project:loadbalancers:deleteassociation"
     classes = ("ajax-modal", "btn-delete", "btn-danger")
 
