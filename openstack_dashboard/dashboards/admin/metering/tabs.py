@@ -159,6 +159,15 @@ class GlobalStatsTab(tabs.Tab):
     template_name = ("admin/metering/stats.html")
     preload = False
 
+    @staticmethod
+    def _get_flavor_names(request):
+        try:
+            flavors = api.nova.flavor_list(request, None)
+            return [f.name for f in flavors]
+        except Exception:
+            return ['m1.tiny', 'm1.small', 'm1.medium',
+                    'm1.large', 'm1.xlarge']
+
     def get_context_data(self, request):
         query = [{"field": "metadata.OS-EXT-AZ:availability_zone",
                   "op": "eq",
@@ -180,8 +189,6 @@ class GlobalStatsTab(tabs.Tab):
             meters = []
 
         meter_titles = {"instance": _("Duration of instance"),
-                        "instance:<type>": _("Duration of instance <type>"
-                            " (openstack types)"),
                         "memory": _("Volume of RAM in MB"),
                         "cpu": _("CPU time used"),
                         "cpu_util": _("Average CPU utilisation"),
@@ -201,6 +208,12 @@ class GlobalStatsTab(tabs.Tab):
                             "packets for a VM interface"),
                         "network.outgoing.packets": _("Number of outgoing "
                             "packets for a VM interface")}
+
+        for flavor in self._get_flavor_names(request):
+            name = 'instance:%s' % flavor
+            hint = (_('Duration of instance type %s (openstack flavor)') %
+                    flavor)
+            meter_titles[name] = hint
 
         class MetersWrap(object):
             """ A quick wrapper for meter and associated titles. """

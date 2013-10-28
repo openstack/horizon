@@ -18,6 +18,7 @@ from django import http  # noqa
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.admin.metering import tabs
 from openstack_dashboard.test import helpers as test
 
 INDEX_URL = reverse("horizon:admin:metering:index")
@@ -338,3 +339,50 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
                           'fake_resource_id2']
         self._verify_series(res._container[0], 4.55, '2012-12-21T11:00:55',
                             expected_names)
+
+
+class MeteringStatsTabTests(test.APITestCase):
+
+    @test.create_stubs({api.nova: ('flavor_list',),
+                        })
+    def test_stats_hover_hints(self):
+
+        class Struct(object):
+            def __init__(self, d):
+                self.__dict__.update(d)
+
+        def _get_link(meter):
+            link = ('http://localhost:8777/v2/meters/%s?'
+                    'q.field=resource_id&q.value=fake_resource_id')
+            return dict(href=link % meter, rel=meter)
+
+        resources = [
+            Struct(dict(resource_id='fake_resource_id',
+                        project_id='fake_project_id',
+                        user_id='fake_user_id',
+                        timestamp='2013-10-22T12:42:37',
+                        metadata=dict(ramdisk_id='fake_image_id'),
+                        links=[_get_link('instance:m1.massive'),
+                               _get_link('instance'),
+                               _get_link('cpu')])),
+        ]
+        request = self.mox.CreateMock(http.HttpRequest)
+        api.nova.flavor_list(request, None).AndReturn(self.flavors.list())
+
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.resources = self.mox.CreateMockAnything()
+        ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources)
+
+        self.mox.ReplayAll()
+
+        tab = tabs.GlobalStatsTab(None)
+        context_data = tab.get_context_data(request)
+
+        self.assertTrue('meters' in context_data)
+        meter_hints = {}
+        for d in context_data['meters']:
+            meter_hints[d.name] = d.title
+
+        for meter in ['instance:m1.massive', 'instance', 'cpu']:
+            self.assertTrue(meter in meter_hints)
+            self.assertNotEqual(meter_hints[meter], '')
