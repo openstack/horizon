@@ -63,14 +63,16 @@ class LoadBalancerTests(test.TestCase):
         vip2 = self.vips.list()[1]
 
         api.lbaas.pools_get(
-            IsA(http.HttpRequest)).AndReturn(self.pools.list())
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
 
         api.lbaas.vip_get(IsA(http.HttpRequest), vip1.id).AndReturn(vip1)
         api.lbaas.vip_get(IsA(http.HttpRequest), vip2.id).AndReturn(vip2)
 
         # retrieves members
         api.lbaas.members_get(
-            IsA(http.HttpRequest)).AndReturn(self.members.list())
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.members.list())
 
         pool1 = self.pools.first()
         pool2 = self.pools.list()[1]
@@ -82,16 +84,19 @@ class LoadBalancerTests(test.TestCase):
 
         # retrieves monitors
         api.lbaas.pool_health_monitors_get(
-            IsA(http.HttpRequest)).MultipleTimes() \
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).MultipleTimes() \
                 .AndReturn(self.monitors.list())
 
     def set_up_expect_with_exception(self):
         api.lbaas.pools_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndRaise(self.exceptions.neutron)
         api.lbaas.members_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndRaise(self.exceptions.neutron)
         api.lbaas.pool_health_monitors_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndRaise(self.exceptions.neutron)
 
     @test.create_stubs({api.lbaas: ('pools_get', 'vip_get',
                                     'members_get', 'pool_get',
@@ -205,7 +210,7 @@ class LoadBalancerTests(test.TestCase):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'service-type').AndReturn(True)
         api.neutron.network_list_for_tenant(
-            IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
         api.neutron.provider_list(IsA(http.HttpRequest)) \
             .AndReturn(self.providers.list())
 
@@ -260,7 +265,7 @@ class LoadBalancerTests(test.TestCase):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'service-type').AndReturn(with_service_type)
         api.neutron.network_list_for_tenant(
-            IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
         if with_service_type:
             prov_list = api.neutron.provider_list(IsA(http.HttpRequest))
             if with_provider_exception:
@@ -502,7 +507,8 @@ class LoadBalancerTests(test.TestCase):
         port1 = self.AttributeDict(
             {'fixed_ips': [{'ip_address': member.address}]})
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.pools_get(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
 
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn(
             [[server1, server2], False])
@@ -548,7 +554,8 @@ class LoadBalancerTests(test.TestCase):
                                       '12381d38-c3eb-4fee-9763-12de3338043e',
                                       'name': 'vm2'})
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.pools_get(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
 
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn([[server1,
                                                                 server2],
@@ -578,7 +585,8 @@ class LoadBalancerTests(test.TestCase):
                                       '12381d38-c3eb-4fee-9763-12de3338043e',
                                       'name': 'vm2'})
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.pools_get(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
         api.nova.server_list(
             IsA(http.HttpRequest)).AndReturn([[server1, server2], False])
 
@@ -635,7 +643,8 @@ class LoadBalancerTests(test.TestCase):
     def test_update_vip_post(self):
         vip = self.vips.first()
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.pools_get(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
         api.lbaas.vip_get(IsA(http.HttpRequest), vip.id).AndReturn(vip)
 
         data = {'name': vip.name,
@@ -663,7 +672,8 @@ class LoadBalancerTests(test.TestCase):
     def test_update_vip_get(self):
         vip = self.vips.first()
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.pools_get(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
         api.lbaas.vip_get(IsA(http.HttpRequest), vip.id).AndReturn(vip)
 
         self.mox.ReplayAll()
@@ -677,7 +687,8 @@ class LoadBalancerTests(test.TestCase):
     def test_update_member_post(self):
         member = self.members.first()
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.pools_get(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
         api.lbaas.member_get(IsA(http.HttpRequest), member.id)\
             .AndReturn(member)
 
@@ -703,7 +714,8 @@ class LoadBalancerTests(test.TestCase):
     def test_update_member_get(self):
         member = self.members.first()
 
-        api.lbaas.pools_get(IsA(http.HttpRequest)).AndReturn(self.pools.list())
+        api.lbaas.pools_get(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.pools.list())
         api.lbaas.member_get(IsA(http.HttpRequest), member.id)\
             .AndReturn(member)
 
@@ -765,7 +777,8 @@ class LoadBalancerTests(test.TestCase):
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
         api.lbaas.pool_health_monitors_get(
-            IsA(http.HttpRequest)).AndReturn(monitors)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(monitors)
 
         api.lbaas.pool_monitor_association_create(
             IsA(http.HttpRequest),
@@ -794,7 +807,8 @@ class LoadBalancerTests(test.TestCase):
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
         api.lbaas.pool_health_monitors_get(
-            IsA(http.HttpRequest)).AndReturn(monitors)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(monitors)
 
         self.mox.ReplayAll()
 
