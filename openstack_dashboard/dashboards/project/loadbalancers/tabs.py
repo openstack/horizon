@@ -33,7 +33,9 @@ class PoolsTab(tabs.TableTab):
 
     def get_poolstable_data(self):
         try:
-            pools = api.lbaas.pools_get(self.tab_group.request)
+            tenant_id = self.request.user.tenant_id
+            pools = api.lbaas.pools_get(self.tab_group.request,
+                                        tenant_id=tenant_id)
             poolsFormatted = [p.readable(self.tab_group.request) for
                               p in pools]
         except Exception:
@@ -51,7 +53,9 @@ class MembersTab(tabs.TableTab):
 
     def get_memberstable_data(self):
         try:
-            members = api.lbaas.members_get(self.tab_group.request)
+            tenant_id = self.request.user.tenant_id
+            members = api.lbaas.members_get(self.tab_group.request,
+                                            tenant_id=tenant_id)
             membersFormatted = [m.readable(self.tab_group.request) for
                                 m in members]
         except Exception:
@@ -69,8 +73,9 @@ class MonitorsTab(tabs.TableTab):
 
     def get_monitorstable_data(self):
         try:
+            tenant_id = self.request.user.tenant_id
             monitors = api.lbaas.pool_health_monitors_get(
-                self.tab_group.request)
+                self.tab_group.request, tenant_id=tenant_id)
         except Exception:
             monitors = []
             exceptions.handle(self.tab_group.request,

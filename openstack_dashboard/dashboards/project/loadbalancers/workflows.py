@@ -307,7 +307,8 @@ class AddMemberAction(workflows.Action):
 
         pool_id_choices = [('', _("Select a Pool"))]
         try:
-            pools = api.lbaas.pools_get(request)
+            tenant_id = self.request.user.tenant_id
+            pools = api.lbaas.pools_get(request, tenant_id=tenant_id)
         except Exception:
             pools = []
             exceptions.handle(request,
@@ -535,7 +536,9 @@ class AddPMAssociationAction(workflows.Action):
 
         monitor_id_choices = [('', _("Select a Monitor"))]
         try:
-            monitors = api.lbaas.pool_health_monitors_get(request)
+            tenant_id = self.request.user.tenant_id
+            monitors = api.lbaas.pool_health_monitors_get(request,
+                                                          tenant_id=tenant_id)
             for m in monitors:
                 if m.id not in context['pool_monitors']:
                     monitor_id_choices.append((m.id, m.id))
