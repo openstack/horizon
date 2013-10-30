@@ -228,11 +228,10 @@ by neutron.  Currently only the load balancer service is available.
 ``OPENSTACK_ENDPOINT_TYPE``
 ---------------------------
 
-Default: ``"internalURL"``
+Default: ``"publicURL"``
 
 A string which specifies the endpoint type to use for the endpoints in the
-Keystone service catalog. If Horizon is running external to the OpenStack
-environment you may wish to use ``"publicURL"`` instead.
+Keystone service catalog. The default value for all services except for identity is ``"publicURL"`` . The default value for the identity service is ``"internalURL"``.
 
 ``API_RESULT_LIMIT``
 --------------------
