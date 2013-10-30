@@ -132,6 +132,13 @@ The "advanced" floating IP management allows users to select the floating IP
 pool from which the IP should be allocated and to select a specific IP address
 when associating one with an instance.
 
+.. note::
+
+    Currently "simple" floating IP address management is not compatible with
+    Neutron. There are two reasons for this. First, Neutron does not support
+    the default floating IP pool at the moment. Second, a Neutron floating IP
+    can be associated with each VIF and we need to check whether there is only
+    one VIF for an instance to enable simple association support.
 
 OpenStack Settings (Partial)
 ============================
