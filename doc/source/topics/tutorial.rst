@@ -479,6 +479,7 @@ The most basic thing to do is to add your own custom dashboard using the
     }
 
 Please note, the dashboards also must be added to settings.py::
+
     INSTALLED_APPS = (
         'openstack_dashboard',
         ...
