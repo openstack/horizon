@@ -217,7 +217,8 @@ class SetInstanceDetailsAction(workflows.Action):
         """By default, returns the available flavors, sorted by RAM
         usage (ascending).
         Override these behaviours with a CREATE_INSTANCE_FLAVOR_SORT dict
-        in local_settings.py."""
+        in local_settings.py.
+        """
         try:
             flavors = api.nova.flavor_list(request)
             flavor_sort = getattr(settings, 'CREATE_INSTANCE_FLAVOR_SORT', {})

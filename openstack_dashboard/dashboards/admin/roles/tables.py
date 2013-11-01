@@ -57,7 +57,7 @@ class DeleteRolesAction(tables.DeleteAction):
 
 class RoleFilterAction(tables.FilterAction):
     def filter(self, table, roles, filter_string):
-        """ Naive case-insensitive search """
+        """Naive case-insensitive search."""
         q = filter_string.lower()
         return [role for role in roles
                 if q in role.name.lower()]

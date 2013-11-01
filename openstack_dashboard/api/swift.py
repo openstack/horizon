@@ -75,7 +75,7 @@ class PseudoFolder(base.APIDictWrapper):
 
 
 def _objectify(items, container_name):
-    """ Splits a listing of objects into their appropriate wrapper classes. """
+    """Splits a listing of objects into their appropriate wrapper classes."""
     objects = []
 
     # Deal with objects and object pseudo-folders first, save subdirs for later

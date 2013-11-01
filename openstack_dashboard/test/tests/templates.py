@@ -25,7 +25,7 @@ class FakeUser(object):
 
 
 class TemplateRenderTest(test.TestCase):
-    """ Tests for templates render """
+    """Tests for templates render."""
 
     def test_openrc_html_escape(self):
         context = {

@@ -60,7 +60,7 @@ QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS + NEUTRON_QUOTA_FIELDS
 
 
 class QuotaUsage(dict):
-    """ Tracks quota limit, used, and available for a given set of quotas."""
+    """Tracks quota limit, used, and available for a given set of quotas."""
 
     def __init__(self):
         self.usages = defaultdict(dict)
@@ -77,7 +77,7 @@ class QuotaUsage(dict):
         return repr(dict(self.usages))
 
     def add_quota(self, quota):
-        """ Adds an internal tracking reference for the given quota. """
+        """Adds an internal tracking reference for the given quota."""
         if quota.limit is None or quota.limit == -1:
             # Handle "unlimited" quotas.
             self.usages[quota.name]['quota'] = float("inf")
@@ -86,7 +86,7 @@ class QuotaUsage(dict):
             self.usages[quota.name]['quota'] = int(quota.limit)
 
     def tally(self, name, value):
-        """ Adds to the "used" metric for the given quota. """
+        """Adds to the "used" metric for the given quota."""
         value = value or 0  # Protection against None.
         # Start at 0 if this is the first value.
         if 'used' not in self.usages[name]:
@@ -96,7 +96,7 @@ class QuotaUsage(dict):
         self.update_available(name)
 
     def update_available(self, name):
-        """ Updates the "available" metric for the given quota. """
+        """Updates the "available" metric for the given quota."""
         available = self.usages[name]['quota'] - self.usages[name]['used']
         if available < 0:
             available = 0

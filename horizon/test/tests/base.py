@@ -102,12 +102,11 @@ class BaseHorizonTests(test.TestCase):
                 dash.register(panel)
 
     def _reload_urls(self):
-        '''
-        Clears out the URL caches, reloads the root urls module, and
+        """Clears out the URL caches, reloads the root urls module, and
         re-triggers the autodiscovery mechanism for Horizon. Allows URLs
         to be re-calculated after registering new dashboards. Useful
         only for testing and should never be used on a live site.
-        '''
+        """
         urlresolvers.clear_url_caches()
         reload(import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
@@ -116,7 +115,7 @@ class BaseHorizonTests(test.TestCase):
 class HorizonTests(BaseHorizonTests):
 
     def test_registry(self):
-        """ Verify registration and autodiscovery work correctly.
+        """Verify registration and autodiscovery work correctly.
 
         Please note that this implicitly tests that autodiscovery works
         by virtue of the fact that the dashboards listed in
@@ -210,12 +209,12 @@ class HorizonTests(BaseHorizonTests):
         reversed(urlpatterns)
 
     def test_horizon_test_isolation_1(self):
-        """ Isolation Test Part 1: sets a value. """
+        """Isolation Test Part 1: sets a value."""
         cats = horizon.get_dashboard("cats")
         cats.evil = True
 
     def test_horizon_test_isolation_2(self):
-        """ Isolation Test Part 2: The value set in part 1 should be gone. """
+        """Isolation Test Part 2: The value set in part 1 should be gone."""
         cats = horizon.get_dashboard("cats")
         self.assertFalse(hasattr(cats, "evil"))
 
@@ -299,7 +298,7 @@ class HorizonTests(BaseHorizonTests):
 
 class CustomPanelTests(BaseHorizonTests):
 
-    """ Test customization of dashboards and panels
+    """Test customization of dashboards and panels
     using 'customization_module' to HORIZON_CONFIG.
     """
 
@@ -334,7 +333,7 @@ class CustomPanelTests(BaseHorizonTests):
 
 class CustomPermissionsTests(BaseHorizonTests):
 
-    """ Test customization of permissions on panels
+    """Test customization of permissions on panels
     using 'customization_module' to HORIZON_CONFIG.
     """
 

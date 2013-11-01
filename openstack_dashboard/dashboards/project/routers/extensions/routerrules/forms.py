@@ -31,8 +31,7 @@ LOG = logging.getLogger(__name__)
 
 
 class RuleCIDRField(fields.IPField):
-    """
-    Extends IPField to allow ('any','external') keywords and requires CIDR
+    """Extends IPField to allow ('any','external') keywords and requires CIDR
     """
     def __init__(self, *args, **kwargs):
         kwargs['mask'] = True

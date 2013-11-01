@@ -34,7 +34,7 @@ LOG = logging.getLogger(__name__)
 
 
 class APIVersionManager(object):
-    """ Object to store and manage API versioning data and utility methods. """
+    """Object to store and manage API versioning data and utility methods."""
 
     SETTINGS_KEY = "OPENSTACK_API_VERSIONS"
 
@@ -67,10 +67,10 @@ class APIVersionManager(object):
 
 
 class APIResourceWrapper(object):
-    """ Simple wrapper for api objects
+    """Simple wrapper for api objects.
 
-        Define _attrs on the child class and pass in the
-        api object as the only argument to the constructor
+    Define _attrs on the child class and pass in the
+    api object as the only argument to the constructor
     """
     _attrs = []
 
@@ -97,14 +97,14 @@ class APIResourceWrapper(object):
 
 
 class APIDictWrapper(object):
-    """ Simple wrapper for api dictionaries
+    """Simple wrapper for api dictionaries
 
-        Some api calls return dictionaries.  This class provides identical
-        behavior as APIResourceWrapper, except that it will also behave as a
-        dictionary, in addition to attribute accesses.
+    Some api calls return dictionaries.  This class provides identical
+    behavior as APIResourceWrapper, except that it will also behave as a
+    dictionary, in addition to attribute accesses.
 
-        Attribute access is the preferred method of access, to be
-        consistent with api resource objects from novaclient.
+    Attribute access is the preferred method of access, to be
+    consistent with api resource objects from novaclient.
     """
     def __init__(self, apidict):
         self._apidict = apidict
@@ -146,8 +146,7 @@ class Quota(object):
 
 
 class QuotaSet(Sequence):
-    """
-    Wrapper for client QuotaSet objects which turns the individual quotas
+    """Wrapper for client QuotaSet objects which turns the individual quotas
     into Quota objects for easier handling/iteration.
 
     `QuotaSet` objects support a mix of `list` and `dict` methods; you can use
@@ -177,8 +176,9 @@ class QuotaSet(Sequence):
         return self.items[index]
 
     def __add__(self, other):
-        '''Merge another QuotaSet into this one. Existing quotas are
-        not overriden.'''
+        """Merge another QuotaSet into this one. Existing quotas are
+        not overriden.
+        """
         if not isinstance(other, QuotaSet):
             msg = "Can only add QuotaSet to QuotaSet, " \
                   "but received %s instead" % type(other)

@@ -61,7 +61,7 @@ class ContainerView(browsers.ResourceBrowserView):
 
     @cached_property
     def objects(self):
-        """ Returns a list of objects given the subfolder's path.
+        """Returns a list of objects given the subfolder's path.
 
         The path is from the kwargs of the request.
         """
@@ -93,13 +93,13 @@ class ContainerView(browsers.ResourceBrowserView):
         return getattr(item, "content_type", None) == content_type
 
     def get_objects_data(self):
-        """ Returns a list of objects within the current folder. """
+        """Returns a list of objects within the current folder."""
         filtered_objects = [item for item in self.objects
                             if not self.is_subdir(item)]
         return filtered_objects
 
     def get_subfolders_data(self):
-        """ Returns a list of subfolders within the current folder. """
+        """Returns a list of subfolders within the current folder."""
         filtered_objects = [item for item in self.objects
                             if self.is_subdir(item)]
         return filtered_objects

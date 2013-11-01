@@ -62,7 +62,7 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
 
 
 class Agent(NeutronAPIDictWrapper):
-    """Wrapper for neutron agents"""
+    """Wrapper for neutron agents."""
 
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
@@ -71,7 +71,7 @@ class Agent(NeutronAPIDictWrapper):
 
 
 class Network(NeutronAPIDictWrapper):
-    """Wrapper for neutron Networks"""
+    """Wrapper for neutron Networks."""
 
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
@@ -84,7 +84,7 @@ class Network(NeutronAPIDictWrapper):
 
 
 class Subnet(NeutronAPIDictWrapper):
-    """Wrapper for neutron subnets"""
+    """Wrapper for neutron subnets."""
 
     def __init__(self, apiresource):
         apiresource['ipver_str'] = get_ipver_str(apiresource['ip_version'])
@@ -92,7 +92,7 @@ class Subnet(NeutronAPIDictWrapper):
 
 
 class Port(NeutronAPIDictWrapper):
-    """Wrapper for neutron ports"""
+    """Wrapper for neutron ports."""
 
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
@@ -110,7 +110,7 @@ class Profile(NeutronAPIDictWrapper):
 
 
 class Router(NeutronAPIDictWrapper):
-    """Wrapper for neutron routers"""
+    """Wrapper for neutron routers."""
 
     def __init__(self, apiresource):
         #apiresource['admin_state'] = \
@@ -412,7 +412,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
 
 def get_ipver_str(ip_version):
-    """Convert an ip version number to a human-friendly string"""
+    """Convert an ip version number to a human-friendly string."""
     return IP_VERSION_DICT.get(ip_version, '')
 
 
@@ -476,8 +476,7 @@ def network_get(request, network_id, expand_subnet=True, **params):
 
 
 def network_create(request, **kwargs):
-    """
-    Create a subnet on a specified network.
+    """Create a subnet on a specified network.
     :param request: request context
     :param tenant_id: (optional) tenant id of the network created
     :param name: (optional) name of the network created
@@ -519,8 +518,7 @@ def subnet_get(request, subnet_id, **params):
 
 
 def subnet_create(request, network_id, cidr, ip_version, **kwargs):
-    """
-    Create a subnet on a specified network.
+    """Create a subnet on a specified network.
     :param request: request context
     :param network_id: network id a subnet is created on
     :param cidr: subnet IP address range
@@ -567,8 +565,7 @@ def port_get(request, port_id, **params):
 
 
 def port_create(request, network_id, **kwargs):
-    """
-    Create a port on a specified network.
+    """Create a port on a specified network.
     :param request: request context
     :param network_id: network id a subnet is created on
     :param device_id: (optional) device id attached to the port

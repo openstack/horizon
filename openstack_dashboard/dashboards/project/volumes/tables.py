@@ -132,8 +132,9 @@ def get_attachment_name(request, attachment):
 
 
 class AttachmentColumn(tables.Column):
-    """
-    Customized column class that does complex processing on the attachments
+    """Customized column class.
+
+    So it that does complex processing on the attachments
     for a volume instance.
     """
     def get_raw_data(self, volume):
@@ -184,7 +185,7 @@ class VolumesTableBase(tables.DataTable):
 class VolumesFilterAction(tables.FilterAction):
 
     def filter(self, table, volumes, filter_string):
-        """ Naive case-insensitive search. """
+        """Naive case-insensitive search."""
         q = filter_string.lower()
         return [volume for volume in volumes
                 if q in volume.display_name.lower()]
@@ -230,8 +231,7 @@ class DetachVolume(tables.BatchAction):
 
 
 class AttachedInstanceColumn(tables.Column):
-    """
-    Customized column class that does complex processing on the attachments
+    """Customized column class that does complex processing on the attachments
     for a volume instance.
     """
     def get_raw_data(self, attachment):

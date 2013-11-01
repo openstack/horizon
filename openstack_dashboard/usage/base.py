@@ -275,8 +275,7 @@ class ProjectUsage(BaseUsage):
 
 class CsvDataMixin(object):
 
-    """
-    CSV data Mixin - provides handling for CSV data
+    """CSV data Mixin - provides handling for CSV data.
 
     .. attribute:: columns
 
@@ -318,10 +317,7 @@ class CsvDataMixin(object):
 
 class BaseCsvResponse(CsvDataMixin, HttpResponse):
 
-    """
-    Base CSV response class. Provides handling of CSV data.
-
-    """
+    """Base CSV response class. Provides handling of CSV data."""
 
     def __init__(self, request, template, context, content_type, **kwargs):
         super(BaseCsvResponse, self).__init__()
@@ -358,8 +354,7 @@ if VERSION >= (1, 5, 0):
 
     class BaseCsvStreamingResponse(CsvDataMixin, StreamingHttpResponse):
 
-        """
-        Base CSV Streaming class. Provides streaming response for CSV data.
+        """Base CSV Streaming class. Provides streaming response for CSV data.
         """
 
         def __init__(self, request, template, context, content_type, **kwargs):

@@ -60,7 +60,7 @@ class AdminUpdateRow(project_tables.UpdateRow):
 
 class AdminInstanceFilterAction(tables.FilterAction):
     def filter(self, table, instances, filter_string):
-        """ Naive case-insensitive search. """
+        """Naive case-insensitive search."""
         q = filter_string.lower()
         return [instance for instance in instances
                 if q in instance.name.lower()]

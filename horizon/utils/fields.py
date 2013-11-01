@@ -27,8 +27,7 @@ IPv6 = 2
 
 
 class IPField(forms.Field):
-    """
-    Form field for entering IP/range values, with validation.
+    """Form field for entering IP/range values, with validation.
     Supports IPv4/IPv6 in the format:
     .. xxx.xxx.xxx.xxx
     .. xxx.xxx.xxx.xxx/zz
@@ -102,9 +101,7 @@ class IPField(forms.Field):
 
 
 class MultiIPField(IPField):
-    """
-    Extends IPField to allow comma-separated lists of addresses
-    """
+    """Extends IPField to allow comma-separated lists of addresses."""
     def validate(self, value):
         self.addresses = []
         if value:
@@ -121,8 +118,7 @@ class MultiIPField(IPField):
 
 
 class SelectWidget(widgets.Select):
-    """
-    Customizable select widget, that allows to render
+    """Customizable select widget, that allows to render
     data-xxx attributes from choices.
 
     .. attribute:: data_attrs

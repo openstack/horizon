@@ -53,8 +53,7 @@ def load_test_data(load_onto=None):
 
 
 class TestData(object):
-    """
-    Holder object for test data. Any functions passed to the init method
+    """Holder object for test data. Any functions passed to the init method
     will be called with the ``TestData`` object as their only argument. They
     can then load data onto the object as desired.
 
@@ -79,7 +78,7 @@ class TestData(object):
 
 
 class TestDataContainer(object):
-    """ A container for test data objects.
+    """A container for test data objects.
 
     The behavior of this class is meant to mimic a "manager" class, which
     has convenient shortcuts for common actions like "list", "filter", "get",
@@ -89,7 +88,7 @@ class TestDataContainer(object):
         self._objects = []
 
     def add(self, *args):
-        """ Add a new object to this container.
+        """Add a new object to this container.
 
         Generally this method should only be used during data loading, since
         adding data during a test can affect the results of other tests.
@@ -99,12 +98,11 @@ class TestDataContainer(object):
                 self._objects.append(obj)
 
     def list(self):
-        """ Returns a list of all objects in this container. """
+        """Returns a list of all objects in this container."""
         return self._objects
 
     def filter(self, filtered=None, **kwargs):
-        """
-        Returns objects in this container whose attributes match the given
+        """Returns objects in this container whose attributes match the given
         keyword arguments.
         """
         if filtered is None:
@@ -121,8 +119,7 @@ class TestDataContainer(object):
         return self.filter(filtered=filter(get_match, filtered), **kwargs)
 
     def get(self, **kwargs):
-        """
-        Returns the single object in this container whose attributes match
+        """Returns the single object in this container whose attributes match
         the given keyword arguments. An error will be raised if the arguments
         provided don't return exactly one match.
         """
@@ -135,7 +132,7 @@ class TestDataContainer(object):
             return matches.pop()
 
     def first(self):
-        """ Returns the first object from this container. """
+        """Returns the first object from this container."""
         return self._objects[0]
 
     def count(self):

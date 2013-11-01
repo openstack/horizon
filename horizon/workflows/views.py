@@ -27,8 +27,7 @@ from horizon import messages
 
 
 class WorkflowView(generic.TemplateView):
-    """
-    A generic class-based view which handles the intricacies of workflow
+    """A generic class-based view which handles the intricacies of workflow
     processing with minimal user configuration.
 
     .. attribute:: workflow_class
@@ -65,14 +64,13 @@ class WorkflowView(generic.TemplateView):
                                  "on %s." % self.__class__.__name__)
 
     def get_initial(self):
-        """
-        Returns initial data for the workflow. Defaults to using the GET
+        """Returns initial data for the workflow. Defaults to using the GET
         parameters to allow pre-seeding of the workflow context values.
         """
         return copy.copy(self.request.GET)
 
     def get_workflow(self):
-        """ Returns the instanciated workflow class. """
+        """Returns the instanciated workflow class."""
         extra_context = self.get_initial()
         entry_point = self.request.GET.get("step", None)
         workflow = self.workflow_class(self.request,
@@ -81,8 +79,7 @@ class WorkflowView(generic.TemplateView):
         return workflow
 
     def get_context_data(self, **kwargs):
-        """
-        Returns the template context, including the workflow class.
+        """Returns the template context, including the workflow class.
 
         This method should be overridden in subclasses to provide additional
         context data to the template.
@@ -99,7 +96,7 @@ class WorkflowView(generic.TemplateView):
         return context
 
     def get_template_names(self):
-        """ Returns the template name to use for this request. """
+        """Returns the template name to use for this request."""
         if self.request.is_ajax():
             template = self.ajax_template_name
         else:
@@ -122,13 +119,13 @@ class WorkflowView(generic.TemplateView):
             workflow.add_error_to_step(error_msg, step)
 
     def get(self, request, *args, **kwargs):
-        """ Handler for HTTP GET requests. """
+        """Handler for HTTP GET requests."""
         context = self.get_context_data(**kwargs)
         self.set_workflow_step_errors(context)
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
-        """ Handler for HTTP POST requests. """
+        """Handler for HTTP POST requests."""
         context = self.get_context_data(**kwargs)
         workflow = context[self.context_object_name]
         if workflow.is_valid():

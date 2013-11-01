@@ -22,7 +22,7 @@ from horizon.templatetags.horizon import has_permissions  # noqa
 
 
 class MultiTableMixin(object):
-    """ A generic mixin which provides methods for handling DataTables. """
+    """A generic mixin which provides methods for handling DataTables."""
     data_method_pattern = "get_%s_data"
 
     def __init__(self, *args, **kwargs):
@@ -123,8 +123,7 @@ class MultiTableMixin(object):
 
 
 class MultiTableView(MultiTableMixin, generic.TemplateView):
-    """
-    A class-based generic view to handle the display and processing of
+    """A class-based generic view to handle the display and processing of
     multiple :class:`~horizon.tables.DataTable` classes in a single view.
 
     Three steps are required to use this view: set the ``table_classes``
@@ -164,7 +163,7 @@ class MultiTableView(MultiTableMixin, generic.TemplateView):
 
 
 class DataTableView(MultiTableView):
-    """ A class-based generic view to handle basic DataTable processing.
+    """A class-based generic view to handle basic DataTable processing.
 
     Three steps are required to use this view: set the ``table_class``
     attribute with the desired :class:`~horizon.tables.DataTable` class;
@@ -211,7 +210,7 @@ class DataTableView(MultiTableView):
 
 
 class MixedDataTableView(DataTableView):
-    """ A class-based generic view to handle DataTable with mixed data
+    """A class-based generic view to handle DataTable with mixed data
     types.
 
     Basic usage is the same as DataTableView.

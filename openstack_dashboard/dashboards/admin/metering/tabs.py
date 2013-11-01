@@ -84,7 +84,7 @@ class GlobalDiskUsageTab(tabs.TableTab):
     preload = False
 
     def get_global_disk_usage_data(self):
-        """ Disk usage table data aggregated by project """
+        """Disk usage table data aggregated by project."""
         request = self.tab_group.request
         return list_of_resource_aggregates(request,
             ceilometer.GlobalDiskUsage.meters)
@@ -214,7 +214,7 @@ class GlobalStatsTab(tabs.Tab):
             meter_titles[name] = hint
 
         class MetersWrap(object):
-            """ A quick wrapper for meter and associated titles. """
+            """A quick wrapper for meter and associated titles."""
             def __init__(self, meter, meter_titles):
                 self.name = meter
                 self.title = meter_titles.get(meter, "")

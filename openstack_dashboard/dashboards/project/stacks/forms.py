@@ -29,9 +29,7 @@ LOG = logging.getLogger(__name__)
 
 
 def exception_to_validation_msg(e):
-    '''
-    Extracts a validation message to display to the user.
-    '''
+    """Extracts a validation message to display to the user."""
     try:
         error = json.loads(str(e))
         # NOTE(jianingy): if no message exists, we just return 'None'

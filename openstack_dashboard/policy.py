@@ -60,7 +60,8 @@ def reset():
 
 
 def check(actions, request, target={}):
-    """
+    """Check user permission.
+
     Check if the user has permission to the action according
     to policy setting.
 

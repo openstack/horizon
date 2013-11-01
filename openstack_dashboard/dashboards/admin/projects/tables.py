@@ -109,7 +109,7 @@ class DeleteTenantsAction(tables.DeleteAction):
 
 class TenantFilterAction(tables.FilterAction):
     def filter(self, table, tenants, filter_string):
-        """ Really naive case-insensitive search. """
+        """Really naive case-insensitive search."""
         # FIXME(gabriel): This should be smarter. Written for demo purposes.
         q = filter_string.lower()
 

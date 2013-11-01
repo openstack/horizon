@@ -36,15 +36,14 @@ LOG = logging.getLogger(__name__)
 
 
 class HorizonReporterFilter(SafeExceptionReporterFilter):
-    """ Error report filter that's always active, even in DEBUG mode. """
+    """Error report filter that's always active, even in DEBUG mode."""
     def is_active(self, request):
         return True
 
     # TODO(gabriel): This bugfix is cribbed from Django's code. When 1.4.1
     # is available we can remove this code.
     def get_traceback_frame_variables(self, request, tb_frame):
-        """
-        Replaces the values of variables marked as sensitive with
+        """Replaces the values of variables marked as sensitive with
         stars (*********).
         """
         # Loop through the frame's callers to see if the sensitive_variables
@@ -93,13 +92,12 @@ class HorizonReporterFilter(SafeExceptionReporterFilter):
 
 
 class HorizonException(Exception):
-    """ Base exception class for distinguishing our own exception classes. """
+    """Base exception class for distinguishing our own exception classes."""
     pass
 
 
 class Http302(HorizonException):
-    """
-    Error class which can be raised from within a handler to cause an
+    """Error class which can be raised from within a handler to cause an
     early bailout and redirect at the middleware level.
     """
     status_code = 302
@@ -110,8 +108,7 @@ class Http302(HorizonException):
 
 
 class NotAuthorized(HorizonException):
-    """
-    Raised whenever a user attempts to access a resource which they do not
+    """Raised whenever a user attempts to access a resource which they do not
     have permission-based access to (such as when failing the
     :func:`~horizon.decorators.require_perms` decorator).
 
@@ -123,8 +120,8 @@ class NotAuthorized(HorizonException):
 
 
 class NotAuthenticated(HorizonException):
-    """
-    Raised when a user is trying to make requests and they are not logged in.
+    """Raised when a user is trying to make requests and they are not logged
+    in.
 
     The included :class:`~horizon.middleware.HorizonMiddleware` catches
     ``NotAuthenticated`` and handles it gracefully by displaying an error
@@ -134,19 +131,18 @@ class NotAuthenticated(HorizonException):
 
 
 class NotFound(HorizonException):
-    """ Generic error to replace all "Not Found"-type API errors. """
+    """Generic error to replace all "Not Found"-type API errors."""
     status_code = 404
 
 
 class RecoverableError(HorizonException):
-    """ Generic error to replace any "Recoverable"-type API errors. """
+    """Generic error to replace any "Recoverable"-type API errors."""
     status_code = 100  # HTTP status code "Continue"
 
 
 class ServiceCatalogException(HorizonException):
-    """
-    Raised when a requested service is not available in the ``ServiceCatalog``
-    returned by Keystone.
+    """Raised when a requested service is not available in the
+    ``ServiceCatalog`` returned by Keystone.
     """
     def __init__(self, service_name):
         message = 'Invalid service catalog service: %s' % service_name
@@ -154,8 +150,7 @@ class ServiceCatalogException(HorizonException):
 
 
 class AlreadyExists(HorizonException):
-    """
-    Exception to be raised when trying to create an API resource which
+    """Exception to be raised when trying to create an API resource which
     already exists.
     """
     def __init__(self, name, resource_type):
@@ -173,21 +168,19 @@ class AlreadyExists(HorizonException):
 
 
 class WorkflowError(HorizonException):
-    """ Exception to be raised when something goes wrong in a workflow. """
+    """Exception to be raised when something goes wrong in a workflow."""
     pass
 
 
 class WorkflowValidationError(HorizonException):
-    """
-    Exception raised during workflow validation if required data is missing,
+    """Exception raised during workflow validation if required data is missing,
     or existing data is not valid.
     """
     pass
 
 
 class HandledException(HorizonException):
-    """
-    Used internally to track exceptions that have gone through
+    """Used internally to track exceptions that have gone through
     :func:`horizon.exceptions.handle` more than once.
     """
     def __init__(self, wrapped):
@@ -205,8 +198,7 @@ def error_color(msg):
 
 
 def check_message(keywords, message):
-    """
-    Checks an exception for given keywords and raises a new ``ActionError``
+    """Checks an exception for given keywords and raises a new ``ActionError``
     with the desired message if the keywords are found. This allows selective
     control over API error messages.
     """
@@ -218,7 +210,7 @@ def check_message(keywords, message):
 
 def handle(request, message=None, redirect=None, ignore=False,
            escalate=False, log_level=None, force_log=None):
-    """ Centralized error handling for Horizon.
+    """Centralized error handling for Horizon.
 
     Because Horizon consumes so many different APIs with completely
     different ``Exception`` types, it's necessary to have a centralized

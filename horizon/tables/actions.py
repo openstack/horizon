@@ -39,7 +39,7 @@ STRING_SEPARATOR = "__"
 
 
 class BaseAction(html.HTMLElement):
-    """ Common base class for all ``Action`` classes. """
+    """Common base class for all ``Action`` classes."""
     table = None
     handles_multiple = False
     requires_input = False
@@ -51,8 +51,8 @@ class BaseAction(html.HTMLElement):
         self.datum = datum
 
     def data_type_matched(self, datum):
-        """ Method to see if the action is allowed for a certain type of data.
-            Only affects mixed data type tables.
+        """Method to see if the action is allowed for a certain type of data.
+        Only affects mixed data type tables.
         """
         if datum:
             action_data_types = getattr(self, "allowed_data_types", [])
@@ -66,7 +66,7 @@ class BaseAction(html.HTMLElement):
         return True
 
     def get_policy_target(self, request, datum):
-        """ Provide the target for a policy request.
+        """Provide the target for a policy request.
 
         This method is meant to be overridden to return target details when
         one of the policy checks requires them.  E.g., {"user_id": datum.id}
@@ -74,7 +74,7 @@ class BaseAction(html.HTMLElement):
         return {}
 
     def allowed(self, request, datum):
-        """ Determine whether this action is allowed for the current request.
+        """Determine whether this action is allowed for the current request.
 
         This method is meant to be overridden with more specific checks.
         """
@@ -90,7 +90,7 @@ class BaseAction(html.HTMLElement):
         return self.allowed(request, datum)
 
     def update(self, request, datum):
-        """ Allows per-action customization based on current conditions.
+        """Allows per-action customization based on current conditions.
 
         This is particularly useful when you wish to create a "toggle"
         action that will be rendered differently based on the value of an
@@ -101,16 +101,14 @@ class BaseAction(html.HTMLElement):
         pass
 
     def get_default_classes(self):
-        """
-        Returns a list of the default classes for the action. Defaults to
+        """Returns a list of the default classes for the action. Defaults to
         ``["btn", "btn-small"]``.
         """
         return getattr(settings, "ACTION_CSS_CLASSES", ACTION_CSS_CLASSES)
 
     def get_default_attrs(self):
-        """
-        Returns a list of the default HTML attributes for the action. Defaults
-        to returning an ``id`` attribute with the value
+        """Returns a list of the default HTML attributes for the action.
+        Defaults to returning an ``id`` attribute with the value
         ``{{ table.name }}__action_{{ action.name }}__{{ creation counter }}``.
         """
         if self.datum is not None:
@@ -126,7 +124,7 @@ class BaseAction(html.HTMLElement):
 
 
 class Action(BaseAction):
-    """ Represents an action which can be taken on this table's data.
+    """Represents an action which can be taken on this table's data.
 
     .. attribute:: name
 
@@ -265,7 +263,7 @@ class Action(BaseAction):
             self.multiple = new.instancemethod(multiple, self)
 
     def get_param_name(self):
-        """ Returns the full POST parameter name for this action.
+        """Returns the full POST parameter name for this action.
 
         Defaults to
         ``{{ table.name }}__{{ action.name }}``.
@@ -274,7 +272,7 @@ class Action(BaseAction):
 
 
 class LinkAction(BaseAction):
-    """ A table action which is simply a link rather than a form POST.
+    """A table action which is simply a link rather than a form POST.
 
     .. attribute:: name
 
@@ -319,7 +317,7 @@ class LinkAction(BaseAction):
             self.attrs.update(attrs)
 
     def get_link_url(self, datum=None):
-        """ Returns the final URL based on the value of ``url``.
+        """Returns the final URL based on the value of ``url``.
 
         If ``url`` is callable it will call the function.
         If not, it will then try to call ``reverse`` on ``url``.
@@ -346,7 +344,7 @@ class LinkAction(BaseAction):
 
 
 class FilterAction(BaseAction):
-    """ A base class representing a filter action for a table.
+    """A base class representing a filter action for a table.
 
     .. attribute:: name
 
@@ -389,7 +387,7 @@ class FilterAction(BaseAction):
         self.param_name = param_name or 'q'
 
     def get_param_name(self):
-        """ Returns the full query parameter name for this action.
+        """Returns the full query parameter name for this action.
 
         Defaults to
         ``{{ table.name }}__{{ action.name }}__{{ action.param_name }}``.
@@ -424,7 +422,7 @@ class FilterAction(BaseAction):
         return filtered_data
 
     def filter(self, table, data, filter_string):
-        """ Provides the actual filtering logic.
+        """Provides the actual filtering logic.
 
         This method must be overridden by subclasses and return
         the filtered data.
@@ -434,8 +432,7 @@ class FilterAction(BaseAction):
 
 
 class FixedFilterAction(FilterAction):
-    """ A filter action with fixed buttons.
-    """
+    """A filter action with fixed buttons."""
     filter_type = 'fixed'
     needs_preloading = True
 
@@ -480,9 +477,9 @@ class FixedFilterAction(FilterAction):
 
 
 class BatchAction(Action):
-    """ A table action which takes batch action on one or more
-        objects. This action should not require user input on a
-        per-object basis.
+    """A table action which takes batch action on one or more
+    objects. This action should not require user input on a
+    per-object basis.
 
     .. attribute:: name
 
@@ -543,8 +540,7 @@ class BatchAction(Action):
         return super(BatchAction, self)._allowed(request, datum)
 
     def _conjugate(self, items=None, past=False):
-        """
-        Builds combinations like 'Delete Object' and 'Deleted
+        """Builds combinations like 'Delete Object' and 'Deleted
         Objects' based on the number of items and `past` flag.
         """
         action_type = "past" if past else "present"
@@ -565,8 +561,8 @@ class BatchAction(Action):
         return msgstr % {'action': action, 'data_type': data_type}
 
     def action(self, request, datum_id):
-        """
-        Required. Accepts a single object id and performs the specific action.
+        """Required. Accepts a single object id and performs the specific
+        action.
 
         Return values are discarded, errors raised are caught and logged.
         """
@@ -574,17 +570,13 @@ class BatchAction(Action):
                                   'BatchAction: %s' % self.data_type_singular)
 
     def update(self, request, datum):
-        """
-        Switches the action verbose name, if needed
-        """
+        """Switches the action verbose name, if needed."""
         if getattr(self, 'action_present', False):
             self.verbose_name = self._conjugate()
             self.verbose_name_plural = self._conjugate('plural')
 
     def get_success_url(self, request=None):
-        """
-        Returns the URL to redirect to after a successful action.
-        """
+        """Returns the URL to redirect to after a successful action."""
         if self.success_url:
             return self.success_url
         return request.get_full_path()

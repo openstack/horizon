@@ -25,8 +25,7 @@ LOG = logging.getLogger(__name__)
 
 
 def is_iterable(var):
-    """ Return True if the given is list or tuple.
-    """
+    """Return True if the given is list or tuple."""
 
     return (isinstance(var, (list, tuple)) or
         issubclass(var.__class__, (list, tuple)))
@@ -34,7 +33,7 @@ def is_iterable(var):
 
 def make_query(user_id=None, tenant_id=None, resource_id=None,
         user_ids=None, tenant_ids=None, resource_ids=None):
-    """ Returns query built form given parameters.
+    """Returns query built form given parameters.
 
     This query can be then used for querying resources, meters and
     statistics.
@@ -71,15 +70,13 @@ def make_query(user_id=None, tenant_id=None, resource_id=None,
 
 
 class Meter(base.APIResourceWrapper):
-    """ Represents one Ceilometer meter.
-    """
+    """Represents one Ceilometer meter."""
     _attrs = ['name', 'type', 'unit', 'resource_id', 'user_id',
               'project_id']
 
 
 class Resource(base.APIResourceWrapper):
-    """ Represents one Ceilometer resource.
-    """
+    """Represents one Ceilometer resource."""
     _attrs = ['resource_id', 'source', 'user_id', 'project_id', 'metadata',
               'links']
 
@@ -140,7 +137,7 @@ class Resource(base.APIResourceWrapper):
 
 
 class ResourceAggregate(Resource):
-    """ Represents aggregate of more resources together.
+    """Represents aggregate of more resources together.
 
     Aggregate of resources can be obtain by specifing
     multiple ids in one parameter or by not specifying
@@ -194,8 +191,7 @@ class ResourceAggregate(Resource):
 
 
 class Sample(base.APIResourceWrapper):
-    """ Represents one Ceilometer sample.
-    """
+    """Represents one Ceilometer sample."""
 
     _attrs = ['counter_name', 'user_id', 'resource_id', 'timestamp',
               'resource_metadata', 'source', 'counter_unit', 'counter_volume',
@@ -215,8 +211,7 @@ class Sample(base.APIResourceWrapper):
 
 
 class Statistic(base.APIResourceWrapper):
-    """ Represents one Ceilometer statistic.
-    """
+    """Represents one Ceilometer statistic."""
 
     _attrs = ['period', 'period_start', 'period_end',
               'count', 'min', 'max', 'sum', 'avg',
@@ -224,11 +219,11 @@ class Statistic(base.APIResourceWrapper):
 
 
 class GlobalDiskUsage(base.APIResourceWrapper):
-    """ Represents collection of resources with statistic of defined meters.
+    """Represents collection of resources with statistic of defined meters.
 
-        Resources are filtered either by given default query or by
-        meters in python. It's preferred to use default_query as it is more
-        effective.
+    Resources are filtered either by given default query or by
+    meters in python. It's preferred to use default_query as it is more
+    effective.
     """
 
     _attrs = ["id", "tenant", "user", "resource", "disk_read_bytes",
@@ -247,11 +242,11 @@ class GlobalDiskUsage(base.APIResourceWrapper):
 
 
 class GlobalNetworkTrafficUsage(base.APIResourceWrapper):
-    """ Represents collection of resources with statistic of defined meters.
+    """Represents collection of resources with statistic of defined meters.
 
-        Resources are filtered either by given default query or by
-        meters in python. It's preferred to use default_query as it is more
-        effective.
+    Resources are filtered either by given default query or by
+    meters in python. It's preferred to use default_query as it is more
+    effective.
     """
 
     _attrs = ["id", "tenant", "user", "resource", "network_incoming_bytes",
@@ -270,11 +265,11 @@ class GlobalNetworkTrafficUsage(base.APIResourceWrapper):
 
 
 class GlobalNetworkUsage(base.APIResourceWrapper):
-    """ Represents collection of resources with statistic of defined meters.
+    """Represents collection of resources with statistic of defined meters.
 
-        Resources are filtered either by given default query or by
-        meters in python. It's preferred to use default_query as it is more
-        effective.
+    Resources are filtered either by given default query or by
+    meters in python. It's preferred to use default_query as it is more
+    effective.
     """
 
     _attrs = ["id", "tenant", "user", "resource", "network", "network_create",
@@ -294,11 +289,11 @@ class GlobalNetworkUsage(base.APIResourceWrapper):
 
 
 class GlobalObjectStoreUsage(base.APIResourceWrapper):
-    """ Represents collection of resources with statistic of defined meters.
+    """Represents collection of resources with statistic of defined meters.
 
-        Resources are filtered either by given default query or by
-        meters in python. It's preferred to use default_query as it is more
-        effective.
+    Resources are filtered either by given default query or by
+    meters in python. It's preferred to use default_query as it is more
+    effective.
     """
 
     _attrs = ["id", "tenant", "user", "resource", "storage_objects",
@@ -317,8 +312,7 @@ class GlobalObjectStoreUsage(base.APIResourceWrapper):
 
 
 def ceilometerclient(request):
-    """ Initialization of Ceilometer client.
-    """
+    """Initialization of Ceilometer client."""
 
     endpoint = base.url_for(request, 'metering')
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
@@ -359,8 +353,8 @@ def statistic_list(request, meter_name, query=None, period=None):
 
 
 class ThreadedUpdateResourceWithStatistics(threading.Thread):
-    """ Multithread wrapper for update_with_statistics method of
-        resource_usage.
+    """Multithread wrapper for update_with_statistics method of
+    resource_usage.
 
     A join logic is placed in process_list class method. All resources
     will have its statistics attribute filled in separate threads.
@@ -426,7 +420,7 @@ class ThreadedUpdateResourceWithStatistics(threading.Thread):
 
 
 class CeilometerUsage(object):
-    """ Represents wrapper of any Ceilometer queries.
+    """Represents wrapper of any Ceilometer queries.
 
     One instance of this class should be shared between resources
     as this class provides a place where users and tenants are
@@ -448,7 +442,7 @@ class CeilometerUsage(object):
         self._tenants = {}
 
     def get_user(self, user_id):
-        """ Returns user fetched form API
+        """Returns user fetched form API
 
         Caching the result, so it doesn't contact API twice with the
         same query
@@ -462,7 +456,7 @@ class CeilometerUsage(object):
         return user
 
     def preload_all_users(self):
-        """ Preloads all users into dictionary.
+        """Preloads all users into dictionary.
 
         It's more effective to preload all users, rather the fetching many
         users by separate API get calls.
@@ -475,7 +469,7 @@ class CeilometerUsage(object):
             self._users[u.id] = u
 
     def get_tenant(self, tenant_id):
-        """ Returns tenant fetched form API
+        """Returns tenant fetched form API.
 
         Caching the result, so it doesn't contact API twice with the
         same query
@@ -489,7 +483,7 @@ class CeilometerUsage(object):
         return tenant
 
     def preload_all_tenants(self):
-        """ Preloads all teannts into dictionary.
+        """Preloads all teannts into dictionary.
 
         It's more effective to preload all tenants, rather the fetching many
         tenants by separate API get calls.
@@ -504,7 +498,7 @@ class CeilometerUsage(object):
     def global_data_get(self, used_cls=None, query=None,
                         with_statistics=False, additional_query=None,
                         with_users_and_tenants=True):
-        """ Obtaining a resources for table view.
+        """Obtaining a resources for table view.
 
         It obtains resources with statistics data according to declaration
         in used_cls class.
@@ -534,10 +528,9 @@ class CeilometerUsage(object):
         filter_func = None
 
         def filter_resources(resource):
-            """ Method for filtering resources by theirs links.rel attr.
+            """Method for filtering resources by theirs links.rel attr.
 
-                The links.rel attributes contains all meters the resource
-                have.
+            The links.rel attributes contains all meters the resource have.
             """
             for link in resource.links:
                 if link['rel'] in used_cls.meters:
@@ -567,8 +560,7 @@ class CeilometerUsage(object):
 
     def global_disk_usage(self, query=None, with_statistics=False,
                           additional_query=None):
-        """  Wrapper for specific call of global_data_get.
-        """
+        """Wrapper for specific call of global_data_get."""
 
         return self.global_data_get(used_cls=GlobalDiskUsage,
                                     query=query,
@@ -577,7 +569,7 @@ class CeilometerUsage(object):
 
     def global_network_traffic_usage(self, query=None, with_statistics=False,
                                      additional_query=None):
-        """  Wrapper for specific call of global_data_get.
+        """Wrapper for specific call of global_data_get.
         """
 
         return self.global_data_get(used_cls=GlobalNetworkTrafficUsage,
@@ -587,7 +579,7 @@ class CeilometerUsage(object):
 
     def global_network_usage(self, query=None, with_statistics=False,
                              additional_query=None):
-        """  Wrapper for specific call of global_data_get.
+        """Wrapper for specific call of global_data_get.
         """
 
         return self.global_data_get(used_cls=GlobalNetworkUsage,
@@ -597,7 +589,7 @@ class CeilometerUsage(object):
 
     def global_object_store_usage(self, query=None, with_statistics=False,
                                   additional_query=None):
-        """  Wrapper for specific call of global_data_get.
+        """Wrapper for specific call of global_data_get.
         """
         # TODO(lsmola) This call uses all tenants now. When ajax pagination
         # is added, it needs to obtain only paginated tenants.
@@ -609,7 +601,7 @@ class CeilometerUsage(object):
                                     additional_query=additional_query)
 
     def query_from_object_id(self, object_id):
-        """ Obtaining a query from resource id.
+        """Obtaining a query from resource id.
 
         Query can be then used to identify a resource in resources or meters
         API calls. ID is being built in the Resource initializer, or returned
@@ -625,7 +617,7 @@ class CeilometerUsage(object):
 
     def update_with_statistics(self, resource, meter_names=None, period=None,
                                stats_attr=None, additional_query=None):
-        """ Adding statistical data into one Resource or ResourceAggregate.
+        """Adding statistical data into one Resource or ResourceAggregate.
 
         It adds each statistic of each meter_names into the resource
         attributes. Attribute name is the meter name with replaced '.' to '_'.
@@ -684,7 +676,7 @@ class CeilometerUsage(object):
 
     def resources(self, query=None, filter_func=None,
                   with_users_and_tenants=False):
-        """ Obtaining resources with the query or filter_func.
+        """Obtaining resources with the query or filter_func.
 
         Obtains resources and also fetch tenants and users associated
         with those resources if with_users_and_tenants flag is true.
@@ -712,7 +704,7 @@ class CeilometerUsage(object):
                                   period=None, filter_func=None,
                                   stats_attr=None, additional_query=None,
                                   with_users_and_tenants=False):
-        """ Obtaining resources with statistics data inside.
+        """Obtaining resources with statistics data inside.
 
         :Parameters:
           - `query`: Query for fetching the Ceilometer Resources.
@@ -745,7 +737,7 @@ class CeilometerUsage(object):
         return resources
 
     def resource_aggregates(self, queries=None):
-        """ Obtaining resource aggregates with queries.
+        """Obtaining resource aggregates with queries.
 
         Representing a resource aggregate by query is a most general way
         how to obtain a resource aggregates.
@@ -764,7 +756,7 @@ class CeilometerUsage(object):
     def resource_aggregates_with_statistics(self, queries=None,
             meter_names=None, period=None, filter_func=None, stats_attr=None,
             additional_query=None):
-        """ Obtaining resource aggregates with statistics data inside.
+        """Obtaining resource aggregates with statistics data inside.
 
         :Parameters:
           - `queries`: Dictionary of named queries that defines a bulk of
