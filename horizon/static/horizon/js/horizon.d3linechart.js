@@ -121,7 +121,7 @@ horizon.d3_line_chart = {
     }
 
     self.data = []
-    self.color = d3.scale.category20();
+    self.color = d3.scale.category10();
 
     self.load_settings = function(settings) {
        // TODO (lsmola) make settings work
