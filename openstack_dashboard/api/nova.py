@@ -72,9 +72,9 @@ class Server(base.APIResourceWrapper):
     _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
              'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
-             'tenant_id', 'user_id', 'OS-EXT-STS:power_state',
+             'tenant_id', 'user_id', 'created', 'OS-EXT-STS:power_state',
              'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
-             'OS-EXT-SRV-ATTR:host', 'created']
+             'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -101,6 +101,10 @@ class Server(base.APIResourceWrapper):
     @property
     def internal_name(self):
         return getattr(self, 'OS-EXT-SRV-ATTR:instance_name', "")
+
+    @property
+    def availability_zone(self):
+        return getattr(self, 'OS-EXT-AZ:availability_zone', "")
 
 
 class NovaUsage(base.APIResourceWrapper):
