@@ -1788,8 +1788,7 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.network: ('floating_ip_target_get_by_instance',
                                       'tenant_floating_ip_list',
-                                      'floating_ip_disassociate',
-                                      'tenant_floating_ip_release'),
+                                      'floating_ip_disassociate',),
                         api.glance: ('image_list_detailed',),
                         api.nova: ('server_list',
                                    'flavor_list')})
@@ -1811,8 +1810,6 @@ class InstanceTests(test.TestCase):
             IsA(http.HttpRequest)).AndReturn([fip])
         api.network.floating_ip_disassociate(
             IsA(http.HttpRequest), fip.id, server.id)
-        api.network.tenant_floating_ip_release(
-            IsA(http.HttpRequest), fip.id)
 
         self.mox.ReplayAll()
 
