@@ -57,6 +57,7 @@ RECOVERABLE = (keystoneclient.ClientException,
                # AuthorizationFailure is raised when Keystone is "unavailable".
                keystoneclient.AuthorizationFailure,
                cinderclient.ClientException,
+               cinderclient.ConnectionError,
                novaclient.ClientException,
                glanceclient.ClientException,
                # NOTE(amotoki): Neutron exceptions other than the first one
