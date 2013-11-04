@@ -15,6 +15,7 @@
 #    under the License.
 
 from django.core.urlresolvers import reverse  # noqa
+from django.utils import html
 from django.utils.http import urlencode  # noqa
 from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -66,6 +67,7 @@ class SnapshotVolumeNameColumn(tables.Column):
         volume = snapshot._volume
         if volume:
             volume_name = volume.display_name or volume.id
+            volume_name = html.escape(volume_name)
         else:
             volume_name = _("Unknown")
         return safestring.mark_safe(volume_name)
