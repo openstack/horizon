@@ -17,7 +17,7 @@
 from django.core.urlresolvers import NoReverseMatch  # noqa
 from django.core.urlresolvers import reverse  # noqa
 from django.template.defaultfilters import title  # noqa
-from django.utils.html import strip_tags  # noqa
+from django.utils import html
 from django.utils import safestring
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
@@ -125,7 +125,7 @@ def get_attachment_name(request, attachment):
                                          "attachment information."))
     try:
         url = reverse("horizon:project:instances:detail", args=(server_id,))
-        instance = '<a href="%s">%s</a>' % (url, name)
+        instance = '<a href="%s">%s</a>' % (url, html.escape(name))
     except NoReverseMatch:
         instance = name
     return instance
@@ -146,7 +146,7 @@ class AttachmentColumn(tables.Column):
             # without the server name...
             instance = get_attachment_name(request, attachment)
             vals = {"instance": instance,
-                    "dev": attachment["device"]}
+                    "dev": html.escape(attachment["device"])}
             attachments.append(link % vals)
         return safestring.mark_safe(", ".join(attachments))
 
@@ -249,7 +249,7 @@ class AttachmentsTable(tables.DataTable):
     def get_object_display(self, attachment):
         instance_name = get_attachment_name(self.request, attachment)
         vals = {"dev": attachment['device'],
-                "instance_name": strip_tags(instance_name)}
+                "instance_name": html.escape(instance_name)}
         return _("%(dev)s on instance %(instance_name)s") % vals
 
     def get_object_by_id(self, obj_id):
