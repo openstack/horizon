@@ -17,6 +17,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.utils import html
 from django.utils import safestring
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
@@ -68,6 +69,7 @@ class SnapshotVolumeNameColumn(tables.Column):
         request = self.table.request
         volume_name = api.cinder.volume_get(request,
                                             snapshot.volume_id).display_name
+        volume_name = html.escape(volume_name)
         return safestring.mark_safe(volume_name)
 
     def get_link_url(self, snapshot):
