@@ -18,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 
+from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.images_and_snapshots.images \
     import tables as project_tables
 
@@ -41,6 +42,14 @@ class AdminEditImage(project_tables.EditImage):
         return True
 
 
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, image_id):
+        image = api.glance.image_get(request, image_id)
+        return image
+
+
 class AdminImagesTable(project_tables.ImagesTable):
     name = tables.Column("name",
                          link="horizon:admin:images:detail",
@@ -48,6 +57,8 @@ class AdminImagesTable(project_tables.ImagesTable):
 
     class Meta:
         name = "images"
+        row_class = UpdateRow
+        status_columns = ["status"]
         verbose_name = _("Images")
         table_actions = (AdminCreateImage, AdminDeleteImage)
         row_actions = (AdminEditImage, AdminDeleteImage)
