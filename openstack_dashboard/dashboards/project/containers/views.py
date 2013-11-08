@@ -25,6 +25,7 @@ Views for managing Swift containers.
 from django.core.urlresolvers import reverse  # noqa
 from django import http
 from django.utils.functional import cached_property  # noqa
+from django.utils import http as utils_http
 from django.utils.translation import ugettext_lazy as _  # noqa
 from django.views import generic
 
@@ -41,6 +42,16 @@ from openstack_dashboard.dashboards.project.containers \
 from openstack_dashboard.dashboards.project.containers import tables
 
 import os
+
+
+def for_url(container_name):
+    """Build a URL friendly container name.
+
+    Add Swift delimiter if necessary.
+    The name can contain '%' (bug 1231904).
+    """
+    container_name = tables.wrap_delimiter(container_name)
+    return utils_http.urlquote(container_name)
 
 
 class ContainerView(browsers.ResourceBrowserView):
@@ -128,13 +139,11 @@ class CreateView(forms.ModalFormView):
         if parent:
             container, slash, remainder = parent.partition(
                 swift.FOLDER_DELIMITER)
-            container += swift.FOLDER_DELIMITER
-            if remainder and not remainder.endswith(swift.FOLDER_DELIMITER):
-                remainder = "".join([remainder, swift.FOLDER_DELIMITER])
-            return reverse(self.success_url, args=(container, remainder))
+            args = (for_url(container), for_url(remainder))
+            return reverse(self.success_url, args=args)
         else:
-            return reverse(self.success_url, args=[self.request.POST['name'] +
-                                                   swift.FOLDER_DELIMITER])
+            container = for_url(self.request.POST['name'])
+            return reverse(self.success_url, args=[container])
 
     def get_initial(self):
         initial = super(CreateView, self).get_initial()
@@ -148,10 +157,10 @@ class UploadView(forms.ModalFormView):
     success_url = "horizon:project:containers:index"
 
     def get_success_url(self):
-        container_name = self.request.POST['container_name']
-        return reverse(self.success_url,
-                       args=(tables.wrap_delimiter(container_name),
-                             self.request.POST.get('path', '')))
+        container_name = for_url(self.request.POST['container_name'])
+        path = for_url(self.request.POST.get('path', ''))
+        args = (container_name, path)
+        return reverse(self.success_url, args=args)
 
     def get_initial(self):
         return {"container_name": self.kwargs["container_name"],
@@ -159,7 +168,8 @@ class UploadView(forms.ModalFormView):
 
     def get_context_data(self, **kwargs):
         context = super(UploadView, self).get_context_data(**kwargs)
-        context['container_name'] = self.kwargs["container_name"]
+        container_name = utils_http.urlquote(self.kwargs["container_name"])
+        context['container_name'] = container_name
         return context
 
 
@@ -191,11 +201,10 @@ class CopyView(forms.ModalFormView):
     success_url = "horizon:project:containers:index"
 
     def get_success_url(self):
-        new_container_name = self.request.POST['new_container_name']
-        return reverse(self.success_url,
-                       args=(tables.wrap_delimiter(new_container_name),
-                             tables.wrap_delimiter(
-                                 self.request.POST.get('path', ''))))
+        new_container_name = for_url(self.request.POST['new_container_name'])
+        path = for_url(self.request.POST.get('path', ''))
+        args = (new_container_name, path)
+        return reverse(self.success_url, args=args)
 
     def get_form_kwargs(self):
         kwargs = super(CopyView, self).get_form_kwargs()
@@ -220,7 +229,8 @@ class CopyView(forms.ModalFormView):
 
     def get_context_data(self, **kwargs):
         context = super(CopyView, self).get_context_data(**kwargs)
-        context['container_name'] = self.kwargs["container_name"]
+        container_name = utils_http.urlquote(self.kwargs["container_name"])
+        context['container_name'] = container_name
         context['object_name'] = self.kwargs["object_name"]
         return context
 

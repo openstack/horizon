@@ -37,6 +37,11 @@ class ViewContainer(tables.LinkAction):
     url = "horizon:project:containers:container_detail"
     classes = ("ajax-modal", "btn-view")
 
+    def get_link_url(self, datum=None):
+        obj_id = self.table.get_object_id(datum)
+        args = (http.urlquote(obj_id),)
+        return reverse(self.url, args=args)
+
 
 class DeleteContainer(tables.DeleteAction):
     data_type_singular = _("Container")
@@ -122,9 +127,6 @@ class ContainersTable(tables.DataTable):
                          link=get_container_link,
                          verbose_name=_("Container Name"))
 
-    def get_object_id(self, container):
-        return container.name
-
     class Meta:
         name = "containers"
         verbose_name = _("Containers")
@@ -132,6 +134,13 @@ class ContainersTable(tables.DataTable):
         row_actions = (ViewContainer, DeleteContainer,)
         browser_table = "navigation"
         footer = False
+
+    def get_object_id(self, container):
+        return container.name
+
+    def get_absolute_url(self):
+        url = super(ContainersTable, self).get_absolute_url()
+        return http.urlquote(url)
 
 
 class ViewObject(tables.LinkAction):
@@ -157,6 +166,10 @@ class DeleteObject(tables.DeleteAction):
         obj = self.table.get_object_by_id(obj_id)
         container_name = obj.container_name
         api.swift.swift_delete_object(request, container_name, obj_id)
+
+    def get_success_url(self, request):
+        url = super(DeleteObject, self).get_success_url(request)
+        return http.urlquote(url)
 
 
 class DeleteMultipleObjects(DeleteObject):
@@ -254,3 +267,7 @@ class ObjectsTable(tables.DataTable):
         data_types = ("subfolders", "objects")
         browser_table = "content"
         footer = False
+
+    def get_absolute_url(self):
+        url = super(ObjectsTable, self).get_absolute_url()
+        return http.urlquote(url)
