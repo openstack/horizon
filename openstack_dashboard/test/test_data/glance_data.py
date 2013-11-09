@@ -148,6 +148,20 @@ def data(TEST):
                   'protected': False}
     official_image1 = images.Image(images.ImageManager(None), image_dict)
 
+    image_dict = {'id': 'a67e7d45-fe1e-4c5c-bf08-44b4a4964822',
+                  'name': 'multi_prop_image',
+                  'status': "active",
+                  'size': 20 * 1024 ** 3,
+                  'min_disk': 0,
+                  'owner': TEST.tenant.id,
+                  'container_format': 'novaImage',
+                  'properties': {'description': u'a multi prop image',
+                                 'foo': u'foo val',
+                                 'bar': u'bar val'},
+                  'is_public': True,
+                  'protected': False}
+    multi_prop_image = images.Image(images.ImageManager(None), image_dict)
+
     TEST.images.add(public_image, private_image, protected_image,
                     public_image2, private_image2, private_image3,
-                    shared_image1, official_image1)
+                    shared_image1, official_image1, multi_prop_image)
