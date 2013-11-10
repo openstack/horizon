@@ -28,6 +28,14 @@ To override the OpenStack Logo image, replace the image at the directory path
 
 The dimensions should be ``width: 108px, height: 121px``.
 
+Changing the Brand Link
+=======================
+
+The logo also acts as a hyperlink. The default behavior is to redirect to
+``horizon:user_home``. By adding the attribute ``SITE_BRANDING_LINK`` with
+the desired url target e.g., ``http://sample-company.com`` in
+``local_settings.py``, the target of the hyperlink can be changed.
+
 Modifying Existing Dashboards and Panels
 ========================================
 
