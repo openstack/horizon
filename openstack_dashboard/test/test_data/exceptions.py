@@ -23,7 +23,11 @@ try:
     from troveclient import exceptions as trove_exceptions
     with_trove = True
 except ImportError:
-    with_trove = False
+    try:
+        from troveclient.compat import exceptions as trove_exceptions
+        with_trove = True
+    except ImportError:
+        with_trove = False
 
 from openstack_dashboard.test.test_data import utils
 

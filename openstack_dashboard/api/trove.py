@@ -21,7 +21,12 @@ try:
     from troveclient import client
     with_trove = True
 except ImportError:
-    with_trove = False
+    try:
+        from troveclient.compat import auth
+        from troveclient.compat import client
+        with_trove = True
+    except ImportError:
+        with_trove = False
 
 
 class TokenAuth(object):
