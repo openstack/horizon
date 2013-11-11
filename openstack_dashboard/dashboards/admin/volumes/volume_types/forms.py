@@ -20,6 +20,43 @@ from horizon import messages
 from openstack_dashboard.api import cinder
 
 
+class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
+    name = forms.CharField(label=_("Name"), required=False,
+                           widget=forms.TextInput(attrs={'readonly':
+                                                         'readonly'}))
+    provider = forms.CharField(max_length=255, label=_("Provider"))
+    control_location = forms.ChoiceField(label=_("Control Location"),
+                                         choices=(('front-end',
+                                                   _('front-end')),
+                                                  ('back-end',
+                                                   _('back-end')))
+                                         )
+    cipher = forms.CharField(label=_("Cipher"), required=False)
+    key_size = forms.IntegerField(label=_("Key Size (bits)"),
+                                  required=False,
+                                  min_value=1)
+    volume_type_id = forms.CharField(widget=forms.HiddenInput())
+
+    def handle(self, request, data):
+        try:
+            # Set Cipher to None if empty
+            if data['cipher'] is u'':
+                data['cipher'] = None
+
+            # Create encyrption for the volume type
+            volume_type = cinder.\
+                volume_encryption_type_create(request,
+                                              data['volume_type_id'],
+                                              data)
+            messages.success(request, _('Successfully created encryption for '
+                                        'volume type: %s') % data['name'])
+            return volume_type
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to create encrypted volume type.'))
+            return False
+
+
 class ManageQosSpecAssociation(forms.SelfHandlingForm):
     qos_spec_choice = forms.ChoiceField(
         label=_("QoS Spec to be associated"),

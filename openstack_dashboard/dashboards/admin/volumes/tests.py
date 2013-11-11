@@ -61,13 +61,25 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
 
     @test.create_stubs({cinder: ('volume_type_list_with_qos_associations',
-                                 'qos_spec_list',)})
+                                 'qos_spec_list',
+                                 'extension_supported',
+                                 'volume_encryption_type_list')})
     def test_volume_types_tab(self):
+        encryption_list = (self.cinder_volume_encryption_types.list()[0],
+                           self.cinder_volume_encryption_types.list()[1])
         cinder.volume_type_list_with_qos_associations(
             IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_qos_specs.list())
+        cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
+            .AndReturn(encryption_list)
+        cinder.extension_supported(IsA(http.HttpRequest),
+                                   'VolumeTypeEncryption')\
+            .AndReturn(True)
+        cinder.extension_supported(IsA(http.HttpRequest),
+                                   'VolumeTypeEncryption')\
+            .AndReturn(True)
 
         self.mox.ReplayAll()
         res = self.client.get(reverse(

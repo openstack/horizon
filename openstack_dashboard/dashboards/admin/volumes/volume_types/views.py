@@ -15,7 +15,9 @@ Admin views for managing volumes.
 """
 
 from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
@@ -23,7 +25,7 @@ from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.volumes.volume_types \
-    import forms as volume_type_forms
+    import forms as volume_types_forms
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import forms as volumes_forms
 
@@ -37,6 +39,69 @@ class CreateVolumeTypeView(forms.ModalFormView):
         return reverse(self.success_url)
 
 
+class VolumeTypeEncryptionDetailView(generic.TemplateView):
+    template_name = ("admin/volumes/volume_types"
+                     "/volume_encryption_type_detail.html")
+
+    def get_context_data(self, **kwargs):
+        context = super(VolumeTypeEncryptionDetailView, self).\
+            get_context_data(**kwargs)
+        context["volume_type_encryption"] = self.get_data()
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            volume_type_id = self.kwargs['volume_type_id']
+            self._volume_type_encryption = api.cinder.\
+                volume_encryption_type_get(self.request, volume_type_id)
+            volume_type_list = api.cinder.volume_type_list(self.request)
+            for volume_type in volume_type_list:
+                if volume_type.id == volume_type_id:
+                    self.name = volume_type.name
+            self._volume_type_encryption.name = self.name
+        except Exception:
+            redirect = reverse('horizon:admin:volumes:index')
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume type encryption'
+                                ' details.'),
+                              redirect=redirect)
+            return None
+
+        return self._volume_type_encryption
+
+
+class CreateVolumeTypeEncryptionView(forms.ModalFormView):
+    form_class = volume_types_forms.CreateVolumeTypeEncryption
+    template_name = ("admin/volumes/volume_types/"
+                     "create_volume_type_encryption.html")
+    success_url = reverse_lazy('horizon:admin:volumes:index')
+
+    @memoized.memoized_method
+    def get_name(self):
+        try:
+            volume_type_list = api.cinder.volume_type_list(self.request)
+            for volume_type in volume_type_list:
+                if volume_type.id == self.kwargs['volume_type_id']:
+                    self.name = volume_type.name
+        except Exception:
+            msg = _('Unable to retrieve volume type name.')
+            url = reverse('horizon:admin:volumes:index')
+            exceptions.handle(self.request, msg, redirect=url)
+        return self.name
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateVolumeTypeEncryptionView, self).\
+            get_context_data(**kwargs)
+        context['volume_type_id'] = self.kwargs['volume_type_id']
+        return context
+
+    def get_initial(self):
+        name = self.get_name()
+        return {'name': name,
+                'volume_type_id': self.kwargs['volume_type_id']}
+
+
 class CreateQosSpecView(forms.ModalFormView):
     form_class = volumes_forms.CreateQosSpec
     template_name = 'admin/volumes/volume_types/create_qos_spec.html'
@@ -47,7 +112,7 @@ class CreateQosSpecView(forms.ModalFormView):
 
 
 class EditQosSpecConsumerView(forms.ModalFormView):
-    form_class = volume_type_forms.EditQosSpecConsumer
+    form_class = volume_types_forms.EditQosSpecConsumer
     template_name = 'admin/volumes/volume_types/edit_qos_spec_consumer.html'
     success_url = 'horizon:admin:volumes:volume_types_tab'
 
@@ -79,7 +144,7 @@ class EditQosSpecConsumerView(forms.ModalFormView):
 
 
 class ManageQosSpecAssociationView(forms.ModalFormView):
-    form_class = volume_type_forms.ManageQosSpecAssociation
+    form_class = volume_types_forms.ManageQosSpecAssociation
     template_name = 'admin/volumes/volume_types/associate_qos_spec.html'
     success_url = 'horizon:admin:volumes:volume_types_tab'
 

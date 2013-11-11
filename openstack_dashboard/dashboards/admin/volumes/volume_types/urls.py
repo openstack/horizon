@@ -37,6 +37,12 @@ urlpatterns = patterns(
         name='edit_qos_spec_consumer'),
     url(r'^(?P<type_id>[^/]+)/extras/',
         include(extras_urls, namespace='extras')),
+    url(r'^(?P<volume_type_id>[^/]+)/create_type_encryption/$',
+        views.CreateVolumeTypeEncryptionView.as_view(),
+        name='create_type_encryption'),
+    url(r'^(?P<volume_type_id>[^/]+)/type_encryption_detail/$',
+        views.VolumeTypeEncryptionDetailView.as_view(),
+        name='type_encryption_detail'),
     url(r'^qos_specs/',
         include(qos_specs_urls, namespace='qos_specs')),
 )

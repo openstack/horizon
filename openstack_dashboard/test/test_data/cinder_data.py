@@ -17,6 +17,7 @@ from cinderclient.v2 import qos_specs
 from cinderclient.v2 import quotas
 from cinderclient.v2 import services
 from cinderclient.v2 import volume_backups as vol_backups
+from cinderclient.v2 import volume_encryption_types as vol_enc_types
 from cinderclient.v2 import volume_snapshots as vol_snaps
 from cinderclient.v2 import volume_types
 from cinderclient.v2 import volumes
@@ -31,6 +32,7 @@ def data(TEST):
     TEST.cinder_services = utils.TestDataContainer()
     TEST.cinder_volumes = utils.TestDataContainer()
     TEST.cinder_volume_backups = utils.TestDataContainer()
+    TEST.cinder_volume_encryption_types = utils.TestDataContainer()
     TEST.cinder_volume_types = utils.TestDataContainer()
     TEST.cinder_qos_specs = utils.TestDataContainer()
     TEST.cinder_qos_spec_associations = utils.TestDataContainer()
@@ -167,6 +169,26 @@ def data(TEST):
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot2))
     TEST.cinder_volume_snapshots.first()._volume = volume
+
+    # Volume Type Encryption
+    vol_enc_type1 = vol_enc_types.VolumeEncryptionType(
+        vol_enc_types.VolumeEncryptionTypeManager(None),
+        {'volume_type_id': u'1',
+         'control_location': "front-end",
+         'key_size': 512,
+         'provider': "a-provider",
+         'cipher': "a-cipher"})
+    vol_enc_type2 = vol_enc_types.VolumeEncryptionType(
+        vol_enc_types.VolumeEncryptionTypeManager(None),
+        {'volume_type_id': u'2',
+         'control_location': "front-end",
+         'key_size': 256,
+         'provider': "a-provider",
+         'cipher': "a-cipher"})
+    vol_unenc_type1 = vol_enc_types.VolumeEncryptionType(
+        vol_enc_types.VolumeEncryptionTypeManager(None), {})
+    TEST.cinder_volume_encryption_types.add(vol_enc_type1, vol_enc_type2,
+                                            vol_unenc_type1)
 
     volume_backup1 = vol_backups.VolumeBackup(
         vol_backups.VolumeBackupManager(None),

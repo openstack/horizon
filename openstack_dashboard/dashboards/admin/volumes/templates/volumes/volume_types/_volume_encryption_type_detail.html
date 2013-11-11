@@ -1,0 +1,26 @@
+{% load i18n %}
+
+{% if volume_type_encryption.provider %}
+<h3>{% trans "Volume Type Encryption Overview" %}</h3>
+
+<div class="info row detail">
+  <div class="col-sm-12">
+    <h4>{% trans "Info" %}</h4>
+    <hr class="header_rule">
+    <dl class="dl-horizontal">
+      <dt>{% trans "Name" %}</dt>
+      <dd>{{ volume_type_encryption.name }}</dd>
+      <dt>{% trans "Provider" %}</dt>
+      <dd>{{ volume_type_encryption.provider }}</dd>
+      <dt>{% trans "Control Location" %}</dt>
+      <dd>{{ volume_type_encryption.control_location }}</dd>
+      <dt>{% trans "Cipher" %}</dt>
+      <dd>{{ volume_type_encryption.cipher }}</dd>
+      <dt>{% trans "Key Size (bits)" %}</dt>
+      <dd>{{ volume_type_encryption.key_size }}</dd>
+    </dl>
+  </div>
+</div>
+{% else %}
+<h3>{% trans "Volume Type is Unencrypted." %}</h3>
+{% endif %}
