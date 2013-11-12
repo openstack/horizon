@@ -47,9 +47,27 @@ class RestoreLink(tables.LinkAction):
     url = "horizon:project:databases:launch"
     classes = ("btn-launch", "ajax-modal")
 
-    def get_link_url(self, datam):
+    def get_link_url(self, datum):
         url = reverse(self.url)
-        return url + '?backup=%s' % datam.id
+        return url + '?backup=%s' % datum.id
+
+
+class DownloadBackup(tables.LinkAction):
+    name = "download"
+    verbose_name = _("Download Backup")
+    url = 'horizon:project:containers:object_download'
+    classes = ("btn-launch",)
+
+    def get_link_url(self, datum):
+        ref = datum.locationRef.split('/')
+        container_name = ref[5]
+        object_path = '/'.join(ref[6:])
+        return reverse(self.url,
+                       kwargs={'container_name': container_name,
+                               'object_path': object_path})
+
+    def allowed(self, request, datum):
+        return datum.status == 'COMPLETED'
 
 
 class DeleteBackup(tables.BatchAction):
@@ -98,9 +116,6 @@ class BackupsTable(tables.DataTable):
                          verbose_name=_("Name"))
     created = tables.Column("created", verbose_name=_("Created At"),
                             filters=[filters.parse_isotime])
-    location = tables.Column(lambda obj: _("Download"),
-                             link=lambda obj: obj.locationRef,
-                             verbose_name=_("Backup File"))
     instance = tables.Column(db_name, link=db_link,
                              verbose_name=_("Database"))
     status = tables.Column("status",
@@ -115,4 +130,4 @@ class BackupsTable(tables.DataTable):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (LaunchLink, DeleteBackup)
-        row_actions = (RestoreLink, DeleteBackup)
+        row_actions = (RestoreLink, DownloadBackup, DeleteBackup)
