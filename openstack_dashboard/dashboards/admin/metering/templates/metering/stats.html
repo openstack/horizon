@@ -149,7 +149,8 @@
 
 <script type="text/javascript">
   if (typeof horizon.d3_line_chart !== 'undefined') {
-    horizon.d3_line_chart.init("div[data-chart-type='line_chart']");
+    horizon.d3_line_chart.init("div[data-chart-type='line_chart']",
+      {'auto_resize': true});
   }
 
   if (typeof $ !== 'undefined') {
