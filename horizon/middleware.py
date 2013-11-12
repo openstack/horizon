@@ -112,7 +112,7 @@ class HorizonMiddleware(object):
         Convert HttpResponseRedirect to HttpResponse if request is via ajax
         to allow ajax request to redirect url
         """
-        if request.is_ajax():
+        if request.is_ajax() and hasattr(request, 'horizon'):
             queued_msgs = request.horizon['async_messages']
             if type(response) == http.HttpResponseRedirect:
                 # Drop our messages back into the session as per usual so they
