@@ -121,10 +121,34 @@ OPENSTACK_IMAGE_BACKEND = {
     ]
 }
 
-LOGGING['loggers']['openstack_dashboard'] = {
-    'handlers': ['test'],
-    'propagate': False,
-}
+LOGGING['loggers'].update(
+    {
+        'openstack_dashboard': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
+        'novaclient': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
+        'keystoneclient': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
+        'glanceclient': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
+        'neutronclient': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
+        'iso8601': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+    }
+)
 
 SECURITY_GROUP_RULES = {
     'all_tcp': {
