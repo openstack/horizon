@@ -24,6 +24,7 @@ Views for managing Swift containers.
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http
+from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 from django.views import generic
 
@@ -58,36 +59,34 @@ class ContainerView(browsers.ResourceBrowserView):
             exceptions.handle(self.request, msg)
         return containers
 
-    @property
+    @cached_property
     def objects(self):
         """ Returns a list of objects given the subfolder's path.
 
         The path is from the kwargs of the request.
         """
-        if not hasattr(self, "_objects"):
-            objects = []
-            self._more = None
-            marker = self.request.GET.get('marker', None)
-            container_name = self.kwargs['container_name']
-            subfolder = self.kwargs['subfolder_path']
-            prefix = None
-            if container_name:
-                self.navigation_selection = True
-                if subfolder:
-                    prefix = subfolder
-                try:
-                    objects, self._more = api.swift.swift_get_objects(
-                        self.request,
-                        container_name,
-                        marker=marker,
-                        prefix=prefix)
-                except Exception:
-                    self._more = None
-                    objects = []
-                    msg = _('Unable to retrieve object list.')
-                    exceptions.handle(self.request, msg)
-            self._objects = objects
-        return self._objects
+        objects = []
+        self._more = None
+        marker = self.request.GET.get('marker', None)
+        container_name = self.kwargs['container_name']
+        subfolder = self.kwargs['subfolder_path']
+        prefix = None
+        if container_name:
+            self.navigation_selection = True
+            if subfolder:
+                prefix = subfolder
+            try:
+                objects, self._more = api.swift.swift_get_objects(
+                    self.request,
+                    container_name,
+                    marker=marker,
+                    prefix=prefix)
+            except Exception:
+                self._more = None
+                objects = []
+                msg = _('Unable to retrieve object list.')
+                exceptions.handle(self.request, msg)
+        return objects
 
     def is_subdir(self, item):
         content_type = "application/pseudo-folder"
