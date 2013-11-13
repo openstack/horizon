@@ -24,7 +24,14 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 if api.trove.with_trove:
-    from troveclient import common
+    try:
+        from troveclient import common
+    except ImportError:
+        try:
+            from troveclient.compat import common
+        except ImportError:
+            pass
+
 
 INDEX_URL = reverse('horizon:project:databases:index')
 LAUNCH_URL = reverse('horizon:project:databases:launch')

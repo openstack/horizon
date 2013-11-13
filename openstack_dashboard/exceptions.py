@@ -29,7 +29,11 @@ try:
     from troveclient import exceptions as troveclient
     with_trove = True
 except ImportError:
-    with_trove = False
+    try:
+        from troveclient.compat import exceptions as troveclient
+        with_trove = True
+    except ImportError:
+        with_trove = False
 
 
 UNAUTHORIZED = (keystoneclient.Unauthorized,

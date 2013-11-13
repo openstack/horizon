@@ -42,7 +42,11 @@ try:
     from troveclient import client as trove_client
     with_trove = True
 except ImportError:
-    with_trove = False
+    try:
+        from troveclient.compat import client as trove_client
+        with_trove = True
+    except ImportError:
+        with_trove = False
 
 import httplib2
 import mox

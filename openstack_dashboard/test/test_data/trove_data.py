@@ -19,7 +19,12 @@ try:
     from troveclient import instances
     with_trove = True
 except ImportError:
-    with_trove = False
+    try:
+        from troveclient.v1 import backups
+        from troveclient.v1 import instances
+        with_trove = True
+    except ImportError:
+        with_trove = False
 
 from openstack_dashboard.test.test_data import utils
 
