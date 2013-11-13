@@ -118,9 +118,10 @@ HORIZON_CONFIG = {
     'help_url': "http://example.com"
 }
 
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = False
 COMPRESS_ROOT = "/tmp/"
+COMPRESS_PARSER = 'compressor.parser.HtmlParser'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
