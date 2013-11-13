@@ -696,3 +696,8 @@ def extension_supported(extension_name, request):
         if extension.name == extension_name:
             return True
     return False
+
+
+def can_set_server_password():
+    features = getattr(settings, 'OPENSTACK_HYPERVISOR_FEATURES', {})
+    return features.get('can_set_password', True)

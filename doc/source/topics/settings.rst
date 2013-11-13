@@ -204,7 +204,7 @@ If Keystone has been configured to use LDAP as the auth backend then set
 ``OPENSTACK_HYPERVISOR_FEATURES``
 ---------------------------------
 
-Default: ``{'can_set_mount_point': True}``
+Default: ``{'can_set_mount_point': True, 'can_set_password': True}``
 
 A dictionary containing settings which can be used to identify the
 capabilities of the hypervisor for Nova.
@@ -212,6 +212,9 @@ capabilities of the hypervisor for Nova.
 Some hypervisors have the ability to set the mount point for volumes attached
 to instances (KVM does not). Setting ``can_set_mount_point`` to ``False`` will
 remove the option to set the mount point from the UI.
+
+Setting ``can_set_password`` to ``False`` will remove the option to set
+an administrator password when launching or rebuilding an instance.
 
 ``OPENSTACK_NEUTRON_NETWORK``
 -----------------------------

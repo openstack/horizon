@@ -198,6 +198,7 @@ class RebuildView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(RebuildView, self).get_context_data(**kwargs)
         context['instance_id'] = self.kwargs['instance_id']
+        context['can_set_server_password'] = api.nova.can_set_server_password()
         return context
 
     def get_initial(self):
