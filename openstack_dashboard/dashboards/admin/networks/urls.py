@@ -14,9 +14,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls.defaults import include  # noqa
-from django.conf.urls.defaults import patterns  # noqa
-from django.conf.urls.defaults import url  # noqa
+from django.conf.urls import include  # noqa
+from django.conf.urls import patterns  # noqa
+from django.conf.urls import url  # noqa
 
 from openstack_dashboard.dashboards.admin.networks import views
 

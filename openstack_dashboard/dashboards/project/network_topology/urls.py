@@ -19,8 +19,8 @@
 #    under the License.
 
 
-from django.conf.urls.defaults import patterns  # noqa
-from django.conf.urls.defaults import url  # noqa
+from django.conf.urls import patterns  # noqa
+from django.conf.urls import url  # noqa
 
 from openstack_dashboard.dashboards.project.network_topology import views
 
