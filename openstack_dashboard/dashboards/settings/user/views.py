@@ -16,6 +16,7 @@
 
 from django.conf import settings  # noqa
 from horizon import forms
+from horizon.utils import functions as utils
 
 from openstack_dashboard.dashboards.settings.user import forms as user_forms
 
@@ -33,12 +34,7 @@ class UserSettingsView(forms.ModalFormView):
             'timezone': self.request.session.get(
                 'django_timezone',
                 self.request.COOKIES.get('django_timezone', 'UTC')),
-            'pagesize': self.request.session.get(
-                'horizon_pagesize',
-                self.request.COOKIES.get(
-                    'horizon_pagesize',
-                    getattr(settings,
-                            'API_RESULT_PAGE_SIZE', 20)))}
+            'pagesize': utils.get_page_size(self.request)}
 
     def form_valid(self, form):
         return form.handle(self.request, form.cleaned_data)

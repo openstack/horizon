@@ -52,3 +52,13 @@ def logout_with_message(request, msg):
         '%s?next=%s' % (settings.LOGOUT_URL, request.path))
     add_logout_reason(request, response, msg)
     return response
+
+
+def get_page_size(request, default=20):
+    session = request.session
+    cookies = request.COOKIES
+    return int(session.get('horizon_pagesize',
+                           cookies.get('horizon_pagesize',
+                                       getattr(settings,
+                                               'API_RESULT_PAGE_SIZE',
+                                               default))))

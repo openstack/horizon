@@ -35,6 +35,7 @@ from novaclient.v1_1 import security_groups as nova_security_groups
 from novaclient.v1_1 import servers as nova_servers
 
 from horizon import conf
+from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
@@ -493,9 +494,8 @@ def server_get(request, instance_id):
 
 
 def server_list(request, search_opts=None, all_tenants=False):
-    page_size = request.session.get('horizon_pagesize',
-                                    getattr(settings, 'API_RESULT_PAGE_SIZE',
-                                            20))
+    page_size = utils.get_page_size(request)
+
     paginate = False
     if search_opts is None:
         search_opts = {}

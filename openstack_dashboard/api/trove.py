@@ -21,6 +21,7 @@ from troveclient.v1 import client
 
 from openstack_dashboard.api import base
 
+from horizon.utils import functions as utils
 
 LOG = logging.getLogger(__name__)
 
@@ -44,8 +45,7 @@ def troveclient(request):
 
 
 def instance_list(request, marker=None):
-    default_page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
-    page_size = request.session.get('horizon_pagesize', default_page_size)
+    page_size = utils.get_page_size(request)
     return troveclient(request).instances.list(limit=page_size, marker=marker)
 
 
