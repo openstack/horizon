@@ -41,7 +41,7 @@ def get_status(fields):
 
 
 class GlobalUsageTable(tables.DataTable):
-    tenant = tables.Column("tenant", verbose_name=_("Tenant"), sortable=True,
+    tenant = tables.Column("tenant", verbose_name=_("Project"), sortable=True,
                            filters=(lambda (t): getattr(t, 'name', ""),))
     user = tables.Column("user", verbose_name=_("User"), sortable=True,
                          filters=(lambda (u): getattr(u, 'name', ""),))
@@ -51,7 +51,7 @@ class GlobalUsageTable(tables.DataTable):
 
 
 class GlobalDiskUsageTable(tables.DataTable):
-    tenant = tables.Column("id", verbose_name=_("Tenant"), sortable=True)
+    tenant = tables.Column("id", verbose_name=_("Project"), sortable=True)
     disk_read_bytes = tables.Column("disk_read_bytes",
                                     filters=(filesizeformat,),
                                     verbose_name=_("Disk Read Bytes"),
@@ -75,7 +75,7 @@ class GlobalDiskUsageTable(tables.DataTable):
 
 
 class GlobalNetworkTrafficUsageTable(tables.DataTable):
-    tenant = tables.Column("id", verbose_name=_("Tenant"), sortable=True)
+    tenant = tables.Column("id", verbose_name=_("Project"), sortable=True)
     network_incoming_bytes = tables\
             .Column("network_incoming_bytes",
                     verbose_name=_("Network Incoming Bytes"),
@@ -104,7 +104,7 @@ class GlobalNetworkTrafficUsageTable(tables.DataTable):
 
 
 class GlobalNetworkUsageTable(tables.DataTable):
-    tenant = tables.Column("id", verbose_name=_("Tenant"), sortable=True)
+    tenant = tables.Column("id", verbose_name=_("Project"), sortable=True)
     network_duration = tables.Column("network",
                                      verbose_name=_("Network Duration"),
                                      sortable=True)
@@ -172,7 +172,7 @@ class GlobalObjectStoreUsageUpdateRow(tables.Row):
 
 
 class GlobalObjectStoreUsageTable(tables.DataTable):
-    tenant = tables.Column("tenant", verbose_name=_("Tenant"), sortable=True,
+    tenant = tables.Column("tenant", verbose_name=_("Project"), sortable=True,
                            filters=(lambda (t): getattr(t, 'name', ""),))
     status = tables.Column(get_status(["storage_objects",
                                        "storage_objects_size",
