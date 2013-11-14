@@ -5,35 +5,35 @@
     <div class="d3_quota_bar">
     <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalInstancesUsed usage.limits.maxTotalInstances 100 %}"></div>
      <strong>{% trans "Instances" %} <br />
-         {% blocktrans with used=usage.limits.totalInstancesUsed|intcomma available=usage.limits.maxTotalInstances|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+         {% blocktrans with used=usage.limits.totalInstancesUsed|intcomma available=usage.limits.maxTotalInstances|quotainf|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
      </strong>
     </div>
 
     <div class="d3_quota_bar">
     <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalCoresUsed usage.limits.maxTotalCores 100 %}"></div>
     <strong>{% trans "VCPUs" %} <br />
-     {% blocktrans with used=usage.limits.totalCoresUsed|intcomma available=usage.limits.maxTotalCores|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+     {% blocktrans with used=usage.limits.totalCoresUsed|intcomma available=usage.limits.maxTotalCores|quotainf|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
     </strong>
     </div>
 
     <div class="d3_quota_bar">
     <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalRAMUsed usage.limits.maxTotalRAMSize 100 %}"></div>
     <strong>{% trans "RAM" %} <br />
-      {% blocktrans with used=usage.limits.totalRAMUsed|mb_float_format available=usage.limits.maxTotalRAMSize|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+      {% blocktrans with used=usage.limits.totalRAMUsed|mb_float_format available=usage.limits.maxTotalRAMSize|quotainf|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
     </strong>
     </div>
 
     <div class="d3_quota_bar">
     <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalFloatingIpsUsed usage.limits.maxTotalFloatingIps 100 %}"></div>
     <strong>{% trans "Floating IPs" %} <br />
-      {% blocktrans with used=usage.limits.totalFloatingIpsUsed|intcomma available=usage.limits.maxTotalFloatingIps|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+      {% blocktrans with used=usage.limits.totalFloatingIpsUsed|intcomma available=usage.limits.maxTotalFloatingIps|quotainf|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
     </strong>
     </div>
 
     <div class="d3_quota_bar">
     <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalSecurityGroupsUsed usage.limits.maxSecurityGroups 100 %}"></div>
     <strong>{% trans "Security Groups" %} <br />
-      {% blocktrans with used=usage.limits.totalSecurityGroupsUsed|intcomma available=usage.limits.maxSecurityGroups|intcomma%}Used <span> {{ used }} </span> of <span> {{ available  }} </span>{% endblocktrans %}
+      {% blocktrans with used=usage.limits.totalSecurityGroupsUsed|intcomma available=usage.limits.maxSecurityGroups|quotainf|intcomma%}Used <span> {{ used }} </span> of <span> {{ available  }} </span>{% endblocktrans %}
     </strong>
     </div>
 </div>
