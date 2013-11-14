@@ -92,8 +92,16 @@ class CreateImageForm(forms.SelfHandlingForm):
     def __init__(self, *args, **kwargs):
         super(CreateImageForm, self).__init__(*args, **kwargs)
         if not settings.HORIZON_IMAGES_ALLOW_UPLOAD:
-            self.fields['image_file'].widget = HiddenInput()
+            self._hide_file_source_type()
         self.fields['disk_format'].choices = IMAGE_FORMAT_CHOICES
+
+    def _hide_file_source_type(self):
+        self.fields['image_file'].widget = HiddenInput()
+        source_type = self.fields['source_type']
+        source_type.choices = [choice for choice in source_type.choices
+                               if choice[0] != 'file']
+        if len(source_type.choices) == 1:
+            source_type.widget = HiddenInput()
 
     def clean(self):
         data = super(CreateImageForm, self).clean()
