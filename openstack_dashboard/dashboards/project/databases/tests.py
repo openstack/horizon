@@ -25,10 +25,10 @@ from openstack_dashboard.test import helpers as test
 
 if api.trove.with_trove:
     try:
-        from troveclient import common
+        from troveclient.compat import common
     except ImportError:
         try:
-            from troveclient.compat import common
+            from troveclient import common
         except ImportError:
             pass
 

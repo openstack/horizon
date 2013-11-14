@@ -15,13 +15,13 @@
 #    under the License.
 
 try:
-    from troveclient import backups
-    from troveclient import instances
+    from troveclient.v1 import backups
+    from troveclient.v1 import instances
     with_trove = True
 except ImportError:
     try:
-        from troveclient.v1 import backups
-        from troveclient.v1 import instances
+        from troveclient import backups
+        from troveclient import instances
         with_trove = True
     except ImportError:
         with_trove = False
