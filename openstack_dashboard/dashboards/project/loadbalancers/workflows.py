@@ -25,6 +25,10 @@ from horizon import workflows
 from openstack_dashboard import api
 
 
+AVAILABLE_PROTOCOLS = ('HTTP', 'HTTPS', 'TCP')
+AVAILABLE_METHODS = ('ROUND_ROBIN', 'LEAST_CONNECTIONS', 'SOURCE_IP')
+
+
 class AddPoolAction(workflows.Action):
     name = forms.CharField(max_length=80, label=_("Name"))
     description = forms.CharField(
@@ -57,14 +61,11 @@ class AddPoolAction(workflows.Action):
         self.fields['subnet_id'].choices = subnet_id_choices
 
         protocol_choices = [('', _("Select a Protocol"))]
-        protocol_choices.append(('HTTP', 'HTTP'))
-        protocol_choices.append(('HTTPS', 'HTTPS'))
+        [protocol_choices.append((p, p)) for p in AVAILABLE_PROTOCOLS]
         self.fields['protocol'].choices = protocol_choices
 
         lb_method_choices = [('', _("Select a Method"))]
-        lb_method_choices.append(('ROUND_ROBIN', 'ROUND_ROBIN'))
-        lb_method_choices.append(('LEAST_CONNECTIONS', 'LEAST_CONNECTIONS'))
-        lb_method_choices.append(('SOURCE_IP', 'SOURCE_IP'))
+        [lb_method_choices.append((m, m)) for m in AVAILABLE_METHODS]
         self.fields['lb_method'].choices = lb_method_choices
 
         # provider choice
@@ -185,8 +186,7 @@ class AddVipAction(workflows.Action):
                                                args[0]['subnet'])
 
         protocol_choices = [('', _("Select a Protocol"))]
-        protocol_choices.append(('HTTP', 'HTTP'))
-        protocol_choices.append(('HTTPS', 'HTTPS'))
+        [protocol_choices.append((p, p)) for p in AVAILABLE_PROTOCOLS]
         self.fields['protocol'].choices = protocol_choices
 
         session_persistence_choices = [('', _("No Session Persistence"))]
