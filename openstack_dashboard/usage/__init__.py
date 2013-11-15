@@ -14,6 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+# Importing non-modules that are not used explicitly
+
 from openstack_dashboard.usage.base import BaseUsage  # noqa
 from openstack_dashboard.usage.base import GlobalUsage  # noqa
 from openstack_dashboard.usage.base import ProjectUsage  # noqa
@@ -21,11 +23,3 @@ from openstack_dashboard.usage.tables import BaseUsageTable  # noqa
 from openstack_dashboard.usage.tables import GlobalUsageTable  # noqa
 from openstack_dashboard.usage.tables import ProjectUsageTable  # noqa
 from openstack_dashboard.usage.views import UsageView  # noqa
-
-assert BaseUsage
-assert ProjectUsage
-assert GlobalUsage
-assert UsageView
-assert BaseUsageTable
-assert ProjectUsageTable
-assert GlobalUsageTable

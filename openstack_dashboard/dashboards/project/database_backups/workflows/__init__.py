@@ -1,3 +1,3 @@
-from create_backup import CreateBackup
+# Importing non-modules that are not used explicitly
 
-assert CreateBackup
+from create_backup import CreateBackup  # noqa

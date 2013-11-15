@@ -1,3 +1,3 @@
-from create_instance import LaunchInstance
+# Importing non-modules that are not used explicitly
 
-assert LaunchInstance
+from create_instance import LaunchInstance  # noqa
