@@ -481,6 +481,7 @@ class VolumeViewTests(test.TestCase):
                        'volumesUsed': len(self.volumes.list()),
                        'maxTotalVolumes': 6}
         image = self.images.get(name="protected_images")
+        image.min_disk = 30
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
                     'method': u'CreateForm',

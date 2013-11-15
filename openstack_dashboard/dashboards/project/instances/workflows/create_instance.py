@@ -46,6 +46,16 @@ from openstack_dashboard.dashboards.project.images_and_snapshots import utils
 LOG = logging.getLogger(__name__)
 
 
+def _flavor_list(request):
+    """Utility method to retrieve a list of flavor."""
+    try:
+        return api.nova.flavor_list(request)
+    except Exception:
+        exceptions.handle(request,
+                          _('Unable to retrieve instance flavors.'))
+        return []
+
+
 class SelectProjectUserAction(workflows.Action):
     project_id = forms.ChoiceField(label=_("Project"))
     user_id = forms.ChoiceField(label=_("User"))
@@ -132,6 +142,8 @@ class SetInstanceDetailsAction(workflows.Action):
 
     def __init__(self, request, context, *args, **kwargs):
         self._init_images_cache()
+        self.request = request
+        self.context = context
         super(SetInstanceDetailsAction, self).__init__(
             request, context, *args, **kwargs)
         source_type_choices = [
@@ -183,6 +195,48 @@ class SetInstanceDetailsAction(workflows.Action):
             if not cleaned_data.get('image_id'):
                 msg = _("You must select an image.")
                 self._errors['image_id'] = self.error_class([msg])
+            else:
+                # Prevents trying to launch an image needing more resources.
+                try:
+                    image_id = cleaned_data.get('image_id')
+                    # We want to retrieve details for a given image,
+                    # however get_available_images uses a cache of image list,
+                    # so it is used instead of image_get to reduce the number
+                    # of API calls.
+                    images = utils.get_available_images(
+                        self.request,
+                        self.context.get('project_id'),
+                        self._images_cache)
+                    image = [x for x in images if x.id == image_id][0]
+                except IndexError:
+                    image = None
+
+                try:
+                    flavor_id = cleaned_data.get('flavor')
+                    # We want to retrieve details for a given flavor,
+                    # however flavor_list uses a memoized decorator
+                    # so it is used instead of flavor_get to reduce the number
+                    # of API calls.
+                    flavors = _flavor_list(self.request)
+                    flavor = [x for x in flavors if x.id == flavor_id][0]
+                except IndexError:
+                    flavor = None
+
+                if image and flavor:
+                    props_mapping = (("min_ram", "ram"), ("min_disk", "disk"))
+                    for iprop, fprop in props_mapping:
+                        if getattr(image, iprop) > 0 and \
+                                getattr(image, iprop) > getattr(flavor, fprop):
+                            msg = _("The flavor '%(flavor)s' is too small for "
+                                    "requested image.\n"
+                                    "Minimum requirements: "
+                                    "%(min_ram)s MB of RAM and "
+                                    "%(min_disk)s GB of Root Disk." %
+                                    {'flavor': flavor.name,
+                                     'min_ram': image.min_ram,
+                                     'min_disk': image.min_disk})
+                            self._errors['image_id'] = self.error_class([msg])
+                            break  # Not necessary to continue the tests.
 
         elif source_type == 'instance_snapshot_id':
             if not cleaned_data['instance_snapshot_id']:
@@ -236,24 +290,18 @@ class SetInstanceDetailsAction(workflows.Action):
                             '"ram" instead.', sort_key)
                 return getattr(flavor, 'ram')
 
-        try:
-            flavors = api.nova.flavor_list(request)
+        flavors = _flavor_list(request)
+        if flavors:
             flavor_sort = getattr(settings, 'CREATE_INSTANCE_FLAVOR_SORT', {})
             rev = flavor_sort.get('reverse', False)
             sort_key = flavor_sort.get('key', 'ram')
-
             if not callable(sort_key):
                 key = lambda flavor: get_key(flavor, sort_key)
             else:
                 key = sort_key
-
-            flavor_list = [(flavor.id, "%s" % flavor.name)
-                           for flavor in sorted(flavors, key=key, reverse=rev)]
-        except Exception:
-            flavor_list = []
-            exceptions.handle(request,
-                              _('Unable to retrieve instance flavors.'))
-        return flavor_list
+            return [(flavor.id, "%s" % flavor.name)
+                    for flavor in sorted(flavors, key=key, reverse=rev)]
+        return []
 
     def populate_availability_zone_choices(self, request, context):
         try:
@@ -277,12 +325,11 @@ class SetInstanceDetailsAction(workflows.Action):
         try:
             extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
-            flavors = json.dumps([f._info for f in
-                                  api.nova.flavor_list(self.request)])
+            flavors = json.dumps([f._info for f in _flavor_list(self.request)])
             extra['flavors'] = flavors
             images = utils.get_available_images(self.request,
-                                          self.initial['project_id'],
-                                          self._images_cache)
+                                                self.initial['project_id'],
+                                                self._images_cache)
             if images is not None:
                 attrs = [{'id': i.id,
                           'min_disk': getattr(i, 'min_disk', 0),
@@ -664,6 +711,7 @@ class LaunchInstance(workflows.Workflow):
                 msg = (_('Port not created for profile-id (%s).') %
                        context['profile_id'])
                 exceptions.handle(request, msg)
+
             if port and port.id:
                 nics = [{"port-id": port.id}]
 
