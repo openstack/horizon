@@ -52,6 +52,17 @@ if Horizon:
     urls = Horizon._lazy_urls
 
 # silence flake8 about unused imports here:
-assert Dashboard
-assert Panel
-assert PanelGroup
+__all__ = [
+    "Dashboard",
+    "Horizon",
+    "Panel",
+    "PanelGroup",
+    "register",
+    "unregister",
+    "get_absolute_url",
+    "get_user_home",
+    "get_dashboard",
+    "get_default_dashboard",
+    "get_dashboards",
+    "urls",
+]
