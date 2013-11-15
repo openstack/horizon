@@ -232,6 +232,8 @@ def tenant_quota_usages(request):
 
 
 def tenant_limit_usages(request):
+    #TODO(licostan): This method shall be removed from Quota module.
+    #ProjectUsage/BaseUsage maybe used instead on volume/image dashboards.
     limits = {}
 
     try:

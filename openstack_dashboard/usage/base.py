@@ -180,14 +180,26 @@ class BaseUsage(object):
             self._set_neutron_limit(self.limits, neutron_quotas,
                                     'security_group')
 
+    def get_cinder_limits(self):
+        """Get volume limits if cinder is enabled."""
+        if not api.base.is_service_enabled(self.request, 'volume'):
+            return
+        try:
+            self.limits.update(api.cinder.tenant_absolute_limits(self.request))
+        except Exception:
+            msg = _("Unable to retrieve volume limit information.")
+            exceptions.handle(self.request, msg)
+
+        return
+
     def get_limits(self):
         try:
             self.limits = api.nova.tenant_absolute_limits(self.request)
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve limit information."))
-
         self.get_neutron_limits()
+        self.get_cinder_limits()
 
     def get_usage_list(self, start, end):
         raise NotImplementedError("You must define a get_usage_list method.")
