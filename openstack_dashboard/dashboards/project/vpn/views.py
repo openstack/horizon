@@ -48,38 +48,40 @@ class IndexView(tabs.TabbedTableView):
                 try:
                     api.vpn.vpnservice_delete(request, obj_id)
                     messages.success(request,
-                                     _('Deleted VPN Service %s' % obj_id))
-                except Exception:
+                                     _('Deleted VPN Service %s') % obj_id)
+                except Exception as e:
                     exceptions.handle(request,
-                                      _('Unable to delete VPN Service.'))
+                                      _('Unable to delete VPN Service: %s')
+                                      % e)
         elif m == 'ikepolicy':
             for obj_id in obj_ids:
                 try:
                     api.vpn.ikepolicy_delete(request, obj_id)
                     messages.success(request,
-                                     _('Deleted IKE Policy %s' % obj_id))
-                except Exception:
+                                     _('Deleted IKE Policy %s') % obj_id)
+                except Exception as e:
                     exceptions.handle(request,
-                                      _('Unable to delete IKE Policy.'))
+                                      _('Unable to delete IKE Policy: %s') % e)
         elif m == 'ipsecpolicy':
             for obj_id in obj_ids:
                 try:
                     api.vpn.ipsecpolicy_delete(request, obj_id)
                     messages.success(request,
-                                     _('Deleted IPSec Policy %s' % obj_id))
-                except Exception:
+                                     _('Deleted IPSec Policy %s') % obj_id)
+                except Exception as e:
                     exceptions.handle(request,
-                                      _('Unable to delete IPSec Policy.'))
+                                      _('Unable to delete IPSec Policy: %s')
+                                      % e)
         elif m == 'ipsecsiteconnection':
             for obj_id in obj_ids:
                 try:
                     api.vpn.ipsecsiteconnection_delete(request, obj_id)
                     messages.success(request,
-                                     _('Deleted IPSec Site Connection %s'
-                                     % obj_id))
-                except Exception:
+                                     _('Deleted IPSec Site Connection %s')
+                                     % obj_id)
+                except Exception as e:
                     exceptions.handle(request,
-                        _('Unable to delete IPSec Site Connection.'))
+                        _('Unable to delete IPSec Site Connection: %s') % e)
 
         return self.get(request, *args, **kwargs)
 
