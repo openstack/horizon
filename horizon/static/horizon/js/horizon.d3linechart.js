@@ -43,6 +43,51 @@ Url has to return JSON in format:
   "settings": {}
 }
 
+Example of line-bar chart sparkline:
+
+  <div class="overview_chart">
+    <div class="chart_container">
+      <div class="chart"
+           data-chart-type="line_chart"
+           data-url="/admin/samples?meter=test2"
+           data-form-selector='#linechart_general_form'
+           >
+      </div>
+    </div>
+    <div class="bar_chart_container">
+      <div class="chart"
+        data-chart-type="overview_bar_chart">
+      </div>
+    </div>
+  </div>
+
+  {
+    "series": [{"name": "instance-00000005",
+                "data": [{"y": 171, "x": "2013-08-21T11:22:25"}, {"y": 171, "x": "2013-08-21T11:22:25"}]},
+               {"name": "instance-00000005",
+                "data": [{"y": 171, "x": "2013-08-21T11:22:25"}, {"y": 171, "x": "2013-08-21T11:22:25"}]}
+              ],
+    "settings": {'renderer': 'StaticAxes',
+                 'yMin': 0,
+                 'yMax': 100,
+                 'higlight_last_point': True,
+                 "auto_size": False, 'auto_resize': False,
+                 "axes_x" : False, "axes_y" : False,
+                 'bar_chart_settings': {
+                     'orientation': 'vertical',
+                     'used_label_placement': 'left',
+                     'width': 30,
+                     'color_scale_domain': [0, 80, 80, 100],
+                     'color_scale_range': ['#00FE00', '#00FF00', '#FE0000', '#FF0000'],
+                     'average_color_scale_domain': [0, 100],
+                     'average_color_scale_range': ['#0000FF', '#0000FF']}},
+    "stats": {
+      'average': 20,
+      'used': 30,
+      'tooltip_average': tooltip_average
+    }
+  }
+
 
 The control Forms:
 There are currently 2 form elements that can be connected to charts and act
@@ -166,6 +211,11 @@ horizon.d3_line_chart = {
       self.data = [];
       self.color = d3.scale.category10();
 
+      // Self aggregation and statistic attrs
+      self.stats = {};
+      self.stats.average = 0;
+      self.stats.last_value = 0;
+
       // Load initial settings.
       self.init_settings(settings);
       // Get correct size of chart and the wrapper.
@@ -187,8 +237,17 @@ horizon.d3_line_chart = {
       self.settings.auto_size = true;
       self.settings.axes_x = true;
       self.settings.axes_y = true;
+      // Static y axes values
       self.settings.yMin = undefined;
       self.settings.yMax = undefined;
+      // Show last point as dot
+      self.settings.higlight_last_point = false;
+
+      // Composed charts wrapper
+      self.settings.composed_chart_selector = '.overview_chart';
+      // Bar chart component
+      self.settings.bar_chart_selector = 'div[data-chart-type="overview_bar_chart"]';
+      self.settings.bar_chart_settings = undefined;
 
       // allowed: verbose
       self.hover_formatter = 'verbose';
@@ -217,7 +276,9 @@ horizon.d3_line_chart = {
       var self = this;
 
       var allowed_settings = ['renderer', 'auto_size', 'axes_x', 'axes_y',
-                              'yMin', 'yMax'];
+                              'yMin', 'yMax', 'bar_chart_settings',
+                              'bar_chart_selector', 'composed_chart_selector',
+                              'higlight_last_point'];
 
       jQuery.each(allowed_settings, function(index, setting_name) {
         if (settings[setting_name] !== undefined){
@@ -287,6 +348,7 @@ horizon.d3_line_chart = {
           $(self.legend_element).html('');
 
           self.series = data.series;
+          self.stats = data.stats;
           // The highest priority settings are sent with the data.
           self.apply_settings(data.settings);
 
@@ -320,13 +382,16 @@ horizon.d3_line_chart = {
      */
     self.render = function(){
       var self = this;
+      var last_point = undefined, last_point_color = undefined;
 
       $.map(self.series, function (serie) {
-        serie.color = self.color(serie.name);
+        serie.color = last_point_color = self.color(serie.name);
         $.map(serie.data, function (statistic) {
            // need to parse each date
           statistic.x = d3.time.format('%Y-%m-%dT%H:%M:%S').parse(statistic.x);
           statistic.x = statistic.x.getTime() / 1000;
+          last_point = statistic;
+          last_point.color = serie.color;
         });
       });
 
@@ -404,6 +469,30 @@ horizon.d3_line_chart = {
       /* Setting a fix height breaks things when chart is refreshed and
          legend is getting bigger. */
       $(self.legend_element).css('height', '');
+
+      // Render bar chart
+      if (self.stats !== undefined){
+        var composed_chart = self.jquery_element.parents(self.settings.composed_chart_selector).first();
+        var bar_chart_html = composed_chart.find(self.settings.bar_chart_selector).get(0);
+
+        horizon.d3_bar_chart.refresh(bar_chart_html,
+                                     self.settings.bar_chart_settings,
+                                     self.stats);
+      }
+
+      // Render ending dot to last point
+      if (self.settings.higlight_last_point){
+        if (last_point !== undefined && last_point_color !== undefined){
+          graph.vis.append('circle')
+            .attr('class', 'used_component')
+            .attr('cy', graph.y(last_point.y))
+            .attr('cx', graph.x(last_point.x))
+            .attr('r', 2)
+            .style('fill', last_point_color)
+            .style('stroke', last_point_color)
+            .style('stroke-width', 2);
+        }
+      }
     };
 
     /**
