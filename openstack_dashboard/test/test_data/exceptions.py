@@ -20,11 +20,11 @@ from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
 from swiftclient import client as swift_exceptions
 try:
-    from troveclient import exceptions as trove_exceptions
+    from troveclient.compat import exceptions as trove_exceptions
     with_trove = True
 except ImportError:
     try:
-        from troveclient.compat import exceptions as trove_exceptions
+        from troveclient import exceptions as trove_exceptions
         with_trove = True
     except ImportError:
         with_trove = False

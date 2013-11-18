@@ -39,11 +39,11 @@ from neutronclient.v2_0 import client as neutron_client
 from novaclient.v1_1 import client as nova_client
 from swiftclient import client as swift_client
 try:
-    from troveclient import client as trove_client
+    from troveclient.compat import client as trove_client
     with_trove = True
 except ImportError:
     try:
-        from troveclient.compat import client as trove_client
+        from troveclient import client as trove_client
         with_trove = True
     except ImportError:
         with_trove = False

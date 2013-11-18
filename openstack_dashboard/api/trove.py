@@ -17,13 +17,13 @@
 from django.conf import settings  # noqa
 
 try:
-    from troveclient import auth
-    from troveclient import client
+    from troveclient.compat import auth
+    from troveclient.compat import client
     with_trove = True
 except ImportError:
     try:
-        from troveclient.compat import auth
-        from troveclient.compat import client
+        from troveclient import auth
+        from troveclient import client
         with_trove = True
     except ImportError:
         with_trove = False
