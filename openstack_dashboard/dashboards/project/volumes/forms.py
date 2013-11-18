@@ -107,7 +107,9 @@ class CreateForm(forms.SelfHandlingForm):
             source_type_choices = []
 
             try:
-                snapshots = cinder.volume_snapshot_list(request)
+                snapshot_list = cinder.volume_snapshot_list(request)
+                snapshots = [s for s in snapshot_list
+                              if s.status == 'available']
                 if snapshots:
                     source_type_choices.append(("snapshot_source",
                                                 _("Snapshot")))
