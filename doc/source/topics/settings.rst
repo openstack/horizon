@@ -189,6 +189,18 @@ Default: ``False``
 Disable SSL certificate checks in the OpenStack clients (useful for self-signed
 certificates).
 
+``OPENSTACK_SSL_CACERT``
+------------------------
+
+Default: ``None``
+
+When unset or set to ``None`` the default CA certificate on the system is used
+for SSL verification.
+
+When set with the path to a custom CA certificate file, this overrides use of
+the default system CA certificate. This custom certificate is used to verify all
+connections to openstack services when making API calls.
+
 ``OPENSTACK_KEYSTONE_BACKEND``
 ------------------------------
 
