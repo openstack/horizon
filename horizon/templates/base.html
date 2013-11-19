@@ -11,7 +11,7 @@
     {% include "horizon/_conf.html" %}
     {% include "horizon/client_side/_script_loader.html" %}
   </head>
-  <body id="{% block body_id %}{% endblock %}">
+  <body id="{% block body_id %}{% endblock %}" ng-app='horizonApp'>
     {% block content %}
       <div id="container">
         {% block sidebar %}
