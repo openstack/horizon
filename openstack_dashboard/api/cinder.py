@@ -116,9 +116,11 @@ def volume_snapshot_list(request):
     return c_client.volume_snapshots.list()
 
 
-def volume_snapshot_create(request, volume_id, name, description):
+def volume_snapshot_create(request, volume_id, name,
+                           description=None, force=False):
     return cinderclient(request).volume_snapshots.create(
-        volume_id, display_name=name, display_description=description)
+        volume_id, force=force, display_name=name,
+        display_description=description)
 
 
 def volume_snapshot_delete(request, snapshot_id):
