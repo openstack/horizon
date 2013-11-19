@@ -28,8 +28,8 @@ from horizon import messages
 
 
 class CreateExtraSpec(forms.SelfHandlingForm):
-    key = forms.CharField(max_length="25", label=_("Key"))
-    value = forms.CharField(max_length="25", label=_("Value"))
+    key = forms.CharField(max_length="255", label=_("Key"))
+    value = forms.CharField(max_length="255", label=_("Value"))
     flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
     def handle(self, request, data):
@@ -46,8 +46,8 @@ class CreateExtraSpec(forms.SelfHandlingForm):
 
 
 class EditExtraSpec(forms.SelfHandlingForm):
-    key = forms.CharField(max_length="25", label=_("Key"))
-    value = forms.CharField(max_length="25", label=_("Value"))
+    key = forms.CharField(max_length="255", label=_("Key"))
+    value = forms.CharField(max_length="255", label=_("Value"))
     flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
     def handle(self, request, data):
