@@ -198,7 +198,7 @@ class MembershipAction(Action):
 
 class Step(object):
     """
-    A step is a wrapper around an action which defines it's context in a
+    A step is a wrapper around an action which defines its context in a
     workflow. It knows about details such as:
 
     * The workflow's context data (data passed from step to step).
@@ -504,7 +504,7 @@ class UpdateMembersStep(Step):
 
 class Workflow(html.HTMLElement):
     """
-    A Workflow is a collection of Steps. It's interface is very
+    A Workflow is a collection of Steps. Its interface is very
     straightforward, but it is responsible for handling some very
     important tasks such as:
 

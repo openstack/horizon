@@ -42,7 +42,7 @@ Connecting a table to a view
 Once you've got your table set up the way you like it, the next step is to
 wire it up to a view. To make this as easy as possible Horizon provides the
 :class:`~horizon.tables.DataTableView` class-based view which can be subclassed
-to display your table with just a couple lines of code. At it's simplest it
+to display your table with just a couple lines of code. At its simplest, it
 looks like this::
 
     from horizon import tables

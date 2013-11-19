@@ -278,7 +278,7 @@ class ContextAdapter(BaseLoggerAdapter):
 
 class JSONFormatter(logging.Formatter):
     def __init__(self, fmt=None, datefmt=None):
-        # NOTE(jkoelker) we ignore the fmt argument, but its still there
+        # NOTE(jkoelker) we ignore the fmt argument, but it's still there
         #                since logging.config.fileConfig passes it.
         self.datefmt = datefmt
 
