@@ -128,8 +128,7 @@ def vip_create(request, **kwargs):
     :param protocol_port: transport layer port number for vip
     :returns: Vip object
     """
-    body = {'vip': {'address': kwargs['address'],
-                    'name': kwargs['name'],
+    body = {'vip': {'name': kwargs['name'],
                     'description': kwargs['description'],
                     'subnet_id': kwargs['subnet_id'],
                     'protocol_port': kwargs['protocol_port'],
@@ -140,6 +139,10 @@ def vip_create(request, **kwargs):
                     }}
     if kwargs.get('connection_limit'):
         body['vip']['connection_limit'] = kwargs['connection_limit']
+
+    if kwargs.get('address'):
+        body['vip']['address'] = kwargs['address']
+
     vip = neutronclient(request).create_vip(body).get('vip')
     return Vip(vip)
 
