@@ -22,6 +22,7 @@ from django.conf import settings  # noqa
 from django.core import urlresolvers
 from django import shortcuts
 from django.utils.functional import Promise  # noqa
+from django.utils.translation import pgettext_lazy  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
@@ -557,8 +558,11 @@ class BatchAction(Action):
             data_type = self.data_type_singular
         else:
             data_type = self.data_type_plural
-        return _("%(action)s %(data_type)s") % {'action': action,
-                                                'data_type': data_type}
+        if action_type == "past":
+            msgstr = pgettext_lazy("past", "%(action)s %(data_type)s")
+        else:
+            msgstr = pgettext_lazy("present", "%(action)s %(data_type)s")
+        return msgstr % {'action': action, 'data_type': data_type}
 
     def action(self, request, datum_id):
         """
