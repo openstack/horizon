@@ -19,10 +19,13 @@ import datetime
 import os
 
 from django.core.exceptions import ValidationError  # noqa
+import django.template
 
 from horizon.test import helpers as test
 from horizon.utils import fields
 from horizon.utils import filters
+# we have to import the filter in order to register it
+from horizon.utils.filters import parse_isotime  # noqa
 from horizon.utils import memoized
 from horizon.utils import secret_key
 from horizon.utils import validators
@@ -256,6 +259,30 @@ class FiltersTests(test.TestCase):
         self.assertEqual(res, "  under score  ")
 
     def test_parse_isotime_filter(self):
+        c = django.template.Context({'time': ''})
+        t = django.template.Template('{{time|parse_isotime}}')
+        output = u""
+
+        self.assertEqual(t.render(c), output)
+
+        c = django.template.Context({'time': 'error'})
+        t = django.template.Template('{{time|parse_isotime}}')
+        output = u""
+
+        self.assertEqual(t.render(c), output)
+
+        c = django.template.Context({'time': 'error'})
+        t = django.template.Template('{{time|parse_isotime:"test"}}')
+        output = u"test"
+
+        self.assertEqual(t.render(c), output)
+
+        c = django.template.Context({'time': '2007-03-04T21:08:12'})
+        t = django.template.Template('{{time|parse_isotime:"test"}}')
+        output = u"March 4, 2007, 3:08 p.m."
+
+        self.assertEqual(t.render(c), output)
+
         adate = '2007-01-25T12:00:00Z'
         result = filters.parse_isotime(adate)
         self.assertIsInstance(result, datetime.datetime)
