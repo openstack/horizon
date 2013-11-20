@@ -145,7 +145,7 @@ class SelectRulesAction(workflows.Action):
     def populate_rule_choices(self, request, context):
         try:
             tenant_id = self.request.user.tenant_id
-            rules = api.fwaas.rules_list(request, tenant_id=tenant_id)
+            rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
             for r in rules:
                 r.set_id_as_name_if_empty()
             rules = sorted(rules,
@@ -254,7 +254,7 @@ class AddFirewallAction(workflows.Action):
         firewall_policy_id_choices = [('', _("Select a Policy"))]
         try:
             tenant_id = self.request.user.tenant_id
-            policies = api.fwaas.policies_list(request, tenant_id=tenant_id)
+            policies = api.fwaas.policy_list(request, tenant_id=tenant_id)
             policies = sorted(policies, key=lambda policy: policy.name)
         except Exception as e:
             exceptions.handle(

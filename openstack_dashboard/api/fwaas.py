@@ -72,15 +72,15 @@ def rule_create(request, **kwargs):
     return Rule(rule)
 
 
-def rules_list(request, **kwargs):
-    return _rules_list(request, expand_policy=True, **kwargs)
+def rule_list(request, **kwargs):
+    return _rule_list(request, expand_policy=True, **kwargs)
 
 
-def _rules_list(request, expand_policy, **kwargs):
+def _rule_list(request, expand_policy, **kwargs):
     rules = neutronclient(request).list_firewall_rules(
         **kwargs).get('firewall_rules')
     if expand_policy:
-        policies = _policies_list(request, expand_rule=False)
+        policies = _policy_list(request, expand_rule=False)
         policy_dict = SortedDict((p.id, p) for p in policies)
         for rule in rules:
             rule['policy'] = policy_dict.get(rule['firewall_policy_id'])
@@ -131,15 +131,15 @@ def policy_create(request, **kwargs):
     return Policy(policy)
 
 
-def policies_list(request, **kwargs):
-    return _policies_list(request, expand_rule=True, **kwargs)
+def policy_list(request, **kwargs):
+    return _policy_list(request, expand_rule=True, **kwargs)
 
 
-def _policies_list(request, expand_rule, **kwargs):
+def _policy_list(request, expand_rule, **kwargs):
     policies = neutronclient(request).list_firewall_policies(
         **kwargs).get('firewall_policies')
     if expand_rule:
-        rules = _rules_list(request, expand_policy=False)
+        rules = _rule_list(request, expand_policy=False)
         rule_dict = SortedDict((rule.id, rule) for rule in rules)
         for p in policies:
             p['rules'] = [rule_dict.get(rule) for rule in p['firewall_rules']]
@@ -156,8 +156,8 @@ def _policy_get(request, policy_id, expand_rule):
     if expand_rule:
         policy_rules = policy['firewall_rules']
         if policy_rules:
-            rules = _rules_list(request, expand_policy=False,
-                                firewall_policy_id=policy_id)
+            rules = _rule_list(request, expand_policy=False,
+                               firewall_policy_id=policy_id)
             rule_dict = SortedDict((rule.id, rule) for rule in rules)
             policy['rules'] = [rule_dict.get(rule) for rule in policy_rules]
         else:
@@ -204,15 +204,15 @@ def firewall_create(request, **kwargs):
     return Firewall(firewall)
 
 
-def firewalls_list(request, **kwargs):
-    return _firewalls_list(request, expand_policy=True, **kwargs)
+def firewall_list(request, **kwargs):
+    return _firewall_list(request, expand_policy=True, **kwargs)
 
 
-def _firewalls_list(request, expand_policy, **kwargs):
+def _firewall_list(request, expand_policy, **kwargs):
     firewalls = neutronclient(request).list_firewalls(
         **kwargs).get('firewalls')
     if expand_policy:
-        policies = _policies_list(request, expand_rule=False)
+        policies = _policy_list(request, expand_rule=False)
         policy_dict = SortedDict((p.id, p) for p in policies)
         for fw in firewalls:
             fw['policy'] = policy_dict.get(fw['firewall_policy_id'])

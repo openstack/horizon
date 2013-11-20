@@ -87,7 +87,7 @@ class UpdatePort(project_forms.UpdatePort):
     def handle(self, request, data):
         try:
             LOG.debug('params = %s' % data)
-            port = api.neutron.port_modify(request, data['port_id'],
+            port = api.neutron.port_update(request, data['port_id'],
                                            name=data['name'],
                                            admin_state_up=data['admin_state'],
                                            device_id=data['device_id'],

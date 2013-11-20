@@ -320,7 +320,7 @@ class AddMemberAction(workflows.Action):
         pool_id_choices = [('', _("Select a Pool"))]
         try:
             tenant_id = self.request.user.tenant_id
-            pools = api.lbaas.pools_get(request, tenant_id=tenant_id)
+            pools = api.lbaas.pool_list(request, tenant_id=tenant_id)
         except Exception:
             pools = []
             exceptions.handle(request,
@@ -567,7 +567,7 @@ class AddPMAssociationAction(workflows.Action, MonitorMixin):
         monitor_id_choices = [('', _("Select a Monitor"))]
         try:
             tenant_id = self.request.user.tenant_id
-            monitors = api.lbaas.pool_health_monitors_get(request,
+            monitors = api.lbaas.pool_health_monitor_list(request,
                                                           tenant_id=tenant_id)
             for m in monitors:
                 if m.id not in context['pool_monitors']:
@@ -629,7 +629,7 @@ class DeletePMAssociationAction(workflows.Action, MonitorMixin):
 
         monitor_id_choices = [('', _("Select a Monitor"))]
         try:
-            monitors = api.lbaas.pool_health_monitors_get(request)
+            monitors = api.lbaas.pool_health_monitor_list(request)
             for m in monitors:
                 if m.id in context['pool_monitors']:
                     display_name = self._get_monitor_display_name(m)

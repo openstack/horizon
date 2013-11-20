@@ -51,7 +51,7 @@ class FwaasApiTests(test.APITestCase):
 
     @test.create_stubs({neutronclient: ('list_firewall_rules',
                                         'list_firewall_policies')})
-    def test_rules_list(self):
+    def test_rule_list(self):
         exp_rules = self.fw_rules.list()
         api_rules = {'firewall_rules': self.api_fw_rules.list()}
         api_policies = {'firewall_policies': self.api_fw_policies.list()}
@@ -60,7 +60,7 @@ class FwaasApiTests(test.APITestCase):
         neutronclient.list_firewall_policies().AndReturn(api_policies)
         self.mox.ReplayAll()
 
-        ret_val = api.fwaas.rules_list(self.request)
+        ret_val = api.fwaas.rule_list(self.request)
         for (v, d) in zip(ret_val, exp_rules):
             self.assertIsInstance(v, api.fwaas.Rule)
             self.assertEqual(v.name, d.name)
@@ -153,7 +153,7 @@ class FwaasApiTests(test.APITestCase):
 
     @test.create_stubs({neutronclient: ('list_firewall_policies',
                                         'list_firewall_rules')})
-    def test_policies_list(self):
+    def test_policy_list(self):
         exp_policies = self.fw_policies.list()
         policies_dict = {'firewall_policies': self.api_fw_policies.list()}
         rules_dict = {'firewall_rules': self.api_fw_rules.list()}
@@ -162,7 +162,7 @@ class FwaasApiTests(test.APITestCase):
         neutronclient.list_firewall_rules().AndReturn(rules_dict)
         self.mox.ReplayAll()
 
-        ret_val = api.fwaas.policies_list(self.request)
+        ret_val = api.fwaas.policy_list(self.request)
         for (v, d) in zip(ret_val, exp_policies):
             self.assertIsInstance(v, api.fwaas.Policy)
             self.assertEqual(v.name, d.name)
@@ -308,7 +308,7 @@ class FwaasApiTests(test.APITestCase):
 
     @test.create_stubs({neutronclient: ('list_firewalls',
                                         'list_firewall_policies')})
-    def test_firewalls_list(self):
+    def test_firewall_list(self):
         exp_firewalls = self.firewalls.list()
         firewalls_dict = {'firewalls': self.api_firewalls.list()}
         policies_dict = {'firewall_policies': self.api_fw_policies.list()}
@@ -317,7 +317,7 @@ class FwaasApiTests(test.APITestCase):
         neutronclient.list_firewall_policies().AndReturn(policies_dict)
         self.mox.ReplayAll()
 
-        ret_val = api.fwaas.firewalls_list(self.request)
+        ret_val = api.fwaas.firewall_list(self.request)
         for (v, d) in zip(ret_val, exp_firewalls):
             self.assertIsInstance(v, api.fwaas.Firewall)
             self.assertEqual(v.name, d.name)

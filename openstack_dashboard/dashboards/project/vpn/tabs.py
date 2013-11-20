@@ -40,7 +40,7 @@ def get_resource_or_fake(request, base_obj, resource, api_module):
     """
     obj_id = getattr(base_obj, '%s_id' % resource)
     try:
-        obj_getter = getattr(api_module, '%s_get' % resource)
+        obj_getter = getattr(api_module, '%_list' % resource)
         obj = obj_getter(request, obj_id)
         setattr(base_obj, resource, obj)
     except Exception:
@@ -58,7 +58,7 @@ class IPSecSiteConnectionsTab(tabs.TableTab):
     def get_ipsecsiteconnectionstable_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            ipsecsiteconnections = api.vpn.ipsecsiteconnections_get(
+            ipsecsiteconnections = api.vpn.ipsecsiteconnection_list(
                 self.tab_group.request, tenant_id=tenant_id)
             ipsecsiteconnectionsFormatted = [s.readable(self.tab_group.request)
                 for s in ipsecsiteconnections]
@@ -78,7 +78,7 @@ class VPNServicesTab(tabs.TableTab):
     def get_vpnservicestable_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            vpnservices = api.vpn.vpnservices_get(
+            vpnservices = api.vpn.vpnservice_list(
                 self.tab_group.request, tenant_id=tenant_id)
             vpnservicesFormatted = [s.readable(self.tab_group.request) for
                               s in vpnservices]
@@ -98,7 +98,7 @@ class IKEPoliciesTab(tabs.TableTab):
     def get_ikepoliciestable_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            ikepolicies = api.vpn.ikepolicies_get(
+            ikepolicies = api.vpn.ikepolicy_list(
                 self.tab_group.request, tenant_id=tenant_id)
         except Exception:
             ikepolicies = []
@@ -116,7 +116,7 @@ class IPSecPoliciesTab(tabs.TableTab):
     def get_ipsecpoliciestable_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            ipsecpolicies = api.vpn.ipsecpolicies_get(
+            ipsecpolicies = api.vpn.ipsecpolicy_list(
                 self.tab_group.request, tenant_id=tenant_id)
         except Exception:
             ipsecpolicies = []
@@ -188,7 +188,7 @@ class VPNServiceDetailsTab(tabs.Tab):
             msg = _('Unable to retrieve VPN Service details.')
             exceptions.handle(request, msg, redirect=self.failure_url)
         try:
-            connections = api.vpn.ipsecsiteconnections_get(
+            connections = api.vpn.ipsecsiteconnection_list(
                 request, vpnservice_id=sid)
             vpnservice.vpnconnections = connections
         except Exception:

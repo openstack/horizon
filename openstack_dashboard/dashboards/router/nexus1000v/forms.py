@@ -138,7 +138,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
         try:
             LOG.debug('request = %(req)s, params = %(params)s',
                       {'req': request, 'params': data})
-            profile = api.neutron.profile_modify(request,
+            profile = api.neutron.profile_update(request,
                                                  data['profile_id'],
                                                  name=data['name'],
                                                  segment_type=

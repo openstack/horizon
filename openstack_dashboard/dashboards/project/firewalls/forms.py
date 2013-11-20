@@ -156,7 +156,7 @@ class UpdateFirewall(forms.SelfHandlingForm):
 
         try:
             tenant_id = self.request.user.tenant_id
-            policies = api.fwaas.policies_list(request, tenant_id=tenant_id)
+            policies = api.fwaas.policy_list(request, tenant_id=tenant_id)
             policies = sorted(policies, key=lambda policy: policy.name)
         except Exception:
             exceptions.handle(request,
@@ -206,7 +206,7 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
 
         tenant_id = self.request.user.tenant_id
         try:
-            all_rules = api.fwaas.rules_list(request, tenant_id=tenant_id)
+            all_rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
             for r in all_rules:
                 r.set_id_as_name_if_empty()
             all_rules = sorted(all_rules, key=lambda rule: rule.name)
@@ -268,7 +268,7 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
 
         tenant_id = request.user.tenant_id
         try:
-            all_rules = api.fwaas.rules_list(request, tenant_id=tenant_id)
+            all_rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
             for r in all_rules:
                 r.set_id_as_name_if_empty()
 

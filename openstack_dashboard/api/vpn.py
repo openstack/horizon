@@ -148,7 +148,7 @@ def vpnservice_create(request, **kwargs):
     return VPNService(vpnservice)
 
 
-def vpnservices_get(request, **kwargs):
+def vpnservice_list(request, **kwargs):
     vpnservices = neutronclient(request).list_vpnservices(
         **kwargs).get('vpnservices')
     return [VPNService(v) for v in vpnservices]
@@ -198,7 +198,7 @@ def ikepolicy_create(request, **kwargs):
     return IKEPolicy(ikepolicy)
 
 
-def ikepolicies_get(request, **kwargs):
+def ikepolicy_list(request, **kwargs):
     ikepolicies = neutronclient(request).list_ikepolicies(
         **kwargs).get('ikepolicies')
     return [IKEPolicy(v) for v in ikepolicies]
@@ -248,7 +248,7 @@ def ipsecpolicy_create(request, **kwargs):
     return IPSecPolicy(ipsecpolicy)
 
 
-def ipsecpolicies_get(request, **kwargs):
+def ipsecpolicy_list(request, **kwargs):
     ipsecpolicies = neutronclient(request).list_ipsecpolicies(
         **kwargs).get('ipsecpolicies')
     return [IPSecPolicy(v) for v in ipsecpolicies]
@@ -308,7 +308,7 @@ def ipsecsiteconnection_create(request, **kwargs):
     return IPSecSiteConnection(ipsecsiteconnection)
 
 
-def ipsecsiteconnections_get(request, **kwargs):
+def ipsecsiteconnection_list(request, **kwargs):
     ipsecsiteconnections = neutronclient(request).list_ipsec_site_connections(
         **kwargs).get('ipsec_site_connections')
     return [IPSecSiteConnection(v) for v in ipsecsiteconnections]

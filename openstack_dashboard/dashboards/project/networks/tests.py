@@ -560,11 +560,11 @@ class NetworkTests(test.TestCase):
         redir_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_modify',
+    @test.create_stubs({api.neutron: ('network_update',
                                       'network_get',)})
     def test_network_update_post(self):
         network = self.networks.first()
-        api.neutron.network_modify(IsA(http.HttpRequest), network.id,
+        api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    name=network.name,
                                    admin_state_up=network.admin_state_up)\
             .AndReturn(network)
@@ -581,11 +581,11 @@ class NetworkTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_modify',
+    @test.create_stubs({api.neutron: ('network_update',
                                       'network_get',)})
     def test_network_update_post_exception(self):
         network = self.networks.first()
-        api.neutron.network_modify(IsA(http.HttpRequest), network.id,
+        api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    name=network.name,
                                    admin_state_up=network.admin_state_up)\
             .AndRaise(self.exceptions.neutron)
@@ -1105,7 +1105,7 @@ class NetworkSubnetTests(test.TestCase):
                             'host_routes: Invalid IP address '
                             '(value=%s)' % host_routes.split(',')[1])
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post(self):
         subnet = self.subnets.first()
@@ -1113,7 +1113,7 @@ class NetworkSubnetTests(test.TestCase):
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
-        api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
+        api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   enable_dhcp=subnet.enable_dhcp,
                                   dns_nameservers=[],
@@ -1131,7 +1131,7 @@ class NetworkSubnetTests(test.TestCase):
                             args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_with_gateway_ip(self):
         subnet = self.subnets.first()
@@ -1140,7 +1140,7 @@ class NetworkSubnetTests(test.TestCase):
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
         gateway_ip = '10.0.0.100'
-        api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
+        api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   gateway_ip=gateway_ip,
                                   enable_dhcp=subnet.enable_dhcp,
@@ -1160,7 +1160,7 @@ class NetworkSubnetTests(test.TestCase):
                             args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_no_gateway(self):
         subnet = self.subnets.first()
@@ -1168,7 +1168,7 @@ class NetworkSubnetTests(test.TestCase):
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
-        api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
+        api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   gateway_ip=None,
                                   enable_dhcp=subnet.enable_dhcp,
@@ -1188,7 +1188,7 @@ class NetworkSubnetTests(test.TestCase):
                             args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_with_additional_attributes(self):
         subnet = self.subnets.list()[1]
@@ -1196,7 +1196,7 @@ class NetworkSubnetTests(test.TestCase):
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
-        api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
+        api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   enable_dhcp=False,
                                   dns_nameservers=subnet.dns_nameservers,
@@ -1214,7 +1214,7 @@ class NetworkSubnetTests(test.TestCase):
                             args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_gw_inconsistent(self):
         subnet = self.subnets.first()
@@ -1232,7 +1232,7 @@ class NetworkSubnetTests(test.TestCase):
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_invalid_nameservers(self):
         subnet = self.subnets.first()
@@ -1252,7 +1252,7 @@ class NetworkSubnetTests(test.TestCase):
                             'dns_nameservers: Invalid IP address '
                             '(value=%s)' % dns_nameservers[1])
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_invalid_routes_destination_only(self):
         subnet = self.subnets.first()
@@ -1274,7 +1274,7 @@ class NetworkSubnetTests(test.TestCase):
                             'Destination CIDR and nexthop must be specified '
                             '(value=%s)' % host_routes)
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_invalid_routes_three_entries(self):
         subnet = self.subnets.first()
@@ -1296,7 +1296,7 @@ class NetworkSubnetTests(test.TestCase):
                             'Destination CIDR and nexthop must be specified '
                             '(value=%s)' % host_routes)
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_invalid_routes_invalid_destination(self):
         subnet = self.subnets.first()
@@ -1317,7 +1317,7 @@ class NetworkSubnetTests(test.TestCase):
                             'host_routes: Invalid IP address '
                             '(value=%s)' % host_routes.split(',')[0])
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_invalid_routes_nexthop_ip_network(self):
         subnet = self.subnets.first()
@@ -1436,12 +1436,12 @@ class NetworkPortTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/networks/ports/update.html')
 
     @test.create_stubs({api.neutron: ('port_get',
-                                      'port_modify')})
+                                      'port_update')})
     def test_port_update_post(self):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
-        api.neutron.port_modify(IsA(http.HttpRequest), port.id,
+        api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up)\
             .AndReturn(port)
@@ -1460,12 +1460,12 @@ class NetworkPortTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('port_get',
-                                      'port_modify')})
+                                      'port_update')})
     def test_port_update_post_exception(self):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
-        api.neutron.port_modify(IsA(http.HttpRequest), port.id,
+        api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up)\
             .AndRaise(self.exceptions.neutron)

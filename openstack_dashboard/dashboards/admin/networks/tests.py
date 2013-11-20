@@ -276,7 +276,7 @@ class NetworkTests(test.BaseAdminViewTests):
         redir_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_modify',
+    @test.create_stubs({api.neutron: ('network_update',
                                       'network_get',)})
     def test_network_update_post(self):
         network = self.networks.first()
@@ -284,7 +284,7 @@ class NetworkTests(test.BaseAdminViewTests):
                   'shared': True,
                   'admin_state_up': network.admin_state_up,
                   'router:external': True}
-        api.neutron.network_modify(IsA(http.HttpRequest), network.id,
+        api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    **params)\
             .AndReturn(network)
         api.neutron.network_get(IsA(http.HttpRequest), network.id)\
@@ -302,7 +302,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_modify',
+    @test.create_stubs({api.neutron: ('network_update',
                                       'network_get',)})
     def test_network_update_post_exception(self):
         network = self.networks.first()
@@ -310,7 +310,7 @@ class NetworkTests(test.BaseAdminViewTests):
                   'shared': False,
                   'admin_state_up': network.admin_state_up,
                   'router:external': False}
-        api.neutron.network_modify(IsA(http.HttpRequest), network.id,
+        api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    **params)\
             .AndRaise(self.exceptions.neutron)
         api.neutron.network_get(IsA(http.HttpRequest), network.id)\
@@ -540,7 +540,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post(self):
         subnet = self.subnets.first()
@@ -548,7 +548,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
-        api.neutron.subnet_modify(IsA(http.HttpRequest), subnet.id,
+        api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   enable_dhcp=subnet.enable_dhcp,
                                   dns_nameservers=[],
@@ -565,7 +565,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
                             args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('subnet_modify',
+    @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
     def test_subnet_update_post_gw_inconsistent(self):
         subnet = self.subnets.first()
@@ -758,12 +758,12 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/networks/ports/update.html')
 
     @test.create_stubs({api.neutron: ('port_get',
-                                      'port_modify')})
+                                      'port_update')})
     def test_port_update_post(self):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
-        api.neutron.port_modify(IsA(http.HttpRequest), port.id,
+        api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
                                 device_id=port.device_id,
@@ -786,12 +786,12 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('port_get',
-                                      'port_modify')})
+                                      'port_update')})
     def test_port_update_post_exception(self):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
-        api.neutron.port_modify(IsA(http.HttpRequest), port.id,
+        api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
                                 device_id=port.device_id,

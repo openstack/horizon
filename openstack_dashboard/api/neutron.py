@@ -290,7 +290,7 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
         ports = port_list(self.request, device_id=instance_id)
         for p in ports:
             params = {'security_groups': new_security_group_ids}
-            port_modify(self.request, p.id, **params)
+            port_update(self.request, p.id, **params)
 
 
 class FloatingIp(base.APIDictWrapper):
@@ -491,8 +491,8 @@ def network_create(request, **kwargs):
     return Network(network)
 
 
-def network_modify(request, network_id, **kwargs):
-    LOG.debug("network_modify(): netid=%s, params=%s" % (network_id, kwargs))
+def network_update(request, network_id, **kwargs):
+    LOG.debug("network_update(): netid=%s, params=%s" % (network_id, kwargs))
     body = {'network': kwargs}
     network = neutronclient(request).update_network(network_id,
                                                     body=body).get('network')
@@ -539,8 +539,8 @@ def subnet_create(request, network_id, cidr, ip_version, **kwargs):
     return Subnet(subnet)
 
 
-def subnet_modify(request, subnet_id, **kwargs):
-    LOG.debug("subnet_modify(): subnetid=%s, kwargs=%s" % (subnet_id, kwargs))
+def subnet_update(request, subnet_id, **kwargs):
+    LOG.debug("subnet_update(): subnetid=%s, kwargs=%s" % (subnet_id, kwargs))
     body = {'subnet': kwargs}
     subnet = neutronclient(request).update_subnet(subnet_id,
                                                   body=body).get('subnet')
@@ -588,8 +588,8 @@ def port_delete(request, port_id):
     neutronclient(request).delete_port(port_id)
 
 
-def port_modify(request, port_id, **kwargs):
-    LOG.debug("port_modify(): portid=%s, kwargs=%s" % (port_id, kwargs))
+def port_update(request, port_id, **kwargs):
+    LOG.debug("port_update(): portid=%s, kwargs=%s" % (port_id, kwargs))
     body = {'port': kwargs}
     port = neutronclient(request).update_port(port_id, body=body).get('port')
     return Port(port)
@@ -631,8 +631,8 @@ def profile_delete(request, profile_id):
     neutronclient(request).delete_network_profile(profile_id)
 
 
-def profile_modify(request, profile_id, **kwargs):
-    LOG.debug("profile_modify(): "
+def profile_update(request, profile_id, **kwargs):
+    LOG.debug("profile_update(): "
               "profileid=%(profileid)s, kwargs=%(kwargs)s",
               {'profileid': profile_id, 'kwargs': kwargs})
     body = {'network_profile': kwargs}
