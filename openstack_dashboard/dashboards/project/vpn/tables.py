@@ -55,7 +55,7 @@ class AddIPSecSiteConnectionLink(tables.LinkAction):
 class DeleteVPNServiceLink(tables.DeleteAction):
     name = "deletevpnservice"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("VPN Service")
     data_type_plural = _("VPN Services")
 
@@ -63,7 +63,7 @@ class DeleteVPNServiceLink(tables.DeleteAction):
 class DeleteIKEPolicyLink(tables.DeleteAction):
     name = "deleteikepolicy"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("IKE Policy")
     data_type_plural = _("IKE Policies")
 
@@ -71,7 +71,7 @@ class DeleteIKEPolicyLink(tables.DeleteAction):
 class DeleteIPSecPolicyLink(tables.DeleteAction):
     name = "deleteipsecpolicy"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("IPSec Policy")
     data_type_plural = _("IPSec Policies")
 
@@ -79,7 +79,7 @@ class DeleteIPSecPolicyLink(tables.DeleteAction):
 class DeleteIPSecSiteConnectionLink(tables.DeleteAction):
     name = "deleteipsecsiteconnection"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("IPSec Site Connection")
     data_type_plural = _("IPSec Site Connections")
 

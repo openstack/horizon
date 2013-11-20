@@ -55,7 +55,7 @@ class RestoreLink(tables.LinkAction):
 class DeleteBackup(tables.BatchAction):
     name = "delete"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Backup")
     data_type_plural = _("Backups")
     classes = ('btn-danger', 'btn-terminate')

@@ -46,7 +46,7 @@ class AddFirewallLink(tables.LinkAction):
 class DeleteRuleLink(tables.DeleteAction):
     name = "deleterule"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Rule")
     data_type_plural = _("Rules")
 
@@ -54,7 +54,7 @@ class DeleteRuleLink(tables.DeleteAction):
 class DeletePolicyLink(tables.DeleteAction):
     name = "deletepolicy"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Policy")
     data_type_plural = _("Policies")
 
@@ -62,7 +62,7 @@ class DeletePolicyLink(tables.DeleteAction):
 class DeleteFirewallLink(tables.DeleteAction):
     name = "deletefirewall"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Firewall")
     data_type_plural = _("Firewalls")
 

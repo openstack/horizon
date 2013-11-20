@@ -37,7 +37,7 @@ DELETABLE_STATES = ("available", "error")
 class DeleteVolume(tables.DeleteAction):
     data_type_singular = _("Volume")
     data_type_plural = _("Volumes")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
 
     def delete(self, request, obj_id):
         obj = self.table.get_object_by_id(obj_id)

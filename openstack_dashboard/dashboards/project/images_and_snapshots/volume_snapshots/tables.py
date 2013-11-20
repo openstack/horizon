@@ -32,7 +32,7 @@ from openstack_dashboard.dashboards.project.volumes \
 class DeleteVolumeSnapshot(tables.DeleteAction):
     data_type_singular = _("Volume Snapshot")
     data_type_plural = _("Volume Snapshots")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
 
     def delete(self, request, obj_id):
         api.cinder.volume_snapshot_delete(request, obj_id)
