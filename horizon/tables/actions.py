@@ -619,7 +619,7 @@ class BatchAction(Action):
         # Begin with success message class, downgrade to info if problems.
         success_message_level = messages.success
         if action_not_allowed:
-            msg = _('You do not have permission to %(action)s: %(objs)s')
+            msg = _('You are not allowed to %(action)s: %(objs)s')
             params = {"action": self._conjugate(action_not_allowed).lower(),
                       "objs": functions.lazy_join(", ", action_not_allowed)}
             messages.error(request, msg % params)

@@ -457,7 +457,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You do not have permission to delete user: %s'
+                         u'You are not allowed to delete user: %s'
                          % self.request.user.username)
 
 
