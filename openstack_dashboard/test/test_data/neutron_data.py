@@ -392,10 +392,18 @@ def data(TEST):
             'remote_ip_prefix': None,
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id']}
+        rule_all_tcp = {
+            'id': str(uuid.uuid4()),
+            'direction': u'egress', 'ethertype': u'IPv4',
+            'port_range_min': 1, 'port_range_max': 65535,
+            'protocol': u'tcp', 'remote_group_id': None,
+            'remote_ip_prefix': u'0.0.0.0/24',
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id']}
 
         rules = []
         if not default_only:
-            rules += [rule_tcp_80, rule_icmp, rule_group]
+            rules += [rule_tcp_80, rule_icmp, rule_group, rule_all_tcp]
         rules += [rule_egress_ipv4, rule_egress_ipv6]
         secgroup['security_group_rules'] = rules
 

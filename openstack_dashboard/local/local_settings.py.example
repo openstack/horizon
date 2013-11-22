@@ -360,6 +360,8 @@ LOGGING = {
     }
 }
 
+# 'direction' should not be specified for all_tcp/udp/icmp.
+# It is specified in the form.
 SECURITY_GROUP_RULES = {
     'all_tcp': {
         'name': 'ALL TCP',
