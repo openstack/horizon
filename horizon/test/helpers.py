@@ -40,7 +40,7 @@ try:
     from selenium.webdriver.firefox.webdriver import WebDriver  # noqa
     from selenium.webdriver.support import ui as selenium_ui
 except ImportError as e:
-    # NOTE(saschpe): Several distribution can't ship selenium due to it's
+    # NOTE(saschpe): Several distribution can't ship selenium due to its
     # non-free license. So they have to patch it out of test-requirements.txt
     # Avoid import failure and force not running selenium tests.
     LOG.warning("{0}, force WITH_SELENIUM=False".format(str(e)))

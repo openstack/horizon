@@ -137,7 +137,7 @@ class TabbedTableView(tables.MultiTableMixin, TabView):
         return self.handle_tabbed_response(context["tab_group"], context)
 
     def post(self, request, *args, **kwargs):
-        # Direct POST to it's appropriate tab
+        # Direct POST to its appropriate tab
         # Note some table actions like filter do not have an 'action'
         if 'action' in request.POST:
             targetslug = request.POST['action'].split('__')[0]

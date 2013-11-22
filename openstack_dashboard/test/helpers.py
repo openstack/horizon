@@ -192,7 +192,7 @@ class TestCase(horizon_helpers.TestCase):
 
     def assertNoFormErrors(self, response, context_name="form"):
         """
-        Asserts that the response either does not contain a form in it's
+        Asserts that the response either does not contain a form in its
         context, or that if it does, that form has no errors.
         """
         context = getattr(response, "context", {})
@@ -205,7 +205,7 @@ class TestCase(horizon_helpers.TestCase):
     def assertFormErrors(self, response, count=0, message=None,
                          context_name="form"):
         """
-        Asserts that the response does contain a form in it's
+        Asserts that the response does contain a form in its
         context, and that form has errors, if count were given,
         it must match the exact numbers of errors
         """
