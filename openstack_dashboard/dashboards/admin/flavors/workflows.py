@@ -54,7 +54,7 @@ class CreateFlavorInfoAction(workflows.Action):
     class Meta:
         name = _("Flavor Info")
         help_text = _("From here you can create a new "
-                      "flavor to organize projects.")
+                      "flavor to organize instance resources.")
 
     def clean(self):
         cleaned_data = super(CreateFlavorInfoAction, self).clean()
