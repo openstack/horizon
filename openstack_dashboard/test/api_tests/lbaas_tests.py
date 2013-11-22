@@ -45,6 +45,28 @@ class LbaasApiTests(test.APITestCase):
         ret_val = api.lbaas.vip_create(self.request, **form_data)
         self.assertIsInstance(ret_val, api.lbaas.Vip)
 
+    @test.create_stubs({neutronclient: ('create_vip',)})
+    def test_vip_create_skip_address_if_empty(self):
+        vip1 = self.api_vips.first()
+        vipform_data = {'name': vip1['name'],
+                        'description': vip1['description'],
+                        'subnet_id': vip1['subnet_id'],
+                        'protocol_port': vip1['protocol_port'],
+                        'protocol': vip1['protocol'],
+                        'pool_id': vip1['pool_id'],
+                        'session_persistence': vip1['session_persistence'],
+                        'connection_limit': vip1['connection_limit'],
+                        'admin_state_up': vip1['admin_state_up']
+                        }
+
+        neutronclient.create_vip({'vip': vipform_data}).AndReturn(vipform_data)
+        self.mox.ReplayAll()
+
+        form_data = dict(vipform_data)
+        form_data['address'] = ""
+        ret_val = api.lbaas.vip_create(self.request, **form_data)
+        self.assertIsInstance(ret_val, api.lbaas.Vip)
+
     @test.create_stubs({neutronclient: ('list_vips',)})
     def test_vips_get(self):
         vips = {'vips': [{'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
