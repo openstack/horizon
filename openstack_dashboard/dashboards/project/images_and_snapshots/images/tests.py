@@ -69,6 +69,8 @@ class CreateImageFormTests(test.TestCase):
         form = forms.CreateImageForm({})
         self.assertEqual(
             isinstance(form.fields['image_file'].widget, HiddenInput), True)
+        source_type_dict = dict(form.fields['source_type'].choices)
+        self.assertNotIn('file', source_type_dict)
 
 
 class ImageViewTests(test.TestCase):
