@@ -7,7 +7,13 @@ horizon.alert = function (type, message, extra_tags) {
   var template = horizon.templates.compiled_templates["#alert_message_template"],
       params = {
         "type": type,
-        "type_capitalized": horizon.utils.capitalize(type),
+        "type_display": {
+            'danger': gettext("Danger"),
+            'warning': gettext("Warning"),
+            'info': gettext("Notice"),
+            'success': gettext("Success"),
+            'error': gettext("Error")
+        }[type],
         "message": message,
         "safe": safe
       };
