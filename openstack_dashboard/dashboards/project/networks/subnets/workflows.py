@@ -37,7 +37,7 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
                                      widget=forms.HiddenInput())
 
     class Meta:
-        name = ("Subnet")
+        name = _("Subnet")
         help_text = _('You can create a subnet associated with the '
                       'network. Advanced configuration are available '
                       'at "Subnet Detail" tab.')
@@ -118,7 +118,7 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
                                     initial=False, required=False)
 
     class Meta:
-        name = ("Subnet")
+        name = _("Subnet")
         help_text = _('You can update a subnet associated with the '
                       'network. Advanced configuration are available '
                       'at "Subnet Detail" tab.')
@@ -139,7 +139,7 @@ class UpdateSubnetDetailAction(network_workflows.CreateSubnetDetailAction):
                                        required=False)
 
     class Meta:
-        name = ("Subnet Detail")
+        name = _("Subnet Detail")
         help_text = _('You can specify additional attributes for the subnet.')
 
 
