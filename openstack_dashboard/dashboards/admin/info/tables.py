@@ -66,7 +66,7 @@ def get_available(zone):
     return zone.zoneState['available']
 
 
-def get_hosts(zone):
+def get_zone_hosts(zone):
     hosts = zone.hosts
     host_details = []
     for name, services in hosts.items():
@@ -78,7 +78,7 @@ def get_hosts(zone):
 
 class ZonesTable(tables.DataTable):
     name = tables.Column('zoneName', verbose_name=_('Name'))
-    hosts = tables.Column(get_hosts,
+    hosts = tables.Column(get_zone_hosts,
                           verbose_name=_('Hosts'),
                           wrap_list=True,
                           filters=(filters.unordered_list,))
@@ -130,7 +130,7 @@ class NovaServicesTable(tables.DataTable):
         multi_select = False
 
 
-def get_hosts(aggregate):
+def get_aggregate_hosts(aggregate):
     return [host for host in aggregate.hosts]
 
 
@@ -144,7 +144,7 @@ class AggregatesTable(tables.DataTable):
                          verbose_name=_("Name"))
     availability_zone = tables.Column("availability_zone",
                                       verbose_name=_("Availability Zone"))
-    hosts = tables.Column(get_hosts,
+    hosts = tables.Column(get_aggregate_hosts,
                           verbose_name=_("Hosts"),
                           wrap_list=True,
                           filters=(filters.unordered_list,))
