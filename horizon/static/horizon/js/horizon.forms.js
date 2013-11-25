@@ -87,8 +87,6 @@ horizon.forms.init_examples = function (el) {
   var $el = $(el);
 
   // FIXME(gabriel): These should be moved into the forms themselves as help text, etc.
-  // Generic examples.
-  $el.find("#id_description").attr("placeholder", gettext("Additional information here..."));
 
   // Update/create image form.
   $el.find("#create_image_form input#id_copy_from").attr("placeholder", "http://example.com/image.iso");
