@@ -51,8 +51,7 @@ def image_delete(request, image_id):
 
 
 def image_get(request, image_id):
-    """
-    Returns an Image object populated with metadata for image
+    """Returns an Image object populated with metadata for image
     with supplied identifier.
     """
     return glanceclient(request).images.get(image_id)

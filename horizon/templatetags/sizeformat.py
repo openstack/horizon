@@ -73,8 +73,9 @@ def mbformat(mb):
 
 @register.filter(name='mb_float_format')
 def mb_float_format(mb):
-    """ Takes a size value in mb, and prints returns the data in a
-    saner unit. """
+    """Takes a size value in mb, and prints returns the data in a
+    saner unit.
+    """
     if not mb:
         return 0
     return filesizeformat(mb * 1024 * 1024, float_format)

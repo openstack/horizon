@@ -24,7 +24,7 @@ neutronclient = neutron.neutronclient
 
 
 class Rule(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron firewall rule"""
+    """Wrapper for neutron firewall rule."""
 
     def get_dict(self):
         rule_dict = self._apidict
@@ -33,7 +33,7 @@ class Rule(neutron.NeutronAPIDictWrapper):
 
 
 class Policy(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron firewall policy"""
+    """Wrapper for neutron firewall policy."""
 
     def get_dict(self):
         policy_dict = self._apidict
@@ -42,7 +42,7 @@ class Policy(neutron.NeutronAPIDictWrapper):
 
 
 class Firewall(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron firewall"""
+    """Wrapper for neutron firewall."""
 
     def get_dict(self):
         firewall_dict = self._apidict

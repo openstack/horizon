@@ -30,7 +30,7 @@ except ImportError:
 
 
 class TokenAuth(object):
-    """Simple Token Authentication handler for trove api"""
+    """Simple Token Authentication handler for trove api."""
 
     def __init__(self, client, auth_strategy, auth_url, username, password,
                  tenant, region, service_type, service_name, service_url):

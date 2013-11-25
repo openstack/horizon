@@ -159,7 +159,7 @@ class Registry(object):
 
 
 class Panel(HorizonComponent):
-    """ A base class for defining Horizon dashboard panels.
+    """A base class for defining Horizon dashboard panels.
 
     All Horizon dashboard panels should extend from this class. It provides
     the appropriate hooks for automatically constructing URLconfs, and
@@ -214,7 +214,7 @@ class Panel(HorizonComponent):
         return "<Panel: %s>" % self.slug
 
     def get_absolute_url(self):
-        """ Returns the default URL for this panel.
+        """Returns the default URL for this panel.
 
         The default URL is defined as the URL pattern with ``name="index"`` in
         the URLconf for this panel.
@@ -243,7 +243,7 @@ class Panel(HorizonComponent):
 
 
 class PanelGroup(object):
-    """ A container for a set of :class:`~horizon.Panel` classes.
+    """A container for a set of :class:`~horizon.Panel` classes.
 
     When iterated, it will yield each of the ``Panel`` instances it
     contains.
@@ -286,7 +286,7 @@ class PanelGroup(object):
 
 
 class Dashboard(Registry, HorizonComponent):
-    """ A base class for defining Horizon dashboards.
+    """A base class for defining Horizon dashboards.
 
     All Horizon dashboards should extend from this base class. It provides the
     appropriate hooks for automatic discovery of :class:`~horizon.Panel`
@@ -390,15 +390,13 @@ class Dashboard(Registry, HorizonComponent):
         self._panel_groups = None
 
     def get_panel(self, panel):
-        """
-        Returns the specified :class:`~horizon.Panel` instance registered
+        """Returns the specified :class:`~horizon.Panel` instance registered
         with this dashboard.
         """
         return self._registered(panel)
 
     def get_panels(self):
-        """
-        Returns the :class:`~horizon.Panel` instances registered with this
+        """Returns the :class:`~horizon.Panel` instances registered with this
         dashboard in order, without any panel groupings.
         """
         all_panels = []
@@ -432,7 +430,7 @@ class Dashboard(Registry, HorizonComponent):
         return SortedDict(panel_groups)
 
     def get_absolute_url(self):
-        """ Returns the default URL for this dashboard.
+        """Returns the default URL for this dashboard.
 
         The default URL is defined as the URL pattern with ``name="index"``
         in the URLconf for the :class:`~horizon.Panel` specified by
@@ -478,7 +476,7 @@ class Dashboard(Registry, HorizonComponent):
         return urlpatterns, self.slug, self.slug
 
     def _autodiscover(self):
-        """ Discovers panels to register from the current dashboard module. """
+        """Discovers panels to register from the current dashboard module."""
         if getattr(self, "_autodiscover_complete", False):
             return
 
@@ -520,7 +518,7 @@ class Dashboard(Registry, HorizonComponent):
 
     @classmethod
     def register(cls, panel):
-        """ Registers a :class:`~horizon.Panel` with this dashboard. """
+        """Registers a :class:`~horizon.Panel` with this dashboard."""
         panel_class = Horizon.register_panel(cls, panel)
         # Support template loading from panel template directories.
         panel_mod = import_module(panel.__module__)
@@ -533,7 +531,7 @@ class Dashboard(Registry, HorizonComponent):
 
     @classmethod
     def unregister(cls, panel):
-        """ Unregisters a :class:`~horizon.Panel` from this dashboard. """
+        """Unregisters a :class:`~horizon.Panel` from this dashboard."""
         success = Horizon.unregister_panel(cls, panel)
         if success:
             # Remove the panel's template directory.
@@ -578,7 +576,7 @@ class LazyURLPattern(SimpleLazyObject):
 
 
 class Site(Registry, HorizonComponent):
-    """ The overarching class which encompasses all dashboards and panels. """
+    """The overarching class which encompasses all dashboards and panels."""
 
     # Required for registry
     _registerable_class = Dashboard
@@ -604,11 +602,11 @@ class Site(Registry, HorizonComponent):
         return self._conf['default_dashboard']
 
     def register(self, dashboard):
-        """ Registers a :class:`~horizon.Dashboard` with Horizon."""
+        """Registers a :class:`~horizon.Dashboard` with Horizon."""
         return self._register(dashboard)
 
     def unregister(self, dashboard):
-        """ Unregisters a :class:`~horizon.Dashboard` from Horizon. """
+        """Unregisters a :class:`~horizon.Dashboard` from Horizon."""
         return self._unregister(dashboard)
 
     def registered(self, dashboard):
@@ -626,11 +624,11 @@ class Site(Registry, HorizonComponent):
         return dash_instance._unregister(panel)
 
     def get_dashboard(self, dashboard):
-        """ Returns the specified :class:`~horizon.Dashboard` instance. """
+        """Returns the specified :class:`~horizon.Dashboard` instance."""
         return self._registered(dashboard)
 
     def get_dashboards(self):
-        """ Returns an ordered tuple of :class:`~horizon.Dashboard` modules.
+        """Returns an ordered tuple of :class:`~horizon.Dashboard` modules.
 
         Orders dashboards according to the ``"dashboards"`` key in
         ``HORIZON_CONFIG`` or else returns all registered dashboards
@@ -658,7 +656,7 @@ class Site(Registry, HorizonComponent):
             return dashboards
 
     def get_default_dashboard(self):
-        """ Returns the default :class:`~horizon.Dashboard` instance.
+        """Returns the default :class:`~horizon.Dashboard` instance.
 
         If ``"default_dashboard"`` is specified in ``HORIZON_CONFIG``
         then that dashboard will be returned. If not, the first dashboard
@@ -672,7 +670,7 @@ class Site(Registry, HorizonComponent):
             raise NotRegistered("No dashboard modules have been registered.")
 
     def get_user_home(self, user):
-        """ Returns the default URL for a particular user.
+        """Returns the default URL for a particular user.
 
         This method can be used to customize where a user is sent when
         they log in, etc. By default it returns the value of
@@ -710,7 +708,7 @@ class Site(Registry, HorizonComponent):
             return self.get_absolute_url()
 
     def get_absolute_url(self):
-        """ Returns the default URL for Horizon's URLconf.
+        """Returns the default URL for Horizon's URLconf.
 
         The default URL is determined by calling
         :meth:`~horizon.Dashboard.get_absolute_url`
@@ -721,7 +719,7 @@ class Site(Registry, HorizonComponent):
 
     @property
     def _lazy_urls(self):
-        """ Lazy loading for URL patterns.
+        """Lazy loading for URL patterns.
 
         This method avoids problems associated with attempting to evaluate
         the the URLconf before the settings module has been loaded.
@@ -732,7 +730,7 @@ class Site(Registry, HorizonComponent):
         return LazyURLPattern(url_patterns), self.namespace, self.slug
 
     def _urls(self):
-        """ Constructs the URLconf for Horizon from registered Dashboards. """
+        """Constructs the URLconf for Horizon from registered Dashboards."""
         urlpatterns = self._get_default_urlpatterns()
         self._autodiscover()
 
@@ -764,7 +762,7 @@ class Site(Registry, HorizonComponent):
         return urlpatterns, self.namespace, self.slug
 
     def _autodiscover(self):
-        """ Discovers modules to register from ``settings.INSTALLED_APPS``.
+        """Discovers modules to register from ``settings.INSTALLED_APPS``.
 
         This makes sure that the appropriate modules get imported to register
         themselves with Horizon.
@@ -787,8 +785,7 @@ class Site(Registry, HorizonComponent):
 
 
 class HorizonSite(Site):
-    """
-    A singleton implementation of Site such that all dealings with horizon
+    """A singleton implementation of Site such that all dealings with horizon
     get the same instance no matter what. There can be only one.
     """
     _instance = None

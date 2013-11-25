@@ -50,8 +50,7 @@ class RoleAPITests(test.APITestCase):
         self.roles = self.roles.list()
 
     def test_remove_tenant_user(self):
-        """
-        Tests api.keystone.remove_tenant_user
+        """Tests api.keystone.remove_tenant_user
 
         Verifies that remove_tenant_user is called with the right arguments
         after iterating the user's roles.

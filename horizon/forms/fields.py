@@ -20,9 +20,8 @@ from django.forms import widgets
 
 
 class DynamicSelectWidget(widgets.Select):
-    """
-    A subclass of the ``Select`` widget which renders extra attributes for use
-    in callbacks to handle dynamic changes to the available choices.
+    """A subclass of the ``Select`` widget which renders extra attributes for
+    use in callbacks to handle dynamic changes to the available choices.
     """
     _data_add_url_attr = "data-add-item-url"
 
@@ -46,8 +45,7 @@ class DynamicSelectWidget(widgets.Select):
 
 
 class DynamicChoiceField(fields.ChoiceField):
-    """
-    A subclass of ``ChoiceField`` with additional properties that make
+    """A subclass of ``ChoiceField`` with additional properties that make
     dynamically updating its elements easier.
 
     Notably, the field declaration takes an extra argument, ``add_item_link``
@@ -67,5 +65,5 @@ class DynamicChoiceField(fields.ChoiceField):
 
 
 class DynamicTypedChoiceField(DynamicChoiceField, fields.TypedChoiceField):
-    """ Simple mix of ``DynamicChoiceField`` and ``TypedChoiceField``. """
+    """Simple mix of ``DynamicChoiceField`` and ``TypedChoiceField``."""
     pass

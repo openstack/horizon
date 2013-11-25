@@ -368,7 +368,7 @@ class CreateNetwork(workflows.Workflow):
             return False
 
     def _delete_network(self, request, network):
-        """Delete the created network when subnet creation failed"""
+        """Delete the created network when subnet creation failed."""
         try:
             api.neutron.network_delete(request, network.id)
             msg = _('Delete the created network "%s" '

@@ -44,8 +44,7 @@ IMAGES_INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 
 class CreateImageFormTests(test.TestCase):
     def test_no_location_or_file(self):
-        """
-        The form will not be valid if both copy_from and image_file are not
+        """The form will not be valid if both copy_from and image_file are not
         provided.
         """
         post = {
@@ -62,8 +61,7 @@ class CreateImageFormTests(test.TestCase):
 
     @override_settings(HORIZON_IMAGES_ALLOW_UPLOAD=False)
     def test_image_upload_disabled(self):
-        """
-        If HORIZON_IMAGES_ALLOW_UPLOAD is false, the image_file field widget
+        """If HORIZON_IMAGES_ALLOW_UPLOAD is false, the image_file field widget
         will be a HiddenInput widget instead of a FileInput widget.
         """
         form = forms.CreateImageForm({})

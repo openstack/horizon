@@ -98,7 +98,7 @@ class DomainFilterAction(tables.FilterAction):
         return multidomain_support
 
     def filter(self, table, domains, filter_string):
-        """ Naive case-insensitive search """
+        """Naive case-insensitive search."""
         q = filter_string.lower()
 
         def comp(domain):

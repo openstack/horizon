@@ -166,7 +166,7 @@ class SecurityGroup(base.APIResourceWrapper):
 
 
 class SecurityGroupRule(base.APIResourceWrapper):
-    """ Wrapper for individual rules in a SecurityGroup. """
+    """Wrapper for individual rules in a SecurityGroup."""
     _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range', 'group']
 
     def __unicode__(self):
@@ -686,8 +686,7 @@ def list_extensions(request):
 
 @memoized
 def extension_supported(extension_name, request):
-    """
-    this method will determine if nova supports a given extension name.
+    """this method will determine if nova supports a given extension name.
     example values for the extension_name include AdminActions, ConsoleOutput,
     etc.
     """

@@ -25,7 +25,7 @@ from horizon import conf
 
 
 def horizon(request):
-    """ The main Horizon context processor. Required for Horizon to function.
+    """The main Horizon context processor. Required for Horizon to function.
 
     It adds the Horizon config to the context as well as setting the names
     ``True`` and ``False`` in the context to their boolean equivalents

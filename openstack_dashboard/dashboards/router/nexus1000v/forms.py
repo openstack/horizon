@@ -46,7 +46,7 @@ def get_tenant_choices(request):
 
 class CreateNetworkProfile(forms.SelfHandlingForm):
 
-    """ Create Network Profile form."""
+    """Create Network Profile form."""
 
     name = forms.CharField(max_length=255,
                            label=_("Name"),
@@ -115,7 +115,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
 
 class UpdateNetworkProfile(forms.SelfHandlingForm):
 
-    """ Update Network Profile form."""
+    """Update Network Profile form."""
 
     profile_id = forms.CharField(label=_("ID"),
                                  widget=forms.HiddenInput())

@@ -68,8 +68,7 @@ def cinderclient(request):
 
 
 def volume_list(request, search_opts=None):
-    """
-    To see all volumes in the cloud as an admin you can pass in a special
+    """To see all volumes in the cloud as an admin you can pass in a special
     search option: {'all_tenants': 1}
     """
     c_client = cinderclient(request)
@@ -181,8 +180,7 @@ def list_extensions(request):
 
 @memoized
 def extension_supported(request, extension_name):
-    """
-    This method will determine if Cinder supports a given extension name.
+    """This method will determine if Cinder supports a given extension name.
     """
     extensions = list_extensions(request)
     for extension in extensions:

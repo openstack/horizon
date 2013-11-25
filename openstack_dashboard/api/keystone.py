@@ -74,7 +74,7 @@ except ImportError:
 
 
 class Service(base.APIDictWrapper):
-    """ Wrapper for a dict based on the service data from keystone. """
+    """Wrapper for a dict based on the service data from keystone."""
     _attrs = ['id', 'type', 'name']
 
     def __init__(self, service, region, *args, **kwargs):
@@ -216,8 +216,7 @@ def tenant_create(request, name, description=None, enabled=None, domain=None):
 
 
 def get_default_domain(request):
-    """
-    Gets the default domain object to use when creating Identity object.
+    """Gets the default domain object to use when creating Identity object.
     Returns the domain context if is set, otherwise return the domain
     of the logon user.
     """
@@ -482,7 +481,7 @@ def role_delete(request, role_id):
 
 
 def role_list(request):
-    """ Returns a global list of available roles. """
+    """Returns a global list of available roles."""
     return keystoneclient(request, admin=True).roles.list()
 
 
@@ -496,7 +495,7 @@ def roles_for_user(request, user, project):
 
 def add_tenant_user_role(request, project=None, user=None, role=None,
                          group=None, domain=None):
-    """ Adds a role for a user on a tenant. """
+    """Adds a role for a user on a tenant."""
     manager = keystoneclient(request, admin=True).roles
     if VERSIONS.active < 3:
         return manager.add_user_role(user, role, project)
@@ -507,7 +506,7 @@ def add_tenant_user_role(request, project=None, user=None, role=None,
 
 def remove_tenant_user_role(request, project=None, user=None, role=None,
                             group=None, domain=None):
-    """ Removes a given single role for a user from a tenant. """
+    """Removes a given single role for a user from a tenant."""
     manager = keystoneclient(request, admin=True).roles
     if VERSIONS.active < 3:
         return manager.remove_user_role(user, role, project)
@@ -517,7 +516,7 @@ def remove_tenant_user_role(request, project=None, user=None, role=None,
 
 
 def remove_tenant_user(request, project=None, user=None, domain=None):
-    """ Removes all roles from a user on a tenant, removing them from it. """
+    """Removes all roles from a user on a tenant, removing them from it."""
     client = keystoneclient(request, admin=True)
     roles = client.roles.roles_for_user(user, project)
     for role in roles:
@@ -531,22 +530,22 @@ def roles_for_group(request, group, domain=None, project=None):
 
 
 def add_group_role(request, role, group, domain=None, project=None):
-    """ Adds a role for a group on a domain or project ."""
+    """Adds a role for a group on a domain or project."""
     manager = keystoneclient(request, admin=True).roles
     return manager.grant(role=role, group=group, domain=domain,
                          project=project)
 
 
 def remove_group_role(request, role, group, domain=None, project=None):
-    """ Removes a given single role for a group from a domain or project. """
+    """Removes a given single role for a group from a domain or project."""
     manager = keystoneclient(request, admin=True).roles
     return manager.revoke(role=role, group=group, project=project,
                           domain=domain)
 
 
 def remove_group_roles(request, group, domain=None, project=None):
-    """ Removes all roles from a group on a domain or project,
-        removing them from it.
+    """Removes all roles from a group on a domain or project,
+    removing them from it.
     """
     client = keystoneclient(request, admin=True)
     roles = client.roles.list(group=group, domain=domain, project=project)
@@ -556,8 +555,7 @@ def remove_group_roles(request, group, domain=None, project=None):
 
 
 def get_default_role(request):
-    """
-    Gets the default role object from Keystone and saves it as a global
+    """Gets the default role object from Keystone and saves it as a global
     since this is configured in settings and should not change from request
     to request. Supports lookup by name or id.
     """

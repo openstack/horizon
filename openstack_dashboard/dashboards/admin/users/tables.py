@@ -115,7 +115,7 @@ class DeleteUsersAction(tables.DeleteAction):
 
 class UserFilterAction(tables.FilterAction):
     def filter(self, table, users, filter_string):
-        """ Naive case-insensitive search """
+        """Naive case-insensitive search."""
         q = filter_string.lower()
         return [user for user in users
                 if q in user.name.lower()

@@ -36,7 +36,7 @@ class DeleteVolumeType(tables.DeleteAction):
 class VolumesFilterAction(tables.FilterAction):
 
     def filter(self, table, volumes, filter_string):
-        """ Naive case-insensitive search. """
+        """Naive case-insensitive search."""
         q = filter_string.lower()
         return [volume for volume in volumes
                 if q in volume.display_name.lower()]

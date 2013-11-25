@@ -68,5 +68,5 @@ class UpdateView(views.UpdateView):
 
 
 class DetailView(views.DetailView):
-    """ Admin placeholder for image detail view. """
+    """Admin placeholder for image detail view."""
     pass

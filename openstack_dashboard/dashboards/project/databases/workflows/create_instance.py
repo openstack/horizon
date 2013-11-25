@@ -65,8 +65,7 @@ class SetInstanceDetails(workflows.Step):
 
 
 class AddDatabasesAction(workflows.Action):
-    """
-    Initialize the database with users/databases. This tab will honor
+    """Initialize the database with users/databases. This tab will honor
     the settings which should be a list of permissions required:
 
     * TROVE_ADD_USER_PERMS = []

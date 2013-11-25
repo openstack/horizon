@@ -22,14 +22,14 @@ neutronclient = neutron.neutronclient
 
 
 class Vip(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron load balancer vip"""
+    """Wrapper for neutron load balancer vip."""
 
     def __init__(self, apiresource):
         super(Vip, self).__init__(apiresource)
 
 
 class Pool(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron load balancer pool"""
+    """Wrapper for neutron load balancer pool."""
 
     def __init__(self, apiresource):
         if 'provider' not in apiresource:
@@ -75,7 +75,7 @@ class Pool(neutron.NeutronAPIDictWrapper):
 
 
 class Member(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron load balancer member"""
+    """Wrapper for neutron load balancer member."""
 
     def __init__(self, apiresource):
         super(Member, self).__init__(apiresource)
@@ -104,14 +104,14 @@ class Member(neutron.NeutronAPIDictWrapper):
 
 
 class PoolStats(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron load balancer pool stats"""
+    """Wrapper for neutron load balancer pool stats."""
 
     def __init__(self, apiresource):
         super(PoolStats, self).__init__(apiresource)
 
 
 class PoolMonitor(neutron.NeutronAPIDictWrapper):
-    """Wrapper for neutron load balancer pool health monitor"""
+    """Wrapper for neutron load balancer pool health monitor."""
 
     def __init__(self, apiresource):
         super(PoolMonitor, self).__init__(apiresource)

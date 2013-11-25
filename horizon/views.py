@@ -22,12 +22,12 @@ from horizon import exceptions
 
 
 def user_home(request):
-    """ Reversible named view to direct a user to the appropriate homepage. """
+    """Reversible named view to direct a user to the appropriate homepage."""
     return shortcuts.redirect(horizon.get_user_home(request.user))
 
 
 class APIView(generic.TemplateView):
-    """ A quick class-based view for putting API data into a template.
+    """A quick class-based view for putting API data into a template.
 
     Subclasses must define one method, ``get_data``, and a template name
     via the ``template_name`` attribute on the class.
@@ -37,8 +37,7 @@ class APIView(generic.TemplateView):
     caught.
     """
     def get_data(self, request, context, *args, **kwargs):
-        """
-        This method should handle any necessary API calls, update the
+        """This method should handle any necessary API calls, update the
         context object, and return the context object at the end.
         """
         raise NotImplementedError("You must define a get_data method "

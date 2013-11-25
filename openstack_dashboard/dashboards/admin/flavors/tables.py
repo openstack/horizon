@@ -72,7 +72,7 @@ class ModifyAccess(tables.LinkAction):
 
 class FlavorFilterAction(tables.FilterAction):
     def filter(self, table, flavors, filter_string):
-        """ Really naive case-insensitive search. """
+        """Really naive case-insensitive search."""
         q = filter_string.lower()
 
         def comp(flavor):

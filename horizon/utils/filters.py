@@ -29,8 +29,7 @@ def replace_underscores(string):
 
 @register.filter
 def parse_isotime(timestr):
-    """
-    This duplicates oslo timeutils parse_isotime but with a
+    """This duplicates oslo timeutils parse_isotime but with a
     @register.filter annotation.
     """
     try:

@@ -190,7 +190,7 @@ class NoActionsTable(tables.DataTable):
 
 class DataTableTests(test.TestCase):
     def test_table_instantiation(self):
-        """ Tests everything that happens when the table is instantiated. """
+        """Tests everything that happens when the table is instantiated."""
         self.table = MyTable(self.request, TEST_DATA)
         # Properties defined on the table
         self.assertEqual(self.table.data, TEST_DATA)

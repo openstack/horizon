@@ -108,8 +108,7 @@ class RequestFactoryWithMessages(RequestFactory):
 @unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
                      "The SKIP_UNITTESTS env variable is set.")
 class TestCase(horizon_helpers.TestCase):
-    """
-    Specialized base test case class for Horizon which gives access to
+    """Specialized base test case class for Horizon which gives access to
     numerous additional features:
 
       * A full suite of test data through various attached objects and
@@ -180,8 +179,7 @@ class TestCase(horizon_helpers.TestCase):
         utils.get_user = get_user
 
     def assertRedirectsNoFollow(self, response, expected_url):
-        """
-        Asserts that the given response issued a 302 redirect without
+        """Asserts that the given response issued a 302 redirect without
         processing the view which is redirected to.
         """
         assert (response.status_code / 100 == 3), \
@@ -191,8 +189,7 @@ class TestCase(horizon_helpers.TestCase):
         self.assertEqual(response.status_code, 302)
 
     def assertNoFormErrors(self, response, context_name="form"):
-        """
-        Asserts that the response either does not contain a form in its
+        """Asserts that the response either does not contain a form in its
         context, or that if it does, that form has no errors.
         """
         context = getattr(response, "context", {})
@@ -204,8 +201,7 @@ class TestCase(horizon_helpers.TestCase):
 
     def assertFormErrors(self, response, count=0, message=None,
                          context_name="form"):
-        """
-        Asserts that the response does contain a form in its
+        """Asserts that the response does contain a form in its
         context, and that form has errors, if count were given,
         it must match the exact numbers of errors
         """
@@ -226,8 +222,7 @@ class TestCase(horizon_helpers.TestCase):
 
 
 class BaseAdminViewTests(TestCase):
-    """
-    A ``TestCase`` subclass which sets an active user with the "admin" role
+    """A ``TestCase`` subclass which sets an active user with the "admin" role
     for testing admin-only views and functionality.
     """
     def setActiveUser(self, *args, **kwargs):
@@ -248,8 +243,7 @@ class BaseAdminViewTests(TestCase):
 
 
 class APITestCase(TestCase):
-    """
-    The ``APITestCase`` class is for use with tests which deal with the
+    """The ``APITestCase`` class is for use with tests which deal with the
     underlying clients rather than stubbing out the
     openstack_dashboard.api.* methods.
     """
@@ -258,8 +252,7 @@ class APITestCase(TestCase):
         utils.patch_middleware_get_user()
 
         def fake_keystoneclient(request, admin=False):
-            """
-            Wrapper function which returns the stub keystoneclient. Only
+            """Wrapper function which returns the stub keystoneclient. Only
             necessary because the function takes too many arguments to
             conveniently be a lambda.
             """
@@ -414,8 +407,7 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
 
 
 class SeleniumAdminTestCase(SeleniumTestCase):
-    """
-    A ``TestCase`` subclass which sets an active user with the "admin" role
+    """A ``TestCase`` subclass which sets an active user with the "admin" role
     for testing admin-only views and functionality.
     """
     def setActiveUser(self, *args, **kwargs):

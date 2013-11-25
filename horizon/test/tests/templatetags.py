@@ -29,22 +29,22 @@ from horizon.test import helpers as test
 
 
 def single_line(text):
-    ''' Quick utility to make comparing template output easier. '''
+    """Quick utility to make comparing template output easier."""
     return re.sub(' +',
                   ' ',
                   normalize_newlines(text).replace('\n', '')).strip()
 
 
 class TemplateTagTests(test.TestCase):
-    '''Test Custom Template Tag'''
+    """Test Custom Template Tag."""
     def render_template_tag(self, tag_name, tag_require=''):
-        '''Render a Custom Template Tag to string'''
+        """Render a Custom Template Tag to string."""
         template = Template("{%% load %s %%}{%% %s %%}"
                             % (tag_require, tag_name))
         return template.render(Context())
 
     def test_site_branding_tag(self):
-        '''Test if site_branding tag renders the correct setting'''
+        """Test if site_branding tag renders the correct setting."""
         rendered_str = self.render_template_tag("site_branding", "branding")
         self.assertEqual(settings.SITE_BRANDING, rendered_str.strip(),
                         "tag site_branding renders %s" % rendered_str.strip())

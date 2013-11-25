@@ -28,7 +28,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 
 def _current_component(view_func, dashboard=None, panel=None):
-    """ Sets the currently-active dashboard and/or panel on the request. """
+    """Sets the currently-active dashboard and/or panel on the request."""
     @functools.wraps(view_func, assigned=available_attrs(view_func))
     def dec(request, *args, **kwargs):
         if dashboard:
@@ -40,7 +40,7 @@ def _current_component(view_func, dashboard=None, panel=None):
 
 
 def require_auth(view_func):
-    """ Performs user authentication check.
+    """Performs user authentication check.
 
     Similar to Django's `login_required` decorator, except that this throws
     :exc:`~horizon.exceptions.NotAuthenticated` exception if the user is not
@@ -57,7 +57,7 @@ def require_auth(view_func):
 
 
 def require_perms(view_func, required):
-    """ Enforces permission-based access controls.
+    """Enforces permission-based access controls.
 
     :param list required: A tuple of permission names, all of which the request
                           user must possess in order access the decorated view.

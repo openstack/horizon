@@ -174,7 +174,7 @@ class SamplesView(TemplateView):
             query = []
 
             def filter_by_meter_name(resource):
-                """ Function for filtering of the list of resources.
+                """Function for filtering of the list of resources.
 
                 Will pick the right resources according to currently selected
                 meter.

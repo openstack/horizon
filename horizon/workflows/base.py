@@ -76,8 +76,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
 
 
 class Action(forms.Form):
-    """
-    An ``Action`` represents an atomic logical interaction you can have with
+    """An ``Action`` represents an atomic logical interaction you can have with
     the system. This is easier to understand with a conceptual example: in the
     context of a "launch instance" workflow, actions would include "naming
     the instance", "selecting an image", and ultimately "launching the
@@ -154,7 +153,7 @@ class Action(forms.Form):
                 bound_field.choices = meth(request, context)
 
     def get_help_text(self, extra_context=None):
-        """ Returns the help text for this step. """
+        """Returns the help text for this step."""
         text = ""
         extra_context = extra_context or {}
         if self.help_text_template:
@@ -166,14 +165,11 @@ class Action(forms.Form):
         return safe(text)
 
     def add_error(self, message):
-        """
-        Adds an error to the Action's Step based on API issues.
-        """
+        """Adds an error to the Action's Step based on API issues."""
         self._get_errors()[NON_FIELD_ERRORS] = self.error_class([message])
 
     def handle(self, request, context):
-        """
-        Handles any requisite processing for this action. The method should
+        """Handles any requisite processing for this action. The method should
         return either ``None`` or a dictionary of data to be passed to
         :meth:`~horizon.workflows.Step.contribute`.
 
@@ -183,8 +179,7 @@ class Action(forms.Form):
 
 
 class MembershipAction(Action):
-    """
-    An action that allows a user to add/remove members from a group.
+    """An action that allows a user to add/remove members from a group.
 
     Extend the Action class with additional helper method for membership
     management.
@@ -197,8 +192,7 @@ class MembershipAction(Action):
 
 
 class Step(object):
-    """
-    A step is a wrapper around an action which defines its context in a
+    """A step is a wrapper around an action which defines its context in a
     workflow. It knows about details such as:
 
     * The workflow's context data (data passed from step to step).
@@ -380,9 +374,8 @@ class Step(object):
         return self._action
 
     def prepare_action_context(self, request, context):
-        """
-        Allows for customization of how the workflow context is passed to the
-        action; this is the reverse of what "contribute" does to make the
+        """Allows for customization of how the workflow context is passed to
+        the action; this is the reverse of what "contribute" does to make the
         action outputs sane for the workflow. Changes to the context are not
         saved globally here. They are localized to the action.
 
@@ -391,7 +384,7 @@ class Step(object):
         return context
 
     def get_id(self):
-        """ Returns the ID for this step. Suitable for use in HTML markup. """
+        """Returns the ID for this step. Suitable for use in HTML markup."""
         return "%s__%s" % (self.workflow.slug, self.slug)
 
     def _verify_contributions(self, context):
@@ -412,8 +405,7 @@ class Step(object):
         return True
 
     def contribute(self, data, context):
-        """
-        Adds the data listed in ``contributes`` to the workflow's shared
+        """Adds the data listed in ``contributes`` to the workflow's shared
         context. By default, the context is simply updated with all the data
         returned by the action.
 
@@ -427,7 +419,7 @@ class Step(object):
         return context
 
     def render(self):
-        """ Renders the step. """
+        """Renders the step."""
         step_template = template.loader.get_template(self.template_name)
         extra_context = {"form": self.action,
                          "step": self}
@@ -435,21 +427,17 @@ class Step(object):
         return step_template.render(context)
 
     def get_help_text(self):
-        """ Returns the help text for this step. """
+        """Returns the help text for this step."""
         text = linebreaks(force_unicode(self.help_text))
         text += self.action.get_help_text()
         return safe(text)
 
     def add_error(self, message):
-        """
-        Adds an error to the Step based on API issues.
-        """
+        """Adds an error to the Step based on API issues."""
         self.action.add_error(message)
 
     def has_required_fields(self):
-        """
-        Returns True if action contains any required fields
-        """
+        """Returns True if action contains any required fields."""
         for key in self.contributes:
             field = self.action.fields.get(key, None)
             if (field and field.required):
@@ -503,8 +491,7 @@ class UpdateMembersStep(Step):
 
 
 class Workflow(html.HTMLElement):
-    """
-    A Workflow is a collection of Steps. Its interface is very
+    """A Workflow is a collection of Steps. Its interface is very
     straightforward, but it is responsible for handling some very
     important tasks such as:
 
@@ -665,7 +652,7 @@ class Workflow(html.HTMLElement):
         return self._ordered_steps
 
     def get_step(self, slug):
-        """ Returns the instantiated step matching the given slug. """
+        """Returns the instantiated step matching the given slug."""
         for step in self.steps:
             if step.slug == slug:
                 return step
@@ -705,8 +692,7 @@ class Workflow(html.HTMLElement):
         return steps
 
     def get_entry_point(self):
-        """
-        Returns the slug of the step which the workflow should begin on.
+        """Returns the slug of the step which the workflow should begin on.
 
         This method takes into account both already-available data and errors
         within the steps.
@@ -736,7 +722,7 @@ class Workflow(html.HTMLElement):
 
     @classmethod
     def register(cls, step_class):
-        """ Registers a :class:`~horizon.workflows.Step` with the workflow. """
+        """Registers a :class:`~horizon.workflows.Step` with the workflow."""
         if not inspect.isclass(step_class):
             raise ValueError('Only classes may be registered.')
         elif not issubclass(step_class, cls._registerable_class):
@@ -750,8 +736,7 @@ class Workflow(html.HTMLElement):
 
     @classmethod
     def unregister(cls, step_class):
-        """
-        Unregisters a :class:`~horizon.workflows.Step` from the workflow.
+        """Unregisters a :class:`~horizon.workflows.Step` from the workflow.
         """
         try:
             cls._cls_registry.remove(step_class)
@@ -760,15 +745,13 @@ class Workflow(html.HTMLElement):
         return cls._unregister(step_class)
 
     def validate(self, context):
-        """
-        Hook for custom context data validation. Should return a boolean
+        """Hook for custom context data validation. Should return a boolean
         value or raise :class:`~horizon.exceptions.WorkflowValidationError`.
         """
         return True
 
     def is_valid(self):
-        """
-        Verified that all required data is present in the context and
+        """Verified that all required data is present in the context and
         calls the ``validate`` method to allow for finer-grained checks
         on the context data.
         """
@@ -790,8 +773,7 @@ class Workflow(html.HTMLElement):
         return self.validate(self.context)
 
     def finalize(self):
-        """
-        Finalizes a workflow by running through all the actions in order
+        """Finalizes a workflow by running through all the actions in order
         and calling their ``handle`` methods. Returns ``True`` on full success,
         or ``False`` for a partial success, e.g. there were non-critical
         errors. (If it failed completely the function wouldn't return.)
@@ -814,15 +796,13 @@ class Workflow(html.HTMLElement):
         return not partial
 
     def handle(self, request, context):
-        """
-        Handles any final processing for this workflow. Should return a boolean
-        value indicating success.
+        """Handles any final processing for this workflow. Should return a
+        boolean value indicating success.
         """
         return True
 
     def get_success_url(self):
-        """
-        Returns a URL to redirect the user to upon completion. By default it
+        """Returns a URL to redirect the user to upon completion. By default it
         will attempt to parse a ``success_url`` attribute on the workflow,
         which can take the form of a reversible URL pattern name, or a
         standard HTTP URL.
@@ -833,8 +813,7 @@ class Workflow(html.HTMLElement):
             return self.success_url
 
     def format_status_message(self, message):
-        """
-        Hook to allow customization of the message returned to the user
+        """Hook to allow customization of the message returned to the user
         upon successful or unsuccessful completion of the workflow.
 
         By default it simply inserts the workflow's name into the message
@@ -846,7 +825,7 @@ class Workflow(html.HTMLElement):
             return message
 
     def render(self):
-        """ Renders the workflow. """
+        """Renders the workflow."""
         workflow_template = template.loader.get_template(self.template_name)
         extra_context = {"workflow": self}
         if self.request.is_ajax():
@@ -855,7 +834,7 @@ class Workflow(html.HTMLElement):
         return workflow_template.render(context)
 
     def get_absolute_url(self):
-        """ Returns the canonical URL for this workflow.
+        """Returns the canonical URL for this workflow.
 
         This is used for the POST action attribute on the form element
         wrapping the workflow.
@@ -867,8 +846,7 @@ class Workflow(html.HTMLElement):
         return self.request.get_full_path().partition('?')[0]
 
     def add_error_to_step(self, message, slug):
-        """
-        Adds an error to the workflow's Step with the
+        """Adds an error to the workflow's Step with the
         specifed slug based on API issues. This is useful
         when you wish for API errors to appear as errors on
         the form rather than using the messages framework.

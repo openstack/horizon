@@ -25,7 +25,7 @@ from django.conf import settings  # noqa
 
 
 def openstack(request):
-    """ Context processor necessary for OpenStack Dashboard functionality.
+    """Context processor necessary for OpenStack Dashboard functionality.
 
     The following variables are added to the request context:
 

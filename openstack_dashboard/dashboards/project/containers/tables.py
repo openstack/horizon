@@ -47,8 +47,7 @@ class DeleteContainer(tables.DeleteAction):
         api.swift.swift_delete_container(request, obj_id)
 
     def get_success_url(self, request=None):
-        """
-        Returns the URL to redirect to after a successful action.
+        """Returns the URL to redirect to after a successful action.
         """
         current_container = self.table.kwargs.get("container_name", None)
 

@@ -27,7 +27,7 @@ from openstack_dashboard.test import helpers as test
 
 
 class APIResource(api_base.APIResourceWrapper):
-    """ Simple APIResource for testing """
+    """Simple APIResource for testing."""
     _attrs = ['foo', 'bar', 'baz']
 
     @staticmethod
@@ -44,7 +44,7 @@ class APIResource(api_base.APIResourceWrapper):
 
 
 class APIDict(api_base.APIDictWrapper):
-    """ Simple APIDict for testing """
+    """Simple APIDict for testing."""
     _attrs = ['foo', 'bar', 'baz']
 
     @staticmethod
@@ -116,7 +116,7 @@ class APIDictWrapperTests(test.TestCase):
 
 
 class ApiHelperTests(test.TestCase):
-    """ Tests for functions that don't use one of the api objects """
+    """Tests for functions that don't use one of the api objects."""
 
     def test_url_for(self):
         url = api_base.url_for(self.request, 'image')
