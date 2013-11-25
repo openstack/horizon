@@ -746,9 +746,25 @@ def tenant_quota_update(request, tenant_id, **kwargs):
     return neutronclient(request).update_quota(tenant_id, quotas)
 
 
-def agent_list(request):
-    agents = neutronclient(request).list_agents()
+def agent_list(request, **params):
+    agents = neutronclient(request).list_agents(**params)
     return [Agent(a) for a in agents['agents']]
+
+
+def list_dhcp_agent_hosting_networks(request, network, **params):
+    agents = neutronclient(request).list_dhcp_agent_hosting_networks(network,
+                                                                     **params)
+    return [Agent(a) for a in agents['agents']]
+
+
+def add_network_to_dhcp_agent(request, dhcp_agent, network_id):
+    body = {'network_id': network_id}
+    return neutronclient(request).add_network_to_dhcp_agent(dhcp_agent, body)
+
+
+def remove_network_from_dhcp_agent(request, dhcp_agent, network_id):
+    return neutronclient(request).remove_network_from_dhcp_agent(dhcp_agent,
+                                                                 network_id)
 
 
 def provider_list(request):

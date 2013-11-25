@@ -16,17 +16,17 @@ from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.admin.networks import views
-
-from openstack_dashboard.dashboards.admin.networks.subnets \
-    import urls as subnet_urls
-from openstack_dashboard.dashboards.admin.networks.subnets \
-    import views as subnet_views
-
+from openstack_dashboard.dashboards.admin.networks.agents \
+    import views as agent_views
 from openstack_dashboard.dashboards.admin.networks.ports \
     import urls as port_urls
 from openstack_dashboard.dashboards.admin.networks.ports \
     import views as port_views
+from openstack_dashboard.dashboards.admin.networks.subnets \
+    import urls as subnet_urls
+from openstack_dashboard.dashboards.admin.networks.subnets \
+    import views as subnet_views
+from openstack_dashboard.dashboards.admin.networks import views
 
 
 NETWORKS = r'^(?P<network_id>[^/]+)/%s$'
@@ -38,6 +38,8 @@ urlpatterns = patterns('',
     url(NETWORKS % 'update', views.UpdateView.as_view(), name='update'),
     # for detail view
     url(NETWORKS % 'detail', views.DetailView.as_view(), name='detail'),
+    url(NETWORKS % 'agents/add',
+        agent_views.AddView.as_view(), name='adddhcpagent'),
     url(NETWORKS % 'subnets/create',
         subnet_views.CreateView.as_view(), name='addsubnet'),
     url(NETWORKS % 'ports/create',

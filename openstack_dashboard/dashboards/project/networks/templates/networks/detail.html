@@ -15,4 +15,9 @@
   <div id="ports">
     {{ ports_table.render }}
   </div>
+  {% if dhcp_agent_support %}
+    <div id="agents">
+      {{ agents_table.render }}
+    </div>
+  {% endif %}
 {% endblock %}
