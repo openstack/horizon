@@ -806,12 +806,16 @@ class LoadBalancerTests(test.TestCase):
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
     @test.create_stubs({api.lbaas: ('pool_get',
+                                    'pool_health_monitors_get',
                                     'pool_monitor_association_delete')})
     def test_delete_pool_monitor_association_post(self):
         pool = self.pools.first()
-        monitor = self.monitors.first()
+        monitors = self.monitors.list()
+        monitor = monitors[0]
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+        api.lbaas.pool_health_monitors_get(
+            IsA(http.HttpRequest)).AndReturn(monitors)
 
         api.lbaas.pool_monitor_association_delete(
             IsA(http.HttpRequest),
@@ -833,11 +837,15 @@ class LoadBalancerTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
-    @test.create_stubs({api.lbaas: ('pool_get',)})
+    @test.create_stubs({api.lbaas: ('pool_get',
+                                    'pool_health_monitors_get')})
     def test_delete_pool_monitor_association_get(self):
         pool = self.pools.first()
+        monitors = self.monitors.list()
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+        api.lbaas.pool_health_monitors_get(
+            IsA(http.HttpRequest)).AndReturn(monitors)
 
         self.mox.ReplayAll()
 
