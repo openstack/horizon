@@ -171,9 +171,14 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 SESSION_TIMEOUT = 1800
+
 # When using cookie-based sessions, log error when the session cookie exceeds
 # the following size (common browsers drop cookies above a certain size):
 SESSION_COOKIE_MAX_SIZE = 4093
+
+# when doing upgrades, it may be wise to stick to PickleSerializer
+# TODO(mrunge): remove after Icehouse
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 gettext_noop = lambda s: s
 LANGUAGES = (
