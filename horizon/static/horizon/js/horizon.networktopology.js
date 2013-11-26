@@ -227,16 +227,15 @@ horizon.network_topology = {
         this.appendChild(d3.select(self.network_tmpl[self.draw_mode]).node().cloneNode(true));
         var $this = d3.select(this).select('.network-rect');
         if (d.url) {
-          var $this = d3.select(this).select('.network-rect');
           $this
           .on('mouseover',function(){
             $this.transition().style('fill', function() {
-              return d3.rgb(self.network_color(d.id)).brighter(0.5);
+              return d3.rgb(self.get_network_color(d.id)).brighter(0.5);
             });
           })
           .on('mouseout',function(){
             $this.transition().style('fill', function() {
-              return self.network_color(d.id);
+              return self.get_network_color(d.id);
             });
           })
           .on('click',function(){
@@ -254,7 +253,7 @@ horizon.network_topology = {
       })
       .select('.network-rect')
       .attr('height', function(d) { return self.network_height; })
-      .style('fill', function(d) { return self.network_color(d.id); });
+      .style('fill', function(d) { return self.get_network_color(d.id); });
     network
       .select('.network-name')
       .attr('x', function(d) { return self.network_height/2; })
@@ -367,8 +366,8 @@ horizon.network_topology = {
     });
 
     port.each(function(d,i){
-      var index_diff = self.network_index(this.parentNode._portdata.parent_network) -
-        self.network_index(d.network_id);
+      var index_diff = self.get_network_index(this.parentNode._portdata.parent_network) -
+        self.get_network_index(d.network_id);
       this._index_diff = index_diff = (index_diff >= 0)? ++index_diff : index_diff;
       this._direction = (this._index_diff < 0)? 'right' : 'left';
       this._index  = this.parentNode._portdata[this._direction] ++;
@@ -389,8 +388,8 @@ horizon.network_topology = {
       .attr('stroke-width',function(d,i) {
         return this.parentNode.parentNode._portdata.port_height;
       })
-      .attr('stroke',function(d,i) {
-        return self.network_color(d.network_id);
+      .attr('stroke', function(d, i) {
+        return self.get_network_color(d.network_id);
       })
       .attr('x1',0).attr('y1',0).attr('y2',0)
       .attr('x2',function(d,i) {
@@ -425,10 +424,10 @@ horizon.network_topology = {
 
     port.exit().remove();
   },
-  network_color: function(network_id) {
-    return this.color(this.network_index(network_id));
+  get_network_color: function(network_id) {
+    return this.color(this.get_network_index(network_id));
   },
-  network_index: function(network_id) {
+  get_network_index: function(network_id) {
     return this.network_index[network_id];
   },
   select_port: function(device_id){
@@ -455,9 +454,9 @@ horizon.network_topology = {
   sum_port_length: function(network_id, ports){
     var self = this;
     var sum_port_length = 0;
-    var base_index = self.network_index(network_id);
+    var base_index = self.get_network_index(network_id);
     $.each(ports, function(index, port){
-      sum_port_length += base_index - self.network_index(port.network_id);
+      sum_port_length += base_index - self.get_network_index(port.network_id);
     });
     return sum_port_length;
   },
@@ -530,7 +529,6 @@ horizon.network_topology = {
       type_capital:d.type.replace(/^\w/, function($0) {
         return $0.toUpperCase();
       }),
-      id:d.id,
       status:d.status,
       status_class:(d.status == "ACTIVE")? 'active' : 'down'
     };
