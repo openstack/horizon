@@ -6,9 +6,7 @@ horizon.addInitFunction(function () {
 
         config = {
             // Warnings reported by JSHint. Suppressing for now...
-            '-W004': true, // already defined
             '-W014': true, // bad line breaking
-            '-W038': true, // out of scope
             '-W041': true, // use '!==' or  '===' for comparison
             '-W069': true, // better written in dot notation
             '-W065': true, // missing radix parameter
