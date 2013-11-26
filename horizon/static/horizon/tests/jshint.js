@@ -12,7 +12,6 @@ horizon.addInitFunction(function () {
             '-W018': true, // confusing use
             '-W038': true, // out of scope
             '-W041': true, // use '!==' or  '===' for comparison
-            '-W046': true, // extra leading zeros
             '-W069': true, // better written in dot notation
             '-W065': true, // missing radix parameter
             '-W075': true, // duplicate key
