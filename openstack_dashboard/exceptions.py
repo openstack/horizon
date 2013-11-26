@@ -25,57 +25,55 @@ from keystoneclient import exceptions as keystoneclient
 from neutronclient.common import exceptions as neutronclient
 from novaclient import exceptions as novaclient
 from swiftclient import client as swiftclient
-try:
-    from troveclient.compat import exceptions as troveclient
-    with_trove = True
-except ImportError:
-    try:
-        from troveclient import exceptions as troveclient
-        with_trove = True
-    except ImportError:
-        with_trove = False
+from troveclient import exceptions as troveclient
 
 
-UNAUTHORIZED = (keystoneclient.Unauthorized,
-                keystoneclient.Forbidden,
-                cinderclient.Unauthorized,
-                cinderclient.Forbidden,
-                novaclient.Unauthorized,
-                novaclient.Forbidden,
-                glanceclient.Unauthorized,
-                neutronclient.Unauthorized,
-                neutronclient.Forbidden,
-                heatclient.HTTPUnauthorized,
-                heatclient.HTTPForbidden,)
+UNAUTHORIZED = (
+    keystoneclient.Unauthorized,
+    keystoneclient.Forbidden,
+    cinderclient.Unauthorized,
+    cinderclient.Forbidden,
+    novaclient.Unauthorized,
+    novaclient.Forbidden,
+    glanceclient.Unauthorized,
+    neutronclient.Unauthorized,
+    neutronclient.Forbidden,
+    heatclient.HTTPUnauthorized,
+    heatclient.HTTPForbidden,
+    troveclient.Unauthorized,
+)
 
-NOT_FOUND = (keystoneclient.NotFound,
-             cinderclient.NotFound,
-             novaclient.NotFound,
-             glanceclient.NotFound,
-             neutronclient.NetworkNotFoundClient,
-             neutronclient.PortNotFoundClient,
-             heatclient.HTTPNotFound,)
+
+NOT_FOUND = (
+    keystoneclient.NotFound,
+    cinderclient.NotFound,
+    novaclient.NotFound,
+    glanceclient.NotFound,
+    neutronclient.NetworkNotFoundClient,
+    neutronclient.PortNotFoundClient,
+    heatclient.HTTPNotFound,
+    troveclient.NotFound,
+)
+
 
 # NOTE(gabriel): This is very broad, and may need to be dialed in.
-RECOVERABLE = (keystoneclient.ClientException,
-               # AuthorizationFailure is raised when Keystone is "unavailable".
-               keystoneclient.AuthorizationFailure,
-               cinderclient.ClientException,
-               cinderclient.ConnectionError,
-               novaclient.ClientException,
-               glanceclient.ClientException,
-               # NOTE(amotoki): Neutron exceptions other than the first one
-               # are recoverable in many cases (e.g., NetworkInUse is not
-               # raised once VMs which use the network are terminated).
-               neutronclient.NeutronClientException,
-               neutronclient.NetworkInUseClient,
-               neutronclient.PortInUseClient,
-               neutronclient.AlreadyAttachedClient,
-               neutronclient.StateInvalidClient,
-               swiftclient.ClientException,
-               heatclient.HTTPException,)
-
-if with_trove:
-    UNAUTHORIZED += (troveclient.Unauthorized,)
-    NOT_FOUND += (troveclient.NotFound,)
-    RECOVERABLE += (troveclient.ClientException,)
+RECOVERABLE = (
+    keystoneclient.ClientException,
+    # AuthorizationFailure is raised when Keystone is "unavailable".
+    keystoneclient.AuthorizationFailure,
+    cinderclient.ClientException,
+    cinderclient.ConnectionError,
+    novaclient.ClientException,
+    glanceclient.ClientException,
+    # NOTE(amotoki): Neutron exceptions other than the first one
+    # are recoverable in many cases (e.g., NetworkInUse is not
+    # raised once VMs which use the network are terminated).
+    neutronclient.NeutronClientException,
+    neutronclient.NetworkInUseClient,
+    neutronclient.PortInUseClient,
+    neutronclient.AlreadyAttachedClient,
+    neutronclient.StateInvalidClient,
+    swiftclient.ClientException,
+    heatclient.HTTPException,
+    troveclient.ClientException
+)
