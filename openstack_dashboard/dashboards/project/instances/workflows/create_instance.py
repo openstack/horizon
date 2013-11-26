@@ -404,6 +404,12 @@ class SetAccessControlsAction(workflows.Action):
         help_text = _("Control access to your instance via keypairs, "
                       "security groups, and other mechanisms.")
 
+    def __init__(self, request, *args, **kwargs):
+        super(SetAccessControlsAction, self).__init__(request, *args, **kwargs)
+        if not api.nova.can_set_server_password():
+            del self.fields['admin_pass']
+            del self.fields['confirm_admin_pass']
+
     def populate_keypair_choices(self, request, context):
         try:
             keypairs = api.nova.keypair_list(request)
