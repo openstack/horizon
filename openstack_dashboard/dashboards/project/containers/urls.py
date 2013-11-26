@@ -48,6 +48,11 @@ urlpatterns = patterns(VIEW_MOD,
         views.UploadView.as_view(),
         name='object_upload'),
 
+    url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)'
+            '?create_pseudo_folder',
+        views.CreatePseudoFolderView.as_view(),
+        name='create_pseudo_folder'),
+
     url(r'^(?P<container_name>[^/]+)/'
          r'(?P<subfolder_path>(.+/)+)?'
          r'(?P<object_name>.+)/copy$',

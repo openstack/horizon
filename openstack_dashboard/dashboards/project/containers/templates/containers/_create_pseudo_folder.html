@@ -1,0 +1,25 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}create_directory_form{% endblock %}
+{% block form_action %}{% url 'horizon:project:containers:create_pseudo_folder' container_name %}{% endblock %}
+
+{% block modal-header %}{% trans "Create pseudo-folder in container" %} {{ container_name }}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p><strong>{% trans "Pseudo-folder" %}</strong>: {% trans "Within a container you can group your objects into pseudo-folders, which behave similarly to folders in your desktop operating system, with the exception that they are virtual collections defined by a common prefix on the object's name. A slash (/) character is used as the delimiter for pseudo-folders in the Object Store." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create" %}" />
+  <a href="{% url 'horizon:project:containers:index' container_name|add:'/' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
