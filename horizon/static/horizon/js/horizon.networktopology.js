@@ -566,9 +566,8 @@ horizon.network_topology = {
           'left': 0 + 'px'
         })
         .css({
-          'left': device_position.position().left
-            - $balloon.outerWidth()
-            - element_properties.balloon_margin.x + 'px'
+          'left': (device_position.position().left - $balloon.outerWidth() -
+                   element_properties.balloon_margin.x + 'px')
         })
         .addClass('leftPosition');
     }
