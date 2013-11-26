@@ -95,11 +95,11 @@ function removeNode (name) {
     var i = 0;
     var n = findNode(name);
     while (i < links.length) {
-        if ((links[i]['source'] == n)||(links[i]['target'] == n))
-        {
-            links.splice(i,1);
+        if (links[i].source == n || links[i].target == n) {
+          links.splice(i, 1);
+        } else {
+          i++;
         }
-        else i++;
     }
     nodes.splice(findNodeIndex(name),1);
     needs_update = true;
@@ -142,8 +142,7 @@ function build_node_links(node){
         }
         //check for duplicates
         for (var lidx=0;lidx<links.length;lidx++) {
-            if ((links[lidx]['source'] == source_idx)&&(links[lidx]['target'] == target_idx))
-            {
+            if (links[lidx].source == source_idx && links[lidx].target == target_idx) {
                 push_link=false;
                 break;
             }
