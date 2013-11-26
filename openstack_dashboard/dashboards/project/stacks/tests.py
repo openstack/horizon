@@ -155,6 +155,37 @@ class StackTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_launch_stack_form_invalid_names_fail(self):
+        self._test_launch_stack_invalid_name('2_StartWithDigit')
+        self._test_launch_stack_invalid_name('_StartWithUnderscore')
+        self._test_launch_stack_invalid_name('.StartWithPoint')
+
+    def _test_launch_stack_invalid_name(self, name):
+        template = self.stack_templates.first()
+        url = reverse('horizon:project:stacks:launch')
+        form_data = {'template_source': 'raw',
+                     'template_data': template.data,
+                     'password': 'password',
+                     'parameters': template.validate,
+                     'stack_name': name,
+                     "timeout_mins": 60,
+                     "disable_rollback": True,
+                     "__param_DBUsername": "admin",
+                     "__param_LinuxDistribution": "F17",
+                     "__param_InstanceType": "m1.small",
+                     "__param_KeyName": "test",
+                     "__param_DBPassword": "admin",
+                     "__param_DBRootPassword": "admin",
+                     "__param_DBName": "wordpress",
+                     'method': forms.StackCreateForm.__name__}
+
+        res = self.client.post(url, form_data)
+        error = ('Name must start with a letter and may only contain letters, '
+                 'numbers, underscores, periods and hyphens.')
+
+        self.assertFormErrors(res, 1)
+        self.assertFormError(res, "form", 'stack_name', error)
+
 
 class TemplateFormTests(test.TestCase):
 
