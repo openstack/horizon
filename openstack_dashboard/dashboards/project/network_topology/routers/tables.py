@@ -26,6 +26,6 @@ class DeleteRouter(r_tables.DeleteRouter):
 class RoutersTable(r_tables.RoutersTable):
     class Meta:
         name = "Routers"
-        verbose_name = _("NT_Routers")
+        verbose_name = _("Routers")
         status_columns = ["status"]
         row_actions = (DeleteRouter,)
