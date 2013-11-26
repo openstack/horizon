@@ -71,7 +71,10 @@ horizon.d3_pie_chart = {
           })
           .style("stroke", "#CCCCCC")
           .style("stroke-width", 1)
-          .each(function(d) {return self.current = d;});
+          .each(function(d) {
+            self.current = d;
+            return d;
+          });
 
     // Animate filling the pie chart
     animate = function(data) {
@@ -84,7 +87,10 @@ horizon.d3_pie_chart = {
             .style("fill", self.bkgrnd)
             .style("stroke", "#CCCCCC")
             .style("stroke-width", 1)
-            .each(function(d) {return self.current = d;})
+            .each(function(d) {
+              self.current = d;
+              return d;
+            })
         .transition()
           .duration(500)
           .attrTween("d", function(a) {

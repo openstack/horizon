@@ -9,7 +9,6 @@ horizon.addInitFunction(function () {
             '-W004': true, // already defined
             '-W009': true, // array literal notation [] is preferrable
             '-W014': true, // bad line breaking
-            '-W018': true, // confusing use
             '-W038': true, // out of scope
             '-W041': true, // use '!==' or  '===' for comparison
             '-W046': true, // extra leading zeros
@@ -17,7 +16,6 @@ horizon.addInitFunction(function () {
             '-W065': true, // missing radix parameter
             '-W075': true, // duplicate key
             '-W080': true, // it's not necessary to initialize to 'undefined'
-            '-W093': true, // conditional instead of an assignment
 
             // Proposed set of rules
             //'camelcase' : true,
