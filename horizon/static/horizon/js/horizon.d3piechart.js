@@ -42,15 +42,16 @@ horizon.d3_pie_chart = {
       .attr("height", self.h)
       .style("background-color", "white")
       .append("g")
-        .attr("transform", "translate(" + (self.r + 2) + "," + (self.r + 2) + ")")
+      .attr("transform",
+            "translate(" + (self.r + 2) + "," + (self.r + 2) + ")");
 
     var arc = d3.svg.arc()
       .outerRadius(self.r)
-      .innerRadius(0)
+      .innerRadius(0);
 
     var pie = d3.layout.pie()
       .sort(null)
-      .value(function(d){ return d.percentage; })
+      .value(function(d){ return d.percentage; });
 
     // Draw an empty pie chart
     var piechart = vis.selectAll(".arc")
@@ -70,7 +71,7 @@ horizon.d3_pie_chart = {
           })
           .style("stroke", "#CCCCCC")
           .style("stroke-width", 1)
-          .each(function(d) {return self.current = d;})
+          .each(function(d) {return self.current = d;});
 
     // Animate filling the pie chart
     animate = function(data) {
@@ -89,13 +90,13 @@ horizon.d3_pie_chart = {
           .attrTween("d", function(a) {
             var tween = d3.interpolate(self.current, a);
             self.current = tween(0);
-            return function(t) { return arc(tween(t)); }
-          })
-    }
+            return function(t) { return arc(tween(t)); };
+          });
+    };
 
-    animate(self.data)
+    animate(self.data);
   }
-}
+};
 
 horizon.addInitFunction(function () {
   horizon.d3_pie_chart.init();

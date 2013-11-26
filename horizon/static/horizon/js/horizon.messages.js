@@ -1,8 +1,8 @@
 horizon.alert = function (type, message, extra_tags) {
-  safe = false
+  safe = false;
   // Check if the message is tagged as safe.
   if (typeof(extra_tags) !== "undefined" && _.contains(extra_tags.split(' '), 'safe')) {
-    safe = true
+    safe = true;
   }
   var template = horizon.templates.compiled_templates["#alert_message_template"],
       params = {
@@ -47,7 +47,7 @@ horizon.autoDismissAlerts = function() {
       }, horizon.conf.auto_fade_alerts.delay);
     }
   });
-}
+};
 
 horizon.addInitFunction(function () {
   // Bind AJAX message handling.

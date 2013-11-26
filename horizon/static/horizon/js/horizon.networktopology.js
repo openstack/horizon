@@ -230,12 +230,14 @@ horizon.network_topology = {
           var $this = d3.select(this).select('.network-rect');
           $this
           .on('mouseover',function(){
-            $this.transition().style('fill',
-              function() { return d3.rgb(self.network_color(d.id)).brighter(0.5)});
+            $this.transition().style('fill', function() {
+              return d3.rgb(self.network_color(d.id)).brighter(0.5);
+            });
           })
           .on('mouseout',function(){
-            $this.transition().style('fill',
-              function() { return self.network_color(d.id)});
+            $this.transition().style('fill', function() {
+              return self.network_color(d.id);
+            });
           })
           .on('click',function(){
             window.location.href = d.url;
@@ -248,17 +250,20 @@ horizon.network_topology = {
     network
       .attr('id',function(d) { return 'id_' + d.id; })
       .attr('transform',function(d,i){ 
-        return 'translate(' + element_properties.network_width * i + ',' + 0 + ')'})
+        return 'translate(' + element_properties.network_width * i + ',' + 0 + ')';
+      })
       .select('.network-rect')
-      .attr('height', function(d) { return self.network_height})
-      .style('fill', function(d) { return self.network_color(d.id)});
+      .attr('height', function(d) { return self.network_height; })
+      .style('fill', function(d) { return self.network_color(d.id); });
     network
       .select('.network-name')
-      .attr('x', function(d) { return self.network_height/2 })
+      .attr('x', function(d) { return self.network_height/2; })
       .text(function(d) { return d.name; });
     network
       .select('.network-cidr')
-      .attr('x', function(d) { return self.network_height - self.element_properties.cidr_margin })
+      .attr('x', function(d) {
+        return self.network_height - self.element_properties.cidr_margin;
+      })
       .text(function(d) {
         var cidr = $.map(d.subnets,function(n, i){
           return n.cidr;
@@ -384,7 +389,9 @@ horizon.network_topology = {
       .attr('stroke-width',function(d,i) {
         return this.parentNode.parentNode._portdata.port_height;
       })
-      .attr('stroke',function(d,i) {return self.network_color(d.network_id)})
+      .attr('stroke',function(d,i) {
+        return self.network_color(d.network_id);
+      })
       .attr('x1',0).attr('y1',0).attr('y2',0)
       .attr('x2',function(d,i) {
         var parent = this.parentNode;
@@ -405,7 +412,9 @@ horizon.network_topology = {
             return element_properties.port_text_margin.x;
           }
         })
-        .attr('y',function(d) { return element_properties.port_text_margin.y })
+        .attr('y',function(d) {
+          return element_properties.port_text_margin.y;
+        })
         .text(function(d) {
           var ip_label = [];
           $.each(d.fixed_ips, function() {
@@ -518,7 +527,9 @@ horizon.network_topology = {
       url:d.url,
       name:d.name,
       type:d.type,
-      type_capital:d.type.replace(/^\w/, function($0) {return $0.toUpperCase()}),
+      type_capital:d.type.replace(/^\w/, function($0) {
+        return $0.toUpperCase();
+      }),
       id:d.id,
       status:d.status,
       status_class:(d.status == "ACTIVE")? 'active' : 'down'
@@ -578,7 +589,7 @@ horizon.network_topology = {
   delete_balloon:function() {
     var self = this;
     if(self.balloon_id) {
-      $('#' + self.balloon_id).remove()
+      $('#' + self.balloon_id).remove();
       self.balloon_id = null;
     }
   },
