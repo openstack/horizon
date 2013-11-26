@@ -88,7 +88,7 @@ horizon.Quota = {
     the selected flavor.
   */
   imageFitsFlavor: function(image, flavor) {
-    if (image == undefined) {
+    if (image === undefined) {
         /*
           If we don't actually have an image, we don't need to
           limit our flavors, so we return true in this case.
@@ -105,7 +105,7 @@ horizon.Quota = {
     Note to the user that some flavors have been disabled.
   */
   noteDisabledFlavors: function(allDisabled) {
-    if ($('#some_flavors_disabled').length == 0) {
+    if ($('#some_flavors_disabled').length === 0) {
       message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage :
           horizon.Quota.disabledFlavorMessage;
       $('#id_flavor').parent().append("<span id='some_flavors_disabled'>" +
