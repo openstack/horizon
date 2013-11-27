@@ -1486,7 +1486,7 @@ msgstr "请注意："
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary."
 " URLs that redirect or serve error pages will result in unusable images."
-msgstr "图片地址必须是合法URL.URL转换或存储错误将导致图片不可用."
+msgstr "镜像地址必须是合法URL.URL重定向或服务器页面错误将导致镜像不可用."
 
 #: dashboards/admin/images/templates/images/_create.html:33
 #: dashboards/project/images_and_snapshots/images/tables.py:78
