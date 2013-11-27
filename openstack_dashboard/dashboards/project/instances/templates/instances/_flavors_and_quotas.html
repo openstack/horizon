@@ -40,11 +40,16 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
+  some_disabled_msg = '{{_("Some flavors not meeting minimum image requirements have been disabled.")}}';
+  all_disabled_msg = '{{_("No flavors meet minimum criteria for selected image.")}})';
+
   if(typeof horizon.Quota !== 'undefined') {
     horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});
+    horizon.Quota.initWithImages({{ images|safe|default:"{}"}}, some_disabled_msg, all_disabled_msg);
   } else {
     addHorizonLoadEvent(function() {
       horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});
+      horizon.Quota.initWithImages({{ images|safe|default:"{}"}}, some_disabled_msg, all_disabled_msg);
     });
   }
 </script>

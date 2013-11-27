@@ -258,6 +258,16 @@ class SetInstanceDetailsAction(workflows.Action):
             flavors = json.dumps([f._info for f in
                                   api.nova.flavor_list(self.request)])
             extra['flavors'] = flavors
+            images = utils.get_available_images(self.request,
+                                          self.initial['project_id'],
+                                          self._images_cache)
+            if images is not None:
+                attrs = [{'id': i.id,
+                          'min_disk': getattr(i, 'min_disk', 0),
+                          'min_ram': getattr(i, 'min_ram', 0)}
+                          for i in images]
+                extra['images'] = json.dumps(attrs)
+
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
