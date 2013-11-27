@@ -21,6 +21,7 @@
 import logging
 
 from django.forms import ValidationError  # noqa
+from django import http
 from django.utils.translation import ugettext_lazy as _  # noqa
 from django.views.decorators.debug import sensitive_variables  # noqa
 
@@ -185,10 +186,14 @@ class UpdateUserForm(BaseUserForm):
         data.pop('domain_name')
 
         try:
-            api.keystone.user_update(request, user, **data)
+            response = api.keystone.user_update(request, user, **data)
             messages.success(request,
                              _('User has been updated successfully.'))
         except Exception:
-            exceptions.handle(request, ignore=True)
+            response = exceptions.handle(request, ignore=True)
             messages.error(request, _('Unable to update the user.'))
-        return True
+
+        if isinstance(response, http.HttpResponse):
+            return response
+        else:
+            return True

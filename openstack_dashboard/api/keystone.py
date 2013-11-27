@@ -23,7 +23,6 @@ import logging
 import urlparse
 
 from django.conf import settings  # noqa
-from django.contrib.auth import logout  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from keystoneclient import exceptions as keystone_exceptions
@@ -32,6 +31,7 @@ from openstack_auth import backend
 
 from horizon import exceptions
 from horizon import messages
+from horizon.utils import functions as utils
 
 from openstack_dashboard.api import base
 
@@ -353,8 +353,11 @@ def user_update(request, user, **data):
         if password:
             try:
                 user_update_password(request, user, password)
-                if user == request.user.id:
-                    logout(request)
+                if user.id == request.user.id:
+                    return utils.logout_with_message(
+                        request,
+                        _("Password changed. Please log in again to continue.")
+                    )
             except Exception:
                 error = exceptions.handle(request, ignore=True)
 
@@ -366,6 +369,11 @@ def user_update(request, user, **data):
         if not data['password']:
             data.pop('password')
         user = manager.update(user, **data)
+        if data.get('password') and user.id == request.user.id:
+            return utils.logout_with_message(
+                request,
+                _("Password changed. Please log in again to continue.")
+            )
 
     return VERSIONS.upgrade_v2_user(user)
 
