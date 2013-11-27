@@ -22,7 +22,8 @@ def data(TEST):
     TEST.containers = utils.TestDataContainer()
     TEST.objects = utils.TestDataContainer()
 
-    container_dict_1 = {"name": u"container_one\u6346",
+    # '%' can break URL if not properly quoted (bug 1231904)
+    container_dict_1 = {"name": u"container_one%\u6346",
                         "container_object_count": 2,
                         "container_bytes_used": 256,
                         "timestamp": timeutils.isotime()}
@@ -34,13 +35,19 @@ def data(TEST):
     container_2 = swift.Container(container_dict_2)
     TEST.containers.add(container_1, container_2)
 
-    object_dict = {"name": u"test_object\u6346",
+    object_dict = {"name": u"test_object%\u6346",
                    "content_type": u"text/plain",
                    "bytes": 128,
                    "timestamp": timeutils.isotime(),
                    "last_modified": None,
                    "hash": u"object_hash"}
-    obj_dicts = [object_dict]
+    object_dict_2 = {"name": u"test_object_two\u6346",
+                     "content_type": u"text/plain",
+                     "bytes": 128,
+                     "timestamp": timeutils.isotime(),
+                     "last_modified": None,
+                     "hash": u"object_hash_2"}
+    obj_dicts = [object_dict, object_dict_2]
     obj_data = "Fake Data"
 
     for obj_dict in obj_dicts:

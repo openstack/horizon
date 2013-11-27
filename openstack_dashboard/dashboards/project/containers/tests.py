@@ -23,15 +23,21 @@ import tempfile
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
 from django.core.urlresolvers import reverse  # noqa
 from django import http
+from django.utils import http as utils_http
 
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.containers import forms
 from openstack_dashboard.dashboards.project.containers import tables
+from openstack_dashboard.dashboards.project.containers import views
 from openstack_dashboard.test import helpers as test
 
 
+CONTAINER_NAME_1 = u"container_one%\u6346"
+CONTAINER_NAME_2 = u"container_two\u6346"
+CONTAINER_NAME_1_QUOTED = utils_http.urlquote(CONTAINER_NAME_1)
+CONTAINER_NAME_2_QUOTED = utils_http.urlquote(CONTAINER_NAME_2)
 CONTAINER_INDEX_URL = reverse('horizon:project:containers:index')
 
 
@@ -52,16 +58,18 @@ class SwiftTests(test.TestCase):
 
     @test.create_stubs({api.swift: ('swift_delete_container', )})
     def test_delete_container(self):
-        container = self.containers.get(name=u"container_two\u6346")
-        api.swift.swift_delete_container(IsA(http.HttpRequest), container.name)
-        self.mox.ReplayAll()
+        for container in self.containers.list():
+            self.mox.ResetAll()  # mandatory in a for loop
+            api.swift.swift_delete_container(IsA(http.HttpRequest),
+                                             container.name)
+            self.mox.ReplayAll()
 
-        action_string = u"containers__delete__%s" % container.name
-        form_data = {"action": action_string}
-        req = self.factory.post(CONTAINER_INDEX_URL, form_data)
-        table = tables.ContainersTable(req, self.containers.list())
-        handled = table.maybe_handle()
-        self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
+            action_string = u"containers__delete__%s" % container.name
+            form_data = {"action": action_string}
+            req = self.factory.post(CONTAINER_INDEX_URL, form_data)
+            table = tables.ContainersTable(req, self.containers.list())
+            handled = table.maybe_handle()
+            self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
     @test.create_stubs({api.swift: ('swift_get_objects', )})
     def test_delete_container_nonempty(self):
@@ -87,17 +95,20 @@ class SwiftTests(test.TestCase):
 
     @test.create_stubs({api.swift: ('swift_create_container',)})
     def test_create_container_post(self):
-        api.swift.swift_create_container(IsA(http.HttpRequest),
-                                         self.containers.first().name)
-        self.mox.ReplayAll()
+        for container in self.containers.list():
+            self.mox.ResetAll()  # mandatory in a for loop
+            api.swift.swift_create_container(IsA(http.HttpRequest),
+                                             container.name)
+            self.mox.ReplayAll()
 
-        formData = {'name': self.containers.first().name,
-                    'method': forms.CreateContainer.__name__}
-        res = self.client.post(reverse('horizon:project:containers:create'),
-                               formData)
-        url = reverse('horizon:project:containers:index',
-            args=[tables.wrap_delimiter(self.containers.first().name)])
-        self.assertRedirectsNoFollow(res, url)
+            formData = {'name': container.name,
+                        'method': forms.CreateContainer.__name__}
+            res = self.client.post(
+                reverse('horizon:project:containers:create'), formData)
+            args = (utils_http.urlquote(tables.wrap_delimiter(
+                container.name)),)
+            url = reverse('horizon:project:containers:index', args=args)
+            self.assertRedirectsNoFollow(res, url)
 
     @test.create_stubs({api.swift: ('swift_get_containers',
                                     'swift_get_objects')})
@@ -120,6 +131,10 @@ class SwiftTests(test.TestCase):
         self.assertQuerysetEqual(res.context['objects_table'].data,
                                  expected,
                                  lambda obj: obj.name.encode('utf8'))
+        # Check if the two forms' URL are properly 'urlquote()d'.
+        form_action = ' action="%s%s/" ' % (CONTAINER_INDEX_URL,
+                                            CONTAINER_NAME_1_QUOTED)
+        self.assertContains(res, form_action, count=2)
 
     @test.create_stubs({api.swift: ('swift_upload_object',)})
     def test_upload(self):
@@ -153,8 +168,8 @@ class SwiftTests(test.TestCase):
                     'object_file': temp_file}
         res = self.client.post(upload_url, formData)
 
-        index_url = reverse('horizon:project:containers:index',
-                            args=[tables.wrap_delimiter(container.name)])
+        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
     @test.create_stubs({api.swift: ('swift_create_pseudo_folder',)})
@@ -189,8 +204,8 @@ class SwiftTests(test.TestCase):
     def test_delete(self):
         container = self.containers.first()
         obj = self.objects.first()
-        index_url = reverse('horizon:project:containers:index',
-                            args=[tables.wrap_delimiter(container.name)])
+        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        index_url = reverse('horizon:project:containers:index', args=args)
         api.swift.swift_delete_object(IsA(http.HttpRequest),
                                       container.name,
                                       obj.name)
@@ -206,19 +221,20 @@ class SwiftTests(test.TestCase):
 
     @test.create_stubs({api.swift: ('swift_get_object',)})
     def test_download(self):
-        container = self.containers.first()
-        obj = self.objects.first()
+        for container in self.containers.list():
+            for obj in self.objects.list():
+                self.mox.ResetAll()  # mandatory in a for loop
+                api.swift.swift_get_object(IsA(http.HttpRequest),
+                                           container.name,
+                                           obj.name).AndReturn(obj)
+                self.mox.ReplayAll()
 
-        api.swift.swift_get_object(IsA(http.HttpRequest),
-                                   container.name,
-                                   obj.name).AndReturn(obj)
-        self.mox.ReplayAll()
-
-        download_url = reverse('horizon:project:containers:object_download',
-                               args=[container.name, obj.name])
-        res = self.client.get(download_url)
-        self.assertEqual(res.content, obj.data)
-        self.assertTrue(res.has_header('Content-Disposition'))
+                download_url = reverse(
+                    'horizon:project:containers:object_download',
+                    args=[container.name, obj.name])
+                res = self.client.get(download_url)
+                self.assertEqual(res.content, obj.data)
+                self.assertTrue(res.has_header('Content-Disposition'))
 
     @test.create_stubs({api.swift: ('swift_get_containers',)})
     def test_copy_index(self):
@@ -234,8 +250,8 @@ class SwiftTests(test.TestCase):
     @test.create_stubs({api.swift: ('swift_get_containers',
                                     'swift_copy_object')})
     def test_copy(self):
-        container_1 = self.containers.get(name=u"container_one\u6346")
-        container_2 = self.containers.get(name=u"container_two\u6346")
+        container_1 = self.containers.get(name=CONTAINER_NAME_1)
+        container_2 = self.containers.get(name=CONTAINER_NAME_2)
         obj = self.objects.first()
 
         ret = (self.containers.list(), False)
@@ -255,44 +271,63 @@ class SwiftTests(test.TestCase):
         copy_url = reverse('horizon:project:containers:object_copy',
                            args=[container_1.name, obj.name])
         res = self.client.post(copy_url, formData)
-        index_url = reverse('horizon:project:containers:index',
-                            args=[tables.wrap_delimiter(container_2.name)])
+        args = (utils_http.urlquote(tables.wrap_delimiter(container_2.name)),)
+        index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
     @test.create_stubs({api.swift: ('swift_get_container', )})
     def test_view_container(self):
-        container = self.containers.first()
+        for container in self.containers.list():
+            self.mox.ResetAll()  # mandatory in a for loop
+            api.swift.swift_get_container(IsA(http.HttpRequest),
+                                          container.name,
+                                          with_data=False) \
+                .AndReturn(container)
+            self.mox.ReplayAll()
 
-        api.swift.swift_get_container(IsA(http.HttpRequest),
-                                      container.name,
-                                      with_data=False) \
-            .AndReturn(container)
-        self.mox.ReplayAll()
+            view_url = reverse('horizon:project:containers:container_detail',
+                               args=[container.name])
+            res = self.client.get(view_url)
 
-        view_url = reverse('horizon:project:containers:container_detail',
-                           args=[container.name])
-        res = self.client.get(view_url)
-
-        self.assertTemplateUsed(res,
-                                'project/containers/container_detail.html')
-        self.assertContains(res, container.name, 1, 200)
+            self.assertTemplateUsed(res,
+                                    'project/containers/container_detail.html')
+            self.assertContains(res, container.name, 1, 200)
 
     @test.create_stubs({api.swift: ('swift_get_object', )})
     def test_view_object(self):
-        container = self.containers.first()
-        obj = self.objects.first()
+        for container in self.containers.list():
+            for obj in self.objects.list():
+                self.mox.ResetAll()  # mandatory in a for loop
+                api.swift.swift_get_object(IsA(http.HttpRequest),
+                                           container.name,
+                                           obj.name,
+                                           with_data=False) \
+                    .AndReturn(obj)
+                self.mox.ReplayAll()
+                view_url = reverse('horizon:project:containers:object_detail',
+                                   args=[container.name, obj.name])
+                res = self.client.get(view_url)
 
-        api.swift.swift_get_object(IsA(http.HttpRequest),
-                                   container.name,
-                                   obj.name,
-                                   with_data=False) \
-            .AndReturn(obj)
-        self.mox.ReplayAll()
+                self.assertTemplateUsed(
+                    res, 'project/containers/object_detail.html')
+                self.assertContains(res, obj.name, 1, 200)
 
-        view_url = reverse('horizon:project:containers:object_detail',
-                           args=[container.name, obj.name])
-        res = self.client.get(view_url)
+    def test_wrap_delimiter(self):
+        expected = {
+            'containerA': 'containerA/',
+            'containerB%': 'containerB%/',  # no urlquote() should occur
+            'containerC/': 'containerC/',   # already wrapped name
+            'containerD/objectA': 'containerD/objectA/'
+        }
+        for name, expected_name in expected.items():
+            self.assertEqual(tables.wrap_delimiter(name), expected_name)
 
-        self.assertTemplateUsed(res,
-                                'project/containers/object_detail.html')
-        self.assertContains(res, obj.name, 1, 200)
+    def test_for_url(self):
+        expected = {
+            'containerA': 'containerA/',
+            'containerB%': 'containerB%25/',  # urlquote() must be called
+            'containerC%/': 'containerC%25/',
+            'containerD%/objectA%': 'containerD%25/objectA%25/'
+        }
+        for name, expected_name in expected.items():
+            self.assertEqual(views.for_url(name), expected_name)
