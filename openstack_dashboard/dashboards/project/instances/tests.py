@@ -647,6 +647,39 @@ class InstanceTests(test.TestCase):
         self.assertContains(res, "<dt>empty</dt>", 1)
         self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
 
+    @test.create_stubs({api.nova: ("server_get",
+                                   "instance_volumes_list",
+                                   "flavor_get"),
+                        api.network: ("server_security_groups",)})
+    def test_instance_details_fault(self):
+        server = self.servers.first()
+
+        server.status = 'ERROR'
+        server.fault = {"message": "NoValidHost",
+                        "code": 500,
+                        "details": "No valid host was found. \n  "
+                                   "File \"/mnt/stack/nova/nova/"
+                                   "scheduler/filter_scheduler.py\", "
+                                   "line 105, in schedule_run_instance\n    "
+                                   "raise exception.NoValidHost"
+                                   "(reason=\"\")\n",
+                        "created": "2013-10-07T00:08:32Z"}
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.nova.instance_volumes_list(IsA(http.HttpRequest),
+                                       server.id).AndReturn([])
+        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+                .AndReturn(self.flavors.first())
+        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
+                .AndReturn(self.security_groups.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:detail',
+                      args=[server.id])
+        res = self.client.get(url)
+        self.assertItemsEqual(res.context['instance'].fault, server.fault)
+
     @test.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log(self):
         server = self.servers.first()
