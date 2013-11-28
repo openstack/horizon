@@ -428,8 +428,8 @@ SECURITY_GROUP_RULES = {
     'ms_sql': {
         'name': 'MS SQL',
         'ip_protocol': 'tcp',
-        'from_port': '1443',
-        'to_port': '1443',
+        'from_port': '1433',
+        'to_port': '1433',
     },
     'mysql': {
         'name': 'MYSQL',
