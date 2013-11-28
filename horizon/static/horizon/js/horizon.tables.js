@@ -389,7 +389,7 @@ horizon.addInitFunction(function() {
     var $table = $(this).closest('table');
     var $multi_select_checkbox = $table.find('thead .multi_select_column :checkbox'); 
     var any_unchecked = $table.find("tbody :checkbox").not(":checked");
-    $multi_select_checkbox.prop('checked', !(any_unchecked.length > 0));
+    $multi_select_checkbox.prop('checked', any_unchecked.length === 0);
   });
   // Enable dangerous buttons only if one or more checkbox is checked.
   $("div.table_wrapper, #modal_wrapper").on("click", ':checkbox', function (evt) {
