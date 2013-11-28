@@ -128,7 +128,7 @@ horizon.datatables = {
 horizon.datatables.confirm = function (action) {
   var $action = $(action),
       $modal_parent = $(action).closest('.modal'),
-      name_array = new Array(),
+      name_array = [],
       closest_table_id, action_string, name_string,
       title, body, modal, form;
   if($action.hasClass("disabled")) {

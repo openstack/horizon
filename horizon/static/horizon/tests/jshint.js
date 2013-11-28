@@ -7,7 +7,6 @@ horizon.addInitFunction(function () {
         config = {
             // Warnings reported by JSHint. Suppressing for now...
             '-W004': true, // already defined
-            '-W009': true, // array literal notation [] is preferrable
             '-W014': true, // bad line breaking
             '-W018': true, // confusing use
             '-W038': true, // out of scope
