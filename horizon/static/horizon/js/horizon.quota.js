@@ -67,9 +67,9 @@ horizon.Quota = {
     }));
 
     // Draw the initial progress bars
-    this._initialCreation(this.user_value_progress_bars)
-    this._initialCreation(this.auto_value_progress_bars)
-    this._initialCreation(this.flavor_progress_bars)
+    this._initialCreation(this.user_value_progress_bars);
+    this._initialCreation(this.auto_value_progress_bars);
+    this._initialCreation(this.flavor_progress_bars);
 
     this._initialAnimations();
     this._attachInputHandlers();
@@ -107,7 +107,7 @@ horizon.Quota = {
   noteDisabledFlavors: function(allDisabled) {
     if ($('#some_flavors_disabled').length == 0) {
       message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage :
-          horizon.Quota.disabledFlavorMessage
+          horizon.Quota.disabledFlavorMessage;
       $('#id_flavor').parent().append("<span id='some_flavors_disabled'>" +
           message + '</span>');
     }
@@ -122,7 +122,7 @@ horizon.Quota = {
         $('#some_flavors_disabled').remove();
         $('#id_flavor option').each(function() {
             $(this).attr('disabled', false);
-        })
+        });
     }
   },
 
@@ -315,7 +315,7 @@ horizon.Quota = {
         .attr("width", w)
         .attr("height", h)
         .style("background-color", "white")
-        .append("g")
+        .append("g");
 
     // background - unused resources
     bar.append("rect")
@@ -326,7 +326,7 @@ horizon.Quota = {
       .attr("ry", lvl_curve)
       .style("fill", bkgrnd)
       .style("stroke", "#CCCCCC")
-      .style("stroke-width", 1)
+      .style("stroke-width", 1);
 
     // new resources
     bar.append("rect")
@@ -336,7 +336,7 @@ horizon.Quota = {
       .attr("height", h)
       .attr("rx", lvl_curve)
       .attr("ry", lvl_curve)
-      .style("fill", function () { return addition; })
+      .style("fill", function () { return addition; });
 
     // used resources
     var used_bar = bar.insert("rect")
@@ -347,7 +347,7 @@ horizon.Quota = {
       .attr("height", h)
       .attr("rx", lvl_curve)
       .attr("ry", lvl_curve)
-      .style("fill", function () { return frgrnd })
+      .style("fill", function () { return frgrnd; })
       .attr("d", used)
       .transition()
         .duration(500)
@@ -356,24 +356,30 @@ horizon.Quota = {
           if (used >= 100) { return full; }
           else if (used >= 80) { return nearlyfull; }
           else { return frgrnd; }
-        })
+        });
   },
 
   // Update the progress Bar
   update: function(element, value) {
     var full = "#D0342B";
     var addition = "#00D300";
-    var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"))
+    var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"));
     d3.select("#"+element).select(".newbar")
       .transition()
         .duration(500)
         .attr("width", function () {
-          if ((value + already_used) >= 100) { return "100%"; }
-          else { return (value + already_used)+ "%"; }
+          if ((value + already_used) >= 100) {
+            return "100%";
+          } else {
+            return (value + already_used)+ "%";
+          }
         })
         .style("fill", function() {
-          if (value > (100 - already_used)) { return full }
-          else {return addition }
+          if (value > (100 - already_used)) {
+            return full;
+          } else {
+            return addition;
+          }
         });
 
   },

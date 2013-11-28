@@ -27,7 +27,7 @@ horizon.addInitFunction(function () {
     });
 
     test("Alert With HTML Tag", function () {
-        safe_string = "A safe message <a>here</a>!"
+        safe_string = "A safe message <a>here</a>!";
         message = horizon.alert("success", safe_string, "safe");
         ok(message, "Create a message with extra tag.");
         ok((message.html().indexOf(safe_string ) != -1), 'Verify the message with HTML tag was not escaped.');

@@ -43,7 +43,7 @@ horizon.forms = {
        var startDate = $('input#id_start').datepicker()
           .on('changeDate', function(ev) {
           if (ev.date.valueOf() > endDate.date.valueOf()) {
-              var newDate = new Date(ev.date)
+              var newDate = new Date(ev.date);
               newDate.setDate(newDate.getDate() + 1);
               endDate.setValue(newDate);
               $('input#id_end')[0].focus();
