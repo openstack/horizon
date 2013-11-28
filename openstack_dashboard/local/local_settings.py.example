@@ -337,6 +337,10 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
+        'iso8601': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
     }
 }
 

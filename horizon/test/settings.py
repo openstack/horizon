@@ -150,22 +150,6 @@ LOGGING = {
             'handlers': ['test'],
             'propagate': False,
         },
-        'novaclient': {
-            'handlers': ['test'],
-            'propagate': False,
-        },
-        'keystoneclient': {
-            'handlers': ['test'],
-            'propagate': False,
-        },
-        'glanceclient': {
-            'handlers': ['test'],
-            'propagate': False,
-        },
-        'neutronclient': {
-            'handlers': ['test'],
-            'propagate': False,
-        },
         'nose.plugins.manager': {
             'handlers': ['null'],
             'propagate': False,
