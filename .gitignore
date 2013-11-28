@@ -1,5 +1,5 @@
 *.pyc
-*.swp
+*.sw?
 *.sqlite3
 .environment_version
 .selenium_log
