@@ -122,11 +122,22 @@ class HorizonMiddleware(object):
                     getattr(django_messages, tag)(request, message, extra_tags)
                 if response['location'].startswith(settings.LOGOUT_URL):
                     redirect_response = http.HttpResponse(status=401)
+                    # This header is used for handling the logout in JS
+                    redirect_response['logout'] = True
                     if self.logout_reason is not None:
                         utils.add_logout_reason(
                             request, redirect_response, self.logout_reason)
                 else:
                     redirect_response = http.HttpResponse()
+                # Copy cookies from HttpResponseRedirect towards HttpResponse
+                for cookie_name, cookie in response.cookies.iteritems():
+                    cookie_kwargs = dict((
+                        (key, value) for key, value in cookie.iteritems()
+                        if key in ('max_age', 'expires', 'path', 'domain',
+                            'secure', 'httponly') and value
+                    ))
+                    redirect_response.set_cookie(
+                        cookie_name, cookie.value, **cookie_kwargs)
                 redirect_response['X-Horizon-Location'] = response['location']
                 return redirect_response
             if queued_msgs:
