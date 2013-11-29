@@ -457,11 +457,11 @@ horizon.Quota = {
 
       var quota_limit = parseInt(progress_element.attr('data-quota-limit'), 10);
       var quota_used = parseInt(progress_element.attr('data-quota-used'), 10);
+      var percentage_used = 0;
 
       if (!isNaN(quota_limit) && !isNaN(quota_used)) {
-        var percentage_used = ((quota_used / quota_limit) * 100);
-      } else { // If NaN percentage_used is 0
-        var percentage_used = 0;
+        // If NaN percentage_used is 0
+        percentage_used = (quota_used / quota_limit) * 100;
       }
 
       scope.drawUsed($(element).attr('id'), percentage_used);

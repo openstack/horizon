@@ -227,7 +227,6 @@ horizon.network_topology = {
         this.appendChild(d3.select(self.network_tmpl[self.draw_mode]).node().cloneNode(true));
         var $this = d3.select(this).select('.network-rect');
         if (d.url) {
-          var $this = d3.select(this).select('.network-rect');
           $this
           .on('mouseover',function(){
             $this.transition().style('fill', function() {
