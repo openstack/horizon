@@ -62,3 +62,9 @@ def data(TEST):
             }
         )
     )
+    # Cinder Limits
+    limits = {"absolute": {"totalVolumesUsed": 1,
+                           "totalGigabytesUsed": 5,
+                           "maxTotalVolumeGigabytes": 1000,
+                           "maxTotalVolumes": 10}}
+    TEST.cinder_limits = limits
