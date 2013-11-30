@@ -196,8 +196,8 @@ horizon.membership = {
     var roles = [];
     for (var r in horizon.membership.roles[step_slug]) {
       var role = {};
-      role['role_id'] = r;
-      role['role_name'] = horizon.membership.roles[step_slug][r];
+      role.role_id = r;
+      role.role_name = horizon.membership.roles[step_slug][r];
       roles.push(role);
     }
 

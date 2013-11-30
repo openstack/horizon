@@ -8,7 +8,6 @@ horizon.addInitFunction(function () {
             // Warnings reported by JSHint. Suppressing for now...
             '-W014': true, // bad line breaking
             '-W041': true, // use '!==' or  '===' for comparison
-            '-W069': true, // better written in dot notation
             '-W065': true, // missing radix parameter
             '-W075': true, // duplicate key
             '-W080': true, // it's not necessary to initialize to 'undefined'
