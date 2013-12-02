@@ -546,7 +546,7 @@ class SetNetwork(workflows.Step):
         contributes = ("network","network_id", "profile_id",)
     else:
         template_name = "project/instances/_update_networks.html"
-        contributes = ("network_id",)
+        contributes = ("network","network_id",)
 
     def contribute(self, data, context):
         if data:
