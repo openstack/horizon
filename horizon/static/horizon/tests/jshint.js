@@ -9,7 +9,6 @@ horizon.addInitFunction(function () {
             '-W014': true, // bad line breaking
             '-W041': true, // use '!==' or  '===' for comparison
             '-W065': true, // missing radix parameter
-            '-W075': true, // duplicate key
             '-W080': true, // it's not necessary to initialize to 'undefined'
 
             // Proposed set of rules
