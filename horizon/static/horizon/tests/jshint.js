@@ -7,7 +7,6 @@ horizon.addInitFunction(function () {
         config = {
             // Warnings reported by JSHint. Suppressing for now...
             '-W014': true, // bad line breaking
-            '-W041': true, // use '!==' or  '===' for comparison
             '-W065': true, // missing radix parameter
             '-W080': true, // it's not necessary to initialize to 'undefined'
 

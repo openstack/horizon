@@ -2,7 +2,7 @@ horizon.user = {
 
   init: function() {
     $("#id_password").change(function () {
-      if ($("#id_confirm_password").val() != "") {
+      if ($("#id_confirm_password").val() !== "") {
         horizon.user.check_passwords_match();
       }
     });
@@ -20,7 +20,7 @@ horizon.user = {
     var password = $("#id_password").val();
     var confirm_password = $("#id_confirm_password").val();
 
-    if (password != confirm_password && $("#" + error_id).length == 0) {
+    if (password != confirm_password && $("#" + error_id).length === 0) {
       $(row).parent().addClass("error");
       $(row).after(msg);
     } else if (password == confirm_password) {
