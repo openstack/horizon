@@ -37,18 +37,30 @@ no_slash_validator = validators.RegexValidator(r'^(?u)[^/]+$',
 
 
 class CreateContainer(forms.SelfHandlingForm):
+    ACCESS_CHOICES = (
+        ("private", _("Private")),
+        ("public", _("Public")),
+    )
+
     parent = forms.CharField(max_length=255,
                              required=False,
                              widget=forms.HiddenInput)
     name = forms.CharField(max_length=255,
                            label=_("Container Name"),
                            validators=[no_slash_validator])
+    access = forms.ChoiceField(label=_("Container Access"),
+                               required=True,
+                               choices=ACCESS_CHOICES)
 
     def handle(self, request, data):
         try:
             if not data['parent']:
+                is_public = data["access"] == "public"
+                metadata = ({'is_public': is_public})
                 # Create a container
-                api.swift.swift_create_container(request, data["name"])
+                api.swift.swift_create_container(request,
+                                                 data["name"],
+                                                 metadata=metadata)
                 messages.success(request, _("Container created successfully."))
             else:
                 # Create a pseudo-folder

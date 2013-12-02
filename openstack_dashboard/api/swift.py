@@ -19,6 +19,7 @@
 #    under the License.
 
 import logging
+import urllib
 
 import swiftclient
 
@@ -34,6 +35,9 @@ from openstack_dashboard.openstack.common import timeutils
 
 LOG = logging.getLogger(__name__)
 FOLDER_DELIMITER = "/"
+# Swift ACL
+GLOBAL_READ_ACL = ".r:*"
+LIST_CONTENTS_ACL = ".rlistings"
 
 
 class Container(base.APIDictWrapper):
@@ -90,6 +94,19 @@ def _objectify(items, container_name):
     return objects
 
 
+def _metadata_to_header(metadata):
+    headers = {}
+    public = metadata.get('is_public')
+
+    if public is True:
+        public_container_acls = [GLOBAL_READ_ACL, LIST_CONTENTS_ACL]
+        headers['x-container-read'] = ",".join(public_container_acls)
+    elif public is False:
+        headers['x-container-read'] = ""
+
+    return headers
+
+
 def swift_api(request):
     endpoint = base.url_for(request, 'object-store')
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
@@ -139,7 +156,15 @@ def swift_get_container(request, container_name, with_data=True):
         data = None
         headers = swift_api(request).head_container(container_name)
     timestamp = None
+    is_public = False
+    public_url = None
     try:
+        is_public = GLOBAL_READ_ACL in headers.get('x-container-read', '')
+        if is_public:
+            swift_endpoint = base.url_for(request,
+                                          'object-store',
+                                          endpoint_type='publicURL')
+            public_url = swift_endpoint + '/' + urllib.quote(container_name)
         ts_float = float(headers.get('x-timestamp'))
         timestamp = timeutils.iso8601_from_timestamp(ts_float)
     except Exception:
@@ -150,14 +175,23 @@ def swift_get_container(request, container_name, with_data=True):
         'container_bytes_used': headers.get('x-container-bytes-used'),
         'timestamp': timestamp,
         'data': data,
+        'is_public': is_public,
+        'public_url': public_url,
     }
     return Container(container_info)
 
 
-def swift_create_container(request, name):
+def swift_create_container(request, name, metadata=({})):
     if swift_container_exists(request, name):
         raise exceptions.AlreadyExists(name, 'container')
-    swift_api(request).put_container(name)
+    headers = _metadata_to_header(metadata)
+    swift_api(request).put_container(name, headers=headers)
+    return Container({'name': name})
+
+
+def swift_update_container(request, name, metadata=({})):
+    headers = _metadata_to_header(metadata)
+    swift_api(request).post_container(name, headers=headers)
     return Container({'name': name})
 
 

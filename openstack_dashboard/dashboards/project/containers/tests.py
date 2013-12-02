@@ -98,10 +98,12 @@ class SwiftTests(test.TestCase):
         for container in self.containers.list():
             self.mox.ResetAll()  # mandatory in a for loop
             api.swift.swift_create_container(IsA(http.HttpRequest),
-                                             container.name)
+                                             container.name,
+                                             metadata=({'is_public': False}))
             self.mox.ReplayAll()
 
             formData = {'name': container.name,
+                        'access': "private",
                         'method': forms.CreateContainer.__name__}
             res = self.client.post(
                 reverse('horizon:project:containers:create'), formData)
@@ -109,6 +111,36 @@ class SwiftTests(test.TestCase):
                 container.name)),)
             url = reverse('horizon:project:containers:index', args=args)
             self.assertRedirectsNoFollow(res, url)
+
+    @test.create_stubs({api.swift: ('swift_update_container', )})
+    def test_update_container_to_public(self):
+        container = self.containers.get(name=u"container_one%\u6346")
+        api.swift.swift_update_container(IsA(http.HttpRequest),
+                                         container.name,
+                                         metadata=({'is_public': True}))
+        self.mox.ReplayAll()
+
+        action_string = u"containers__make_public__%s" % container.name
+        form_data = {"action": action_string}
+        req = self.factory.post(CONTAINER_INDEX_URL, form_data)
+        table = tables.ContainersTable(req, self.containers.list())
+        handled = table.maybe_handle()
+        self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
+
+    @test.create_stubs({api.swift: ('swift_update_container', )})
+    def test_update_container_to_private(self):
+        container = self.containers.get(name=u"container_two\u6346")
+        api.swift.swift_update_container(IsA(http.HttpRequest),
+                                         container.name,
+                                         metadata=({'is_public': False}))
+        self.mox.ReplayAll()
+
+        action_string = u"containers__make_private__%s" % container.name
+        form_data = {"action": action_string}
+        req = self.factory.post(CONTAINER_INDEX_URL, form_data)
+        table = tables.ContainersTable(req, self.containers.list())
+        handled = table.maybe_handle()
+        self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
 
     @test.create_stubs({api.swift: ('swift_get_containers',
                                     'swift_get_objects')})
