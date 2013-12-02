@@ -23,9 +23,17 @@
     <dt>{% trans "Checksum" %}</dt>
     <dd>{{ image.checksum }}</dd>
     <dt>{% trans "Created" %}</dt>
-    <dd>{{ image.created_at|default:_("Unknown") }}</dd>
+    {% if image.created_at %}
+      <dd>{{ image.created_at|parse_isotime }}</dd>
+    {% else %}
+      <dd>{% trans "Unknown" %}</dd>
+    {% endif %}
     <dt>{% trans "Updated" %}</dt>
-    <dd>{{ image.updated_at|default:_("Never updated") }}</dd>
+    {% if image.updated_at %}
+      <dd>{{ image.updated_at|parse_isotime }}</dd>
+    {% else %}
+      <dd>{% trans "Never updated" %} }}</dd>
+    {% endif %}
   </dl>
 </div>
 
