@@ -95,6 +95,16 @@ def quota(val, units=None):
         return "%s %s" % (val, force_unicode(_("Available")))
 
 
+@register.filter
+def quotainf(val, units=None):
+    if val == float("inf"):
+        return _("No Limit")
+    elif units is not None:
+        return "%s %s" % (val, units)
+    else:
+        return val
+
+
 class JSTemplateNode(template.Node):
     """Helper node for the ``jstemplate`` template tag."""
     def __init__(self, nodelist):
