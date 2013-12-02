@@ -165,12 +165,21 @@ class AddVipAction(workflows.Action):
                               validators=[validators.validate_port_range])
     protocol = forms.ChoiceField(label=_("Protocol"))
     session_persistence = forms.ChoiceField(
-        required=False, initial={}, label=_("Session Persistence"))
+        required=False, initial={}, label=_("Session Persistence"),
+        widget=forms.Select(attrs={
+            'class': 'switchable',
+            'data-slug': 'persistence'
+        }))
     cookie_name = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Cookie Name"),
         help_text=_("Required for APP_COOKIE persistence;"
-                    " Ignored otherwise."))
+                    " Ignored otherwise."),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'persistence',
+            'data-persistence-app_cookie': 'APP_COOKIE',
+        }))
     connection_limit = forms.IntegerField(
         required=False, min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
@@ -191,7 +200,7 @@ class AddVipAction(workflows.Action):
 
         session_persistence_choices = [('', _("No Session Persistence"))]
         for mode in ('SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'):
-            session_persistence_choices.append((mode, mode))
+            session_persistence_choices.append((mode.lower(), mode))
         self.fields[
             'session_persistence'].choices = session_persistence_choices
 
@@ -200,6 +209,9 @@ class AddVipAction(workflows.Action):
 
     def clean(self):
         cleaned_data = super(AddVipAction, self).clean()
+        persistence = cleaned_data.get('session_persistence')
+        if persistence:
+            cleaned_data['session_persistence'] = persistence.upper()
         if (cleaned_data.get('session_persistence') == 'APP_COOKIE' and
                 not cleaned_data.get('cookie_name')):
             msg = _('Cookie name is required for APP_COOKIE persistence.')
