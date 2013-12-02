@@ -42,7 +42,7 @@ from openstack_dashboard.dashboards.project.instances import tabs
 LOG = logging.getLogger(__name__)
 
 ACTIVE_STATES = ("ACTIVE",)
-SNAPSHOT_READY_STATES = ("ACTIVE", "SHUTOFF")
+SNAPSHOT_READY_STATES = ("ACTIVE", "SHUTOFF", "PAUSED", "SUSPENDED")
 
 POWER_STATES = {
     0: "NO STATE",
