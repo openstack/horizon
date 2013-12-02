@@ -460,7 +460,7 @@ class SetAccessControls(workflows.Step):
     action_class = SetAccessControlsAction
     depends_on = ("project_id", "user_id")
     contributes = ("keypair_id", "security_group_ids",
-            "admin_pass", "confirm_admin_pass")
+            "admin_pass", "confirm_admin_pass","groups")
 
     def contribute(self, data, context):
         if data:
@@ -543,10 +543,10 @@ class SetNetwork(workflows.Step):
     # are used till the issue with the drag/drop affecting the
     # profile_id detection is fixed.
     if api.neutron.is_port_profiles_supported():
-        contributes = ("network_id", "profile_id",)
+        contributes = ("network","network_id", "profile_id",)
     else:
         template_name = "project/instances/_update_networks.html"
-        contributes = ("network_id",)
+        contributes = ("network","network_id",)
 
     def contribute(self, data, context):
         if data:
