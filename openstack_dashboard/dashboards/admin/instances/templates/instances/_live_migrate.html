@@ -1,0 +1,25 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}live_migrate_form{% endblock %}
+{% block form_action %}{% url 'horizon:admin:instances:live_migrate' instance_id %}{% endblock %}
+
+{% block modal-header %}{% trans "Live Migrate" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "From here you can live migrate an instance to a specific host." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Live Migrate Instance" %}" />
+  <a href="{% url 'horizon:admin:instances:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

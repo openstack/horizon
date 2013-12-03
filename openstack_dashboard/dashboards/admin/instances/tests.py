@@ -26,6 +26,9 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
+INDEX_URL = reverse('horizon:admin:instances:index')
+
+
 class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'extension_supported',),
@@ -45,7 +48,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:admin:instances:index'))
+        res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'admin/instances/index.html')
         instances = res.context['table'].data
         self.assertItemsEqual(instances, servers)
@@ -75,7 +78,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:admin:instances:index'))
+        res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'admin/instances/index.html')
         instances = res.context['table'].data
         self.assertItemsEqual(instances, servers)
@@ -107,7 +110,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                 AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:admin:instances:index'))
+        res = self.client.get(INDEX_URL)
         instances = res.context['table'].data
         self.assertTemplateUsed(res, 'admin/instances/index.html')
         self.assertMessageCount(res, error=len(servers))
@@ -122,7 +125,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:admin:instances:index'))
+        res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'admin/instances/index.html')
         self.assertEqual(len(res.context['instances_table'].data), 0)
 
@@ -144,7 +147,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                                 admin=True).AndReturn(tenant)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:admin:instances:index') + \
+        url = INDEX_URL + \
                 "?action=row_update&table=instances&obj_id=" + server.id
 
         res = self.client.get(url, {},
@@ -176,7 +179,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
             AndReturn(self.flavors.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:admin:instances:index'))
+        res = self.client.get(INDEX_URL)
         self.assertContains(res, "instances__migrate")
         self.assertNotContains(res, "instances__confirm")
         self.assertNotContains(res, "instances__revert")
@@ -202,7 +205,103 @@ class InstanceViewTest(test.BaseAdminViewTests):
                              AndReturn(self.flavors.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:admin:instances:index'))
+        res = self.client.get(INDEX_URL)
         self.assertContains(res, "instances__confirm")
         self.assertContains(res, "instances__revert")
         self.assertNotContains(res, "instances__migrate")
+
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'server_get',)})
+    def test_instance_live_migrate_get(self):
+        server = self.servers.first()
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.hypervisor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.hypervisors.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:instances:live_migrate',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'admin/instances/live_migrate.html')
+
+    @test.create_stubs({api.nova: ('server_get',)})
+    def test_instance_live_migrate_get_server_get_exception(self):
+        server = self.servers.first()
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:instances:live_migrate',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'server_get',)})
+    def test_instance_live_migrate_list_hypervisor_get_exception(self):
+        server = self.servers.first()
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.hypervisor_list(IsA(http.HttpRequest)) \
+                .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+        url = reverse('horizon:admin:instances:live_migrate',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'server_get',
+                                   'server_live_migrate',)})
+    def test_instance_live_migrate_post(self):
+        server = self.servers.first()
+        hypervisor = self.hypervisors.first()
+        host = hypervisor.hypervisor_hostname
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.hypervisor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.hypervisors.list())
+        api.nova.server_live_migrate(IsA(http.HttpRequest), server.id, host,
+                                     block_migration=False,
+                                     disk_over_commit=False) \
+                .AndReturn([])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:instances:live_migrate',
+                      args=[server.id])
+        res = self.client.post(url, {'host': host, 'instance_id': server.id})
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'server_get',
+                                   'server_live_migrate',)})
+    def test_instance_live_migrate_post_api_exception(self):
+        server = self.servers.first()
+        hypervisor = self.hypervisors.first()
+        host = hypervisor.hypervisor_hostname
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.hypervisor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.hypervisors.list())
+        api.nova.server_live_migrate(IsA(http.HttpRequest), server.id, host,
+                                     block_migration=False,
+                                     disk_over_commit=False) \
+                .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:instances:live_migrate',
+                      args=[server.id])
+        res = self.client.post(url, {'host': host, 'instance_id': server.id})
+        self.assertRedirectsNoFollow(res, INDEX_URL)

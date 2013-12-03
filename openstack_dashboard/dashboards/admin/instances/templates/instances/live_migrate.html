@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Live Migrate" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Live Migrate") %}
+{% endblock page_header %}
+
+{% block main %}
+  {% include 'admin/instances/_live_migrate.html' %}
+{% endblock %}
