@@ -6,7 +6,7 @@ How to run the tests
 ====================
 
 Because Horizon is composed of both the ``horizon`` app and the
-``openstack-dashboard`` reference project, there are in fact two sets of unit
+``openstack_dashboard`` reference project, there are in fact two sets of unit
 tests. While they can be run individually without problem, there is an easier
 way:
 

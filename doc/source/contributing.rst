@@ -11,7 +11,10 @@ Before you dive into writing patches, here are some of the basics:
 * Bug tracker: https://bugs.launchpad.net/horizon
 * Source code: https://github.com/openstack/horizon
 * Code review: https://review.openstack.org/#q,status:open+project:openstack/horizon,n,z
-* Jenkins build status: https://jenkins.openstack.org/view/Horizon/
+* Continuous integration:
+
+  * Jenkins: https://jenkins.openstack.org
+  * Zuul: http://status.openstack.org/zuul
 * IRC Channel: #openstack-horizon on Freenode.
 
 Making Contributions
@@ -47,12 +50,13 @@ plunging in head-first:
 
 * Report bugs, triage new tickets, and review old tickets on
   the `bug tracker`_.
-* Propose ideas for improvements via Launchpad Blueprints, via the
+* Propose ideas for improvements via `Launchpad Blueprints`_, via the
   mailing list on the project page, or on IRC.
 * Write documentation!
 * Write unit tests for untested code!
 
 .. _`bug tracker`: https://bugs.launchpad.net/horizon
+.. _`Launchpad Blueprints`: https://blueprints.launchpad.net/horizon
 
 Choosing Issues To Work On
 --------------------------
@@ -165,7 +169,7 @@ so as to match both the JavaScript and HTML files.
 HTML
 ----
 
-Again, readability is paramount; however be conscientous of how the browser
+Again, readability is paramount; however be conscientious of how the browser
 will handle whitespace when rendering the output. Two spaces is the preferred
 indentation style to match all front-end code.
 

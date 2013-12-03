@@ -59,7 +59,7 @@ Cons:
   in terms of inputs and outputs.
 * Often requires writing a separate set of tests and/or using a different
   testing framework from your unit tests.
-* Don't offer any insight into the quality or status of the underlying code,
+* Doesn't offer any insight into the quality or status of the underlying code,
   only verifies that it works or it doesn't.
 
 Integration Tests
@@ -170,7 +170,7 @@ is tested... these types of things aren't always easy, but they're extremely
 necessary.
 
 To that end, Horizon includes several custom assertions to make these tasks
-easier. :meth:`~horizon.test.helpers.TestCase.assertNoFormErrors`,
+easier. :meth:`~openstack_dashboard.test.helpers.TestCase.assertNoFormErrors`,
 :meth:`~horizon.test.helpers.TestCase.assertMessageCount`, and
 :meth:`~horizon.test.helpers.TestCase.assertNoMessages` all exist for exactly
 these purposes. Moreover, they provide useful output when things go wrong so
@@ -185,10 +185,10 @@ Debugging Unit Tests
 Tips and tricks
 ---------------
 
-#. Use :meth:`~horizon.test.helpers.TestCase.assertNoFormErrors` immediately
-   after your ``client.post`` call for tests that handle form views. This will
-   immediately fail if your form POST failed due to a validation error and
-   tell you what the error was.
+#. Use :meth:`~openstack_dashboard.test.helpers.TestCase.assertNoFormErrors`
+   immediately after your ``client.post`` call for tests that handle form views.
+   This will immediately fail if your form POST failed due to a validation error
+   and tell you what the error was.
 
 #. Use :meth:`~horizon.test.helpers.TestCase.assertMessageCount` and
    :meth:`~horizon.test.helpers.TestCase.assertNoMessages` when a piece of code
@@ -270,7 +270,7 @@ Expected Method Never Called
 This one is the opposite of the unexpected method call. This one means you
 told mox to expect a call and it didn't happen. This is almost always the
 result of an error in the conditions of the test. Using the
-:meth:`~horizon.test.helpers.TestCase.assertNoFormErrors` and
+:meth:`~openstack_dashboard.test.helpers.TestCase.assertNoFormErrors` and
 :meth:`~horizon.test.helpers.TestCase.assertMessageCount` will make it readily
 apparent what the problem is in the majority of cases. If not, then use ``pdb``
 and start interrupting the code flow to see where things are getting off track.

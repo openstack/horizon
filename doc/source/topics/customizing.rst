@@ -10,7 +10,7 @@ can be overwritten by adding the attribute ``SITE_BRANDING``
 to ``local_settings.py`` with the value being the desired name.
 
 The file ``local_settings.py`` can be found at the Horizon directory path of
-``horizon/openstack-dashboard/local/local_settings.py``.
+``openstack_dashboard/local/local_settings.py``.
 
 Changing the Logo
 =================
@@ -24,7 +24,7 @@ The OpenStack Logo is pulled in through ``style.css``::
         background: url(../images/logo.png) top left no-repeat;
 
 To override the OpenStack Logo image, replace the image at the directory path
-``horizon/openstack-dashboard/dashboard/static/dashboard/images/logo.png``.
+``openstack_dashboard/static/dashboard/img/logo.png``.
 
 The dimensions should be ``width: 108px, height: 121px``.
 
@@ -162,8 +162,8 @@ Custom Stylesheets
 ==================
 
 It is possible to define custom stylesheets for your dashboards. Horizon's base
-template ``horizon/templates/horizon/base.html`` defines multiple blocks that
-can be overriden.
+template ``horizon/templates/base.html`` defines multiple blocks that
+can be overridden.
 
 To define custom css files that apply only to a specific dashboard, create
 a base template in your dashboard's templates folder, which extends Horizon's

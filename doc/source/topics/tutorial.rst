@@ -159,7 +159,7 @@ Structure
 A panel is a relatively flat structure with the exception that templates
 for a panel in a dashboard live in the dashboard's ``templates`` directory
 rather than in the panel's ``templates`` directory. Continuing our
-vizulaization/flocking example, let's see what the looks like::
+visualization/flocking example, let's see what the file structure looks like::
 
     # stand-alone panel structure
     flocking/
@@ -281,7 +281,7 @@ make everything translatable, we give each column a ``verbose_name`` that's
 marked for translation.
 
 Lastly, we added a ``Meta`` class which defines some properties about our
-table, notably it's (translatable) verbose name, and a semi-unique "slug"-like
+table, notably its (translatable) verbose name, and a semi-unique "slug"-like
 name to identify it.
 
 .. note::
@@ -311,7 +311,7 @@ First off, let's make a tab for our visualization::
             return None
 
 This is about as simple as you can get. Since our visualization will
-ultiimately use AJAX to load it's data we don't need to pass any context
+ultimately use AJAX to load it's data we don't need to pass any context
 to the template, and all we need to define is the name and which template
 it should use.
 
@@ -458,12 +458,12 @@ A site built on Horizon takes the form of a very typical Django project::
          |--static/
 
 The key bits here are that ``demo_dashboard`` is on our python path, and that
-the `settings.py`` file here will contain our customized Horizon config.
+the ``settings.py`` file here will contain our customized Horizon config.
 
 The settings file
 -----------------
 
-There are several key things you will generally want to customiz in your
+There are several key things you will generally want to customize in your
 site's settings file: specifying custom dashboards and panels, catching your
 client's exception classes, and (possibly) specifying a file for advanced
 overrides.
@@ -521,7 +521,7 @@ routines for the entire site. By specifying an override file you can alter
 any behavior you like in existing code. This tutorial won't go in-depth,
 but let's just say that with great power comes great responsibility.
 
-To specify am override file, you set the ``'customization_module'`` value in
+To specify an override file, you set the ``'customization_module'`` value in
 the ``HORIZON_CONFIG`` dictionary to the dotted python path of your
 override module::
 

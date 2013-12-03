@@ -18,10 +18,9 @@ you should do is to run ``./run_tests.sh`` from the root of the repository.
 This will do two things for you:
 
     #. Set up a virtual environment for both the ``horizon`` module and
-       the ``openstack-dashboard`` project using
-       ``openstack-dashboard/tools/install_venv.py``.
-    #. Run the tests for both ``horizon`` and ``openstack-dashboard`` using
-       their respective environments and verify that evreything is working.
+       the ``openstack_dashboard`` project using ``./tools/install_venv.py``.
+    #. Run the tests for both ``horizon`` and ``openstack_dashboard`` using
+       their respective environments and verify that everything is working.
 
 Setting up the environment the first time can take several minutes, but only
 needs to be done once. If dependencies are added in the future, updating the
@@ -80,7 +79,7 @@ dashboards and panels based on basic templates.
 Dashboards
 ----------
 
-To create a new dashboard, run the following:
+To create a new dashboard, run the following::
 
     ./run_tests.sh -m startdash <dash_name>
 
@@ -90,13 +89,13 @@ module with the basic dashboard code filled in, and various other common
 
 Available options:
 
-* --target: the directory in which the dashboard files should be created.
+* ``--target``: the directory in which the dashboard files should be created.
   Default: A new directory within the current directory.
 
 Panels
 ------
 
-To create a new panel, run the following:
+To create a new panel, run the following::
 
     ./run_tests -m startpanel <panel_name> --dashboard=<dashboard_path>
 
@@ -106,9 +105,9 @@ module with the basic panel code filled in, and various other common
 
 Available options:
 
-* -d, --dashboard: The dotted python path to your dashboard app (the module
+* ``-d``, ``--dashboard``: The dotted python path to your dashboard app (the module
   which containers the ``dashboard.py`` file.).
-* --target: the directory in which the panel files should be created.
+* ``--target``: the directory in which the panel files should be created.
   If the value is ``auto`` the panel will be created as a new directory inside
   the dashboard module's directory structure. Default: A new directory within
   the current directory.
@@ -166,7 +165,7 @@ the root of the repository with ``run_tests.sh`` like so::
 
 This is effectively just an alias for::
 
-    ./openstack-dashboard/tools/with_venv.sh ./openstack-dashboard/dashboard/manage.py runserver
+    ./tools/with_venv.sh ./manage.py runserver
 
 Generating the documentation
 ============================
@@ -181,11 +180,11 @@ Updating the translation files
 ==============================
 
 You can update all of the translation files for both the ``horizon`` app and
-``openstack_dashboard`` project with a single command:
+``openstack_dashboard`` project with a single command::
 
     ./run_tests.sh --makemessages
 
-or, more compactly:
+or, more compactly::
 
     ./run_tests.sh --m
 
@@ -215,7 +214,7 @@ Environment Backups
 
 To speed up the process of doing clean checkouts, running continuous
 integration tests, etc. there are options for backing up the current
-environment and restoring from a backup.
+environment and restoring from a backup::
 
     ./run_tests.sh --restore-environment
     ./run_tests.sh --backup-environment

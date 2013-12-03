@@ -147,7 +147,7 @@ Enabled by::
     SESSION_ENGINE = 'django.core.cache.backends.db.DatabaseCache'
     DATABASES = {
         'default': {
-            # Databe configuration here
+            # Database configuration here
         }
     }
 
@@ -201,7 +201,7 @@ When implementing Horizon for public usage, with the website served through
 HTTPS, it is recommended that the following settings are applied.
 
 To help protect the session cookies from `cross-site scripting`_, add the
-following to ``local_settings.py`` :
+following to ``local_settings.py``::
 
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True

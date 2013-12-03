@@ -59,7 +59,7 @@ continues to grow. New features in the Havana release include:
 
 * Editable default quotas.
 * The ability for an administrator to reset the password of a server/instance.
-* Availablity zone support.
+* Availability zone support.
 * Improved region support.
 * Instance resizing.
 * Improved boot-from-volume support.

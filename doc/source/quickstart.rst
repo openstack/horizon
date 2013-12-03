@@ -5,7 +5,7 @@ Horizon Quickstart
 Setup
 =====
 
-To setup an Horizon development environment simply clone the Horizon git
+To setup a Horizon development environment simply clone the Horizon git
 repository from http://github.com/openstack/horizon and execute the
 ``run_tests.sh`` script from the root folder (see :doc:`ref/run_tests`)::
 
@@ -13,7 +13,7 @@ repository from http://github.com/openstack/horizon and execute the
     > cd horizon
     > ./run_tests.sh
 
-Next you will need to setup your Django application config by copying ``openstack_dashboard/local/local_settings.py.example`` to ``openstack_dashboard/local_settings.py``. To do this quickly you can use the following command::
+Next you will need to setup your Django application config by copying ``openstack_dashboard/local/local_settings.py.example`` to ``openstack_dashboard/local/local_settings.py``. To do this quickly you can use the following command::
 
     > cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
 
