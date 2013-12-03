@@ -114,9 +114,6 @@ horizon.network_topology = {
       });
 
     self.load_network_info();
-    setInterval(function(){
-      self.load_network_info();
-    }, self.reload_duration);
   },
   load_network_info:function(){
     var self = this;
@@ -127,6 +124,9 @@ horizon.network_topology = {
       function(data) {
         self.model = data;
         self.data_convert();
+        setTimeout(function(){
+          self.load_network_info();
+        }, self.reload_duration);
       }
     );
   },
