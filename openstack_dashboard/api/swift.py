@@ -27,7 +27,6 @@ from django.conf import settings  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
-from horizon import messages
 
 from openstack_dashboard.api import base
 from openstack_dashboard.openstack.common import timeutils
@@ -200,9 +199,11 @@ def swift_delete_container(request, name):
     # be done in swiftclient instead of Horizon.
     objects, more = swift_get_objects(request, name)
     if objects:
-        messages.warning(request,
-            _("The container cannot be deleted since it's not empty."))
-        return False
+        error_msg = unicode(_("The container cannot be deleted "
+                              "since it's not empty."))
+        exc = exceptions.Conflict(error_msg)
+        exc._safe_message = error_msg
+        raise exc
     swift_api(request).delete_container(name)
     return True
 
