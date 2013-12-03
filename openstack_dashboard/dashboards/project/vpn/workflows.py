@@ -328,12 +328,14 @@ class AddIPSecSiteConnectionAction(workflows.Action):
                     "Can be IPv4/IPv6 address, e-mail, key ID, or FQDN"),
         version=fields.IPv4 | fields.IPv6,
         mask=False)
-    peer_cidrs = fields.IPField(label=_("Remote peer subnet"),
-                                help_text=_("Remote peer subnet address "
-                                            "with mask in CIDR format "
-                                            "(e.g. 20.1.0.0/24)"),
-                                version=fields.IPv4 | fields.IPv6,
-                                mask=True)
+    peer_cidrs = fields.MultiIPField(
+        label=_("Remote peer subnet(s)"),
+        help_text=_("Remote peer subnet(s) address(es) "
+                    "with mask(s) in CIDR format "
+                    "separated with commas if needed "
+                    "(e.g. 20.1.0.0/24, 21.1.0.0/24)"),
+        version=fields.IPv4 | fields.IPv6,
+        mask=True)
     psk = forms.CharField(max_length=80,
                           label=_("Pre-Shared Key (PSK) string"))
 
@@ -457,6 +459,10 @@ class AddIPSecSiteConnectionOptionalStep(workflows.Step):
         context.pop('dpd_action')
         context.pop('dpd_interval')
         context.pop('dpd_timeout')
+
+        cidrs = context['peer_cidrs']
+        context['peer_cidrs'] = cidrs.replace(" ", "").split(",")
+
         if data:
             return context
 

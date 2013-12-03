@@ -717,7 +717,7 @@ def data(TEST):
                           'mtu': '1500',
                           'peer_address':
                               '2607:f0d0:4545:3:200:f8ff:fe21:67cf',
-                          'peer_cidrs': '20.1.0.0/24',
+                          'peer_cidrs': ['20.1.0.0/24', '21.1.0.0/24'],
                           'peer_id': '2607:f0d0:4545:3:200:f8ff:fe21:67cf',
                           'psk': 'secret',
                           'vpnservice_id': vpnservice_dict['id'],
