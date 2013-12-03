@@ -21,6 +21,7 @@
 
 from django.conf import settings  # noqa
 from django.contrib.auth.models import User  # noqa
+from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core import urlresolvers
 from django.utils.importlib import import_module  # noqa
 
@@ -192,6 +193,18 @@ class HorizonTests(BaseHorizonTests):
         self.assertEqual(tigers._registered_with, cats)
         self.assertEqual(tigers.get_absolute_url(), "/cats/tigers/")
 
+    def test_panel_without_slug_fails(self):
+        class InvalidPanel(horizon.Panel):
+            name = 'Invalid'
+
+        self.assertRaises(ImproperlyConfigured, InvalidPanel)
+
+    def test_registry_without_registerable_class_attr_fails(self):
+        class InvalidRegistry(base.Registry):
+            pass
+
+        self.assertRaises(ImproperlyConfigured, InvalidRegistry)
+
     def test_index_url_name(self):
         cats = horizon.get_dashboard("cats")
         tigers = cats.get_panel("tigers")
@@ -294,6 +307,48 @@ class HorizonTests(BaseHorizonTests):
 
         # Restore settings
         settings.SECURE_PROXY_SSL_HEADER = None
+
+
+class GetUserHomeTests(BaseHorizonTests):
+    """Test get_user_home parameters."""
+
+    def setUp(self):
+        self.orig_user_home = settings.HORIZON_CONFIG['user_home']
+        super(BaseHorizonTests, self).setUp()
+        self.original_username = "testname"
+        self.test_user = User()
+        self.test_user.username = self.original_username
+
+    def tearDown(self):
+        settings.HORIZON_CONFIG['user_home'] = self.orig_user_home
+        conf.HORIZON_CONFIG._setup()
+
+    def test_using_callable(self):
+        def fancy_user_fnc(user):
+            return user.username.upper()
+
+        settings.HORIZON_CONFIG['user_home'] = fancy_user_fnc
+        conf.HORIZON_CONFIG._setup()
+
+        self.assertEqual(self.test_user.username.upper(),
+                               base.Horizon.get_user_home(self.test_user))
+
+    def test_using_module_function(self):
+        module_func = 'django.utils.html.strip_tags'
+        settings.HORIZON_CONFIG['user_home'] = module_func
+        conf.HORIZON_CONFIG._setup()
+
+        self.test_user.username = '<ignore>testname<ignore>'
+        self.assertEqual(self.original_username,
+                               base.Horizon.get_user_home(self.test_user))
+
+    def test_using_url(self):
+        fixed_url = "/url"
+        settings.HORIZON_CONFIG['user_home'] = fixed_url
+        conf.HORIZON_CONFIG._setup()
+
+        self.assertEqual(fixed_url,
+                         base.Horizon.get_user_home(self.test_user))
 
 
 class CustomPanelTests(BaseHorizonTests):
