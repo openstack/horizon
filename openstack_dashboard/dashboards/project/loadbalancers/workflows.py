@@ -171,7 +171,7 @@ class AddVipAction(workflows.Action):
         help_text=_("Required for APP_COOKIE persistence;"
                     " Ignored otherwise."))
     connection_limit = forms.IntegerField(
-        min_value=-1, label=_("Connection Limit"),
+        required=False, min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
                     "for the VIP or '-1' if the limit is not set"))
     admin_state_up = forms.BooleanField(
@@ -292,6 +292,7 @@ class AddMemberAction(workflows.Action):
                             _('At least one member must be specified')},
         help_text=_("Select members for this pool "))
     weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
+                                required=False,
                                 help_text=_("Relative part of requests this "
                                 "pool member serves compared to others"))
     protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
@@ -332,7 +333,6 @@ class AddMemberAction(workflows.Action):
             self.fields['members'].help_text = _("Select members "
                                                  "for this pool ")
             self.fields['pool_id'].required = False
-            self.fields['weight'].required = False
             self.fields['protocol_port'].required = False
             return
 
