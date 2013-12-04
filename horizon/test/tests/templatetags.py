@@ -38,13 +38,60 @@ def single_line(text):
 class TemplateTagTests(test.TestCase):
     """Test Custom Template Tag."""
     def render_template_tag(self, tag_name, tag_require=''):
-        """Render a Custom Template Tag to string."""
-        template = Template("{%% load %s %%}{%% %s %%}"
-                            % (tag_require, tag_name))
-        return template.render(Context())
+        tag_call = "{%% %s %%}" % tag_name
+        return self.render_template(tag_call, tag_require)
+
+    def render_template(self, template_text, tag_require='', context={}):
+        """Render a Custom Template to string."""
+        template = Template("{%% load %s %%} %s"
+                            % (tag_require, template_text))
+        return template.render(Context(context))
 
     def test_site_branding_tag(self):
         """Test if site_branding tag renders the correct setting."""
         rendered_str = self.render_template_tag("site_branding", "branding")
         self.assertEqual(settings.SITE_BRANDING, rendered_str.strip(),
                         "tag site_branding renders %s" % rendered_str.strip())
+
+    def test_size_format_filters(self):
+        size_str = ('5|diskgbformat', '10|diskgbformat',
+                    '5555|mb_float_format', '80|mb_float_format',
+                    '.5|mbformat', '0.005|mbformat')
+        expected = u' 5.0GB 10.0GB 5.4 GB 80.0 MB 512KB 5KB '
+
+        text = ''
+        for size_filter in size_str:
+            text += '{{' + size_filter + '}} '
+
+        rendered_str = self.render_template(tag_require='sizeformat',
+                                            template_text=text)
+        self.assertEqual(rendered_str, expected)
+
+    def test_truncate_filter(self):
+        ctx_string = {'val1': 'he',
+                      'val2': 'hellotrunc',
+                      'val3': 'four'}
+
+        text = ('{{test.val1|truncate:1}}#{{test.val2|truncate:4}}#'
+                '{{test.val3|truncate:10}}')
+
+        expected = u' h#h...#four'
+        rendered_str = self.render_template(tag_require='truncate_filter',
+                                            template_text=text,
+                                            context={'test': ctx_string})
+        self.assertEqual(rendered_str, expected)
+
+    def test_quota_filter(self):
+        ctx_string = {'val1': 100,
+                      'val2': 1000,
+                      'val3': float('inf')}
+
+        text = ('{{test.val1|quota:"TB"}}#{{test.val2|quota}}#'
+                '{{test.val3|quota}}')
+
+        expected = u' 100 TB Available#1000 Available#No Limit'
+
+        rendered_str = self.render_template(tag_require='horizon',
+                                            template_text=text,
+                                            context={'test': ctx_string})
+        self.assertEqual(rendered_str, expected)
