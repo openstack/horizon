@@ -53,13 +53,9 @@ class IndexView(tables.MultiTableView):
         marker = self.request.GET.get(
             images_tables.ImagesTable._meta.pagination_param, None)
         try:
-            # FIXME(gabriel): The paging is going to be strange here due to
-            # our filtering after the fact.
-            (all_images,
+            (images,
              self._more_images) = api.glance.image_list_detailed(self.request,
                                                                  marker=marker)
-            images = [im for im in all_images
-                      if im.container_format not in ['aki', 'ari']]
         except Exception:
             images = []
             exceptions.handle(self.request, _("Unable to retrieve images."))

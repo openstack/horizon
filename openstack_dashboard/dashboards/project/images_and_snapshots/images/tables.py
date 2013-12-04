@@ -27,6 +27,8 @@ from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
 
+NOT_LAUNCHABLE_FORMATS = ['aki', 'ari']
+
 
 class LaunchImage(tables.LinkAction):
     name = "launch_image"
@@ -47,7 +49,7 @@ class LaunchImage(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, image=None):
-        if image:
+        if image and image.container_format not in NOT_LAUNCHABLE_FORMATS:
             return image.status in ("active",)
         return False
 
@@ -103,7 +105,7 @@ class CreateVolumeFromImage(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, image=None):
-        if image:
+        if image and image.container_format not in NOT_LAUNCHABLE_FORMATS:
             return image.status == "active"
         return False
 
