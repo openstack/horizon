@@ -327,8 +327,8 @@ function run_tests_all {
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
     ${command_wrapper} coverage combine
-    ${command_wrapper} coverage xml -i --omit='/usr*,setup.py,*egg*,.venv/*'
-    ${command_wrapper} coverage html -i --omit='/usr*,setup.py,*egg*,.venv/*' -d reports
+    ${command_wrapper} coverage xml -i --include="horizon/*,openstack_dashboard/*" --omit='/usr*,setup.py,*egg*,.venv/*'
+    ${command_wrapper} coverage html -i --include="horizon/*,openstack_dashboard/*" --omit='/usr*,setup.py,*egg*,.venv/*' -d reports
   fi
   # Remove the leftover coverage files from the -p flag earlier.
   rm -f .coverage.*
