@@ -48,7 +48,10 @@ class CreateForm(forms.SelfHandlingForm):
                              required=False)
     size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
-                                           required=False)
+                                           required=False,
+                                           widget=forms.Select(attrs={
+                                               'class': 'switchable',
+                                               'data-slug': 'source'}))
     snapshot_source = forms.ChoiceField(
         label=_("Use snapshot as a source"),
         widget=fields.SelectWidget(
@@ -63,8 +66,14 @@ class CreateForm(forms.SelfHandlingForm):
             data_attrs=('size', 'name', 'min_disk'),
             transform=lambda x: "%s (%s)" % (x.name, filesizeformat(x.bytes))),
         required=False)
-    availability_zone = forms.ChoiceField(label=_("Availability Zone"),
-                                          required=False)
+    availability_zone = forms.ChoiceField(
+        label=_("Availability Zone"),
+        required=False,
+        widget=forms.Select(
+            attrs={'class': 'switched',
+                   'data-switch-on': 'source',
+                   'data-source-no_source_type': _('Availability Zone'),
+                   'data-source-image_source': _('Availability Zone')}))
 
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
@@ -72,8 +81,6 @@ class CreateForm(forms.SelfHandlingForm):
         self.fields['type'].choices = [("", "")] + \
                                       [(type.name, type.name)
                                        for type in volume_types]
-        self.fields['availability_zone'].choices = \
-            self.availability_zones(request)
 
         if ("snapshot_id" in request.GET):
             try:
@@ -95,10 +102,13 @@ class CreateForm(forms.SelfHandlingForm):
                             % snapshot.size
                 del self.fields['image_source']
                 del self.fields['volume_source_type']
+                del self.fields['availability_zone']
             except Exception:
                 exceptions.handle(request,
                                   _('Unable to load the specified snapshot.'))
         elif ('image_id' in request.GET):
+            self.fields['availability_zone'].choices = \
+                self.availability_zones(request)
             try:
                 image = self.get_image(request,
                                        request.GET["image_id"])
@@ -126,6 +136,8 @@ class CreateForm(forms.SelfHandlingForm):
                 exceptions.handle(request, msg % request.GET['image_id'])
         else:
             source_type_choices = []
+            self.fields['availability_zone'].choices = \
+                self.availability_zones(request)
 
             try:
                 snapshot_list = cinder.volume_snapshot_list(request)
@@ -202,6 +214,7 @@ class CreateForm(forms.SelfHandlingForm):
             snapshot_id = None
             image_id = None
             source_type = data.get('volume_source_type', None)
+            az = data.get('availability_zone', None) or None
             if (data.get("snapshot_source", None) and
                   source_type in [None, 'snapshot_source']):
                 # Create from Snapshot
@@ -212,6 +225,7 @@ class CreateForm(forms.SelfHandlingForm):
                     error_message = _('The volume size cannot be less than '
                         'the snapshot size (%sGB)') % snapshot.size
                     raise ValidationError(error_message)
+                az = None
             elif (data.get("image_source", None) and
                   source_type in [None, 'image_source']):
                 # Create from Snapshot
@@ -245,8 +259,6 @@ class CreateForm(forms.SelfHandlingForm):
                 raise ValidationError(error_message)
 
             metadata = {}
-
-            az = data['availability_zone'] or None
 
             volume = cinder.volume_create(request,
                                           data['size'],
