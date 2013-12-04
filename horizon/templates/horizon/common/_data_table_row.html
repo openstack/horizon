@@ -1,3 +1,7 @@
 <tr{{ row.attr_string|safe }}>
-  {% for cell in row %}<td{{ cell.attr_string|safe }}>{%if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{%if cell.wrap_list %}</ul>{% endif %}</td>{% endfor %}
+    {% spaceless %}
+        {% for cell in row %}
+            {% include "horizon/common/_data_table_cell.html" %}
+        {% endfor %}
+    {% endspaceless %}
 </tr>

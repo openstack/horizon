@@ -10,11 +10,15 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core.exceptions import ValidationError  # noqa
 from django.core.urlresolvers import reverse  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
+from horizon import exceptions
+from horizon import forms
 from horizon import tables
+from keystoneclient.exceptions import Conflict  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import keystone
@@ -121,16 +125,65 @@ class TenantFilterAction(tables.FilterAction):
         return filter(comp, tenants)
 
 
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, project_id):
+        project_info = api.keystone.tenant_get(request, project_id,
+                                               admin=True)
+        return project_info
+
+
+class UpdateCell(tables.UpdateAction):
+    def allowed(self, request, project, cell):
+        return api.keystone.keystone_can_edit_project()
+
+    def update_cell(self, request, datum, project_id,
+                    cell_name, new_cell_value):
+        # inline update project info
+        try:
+            project_obj = datum
+            # updating changed value by new value
+            setattr(project_obj, cell_name, new_cell_value)
+            api.keystone.tenant_update(
+                request,
+                project_id,
+                name=project_obj.name,
+                description=project_obj.description,
+                enabled=project_obj.enabled)
+
+        except Conflict:
+            # Returning a nice error message about name conflict. The message
+            # from exception is not that clear for the users.
+            message = _("This name is already taken.")
+            raise ValidationError(message)
+        except Exception:
+            exceptions.handle(request, ignore=True)
+            return False
+        return True
+
+
 class TenantsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=_('Name'),
+                         form_field=forms.CharField(required=True),
+                         update_action=UpdateCell)
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'))
+                                verbose_name=_('Description'),
+                                form_field=forms.CharField(
+                                    widget=forms.Textarea(),
+                                    required=False),
+                                update_action=UpdateCell)
     id = tables.Column('id', verbose_name=_('Project ID'))
-    enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True)
+    enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
+                            form_field=forms.BooleanField(
+                                label=_('Enabled'),
+                                required=False),
+                            update_action=UpdateCell)
 
     class Meta:
         name = "tenants"
         verbose_name = _("Projects")
+        row_class = UpdateRow
         row_actions = (ViewMembersLink, ViewGroupsLink, UpdateProject,
                        UsageLink, ModifyQuotas, DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateProject,

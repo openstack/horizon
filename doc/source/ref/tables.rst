@@ -76,6 +76,9 @@ Actions
 .. autoclass:: DeleteAction
     :members:
 
+.. autoclass:: UpdateAction
+    :members:
+
 Class-Based Views
 =================
 

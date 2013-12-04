@@ -15,6 +15,7 @@
 #    under the License.
 
 from django.core.urlresolvers import reverse  # noqa
+from django import forms
 from django import http
 from django import shortcuts
 
@@ -145,6 +146,19 @@ class MyFilterAction(tables.FilterAction):
         return filter(comp, objs)
 
 
+class MyUpdateAction(tables.UpdateAction):
+    def allowed(self, *args):
+        return True
+
+    def update_cell(self, *args):
+        pass
+
+
+class MyUpdateActionNotAllowed(MyUpdateAction):
+    def allowed(self, *args):
+        return False
+
+
 def get_name(obj):
     return "custom %s" % obj.name
 
@@ -155,7 +169,12 @@ def get_link(obj):
 
 class MyTable(tables.DataTable):
     id = tables.Column('id', hidden=True, sortable=False)
-    name = tables.Column(get_name, verbose_name="Verbose Name", sortable=True)
+    name = tables.Column(get_name,
+                         verbose_name="Verbose Name",
+                         sortable=True,
+                         form_field=forms.CharField(required=True),
+                         form_field_attributes={'class': 'test'},
+                         update_action=MyUpdateAction)
     value = tables.Column('value',
                           sortable=True,
                           link='http://example.com/',
@@ -176,6 +195,20 @@ class MyTable(tables.DataTable):
         column_class = MyColumn
         table_actions = (MyFilterAction, MyAction, MyBatchAction)
         row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
+
+
+class MyTableNotAllowedInlineEdit(MyTable):
+    name = tables.Column(get_name,
+                         verbose_name="Verbose Name",
+                         sortable=True,
+                         form_field=forms.CharField(required=True),
+                         form_field_attributes={'class': 'test'},
+                         update_action=MyUpdateActionNotAllowed)
+
+    class Meta:
+        name = "my_table"
+        columns = ('id', 'name', 'value', 'optional', 'status')
+        row_class = MyRow
 
 
 class NoActionsTable(tables.DataTable):
@@ -238,6 +271,11 @@ class DataTableTests(test.TestCase):
         self.assertEqual(actions.auto, "actions")
         self.assertEqual(actions.get_final_attrs().get('class', ""),
                          "actions_column")
+        # In-line edit action on column.
+        name_column = self.table.columns['name']
+        self.assertEqual(name_column.update_action, MyUpdateAction)
+        self.assertEqual(name_column.form_field.__class__, forms.CharField)
+        self.assertEqual(name_column.form_field_attributes, {'class': 'test'})
 
     def test_table_force_no_multiselect(self):
         class TempTable(MyTable):
@@ -262,6 +300,22 @@ class DataTableTests(test.TestCase):
         self.assertQuerysetEqual(self.table.columns.values(),
                                  ['<Column: multi_select>',
                                   '<Column: id>'])
+
+    def test_table_natural_no_inline_editing(self):
+        class TempTable(MyTable):
+            name = tables.Column(get_name,
+                                 verbose_name="Verbose Name",
+                                 sortable=True)
+
+            class Meta:
+                name = "my_table"
+                columns = ('id', 'name', 'value', 'optional', 'status')
+
+        self.table = TempTable(self.request, TEST_DATA_2)
+        name_column = self.table.columns['name']
+        self.assertEqual(name_column.update_action, None)
+        self.assertEqual(name_column.form_field, None)
+        self.assertEqual(name_column.form_field_attributes, {})
 
     def test_table_natural_no_actions_column(self):
         class TempTable(MyTable):
@@ -445,6 +499,172 @@ class DataTableTests(test.TestCase):
         resp = http.HttpResponse(table_actions)
         self.assertContains(resp, "table_search", 0)
 
+    def test_inline_edit_available_cell_rendering(self):
+        self.table = MyTable(self.request, TEST_DATA_2)
+        row = self.table.get_rows()[0]
+        name_cell = row.cells['name']
+
+        # Check if in-line edit is available in the cell,
+        # but is not in inline_edit_mod.
+        self.assertEqual(name_cell.inline_edit_available,
+                         True)
+        self.assertEqual(name_cell.inline_edit_mod,
+                         False)
+
+        # Check if is cell is rendered correctly.
+        name_cell_rendered = name_cell.render()
+        resp = http.HttpResponse(name_cell_rendered)
+
+        self.assertContains(resp, '<td', 1)
+        self.assertContains(resp, 'inline_edit_available', 1)
+        self.assertContains(resp,
+                            'data-update-url="?action=cell_update&amp;'
+                            'table=my_table&amp;cell_name=name&amp;obj_id=1"',
+                            1)
+        self.assertContains(resp, 'table_cell_wrapper', 1)
+        self.assertContains(resp, 'table_cell_data_wrapper', 1)
+        self.assertContains(resp, 'table_cell_action', 1)
+        self.assertContains(resp, 'ajax-inline-edit', 1)
+
+    def test_inline_edit_available_not_allowed_cell_rendering(self):
+        self.table = MyTableNotAllowedInlineEdit(self.request, TEST_DATA_2)
+
+        row = self.table.get_rows()[0]
+        name_cell = row.cells['name']
+
+        # Check if in-line edit is available in the cell,
+        # but is not in inline_edit_mod.
+        self.assertEqual(name_cell.inline_edit_available,
+                         True)
+        self.assertEqual(name_cell.inline_edit_mod,
+                         False)
+
+        # Check if is cell is rendered correctly.
+        name_cell_rendered = name_cell.render()
+        resp = http.HttpResponse(name_cell_rendered)
+
+        self.assertContains(resp, '<td', 1)
+        self.assertContains(resp, 'inline_edit_available', 1)
+        self.assertContains(resp,
+                            'data-update-url="?action=cell_update&amp;'
+                            'table=my_table&amp;cell_name=name&amp;obj_id=1"',
+                            1)
+        self.assertContains(resp, 'table_cell_wrapper', 0)
+        self.assertContains(resp, 'table_cell_data_wrapper', 0)
+        self.assertContains(resp, 'table_cell_action', 0)
+        self.assertContains(resp, 'ajax-inline-edit', 0)
+
+    def test_inline_edit_mod_cell_rendering(self):
+        self.table = MyTable(self.request, TEST_DATA_2)
+        name_col = self.table.columns['name']
+        name_col.auto = "form_field"
+
+        row = self.table.get_rows()[0]
+        name_cell = row.cells['name']
+        name_cell.inline_edit_mod = True
+
+        # Check if in-line edit is available in the cell,
+        # and is in inline_edit_mod, also column auto must be
+        # set as form_field.
+        self.assertEqual(name_cell.inline_edit_available,
+                         True)
+        self.assertEqual(name_cell.inline_edit_mod,
+                         True)
+        self.assertEqual(name_col.auto,
+                         'form_field')
+
+        # Check if is cell is rendered correctly.
+        name_cell_rendered = name_cell.render()
+        resp = http.HttpResponse(name_cell_rendered)
+
+        self.assertContains(resp,
+                            '<input class="test" id="name__1" name="name__1"'
+                            ' type="text" value="custom object_1" />',
+                            count=1, html=True)
+
+        self.assertContains(resp, '<td', 1)
+        self.assertContains(resp, 'inline_edit_available', 1)
+        self.assertContains(resp,
+                            'data-update-url="?action=cell_update&amp;'
+                            'table=my_table&amp;cell_name=name&amp;obj_id=1"',
+                            1)
+        self.assertContains(resp, 'table_cell_wrapper', 1)
+        self.assertContains(resp, 'inline-edit-error', 1)
+        self.assertContains(resp, 'inline-edit-form', 1)
+        self.assertContains(resp, 'inline-edit-actions', 1)
+        self.assertContains(resp, 'inline-edit-submit', 1)
+        self.assertContains(resp, 'inline-edit-cancel', 1)
+
+    def test_inline_edit_mod_checkbox_with_label(self):
+        class TempTable(MyTable):
+            name = tables.Column(get_name,
+                                 verbose_name="Verbose Name",
+                                 sortable=True,
+                                 form_field=forms.BooleanField(
+                                     required=True,
+                                     label="Verbose Name"),
+                                 form_field_attributes={'class': 'test'},
+                                 update_action=MyUpdateAction)
+
+            class Meta:
+                name = "my_table"
+                columns = ('id', 'name', 'value', 'optional', 'status')
+
+        self.table = TempTable(self.request, TEST_DATA_2)
+        name_col = self.table.columns['name']
+        name_col.auto = "form_field"
+
+        row = self.table.get_rows()[0]
+        name_cell = row.cells['name']
+        name_cell.inline_edit_mod = True
+
+        # Check if is cell is rendered correctly.
+        name_cell_rendered = name_cell.render()
+        resp = http.HttpResponse(name_cell_rendered)
+
+        self.assertContains(resp,
+                            '<input checked="checked" class="test" '
+                            'id="name__1" name="name__1" type="checkbox" '
+                            'value="custom object_1" />',
+                            count=1, html=True)
+        self.assertContains(resp,
+                            '<label class="inline-edit-label" for="name__1">'
+                            'Verbose Name</label>',
+                            count=1, html=True)
+
+    def test_inline_edit_mod_textarea(self):
+        class TempTable(MyTable):
+            name = tables.Column(get_name,
+                                 verbose_name="Verbose Name",
+                                 sortable=True,
+                                 form_field=forms.CharField(
+                                     widget=forms.Textarea(),
+                                     required=False),
+                                 form_field_attributes={'class': 'test'},
+                                 update_action=MyUpdateAction)
+
+            class Meta:
+                name = "my_table"
+                columns = ('id', 'name', 'value', 'optional', 'status')
+
+        self.table = TempTable(self.request, TEST_DATA_2)
+        name_col = self.table.columns['name']
+        name_col.auto = "form_field"
+
+        row = self.table.get_rows()[0]
+        name_cell = row.cells['name']
+        name_cell.inline_edit_mod = True
+
+        # Check if is cell is rendered correctly.
+        name_cell_rendered = name_cell.render()
+        resp = http.HttpResponse(name_cell_rendered)
+
+        self.assertContains(resp,
+                            '<textarea class="test" cols="40" id="name__1" '
+                            'name="name__1" rows="10">\r\ncustom object_1'
+                            '</textarea>',
+                            count=1, html=True)
+
     def test_table_actions(self):
         # Single object action
         action_string = "my_table__delete__1"
@@ -602,6 +822,121 @@ class DataTableTests(test.TestCase):
         row_actions = self.table.get_row_actions(TEST_DATA[0])
         self.assertEqual(unicode(row_actions[0].verbose_name), "Delete Me")
         self.assertEqual(unicode(row_actions[1].verbose_name), "Log In")
+
+    def test_inline_edit_update_action_get_non_ajax(self):
+        # Non ajax inline edit request should return None.
+        url = ('/my_url/?action=cell_update'
+               '&table=my_table&cell_name=name&obj_id=1')
+        req = self.factory.get(url, {})
+        self.table = MyTable(req, TEST_DATA_2)
+        handled = self.table.maybe_preempt()
+        # Checking the response header.
+        self.assertEqual(handled, None)
+
+    def test_inline_edit_update_action_get(self):
+        # Get request should return td field with data.
+        url = ('/my_url/?action=cell_update'
+               '&table=my_table&cell_name=name&obj_id=1')
+        req = self.factory.get(url, {},
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.table = MyTable(req, TEST_DATA_2)
+        handled = self.table.maybe_preempt()
+        # Checking the response header.
+        self.assertEqual(handled.status_code, 200)
+        # Checking the response content.
+        resp = handled
+        self.assertContains(resp, '<td', 1)
+        self.assertContains(resp, 'inline_edit_available', 1)
+        self.assertContains(
+            resp,
+            'data-update-url="/my_url/?action=cell_update&amp;'
+            'table=my_table&amp;cell_name=name&amp;obj_id=1"',
+            1)
+        self.assertContains(resp, 'table_cell_wrapper', 1)
+        self.assertContains(resp, 'table_cell_data_wrapper', 1)
+        self.assertContains(resp, 'table_cell_action', 1)
+        self.assertContains(resp, 'ajax-inline-edit', 1)
+
+    def test_inline_edit_update_action_get_not_allowed(self):
+        # Name column has required validation, sending blank
+        # will return error.
+        url = ('/my_url/?action=cell_update'
+               '&table=my_table&cell_name=name&obj_id=1')
+        req = self.factory.post(url, {})
+        self.table = MyTableNotAllowedInlineEdit(req, TEST_DATA_2)
+        handled = self.table.maybe_preempt()
+        # Checking the response header.
+        self.assertEqual(handled.status_code, 401)
+
+    def test_inline_edit_update_action_get_inline_edit_mod(self):
+        # Get request in inline_edit_mode should return td with form field.
+        url = ('/my_url/?inline_edit_mod=true&action=cell_update'
+               '&table=my_table&cell_name=name&obj_id=1')
+        req = self.factory.get(url, {},
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.table = MyTable(req, TEST_DATA_2)
+        handled = self.table.maybe_preempt()
+        # Checking the response header.
+        self.assertEqual(handled.status_code, 200)
+        # Checking the response content.
+        resp = handled
+        self.assertContains(resp,
+                            '<input class="test" id="name__1" name="name__1"'
+                            ' type="text" value="custom object_1" />',
+                            count=1, html=True)
+
+        self.assertContains(resp, '<td', 1)
+        self.assertContains(resp, 'inline_edit_available', 1)
+        self.assertContains(
+            resp,
+            'data-update-url="/my_url/?action=cell_update&amp;'
+            'table=my_table&amp;cell_name=name&amp;obj_id=1"',
+            1)
+        self.assertContains(resp, 'table_cell_wrapper', 1)
+        self.assertContains(resp, 'inline-edit-error', 1)
+        self.assertContains(resp, 'inline-edit-form', 1)
+        self.assertContains(resp, 'inline-edit-actions', 1)
+        self.assertContains(resp, '<button', 2)
+        self.assertContains(resp, 'inline-edit-submit', 1)
+        self.assertContains(resp, 'inline-edit-cancel', 1)
+
+    def test_inline_edit_update_action_post(self):
+        # Post request should invoke the cell update table action.
+        url = ('/my_url/?action=cell_update'
+               '&table=my_table&cell_name=name&obj_id=1')
+        req = self.factory.post(url, {'name__1': 'test_name'})
+        self.table = MyTable(req, TEST_DATA_2)
+        # checking the response header
+        handled = self.table.maybe_preempt()
+        self.assertEqual(handled.status_code, 200)
+
+    def test_inline_edit_update_action_post_not_allowed(self):
+        # Post request should invoke the cell update table action.
+        url = ('/my_url/?action=cell_update'
+               '&table=my_table&cell_name=name&obj_id=1')
+        req = self.factory.post(url, {'name__1': 'test_name'})
+        self.table = MyTableNotAllowedInlineEdit(req, TEST_DATA_2)
+        # checking the response header
+        handled = self.table.maybe_preempt()
+        self.assertEqual(handled.status_code, 401)
+
+    def test_inline_edit_update_action_post_validation_error(self):
+        # Name column has required validation, sending blank
+        # will return error.
+        url = ('/my_url/?action=cell_update'
+               '&table=my_table&cell_name=name&obj_id=1')
+        req = self.factory.post(url, {})
+        self.table = MyTable(req, TEST_DATA_2)
+        handled = self.table.maybe_preempt()
+        # Checking the response header.
+        self.assertEqual(handled.status_code, 400)
+        self.assertEqual(handled._headers['content-type'],
+                         ('Content-Type', 'application/json'))
+        # Checking the response content.
+        resp = handled
+        self.assertContains(resp,
+                            '"message": "This field is required."',
+                            count=1, status_code=400)
 
     def test_column_uniqueness(self):
         table1 = MyTable(self.request)
