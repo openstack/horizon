@@ -221,9 +221,9 @@ horizon.Quota = {
   // Returns the flavor object for the selected flavor in the form.
   getSelectedFlavor: function() {
     if(this.is_flavor_quota) {
-      this.selected_flavor = _.find(this.flavors, function(flavor) {
+      this.selected_flavor = $.grep(this.flavors, function(flavor) {
         return flavor.id == $("#id_flavor").children(":selected").val();
-      });
+      })[0];
     } else {
       this.selected_flavor = null;
     }

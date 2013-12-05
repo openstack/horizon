@@ -5,7 +5,7 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      if (_.isEmpty($volName.val())) {
+      if ($volName.is(':empty')) {
         $volName.val($option.data("display_name"));
       }
       var $volSize = $form.find('input#id_size');
@@ -22,7 +22,7 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      if (_.isEmpty($volName.val())) {
+      if ($volName.is(':empty')) {
         $volName.val($option.data("name"));
       }
       var $volSize = $form.find('input#id_size');
