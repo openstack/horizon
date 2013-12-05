@@ -12,24 +12,24 @@ horizon.utils = {
   },
 
   /*
-    Adds commas to any integer or numbers within a string for human display.
+   Adds commas to any integer or numbers within a string for human display.
 
-    EG:
-      horizon.utils.humanizeNumbers(1234); -> "1,234"
-      horizon.utils.humanizeNumbers("My Total: 1234"); -> "My Total: 1,234"
-  */
+   EG:
+   horizon.utils.humanizeNumbers(1234); -> "1,234"
+   horizon.utils.humanizeNumbers("My Total: 1234"); -> "My Total: 1,234"
+   */
   humanizeNumbers: function(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   },
 
   /*
-    Truncate a string at the desired length. Optionally append an ellipsis
-    to the end of the string.
+   Truncate a string at the desired length. Optionally append an ellipsis
+   to the end of the string.
 
-    EG:
-      horizon.utils.truncate("String that is too long.", 18, true); ->
-          "String that is too&hellip;"
-  */
+   EG:
+   horizon.utils.truncate("String that is too long.", 18, true); ->
+   "String that is too&hellip;"
+   */
   truncate: function(string, size, includeEllipsis) {
     if(string.length > size) {
       if(includeEllipsis) {
@@ -40,5 +40,18 @@ horizon.utils = {
     } else {
       return string;
     }
+  },
+
+  loadAngular: function (element) {
+    angular.injector(['ng', 'horizonApp']).
+      invoke(['$rootScope', '$compile', function ($rootScope, $compile) {
+        try {
+          $compile(element)($rootScope);
+          $rootScope.$apply();
+        } catch (err) {}
+        /*
+        Compilation fails when it could not find a directive, fails silently on this, it is an angular behaviour.
+         */
+      }]);
   }
 };
