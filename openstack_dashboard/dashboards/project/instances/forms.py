@@ -31,8 +31,8 @@ from openstack_dashboard.dashboards.project.images_and_snapshots import utils
 
 
 def _image_choice_title(img):
-    gb = filesizeformat(img.bytes)
-    return '%s (%s)' % (img.display_name, gb)
+    gb = filesizeformat(img.size)
+    return '%s (%s)' % (img.name or img.id, gb)
 
 
 class RebuildInstanceForm(forms.SelfHandlingForm):
@@ -56,7 +56,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         self.fields['instance_id'].initial = instance_id
 
         images = utils.get_available_images(request, request.user.tenant_id)
-        choices = [(image.id, image.name) for image in images]
+        choices = [(image.id, image) for image in images]
         if choices:
             choices.insert(0, ("", _("Select Image")))
         else:

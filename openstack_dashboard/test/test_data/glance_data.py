@@ -87,7 +87,7 @@ def data(TEST):
     protected_image = images.Image(images.ImageManager(None), image_dict)
 
     image_dict = {'id': '278905a6-4b52-4d1e-98f9-8c57bb25ba32',
-                  'name': 'public_image 2',
+                  'name': None,
                   'status': "active",
                   'size': 5 * 1024 ** 3,
                   'owner': TEST.tenant.id,
