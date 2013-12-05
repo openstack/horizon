@@ -130,7 +130,7 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         ceilometerclient = self.stub_ceilometerclient()
         ceilometerclient.resources = self.mox.CreateMockAnything()
-        ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources)
+        ceilometerclient.resources.list(q=[]).AndReturn(resources)
 
         ceilometerclient.statistics = self.mox.CreateMockAnything()
         ceilometerclient.statistics.list(meter_name="storage.objects",

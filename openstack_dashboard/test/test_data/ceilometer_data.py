@@ -104,12 +104,23 @@ def data(TEST):
         metadata={'tag': 'self.counter3', 'display_name': 'test-server'},
         links=[{'url': 'test_url', 'rel': 'storage.objects'}],
     )
+    resource_dict_3 = dict(
+        resource_id='fake_resource_id3',
+        project_id='fake_project_id',
+        user_id="fake_user_id",
+        timestamp='2012-07-02T10:42:00.000000',
+        metadata={'tag': 'self.counter3', 'display_name': 'test-server'},
+        links=[{'url': 'test_url', 'rel': 'intance'}],
+    )
     resource_1 = resources.Resource(resources.ResourceManager(None),
                                     resource_dict_1)
     resource_2 = resources.Resource(resources.ResourceManager(None),
                                     resource_dict_2)
+    resource_3 = resources.Resource(resources.ResourceManager(None),
+                                    resource_dict_3)
     TEST.resources.add(resource_1)
     TEST.resources.add(resource_2)
+    TEST.resources.add(resource_3)
 
     # samples
     sample_dict_1 = {'resource_id': 'fake_resource_id',
