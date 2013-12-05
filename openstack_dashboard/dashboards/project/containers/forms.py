@@ -82,11 +82,16 @@ class UploadObject(forms.SelfHandlingForm):
     path = forms.CharField(max_length=255,
                            required=False,
                            widget=forms.HiddenInput)
+
     name = forms.CharField(max_length=255,
                            label=_("Object Name"),
                            help_text=_("Slashes are allowed, and are treated "
                                        "as pseudo-folders by the Object "
-                                       "Store."))
+                                       "Store."),
+                           widget=forms.TextInput(
+                               attrs={"ng-model": "name",
+                                      "not-blank": ""}
+                           ))
     object_file = forms.FileField(label=_("File"), allow_empty_file=True)
     container_name = forms.CharField(widget=forms.HiddenInput())
 
