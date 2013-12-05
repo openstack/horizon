@@ -281,7 +281,9 @@ class AttachForm(forms.SelfHandlingForm):
     instance = forms.ChoiceField(label=_("Attach to Instance"),
                                  help_text=_("Select an instance to "
                                              "attach to."))
-    device = forms.CharField(label=_("Device Name"))
+    device = forms.CharField(label=_("Device Name"),
+                             help_text=_("Actual device name may differ due "
+                                         "to hypervisor settings."))
 
     def __init__(self, *args, **kwargs):
         super(AttachForm, self).__init__(*args, **kwargs)
