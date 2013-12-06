@@ -258,8 +258,7 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
 
 
 class RemoveRuleFromPolicy(forms.SelfHandlingForm):
-    firewall_rule_id = forms.ChoiceField(label=_("Remove Rule"),
-                                         required=False)
+    firewall_rule_id = forms.ChoiceField(label=_("Remove Rule"))
 
     failure_url = 'horizon:project:firewalls:index'
 

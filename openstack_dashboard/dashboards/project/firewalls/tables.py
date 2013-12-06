@@ -114,7 +114,7 @@ class InsertRuleToPolicyLink(tables.LinkAction):
 class RemoveRuleFromPolicyLink(tables.LinkAction):
     name = "removerule"
     verbose_name = _("Remove Rule")
-    classes = ("ajax-modal", "btn-update",)
+    classes = ("ajax-modal", "btn-danger",)
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:removerule",
