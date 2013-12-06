@@ -7,7 +7,7 @@
 
 
 {% block modal_id %}extra_spec_edit_modal{% endblock %}
-{% block modal-header %}{% trans "Edit Flavor Extra Spec" %}{% endblock %}
+{% block modal-header %}{% trans "Edit Extra Spec Value" %}: {{ key }}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -17,7 +17,7 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans 'Update an "extra spec" key-value pair for a flavor.' %}</p>
+    <p>{% trans 'Update the "extra spec" value for' %} &quot;{{ key }}&quot;</p>
 </div>
 {% endblock %}
 
