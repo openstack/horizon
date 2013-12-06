@@ -12,6 +12,8 @@
 
 import os
 
+from django.utils.translation import ugettext_lazy as _
+
 from horizon.test.settings import *  # noqa
 from horizon.utils import secret_key
 
@@ -200,4 +202,15 @@ POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 POLICY_FILES = {
     'identity': 'keystone_policy.json',
     'compute': 'nova_policy.json'
+}
+
+FLAVOR_EXTRA_KEYS = {
+    'flavor_keys': [
+        ('quota:read_bytes_sec', _('Quota: Read bytes')),
+        ('quota:write_bytes_sec', _('Quota: Write bytes')),
+        ('quota:cpu_quota', _('Quota: CPU')),
+        ('quota:cpu_period', _('Quota: CPU period')),
+        ('quota:inbound_average', _('Quota: Inbound average')),
+        ('quota:outbound_average', _('Quota: Outbound average')),
+    ]
 }

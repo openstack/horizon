@@ -52,12 +52,34 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         data = {'flavor_id': flavor.id,
+                'keys': 'custom',
                 'key': key_name,
                 'value': 'v1'}
         resp = self.client.post(create_url, data)
         self.assertNoFormErrors(resp)
         self.assertRedirectsNoFollow(resp, index_url)
         self.mox.UnsetStubs()
+
+    @test.create_stubs({api.nova: ('flavor_extra_set', ), })
+    def test_extra_create_with_template(self):
+        flavor = self.flavors.first()
+        create_url = reverse('horizon:admin:flavors:extras:create',
+                             args=[flavor.id])
+        index_url = reverse('horizon:admin:flavors:extras:index',
+                            args=[flavor.id])
+
+        # GET to display the flavor_name
+        api.nova.flavor_extra_set(IsA(http.HttpRequest),
+                                  flavor.id,
+                                  {'quota:read_bytes_sec': '1000'})
+        self.mox.ReplayAll()
+
+        data = {'flavor_id': flavor.id,
+                'keys': 'quota:read_bytes_sec',
+                'value': '1000'}
+        resp = self.client.post(create_url, data)
+        self.assertNoFormErrors(resp)
+        self.assertRedirectsNoFollow(resp, index_url)
 
     @test.create_stubs({api.nova: ('flavor_get', ), })
     def test_extra_create_get(self):
@@ -83,6 +105,7 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         data = {'flavor_id': flavor.id,
+                'keys': 'custom',
                 'key': key_name,
                 'value': 'v1'}
 

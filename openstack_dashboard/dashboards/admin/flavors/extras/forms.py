@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
+from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import api
@@ -31,17 +33,43 @@ import re
 
 class CreateExtraSpec(forms.SelfHandlingForm):
     _extraspec_name_regex = re.compile(r"^[\w\.\-: ]+$", re.UNICODE)
+    keys = forms.ChoiceField(label=_("Keys"),
+                             widget=forms.Select(attrs={
+                                 'class': 'switchable',
+                                 'data-slug': 'keys'}))
     key = forms.RegexField(
         max_length="255",
         label=_("Key"),
+        required=False,
         regex=_extraspec_name_regex,
         error_messages={'invalid': _('Key Name may only contain letters, '
                             'numbers, underscores, periods, colons, '
-                            'spaces and hyphens.')})
+                            'spaces and hyphens.')},
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'keys',
+            'data-keys-custom': _('Key')}))
     value = forms.CharField(max_length="255", label=_("Value"))
     flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
+    def __init__(self, *args, **kwargs):
+        super(CreateExtraSpec, self).__init__(*args, **kwargs)
+        key_settings = getattr(settings, 'FLAVOR_EXTRA_KEYS', {})
+        key_list = key_settings.get('flavor_keys', [])
+        self.fields['keys'].choices = key_list + [('custom', _('Other Key'))]
+
+    def clean(self):
+        cleaned_data = super(CreateExtraSpec, self).clean()
+        keys = cleaned_data.get('keys', None)
+        key = cleaned_data.get('key', None)
+        if keys == 'custom' and key == "":
+            msg = _('This field is required.')
+            self._errors["key"] = self.error_class([msg])
+        return cleaned_data
+
     def handle(self, request, data):
+        if data["keys"] != 'custom':
+            data['key'] = data['keys']
         try:
             api.nova.flavor_extra_set(request,
                                      data['flavor_id'],
