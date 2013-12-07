@@ -95,7 +95,7 @@ horizon.addInitFunction(function() {
       data: $form.serialize(),
       beforeSend: function () {
         $("#modal_wrapper .modal").last().modal("hide");
-        horizon.modals.modal_spinner("Working");
+        horizon.modals.modal_spinner(gettext("Working"));
       },
       complete: function () {
         horizon.modals.spinner.modal('hide');
