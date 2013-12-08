@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-09 05:08+0000\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: static/horizon/js/horizon.d3linechart.js:201
-#: static/horizon/js/horizon.modals.js:178
+#: static/horizon/js/horizon.modals.js:182
 msgid "An error occurred. Please try again later."
 msgstr ""
 
@@ -43,11 +43,16 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:125
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:171
+msgid "Working"
+msgstr ""
+
+#: static/horizon/js/horizon.modals.js:128
 msgid "There was an error submitting the form. Please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
+#: static/horizon/js/horizon.modals.js:163 static/horizon/js/horizon.tabs.js:9
 msgid "Loading"
 msgstr ""
 
@@ -67,10 +72,6 @@ msgstr ""
 
 #: static/horizon/js/horizon.tables.js:157
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr ""
-
-#: static/horizon/js/horizon.tables.js:171
-msgid "Working"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:221

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 23:48-0500\n"
-"PO-Revision-Date: 2013-09-18 08:58+0000\n"
-"Last-Translator: Yu Zhang <zhyu@cn.ibm.com>\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
+"PO-Revision-Date: 2013-11-26 14:24+0000\n"
+"Last-Translator: daisy.ycguo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openstack/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.d3linechart.js:201
-#: static/horizon/js/horizon.modals.js:178
+#: static/horizon/js/horizon.modals.js:182
 msgid "An error occurred. Please try again later."
 msgstr "发生错误。请稍后重试。"
 
@@ -47,11 +47,16 @@ msgstr "不存在任何角色"
 msgid "Cancel"
 msgstr "取消"
 
-#: static/horizon/js/horizon.modals.js:125
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:171
+msgid "Working"
+msgstr "进行中"
+
+#: static/horizon/js/horizon.modals.js:128
 msgid "There was an error submitting the form. Please try again."
 msgstr "在提交表单的时候出现错误，请再次尝试"
 
-#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
+#: static/horizon/js/horizon.modals.js:163 static/horizon/js/horizon.tabs.js:9
 msgid "Loading"
 msgstr "加载中"
 
@@ -72,10 +77,6 @@ msgstr "确认 %s"
 #: static/horizon/js/horizon.tables.js:157
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "请确认您的选择。这个动作不能撤消"
-
-#: static/horizon/js/horizon.tables.js:171
-msgid "Working"
-msgstr "加工"
 
 #: static/horizon/js/horizon.tables.js:221
 #, c-format

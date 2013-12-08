@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 23:48-0500\n"
-"PO-Revision-Date: 2013-10-09 05:00+0000\n"
-"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
+"PO-Revision-Date: 2013-12-08 11:08+0000\n"
+"Last-Translator: ujuc Gang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openstack/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,15 +93,23 @@ msgstr "네덜란드어 (네덜란드)"
 
 #: settings.py:185
 msgid "Polish"
-msgstr "Polish"
+msgstr "폴란드어"
 
 #: settings.py:186
 msgid "Portuguese (Brazil)"
 msgstr "포르투갈어 (브라질)"
 
 #: settings.py:187
+msgid "Russian"
+msgstr "러시아어"
+
+#: settings.py:188
 msgid "Simplified Chinese"
 msgstr "중국어 간체"
+
+#: settings.py:189
+msgid "Traditional Chinese"
+msgstr "중국어 정체"
 
 #: api/cinder.py:90
 msgid "Unknown instance"
@@ -114,12 +122,17 @@ msgstr "%(type)s (%(backend)s 백엔드)"
 
 #: api/keystone.py:322
 msgid "Identity service does not allow editing user data."
-msgstr "신원 서비스는 사용자 데이터를 편집할 수 없습니다."
+msgstr "신원 인증 서비스는 사용자 데이터를 편집할 수 없습니다."
 
 #: api/keystone.py:348
 #, python-format
 msgid "User %s has no role defined for that project."
-msgstr "사용자 %s는 해당 프로젝트에 대해 정의된 역할이 없습니다."
+msgstr "사용자 %s는 해당 프로젝트에 정의된 역할이 없습니다."
+
+#: api/keystone.py:360 api/keystone.py:376
+#: dashboards/settings/password/forms.py:63
+msgid "Password changed. Please log in again to continue."
+msgstr "비밀번호 변경하였습니다. 다시 로그인 해주십시오."
 
 #: api/neutron.py:198
 #, python-format
@@ -143,12 +156,12 @@ msgstr "보안 그룹 목록을 가져올 수 없습니다."
 #: api/nova.py:262
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
-msgstr "인스턴스 % s의 현재 보안 그룹 목록을 가져올 수 없습니다."
+msgstr "인스턴스 %s 의 현재 보안 그룹 목록을 가져올 수 없습니다."
 
 #: api/nova.py:279
 #, python-format
 msgid "Failed to modify %d instance security groups."
-msgstr "% d 인스턴스 보안 그룹을 수정할 수 없습니다."
+msgstr "%d 인스턴스 보안 그룹을 수정하지 못했습니다."
 
 #: api/swift.py:165
 msgid "The container cannot be deleted since it's not empty."
@@ -160,7 +173,7 @@ msgstr "시스템 패널"
 
 #: dashboards/admin/dashboard.py:31
 msgid "Identity Panel"
-msgstr "신원 패널"
+msgstr "신원 인증 패널"
 
 #: dashboards/admin/dashboard.py:36
 msgid "Admin"
@@ -175,14 +188,18 @@ msgstr "기본"
 #: dashboards/admin/defaults/tables.py:36
 #: dashboards/admin/defaults/workflows.py:81
 msgid "Update Defaults"
-msgstr "기본 업데이트"
+msgstr "업데이트 기본"
 
 #: dashboards/admin/defaults/tables.py:43
-#: dashboards/admin/defaults/tables.py:44
 #: dashboards/admin/defaults/workflows.py:33
 #: dashboards/admin/projects/workflows.py:46
 msgid "Injected File Content Bytes"
 msgstr "첨부한 파일 콘텐츠 바이트"
+
+#: dashboards/admin/defaults/tables.py:44
+#: dashboards/admin/defaults/workflows.py:34
+msgid "Injected File Path Bytes"
+msgstr "첨부한 파일 위치 바이트"
 
 #: dashboards/admin/defaults/tables.py:45
 #: dashboards/admin/defaults/workflows.py:36
@@ -222,13 +239,13 @@ msgstr "VCPUs"
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 msgid "Instances"
-msgstr "인스턴스들"
+msgstr "인스턴스"
 
 #: dashboards/admin/defaults/tables.py:48
 #: dashboards/admin/defaults/workflows.py:40
 #: dashboards/admin/projects/workflows.py:52
 msgid "Injected Files"
-msgstr "첨부한 파일들"
+msgstr "첨부한 파일"
 
 #: dashboards/admin/defaults/tables.py:49
 #: dashboards/admin/defaults/workflows.py:45
@@ -243,13 +260,13 @@ msgstr "첨부한 파일들"
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
 msgid "Volumes"
-msgstr "볼륨들"
+msgstr "볼륨"
 
 #: dashboards/admin/defaults/tables.py:50
 #: dashboards/admin/defaults/workflows.py:46
 #: dashboards/admin/projects/workflows.py:56
 msgid "Snapshots"
-msgstr "스냅샷들"
+msgstr "스냅샷"
 
 #: dashboards/admin/defaults/tables.py:51
 #: dashboards/admin/defaults/workflows.py:47
@@ -266,16 +283,17 @@ msgstr "RAM (MB)"
 #: dashboards/admin/defaults/tables.py:53
 #: dashboards/admin/defaults/workflows.py:49
 #: dashboards/admin/projects/workflows.py:59
-#: dashboards/admin/projects/workflows.py:67
+#: dashboards/admin/projects/workflows.py:71
 #: dashboards/project/access_and_security/tabs.py:76
 #: dashboards/project/access_and_security/floating_ips/tables.py:66
 #: dashboards/project/access_and_security/floating_ips/tables.py:147
 msgid "Floating IPs"
-msgstr "유동 IP들"
+msgstr "유동 IP"
 
 #: dashboards/admin/defaults/tables.py:54
 #: dashboards/admin/defaults/workflows.py:51
 #: dashboards/admin/projects/workflows.py:62
+#: dashboards/admin/projects/workflows.py:68
 #: dashboards/project/access_and_security/tabs.py:44
 #: dashboards/project/access_and_security/security_groups/tables.py:29
 #: dashboards/project/access_and_security/security_groups/tables.py:75
@@ -283,19 +301,20 @@ msgstr "유동 IP들"
 #: dashboards/project/instances/workflows/create_instance.py:394
 #: dashboards/project/instances/workflows/update_instance.py:82
 msgid "Security Groups"
-msgstr "보안 그룹들"
+msgstr "보안 그룹"
 
 #: dashboards/admin/defaults/tables.py:55
 #: dashboards/admin/defaults/workflows.py:53
 #: dashboards/admin/projects/workflows.py:64
+#: dashboards/admin/projects/workflows.py:70
 #: dashboards/project/access_and_security/security_groups/tables.py:173
 msgid "Security Group Rules"
-msgstr "보안 그룹 Rule들"
+msgstr "보안 그룹 규칙"
 
 #: dashboards/admin/defaults/tables.py:56
 #: dashboards/admin/defaults/workflows.py:54
 msgid "Key Pairs"
-msgstr "키 패어들"
+msgstr "키 패어"
 
 #: dashboards/admin/defaults/tables.py:57
 #: dashboards/admin/networks/ports/tables.py:76
@@ -330,11 +349,7 @@ msgstr "Quota 정보를 얻을 수 있습니다."
 #: dashboards/admin/defaults/views.py:46
 #: dashboards/admin/projects/views.py:138
 msgid "Unable to retrieve default quota values."
-msgstr "기본 quota 값을 불러올 수 없습니다."
-
-#: dashboards/admin/defaults/workflows.py:34
-msgid "Injected File Path Bytes"
-msgstr "첨부한 파일 위치 바이트"
+msgstr "기본 quota 값을 찾을 수 없습니다."
 
 #: dashboards/admin/defaults/workflows.py:69
 msgid "From here you can update the default quotas (max limits)."
@@ -427,7 +442,7 @@ msgstr "도메인 컨텍스트가 삭제되었습니다."
 #: dashboards/admin/networks/ports/tables.py:73
 #: dashboards/admin/networks/subnets/tables.py:70
 #: dashboards/admin/projects/tables.py:113
-#: dashboards/admin/projects/workflows.py:104
+#: dashboards/admin/projects/workflows.py:108
 #: dashboards/admin/routers/tables.py:52
 #: dashboards/admin/routers/ports/tables.py:28
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
@@ -459,15 +474,15 @@ msgstr "도메인 컨텍스트가 삭제되었습니다."
 #: dashboards/project/images_and_snapshots/images/forms.py:154
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:10
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:82
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:84
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
 #: dashboards/project/instances/workflows/update_instance.py:108
 #: dashboards/project/loadbalancers/forms.py:35
 #: dashboards/project/loadbalancers/forms.py:74
 #: dashboards/project/loadbalancers/tables.py:189
-#: dashboards/project/loadbalancers/workflows.py:29
-#: dashboards/project/loadbalancers/workflows.py:149
+#: dashboards/project/loadbalancers/workflows.py:33
+#: dashboards/project/loadbalancers/workflows.py:150
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:37
@@ -513,7 +528,7 @@ msgstr "이름"
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
 #: dashboards/admin/projects/tables.py:115
-#: dashboards/admin/projects/workflows.py:106
+#: dashboards/admin/projects/workflows.py:110
 #: dashboards/admin/roles/templates/roles/_create.html:17
 #: dashboards/admin/roles/templates/roles/_update.html:17
 #: dashboards/admin/users/templates/users/_create.html:17
@@ -549,8 +564,8 @@ msgstr "이름"
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/tables.py:191
-#: dashboards/project/loadbalancers/workflows.py:32
-#: dashboards/project/loadbalancers/workflows.py:152
+#: dashboards/project/loadbalancers/workflows.py:36
+#: dashboards/project/loadbalancers/workflows.py:153
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
 #: dashboards/project/networks/templates/networks/_create.html:17
@@ -578,8 +593,8 @@ msgid "Description"
 msgstr "설명"
 
 #: dashboards/admin/domains/tables.py:169
-#: dashboards/admin/projects/workflows.py:98
-#: dashboards/admin/users/forms.py:71 dashboards/admin/users/forms.py:140
+#: dashboards/admin/projects/workflows.py:102
+#: dashboards/admin/users/forms.py:72 dashboards/admin/users/forms.py:141
 msgid "Domain ID"
 msgstr "도메인 아이디"
 
@@ -587,8 +602,8 @@ msgstr "도메인 아이디"
 #: dashboards/admin/domains/workflows.py:40
 #: dashboards/admin/groups/tables.py:166 dashboards/admin/info/tables.py:42
 #: dashboards/admin/info/tables.py:163 dashboards/admin/projects/tables.py:117
-#: dashboards/admin/projects/workflows.py:108
-#: dashboards/admin/projects/workflows.py:469
+#: dashboards/admin/projects/workflows.py:112
+#: dashboards/admin/projects/workflows.py:473
 #: dashboards/admin/users/tables.py:46 dashboards/admin/users/tables.py:125
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:160
@@ -596,15 +611,15 @@ msgstr "도메인 아이디"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
 msgid "Enabled"
-msgstr "활성화 됨"
+msgstr "활성화됨"
 
 #: dashboards/admin/domains/views.py:49
 msgid "Unable to retrieve domain list."
-msgstr "도메인 목록을 검색할 수 없습니다."
+msgstr "도메인 목록을 찾을 수 없습니다"
 
 #: dashboards/admin/domains/views.py:74
 msgid "Unable to retrieve domain details."
-msgstr "도메인 상세 정보를 검색할 수 없습니다."
+msgstr "도메인 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/domains/workflows.py:45
 #: dashboards/admin/domains/workflows.py:185
@@ -615,16 +630,16 @@ msgstr "도메인 정보"
 msgid ""
 "From here you can create a new domain to organize projects, groups and "
 "users."
-msgstr "여기에서 당신은 프로젝트, 그룹 및 사용자를 구성하는 새 도메인을 만들 수 있습니다."
+msgstr "여기에서 프로젝트, 그룹 및 사용자를 구성하는 새 도메인을 만들 수 있습니다."
 
 #: dashboards/admin/domains/workflows.py:64
-#: dashboards/admin/projects/workflows.py:246
+#: dashboards/admin/projects/workflows.py:250
 msgid "Unable to retrieve group list. Please try again later."
-msgstr "그룹 목록을 찾을 수 없습니다. 잠시 후 다시 시도하세요"
+msgstr "그룹 목록을 찾을 수 없습니다. 잠시 후 다시 시도하세요."
 
 #: dashboards/admin/domains/workflows.py:76
-#: dashboards/admin/projects/workflows.py:157
-#: dashboards/admin/projects/workflows.py:260
+#: dashboards/admin/projects/workflows.py:161
+#: dashboards/admin/projects/workflows.py:264
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Keystone에 기본 role \"%s\"를 찾을 수 없습니다"
@@ -635,24 +650,24 @@ msgid "Domain Groups"
 msgstr "도메인 그룹"
 
 #: dashboards/admin/domains/workflows.py:135
-#: dashboards/admin/projects/workflows.py:318
+#: dashboards/admin/projects/workflows.py:322
 msgid "All Groups"
 msgstr "모든 그룹"
 
 #: dashboards/admin/domains/workflows.py:137
-#: dashboards/admin/projects/workflows.py:320
+#: dashboards/admin/projects/workflows.py:324
 msgid "No groups found."
 msgstr "그룹을 찾을 수 없습니다."
 
 #: dashboards/admin/domains/workflows.py:138
-#: dashboards/admin/projects/workflows.py:321
+#: dashboards/admin/projects/workflows.py:325
 msgid "No groups."
 msgstr "그룹이 없습니다"
 
 #: dashboards/admin/domains/workflows.py:146
-#: dashboards/admin/projects/workflows.py:329
+#: dashboards/admin/projects/workflows.py:333
 msgid "Unable to retrieve role list."
-msgstr "Role 목록을 찾을 수 없습니다."
+msgstr "역할 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/domains/workflows.py:159
 #, python-format
@@ -676,7 +691,7 @@ msgstr "도메인 편집"
 #: dashboards/admin/flavors/workflows.py:260
 #: dashboards/admin/flavors/templates/flavors/_update.html:25
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:25
-#: dashboards/admin/projects/workflows.py:490
+#: dashboards/admin/projects/workflows.py:494
 #: dashboards/project/instances/workflows/update_instance.py:135
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Save"
@@ -728,7 +743,7 @@ msgstr "Flavor 생성"
 #: dashboards/admin/flavors/templates/flavors/update.html:3
 #: dashboards/admin/flavors/templates/flavors/update.html:6
 msgid "Edit Flavor"
-msgstr "Flavor 수정"
+msgstr "Flavor 편집"
 
 #: dashboards/admin/flavors/tables.py:55
 msgid "View Extra Specs"
@@ -741,7 +756,7 @@ msgstr "접근 권한 수정"
 #: dashboards/admin/flavors/tables.py:85 dashboards/admin/flavors/tables.py:89
 #, python-format
 msgid "%sMB"
-msgstr "%sMB"
+msgstr "%s MB"
 
 #: dashboards/admin/flavors/tables.py:93
 msgid "Flavor Name"
@@ -768,7 +783,7 @@ msgstr "Ephemeral 디스크"
 
 #: dashboards/admin/flavors/tables.py:102
 msgid "Swap Disk"
-msgstr "스왑 디스크"
+msgstr "Swap 디스크"
 
 #: dashboards/admin/flavors/tables.py:104
 #: dashboards/admin/flavors/workflows.py:43
@@ -776,7 +791,7 @@ msgstr "스왑 디스크"
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/roles/forms.py:39
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
-#: dashboards/admin/users/forms.py:146
+#: dashboards/admin/users/forms.py:147
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
 #: dashboards/project/database_backups/templates/database_backups/details.html:44
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
@@ -822,23 +837,23 @@ msgstr "공용"
 
 #: dashboards/admin/flavors/views.py:51
 msgid "Unable to retrieve flavor list."
-msgstr "Flavor 리스트를 불러올 수 없습니다."
+msgstr "Flavor 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/flavors/views.py:74
 #: dashboards/admin/flavors/extras/views.py:43
 msgid "Unable to retrieve flavor data."
-msgstr "Flavor 데이터를 불러올 수 없습니다."
+msgstr "Flavor 데이터를 찾을 수 없습니다"
 
 #: dashboards/admin/flavors/workflows.py:34
 msgid ""
 "Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
 "to set a random UUID4."
-msgstr "플레이버 아이디는 UUID4 또는 정수여야 합니다. 이 필드를 비워두거나 또는 임의의 UUID4 를 설정하기 위해서 'auto' 를 사용합니다."
+msgstr "Flavor 아이디는 UUID4 또는 정수여야 합니다. 이 필드를 비워두거나 또는 임의의 UUID4 를 설정하기 위해서 'auto' 를 사용합니다."
 
 #: dashboards/admin/flavors/workflows.py:40
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
-msgstr "이름은 문자, 숫자, 밑줄, 마침표와 하이픈 만 포함 할 수 있습니다."
+msgstr "이름은 문자, 숫자, 밑줄, 마침표와 하이픈만 사용할 수 있습니다."
 
 #: dashboards/admin/flavors/workflows.py:49
 msgid "RAM MB"
@@ -846,7 +861,7 @@ msgstr "RAM MB"
 
 #: dashboards/admin/flavors/workflows.py:50
 msgid "Root Disk GB"
-msgstr "루트 디스크 GB"
+msgstr "Root 디스크 GB"
 
 #: dashboards/admin/flavors/workflows.py:51
 msgid "Ephemeral Disk GB"
@@ -854,7 +869,7 @@ msgstr "Ephemeral 디스크 GB"
 
 #: dashboards/admin/flavors/workflows.py:52
 msgid "Swap Disk MB"
-msgstr "스왑 디스크 MB"
+msgstr "Swap 디스크 MB"
 
 #: dashboards/admin/flavors/workflows.py:55
 #: dashboards/admin/flavors/workflows.py:222
@@ -868,7 +883,7 @@ msgstr "여기서 조직 프로젝트의 새로운 flavor을 생성할 수 있�
 #: dashboards/admin/flavors/workflows.py:68
 #: dashboards/admin/flavors/workflows.py:233
 msgid "Unable to get flavor list"
-msgstr "Flavor 목록을 가져올 수 없습니다."
+msgstr "Flavor 목록을 검색할 수 없습니다."
 
 #: dashboards/admin/flavors/workflows.py:75
 #: dashboards/admin/flavors/workflows.py:241
@@ -883,7 +898,7 @@ msgstr "ID \"%s\"는 다른 flavor에서 사용 가능합니다."
 
 #: dashboards/admin/flavors/workflows.py:102
 msgid "Unable to retrieve flavor access list. Please try again later."
-msgstr "Flavor 접근 권한 목록을 불러올 수 없습니다. 잠시 후 다시 시도해주세요."
+msgstr "Flavor 접근 권한 목록을 찾을 수 없습니다. 잠시 후 다시 시도해주세요."
 
 #: dashboards/admin/flavors/workflows.py:146
 msgid "Flavor Access"
@@ -895,11 +910,11 @@ msgid ""
 "column to the right column. Only projects in the right column can use the "
 "flavor. If there are no projects in the right column, all projects can use "
 "the flavor."
-msgstr "Flavor에 대한 접근 권한을 제어할 수 있습니다. 필요한 프로젝트를 왼쪽 열에서 오른쪽 열로 이동 시키십시오. 오른쪽 열에 있는 프로젝트만 이 flavor을 사용할 수 있습니다. 오른쪽 열에 프로젝트가 하나도 없으면 모든 프로젝트들은 이 flavor을 사용할 수 있습니다."
+msgstr "Flavor에 대한 접근 권한을 제어할 수 있습니다. 필요한 프로젝트를 왼쪽 열에서 오른쪽 열로 이동 시키십시오. 오른쪽 열에 있는 프로젝트만 이 flavor을 사용할 수 있습니다. 오른쪽 열에 프로젝트가 하나도 없으면 모든 프로젝트는 이 flavor을 사용할 수 있습니다."
 
 #: dashboards/admin/flavors/workflows.py:157
 msgid "All Projects"
-msgstr "프로젝트들"
+msgstr "프로젝트"
 
 #: dashboards/admin/flavors/workflows.py:158
 msgid "Selected projects"
@@ -966,7 +981,7 @@ msgstr "값"
 #: dashboards/admin/flavors/extras/forms.py:40
 #, python-format
 msgid "Created extra spec \"%s\"."
-msgstr "추가 사양 \"%s\"를 생성합니다."
+msgstr "추가 사양 \"%s\"이 생성됨."
 
 #: dashboards/admin/flavors/extras/forms.py:45
 msgid "Unable to create flavor extra spec."
@@ -975,11 +990,11 @@ msgstr "Flavor 추가 사양을 생성할 수 없습니다."
 #: dashboards/admin/flavors/extras/forms.py:59
 #, python-format
 msgid "Saved extra spec \"%s\"."
-msgstr "추가 사양 \"%s\"를 저장합니다."
+msgstr "추가 사양 \"%s\" 저장함."
 
 #: dashboards/admin/flavors/extras/forms.py:63
 msgid "Unable to edit extra spec."
-msgstr "추가 사양을 수정할 수 없습니다."
+msgstr "추가 사양을 편집할 수 없습니다."
 
 #: dashboards/admin/flavors/extras/tables.py:26
 msgid "ExtraSpec"
@@ -987,7 +1002,7 @@ msgstr "추가 사양"
 
 #: dashboards/admin/flavors/extras/tables.py:27
 msgid "ExtraSpecs"
-msgstr "추가 사양들"
+msgstr "추가 사양"
 
 #: dashboards/admin/flavors/extras/tables.py:36
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:25
@@ -998,7 +1013,7 @@ msgstr "생성"
 
 #: dashboards/admin/flavors/extras/tables.py:61
 msgid "Extra Specs"
-msgstr "추가 사양들"
+msgstr "추가 사양"
 
 #: dashboards/admin/flavors/extras/views.py:59
 msgid "Unable to retrieve extra spec list."
@@ -1006,7 +1021,7 @@ msgstr "추가 사양 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/flavors/extras/views.py:88
 msgid "Unable to retrieve flavor extra spec data."
-msgstr "Flvor 추가 사양 데이터를 찾을 수 없습니다."
+msgstr "Flavor 추가 사양 데이터를 찾을 수 없습니다."
 
 #: dashboards/admin/flavors/templates/flavors/_update.html:19
 msgid "From here you can alter the sizing of the current flavor."
@@ -1016,7 +1031,7 @@ msgstr "여기서 현재 flavor 사이즈를 변경할 수 있습니다."
 msgid ""
 "Note: this will not affect the resources allocated to any existing instances"
 " using this flavor."
-msgstr "노트: 이것은 flavor를 사용하여 기존 인스턴스에 할당된 리소스에는 영향을 주지 않습니다."
+msgstr "노트: 이건 flavor를 사용하기에 기존 인스턴스에 할당된 리소스에는 영향을 주지 않습니다."
 
 #: dashboards/admin/flavors/templates/flavors/_update.html:26
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:26
@@ -1079,16 +1094,16 @@ msgstr "취소"
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:10
 #: dashboards/admin/flavors/templates/flavors/extras/create.html:4
 msgid "Create Flavor Extra Spec"
-msgstr "Flavor 추가 사양 생성합니다."
+msgstr "Flavor 추가 사양 생성"
 
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:20
 msgid "Create a new \"extra spec\" key-value pair for a flavor."
-msgstr "Flavor에서 새로운 \"추가 사양\" 키값 pair 생성"
+msgstr "Flavor에 새로운 \"추가 사양\" 키값 pair 생성합니다."
 
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:10
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:4
 msgid "Edit Flavor Extra Spec"
-msgstr "Flavor 추가 사양 수정"
+msgstr "Flavor 추가 사양 편집"
 
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:20
 msgid "Update an \"extra spec\" key-value pair for a flavor."
@@ -1127,7 +1142,7 @@ msgstr "그룹을 업데이트 할 수 없습니다."
 #: dashboards/admin/groups/templates/groups/index.html:3
 #: dashboards/admin/groups/templates/groups/index.html:6
 msgid "Groups"
-msgstr "그룹들"
+msgstr "그룹"
 
 #: dashboards/admin/groups/tables.py:40
 #: dashboards/admin/groups/templates/groups/_create.html:8
@@ -1139,7 +1154,7 @@ msgstr "그룹 생성"
 
 #: dashboards/admin/groups/tables.py:51
 msgid "Edit Group"
-msgstr "그룹 수정"
+msgstr "그룹 편집"
 
 #: dashboards/admin/groups/tables.py:62
 msgid "Group"
@@ -1147,7 +1162,7 @@ msgstr "그룹"
 
 #: dashboards/admin/groups/tables.py:76 dashboards/admin/projects/tables.py:13
 msgid "Modify Users"
-msgstr "사용자들 수정"
+msgstr "사용자 수정"
 
 #: dashboards/admin/groups/tables.py:103
 msgid "Group ID"
@@ -1162,8 +1177,7 @@ msgid "Removed"
 msgstr "삭제됨"
 
 #: dashboards/admin/groups/tables.py:126 dashboards/admin/groups/tables.py:183
-#: dashboards/admin/metering/tables.py:46 dashboards/admin/users/tables.py:47
-#: dashboards/admin/users/tables.py:90
+#: dashboards/admin/users/tables.py:47 dashboards/admin/users/tables.py:90
 #: dashboards/project/databases/tables.py:66
 #: dashboards/project/instances/workflows/create_instance.py:50
 msgid "User"
@@ -1183,14 +1197,14 @@ msgstr "사용자"
 msgid "Add..."
 msgstr "추가..."
 
-#: dashboards/admin/groups/tables.py:162 dashboards/admin/users/forms.py:77
-#: dashboards/admin/users/forms.py:147 dashboards/admin/users/tables.py:118
+#: dashboards/admin/groups/tables.py:162 dashboards/admin/users/forms.py:78
+#: dashboards/admin/users/forms.py:148 dashboards/admin/users/tables.py:118
 #: dashboards/project/databases/tables.py:184
 msgid "User Name"
 msgstr "사용자 이름"
 
-#: dashboards/admin/groups/tables.py:163 dashboards/admin/users/forms.py:79
-#: dashboards/admin/users/forms.py:149 dashboards/admin/users/tables.py:119
+#: dashboards/admin/groups/tables.py:163 dashboards/admin/users/forms.py:80
+#: dashboards/admin/users/forms.py:150 dashboards/admin/users/tables.py:119
 msgid "Email"
 msgstr "Email"
 
@@ -1200,14 +1214,14 @@ msgstr "사용자 ID"
 
 #: dashboards/admin/groups/tables.py:175
 msgid "Group Members"
-msgstr "그룹 멤버들"
+msgstr "그룹 멤버"
 
 #: dashboards/admin/groups/tables.py:181
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
 #: dashboards/project/firewalls/workflows.py:108
 #: dashboards/project/firewalls/workflows.py:215
 #: dashboards/project/firewalls/workflows.py:291
-#: dashboards/project/loadbalancers/workflows.py:130
+#: dashboards/project/loadbalancers/workflows.py:131
 #: dashboards/project/loadbalancers/workflows.py:237
 #: dashboards/project/loadbalancers/workflows.py:369
 #: dashboards/project/loadbalancers/workflows.py:510
@@ -1249,7 +1263,7 @@ msgstr "그룹 할당 추가"
 
 #: dashboards/admin/groups/templates/groups/_create.html:18
 msgid "From here you can create a new group to organize users and roles."
-msgstr "여기서 사용자 및 role을 구성하는 새로운 그룹을 생성할 수 있습니다. "
+msgstr "여기서 사용자 및 역활을 구성하는 새로운 그룹을 생성할 수 있습니다. "
 
 #: dashboards/admin/groups/templates/groups/_update.html:8
 #: dashboards/admin/groups/templates/groups/_update.html:23
@@ -1260,7 +1274,7 @@ msgstr "그룹 업데이트"
 
 #: dashboards/admin/groups/templates/groups/_update.html:18
 msgid "From here you can edit the group's details."
-msgstr "여기서 그룹 상세 정보를 수정할 수 있습니다."
+msgstr "여기서 그룹 상세 정보를 편집할 수 있습니다."
 
 #: dashboards/admin/groups/templates/groups/add_non_member.html:3
 msgid "Add User to Group"
@@ -1278,11 +1292,11 @@ msgstr "그룹 관리:"
 #: dashboards/admin/hypervisors/tables.py:73
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:4
 msgid "Hypervisors"
-msgstr "Hypervisors"
+msgstr "하이퍼바이저"
 
 #: dashboards/admin/hypervisors/tables.py:41
 msgid "Hostname"
-msgstr "Hostname"
+msgstr "호스트 이름"
 
 #: dashboards/admin/hypervisors/tables.py:44
 #: dashboards/admin/info/tables.py:176
@@ -1297,11 +1311,11 @@ msgstr "Hostname"
 #: dashboards/project/volumes/forms.py:35
 #: dashboards/project/volumes/tables.py:198
 msgid "Type"
-msgstr "타입"
+msgstr "형식"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "VCPUs (total)"
-msgstr "VCPUs (전부)"
+msgstr "VCPUs (전체)"
 
 #: dashboards/admin/hypervisors/tables.py:50
 msgid "VCPUs (used)"
@@ -1309,7 +1323,7 @@ msgstr "VCPUs (사용중)"
 
 #: dashboards/admin/hypervisors/tables.py:53
 msgid "RAM (total)"
-msgstr "RAM (전부)"
+msgstr "RAM (전체)"
 
 #: dashboards/admin/hypervisors/tables.py:57
 msgid "RAM (used)"
@@ -1317,7 +1331,7 @@ msgstr "RAM (사용중)"
 
 #: dashboards/admin/hypervisors/tables.py:61
 msgid "Storage (total)"
-msgstr "용량 (전부)"
+msgstr "용량 (전체)"
 
 #: dashboards/admin/hypervisors/tables.py:65
 msgid "Storage (used)"
@@ -1325,11 +1339,11 @@ msgstr "용량 (사용중)"
 
 #: dashboards/admin/hypervisors/views.py:36
 msgid "Unable to retrieve hypervisor information."
-msgstr "하이퍼바이져 정보를 불러올 수 없습니다."
+msgstr "하이퍼바이저 정보를 찾을 수 없습니다"
 
 #: dashboards/admin/hypervisors/views.py:46
 msgid "Unable to retrieve hypervisor statistics."
-msgstr "하이퍼바이져 통계를 불러올 수 없습니다."
+msgstr "하이퍼바이저 통계를 찾을 수 없습니다"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:7
 msgid "All Hypervisors"
@@ -1348,7 +1362,7 @@ msgstr "VCPU 사용량"
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:30
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span>에서 <span> %(used)s </span> 사용 중"
+msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용 중"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:22
 msgid "Memory Usage"
@@ -1364,7 +1378,7 @@ msgstr "디스크 사용량"
 #: dashboards/project/images_and_snapshots/images/tables.py:57
 #: dashboards/project/images_and_snapshots/images/tables.py:225
 msgid "Images"
-msgstr "이미지들"
+msgstr "이미지"
 
 #: dashboards/admin/images/tables.py:47
 #: dashboards/admin/instances/tables.py:94
@@ -1377,7 +1391,7 @@ msgstr "이미지 이름"
 
 #: dashboards/admin/images/views.py:53
 msgid "Unable to retrieve image list."
-msgstr "이미지 목록을 불러올 수 없습니다."
+msgstr "이미지 목록을 찾을 수 없습니다"
 
 #: dashboards/admin/images/templates/images/_create.html:9
 #: dashboards/admin/images/templates/images/create.html:3
@@ -1415,7 +1429,7 @@ msgstr "설명:"
 #: dashboards/admin/images/templates/images/_create.html:20
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:20
 msgid "Specify an image to upload to the Image Service."
-msgstr "이미지 서비스에 업로드할 이미지를 지정하십시오."
+msgstr "이미지 서비스에 업로드할 이미지를 명기합니다."
 
 #: dashboards/admin/images/templates/images/_create.html:23
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:23
@@ -1423,7 +1437,7 @@ msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
 "are supported (.zip and .tar.gz.)"
-msgstr "현재 HTTP URL을 통해서만 가용 이미지들이 지원됩니다. 이미지 위치는 반드시 이미지 서비스로 억세스 가능하여야 합니다. 압축된 이미지 바이너리들이 지원됩니다 (.zip 및 .tar.gz.)"
+msgstr "현재 HTTP URL을 통해서만 사용 이미지가 지원됩니다. 이미지 위치는 반드시 이미지 서비스로만 접근하여야 합니다. 압축된 이미지 바이너리를 지원합니다. (.zip 및 .tar.gz.)"
 
 #: dashboards/admin/images/templates/images/_create.html:26
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:26
@@ -1435,7 +1449,7 @@ msgstr "노트:"
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary."
 " URLs that redirect or serve error pages will result in unusable images."
-msgstr "이미지 위치 필드는 반드시 이미지 바이너리에 대한 유효한 다이렉트 URL이어야 합니다. 리다이렉트되거나 서비스 에러 페이지가 있는 URL인 경우 이미지를 사용할 수 없습니다. "
+msgstr "이미지가 있는 위치를 작성하는 필드에는 이미지 바이러니에 대한 유효하고 직접연결하는 URL이여야 합니다. 사용할수 없는 이미지라면 리다이렉트되거나 서비스 에러 페이지를 나타냅니다."
 
 #: dashboards/admin/images/templates/images/_create.html:33
 #: dashboards/project/images_and_snapshots/images/tables.py:74
@@ -1484,7 +1498,7 @@ msgstr "호스트"
 
 #: dashboards/admin/info/tables.py:47 dashboards/admin/info/tabs.py:32
 msgid "Services"
-msgstr "서비스들"
+msgstr "서비스"
 
 #: dashboards/admin/info/tables.py:62
 msgid "Services Up"
@@ -1504,15 +1518,14 @@ msgstr "사용 가능"
 
 #: dashboards/admin/info/tables.py:83 dashboards/admin/info/tabs.py:48
 msgid "Availability Zones"
-msgstr "사용 가능한 Zone"
+msgstr "사용 가능한 영역"
 
 #: dashboards/admin/info/tables.py:103
 msgid "Zone"
-msgstr "존"
+msgstr "영역"
 
 #: dashboards/admin/info/tables.py:104 dashboards/admin/info/tables.py:179
 #: dashboards/admin/instances/tables.py:104
-#: dashboards/admin/metering/tables.py:181
 #: dashboards/admin/networks/tables.py:75
 #: dashboards/admin/networks/ports/tables.py:79
 #: dashboards/admin/routers/tables.py:56
@@ -1577,7 +1590,7 @@ msgstr "사용 가능한 영역"
 #: dashboards/admin/info/tables.py:140
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:53
 msgid "Metadata"
-msgstr "메타데이타"
+msgstr "메타데이터"
 
 #: dashboards/admin/info/tables.py:146 dashboards/admin/info/tabs.py:65
 msgid "Host Aggregates"
@@ -1602,15 +1615,15 @@ msgstr "네트워크 에이전트"
 
 #: dashboards/admin/info/tabs.py:58
 msgid "Unable to retrieve availability zone data."
-msgstr "사용 가능한 Zone 데이터를 검색할 수 없습니다."
+msgstr "사용 가능한 영역 데이터를 찾을 수 없습니다."
 
 #: dashboards/admin/info/tabs.py:75
 msgid "Unable to retrieve host aggregates list."
-msgstr "호스트 집계 목록을 불러올 수 없습니다."
+msgstr "호스트 집계 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/info/tabs.py:90
 msgid "Unable to get nova services list."
-msgstr "노바 서비스 목록을 가져올 수 없습니다"
+msgstr "Nova 서비스 목록을 가져올 수 없습니다"
 
 #: dashboards/admin/info/tabs.py:111
 msgid "Unable to get network agents list."
@@ -1698,253 +1711,107 @@ msgstr "가동 시간"
 #: dashboards/project/access_and_security/tabs.py:101
 #: dashboards/project/access_and_security/floating_ips/workflows.py:85
 msgid "Unable to retrieve instance list."
-msgstr "인스턴스 목록을 불러올 수 없습니다."
+msgstr "인스턴스 목록을 찾을 수 없습니다"
 
 #: dashboards/admin/instances/views.py:89
 #: dashboards/admin/networks/views.py:48
 msgid "Unable to retrieve instance project information."
-msgstr "인스턴스 프로젝트 정보를 불러올 수 없습니다."
+msgstr "인스턴스 프로젝트 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/instances/views.py:106
-#: dashboards/project/instances/views.py:105
+#: dashboards/project/instances/views.py:111
 msgid "Unable to retrieve instance size information."
-msgstr "인스턴스 크기 정보를 불러올 수 없습니다."
+msgstr "인스턴스 크기 정보를 찾을 수 없습니다"
 
 #: dashboards/admin/instances/templates/instances/index.html:6
 msgid "All Instances"
-msgstr "모든 인스턴스들"
+msgstr "모든 인스턴스"
 
 #: dashboards/admin/metering/panel.py:22
 msgid "Resource Usage"
 msgstr "리소스 사용"
 
-#: dashboards/admin/metering/tables.py:37
-msgid "up"
-msgstr "작동"
-
-#: dashboards/admin/metering/tables.py:39
-msgid "none"
-msgstr "없음"
-
-#: dashboards/admin/metering/tables.py:44
-#: dashboards/admin/metering/tables.py:54
-#: dashboards/admin/metering/tables.py:78
-#: dashboards/admin/metering/tables.py:107
-#: dashboards/admin/metering/tables.py:175
-msgid "Tenant"
-msgstr "Tenant"
-
-#: dashboards/admin/metering/tables.py:49
-#: dashboards/admin/metering/tables.py:184
-#: dashboards/project/stacks/tables.py:103
-#: dashboards/project/stacks/tables.py:147
-msgid "Resource"
-msgstr "리소스"
-
-#: dashboards/admin/metering/tables.py:57
-msgid "Disk Read Bytes"
-msgstr "디스크 읽은 바이트"
-
-#: dashboards/admin/metering/tables.py:60
-msgid "Disk Read Requests"
-msgstr "디스크 읽기 요청"
-
-#: dashboards/admin/metering/tables.py:63
-msgid "Disk Write Bytes"
-msgstr "디스크 쓰기 바이트"
-
-#: dashboards/admin/metering/tables.py:67
-msgid "Disk Write Requests"
-msgstr "디스크 쓰기 요청"
-
-#: dashboards/admin/metering/tables.py:72
-msgid "Global Disk Usage (average of last 30 days)"
-msgstr "전체 디스크 사용량 (최근 30일 평균)"
-
-#: dashboards/admin/metering/tables.py:81
-msgid "Network Incoming Bytes"
-msgstr "들어오는 네트워크 바이트"
-
-#: dashboards/admin/metering/tables.py:86
-msgid "Network Incoming Packets"
-msgstr "들어오는 네트워크 패킷들"
-
-#: dashboards/admin/metering/tables.py:90
-msgid "Network Outgoing Bytes"
-msgstr "나가는 네트워크 바이트"
-
-#: dashboards/admin/metering/tables.py:95
-msgid "Network Outgoing Packets"
-msgstr "나가는 네트워크 패킷들"
-
-#: dashboards/admin/metering/tables.py:100
-msgid "Global Network Traffic Usage (average of last 30 days)"
-msgstr "전체 네트워크 트래픽 사용량 (최근 30일 평균)"
-
-#: dashboards/admin/metering/tables.py:109
-msgid "Network Duration"
-msgstr "네트워크 연결 시간"
-
-#: dashboards/admin/metering/tables.py:113
-msgid "Network Creation Requests"
-msgstr "네트워크 생성 요청"
-
-#: dashboards/admin/metering/tables.py:116
-msgid "Subnet Duration"
-msgstr "서브넷 연결 시간"
-
-#: dashboards/admin/metering/tables.py:119
-msgid "Subnet Creation Requests"
-msgstr "서브넷 생성 요청"
-
-#: dashboards/admin/metering/tables.py:122
-#: dashboards/admin/metering/tables.py:134
-msgid "Port Duration"
-msgstr "포트 연결 시간"
-
-#: dashboards/admin/metering/tables.py:125
-#: dashboards/admin/metering/tables.py:137
-msgid "Port Creation Requests"
-msgstr "포트 생성 요청"
-
-#: dashboards/admin/metering/tables.py:128
-msgid "Router Duration"
-msgstr "라우터 연결 시간"
-
-#: dashboards/admin/metering/tables.py:131
-msgid "Router Creation Requests"
-msgstr "라우터 생성 요청"
-
-#: dashboards/admin/metering/tables.py:141
-msgid "Floating IP Duration"
-msgstr "유동 IP 연결 시간"
-
-#: dashboards/admin/metering/tables.py:145
-msgid "Floating IP Creation Requests"
-msgstr "유동 IP 생성 요청"
-
-#: dashboards/admin/metering/tables.py:150
-msgid "Global Network Usage (average of last 30 days)"
-msgstr "전체 네트워크 사용량 (최근 30일 평균)"
-
-#: dashboards/admin/metering/tables.py:169
-#: dashboards/admin/metering/tabs.py:74 dashboards/admin/metering/tabs.py:148
-#: dashboards/admin/metering/views.py:176
-msgid "Unable to retrieve statistics."
-msgstr "통계치를 불러올 수 없습니다."
-
-#: dashboards/admin/metering/tables.py:188
-msgid "Object Storage Incoming Bytes"
-msgstr "오브젝트 저장소 들어오는 바이트 "
-
-#: dashboards/admin/metering/tables.py:193
-msgid "Object Storage Outgoing Bytes"
-msgstr "오브젝트 저장소 나가는 바이트"
-
-#: dashboards/admin/metering/tables.py:198
-msgid "Total Number of Objects"
-msgstr "오브젝트 전체 갯수"
-
-#: dashboards/admin/metering/tables.py:203
-msgid "Total Size of Objects "
-msgstr "오브젝트 전체 크기"
-
-#: dashboards/admin/metering/tables.py:208
-msgid "Global Object Store Usage (average of last 30 days)"
-msgstr "전체 오브젝트 저장소 사용량 (최근 30일 평균)"
-
-#: dashboards/admin/metering/tabs.py:38 dashboards/admin/metering/views.py:138
-msgid "Unable to retrieve tenant list."
-msgstr "Tenant 목록을 불러올 수 없습니다."
-
-#: dashboards/admin/metering/tabs.py:81
-msgid "Global Disk Usage"
-msgstr "전체 디스크 사용량"
-
-#: dashboards/admin/metering/tabs.py:95
-msgid "Global Network Traffic Usage"
-msgstr "전체 네트워크 트래픽 사용량"
-
-#: dashboards/admin/metering/tabs.py:108
-msgid "Global Network Usage"
-msgstr "전체 네트워크 사용량"
-
-#: dashboards/admin/metering/tabs.py:125
-msgid "Global Object Store Usage"
-msgstr "전체 오브젝트 저장소 사용량"
-
-#: dashboards/admin/metering/tabs.py:157
+#: dashboards/admin/metering/tabs.py:25
 msgid "Stats"
 msgstr "상태"
 
-#: dashboards/admin/metering/tabs.py:172
-msgid "Unable to retrieve Nova Ceilometer resources."
-msgstr "Nova Ceilometer 리소스를 찾을 수 없습니다."
+#: dashboards/admin/metering/tabs.py:51
+msgid "Unable to retrieve Nova Ceilometer metering information."
+msgstr "Nova Ceilometer 미터링 정보를 찾을 수 없습니다."
 
-#: dashboards/admin/metering/tabs.py:182
+#: dashboards/admin/metering/tabs.py:57
 msgid "Duration of instance"
 msgstr "인스턴스 지속 시간"
 
-#: dashboards/admin/metering/tabs.py:183
-msgid "Duration of instance <type> (openstack types)"
-msgstr "인스턴스 <type> (openstack 형식) 지속 시간"
-
-#: dashboards/admin/metering/tabs.py:185
+#: dashboards/admin/metering/tabs.py:58
 msgid "Volume of RAM in MB"
 msgstr "RAM 용량 MB"
 
-#: dashboards/admin/metering/tabs.py:186
+#: dashboards/admin/metering/tabs.py:59
 msgid "CPU time used"
 msgstr "CPU 사용 시간"
 
-#: dashboards/admin/metering/tabs.py:187
+#: dashboards/admin/metering/tabs.py:60
 msgid "Average CPU utilisation"
 msgstr "평균 CPU 사용량"
 
-#: dashboards/admin/metering/tabs.py:188
+#: dashboards/admin/metering/tabs.py:61
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "VCPUs 수"
 
-#: dashboards/admin/metering/tabs.py:189
+#: dashboards/admin/metering/tabs.py:62
 msgid "Number of read requests"
 msgstr "읽기 요청 갯수"
 
-#: dashboards/admin/metering/tabs.py:190
+#: dashboards/admin/metering/tabs.py:63
 msgid "Number of write requests"
 msgstr "쓰기 요청 갯수"
 
-#: dashboards/admin/metering/tabs.py:191
+#: dashboards/admin/metering/tabs.py:64
 msgid "Volume of reads in B"
 msgstr "읽기 용량 B"
 
-#: dashboards/admin/metering/tabs.py:192
+#: dashboards/admin/metering/tabs.py:65
 msgid "Volume of writes in B"
 msgstr "쓰기 용량 B"
 
-#: dashboards/admin/metering/tabs.py:193
+#: dashboards/admin/metering/tabs.py:66
 msgid "Size of root disk in GB"
 msgstr "루트 디스크의 크기 GB"
 
-#: dashboards/admin/metering/tabs.py:194
+#: dashboards/admin/metering/tabs.py:67
 msgid "Size of ephemeral disk in GB"
 msgstr "Ephemeral 디스크의 크기 GB"
 
-#: dashboards/admin/metering/tabs.py:196
+#: dashboards/admin/metering/tabs.py:69
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "VM 인터페이스에 대한 네트워크를 통해 들어오는 바이트 수"
 
-#: dashboards/admin/metering/tabs.py:198
+#: dashboards/admin/metering/tabs.py:71
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "VM 인터페이스에 대한 네트워크에서 나가는 바이트 수"
 
-#: dashboards/admin/metering/tabs.py:200
+#: dashboards/admin/metering/tabs.py:73
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM 인터페이스에 대해서 들어오는 패킷 수"
 
-#: dashboards/admin/metering/tabs.py:202
+#: dashboards/admin/metering/tabs.py:75
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM 인터페이스에 대해서 나가는 패킷 수"
+
+#: dashboards/admin/metering/tabs.py:80
+#, python-format
+msgid "Duration of instance type %s (openstack flavor)"
+msgstr "인스턴스 형식 %s 지속 시간 (openstack flavor)"
+
+#: dashboards/admin/metering/views.py:157
+msgid "Unable to retrieve tenant list."
+msgstr "Tenant 목록을 찾을 수 없습니다."
+
+#: dashboards/admin/metering/views.py:186
+msgid "Unable to retrieve statistics."
+msgstr "통계치를 찾을 수 없습니다."
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 msgid "Resources usage Overview"
@@ -2112,15 +1979,15 @@ msgstr "--"
 
 #: dashboards/admin/metering/templates/metering/stats.html:86
 msgid "Avg."
-msgstr "평균"
+msgstr "평균."
 
 #: dashboards/admin/metering/templates/metering/stats.html:87
 msgid "Min."
-msgstr "최소"
+msgstr "최소."
 
 #: dashboards/admin/metering/templates/metering/stats.html:88
 msgid "Max."
-msgstr "최대"
+msgstr "최대."
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Sum."
@@ -2186,9 +2053,9 @@ msgstr "네트워크 프로필"
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:173
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/workflows.py:39
-#: dashboards/project/loadbalancers/workflows.py:178
-#: dashboards/project/loadbalancers/workflows.py:301
+#: dashboards/project/loadbalancers/workflows.py:43
+#: dashboards/project/loadbalancers/workflows.py:179
+#: dashboards/project/loadbalancers/workflows.py:302
 #: dashboards/project/loadbalancers/workflows.py:456
 #: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/tables.py:102
@@ -2229,7 +2096,7 @@ msgstr "공유"
 msgid "External Network"
 msgstr "외부 네트워크"
 
-#: dashboards/admin/networks/forms.py:53 dashboards/admin/users/forms.py:43
+#: dashboards/admin/networks/forms.py:53 dashboards/admin/users/forms.py:44
 msgid "Select a project"
 msgstr "프로젝트 선택"
 
@@ -2271,7 +2138,7 @@ msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
 #: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
-#: dashboards/admin/projects/workflows.py:68
+#: dashboards/admin/projects/workflows.py:72
 #: dashboards/project/instances/workflows/create_instance.py:480
 #: dashboards/project/networks/panel.py:25
 #: dashboards/project/networks/tables.py:44
@@ -2279,7 +2146,7 @@ msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 msgid "Networks"
-msgstr "네트워크들"
+msgstr "네트워크"
 
 #: dashboards/admin/networks/tables.py:35
 #: dashboards/project/networks/tables.py:43
@@ -2313,7 +2180,7 @@ msgstr "네트워크 생성"
 #: dashboards/project/networks/tables.py:74
 #: dashboards/project/networks/templates/networks/_update.html:8
 msgid "Edit Network"
-msgstr "네트워크 수정"
+msgstr "네트워크 편집"
 
 #: dashboards/admin/networks/tables.py:69
 #: dashboards/admin/networks/ports/forms.py:35
@@ -2329,25 +2196,25 @@ msgstr "관련 서브넷"
 #: dashboards/admin/networks/views.py:60
 #: dashboards/project/networks/views.py:53
 msgid "Network list can not be retrieved."
-msgstr "네트워크 목록을 불러올 수 없습니다."
+msgstr "네트워크 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/networks/views.py:92
 #: dashboards/project/networks/views.py:110
 msgid "Subnet list can not be retrieved."
-msgstr "서브넷 목록을 불러올 수 없습니다."
+msgstr "서브넷 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/networks/views.py:104
 #: dashboards/project/networks/views.py:122
 #: dashboards/project/routers/views.py:133
 msgid "Port list can not be retrieved."
-msgstr "포트 목록을 불러올 수 없습니다."
+msgstr "포트 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/networks/views.py:119
 #: dashboards/project/networks/views.py:135
 #: dashboards/project/networks/subnets/tables.py:97
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
-msgstr "네트워크 \"%s\"의 상세 정보를 불러올 수 없습니다."
+msgstr "네트워크 \"%s\"의 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/networks/ports/forms.py:38
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
@@ -2399,10 +2266,10 @@ msgstr "포트"
 
 #: dashboards/admin/networks/ports/tables.py:35
 #: dashboards/admin/networks/ports/tables.py:85
-#: dashboards/admin/projects/workflows.py:69
+#: dashboards/admin/projects/workflows.py:73
 #: dashboards/project/networks/ports/tables.py:65
 msgid "Ports"
-msgstr "포트들"
+msgstr "포트"
 
 #: dashboards/admin/networks/ports/tables.py:41
 #: dashboards/admin/networks/subnets/tables.py:39
@@ -2424,11 +2291,11 @@ msgstr "포트 생성"
 #: dashboards/project/networks/ports/tables.py:41
 #: dashboards/project/networks/templates/networks/ports/_update.html:8
 msgid "Edit Port"
-msgstr "포트 수정"
+msgstr "포트 편집"
 
 #: dashboards/admin/networks/ports/tables.py:78
 msgid "Device Attached"
-msgstr "장치 연결"
+msgstr "장치 연결됨"
 
 #: dashboards/admin/networks/ports/tabs.py:27
 #: dashboards/admin/overview/panel.py:29
@@ -2452,18 +2319,20 @@ msgstr "개요"
 #: dashboards/project/networks/ports/tabs.py:37
 #: dashboards/project/routers/ports/tabs.py:37
 msgid "Unable to retrieve port details."
-msgstr "포트에 대한 상세 정보를 불러올 수 없습니다"
+msgstr "포트에 대한 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/networks/ports/views.py:50
 #: dashboards/project/networks/subnets/views.py:47
 msgid "Unable to retrieve network."
-msgstr "네트워크를 검색할 수 없습니다."
+msgstr "네트워크를 찾을 수 없습니다."
 
 #: dashboards/admin/networks/subnets/tables.py:32
 #: dashboards/project/loadbalancers/tables.py:194
-#: dashboards/project/loadbalancers/workflows.py:36
+#: dashboards/project/loadbalancers/workflows.py:40
 #: dashboards/project/networks/workflows.py:116
 #: dashboards/project/networks/subnets/tables.py:45
+#: dashboards/project/networks/subnets/workflows.py:40
+#: dashboards/project/networks/subnets/workflows.py:121
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:32
 #: dashboards/project/vpn/tables.py:126 dashboards/project/vpn/workflows.py:35
@@ -2472,11 +2341,11 @@ msgstr "서브넷"
 
 #: dashboards/admin/networks/subnets/tables.py:33
 #: dashboards/admin/networks/subnets/tables.py:81
-#: dashboards/admin/projects/workflows.py:71
+#: dashboards/admin/projects/workflows.py:75
 #: dashboards/project/networks/subnets/tables.py:46
 #: dashboards/project/networks/subnets/tables.py:105
 msgid "Subnets"
-msgstr "서브넷들"
+msgstr "서브넷"
 
 #: dashboards/admin/networks/subnets/tables.py:49
 #: dashboards/project/networks/workflows.py:85
@@ -2488,7 +2357,7 @@ msgstr "서브넷 생성"
 #: dashboards/admin/networks/subnets/tables.py:60
 #: dashboards/project/networks/subnets/tables.py:73
 msgid "Edit Subnet"
-msgstr "서브넷 수정"
+msgstr "서브넷 편집"
 
 #: dashboards/admin/networks/subnets/tables.py:72
 #: dashboards/project/access_and_security/security_groups/forms.py:193
@@ -2515,7 +2384,7 @@ msgstr "게이트웨이 IP"
 #: dashboards/admin/networks/subnets/workflows.py:48
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
-msgstr "서브넷 네트워크 %s를 검색하지 못하였습니다."
+msgstr "서브넷 네트워크 %s를 찾지 못하였습니다."
 
 #: dashboards/admin/networks/templates/networks/_create.html:19
 #: dashboards/project/networks/templates/networks/_create.html:18
@@ -2556,7 +2425,7 @@ msgstr "네트워크 업데이트"
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
-msgstr "네트워크에서 포트를 생성할 수 있습니다. 연결할 장치의 ID를 지정하면, 지정된 장치가 포트를 만들어 연결합니다."
+msgstr "네트워크의 포트를 만들 수 있습니다. 연결할 장치 ID를 지정하면, 장치에 포트를 만들어 연결합니다."
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:23
 #: dashboards/project/networks/templates/networks/ports/_update.html:23
@@ -2597,7 +2466,35 @@ msgstr "사용량 (시간)"
 
 #: dashboards/admin/overview/views.py:66 dashboards/admin/projects/views.py:89
 msgid "Unable to retrieve project list."
-msgstr "프로젝트 리스트를 불러올 수 없습니다."
+msgstr "프로젝트 리스트를 찾을 수 없습니다."
+
+#: dashboards/admin/overview/templates/overview/usage.csv:1
+#: dashboards/project/overview/templates/overview/usage.csv:1
+msgid "Usage Report For Period"
+msgstr "기간별 사용량 레포트"
+
+#: dashboards/admin/overview/templates/overview/usage.csv:2
+msgid "Active Instances"
+msgstr "동작 중인 인스턴스"
+
+#: dashboards/admin/overview/templates/overview/usage.csv:3
+#: dashboards/project/overview/templates/overview/usage.csv:4
+msgid "CPU-HRs Used"
+msgstr "CPU-HRs 사용"
+
+#: dashboards/admin/overview/templates/overview/usage.csv:4
+msgid "Total Active RAM (MB)"
+msgstr "총 사용중인 RAM (MB) "
+
+#: dashboards/admin/overview/templates/overview/usage.csv:5
+#: dashboards/project/overview/templates/overview/usage.csv:6
+msgid "Total Disk Size"
+msgstr "총 디스크 사이즈"
+
+#: dashboards/admin/overview/templates/overview/usage.csv:6
+#: dashboards/project/overview/templates/overview/usage.csv:7
+msgid "Total Disk Usage"
+msgstr "총 디스크 사용량"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -2605,7 +2502,7 @@ msgstr "사용 개요"
 
 #: dashboards/admin/overview/templates/overview/usage.html:12
 msgid "Monitoring"
-msgstr "감시"
+msgstr "모니터링"
 
 #: dashboards/admin/projects/panel.py:29
 #: dashboards/admin/projects/tables.py:88
@@ -2621,15 +2518,15 @@ msgid "View Usage"
 msgstr "사용량 확인"
 
 #: dashboards/admin/projects/tables.py:52
-#: dashboards/admin/projects/workflows.py:340
-#: dashboards/admin/projects/workflows.py:341
+#: dashboards/admin/projects/workflows.py:344
+#: dashboards/admin/projects/workflows.py:345
 msgid "Create Project"
 msgstr "프로젝트 생성"
 
 #: dashboards/admin/projects/tables.py:63
-#: dashboards/admin/projects/workflows.py:489
+#: dashboards/admin/projects/workflows.py:493
 msgid "Edit Project"
-msgstr "프로젝트 수정"
+msgstr "프로젝트 편집"
 
 #: dashboards/admin/projects/tables.py:74
 msgid "Modify Quotas"
@@ -2647,6 +2544,7 @@ msgstr "Quotas 수정"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
+#: dashboards/project/overview/templates/overview/usage.csv:2
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
@@ -2657,21 +2555,21 @@ msgstr "프로젝트 ID"
 #: dashboards/admin/projects/views.py:58
 #: dashboards/router/nexus1000v/views.py:45
 msgid "Unable to retrieve project information."
-msgstr "프로젝트 정보를 불러올 수 없습니다."
+msgstr "프로젝트 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/projects/views.py:130
 msgid "Unable to retrieve default Neutron quota values."
-msgstr "기본 Neutron quota 값을 불러올 수 없습니다."
+msgstr "기본 Neutron quota 값을 찾을 수 없습니다."
 
 #: dashboards/admin/projects/views.py:168 dashboards/admin/users/views.py:97
 msgid "Unable to retrieve project domain."
-msgstr "프로젝트 도메인을 불러올 수 없습니다."
+msgstr "프로젝트 도메인을 찾을 수 없습니다."
 
 #: dashboards/admin/projects/views.py:182
 msgid "Unable to retrieve project details."
-msgstr "프로젝트 상세 정보를 불러올 수 없습니다."
+msgstr "프로젝트 상세 정보를 찾을 수 없습니다."
 
-#: dashboards/admin/projects/workflows.py:70
+#: dashboards/admin/projects/workflows.py:74
 #: dashboards/admin/routers/panel.py:25 dashboards/admin/routers/tables.py:66
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
@@ -2681,135 +2579,135 @@ msgstr "프로젝트 상세 정보를 불러올 수 없습니다."
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 msgid "Routers"
-msgstr "라우터들"
+msgstr "라우터"
 
-#: dashboards/admin/projects/workflows.py:84
+#: dashboards/admin/projects/workflows.py:88
 msgid "Quota"
 msgstr "Quota"
 
-#: dashboards/admin/projects/workflows.py:86
+#: dashboards/admin/projects/workflows.py:90
 msgid "From here you can set quotas (max limits) for the project."
-msgstr "여기서 프로젝트의 quota (최대 한계)를 설정할 수 있습니다."
+msgstr "여기서 프로젝트의 quota (최대치)를 설정할 수 있습니다."
 
-#: dashboards/admin/projects/workflows.py:101
-#: dashboards/admin/users/forms.py:74 dashboards/admin/users/forms.py:143
+#: dashboards/admin/projects/workflows.py:105
+#: dashboards/admin/users/forms.py:75 dashboards/admin/users/forms.py:144
 msgid "Domain Name"
 msgstr "도메인 이름"
 
-#: dashboards/admin/projects/workflows.py:123
-#: dashboards/admin/projects/workflows.py:472
+#: dashboards/admin/projects/workflows.py:127
+#: dashboards/admin/projects/workflows.py:476
 msgid "Project Info"
 msgstr "프로젝트 정보"
 
-#: dashboards/admin/projects/workflows.py:124
+#: dashboards/admin/projects/workflows.py:128
 msgid "From here you can create a new project to organize users."
-msgstr "여기서 조직으로 구성된 사용자들의 새로운 프로젝트를 생성할 수 있습니다."
+msgstr "여기서 조직 사용자의 새로운 프로젝트를 생성할 수 있습니다."
 
-#: dashboards/admin/projects/workflows.py:143
+#: dashboards/admin/projects/workflows.py:147
 msgid "Unable to retrieve user list. Please try again later."
-msgstr "사용자 목록을 불러올 수 없습니다. 조금 기다리신 후 다시 시도해주세요."
+msgstr "사용자 목록을 찾을 수 없습니다. 잠시 후 다시 시도하세요."
 
-#: dashboards/admin/projects/workflows.py:215
-#: dashboards/admin/projects/workflows.py:222
+#: dashboards/admin/projects/workflows.py:219
+#: dashboards/admin/projects/workflows.py:226
 msgid "Project Members"
 msgstr "프로젝트 멤버"
 
-#: dashboards/admin/projects/workflows.py:221
+#: dashboards/admin/projects/workflows.py:225
 msgid "All Users"
-msgstr "모든 사용자들"
+msgstr "모든 사용자"
 
-#: dashboards/admin/projects/workflows.py:223
+#: dashboards/admin/projects/workflows.py:227
 msgid "No users found."
 msgstr "사용자를 찾을 수 없습니다."
 
-#: dashboards/admin/projects/workflows.py:224
+#: dashboards/admin/projects/workflows.py:228
 msgid "No users."
 msgstr "사용자 없음"
 
-#: dashboards/admin/projects/workflows.py:232
+#: dashboards/admin/projects/workflows.py:236
 #: dashboards/admin/users/views.py:53
 msgid "Unable to retrieve user list."
-msgstr "사용자 목록을 불러올 수 없습니다."
+msgstr "사용자 목록을 찾을 수 없습니다."
 
-#: dashboards/admin/projects/workflows.py:312
-#: dashboards/admin/projects/workflows.py:319
+#: dashboards/admin/projects/workflows.py:316
+#: dashboards/admin/projects/workflows.py:323
 msgid "Project Groups"
-msgstr "프로젝트 그룹들"
+msgstr "프로젝트 그룹"
 
-#: dashboards/admin/projects/workflows.py:342
+#: dashboards/admin/projects/workflows.py:346
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "새로운 프로젝트 \"%s\" 생성."
 
-#: dashboards/admin/projects/workflows.py:343
+#: dashboards/admin/projects/workflows.py:347
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "프로젝트 \"%s\" 만들 수 없습니다."
 
-#: dashboards/admin/projects/workflows.py:405
+#: dashboards/admin/projects/workflows.py:409
 msgid ", add project groups"
 msgstr ", 프로젝트 그룹 추가"
 
-#: dashboards/admin/projects/workflows.py:408
+#: dashboards/admin/projects/workflows.py:412
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
-msgstr "%(users_to_add)s 프로젝트 멤버들%(group_msg)s 을 추가하고 프로젝트 쿼터를 설정하는데 실패하였습니다. "
+msgstr "%(users_to_add)s 프로젝트 멤버 추가하고 %(group_msg)s , 프로젝트 quota를 설정하는데 실패했습니다."
 
-#: dashboards/admin/projects/workflows.py:439
+#: dashboards/admin/projects/workflows.py:443
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
-msgstr "%s 프로젝트 그룹들을 추가하고 프로젝트 쿼터를 업데이트하는데 실패하였습니다."
+msgstr "%s 프로젝트 그룹을 추가하고 프로젝트 quota를 업데이트하는데 실패했습니다."
 
-#: dashboards/admin/projects/workflows.py:464
+#: dashboards/admin/projects/workflows.py:468
 msgid "Unable to set project quotas."
 msgstr "프로젝트 quota를 설정하지 못하였습니다."
 
-#: dashboards/admin/projects/workflows.py:474
+#: dashboards/admin/projects/workflows.py:478
 msgid "From here you can edit the project details."
 msgstr "여기서 프로젝트 상세 정보를 수정할 수 있습니다."
 
-#: dashboards/admin/projects/workflows.py:491
+#: dashboards/admin/projects/workflows.py:495
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "프로젝트 \"%s\" 수정하였습니다."
 
-#: dashboards/admin/projects/workflows.py:492
+#: dashboards/admin/projects/workflows.py:496
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "프로젝트 \"%s\"를 수정할 수 없습니다."
 
-#: dashboards/admin/projects/workflows.py:587
+#: dashboards/admin/projects/workflows.py:591
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
-msgstr "현재 로그인된 프로젝트로부터 관리 권한을 제거할 수 없습니다. 관리 권한이 있는 다른 프로젝트로 전환하거나 CLI를 통해 수동으로 관리자 role을 제거하십시오. "
+msgstr "현재 로그인된 사용자로는 프로젝트에서 관리 권한을 무효할 수 없습니다. 관리자 권한이 있는 다른 프로젝트로 전환을 하거나, CLI를 통해 수동으로 관리자 역할을 제거하십시오."
 
-#: dashboards/admin/projects/workflows.py:622
+#: dashboards/admin/projects/workflows.py:626
 msgid ", update project groups"
 msgstr ", 프로젝트 그룹 업데이트"
 
-#: dashboards/admin/projects/workflows.py:625
+#: dashboards/admin/projects/workflows.py:629
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
-msgstr "%(users_to_modify)s 프로젝트 멤버들%(group_msg)s 을 수정하고 프로젝트 쿼터를 업데이트하는데 실패하였습니다. "
+msgstr "%(users_to_modify)s 프로젝트 멤버 수정하고 %(group_msg)s , 프로젝트 quota를 업데이트하는데 실패했습니다"
 
-#: dashboards/admin/projects/workflows.py:697
+#: dashboards/admin/projects/workflows.py:701
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
-msgstr "%s 프로젝트 멤버들을 수정하고, 프로젝트 그룹들과 프로젝트 쿼터를 업데이트하는데 실패하였습니다. "
+msgstr "%s 프로젝트 멤버를 수정하고, 프로젝트 그룹과 프로젝트 quota를 업데이트하는데 실패했습니다."
 
-#: dashboards/admin/projects/workflows.py:727
+#: dashboards/admin/projects/workflows.py:731
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
-msgstr "프로젝트 정보와 멤버들은 수정하였으나, 프로젝트 quota는 수정하지 못하였습니다."
+msgstr "프로젝트 정보와 멤버들은 수정하였으나, 프로젝트 quota는 수정하지 못했습니다."
 
 #: dashboards/admin/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
@@ -2822,30 +2720,30 @@ msgstr "프로젝트 사용량"
 #: dashboards/admin/roles/forms.py:27 dashboards/admin/roles/forms.py:40
 #: dashboards/admin/roles/tables.py:67
 msgid "Role Name"
-msgstr "Role 이름"
+msgstr "역할 이름"
 
 #: dashboards/admin/roles/forms.py:32
 msgid "Role created successfully."
-msgstr "Role을 성공적으로 생성하였습니다"
+msgstr "역할을 성공적으로 생성하였습니다"
 
 #: dashboards/admin/roles/forms.py:35
 msgid "Unable to create role."
-msgstr "Role을 생성할 수 없습니다."
+msgstr "역할을 생성할 수 없습니다."
 
 #: dashboards/admin/roles/forms.py:45
 msgid "Role updated successfully."
-msgstr "Role을 성공적으로 업데이트 하였습니다."
+msgstr "역할을 성공적으로 업데이트 하였습니다."
 
 #: dashboards/admin/roles/forms.py:48 dashboards/admin/roles/views.py:60
 msgid "Unable to update role."
-msgstr "Role을 업데이트 할 수 없습니다."
+msgstr "역할을 업데이트 할 수 없습니다."
 
 #: dashboards/admin/roles/panel.py:26 dashboards/admin/roles/tables.py:48
 #: dashboards/admin/roles/tables.py:72
 #: dashboards/admin/roles/templates/roles/index.html:3
 #: dashboards/admin/roles/templates/roles/index.html:6
 msgid "Roles"
-msgstr "Roles"
+msgstr "역할"
 
 #: dashboards/admin/roles/tables.py:26
 #: dashboards/admin/roles/templates/roles/_create.html:8
@@ -2853,38 +2751,38 @@ msgstr "Roles"
 #: dashboards/admin/roles/templates/roles/create.html:3
 #: dashboards/admin/roles/templates/roles/create.html:7
 msgid "Create Role"
-msgstr "Role 생성"
+msgstr "역할 생성"
 
-#: dashboards/admin/roles/tables.py:47 dashboards/admin/users/forms.py:92
+#: dashboards/admin/roles/tables.py:47 dashboards/admin/users/forms.py:93
 msgid "Role"
-msgstr "Role"
+msgstr "역할"
 
 #: dashboards/admin/roles/tables.py:68
 msgid "Role ID"
-msgstr "Role ID"
+msgstr "역할 ID"
 
 #: dashboards/admin/roles/views.py:43
 msgid "Unable to retrieve roles list."
-msgstr "Role 목록을 찾을 수 없습니다."
+msgstr "역할 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/roles/templates/roles/_create.html:18
 msgid "From here you can create a new role."
-msgstr "여기서 새로운 role을 만들 수 있습니다."
+msgstr "여기서 새로운 역할을 만들 수 있습니다."
 
 #: dashboards/admin/roles/templates/roles/_update.html:8
 #: dashboards/admin/roles/templates/roles/_update.html:23
 #: dashboards/admin/roles/templates/roles/update.html:3
 #: dashboards/admin/roles/templates/roles/update.html:7
 msgid "Update Role"
-msgstr "Role 업데이트"
+msgstr "역할 업데이트"
 
 #: dashboards/admin/roles/templates/roles/_update.html:18
 msgid "From here you can edit the role's details."
-msgstr "여기서 role 상세 정보를 수정할 수 있습니다."
+msgstr "여기서 역할 상세 정보를 수정할 수 있습니다."
 
 #: dashboards/admin/routers/views.py:45 dashboards/project/routers/views.py:51
 msgid "Unable to retrieve router list."
-msgstr "라우터 목록을 불러올 수 없습니다."
+msgstr "라우터 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/routers/ports/tables.py:43
 #: dashboards/project/routers/ports/tables.py:53
@@ -2947,49 +2845,49 @@ msgstr "외부 네트워크 연결합니다."
 #: dashboards/project/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Details"
-msgstr "라우터들 상세 정보"
+msgstr "라우터 상세 정보"
 
 #: dashboards/admin/routers/templates/routers/detail.html:6
 msgid "Router Detail"
 msgstr "라우터 상세 정보"
 
-#: dashboards/admin/users/forms.py:62 dashboards/project/instances/forms.py:73
+#: dashboards/admin/users/forms.py:63 dashboards/project/instances/forms.py:73
 #: dashboards/project/instances/workflows/create_instance.py:438
 #: dashboards/settings/password/forms.py:48
 msgid "Passwords do not match."
 msgstr "비밀번호가 맞지 않습니다."
 
-#: dashboards/admin/users/forms.py:82 dashboards/admin/users/forms.py:152
+#: dashboards/admin/users/forms.py:83 dashboards/admin/users/forms.py:153
 #: dashboards/project/databases/workflows/create_instance.py:83
 msgid "Password"
 msgstr "비밀번호"
 
-#: dashboards/admin/users/forms.py:87 dashboards/admin/users/forms.py:158
+#: dashboards/admin/users/forms.py:88 dashboards/admin/users/forms.py:159
 msgid "Confirm Password"
 msgstr "비밀번호 확인"
 
-#: dashboards/admin/users/forms.py:90 dashboards/admin/users/forms.py:161
+#: dashboards/admin/users/forms.py:91 dashboards/admin/users/forms.py:162
 msgid "Primary Project"
-msgstr "기본 프로젝트"
+msgstr "최초 프로젝트"
 
-#: dashboards/admin/users/forms.py:121
+#: dashboards/admin/users/forms.py:122
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "사용자 \"%s\"를 성공적으로 생성하였습니다."
 
-#: dashboards/admin/users/forms.py:131
+#: dashboards/admin/users/forms.py:132
 msgid "Unable to add user to primary project."
 msgstr "기본 프로젝트에 사용자를 추가할 수 없습니다."
 
-#: dashboards/admin/users/forms.py:135
+#: dashboards/admin/users/forms.py:136
 msgid "Unable to create user."
 msgstr "사용자를 생성할 수 없습니다."
 
-#: dashboards/admin/users/forms.py:190
+#: dashboards/admin/users/forms.py:191
 msgid "User has been updated successfully."
 msgstr "사용자가 성공적으로 업데이트 되었습니다."
 
-#: dashboards/admin/users/forms.py:193
+#: dashboards/admin/users/forms.py:194
 msgid "Unable to update the user."
 msgstr "사용자 업데이트를 할 수 없습니다."
 
@@ -3003,7 +2901,7 @@ msgstr "사용자 생성"
 
 #: dashboards/admin/users/tables.py:45
 msgid "Enable"
-msgstr "사용"
+msgstr "활성"
 
 #: dashboards/admin/users/tables.py:45
 msgid "Disable"
@@ -3019,7 +2917,7 @@ msgstr "사용자 업데이트를 할 수 없습니다."
 
 #: dashboards/admin/users/views.py:123
 msgid "Unable to retrieve user roles."
-msgstr "사용자 role를 찾을 수 없습니다."
+msgstr "사용자 역할을 찾을 수 없습니다."
 
 #: dashboards/admin/users/templates/users/_create.html:18
 msgid "From here you can create a new user and assign them to a project."
@@ -3035,7 +2933,7 @@ msgstr "사용자 업데이트"
 #: dashboards/admin/users/templates/users/_update.html:18
 msgid ""
 "From here you can edit the user's details, including their default project."
-msgstr "여기서 기본 프로젝트를 포함하여 사용자에 대한 상세 정보를 수정할 수 있습니다."
+msgstr "여기서 기본 프로젝트를 포함하여 사용자에 대한 상세 정보를 편집할 수 있습니다."
 
 #: dashboards/admin/volumes/forms.py:38
 #, python-format
@@ -3063,7 +2961,7 @@ msgstr "볼륨 유형"
 
 #: dashboards/admin/volumes/views.py:56
 msgid "Unable to retrieve volume project information."
-msgstr "볼륨 프로젝트 정보를 불러올 수 없습니다."
+msgstr "볼륨 프로젝트 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/volumes/views.py:73
 msgid "Unable to retrieve volume types"
@@ -3076,7 +2974,7 @@ msgid ""
 "    It usually maps to a set of capabilities of the storage back-end driver to be used for this volume.\n"
 "    Examples: \"Performance\", \"SSD\", \"Backup\", etc.\n"
 "    "
-msgstr "\n볼륨 유형은 볼륨의 특징을 정의합니다. \n일반적으로 해당 볼륨을 위해 사용되는 스토리지 백엔드 드라이버의 기능 셋을 따릅니다. \n예: \"성능\", \"SSD\", \"백업\", 그 외 다수. "
+msgstr "\n볼륨 유형은 볼륨의 특징을 나타냅니다. \n일반적으로 해당 볼륨을 사용하기 위해서 설정하는 스토리지 백엔드 드라이버의 기능 설정에 따릅니다.\n예: \"성능\", \"SSD\", \"백업\" 등."
 
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -3085,7 +2983,7 @@ msgstr "볼륨 유형 생성"
 #: dashboards/admin/volumes/templates/volumes/detail.html:3
 #: dashboards/project/volumes/templates/volumes/detail.html:3
 msgid "Volume Details"
-msgstr "볼륨 상세 정보들"
+msgstr "볼륨 상세 정보"
 
 #: dashboards/admin/volumes/templates/volumes/detail.html:6
 #: dashboards/project/volumes/templates/volumes/detail.html:6
@@ -3121,7 +3019,7 @@ msgstr "접근 & 보안"
 #: dashboards/project/access_and_security/security_groups/views.py:120
 #: usage/base.py:112
 msgid "Unable to retrieve security groups."
-msgstr "보안 그룹을 불러올 수 없습니다."
+msgstr "보안 그룹을 찾을 수 없습니다."
 
 #: dashboards/project/access_and_security/tabs.py:60
 #: dashboards/project/access_and_security/keypairs/tables.py:26
@@ -3131,18 +3029,18 @@ msgstr "Keypairs"
 
 #: dashboards/project/access_and_security/tabs.py:70
 msgid "Unable to retrieve keypair list."
-msgstr "Keypair 목록을 불러올 수 없습니다."
+msgstr "Keypair 목록을 찾을 수 없습니다."
 
 #: dashboards/project/access_and_security/tabs.py:86
 #: dashboards/project/access_and_security/floating_ips/workflows.py:69
 #: usage/base.py:107
 msgid "Unable to retrieve floating IP addresses."
-msgstr "Floating IP 주소를 찾을 수 없습니다."
+msgstr "유동 IP 주소를 찾을 수 없습니다."
 
 #: dashboards/project/access_and_security/tabs.py:93
 #: dashboards/project/access_and_security/floating_ips/views.py:68
 msgid "Unable to retrieve floating IP pools."
-msgstr "유동 IP pool를 찾을 수 없습니다."
+msgstr "유동 IP pool을 찾을 수 없습니다."
 
 #: dashboards/project/access_and_security/tabs.py:115
 msgid "API Access"
@@ -3196,11 +3094,11 @@ msgstr "사용 가능한 유동 IP 전부를 이미 사용 중입니다. "
 #: dashboards/project/access_and_security/floating_ips/forms.py:53
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
-msgstr "Floating IP %(ip)s 할당."
+msgstr "유동 IP %(ip)s 할당."
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:57
 msgid "Unable to allocate Floating IP."
-msgstr "Floating IP를 할당할 수 없습니다."
+msgstr "유동 IP를 할당할 수 없습니다."
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:40
 #: dashboards/project/access_and_security/floating_ips/tables.py:55
@@ -3260,11 +3158,11 @@ msgstr "선택한 인스턴스와 연결할 IP 주소를 선택하십시오."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:47
 msgid "Port to be associated"
-msgstr "연관될 포트"
+msgstr "연결된 포트"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:49
 msgid "Instance to be associated"
-msgstr "연관될 인스턴스"
+msgstr "연결된 인스턴스"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:73
 msgid "Select an IP address"
@@ -3369,7 +3267,7 @@ msgstr "필수 필드입니다."
 #: dashboards/project/access_and_security/security_groups/forms.py:43
 #: dashboards/project/access_and_security/security_groups/forms.py:69
 msgid "The string may only contain ASCII characters and numbers."
-msgstr "문자열은 오직 ASCII 문자와 숫자만 포함할 수 있습니다."
+msgstr "문자열은 ASCII 문자와 숫자만 포함할 수 있습니다."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:54
 #, python-format
@@ -3394,7 +3292,7 @@ msgstr "보안 그룹을 업데이트 할 수 없습니다."
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 #: dashboards/project/firewalls/tables.py:50
 msgid "Rule"
-msgstr "Rule"
+msgstr "규칙"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:102
 #: dashboards/project/access_and_security/security_groups/forms.py:107
@@ -3406,7 +3304,7 @@ msgstr "Rule"
 #: dashboards/project/access_and_security/security_groups/forms.py:113
 #: dashboards/project/access_and_security/security_groups/tables.py:154
 msgid "Direction"
-msgstr "방향"
+msgstr "Direction"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:117
 #: dashboards/project/access_and_security/security_groups/forms.py:124
@@ -3416,7 +3314,7 @@ msgstr "IP 프로토콜"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:118
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr "0~255 사이의 정수 값을 입력하세요(-1은 와일드카드를 의미함)"
+msgstr "0~255 사이의 정수 값을 입력하세요. (-1은 와일드카드)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:127
 #: dashboards/project/access_and_security/security_groups/forms.py:134
@@ -3432,8 +3330,8 @@ msgstr "포트 범위"
 #: dashboards/project/access_and_security/security_groups/forms.py:139
 #: dashboards/project/access_and_security/security_groups/forms.py:150
 #: dashboards/project/access_and_security/security_groups/forms.py:161
-#: dashboards/project/loadbalancers/workflows.py:162
-#: dashboards/project/loadbalancers/workflows.py:298
+#: dashboards/project/loadbalancers/workflows.py:163
+#: dashboards/project/loadbalancers/workflows.py:299
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 ~ 65535 사이의 정수 값을 입력하세요."
 
@@ -3449,7 +3347,7 @@ msgstr "포트로"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:172
 msgid "Enter a value for ICMP type in the range (-1: 255)"
-msgstr "ICMP 형식을 위해 (-1, 255) 범위 내의 값을 입력하세요."
+msgstr "ICMP 형식의 범위 값을 입력하세요. (-1: 255)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:181
 #: dashboards/project/access_and_security/security_groups/forms.py:188
@@ -3458,7 +3356,7 @@ msgstr "코드"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:183
 msgid "Enter a value for ICMP code in the range (-1: 255)"
-msgstr "ICMP 코드를 위해 (-1, 255) 범위 내의 값을 입력하세요."
+msgstr "ICMP 코드의 범위 값을 입력하세요. (-1: 255)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:192
 #: dashboards/project/access_and_security/security_groups/tables.py:163
@@ -3477,7 +3375,7 @@ msgstr "보안 그룹"
 msgid ""
 "To specify an allowed IP range, select \"CIDR\". To allow access from all "
 "members of another security group select \"Security Group\"."
-msgstr "허용된 IP 범위를 지정하려면,  \"CIDR\"을 선택하세요. 다른 보안 그룹의 모든 멤버들의 억세스를 허용하려면, \"보안 그룹\"을 선택하세요. "
+msgstr "허용된 IP 범위를 지정하려면,  \"CIDR\"을 선택하세요. 다른 보안 그룹의 모든 멤버들의 접근을 허용하려면, \"보안 그룹\"을 선택하세요. "
 
 #: dashboards/project/access_and_security/security_groups/forms.py:208
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
@@ -3503,15 +3401,15 @@ msgstr "사용 가능한 보안 그룹이 없습니다."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:254
 msgid "Custom TCP Rule"
-msgstr "사용자 정의 TCP Rule"
+msgstr "사용자 정의 TCP 규칙"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:255
 msgid "Custom UDP Rule"
-msgstr "사용자 정의 UDP Rule"
+msgstr "사용자 정의 UDP 규칙"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:256
 msgid "Custom ICMP Rule"
-msgstr "사용자 정의 ICMP Rule"
+msgstr "사용자 정의 ICMP 규칙"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:258
 msgid "Other Protocol"
@@ -3559,7 +3457,7 @@ msgstr "\"받는\" 포트 번호가 유효하지 않습니다."
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
-msgstr "\"to\" 포트의 숫자는 반드시 \"from\" 포트의 숫자보다 크거나 같아야한다."
+msgstr "\"to\" 포트의 숫자는 반드시 \"from\" 포트의 숫자보다 크거나 같아야합니다."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:350
 msgid "CIDR must be specified."
@@ -3568,11 +3466,11 @@ msgstr "CIDR은 반드시 지정되어야 합니다."
 #: dashboards/project/access_and_security/security_groups/forms.py:373
 #, python-format
 msgid "Successfully added rule: %s"
-msgstr "Rule을 성공적으로 추가하였습니다: %s"
+msgstr "규칙이 성공적으로 추가하였습니다: %s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:379
 msgid "Unable to add rule to security group."
-msgstr "보안 그룹에 rule를 추가할 수 없습니다."
+msgstr "보안 그룹에 규칙을 추가할 수 없습니다."
 
 #: dashboards/project/access_and_security/security_groups/tables.py:42
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:8
@@ -3588,11 +3486,11 @@ msgstr "보안 그룹 생성"
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:6
 msgid "Edit Security Group"
-msgstr "보안 그룹 수정"
+msgstr "보안 그룹 편집"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:61
 msgid "Edit Rules"
-msgstr "Rules 수정"
+msgstr "규칙 편집"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:82
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
@@ -3601,7 +3499,7 @@ msgstr "Rules 수정"
 #: dashboards/project/firewalls/tables.py:27
 #: dashboards/project/firewalls/workflows.py:107
 msgid "Add Rule"
-msgstr "Rule 추가"
+msgstr "규칙 추가"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:92
 #: dashboards/project/firewalls/tables.py:51
@@ -3611,11 +3509,11 @@ msgstr "Rule 추가"
 #: dashboards/project/firewalls/workflows.py:141
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
-msgstr "Rules"
+msgstr "규칙"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:135
 msgid "Any"
-msgstr "임의"
+msgstr "어디든"
 
 #: dashboards/project/access_and_security/security_groups/views.py:53
 #: dashboards/project/access_and_security/security_groups/views.py:78
@@ -3639,7 +3537,7 @@ msgstr "유동 IP 할당"
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:19
 msgid "Allocate a floating IP from a given floating IP pool."
-msgstr "주어진 유동 IP 풀에서 유동 IP를 할당하세요. "
+msgstr "주어진 유동 IP pool에서 유동 IP를 할당하세요. "
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:21
 msgid "Project Quotas"
@@ -3683,13 +3581,13 @@ msgstr "키페어 &quot;%(keypair_name)s&quot; 다운로드"
 msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
 "group. A security group rule consists of three main parts:"
-msgstr "Rules은 보안 그룹에 할당된 인스턴스들에게 어떤 트래픽이 허용되는지를 정의합니다. 보안 그룹 rule은 세가지 주요 파트로 구성됩니다: "
+msgstr "규칙은 보안 그룹에 할당된 인스턴스에게 어떤 트래픽이 허용되는지를 정의합니다. 보안 그룹 규칙은 세가지 주요 파트로 구성됩니다: "
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
-msgstr "Rule 템플릿을 지정하거나 사용자 정의 Rule을 사용할 수 있습니다, 옵션으로 사용자 정의 TCP Rule, 사용자 정의 UDP Rule, 또는 사용자 정의 ICMP Rule이 있습니다. "
+msgstr "규칙 템플릿을 지정하거나 사용자 정의 규칙을 사용할 수 있습니다, 옵션으로 사용자 정의 TCP 규칙, 사용자 정의 UDP 규칙, 또는 사용자 정의 ICMP 규칙이 있습니다. "
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid "Open Port/Port Range"
@@ -3701,7 +3599,7 @@ msgid ""
 " of ports. Selecting the \"Port Range\" option will provide you with space "
 "to provide both the starting and ending ports for the range. For ICMP rules "
 "you instead specify an ICMP type and code in the spaces provided."
-msgstr "TCP와 UDP rule을 설정하려면, 단일 포트 또는 특정 범위의 포트를 열 수 있습니다. \"포트 범위\" 옵션을 선택하면 포트 범위 시작값과 최종값을 설정할 수 있습니다. 그러나 ICMP rule은 주어진 칸에 ICMP 타입과 코드를 지정하여야 합니다. "
+msgstr "TCP와 UDP 규칙을 설정하려면, 단일 포트 또는 특정 범위의 포트를 열 수 있습니다. \"포트 범위\" 옵션을 선택하면 포트 범위 시작값과 최종값을 설정할 수 있습니다. 그러나 ICMP 규칙은 주어진 칸에 ICMP 타입과 코드를 지정하여야 합니다. "
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid ""
@@ -3710,7 +3608,7 @@ msgid ""
 "group (Security Group). Selecting a security group as the source will allow "
 "any other instance in that security group access to any other instance via "
 "this rule."
-msgstr "이 rule을 이용하여 허용 할 트래픽 소스를 지정해야 합니다. 당신은 IP 주소 블록 (CIDR) 폼이나 소스 그룹 (보안 그룹) 중 하나를 선택하여 지정할 수 있습니다. 소스를 이용하는 보안 그룹을 선택하면 이 rule을 통해 다른 인스턴스에서 보안 그룹에 접근 가능한 다른 인스턴스의 접근을 허용합니다."
+msgstr "이 규칙을 이용하여 허용 할 트래픽 소스를 지정해야 합니다. 당신은 IP 주소 블록 (CIDR) 폼이나 소스 그룹 (보안 그룹) 중 하나를 선택하여 지정할 수 있습니다. 소스를 이용하는 보안 그룹을 선택하면 이 규칙을 통해 다른 인스턴스에서 보안 그룹에 접근 가능한 다른 인스턴스의 접근을 허용합니다."
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:19
 msgid "From here you can create a new security group"
@@ -3722,11 +3620,11 @@ msgstr "여기서 보안 그룹의 이름과 설명을 수정할 수 있습니�
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:3
 msgid "Edit Security Group Rules"
-msgstr "보안 그룹 Rules 수정"
+msgstr "보안 그룹 규칙 편집"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:6
 msgid "Edit Security Group Rules: "
-msgstr "보안 그룹 Rule 수정:"
+msgstr "보안 그룹 규칙 편집:"
 
 #: dashboards/project/containers/browsers.py:26
 msgid "Swift"
@@ -3739,7 +3637,7 @@ msgstr "컨테이너"
 
 #: dashboards/project/containers/forms.py:34
 msgid "Slash is not an allowed character."
-msgstr "Slash는 사용할 수 없습니다."
+msgstr "슬래쉬는 사용할 수 없습니다."
 
 #: dashboards/project/containers/forms.py:44
 #: dashboards/project/containers/tables.py:123
@@ -3780,7 +3678,7 @@ msgstr "오브젝트를 성공적으로 업로드 하였습니다."
 
 #: dashboards/project/containers/forms.py:95
 msgid "Unable to upload object."
-msgstr "오브젝트를 올릴 수  없습니다."
+msgstr "오브젝트를 업로드 할 수 없습니다."
 
 #: dashboards/project/containers/forms.py:99
 msgid "Destination container"
@@ -3805,7 +3703,7 @@ msgstr "오브젝트를 복사할 수 없습니다."
 #: dashboards/project/containers/templates/containers/index.html:3
 #: dashboards/project/containers/templates/containers/index.html:7
 msgid "Containers"
-msgstr "컨테이너들"
+msgstr "컨테이너"
 
 #: dashboards/project/containers/tables.py:36
 #: dashboards/project/containers/tables.py:139
@@ -3840,7 +3738,7 @@ msgstr "오브젝트"
 #: dashboards/project/containers/tables.py:165
 #: dashboards/project/containers/tables.py:250
 msgid "Objects"
-msgstr "오브젝트들"
+msgstr "오브젝트"
 
 #: dashboards/project/containers/tables.py:171
 msgid "Copy"
@@ -3854,11 +3752,11 @@ msgstr "내려받기"
 
 #: dashboards/project/containers/views.py:57
 msgid "Unable to retrieve container list."
-msgstr "컨테이너 목록을 불러올 수 없습니다."
+msgstr "컨테이너 목록을 찾을 수 없습니다."
 
 #: dashboards/project/containers/views.py:87
 msgid "Unable to retrieve object list."
-msgstr "오브젝트 목록을 불러올 수 없습니다."
+msgstr "오브젝트 목록을 찾을 수 없습니다."
 
 #: dashboards/project/containers/views.py:173
 msgid "Unable to retrieve object."
@@ -3866,12 +3764,12 @@ msgstr "오브젝트를 찾을 수 없습니다."
 
 #: dashboards/project/containers/views.py:208
 msgid "Unable to list containers."
-msgstr "컨테이너들을 나열 할 수 없습니다."
+msgstr "컨테이너를 나열 할 수 없습니다."
 
 #: dashboards/project/containers/views.py:241
 #: dashboards/project/containers/views.py:264
 msgid "Unable to retrieve details."
-msgstr "상세 정보를 불러올 수 없습니다."
+msgstr "상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
@@ -3881,7 +3779,7 @@ msgstr "컨테이너 상세 정보"
 
 #: dashboards/project/containers/templates/containers/_container_detail.html:12
 msgid "Object Count"
-msgstr "오브젝트 수"
+msgstr "오브젝트 카운트"
 
 #: dashboards/project/containers/templates/containers/_copy.html:8
 #: dashboards/project/containers/templates/containers/_copy.html:23
@@ -3906,7 +3804,7 @@ msgid ""
 " nested. You can, however, create an unlimited number of containers within "
 "your account. Data must be stored in a container so you must have at least "
 "one container defined in your account prior to uploading data."
-msgstr "컨테이너는 데이터 저장소이며, 데이터를 구성하는 방법을 제공합니다. 이는 Windows의 폴더나 Unix의 디렉토리와 유사합니다. 이런 파일 시스템들과 다른 주요 차이점은 컨테이너는 중첩될 수 없다는 것입니다. 그러나 여러분은 계정 내에 무한개의 컨테이너들을 생성할 수 있습니다. 데이터는 반드시 컨테이너에 저장되어야 하므로, 데이터를 올리기 전 반드시 계정 내에 최소 1개의 컨테이너가 정의되어 있어야 합니다. "
+msgstr "컨테이너는 데이터 저장소이며, 데이터를 구성하는 방법을 제공합니다. 이는 Windows의 폴더나 Unix의 디렉토리와 유사합니다. 이런 파일 시스템들과 다른 주요 차이점은 컨테이너는 중첩될 수 없다는 것입니다. 그러나 여러분은 계정 내에 무한으로 컨테이너를 생성할 수 있습니다. 데이터는 반드시 컨테이너에 저장되어야 하므로, 데이터를 올리기 전 반드시 계정 내에 최소 1개의 컨테이너가 존재해야 합니다"
 
 #: dashboards/project/containers/templates/containers/_object_detail.html:5
 #: dashboards/project/containers/templates/containers/object_detail.html:3
@@ -3950,7 +3848,7 @@ msgid ""
 "exception that they are virtual collections defined by a common prefix on "
 "the object's name. A slash (/) character is used as the delimiter for "
 "pseudo-folders in the Object Store."
-msgstr "컨테이너 내에서 가상 폴더로 오브젝트들을 그룹화할 수 있습니다. 가상 폴더는 데스크톱 운영 시스템에서 폴더와 유사하게 동작하지만, 오브젝트 이름에 동일한 접두사를 부여하여 만든 가상 그룹입니다. 슬래쉬 (/) 문자는 오브젝트 저장소 내의 모조 폴더들을 구분하는 구분자로 사용됩니다. "
+msgstr "컨테이너 내에서 가상 폴더로 오브젝트를 그룹화할 수 있습니다. 가상 폴더는 데스크톱 운영 시스템에서 폴더와 유사하게 동작하지만, 오브젝트 이름에 동일한 접두사를 부여하여 만든 가상 그룹입니다. 슬래쉬 (/) 문자는 오브젝트 저장소 내의 가상 폴더를 구분하는 구분자로 사용됩니다. "
 
 #: dashboards/project/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
@@ -3959,7 +3857,7 @@ msgstr "오브젝트 올리기"
 #: dashboards/project/database_backups/panel.py:25
 #: dashboards/project/database_backups/templates/database_backups/index.html:3
 msgid "Database Backups"
-msgstr "데이터베이스 백업들"
+msgstr "데이터베이스 백업"
 
 #: dashboards/project/database_backups/tables.py:39
 #: dashboards/project/databases/tables.py:103
@@ -3991,7 +3889,7 @@ msgstr "삭제"
 #: dashboards/project/firewalls/tables.py:49
 #: dashboards/project/firewalls/tables.py:57
 #: dashboards/project/firewalls/tables.py:65
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:34
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:35
 #: dashboards/project/loadbalancers/tables.py:69
 #: dashboards/project/loadbalancers/tables.py:82
 #: dashboards/project/loadbalancers/tables.py:90
@@ -4044,7 +3942,7 @@ msgstr "데이터베이스 백업 목록을 가져오던 중 오류가 발생하
 #: dashboards/project/database_backups/views.py:88
 #, python-format
 msgid "Unable to retrieve details for backup: %s"
-msgstr "백업에 대한 상세 정보를 불러올 수 없습니다.: %s"
+msgstr "백업에 대한 상세 정보를 찾을 수 없습니다.: %s"
 
 #: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:3
 msgid "Specify the details for the backup."
@@ -4180,7 +4078,7 @@ msgstr "재시작함"
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 msgid "Databases"
-msgstr "데이터베이스들"
+msgstr "데이터베이스"
 
 #: dashboards/project/databases/tables.py:65
 #: dashboards/project/databases/tables.py:81
@@ -4229,6 +4127,7 @@ msgstr "사용할 수 없음"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
+#: dashboards/project/instances/views.py:99
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:19
@@ -4253,7 +4152,7 @@ msgstr "데이터베이스 인스턴트 사용자"
 
 #: dashboards/project/databases/views.py:53
 msgid "Unable to retrieve database size information."
-msgstr "데이터베이스 크기 정보를 불러올 수 없습니다."
+msgstr "데이터베이스 크기 정보를 찾을 수 없습니다."
 
 #: dashboards/project/databases/views.py:72
 msgid "Unable to retrieve database instances."
@@ -4262,7 +4161,7 @@ msgstr "인스턴스 데이터베이스를 찾을 수 없습니다."
 #: dashboards/project/databases/views.py:106
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
-msgstr "인스턴스 데이터베이스에 대한 상세 정보를 불러올 수 없습니다.: %s"
+msgstr "인스턴스 데이터베이스에 대한 상세 정보를 찾을 수 없습니다.: %s"
 
 #: dashboards/project/databases/templates/databases/_detail_overview.html:3
 #: dashboards/project/instances/templates/instances/_detail_overview.html:4
@@ -4359,7 +4258,7 @@ msgstr "데이터베이스 시작"
 #: dashboards/project/instances/tables.py:217
 #: dashboards/project/instances/workflows/update_instance.py:134
 msgid "Edit Instance"
-msgstr "인스턴스 수정"
+msgstr "인스턴스 편집"
 
 #: dashboards/project/databases/workflows/create_instance.py:33
 #: dashboards/project/instances/workflows/create_instance.py:93
@@ -4436,8 +4335,8 @@ msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:195
-#: dashboards/project/loadbalancers/workflows.py:37
-#: dashboards/project/loadbalancers/workflows.py:165
+#: dashboards/project/loadbalancers/workflows.py:41
+#: dashboards/project/loadbalancers/workflows.py:166
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:27
 msgid "Protocol"
@@ -4523,12 +4422,12 @@ msgstr "DENY"
 #: dashboards/project/firewalls/forms.py:102
 #, python-format
 msgid "Rule %s was successfully updated."
-msgstr "Rule %s를 성공적으로 업데이트 하였습니다."
+msgstr "규칙 %s를 성공적으로 업데이트 하였습니다."
 
 #: dashboards/project/firewalls/forms.py:107
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "Rule %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
+msgstr "규칙 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:119
 #: dashboards/project/firewalls/tables.py:179
@@ -4552,7 +4451,7 @@ msgstr "Policy %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 #: dashboards/project/firewalls/tables.py:195
 #: dashboards/project/firewalls/workflows.py:241
 msgid "Policy"
-msgstr "폴란드어"
+msgstr "Policy"
 
 #: dashboards/project/firewalls/forms.py:149
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:28
@@ -4566,7 +4465,7 @@ msgstr "관리자 업 상태"
 #: dashboards/project/firewalls/forms.py:163
 #: dashboards/project/firewalls/workflows.py:260
 msgid "Unable to retrieve policy list."
-msgstr "Policy 목록을 불러오지 못하였습니다."
+msgstr "Policy 목록을 찾을 수 없습니다."
 
 #: dashboards/project/firewalls/forms.py:183
 #, python-format
@@ -4581,7 +4480,7 @@ msgstr "방화벽 %(name)s 를 업데이트 하지 못하였습니다.: %(reason
 #: dashboards/project/firewalls/forms.py:196
 #: dashboards/project/firewalls/tables.py:105
 msgid "Insert Rule"
-msgstr "Rule 삽입"
+msgstr "규칙 삽입"
 
 #: dashboards/project/firewalls/forms.py:197
 msgid "Before"
@@ -4594,37 +4493,37 @@ msgstr "이후"
 #: dashboards/project/firewalls/forms.py:226
 #, python-format
 msgid "Failed to retrieve available rules: %s"
-msgstr "사용가능한 rule를 검색하지 못하였습니다.: %s"
+msgstr "사용가능한 규칙을 검색하지 못하였습니다.: %s"
 
 #: dashboards/project/firewalls/forms.py:245
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "Rule %(rule)s를 policy %(policy)s에 성공적으로 추가하였습니다."
+msgstr "규칙 %(rule)s를 policy %(policy)s에 성공적으로 추가하였습니다."
 
 #: dashboards/project/firewalls/forms.py:253
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "Policy %(name)s에 rule을 삽입하지 못하였습니다.: %(reason)s"
+msgstr "Policy %(name)s에 규칙을 추가하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:261
 #: dashboards/project/firewalls/tables.py:116
 msgid "Remove Rule"
-msgstr "Rule 삭제"
+msgstr "규칙 삭제"
 
 #: dashboards/project/firewalls/forms.py:282
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "Policy %(name)s에서 현재 rules를 찾지 못하였습니다.: %(reason)s"
+msgstr "Policy %(name)s에서 현재 규칙을 찾지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:299
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "Rule %(rule)s를 policy %(policy)s에서 성공적으로 제거하였습니다."
+msgstr "규칙 %(rule)s를 policy %(policy)s에서 성공적으로 제거하였습니다."
 
 #: dashboards/project/firewalls/forms.py:307
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Rule을 policy %(name)s에서 제거하지 못하였습니다.: %(reason)s"
+msgstr "규칙을 policy %(name)s에서 제거하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:10
 #: dashboards/project/firewalls/tables.py:67
@@ -4633,7 +4532,7 @@ msgstr "Rule을 policy %(name)s에서 제거하지 못하였습니다.: %(reason
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
-msgstr "방화벽들"
+msgstr "방화벽"
 
 #: dashboards/project/firewalls/tables.py:34
 #: dashboards/project/firewalls/workflows.py:214
@@ -4647,7 +4546,7 @@ msgstr "방화벽 생성"
 #: dashboards/project/firewalls/tables.py:59
 #: dashboards/project/firewalls/tables.py:183
 msgid "Policies"
-msgstr "폴란드어"
+msgstr "Policies"
 
 #: dashboards/project/firewalls/tables.py:66
 msgid "Firewall"
@@ -4657,19 +4556,19 @@ msgstr "방화벽"
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
-msgstr "Rule 수정"
+msgstr "규칙 편집"
 
 #: dashboards/project/firewalls/tables.py:83
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
-msgstr "Policy 수정"
+msgstr "Policy 편집"
 
 #: dashboards/project/firewalls/tables.py:94
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
-msgstr "방화벽 수정"
+msgstr "방화벽 편집"
 
 #: dashboards/project/firewalls/tables.py:145
 #: dashboards/project/firewalls/workflows.py:45
@@ -4701,15 +4600,15 @@ msgstr "대상 포트"
 
 #: dashboards/project/firewalls/tables.py:163
 msgid "In Policy"
-msgstr "Policy"
+msgstr "In Policy"
 
 #: dashboards/project/firewalls/tabs.py:34
 msgid "Firewall Rules"
-msgstr "방화벽 Rules"
+msgstr "방화벽 규칙"
 
 #: dashboards/project/firewalls/tabs.py:46
 msgid "Unable to retrieve rules list."
-msgstr "Rule 목록을 불러올 수 없습니다."
+msgstr "규칙 목록을 찾을 수 없습니다."
 
 #: dashboards/project/firewalls/tabs.py:55
 msgid "Firewall Policies"
@@ -4717,20 +4616,20 @@ msgstr "방화벽 Policies"
 
 #: dashboards/project/firewalls/tabs.py:67
 msgid "Unable to retrieve policies list."
-msgstr "Policies 목록을 불러올 수 없습니다."
+msgstr "Policies 목록을 찾을 수 없습니다."
 
 #: dashboards/project/firewalls/tabs.py:88
 msgid "Unable to retrieve firewall list."
-msgstr "방화벽 목록을 불러올 수 없습니다."
+msgstr "방화벽 목록을 찾을 수 없습니다."
 
 #: dashboards/project/firewalls/tabs.py:97
 msgid "Firewall Rule Details"
-msgstr "방화벽 Rule 상세 정보"
+msgstr "방화벽 규칙 상세 정보"
 
 #: dashboards/project/firewalls/tabs.py:108
 #: dashboards/project/firewalls/views.py:142
 msgid "Unable to retrieve rule details."
-msgstr "Rule 상세 정보를 찾을 수 없습니다."
+msgstr "역할 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/firewalls/tabs.py:114
 msgid "Firewall Policy Details"
@@ -4750,12 +4649,12 @@ msgstr "방화벽 상세 정보"
 #: dashboards/project/firewalls/tabs.py:142
 #: dashboards/project/firewalls/views.py:207
 msgid "Unable to retrieve firewall details."
-msgstr "방화벽 상세 정보를 불러올 수 없습니다."
+msgstr "방화벽 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/firewalls/views.py:70
 #, python-format
 msgid "Unable to delete rule. %s"
-msgstr "Rule을 삭제할 수 없습니다. %s"
+msgstr "규칙을 삭제할 수 없습니다. %s"
 
 #: dashboards/project/firewalls/views.py:78
 #, python-format
@@ -4769,7 +4668,7 @@ msgstr "방화벽을 삭제할 수 없습니다. %s"
 
 #: dashboards/project/firewalls/workflows.py:77
 msgid "AddRule"
-msgstr "Rule 추가"
+msgstr "규칙 추가"
 
 #: dashboards/project/firewalls/workflows.py:79
 msgid ""
@@ -4781,24 +4680,24 @@ msgstr "방화벽 규칙 생성합니다.\n\n프로토콜과 행동을 지정해
 #: dashboards/project/firewalls/workflows.py:109
 #, python-format
 msgid "Added Rule \"%s\"."
-msgstr "Rule \"%s\"를 추가하였습니다."
+msgstr "규칙 \"%s\"를 추가하였습니다."
 
 #: dashboards/project/firewalls/workflows.py:110
 #, python-format
 msgid "Unable to add Rule \"%s\"."
-msgstr "Rule \"%s\"를 추가할 수 없습니다."
+msgstr "규칙 \"%s\"를 추가할 수 없습니다."
 
 #: dashboards/project/firewalls/workflows.py:138
 msgid "Create a policy with selected rules."
-msgstr "선택한 Rule에 대한 policy를 생성합니다."
+msgstr "선택한 규칙에 대한 policy를 생성합니다."
 
 #: dashboards/project/firewalls/workflows.py:143
 msgid "Select rules for your policy."
-msgstr "Policy을 위해 rules을 선택합니다."
+msgstr "Policy을 위해 규칙을 선택합니다."
 
 #: dashboards/project/firewalls/workflows.py:158
 msgid "Unable to retrieve rules."
-msgstr "Rule를 찾을 수 없습니다."
+msgstr "역할를 찾을 수 없습니다."
 
 #: dashboards/project/firewalls/workflows.py:194
 msgid "AddPolicy"
@@ -4809,7 +4708,7 @@ msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
-msgstr "방화벽 rules의 명령 목록에서 방화벽 policy를 생성할 수 있습니다.\n\n이름을 입력해야 합니다. 방화벽 rule은 Rules 탭 아래에 배치된 순서대로 추가됩니다."
+msgstr "방화벽 규칙의 명령 목록에서 방화벽 policy를 생성할 수 있습니다.\n\n이름을 입력해야 합니다. 방화벽 규칙은 규칙 탭 아래에 배치된 순서대로 추가됩니다."
 
 #: dashboards/project/firewalls/workflows.py:216
 #, python-format
@@ -4834,7 +4733,7 @@ msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
-msgstr "Policy를 기반으로 방화벽을 생성합니다.\n\nPolicy는 꼭 선택해야 합니다. 다른 항목들은 옵션입니다."
+msgstr "Policy를 기반으로 방화벽을 생성합니다.\n\nPolicy는 꼭 선택해야 합니다. 다른 항목은 옵션입니다."
 
 #: dashboards/project/firewalls/workflows.py:290
 msgid "Add Firewall"
@@ -4858,7 +4757,7 @@ msgstr "Policy ID"
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:6
 msgid "Insert Rule to Policy"
-msgstr "Policy에 Rule 추가"
+msgstr "Policy에 규칙을 추가"
 
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:18
 msgid ""
@@ -4866,17 +4765,17 @@ msgid ""
 "    either the rule you want to insert immediately before, or the rule\n"
 "    to insert immediately after. If both are specified, the prior\n"
 "    takes precedence."
-msgstr "삽입할 rule을 선택합니다. 바로\n앞에 삽입할 규칙인지, 바로 뒤에 삽입할 규칙인지를 정해야\n합니다. 양 쪽 모두 지정하면,\n앞에 있는 것이 우선 순위가 높습니다."
+msgstr "삽입할 규칙을 선택합니다. 바로\n앞에 삽입할 규칙인지, 바로 뒤에 삽입할 규칙인지를 정해야\n합니다. 양 쪽 모두 지정하면,\n앞에 있는 것이 우선 순위가 높습니다."
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:8
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:6
 msgid "Remove Rule from Policy"
-msgstr "Policy에서 Rule 제거"
+msgstr "Policy에서 규칙을 제거"
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:18
 msgid "Choose the rule you want to remove."
-msgstr "제거할 rule을 선택하세요."
+msgstr "제거할 규칙을 선택하세요."
 
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:25
 msgid "Source IP Address"
@@ -4898,15 +4797,15 @@ msgstr "Policy 위치"
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag and drop,\n"
 "you may change their order by drag and drop as well. "
-msgstr "사용 가능한 규칙(들)에서 선택한 규칙에 버튼을 누르거나 드래그 앤 드롭하여 규칙을 선택합니다.\n드래그 앤 드롭 규칙으로 순서를 변경할 수 있습니다."
+msgstr "사용 가능한 규칙에서 선택한 규칙에 버튼을 누르거나 드래그 앤 드롭하여 규칙을 선택합니다.\n드래그 앤 드롭으로 규칙 순서를 변경할 수 있습니다."
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rules.html:8
 msgid "Selected Rules"
-msgstr "Rules 선택합니다."
+msgstr "규칙을 선택합니다."
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rules.html:11
 msgid "Available Rules"
-msgstr "사용 가능한 Rules"
+msgstr "사용 가능한 규칙"
 
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:18
 msgid "You may update firewall details here."
@@ -4916,11 +4815,11 @@ msgstr "방화벽 세부 사항을 여기서 업데이트 할 수 있습니다."
 msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links"
 " instead to insert or remove a rule"
-msgstr "여기서 policy 세부 사항을 업데이트 할 수 있습니다. Rule을 삽입하거나 삭제하는 대신에 'Rule 삽입' 또는 'Rule 삭제' 링크를 사용하십시오."
+msgstr "여기서 policy 세부 사항을 업데이트 할 수 있습니다. 규칙을 삽입하거나 삭제하는 대신에 '규칙 삽입' 또는 '규칙 삭제' 링크를 사용하십시오."
 
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:18
 msgid "You may update rule details here."
-msgstr "여기서 Rule 세부 사항을 업데이트 할 수 있습니다."
+msgstr "여기서 규칙 세부 사항을 업데이트 할 수 있습니다."
 
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:6
@@ -4935,19 +4834,19 @@ msgstr "새로운 Policy 추가"
 #: dashboards/project/firewalls/templates/firewalls/addrule.html:3
 #: dashboards/project/firewalls/templates/firewalls/addrule.html:6
 msgid "Add New Rule"
-msgstr "새로운 Rule 추가"
+msgstr "새로운 규칙 추가"
 
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:6
 msgid "Edit Firewall "
-msgstr "방화벽 수정"
+msgstr "방화벽 편지"
 
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:6
 msgid "Edit Policy "
-msgstr "Policy 수정"
+msgstr "Policy 편집"
 
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:6
 msgid "Edit Rule "
-msgstr "Rule 수정"
+msgstr "규칙 편집"
 
 #: dashboards/project/images_and_snapshots/panel.py:26
 msgid "Images & Snapshots"
@@ -5042,7 +4941,7 @@ msgstr "새로운 이미지를 생성할 수 없습니다."
 #: dashboards/project/images_and_snapshots/images/forms.py:158
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:62
 msgid "Kernel ID"
-msgstr "Kernel ID"
+msgstr "커널 ID"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:163
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:66
@@ -5069,7 +4968,7 @@ msgid "Image"
 msgstr "이미지"
 
 #: dashboards/project/images_and_snapshots/images/tables.py:96
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:42
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:43
 #: dashboards/project/volumes/tables.py:61
 #: dashboards/project/volumes/tables.py:74
 #: dashboards/project/volumes/templates/volumes/_create.html:9
@@ -5084,7 +4983,7 @@ msgstr "나에게 공유됨"
 
 #: dashboards/project/images_and_snapshots/images/tabs.py:38
 msgid "Unable to retrieve image details."
-msgstr "이미지 상세 정보를 불러올 수 없습니다."
+msgstr "이미지 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/images_and_snapshots/images/views.py:58
 msgid "Unable to retrieve image."
@@ -5115,7 +5014,7 @@ msgstr "인스턴스를 찾을 수 없습니다."
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/index.html:3
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/index.html:6
 msgid "Images &amp; Snapshots"
-msgstr "이미지들 &amp; 스냅샷들"
+msgstr "이미지 &amp; 스냅샷"
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:3
 msgid "Image Overview"
@@ -5123,7 +5022,7 @@ msgstr "이미지 개요"
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:18
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:26
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:70
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
@@ -5202,7 +5101,7 @@ msgstr "스냅샷 생성"
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_create.html:19
 msgid "Snapshots preserve the disk state of a running instance."
-msgstr "스냅샷들은 작동 중인 인스턴스 디스크 상태를 저장합니다."
+msgstr "스냅샷은 작동 중인 인스턴스 디스크 상태를 저장합니다."
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:113
@@ -5219,30 +5118,30 @@ msgstr "스냅샷 생성"
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:3
 msgid "Volume Snapshot Details"
-msgstr "볼륨 스냅샷 상세 정보들"
+msgstr "볼륨 스냅샷 상세 정보"
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/detail.html:6
 msgid "Volume Snapshot Detail"
 msgstr "볼륨 스냅샷 상세 정보"
 
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:32
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:33
 #: dashboards/project/instances/workflows/create_instance.py:111
 msgid "Volume Snapshot"
 msgstr "볼륨 스냅샷"
 
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:33
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:90
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:34
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:92
 msgid "Volume Snapshots"
-msgstr "볼륨 스냅샷들"
+msgstr "볼륨 스냅샷"
 
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:85
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:87
 #: dashboards/project/volumes/forms.py:32
 msgid "Volume Name"
 msgstr "볼륨 이름"
 
 #: dashboards/project/images_and_snapshots/volume_snapshots/tabs.py:41
 msgid "Unable to retrieve snapshot details."
-msgstr "스냅샷 상세 정보를 불러올 수 없습니다."
+msgstr "스냅샷 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/instances/forms.py:40
 #: dashboards/project/instances/forms.py:61
@@ -5315,7 +5214,7 @@ msgstr "잠자기 함"
 
 #: dashboards/project/instances/tables.py:235
 msgid "Edit Security Groups"
-msgstr "보안 그룹 수정"
+msgstr "보안 그룹 편집"
 
 #: dashboards/project/instances/tables.py:259
 #: dashboards/project/instances/tabs.py:56
@@ -5404,38 +5303,38 @@ msgid "Log"
 msgstr "로그"
 
 #: dashboards/project/instances/tabs.py:49
-#: dashboards/project/instances/views.py:128
+#: dashboards/project/instances/views.py:134
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 로그를 가져올 수 없습니다."
 
 #: dashboards/project/instances/views.py:68
 msgid "Unable to retrieve instances."
-msgstr "인스턴스들을 찾을 수 없습니다."
+msgstr "인스턴스를 찾을 수 없습니다."
 
-#: dashboards/project/instances/views.py:144
+#: dashboards/project/instances/views.py:150
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "인스턴스 \"%s\"의 VNC 콘솔을 사용할 수 없습니다."
 
-#: dashboards/project/instances/views.py:156
+#: dashboards/project/instances/views.py:162
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "인스턴스 \"%s\" SPICE 콘솔을 가져올 수 없습니다."
 
-#: dashboards/project/instances/views.py:176
-#: dashboards/project/instances/views.py:260
+#: dashboards/project/instances/views.py:182
+#: dashboards/project/instances/views.py:266
 msgid "Unable to retrieve instance details."
-msgstr "인스턴스 상세 정보를 불러올 수 없습니다."
+msgstr "인스턴스 상세 정보를 찾을 수 없습니다."
 
-#: dashboards/project/instances/views.py:226
+#: dashboards/project/instances/views.py:232
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
-msgstr "인스턴스 \"%s\"에 대한 상세 정보를 불러올 수 없습니다."
+msgstr "인스턴스 \"%s\"에 대한 상세 정보를 찾을 수 없습니다."
 
-#: dashboards/project/instances/views.py:273
+#: dashboards/project/instances/views.py:279
 msgid "Unable to retrieve flavors."
-msgstr "Flavor를 불러올 수 없습니다."
+msgstr "Flavor를 찾을 수 없습니다."
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:4
 msgid "Instance Console"
@@ -5490,7 +5389,7 @@ msgstr "IP 주소"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:68
 msgid "No rules defined."
-msgstr "정의된 rules가 없습니다."
+msgstr "정의된 규칙이 없습니다."
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
 msgid "Meta"
@@ -5540,7 +5439,7 @@ msgstr "MB"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:19
 msgid "Project Limits"
-msgstr "프로젝트들"
+msgstr "프로젝트 제한"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:21
 msgid "Number of Instances"
@@ -5565,7 +5464,7 @@ msgstr "<p>%(quota)s MB에서 %(used)s 사용</p>"
 msgid ""
 "You can customize your instance after it's launched using the options "
 "available here."
-msgstr "여기에서 유용한 옵션들을 사용하여 인스턴스를 구동한 후에 커스터마이징할 수 있습니다."
+msgstr "여기에서 유용한 옵션을 사용하여 인스턴스를 구동한 후에 커스터마이징할 수 있습니다."
 
 #: dashboards/project/instances/templates/instances/_launch_customize_help.html:3
 msgid ""
@@ -5583,13 +5482,13 @@ msgstr "다음 차트는 이 프로젝트에 관련된 프로젝트 quota에 관
 msgid ""
 "Choose network from Available networks to Selected Networks by push button "
 "or drag and drop, you may change nic order by drag and drop as well. "
-msgstr "버튼을 누르거나 드래그 앤 드롭으로 Available Networks에서 네트워크를 선택하여 Selected Networks로 이동하십시오. 드래그 앤 드롭으로 nic 순서를 변경할 수도 있습니다. "
+msgstr "버튼을 클릭하거나 드래그 앤 드롭으로 '사용가능한 네트워크에'서 네트워크 항목을 선택하여 '선택한 네트워크'로 이동 하십시오. 드래그 앤 드롭으로 NIC 순서를 변경할 수 있습니다."
 
 #: dashboards/project/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
-msgstr "인스턴스는 다양한 타입의 스토리지에서 구동될 수 있습니다. 여기에서 옵션들을 선택할 수 있습니다."
+msgstr "인스턴스는 다양한 타입의 스토리지에서 구동할 수 있습니다. 여기에서 옵션을 선택할 수 있습니다."
 
 #: dashboards/project/instances/templates/instances/_rebuild.html:19
 msgid "Select the image to rebuild your instance."
@@ -5597,7 +5496,7 @@ msgstr "인스턴스를 재생성하기 위해 이미지를 선택하세요."
 
 #: dashboards/project/instances/templates/instances/_rebuild.html:20
 msgid "You may optionally set a password on the rebuilt instance."
-msgstr "옵션으로 인스턴스 다시 빌드시 비밀번호를 설정할 수 있습니다.다."
+msgstr "옵션으로 인스턴스 다시 빌드시 비밀번호를 설정할 수 있습니다."
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
 msgid "Selected Networks"
@@ -5641,7 +5540,7 @@ msgstr "볼륨 스냅샷 (새로운 볼륨 생성)으로 부팅."
 
 #: dashboards/project/instances/workflows/create_instance.py:95
 msgid "Instance Count"
-msgstr "인스턴스 수"
+msgstr "인스턴스 카운트"
 
 #: dashboards/project/instances/workflows/create_instance.py:98
 msgid "Number of instances to launch."
@@ -5692,7 +5591,7 @@ msgid ""
 msgid_plural ""
 "The requested %(req)i instances cannot be launched as you only have "
 "%(avail)i of your quota available."
-msgstr[0] "요청된 %(req)i 인스턴스들은 구동할 수 없습니다. %(avail)i 용량만 사용 가능합니다. "
+msgstr[0] "요청된 %(req)i 인스턴스는 구동할 수 없습니다. %(avail)i 용량만 사용 가능합니다. "
 
 #: dashboards/project/instances/workflows/create_instance.py:175
 #: dashboards/project/instances/workflows/create_instance.py:197
@@ -5712,7 +5611,7 @@ msgstr "볼륨을 선택해야 합니다."
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
-msgstr "여러 개의 인스턴스들을 구동하는 것은 이미지 및 인스턴스 스냅샷에서만 지원됩니다. "
+msgstr "여러 개의 인스턴스를 구동하는 것은 이미지 및 인스턴스 스냅샷에서만 지원됩니다. "
 
 #: dashboards/project/instances/workflows/create_instance.py:200
 msgid "You must set volume size"
@@ -5725,25 +5624,25 @@ msgstr "장치 이름을 설정해야 합니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:232
 msgid "Unable to retrieve instance flavors."
-msgstr "인스턴스 flavors를 검색할 수 없습니다."
+msgstr "인스턴스 flavors를 찾을 수 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:241
 msgid "Unable to retrieve availability zones."
-msgstr "사용 가능한 zone 정보를 검색할 수 없습니다. "
+msgstr "사용 가능한 영역 정보를 찾을 수 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:247
 msgid "No availability zones found."
-msgstr "사용 가능한 Zone을 찾을 수 없습니다."
+msgstr "사용 가능한 영역을 찾을 수 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:249
 msgid "Any Availability Zone"
-msgstr "임의의 사용 가능한 Zone"
+msgstr "임의의 사용 가능한 영역"
 
 #: dashboards/project/instances/workflows/create_instance.py:262
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:214
 msgid "Unable to retrieve quota information."
-msgstr "Quota 정보를 불러올 수 없습니다."
+msgstr "Quota 정보를 찾을 수 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:272
 #: dashboards/project/volumes/forms.py:109
@@ -5769,7 +5668,7 @@ msgstr "사용 가능한 스냅샷이 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:318
 msgid "Unable to retrieve list of volumes."
-msgstr "볼륨 목록을 불러올 수 없습니다"
+msgstr "볼륨 목록을 찾을 수 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:320
 msgid "Select Volume"
@@ -5781,7 +5680,7 @@ msgstr "사용 가능한 볼륨이 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:333
 msgid "Unable to retrieve list of volume snapshots."
-msgstr "볼륨 스냅샷 목록을 불러올 수 없습니다"
+msgstr "볼륨 스냅샷 목록을 찾을 수 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:336
 msgid "Select Volume Snapshot"
@@ -5805,13 +5704,13 @@ msgstr "관리자 비밀 번호 확인"
 
 #: dashboards/project/instances/workflows/create_instance.py:398
 msgid "Launch instance in these security groups."
-msgstr "이런 보안 그룹들에서 인스턴스를 구동하십시오."
+msgstr "이 보안 그룹에서 인스턴스를 구동하십시오."
 
 #: dashboards/project/instances/workflows/create_instance.py:403
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
-msgstr "keypair, 보안 그룹, 기타 메커니즘들을 통해 인스턴스를 제어하십시오."
+msgstr "keypair, 보안 그룹, 기타 메커니즘을 통해 인스턴스를 제어하십시오."
 
 #: dashboards/project/instances/workflows/create_instance.py:413
 msgid "Unable to retrieve keypairs."
@@ -5827,7 +5726,7 @@ msgstr "사용 가능한 keypairs가 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:428
 msgid "Unable to retrieve list of security groups"
-msgstr "보안 그룹 목록을 불러올 수 없습니다."
+msgstr "보안 그룹 목록을 찾을 수 없습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:460
 msgid "Customization Script"
@@ -5841,15 +5740,15 @@ msgstr "인스턴스 시작 후 명령어 스크립트 또는 세트를 실행�
 
 #: dashboards/project/instances/workflows/create_instance.py:469
 msgid "Post-Creation"
-msgstr "후속-생성"
+msgstr "생성 이후"
 
 #: dashboards/project/instances/workflows/create_instance.py:485
 msgid "At least one network must be specified."
-msgstr "최소한 하나의 네트워크가 지정되어야 합니다."
+msgstr "최소 하나의 네트워크가 지정되어야 합니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:487
 msgid "Launch instance with these networks"
-msgstr "이러한 네트워크들로 인스턴스 구동"
+msgstr "정한 네트워크로 인스턴스 구동"
 
 #: dashboards/project/instances/workflows/create_instance.py:490
 msgid "Policy Profiles"
@@ -5878,7 +5777,7 @@ msgstr "프로필을 찾을 수 없습니다."
 #: dashboards/project/instances/workflows/create_instance.py:565
 #, python-format
 msgid "%s instances"
-msgstr "%s 인스턴스들"
+msgstr "%s 인스턴스"
 
 #: dashboards/project/instances/workflows/create_instance.py:623
 #, python-format
@@ -5935,7 +5834,7 @@ msgstr "보안 그룹 목록을 찾을 수 없습니다. 잠시 후 다시 시�
 msgid ""
 "From here you can add and remove security groups to this project from the "
 "list of available security groups."
-msgstr "여기에서, 사용 가능한 보안 그룹 목록으로부터 이 프로젝트로 보안 그룹들을 추가 및 제거할 수 있습니다. "
+msgstr "여기서 사용 가능한 보안 그룹 목록에서 이 프로젝트로 보안 그룹을 추가하거나 제거할 수 있습니다. "
 
 #: dashboards/project/instances/workflows/update_instance.py:90
 msgid "All Security Groups"
@@ -5968,7 +5867,7 @@ msgid "Unable to modify instance \"%s\"."
 msgstr "인스턴스 \"%s\"를 수정할 수 없습니다."
 
 #: dashboards/project/loadbalancers/forms.py:41
-#: dashboards/project/loadbalancers/workflows.py:38
+#: dashboards/project/loadbalancers/workflows.py:42
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:30
 msgid "Load Balancing Method"
 msgstr "로드 발란싱 메소드"
@@ -5981,44 +5880,44 @@ msgstr "Pool %s 는 성공적으로 업데이트되었습니다."
 #: dashboards/project/loadbalancers/forms.py:67
 #, python-format
 msgid "Failed to update pool %s"
-msgstr "pool %s 업데이트 실패"
+msgstr "Pool %s 업데이트 실패"
 
 #: dashboards/project/loadbalancers/forms.py:82
-#: dashboards/project/loadbalancers/workflows.py:167
+#: dashboards/project/loadbalancers/workflows.py:168
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:33
 msgid "Session Persistence"
 msgstr "세션 지속성"
 
 #: dashboards/project/loadbalancers/forms.py:86
-#: dashboards/project/loadbalancers/workflows.py:170
+#: dashboards/project/loadbalancers/workflows.py:171
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:37
 msgid "Cookie Name"
 msgstr "쿠키 이름"
 
 #: dashboards/project/loadbalancers/forms.py:87
-#: dashboards/project/loadbalancers/workflows.py:171
+#: dashboards/project/loadbalancers/workflows.py:172
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "APP_COOKIE 지속성을 위해 요청됨; 다른 경우 무시됨. "
+msgstr "APP_COOKIE 지속성을 위해 요청되었습니다. 다른 경우 무시됩니다."
 
 #: dashboards/project/loadbalancers/forms.py:91
-#: dashboards/project/loadbalancers/workflows.py:174
+#: dashboards/project/loadbalancers/workflows.py:175
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:43
 msgid "Connection Limit"
 msgstr "연결 제한"
 
 #: dashboards/project/loadbalancers/forms.py:92
-#: dashboards/project/loadbalancers/workflows.py:175
+#: dashboards/project/loadbalancers/workflows.py:176
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
-msgstr "VIP에 허용된 최대 연결 개수 또는 개수 제약이 설정되지 않았다면 '-1'"
+msgstr "VIP에 허용된 연결의 최대 갯수나 '-1'로 설정하게 되면 제한이 없습니다."
 
 #: dashboards/project/loadbalancers/forms.py:107
 #: dashboards/project/loadbalancers/forms.py:186
 #: dashboards/project/loadbalancers/tabs.py:42
-#: dashboards/project/loadbalancers/workflows.py:313
+#: dashboards/project/loadbalancers/workflows.py:314
 msgid "Unable to retrieve pools list."
-msgstr "Pools 목록을 찾을 수 없습니다."
+msgstr "Pool 목록을 찾을 수 없습니다."
 
 #: dashboards/project/loadbalancers/forms.py:118
 msgid "No session persistence"
@@ -6037,7 +5936,7 @@ msgstr "VIP %s를 성공적으로 업데이트 하였습니다."
 #: dashboards/project/loadbalancers/forms.py:159
 #, python-format
 msgid "Failed to update VIP %s"
-msgstr "VIP %s 업데이트 실패"
+msgstr "VIP %s 업데이트 실패하였습니다."
 
 #: dashboards/project/loadbalancers/forms.py:170
 #: dashboards/project/loadbalancers/workflows.py:294
@@ -6046,9 +5945,9 @@ msgid "Weight"
 msgstr "Weight"
 
 #: dashboards/project/loadbalancers/forms.py:171
-#: dashboards/project/loadbalancers/workflows.py:295
+#: dashboards/project/loadbalancers/workflows.py:296
 msgid "Relative part of requests this pool member serves compared to others"
-msgstr "다른 것들에 비해 이 pool 멤버가 제공하는 요청들의 상대적인 부분"
+msgstr "다른 것들에 비해 이 pool 멤버가 제공할 수 있는 요청에 대해 상대적인 부분"
 
 #: dashboards/project/loadbalancers/forms.py:200
 #, python-format
@@ -6058,7 +5957,7 @@ msgstr "멤버 %s를 성공적으로 업데이트 하였습니다."
 #: dashboards/project/loadbalancers/forms.py:206
 #, python-format
 msgid "Failed to update member %s"
-msgstr "멤버 %s 업데이트 실패"
+msgstr "멤버 %s 업데이트 실패하였습니다."
 
 #: dashboards/project/loadbalancers/forms.py:218
 #: dashboards/project/loadbalancers/workflows.py:405
@@ -6069,7 +5968,7 @@ msgstr "지연"
 #: dashboards/project/loadbalancers/forms.py:219
 #: dashboards/project/loadbalancers/workflows.py:406
 msgid "The minimum time in seconds between regular checks of a member"
-msgstr "멤버의 정기 점검 사이 수 초의 최소 시간"
+msgstr "멤버의 정기 정검 사이의 최소 시간"
 
 #: dashboards/project/loadbalancers/forms.py:223
 #: dashboards/project/loadbalancers/workflows.py:410
@@ -6081,7 +5980,7 @@ msgstr "Timeout"
 #: dashboards/project/loadbalancers/forms.py:224
 #: dashboards/project/loadbalancers/workflows.py:411
 msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "모니터가 응답을 기다리는데 소요되는 수 초의 최대 시간"
+msgstr "모니터 응답을 기다리는는 최대 시간"
 
 #: dashboards/project/loadbalancers/forms.py:228
 #: dashboards/project/loadbalancers/workflows.py:415
@@ -6093,7 +5992,7 @@ msgstr "최대 재시도 (1~10)"
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
-msgstr "멤버 상태를 비활성으로 변경하기 전 허용 실패 개수"
+msgstr "멤버 상태를 비활성상태로 변경하전 실패 횟수"
 
 #: dashboards/project/loadbalancers/forms.py:247
 #, python-format
@@ -6103,14 +6002,14 @@ msgstr "상태 모니터 %s를 성공적으로 업데이트하였습니다."
 #: dashboards/project/loadbalancers/forms.py:253
 #, python-format
 msgid "Failed to update health monitor %s"
-msgstr "상태 모니터 %s 업데이트 실패"
+msgstr "상태 모니터 %s 업데이트 실패하였습니다."
 
 #: dashboards/project/loadbalancers/panel.py:10
 msgid "Load Balancers"
-msgstr "로드 발란서들"
+msgstr "로드 발란서"
 
 #: dashboards/project/loadbalancers/tables.py:31
-#: dashboards/project/loadbalancers/workflows.py:129
+#: dashboards/project/loadbalancers/workflows.py:130
 msgid "Add Pool"
 msgstr "Pool 추가"
 
@@ -6136,7 +6035,7 @@ msgstr "VIP"
 
 #: dashboards/project/loadbalancers/tables.py:71
 msgid "VIPs"
-msgstr "VIP들"
+msgstr "VIPs"
 
 #: dashboards/project/loadbalancers/tables.py:84
 #: dashboards/project/loadbalancers/tables.py:201
@@ -6154,7 +6053,7 @@ msgstr "모니터"
 #: dashboards/project/loadbalancers/tables.py:243
 #: dashboards/project/loadbalancers/tabs.py:66
 msgid "Monitors"
-msgstr "모니터들"
+msgstr "모니터"
 
 #: dashboards/project/loadbalancers/tables.py:99
 msgid "Member"
@@ -6172,28 +6071,28 @@ msgstr "멤버"
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:6
 msgid "Edit Pool"
-msgstr "Pool 수정"
+msgstr "Pool 편집"
 
 #: dashboards/project/loadbalancers/tables.py:116
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:6
 msgid "Edit VIP"
-msgstr "VIP 수정"
+msgstr "VIP 편집"
 
 #: dashboards/project/loadbalancers/tables.py:131
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:6
 msgid "Edit Member"
-msgstr "멤버 수정"
+msgstr "멤버 편집"
 
 #: dashboards/project/loadbalancers/tables.py:141
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:6
 msgid "Edit Monitor"
-msgstr "모니터 수정"
+msgstr "모니터 편집"
 
 #: dashboards/project/loadbalancers/tables.py:159
 msgid "Add Health Monitor"
@@ -6208,14 +6107,14 @@ msgid "Delete Health Monitor"
 msgstr "상태 모니터 삭제"
 
 #: dashboards/project/loadbalancers/tables.py:192
-#: dashboards/project/loadbalancers/workflows.py:35
+#: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:21
 msgid "Provider"
 msgstr "공급자"
 
 #: dashboards/project/loadbalancers/tables.py:224
-#: dashboards/project/loadbalancers/workflows.py:161
-#: dashboards/project/loadbalancers/workflows.py:297
+#: dashboards/project/loadbalancers/workflows.py:162
+#: dashboards/project/loadbalancers/workflows.py:298
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:24
 msgid "Protocol Port"
@@ -6239,7 +6138,7 @@ msgstr "Pool 상세 정보"
 
 #: dashboards/project/loadbalancers/tabs.py:99
 msgid "Unable to retrieve pool details."
-msgstr "Pool 상세 정보를 불러올 수 없습니다."
+msgstr "Pool 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/loadbalancers/tabs.py:104
 msgid "VIP Details"
@@ -6247,7 +6146,7 @@ msgstr "VIP 상세 정보"
 
 #: dashboards/project/loadbalancers/tabs.py:115
 msgid "Unable to retrieve VIP details."
-msgstr "VIP 상세 정보를 불러올 수 없습니다"
+msgstr "VIP 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/loadbalancers/tabs.py:120
 msgid "Member Details"
@@ -6255,7 +6154,7 @@ msgstr "멤버 상세 정보"
 
 #: dashboards/project/loadbalancers/tabs.py:131
 msgid "Unable to retrieve member details."
-msgstr "모니터 상세 정보를 불러올 수 없습니다."
+msgstr "모니터 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/loadbalancers/tabs.py:136
 msgid "Monitor Details"
@@ -6263,7 +6162,7 @@ msgstr "모니터 상세 정보"
 
 #: dashboards/project/loadbalancers/tabs.py:147
 msgid "Unable to retrieve monitor details."
-msgstr "모니터 상세 정보를 불러올 수 없습니다."
+msgstr "모니터 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/loadbalancers/views.py:51
 #, python-format
@@ -6341,68 +6240,68 @@ msgstr "상태 모니터 상세 정보를 찾을 수 없습니다. %s"
 msgid "Unable to retrieve pool. %s"
 msgstr "Pool을 찾을 수 없습니다. %s"
 
-#: dashboards/project/loadbalancers/workflows.py:47
+#: dashboards/project/loadbalancers/workflows.py:51
 #: dashboards/project/vpn/workflows.py:43
 msgid "Select a Subnet"
 msgstr "서브넷 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:52
+#: dashboards/project/loadbalancers/workflows.py:56
 #: dashboards/project/vpn/workflows.py:49
 msgid "Unable to retrieve networks list."
 msgstr "네트워크 목록을 찾을 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:59
-#: dashboards/project/loadbalancers/workflows.py:187
+#: dashboards/project/loadbalancers/workflows.py:63
+#: dashboards/project/loadbalancers/workflows.py:188
 msgid "Select a Protocol"
 msgstr "프로토콜 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:64
+#: dashboards/project/loadbalancers/workflows.py:67
 msgid "Select a Method"
 msgstr "메소드 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:80
+#: dashboards/project/loadbalancers/workflows.py:81
 msgid "Unable to retrieve providers list."
 msgstr "공급자 목록을 찾을 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:94
+#: dashboards/project/loadbalancers/workflows.py:95
 #, python-format
 msgid "%s (default)"
 msgstr "%s (기본)"
 
-#: dashboards/project/loadbalancers/workflows.py:97
+#: dashboards/project/loadbalancers/workflows.py:98
 msgid "Provider for Load Balancer is not supported."
 msgstr "로드 발란서에 대한 공급자를 지원하지 않습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:99
+#: dashboards/project/loadbalancers/workflows.py:100
 msgid "No provider is available."
 msgstr "공급자를 사용할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:105
+#: dashboards/project/loadbalancers/workflows.py:106
 msgid "Add New Pool"
 msgstr "새로운 Pool 추가"
 
-#: dashboards/project/loadbalancers/workflows.py:107
+#: dashboards/project/loadbalancers/workflows.py:108
 msgid ""
 "Create Pool for current project.\n"
 "\n"
 "Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
-msgstr "현재 프로젝트에 Pool을 생성하세요. \n\npool의 이름과 설명을 입력하세요. 이 pool의 모든 멤버들이 구동 중인 하나의 서브넷을 선택하십시오. 이 pool을 위한 프로토콜과 로드 밸런싱 방식을 선택하세요. 어드민 상태는 UP으로 기본 설정됩니다. "
+msgstr "현재 프로젝트에 Pool을 생성합니다.\n\nPool 이름과 설명을 입력합니다. Pool을 이용하여 모든 멤버들이 사용가능한 서브넷을 선택합니다. Pool에서 사용할 프로토콜과 로드 밸런싱을 선택합니다. 관리자 상태는 UP (checked)로 기본 설정됩니다."
 
-#: dashboards/project/loadbalancers/workflows.py:131
+#: dashboards/project/loadbalancers/workflows.py:132
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" 추가하였습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:132
+#: dashboards/project/loadbalancers/workflows.py:133
 #, python-format
 msgid "Unable to add pool \"%s\"."
 msgstr "Pool \"%s\"를 추가할 수 없습니다"
 
-#: dashboards/project/loadbalancers/workflows.py:154
+#: dashboards/project/loadbalancers/workflows.py:155
 msgid "VIP Address from Floating IPs"
 msgstr "유동 IP의 VIP 주소"
 
-#: dashboards/project/loadbalancers/workflows.py:183
+#: dashboards/project/loadbalancers/workflows.py:184
 #, python-format
 msgid "Specify a free IP address from %s"
 msgstr "%s에서 무료 IP 주소를 지정"
@@ -6425,7 +6324,7 @@ msgid ""
 "Specify an IP address and port for the VIP. Choose the protocol and session "
 "persistence method for the VIP.Specify the max connections allowed. Admin "
 "State is UP (checked) by default."
-msgstr "이 pool을 위한 VIP를 생성하세요. VIP를 위한 이름과 설명을 입력하세요. VIP를 위한 IP 주소와 포트를 지정하세요. VIP를 위한 프로토콜과 세션 지속성 방식을 선택하세요. 허용된 최대 연결 수를 지정하세요. 어드민 상태는 UP으로 기본 설정됩니다. "
+msgstr "Pool의 ViP를 생성합니다. VIP 이름과 설명을 입력합니다. VIP에서 사용할 IP 주소와 포트를 지정합니다. ViP 프로토콜과 세션 지속성 방식을 선택합니다. 허용가능한 최대 연결 수를 지정합니다. 관리자 상태는 UP (checked)로 기본 설정됩니다."
 
 #: dashboards/project/loadbalancers/workflows.py:238
 #, python-format
@@ -6445,30 +6344,30 @@ msgstr "하나의 주소만 지정할 수 있습니다. VIP \"%s\"를 추가할 
 #: dashboards/project/loadbalancers/workflows.py:262
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "지정된 pool을 불러올 수 없습니다. VIP \"%s\"를 추가할 수 없습니다."
+msgstr "지정된 pool을 찾을 수 없습니다. VIP \"%s\"를 추가할 수 없습니다."
 
 #: dashboards/project/loadbalancers/workflows.py:287
 msgid "Member(s)"
-msgstr "멤버(들)"
+msgstr "멤버"
 
 #: dashboards/project/loadbalancers/workflows.py:292
 msgid "At least one member must be specified"
 msgstr "최소 하나의 멤버가 지정되어야 합니다. "
 
 #: dashboards/project/loadbalancers/workflows.py:293
-#: dashboards/project/loadbalancers/workflows.py:332
+#: dashboards/project/loadbalancers/workflows.py:333
 msgid "Select members for this pool "
 msgstr "이 pool에서 멤버 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:307
+#: dashboards/project/loadbalancers/workflows.py:308
 msgid "Select a Pool"
 msgstr "Pool 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:326
+#: dashboards/project/loadbalancers/workflows.py:327
 msgid "Unable to retrieve instances list."
 msgstr "인스턴스 목록을 찾을 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:329
+#: dashboards/project/loadbalancers/workflows.py:330
 msgid "No servers available. Click Add to cancel."
 msgstr "사용 가능한 서버가 없습니다. 취소하려면 추가를 클릭하십시오."
 
@@ -6481,15 +6380,15 @@ msgid ""
 "Add member to selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
-msgstr "선택된 pool에 멤버를 추가하세요. \n\npool에 추가할 하나 이상의 인스턴스를 멤버로 선택하세요. 이 멤버에게 숫자로 weight을 할당하고 멤버가 운영할 포트 번호를 지정하세요; 예: 80."
+msgstr "선택된 pool에 멤버를 추가합니다.\n\nPool에 추가할 인스턴스를 멤버로 선택합니다. 이 멤버에게 숫자로 Wight를 할당하고 운영할 포트번호를 지정합니다. 예: 80."
 
 #: dashboards/project/loadbalancers/workflows.py:370
 msgid "Added member(s)."
-msgstr "추가된 멤버(들)"
+msgstr "추가된 멤버"
 
 #: dashboards/project/loadbalancers/workflows.py:371
 msgid "Unable to add member(s)."
-msgstr "멤버(들)을 추가할 수 없습니다."
+msgstr "멤버를 추가할 수 없습니다."
 
 #: dashboards/project/loadbalancers/workflows.py:395
 msgid "PING"
@@ -6529,7 +6428,7 @@ msgstr "URL"
 #: dashboards/project/loadbalancers/workflows.py:453
 #: dashboards/project/loadbalancers/workflows.py:454
 msgid "Expected HTTP Status Codes"
-msgstr "예상된 HTTP 상태 코드들"
+msgstr "예상된 HTTP 상태 코드"
 
 #: dashboards/project/loadbalancers/workflows.py:447
 msgid ""
@@ -6587,7 +6486,7 @@ msgstr "모니터 선택"
 #: dashboards/project/loadbalancers/workflows.py:544
 #: dashboards/project/loadbalancers/workflows.py:602
 msgid "Unable to retrieve monitors list."
-msgstr "모니터 목록을 불러올 수 없습니다."
+msgstr "모니터 목록을 찾을 수 없습니다."
 
 #: dashboards/project/loadbalancers/workflows.py:550
 #: dashboards/project/loadbalancers/workflows.py:608
@@ -6596,7 +6495,7 @@ msgstr "연결 상세 정보"
 
 #: dashboards/project/loadbalancers/workflows.py:552
 msgid "Associate a health monitor with target pool."
-msgstr "상태 모니터는 대상 pool에 연결하세요."
+msgstr "상태 모니터는 대상 pool에 연결합니다"
 
 #: dashboards/project/loadbalancers/workflows.py:568
 msgid "Add Association"
@@ -6618,7 +6517,7 @@ msgstr "상태 모니터 %s 선택"
 
 #: dashboards/project/loadbalancers/workflows.py:610
 msgid "Disassociate a health monitor from target pool. "
-msgstr "대상 pool에서 상태 모니터를 해제하세요."
+msgstr "대상 pool에서 상태 모니터를 해제합니다."
 
 #: dashboards/project/loadbalancers/workflows.py:627
 msgid "Delete Association"
@@ -6653,7 +6552,7 @@ msgstr "URL 경로"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:31
 msgid "Expected Codes"
-msgstr "예상 코드들"
+msgstr "예상 코드"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
 msgid "VIP ID"
@@ -6673,7 +6572,7 @@ msgstr "상태 모니터"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:18
 msgid ""
 "You may update member attributes here: edit pool, weight or admin state."
-msgstr "멤버 속성을 갱신할 수 있습니다: pool, weight, 또는 어드민 상태를 편집하세요."
+msgstr "멤버 속성을 갱신할 수 있습니다: pool, weight, 또는 관리자 상태를 편집합니다."
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:18
 msgid ""
@@ -6685,13 +6584,13 @@ msgstr "상태 모니터 속성을 갱신할 수 있습니다: 지연, 타임아
 msgid ""
 "You may update pool for current tenant here: edit name, description, load "
 "balancing method or admin state."
-msgstr "현재 tenant를 위한 풀을 갱신할 수 있습니다: 이름, 설명, 로드 밸런싱 방식, 또는 어드민 상태를 편집하세요. "
+msgstr "현재 tenant를 위한 pool을 갱신할 수 있습니다: 이름, 설명, 로드 밸런싱 방식 및 관리자 상태를 편집합니다."
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:18
 msgid ""
 "You may update VIP attributes here: edit name, description, pool, session "
 "persistence, connection limit  or admin state."
-msgstr "여기에서 VIP 속성을 업데이트할 수 있습니다: 이름, 설명, pool, 세션 지속성, 연결 제약, 또는 어드민 상태를 편집하세요. "
+msgstr "여기에서 VIP 속성을 업데이트할 수 있습니다: 이름, 설명, Pool, 섹션 지속성 연결제약, 관리자 상태를 편집합니다."
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:6
@@ -6757,7 +6656,7 @@ msgstr "서브넷 추가"
 
 #: dashboards/project/networks/views.py:86
 msgid "Unable to retrieve network details."
-msgstr "네트워크 상세 정보를 불러올 수 없습니다."
+msgstr "네트워크 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/networks/workflows.py:71
 msgid ""
@@ -6827,7 +6726,7 @@ msgstr "DHCP 사용"
 
 #: dashboards/project/networks/workflows.py:170
 msgid "Allocation Pools"
-msgstr "할당 Pools"
+msgstr "Pools 할당"
 
 #: dashboards/project/networks/workflows.py:171
 msgid ""
@@ -6847,7 +6746,7 @@ msgstr "이 서브넷에 대한 DNS 네임 서버의 IP 주소 목록입니다. 
 
 #: dashboards/project/networks/workflows.py:184
 msgid "Host Routes"
-msgstr "호스트 라우터들"
+msgstr "호스트 라우터"
 
 #: dashboards/project/networks/workflows.py:185
 msgid ""
@@ -6857,6 +6756,7 @@ msgid ""
 msgstr "호스트에 통보되는 추가 루트. 각 항목은 &lt;destination_cidr&gt;,&lt;nexthop&gt; (예: 192.168.200.0/24, 10.56.1.254)형식으로 한 줄에 한 항목을 기입합니다."
 
 #: dashboards/project/networks/workflows.py:192
+#: dashboards/project/networks/subnets/workflows.py:142
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
@@ -6949,21 +6849,21 @@ msgstr "장치 연결됨"
 
 #: dashboards/project/networks/ports/views.py:55
 msgid "Unable to retrieve port details"
-msgstr "포트 상세 정보를 불러올 수 없습니다."
+msgstr "포트 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/networks/subnets/tabs.py:37
 msgid "Unable to retrieve subnet details."
-msgstr "서브넷 상세 정보를 불러올 수 없습니다."
+msgstr "서브넷 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/networks/subnets/views.py:67
 msgid "Unable to retrieve subnet details"
-msgstr "서브넷 상세 정보를 불러올 수 없습니다."
+msgstr "서브넷 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/networks/subnets/workflows.py:41
 msgid ""
 "You can create a subnet associated with the network. Advanced configuration "
 "are available at \"Subnet Detail\" tab."
-msgstr "네트워크에 연결된 서브넷을 만들 수 있습니다. 이 구성은 \"서브넷 세부 정보\" 탭에서 사용할 수 있습니다.\n\n당신은 네트워크에 연결된 서브넷을 만들 수 있습니다. 고급 구성 \"서브넷 세부 정보\"탭에서 사용할 수 있습니다."
+msgstr "네트워크에 연결된 서브넷을 만들 수 있습니다. 이 구성은 \"서브넷 세부 정보\" 탭에서 사용할 수 있습니다."
 
 #: dashboards/project/networks/subnets/workflows.py:60
 #, python-format
@@ -7108,6 +7008,14 @@ msgstr "DNS 네임 서버"
 msgid "Uptime(Seconds)"
 msgstr "가동 시간(Seconds)"
 
+#: dashboards/project/overview/templates/overview/usage.csv:3
+msgid "Total Active VCPUs"
+msgstr "총 사용중인 VCPUs"
+
+#: dashboards/project/overview/templates/overview/usage.csv:5
+msgid "Total Active Ram (MB)"
+msgstr "총 사용중인 Ram (MB)"
+
 #: dashboards/project/routers/forms.py:23
 #: dashboards/project/routers/ports/forms.py:38
 #: dashboards/project/routers/ports/forms.py:146
@@ -7158,7 +7066,7 @@ msgstr "게이트웨이"
 
 #: dashboards/project/routers/tables.py:81
 msgid "Gateways"
-msgstr "게이트웨이들"
+msgstr "게이트웨이"
 
 #: dashboards/project/routers/tables.py:91
 #, python-format
@@ -7167,7 +7075,7 @@ msgstr "라우터 \"%(name)s\"에서 게이트웨이를 제거하지 못하였�
 
 #: dashboards/project/routers/tabs.py:37
 msgid "Unable to retrieve router details."
-msgstr "라우터 상세 정보를 불러올 수 없습니다."
+msgstr "라우터 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/routers/views.py:73
 #, python-format
@@ -7182,7 +7090,7 @@ msgstr "외부 네트워크 \"%s\"를 찾을 수 없음."
 #: dashboards/project/routers/views.py:101
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "라우터 \"%s\"의 상세 정보를 불러올 수 없습니다."
+msgstr "라우터 \"%s\"의 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/routers/views.py:113
 #, python-format
@@ -7347,7 +7255,7 @@ msgstr "템플릿을 외부 (HTTP) URL로 불러옵니다."
 
 #: dashboards/project/stacks/forms.py:87 dashboards/project/stacks/forms.py:92
 msgid "Template Data"
-msgstr "템플릿 데이타"
+msgstr "템플릿 데이터"
 
 #: dashboards/project/stacks/forms.py:88
 msgid "The raw contents of the template."
@@ -7424,7 +7332,7 @@ msgstr "스택 생성 실패하였습니다."
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
-msgstr "스택들"
+msgstr "스택"
 
 #: dashboards/project/stacks/tables.py:32
 #: dashboards/project/stacks/templates/stacks/_create.html:8
@@ -7442,6 +7350,11 @@ msgstr "스택"
 msgid "Stack Resource"
 msgstr "스택 리소스"
 
+#: dashboards/project/stacks/tables.py:103
+#: dashboards/project/stacks/tables.py:147
+msgid "Resource"
+msgstr "리소스"
+
 #: dashboards/project/stacks/tables.py:106
 msgid "Time Since Event"
 msgstr "이벤트 이후 시간"
@@ -7453,7 +7366,7 @@ msgstr "상태 현황"
 
 #: dashboards/project/stacks/tables.py:117
 msgid "Stack Events"
-msgstr "스택 이벤트들"
+msgstr "스택 이벤트"
 
 #: dashboards/project/stacks/tables.py:150
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:17
@@ -7466,7 +7379,7 @@ msgstr "업데이트한 날짜"
 
 #: dashboards/project/stacks/tables.py:174
 msgid "Stack Resources"
-msgstr "스택 리소스들"
+msgstr "스택 리소스"
 
 #: dashboards/project/stacks/tabs.py:33
 msgid "Topology"
@@ -7474,7 +7387,7 @@ msgstr "토폴로지"
 
 #: dashboards/project/stacks/tabs.py:67
 msgid "Events"
-msgstr "이벤트들"
+msgstr "이벤트"
 
 #: dashboards/project/stacks/tabs.py:81
 #, python-format
@@ -7492,7 +7405,7 @@ msgstr "스택 \"%s\"에 대한 리소스를 가져오지 못하였습니다."
 
 #: dashboards/project/stacks/views.py:53
 msgid "Unable to retrieve stack list."
-msgstr "스택 목록을 불러올 수 없습니다."
+msgstr "스택 목록을 찾을 수 없습니다."
 
 #: dashboards/project/stacks/views.py:112
 msgid "Unable to retrieve stack."
@@ -7504,7 +7417,7 @@ msgstr "리소스를 찾을 수 없습니다."
 
 #: dashboards/project/stacks/views.py:155
 msgid "Unable to retrieve metadata."
-msgstr "메타 데이타를 찾을 수 없습니다."
+msgstr "메타 데이터를 찾을 수 없습니다."
 
 #: dashboards/project/stacks/templates/stacks/_create.html:19
 msgid "Create a new stack with the provided values."
@@ -7525,11 +7438,11 @@ msgstr "출력"
 
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:47
 msgid "Stack Parameters"
-msgstr "스택 매개 변수들"
+msgstr "스택 매개 변수"
 
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:58
 msgid "Launch Parameters"
-msgstr "런치 매개 변수들"
+msgstr "런치 매개 변수"
 
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
 msgid "Minutes"
@@ -7553,7 +7466,7 @@ msgstr "리소스 ID"
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Resource Metadata"
-msgstr "리소스 메타데이타"
+msgstr "리소스 메타데이터"
 
 #: dashboards/project/stacks/templates/stacks/_select_template.html:20
 msgid ""
@@ -7695,7 +7608,7 @@ msgstr "볼륨 \"%s\"를 삭제할 수 없습니다. 하나 이상의 스냅샷�
 
 #: dashboards/project/volumes/tables.py:82
 msgid "Edit Attachments"
-msgstr "연결 수정"
+msgstr "연결 편집"
 
 #: dashboards/project/volumes/tables.py:111
 #, python-format
@@ -7705,7 +7618,7 @@ msgstr "%sGB"
 #: dashboards/project/volumes/tables.py:124
 #: dashboards/project/volumes/views.py:160
 msgid "Unable to retrieve attachment information."
-msgstr "연결 설정 정보를 불러올 수 없습니다."
+msgstr "연결 설정 정보를 찾을 수 없습니다."
 
 #: dashboards/project/volumes/tables.py:141
 #, python-format
@@ -7736,11 +7649,11 @@ msgstr "부착물"
 
 #: dashboards/project/volumes/tabs.py:42
 msgid "Unable to retrieve volume details."
-msgstr "볼륨 상세 정보를 불러올 수 없습니다."
+msgstr "볼륨 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/volumes/views.py:49
 msgid "Unable to retrieve volume list."
-msgstr "볼륨 목록을 불러올 수 없습니다."
+msgstr "볼륨 목록을 찾을 수 없습니다."
 
 #: dashboards/project/volumes/views.py:59
 msgid "Unable to retrieve volume/instance attachment information"
@@ -7749,7 +7662,7 @@ msgstr "볼륨/인스턴스 연결 정보를 찾을 수 없습니다."
 #: dashboards/project/volumes/views.py:141
 #: dashboards/project/volumes/views.py:151
 msgid "Unable to retrieve volume information."
-msgstr "볼륨 정보를 불러올 수 없습니다."
+msgstr "볼륨 정보를 찾을 수 없습니다."
 
 #: dashboards/project/volumes/templates/volumes/_attach.html:10
 #: dashboards/project/volumes/templates/volumes/attach.html:3
@@ -7831,7 +7744,7 @@ msgstr "VPN 서비스"
 #: dashboards/project/vpn/tables.py:60 dashboards/project/vpn/tables.py:136
 #: dashboards/project/vpn/tabs.py:73
 msgid "VPN Services"
-msgstr "VPN 서비스들"
+msgstr "VPN 서비스"
 
 #: dashboards/project/vpn/tables.py:67 dashboards/project/vpn/tables.py:99
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
@@ -7860,7 +7773,7 @@ msgstr "IPSec 사이트 연결"
 #: dashboards/project/vpn/tables.py:84 dashboards/project/vpn/tables.py:110
 #: dashboards/project/vpn/tabs.py:54
 msgid "IPSec Site Connections"
-msgstr "IPSec 사이트 연결들"
+msgstr "IPSec 사이트 연결"
 
 #: dashboards/project/vpn/tables.py:146 dashboards/project/vpn/tables.py:164
 #: dashboards/project/vpn/workflows.py:116
@@ -7884,19 +7797,19 @@ msgstr "PFS"
 
 #: dashboards/project/vpn/tabs.py:67
 msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPSec 사이트 연결 목록을 불러올 수 없습니다."
+msgstr "IPSec 사이트 연결 목록을 찾을 수 없습니다."
 
 #: dashboards/project/vpn/tabs.py:86 dashboards/project/vpn/workflows.py:371
 msgid "Unable to retrieve VPN Services list."
-msgstr "VPN 서비스 목록을 불러올 수 없습니다."
+msgstr "VPN 서비스 목록을 찾을 수 없습니다."
 
 #: dashboards/project/vpn/tabs.py:103 dashboards/project/vpn/workflows.py:345
 msgid "Unable to retrieve IKE Policies list."
-msgstr "IKE Policies 목록을 불러올 수 없습니다."
+msgstr "IKE Policies 목록을 찾을 수 없습니다."
 
 #: dashboards/project/vpn/tabs.py:120 dashboards/project/vpn/workflows.py:358
 msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPSec Policies 목록을 불러올 수 없습니다."
+msgstr "IPSec Policies 목록을 찾을 수 없습니다."
 
 #: dashboards/project/vpn/tabs.py:132
 msgid "IKE Policy Details"
@@ -7904,7 +7817,7 @@ msgstr "IKE Policy 상세 정보"
 
 #: dashboards/project/vpn/tabs.py:142
 msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE Policy 상세 정보를 불러올 수 없습니다."
+msgstr "IKE Policy 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/vpn/tabs.py:153
 msgid "IPSec Policy Details"
@@ -7912,7 +7825,7 @@ msgstr "IPSec Policy 상세 정보"
 
 #: dashboards/project/vpn/tabs.py:163
 msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec Policy 상세 정보를 불러올 수 없습니다."
+msgstr "IPSec Policy 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/vpn/tabs.py:174
 msgid "VPN Service Details"
@@ -7920,7 +7833,7 @@ msgstr "VPN 서비스 상세 정보"
 
 #: dashboards/project/vpn/tabs.py:184
 msgid "Unable to retrieve VPN Service details."
-msgstr "VPN 서비스 상세 정보를 불러올 수 없습니다."
+msgstr "VPN 서비스 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/project/vpn/tabs.py:204
 msgid "IPSec Site Connection Details"
@@ -7972,7 +7885,7 @@ msgstr "라우터 선택"
 
 #: dashboards/project/vpn/workflows.py:63
 msgid "Unable to retrieve routers list."
-msgstr "라우터 목록을 불러올 수 없습니다."
+msgstr "라우터 목록을 찾을 수 없습니다."
 
 #: dashboards/project/vpn/workflows.py:71
 msgid "Add New VPN Service"
@@ -8109,13 +8022,13 @@ msgstr "VPN에 연결을 위한 피어 게이트웨이 공용 IPv4/IPv6 주소 �
 #: dashboards/project/vpn/workflows.py:325
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:34
 msgid "Peer router identity for authentication (Peer ID)"
-msgstr "인증을 위한 피어 라우터 ID (피어 ID)"
+msgstr "신원 인증을 위한 피어 라우터 ID (피어 ID)"
 
 #: dashboards/project/vpn/workflows.py:326
 msgid ""
 "Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
 "key ID, or FQDN"
-msgstr "인증을 위한 피어 라우터 ID. IPv4/IPv6 주소, e-mail, 키 ID, FQDN으로도 가능합니다."
+msgstr "신원 인증을 위한 피어 라우터 ID. IPv4/IPv6 주소, e-mail, 키 ID, FQDN으로도 가능합니다."
 
 #: dashboards/project/vpn/workflows.py:330
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:37
@@ -8188,11 +8101,11 @@ msgstr "DPD 간격을 보다 큰 유효한 정수"
 #: dashboards/project/vpn/workflows.py:411
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:50
 msgid "Initiator state"
-msgstr "발기인 상태"
+msgstr "Initiator 상태"
 
 #: dashboards/project/vpn/workflows.py:433
 msgid "Optional Parameters"
-msgstr "선택적인 변수들"
+msgstr "옵션 변수"
 
 #: dashboards/project/vpn/workflows.py:435
 msgid ""
@@ -8242,7 +8155,7 @@ msgstr "라우트 모드"
 
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:27
 msgid "VPN Connections"
-msgstr "VPN 연결들"
+msgstr "VPN 연결"
 
 #: dashboards/project/vpn/templates/vpn/details_tabs.html:3
 #: dashboards/project/vpn/templates/vpn/details_tabs.html:6
@@ -8351,7 +8264,7 @@ msgstr "정책 프로필"
 
 #: dashboards/router/nexus1000v/views.py:131
 msgid "Unable to retrieve network profile details."
-msgstr "네트워크 프로필 상세 정보를 불러올 수 없습니다."
+msgstr "네트워크 프로필 상세 정보를 찾을 수 없습니다."
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
 msgid "Select a name for your network profile."
@@ -8393,10 +8306,6 @@ msgstr "새로운 비밀번호"
 msgid "Confirm new password"
 msgstr "새로운 비밀번호 확인"
 
-#: dashboards/settings/password/forms.py:63
-msgid "Password changed. Please log in again to continue."
-msgstr "비밀번호 변경하였습니다. 다시 로그인 해주십시오."
-
 #: dashboards/settings/password/forms.py:68
 msgid "Unable to change password."
 msgstr "비밀번호를 변경할 수 없습니다."
@@ -8405,7 +8314,7 @@ msgstr "비밀번호를 변경할 수 없습니다."
 msgid "Changing password is not supported."
 msgstr "비밀번호 변경은 지원하지 않습니다."
 
-#: dashboards/settings/password/panel.py:25
+#: dashboards/settings/password/panel.py:26
 #: dashboards/settings/password/templates/password/_change.html:9
 #: dashboards/settings/password/templates/password/change.html:3
 #: dashboards/settings/password/templates/password/change.html:6
@@ -8447,11 +8356,11 @@ msgstr "설정 저장."
 #: dashboards/settings/user/templates/user/settings.html:3
 #: dashboards/settings/user/templates/user/settings.html:6
 msgid "User Settings"
-msgstr "사용자 설정들"
+msgstr "사용자 설정"
 
 #: dashboards/settings/user/templates/user/_settings.html:19
 msgid "From here you can modify dashboard settings for your user."
-msgstr "여기서 사용자를 위한 대시보드 설정들을 변경할 수 있습니다."
+msgstr "여기서 사용자를 위한 대시보드 설정을 변경할 수 있습니다."
 
 #: templates/403.html:5 templates/403.html.py:10
 msgid "Forbidden"
@@ -8506,7 +8415,7 @@ msgstr "유효하지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용"
 
 #: usage/base.py:161
 msgid "Unable to retrieve network quota information."
-msgstr "네트워크 허용량 정보를 불러올 수 없습니다."
+msgstr "네트워크 허용량 정보를 찾을 수 없습니다."
 
 #: usage/base.py:176
 msgid "Unable to retrieve limit information."
@@ -8527,11 +8436,11 @@ msgid ""
 "exist."
 msgstr "유효하지 않은 시간 주기. 존재하지 않는 미래 시점에서 데이터를 요청하고 있습니다."
 
-#: usage/quotas.py:231
+#: usage/quotas.py:228
 msgid "Unable to retrieve compute limit information."
 msgstr "Compute 최대 사용량 정보를 찾을 수 없습니다."
 
-#: usage/quotas.py:243
+#: usage/quotas.py:240
 msgid "Unable to retrieve volume limit information."
 msgstr "볼륨 최대 사용량 정보를 찾을 수 없습니다."
 
