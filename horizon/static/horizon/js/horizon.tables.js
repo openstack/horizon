@@ -414,5 +414,11 @@ horizon.addInitFunction(function() {
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_query_filter);
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_fixed_filter);
 
+  // Also apply on tables in tabs views for lazy-loaded data.
+  horizon.tabs.addTabLoadFunction(horizon.datatables.add_table_checkboxes);
+  horizon.tabs.addTabLoadFunction(horizon.datatables.set_table_sorting);
+  horizon.tabs.addTabLoadFunction(horizon.datatables.set_table_query_filter);
+  horizon.tabs.addTabLoadFunction(horizon.datatables.set_table_fixed_filter);
+
   horizon.datatables.update();
 });
