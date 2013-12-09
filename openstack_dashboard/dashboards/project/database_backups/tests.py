@@ -27,10 +27,15 @@ DETAILS_URL = reverse('horizon:project:database_backups:detail', args=['id'])
 
 
 class DatabasesBackupsTests(test.TestCase):
-    @test.create_stubs({api.trove: ('backup_list', )})
+    @test.create_stubs({api.trove: ('backup_list', 'instance_get')})
     def test_index(self):
         api.trove.backup_list(IsA(http.HttpRequest))\
             .AndReturn(self.database_backups.list())
+
+        api.trove.instance_get(IsA(http.HttpRequest),
+                               IsA(str))\
+            .MultipleTimes()\
+            .AndReturn(self.databases.first())
 
         self.mox.ReplayAll()
 
@@ -75,11 +80,15 @@ class DatabasesBackupsTests(test.TestCase):
         self.assertTemplateUsed(res,
             'project/database_backups/backup.html')
 
-    @test.create_stubs({api.trove: ('backup_get',)})
+    @test.create_stubs({api.trove: ('backup_get', 'instance_get')})
     def test_detail_backup(self):
         api.trove.backup_get(IsA(http.HttpRequest),
                              IsA(unicode))\
             .AndReturn(self.database_backups.first())
+
+        api.trove.instance_get(IsA(http.HttpRequest),
+                               IsA(str))\
+            .AndReturn(self.databases.first())
 
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
