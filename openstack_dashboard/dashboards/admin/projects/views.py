@@ -34,7 +34,8 @@ from openstack_dashboard.dashboards.admin.projects \
     import tables as project_tables
 from openstack_dashboard.dashboards.admin.projects \
     import workflows as project_workflows
-
+from openstack_dashboard.dashboards.project.overview \
+    import views as project_views
 
 PROJECT_INFO_FIELDS = ("domain_id",
                        "domain_name",
@@ -94,6 +95,8 @@ class ProjectUsageView(usage.UsageView):
     table_class = usage.ProjectUsageTable
     usage_class = usage.ProjectUsage
     template_name = 'admin/projects/usage.html'
+    csv_response_class = project_views.ProjectUsageCsvRenderer
+    csv_template_name = 'project/overview/usage.csv'
 
     def get_data(self):
         super(ProjectUsageView, self).get_data()

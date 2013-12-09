@@ -18,6 +18,7 @@ from openstack_dashboard.usage import base
 class UsageView(tables.DataTableView):
     usage_class = None
     show_terminated = True
+    csv_template_name = None
 
     def __init__(self, *args, **kwargs):
         super(UsageView, self).__init__(*args, **kwargs)
@@ -27,7 +28,8 @@ class UsageView(tables.DataTableView):
 
     def get_template_names(self):
         if self.request.GET.get('format', 'html') == 'csv':
-            return ".".join((self.template_name.rsplit('.', 1)[0], 'csv'))
+            return (self.csv_template_name or
+                    ".".join((self.template_name.rsplit('.', 1)[0], 'csv')))
         return self.template_name
 
     def get_content_type(self):
