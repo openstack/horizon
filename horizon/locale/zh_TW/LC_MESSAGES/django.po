@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Chao-Hsiung Liao <pesder@gmail.com>, 2012
+# macjacktw <macjacktw@hotmail.com>, 2013
 # Tom Fifield <tom@openstack.org>, 2013
 # zero00072 <zero00072@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 23:48-0500\n"
-"PO-Revision-Date: 2013-09-27 07:03+0000\n"
-"Last-Translator: zero00072 <zero00072@gmail.com>\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
+"PO-Revision-Date: 2013-12-06 07:10+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openstack/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,40 +60,49 @@ msgstr "選擇要瀏覽的 %s。"
 msgid "Password is not accepted"
 msgstr "密碼不被允許"
 
-#: tables/actions.py:381
+#: tables/actions.py:382
 #: templates/horizon/common/_data_table_table_actions.html:13
+#: templates/horizon/common/_workflow_step_update_members.html:11
+#: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr "篩選"
 
-#: tables/actions.py:560
+#: tables/actions.py:562
 #, python-format
+msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:594
+#: tables/actions.py:564
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#: tables/actions.py:598
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:622
+#: tables/actions.py:626
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "您沒有權限%(action)s：%(objs)s"
 
-#: tables/actions.py:628
+#: tables/actions.py:632
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "無法%(action)s：%(objs)s"
 
-#: tables/actions.py:634
+#: tables/actions.py:638
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s：%(objs)s"
 
-#: tables/actions.py:644
+#: tables/actions.py:648
 msgid "Delete"
 msgstr "刪除"
 
-#: tables/actions.py:645
+#: tables/actions.py:649
 msgid "Deleted"
 msgstr "已刪除"
 
@@ -253,7 +263,7 @@ msgstr "提交"
 
 #: templates/horizon/common/_usage_summary.html:9
 msgid "The date should be in YYYY-mm-dd format."
-msgstr "日期的格式為 YY-mm-dd。"
+msgstr "日期的格式應該為 YY-mm-dd。"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
@@ -354,7 +364,7 @@ msgstr "埠口號碼必須是整數"
 
 #: workflows/base.py:72
 msgid "Processing..."
-msgstr "處理中……"
+msgstr "處理中…"
 
 #: workflows/base.py:493
 msgid "All available"

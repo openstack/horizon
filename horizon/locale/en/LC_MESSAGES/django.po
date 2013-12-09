@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-09 05:08+0000\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,42 +56,49 @@ msgstr ""
 msgid "Password is not accepted"
 msgstr ""
 
-#: tables/actions.py:381
+#: tables/actions.py:382
 #: templates/horizon/common/_data_table_table_actions.html:13
 #: templates/horizon/common/_workflow_step_update_members.html:11
 #: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:560
+#: tables/actions.py:562
 #, python-format
+msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:594
+#: tables/actions.py:564
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr ""
+
+#: tables/actions.py:598
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:622
+#: tables/actions.py:626
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:628
+#: tables/actions.py:632
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:634
+#: tables/actions.py:638
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:644
+#: tables/actions.py:648
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:645
+#: tables/actions.py:649
 msgid "Deleted"
 msgstr ""
 

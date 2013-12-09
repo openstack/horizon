@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 23:48-0500\n"
-"PO-Revision-Date: 2013-09-30 19:39+0000\n"
-"Last-Translator: RoyB <roy@server.biz>\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
+"PO-Revision-Date: 2013-12-06 07:10+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openstack/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,40 +59,49 @@ msgstr "Selecteer een %s om te bladeren."
 msgid "Password is not accepted"
 msgstr "Wachtwoord is niet geaccepteerd"
 
-#: tables/actions.py:381
+#: tables/actions.py:382
 #: templates/horizon/common/_data_table_table_actions.html:13
+#: templates/horizon/common/_workflow_step_update_members.html:11
+#: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:560
+#: tables/actions.py:562
 #, python-format
+msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:594
+#: tables/actions.py:564
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#: tables/actions.py:598
 msgid "N/A"
 msgstr "n.v.t."
 
-#: tables/actions.py:622
+#: tables/actions.py:626
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "U bent niet gemachtigd voor %(action)s: %(objs)s"
 
-#: tables/actions.py:628
+#: tables/actions.py:632
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Niet in staat om %(action)s: %(objs)s"
 
-#: tables/actions.py:634
+#: tables/actions.py:638
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:644
+#: tables/actions.py:648
 msgid "Delete"
 msgstr "Verwijder"
 
-#: tables/actions.py:645
+#: tables/actions.py:649
 msgid "Deleted"
 msgstr "Verwijderd"
 

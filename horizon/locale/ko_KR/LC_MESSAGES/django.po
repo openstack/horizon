@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 23:48-0500\n"
-"PO-Revision-Date: 2013-10-04 16:06+0000\n"
-"Last-Translator: ujuc Gang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
+"PO-Revision-Date: 2013-12-07 18:30+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openstack/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,40 +59,49 @@ msgstr "브라우져에서 %s를 선택하십시오."
 msgid "Password is not accepted"
 msgstr "허용되지 않는 암호 입니다."
 
-#: tables/actions.py:381
+#: tables/actions.py:382
 #: templates/horizon/common/_data_table_table_actions.html:13
+#: templates/horizon/common/_workflow_step_update_members.html:11
+#: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr "필터"
 
-#: tables/actions.py:560
+#: tables/actions.py:562
 #, python-format
+msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:594
+#: tables/actions.py:564
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#: tables/actions.py:598
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:622
+#: tables/actions.py:626
 #, python-format
 msgid "You do not have permission to %(action)s: %(objs)s"
 msgstr "%(action)s의 권한이 없습니다.: %(objs)s"
 
-#: tables/actions.py:628
+#: tables/actions.py:632
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s를 할 수 없습니다.: %(objs)s"
 
-#: tables/actions.py:634
+#: tables/actions.py:638
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:644
+#: tables/actions.py:648
 msgid "Delete"
 msgstr "삭제"
 
-#: tables/actions.py:645
+#: tables/actions.py:649
 msgid "Deleted"
 msgstr "삭제됨"
 
@@ -212,11 +221,11 @@ msgstr "RAM"
 
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
-msgstr "유동 IP들"
+msgstr "유동 IP"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
-msgstr "보안 그룹들"
+msgstr "보안 그룹"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format

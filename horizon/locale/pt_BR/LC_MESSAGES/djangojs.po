@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 23:48-0500\n"
-"PO-Revision-Date: 2013-09-18 11:19+0000\n"
+"POT-Creation-Date: 2013-12-07 04:40-0600\n"
+"PO-Revision-Date: 2013-11-20 11:54+0000\n"
 "Last-Translator: Gabriel Wainer\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/openstack/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: static/horizon/js/horizon.d3linechart.js:201
-#: static/horizon/js/horizon.modals.js:178
+#: static/horizon/js/horizon.modals.js:182
 msgid "An error occurred. Please try again later."
 msgstr "Um erro ocorreu. Por favor tente novamente mais tarde."
 
@@ -44,11 +44,16 @@ msgstr "Sem papéis"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: static/horizon/js/horizon.modals.js:125
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:171
+msgid "Working"
+msgstr "Trabalhando"
+
+#: static/horizon/js/horizon.modals.js:128
 msgid "There was an error submitting the form. Please try again."
 msgstr "Houve um erro ao enviar o formulário. Por favor tente novamente."
 
-#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
+#: static/horizon/js/horizon.modals.js:163 static/horizon/js/horizon.tabs.js:9
 msgid "Loading"
 msgstr "Carregando"
 
@@ -69,10 +74,6 @@ msgstr "Confirma %s"
 #: static/horizon/js/horizon.tables.js:157
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "Por favor confirme a sua seleção. Esta ação não pode ser desfeita."
-
-#: static/horizon/js/horizon.tables.js:171
-msgid "Working"
-msgstr "Trabalhando"
 
 #: static/horizon/js/horizon.tables.js:221
 #, c-format
