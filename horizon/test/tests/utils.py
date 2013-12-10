@@ -14,6 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import datetime
 
 import os
 
@@ -21,7 +22,10 @@ from django.core.exceptions import ValidationError  # noqa
 
 from horizon.test import helpers as test
 from horizon.utils import fields
+from horizon.utils import filters
+from horizon.utils import memoized
 from horizon.utils import secret_key
+from horizon.utils import validators
 
 
 class ValidatorsTests(test.TestCase):
@@ -174,6 +178,56 @@ class ValidatorsTests(test.TestCase):
         self.assertIsNone(iprange.validate("fe80::204:61ff:254.157.241.86/36"))
         self.assertIsNone(iprange.validate("169.144.11.107/18"))
 
+    def test_validate_multi_ip_field(self):
+        GOOD_CIDRS_INPUT = ("192.168.1.1/16, 192.0.0.1/17",)
+        BAD_CIDRS_INPUT = ("1.2.3.4.5/41,0.0.0.0/99",
+                           "1.2.3.4.5/41;0.0.0.0/99",
+                           "1.2.3.4.5/41   0.0.0.0/99",
+                           "192.168.1.1/16 192.0.0.1/17")
+
+        ip = fields.MultiIPField(mask=True, version=fields.IPv4)
+        for cidr in GOOD_CIDRS_INPUT:
+            self.assertIsNone(ip.validate(cidr))
+        for cidr in BAD_CIDRS_INPUT:
+            self.assertRaises(ValidationError, ip.validate, cidr)
+
+    def test_port_validator(self):
+        VALID_PORTS = (-1, 65535)
+        INVALID_PORTS = (-2, 65536)
+
+        for port in VALID_PORTS:
+            self.assertIsNone(validators.validate_port_range(port))
+
+        for port in INVALID_PORTS:
+            self.assertRaises(ValidationError,
+                              validators.validate_port_range,
+                              port)
+
+    def test_ip_proto_validator(self):
+        VALID_PROTO = (-1, 255)
+        INVALID_PROTO = (-2, 256)
+
+        for proto in VALID_PROTO:
+            self.assertIsNone(validators.validate_ip_protocol(proto))
+
+        for proto in INVALID_PROTO:
+            self.assertRaises(ValidationError,
+                              validators.validate_ip_protocol,
+                              proto)
+
+    def test_port_range_validator(self):
+        VALID_RANGE = ('1:65535',
+                       '-1:-1')
+        INVALID_RANGE = ('22:22:22:22',
+                         '-1:65536')
+
+        test_call = validators.validate_port_or_colon_separated_port_range
+        for prange in VALID_RANGE:
+            self.assertIsNone(test_call(prange))
+
+        for prange in INVALID_RANGE:
+            self.assertRaises(ValidationError, test_call, prange)
+
 
 class SecretKeyTests(test.TestCase):
     def test_generate_secret_key(self):
@@ -194,3 +248,37 @@ class SecretKeyTests(test.TestCase):
         self.assertRaises(secret_key.FilePermissionError,
                           secret_key.generate_or_read_from_file, key_file)
         os.remove(key_file)
+
+
+class FiltersTests(test.TestCase):
+    def test_replace_underscore_filter(self):
+        res = filters.replace_underscores("__under_score__")
+        self.assertEqual(res, "  under score  ")
+
+    def test_parse_isotime_filter(self):
+        adate = '2007-01-25T12:00:00Z'
+        result = filters.parse_isotime(adate)
+        self.assertIsInstance(result, datetime.datetime)
+
+
+class MemoizedTests(test.TestCase):
+    def test_memoized_decorator_cache_on_next_call(self):
+        values_list = []
+
+        @memoized.memoized
+        def cache_calls(remove_from):
+            values_list.append(remove_from)
+            return True
+
+        def non_cached_calls(remove_from):
+            values_list.append(remove_from)
+            return True
+
+        for x in range(0, 5):
+            non_cached_calls(1)
+        self.assertEqual(len(values_list), 5)
+
+        values_list = []
+        for x in range(0, 5):
+            cache_calls(1)
+        self.assertEqual(len(values_list), 1)
