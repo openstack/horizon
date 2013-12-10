@@ -17,11 +17,13 @@
 import copy
 import datetime
 import logging
+import os
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http
 from django.test.utils import override_settings  # noqa
 from django.utils import timezone
+from django.utils import unittest
 
 from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa
@@ -35,7 +37,10 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
 
-from selenium.webdriver import ActionChains  # noqa
+with_sel = os.environ.get('WITH_SELENIUM', False)
+if with_sel:
+    from selenium.webdriver import ActionChains  # noqa
+
 from socket import timeout as socket_timeout  # noqa
 
 
@@ -1509,6 +1514,8 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.assertContains(res, '%s\r\n' % hdr)
 
 
+@unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
+                     "The WITH_SELENIUM env variable is not set.")
 class SeleniumTests(test.SeleniumAdminTestCase):
     @test.create_stubs(
         {api.keystone: ('tenant_list', 'tenant_get', 'tenant_update')})
