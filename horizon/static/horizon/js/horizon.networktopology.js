@@ -100,7 +100,7 @@ horizon.network_topology = {
 
     $(window)
       .on('message',function(e){
-        var message = JSON.parse(e.originalEvent.data);
+        var message = $.parseJSON(e.originalEvent.data);
         if (self.previous_message != message.message) {
           horizon.alert(message.type, message.message);
           horizon.autoDismissAlerts();
