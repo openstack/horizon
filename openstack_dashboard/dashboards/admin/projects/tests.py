@@ -1454,6 +1454,8 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         self.mox.StubOutWithMock(api.nova, 'extension_supported')
+        self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
+
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
@@ -1494,6 +1496,8 @@ class UsageViewTests(test.BaseAdminViewTests):
                                start, end).AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
+            .AndReturn(self.cinder_limits['absolute'])
         self._stub_neutron_api_calls()
         self.mox.ReplayAll()
 
