@@ -57,8 +57,9 @@ class IPSecSiteConnectionsTab(tabs.TableTab):
 
     def get_ipsecsiteconnectionstable_data(self):
         try:
+            tenant_id = self.request.user.tenant_id
             ipsecsiteconnections = api.vpn.ipsecsiteconnections_get(
-                self.tab_group.request)
+                self.tab_group.request, tenant_id=tenant_id)
             ipsecsiteconnectionsFormatted = [s.readable(self.tab_group.request)
                 for s in ipsecsiteconnections]
         except Exception:
@@ -76,8 +77,9 @@ class VPNServicesTab(tabs.TableTab):
 
     def get_vpnservicestable_data(self):
         try:
+            tenant_id = self.request.user.tenant_id
             vpnservices = api.vpn.vpnservices_get(
-                self.tab_group.request)
+                self.tab_group.request, tenant_id=tenant_id)
             vpnservicesFormatted = [s.readable(self.tab_group.request) for
                               s in vpnservices]
         except Exception:
@@ -95,8 +97,9 @@ class IKEPoliciesTab(tabs.TableTab):
 
     def get_ikepoliciestable_data(self):
         try:
+            tenant_id = self.request.user.tenant_id
             ikepolicies = api.vpn.ikepolicies_get(
-                self.tab_group.request)
+                self.tab_group.request, tenant_id=tenant_id)
         except Exception:
             ikepolicies = []
             exceptions.handle(self.tab_group.request,
@@ -112,8 +115,9 @@ class IPSecPoliciesTab(tabs.TableTab):
 
     def get_ipsecpoliciestable_data(self):
         try:
+            tenant_id = self.request.user.tenant_id
             ipsecpolicies = api.vpn.ipsecpolicies_get(
-                self.tab_group.request)
+                self.tab_group.request, tenant_id=tenant_id)
         except Exception:
             ipsecpolicies = []
             exceptions.handle(self.tab_group.request,

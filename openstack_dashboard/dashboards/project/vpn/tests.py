@@ -57,7 +57,8 @@ class VPNTests(test.TestCase):
         vpnservice1, vpnservice2 = self.vpnservices.list()[:2]
 
         api.vpn.vpnservices_get(
-            IsA(http.HttpRequest)).AndReturn(self.vpnservices.list())
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.vpnservices.list())
 
         api.vpn.vpnservice_get(
             IsA(http.HttpRequest), vpnservice1.id).AndReturn(vpnservice1)
@@ -66,7 +67,8 @@ class VPNTests(test.TestCase):
 
         # retrieves ikepolicies
         api.vpn.ikepolicies_get(
-            IsA(http.HttpRequest)).AndReturn(self.ikepolicies.list())
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.ikepolicies.list())
 
         ikepolicy1, ikepolicy2 = self.ikepolicies.list()[:2]
 
@@ -77,7 +79,8 @@ class VPNTests(test.TestCase):
 
         # retrieves ipsecpolicies
         api.vpn.ipsecpolicies_get(
-            IsA(http.HttpRequest)).AndReturn(self.ipsecpolicies.list())
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.ipsecpolicies.list())
 
         ipsecpolicy1, ipsecpolicy2 = self.ipsecpolicies.list()[:2]
 
@@ -88,17 +91,22 @@ class VPNTests(test.TestCase):
 
         # retrieves ipsecsiteconnections
         api.vpn.ipsecsiteconnections_get(
-            IsA(http.HttpRequest)).AndReturn(self.ipsecsiteconnections.list())
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.ipsecsiteconnections.list())
 
     def set_up_expect_with_exception(self):
         api.vpn.vpnservices_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndRaise(self.exceptions.neutron)
         api.vpn.ikepolicies_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndRaise(self.exceptions.neutron)
         api.vpn.ipsecpolicies_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndRaise(self.exceptions.neutron)
         api.vpn.ipsecsiteconnections_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndRaise(self.exceptions.neutron)
 
     @test.create_stubs({api.vpn: ('ikepolicies_get', 'ipsecpolicies_get',
                                   'vpnservices_get',
@@ -247,12 +255,12 @@ class VPNTests(test.TestCase):
         networks = [{'subnets': [subnet, ]}, ]
 
         api.neutron.network_list_for_tenant(
-            IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
 
         routers = self.routers.list()
 
         api.neutron.router_list(
-            IsA(http.HttpRequest)).AndReturn(routers)
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
 
         self.mox.ReplayAll()
 
@@ -274,13 +282,13 @@ class VPNTests(test.TestCase):
         routers = self.routers.list()
 
         api.neutron.router_list(
-            IsA(http.HttpRequest)).AndReturn(routers)
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
 
         subnet = self.subnets.first()
         networks = [{'subnets': [subnet, ]}, ]
 
         api.neutron.network_list_for_tenant(
-            IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
 
         api.vpn.vpnservice_create(
             IsA(http.HttpRequest),
@@ -312,13 +320,13 @@ class VPNTests(test.TestCase):
         routers = self.routers.list()
 
         api.neutron.router_list(
-            IsA(http.HttpRequest)).AndReturn(routers)
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
 
         subnet = self.subnets.first()
         networks = [{'subnets': [subnet, ]}, ]
 
         api.neutron.network_list_for_tenant(
-            IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
 
         self.mox.ReplayAll()
 
@@ -468,17 +476,20 @@ class VPNTests(test.TestCase):
         ikepolicies = self.ikepolicies.list()
 
         api.vpn.ikepolicies_get(
-            IsA(http.HttpRequest)).AndReturn(ikepolicies)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(ikepolicies)
 
         ipsecpolicies = self.ipsecpolicies.list()
 
         api.vpn.ipsecpolicies_get(
-            IsA(http.HttpRequest)).AndReturn(ipsecpolicies)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(ipsecpolicies)
 
         vpnservices = self.vpnservices.list()
 
         api.vpn.vpnservices_get(
-            IsA(http.HttpRequest)).AndReturn(vpnservices)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(vpnservices)
 
         self.mox.ReplayAll()
 
@@ -503,17 +514,20 @@ class VPNTests(test.TestCase):
         ikepolicies = self.ikepolicies.list()
 
         api.vpn.ikepolicies_get(
-            IsA(http.HttpRequest)).AndReturn(ikepolicies)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(ikepolicies)
 
         ipsecpolicies = self.ipsecpolicies.list()
 
         api.vpn.ipsecpolicies_get(
-            IsA(http.HttpRequest)).AndReturn(ipsecpolicies)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(ipsecpolicies)
 
         vpnservices = self.vpnservices.list()
 
         api.vpn.vpnservices_get(
-            IsA(http.HttpRequest)).AndReturn(vpnservices)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(vpnservices)
 
         api.vpn.ipsecsiteconnection_create(
             IsA(http.HttpRequest),
@@ -566,17 +580,20 @@ class VPNTests(test.TestCase):
         ikepolicies = self.ikepolicies.list()
 
         api.vpn.ikepolicies_get(
-            IsA(http.HttpRequest)).AndReturn(ikepolicies)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(ikepolicies)
 
         ipsecpolicies = self.ipsecpolicies.list()
 
         api.vpn.ipsecpolicies_get(
-            IsA(http.HttpRequest)).AndReturn(ipsecpolicies)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(ipsecpolicies)
 
         vpnservices = self.vpnservices.list()
 
         api.vpn.vpnservices_get(
-            IsA(http.HttpRequest)).AndReturn(vpnservices)
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id).AndReturn(vpnservices)
 
         self.mox.ReplayAll()
 
