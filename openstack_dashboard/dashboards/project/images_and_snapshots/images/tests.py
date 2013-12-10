@@ -52,6 +52,7 @@ class CreateImageFormTests(test.TestCase):
             'source_type': u'file',
             'description': u'Login with admin/admin',
             'disk_format': u'qcow2',
+            'architecture': u'x86-64',
             'minimum_disk': 15,
             'minimum_ram': 512,
             'is_public': 1}
@@ -88,6 +89,7 @@ class ImageViewTests(test.TestCase):
                          u'oneiric/release/ubuntu-11.10-server-cloudimg'
                          u'-amd64-disk1.img',
             'disk_format': u'qcow2',
+            'architecture': u'x86-64',
             'minimum_disk': 15,
             'minimum_ram': 512,
             'is_public': True,
@@ -103,7 +105,8 @@ class ImageViewTests(test.TestCase):
                                 min_disk=data['minimum_disk'],
                                 min_ram=data['minimum_ram'],
                                 properties={
-                                    'description': data['description']},
+                                    'description': data['description'],
+                                    'architecture': data['architecture']},
                                 name=data['name']). \
                         AndReturn(self.images.first())
         self.mox.ReplayAll()
@@ -126,6 +129,7 @@ class ImageViewTests(test.TestCase):
             'source_type': u'file',
             'image_file': temp_file,
             'disk_format': u'qcow2',
+            'architecture': u'x86-64',
             'minimum_disk': 15,
             'minimum_ram': 512,
             'is_public': True,
@@ -140,7 +144,8 @@ class ImageViewTests(test.TestCase):
                                 min_disk=data['minimum_disk'],
                                 min_ram=data['minimum_ram'],
                                 properties={
-                                    'description': data['description']},
+                                    'description': data['description'],
+                                    'architecture': data['architecture']},
                                 name=data['name'],
                                 data=IsA(InMemoryUploadedFile)). \
                         AndReturn(self.images.first())
