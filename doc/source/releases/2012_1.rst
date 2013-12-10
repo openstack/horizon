@@ -21,7 +21,7 @@ goals for the Essex release cycle. Massive strides have been made to allow
 for the addition of new "plug-in" components and customization of OpenStack
 Dashboard deployments.
 
-To support this extensability, all the components used to build on Horizon's
+To support this extensibility, all the components used to build on Horizon's
 interface are now modular and reusable. Horizon's own dashboards use these
 components, and they have all been built with third-party developers in mind.
 Some of the main components are listed below.
@@ -49,10 +49,10 @@ Tabs and TabGroups
 
 Another extremely common user-interface element is the use of "tabs" to break
 down discrete groups of data into manageable chunks. Since these tabs often
-encompasse vastly different data, may have completely different access
+encompass vastly different data, may have completely different access
 restrictions, and may sometimes be better-off being loaded dynamically rather
 than with the initial page load, Horizon includes tab and tab group classes for
-constructing these interfaces elegently and with no knowledge of the HTML, CSS
+constructing these interfaces elegantly and with no knowledge of the HTML, CSS
 or JavaScript involved.
 
 Nova Features
@@ -75,7 +75,7 @@ Support for Nova's features has been greatly improved in Essex:
 Settings
 --------
 
-A new "Settings" area was added that offers several userful functions:
+A new "Settings" area was added that offers several useful functions:
 
 * EC2 credentials download.
 * OpenStack RC file download.
@@ -145,4 +145,4 @@ Backwards Compatibility
 The Essex Horizon release is only partially backwards-compatible with Diablo
 OpenStack components. While it is largely possible to log in and interact, many
 functions in Nova, Glance and Keystone changed too substantially in Essex to
-maintain full compatibliity.
+maintain full compatibility.

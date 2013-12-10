@@ -64,7 +64,7 @@ little to no information as to why.
 
 In Grizzly we have instead chosen to improve this by treating service API
 401 and 403 errors as slightly less severe than unauthorized access attempts
-to resitricted areas of Horizon. The reason for this is threefold:
+to restricted areas of Horizon. The reason for this is threefold:
 
 #. For a non-malicious user these errors are almost 100% the result of
    misconfiguration and this makes debugging possible.
@@ -120,7 +120,7 @@ involved. Moreover, the combined table-plus-form approach the OpenStack
 Dashboard had taken only made the UX more frustrating for an already difficult
 area.
 
-In Grizzly this has all been reworked to be signficantly simpler, and to
+In Grizzly this has all been reworked to be significantly simpler, and to
 provide as much contextual help and streamlining as possible.
 
 Icons!
@@ -200,7 +200,7 @@ Other Improvements and Fixes
 
 * Security groups can be added to a running instance.
 
-* Volume quotas are handled by the appopriate service depending on whether
+* Volume quotas are handled by the appropriate service depending on whether
   or not Cinder is enabled.
 
 * Password confirmation boxes are now validated for matching passwords on

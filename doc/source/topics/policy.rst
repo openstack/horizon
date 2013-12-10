@@ -45,7 +45,7 @@ the files listed in ``POLICY_FILES`` or all policy checks will pass.
 ``POLICY_FILES``
 ----------------
 
-Default: { 'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}
+Default: ``{'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}``
 
 This should essentially be the mapping of the contents of ``POLICY_FILES_PATH``
 to service types.  When policy.json files are added to the directory
@@ -102,7 +102,7 @@ x tuples can be added to enforce x rules.
 
 .. note::
 
-    If a rule specified is not found in the policy file. The policy check
+    If a rule specified is not found in the policy file, the policy check
     will return False and the action will not be allowed.
 
 The secondary way to add a role based check is to directly use the
@@ -144,5 +144,5 @@ then access is allowed.
 When deriving the :class:`horizon.tables.Action` class for use in a table, if
 a policy check is desired for a particular target, the implementer should
 override the :meth:`horizon.tables.Action.get_policy_target` method. This
-allows a programatic way to specify the target based on the current datum. The
+allows a programmatic way to specify the target based on the current datum. The
 value returned should be the target dictionary.

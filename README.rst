@@ -74,7 +74,7 @@ Development
 For development, start with the getting started instructions above.
 Once you have a working virtualenv and all the necessary packages, read on.
 
-If dependencies are added to either ``horizon`` or ``openstack-dashboard``,
+If dependencies are added to either ``horizon`` or ``openstack_dashboard``,
 they should be added to ``requirements.txt``.
 
 The ``run_tests.sh`` script invokes tests and analyses on both of these

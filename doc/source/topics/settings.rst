@@ -21,8 +21,8 @@ and a few notes on the Django-related settings.
 
     Prior to the Essex release of Horizon there were settings which controlled
     whether features such as Object Storage/Swift or Networking/Neutron would be
-    enabled in the OpenStack Dashboard. This code has beenlong-since removed and
-    those pre-Essex settings have no impact now.
+    enabled in the OpenStack Dashboard. This code has long since been removed
+    and those pre-Essex settings have no impact now.
 
     In Essex and later, the Service Catalog returned by the Identity Service
     after a user has successfully authenticated determines the dashboards and
@@ -83,7 +83,7 @@ expressed in milliseconds.
 ``help_url``
 ------------
 
-Default: None
+Default: ``None``
 
 If provided, a "Help" link will be displayed in the site header which links
 to the value of this settings (ideally a URL containing help information).
@@ -99,7 +99,7 @@ exception handling should be aware of.
 ``password_validator``
 ----------------------
 
-Default: {'regex': '.*', 'help_text': _("Password is not accepted")}
+Default: ``{'regex': '.*', 'help_text': _("Password is not accepted")}``
 
 A dictionary containing a regular expression which will be used for password
 validation and help text which will be displayed if the password does not
@@ -183,7 +183,7 @@ If you do not have multiple regions you should use the ``OPENSTACK_HOST`` and
 ``OPENSTACK_KEYSTONE_DEFAULT_ROLE``
 -----------------------------------
 
-Default: "Member"
+Default: ``"Member"``
 
 The name of the role which will be assigned to a user when added to a project.
 This name must correspond to a role name in Keystone.
@@ -280,7 +280,7 @@ define the policy rules actions are verified against.
 ``POLICY_FILES``
 ----------------
 
-Default: ``{ 'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}``
+Default: ``{'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}``
 
 This should essentially be the mapping of the contents of ``POLICY_FILES_PATH``
 to service types.  When policy.json files are added to ``POLICY_FILES_PATH``,
@@ -289,10 +289,22 @@ they should be included here too.
 ``OPENSTACK_IMAGE_BACKEND``
 ---------------------------
 
-Default: ``{ 'image_formats': [('', ''), ('aki', _('AKI - Amazon Kernel Image')),
-('ami', _('AMI - Amazon Machine Image')), ('ari', _('ARI - Amazon Ramdisk Image')),
-('iso', _('ISO - Optical Disk Image')), ('qcow2', _('QCOW2 - QEMU Emulator')),
-('raw', _('Raw')), ('vdi', _('VDI')), ('vhd', _('VHD')), ('vmdk', _('VMDK'))] }``
+Default::
+
+    {
+        'image_formats': [
+            ('', ''),
+            ('aki', _('AKI - Amazon Kernel Image')),
+            ('ami', _('AMI - Amazon Machine Image')),
+            ('ari', _('ARI - Amazon Ramdisk Image')),
+            ('iso', _('ISO - Optical Disk Image')),
+            ('qcow2', _('QCOW2 - QEMU Emulator')),
+            ('raw', _('Raw')),
+            ('vdi', _('VDI')),
+            ('vhd', _('VHD')),
+            ('vmdk', _('VMDK'))
+        ]
+    }
 
 Used to customize features related to the image service, such as the list of
 supported image formats.
