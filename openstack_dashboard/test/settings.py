@@ -115,7 +115,7 @@ OPENSTACK_NEUTRON_NETWORK = {
 }
 
 OPENSTACK_HYPERVISOR_FEATURES = {
-    'can_set_mount_point': True,
+    'can_set_mount_point': False,
     'can_set_password': True,
 }
 

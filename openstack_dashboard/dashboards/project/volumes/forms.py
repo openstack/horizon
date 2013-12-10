@@ -291,7 +291,7 @@ class AttachForm(forms.SelfHandlingForm):
                                       "OPENSTACK_HYPERVISOR_FEATURES",
                                       {})
         can_set_mount_point = hypervisor_features.get("can_set_mount_point",
-                                                      True)
+                                                      False)
         if not can_set_mount_point:
             self.fields['device'].widget = forms.widgets.HiddenInput()
             self.fields['device'].required = False

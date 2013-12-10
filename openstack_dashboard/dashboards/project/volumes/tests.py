@@ -679,6 +679,9 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments(self):
+        PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point']
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = True
+
         volume = self.volumes.first()
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
@@ -697,11 +700,10 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertTrue(isinstance(form.fields['device'].widget,
                                    widgets.TextInput))
+        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = PREV
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments_cannot_set_mount_point(self):
-        PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point']
-        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = False
 
         volume = self.volumes.first()
         servers = [s for s in self.servers.list()
@@ -717,7 +719,6 @@ class VolumeViewTests(test.TestCase):
         form = res.context['form']
         self.assertTrue(isinstance(form.fields['device'].widget,
                                    widgets.HiddenInput))
-        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = PREV
 
     @test.create_stubs({cinder: ('volume_get',),
                         api.nova: ('server_get', 'server_list',),
