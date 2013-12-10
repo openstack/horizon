@@ -41,6 +41,8 @@ class ExtraSpecMixin(object):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve flavor details."))
+        if 'key' in self.kwargs:
+            context['key'] = self.kwargs['key']
         return context
 
 
