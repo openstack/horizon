@@ -213,4 +213,62 @@ horizon.addInitFunction(function () {
   $(document).on('change', '.workflow #id_image_id', function (evt) {
     update_image_id_fields(this);
   });
+
+  horizon.instances.decrypt_password = function(encrypted_password, private_key) {
+    var crypt = new JSEncrypt();
+    crypt.setKey(private_key);
+    return crypt.decrypt(encrypted_password);
+  };
+
+  $(document).on('change', '#id_private_key_file', function (evt) {
+    var file = evt.target.files[0];
+    var reader = new FileReader();
+    if (file) {
+      reader.onloadend = function(event) {
+        $("#id_private_key").val(event.target.result);
+      };
+      reader.onerror = function(event) {
+        horizon.clearErrorMessages();
+        horizon.alert('error', gettext('Could not read the file'));
+      };
+      reader.readAsText(file);
+    }
+    else {
+      horizon.clearErrorMessages();
+      horizon.alert('error', gettext('Could not decrypt the password'));
+    }
+  });
+  /*
+    The font-family is changed because with the default policy the major I
+    and minor the l cannot be distinguished.
+  */
+  $(document).on('show', '#password_instance_modal', function (evt) {
+    $("#id_decrypted_password").css("font-family","monospace");
+    $("#id_decrypted_password").css("cursor","text");
+    $("#id_encrypted_password").css("cursor","text");
+    $("#id_keypair_name").css("cursor","text");
+  });
+
+  $(document).on('click', '#decryptpassword_button', function (evt) {
+    encrypted_password = $("#id_encrypted_password").val();
+    private_key = $('#id_private_key').val();
+    if (!private_key) {
+      evt.preventDefault();
+      $(this).closest('.modal').modal('hide');
+    }
+    else {
+      if (private_key.length > 0) {
+        evt.preventDefault();
+        decrypted_password = horizon.instances.decrypt_password(encrypted_password, private_key);
+        if (decrypted_password === false || decrypted_password === null) {
+          horizon.clearErrorMessages();
+          horizon.alert('error', gettext('Could not decrypt the password'));
+        }
+        else {
+          $("#id_decrypted_password").val(decrypted_password);
+          $("#decryptpassword_button").hide();
+        }
+      }
+    }
+  });
 });

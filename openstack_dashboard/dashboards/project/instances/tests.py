@@ -41,7 +41,6 @@ from openstack_dashboard.dashboards.project.instances import tables
 from openstack_dashboard.dashboards.project.instances import tabs
 from openstack_dashboard.dashboards.project.instances import workflows
 
-
 INDEX_URL = reverse('horizon:project:instances:index')
 SEC_GROUP_ROLE_PREFIX = \
     workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
@@ -892,6 +891,32 @@ class InstanceTests(test.TestCase):
         redir_url = reverse('horizon:project:images:index')
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
+
+    @test.create_stubs({api.nova: ('get_password',)})
+    def test_decrypt_instance_password(self):
+        server = self.servers.first()
+        enc_password = "azerty"
+        api.nova.get_password(IsA(http.HttpRequest), server.id)\
+            .AndReturn(enc_password)
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:instances:decryptpassword',
+                      args=[server.id,
+                            server.key_name])
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'project/instances/decryptpassword.html')
+
+    @test.create_stubs({api.nova: ('get_password',)})
+    def test_decrypt_instance_get_exception(self):
+        server = self.servers.first()
+        keypair = self.keypairs.first()
+        api.nova.get_password(IsA(http.HttpRequest), server.id)\
+            .AndRaise(self.exceptions.nova)
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:instances:decryptpassword',
+                      args=[server.id,
+                            keypair])
+        res = self.client.get(url)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     instance_update_get_stubs = {
         api.nova: ('server_get',),

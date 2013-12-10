@@ -25,6 +25,7 @@ from openstack_dashboard.dashboards.project.instances import views
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
+INSTANCES_KEYPAIR = r'^(?P<instance_id>[^/]+)/(?P<keypair_name>[^/]+)/%s$'
 VIEW_MOD = 'openstack_dashboard.dashboards.project.instances.views'
 
 
@@ -39,4 +40,6 @@ urlpatterns = patterns(VIEW_MOD,
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),
     url(INSTANCES % 'resize', views.ResizeView.as_view(), name='resize'),
+    url(INSTANCES_KEYPAIR % 'decryptpassword',
+        views.DecryptPasswordView.as_view(), name='decryptpassword'),
 )
