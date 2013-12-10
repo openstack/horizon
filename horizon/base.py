@@ -455,8 +455,9 @@ class Dashboard(Registry, HorizonComponent):
             if panel.slug == self.default_panel:
                 default_panel = panel
                 continue
+            url_slug = panel.slug.replace('.', '/')
             urlpatterns += patterns('',
-                    url(r'^%s/' % panel.slug, include(panel._decorated_urls)))
+                    url(r'^%s/' % url_slug, include(panel._decorated_urls)))
         # Now the default view, which should come last
         if not default_panel:
             raise NotRegistered('The default panel "%s" is not registered.'
