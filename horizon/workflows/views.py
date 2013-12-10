@@ -89,11 +89,27 @@ class WorkflowView(generic.TemplateView):
         context[self.context_object_name] = workflow
         next = self.request.REQUEST.get(workflow.redirect_param_name, None)
         context['REDIRECT_URL'] = next
-        if self.request.is_ajax():
-            context['modal'] = True
+        context['layout'] = self.get_layout()
+
         if ADD_TO_FIELD_HEADER in self.request.META:
             context['add_to_field'] = self.request.META[ADD_TO_FIELD_HEADER]
         return context
+
+    def get_layout(self):
+        """returns classes for the workflow element in template based on
+        the workflow caracteristics
+        """
+        if self.request.is_ajax():
+            layout = ['modal', 'hide', ]
+            if self.workflow_class.fullscreen:
+                layout += ['fullscreen', ]
+        else:
+            layout = ['static_page', ]
+
+        if self.workflow_class.wizard:
+            layout += ['wizard', ]
+
+        return layout
 
     def get_template_names(self):
         """Returns the template name to use for this request."""
