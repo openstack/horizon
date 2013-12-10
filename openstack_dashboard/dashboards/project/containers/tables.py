@@ -215,7 +215,9 @@ class ContainerAjaxUpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, container_name):
-        container = api.swift.swift_get_container(request, container_name)
+        container = api.swift.swift_get_container(request,
+                                                  container_name,
+                                                  with_data=False)
         return container
 
 
