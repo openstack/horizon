@@ -145,7 +145,7 @@ COMPRESS_OUTPUT_DIR = 'dashboard'
 COMPRESS_CSS_HASHING_METHOD = 'hash'
 COMPRESS_PARSER = 'compressor.parser.HtmlParser'
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'openstack_dashboard',
     'django.contrib.contenttypes',
     'django.contrib.auth',
@@ -160,7 +160,7 @@ INSTALLED_APPS = (
     'openstack_dashboard.dashboards.settings',
     'openstack_auth',
     'openstack_dashboard.dashboards.router',
-)
+]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
@@ -209,6 +209,17 @@ try:
     from local.local_settings import *  # noqa
 except ImportError:
     logging.warning("No local_settings file found.")
+
+# Load the pluggable dashboard settings
+import openstack_dashboard.enabled
+import openstack_dashboard.local.enabled
+from openstack_dashboard.utils import settings
+
+INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
+settings.update_dashboards([
+    openstack_dashboard.enabled,
+    openstack_dashboard.local.enabled,
+], HORIZON_CONFIG, INSTALLED_APPS)
 
 # Ensure that we always have a SECRET_KEY set, even when no local_settings.py
 # file is present. See local_settings.py.example for full documentation on the

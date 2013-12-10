@@ -338,3 +338,75 @@ generate a secret key for a single installation.
 These three settings should be configured if you are deploying Horizon with
 SSL. The values indicated in the default ``local_settings.py.example`` file
 are generally safe to use.
+
+
+Pluggable Settings for Dashboards
+=================================
+
+Many dashboards may require their own modifications to the settings, and their
+installation would therefore require modifying the settings file. This is not
+optimal, so the dashboards can provide the settings that they require in a
+separate file. Those files are read at startup and used to modify the default
+settings.
+
+The default location for the dashboard configuration files is
+``openstack_dashboard/enabled``, with another directory,
+``openstack_dashboarrd/local/enabled`` for local overrides. Both sets of files
+will be loaded, but the settings in ``openstack_dashboard/local/enabled`` will
+overwrite the default ones. The settings are applied in alphabetical order of
+the filenames. If the same dashboard has configuration files in ``enabled`` and
+``local/enabled``, the local name will be used. Note, that since names of
+python modules can't start with a digit, the files are usually named with a
+leading underscore and a number, so that you can control their order easily.
+
+The files contain following keys:
+
+``DASHBOARD``
+-------------
+
+The name of the dashboard to be added to ``HORIZON['dashboards']``. Required.
+
+``DEFAULT``
+-----------
+
+If set to ``True``, this dashboard will be set as the default dashboard.
+
+``ADD_EXCEPTIONS``
+------------------
+
+A dictionary of exception classes to be added to ``HORIZON['exceptions']``.
+
+``ADD_INSTALLED_APPS``
+----------------------
+
+A list of applications to be added to ``INSTALLED_APPS``.
+
+``DISABLED``
+------------
+
+If set to ``True``, this dashboard will not be added to the settings.
+
+Examples
+--------
+
+To disable the Router dashboard locally, create a file
+``openstack_dashboard/local/enabled/_40_router.py`` with the following
+content::
+
+    DASHBOARD = 'router'
+    DISABLED = True
+
+To add a Tuskar-UI (Infrastructure) dashboard, you have to install it, and then
+create a file ``openstack_dashboard/local/enabled/_50_tuskar.py`` with::
+
+    from tuskar_ui import exceptions
+
+    DASHBOARD = 'infrastructure'
+    ADD_INSTALLED_APPS = [
+        'tuskar_ui.infrastructure',
+    ]
+    ADD_EXCEPTIONS = {
+        'recoverable': exceptions.RECOVERABLE,
+        'not_found': exceptions.NOT_FOUND,
+        'unauthorized': exceptions.UNAUTHORIZED,
+    }
