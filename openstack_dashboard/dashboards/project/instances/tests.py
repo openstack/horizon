@@ -958,7 +958,8 @@ class InstanceTests(test.TestCase):
                         api.glance: ('image_list_detailed',)})
     def test_launch_instance_get(self,
                                  expect_password_fields=True,
-                                 block_device_mapping_v2=True):
+                                 block_device_mapping_v2=True,
+                                 custom_flavor_sort=None):
         image = self.images.first()
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -1022,6 +1023,39 @@ class InstanceTests(test.TestCase):
                              '<SetNetwork: setnetworkaction>',
                              '<PostCreationStep: customizeaction>'])
 
+        if custom_flavor_sort == 'id':
+            # Reverse sorted by id
+            sorted_flavors = (
+                ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
+                ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
+                ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
+            )
+        elif custom_flavor_sort == 'name':
+            sorted_flavors = (
+                ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
+                ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
+                ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
+            )
+        elif custom_flavor_sort == test.my_custom_sort:
+            sorted_flavors = (
+                ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
+                ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
+                ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
+            )
+        else:
+            # Default - sorted by RAM
+            sorted_flavors = (
+                ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
+                ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
+                ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
+            )
+
+        select_options = '\n'.join([
+            '<option value="%s">%s</option>' % (f[0], f[1])
+            for f in sorted_flavors
+        ])
+        self.assertContains(res, select_options)
+
         password_field_label = 'Admin Pass'
         if expect_password_fields:
             self.assertContains(res, password_field_label)
@@ -1041,6 +1075,38 @@ class InstanceTests(test.TestCase):
 
     def test_launch_instance_get_no_block_device_mapping_v2_supported(self):
         self.test_launch_instance_get(block_device_mapping_v2=False)
+
+    @test_utils.override_settings(
+        CREATE_INSTANCE_FLAVOR_SORT={
+            'key': 'id',
+            'reverse': True,
+        })
+    def test_launch_instance_get_custom_flavor_sort_by_id(self):
+        self.test_launch_instance_get(custom_flavor_sort='id')
+
+    @test_utils.override_settings(
+        CREATE_INSTANCE_FLAVOR_SORT={
+            'key': 'name',
+            'reverse': False,
+        })
+    def test_launch_instance_get_custom_flavor_sort_by_name(self):
+        self.test_launch_instance_get(custom_flavor_sort='name')
+
+    @test_utils.override_settings(
+        CREATE_INSTANCE_FLAVOR_SORT={
+            'key': test.my_custom_sort,
+            'reverse': False,
+        })
+    def test_launch_instance_get_custom_flavor_sort_by_callable(self):
+        self.test_launch_instance_get(custom_flavor_sort=test.my_custom_sort)
+
+    @test_utils.override_settings(
+        CREATE_INSTANCE_FLAVOR_SORT={
+            'key': 'no_such_column',
+            'reverse': False,
+        })
+    def test_launch_instance_get_custom_flavor_sort_by_missing_column(self):
+        self.test_launch_instance_get(custom_flavor_sort='no_such_column')
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',

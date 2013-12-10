@@ -214,11 +214,14 @@ API_RESULT_PAGE_SIZE = 20
 TIME_ZONE = "UTC"
 
 # When launching an instance, the menu of available flavors is
-# sorted by RAM usage, ascending.  Provide a callback method here
-# (and/or a flag for reverse sort) for the sorted() method if you'd
-# like a different behaviour.  For more info, see
+# sorted by RAM usage, ascending. If you would like a different sort order,
+# you can provide another flavor attribute as sorting key. Alternatively, you
+# can provide a custom callback method to use for sorting. You can also provide
+# a flag for reverse sort. For more info, see
 # http://docs.python.org/2/library/functions.html#sorted
 # CREATE_INSTANCE_FLAVOR_SORT = {
+#     'key': 'name',
+#      # or
 #     'key': my_awesome_callback_method,
 #     'reverse': False,
 # }

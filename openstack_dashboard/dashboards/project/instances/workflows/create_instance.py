@@ -220,11 +220,24 @@ class SetInstanceDetailsAction(workflows.Action):
         Override these behaviours with a CREATE_INSTANCE_FLAVOR_SORT dict
         in local_settings.py.
         """
+        def get_key(flavor, sort_key):
+            try:
+                return getattr(flavor, sort_key)
+            except AttributeError:
+                LOG.warning('Could not find sort key "%s". Using the default '
+                            '"ram" instead.', sort_key)
+                return getattr(flavor, 'ram')
+
         try:
             flavors = api.nova.flavor_list(request)
             flavor_sort = getattr(settings, 'CREATE_INSTANCE_FLAVOR_SORT', {})
             rev = flavor_sort.get('reverse', False)
-            key = flavor_sort.get('key', lambda flavor: flavor.ram)
+            sort_key = flavor_sort.get('key', 'ram')
+
+            if not callable(sort_key):
+                key = lambda flavor: get_key(flavor, sort_key)
+            else:
+                key = sort_key
 
             flavor_list = [(flavor.id, "%s" % flavor.name)
                            for flavor in sorted(flavors, key=key, reverse=rev)]
