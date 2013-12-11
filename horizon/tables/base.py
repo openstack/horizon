@@ -500,44 +500,7 @@ class Row(html.HTMLElement):
             datum = self.datum
         cells = []
         for column in table.columns.values():
-            if column.auto == "multi_select":
-                widget = forms.CheckboxInput(check_test=lambda value: False)
-                # Convert value to string to avoid accidental type conversion
-                data = widget.render('object_ids',
-                                     unicode(table.get_object_id(datum)),
-                                     {'class': 'table-row-multi-select'})
-                table._data_cache[column][table.get_object_id(datum)] = data
-            elif column.auto == "form_field":
-                widget = column.form_field
-                if issubclass(widget.__class__, forms.Field):
-                    widget = widget.widget
-
-                widget_name = "%s__%s" % \
-                    (column.name,
-                     unicode(table.get_object_id(datum)))
-
-                # Create local copy of attributes, so it don't change column
-                # class form_field_attributes
-                form_field_attributes = {}
-                form_field_attributes.update(column.form_field_attributes)
-                # Adding id of the input so it pairs with label correctly
-                form_field_attributes['id'] = widget_name
-
-                data = widget.render(widget_name,
-                                     column.get_data(datum),
-                                     form_field_attributes)
-                table._data_cache[column][table.get_object_id(datum)] = data
-            elif column.auto == "actions":
-                data = table.render_row_actions(datum)
-                table._data_cache[column][table.get_object_id(datum)] = data
-            else:
-                data = column.get_data(datum)
-
-            cell = Cell(datum, data, column, self)
-            if cell.inline_edit_available:
-                cell.attrs['data-cell-name'] = column.name
-                cell.attrs['data-update-url'] = cell.get_ajax_update_url()
-
+            cell = table._meta.cell_class(datum, column, self)
             cells.append((column.name or column.auto, cell))
         self.cells = SortedDict(cells)
 
@@ -609,13 +572,13 @@ class Row(html.HTMLElement):
 
 class Cell(html.HTMLElement):
     """Represents a single cell in the table."""
-    def __init__(self, datum, data, column, row, attrs=None, classes=None):
+
+    def __init__(self, datum, column, row, attrs=None, classes=None):
         self.classes = classes or getattr(self, "classes", [])
         super(Cell, self).__init__()
         self.attrs.update(attrs or {})
 
         self.datum = datum
-        self.data = data
         self.column = column
         self.row = row
         self.wrap_list = column.wrap_list
@@ -623,7 +586,47 @@ class Cell(html.HTMLElement):
         # initialize the update action if available
         if self.inline_edit_available:
             self.update_action = self.column.update_action()
+            self.attrs['data-cell-name'] = column.name
+            self.attrs['data-update-url'] = self.get_ajax_update_url()
         self.inline_edit_mod = False
+        self.data = self.get_data(datum, column, row)
+
+    def get_data(self, datum, column, row):
+        """Fetches the data to be displayed in this cell."""
+        table = row.table
+        if column.auto == "multi_select":
+            widget = forms.CheckboxInput(check_test=lambda value: False)
+            # Convert value to string to avoid accidental type conversion
+            data = widget.render('object_ids',
+                                 unicode(table.get_object_id(datum)),
+                                 {'class': 'table-row-multi-select'})
+            table._data_cache[column][table.get_object_id(datum)] = data
+        elif column.auto == "form_field":
+            widget = column.form_field
+            if issubclass(widget.__class__, forms.Field):
+                widget = widget.widget
+
+            widget_name = "%s__%s" % \
+                (column.name,
+                 unicode(table.get_object_id(datum)))
+
+            # Create local copy of attributes, so it don't change column
+            # class form_field_attributes
+            form_field_attributes = {}
+            form_field_attributes.update(column.form_field_attributes)
+            # Adding id of the input so it pairs with label correctly
+            form_field_attributes['id'] = widget_name
+
+            data = widget.render(widget_name,
+                                 column.get_data(datum),
+                                 form_field_attributes)
+            table._data_cache[column][table.get_object_id(datum)] = data
+        elif column.auto == "actions":
+            data = table.render_row_actions(datum)
+            table._data_cache[column][table.get_object_id(datum)] = data
+        else:
+            data = column.get_data(datum)
+        return data
 
     def __repr__(self):
         return '<%s: %s, %s>' % (self.__class__.__name__,
@@ -812,6 +815,11 @@ class DataTableOptions(object):
         The row status is used by other Horizon components to trigger tasks
         such as dynamic AJAX updating.
 
+    .. attribute:: cell_class
+
+        The class which should be used for rendering the cells of this table.
+        Optional. Default: :class:`~horizon.tables.Cell`.
+
     .. attribute:: row_class
 
         The class which should be used for rendering the rows of this table.
@@ -857,6 +865,7 @@ class DataTableOptions(object):
         self.status_columns = getattr(options, 'status_columns', [])
         self.table_actions = getattr(options, 'table_actions', [])
         self.row_actions = getattr(options, 'row_actions', [])
+        self.cell_class = getattr(options, 'cell_class', Cell)
         self.row_class = getattr(options, 'row_class', Row)
         self.column_class = getattr(options, 'column_class', Column)
         self.pagination_param = getattr(options, 'pagination_param', 'marker')
