@@ -161,9 +161,7 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_get',
                                  'volume_get',
-                                 'volume_type_list',
-                                 'availability_zone_list',
-                                 'extension_supported'),
+                                 'volume_type_list'),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_snapshot(self):
         volume = self.volumes.first()
@@ -187,11 +185,6 @@ class VolumeViewTests(test.TestCase):
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
                           AndReturn(self.volumes.first())
-
-        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
-            .AndReturn(True)
-        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
-            self.cinder_availability_zones.list())
 
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
@@ -280,9 +273,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_snapshot_get',
                                  'volume_type_list',
-                                 'volume_get',
-                                 'availability_zone_list',
-                                 'extension_supported'),
+                                 'volume_get'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_snapshot_invalid_size(self):
@@ -304,11 +295,6 @@ class VolumeViewTests(test.TestCase):
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
                           AndReturn(self.volumes.first())
-
-        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
-            .AndReturn(True)
-        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
-            self.cinder_availability_zones.list())
 
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
                                 AndReturn(usage_limit)
