@@ -208,6 +208,7 @@ horizon.addInitFunction(function() {
         $this = $(this);
       modal_stack.splice(modal_stack.length - 1, 1);
       modal_stack.modal("hide");
+    horizon.utils.loadAngular(container);
   });
 
   // After a modal has been fully hidden, remove it to avoid confusion.
