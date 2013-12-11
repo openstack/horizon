@@ -73,7 +73,7 @@ def is_deleting(instance):
 class TerminateInstance(tables.BatchAction):
     name = "terminate"
     action_present = _("Terminate")
-    action_past = _("Scheduled termination of")
+    action_past = _("Scheduled termination of %(data_type)s")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
     classes = ('btn-danger', 'btn-terminate')

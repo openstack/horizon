@@ -528,6 +528,13 @@ class BatchAction(Action):
        self.current_present_action = n will set the current active item
        from the list(action_present[n])
 
+       You can pass a complete action name including 'data_type' by specifying
+       '%(data_type)s' substitution in action_present ("Delete %(data_type)s").
+       Otherwise a complete action name is a format of "<action> <data_type>".
+       <data_type> is determined based on the number of items.
+       By passing a complete action name you allow translators to control
+       the order of words as they want.
+
     .. attribute:: action_past
 
        String or tuple/list. The past tense of action_present. ("Deleted",
@@ -559,9 +566,9 @@ class BatchAction(Action):
         self.data_type_plural = kwargs.get('data_type_plural',
             self.data_type_singular + 's')
         # If setting a default name, don't initialize it too early
-        self.verbose_name = kwargs.get('verbose_name', self._conjugate)
+        self.verbose_name = kwargs.get('verbose_name', self._get_action_name)
         self.verbose_name_plural = kwargs.get('verbose_name_plural',
-            lambda: self._conjugate('plural'))
+            lambda: self._get_action_name('plural'))
 
         if not kwargs.get('data_type_singular', None):
             raise NotImplementedError('A batchAction object must have a '
@@ -579,7 +586,7 @@ class BatchAction(Action):
             return False
         return super(BatchAction, self)._allowed(request, datum)
 
-    def _conjugate(self, items=None, past=False):
+    def _get_action_name(self, items=None, past=False):
         """Builds combinations like 'Delete Object' and 'Deleted
         Objects' based on the number of items and `past` flag.
         """
@@ -594,10 +601,14 @@ class BatchAction(Action):
             data_type = self.data_type_singular
         else:
             data_type = self.data_type_plural
-        if action_type == "past":
-            msgstr = pgettext_lazy("past", "%(action)s %(data_type)s")
+        if '%(data_type)s' in action:
+            # If full action string is specified, use action as format string.
+            msgstr = action
         else:
-            msgstr = pgettext_lazy("present", "%(action)s %(data_type)s")
+            if action_type == "past":
+                msgstr = pgettext_lazy("past", "%(action)s %(data_type)s")
+            else:
+                msgstr = pgettext_lazy("present", "%(action)s %(data_type)s")
         return msgstr % {'action': action, 'data_type': data_type}
 
     def action(self, request, datum_id):
@@ -606,14 +617,14 @@ class BatchAction(Action):
 
         Return values are discarded, errors raised are caught and logged.
         """
-        raise NotImplementedError('action() must be defined for '
-                                  'BatchAction: %s' % self.data_type_singular)
+        raise NotImplementedError('action() must be defined for %s'
+                                  % self.__class__.__name__)
 
     def update(self, request, datum):
         """Switches the action verbose name, if needed."""
         if getattr(self, 'action_present', False):
-            self.verbose_name = self._conjugate()
-            self.verbose_name_plural = self._conjugate('plural')
+            self.verbose_name = self._get_action_name()
+            self.verbose_name_plural = self._get_action_name('plural')
 
     def get_success_url(self, request=None):
         """Returns the URL to redirect to after a successful action."""
@@ -631,7 +642,8 @@ class BatchAction(Action):
             if not table._filter_action(self, request, datum):
                 action_not_allowed.append(datum_display)
                 LOG.info('Permission denied to %s: "%s"' %
-                         (self._conjugate(past=True).lower(), datum_display))
+                         (self._get_action_name(past=True).lower(),
+                          datum_display))
                 continue
             try:
                 self.action(request, datum_id)
@@ -640,7 +652,7 @@ class BatchAction(Action):
                 action_success.append(datum_display)
                 self.success_ids.append(datum_id)
                 LOG.info('%s: "%s"' %
-                         (self._conjugate(past=True), datum_display))
+                         (self._get_action_name(past=True), datum_display))
             except Exception as ex:
                 # Handle the exception but silence it since we'll display
                 # an aggregate error message later. Otherwise we'd get
@@ -656,19 +668,21 @@ class BatchAction(Action):
         success_message_level = messages.success
         if action_not_allowed:
             msg = _('You are not allowed to %(action)s: %(objs)s')
-            params = {"action": self._conjugate(action_not_allowed).lower(),
+            params = {"action":
+                      self._get_action_name(action_not_allowed).lower(),
                       "objs": functions.lazy_join(", ", action_not_allowed)}
             messages.error(request, msg % params)
             success_message_level = messages.info
         if action_failure:
             msg = _('Unable to %(action)s: %(objs)s')
-            params = {"action": self._conjugate(action_failure).lower(),
+            params = {"action": self._get_action_name(action_failure).lower(),
                       "objs": functions.lazy_join(", ", action_failure)}
             messages.error(request, msg % params)
             success_message_level = messages.info
         if action_success:
             msg = _('%(action)s: %(objs)s')
-            params = {"action": self._conjugate(action_success, True),
+            params = {"action":
+                      self._get_action_name(action_success, past=True),
                       "objs": functions.lazy_join(", ", action_success)}
             success_message_level(request, msg % params)
 

@@ -37,7 +37,7 @@ class LaunchStack(tables.LinkAction):
 class DeleteStack(tables.BatchAction):
     name = "delete"
     action_present = _("Delete")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Stack")
     data_type_plural = _("Stacks")
     classes = ('btn-danger', 'btn-terminate')
