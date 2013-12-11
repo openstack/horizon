@@ -8,4 +8,4 @@ Horizon Style Commandments
 Horizon Specific Commandments
 -----------------------------
 
-None so far
+- Read the Horizon contributing documentation at http://docs.openstack.org/developer/horizon/contributing.html
