@@ -15,7 +15,12 @@
 #    under the License.
 
 import functools
+import warnings
 import weakref
+
+
+class UnhashableKeyWarning(RuntimeWarning):
+    """Raised when trying to memoize a function with an unhashable argument."""
 
 
 def _try_weakref(arg, remove_callback):
@@ -88,6 +93,9 @@ def memoized(func):
             # such as a list, is passed as one of the arguments. In that case,
             # we can't cache anything and simply always call the decorated
             # function.
+            warnings.warn(
+                "The key %r is not hashable and cannot be memoized." % key,
+                UnhashableKeyWarning, 2)
             value = func(*args, **kwargs)
         return value
 
