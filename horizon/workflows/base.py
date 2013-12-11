@@ -438,11 +438,7 @@ class Step(object):
 
     def has_required_fields(self):
         """Returns True if action contains any required fields."""
-        for key in self.contributes:
-            field = self.action.fields.get(key, None)
-            if (field and field.required):
-                return True
-        return False
+        return any(field.required for field in self.action.fields.values())
 
 
 class WorkflowMetaclass(type):
