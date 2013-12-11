@@ -135,7 +135,7 @@ horizon.addInitFunction(function() {
   $(document).on('show', '.modal', function (evt) {
     // Filter out indirect triggers of "show" from (for example) tabs.
     if ($(evt.target).hasClass("modal")) {
-      var scrollShift = $('body').scrollTop(),
+      var scrollShift = $('body').scrollTop() || $('html').scrollTop(),
           $this = $(this),
           topVal = $this.css('top');
       $this.css('top', scrollShift + parseInt(topVal, 10));
