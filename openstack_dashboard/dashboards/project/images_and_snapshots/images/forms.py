@@ -202,9 +202,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
                 'disk_format': data['disk_format'],
                 'container_format': container_format,
                 'name': data['name'],
-                'properties': {}}
-        if data['description']:
-            meta['properties']['description'] = data['description']
+                'properties': {'description': data['description']}}
         if data['kernel']:
             meta['properties']['kernel_id'] = data['kernel']
         if data['ramdisk']:
