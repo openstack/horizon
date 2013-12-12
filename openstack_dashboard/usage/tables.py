@@ -51,7 +51,7 @@ class GlobalUsageTable(BaseUsageTable):
 
     class Meta:
         name = "global_usage"
-        verbose_name = _("Usage Summary")
+        verbose_name = _("Usage")
         columns = ("project", "vcpus", "disk", "memory",
                    "hours", "disk_hours")
         table_actions = (CSVSummary,)
@@ -80,7 +80,7 @@ class ProjectUsageTable(BaseUsageTable):
 
     class Meta:
         name = "project_usage"
-        verbose_name = _("Usage Summary")
+        verbose_name = _("Usage")
         columns = ("instance", "vcpus", "disk", "memory", "uptime")
         table_actions = (CSVSummary,)
         multi_select = False
