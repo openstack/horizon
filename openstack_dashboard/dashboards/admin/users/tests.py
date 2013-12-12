@@ -235,11 +235,11 @@ class UsersViewTests(test.BaseAdminViewTests):
                                        'user_update_password',
                                        'user_update',
                                        'roles_for_user', )})
-    def test_update(self):
-        user = self.users.get(id="1")
+    def _update(self, user):
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
         test_password = 'normalpwd'
+        email = getattr(user, 'email', '')
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
@@ -249,7 +249,7 @@ class UsersViewTests(test.BaseAdminViewTests):
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
-                                 email=u'test@example.com',
+                                 email=email,
                                  name=u'test_user',
                                  password=test_password,
                                  project=self.tenant.id).AndReturn(None)
@@ -259,7 +259,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
                     'name': user.name,
-                    'email': user.email,
+                    'email': email,
                     'password': test_password,
                     'project': self.tenant.id,
                     'confirm_password': test_password}
@@ -267,6 +267,15 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_UPDATE_URL, formData)
 
         self.assertNoFormErrors(res)
+
+    def test_update(self):
+        user = self.users.get(id="1")
+        self._update(user)
+
+    def test_update_with_no_email_attribute(self):
+        user = self.users.get(id="1")
+        del user.email
+        self._update(user)
 
     @test.create_stubs({api.keystone: ('user_get',
                                        'domain_get',
