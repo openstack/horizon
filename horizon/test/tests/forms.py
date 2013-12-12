@@ -13,6 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django import shortcuts
+
 from horizon import forms
 from horizon.test import helpers as test
 
@@ -62,3 +64,39 @@ class FormMixinTests(test.TestCase):
 
             view = self._prepare_view(forms.views.ModalFormView, {})
             self.assertEqual(view.get_template_names(), view.template_name)
+
+
+class TestForm(forms.SelfHandlingForm):
+
+    name = forms.CharField(max_length="255")
+
+    def handle(self, request, data):
+        return True
+
+
+class FormErrorTests(test.TestCase):
+
+    template = 'horizon/common/_form_fields.html'
+
+    def setUp(self):
+        super(FormErrorTests, self).setUp()
+        self.form = TestForm(self.request)
+
+    def _render_form(self):
+        return shortcuts.render(self.request, self.template,
+                                {'form': self.form})
+
+    def test_set_warning(self):
+        warning_text = 'WARNING 29380'
+        self.form.set_warning(warning_text)
+        self.assertEqual([warning_text], self.form.warnings)
+        resp = self._render_form()
+        self.assertIn(warning_text, resp.content)
+
+    def test_api_error(self):
+        error_text = 'ERROR 12938'
+        self.form.full_clean()
+        self.form.api_error(error_text)
+        self.assertEqual([error_text], self.form.non_field_errors())
+        resp = self._render_form()
+        self.assertIn(error_text, resp.content)
