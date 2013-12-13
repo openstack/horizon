@@ -46,6 +46,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.network, 'security_group_list')
+        self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
 
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
@@ -84,6 +85,9 @@ class UsageViewTests(test.BaseAdminViewTests):
                            .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
                            .AndReturn(self.q_secgroups.list())
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
+                           .AndReturn(self.cinder_limits['absolute'])
+
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:admin:overview:index'))
@@ -141,6 +145,8 @@ class UsageViewTests(test.BaseAdminViewTests):
                            .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
                            .AndReturn(self.q_secgroups.list())
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
+                           .AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
