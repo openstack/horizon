@@ -366,8 +366,9 @@ def sanitize_name(name):
 
 
 def get_size(obj):
-    if obj.bytes:
-        return filters.filesizeformat(obj.bytes)
+    if obj.bytes is None:
+        return _("pseudo-folder")
+    return filters.filesizeformat(obj.bytes)
 
 
 def get_link_subfolder(subfolder):
