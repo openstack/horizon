@@ -216,7 +216,7 @@ def object_download(request, container_name, object_path):
         filename = "%s%s" % (filename, ext)
     response = http.HttpResponse()
     safe_name = filename.replace(",", "").encode('utf-8')
-    response['Content-Disposition'] = 'attachment; filename=%s' % safe_name
+    response['Content-Disposition'] = 'attachment; filename="%s"' % safe_name
     response['Content-Type'] = 'application/octet-stream'
     response.write(obj.data)
     return response

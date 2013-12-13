@@ -34,7 +34,7 @@ from openstack_dashboard.dashboards.project.containers import views
 from openstack_dashboard.test import helpers as test
 
 
-CONTAINER_NAME_1 = u"container_one%\u6346"
+CONTAINER_NAME_1 = u"container one%\u6346"
 CONTAINER_NAME_2 = u"container_two\u6346"
 CONTAINER_NAME_1_QUOTED = utils_http.urlquote(CONTAINER_NAME_1)
 CONTAINER_NAME_2_QUOTED = utils_http.urlquote(CONTAINER_NAME_2)
@@ -114,7 +114,7 @@ class SwiftTests(test.TestCase):
 
     @test.create_stubs({api.swift: ('swift_update_container', )})
     def test_update_container_to_public(self):
-        container = self.containers.get(name=u"container_one%\u6346")
+        container = self.containers.get(name=u"container one%\u6346")
         api.swift.swift_update_container(IsA(http.HttpRequest),
                                          container.name,
                                          metadata=({'is_public': True}))
@@ -267,6 +267,14 @@ class SwiftTests(test.TestCase):
                 res = self.client.get(download_url)
                 self.assertEqual(res.content, obj.data)
                 self.assertTrue(res.has_header('Content-Disposition'))
+                # Check that the returned Content-Disposition filename is well
+                # surrounded by double quotes and with commas removed
+                expected_name = '"%s"' % obj.name.replace(
+                    ',', '').encode('utf-8')
+                self.assertEqual(
+                    res.get('Content-Disposition'),
+                    'attachment; filename=%s' % expected_name
+                )
 
     @test.create_stubs({api.swift: ('swift_get_containers',)})
     def test_copy_index(self):
