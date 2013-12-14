@@ -92,7 +92,9 @@ class UploadObject(forms.SelfHandlingForm):
                                attrs={"ng-model": "name",
                                       "not-blank": ""}
                            ))
-    object_file = forms.FileField(label=_("File"), allow_empty_file=True)
+    object_file = forms.FileField(label=_("File"),
+                                  required=False,
+                                  allow_empty_file=True)
     container_name = forms.CharField(widget=forms.HiddenInput())
 
     def _set_object_path(self, data):
@@ -101,6 +103,13 @@ class UploadObject(forms.SelfHandlingForm):
         else:
             object_path = data['name']
         return object_path
+
+    def clean(self):
+        data = super(UploadObject, self).clean()
+        if 'object_file' not in self.files:
+            self.files['object_file'] = None
+
+        return data
 
     def handle(self, request, data):
         object_file = self.files['object_file']

@@ -274,14 +274,20 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
                                          headers=headers)
 
 
-def swift_upload_object(request, container_name, object_name, object_file):
+def swift_upload_object(request, container_name, object_name,
+                        object_file=None):
     headers = {}
-    headers['X-Object-Meta-Orig-Filename'] = object_file.name
+    size = 0
+    if object_file:
+        headers['X-Object-Meta-Orig-Filename'] = object_file.name
+        size = object_file.size
+
     etag = swift_api(request).put_object(container_name,
                                          object_name,
                                          object_file,
                                          headers=headers)
-    obj_info = {'name': object_name, 'bytes': object_file.size, 'etag': etag}
+
+    obj_info = {'name': object_name, 'bytes': size, 'etag': etag}
     return StorageObject(obj_info, container_name)
 
 
