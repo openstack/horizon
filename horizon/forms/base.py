@@ -45,6 +45,13 @@ class SelfHandlingForm(SelfHandlingMixin, forms.Form):
         """
         self._errors[NON_FIELD_ERRORS] = self.error_class([message])
 
+    def set_warning(self, message):
+        """Sets a warning on the form.
+
+        Unlike NON_FIELD_ERRORS, this doesn't fail form validation.
+        """
+        self.warnings = self.error_class([message])
+
 
 class DateForm(forms.Form):
     """A simple form for selecting a range of time."""
