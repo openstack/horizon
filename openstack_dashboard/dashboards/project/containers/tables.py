@@ -284,6 +284,19 @@ class ViewObject(tables.LinkAction):
                                        http.urlquote(obj.name)))
 
 
+class UpdateObject(tables.LinkAction):
+    name = "update_object"
+    verbose_name = _("Edit")
+    url = "horizon:project:containers:object_update"
+    classes = ("ajax-modal", "btn-edit")
+    allowed_data_types = ("objects",)
+
+    def get_link_url(self, obj):
+        container_name = self.table.kwargs['container_name']
+        return reverse(self.url, args=(http.urlquote(container_name),
+                                       http.urlquote(obj.name)))
+
+
 class DeleteObject(tables.DeleteAction):
     name = "delete_object"
     data_type_singular = _("Object")
@@ -395,7 +408,8 @@ class ObjectsTable(tables.DataTable):
         verbose_name = _("Objects")
         table_actions = (ObjectFilterAction, CreatePseudoFolder, UploadObject,
                          DeleteMultipleObjects)
-        row_actions = (DownloadObject, CopyObject, ViewObject, DeleteObject)
+        row_actions = (DownloadObject, UpdateObject, CopyObject,
+                       ViewObject, DeleteObject)
         data_types = ("subfolders", "objects")
         browser_table = "content"
         footer = False

@@ -44,6 +44,11 @@ urlpatterns = patterns(VIEW_MOD,
         views.ObjectDetailView.as_view(),
         name='object_detail'),
 
+    url(r'^(?P<container_name>[^/]+)/(?P<subfolder_path>(.+/)+)?'
+        '(?P<object_name>.+)/update$',
+        views.UpdateObjectView.as_view(),
+        name='object_update'),
+
     url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)?upload$',
         views.UploadView.as_view(),
         name='object_upload'),

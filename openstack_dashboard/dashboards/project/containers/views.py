@@ -306,3 +306,30 @@ class ObjectDetailView(forms.ModalFormMixin, generic.TemplateView):
         context = super(ObjectDetailView, self).get_context_data(**kwargs)
         context['object'] = self.get_object()
         return context
+
+
+class UpdateObjectView(forms.ModalFormView):
+    form_class = project_forms.UpdateObject
+    template_name = 'project/containers/update.html'
+    success_url = "horizon:project:containers:index"
+
+    def get_success_url(self):
+        container_name = for_url(self.request.POST['container_name'])
+        path = for_url(self.request.POST.get('path', ''))
+        args = (container_name, path)
+        return reverse(self.success_url, args=args)
+
+    def get_initial(self):
+        return {"container_name": self.kwargs["container_name"],
+                "path": self.kwargs["subfolder_path"],
+                "name": self.kwargs["object_name"]}
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateObjectView, self).get_context_data(**kwargs)
+        context['container_name'] = utils_http.urlquote(
+            self.kwargs["container_name"])
+        context['subfolder_path'] = utils_http.urlquote(
+            self.kwargs["subfolder_path"])
+        context['object_name'] = utils_http.urlquote(
+            self.kwargs["object_name"])
+        return context

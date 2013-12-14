@@ -125,6 +125,35 @@ class UploadObject(forms.SelfHandlingForm):
             exceptions.handle(request, _("Unable to upload object."))
 
 
+class UpdateObject(UploadObject):
+    def __init__(self, *args, **kwargs):
+        super(UpdateObject, self).__init__(*args, **kwargs)
+        self.fields['name'].widget = forms.TextInput(
+            attrs={"readonly": "readonly"})
+        self.fields['name'].help_text = None
+
+    def handle(self, request, data):
+        object_file = self.files.get('object_file')
+        if object_file:
+            object_path = self._set_object_path(data)
+            try:
+                obj = api.swift.swift_upload_object(request,
+                                                    data['container_name'],
+                                                    object_path,
+                                                    object_file)
+                messages.success(
+                    request, _("Object was successfully updated."))
+                return obj
+            except Exception:
+                exceptions.handle(request, _("Unable to update object."))
+                return False
+        else:
+            # If object file is not provided, then a POST method is needed
+            # to update ONLY metadata. This must be implemented when
+            # object metadata can be updated from this panel.
+            return True
+
+
 class CreatePseudoFolder(forms.SelfHandlingForm):
     path = forms.CharField(max_length=255,
                            required=False,

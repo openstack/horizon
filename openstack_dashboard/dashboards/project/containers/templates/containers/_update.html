@@ -1,0 +1,29 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}update_object_form{% endblock %}
+{% block ng_controller %}DummyCtrl{% endblock %}
+{% block form_name %}updateForm{% endblock %}
+{% block form_action %}{% url 'horizon:project:containers:object_update' container_name subfolder_path object_path %}{% endblock %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+
+{% block modal-header %}{% trans "Edit Object" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p><strong>{% trans "Object" %}</strong>: {% trans "An object is the basic storage entity that represents a file you store in the OpenStack Object Storage system. When you upload data to OpenStack Object Storage, the data is stored as-is (no compression or encryption) and consists of a location (container), the object's name, and any metadata consisting of key/value pairs." %}</p>
+    <p><strong>{% trans "File" %}</strong>: {% trans "A new uploaded file will replace the content of the current object" %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" ng-disabled="updateForm.$invalid" value="{% trans "Update Object" %}" />
+  <a href="{% url 'horizon:project:containers:index' container_name|add:'/' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

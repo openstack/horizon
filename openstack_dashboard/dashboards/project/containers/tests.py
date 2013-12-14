@@ -345,6 +345,67 @@ class SwiftTests(test.TestCase):
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
+    @test.create_stubs({api.swift: ('swift_upload_object',)})
+    def test_update_with_file(self):
+        container = self.containers.first()
+        obj = self.objects.first()
+        OBJECT_DATA = 'objectData'
+
+        temp_file = tempfile.TemporaryFile()
+        temp_file.write(OBJECT_DATA)
+        temp_file.flush()
+        temp_file.seek(0)
+
+        api.swift.swift_upload_object(IsA(http.HttpRequest),
+                                      container.name,
+                                      obj.name,
+                                      IsA(InMemoryUploadedFile)).AndReturn(obj)
+        self.mox.ReplayAll()
+
+        update_url = reverse('horizon:project:containers:object_update',
+                             args=[container.name, obj.name])
+
+        res = self.client.get(update_url)
+        self.assertTemplateUsed(res, 'project/containers/update.html')
+
+        res = self.client.get(update_url)
+        self.assertContains(res, 'enctype="multipart/form-data"')
+
+        formData = {'method': forms.UpdateObject.__name__,
+                    'container_name': container.name,
+                    'name': obj.name,
+                    'object_file': temp_file}
+        res = self.client.post(update_url, formData)
+
+        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        index_url = reverse('horizon:project:containers:index', args=args)
+        self.assertRedirectsNoFollow(res, index_url)
+
+    @test.create_stubs({api.swift: ('swift_upload_object',)})
+    def test_update_without_file(self):
+        container = self.containers.first()
+        obj = self.objects.first()
+
+        self.mox.ReplayAll()
+
+        update_url = reverse('horizon:project:containers:object_update',
+                             args=[container.name, obj.name])
+
+        res = self.client.get(update_url)
+        self.assertTemplateUsed(res, 'project/containers/update.html')
+
+        res = self.client.get(update_url)
+        self.assertContains(res, 'enctype="multipart/form-data"')
+
+        formData = {'method': forms.UpdateObject.__name__,
+                    'container_name': container.name,
+                    'name': obj.name}
+        res = self.client.post(update_url, formData)
+
+        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        index_url = reverse('horizon:project:containers:index', args=args)
+        self.assertRedirectsNoFollow(res, index_url)
+
     @test.create_stubs({api.swift: ('swift_get_container', )})
     def test_view_container(self):
         for container in self.containers.list():
