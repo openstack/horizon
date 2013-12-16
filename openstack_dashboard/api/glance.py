@@ -56,7 +56,10 @@ def image_get(request, image_id):
     """Returns an Image object populated with metadata for image
     with supplied identifier.
     """
-    return glanceclient(request).images.get(image_id)
+    image = glanceclient(request).images.get(image_id)
+    if not hasattr(image, 'name'):
+        image.name = None
+    return image
 
 
 def image_list_detailed(request, marker=None, filters=None, paginate=False):

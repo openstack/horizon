@@ -162,6 +162,19 @@ def data(TEST):
                   'protected': False}
     multi_prop_image = images.Image(images.ImageManager(None), image_dict)
 
+    # An image wihout name being returned based on current api
+    image_dict = {'id': 'c8756975-7a3b-4e43-b7f7-433576112849',
+                  'status': "active",
+                  'size': 8 * 1024 ** 3,
+                  'min_disk': 0,
+                  'owner': 'someothertenant',
+                  'container_format': 'aki',
+                  'is_public': False,
+                  'protected': False}
+    no_name_image = images.Image(images.ImageManager(None), image_dict)
+
     TEST.images.add(public_image, private_image, protected_image,
                     public_image2, private_image2, private_image3,
                     shared_image1, official_image1, multi_prop_image)
+
+    TEST.empty_name_image = no_name_image
