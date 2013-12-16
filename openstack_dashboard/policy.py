@@ -65,22 +65,28 @@ def check(actions, request, target={}):
     Check if the user has permission to the action according
     to policy setting.
 
-    :param actions: list of scope and action to do policy checks on, the
-                    composition of which is (scope, action)
+    :param actions: list of scope and action to do policy checks on,
+        the composition of which is (scope, action)
 
-        scope: service type managing the policy for action
-        action: string representing the action to be checked
+        * scope: service type managing the policy for action
+
+        * action: string representing the action to be checked
 
             this should be colon separated for clarity.
-            i.e. compute:create_instance
-                 compute:attach_volume
-                 volume:attach_volume
+            i.e.
 
-       for a policy action that requires a single action:
-           actions should look like "(("compute", "compute:create_instance"),)"
-       for a multiple action check:
-           actions should look like "(("identity", "identity:list_users"),
-                                      ("identity", "identity:list_roles"))"
+                | compute:create_instance
+                | compute:attach_volume
+                | volume:attach_volume
+
+        for a policy action that requires a single action, actions
+        should look like
+
+            | "(("compute", "compute:create_instance"),)"
+
+        for a multiple action check, actions should look like
+            | "(("identity", "identity:list_users"),
+            |   ("identity", "identity:list_roles"))"
 
     :param request: django http request object. If not specified, credentials
                     must be passed.
