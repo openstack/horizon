@@ -340,13 +340,15 @@ class AddMemberAction(workflows.Action):
                               _('Unable to retrieve instances list.'))
 
         if len(servers) == 0:
-            self.fields['members'].label = _("No servers available. "
-                                             "Click Add to cancel.")
-            self.fields['members'].required = False
+            self.fields['members'].label = _(
+                "No servers available. To add a member, you"
+                "need at least one running instance.")
+            self.fields['members'].required = True
             self.fields['members'].help_text = _("Select members "
                                                  "for this pool ")
             self.fields['pool_id'].required = False
             self.fields['protocol_port'].required = False
+
             return
 
         for m in servers:
