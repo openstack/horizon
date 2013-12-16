@@ -22,5 +22,8 @@ from openstack_dashboard.dashboards.admin.hypervisors import views
 
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.admin.hypervisors.views',
+    url(r'^(?P<hypervisor>[^/]+)/$',
+        views.AdminDetailView.as_view(),
+        name='detail'),
     url(r'^$', views.AdminIndexView.as_view(), name='index')
 )

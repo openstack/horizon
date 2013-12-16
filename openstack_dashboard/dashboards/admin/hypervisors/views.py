@@ -46,3 +46,23 @@ class AdminIndexView(tables.DataTableView):
                 _('Unable to retrieve hypervisor statistics.'))
 
         return context
+
+
+class AdminDetailView(tables.DataTableView):
+    table_class = project_tables.AdminHypervisorInstancesTable
+    template_name = 'admin/hypervisors/detail.html'
+
+    def get_data(self):
+        instances = []
+        try:
+            result = api.nova.hypervisor_search(self.request,
+                                                self.kwargs['hypervisor'])
+            for hypervisor in result:
+                try:
+                    instances += hypervisor.servers
+                except AttributeError:
+                    pass
+        except Exception:
+            exceptions.handle(self.request,
+                _('Unable to retrieve hypervisor instances list.'))
+        return instances
