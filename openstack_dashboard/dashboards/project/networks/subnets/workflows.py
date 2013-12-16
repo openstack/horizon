@@ -187,7 +187,7 @@ class UpdateSubnet(network_workflows.CreateNetwork):
 
             self._setup_subnet_parameters(params, data, is_create=False)
 
-            subnet = api.neutron.subnet_modify(request, subnet_id, **params)
+            subnet = api.neutron.subnet_update(request, subnet_id, **params)
             msg = _('Subnet "%s" was successfully updated.') % data['cidr']
             LOG.debug(msg)
             return subnet

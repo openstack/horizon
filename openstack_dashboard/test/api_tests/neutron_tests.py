@@ -57,7 +57,7 @@ class NeutronApiTests(test.APITestCase):
         ret_val = api.neutron.network_create(self.request, name='net1')
         self.assertIsInstance(ret_val, api.neutron.Network)
 
-    def test_network_modify(self):
+    def test_network_update(self):
         network = {'network': self.api_networks.first()}
         network_id = self.api_networks.first()['id']
 
@@ -67,7 +67,7 @@ class NeutronApiTests(test.APITestCase):
             .AndReturn(network)
         self.mox.ReplayAll()
 
-        ret_val = api.neutron.network_modify(self.request, network_id,
+        ret_val = api.neutron.network_update(self.request, network_id,
                                              name='net1')
         self.assertIsInstance(ret_val, api.neutron.Network)
 
@@ -119,7 +119,7 @@ class NeutronApiTests(test.APITestCase):
         ret_val = api.neutron.subnet_create(self.request, **params)
         self.assertIsInstance(ret_val, api.neutron.Subnet)
 
-    def test_subnet_modify(self):
+    def test_subnet_update(self):
         subnet_data = self.api_subnets.first()
         subnet_id = subnet_data['id']
         params = {'name': subnet_data['name'],
@@ -130,7 +130,7 @@ class NeutronApiTests(test.APITestCase):
             .AndReturn({'subnet': subnet_data})
         self.mox.ReplayAll()
 
-        ret_val = api.neutron.subnet_modify(self.request, subnet_id, **params)
+        ret_val = api.neutron.subnet_update(self.request, subnet_id, **params)
         self.assertIsInstance(ret_val, api.neutron.Subnet)
 
     def test_subnet_delete(self):
@@ -180,7 +180,7 @@ class NeutronApiTests(test.APITestCase):
         self.assertIsInstance(ret_val, api.neutron.Port)
         self.assertEqual(ret_val.id, api.neutron.Port(port_data).id)
 
-    def test_port_modify(self):
+    def test_port_update(self):
         port_data = self.api_ports.first()
         port_id = port_data['id']
         params = {'name': port_data['name'],
@@ -191,7 +191,7 @@ class NeutronApiTests(test.APITestCase):
             .AndReturn({'port': port_data})
         self.mox.ReplayAll()
 
-        ret_val = api.neutron.port_modify(self.request, port_id, **params)
+        ret_val = api.neutron.port_update(self.request, port_id, **params)
         self.assertIsInstance(ret_val, api.neutron.Port)
         self.assertEqual(ret_val.id, api.neutron.Port(port_data).id)
 

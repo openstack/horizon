@@ -341,7 +341,7 @@ class AddIPSecSiteConnectionAction(workflows.Action):
         ikepolicy_id_choices = [('', _("Select IKE Policy"))]
         try:
             tenant_id = self.request.user.tenant_id
-            ikepolicies = api.vpn.ikepolicies_get(request, tenant_id=tenant_id)
+            ikepolicies = api.vpn.ikepolicy_list(request, tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve IKE Policies list.'))
@@ -355,8 +355,8 @@ class AddIPSecSiteConnectionAction(workflows.Action):
         ipsecpolicy_id_choices = [('', _("Select IPSec Policy"))]
         try:
             tenant_id = self.request.user.tenant_id
-            ipsecpolicies = api.vpn.ipsecpolicies_get(request,
-                                                      tenant_id=tenant_id)
+            ipsecpolicies = api.vpn.ipsecpolicy_list(request,
+                                                     tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve IPSec Policies list.'))
@@ -370,7 +370,7 @@ class AddIPSecSiteConnectionAction(workflows.Action):
         vpnservice_id_choices = [('', _("Select VPN Service"))]
         try:
             tenant_id = self.request.user.tenant_id
-            vpnservices = api.vpn.vpnservices_get(request, tenant_id=tenant_id)
+            vpnservices = api.vpn.vpnservice_list(request, tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve VPN Services list.'))

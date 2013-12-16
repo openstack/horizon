@@ -46,7 +46,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
         try:
             params = {'admin_state_up': data['admin_state'],
                       'name': data['name']}
-            network = api.neutron.network_modify(request, data['network_id'],
+            network = api.neutron.network_update(request, data['network_id'],
                                                  **params)
             msg = _('Network %s was successfully updated.') % data['name']
             LOG.debug(msg)

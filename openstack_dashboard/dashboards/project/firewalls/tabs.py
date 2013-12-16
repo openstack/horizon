@@ -38,7 +38,7 @@ class RulesTab(tabs.TableTab):
     def get_rulestable_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            rules = api.fwaas.rules_list(self.tab_group.request,
+            rules = api.fwaas.rule_list(self.tab_group.request,
                                         tenant_id=tenant_id)
         except Exception:
             rules = []
@@ -59,8 +59,8 @@ class PoliciesTab(tabs.TableTab):
     def get_policiestable_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            policies = api.fwaas.policies_list(self.tab_group.request,
-                                              tenant_id=tenant_id)
+            policies = api.fwaas.policy_list(self.tab_group.request,
+                                             tenant_id=tenant_id)
         except Exception:
             policies = []
             exceptions.handle(self.tab_group.request,
@@ -80,7 +80,7 @@ class FirewallsTab(tabs.TableTab):
     def get_firewallstable_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            firewalls = api.fwaas.firewalls_list(self.tab_group.request,
+            firewalls = api.fwaas.firewall_list(self.tab_group.request,
                                                 tenant_id=tenant_id)
         except Exception:
             firewalls = []

@@ -45,7 +45,7 @@ class VPNaasApiTests(test.APITestCase):
         self.assertIsInstance(ret_val, api.vpn.VPNService)
 
     @test.create_stubs({neutronclient: ('list_vpnservices',)})
-    def test_vpnservices_get(self):
+    def test_vpnservice_list(self):
         vpnservices = {'vpnservices': self.vpnservices.list()}
         vpnservices_dict = {'vpnservices': self.api_vpnservices.list()}
 
@@ -53,7 +53,7 @@ class VPNaasApiTests(test.APITestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.vpn.vpnservices_get(self.request)
+        ret_val = api.vpn.vpnservice_list(self.request)
         for (v, d) in zip(ret_val, vpnservices['vpnservices']):
             self.assertIsInstance(v, api.vpn.VPNService)
             self.assertTrue(v.name, d.name)
@@ -96,7 +96,7 @@ class VPNaasApiTests(test.APITestCase):
         self.assertIsInstance(ret_val, api.vpn.IKEPolicy)
 
     @test.create_stubs({neutronclient: ('list_ikepolicies',)})
-    def test_ikepolicies_get(self):
+    def test_ikepolicy_list(self):
         ikepolicies = {'ikepolicies': self.ikepolicies.list()}
         ikepolicies_dict = {'ikepolicies': self.api_ikepolicies.list()}
 
@@ -104,7 +104,7 @@ class VPNaasApiTests(test.APITestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.vpn.ikepolicies_get(self.request)
+        ret_val = api.vpn.ikepolicy_list(self.request)
         for (v, d) in zip(ret_val, ikepolicies['ikepolicies']):
             self.assertIsInstance(v, api.vpn.IKEPolicy)
             self.assertTrue(v.name, d.name)
@@ -147,7 +147,7 @@ class VPNaasApiTests(test.APITestCase):
         self.assertIsInstance(ret_val, api.vpn.IPSecPolicy)
 
     @test.create_stubs({neutronclient: ('list_ipsecpolicies',)})
-    def test_ipsecpolicies_get(self):
+    def test_ipsecpolicy_list(self):
         ipsecpolicies = {'ipsecpolicies': self.ipsecpolicies.list()}
         ipsecpolicies_dict = {'ipsecpolicies': self.api_ipsecpolicies.list()}
 
@@ -155,7 +155,7 @@ class VPNaasApiTests(test.APITestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.vpn.ipsecpolicies_get(self.request)
+        ret_val = api.vpn.ipsecpolicy_list(self.request)
         for (v, d) in zip(ret_val, ipsecpolicies['ipsecpolicies']):
             self.assertIsInstance(v, api.vpn.IPSecPolicy)
             self.assertTrue(v.name, d.name)
@@ -206,7 +206,7 @@ class VPNaasApiTests(test.APITestCase):
         self.assertIsInstance(ret_val, api.vpn.IPSecSiteConnection)
 
     @test.create_stubs({neutronclient: ('list_ipsec_site_connections',)})
-    def test_ipsecsiteconnections_get(self):
+    def test_ipsecsiteconnection_list(self):
         ipsecsiteconnections = {
             'ipsec_site_connections': self.ipsecsiteconnections.list()}
         ipsecsiteconnections_dict = {
@@ -217,7 +217,7 @@ class VPNaasApiTests(test.APITestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.vpn.ipsecsiteconnections_get(self.request)
+        ret_val = api.vpn.ipsecsiteconnection_list(self.request)
         for (v, d) in zip(ret_val,
                           ipsecsiteconnections['ipsec_site_connections']):
             self.assertIsInstance(v, api.vpn.IPSecSiteConnection)

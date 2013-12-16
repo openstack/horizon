@@ -41,7 +41,7 @@ class UpdatePort(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             LOG.debug('params = %s' % data)
-            port = api.neutron.port_modify(request, data['port_id'],
+            port = api.neutron.port_update(request, data['port_id'],
                                            name=data['name'],
                                            admin_state_up=data['admin_state'])
             msg = _('Port %s was successfully updated.') % data['port_id']
