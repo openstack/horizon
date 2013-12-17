@@ -71,6 +71,165 @@
         </tfoot>
       </table>
 
+      <div id="formset" class="table_wrapper">
+          <input id="id_flavors-TOTAL_FORMS" name="flavors-TOTAL_FORMS"
+          type="hidden" value="3"><input id="id_flavors-INITIAL_FORMS"
+          name="flavors-INITIAL_FORMS" type="hidden" value="2"><input id=
+          "id_flavors-MAX_NUM_FORMS" name="flavors-MAX_NUM_FORMS" type=
+          "hidden" value="1000">
+
+          <table id="flavors" class=
+          "table table-bordered table-striped datatable">
+            <thead>
+              <tr class='table_caption'>
+                <th class='table_header' colspan='8'>
+                  <h3 class='table_title'>Flavors</h3>
+
+                  <div class="table_actions clearfix"></div>
+                </th>
+              </tr>
+
+              <tr>
+                <th class="sortable normal_column"><span class=
+                "required">Flavor Name</span></th>
+
+                <th class="sortable normal_column"><span class=
+                "required">VCPU</span></th>
+
+                <th class="sortable normal_column"><span class=
+                "required">RAM (MB)</span></th>
+
+                <th class="sortable normal_column"><span class=
+                "required">Root Disk (GB)</span></th>
+
+                <th class="sortable normal_column"><span>Ephemeral Disk
+                (GB)</span></th>
+
+                <th class="sortable normal_column"><span>Swap Disk
+                (MB)</span></th>
+
+                <th class="sortable normal_column"><span>Max.
+                VMs</span></th>
+
+                <th class="sortable normal_column">
+                <span>Delete</span></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="" data-display="yyy.1" id="flavors__row__14">
+                <td class="sortable normal_column"><input class=
+                "input input-small" id="id_flavors-0-name" maxlength="25"
+                name="flavors-0-name" type="text" value="1"> <input id=
+                "id_flavors-0-id" name="flavors-0-id" type="hidden"
+                value="14"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-0-cpu" name=
+                "flavors-0-cpu" type="number" value="1"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-0-memory" name=
+                "flavors-0-memory" type="number" value="1"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-0-storage" name=
+                "flavors-0-storage" type="number" value="1"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id=
+                "id_flavors-0-ephemeral_disk" name=
+                "flavors-0-ephemeral_disk" type="number"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-0-swap_disk"
+                name="flavors-0-swap_disk" type="number"></td>
+
+                <td class="sortable normal_column">-</td>
+
+                <td class="sortable normal_column"><input id=
+                "id_flavors-0-DELETE" name="flavors-0-DELETE" type=
+                "checkbox"></td>
+              </tr>
+
+              <tr class="" data-display="yyy.2" id="flavors__row__15">
+                <td class="sortable normal_column"><input class=
+                "input input-small" id="id_flavors-1-name" maxlength="25"
+                name="flavors-1-name" type="text" value="2"> <input id=
+                "id_flavors-1-id" name="flavors-1-id" type="hidden"
+                value="15"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-1-cpu" name=
+                "flavors-1-cpu" type="number" value="2"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-1-memory" name=
+                "flavors-1-memory" type="number" value="2"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-1-storage" name=
+                "flavors-1-storage" type="number" value="2"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id=
+                "id_flavors-1-ephemeral_disk" name=
+                "flavors-1-ephemeral_disk" type="number"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-1-swap_disk"
+                name="flavors-1-swap_disk" type="number"></td>
+
+                <td class="sortable normal_column">-</td>
+
+                <td class="sortable normal_column"><input id=
+                "id_flavors-1-DELETE" name="flavors-1-DELETE" type=
+                "checkbox"></td>
+              </tr>
+
+              <tr class="current_selected">
+                <td class="sortable normal_column"><input class=
+                "input input-small" id="id_flavors-2-name" maxlength="25"
+                name="flavors-2-name" type="text"> <input id=
+                "id_flavors-2-id" name="flavors-2-id" type="hidden"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-2-cpu" name=
+                "flavors-2-cpu" type="number"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-2-memory" name=
+                "flavors-2-memory" type="number"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-2-storage" name=
+                "flavors-2-storage" type="number"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id=
+                "id_flavors-2-ephemeral_disk" name=
+                "flavors-2-ephemeral_disk" type="number"></td>
+
+                <td class="sortable normal_column"><input class=
+                "input number_input_slim" id="id_flavors-2-swap_disk"
+                name="flavors-2-swap_disk" type="number"></td>
+
+                <td class="sortable normal_column">-</td>
+
+                <td class="sortable normal_column"><input id=
+                "id_flavors-2-DELETE" name="flavors-2-DELETE" type=
+                "checkbox"></td>
+              </tr>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <td colspan="8"><span class="table_count">Displaying 3
+                items</span></td>
+              </tr>
+            </tfoot>
+          </table>
+      </div>
     </div>
   </body>
 </html>

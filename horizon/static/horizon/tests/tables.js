@@ -47,3 +47,60 @@ test("Footer count update", function () {
     horizon.datatables.update_footer_count(table);
     notEqual(table_count.text().indexOf('5 items'), -1, "Count correct after adding two rows");
 });
+
+test("Formset reenumerate rows", function () {
+    var html = $('#formset');
+    var table = html.find('table');
+    var input = table.find('tbody tr#flavors__row__14 input').first();
+
+    input.attr('id', 'id_flavors-3-name');
+    horizon.formset_table.reenumerate_rows(table, 'flavors');
+    equal(input.attr('id'), 'id_flavors-0-name', "Enumerate old rows ids");
+    input.attr('id', 'id_flavors-__prefix__-name');
+    horizon.formset_table.reenumerate_rows(table, 'flavors');
+    equal(input.attr('id'), 'id_flavors-0-name', "Enumerate new rows ids");
+});
+
+test("Formset delete row", function () {
+    var html = $('#formset');
+    var table = html.find('table');
+    var row = table.find('tbody tr').first();
+    var input = row.find('input#id_flavors-0-DELETE');
+
+    equal(row.css("display"), 'table-row');
+    equal(input.attr('checked'), undefined);
+    horizon.formset_table.replace_delete(row);
+    var x = input.next('a');
+    horizon.formset_table.delete_row.call(x);
+    equal(row.css("display"), 'none');
+    equal(input.attr('checked'), 'checked');
+});
+
+test("Formset add row", function() {
+    var html = $('#formset');
+    var table = html.find('table');
+    var empty_row_html = '<tr><td><input id="id_flavors-__prefix__-name" name="flavors-__prefix__-name"></td></tr>';
+
+    equal(table.find('tbody tr').length, 3);
+    equal(html.find('#id_flavors-TOTAL_FORMS').val(), 3);
+    horizon.formset_table.add_row(table, 'flavors', empty_row_html);
+    equal(table.find('tbody tr').length, 4);
+    equal(table.find('tbody tr:last input').attr('id'), 'id_flavors-3-name');
+    equal(html.find('#id_flavors-TOTAL_FORMS').val(), 4);
+});
+
+test("Init formset table", function() {
+    var html = $('#formset');
+    var table = html.find('table');
+
+    horizon.formset_table.init('flavors', '', 'Add row');
+    equal(table.find('tfoot tr a').html(), 'Add row');
+});
+
+test("Init formset table -- no add", function() {
+    var html = $('#formset');
+    var table = html.find('table');
+
+    horizon.formset_table.init('flavors', '', '');
+    equal(table.find('tfoot tr a').length, 0);
+});

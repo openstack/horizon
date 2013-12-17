@@ -49,6 +49,17 @@ The following options can be defined in a ``Meta`` class inside a
 .. autoclass:: horizon.tables.base.DataTableOptions
     :members:
 
+FormsetDataTable
+================
+
+You can integrate the :class:`.DataTable` with a Django Formset using one of following classes:
+
+.. autoclass:: horizon.tables.formset.FormsetDataTableMixin
+    :members:
+
+.. autoclass:: horizon.tables.formset.FormsetDataTable
+    :members:
+
 Table Components
 ================
 

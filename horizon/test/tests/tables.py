@@ -22,6 +22,7 @@ from django import shortcuts
 from mox import IsA  # noqa
 
 from horizon import tables
+from horizon.tables import formset as table_formset
 from horizon.tables import views as table_views
 from horizon.test import helpers as test
 
@@ -1087,3 +1088,33 @@ class DataTableViewTests(test.TestCase):
         self.assertEqual(context['my_table_table'].__class__, MyTable)
         self.assertEqual(context['table_with_permissions_table'].__class__,
                          TableWithPermissions)
+
+
+class FormsetTableTests(test.TestCase):
+
+    def test_populate(self):
+        """Create a FormsetDataTable and populate it with data."""
+
+        class TableForm(forms.Form):
+            name = forms.CharField()
+            value = forms.IntegerField()
+
+        TableFormset = forms.formsets.formset_factory(TableForm, extra=0)
+
+        class Table(table_formset.FormsetDataTable):
+            formset_class = TableFormset
+
+            name = tables.Column('name')
+            value = tables.Column('value')
+
+            class Meta:
+                name = 'table'
+
+        table = Table(self.request)
+        table.data = TEST_DATA_4
+        formset = table.get_formset()
+        self.assertEqual(len(formset), 2)
+        form = formset[0]
+        form_data = form.initial
+        self.assertEqual(form_data['name'], 'object_1')
+        self.assertEqual(form_data['value'], 2)
