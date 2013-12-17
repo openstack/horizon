@@ -1,6 +1,6 @@
 {% load i18n %}
 {% with workflow.get_entry_point as entry_point %}
-<div class="workflow {% if modal %}modal hide{% else %}static_page{% endif %}">
+<div class="workflow {% if modal %}modal hide{% else %}static_page{% endif %}{% if workflow.wizard %} wizard{% endif %}">
   <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} method="POST"{% if workflow.multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
     {% if REDIRECT_URL %}<input type="hidden" name="{{ workflow.redirect_param_name }}" value="{{ REDIRECT_URL }}"/>{% endif %}
     <div class="modal-header">
@@ -32,8 +32,20 @@
     </div>
     <div class="modal-footer">
     {% block modal-footer %}
-      <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
-      {% if modal %}<a class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+      {% if workflow.wizard %}
+      <div class="row-fluid">
+        <div class="span6 back">
+            <button type="button" class="btn button-previous">&laquo; {% trans "Back" %}</button>
+        </div>
+        <div class="span6 next">
+            <button type="button" class="btn btn-primary button-next">{% trans "Next" %} &raquo;</button>
+          <button type="submit" class="btn btn-primary button-final">{{ workflow.finalize_button_name }}</button>
+        </div>
+      </div>
+      {% else %}
+        <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
+        {% if modal %}<a class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+      {% endif %}
     {% endblock %}
     </div>
   </form>
