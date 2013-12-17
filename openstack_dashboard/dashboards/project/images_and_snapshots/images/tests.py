@@ -177,6 +177,34 @@ class ImageViewTests(test.TestCase):
                             1, 200)
 
     @test.create_stubs({api.glance: ('image_get',)})
+    def test_image_detail_custom_props_get(self):
+        image = self.images.list()[8]
+
+        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
+                                 .AndReturn(image)
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse('horizon:project:images_and_snapshots:images:detail',
+            args=[image.id]))
+
+        image_props = res.context['image_props']
+
+        # Test description property not displayed
+        image_keys = [prop[0] for prop in image_props]
+        self.assertNotIn(('description'), image_keys)
+
+        # Test custom properties are sorted
+        self.assertEqual(image_props[0], ('bar', 'bar', 'bar val'))
+        self.assertEqual(image_props[1], ('foo', 'foo', 'foo val'))
+
+        # Test all custom properties appear in template
+        self.assertContains(res, '<dt title="bar">bar</dt>')
+        self.assertContains(res, '<dd>bar val</dd>')
+        self.assertContains(res, '<dt title="foo">foo</dt>')
+        self.assertContains(res, '<dd>foo val</dd>')
+
+    @test.create_stubs({api.glance: ('image_get',)})
     def test_protected_image_detail_get(self):
         image = self.images.list()[2]
 

@@ -62,29 +62,9 @@
   <h4>{% trans "Custom Properties" %}</h4>
   <hr class="header_rule">
   <dl>
-    {% if image.properties.architecture %}
-      <dt>{% trans "Architecture" %}</dt>
-      <dd>{{ image.properties.architecture }}</dd>
-    {% endif %}
-    {% if image.properties.kernel_id %}
-      <dt>{% trans "Kernel ID" %}</dt>
-      <dd>{{ image.properties.kernel_id }}</dd>
-    {% endif %}
-    {% if image.properties.ramdisk_id %}
-      <dt>{% trans "Ramdisk ID" %}</dt>
-      <dd>{{ image.properties.ramdisk_id }}</dd>
-    {% endif %}
-    {% if image.properties.image_state %}
-      <dt>{% trans "Euca2ools state" %}</dt>
-      <dd>{{ image.properties.image_state }}</dd>
-    {% endif %}
-    {% if image.properties.project_id %}
-      <dt>{% trans "Project ID" %}</dt>
-      <dd>{{ image.properties.project_id }}</dd>
-    {% endif %}
-    {% if image.properties.image_type %}
-      <dt>{% trans "Image Type" %}</dt>
-      <dd>{{ image.properties.image_type }}</dd>
-    {% endif %}
+    {% for prop, title, val in image_props %}
+      <dt title="{{ prop }}">{{ title }}</dt>
+      <dd>{{ val }}</dd>
+    {% endfor %}
   </dl>
 </div>
