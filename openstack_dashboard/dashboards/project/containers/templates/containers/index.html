@@ -9,5 +9,21 @@
 {% endblock page_header %}
 
 {% block main %}
+    {% if subfolders %}
+         <div class="page_title table_header">
+            <div>
+                <h3>
+                    <a href="{% url 'horizon:project:containers:index' %}{{ container_name }}/">{{ container_name }}</a> : /
+                    {% for folder in subfolders %}
+                        {%  if forloop.last %}
+                            {{ folder.0 }}
+                        {%  else %}
+                           <a href="{% url 'horizon:project:containers:index' %}{{ container_name }}/{{ folder.1 }}">{{ folder.0 }}</a> /
+                        {% endif %}
+                    {% endfor %}
+                </h3>
+            </div>
+         </div>
+    {% endif %}
   {{ swift_browser.render }}
 {% endblock %}
