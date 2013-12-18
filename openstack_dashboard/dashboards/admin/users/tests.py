@@ -166,22 +166,15 @@ class UsersViewTests(test.BaseAdminViewTests):
             res, "form", 'password',
             ['Password must be between 8 and 18 characters.'])
 
-    @test.create_stubs({api.keystone: ('user_get',
-                                       'tenant_list',
-                                       'user_update_tenant',
-                                       'user_update_password',
-                                       'user_update',
-                                       'roles_for_user', )})
-    def test_update(self):
-        user = self.users.get(id="1")
-
+    def _update(self, user):
+        email = getattr(user, 'email', '')
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                      admin=True).AndReturn(user)
         api.keystone.tenant_list(IgnoreArg(),
                         admin=True).AndReturn(self.tenants.list())
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
-                                 email=u'test@example.com',
+                                 email=email,
                                  name=u'test_user').AndReturn(None)
         api.keystone.user_update_tenant(IsA(http.HttpRequest),
                                user.id,
@@ -198,7 +191,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
                     'name': user.name,
-                    'email': user.email,
+                    'email': email,
                     'password': 'normalpwd',
                     'tenant_id': self.tenant.id,
                     'confirm_password': 'normalpwd'}
@@ -207,6 +200,27 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(warning=1)
+
+    @test.create_stubs({api.keystone: ('user_get',
+                                       'tenant_list',
+                                       'user_update_tenant',
+                                       'user_update_password',
+                                       'user_update',
+                                       'roles_for_user', )})
+    def test_update(self):
+        user = self.users.get(id="1")
+        self._update(user)
+
+    @test.create_stubs({api.keystone: ('user_get',
+                                       'tenant_list',
+                                       'user_update_tenant',
+                                       'user_update_password',
+                                       'user_update',
+                                       'roles_for_user', )})
+    def test_update_with_no_email_attribute(self):
+        user = self.users.get(id="1")
+        del user.email
+        self._update(user)
 
     @test.create_stubs({api.keystone: ('user_get',
                                        'tenant_list',

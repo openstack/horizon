@@ -113,7 +113,8 @@ class CreateUserForm(BaseUserForm):
 class UpdateUserForm(BaseUserForm):
     id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
     name = forms.CharField(label=_("User Name"))
-    email = forms.EmailField(label=_("Email"))
+    email = forms.EmailField(label=_("Email"),
+            required=False)
     password = forms.RegexField(label=_("Password"),
             widget=forms.PasswordInput(render_value=False),
             regex=validators.password_validator(),
