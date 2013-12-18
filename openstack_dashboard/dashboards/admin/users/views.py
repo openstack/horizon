@@ -100,7 +100,7 @@ class UpdateView(forms.ModalFormView):
                 'id': user.id,
                 'name': user.name,
                 'project': user.project_id,
-                'email': user.email}
+                'email': getattr(user, 'email', None)}
 
 
 class CreateView(forms.ModalFormView):
