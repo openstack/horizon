@@ -116,7 +116,7 @@ class UserFilterAction(tables.FilterAction):
         q = filter_string.lower()
         return [user for user in users
                 if q in user.name.lower()
-                or q in user.email.lower()]
+                or q in getattr(user, 'email', '').lower()]
 
 
 class RemoveMembers(tables.DeleteAction):
