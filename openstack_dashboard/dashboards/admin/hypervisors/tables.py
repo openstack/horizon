@@ -20,22 +20,6 @@ from horizon import tables
 from horizon.templatetags import sizeformat
 
 
-def get_memory(hypervisor):
-    return sizeformat.mbformat(hypervisor.memory_mb)
-
-
-def get_memory_used(hypervisor):
-    return sizeformat.mbformat(hypervisor.memory_mb_used)
-
-
-def get_local(hypervisor):
-    return sizeformat.diskgbformat(hypervisor.local_gb)
-
-
-def get_local_used(hypervisor):
-    return sizeformat.diskgbformat(hypervisor.local_gb_used)
-
-
 class AdminHypervisorsTable(tables.DataTable):
     hostname = tables.Column("hypervisor_hostname",
                              link=("horizon:admin:hypervisors:detail"),
@@ -50,21 +34,25 @@ class AdminHypervisorsTable(tables.DataTable):
     vcpus_used = tables.Column("vcpus_used",
                                verbose_name=_("VCPUs (used)"))
 
-    memory = tables.Column(get_memory,
+    memory = tables.Column('memory_mb',
                            verbose_name=_("RAM (total)"),
-                           attrs={'data-type': 'size'})
+                           attrs={'data-type': 'size'},
+                           filters=(sizeformat.mbformat,))
 
-    memory_used = tables.Column(get_memory_used,
+    memory_used = tables.Column('memory_mb_used',
                                 verbose_name=_("RAM (used)"),
-                                attrs={'data-type': 'size'})
+                                attrs={'data-type': 'size'},
+                                filters=(sizeformat.mbformat,))
 
-    local = tables.Column(get_local,
+    local = tables.Column('local_gb',
                           verbose_name=_("Storage (total)"),
-                          attrs={'data-type': 'size'})
+                          attrs={'data-type': 'size'},
+                          filters=(sizeformat.diskgbformat,))
 
-    local_used = tables.Column(get_local_used,
+    local_used = tables.Column('local_gb_used',
                                verbose_name=_("Storage (used)"),
-                               attrs={'data-type': 'size'})
+                               attrs={'data-type': 'size'},
+                          filters=(sizeformat.diskgbformat,))
 
     running_vms = tables.Column("running_vms",
                                 verbose_name=_("Instances"))

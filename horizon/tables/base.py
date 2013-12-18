@@ -21,7 +21,6 @@ import logging
 from operator import attrgetter  # noqa
 import sys
 
-from django.conf import settings  # noqa
 from django.core import exceptions as core_exceptions
 from django.core import urlresolvers
 from django import forms
@@ -307,20 +306,20 @@ class Column(html.HTMLElement):
         # Callable transformations
         if callable(self.transform):
             data = self.transform(datum)
-        # Basic object lookups
-        elif hasattr(datum, self.transform):
-            data = getattr(datum, self.transform, None)
         # Dict lookups
         elif isinstance(datum, collections.Iterable) and \
                 self.transform in datum:
             data = datum.get(self.transform)
         else:
-            if settings.DEBUG:
+        # Basic object lookups
+            try:
+                data = getattr(datum, self.transform)
+            except AttributeError:
                 msg = _("The attribute %(attr)s doesn't exist on "
                         "%(obj)s.") % {'attr': self.transform, 'obj': datum}
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
                 LOG.warning(msg)
-            data = None
+                data = None
         return data
 
     def get_data(self, datum):
