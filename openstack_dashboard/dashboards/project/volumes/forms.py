@@ -421,3 +421,36 @@ class UpdateForm(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _('Unable to update volume.'),
                               redirect=redirect)
+
+
+class ExtendForm(forms.SelfHandlingForm):
+    name = forms.CharField(label=_("Volume Name"),
+                           widget=forms.TextInput(
+                               attrs={'readonly': 'readonly'}
+                           ))
+    new_size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
+
+    def clean(self):
+        cleaned_data = super(ExtendForm, self).clean()
+        new_size = cleaned_data.get('new_size', 1)
+        if new_size <= self.initial['orig_size']:
+            raise ValidationError(
+                _("New size for extend must be greater than current size."))
+
+        return cleaned_data
+
+    def handle(self, request, data):
+        volume_id = self.initial['id']
+        try:
+            volume = cinder.volume_extend(request,
+                                          volume_id,
+                                          data['new_size'])
+
+            message = _('Successfully extended volume: "%s"') % data['name']
+            messages.success(request, message)
+            return volume
+        except Exception:
+            redirect = reverse("horizon:project:volumes:index")
+            exceptions.handle(request,
+                              _('Unable to extend volume.'),
+                              redirect=redirect)

@@ -32,7 +32,7 @@ from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
 
 
-DELETABLE_STATES = ("available", "error")
+DELETABLE_STATES = ("available", "error", "error_extending")
 
 
 class DeleteVolume(tables.DeleteAction):
@@ -84,6 +84,23 @@ class CreateVolume(tables.LinkAction):
             classes = [c for c in self.classes if c != "disabled"]
             self.classes = classes
         return True
+
+
+class ExtendVolume(tables.LinkAction):
+    name = "extend"
+    verbose_name = _("Extend Volume")
+    url = "horizon:project:volumes:extend"
+    classes = ("ajax-modal", "btn-extend")
+    policy_rules = (("volume", "volume:extend"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, "os-vol-tenant-attr:tenant_id", None)
+        return {"project_id": project_id}
+
+    def allowed(self, request, volume=None):
+        return volume.status in ("available", "in-use")
 
 
 class EditAttachments(tables.LinkAction):
@@ -255,7 +272,7 @@ class VolumesTable(VolumesTableBase):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (CreateVolume, DeleteVolume, VolumesFilterAction)
-        row_actions = (EditAttachments, EditVolume,
+        row_actions = (EditVolume, ExtendVolume, EditAttachments,
                        CreateSnapshot, DeleteVolume)
 
 

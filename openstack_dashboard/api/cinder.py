@@ -101,6 +101,10 @@ def volume_create(request, size, name, description, volume_type,
             availability_zone=availability_zone)
 
 
+def volume_extend(request, volume_id, new_size):
+    return cinderclient(request).volumes.extend(volume_id, new_size)
+
+
 def volume_delete(request, volume_id):
     return cinderclient(request).volumes.delete(volume_id)
 

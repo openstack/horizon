@@ -132,6 +132,41 @@ class CreateView(forms.ModalFormView):
         return context
 
 
+class ExtendView(forms.ModalFormView):
+    form_class = project_forms.ExtendForm
+    template_name = 'project/volumes/extend.html'
+    success_url = reverse_lazy("horizon:project:volumes:index")
+
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            volume_id = self.kwargs['volume_id']
+            try:
+                self._object = cinder.volume_get(self.request, volume_id)
+            except Exception:
+                self._object = None
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve volume information.'))
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(ExtendView, self).get_context_data(**kwargs)
+        context['volume'] = self.get_object()
+        try:
+            usages = quotas.tenant_limit_usages(self.request)
+            usages['gigabytesUsed'] = (usages['gigabytesUsed']
+                                       - context['volume'].size)
+            context['usages'] = usages
+        except Exception:
+            exceptions.handle(self.request)
+        return context
+
+    def get_initial(self):
+        volume = self.get_object()
+        return {'id': self.kwargs['volume_id'],
+                'name': volume.display_name,
+                'orig_size': volume.size}
+
+
 class CreateSnapshotView(forms.ModalFormView):
     form_class = project_forms.CreateSnapshotForm
     template_name = 'project/volumes/create_snapshot.html'
