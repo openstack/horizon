@@ -307,6 +307,7 @@ class SetInstanceDetailsAction(workflows.Action):
             image.volume_size = functions.bytes_to_gigabytes(image.bytes)
             choices.append((image.id, image))
         if choices:
+            choices.sort(key=lambda c: c[1].name)
             choices.insert(0, ("", _("Select Image")))
         else:
             choices.insert(0, ("", _("No images available")))
