@@ -323,7 +323,7 @@ class AttachForm(forms.SelfHandlingForm):
         instance_list = kwargs.get('initial', {}).get('instances', [])
         instances = []
         for instance in instance_list:
-            if instance.status in tables.ACTIVE_STATES and \
+            if instance.status in tables.VOLUME_ATTACH_READY_STATES and \
                     not any(instance.id == att["server_id"]
                             for att in volume.attachments):
                 instances.append((instance.id, '%s (%s)' % (instance.name,
