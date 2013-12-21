@@ -171,6 +171,9 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 SESSION_TIMEOUT = 1800
+# When using cookie-based sessions, log error when the session cookie exceeds
+# the following size (common browsers drop cookies above a certain size):
+SESSION_COOKIE_MAX_SIZE = 4093
 
 gettext_noop = lambda s: s
 LANGUAGES = (

@@ -65,6 +65,39 @@ class HorizonMiddleware(object):
         request.horizon = {'dashboard': None,
                            'panel': None,
                            'async_messages': []}
+
+        # If we use cookie-based sessions, check that the cookie size does not
+        # reach the max size accepted by common web browsers.
+        if (
+            settings.SESSION_ENGINE ==
+            'django.contrib.sessions.backends.signed_cookies'
+        ):
+            max_cookie_size = getattr(
+                settings, 'SESSION_COOKIE_MAX_SIZE', None)
+            session_cookie_name = getattr(
+                settings, 'SESSION_COOKIE_NAME', None)
+            session_key = request.COOKIES.get(session_cookie_name)
+            if max_cookie_size is not None and session_key is not None:
+                cookie_size = sum((
+                    len(key) + len(value)
+                    for key, value in request.COOKIES.iteritems()
+                ))
+                if cookie_size >= max_cookie_size:
+                    LOG.error(
+                        'Total Cookie size for user_id: %(user_id)s is '
+                        '%(cookie_size)sB >= %(max_cookie_size)sB. '
+                        'You need to configure file-based or database-backed '
+                        'sessions instead of cookie-based sessions: '
+                        'http://docs.openstack.org/developer/horizon/topics/'
+                        'deployment.html#session-storage'
+                        % {
+                            'user_id': request.session.get(
+                                'user_id', 'Unknown'),
+                            'cookie_size': cookie_size,
+                            'max_cookie_size': max_cookie_size,
+                        }
+                    )
+
         if last_activity and (timestamp - last_activity).seconds > timeout:
             request.session.pop('last_activity')
             response = HttpResponseRedirect(
