@@ -65,6 +65,9 @@ class QuotaUsage(dict):
     def __init__(self):
         self.usages = defaultdict(dict)
 
+    def __contains__(self, key):
+        return key in self.usages
+
     def __getitem__(self, key):
         return self.usages[key]
 
@@ -75,6 +78,9 @@ class QuotaUsage(dict):
 
     def __repr__(self):
         return repr(dict(self.usages))
+
+    def get(self, key, default=None):
+        return self.usages.get(key, default)
 
     def add_quota(self, quota):
         """Adds an internal tracking reference for the given quota."""

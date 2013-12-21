@@ -119,6 +119,11 @@ class QuotaTests(test.APITestCase):
         # Compare internal structure of usages to expected.
         self.assertEqual(quota_usages.usages, expected_output)
 
+        # Make sure that the `in` operator and the `.get()` method
+        # behave as expected
+        self.assertIn('ram', quota_usages)
+        self.assertIsNotNone(quota_usages.get('ram'))
+
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
                                    'tenant_quota_get',),
