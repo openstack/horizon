@@ -14,11 +14,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.usage import quotas
 
 
 class DeleteKeyPairs(tables.DeleteAction):
@@ -41,6 +43,21 @@ class CreateKeyPair(tables.LinkAction):
     verbose_name = _("Create Keypair")
     url = "horizon:project:access_and_security:keypairs:create"
     classes = ("ajax-modal", "btn-create")
+
+    def allowed(self, request, keypair=None):
+        usages = quotas.tenant_quota_usages(request)
+        count = len(self.table.data)
+        if (usages.get('key_pairs')
+                and usages['key_pairs']['quota'] <= count):
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = string_concat(self.verbose_name, ' ',
+                                                  _("(Quota exceeded)"))
+        else:
+            self.verbose_name = _("Create Keypair")
+            classes = [c for c in self.classes if c != "disabled"]
+            self.classes = classes
+        return True
 
 
 class KeypairsTable(tables.DataTable):
