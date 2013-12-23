@@ -113,13 +113,11 @@ horizon.datatables = {
     // Disable form button if checkbox are not checked
     $("form").each(function (i) {
       var checkboxes = $(this).find(".table-row-multi-select:checkbox");
-      if(!checkboxes.length) {
-        // Do nothing if no checkboxes in this form
-        return;
-      }
-      if(!checkboxes.filter(":checked").length) {
-        $(this).find(".table_actions button.btn-danger").addClass("disabled");
-      }
+      var action_buttons = $(this).find(".table_actions button.btn-danger");
+
+      // Buttons should be enabled only if there are checked checkboxes
+      action_buttons.toggleClass("disabled",
+                                 !checkboxes.filter(":checked").length);
     });
   }
 };
