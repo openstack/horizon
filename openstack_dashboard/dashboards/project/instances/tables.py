@@ -19,6 +19,7 @@ import logging
 
 from django.conf import settings  # noqa
 from django.core import urlresolvers
+from django.http import HttpResponse  # noqa
 from django import shortcuts
 from django import template
 from django.template.defaultfilters import title  # noqa
@@ -219,6 +220,11 @@ class LaunchLink(tables.LinkAction):
     url = "horizon:project:instances:launch"
     classes = ("btn-launch", "ajax-modal")
     policy_rules = (("compute", "compute:create"),)
+    ajax = True
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(LaunchLink, self).__init__(attrs, **kwargs)
 
     def allowed(self, request, datum):
         try:
@@ -244,8 +250,11 @@ class LaunchLink(tables.LinkAction):
             LOG.exception("Failed to retrieve quota information")
             # If we can't get the quota information, leave it to the
             # API to check when launching
-
         return True  # The action should always be displayed
+
+    def single(self, table, request, object_id=None):
+        self.allowed(request, None)
+        return HttpResponse(self.render())
 
 
 class EditInstance(tables.LinkAction):

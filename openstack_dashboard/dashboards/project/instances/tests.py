@@ -1810,7 +1810,8 @@ class InstanceTests(test.TestCase):
         link_name = "%s (%s)" % (unicode(launch.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' id='instances__action_launch' " \
-            "title='%s' class='%s disabled'>%s</a>" \
+            "title='%s' class='%s disabled' data-update-url=" \
+            "'/project/instances/?action=launch&amp;table=instances'>%s</a>" \
             % (url, link_name, " ".join(classes), link_name)
 
         res = self.client.get(INDEX_URL)
