@@ -287,10 +287,10 @@ class LoadBalancerTests(test.TestCase):
         if not with_service_type:
             self.assertNotContains(res, default_provider)
             self.assertContains(res, ('Provider for Load Balancer '
-                                      'is not supported.'))
+                                      'is not supported'))
         elif with_provider_exception:
             self.assertNotContains(res, default_provider)
-            self.assertContains(res, 'No provider is available.')
+            self.assertContains(res, 'No provider is available')
         else:
             self.assertContains(res, default_provider)
 

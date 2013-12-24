@@ -170,7 +170,7 @@ class CreateForm(forms.SelfHandlingForm):
 
             if source_type_choices:
                 choices = ([('no_source_type',
-                             _("No source, empty volume."))] +
+                             _("No source, empty volume"))] +
                             source_type_choices)
                 self.fields['volume_source_type'].choices = choices
             else:
@@ -198,7 +198,7 @@ class CreateForm(forms.SelfHandlingForm):
                 exceptions.handle(request, _('Unable to retrieve availability '
                                              'zones.'))
         if not zone_list:
-            zone_list.insert(0, ("", _("No availability zones found.")))
+            zone_list.insert(0, ("", _("No availability zones found")))
         elif len(zone_list) > 0:
             zone_list.insert(0, ("", _("Any Availability Zone")))
 

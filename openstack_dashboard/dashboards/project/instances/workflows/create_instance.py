@@ -135,22 +135,22 @@ class SetInstanceDetailsAction(workflows.Action):
             request, context, *args, **kwargs)
         source_type_choices = [
             ('', _("--- Select source ---")),
-            ("image_id", _("Boot from image.")),
-            ("instance_snapshot_id", _("Boot from snapshot.")),
-            ("volume_id", _("Boot from volume.")),
+            ("image_id", _("Boot from image")),
+            ("instance_snapshot_id", _("Boot from snapshot")),
+            ("volume_id", _("Boot from volume")),
         ]
 
         try:
             if api.nova.extension_supported("BlockDeviceMappingV2Boot",
                                             request):
                 source_type_choices.append(("volume_image_id",
-                        _("Boot from image (creates a new volume).")))
+                        _("Boot from image (creates a new volume)")))
         except Exception:
             exceptions.handle(request, _('Unable to retrieve extensions '
                                          'information.'))
 
         source_type_choices.append(("volume_snapshot_id",
-                _("Boot from volume snapshot (creates a new volume).")))
+                _("Boot from volume snapshot (creates a new volume)")))
         self.fields['source_type'].choices = source_type_choices
 
     def clean(self):
@@ -252,7 +252,7 @@ class SetInstanceDetailsAction(workflows.Action):
                       for zone in zones if zone.zoneState['available']]
         zone_list.sort()
         if not zone_list:
-            zone_list.insert(0, ("", _("No availability zones found.")))
+            zone_list.insert(0, ("", _("No availability zones found")))
         elif len(zone_list) > 1:
             zone_list.insert(0, ("", _("Any Availability Zone")))
         return zone_list
@@ -323,7 +323,7 @@ class SetInstanceDetailsAction(workflows.Action):
         if choices:
             choices.insert(0, ("", _("Select Instance Snapshot")))
         else:
-            choices.insert(0, ("", _("No snapshots available.")))
+            choices.insert(0, ("", _("No snapshots available")))
         return choices
 
     def populate_volume_id_choices(self, request, context):
@@ -338,7 +338,7 @@ class SetInstanceDetailsAction(workflows.Action):
         if volumes:
             volumes.insert(0, ("", _("Select Volume")))
         else:
-            volumes.insert(0, ("", _("No volumes available.")))
+            volumes.insert(0, ("", _("No volumes available")))
         return volumes
 
     def populate_volume_snapshot_id_choices(self, request, context):
@@ -354,7 +354,7 @@ class SetInstanceDetailsAction(workflows.Action):
         if snapshots:
             snapshots.insert(0, ("", _("Select Volume Snapshot")))
         else:
-            snapshots.insert(0, ("", _("No volume snapshots available.")))
+            snapshots.insert(0, ("", _("No volume snapshots available")))
         return snapshots
 
 
@@ -441,7 +441,7 @@ class SetAccessControlsAction(workflows.Action):
                 self.fields['keypair'].initial = keypair_list[0][0]
             keypair_list.insert(0, ("", _("Select a keypair")))
         else:
-            keypair_list = (("", _("No keypairs available.")),)
+            keypair_list = (("", _("No keypairs available")),)
         return keypair_list
 
     def populate_groups_choices(self, request, context):

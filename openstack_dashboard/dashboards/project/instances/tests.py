@@ -1028,7 +1028,7 @@ class InstanceTests(test.TestCase):
         else:
             self.assertNotContains(res, password_field_label)
 
-        boot_from_image_field_label = 'Boot from image (creates a new volume).'
+        boot_from_image_field_label = 'Boot from image (creates a new volume)'
         if block_device_mapping_v2:
             self.assertContains(res, boot_from_image_field_label)
         else:

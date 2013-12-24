@@ -68,5 +68,5 @@ class AllocateView(forms.ModalFormView):
                               _("Unable to retrieve floating IP pools."))
         pool_list = [(pool.id, pool.name) for pool in pools]
         if not pool_list:
-            pool_list = [(None, _("No floating IP pools available."))]
+            pool_list = [(None, _("No floating IP pools available"))]
         return {'pool_list': pool_list}

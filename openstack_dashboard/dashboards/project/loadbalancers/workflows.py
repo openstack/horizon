@@ -95,9 +95,9 @@ class AddPoolAction(workflows.Action):
                         _("%s (default)") % default_provider))
         else:
             if providers is None:
-                msg = _("Provider for Load Balancer is not supported.")
+                msg = _("Provider for Load Balancer is not supported")
             else:
-                msg = _("No provider is available.")
+                msg = _("No provider is available")
             provider_choices = [('', msg)]
             self.fields['provider'].widget.attrs['readonly'] = True
         self.fields['provider'].choices = provider_choices

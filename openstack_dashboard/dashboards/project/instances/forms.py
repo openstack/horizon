@@ -60,7 +60,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         if choices:
             choices.insert(0, ("", _("Select Image")))
         else:
-            choices.insert(0, ("", _("No images available.")))
+            choices.insert(0, ("", _("No images available")))
         self.fields['image'].choices = choices
 
         if not api.nova.can_set_server_password():

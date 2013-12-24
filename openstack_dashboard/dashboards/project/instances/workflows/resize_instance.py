@@ -60,7 +60,7 @@ class SetFlavorChoiceAction(workflows.Action):
         if flavor_list:
             flavor_list.insert(0, ("", _("Select an New Flavor")))
         else:
-            flavor_list.insert(0, ("", _("No flavors available.")))
+            flavor_list.insert(0, ("", _("No flavors available")))
         return sorted(flavor_list)
 
     def get_help_text(self):
