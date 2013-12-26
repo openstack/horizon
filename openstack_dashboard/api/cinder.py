@@ -108,6 +108,14 @@ class VolumeBackup(BaseCinderAPIResourceWrapper):
         self._volume = value
 
 
+class VolTypeExtraSpec(object):
+    def __init__(self, type_id, key, val):
+        self.type_id = type_id
+        self.id = key
+        self.key = key
+        self.value = val
+
+
 def cinderclient(request):
     api_version = VERSIONS.get_active_version()
 
@@ -318,6 +326,31 @@ def volume_type_create(request, name):
 
 def volume_type_delete(request, volume_type_id):
     return cinderclient(request).volume_types.delete(volume_type_id)
+
+
+def volume_type_get(request, volume_type_id):
+    return cinderclient(request).volume_types.get(volume_type_id)
+
+
+def volume_type_extra_get(request, type_id, raw=False):
+    vol_type = volume_type_get(request, type_id)
+    extras = vol_type.get_keys()
+    if raw:
+        return extras
+    return [VolTypeExtraSpec(type_id, key, value) for
+            key, value in extras.items()]
+
+
+def volume_type_extra_set(request, type_id, metadata):
+    vol_type = volume_type_get(request, type_id)
+    if not metadata:
+        return None
+    return vol_type.set_keys(metadata)
+
+
+def volume_type_extra_delete(request, type_id, keys):
+    vol_type = volume_type_get(request, type_id)
+    return vol_type.unset_keys([keys])
 
 
 def tenant_absolute_limits(request):

@@ -16,6 +16,7 @@ from cinderclient.v1 import availability_zones
 from cinderclient.v1 import quotas
 from cinderclient.v1 import services
 from cinderclient.v1 import volume_snapshots as vol_snaps
+from cinderclient.v1 import volume_types
 from cinderclient.v1 import volumes
 from cinderclient.v2 import volume_backups as vol_backups
 from cinderclient.v2 import volume_snapshots as vol_snaps_v2
@@ -31,6 +32,7 @@ def data(TEST):
     TEST.cinder_services = utils.TestDataContainer()
     TEST.cinder_volumes = utils.TestDataContainer()
     TEST.cinder_volume_backups = utils.TestDataContainer()
+    TEST.cinder_volume_types = utils.TestDataContainer()
     TEST.cinder_volume_snapshots = utils.TestDataContainer()
     TEST.cinder_quotas = utils.TestDataContainer()
     TEST.cinder_quota_usages = utils.TestDataContainer()
@@ -103,6 +105,15 @@ def data(TEST):
     TEST.cinder_volumes.add(api.cinder.Volume(volume))
     TEST.cinder_volumes.add(api.cinder.Volume(nameless_volume))
     TEST.cinder_volumes.add(api.cinder.Volume(other_volume))
+
+    vol_type1 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
+                                        {'id': u'1',
+                                         'name': u'vol_type_1',
+                                         'extra_specs': {'foo': 'bar'}})
+    vol_type2 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
+                                        {'id': u'2',
+                                         'name': u'vol_type_2'})
+    TEST.cinder_volume_types.add(vol_type1, vol_type2)
 
     # Volumes - Cinder v2
     volume_v2 = volumes_v2.Volume(volumes_v2.VolumeManager(None),
