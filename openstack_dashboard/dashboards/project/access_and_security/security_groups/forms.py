@@ -296,10 +296,10 @@ class AddRule(forms.SelfHandlingForm):
             if icmp_code is None:
                 msg = _('The ICMP code is invalid.')
                 raise ValidationError(msg)
-            if icmp_type not in xrange(-1, 256):
+            if icmp_type not in range(-1, 256):
                 msg = _('The ICMP type not in range (-1, 255)')
                 raise ValidationError(msg)
-            if icmp_code not in xrange(-1, 256):
+            if icmp_code not in range(-1, 256):
                 msg = _('The ICMP code not in range (-1, 255)')
                 raise ValidationError(msg)
             update_cleaned_data('from_port', icmp_type)
