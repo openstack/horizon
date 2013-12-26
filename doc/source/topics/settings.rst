@@ -264,7 +264,7 @@ If Keystone has been configured to use LDAP as the auth backend then set
 ``OPENSTACK_KEYSTONE_DEFAULT_ROLE``
 -----------------------------------
 
-Default: ``"Member"``
+Default: ``"_member_"``
 
 The name of the role which will be assigned to a user when added to a project.
 This name must correspond to a role name in Keystone.
