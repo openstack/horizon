@@ -127,7 +127,7 @@ horizon.instances = {
     });
     if ($("#networkListId > div.control-group.error").length > 0) {
       var errortext = $("#networkListId > div.control-group.error").find("span.help-inline").text();
-      $("#selected_network_h4").before($('<div class="dynamic-error">').html(errortext));
+      $("#selected_network_label").before($('<div class="dynamic-error">').html(errortext));
     }
     $(".networklist").sortable({
         connectWith: "ul.networklist",
