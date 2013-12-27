@@ -292,7 +292,7 @@ horizon.datatables.add_table_checkboxes = function(parent) {
   $(parent).find('table thead .multi_select_column').each(function(index, thead) {
     if (!$(thead).find('.table-row-multi-select:checkbox').length &&
         $(thead).parents('table').find('tbody .table-row-multi-select:checkbox').length) {
-      $(thead).append('<input type="checkbox">');
+      $(thead).append('<input type="checkbox" class="table-row-multi-select">');
     }
   });
 };
