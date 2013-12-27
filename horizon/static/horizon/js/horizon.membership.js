@@ -49,7 +49,7 @@ horizon.membership = {
    **/
   init_data_list: function(step_slug) {
     horizon.membership.data[step_slug] = [];
-    _.each($(this.get_role_element(step_slug, "")).find("option"), function (option) {
+    angular.forEach($(this.get_role_element(step_slug, "")).find("option"), function (option) {
       horizon.membership.data[step_slug][option.value] = option.text;
     });
   },
@@ -59,7 +59,7 @@ horizon.membership = {
    **/
   init_role_list: function(step_slug) {
     horizon.membership.roles[step_slug] = [];
-    _.each($('label[for^="id_' + step_slug + '_role_"]'), function(role) {
+    angular.forEach($('label[for^="id_' + step_slug + '_role_"]'), function(role) {
       var id = horizon.membership.get_field_id($(role).attr('for'));
       horizon.membership.roles[step_slug][id] = $(role).text();
     });
@@ -73,7 +73,7 @@ horizon.membership = {
     horizon.membership.current_membership[step_slug] = [];
     var members_list = [];
     var role_name, role_id, selected_members;
-    _.each(this.get_role_element(step_slug, ''), function(value, key) {
+    angular.forEach(this.get_role_element(step_slug, ''), function(value, key) {
       role_id = horizon.membership.get_field_id($(value).attr('id'));
       role_name = $('label[for="id_' + step_slug + '_role_' + role_id + '"]').text();
 
@@ -82,7 +82,7 @@ horizon.membership = {
       // extract the member names and add them to the dictionary of lists
       members_list = [];
       if (selected_members) {
-        _.each(selected_members, function(member) {
+        angular.forEach(selected_members, function(member) {
           members_list.push(member.value);
         });
       }
@@ -96,7 +96,7 @@ horizon.membership = {
   get_member_roles: function(step_slug, data_id) {
     var roles = [];
     for (var role in horizon.membership.current_membership[step_slug]) {
-      if ($.inArray(data_id, horizon.membership.current_membership[step_slug][role]) >= 0) {
+      if ($.inArray(data_id, horizon.membership.current_membership[step_slug][role]) !== -1) {
         roles.push(role);
       }
     }
@@ -164,7 +164,7 @@ horizon.membership = {
     var $role_items = $dropdown.children('.role_dropdown').children('li');
 
     $role_items.each(function (idx, el) {
-      if (_.contains(role_ids, $(el).data('role-id'))) {
+      if ($.inArray(($(el).data('role-id')), role_ids) !== -1) {
         $(el).addClass('selected');
       } else {
         $(el).removeClass('selected');
@@ -280,7 +280,7 @@ horizon.membership = {
       var css_class = $(this).find('ul').attr('class');
       // Example value: members step_slug_members
       // Pick the class name that contains the step_slug
-      var filter = _.find(css_class.split(' '), function(val){ return val.indexOf(step_slug) != -1; });
+      var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) != -1; })[0];
 
       if (!$('.' + filter).children('ul').length) {
         $('#no_' + filter).show();
@@ -392,7 +392,7 @@ horizon.membership = {
       var css_class = $(this).children().children('ul').attr('class');
       // Example value: members step_slug_members
       // Pick the class name that contains the step_slug
-      var filter = _.find(css_class.split(' '), function(val){ return val.indexOf(step_slug) != -1; });
+      var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) != -1; })[0];
 
       var input = $("input[id='" + filter +"']");
       input.quicksearch('ul.' + filter + ' ul li span.display_name', {

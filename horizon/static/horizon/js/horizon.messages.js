@@ -1,22 +1,22 @@
 horizon.alert = function (type, message, extra_tags) {
   safe = false;
   // Check if the message is tagged as safe.
-  if (typeof(extra_tags) !== "undefined" && _.contains(extra_tags.split(' '), 'safe')) {
+  if (typeof(extra_tags) !== "undefined" && $.inArray('safe', extra_tags.split(' ')) !== -1) {
     safe = true;
   }
   var template = horizon.templates.compiled_templates["#alert_message_template"],
-      params = {
-        "type": type,
-        "type_display": {
-            'danger': gettext("Danger"),
-            'warning': gettext("Warning"),
-            'info': gettext("Notice"),
-            'success': gettext("Success"),
-            'error': gettext("Error")
-        }[type],
-        "message": message,
-        "safe": safe
-      };
+    params = {
+      "type": type,
+      "type_display": {
+        'danger': gettext("Danger"),
+        'warning': gettext("Warning"),
+        'info': gettext("Notice"),
+        'success': gettext("Success"),
+        'error': gettext("Error")
+      }[type],
+      "message": message,
+      "safe": safe
+    };
   return $(template.render(params)).hide().prependTo("#main_content .messages").fadeIn(100);
 };
 
@@ -38,10 +38,12 @@ horizon.autoDismissAlerts = function() {
 
   $alerts.each(function(index, alert) {
     var $alert = $(this),
-        types = $alert.attr('class').split(' ');
-
+      types = $alert.attr('class').split(' '),
+      intersection = $.grep(types, function (value) {
+        $.inArray(value, horizon.conf.auto_fade_alerts.types);
+      });
     // Check if alert should auto-fade
-    if (_.intersection(types, horizon.conf.auto_fade_alerts.types).length > 0) {
+    if (intersection.length > 0) {
       setTimeout(function() {
         $alert.fadeOut(horizon.conf.auto_fade_alerts.fade_duration);
       }, horizon.conf.auto_fade_alerts.delay);
