@@ -40,23 +40,23 @@ horizon.forms = {
   },
 
   datepicker: function() {
-       var startDate = $('input#id_start').datepicker()
-          .on('changeDate', function(ev) {
-          if (ev.date.valueOf() > endDate.date.valueOf()) {
-              var newDate = new Date(ev.date);
-              newDate.setDate(newDate.getDate() + 1);
-              endDate.setValue(newDate);
-              $('input#id_end')[0].focus();
-          }
-          startDate.hide();
+    var startDate = $('input#id_start').datepicker()
+      .on('changeDate', function(ev) {
+        if (ev.date.valueOf() > endDate.date.valueOf()) {
+          var newDate = new Date(ev.date);
+          newDate.setDate(newDate.getDate() + 1);
+          endDate.setValue(newDate);
+          $('input#id_end')[0].focus();
+        }
+        startDate.hide();
       }).data('datepicker');
 
-      var endDate = $('input#id_end').datepicker({
-          onRender: function(date) {
-              return date.valueOf() < startDate.date.valueOf() ? 'disabled' : '';
-          }
-      }).on('changeDate', function(ev) {
-          endDate.hide();
+    var endDate = $('input#id_end').datepicker({
+      onRender: function(date) {
+        return date.valueOf() < startDate.date.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function(ev) {
+        endDate.hide();
       }).data('datepicker');
   }
 };
@@ -65,9 +65,9 @@ horizon.forms.bind_add_item_handlers = function (el) {
   var $selects = $(el).find('select[data-add-item-url]');
   $selects.each(function () {
     var $this = $(this);
-        $button = $("<a href='" + $this.attr("data-add-item-url") + "' " +
-                    "data-add-to-field='" + $this.attr("id") + "' " +
-                    "class='btn ajax-add ajax-modal btn-inline'>+</a>");
+    $button = $("<a href='" + $this.attr("data-add-item-url") + "' " +
+      "data-add-to-field='" + $this.attr("id") + "' " +
+      "class='btn ajax-add ajax-modal btn-inline'>+</a>");
     $this.after($button);
   });
 };
@@ -128,17 +128,17 @@ horizon.addInitFunction(function () {
   // Bind handler for swapping labels on "switchable" fields.
   $(document).on("change", 'select.switchable', function (evt) {
     var $fieldset = $(evt.target).closest('fieldset'),
-        $switchables = $fieldset.find('.switchable');
+      $switchables = $fieldset.find('.switchable');
 
     $switchables.each(function (index, switchable) {
       var $switchable = $(switchable),
-          slug = $switchable.data('slug'),
-          visible = $switchable.is(':visible'),
-          val = $switchable.val();
+        slug = $switchable.data('slug'),
+        visible = $switchable.is(':visible'),
+        val = $switchable.val();
 
       $fieldset.find('.switched[data-switch-on*="' + slug + '"]').each(function(index, input){
         var $input = $(input),
-            data = $input.data(slug + "-" + val);
+          data = $input.data(slug + "-" + val);
 
         if (typeof data === "undefined" || !visible) {
           $input.closest('.form-field').hide();
@@ -160,7 +160,7 @@ horizon.addInitFunction(function () {
   // Handle field toggles for the Create Volume source type field
   function update_volume_source_displayed_fields (field) {
     var $this = $(field),
-        base_type = $this.val();
+      base_type = $this.val();
 
     $this.find("option").each(function () {
       if (this.value != base_type) {

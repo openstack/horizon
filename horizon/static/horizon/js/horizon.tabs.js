@@ -14,8 +14,8 @@ horizon.tabs.initTabLoad = function (tab) {
 
 horizon.tabs.load_tab = function (evt) {
   var $this = $(this),
-      tab_id = $this.attr('data-target'),
-      tab_pane = $(tab_id);
+    tab_id = $this.attr('data-target'),
+    tab_pane = $(tab_id);
 
   // FIXME(gabriel): This style mucking shouldn't be in the javascript.
   tab_pane.append("<span style='margin-left: 30px;'>" + gettext("Loading") + "&hellip;</span>");
@@ -49,9 +49,9 @@ horizon.addInitFunction(function () {
 
   $(document).on("shown", ".nav-tabs a[data-toggle='tab']", function (evt) {
     var $tab = $(evt.target),
-        $content = $($(evt.target).attr('data-target'));
+      $content = $($(evt.target).attr('data-target'));
     $content.find("table.datatable").each(function () {
-        horizon.datatables.update_footer_count($(this));
+      horizon.datatables.update_footer_count($(this));
     });
     horizon.cookies.update("tabs", $tab.closest(".nav-tabs").attr("id"), $tab.attr('data-target'));
   });
@@ -59,8 +59,8 @@ horizon.addInitFunction(function () {
   // Initialize stored tab state for tab groups on this page.
   $(".nav-tabs[data-sticky-tabs='sticky']").each(function (index, item) {
     var $this = $(this),
-        id = $this.attr("id"),
-        active_tab = data[id];
+      id = $this.attr("id"),
+      active_tab = data[id];
     // Set the tab from memory if we have a "sticky" tab and the tab wasn't explicitly requested via GET.
     if (active_tab && window.location.search.indexOf("tab=") < 0) {
       $this.find("a[data-target='" + active_tab + "']").tab('show');
@@ -70,29 +70,29 @@ horizon.addInitFunction(function () {
   // Enable keyboard navigation between tabs in a form.
   $(document).on("keydown", ".tab-pane :input:visible:last", function (evt) {
     var $this = $(this),
-        next_pane = $this.closest(".tab-pane").next(".tab-pane");
-      // Capture the forward-tab keypress if we have a next tab to go to.
-      if (evt.which === 9 && !event.shiftKey && next_pane.length) {
-        evt.preventDefault();
-        $(".nav-tabs a[data-target='#" + next_pane.attr("id") + "']").tab('show');
-      }
+      next_pane = $this.closest(".tab-pane").next(".tab-pane");
+    // Capture the forward-tab keypress if we have a next tab to go to.
+    if (evt.which === 9 && !event.shiftKey && next_pane.length) {
+      evt.preventDefault();
+      $(".nav-tabs a[data-target='#" + next_pane.attr("id") + "']").tab('show');
+    }
   });
   $(document).on("keydown", ".tab-pane :input:visible:first", function (evt) {
     var $this = $(this),
-        prev_pane = $this.closest(".tab-pane").prev(".tab-pane");
-      // Capture the forward-tab keypress if we have a next tab to go to.
-      if (event.shiftKey && evt.which === 9 && prev_pane.length) {
-        evt.preventDefault();
-        $(".nav-tabs a[data-target='#" + prev_pane.attr("id") + "']").tab('show');
-        prev_pane.find(":input:last").focus();
-        console.log(prev_pane);
-      }
+      prev_pane = $this.closest(".tab-pane").prev(".tab-pane");
+    // Capture the forward-tab keypress if we have a next tab to go to.
+    if (event.shiftKey && evt.which === 9 && prev_pane.length) {
+      evt.preventDefault();
+      $(".nav-tabs a[data-target='#" + prev_pane.attr("id") + "']").tab('show');
+      prev_pane.find(":input:last").focus();
+      console.log(prev_pane);
+    }
   });
 
   $(document).on("focus", ".tab-content :input", function () {
     var $this = $(this),
-        tab_pane = $this.closest(".tab-pane"),
-        tab_id = tab_pane.attr('id');
+      tab_pane = $this.closest(".tab-pane"),
+      tab_id = tab_pane.attr('id');
     if (!tab_pane.hasClass("active")) {
       $(".nav-tabs a[data-target='#" + tab_id + "']").tab('show');
     }

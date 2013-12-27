@@ -14,36 +14,36 @@
     to the div #your_progress_bar_id. The available data- attributes are:
 
       data-quota-used="integer" REQUIRED
-          Integer representing the total number used by the user.
+        Integer representing the total number used by the user.
 
       data-quota-limit="integer" REQUIRED
-          Integer representing the total quota limit the user has. Note this IS
-          NOT the amount remaining they can use, but the total original quota.
+        Integer representing the total quota limit the user has. Note this IS
+        NOT the amount remaining they can use, but the total original quota.
 
       ONE OF THE THREE ATTRIBUTES BELOW IS REQUIRED:
 
       data-progress-indicator-step-by="integer" OPTIONAL
-          Indicates the numeric unit the quota JavaScript should automatically
-          animate this progress bar by on load. Can be used with the other
-          data- attributes.
+        Indicates the numeric unit the quota JavaScript should automatically
+        animate this progress bar by on load. Can be used with the other
+        data- attributes.
 
-          A good use-case here is when you have a modal dialog to create ONE
-          volume, and you have a progress bar for volumes, but there are no
-          form elements that represent that number (as it is not settable by
-          the user.)
+        A good use-case here is when you have a modal dialog to create ONE
+        volume, and you have a progress bar for volumes, but there are no
+        form elements that represent that number (as it is not settable by
+        the user.)
 
       data-progress-indicator-for="html_id_of_form_input"
-          Tells the quota JavaScript which form element on this page is tied to
-          this progress indicator. If this form element is an input, it will
-          automatically fire on "keyup" in that form field, and change this
-          progress bar to denote the numeric change.
+        Tells the quota JavaScript which form element on this page is tied to
+        this progress indicator. If this form element is an input, it will
+        automatically fire on "keyup" in that form field, and change this
+        progress bar to denote the numeric change.
 
       data-progress-indicator-flavor
-          This attribute is used to tell this quota JavaScript that this
-          progress bar is controller by an instance flavor select form element.
-          This attribute takes no value, but is used and configured
-          automatically by this script to update when a new flavor is choosen
-          by the end-user.
+        This attribute is used to tell this quota JavaScript that this
+        progress bar is controller by an instance flavor select form element.
+        This attribute takes no value, but is used and configured
+        automatically by this script to update when a new flavor is choosen
+        by the end-user.
  */
 horizon.Quota = {
   is_flavor_quota: false, // Is this a flavor-based quota display?
@@ -55,10 +55,10 @@ horizon.Quota = {
   flavors: [], // The flavor objects the form represents, passed to us in initWithFlavors.
 
   /*
-    Determines the progress bars and form elements to be used for quota
-    display. Also attaches handlers to the form elements as well as performing
-    the animations when the progress bars first load.
-  */
+   Determines the progress bars and form elements to be used for quota
+   display. Also attaches handlers to the form elements as well as performing
+   the animations when the progress bars first load.
+   */
   init: function() {
     this.user_value_progress_bars = $('div[data-progress-indicator-for]');
     this.auto_value_progress_bars = $('div[data-progress-indicator-step-by]');
@@ -76,81 +76,81 @@ horizon.Quota = {
   },
 
   /*
-    Confirm that the specified attribute 'actual' meets
-    or exceeds the specified value 'minimum'.
-  */
+   Confirm that the specified attribute 'actual' meets
+   or exceeds the specified value 'minimum'.
+   */
   belowMinimum: function(minimum, actual) {
-      return parseInt(minimum, 10) > parseInt(actual, 10);
+    return parseInt(minimum, 10) > parseInt(actual, 10);
   },
 
   /*
-    Determines if the selected image meets the requirements of
-    the selected flavor.
-  */
+   Determines if the selected image meets the requirements of
+   the selected flavor.
+   */
   imageFitsFlavor: function(image, flavor) {
     if (image === undefined) {
-        /*
-          If we don't actually have an image, we don't need to
-          limit our flavors, so we return true in this case.
-        */
-        return true;
+      /*
+       If we don't actually have an image, we don't need to
+       limit our flavors, so we return true in this case.
+       */
+      return true;
     } else {
-        overDisk = horizon.Quota.belowMinimum(image.min_disk, flavor.disk);
-        overRAM = horizon.Quota.belowMinimum(image.min_ram, flavor.ram);
-        return !(overDisk || overRAM);
+      overDisk = horizon.Quota.belowMinimum(image.min_disk, flavor.disk);
+      overRAM = horizon.Quota.belowMinimum(image.min_ram, flavor.ram);
+      return !(overDisk || overRAM);
     }
   },
 
   /*
-    Note to the user that some flavors have been disabled.
-  */
+   Note to the user that some flavors have been disabled.
+   */
   noteDisabledFlavors: function(allDisabled) {
     if ($('#some_flavors_disabled').length === 0) {
       message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage :
-          horizon.Quota.disabledFlavorMessage;
+        horizon.Quota.disabledFlavorMessage;
       $('#id_flavor').parent().append("<span id='some_flavors_disabled'>" +
-          message + '</span>');
+        message + '</span>');
     }
   },
 
   /*
-    Re-enables all flavors that may have been disabled, and
-    clear the message displayed about them being disabled.
-  */
+   Re-enables all flavors that may have been disabled, and
+   clear the message displayed about them being disabled.
+   */
   resetFlavors: function() {
     if ($('#some_flavors_disabled')) {
-        $('#some_flavors_disabled').remove();
-        $('#id_flavor option').each(function() {
-            $(this).attr('disabled', false);
-        });
+      $('#some_flavors_disabled').remove();
+      $('#id_flavor option').each(function() {
+        $(this).attr('disabled', false);
+      });
     }
   },
 
   /*
-    A convenience method to find an image object by its id.
-  */
+   A convenience method to find an image object by its id.
+   */
   findImageById: function(id) {
     _image = undefined;
     $.each(horizon.Quota.images, function(i, image){
-        if(image.id == id) {
-            _image = image;
-        }
+      if(image.id == id) {
+        _image = image;
+      }
     });
     return _image;
   },
 
   /*
-    Return an image Object based on which image ID is selected
-  */
+   Return an image Object based on which image ID is selected
+   */
   getSelectedImage: function() {
     selected = $('#id_image_id option:selected').val();
     return horizon.Quota.findImageById(selected);
   },
 
   /*
-    Disable any flavors for a given image that do not meet
-    its minimum RAM or disk requirements.
-  */
+   Disable any flavors for a given image that do not meet
+   its minimum RAM or disk requirements.
+   */
   disableFlavorsForImage: function(image) {
     image = horizon.Quota.getSelectedImage();
     to_disable = []; // an array of flavor names to disable
@@ -158,41 +158,41 @@ horizon.Quota = {
     horizon.Quota.resetFlavors(); // clear any previous messages
 
     $.each(horizon.Quota.flavors, function(i, flavor) {
-        if (!horizon.Quota.imageFitsFlavor(image, flavor)) {
-            to_disable.push(flavor.name);
-        }
+      if (!horizon.Quota.imageFitsFlavor(image, flavor)) {
+        to_disable.push(flavor.name);
+      }
     });
 
     flavors = $('#id_flavor option');
     // Now, disable anything from above:
     $.each(to_disable, function(i, flavor_name) {
-        flavors.each(function(){
-            if ($(this).text() == flavor_name) {
-                $(this).attr('disabled', 'disabled');
-            }
-        });
+      flavors.each(function(){
+        if ($(this).text() == flavor_name) {
+          $(this).attr('disabled', 'disabled');
+        }
+      });
     });
 
     // And then, finally, clean up:
     if (to_disable.length > 0) {
-        selected = ($('#id_flavor option').filter(':selected'))[0];
-        if (to_disable.length < flavors.length && selected.disabled) {
-            // we need to find a new flavor to select
-            flavors.each(function(index, element) {
-                if (!element.disabled) {
-                    $('#id_flavor').val(element.value);
-                    $('#id_flavor').change(); // force elements to update
-                    return false; // break
-                }
-            });
-        }
-        horizon.Quota.noteDisabledFlavors(to_disable.length == flavors.length);
+      selected = ($('#id_flavor option').filter(':selected'))[0];
+      if (to_disable.length < flavors.length && selected.disabled) {
+        // we need to find a new flavor to select
+        flavors.each(function(index, element) {
+          if (!element.disabled) {
+            $('#id_flavor').val(element.value);
+            $('#id_flavor').change(); // force elements to update
+            return false; // break
+          }
+        });
+      }
+      horizon.Quota.noteDisabledFlavors(to_disable.length == flavors.length);
     }
   },
 
   /*
-    Store an array of image objects
-  */
+   Store an array of image objects
+   */
   initWithImages: function(images, disabledMessage, allDisabledMessage) {
     this.images = images;
     this.disabledFlavorMessage = disabledMessage;
@@ -202,11 +202,11 @@ horizon.Quota = {
   },
 
   /*
-    Sets up the quota to be used with flavor form selectors, which requires
-    some different handling of the forms. Also calls init() so that all of the
-    other animations and handlers are taken care of as well when initializing
-    with this method.
-  */
+   Sets up the quota to be used with flavor form selectors, which requires
+   some different handling of the forms. Also calls init() so that all of the
+   other animations and handlers are taken care of as well when initializing
+   with this method.
+   */
   initWithFlavors: function(flavors) {
     this.is_flavor_quota = true;
     this.flavor_progress_bars = $('div[data-progress-indicator-flavor]');
@@ -232,9 +232,9 @@ horizon.Quota = {
   },
 
   /*
-    Populates the flavor details table with the flavor attributes of the
-    selected flavor on the form select element.
-  */
+   Populates the flavor details table with the flavor attributes of the
+   selected flavor on the form select element.
+   */
   showFlavorDetails: function() {
     this.getSelectedFlavor();
 
@@ -257,9 +257,9 @@ horizon.Quota = {
   },
 
   /*
-    When a new flavor is selected, this takes care of updating the relevant
-    progress bars associated with the flavor quota usage.
-  */
+   When a new flavor is selected, this takes care of updating the relevant
+   progress bars associated with the flavor quota usage.
+   */
   updateFlavorUsage: function() {
     if(!this.is_flavor_quota) return;
 
@@ -311,11 +311,11 @@ horizon.Quota = {
 
     // Horizontal Bars
     var bar = d3.select("#"+element).append("svg:svg")
-        .attr("class", "chart")
-        .attr("width", w)
-        .attr("height", h)
-        .style("background-color", "white")
-        .append("g");
+      .attr("class", "chart")
+      .attr("width", w)
+      .attr("height", h)
+      .style("background-color", "white")
+      .append("g");
 
     // background - unused resources
     bar.append("rect")
@@ -350,13 +350,13 @@ horizon.Quota = {
       .style("fill", function () { return frgrnd; })
       .attr("d", used)
       .transition()
-        .duration(500)
-        .attr("width", used + "%")
-        .style("fill", function () {
-          if (used >= 100) { return full; }
-          else if (used >= 80) { return nearlyfull; }
-          else { return frgrnd; }
-        });
+      .duration(500)
+      .attr("width", used + "%")
+      .style("fill", function () {
+        if (used >= 100) { return full; }
+        else if (used >= 80) { return nearlyfull; }
+        else { return frgrnd; }
+      });
   },
 
   // Update the progress Bar
@@ -366,28 +366,28 @@ horizon.Quota = {
     var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"));
     d3.select("#"+element).select(".newbar")
       .transition()
-        .duration(500)
-        .attr("width", function () {
-          if ((value + already_used) >= 100) {
-            return "100%";
-          } else {
-            return (value + already_used)+ "%";
-          }
-        })
-        .style("fill", function() {
-          if (value > (100 - already_used)) {
-            return full;
-          } else {
-            return addition;
-          }
-        });
+      .duration(500)
+      .attr("width", function () {
+        if ((value + already_used) >= 100) {
+          return "100%";
+        } else {
+          return (value + already_used)+ "%";
+        }
+      })
+      .style("fill", function() {
+        if (value > (100 - already_used)) {
+          return full;
+        } else {
+          return addition;
+        }
+      });
 
   },
 
   /*
-    Attaches event handlers for the form elements associated with the
-    progress bars.
-  */
+   Attaches event handlers for the form elements associated with the
+   progress bars.
+   */
   _attachInputHandlers: function() {
     var scope = this;
 
@@ -416,10 +416,10 @@ horizon.Quota = {
           user_integer = 0;
         } else if(integers_in_input.length > 1) {
           /*
-            Join all the numbers together that have been typed in. This takes
-            care of junk input like "dd8d72n3k" and uses just the digits in
-            that input, resulting in "8723".
-          */
+           Join all the numbers together that have been typed in. This takes
+           care of junk input like "dd8d72n3k" and uses just the digits in
+           that input, resulting in "8723".
+           */
           user_integer = integers_in_input.join('');
         } else if(integers_in_input.length == 1) {
           user_integer = integers_in_input[0];
@@ -433,10 +433,10 @@ horizon.Quota = {
   },
 
   /*
-    Animate the progress bars of elements which indicate they should
-    automatically be incremented, as opposed to elements which trigger
-    progress updates based on form element input or changes.
-  */
+   Animate the progress bars of elements which indicate they should
+   automatically be incremented, as opposed to elements which trigger
+   progress updates based on form element input or changes.
+   */
   _initialAnimations: function() {
     var scope = this;
 

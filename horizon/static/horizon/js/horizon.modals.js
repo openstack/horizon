@@ -72,9 +72,9 @@ horizon.addInitFunction(function() {
   // AJAX form submissions from modals. Makes validation happen in-modal.
   $(document).on('submit', '.modal form', function (evt) {
     var $form = $(this),
-        $button = $form.find(".modal-footer .btn-primary"),
-        update_field_id = $form.attr("data-add-to-field"),
-        headers = {};
+      $button = $form.find(".modal-footer .btn-primary"),
+      update_field_id = $form.attr("data-add-to-field"),
+      headers = {};
     if ($form.attr("enctype") === "multipart/form-data") {
       // AJAX-upload for files is not currently supported.
       return;
@@ -104,8 +104,8 @@ horizon.addInitFunction(function() {
       },
       success: function (data, textStatus, jqXHR) {
         var redirect_header = jqXHR.getResponseHeader("X-Horizon-Location"),
-            add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
-            json_data, field_to_update;
+          add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
+          json_data, field_to_update;
         $form.closest(".modal").modal("hide");
         if (redirect_header) {
           location.href = redirect_header;
@@ -136,8 +136,8 @@ horizon.addInitFunction(function() {
     // Filter out indirect triggers of "show" from (for example) tabs.
     if ($(evt.target).hasClass("modal")) {
       var scrollShift = $('body').scrollTop() || $('html').scrollTop(),
-          $this = $(this),
-          topVal = $this.css('top');
+        $this = $(this),
+        topVal = $this.css('top');
       $this.css('top', scrollShift + parseInt(topVal, 10));
     }
   });
@@ -185,7 +185,8 @@ horizon.addInitFunction(function() {
       },
       success: function (data, textStatus, jqXHR) {
         var update_field_id = $this.attr('data-add-to-field'),
-            modal, form;
+          modal,
+          form;
         modal = horizon.modals.success(data, textStatus, jqXHR);
         if (update_field_id) {
           form = modal.find("form");
@@ -204,10 +205,10 @@ horizon.addInitFunction(function() {
   // When a new modal is opened, hide any that are already in the stack.
   $(document).on("show", ".modal", function () {
     var container = $("#modal_wrapper"),
-        modal_stack = container.find(".modal"),
-        $this = $(this);
-      modal_stack.splice(modal_stack.length - 1, 1);
-      modal_stack.modal("hide");
+      modal_stack = container.find(".modal"),
+      $this = $(this);
+    modal_stack.splice(modal_stack.length - 1, 1);
+    modal_stack.modal("hide");
     horizon.utils.loadAngular(container);
   });
 
@@ -217,7 +218,7 @@ horizon.addInitFunction(function() {
   // temporarily being hidden.
   $(document).on('hidden', '.modal', function () {
     var $this = $(this),
-        modal_stack = $("#modal_wrapper .modal");
+      modal_stack = $("#modal_wrapper .modal");
     if ($this[0] == modal_stack.last()[0] || $this.hasClass("loading")) {
       $this.remove();
       if (!$this.hasClass("loading")) {

@@ -1,86 +1,107 @@
 /*
-Draw line chart in d3.
+  Draw line chart in d3.
 
-To use, a div is required with the data attributes
-data-chart-type="line_chart", data-url.
+  To use, a div is required with the data attributes
+  data-chart-type="line_chart", data-url.
 
-data-chart-type - REQUIRED(string) must be "line_chart" so chart gets initialized
-data-url - REQUIRED(string) url for the json data for the chart
-data-form-selector - Optional(string) JQuery selector of Forms that controls this chart
-data-legend-selector - Optional(string) JQuery selector of div element that will display legend
-data-smoother-selector - Optional(string) JQuery selector of TODO(lsmola)
-data-slider-selector - Optional(string) JQuery selector of TODO(lsmola)
-
-
-If used in popup, initialization must be made manually e.g.:
-
-if (typeof horizon.d3_line_chart !== 'undefined') {
-  horizon.d3_line_chart.init("div[data-chart-type='line_chart']");
-}
+  data-chart-type - REQUIRED(string) must be "line_chart" so chart gets initialized
+  data-url - REQUIRED(string) url for the json data for the chart
+  data-form-selector - Optional(string) JQuery selector of Forms that controls this chart
+  data-legend-selector - Optional(string) JQuery selector of div element that will display legend
+  data-smoother-selector - Optional(string) JQuery selector of TODO(lsmola)
+  data-slider-selector - Optional(string) JQuery selector of TODO(lsmola)
 
 
-Example:
-<div id="line_chart"
-     data-chart-type="line_chart"
-     data-url="{% url 'horizon:admin:metering:samples'%}"
-     data-form-selector='#linechart_general_form'>
-</div>
-<div id="linea_chart2"
-     data-chart-type="line_chart"
-     data-url="{% url 'horizon:admin:metering:samples'%}?query=not_popular_data"
-     data-form-selector='#linechart_general_form'>
-</div>
+  If used in popup, initialization must be made manually e.g.:
+
+  if (typeof horizon.d3_line_chart !== 'undefined') {
+    horizon.d3_line_chart.init("div[data-chart-type='line_chart']");
+  }
 
 
-The data format example:
-Url has to return JSON in format:
-{
-  "series": [{"name": "instance-00000005",
-              "data": [{"y": 171, "x": "2013-08-21T11:22:25"}, {"y": 171, "x": "2013-08-21T11:22:25"}]},
-             {"name": "instance-00000005",
-              "data": [{"y": 171, "x": "2013-08-21T11:22:25"}, {"y": 171, "x": "2013-08-21T11:22:25"}]}
-            ],
-  "settings": {}
-}
+  Example:
+  <div id="line_chart"
+    data-chart-type="line_chart"
+    data-url="{% url 'horizon:admin:metering:samples'%}"
+    data-form-selector='#linechart_general_form'>
+  </div>
+  <div id="linea_chart2"
+    data-chart-type="line_chart"
+    data-url="{% url 'horizon:admin:metering:samples'%}?query=not_popular_data"
+    data-form-selector='#linechart_general_form'>
+  </div>
 
-Example of line-bar chart sparkline:
+
+  The data format example:
+  Url has to return JSON in format:
+  {
+    "series": [
+      {
+        "name": "instance-00000005",
+        "data": [
+          {"y": 171, "x": "2013-08-21T11:22:25"},
+          {"y": 171, "x": "2013-08-21T11:22:25"}
+        ]
+      }, {
+        "name": "instance-00000005",
+        "data": [
+          {"y": 171, "x": "2013-08-21T11:22:25"},
+          {"y": 171, "x": "2013-08-21T11:22:25"}
+        ]
+      }
+    ],
+    "settings": {}
+  }
+
+  Example of line-bar chart sparkline:
 
   <div class="overview_chart">
     <div class="chart_container">
       <div class="chart"
-           data-chart-type="line_chart"
-           data-url="/admin/samples?meter=test2"
-           data-form-selector='#linechart_general_form'
-           >
+        data-chart-type="line_chart"
+        data-url="/admin/samples?meter=test2"
+        data-form-selector='#linechart_general_form'>
       </div>
     </div>
     <div class="bar_chart_container">
-      <div class="chart"
-        data-chart-type="overview_bar_chart">
+      <div class="chart" data-chart-type="overview_bar_chart">
       </div>
     </div>
   </div>
 
   {
-    "series": [{"name": "instance-00000005",
-                "data": [{"y": 171, "x": "2013-08-21T11:22:25"}, {"y": 171, "x": "2013-08-21T11:22:25"}]},
-               {"name": "instance-00000005",
-                "data": [{"y": 171, "x": "2013-08-21T11:22:25"}, {"y": 171, "x": "2013-08-21T11:22:25"}]}
-              ],
-    "settings": {'renderer': 'StaticAxes',
-                 'yMin': 0,
-                 'yMax': 100,
-                 'higlight_last_point': True,
-                 "auto_size": False, 'auto_resize': False,
-                 "axes_x" : False, "axes_y" : False,
-                 'bar_chart_settings': {
-                     'orientation': 'vertical',
-                     'used_label_placement': 'left',
-                     'width': 30,
-                     'color_scale_domain': [0, 80, 80, 100],
-                     'color_scale_range': ['#00FE00', '#00FF00', '#FE0000', '#FF0000'],
-                     'average_color_scale_domain': [0, 100],
-                     'average_color_scale_range': ['#0000FF', '#0000FF']}},
+    "series": [
+      {
+        "name": "instance-00000005",
+        "data": [
+          {"y": 171, "x": "2013-08-21T11:22:25"},
+          {"y": 171, "x": "2013-08-21T11:22:25"}
+        ]
+      }, {
+        "name": "instance-00000005",
+        "data": [
+          {"y": 171, "x": "2013-08-21T11:22:25"},
+          {"y": 171, "x": "2013-08-21T11:22:25"}
+        ]
+      }
+    ],
+    "settings": {
+      'renderer': 'StaticAxes',
+      'yMin': 0,
+      'yMax': 100,
+      'higlight_last_point': True,
+      "auto_size": False, 'auto_resize': False,
+      "axes_x" : False, "axes_y" : False,
+      'bar_chart_settings': {
+        'orientation': 'vertical',
+        'used_label_placement': 'left',
+        'width': 30,
+        'color_scale_domain': [0, 80, 80, 100],
+        'color_scale_range': ['#00FE00', '#00FF00', '#FE0000', '#FF0000'],
+        'average_color_scale_domain': [0, 100],
+        'average_color_scale_range': ['#0000FF', '#0000FF']
+      }
+    },
     "stats": {
       'average': 20,
       'used': 30,
@@ -89,55 +110,55 @@ Example of line-bar chart sparkline:
   }
 
 
-The control Forms:
-There are currently 2 form elements that can be connected to charts and act
-as controls. Elements listen for change event and refresh the chart on change event.
-Chart can be connected to multiple forms via selector, all for data will be sent on
-change.
-Form can be connected to multiple charts, all charts will be refreshed when form
-element changes.
-The firsts rendering of the chart takes data from the connected Forms.
+  The control Forms:
+  There are currently 2 form elements that can be connected to charts and act
+  as controls. Elements listen for change event and refresh the chart on change event.
+  Chart can be connected to multiple forms via selector, all for data will be sent on
+  change.
+  Form can be connected to multiple charts, all charts will be refreshed when form
+  element changes.
+  The firsts rendering of the chart takes data from the connected Forms.
 
-1. Selectbox
-The data attribute 'data-line-chart-command="select_box_change' needs to be defined on
-select element.
+  1. Selectbox
+  The data attribute 'data-line-chart-command="select_box_change' needs to be defined on
+  select element.
 
-Example:
-<form class="form-horizontal"
-      id="linechart_general_form">
+  Example:
+  <form class="form-horizontal"
+    id="linechart_general_form">
 
     <div class="control-group">
       <label for="meter" class="control-label">{% trans "Metric" %}:&nbsp;</label>
       <div class="controls">
         <select data-line-chart-command="select_box_change"
-                name="meter" id="meter" class="span2 example">
+          name="meter" id="meter" class="span2 example">
           {% for meter in meters %}
-          <option value="{{ meter }}" data-unit="{{ meter }}">
-          {{ meter }}
-          </option>
+            <option value="{{ meter }}" data-unit="{{ meter }}">
+              {{ meter }}
+            </option>
           {% endfor %}
         </select>
       </div>
     </div>
-</form>
+  </form>
 
-2. Date picker
-The data attribute 'data-line-chart-command="date_picker_change"' needs to be defined on
-input element.
+  2. Date picker
+  The data attribute 'data-line-chart-command="date_picker_change"' needs to be defined on
+  input element.
 
-Example:
-<form class="form-horizontal"
-      id="linechart_general_form">
+  Example:
+  <form class="form-horizontal"
+    id="linechart_general_form">
     <div class="control-group" id="date_from">
-        <label for="date_from" class="control-label">{% trans "From" %}:&nbsp;</label>
-        <div class="controls">
-          <input data-line-chart-command="date_picker_change"
-                 type="text" id="date_from" name="date_from" class="span2 example"/>
-        </div>
+      <label for="date_from" class="control-label">{% trans "From" %}:&nbsp;</label>
+      <div class="controls">
+        <input data-line-chart-command="date_picker_change"
+          type="text" id="date_from" name="date_from" class="span2 example"/>
+      </div>
     </div>
-</form>
+  </form>
 
-*/
+ */
 
 
 /**
@@ -149,12 +170,12 @@ Rickshaw.namespace('Rickshaw.Graph.Renderer.StaticAxes');
 Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create( Rickshaw.Graph.Renderer.Line, {
   name: 'StaticAxes',
   defaults: function($super) {
-      return Rickshaw.extend( $super(), {
-        xMin: undefined,
-        xMax: undefined,
-        yMin: undefined,
-        yMax: undefined,
-      });
+    return Rickshaw.extend( $super(), {
+      xMin: undefined,
+      xMax: undefined,
+      yMin: undefined,
+      yMax: undefined,
+    });
   },
   domain: function($super) {
     var ret = $super();
@@ -252,8 +273,10 @@ horizon.d3_line_chart = {
       // allowed: verbose
       self.hover_formatter = 'verbose';
 
-      /* Applying settings. The later application rewrites the previous
-         therefore it has bigger priority. */
+      /*
+        Applying settings. The later application rewrites the previous
+        therefore it has bigger priority.
+      */
 
       // Settings defined in the init method of the chart
       if (settings){
@@ -276,9 +299,9 @@ horizon.d3_line_chart = {
       var self = this;
 
       var allowed_settings = ['renderer', 'auto_size', 'axes_x', 'axes_y',
-                              'yMin', 'yMax', 'bar_chart_settings',
-                              'bar_chart_selector', 'composed_chart_selector',
-                              'higlight_last_point'];
+        'yMin', 'yMax', 'bar_chart_settings',
+        'bar_chart_selector', 'composed_chart_selector',
+        'higlight_last_point'];
 
       jQuery.each(allowed_settings, function(index, setting_name) {
         if (settings[setting_name] !== undefined){
@@ -293,22 +316,28 @@ horizon.d3_line_chart = {
      * the screen.
      */
     self.get_size = function(){
-      /* The height will be determined by css or window size,
-         I have to hide everything inside that could mess with
-         the size, so it is fully determined by outer CSS. */
+      /*
+        The height will be determined by css or window size,
+        I have to hide everything inside that could mess with
+        the size, so it is fully determined by outer CSS.
+      */
       $(self.html_element).css('height', '');
       $(self.html_element).css('width', '');
       var svg = $(self.html_element).find('svg');
       svg.hide();
 
-      // Width an height of the chart will be taken from chart wrapper,
-      // that can be styled by css.
+      /*
+        Width an height of the chart will be taken from chart wrapper,
+        that can be styled by css.
+      */
       self.width = jquery_element.width();
 
       // Set either the minimal height defined by CSS.
       self.height = jquery_element.height();
-      /* Or stretch it to the remaining height of the window if there
-         is a place. + some space on the bottom, lets say 30px. */
+      /*
+        Or stretch it to the remaining height of the window if there
+        is a place. + some space on the bottom, lets say 30px.
+      */
       if (self.settings.auto_size) {
         var auto_height = $(window).height() - jquery_element.offset().top - 30;
         if (auto_height > self.height) {
@@ -387,7 +416,7 @@ horizon.d3_line_chart = {
       $.map(self.series, function (serie) {
         serie.color = last_point_color = self.color(serie.name);
         $.map(serie.data, function (statistic) {
-           // need to parse each date
+          // need to parse each date
           statistic.x = d3.time.format('%Y-%m-%dT%H:%M:%S').parse(statistic.x);
           statistic.x = statistic.x.getTime() / 1000;
           last_point = statistic;
@@ -411,13 +440,15 @@ horizon.d3_line_chart = {
         yMax: self.settings.yMax,
       });
 
-      /* TODO(lsmola) add JQuery UI slider to make this work
-      if (self.slider_element) {
-        var slider = new Rickshaw.Graph.RangeSlider({
-          graph: graph,
-          element: $(self.slider_element)
-        });
-      }*/
+      /*
+        TODO(lsmola) add JQuery UI slider to make this work
+        if (self.slider_element) {
+          var slider = new Rickshaw.Graph.RangeSlider({
+            graph: graph,
+            element: $(self.slider_element)
+          });
+        }
+      */
       graph.render();
 
       if (self.hover_formatter == 'verbose'){
@@ -466,8 +497,10 @@ horizon.d3_line_chart = {
         axes_y.render();
       }
 
-      /* Setting a fix height breaks things when chart is refreshed and
-         legend is getting bigger. */
+      /*
+        Setting a fix height breaks things when chart is refreshed and
+        legend is getting bigger.
+      */
       $(self.legend_element).css('height', '');
 
       // Render bar chart
@@ -476,8 +509,8 @@ horizon.d3_line_chart = {
         var bar_chart_html = composed_chart.find(self.settings.bar_chart_selector).get(0);
 
         horizon.d3_bar_chart.refresh(bar_chart_html,
-                                     self.settings.bar_chart_settings,
-                                     self.stats);
+          self.settings.bar_chart_settings,
+          self.stats);
       }
 
       // Render ending dot to last point
@@ -518,8 +551,10 @@ horizon.d3_line_chart = {
       // Show the spinner.
       self.spinner = $('<div class="spinner_wrapper"></div>');
       $(self.html_element).append(self.spinner);
-      /* TODO(lsmola) a loader for in-line tables spark-lines has to be
-         prepared, the parameters of loader could be sent in settings. */
+      /*
+        TODO(lsmola) a loader for in-line tables spark-lines has to be
+        prepared, the parameters of loader could be sent in settings.
+      */
       self.spinner.spin(horizon.conf.spinner_options.line_chart);
 
       // Center the spinner considering the size of the spinner.
@@ -557,28 +592,30 @@ horizon.d3_line_chart = {
     });
 
     if (settings !== undefined && settings.auto_resize) {
-      /* I want to refresh chart on resize of the window, but only
-         at the end of the resize. Nice code from mr. Google. */
+      /*
+        I want to refresh chart on resize of the window, but only
+        at the end of the resize. Nice code from mr. Google.
+      */
       var rtime = new Date(1, 1, 2000, 12, 0, 0);
       var timeout = false;
       var delta = 400;
       $(window).resize(function() {
-          rtime = new Date();
-          if (timeout === false) {
-              timeout = true;
-              setTimeout(resizeend, delta);
-          }
+        rtime = new Date();
+        if (timeout === false) {
+          timeout = true;
+          setTimeout(resizeend, delta);
+        }
       });
 
       var resizeend = function() {
-          if (new Date() - rtime < delta) {
-              setTimeout(resizeend, delta);
-          } else {
-              timeout = false;
-               $(selector).each(function() {
-                self.refresh(this, settings);
-              });
-          }
+        if (new Date() - rtime < delta) {
+          setTimeout(resizeend, delta);
+        } else {
+          timeout = false;
+          $(selector).each(function() {
+            self.refresh(this, settings);
+          });
+        }
       };
     }
 
@@ -593,11 +630,13 @@ horizon.d3_line_chart = {
    */
   refresh: function(html_element, settings){
     var chart = new this.LineChart(this, html_element, settings);
-    // FIXME save chart objects somewhere so I can use them again when
-    // e.g. I am switching tabs, or if I want to update them
-    // via web sockets
-    // this.charts.add_or_update(chart)
-    chart.refresh();
+    /*
+      FIXME save chart objects somewhere so I can use them again when
+      e.g. I am switching tabs, or if I want to update them
+      via web sockets
+      this.charts.add_or_update(chart)
+      chart.refresh();
+    */
   },
 
   /**
@@ -646,11 +685,12 @@ horizon.d3_line_chart = {
      */
     delegate_event_and_refresh_charts = function(selector, event_name, settings) {
       $('form').delegate(selector, event_name, function() {
-        /* Registering 'any event' on form element by delegating. This way it
-           can be easily overridden / enhanced when some special functionality
-           needs to be added. Like input element showing/hiding another element
-           on some condition will be defined directly on element and can block
-           this default behavior.
+        /*
+          Registering 'any event' on form element by delegating. This way it
+          can be easily overridden / enhanced when some special functionality
+          needs to be added. Like input element showing/hiding another element
+          on some condition will be defined directly on element and can block
+          this default behavior.
         */
         var invoker = $(this);
         var form = invoker.parents('form').first();
@@ -680,8 +720,8 @@ horizon.d3_line_chart = {
       $(datepicker_selector).each(function() {
         var el = $(this);
         el.datepicker({format: 'yyyy-mm-dd',
-                       setDate: new Date(),
-                       showButtonPanel: true});
+          setDate: new Date(),
+          showButtonPanel: true});
       });
       delegate_event_and_refresh_charts(datepicker_selector, 'changeDate', settings);
     };
@@ -694,5 +734,5 @@ horizon.d3_line_chart = {
 
 /* Init the graphs */
 horizon.addInitFunction(function () {
-    horizon.d3_line_chart.init('div[data-chart-type="line_chart"]', {'auto_resize': true});
+  horizon.d3_line_chart.init('div[data-chart-type="line_chart"]', {'auto_resize': true});
 });

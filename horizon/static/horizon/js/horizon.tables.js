@@ -4,8 +4,8 @@ horizon.datatables = {
     var $rows_to_update = $('tr.status_unknown.ajax-update');
     if ($rows_to_update.length) {
       var interval = $rows_to_update.attr('data-update-interval'),
-          $table = $rows_to_update.closest('table'),
-          decay_constant = $table.attr('decay_constant');
+        $table = $rows_to_update.closest('table'),
+        decay_constant = $table.attr('decay_constant');
 
       // Do not update this row if the action column is expanded
       if ($rows_to_update.find('.actions_column .btn-group.open').length) {
@@ -18,7 +18,7 @@ horizon.datatables = {
       // Trigger the update handlers.
       $rows_to_update.each(function(index, row) {
         var $row = $(this),
-            $table = $row.closest('table.datatable');
+          $table = $row.closest('table.datatable');
         horizon.ajax.queue({
           url: $row.attr('data-update-url'),
           error: function (jqXHR, textStatus, errorThrown) {
@@ -58,19 +58,19 @@ horizon.datatables = {
 
               if ($new_row.find('a.btn-action-required').length > 0) {
                 spinner_elm.prepend(
-                     $("<div />")
-                     .addClass("action_required_img")
-                     .append(
-                         $("<img />")
-                         .attr("src", "/static/dashboard/img/action_required.png")));
+                  $("<div />")
+                    .addClass("action_required_img")
+                    .append(
+                      $("<img />")
+                        .attr("src", "/static/dashboard/img/action_required.png")));
               } else {
                 // Replacing spin.js here with an animated gif to reduce CPU
                 spinner_elm.prepend(
-                     $("<div />")
-                     .addClass("loading_gif")
-                     .append(
-                         $("<img />")
-                         .attr("src", "/static/dashboard/img/loading.gif")));
+                  $("<div />")
+                    .addClass("loading_gif")
+                    .append(
+                      $("<img />")
+                        .attr("src", "/static/dashboard/img/loading.gif")));
               }
             }
 
@@ -127,10 +127,10 @@ horizon.datatables = {
 /* Generates a confirmation modal dialog for the given action. */
 horizon.datatables.confirm = function (action) {
   var $action = $(action),
-      $modal_parent = $(action).closest('.modal'),
-      name_array = [],
-      closest_table_id, action_string, name_string,
-      title, body, modal, form;
+    $modal_parent = $(action).closest('.modal'),
+    name_array = [],
+    closest_table_id, action_string, name_string,
+    title, body, modal, form;
   if($action.hasClass("disabled")) {
     return;
   }
@@ -175,39 +175,46 @@ horizon.datatables.confirm = function (action) {
 };
 
 $.tablesorter.addParser({
-    // set a unique id
-    id: 'sizeSorter',
-    is: function(s) {
-        // Not an auto-detected parser
-        return false;
-    },
-    // compare int values
-    format: function(s) {
-      var sizes = {BYTE: 0, B: 0, KB: 1, MB: 2,
-                   GB: 3, TB: 4, PB: 5};
-      var regex = /([\d\.,]+)\s*(byte|B|KB|MB|GB|TB|PB)+/i;
-      var match = s.match(regex);
-      if (match && match.length === 3){
-        return parseFloat(match[1]) *
-                          Math.pow(1024, sizes[match[2].toUpperCase()]);
-      }
-      return parseInt(s, 10);
-    },
-    type: 'numeric'
+  // set a unique id
+  id: 'sizeSorter',
+  is: function(s) {
+    // Not an auto-detected parser
+    return false;
+  },
+  // compare int values
+  format: function(s) {
+    var sizes = {
+      BYTE: 0,
+      B: 0,
+      KB: 1,
+      MB: 2,
+      GB: 3,
+      TB: 4,
+      PB: 5
+    };
+    var regex = /([\d\.,]+)\s*(byte|B|KB|MB|GB|TB|PB)+/i;
+    var match = s.match(regex);
+    if (match && match.length === 3){
+      return parseFloat(match[1]) *
+        Math.pow(1024, sizes[match[2].toUpperCase()]);
+    }
+    return parseInt(s, 10);
+  },
+  type: 'numeric'
 });
 
 $.tablesorter.addParser({
-    // set a unique id
-    id: 'timesinceSorter',
-    is: function(s) {
-        // Not an auto-detected parser
-        return false;
-    },
-    // compare int values
-    format: function(s, table, cell, cellIndex) {
-        return $(cell).find('span').data('seconds');
-    },
-    type: 'numeric'
+  // set a unique id
+  id: 'timesinceSorter',
+  is: function(s) {
+    // Not an auto-detected parser
+    return false;
+  },
+  // compare int values
+  format: function(s, table, cell, cellIndex) {
+    return $(cell).find('span').data('seconds');
+  },
+  type: 'numeric'
 });
 
 horizon.datatables.disable_buttons = function() {
@@ -219,7 +226,7 @@ horizon.datatables.disable_buttons = function() {
 
 horizon.datatables.update_footer_count = function (el, modifier) {
   var $el = $(el),
-      $browser, $footer, row_count, footer_text_template, footer_text;
+    $browser, $footer, row_count, footer_text_template, footer_text;
   if (!modifier) {
     modifier = 0;
   }
@@ -254,44 +261,44 @@ horizon.datatables.remove_no_results_row = function (table) {
 
 /*
  * Fixes the striping of the table after filtering results.
-**/
+ **/
 horizon.datatables.fix_row_striping = function (table) {
   table.trigger('applyWidgetId', ['zebra']);
 };
 
 horizon.datatables.set_table_sorting = function (parent) {
 // Function to initialize the tablesorter plugin strictly on sortable columns.
-$(parent).find("table.datatable").each(function () {
-  var $table = $(this),
+  $(parent).find("table.datatable").each(function () {
+    var $table = $(this),
       header_options = {};
-  // Disable if not sortable or has <= 1 item
-  if ($table.find('tbody tr').not('.empty').length > 1){
-    $table.find("thead th[class!='table_header']").each(function (i, val) {
-      $th = $(this);
-      if (!$th.hasClass('sortable')) {
-        header_options[i] = {sorter: false};
-      } else if ($th.data('type') == 'size'){
-        header_options[i] = {sorter: 'sizeSorter'};
-      } else if ($th.data('type') == 'ip'){
-        header_options[i] = {sorter: 'ipAddress'};
-      } else if ($th.data('type') == 'timesince'){
-        header_options[i] = {sorter: 'timesinceSorter'};
-      }
-    });
-    $table.tablesorter({
-      headers: header_options,
-      widgets: ['zebra'],
-      selectorHeaders: "thead th[class!='table_header']",
-      cancelSelection: false
-    });
-  }
-});
+    // Disable if not sortable or has <= 1 item
+    if ($table.find('tbody tr').not('.empty').length > 1){
+      $table.find("thead th[class!='table_header']").each(function (i, val) {
+        $th = $(this);
+        if (!$th.hasClass('sortable')) {
+          header_options[i] = {sorter: false};
+        } else if ($th.data('type') == 'size'){
+          header_options[i] = {sorter: 'sizeSorter'};
+        } else if ($th.data('type') == 'ip'){
+          header_options[i] = {sorter: 'ipAddress'};
+        } else if ($th.data('type') == 'timesince'){
+          header_options[i] = {sorter: 'timesinceSorter'};
+        }
+      });
+      $table.tablesorter({
+        headers: header_options,
+        widgets: ['zebra'],
+        selectorHeaders: "thead th[class!='table_header']",
+        cancelSelection: false
+      });
+    }
+  });
 };
 
 horizon.datatables.add_table_checkboxes = function(parent) {
   $(parent).find('table thead .multi_select_column').each(function(index, thead) {
     if (!$(thead).find('.table-row-multi-select:checkbox').length &&
-        $(thead).parents('table').find('tbody .table-row-multi-select:checkbox').length) {
+      $(thead).parents('table').find('tbody .table-row-multi-select:checkbox').length) {
       $(thead).append('<input type="checkbox" class="table-row-multi-select">');
     }
   });
@@ -300,7 +307,7 @@ horizon.datatables.add_table_checkboxes = function(parent) {
 horizon.datatables.set_table_query_filter = function (parent) {
   $(parent).find('table').each(function (index, elm) {
     var input = $($(elm).find('div.table_search input')),
-        table_selector;
+      table_selector;
     if (input.length > 0) {
       // Disable server-side searcing if we have client-side searching since
       // (for now) the client-side is actually superior. Server-side filtering
@@ -379,9 +386,9 @@ horizon.addInitFunction(function() {
   // Bind the "select all" checkbox action.
   $('div.table_wrapper, #modal_wrapper').on('click', 'table thead .multi_select_column .table-row-multi-select:checkbox', function(evt) {
     var $this = $(this),
-        $table = $this.closest('table'),
-        is_checked = $this.prop('checked'),
-        checkboxes = $table.find('tbody .table-row-multi-select:visible:checkbox');
+      $table = $this.closest('table'),
+      is_checked = $this.prop('checked'),
+      checkboxes = $table.find('tbody .table-row-multi-select:visible:checkbox');
     checkboxes.prop('checked', is_checked);
   });
   // Change "select all" checkbox behaviour while any checkbox is checked/unchecked.

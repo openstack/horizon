@@ -2,6 +2,5 @@
 (function () {
   'use strict';
   horizonApp.
-    controller('DummyCtrl', function () {
-    });
+    controller('DummyCtrl', function () {});
 }());

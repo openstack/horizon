@@ -5,7 +5,7 @@ horizon.firewalls = {
 
   getConsoleLog: function(via_user_submit) {
     var form_element = $("#tail_length"),
-        data;
+      data;
 
     if (!via_user_submit) {
       via_user_submit = false;
@@ -38,7 +38,7 @@ horizon.firewalls = {
    * rule id for rule_id.
    **/
   get_rule_element: function(rule_id) {
-      return $('li > label[for^="id_rule_' + rule_id + '"]');
+    return $('li > label[for^="id_rule_' + rule_id + '"]');
   },
 
   /*
@@ -87,8 +87,8 @@ horizon.firewalls = {
       $("#ruleListId div.input input:checkbox").removeAttr('checked');
       active_rules.each(function(index, value){
         $("#ruleListId div.input input:checkbox[value=" + value + "]")
-        .attr('checked','checked')
-        .parents("li").attr('data-index',index);
+          .attr('checked','checked')
+          .parents("li").attr('data-index',index);
       });
       $("#ruleListId div.input ul").html(
         lists.sort(function(a,b){
@@ -127,16 +127,16 @@ horizon.firewalls = {
       $("#selected_rule_h4").before($('<div class="dynamic-error">').html(errortext));
     }
     $(".rulelist").sortable({
-        connectWith: "ul.rulelist",
-        placeholder: "ui-state-highlight",
-        distance: 5,
-        start:function(e,info){
-          $("#selected_rule").addClass("dragging");
-        },
-        stop:function(e,info){
-          $("#selected_rule").removeClass("dragging");
-          updateForm();
-        }
+      connectWith: "ul.rulelist",
+      placeholder: "ui-state-highlight",
+      distance: 5,
+      start:function(e,info){
+        $("#selected_rule").addClass("dragging");
+      },
+      stop:function(e,info){
+        $("#selected_rule").removeClass("dragging");
+        updateForm();
+      }
     }).disableSelection();
   },
 

@@ -20,7 +20,7 @@ horizon.membership = {
    * role id.
    **/
   get_role_element: function(step_slug, role_id) {
-      return $('select[id^="id_' + step_slug + '_role_' + role_id + '"]');
+    return $('select[id^="id_' + step_slug + '_role_' + role_id + '"]');
   },
 
   /*
@@ -28,7 +28,7 @@ horizon.membership = {
    * data id. I.e., the member's row.
    **/
   get_member_element: function(step_slug, data_id) {
-      return $('li[data-' + step_slug + '-id$=' + data_id + ']').parent();
+    return $('li[data-' + step_slug + '-id$=' + data_id + ']').parent();
   },
 
   /*
@@ -154,10 +154,10 @@ horizon.membership = {
 
   update_member_role_dropdown: function(step_slug, data_id, role_ids, member_el) {
     if (typeof(role_ids) === 'undefined') {
-        role_ids = horizon.membership.get_member_roles(step_slug, data_id);
+      role_ids = horizon.membership.get_member_roles(step_slug, data_id);
     }
     if (typeof(member_el) === 'undefined') {
-        member_el = horizon.membership.get_member_element(step_slug, data_id);
+      member_el = horizon.membership.get_member_element(step_slug, data_id);
     }
 
     var $dropdown = member_el.find("li.member").siblings('.dropdown');
@@ -175,11 +175,11 @@ horizon.membership = {
     var $roles_display = $dropdown.children('.dropdown-toggle').children('.roles_display');
     var roles_to_display = [];
     for (var i = 0; i < role_ids.length; i++) {
-        if (i == 2) {
-            roles_to_display.push('...');
-            break;
-        }
-        roles_to_display.push(horizon.membership.roles[step_slug][role_ids[i]]);
+      if (i == 2) {
+        roles_to_display.push('...');
+        break;
+      }
+      roles_to_display.push(horizon.membership.roles[step_slug][role_ids[i]]);
     }
     text = roles_to_display.join(', ');
     if (text.length === 0) {
@@ -204,20 +204,20 @@ horizon.membership = {
     }
 
     var template = horizon.templates.compiled_templates["#membership_template"],
-    params = {data_id: str_id,
-              step_slug: step_slug,
-              default_role: horizon.membership.roles[horizon.membership.default_role_id[step_slug]],
-              display_name: display_name,
-              text: text,
-              roles: roles},
-    member_el = $(template.render(params));
+      params = {data_id: str_id,
+        step_slug: step_slug,
+        default_role: horizon.membership.roles[horizon.membership.default_role_id[step_slug]],
+        display_name: display_name,
+        text: text,
+        roles: roles},
+      member_el = $(template.render(params));
     this.update_member_role_dropdown(step_slug, str_id, role_ids, member_el);
     return $(member_el);
   },
 
   /*
-  * Generates the HTML structure for the membership UI.
-  **/
+   * Generates the HTML structure for the membership UI.
+   **/
   generate_html: function(step_slug) {
     var data;
     for (data in horizon.membership.data[step_slug]) {
@@ -237,39 +237,39 @@ horizon.membership = {
   /*
    * Triggers on click of link to add/remove membership association.
    **/
-   update_membership: function(step_slug) {
-     $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', ".btn-group a[href='#add_remove']", function (evt) {
-       evt.preventDefault();
-       var available = $(".available_" + step_slug).has($(this)).length;
-       var data_id = horizon.membership.get_field_id($(this).parent().siblings().attr('data-' + step_slug +  '-id'));
-       var member_el = $(this).parent().parent();
+  update_membership: function(step_slug) {
+    $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', ".btn-group a[href='#add_remove']", function (evt) {
+      evt.preventDefault();
+      var available = $(".available_" + step_slug).has($(this)).length;
+      var data_id = horizon.membership.get_field_id($(this).parent().siblings().attr('data-' + step_slug +  '-id'));
+      var member_el = $(this).parent().parent();
 
-       if (available) {
-         var default_role = horizon.membership.default_role_id[step_slug];
-         $(this).text("-");
-         $("." + step_slug + "_members").append(member_el);
-         horizon.membership.add_member_to_role(step_slug, data_id, default_role);
+      if (available) {
+        var default_role = horizon.membership.default_role_id[step_slug];
+        $(this).text("-");
+        $("." + step_slug + "_members").append(member_el);
+        horizon.membership.add_member_to_role(step_slug, data_id, default_role);
 
-         if (horizon.membership.has_roles[step_slug]) {
-           $(this).parent().siblings(".role_options").show();
-           horizon.membership.update_member_role_dropdown(step_slug, data_id, [default_role], member_el);
-         }
-       }
-       else {
-         $(this).text("+");
-         $(this).parent().siblings(".role_options").hide();
-         $(".available_" + step_slug).append(member_el);
-         horizon.membership.remove_member_from_role(step_slug, data_id);
-       }
+        if (horizon.membership.has_roles[step_slug]) {
+          $(this).parent().siblings(".role_options").show();
+          horizon.membership.update_member_role_dropdown(step_slug, data_id, [default_role], member_el);
+        }
+      }
+      else {
+        $(this).text("+");
+        $(this).parent().siblings(".role_options").hide();
+        $(".available_" + step_slug).append(member_el);
+        horizon.membership.remove_member_from_role(step_slug, data_id);
+      }
 
-       // update lists
-       horizon.membership.list_filtering(step_slug);
-       horizon.membership.detect_no_results(step_slug);
+      // update lists
+      horizon.membership.list_filtering(step_slug);
+      horizon.membership.detect_no_results(step_slug);
 
-       // remove input filters
-       $("input." + step_slug + "_filter").val("");
-     });
-   },
+      // remove input filters
+      $("input." + step_slug + "_filter").val("");
+    });
+  },
 
   /*
    * Detects whether each list has members and if it does not
@@ -359,8 +359,8 @@ horizon.membership = {
   },
 
   /*
-  * Fixes the striping of the fake table upon modification of the lists.
-  **/
+   * Fixes the striping of the fake table upon modification of the lists.
+   **/
   fix_stripes: function(step_slug) {
     $('.fake_' + step_slug + '_table').each( function () {
       var filter = "." + $(this).attr('id');
@@ -396,32 +396,32 @@ horizon.membership = {
 
       var input = $("input[id='" + filter +"']");
       input.quicksearch('ul.' + filter + ' ul li span.display_name', {
-            'delay': 200,
-            'loader': 'span.loading',
-            'show': function () {
-              $(this).parent().parent().show();
-                if (filter == "available_" + step_slug) {
-                  $(this).parent('.dropdown-toggle').hide();
-                }
-              },
-            'hide': function () {
-              $(this).parent().parent().hide();
-            },
-            'noResults': 'ul#no_' + filter,
-            'onAfter': function () {
-                horizon.membership.fix_stripes(step_slug);
-            },
-            'prepareQuery': function (val) {
-              return new RegExp(val, "i");
-            },
-            'testQuery': function (query, txt, span) {
-              if ($(input).attr('id') == filter) {
-                $(input).prev().removeAttr('disabled');
-                return query.test($(span).text());
-              }
-              else
-                return true;
-            }
+        'delay': 200,
+        'loader': 'span.loading',
+        'show': function () {
+          $(this).parent().parent().show();
+          if (filter == "available_" + step_slug) {
+            $(this).parent('.dropdown-toggle').hide();
+          }
+        },
+        'hide': function () {
+          $(this).parent().parent().hide();
+        },
+        'noResults': 'ul#no_' + filter,
+        'onAfter': function () {
+          horizon.membership.fix_stripes(step_slug);
+        },
+        'prepareQuery': function (val) {
+          return new RegExp(val, "i");
+        },
+        'testQuery': function (query, txt, span) {
+          if ($(input).attr('id') == filter) {
+            $(input).prev().removeAttr('disabled');
+            return query.test($(span).text());
+          }
+          else
+            return true;
+        }
       });
     });
   },
@@ -434,53 +434,53 @@ horizon.membership = {
     $(".tab-content, .workflow").addClass("dropdown_fix");
 
     $(modal).find('form').each( function () {
-        var $form = $(this);
+      var $form = $(this);
 
-        // Do nothing if this isn't a membership modal
-        if ($form.find('div.' + step_slug + '_membership').length === 0) {
-           return; // continue
+      // Do nothing if this isn't a membership modal
+      if ($form.find('div.' + step_slug + '_membership').length === 0) {
+        return; // continue
+      }
+
+      // call the initalization functions
+      horizon.membership.init_properties(step_slug);
+      horizon.membership.generate_html(step_slug);
+      horizon.membership.update_membership(step_slug);
+      horizon.membership.select_member_role(step_slug);
+      horizon.membership.add_new_member(step_slug);
+
+
+      // initially hide role dropdowns for available member list
+      $form.find(".available_" +  step_slug + " .role_options").hide();
+
+      // hide the dropdown for members too if we don't need to show it
+      if (!horizon.membership.has_roles[step_slug]) {
+        $form.find("." + step_slug + "_members .role_options").hide();
+      }
+
+      // unfocus filter fields
+      if (step_id.indexOf('update') === 0) {
+        $form.find("#" + step_id + " input").blur();
+      }
+
+      // prevent filter inputs from submitting form on 'enter'
+      $form.find('.' + step_slug + '_membership').keydown(function(event){
+        if(event.keyCode == 13) {
+          event.preventDefault();
+          return false;
         }
+      });
 
-        // call the initalization functions
-        horizon.membership.init_properties(step_slug);
-        horizon.membership.generate_html(step_slug);
-        horizon.membership.update_membership(step_slug);
-        horizon.membership.select_member_role(step_slug);
-        horizon.membership.add_new_member(step_slug);
+      // add filtering + styling to the inline obj creation btn
+      horizon.membership.add_new_member_styling(step_slug);
+      horizon.membership.list_filtering(step_slug);
+      horizon.membership.detect_no_results(step_slug);
 
-
-        // initially hide role dropdowns for available member list
-        $form.find(".available_" +  step_slug + " .role_options").hide();
-
-        // hide the dropdown for members too if we don't need to show it
-        if (!horizon.membership.has_roles[step_slug]) {
-            $form.find("." + step_slug + "_members .role_options").hide();
-        }
-
-        // unfocus filter fields
-        if (step_id.indexOf('update') === 0) {
-            $form.find("#" + step_id + " input").blur();
-        }
-
-        // prevent filter inputs from submitting form on 'enter'
-        $form.find('.' + step_slug + '_membership').keydown(function(event){
-            if(event.keyCode == 13) {
-              event.preventDefault();
-              return false;
-            }
-          });
-
-        // add filtering + styling to the inline obj creation btn
-        horizon.membership.add_new_member_styling(step_slug);
-        horizon.membership.list_filtering(step_slug);
-        horizon.membership.detect_no_results(step_slug);
-
-        // fix initial striping of rows
-        $form.find('.fake_' + step_slug + '_table').each( function () {
-          var filter = "." + $(this).attr('id');
-          $(filter + ' .btn-group:even').addClass('dark_stripe');
-          $(filter + ' .btn-group:last').addClass('last_stripe');
-        });
+      // fix initial striping of rows
+      $form.find('.fake_' + step_slug + '_table').each( function () {
+        var filter = "." + $(this).attr('id');
+        $(filter + ' .btn-group:even').addClass('dark_stripe');
+        $(filter + ' .btn-group:last').addClass('last_stripe');
+      });
     });
   }
 };

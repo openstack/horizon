@@ -136,7 +136,7 @@ horizon.network_topology = {
     if (draw_mode && (draw_mode == 'normal'| draw_mode ==  'small')) {
       self.draw_mode = draw_mode;
     } else {
-      if (self.model.networks.length * 
+      if (self.model.networks.length *
         self.element_properties.normal.network_width >  $('#topologyCanvas').width()) {
         self.draw_mode = 'small';
       } else {
@@ -144,7 +144,7 @@ horizon.network_topology = {
       }
       $.cookie('ntp_draw_mode',self.draw_mode);
     }
-   $('.toggleView > .btn').each(function(){
+    $('.toggleView > .btn').each(function(){
       var $this = $(this);
       if($this.hasClass(self.draw_mode)) {
         $this.addClass('active');
@@ -163,7 +163,7 @@ horizon.network_topology = {
     $.each([
       {model:model.routers, type:'router'},
       {model:model.servers, type:'instance'}
-      ], function(index, devices) {
+    ], function(index, devices) {
       var type = devices.type;
       var model = devices.model;
       $.each(model, function(index, device) {
@@ -173,17 +173,17 @@ horizon.network_topology = {
         device.parent_network = (hasports) ?
           self.select_main_port(device.ports).network_id : self.model.networks[0].id;
         var height = element_properties.port_margin*(device.ports.length - 1);
-        device.height = 
+        device.height =
           (self.draw_mode == 'normal' && height > element_properties.default_height) ? height :
-          element_properties.default_height;
+            element_properties.default_height;
         device.pos_y = self.network_height;
-        device.port_height = 
+        device.port_height =
           (self.draw_mode == 'small' && height > device.height) ? 1 :
-          element_properties.port_height;
-        device.port_margin = 
+            element_properties.port_height;
+        device.port_margin =
           (self.draw_mode == 'small' && height > device.height) ?
-          device.height/device.ports.length :
-          element_properties.port_margin;
+            device.height/device.ports.length :
+            element_properties.port_margin;
         self.network_height += device.height + element_properties.margin;
       });
     });
@@ -198,7 +198,7 @@ horizon.network_topology = {
       });
     });
     self.network_height += element_properties.top_margin;
-    self.network_height = (self.network_height > element_properties.network_min_height) ? 
+    self.network_height = (self.network_height > element_properties.network_min_height) ?
       self.network_height : element_properties.network_min_height;
     self.draw_topology();
   },
@@ -228,19 +228,19 @@ horizon.network_topology = {
         var $this = d3.select(this).select('.network-rect');
         if (d.url) {
           $this
-          .on('mouseover',function(){
-            $this.transition().style('fill', function() {
-              return d3.rgb(self.get_network_color(d.id)).brighter(0.5);
+            .on('mouseover',function(){
+              $this.transition().style('fill', function() {
+                return d3.rgb(self.get_network_color(d.id)).brighter(0.5);
+              });
+            })
+            .on('mouseout',function(){
+              $this.transition().style('fill', function() {
+                return self.get_network_color(d.id);
+              });
+            })
+            .on('click',function(){
+              window.location.href = d.url;
             });
-          })
-          .on('mouseout',function(){
-            $this.transition().style('fill', function() {
-              return self.get_network_color(d.id);
-            });
-          })
-          .on('click',function(){
-            window.location.href = d.url;
-          });
         } else {
           $this.classed('nourl', true);
         }
@@ -248,7 +248,7 @@ horizon.network_topology = {
 
     network
       .attr('id',function(d) { return 'id_' + d.id; })
-      .attr('transform',function(d,i){ 
+      .attr('transform',function(d,i){
         return 'translate(' + element_properties.network_width * i + ',' + 0 + ')';
       })
       .select('.network-rect')
@@ -268,12 +268,12 @@ horizon.network_topology = {
           return n.cidr;
         });
         return cidr.join(', ');
-       });
+      });
 
     network.exit().remove();
 
     var device = network.selectAll('g.device')
-        .data(function(d) { return d.devices; });
+      .data(function(d) { return d.devices; });
 
     var device_enter = device.enter()
       .append("g")
@@ -282,14 +282,15 @@ horizon.network_topology = {
         var device_template = self[d.type + '_tmpl'][self.draw_mode];
         this.appendChild(d3.select(device_template).node().cloneNode(true));
       });
-    
-    device_enter.on('mouseenter',function(d){
+
+    device_enter
+      .on('mouseenter',function(d){
       var $this = $(this);
       self.show_balloon(d,$this);
     })
-    .on('click',function(){
-      d3.event.stopPropagation();
-    });
+      .on('click',function(){
+        d3.event.stopPropagation();
+      });
 
     device
       .attr('id',function(d) { return 'id_' + d.id; })
@@ -395,32 +396,32 @@ horizon.network_topology = {
       .attr('x2',function(d,i) {
         var parent = this.parentNode;
         var width = (Math.abs(parent._index_diff) - 1)*element_properties.network_width +
-        element_properties.port_width;
+          element_properties.port_width;
         return (parent._direction == 'left') ? -1*width : width;
       });
 
-      port
-        .select('.port_text')
-        .attr('x',function(d) {
-          var parent = this.parentNode;
-          if (parent._direction == 'left') {
-            d3.select(this).classed('left',true);
-            return element_properties.port_text_margin.x*-1;
-          } else {
-            d3.select(this).classed('left',false);
-            return element_properties.port_text_margin.x;
-          }
-        })
-        .attr('y',function(d) {
-          return element_properties.port_text_margin.y;
-        })
-        .text(function(d) {
-          var ip_label = [];
-          $.each(d.fixed_ips, function() {
-            ip_label.push(this.ip_address);
-          });
-          return ip_label.join(',');
+    port
+      .select('.port_text')
+      .attr('x',function(d) {
+        var parent = this.parentNode;
+        if (parent._direction == 'left') {
+          d3.select(this).classed('left',true);
+          return element_properties.port_text_margin.x*-1;
+        } else {
+          d3.select(this).classed('left',false);
+          return element_properties.port_text_margin.x;
+        }
+      })
+      .attr('y',function(d) {
+        return element_properties.port_text_margin.y;
+      })
+      .text(function(d) {
+        var ip_label = [];
+        $.each(d.fixed_ips, function() {
+          ip_label.push(this.ip_address);
         });
+        return ip_label.join(',');
+      });
 
     port.exit().remove();
   },
@@ -431,11 +432,11 @@ horizon.network_topology = {
     return this.network_index[network_id];
   },
   select_port: function(device_id){
-   return $.map(this.model.ports,function(port, index){
-    if (port.device_id == device_id) {
-      return port;
-    }
-   });
+    return $.map(this.model.ports,function(port, index){
+      if (port.device_id == device_id) {
+        return port;
+      }
+    });
   },
   select_main_port: function(ports){
     var _self = this;
@@ -549,16 +550,16 @@ horizon.network_topology = {
     }
     $(self.svg_container).append(html);
     var device_position = element.find('.frame');
-    var x = device_position.position().left + 
-      element_properties.device_width + 
+    var x = device_position.position().left +
+      element_properties.device_width +
       element_properties.balloon_margin.x;
-    var y = device_position.position().top + 
+    var y = device_position.position().top +
       element_properties.balloon_margin.y;
     $('#' + balloon_id).css({
       'left': x + 'px',
       'top': y + 'px'
     })
-    .show();
+      .show();
     var $balloon = $('#' + balloon_id);
     if ($balloon.offset().left + $balloon.outerWidth() > $(window).outerWidth()) {
       $balloon
@@ -567,7 +568,7 @@ horizon.network_topology = {
         })
         .css({
           'left': (device_position.position().left - $balloon.outerWidth() -
-                   element_properties.balloon_margin.x + 'px')
+            element_properties.balloon_margin.x + 'px')
         })
         .addClass('leftPosition');
     }
@@ -599,7 +600,7 @@ horizon.network_topology = {
       .appendTo(self.post_messages);
     iframe.on('load',function() {
       $(this).get(0).contentWindow.postMessage(
-      JSON.stringify(message, null, 2), '*');
+        JSON.stringify(message, null, 2), '*');
     });
   },
   delete_post_message: function(id) {
