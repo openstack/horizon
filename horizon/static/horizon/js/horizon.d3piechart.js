@@ -28,7 +28,7 @@ horizon.d3_pie_chart = {
     self.chart = d3.selectAll(".d3_pie_chart");
 
     for (var i = 0; i < pie_chart_data.length; i++) {
-      used = parseInt($(pie_chart_data[i]).data("used"));
+      var used = Math.min(parseInt($(pie_chart_data[i]).data("used")), 100);
       self.data = [{"percentage":used}, {"percentage":100 - used}];
       self.pieChart(i);
     }
