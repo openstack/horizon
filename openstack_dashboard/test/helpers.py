@@ -403,3 +403,12 @@ class SeleniumAdminTestCase(SeleniumTestCase):
         if "roles" not in kwargs:
             kwargs['roles'] = [self.roles.admin._info]
         super(SeleniumAdminTestCase, self).setActiveUser(*args, **kwargs)
+
+
+def my_custom_sort(flavor):
+    sort_order = {
+        'm1.secret': 0,
+        'm1.tiny': 1,
+        'm1.massive': 2,
+    }
+    return sort_order[flavor.name]
