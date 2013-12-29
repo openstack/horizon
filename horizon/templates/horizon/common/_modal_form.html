@@ -9,7 +9,14 @@
   </div>
   <hr />
   {% endif %}
-  <form id="{% block form_id %}{% endblock %}" autocomplete="{% block autocomplete %}{% endblock %}" class="{% block form_class %}{% endblock %}" action="{% block form_action %}{% endblock %}" method="{% block form-method %}POST{% endblock %}" {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} {% block form_attrs %}{% endblock %}>{% csrf_token %}
+  <form id="{% block form_id %}{% endblock %}"
+        ng-controller="{% block ng_controller %}DummyCtrl{% endblock %}"
+        name="{% block form_name %}{% endblock %}"
+        autocomplete="{% block autocomplete %}{% endblock %}"
+        class="{% block form_class %}{% endblock %}"
+        action="{% block form_action %}{% endblock %}"
+        method="{% block form-method %}POST{% endblock %}"
+        {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} {% block form_attrs %}{% endblock %}>{% csrf_token %}
     <div class="modal-body clearfix">
     {% block modal-body %}
         <fieldset>
