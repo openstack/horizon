@@ -66,8 +66,17 @@ class IndexView(tables.DataTableView):
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instances.'))
-        # Gather our flavors and images and correlate our instances to them
+
         if instances:
+            try:
+                api.network.servers_update_addresses(self.request, instances)
+            except Exception:
+                exceptions.handle(
+                    self.request,
+                    message=_('Unable to retrieve IP addresses from Neutron.'),
+                    ignore=True)
+
+            # Gather our flavors and images and correlate our instances to them
             try:
                 flavors = api.nova.flavor_list(self.request)
             except Exception:
@@ -233,6 +242,15 @@ class DetailView(tabs.TabView):
                                     'instance "%s".') % instance_id,
                                     redirect=redirect)
             self._instance = instance
+
+            try:
+                api.network.servers_update_addresses(self.request, [instance])
+            except Exception:
+                exceptions.handle(
+                    self.request,
+                    _('Unable to retrieve IP addresses from Neutron for '
+                      'instance "%s".') % instance_id, ignore=True)
+
         return self._instance
 
     def get_tabs(self, request, *args, **kwargs):

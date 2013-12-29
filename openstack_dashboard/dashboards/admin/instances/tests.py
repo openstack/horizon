@@ -20,6 +20,7 @@ from django.core.urlresolvers import reverse  # noqa
 from django import http
 from django.utils.datastructures import SortedDict  # noqa
 
+from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
@@ -29,7 +30,8 @@ from openstack_dashboard.test import helpers as test
 class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'extension_supported',),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        api.network: ('servers_update_addresses',)})
     def test_index(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -42,6 +44,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         self.mox.ReplayAll()
 
@@ -52,7 +55,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
                                     'server_list', 'extension_supported',),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        api.network: ('servers_update_addresses',)})
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         tenants = self.tenants.list()
@@ -63,6 +67,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
@@ -82,7 +87,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
                                     'server_list', 'extension_supported', ),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        api.network: ('servers_update_addresses',)})
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -96,6 +102,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
@@ -162,14 +169,17 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'extension_supported', ),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        api.network: ('servers_update_addresses',)})
     def test_index_options_before_migrate(self):
+        servers = self.servers.list()
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([self.tenants.list(), False])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
-                                .AndReturn([self.servers.list(), False])
+                                .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)).\
@@ -183,7 +193,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'extension_supported', ),
-                        api.keystone: ('tenant_list',)})
+                        api.keystone: ('tenant_list',),
+                        api.network: ('servers_update_addresses',)})
     def test_index_options_after_migrate(self):
         servers = self.servers.list()
         server1 = servers[0]
@@ -197,7 +208,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
-                                .AndReturn([self.servers.list(), False])
+                                .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.flavor_list(IsA(http.HttpRequest)).\
                              AndReturn(self.flavors.list())
         self.mox.ReplayAll()
