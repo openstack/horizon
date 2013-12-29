@@ -653,6 +653,7 @@ class LaunchInstance(workflows.Workflow):
             net_id = context['network_id'][0]
             LOG.debug("Horizon->Create Port with %(netid)s %(profile_id)s",
                       {'netid': net_id, 'profile_id': context['profile_id']})
+            port = None
             try:
                 port = api.neutron.port_create(request, net_id,
                                                policy_profile_id=
