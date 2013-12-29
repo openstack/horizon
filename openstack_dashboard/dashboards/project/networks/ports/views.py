@@ -20,6 +20,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tabs
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -44,17 +45,16 @@ class UpdateView(forms.ModalFormView):
         return reverse(self.success_url,
                        args=(self.kwargs['network_id'],))
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            port_id = self.kwargs['port_id']
-            try:
-                self._object = api.neutron.port_get(self.request, port_id)
-            except Exception:
-                redirect = reverse("horizon:project:networks:detail",
-                                   args=(self.kwargs['network_id'],))
-                msg = _('Unable to retrieve port details')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        port_id = self.kwargs['port_id']
+        try:
+            return api.neutron.port_get(self.request, port_id)
+        except Exception:
+            redirect = reverse("horizon:project:networks:detail",
+                               args=(self.kwargs['network_id'],))
+            msg = _('Unable to retrieve port details')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)

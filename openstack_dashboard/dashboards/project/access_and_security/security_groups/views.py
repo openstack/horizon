@@ -28,6 +28,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.utils import filters
@@ -42,17 +43,16 @@ class DetailView(tables.DataTableView):
     table_class = project_tables.RulesTable
     template_name = 'project/access_and_security/security_groups/detail.html'
 
+    @memoized.memoized_method
     def _get_data(self):
-        if not hasattr(self, '_sg'):
-            sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
-            try:
-                self._sg = api.network.security_group_get(self.request, sg_id)
-            except Exception:
-                redirect = reverse('horizon:project:access_and_security:index')
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve security group.'),
-                                  redirect=redirect)
-        return self._sg
+        sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
+        try:
+            return api.network.security_group_get(self.request, sg_id)
+        except Exception:
+            redirect = reverse('horizon:project:access_and_security:index')
+            exceptions.handle(self.request,
+                              _('Unable to retrieve security group.'),
+                              redirect=redirect)
 
     def get_data(self):
         return self._get_data().rules
@@ -68,17 +68,15 @@ class UpdateView(forms.ModalFormView):
     template_name = 'project/access_and_security/security_groups/update.html'
     success_url = reverse_lazy('horizon:project:access_and_security:index')
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
-            try:
-                self._object = api.network.security_group_get(self.request,
-                                                              sg_id)
-            except Exception:
-                msg = _('Unable to retrieve security group.')
-                url = reverse('horizon:project:access_and_security:index')
-                exceptions.handle(self.request, msg, redirect=url)
-        return self._object
+        sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
+        try:
+            return api.network.security_group_get(self.request, sg_id)
+        except Exception:
+            msg = _('Unable to retrieve security group.')
+            url = reverse('horizon:project:access_and_security:index')
+            exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)

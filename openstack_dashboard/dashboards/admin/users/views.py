@@ -29,6 +29,7 @@ from django.views.decorators.debug import sensitive_post_parameters  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -64,18 +65,16 @@ class UpdateView(forms.ModalFormView):
     def dispatch(self, *args, **kwargs):
         return super(UpdateView, self).dispatch(*args, **kwargs)
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                self._object = api.keystone.user_get(self.request,
-                                                     self.kwargs['user_id'],
-                                                     admin=True)
-            except Exception:
-                redirect = reverse("horizon:admin:users:index")
-                exceptions.handle(self.request,
-                                  _('Unable to update user.'),
-                                  redirect=redirect)
-        return self._object
+        try:
+            return api.keystone.user_get(self.request, self.kwargs['user_id'],
+                admin=True)
+        except Exception:
+            redirect = reverse("horizon:admin:users:index")
+            exceptions.handle(self.request,
+                              _('Unable to update user.'),
+                              redirect=redirect)
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)

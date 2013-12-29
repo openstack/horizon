@@ -32,6 +32,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -172,16 +173,15 @@ class UpdateView(workflows.WorkflowView):
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
+    @memoized.memoized_method
     def get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            instance_id = self.kwargs['instance_id']
-            try:
-                self._object = api.nova.server_get(self.request, instance_id)
-            except Exception:
-                redirect = reverse("horizon:project:instances:index")
-                msg = _('Unable to retrieve instance details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        instance_id = self.kwargs['instance_id']
+        try:
+            return api.nova.server_get(self.request, instance_id)
+        except Exception:
+            redirect = reverse("horizon:project:instances:index")
+            msg = _('Unable to retrieve instance details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         initial = super(UpdateView, self).get_initial()
@@ -214,27 +214,26 @@ class DetailView(tabs.TabView):
         context["instance"] = self.get_data()
         return context
 
+    @memoized.memoized_method
     def get_data(self):
-        if not hasattr(self, "_instance"):
-            try:
-                instance_id = self.kwargs['instance_id']
-                instance = api.nova.server_get(self.request, instance_id)
-                instance.volumes = api.nova.instance_volumes_list(self.request,
-                                                                  instance_id)
-                # Sort by device name
-                instance.volumes.sort(key=lambda vol: vol.device)
-                instance.full_flavor = api.nova.flavor_get(
-                    self.request, instance.flavor["id"])
-                instance.security_groups = api.network.server_security_groups(
-                    self.request, instance_id)
-            except Exception:
-                redirect = reverse('horizon:project:instances:index')
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve details for '
-                                    'instance "%s".') % instance_id,
-                                    redirect=redirect)
-            self._instance = instance
-        return self._instance
+        try:
+            instance_id = self.kwargs['instance_id']
+            instance = api.nova.server_get(self.request, instance_id)
+            instance.volumes = api.nova.instance_volumes_list(self.request,
+                                                              instance_id)
+            # Sort by device name
+            instance.volumes.sort(key=lambda vol: vol.device)
+            instance.full_flavor = api.nova.flavor_get(
+                self.request, instance.flavor["id"])
+            instance.security_groups = api.network.server_security_groups(
+                self.request, instance_id)
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(self.request,
+                              _('Unable to retrieve details for '
+                                'instance "%s".') % instance_id,
+                                redirect=redirect)
+        return instance
 
     def get_tabs(self, request, *args, **kwargs):
         instance = self.get_data()
@@ -250,35 +249,33 @@ class ResizeView(workflows.WorkflowView):
         context["instance_id"] = self.kwargs['instance_id']
         return context
 
+    @memoized.memoized_method
     def get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            instance_id = self.kwargs['instance_id']
-            try:
-                self._object = api.nova.server_get(self.request, instance_id)
-                flavor_id = self._object.flavor['id']
-                flavors = self.get_flavors()
-                if flavor_id in flavors:
-                    self._object.flavor_name = flavors[flavor_id].name
-                else:
-                    flavor = api.nova.flavor_get(self.request, flavor_id)
-                    self._object.flavor_name = flavor.name
-            except Exception:
-                redirect = reverse("horizon:project:instances:index")
-                msg = _('Unable to retrieve instance details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        instance_id = self.kwargs['instance_id']
+        try:
+            instance = api.nova.server_get(self.request, instance_id)
+            flavor_id = instance.flavor['id']
+            flavors = self.get_flavors()
+            if flavor_id in flavors:
+                instance.flavor_name = flavors[flavor_id].name
+            else:
+                flavor = api.nova.flavor_get(self.request, flavor_id)
+                instance.flavor_name = flavor.name
+        except Exception:
+            redirect = reverse("horizon:project:instances:index")
+            msg = _('Unable to retrieve instance details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
+        return instance
 
+    @memoized.memoized_method
     def get_flavors(self, *args, **kwargs):
-        if not hasattr(self, "_flavors"):
-            try:
-                flavors = api.nova.flavor_list(self.request)
-                self._flavors = SortedDict([(str(flavor.id), flavor)
-                                        for flavor in flavors])
-            except Exception:
-                redirect = reverse("horizon:project:instances:index")
-                exceptions.handle(self.request,
-                    _('Unable to retrieve flavors.'), redirect=redirect)
-        return self._flavors
+        try:
+            flavors = api.nova.flavor_list(self.request)
+            return SortedDict((str(flavor.id), flavor) for flavor in flavors)
+        except Exception:
+            redirect = reverse("horizon:project:instances:index")
+            exceptions.handle(self.request,
+                _('Unable to retrieve flavors.'), redirect=redirect)
 
     def get_initial(self):
         initial = super(ResizeView, self).get_initial()

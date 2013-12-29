@@ -20,6 +20,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import tabs
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -39,17 +40,15 @@ class AddInterfaceView(forms.ModalFormView):
         return reverse(self.success_url,
                        args=(self.kwargs['router_id'],))
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                router_id = self.kwargs["router_id"]
-                self._object = api.neutron.router_get(self.request,
-                                                      router_id)
-            except Exception:
-                redirect = reverse(self.failure_url, args=[router_id])
-                msg = _("Unable to retrieve router.")
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        try:
+            router_id = self.kwargs["router_id"]
+            return api.neutron.router_get(self.request, router_id)
+        except Exception:
+            redirect = reverse(self.failure_url, args=[router_id])
+            msg = _("Unable to retrieve router.")
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_context_data(self, **kwargs):
         context = super(AddInterfaceView, self).get_context_data(**kwargs)
@@ -71,17 +70,15 @@ class SetGatewayView(forms.ModalFormView):
     def get_success_url(self):
         return reverse(self.success_url)
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                router_id = self.kwargs["router_id"]
-                self._object = api.neutron.router_get(self.request,
-                                                      router_id)
-            except Exception:
-                redirect = reverse(self.failure_url)
-                msg = _("Unable to set gateway.")
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        try:
+            router_id = self.kwargs["router_id"]
+            return api.neutron.router_get(self.request, router_id)
+        except Exception:
+            redirect = reverse(self.failure_url)
+            msg = _("Unable to set gateway.")
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_context_data(self, **kwargs):
         context = super(SetGatewayView, self).get_context_data(**kwargs)

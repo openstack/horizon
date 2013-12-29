@@ -22,6 +22,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tabs
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -35,18 +36,17 @@ from openstack_dashboard.dashboards.project.networks.subnets \
 class CreateView(workflows.WorkflowView):
     workflow_class = project_workflows.CreateSubnet
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                network_id = self.kwargs["network_id"]
-                self._object = api.neutron.network_get(self.request,
-                                                       network_id)
-                self._object.set_id_as_name_if_empty()
-            except Exception:
-                redirect = reverse('horizon:project:networks:index')
-                msg = _("Unable to retrieve network.")
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        try:
+            network_id = self.kwargs["network_id"]
+            network = api.neutron.network_get(self.request, network_id)
+            network.set_id_as_name_if_empty()
+            return network
+        except Exception:
+            redirect = reverse('horizon:project:networks:index')
+            msg = _("Unable to retrieve network.")
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         network = self.get_object()
@@ -57,16 +57,15 @@ class CreateView(workflows.WorkflowView):
 class UpdateView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateSubnet
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            subnet_id = self.kwargs['subnet_id']
-            try:
-                self._object = api.neutron.subnet_get(self.request, subnet_id)
-            except Exception:
-                redirect = reverse("horizon:project:networks:index")
-                msg = _('Unable to retrieve subnet details')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        subnet_id = self.kwargs['subnet_id']
+        try:
+            return api.neutron.subnet_get(self.request, subnet_id)
+        except Exception:
+            redirect = reverse("horizon:project:networks:index")
+            msg = _('Unable to retrieve subnet details')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         initial = super(UpdateView, self).get_initial()

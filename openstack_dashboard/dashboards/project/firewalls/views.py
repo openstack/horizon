@@ -24,6 +24,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon import tabs
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -131,17 +132,17 @@ class UpdateRuleView(forms.ModalFormView):
             context['name'] = obj.name
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            rule_id = self.kwargs['rule_id']
-            try:
-                self._object = api.fwaas.rule_get(self.request, rule_id)
-                self._object.set_id_as_name_if_empty()
-            except Exception:
-                redirect = self.success_url
-                msg = _('Unable to retrieve rule details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        rule_id = self.kwargs['rule_id']
+        try:
+            rule = api.fwaas.rule_get(self.request, rule_id)
+            rule.set_id_as_name_if_empty()
+            return rule
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve rule details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         rule = self._get_object()
@@ -163,17 +164,17 @@ class UpdatePolicyView(forms.ModalFormView):
             context['name'] = obj.name
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
             policy_id = self.kwargs['policy_id']
             try:
-                self._object = api.fwaas.policy_get(self.request, policy_id)
-                self._object.set_id_as_name_if_empty()
+                policy = api.fwaas.policy_get(self.request, policy_id)
+                policy.set_id_as_name_if_empty()
+                return policy
             except Exception:
                 redirect = self.success_url
                 msg = _('Unable to retrieve policy details.')
                 exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
 
     def get_initial(self):
         policy = self._get_object()
@@ -195,18 +196,18 @@ class UpdateFirewallView(forms.ModalFormView):
             context['name'] = obj.name
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            firewall_id = self.kwargs['firewall_id']
-            try:
-                self._object = api.fwaas.firewall_get(self.request,
-                                                      firewall_id)
-                self._object.set_id_as_name_if_empty()
-            except Exception:
-                redirect = self.success_url
-                msg = _('Unable to retrieve firewall details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        firewall_id = self.kwargs['firewall_id']
+        try:
+            firewall = api.fwaas.firewall_get(self.request,
+                                                  firewall_id)
+            firewall.set_id_as_name_if_empty()
+            return firewall
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve firewall details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         firewall = self._get_object()
@@ -229,17 +230,17 @@ class InsertRuleToPolicyView(forms.ModalFormView):
             context['name'] = obj.name
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            policy_id = self.kwargs['policy_id']
-            try:
-                self._object = api.fwaas.policy_get(self.request, policy_id)
-                self._object.set_id_as_name_if_empty()
-            except Exception:
-                redirect = self.success_url
-                msg = _('Unable to retrieve policy details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        policy_id = self.kwargs['policy_id']
+        try:
+            policy = api.fwaas.policy_get(self.request, policy_id)
+            policy.set_id_as_name_if_empty()
+            return policy
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve policy details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         policy = self._get_object()
@@ -263,17 +264,17 @@ class RemoveRuleFromPolicyView(forms.ModalFormView):
             context['name'] = obj.name
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            policy_id = self.kwargs['policy_id']
-            try:
-                self._object = api.fwaas.policy_get(self.request, policy_id)
-                self._object.set_id_as_name_if_empty()
-            except Exception:
-                redirect = self.success_url
-                msg = _('Unable to retrieve policy details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        policy_id = self.kwargs['policy_id']
+        try:
+            policy = api.fwaas.policy_get(self.request, policy_id)
+            policy.set_id_as_name_if_empty()
+            return policy
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve policy details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         policy = self._get_object()

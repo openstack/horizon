@@ -38,6 +38,8 @@ class IndexView(horizon_tables.DataTableView):
     def _get_extra_data(self, backup):
         """Apply extra info to the backup."""
         instance_id = backup.instance_id
+        # TODO(rdopieralski) It's not clear where this attribute is supposed
+        # to come from. At first glance it looks like it will always be {}.
         if not hasattr(self, '_instances'):
             self._instances = {}
         instance = self._instances.get(instance_id)

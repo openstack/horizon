@@ -194,6 +194,8 @@ class DataTableView(MultiTableView):
         return self._tables
 
     def get_table(self):
+        # Note: this method cannot be easily memoized, because get_context_data
+        # uses its cached value directly.
         if not self.table_class:
             raise AttributeError('You must specify a DataTable class for the '
                                  '"table_class" attribute on %s.'

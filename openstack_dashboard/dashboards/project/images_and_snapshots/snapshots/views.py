@@ -27,6 +27,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import forms
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -39,17 +40,16 @@ class CreateView(forms.ModalFormView):
     template_name = 'project/images_and_snapshots/snapshots/create.html'
     success_url = reverse_lazy("horizon:project:images_and_snapshots:index")
 
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            try:
-                self._object = api.nova.server_get(self.request,
-                                                   self.kwargs["instance_id"])
-            except Exception:
-                redirect = reverse('horizon:project:instances:index')
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve instance."),
-                                  redirect=redirect)
-        return self._object
+        try:
+            return api.nova.server_get(self.request,
+                self.kwargs["instance_id"])
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(self.request,
+                              _("Unable to retrieve instance."),
+                              redirect=redirect)
 
     def get_initial(self):
         return {"instance_id": self.kwargs["instance_id"]}

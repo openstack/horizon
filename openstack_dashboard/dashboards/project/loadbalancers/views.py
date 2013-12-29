@@ -21,6 +21,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon import tabs
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -162,16 +163,15 @@ class UpdatePoolView(forms.ModalFormView):
         context["pool_id"] = self.kwargs['pool_id']
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            pool_id = self.kwargs['pool_id']
-            try:
-                self._object = api.lbaas.pool_get(self.request, pool_id)
-            except Exception as e:
-                redirect = self.success_url
-                msg = _('Unable to retrieve pool details. %s') % e
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        pool_id = self.kwargs['pool_id']
+        try:
+            return api.lbaas.pool_get(self.request, pool_id)
+        except Exception as e:
+            redirect = self.success_url
+            msg = _('Unable to retrieve pool details. %s') % e
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         pool = self._get_object()
@@ -193,16 +193,15 @@ class UpdateVipView(forms.ModalFormView):
         context["vip_id"] = self.kwargs['vip_id']
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            vip_id = self.kwargs['vip_id']
-            try:
-                self._object = api.lbaas.vip_get(self.request, vip_id)
-            except Exception as e:
-                redirect = self.success_url
-                msg = _('Unable to retrieve VIP details. %s') % e
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        vip_id = self.kwargs['vip_id']
+        try:
+            return api.lbaas.vip_get(self.request, vip_id)
+        except Exception as e:
+            redirect = self.success_url
+            msg = _('Unable to retrieve VIP details. %s') % e
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         vip = self._get_object()
@@ -238,16 +237,15 @@ class UpdateMemberView(forms.ModalFormView):
         context["member_id"] = self.kwargs['member_id']
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            member_id = self.kwargs['member_id']
-            try:
-                self._object = api.lbaas.member_get(self.request, member_id)
-            except Exception as e:
-                redirect = self.success_url
-                msg = _('Unable to retrieve member details. %s') % e
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        member_id = self.kwargs['member_id']
+        try:
+            return api.lbaas.member_get(self.request, member_id)
+        except Exception as e:
+            redirect = self.success_url
+            msg = _('Unable to retrieve member details. %s') % e
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         member = self._get_object()
@@ -268,17 +266,15 @@ class UpdateMonitorView(forms.ModalFormView):
         context["monitor_id"] = self.kwargs['monitor_id']
         return context
 
+    @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-        if not hasattr(self, "_object"):
-            monitor_id = self.kwargs['monitor_id']
-            try:
-                self._object = api.lbaas.pool_health_monitor_get(
-                    self.request, monitor_id)
-            except Exception as e:
-                redirect = self.success_url
-                msg = _('Unable to retrieve health monitor details. %s') % e
-                exceptions.handle(self.request, msg, redirect=redirect)
-        return self._object
+        monitor_id = self.kwargs['monitor_id']
+        try:
+            return api.lbaas.pool_health_monitor_get(self.request, monitor_id)
+        except Exception as e:
+            redirect = self.success_url
+            msg = _('Unable to retrieve health monitor details. %s') % e
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         monitor = self._get_object()

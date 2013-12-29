@@ -17,6 +17,7 @@
 from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon.tables import MultiTableView  # noqa
+from horizon.utils import memoized
 
 
 class ResourceBrowserView(MultiTableView):
@@ -32,15 +33,15 @@ class ResourceBrowserView(MultiTableView):
         self.navigation_selection = False
         super(ResourceBrowserView, self).__init__(*args, **kwargs)
 
+    @memoized.memoized_method
     def get_browser(self):
-        if not hasattr(self, "browser"):
-            self.browser = self.browser_class(self.request, **self.kwargs)
-            self.browser.set_tables(self.get_tables())
-            if not self.navigation_selection:
-                ct = self.browser.content_table
-                item = self.browser.navigable_item_name.lower()
-                ct._no_data_message = _("Select a %s to browse.") % item
-        return self.browser
+        browser = self.browser_class(self.request, **self.kwargs)
+        browser.set_tables(self.get_tables())
+        if not self.navigation_selection:
+            ct = browser.content_table
+            item = browser.navigable_item_name.lower()
+            ct._no_data_message = _("Select a %s to browse.") % item
+        return browser
 
     def get_context_data(self, **kwargs):
         context = super(ResourceBrowserView, self).get_context_data(**kwargs)

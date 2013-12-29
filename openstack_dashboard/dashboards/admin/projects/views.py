@@ -23,6 +23,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 
 from horizon import exceptions
 from horizon import tables
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -47,18 +48,15 @@ INDEX_URL = "horizon:admin:projects:index"
 
 
 class TenantContextMixin(object):
+    @memoized.memoized_method
     def get_object(self):
-        if not hasattr(self, "_object"):
-            tenant_id = self.kwargs['tenant_id']
-            try:
-                self._object = api.keystone.tenant_get(self.request,
-                                                       tenant_id,
-                                                       admin=True)
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve project information.'),
-                                  redirect=reverse(INDEX_URL))
-        return self._object
+        tenant_id = self.kwargs['tenant_id']
+        try:
+            return api.keystone.tenant_get(self.request, tenant_id, admin=True)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve project information.'),
+                              redirect=reverse(INDEX_URL))
 
     def get_context_data(self, **kwargs):
         context = super(TenantContextMixin, self).get_context_data(**kwargs)
