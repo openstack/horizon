@@ -83,5 +83,7 @@ def mb_float_format(mb):
 
 @register.filter(name='diskgbformat')
 def diskgbformat(gb):
+    if not gb:
+        gb = 0
     return filesizeformat(gb * 1024 * 1024 * 1024,
-            float_format).replace(' ', '')
+                          float_format).replace(' ', '')
