@@ -21,12 +21,15 @@
 
 from __future__ import absolute_import
 
+import collections
 import logging
+import netaddr
 
 from django.conf import settings  # noqa
 from django.utils.datastructures import SortedDict  # noqa
 from django.utils.translation import ugettext_lazy as _  # noqa
 
+from horizon import messages
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
@@ -321,12 +324,12 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return [FloatingIpPool(pool) for pool
                 in self.client.list_networks(**search_opts).get('networks')]
 
-    def list(self):
+    def list(self, **search_opts):
         tenant_id = self.request.user.tenant_id
         # In Neutron, list_floatingips returns Floating IPs from all tenants
         # when the API is called with admin role, so we need to filter them
         # with tenant_id.
-        fips = self.client.list_floatingips(tenant_id=tenant_id)
+        fips = self.client.list_floatingips(tenant_id=tenant_id, **search_opts)
         fips = fips.get('floatingips')
         # Get port list to add instance_id to floating IP list
         # instance_id is stored in device_id attribute
@@ -730,6 +733,88 @@ def agent_list(request):
 def provider_list(request):
     providers = neutronclient(request).list_service_providers()
     return providers['service_providers']
+
+
+def servers_update_addresses(request, servers):
+    """Retrieve servers networking information from Neutron if enabled.
+
+       Should be used when up to date networking information is required,
+       and Nova's networking info caching mechanism is not fast enough.
+    """
+
+    # Get all (filtered for relevant servers) information from Neutron
+    try:
+        ports = port_list(request,
+                          device_id=[instance.id for instance in servers])
+        floating_ips = FloatingIpManager(request).list(
+            port_id=[port.id for port in ports])
+        networks = network_list(request,
+                                id=[port.network_id for port in ports])
+    except Exception:
+        error_message = _('Unable to connect to Neutron.')
+        LOG.error(error_message)
+        messages.error(request, error_message)
+        return
+
+    # Map instance to its ports
+    instances_ports = collections.defaultdict(list)
+    for port in ports:
+        instances_ports[port.device_id].append(port)
+
+    # Map port to its floating ips
+    ports_floating_ips = collections.defaultdict(list)
+    for fip in floating_ips:
+        ports_floating_ips[fip.port_id].append(fip)
+
+    # Map network id to its name
+    network_names = dict(((network.id, network.name) for network in networks))
+
+    for server in servers:
+        try:
+            addresses = _server_get_addresses(
+                request,
+                server,
+                instances_ports,
+                ports_floating_ips,
+                network_names)
+        except Exception as e:
+            LOG.error(e)
+        else:
+            server.addresses = addresses
+
+
+def _server_get_addresses(request, server, ports, floating_ips, network_names):
+    def _format_address(mac, ip, type):
+        try:
+            version = netaddr.IPAddress(ip).version
+        except Exception as e:
+            error_message = _('Unable to parse IP address %s.') % ip
+            LOG.error(error_message)
+            messages.error(request, error_message)
+            raise e
+        return {u'OS-EXT-IPS-MAC:mac_addr': mac,
+                u'version': version,
+                u'addr': ip,
+                u'OS-EXT-IPS:type': type}
+
+    addresses = collections.defaultdict(list)
+    instance_ports = ports.get(server.id, [])
+    for port in instance_ports:
+        network_name = network_names.get(port.network_id)
+        if network_name is not None:
+            for fixed_ip in port.fixed_ips:
+                addresses[network_name].append(
+                    _format_address(port.mac_address,
+                                    fixed_ip['ip_address'],
+                                    u'fixed'))
+            port_fips = floating_ips.get(port.id, [])
+            for fip in port_fips:
+                addresses[network_name].append(
+                    _format_address(port.mac_address,
+                                    fip.floating_ip_address,
+                                    u'floating'))
+
+    return dict(addresses)
 
 
 @memoized
