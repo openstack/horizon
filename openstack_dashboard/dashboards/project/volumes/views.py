@@ -160,6 +160,34 @@ class CreateSnapshotView(forms.ModalFormView):
         return {'volume_id': self.kwargs["volume_id"]}
 
 
+class UpdateView(forms.ModalFormView):
+    form_class = project_forms.UpdateForm
+    template_name = 'project/volumes/update.html'
+    success_url = reverse_lazy("horizon:project:volumes:index")
+
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            vol_id = self.kwargs['volume_id']
+            try:
+                self._object = cinder.volume_get(self.request, vol_id)
+            except Exception:
+                msg = _('Unable to retrieve volume.')
+                url = reverse('horizon:project:volumes:index')
+                exceptions.handle(self.request, msg, redirect=url)
+        return self._object
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateView, self).get_context_data(**kwargs)
+        context['volume'] = self.get_object()
+        return context
+
+    def get_initial(self):
+        volume = self.get_object()
+        return {'volume_id': self.kwargs["volume_id"],
+                'name': volume.display_name,
+                'description': volume.display_description}
+
+
 class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     table_class = project_tables.AttachmentsTable
     form_class = project_forms.AttachForm

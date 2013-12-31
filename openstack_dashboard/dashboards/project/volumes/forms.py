@@ -400,3 +400,24 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _('Unable to create volume snapshot.'),
                               redirect=redirect)
+
+
+class UpdateForm(forms.SelfHandlingForm):
+    name = forms.CharField(max_length="255", label=_("Volume Name"))
+    description = forms.CharField(widget=forms.Textarea,
+            label=_("Description"), required=False)
+
+    def handle(self, request, data):
+        volume_id = self.initial['volume_id']
+        try:
+            cinder.volume_update(request, volume_id, data['name'],
+                                 data['description'])
+
+            message = _('Updating volume "%s"') % data['name']
+            messages.info(request, message)
+            return True
+        except Exception:
+            redirect = reverse("horizon:project:volumes:index")
+            exceptions.handle(request,
+                              _('Unable to update volume.'),
+                              redirect=redirect)
