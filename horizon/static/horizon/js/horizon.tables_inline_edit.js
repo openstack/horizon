@@ -111,7 +111,7 @@ horizon.inline_edit = {
             td_element.css('margin', 0).css('padding', 0);
             table_cell_wrapper.css('margin', 0).css('padding', 0);
 
-            if (self.form_element.attr('type')=='checkbox'){
+            if (self.form_element.attr('type') === 'checkbox'){
               var inline_edit_form = td_element.find(".inline-edit-form");
               inline_edit_form.css('padding-top', '11px').css('padding-left', '4px');
               inline_edit_form.width(width - 40);
@@ -241,7 +241,7 @@ horizon.addInitFunction(function() {
   });
 
   $('table').on('keypress', '.inline-edit-form', function (evt) {
-    if (evt.which == 13 && !evt.shiftKey) {
+    if (evt.which === 13 && !evt.shiftKey) {
       submit_form(evt, this);
     }
   });

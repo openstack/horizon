@@ -219,7 +219,7 @@ horizon.addInitFunction(function() {
   $(document).on('hidden', '.modal', function () {
     var $this = $(this),
       modal_stack = $("#modal_wrapper .modal");
-    if ($this[0] == modal_stack.last()[0] || $this.hasClass("loading")) {
+    if ($this[0] === modal_stack.last()[0] || $this.hasClass("loading")) {
       $this.remove();
       if (!$this.hasClass("loading")) {
         $("#modal_wrapper .modal").last().modal("show");

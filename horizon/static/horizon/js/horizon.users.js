@@ -20,10 +20,10 @@ horizon.user = {
     var password = $("#id_password").val();
     var confirm_password = $("#id_confirm_password").val();
 
-    if (password != confirm_password && $("#" + error_id).length === 0) {
+    if (password !== confirm_password && $("#" + error_id).length === 0) {
       $(row).parent().addClass("error");
       $(row).after(msg);
-    } else if (password == confirm_password) {
+    } else if (password === confirm_password) {
       $(row).parent().removeClass("error");
       $("#" + error_id).remove();
     }

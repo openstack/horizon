@@ -330,8 +330,8 @@ horizon.d3_bar_chart = {
        start at 0.
     */
     self.chart_start_x = 0;
-    if (self.data.settings.orientation=='vertical'){
-      if (self.used_label_placement == 'left'){
+    if (self.data.settings.orientation === 'vertical'){
+      if (self.used_label_placement === 'left'){
         self.chart_start_x = 44;
       }
       self.chart_wrapper_w = self.w + self.chart_start_x;
@@ -392,7 +392,7 @@ horizon.d3_bar_chart = {
 
     // Return true if it chart is oriented horizontally
     self.horizontal_orientation = function (){
-      return (self.data.settings.orientation == 'horizontal');
+      return (self.data.settings.orientation === 'horizontal');
     };
   },
   /**
@@ -458,7 +458,7 @@ horizon.d3_bar_chart = {
           .duration(500)
           .attr(self.trasition_attr, self.trasition_value);
 
-      if (self.wrapper.used_label_placement == 'left') {
+      if (self.wrapper.used_label_placement === 'left') {
         // Now it works only for vertical bar chart placed left form the chart
         var label_placement_y = self.wrapper.h - self.wrapper.used_value_in_pixels;
 

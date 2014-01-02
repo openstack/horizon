@@ -75,7 +75,7 @@ horizon.datatables = {
             }
 
             // Only replace row if the html content has changed
-            if($new_row.html() != $row.html()) {
+            if($new_row.html() !== $row.html()) {
               if($row.find('.table-row-multi-select:checkbox').is(':checked')) {
                 // Preserve the checkbox if it's already clicked
                 $new_row.find('.table-row-multi-select:checkbox').prop('checked', true);
@@ -277,11 +277,11 @@ horizon.datatables.set_table_sorting = function (parent) {
         $th = $(this);
         if (!$th.hasClass('sortable')) {
           header_options[i] = {sorter: false};
-        } else if ($th.data('type') == 'size'){
+        } else if ($th.data('type') === 'size'){
           header_options[i] = {sorter: 'sizeSorter'};
-        } else if ($th.data('type') == 'ip'){
+        } else if ($th.data('type') === 'ip'){
           header_options[i] = {sorter: 'ipAddress'};
-        } else if ($th.data('type') == 'timesince'){
+        } else if ($th.data('type') === 'timesince'){
           header_options[i] = {sorter: 'timesinceSorter'};
         }
       });
@@ -368,7 +368,7 @@ horizon.datatables.set_table_fixed_filter = function (parent) {
     });
     $(elm).find('div.table_filter button').each(function (i, button) {
       // Select the first non-empty category
-      if ($(button).text().indexOf(' (0)') == -1) {
+      if ($(button).text().indexOf(' (0)') === -1) {
         $(button).addClass('active');
         $(button).trigger('click');
         return false;
