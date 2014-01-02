@@ -18,9 +18,14 @@ horizon.addInitFunction(function () {
       //'curly': true
     };
 
+    jsHintTest('angular/horizon.js', '/static/horizon/js/angular/horizon.js', config);
+    jsHintTest('angular/controllers/dummy.js', '/static/horizon/js/angular/controllers/dummy.js', config);
+    jsHintTest('angular/directives/forms.js', '/static/horizon/js/angular/directives/forms.js', config);
+
     jsHintTest('horizon.communication.js', '/static/horizon/js/horizon.communication.js', config);
     jsHintTest('horizon.conf.js', '/static/horizon/js/horizon.conf.js', config);
     jsHintTest('horizon.cookies.js', '/static/horizon/js/horizon.cookies.js', config);
+    jsHintTest('horizon.d3barchart.js', '/static/horizon/js/horizon.d3barchart.js', config);
     jsHintTest('horizon.d3linechart.js', '/static/horizon/js/horizon.d3linechart.js', config);
     jsHintTest('horizon.d3piechart.js', '/static/horizon/js/horizon.d3piechart.js', config);
     jsHintTest('horizon.firewalls.js', '/static/horizon/js/horizon.firewalls.js', config);
@@ -34,6 +39,7 @@ horizon.addInitFunction(function () {
     jsHintTest('horizon.networktopology.js', '/static/horizon/js/horizon.networktopology.js', config);
     jsHintTest('horizon.quota.js', '/static/horizon/js/horizon.quota.js', config);
     jsHintTest('horizon.tables.js', '/static/horizon/js/horizon.tables.js', config);
+    jsHintTest('horizon.tables_inline_edit.js', '/static/horizon/js/horizon.tables_inline_edit.js', config);
     jsHintTest('horizon.tabs.js', '/static/horizon/js/horizon.tabs.js', config);
     jsHintTest('horizon.templates.js', '/static/horizon/js/horizon.templates.js', config);
     jsHintTest('horizon.users.js', '/static/horizon/js/horizon.users.js', config);
@@ -43,10 +49,6 @@ horizon.addInitFunction(function () {
     jsHintTest('tests/modals.js', '/static/horizon/tests/modals.js', config);
     jsHintTest('tests/tables.js', '/static/horizon/tests/tables.js', config);
     jsHintTest('tests/templates.js', '/static/horizon/tests/templates.js', config);
-
-    jsHintTest('angular/horizon.js', '/static/horizon/js/angular/horizon.js', config);
-    jsHintTest('angular/directives/forms.js', '/static/horizon/js/angular/directives/forms.js', config);
-    jsHintTest('angular/controllers/dummy.js', '/static/horizon/js/angular/controllers/dummy.js', config);
   });
 });
 

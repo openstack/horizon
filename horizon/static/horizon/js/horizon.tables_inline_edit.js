@@ -1,12 +1,15 @@
 horizon.inline_edit = {
   get_cell_id: function (td_element) {
-    return (td_element.parents("tr").first().data("object-id")
-      + "__" + td_element.data("cell-name"));
+    return [
+      td_element.parents("tr").first().data("object-id"),
+      "__",
+      td_element.data("cell-name")
+    ].join('');
   },
   get_object_container: function (td_element) {
     // global cell object container
     if (!window.cell_object_container) {
-      window.cell_object_container = new Array();
+      window.cell_object_container = [];
     }
     return window.cell_object_container;
   },
@@ -14,14 +17,15 @@ horizon.inline_edit = {
     var cell_id = horizon.inline_edit.get_cell_id(td_element);
     var id = "cell__" + cell_id;
     var container = horizon.inline_edit.get_object_container(td_element);
+    var cell_object;
     if (container && container[id]){
       // if cell object exists, I will reuse it
-      var cell_object = container[id];
+      cell_object = container[id];
       cell_object.reset_with(td_element);
       return cell_object;
     } else {
       // or I will create new cell object
-      var cell_object = new horizon.inline_edit.Cell(td_element);
+      cell_object = new horizon.inline_edit.Cell(td_element);
       // saving cell object to global container
       container[id] = cell_object;
       return cell_object;
@@ -153,7 +157,7 @@ horizon.inline_edit = {
             // obtain the error message from response body
             error_message = $.parseJSON(jqXHR.responseText).message;
             // insert the error icon
-            var error = $('<div title="' + error_message + '" class="error"></div>')
+            var error = $('<div title="' + error_message + '" class="error"></div>');
             self.td_element.find(".inline-edit-error").html(error);
             error.tooltip({'placement':'top'});
           }
@@ -230,7 +234,7 @@ horizon.addInitFunction(function() {
     cell.update(post_data);
 
     evt.preventDefault();
-  }
+  };
 
   $('table').on('click', '.inline-edit-submit', function (evt) {
     submit_form(evt, this);
