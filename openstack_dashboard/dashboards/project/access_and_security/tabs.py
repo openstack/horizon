@@ -100,11 +100,10 @@ class FloatingIPsTab(tabs.TableTab):
             exceptions.handle(self.request,
                         _('Unable to retrieve instance list.'))
 
-        instances_dict = dict([(obj.id, obj) for obj in instances])
+        instances_dict = dict([(obj.id, obj.name) for obj in instances])
 
         for ip in floating_ips:
-            ip.instance_name = instances_dict[ip.instance_id].name \
-                if ip.instance_id in instances_dict else None
+            ip.instance_name = instances_dict.get(ip.instance_id)
             ip.pool_name = pool_dict.get(ip.pool, ip.pool)
 
         return floating_ips
