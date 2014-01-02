@@ -418,9 +418,9 @@ horizon.membership = {
           if ($(input).attr('id') === filter) {
             $(input).prev().removeAttr('disabled');
             return query.test($(span).text());
-          }
-          else
+          } else {
             return true;
+          }
         }
       });
     });

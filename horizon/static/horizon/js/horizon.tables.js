@@ -101,7 +101,7 @@ horizon.datatables = {
             // Poll until there are no rows in an "unknown" state on the page.
             next_poll = interval * decay_constant;
             // Limit the interval to 30 secs
-            if(next_poll > 30 * 1000) next_poll = 30 * 1000;
+            if(next_poll > 30 * 1000) { next_poll = 30 * 1000; }
             setTimeout(horizon.datatables.update, next_poll);
           }
         });

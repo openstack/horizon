@@ -11,12 +11,11 @@ horizon.addInitFunction(function () {
       // Proposed set of rules
       //'camelcase' : true,
       'indent': 2,
-      'eqeqeq': true
-      //'undef': true,
+      'eqeqeq': true,
       //'quotmark': 'single',
       //'maxlen': 80,
       //'trailing': true,
-      //'curly': true
+      'curly': true
     };
 
     jsHintTest('angular/horizon.js', '/static/horizon/js/angular/horizon.js', config);

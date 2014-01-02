@@ -261,7 +261,7 @@ horizon.Quota = {
    progress bars associated with the flavor quota usage.
    */
   updateFlavorUsage: function() {
-    if(!this.is_flavor_quota) return;
+    if(!this.is_flavor_quota) { return; }
 
     var scope = this;
     var instance_count = (parseInt($("#id_count").val(), 10) || 1);
