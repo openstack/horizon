@@ -739,6 +739,37 @@ class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list',
                                       'security_group_backend')})
+    def test_detail_add_rule_egress_with_all_tcp(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.list()[3]
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(IsA(http.HttpRequest),
+                                               sec_group.id, 'egress', 'IPv4',
+                                               rule.ip_protocol,
+                                               int(rule.from_port),
+                                               int(rule.to_port),
+                                               rule.ip_range['cidr'],
+                                               None).AndReturn(rule)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'direction': 'egress',
+                    'port_or_range': 'range',
+                    'rule_menu': 'all_tcp',
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
     def test_detail_add_rule_source_group_with_direction_ethertype(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()

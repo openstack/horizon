@@ -333,13 +333,15 @@ class AddRule(forms.SelfHandlingForm):
             cleaned_data['ip_protocol'] = self.rules[rule_menu]['ip_protocol']
             cleaned_data['from_port'] = int(self.rules[rule_menu]['from_port'])
             cleaned_data['to_port'] = int(self.rules[rule_menu]['to_port'])
-            cleaned_data['direction'] = self.rules[rule_menu].get('direction')
+            if rule_menu not in ['all_tcp', 'all_udp', 'all_icmp']:
+                direction = self.rules[rule_menu].get('direction')
+                cleaned_data['direction'] = direction
 
         # NOTE(amotoki): There are two cases where cleaned_data['direction']
         # is empty: (1) Nova Security Group is used. Since "direction" is
         # HiddenInput, direction field exists but its value is ''.
-        # (2) Template is used. In this case, the default value is None.
-        # To make sure 'direction' field has 'ingress' or 'egress',
+        # (2) Template except all_* is used. In this case, the default value
+        # is None. To make sure 'direction' field has 'ingress' or 'egress',
         # fill this field here if it is not specified.
         if not cleaned_data['direction']:
             cleaned_data['direction'] = 'ingress'
