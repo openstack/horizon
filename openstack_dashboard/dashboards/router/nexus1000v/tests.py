@@ -14,7 +14,7 @@
 #
 # @author: Abishek Subramanian, Cisco Systems, Inc.
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 
 from mox import IsA  # noqa

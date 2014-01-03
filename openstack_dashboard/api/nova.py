@@ -24,9 +24,9 @@ from __future__ import absolute_import
 
 import logging
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.utils.functional import cached_property  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from novaclient.v1_1 import client as nova_client
 from novaclient.v1_1.contrib import list_extensions as nova_list_extensions

@@ -16,7 +16,7 @@
 
 import logging
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from troveclient.v1 import client
 
 from openstack_dashboard.api import base

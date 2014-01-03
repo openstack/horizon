@@ -20,8 +20,8 @@
 
 import cgi
 
-from django.conf import settings  # noqa
-from django.core.urlresolvers import reverse  # noqa
+from django.conf import settings
+from django.core.urlresolvers import reverse
 from django import http
 
 from mox import IsA  # noqa

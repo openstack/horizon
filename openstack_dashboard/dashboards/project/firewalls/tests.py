@@ -17,8 +17,8 @@
 
 from mox import IsA  # noqa
 
-from django.core.urlresolvers import reverse  # noqa
-from django.core.urlresolvers import reverse_lazy  # noqa
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django import http
 
 from openstack_dashboard import api

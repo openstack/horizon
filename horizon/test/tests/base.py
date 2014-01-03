@@ -19,7 +19,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.contrib.auth.models import User  # noqa
 from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core import urlresolvers

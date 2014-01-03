@@ -14,11 +14,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django.utils import html
-from django.utils.http import urlencode  # noqa
+from django.utils.http import urlencode
 from django.utils import safestring
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 

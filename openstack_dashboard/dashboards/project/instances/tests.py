@@ -21,11 +21,11 @@
 import json
 import uuid
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 from django.test import utils as test_utils
-from django.utils.datastructures import SortedDict  # noqa
-from django.utils.http import urlencode  # noqa
+from django.utils.datastructures import SortedDict
+from django.utils.http import urlencode
 
 from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa

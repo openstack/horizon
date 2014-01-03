@@ -15,9 +15,9 @@
 #
 # @author: KC Wang, Big Switch Networks
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 

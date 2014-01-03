@@ -17,8 +17,8 @@
 import netaddr
 
 from django import template
-from django.template.loader import render_to_string  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.template.loader import render_to_string
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
 

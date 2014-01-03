@@ -17,9 +17,8 @@
 import json
 
 from django import http
-from django.utils.encoding import force_unicode  # noqa
-from django.utils.safestring import mark_safe  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.encoding import force_unicode
+from django.utils.safestring import mark_safe
 
 from horizon import messages
 from horizon import middleware

@@ -15,7 +15,7 @@
 #    under the License.
 
 from django.utils.translation import string_concat  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 

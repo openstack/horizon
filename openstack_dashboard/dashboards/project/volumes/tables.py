@@ -15,12 +15,12 @@
 #    under the License.
 
 from django.core.urlresolvers import NoReverseMatch  # noqa
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title  # noqa
 from django.utils import html
 from django.utils import safestring
 from django.utils.translation import string_concat  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 
 from horizon import exceptions

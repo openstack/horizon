@@ -25,7 +25,7 @@ import json
 import logging
 import time
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
 from django.contrib.auth.views import redirect_to_login  # noqa
 from django.contrib import messages as django_messages
@@ -34,7 +34,7 @@ from django.http import HttpResponseRedirect  # noqa
 from django import shortcuts
 from django.utils.encoding import iri_to_uri  # noqa
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon.utils import functions as utils

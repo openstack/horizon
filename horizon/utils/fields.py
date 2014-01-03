@@ -13,11 +13,11 @@
 from django.core.exceptions import ValidationError  # noqa
 from django.forms import forms
 from django.forms import widgets
-from django.utils.encoding import force_unicode  # noqa
+from django.utils.encoding import force_unicode
 from django.utils.functional import Promise  # noqa
-from django.utils.html import conditional_escape  # noqa
-from django.utils.html import escape  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.html import conditional_escape
+from django.utils.html import escape
+from django.utils.translation import ugettext_lazy as _
 import netaddr
 import re
 

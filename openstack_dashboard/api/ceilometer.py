@@ -16,9 +16,9 @@ import logging
 import threading
 
 from ceilometerclient import client as ceilometer_client
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.utils import datastructures
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 

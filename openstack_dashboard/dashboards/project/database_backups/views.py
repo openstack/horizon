@@ -17,8 +17,8 @@
 """
 Views for displaying database backups.
 """
-from django.core.urlresolvers import reverse  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables as horizon_tables

@@ -14,7 +14,7 @@
 #
 # @author: Abishek Subramanian, Cisco Systems, Inc.
 
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard.api import neutron
 

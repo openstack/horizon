@@ -16,7 +16,7 @@
 #
 # @author: Tatiana Mazur
 
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms

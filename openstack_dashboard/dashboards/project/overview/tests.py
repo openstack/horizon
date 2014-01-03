@@ -20,7 +20,7 @@
 
 import datetime
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings  # noqa
 from django.utils import timezone

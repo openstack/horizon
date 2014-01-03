@@ -12,10 +12,10 @@
 
 import math
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.contrib.auth import logout  # noqa
 from django import http
-from django.utils.encoding import force_unicode  # noqa
+from django.utils.encoding import force_unicode
 from django.utils.functional import lazy  # noqa
 from django.utils import translation
 

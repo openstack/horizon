@@ -11,9 +11,9 @@
 # under the License.
 
 from django.core.exceptions import ValidationError  # noqa
-from django.core.urlresolvers import reverse  # noqa
-from django.utils.http import urlencode  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.core.urlresolvers import reverse
+from django.utils.http import urlencode
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms

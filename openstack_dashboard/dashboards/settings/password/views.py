@@ -16,7 +16,7 @@
 
 from horizon import forms
 
-from django.core.urlresolvers import reverse_lazy  # noqa
+from django.core.urlresolvers import reverse_lazy
 
 from openstack_dashboard.dashboards.settings.password \
     import forms as pass_forms

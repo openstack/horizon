@@ -15,8 +15,7 @@
 #    under the License.
 
 from django import conf
-from django.core.urlresolvers import reverse  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
 

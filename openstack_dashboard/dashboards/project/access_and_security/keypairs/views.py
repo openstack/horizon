@@ -21,11 +21,11 @@
 """
 Views for managing keypairs.
 """
-from django.core.urlresolvers import reverse  # noqa
-from django.core.urlresolvers import reverse_lazy  # noqa
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django import http
 from django.template.defaultfilters import slugify  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView  # noqa
 from django.views.generic import View  # noqa
 

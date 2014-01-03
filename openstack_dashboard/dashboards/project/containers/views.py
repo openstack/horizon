@@ -22,11 +22,11 @@
 Views for managing Swift containers.
 """
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 from django.utils.functional import cached_property  # noqa
 from django.utils import http as utils_http
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from horizon import browsers

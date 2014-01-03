@@ -21,10 +21,10 @@ from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
 
-from django.core.urlresolvers import reverse  # noqa
-from django.core.urlresolvers import reverse_lazy  # noqa
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from openstack_dashboard import api

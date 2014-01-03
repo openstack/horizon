@@ -14,7 +14,7 @@
 
 import json
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 
 from mox import IsA  # noqa

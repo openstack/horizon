@@ -16,8 +16,8 @@
 
 import logging
 
-from django.core.urlresolvers import reverse  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import rulemanager

@@ -21,12 +21,12 @@
 """
 Views for managing instances.
 """
-from django.core.urlresolvers import reverse  # noqa
-from django.core.urlresolvers import reverse_lazy  # noqa
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django import http
 from django import shortcuts
-from django.utils.datastructures import SortedDict  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.datastructures import SortedDict
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms

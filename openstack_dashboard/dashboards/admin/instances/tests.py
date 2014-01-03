@@ -16,9 +16,9 @@
 
 import uuid
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
-from django.utils.datastructures import SortedDict  # noqa
+from django.utils.datastructures import SortedDict
 
 from mox import IsA  # noqa
 

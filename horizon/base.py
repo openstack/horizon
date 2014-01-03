@@ -28,17 +28,17 @@ import inspect
 import logging
 import os
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 from django.core.exceptions import ImproperlyConfigured  # noqa
-from django.core.urlresolvers import reverse  # noqa
-from django.utils.datastructures import SortedDict  # noqa
+from django.core.urlresolvers import reverse
+from django.utils.datastructures import SortedDict
 from django.utils.functional import SimpleLazyObject  # noqa
 from django.utils.importlib import import_module  # noqa
 from django.utils.module_loading import module_has_submodule  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import conf
 from horizon.decorators import _current_component  # noqa

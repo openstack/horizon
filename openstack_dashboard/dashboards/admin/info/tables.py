@@ -12,7 +12,7 @@
 
 from django import template
 from django.template import defaultfilters as filters
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from horizon.utils import filters as utils_filters

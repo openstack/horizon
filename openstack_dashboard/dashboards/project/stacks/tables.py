@@ -15,7 +15,7 @@
 from django.http import Http404  # noqa
 from django.template.defaultfilters import timesince  # noqa
 from django.template.defaultfilters import title  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import messages
 from horizon import tables

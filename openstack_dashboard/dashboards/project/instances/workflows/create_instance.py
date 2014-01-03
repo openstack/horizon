@@ -21,11 +21,11 @@
 import json
 import logging
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
-from django.utils.translation import ungettext_lazy  # noqa
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions

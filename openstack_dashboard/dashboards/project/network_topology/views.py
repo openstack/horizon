@@ -20,9 +20,9 @@
 
 import json
 
-from django.conf import settings  # noqa
-from django.core.urlresolvers import reverse  # noqa
-from django.core.urlresolvers import reverse_lazy  # noqa
+from django.conf import settings
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
 from django.views.generic import TemplateView  # noqa
 from django.views.generic import View  # noqa

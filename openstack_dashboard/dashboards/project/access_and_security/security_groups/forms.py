@@ -20,11 +20,11 @@
 
 import netaddr
 
-from django.conf import settings  # noqa
-from django.core.urlresolvers import reverse  # noqa
+from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.core import validators
 from django.forms import ValidationError  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms

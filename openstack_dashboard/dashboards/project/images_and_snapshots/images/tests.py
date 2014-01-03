@@ -20,9 +20,9 @@
 
 import tempfile
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django.forms.widgets import HiddenInput  # noqa
 from django import http
 from django.test.utils import override_settings  # noqa

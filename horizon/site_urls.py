@@ -18,7 +18,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa

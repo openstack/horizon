@@ -14,7 +14,7 @@
 
 import logging
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from heatclient import client as heat_client
 from openstack_dashboard.api import base
 

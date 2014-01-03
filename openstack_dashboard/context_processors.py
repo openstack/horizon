@@ -21,7 +21,7 @@
 Context processors used by Horizon.
 """
 
-from django.conf import settings  # noqa
+from django.conf import settings
 
 
 def openstack(request):

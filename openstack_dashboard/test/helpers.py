@@ -21,7 +21,7 @@
 from functools import wraps  # noqa
 import os
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
 from django.contrib.messages.storage import default_storage  # noqa
 from django.core.handlers import wsgi

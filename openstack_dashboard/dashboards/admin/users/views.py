@@ -20,10 +20,10 @@
 
 import operator
 
-from django.core.urlresolvers import reverse  # noqa
-from django.core.urlresolvers import reverse_lazy  # noqa
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters  # noqa
 
 from horizon import exceptions

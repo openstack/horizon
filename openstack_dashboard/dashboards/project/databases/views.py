@@ -19,9 +19,9 @@ Views for managing database instances.
 """
 import logging
 
-from django.core.urlresolvers import reverse  # noqa
-from django.utils.datastructures import SortedDict  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.core.urlresolvers import reverse
+from django.utils.datastructures import SortedDict
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables as horizon_tables

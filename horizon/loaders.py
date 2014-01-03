@@ -16,7 +16,7 @@ Wrapper for loading templates from "templates" directories in panel modules.
 
 import os
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.template.base import TemplateDoesNotExist  # noqa
 from django.template.loader import BaseLoader  # noqa
 from django.utils._os import safe_join  # noqa

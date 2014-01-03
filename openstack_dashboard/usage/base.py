@@ -16,13 +16,12 @@ from csv import DictWriter  # noqa
 from csv import writer  # noqa
 
 import datetime
-from StringIO import StringIO  # noqa
+from StringIO import StringIO
 
-from django.conf import settings  # noqa
 from django.http import HttpResponse  # noqa
 from django import template as django_template
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 from django import VERSION  # noqa
 
 from horizon import exceptions

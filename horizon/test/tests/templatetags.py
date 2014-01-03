@@ -20,7 +20,7 @@
 
 import re
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.template import Context  # noqa
 from django.template import Template  # noqa
 from django.utils.text import normalize_newlines  # noqa

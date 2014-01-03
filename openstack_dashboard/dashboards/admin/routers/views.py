@@ -18,8 +18,8 @@
 Views for managing Neutron Routers.
 """
 
-from django.core.urlresolvers import reverse_lazy  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.core.urlresolvers import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from openstack_dashboard import api

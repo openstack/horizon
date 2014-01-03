@@ -24,8 +24,8 @@ from __future__ import absolute_import
 
 import logging
 
-from django.conf import settings  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from cinderclient.v1 import client as cinder_client
 from cinderclient.v1.contrib import list_extensions as cinder_list_extensions

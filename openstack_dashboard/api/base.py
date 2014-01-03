@@ -21,7 +21,7 @@
 from collections import Sequence  # noqa
 import logging
 
-from django.conf import settings  # noqa
+from django.conf import settings
 
 from horizon import exceptions
 

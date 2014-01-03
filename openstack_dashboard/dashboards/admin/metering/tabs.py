@@ -13,7 +13,7 @@
 # under the License.
 
 
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
 from openstack_dashboard import api

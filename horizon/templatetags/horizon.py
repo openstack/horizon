@@ -17,9 +17,9 @@
 from __future__ import absolute_import
 
 from django import template
-from django.utils.datastructures import SortedDict  # noqa
-from django.utils.encoding import force_unicode  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.datastructures import SortedDict
+from django.utils.encoding import force_unicode
+from django.utils.translation import ugettext_lazy as _
 
 from horizon.base import Horizon  # noqa
 from horizon import conf

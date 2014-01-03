@@ -19,9 +19,9 @@ import logging
 
 from django.core import urlresolvers
 from django import shortcuts
-from django.utils.http import urlencode  # noqa
+from django.utils.http import urlencode
 from django.utils.translation import string_concat  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import messages

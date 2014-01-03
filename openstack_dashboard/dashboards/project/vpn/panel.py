@@ -16,8 +16,8 @@
 #
 # @author: Tatiana Mazur
 
-from django.conf import settings  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 import horizon
 

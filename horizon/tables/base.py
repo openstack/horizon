@@ -18,7 +18,7 @@ import collections
 import copy
 import json
 import logging
-from operator import attrgetter  # noqa
+from operator import attrgetter
 import sys
 
 from django.core import exceptions as core_exceptions
@@ -27,14 +27,14 @@ from django import forms
 from django.http import HttpResponse  # noqa
 from django import template
 from django.template.defaultfilters import truncatechars  # noqa
-from django.template.loader import render_to_string  # noqa
-from django.utils.datastructures import SortedDict  # noqa
-from django.utils.html import escape  # noqa
+from django.template.loader import render_to_string
+from django.utils.datastructures import SortedDict
+from django.utils.html import escape
 from django.utils import http
-from django.utils.http import urlencode  # noqa
-from django.utils.safestring import mark_safe  # noqa
+from django.utils.http import urlencode
+from django.utils.safestring import mark_safe
 from django.utils import termcolors
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import conf
 from horizon import exceptions

@@ -25,7 +25,7 @@ import logging
 import thread
 import urlparse
 
-from django.conf import settings  # noqa
+from django.conf import settings
 
 import glanceclient as glance_client
 

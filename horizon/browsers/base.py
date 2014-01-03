@@ -15,7 +15,7 @@
 #    under the License.
 
 from django import template
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon.browsers.breadcrumb import Breadcrumb  # noqa
 from horizon.tables import DataTable  # noqa

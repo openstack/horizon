@@ -21,7 +21,7 @@
 
 from __future__ import absolute_import
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django import http
 from django.test.utils import override_settings  # noqa
 

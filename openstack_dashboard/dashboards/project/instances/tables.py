@@ -20,11 +20,10 @@ import logging
 from django.core import urlresolvers
 from django import shortcuts
 from django import template
-from django.template.defaultfilters import timesince  # noqa
 from django.template.defaultfilters import title  # noqa
-from django.utils.http import urlencode  # noqa
+from django.utils.http import urlencode
 from django.utils.translation import string_concat  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import conf
 from horizon import exceptions

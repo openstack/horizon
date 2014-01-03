@@ -23,8 +23,8 @@
 Views for managing floating IPs.
 """
 
-from django.core.urlresolvers import reverse_lazy  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.core.urlresolvers import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms

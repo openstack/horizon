@@ -23,8 +23,8 @@ from horizon import messages
 
 from openstack_dashboard import api
 
-from django.core.urlresolvers import reverse  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 
 LOG = logging.getLogger(__name__)

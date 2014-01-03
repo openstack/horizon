@@ -65,7 +65,7 @@ from oslo.config import cfg
 import six
 
 from openstack_dashboard.openstack.common import fileutils
-from openstack_dashboard.openstack.common.gettextutils import _  # noqa
+from openstack_dashboard.openstack.common.gettextutils import _
 from openstack_dashboard.openstack.common import jsonutils
 from openstack_dashboard.openstack.common import log as logging
 

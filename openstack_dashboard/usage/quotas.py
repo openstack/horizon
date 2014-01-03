@@ -10,11 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from collections import defaultdict  # noqa
+from collections import defaultdict
 import itertools
 import logging
 
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon.utils.memoized import memoized  # noqa

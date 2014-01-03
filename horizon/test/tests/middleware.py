@@ -17,9 +17,8 @@
 
 import time
 
-from django.conf import settings  # noqa
+from django.conf import settings
 
-from django.http import HttpResponse  # noqa
 from django.http import HttpResponseRedirect  # noqa
 
 from horizon import exceptions

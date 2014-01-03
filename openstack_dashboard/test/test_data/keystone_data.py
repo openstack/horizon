@@ -14,7 +14,7 @@
 
 from datetime import timedelta  # noqa
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.utils import datetime_safe
 
 from keystoneclient import access

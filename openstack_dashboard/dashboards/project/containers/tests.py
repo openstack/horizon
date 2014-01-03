@@ -21,7 +21,7 @@
 import tempfile
 
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 from django.utils import http as utils_http
 

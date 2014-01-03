@@ -25,7 +25,7 @@ import sys
 from django.contrib.auth import logout  # noqa
 from django.core.management import color_style  # noqa
 from django.http import HttpRequest  # noqa
-from django.utils.translation import ugettext_lazy as _  # noqa
+from django.utils.translation import ugettext_lazy as _
 from django.views.debug import CLEANSED_SUBSTITUTE  # noqa
 from django.views.debug import SafeExceptionReporterFilter  # noqa
 

@@ -14,8 +14,8 @@
 import json
 import uuid
 
-from django.core.urlresolvers import reverse  # noqa
-from django import http  # noqa
+from django.core.urlresolvers import reverse
+from django import http
 from mox import IsA  # noqa
 
 from openstack_dashboard import api

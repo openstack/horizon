@@ -14,9 +14,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django import http
-from django.utils.html import escape  # noqa
+from django.utils.html import escape
 
 from horizon.workflows import views
 

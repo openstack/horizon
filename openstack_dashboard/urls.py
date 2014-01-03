@@ -22,7 +22,7 @@
 URL patterns for the OpenStack Dashboard.
 """
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls.static import static  # noqa

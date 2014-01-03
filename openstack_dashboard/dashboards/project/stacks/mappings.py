@@ -17,7 +17,7 @@ import logging
 import re
 import urlparse
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django.template.defaultfilters import register  # noqa
 
 from openstack_dashboard.api import swift

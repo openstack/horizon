@@ -20,7 +20,7 @@
 import logging
 import os.path
 
-from django.conf import settings  # noqa
+from django.conf import settings
 
 from oslo.config import cfg
 

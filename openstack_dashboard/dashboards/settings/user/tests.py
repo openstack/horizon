@@ -14,8 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings  # noqa
-from django.core.urlresolvers import reverse  # noqa
+from django.conf import settings
+from django.core.urlresolvers import reverse
 
 from openstack_dashboard.test import helpers as test
 
