@@ -782,7 +782,7 @@ class Meters(object):
           - `except_meters`: The list of meter names we don't want to show
         """
 
-        return self._list(only_meters=self._cinder_meters_info.keys(),
+        return self._list(only_meters=self._glance_meters_info.keys(),
             except_meters=except_meters)
 
     def list_cinder(self, except_meters=None):
