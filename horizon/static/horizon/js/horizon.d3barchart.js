@@ -442,10 +442,16 @@ horizon.d3_bar_chart = {
           if ($(this).attr('tooltip-used')){
             tooltip.html($(this).attr('tooltip-used'));
           }
-          tooltip.style('visibility', 'visible');})
-        .on('mousemove', function(d){tooltip.style('top',
-          (event.pageY - 10) + 'px').style('left',(event.pageX + 10) + 'px');})
-        .on('mouseout', function(d){tooltip.style('visibility', 'hidden');})
+          tooltip.style('visibility', 'visible');
+        })
+        .on('mousemove', function(d){
+          tooltip
+            .style('top', (event.pageY - 10) + 'px')
+            .style('left',(event.pageX + 10) + 'px');
+        })
+        .on('mouseout', function(d){
+          tooltip.style('visibility', 'hidden');
+        })
         .transition()
           .duration(500)
           .attr(self.trasition_attr, self.trasition_value);
@@ -493,12 +499,16 @@ horizon.d3_bar_chart = {
                ];
 
         self.wrapper.bar.selectAll('polygon')
-            .data([poly])
-          .enter().append('polygon')
-            .attr('points',function(d) {
-                return d.map(function(d) { return [d.x,d.y].join(','); }).join(' ');})
-            .attr('stroke','black')
-            .attr('stroke-width', 2);
+          .data([poly])
+          .enter()
+          .append('polygon')
+          .attr('points',function(d) {
+            return d.map(function(d) {
+              return [d.x,d.y].join(',');
+            }).join(' ');
+          })
+          .attr('stroke','black')
+          .attr('stroke-width', 2);
       }
     };
   },
@@ -545,8 +555,11 @@ horizon.d3_bar_chart = {
           .style('stroke-width', 3)
           .style('stroke-dasharray', ('6, 2'))
           .on('mouseover', function(){tooltip.style('visibility', 'visible');})
-          .on('mousemove', function(){tooltip.style('top',
-            (event.pageY-10)+'px').style('left',(event.pageX+10)+'px');})
+          .on('mousemove', function(){
+            tooltip
+              .style('top',(event.pageY-10)+'px')
+              .style('left',(event.pageX+10)+'px');
+          })
           .on('mouseout', function(){tooltip.style('visibility', 'hidden');});
 
         // A normal line, so it shows popup even in spaces, it's also bigger so
@@ -561,8 +574,11 @@ horizon.d3_bar_chart = {
           .style('stroke', 'transparent')
           .style('stroke-width', 5)
           .on('mouseover', function(){tooltip.style('visibility', 'visible');})
-          .on('mousemove', function(){tooltip.style('top',
-            (event.pageY-10)+'px').style('left',(event.pageX+10)+'px');})
+          .on('mousemove', function(){
+            tooltip
+              .style('top',(event.pageY-10)+'px')
+              .style('left',(event.pageX+10)+'px');
+          })
           .on('mouseout', function(){tooltip.style('visibility', 'hidden');});
       }
     };
@@ -588,9 +604,14 @@ horizon.d3_bar_chart = {
         .attr('ry', self.wrapper.lvl_curve)
         .style('fill', self.wrapper.bkgrnd)
 
-        .on('mouseover', function(d){tooltip_free.style('visibility', 'visible');})
-        .on('mousemove', function(d){tooltip_free.style('top',
-          (event.pageY-10)+'px').style('left',(event.pageX+10)+'px');})
+        .on('mouseover', function(d){
+          tooltip_free.style('visibility', 'visible');
+        })
+        .on('mousemove', function(d){
+          tooltip_free
+            .style('top',(event.pageY-10)+'px')
+            .style('left',(event.pageX+10)+'px');
+        })
         .on('mouseout', function(d){tooltip_free.style('visibility', 'hidden');});
 
       self.wrapper.bar.append('rect')
