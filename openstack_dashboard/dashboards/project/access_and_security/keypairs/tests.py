@@ -24,6 +24,8 @@ from django import http
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.forms import KEYPAIR_ERROR_MESSAGES
 from openstack_dashboard.test import helpers as test
 
 
@@ -94,7 +96,7 @@ class KeyPairViewTests(test.TestCase):
 
     @test.create_stubs({api.nova: ("keypair_import",)})
     def test_import_keypair(self):
-        key1_name = "new key pair"
+        key1_name = "new_key_pair"
         public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
                      "STUVWXYZ1234567890\r" \
                      "XXYYZZ user@computer\n\n"
@@ -110,7 +112,7 @@ class KeyPairViewTests(test.TestCase):
         self.assertMessageCount(res, success=1)
 
     def test_import_keypair_invalid_key(self):
-        key_name = "new key pair"
+        key_name = "new_key_pair"
         public_key = "ABCDEF"
 
         self.mox.StubOutWithMock(api.nova, 'keypair_import')
@@ -125,6 +127,19 @@ class KeyPairViewTests(test.TestCase):
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
         msg = 'Unable to import keypair.'
+        self.assertFormErrors(res, count=1, message=msg)
+
+    def test_import_keypair_invalid_key_name(self):
+        key_name = "new key pair"
+        public_key = "ABCDEF"
+
+        formData = {'method': 'ImportKeypair',
+                    'name': key_name,
+                    'public_key': public_key}
+        url = reverse('horizon:project:access_and_security:keypairs:import')
+        res = self.client.post(url, formData, follow=True)
+        self.assertEqual(res.redirect_chain, [])
+        msg = unicode(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
     def test_generate_keypair_exception(self):

@@ -31,15 +31,16 @@ from openstack_dashboard import api
 
 
 NEW_LINES = re.compile(r"\r|\n")
+KEYPAIR_ERROR_MESSAGES = {'invalid': _('Keypair names may '
+                                'only contain letters, numbers, underscores '
+                                'and hyphens.')}
 
 
 class CreateKeypair(forms.SelfHandlingForm):
     name = forms.CharField(max_length="20",
                            label=_("Keypair Name"),
                            validators=[validators.validate_slug],
-                           error_messages={'invalid': _('Keypair names may '
-                                'only contain letters, numbers, underscores '
-                                'and hyphens.')})
+                           error_messages=KEYPAIR_ERROR_MESSAGES)
 
     def handle(self, request, data):
         return True  # We just redirect to the download view.
@@ -47,7 +48,8 @@ class CreateKeypair(forms.SelfHandlingForm):
 
 class ImportKeypair(forms.SelfHandlingForm):
     name = forms.CharField(max_length="20", label=_("Keypair Name"),
-                 validators=[validators.RegexValidator('\w+')])
+                 validators=[validators.validate_slug],
+                 error_messages=KEYPAIR_ERROR_MESSAGES)
     public_key = forms.CharField(label=_("Public Key"), widget=forms.Textarea)
 
     def handle(self, request, data):
