@@ -5,7 +5,7 @@ horizon.instances = {
 
   getConsoleLog: function(via_user_submit) {
     var form_element = $("#tail_length"),
-        data;
+      data;
 
     if (!via_user_submit) {
       via_user_submit = false;
@@ -38,7 +38,7 @@ horizon.instances = {
    * network id for network_id.
    **/
   get_network_element: function(network_id) {
-      return $('li > label[for^="id_network_' + network_id + '"]');
+    return $('li > label[for^="id_network_' + network_id + '"]');
   },
 
   /*
@@ -87,8 +87,8 @@ horizon.instances = {
       $("#networkListId div.input input:checkbox").removeAttr('checked');
       active_networks.each(function(index, value){
         $("#networkListId div.input input:checkbox[value=" + value + "]")
-        .attr('checked','checked')
-        .parents("li").attr('data-index',index);
+          .attr('checked','checked')
+          .parents("li").attr('data-index',index);
       });
       $("#networkListId div.input ul").html(
         lists.sort(function(a,b){
@@ -130,16 +130,16 @@ horizon.instances = {
       $("#selected_network_label").before($('<div class="dynamic-error">').html(errortext));
     }
     $(".networklist").sortable({
-        connectWith: "ul.networklist",
-        placeholder: "ui-state-highlight",
-        distance: 5,
-        start:function(e,info){
-          $("#selected_network").addClass("dragging");
-        },
-        stop:function(e,info){
-          $("#selected_network").removeClass("dragging");
-          updateForm();
-        }
+      connectWith: "ul.networklist",
+      placeholder: "ui-state-highlight",
+      distance: 5,
+      start:function(e,info){
+        $("#selected_network").addClass("dragging");
+      },
+      stop:function(e,info){
+        $("#selected_network").removeClass("dragging");
+        updateForm();
+      }
     }).disableSelection();
   },
 
@@ -161,7 +161,7 @@ horizon.addInitFunction(function () {
   // Handle field toggles for the Launch Instance source type field
   function update_launch_source_displayed_fields (field) {
     var $this = $(field),
-        base_type = $this.val();
+      base_type = $this.val();
 
     $this.closest(".control-group").nextAll().hide();
 
@@ -203,7 +203,7 @@ horizon.addInitFunction(function () {
   // Handle field toggles for the Launch Instance volume type field
   function update_image_id_fields (field) {
     var $this = $(field),
-        volume_opt = $this.val();
+      volume_opt = $this.val();
     var $option = $this.find("option:selected");
     var $form = $this.closest('form');
     var $volSize = $form.find('input#id_volume_size');

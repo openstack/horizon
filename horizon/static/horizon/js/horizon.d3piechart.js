@@ -1,14 +1,14 @@
 /*
-    Draw pie chart in d3.
+  Draw pie chart in d3.
 
-    To use, a div is required with the class .d3_pie_chart
-    and a data-used attribute in the div
-    that stores the percentage to fill the chart
+  To use, a div is required with the class .d3_pie_chart
+  and a data-used attribute in the div
+  that stores the percentage to fill the chart
 
-    Example:
-        <div class="d3_pie_chart"
-            data-used="{% widthratio current_val max_val 100 %}">
-        </div>
+  Example:
+    <div class="d3_pie_chart"
+      data-used="{% widthratio current_val max_val 100 %}">
+    </div>
 */
 
 horizon.d3_pie_chart = {
