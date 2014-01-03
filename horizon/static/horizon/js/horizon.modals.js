@@ -140,6 +140,14 @@ horizon.addInitFunction(function() {
         topVal = $this.css('top');
       $this.css('top', scrollShift + parseInt(topVal, 10));
     }
+    // avoid closing the modal when escape is pressed on a select input
+    $("select", evt.target).keyup(function (e) {
+      if (e.keyCode === 27) {
+        // remove the focus on the select, so double escape close the modal
+        e.target.blur();
+        e.stopPropagation();
+      }
+    });
   });
 
   // Focus the first usable form field in the modal for accessibility.
