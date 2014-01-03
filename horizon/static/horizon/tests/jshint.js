@@ -10,7 +10,8 @@ horizon.addInitFunction(function () {
 
       // Proposed set of rules
       //'camelcase' : true,
-      'indent': 2
+      'indent': 2,
+      'eqeqeq': true
       //'undef': true,
       //'quotmark': 'single',
       //'maxlen': 80,

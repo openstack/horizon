@@ -101,7 +101,7 @@ horizon.network_topology = {
     $(window)
       .on('message',function(e){
         var message = $.parseJSON(e.originalEvent.data);
-        if (self.previous_message != message.message) {
+        if (self.previous_message !== message.message) {
           horizon.alert(message.type, message.message);
           horizon.autoDismissAlerts();
           self.previous_message = message.message;
@@ -133,7 +133,7 @@ horizon.network_topology = {
   select_draw_mode:function() {
     var self = this;
     var draw_mode = $.cookie('ntp_draw_mode');
-    if (draw_mode && (draw_mode == 'normal'| draw_mode ==  'small')) {
+    if (draw_mode && (draw_mode === 'normal'| draw_mode === 'small')) {
       self.draw_mode = draw_mode;
     } else {
       if (self.model.networks.length *
@@ -174,14 +174,14 @@ horizon.network_topology = {
           self.select_main_port(device.ports).network_id : self.model.networks[0].id;
         var height = element_properties.port_margin*(device.ports.length - 1);
         device.height =
-          (self.draw_mode == 'normal' && height > element_properties.default_height) ? height :
+          (self.draw_mode === 'normal' && height > element_properties.default_height) ? height :
             element_properties.default_height;
         device.pos_y = self.network_height;
         device.port_height =
-          (self.draw_mode == 'small' && height > device.height) ? 1 :
+          (self.draw_mode === 'small' && height > device.height) ? 1 :
             element_properties.port_height;
         device.port_margin =
-          (self.draw_mode == 'small' && height > device.height) ?
+          (self.draw_mode === 'small' && height > device.height) ?
             device.height/device.ports.length :
             element_properties.port_margin;
         self.network_height += device.height + element_properties.margin;
@@ -191,7 +191,7 @@ horizon.network_topology = {
       network.devices = [];
       $.each([model.routers, model.servers],function(index, devices) {
         $.each(devices,function(index, device) {
-          if(network.id == device.parent_network) {
+          if(network.id === device.parent_network) {
             network.devices.push(device);
           }
         });
@@ -313,16 +313,16 @@ horizon.network_topology = {
       .select('.name')
       .text(function(d) { return self.string_truncate(d.name); });
     device.each(function(d) {
-      if (d.status == 'BUILD') {
+      if (d.status === 'BUILD') {
         d3.select(this).classed('loading',true);
-      } else if (d.task == 'deleting') {
+      } else if (d.task === 'deleting') {
         d3.select(this).classed('loading',true);
-        if ('bl_' + d.id == self.balloon_id) {
+        if ('bl_' + d.id === self.balloon_id) {
           self.delete_balloon();
         }
       } else {
         d3.select(this).classed('loading',false);
-        if ('bl_' + d.id == self.balloon_id) {
+        if ('bl_' + d.id === self.balloon_id) {
           var $this = $(this);
           self.show_balloon(d,$this);
         }
@@ -330,7 +330,7 @@ horizon.network_topology = {
     });
 
     device.exit().each(function(d){
-      if ('bl_' + d.id == self.balloon_id) {
+      if ('bl_' + d.id === self.balloon_id) {
         self.delete_balloon();
       }
     }).remove();
@@ -376,7 +376,7 @@ horizon.network_topology = {
     });
 
     port.attr('transform',function(d,i){
-      var x = (this._direction == 'left') ? 0 : element_properties.device_width;
+      var x = (this._direction === 'left') ? 0 : element_properties.device_width;
       var ports_length = this.parentNode._portdata[this._direction];
       var distance = this.parentNode._portdata.port_margin;
       var y = (this.parentNode._portdata.device_height -
@@ -397,14 +397,14 @@ horizon.network_topology = {
         var parent = this.parentNode;
         var width = (Math.abs(parent._index_diff) - 1)*element_properties.network_width +
           element_properties.port_width;
-        return (parent._direction == 'left') ? -1*width : width;
+        return (parent._direction === 'left') ? -1*width : width;
       });
 
     port
       .select('.port_text')
       .attr('x',function(d) {
         var parent = this.parentNode;
-        if (parent._direction == 'left') {
+        if (parent._direction === 'left') {
           d3.select(this).classed('left',true);
           return element_properties.port_text_margin.x*-1;
         } else {
@@ -433,7 +433,7 @@ horizon.network_topology = {
   },
   select_port: function(device_id){
     return $.map(this.model.ports,function(port, index){
-      if (port.device_id == device_id) {
+      if (port.device_id === device_id) {
         return port;
       }
     });
@@ -503,7 +503,7 @@ horizon.network_topology = {
       object.router_id = port.device_id;
       object.url = port.url;
       object.port_status = port.status;
-      object.port_status_css = (port.status == "ACTIVE")? 'active' : 'down';
+      object.port_status_css = (port.status === "ACTIVE")? 'active' : 'down';
       var ip_address = '';
       try {
         ip_address = port.fixed_ips[0].ip_address;
@@ -518,7 +518,7 @@ horizon.network_topology = {
       }
       object.ip_address = ip_address;
       object.device_owner = device_owner;
-      object.is_interface = (device_owner == 'router_interface') ? true : false;
+      object.is_interface = (device_owner === 'router_interface') ? true : false;
       ports.push(object);
     });
     var html_data = {
@@ -531,15 +531,15 @@ horizon.network_topology = {
         return $0.toUpperCase();
       }),
       status:d.status,
-      status_class:(d.status == "ACTIVE")? 'active' : 'down'
+      status_class:(d.status === "ACTIVE")? 'active' : 'down'
     };
-    if (d.type == 'router') {
+    if (d.type === 'router') {
       html_data.port = ports;
       html = balloon_tmpl.render(html_data,{
         table1:device_tmpl,
         table2:port_tmpl
       });
-    } else if (d.type == 'instance') {
+    } else if (d.type === 'instance') {
       html_data.console_id = d.id;
       html_data.console = d.console;
       html = balloon_tmpl.render(html_data,{

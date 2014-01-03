@@ -132,7 +132,7 @@ horizon.Quota = {
   findImageById: function(id) {
     _image = undefined;
     $.each(horizon.Quota.images, function(i, image){
-      if(image.id == id) {
+      if(image.id === id) {
         _image = image;
       }
     });
@@ -167,7 +167,7 @@ horizon.Quota = {
     // Now, disable anything from above:
     $.each(to_disable, function(i, flavor_name) {
       flavors.each(function(){
-        if ($(this).text() == flavor_name) {
+        if ($(this).text() === flavor_name) {
           $(this).attr('disabled', 'disabled');
         }
       });
@@ -186,7 +186,7 @@ horizon.Quota = {
           }
         });
       }
-      horizon.Quota.noteDisabledFlavors(to_disable.length == flavors.length);
+      horizon.Quota.noteDisabledFlavors(to_disable.length === flavors.length);
     }
   },
 
@@ -222,7 +222,7 @@ horizon.Quota = {
   getSelectedFlavor: function() {
     if(this.is_flavor_quota) {
       this.selected_flavor = $.grep(this.flavors, function(flavor) {
-        return flavor.id == $("#id_flavor").children(":selected").val();
+        return flavor.id === $("#id_flavor").children(":selected").val();
       })[0];
     } else {
       this.selected_flavor = null;
@@ -421,7 +421,7 @@ horizon.Quota = {
            that input, resulting in "8723".
            */
           user_integer = integers_in_input.join('');
-        } else if(integers_in_input.length == 1) {
+        } else if(integers_in_input.length === 1) {
           user_integer = integers_in_input[0];
         }
 

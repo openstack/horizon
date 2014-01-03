@@ -163,7 +163,7 @@ horizon.addInitFunction(function () {
       base_type = $this.val();
 
     $this.find("option").each(function () {
-      if (this.value != base_type) {
+      if (this.value !== base_type) {
         $("#id_" + this.value).closest(".control-group").hide();
       } else {
         $("#id_" + this.value).closest(".control-group").show();
@@ -202,7 +202,7 @@ horizon.addInitFunction(function () {
   });
   // Hide the tooltip after escape button pressed
   $(document).on('keydown.esc_btn', function (evt) {
-    if (evt.keyCode == 27) {
+    if (evt.keyCode === 27) {
       $('.tooltip').hide();
     }
   });

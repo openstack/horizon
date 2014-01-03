@@ -425,7 +425,7 @@ horizon.d3_line_chart = {
       });
 
       var renderer = self.settings.renderer;
-      if (renderer == 'StaticAxes'){
+      if (renderer === 'StaticAxes'){
         renderer = Rickshaw.Graph.Renderer.StaticAxes;
       }
 
@@ -451,7 +451,7 @@ horizon.d3_line_chart = {
       */
       graph.render();
 
-      if (self.hover_formatter == 'verbose'){
+      if (self.hover_formatter === 'verbose'){
         var hoverDetail = new Rickshaw.Graph.HoverDetail({
           graph: graph,
           formatter: function(series, x, y) {

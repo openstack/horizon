@@ -95,7 +95,7 @@ function removeNode (name) {
   var i = 0;
   var n = findNode(name);
   while (i < links.length) {
-    if (links[i].source == n || links[i].target == n) {
+    if (links[i].source === n || links[i].target === n) {
       links.splice(i, 1);
     } else {
       i++;
@@ -110,7 +110,7 @@ function remove_nodes(old_nodes, new_nodes){
   for (var i=0;i<old_nodes.length;i++) {
     var remove_node = true;
     for (var j=0;j<new_nodes.length;j++) {
-      if (old_nodes[i].name==new_nodes[j].name){
+      if (old_nodes[i].name === new_nodes[j].name){
         remove_node = false;
         break;
       }
@@ -142,7 +142,7 @@ function build_node_links(node){
     }
     //check for duplicates
     for (var lidx=0;lidx<links.length;lidx++) {
-      if (links[lidx].source == source_idx && links[lidx].target == target_idx) {
+      if (links[lidx].source === source_idx && links[lidx].target === target_idx) {
         push_link=false;
         break;
       }
@@ -164,7 +164,7 @@ function build_reverse_links(node){
       for (var j=0;j<nodes[i].required_by.length;j++){
         var dependency = nodes[i].required_by[j];
         //if new node is required by existing node, push new link
-        if(node.name==dependency){
+        if(node.name === dependency){
           links.push({
             'source':findNodeIndex(nodes[i].name),
             'target':findNodeIndex(node.name),
@@ -199,7 +199,7 @@ function ajax_poll(poll_time){
           current_node.status = d.status;
 
           //Status has changed, image should be updated
-          if (current_node.image != d.image){
+          if (current_node.image !== d.image){
             current_node.image = d.image;
             var this_image = d3.select("#image_"+current_node.name);
             this_image

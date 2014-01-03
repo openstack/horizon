@@ -175,7 +175,7 @@ horizon.membership = {
     var $roles_display = $dropdown.children('.dropdown-toggle').children('.roles_display');
     var roles_to_display = [];
     for (var i = 0; i < role_ids.length; i++) {
-      if (i == 2) {
+      if (i === 2) {
         roles_to_display.push('...');
         break;
       }
@@ -280,7 +280,7 @@ horizon.membership = {
       var css_class = $(this).find('ul').attr('class');
       // Example value: members step_slug_members
       // Pick the class name that contains the step_slug
-      var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) != -1; })[0];
+      var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) !== -1; })[0];
 
       if (!$('.' + filter).children('ul').length) {
         $('#no_' + filter).show();
@@ -392,7 +392,7 @@ horizon.membership = {
       var css_class = $(this).children().children('ul').attr('class');
       // Example value: members step_slug_members
       // Pick the class name that contains the step_slug
-      var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) != -1; })[0];
+      var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) !== -1; })[0];
 
       var input = $("input[id='" + filter +"']");
       input.quicksearch('ul.' + filter + ' ul li span.display_name', {
@@ -400,7 +400,7 @@ horizon.membership = {
         'loader': 'span.loading',
         'show': function () {
           $(this).parent().parent().show();
-          if (filter == "available_" + step_slug) {
+          if (filter === "available_" + step_slug) {
             $(this).parent('.dropdown-toggle').hide();
           }
         },
@@ -415,7 +415,7 @@ horizon.membership = {
           return new RegExp(val, "i");
         },
         'testQuery': function (query, txt, span) {
-          if ($(input).attr('id') == filter) {
+          if ($(input).attr('id') === filter) {
             $(input).prev().removeAttr('disabled');
             return query.test($(span).text());
           }
@@ -464,7 +464,7 @@ horizon.membership = {
 
       // prevent filter inputs from submitting form on 'enter'
       $form.find('.' + step_slug + '_membership').keydown(function(event){
-        if(event.keyCode == 13) {
+        if(event.keyCode === 13) {
           event.preventDefault();
           return false;
         }
