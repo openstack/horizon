@@ -119,6 +119,13 @@ class FloatingIpManager(object):
         pass
 
     @abc.abstractmethod
+    def list_target_id_by_instance(self, instance_id):
+        """Returns a list of instance's target IDs of floating IP association
+        based on the backend implementation
+        """
+        pass
+
+    @abc.abstractmethod
     def is_simple_associate_supported(self):
         """Returns True if the default floating IP pool is enabled."""
         pass

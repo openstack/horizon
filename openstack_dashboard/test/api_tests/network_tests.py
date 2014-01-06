@@ -542,3 +542,15 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
         ret = api.network.floating_ip_target_get_by_instance(self.request, '1')
         self.assertEqual(ret, self._get_target_id(candidates[0]))
+
+    def test_target_floating_ip_port_by_instance(self):
+        ports = self.api_ports.list()
+        candidates = [p for p in ports if p['device_id'] == '1']
+        search_opts = {'device_id': '1'}
+        self.qclient.list_ports(**search_opts).AndReturn({'ports': candidates})
+        self.mox.ReplayAll()
+
+        ret = api.network.floating_ip_target_list_by_instance(self.request,
+                                                              '1')
+        self.assertEqual(ret[0], self._get_target_id(candidates[0]))
+        self.assertEqual(len(ret), len(candidates))

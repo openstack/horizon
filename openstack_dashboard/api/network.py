@@ -81,6 +81,11 @@ def floating_ip_target_get_by_instance(request, instance_id):
         instance_id)
 
 
+def floating_ip_target_list_by_instance(request, instance_id):
+    floating_ips = NetworkClient(request).floating_ips
+    return floating_ips.list_target_id_by_instance(instance_id)
+
+
 def floating_ip_simple_associate_supported(request):
     return NetworkClient(request).floating_ips.is_simple_associate_supported()
 
