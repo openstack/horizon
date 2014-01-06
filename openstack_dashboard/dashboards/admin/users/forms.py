@@ -115,6 +115,8 @@ class CreateUserForm(BaseUserForm):
         domain = api.keystone.get_default_domain(self.request)
         try:
             LOG.info('Creating user with name "%s"' % data['name'])
+            if "email" in data:
+                data['email'] = data['email'] or None
             new_user = api.keystone.user_create(request,
                                                 name=data['name'],
                                                 email=data['email'],
@@ -190,6 +192,8 @@ class UpdateUserForm(BaseUserForm):
         data.pop('domain_name')
 
         try:
+            if "email" in data:
+                data['email'] = data['email'] or None
             response = api.keystone.user_update(request, user, **data)
             messages.success(request,
                              _('User has been updated successfully.'))
