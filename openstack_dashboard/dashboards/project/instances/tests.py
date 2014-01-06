@@ -1831,7 +1831,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('floating_ip_target_get_by_instance',
+    @test.create_stubs({api.network: ('floating_ip_target_list_by_instance',
                                       'tenant_floating_ip_list',
                                       'floating_ip_disassociate',),
                         api.glance: ('image_list_detailed',),
@@ -1848,9 +1848,9 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
             .AndReturn((self.images.list(), False))
-        api.network.floating_ip_target_get_by_instance(
+        api.network.floating_ip_target_list_by_instance(
             IsA(http.HttpRequest),
-            server.id).AndReturn(server.id)
+            server.id).AndReturn([server.id, ])
         api.network.tenant_floating_ip_list(
             IsA(http.HttpRequest)).AndReturn([fip])
         api.network.floating_ip_disassociate(
