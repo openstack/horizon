@@ -50,7 +50,7 @@ function usage {
 
 # DEFAULTS FOR RUN_TESTS.SH
 #
-root=`pwd`
+root=`pwd -P`
 venv=$root/.venv
 with_venv=tools/with_venv.sh
 included_dirs="openstack_dashboard horizon"
