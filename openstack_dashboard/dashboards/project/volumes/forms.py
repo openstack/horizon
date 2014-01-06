@@ -379,12 +379,20 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            volume = cinder.volume_get(request,
+                                       data['volume_id'])
+            force = False
+            message = _('Creating volume snapshot "%s".') % data['name']
+            if volume.status == 'in-use':
+                force = True
+                message = _('Forcing to create snapshot "%s" '
+                            'from attached volume.') % data['name']
             snapshot = cinder.volume_snapshot_create(request,
                                                      data['volume_id'],
                                                      data['name'],
-                                                     data['description'])
+                                                     data['description'],
+                                                     force=force)
 
-            message = _('Creating volume snapshot "%s"') % data['name']
             messages.info(request, message)
             return snapshot
         except Exception:

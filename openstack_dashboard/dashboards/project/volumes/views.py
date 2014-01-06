@@ -141,9 +141,19 @@ class CreateSnapshotView(forms.ModalFormView):
         context = super(CreateSnapshotView, self).get_context_data(**kwargs)
         context['volume_id'] = self.kwargs['volume_id']
         try:
+            volume = cinder.volume_get(self.request, context['volume_id'])
+            if (volume.status == 'in-use'):
+                context['attached'] = True
+                context['form'].set_warning(_("This volume is currently "
+                                              "attached to an instance. "
+                                              "In some cases, creating a "
+                                              "snapshot from an attached "
+                                              "volume can result in a "
+                                              "corrupted snapshot."))
             context['usages'] = quotas.tenant_limit_usages(self.request)
         except Exception:
-            exceptions.handle(self.request)
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume information.'))
         return context
 
     def get_initial(self):

@@ -20,6 +20,10 @@
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Volume Snapshot" %}" />
+  {% if attached %}
+    <input class="btn btn-primary btn-warning pull-right" type="submit" value="{% trans "Create Volume Snapshot (Force)" %}" />
+  {% else %}
+    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Volume Snapshot" %}" />
+  {% endif %}
   <a href="{% url 'horizon:project:volumes:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

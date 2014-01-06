@@ -32,9 +32,12 @@ INDEX_URL = reverse('horizon:project:images_and_snapshots:index')
 
 
 class VolumeSnapshotsViewTests(test.TestCase):
-    @test.create_stubs({quotas: ('tenant_limit_usages',)})
+    @test.create_stubs({cinder: ('volume_get',),
+                        quotas: ('tenant_limit_usages',)})
     def test_create_snapshot_get(self):
         volume = self.volumes.first()
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
         usage_limit = {'maxTotalVolumeGigabytes': 250,
                        'gigabytesUsed': 20,
                        'volumesUsed': len(self.volumes.list()),
@@ -49,15 +52,45 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'project/volumes/create_snapshot.html')
 
-    @test.create_stubs({cinder: ('volume_snapshot_create',)})
+    @test.create_stubs({cinder: ('volume_get',
+                                 'volume_snapshot_create',)})
     def test_create_snapshot_post(self):
         volume = self.volumes.first()
         snapshot = self.volume_snapshots.first()
 
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
         cinder.volume_snapshot_create(IsA(http.HttpRequest),
                                       volume.id,
                                       snapshot.display_name,
-                                      snapshot.display_description) \
+                                      snapshot.display_description,
+                                      force=False) \
+            .AndReturn(snapshot)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'CreateSnapshotForm',
+                    'tenant_id': self.tenant.id,
+                    'volume_id': volume.id,
+                    'name': snapshot.display_name,
+                    'description': snapshot.display_description}
+        url = reverse('horizon:project:volumes:create_snapshot',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_get',
+                                 'volume_snapshot_create',)})
+    def test_force_create_snapshot(self):
+        volume = self.volumes.get(name='my_volume')
+        snapshot = self.volume_snapshots.first()
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
+        cinder.volume_snapshot_create(IsA(http.HttpRequest),
+                                      volume.id,
+                                      snapshot.display_name,
+                                      snapshot.display_description,
+                                      force=True) \
             .AndReturn(snapshot)
         self.mox.ReplayAll()
 
