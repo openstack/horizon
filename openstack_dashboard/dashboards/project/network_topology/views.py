@@ -220,4 +220,4 @@ class JSONView(View):
         self.add_resource_url('horizon:project:routers:detail',
                               data['routers'])
         json_string = json.dumps(data, ensure_ascii=False)
-        return HttpResponse(json_string, mimetype='text/json')
+        return HttpResponse(json_string, content_type='text/json')
