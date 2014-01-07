@@ -238,7 +238,7 @@ class Panel(HorizonComponent):
         _decorate_urlconf(urlpatterns, require_perms, permissions)
         _decorate_urlconf(urlpatterns, _current_component, panel=self)
 
-        # Return the three arguments to django.conf.urls.defaults.include
+        # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.slug, self.slug
 
 
