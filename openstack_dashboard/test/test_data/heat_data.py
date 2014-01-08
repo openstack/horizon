@@ -24,7 +24,7 @@ TEMPLATE = """
 "Description": "AWS CloudFormation Sample Template.",
 "Parameters": {
 "KeyName": {
-"Description": "Name of an EC2 KeyPair to enable SSH access to the instances",
+"Description": "Name of an EC2 Key Pair to enable SSH access to the instances",
 "Type": "String"
 },
 "InstanceType": {
@@ -267,7 +267,7 @@ VALIDATE = """
 },
 "KeyName": {
 "Type": "String",
-"Description": "Name of an EC2 KeyPair to enable SSH access to the instances"
+"Description": "Name of an EC2 Key Pair to enable SSH access to the instances"
 },
 "DBName": {
 "Type": "String",

@@ -24,8 +24,8 @@ from openstack_dashboard.usage import quotas
 
 
 class DeleteKeyPairs(tables.DeleteAction):
-    data_type_singular = _("Keypair")
-    data_type_plural = _("Keypairs")
+    data_type_singular = _("Key Pair")
+    data_type_plural = _("Key Pairs")
 
     def delete(self, request, obj_id):
         api.nova.keypair_delete(request, obj_id)
@@ -33,14 +33,14 @@ class DeleteKeyPairs(tables.DeleteAction):
 
 class ImportKeyPair(tables.LinkAction):
     name = "import"
-    verbose_name = _("Import Keypair")
+    verbose_name = _("Import Key Pair")
     url = "horizon:project:access_and_security:keypairs:import"
     classes = ("ajax-modal", "btn-upload")
 
 
 class CreateKeyPair(tables.LinkAction):
     name = "create"
-    verbose_name = _("Create Keypair")
+    verbose_name = _("Create Key Pair")
     url = "horizon:project:access_and_security:keypairs:create"
     classes = ("ajax-modal", "btn-create")
 
@@ -54,14 +54,14 @@ class CreateKeyPair(tables.LinkAction):
                 self.verbose_name = string_concat(self.verbose_name, ' ',
                                                   _("(Quota exceeded)"))
         else:
-            self.verbose_name = _("Create Keypair")
+            self.verbose_name = _("Create Key Pair")
             classes = [c for c in self.classes if c != "disabled"]
             self.classes = classes
         return True
 
 
 class KeypairsTable(tables.DataTable):
-    name = tables.Column("name", verbose_name=_("Keypair Name"))
+    name = tables.Column("name", verbose_name=_("Key Pair Name"))
     fingerprint = tables.Column("fingerprint", verbose_name=_("Fingerprint"))
 
     def get_object_id(self, keypair):
@@ -69,6 +69,6 @@ class KeypairsTable(tables.DataTable):
 
     class Meta:
         name = "keypairs"
-        verbose_name = _("Keypairs")
+        verbose_name = _("Key Pairs")
         table_actions = (CreateKeyPair, ImportKeyPair, DeleteKeyPairs,)
         row_actions = (DeleteKeyPairs,)

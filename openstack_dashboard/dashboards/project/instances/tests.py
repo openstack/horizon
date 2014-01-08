@@ -1908,10 +1908,11 @@ class InstanceTests(test.TestCase):
 
         url = reverse('horizon:project:instances:launch')
         res = self.client.get(url)
-        self.assertContains(res, "<option selected='selected' value='%(key)s'>"
-                                 "%(key)s</option>" % {'key': keypair.name},
-                            html=True,
-                            msg_prefix="The default keypair was not selected.")
+        self.assertContains(
+            res, "<option selected='selected' value='%(key)s'>"
+                 "%(key)s</option>" % {'key': keypair.name},
+            html=True,
+            msg_prefix="The default key pair was not selected.")
 
     @test.create_stubs({api.network: ('floating_ip_target_get_by_instance',
                                       'tenant_floating_ip_allocate',

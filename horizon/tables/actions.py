@@ -545,7 +545,7 @@ class BatchAction(Action):
     .. attribute:: data_type_singular
 
        A display name for the type of data that receives the
-       action. ("Keypair", "Floating IP", etc.)
+       action. ("Key Pair", "Floating IP", etc.)
 
     .. attribute:: data_type_plural
 

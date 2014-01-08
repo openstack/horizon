@@ -31,14 +31,14 @@ from openstack_dashboard import api
 
 
 NEW_LINES = re.compile(r"\r|\n")
-KEYPAIR_ERROR_MESSAGES = {'invalid': _('Keypair names may '
+KEYPAIR_ERROR_MESSAGES = {'invalid': _('Key pair names may '
                                 'only contain letters, numbers, underscores '
                                 'and hyphens.')}
 
 
 class CreateKeypair(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255",
-                           label=_("Keypair Name"),
+                           label=_("Key Pair Name"),
                            validators=[validators.validate_slug],
                            error_messages=KEYPAIR_ERROR_MESSAGES)
 
@@ -47,7 +47,7 @@ class CreateKeypair(forms.SelfHandlingForm):
 
 
 class ImportKeypair(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label=_("Keypair Name"),
+    name = forms.CharField(max_length="255", label=_("Key Pair Name"),
                  validators=[validators.validate_slug],
                  error_messages=KEYPAIR_ERROR_MESSAGES)
     public_key = forms.CharField(label=_("Public Key"), widget=forms.Textarea)
@@ -64,5 +64,5 @@ class ImportKeypair(forms.SelfHandlingForm):
             return keypair
         except Exception:
             exceptions.handle(request, ignore=True)
-            self.api_error(_('Unable to import keypair.'))
+            self.api_error(_('Unable to import key pair.'))
             return False

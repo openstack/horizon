@@ -57,7 +57,7 @@ class SecurityGroupsTab(tabs.TableTab):
 
 class KeypairsTab(tabs.TableTab):
     table_classes = (KeypairsTable,)
-    name = _("Keypairs")
+    name = _("Key Pairs")
     slug = "keypairs_tab"
     template_name = "horizon/common/_detail_table.html"
 
@@ -67,7 +67,7 @@ class KeypairsTab(tabs.TableTab):
         except Exception:
             keypairs = []
             exceptions.handle(self.request,
-                              _('Unable to retrieve keypair list.'))
+                              _('Unable to retrieve key pair list.'))
         return keypairs
 
 
