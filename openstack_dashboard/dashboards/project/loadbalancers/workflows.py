@@ -299,16 +299,22 @@ class AddMemberAction(workflows.Action):
         initial=["default"],
         widget=forms.CheckboxSelectMultiple(),
         error_messages={'required':
-                            _('At least one member must be specified')},
+                        _('At least one member must be specified')},
         help_text=_("Select members for this pool "))
-    weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
-                                required=False,
-                                help_text=_("Relative part of requests this "
-                                "pool member serves compared to others"))
-    protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
-                              help_text=_("Enter an integer value "
-                                          "between 1 and 65535."),
-                              validators=[validators.validate_port_range])
+    weight = forms.IntegerField(
+        max_value=256, min_value=1, label=_("Weight"), required=False,
+        help_text=_("Relative part of requests this pool member serves "
+                    "compared to others. \nThe same weight will be applied to "
+                    "all the selected members and can be modified later. "
+                    "Weight must be in the range 1 to 256.")
+    )
+    protocol_port = forms.IntegerField(
+        label=_("Protocol Port"), min_value=1,
+        help_text=_("Enter an integer value between 1 and 65535. "
+                    "The same port will be used for all the selected "
+                    "members and can be modified later."),
+        validators=[validators.validate_port_range]
+    )
     admin_state_up = forms.BooleanField(label=_("Admin State"),
                                         initial=True, required=False)
 
@@ -346,7 +352,6 @@ class AddMemberAction(workflows.Action):
                                                  "for this pool ")
             self.fields['pool_id'].required = False
             self.fields['protocol_port'].required = False
-
             return
 
         for m in servers:
@@ -358,12 +363,14 @@ class AddMemberAction(workflows.Action):
     class Meta:
         name = _("Add New Member")
         permissions = ('openstack.services.network',)
-        help_text = _("Add member to selected pool.\n\n"
+        help_text = _("Add member(s) to the selected pool.\n\n"
                       "Choose one or more listed instances to be "
                       "added to the pool as member(s). "
-                      "Assign a numeric weight for this member "
-                      "Specify the port number the member(s) "
-                      "operate on; e.g., 80.")
+                      "Assign a numeric weight for the selected member(s). "
+                      "Specify the port number the selected member(s) "
+                      "operate(s) on; e.g., 80. \n\n"
+                      "There can only be one port associated with "
+                      "each instance.")
 
 
 class AddMemberStep(workflows.Step):
