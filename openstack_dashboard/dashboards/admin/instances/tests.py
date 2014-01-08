@@ -136,7 +136,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
         server = self.servers.first()
         flavor = self.flavors.list()[0]
         tenant = self.tenants.list()[0]
-
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
@@ -152,14 +151,14 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         res = self.client.get(url, {},
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        self.assertTemplateUsed(res, "horizon/common/_data_table_row.html")
 
+        self.assertTemplateUsed(res, "horizon/common/_data_table_row.html")
         self.assertContains(res, "test_tenant", 1, 200)
         self.assertContains(res, "instance-host", 1, 200)
         # two instances of name, other name comes from row data-display
         self.assertContains(res, "server_1", 2, 200)
         self.assertContains(res, "10.0.0.1", 1, 200)
-        self.assertContains(res, "512MB RAM | 1 VCPU | 0 Disk", 1, 200)
+        self.assertContains(res, "512MB RAM | 1 VCPU | 0Bytes Disk", 1, 200)
         self.assertContains(res, "Active", 1, 200)
         self.assertContains(res, "Running", 1, 200)
 
