@@ -212,6 +212,7 @@ POLICY_FILES = {
 }
 
 SECRET_KEY = None
+LOCAL_PATH = None
 
 try:
     from local.local_settings import *  # noqa
@@ -233,9 +234,11 @@ settings.update_dashboards([
 # file is present. See local_settings.py.example for full documentation on the
 # horizon.utils.secret_key module and its use.
 if not SECRET_KEY:
+    if not LOCAL_PATH:
+        LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                  'local')
+
     from horizon.utils import secret_key
-    LOCAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                              'local')
     SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH,
                                                        '.secret_key_store'))
 
