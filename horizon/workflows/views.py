@@ -124,10 +124,47 @@ class WorkflowView(generic.TemplateView):
         self.set_workflow_step_errors(context)
         return self.render_to_response(context)
 
+    def validate_steps(self, request, workflow, start, end):
+        """Validates the workflow steps from ``start`` to ``end``, inclusive.
+
+        Returns a dict describing the validation state of the workflow.
+        """
+        errors = {}
+        for step in workflow.steps[start:end + 1]:
+            if not step.action.is_valid():
+                errors[step.slug] = dict(
+                    (field, [unicode(error) for error in errors])
+                    for (field, errors) in step.action.errors.iteritems())
+        return {
+            'has_errors': bool(errors),
+            'workflow_slug': workflow.slug,
+            'errors': errors,
+        }
+
     def post(self, request, *args, **kwargs):
         """Handler for HTTP POST requests."""
         context = self.get_context_data(**kwargs)
         workflow = context[self.context_object_name]
+        try:
+            # Check for the VALIDATE_STEP* headers, if they are present
+            # and valid integers, return validation results as JSON,
+            # otherwise proceed normally.
+            validate_step_start = int(self.request.META.get(
+                'HTTP_X_HORIZON_VALIDATE_STEP_START', ''))
+            validate_step_end = int(self.request.META.get(
+                'HTTP_X_HORIZON_VALIDATE_STEP_END', ''))
+        except ValueError:
+            # No VALIDATE_STEP* headers, or invalid values. Just proceed
+            # with normal workflow handling for POSTs.
+            pass
+        else:
+            # There are valid VALIDATE_STEP* headers, so only do validation
+            # for the specified steps and return results.
+            data = self.validate_steps(request, workflow,
+                                       validate_step_start,
+                                       validate_step_end)
+            return http.HttpResponse(json.dumps(data),
+                                     mimetype="application/json")
         if workflow.is_valid():
             try:
                 success = workflow.finalize()

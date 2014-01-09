@@ -271,6 +271,7 @@ class CreateNetwork(workflows.Workflow):
     default_steps = (CreateNetworkInfo,
                      CreateSubnetInfo,
                      CreateSubnetDetail)
+    wizard = True
 
     def get_success_url(self):
         return reverse("horizon:project:networks:index")

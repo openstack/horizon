@@ -1,0 +1,88 @@
+.workflow ul.nav-tabs {
+  padding: 0 10px;
+}
+
+.workflow td.actions {
+  vertical-align: top;
+  width: 308px;
+  padding-right: 10px;
+}
+
+.workflow td.help_text {
+  vertical-align: top;
+  width: 340px;
+  padding-left: 10px;
+  border-left: 1px solid #DDD;
+}
+
+.workflow fieldset > table {
+  margin-bottom: 0;
+}
+
+.workflow.wizard {
+  .row-fluid .btn {
+    float: none;
+    margin: 0;
+  }
+  .row-fluid .next {
+    text-align: right;
+  }
+  .nav-tabs.wizard-tabs {
+    border-bottom: none;
+    background: #efefef;
+    padding: 0;
+  }
+  .nav-tabs.wizard-tabs li {
+    margin-bottom: 0;
+    position: relative;
+  }
+  .nav-tabs.wizard-tabs li:before {
+    position: absolute;
+    top: 0;
+    right: -20px;
+    z-index: 2;
+    display: block;
+    border: 20px solid transparent;
+    border-right: 0;
+    border-left: 20px solid #ddd;
+    content:"";
+  }
+  .nav-tabs.wizard-tabs li:after {
+    position: absolute;
+    top: -2px;
+    right: -22px;
+    z-index: 1;
+    display: block;
+    border: 22px solid transparent;
+    border-right: 0;
+    border-left: 22px solid #fff;
+    content:"";
+  }
+  .nav-tabs.wizard-tabs li.active:before, .nav-tabs.wizard-tabs li.done:before {
+    border-left: 20px solid #007acc;
+  }
+  .nav-tabs.wizard-tabs li a {
+    border:none;
+    border-radius: 0;
+    background: #ddd;
+    color: #43a4d7;
+    padding: 0 15px;
+    padding-left: 35px;
+    line-height: 40px;
+    position: relative;
+    margin: 0;
+  }
+  .nav-tabs.wizard-tabs li:first-child a {
+    padding-left: 15px;
+  }
+  .nav-tabs.wizard-tabs li.active a {
+    background: #007acc;
+    color:#fff;
+  }
+  .nav-tabs.wizard-tabs li.done a {
+    background: #007acc;
+  }
+  label.error {
+    color:#f00;
+  }
+}

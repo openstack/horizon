@@ -576,6 +576,10 @@ class Workflow(html.HTMLElement):
         the case of a workflow which updates a resource it would be the
         resource being updated after it has been retrieved.
 
+    .. attribute:: wizard
+
+        Whether to present the workflow as a wizard, with "prev" and "next"
+        buttons and validation after every step.
     """
     __metaclass__ = WorkflowMetaclass
     slug = None
@@ -586,6 +590,7 @@ class Workflow(html.HTMLElement):
     failure_message = _("%s did not complete.")
     redirect_param_name = "next"
     multipart = False
+    wizard = False
     _registerable_class = Step
 
     def __unicode__(self):
