@@ -371,6 +371,7 @@ class Dashboard(Registry, HorizonComponent):
 
         Boolean value to determine whether this dashboard can be viewed
         without being logged in. Defaults to ``False``.
+
     """
     _registerable_class = Panel
     name = ''

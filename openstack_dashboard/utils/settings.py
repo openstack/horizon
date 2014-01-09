@@ -63,12 +63,12 @@ def update_dashboards(modules, horizon_config, installed_apps):
 
     For example, given this setup:
 
-        foo/__init__.py
-        foo/_10_baz.py
-        foo/_20_qux.py
+        | foo/__init__.py
+        | foo/_10_baz.py
+        | foo/_20_qux.py
 
-        bar/__init__.py
-        bar/_30_baz_.py
+        | bar/__init__.py
+        | bar/_30_baz_.py
 
     and being called with ``modules=[foo, bar]``, we will first have the
     configuration from ``_10_baz`` and ``_30_baz`` merged, then the

@@ -22,9 +22,9 @@ def get_available_images(request, project_id=None, images_cache=None):
     project_id. If project_id is not specified, only public images
     are returned.
 
-    :param images_cache:
-    An optional dict-like object in which to
-    cache public and per-project id image metadata.
+    :param images_cache: An optional dict-like object in which to
+     cache public and per-project id image metadata.
+
     """
     if images_cache is None:
         images_cache = {}
