@@ -58,26 +58,14 @@ class LoadBalancerTests(test.TestCase):
 
     def set_up_expect(self):
         # retrieve pools
-        vip1, vip2 = self.vips.list()[:2]
-
         api.lbaas.pool_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.pools.list())
-
-        api.lbaas.vip_get(IsA(http.HttpRequest), vip1.id).AndReturn(vip1)
-        api.lbaas.vip_get(IsA(http.HttpRequest), vip2.id).AndReturn(vip2)
 
         # retrieves members
         api.lbaas.member_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.members.list())
-
-        pool1, pool2 = self.pools.list()[:2]
-
-        api.lbaas.pool_get(IsA(http.HttpRequest),
-                           self.members.list()[0].pool_id).AndReturn(pool1)
-        api.lbaas.pool_get(IsA(http.HttpRequest),
-                           self.members.list()[1].pool_id).AndReturn(pool2)
 
         # retrieves monitors
         api.lbaas.pool_health_monitor_list(
@@ -95,8 +83,7 @@ class LoadBalancerTests(test.TestCase):
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndRaise(self.exceptions.neutron)
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'vip_get',
-                                    'member_list', 'pool_get',
+    @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list')})
     def test_index_pools(self):
         self.set_up_expect()
@@ -111,8 +98,7 @@ class LoadBalancerTests(test.TestCase):
         self.assertEqual(len(res.context['table'].data),
                          len(self.pools.list()))
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'vip_get',
-                                    'member_list', 'pool_get',
+    @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list')})
     def test_index_members(self):
         self.set_up_expect()
@@ -127,9 +113,8 @@ class LoadBalancerTests(test.TestCase):
         self.assertEqual(len(res.context['memberstable_table'].data),
                               len(self.members.list()))
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'vip_get',
-                                    'pool_health_monitor_list',
-                                    'member_list', 'pool_get')})
+    @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
+                                    'pool_health_monitor_list')})
     def test_index_monitors(self):
         self.set_up_expect()
 
@@ -870,8 +855,7 @@ class LoadBalancerTests(test.TestCase):
             '<DeletePMAssociationStep: deletepmassociationaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'vip_get',
-                                    'member_list', 'pool_get',
+    @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list',
                                     'pool_delete')})
     def test_delete_pool(self):
@@ -885,14 +869,14 @@ class LoadBalancerTests(test.TestCase):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'vip_get',
-                                    'member_list', 'pool_get',
+    @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list',
-                                    'vip_delete')})
+                                    'pool_get', 'vip_delete')})
     def test_delete_vip(self):
         self.set_up_expect()
         pool = self.pools.first()
         vip = self.vips.first()
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
         api.lbaas.vip_delete(IsA(http.HttpRequest), vip.id)
         self.mox.ReplayAll()
 
@@ -901,8 +885,7 @@ class LoadBalancerTests(test.TestCase):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'vip_get',
-                                    'member_list', 'pool_get',
+    @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list',
                                     'member_delete')})
     def test_delete_member(self):
@@ -916,8 +899,7 @@ class LoadBalancerTests(test.TestCase):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'vip_get',
-                                    'member_list', 'pool_get',
+    @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list',
                                     'pool_health_monitor_delete')})
     def test_delete_monitor(self):

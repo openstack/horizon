@@ -18,6 +18,8 @@
 
 from __future__ import absolute_import
 
+from django.utils.datastructures import SortedDict
+
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import neutron
@@ -32,30 +34,6 @@ class IKEPolicy(neutron.NeutronAPIDictWrapper):
     def __init__(self, apiresource):
         super(IKEPolicy, self).__init__(apiresource)
 
-    class AttributeDict(dict):
-        def __getattr__(self, attr):
-            return self[attr]
-
-        def __setattr__(self, attr, value):
-            self[attr] = value
-
-    def readable(self, request):
-        pFormatted = {'id': self.id,
-                      'name': self.name,
-                      'description': self.description,
-                      'auth_algorithm': self.auth_algorithm,
-                      'encryption_algorithm': self.encryption_algorithm,
-                      'pfs': self.pfs,
-                      }
-        try:
-            conns = ipsecsiteconnection_list(request)
-            pFormatted['ipsecsiteconns'] = [c.id for c in conns
-                                            if c.ikepolicy_id == self.id]
-        except Exception:
-            pFormatted['ipsecsiteconns'] = None
-
-        return self.AttributeDict(pFormatted)
-
 
 class IPSecPolicy(neutron.NeutronAPIDictWrapper):
 
@@ -63,30 +41,6 @@ class IPSecPolicy(neutron.NeutronAPIDictWrapper):
 
     def __init__(self, apiresource):
         super(IPSecPolicy, self).__init__(apiresource)
-
-    class AttributeDict(dict):
-        def __getattr__(self, attr):
-            return self[attr]
-
-        def __setattr__(self, attr, value):
-            self[attr] = value
-
-    def readable(self, request):
-        pFormatted = {'id': self.id,
-                      'name': self.name,
-                      'description': self.description,
-                      'auth_algorithm': self.auth_algorithm,
-                      'encryption_algorithm': self.encryption_algorithm,
-                      'pfs': self.pfs,
-                      }
-        try:
-            conns = ipsecsiteconnection_list(request)
-            pFormatted['ipsecsiteconns'] = [c.id for c in conns
-                                            if c.ipsecpolicy_id == self.id]
-        except Exception:
-            pFormatted['ipsecsiteconns'] = None
-
-        return self.AttributeDict(pFormatted)
 
 
 class IPSecSiteConnection(neutron.NeutronAPIDictWrapper):
@@ -96,45 +50,6 @@ class IPSecSiteConnection(neutron.NeutronAPIDictWrapper):
     def __init__(self, apiresource):
         super(IPSecSiteConnection, self).__init__(apiresource)
 
-    class AttributeDict(dict):
-        def __getattr__(self, attr):
-            return self[attr]
-
-        def __setattr__(self, attr, value):
-            self[attr] = value
-
-    def readable(self, request):
-        cFormatted = {'id': self.id,
-                      'name': self.name,
-                      'description': self.description,
-                      'status': self.status,
-                      }
-        try:
-            cFormatted['ikepolicy_id'] = self.ikepolicy_id
-            cFormatted['ikepolicy_name'] = ikepolicy_get(
-                request, self.ikepolicy_id).name
-        except Exception:
-            cFormatted['ikepolicy_id'] = self.ikepolicy_id
-            cFormatted['ikepolicy_name'] = self.ikepolicy_id
-
-        try:
-            cFormatted['ipsecpolicy_id'] = self.ipsecpolicy_id
-            cFormatted['ipsecpolicy_name'] = ipsecpolicy_get(
-                request, self.ipsecpolicy_id).name
-        except Exception:
-            cFormatted['ipsecpolicy_id'] = self.ipsecpolicy_id
-            cFormatted['ipsecpolicy_name'] = self.ipsecpolicy_id
-
-        try:
-            cFormatted['vpnservice_id'] = self.vpnservice_id
-            cFormatted['vpnservice_name'] = vpnservice_get(
-                request, self.vpnservice_id).name
-        except Exception:
-            cFormatted['vpnservice_id'] = self.vpnservice_id
-            cFormatted['vpnservice_name'] = self.vpnservice_id
-
-        return self.AttributeDict(cFormatted)
-
 
 class VPNService(neutron.NeutronAPIDictWrapper):
 
@@ -142,45 +57,6 @@ class VPNService(neutron.NeutronAPIDictWrapper):
 
     def __init__(self, apiresource):
         super(VPNService, self).__init__(apiresource)
-
-    class AttributeDict(dict):
-        def __getattr__(self, attr):
-            return self[attr]
-
-        def __setattr__(self, attr, value):
-            self[attr] = value
-
-    def readable(self, request):
-        sFormatted = {'id': self.id,
-                      'name': self.name,
-                      'description': self.description,
-                      'admin_state_up': self.admin_state_up,
-                      'status': self.status,
-                      }
-        try:
-            sFormatted['subnet_id'] = self.subnet_id
-            sFormatted['subnet_name'] = neutron.subnet_get(
-                request, self.subnet_id).cidr
-        except Exception:
-            sFormatted['subnet_id'] = self.subnet_id
-            sFormatted['subnet_name'] = self.subnet_id
-
-        try:
-            sFormatted['router_id'] = self.router_id
-            sFormatted['router_name'] = neutron.router_get(
-                request, self.router_id).name
-        except Exception:
-            sFormatted['router_id'] = self.router_id
-            sFormatted['router_name'] = self.router_id
-
-        try:
-            conns = ipsecsiteconnection_list(request)
-            sFormatted['ipsecsiteconns'] = [c.id for c in conns
-                                            if c.vpnservice_id == self.id]
-        except Exception:
-            sFormatted['ipsecsiteconns'] = None
-
-        return self.AttributeDict(sFormatted)
 
 
 def vpnservice_create(request, **kwargs):
@@ -206,14 +82,51 @@ def vpnservice_create(request, **kwargs):
 
 
 def vpnservice_list(request, **kwargs):
+    return _vpnservice_list(request, expand_subnet=True, expand_router=True,
+                            expand_conns=True, **kwargs)
+
+
+def _vpnservice_list(request, expand_subnet=False, expand_router=False,
+                     expand_conns=False, **kwargs):
     vpnservices = neutronclient(request).list_vpnservices(
         **kwargs).get('vpnservices')
+    if expand_subnet:
+        subnets = neutron.subnet_list(request)
+        subnet_dict = SortedDict((s.id, s) for s in subnets)
+        for s in vpnservices:
+            s['subnet_name'] = subnet_dict.get(s['subnet_id']).cidr
+    if expand_router:
+        routers = neutron.router_list(request)
+        router_dict = SortedDict((r.id, r) for r in routers)
+        for s in vpnservices:
+            s['router_name'] = router_dict.get(s['router_id']).name
+    if expand_conns:
+        ipsecsiteconns = _ipsecsiteconnection_list(request, **kwargs)
+        for s in vpnservices:
+            s['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+                                   if c.vpnservice_id == s['id']]
     return [VPNService(v) for v in vpnservices]
 
 
 def vpnservice_get(request, vpnservice_id):
+    return _vpnservice_get(request, vpnservice_id, expand_subnet=True,
+                           expand_router=True, expand_conns=True)
+
+
+def _vpnservice_get(request, vpnservice_id, expand_subnet=False,
+                    expand_router=False, expand_conns=False):
     vpnservice = neutronclient(request).show_vpnservice(vpnservice_id).get(
         'vpnservice')
+    if expand_subnet:
+        vpnservice['subnet_name'] = neutron.subnet_get(
+            request, vpnservice['subnet_id']).cidr
+    if expand_router:
+        vpnservice['router_name'] = neutron.router_get(
+            request, vpnservice['router_id']).name
+    if expand_conns:
+        ipsecsiteconns = _ipsecsiteconnection_list(request)
+        vpnservice['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+                                        if c.vpnservice_id == vpnservice['id']]
     return VPNService(vpnservice)
 
 
@@ -256,14 +169,31 @@ def ikepolicy_create(request, **kwargs):
 
 
 def ikepolicy_list(request, **kwargs):
+    return _ikepolicy_list(request, expand_conns=True, **kwargs)
+
+
+def _ikepolicy_list(request, expand_conns=False, **kwargs):
     ikepolicies = neutronclient(request).list_ikepolicies(
         **kwargs).get('ikepolicies')
+    if expand_conns:
+        ipsecsiteconns = _ipsecsiteconnection_list(request, **kwargs)
+        for p in ikepolicies:
+            p['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+                                   if c.ikepolicy_id == p['id']]
     return [IKEPolicy(v) for v in ikepolicies]
 
 
 def ikepolicy_get(request, ikepolicy_id):
+    return _ikepolicy_get(request, ikepolicy_id, expand_conns=True)
+
+
+def _ikepolicy_get(request, ikepolicy_id, expand_conns=False):
     ikepolicy = neutronclient(request).show_ikepolicy(
         ikepolicy_id).get('ikepolicy')
+    if expand_conns:
+        ipsecsiteconns = _ipsecsiteconnection_list(request)
+        ikepolicy['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+                                       if c.ikepolicy_id == ikepolicy['id']]
     return IKEPolicy(ikepolicy)
 
 
@@ -306,14 +236,31 @@ def ipsecpolicy_create(request, **kwargs):
 
 
 def ipsecpolicy_list(request, **kwargs):
+    return _ipsecpolicy_list(request, expand_conns=True, **kwargs)
+
+
+def _ipsecpolicy_list(request, expand_conns=False, **kwargs):
     ipsecpolicies = neutronclient(request).list_ipsecpolicies(
         **kwargs).get('ipsecpolicies')
+    if expand_conns:
+        ipsecsiteconns = _ipsecsiteconnection_list(request, **kwargs)
+        for p in ipsecpolicies:
+            p['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+                                   if c.ipsecpolicy_id == p['id']]
     return [IPSecPolicy(v) for v in ipsecpolicies]
 
 
 def ipsecpolicy_get(request, ipsecpolicy_id):
+    return _ipsecpolicy_get(request, ipsecpolicy_id, expand_conns=True)
+
+
+def _ipsecpolicy_get(request, ipsecpolicy_id, expand_conns=False):
     ipsecpolicy = neutronclient(request).show_ipsecpolicy(
         ipsecpolicy_id).get('ipsecpolicy')
+    if expand_conns:
+        ipsecsiteconns = _ipsecsiteconnection_list(request)
+        ipsecpolicy['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+            if c.ipsecpolicy_id == ipsecpolicy['id']]
     return IPSecPolicy(ipsecpolicy)
 
 
@@ -367,14 +314,56 @@ def ipsecsiteconnection_create(request, **kwargs):
 
 @memoized
 def ipsecsiteconnection_list(request, **kwargs):
+    return _ipsecsiteconnection_list(request, expand_ikepolicies=True,
+                                     expand_ipsecpolicies=True,
+                                     expand_vpnservices=True, **kwargs)
+
+
+@memoized
+def _ipsecsiteconnection_list(request, expand_ikepolicies=False,
+                              expand_ipsecpolicies=False,
+                              expand_vpnservices=False, **kwargs):
     ipsecsiteconnections = neutronclient(request).list_ipsec_site_connections(
         **kwargs).get('ipsec_site_connections')
+    if expand_ikepolicies:
+        ikepolicies = _ikepolicy_list(request, **kwargs)
+        policy_dict = SortedDict((p.id, p) for p in ikepolicies)
+        for c in ipsecsiteconnections:
+            c['ikepolicy_name'] = policy_dict.get(c['ikepolicy_id']).name
+    if expand_ipsecpolicies:
+        ipsecpolicies = _ipsecpolicy_list(request, **kwargs)
+        policy_dict = SortedDict((p.id, p) for p in ipsecpolicies)
+        for c in ipsecsiteconnections:
+            c['ipsecpolicy_name'] = policy_dict.get(c['ipsecpolicy_id']).name
+    if expand_vpnservices:
+        vpnservices = _vpnservice_list(request, **kwargs)
+        service_dict = SortedDict((s.id, s) for s in vpnservices)
+        for c in ipsecsiteconnections:
+            c['vpnservice_name'] = service_dict.get(c['vpnservice_id']).name
     return [IPSecSiteConnection(v) for v in ipsecsiteconnections]
 
 
 def ipsecsiteconnection_get(request, ipsecsiteconnection_id):
+    return _ipsecsiteconnection_get(request, ipsecsiteconnection_id,
+                                    expand_ikepolicies=True,
+                                    expand_ipsecpolicies=True,
+                                    expand_vpnservices=True)
+
+
+def _ipsecsiteconnection_get(request, ipsecsiteconnection_id,
+                             expand_ikepolicies, expand_ipsecpolicies,
+                             expand_vpnservices):
     ipsecsiteconnection = neutronclient(request).show_ipsec_site_connection(
         ipsecsiteconnection_id).get('ipsec_site_connection')
+    if expand_ikepolicies:
+        ipsecsiteconnection['ikepolicy_name'] = _ikepolicy_get(
+            request, ipsecsiteconnection['ikepolicy_id']).name
+    if expand_ipsecpolicies:
+        ipsecsiteconnection['ipsecpolicy_name'] = _ipsecpolicy_get(
+            request, ipsecsiteconnection['ipsecpolicy_id']).name
+    if expand_vpnservices:
+        ipsecsiteconnection['vpnservice_name'] = _vpnservice_get(
+            request, ipsecsiteconnection['vpnservice_id'])
     return IPSecSiteConnection(ipsecsiteconnection)
 
 
