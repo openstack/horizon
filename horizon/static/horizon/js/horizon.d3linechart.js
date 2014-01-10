@@ -635,8 +635,8 @@ horizon.d3_line_chart = {
       e.g. I am switching tabs, or if I want to update them
       via web sockets
       this.charts.add_or_update(chart)
-      chart.refresh();
     */
+    chart.refresh();
   },
 
   /**
