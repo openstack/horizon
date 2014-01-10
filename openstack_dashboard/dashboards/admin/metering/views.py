@@ -145,8 +145,7 @@ class SamplesView(TemplateView):
                 tenants, more = api.keystone.tenant_list(
                     request,
                     domain=None,
-                    paginate=True,
-                    marker="tenant_marker")
+                    paginate=False)
             except Exception:
                 tenants = []
                 exceptions.handle(request,
