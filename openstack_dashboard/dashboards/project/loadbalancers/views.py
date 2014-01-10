@@ -90,17 +90,9 @@ class IndexView(tabs.TabView):
 class AddPoolView(workflows.WorkflowView):
     workflow_class = project_workflows.AddPool
 
-    def get_initial(self):
-        initial = super(AddPoolView, self).get_initial()
-        return initial
-
 
 class AddVipView(workflows.WorkflowView):
     workflow_class = project_workflows.AddVip
-
-    def get_context_data(self, **kwargs):
-        context = super(AddVipView, self).get_context_data(**kwargs)
-        return context
 
     def get_initial(self):
         initial = super(AddVipView, self).get_initial()
@@ -119,17 +111,9 @@ class AddVipView(workflows.WorkflowView):
 class AddMemberView(workflows.WorkflowView):
     workflow_class = project_workflows.AddMember
 
-    def get_initial(self):
-        initial = super(AddMemberView, self).get_initial()
-        return initial
-
 
 class AddMonitorView(workflows.WorkflowView):
     workflow_class = project_workflows.AddMonitor
-
-    def get_initial(self):
-        initial = super(AddMonitorView, self).get_initial()
-        return initial
 
 
 class PoolDetailsView(tabs.TabView):
