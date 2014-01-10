@@ -30,6 +30,11 @@ from horizon.forms.base import SelfHandlingForm  # noqa
 from horizon.forms.base import SelfHandlingMixin  # noqa
 from horizon.forms.fields import DynamicChoiceField  # noqa
 from horizon.forms.fields import DynamicTypedChoiceField  # noqa
+from horizon.forms.fields import IPField  # noqa
+from horizon.forms.fields import IPv4  # noqa
+from horizon.forms.fields import IPv6  # noqa
+from horizon.forms.fields import MultiIPField  # noqa
+from horizon.forms.fields import SelectWidget  # noqa
 from horizon.forms.views import ModalFormMixin  # noqa
 from horizon.forms.views import ModalFormView  # noqa
 
@@ -42,6 +47,11 @@ __all__ = [
     "ModalFormMixin",
     "DynamicTypedChoiceField",
     "DynamicChoiceField",
+    "IPField",
+    "IPv4",
+    "IPv6",
+    "MultiIPField",
+    "SelectWidget"
 
     # From django.forms
     "ValidationError",

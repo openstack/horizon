@@ -18,7 +18,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon.utils import fields
 from horizon.utils import validators
 from horizon import workflows
 
@@ -155,9 +154,9 @@ class AddVipAction(workflows.Action):
         label=_("VIP Address from Floating IPs"),
         widget=forms.Select(attrs={'disabled': 'disabled'}),
         required=False)
-    other_address = fields.IPField(required=False,
+    other_address = forms.IPField(required=False,
                                    initial="",
-                                   version=fields.IPv4,
+                                   version=forms.IPv4,
                                    mask=False)
     protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
                               help_text=_("Enter an integer value "

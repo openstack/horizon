@@ -23,7 +23,6 @@ from django.views.decorators.debug import sensitive_variables  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils import fields
 from horizon.utils import validators
 
 from openstack_dashboard import api
@@ -37,8 +36,9 @@ def _image_choice_title(img):
 
 class RebuildInstanceForm(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
+
     image = forms.ChoiceField(label=_("Select Image"),
-            widget=fields.SelectWidget(attrs={'class': 'image-selector'},
+            widget=forms.SelectWidget(attrs={'class': 'image-selector'},
                                        data_attrs=('size', 'display-name'),
                                        transform=_image_choice_title))
     password = forms.RegexField(label=_("Rebuild Password"),
