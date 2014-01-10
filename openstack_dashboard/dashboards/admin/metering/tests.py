@@ -62,8 +62,7 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  domain=None,
-                                 marker='tenant_marker',
-                                 paginate=True) \
+                                 paginate=False) \
             .AndReturn([self.tenants.list(), False])
 
         ceilometerclient = self.stub_ceilometerclient()
@@ -94,8 +93,7 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  domain=None,
-                                 marker='tenant_marker',
-                                 paginate=True) \
+                                 paginate=False) \
             .AndReturn([self.tenants.list(), False])
 
         ceilometerclient = self.stub_ceilometerclient()
