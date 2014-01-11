@@ -14,8 +14,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+# Importing non-modules that are not used explicitly
 from horizon.browsers.base import ResourceBrowser  # noqa
 from horizon.browsers.views import ResourceBrowserView  # noqa
-
-assert ResourceBrowser
-assert ResourceBrowserView

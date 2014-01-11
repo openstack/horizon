@@ -14,14 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+# Importing non-modules that are not used explicitly
+
 from horizon.tabs.base import Tab  # noqa
 from horizon.tabs.base import TabGroup  # noqa
 from horizon.tabs.base import TableTab  # noqa
 from horizon.tabs.views import TabbedTableView  # noqa
 from horizon.tabs.views import TabView  # noqa
-
-assert TabGroup
-assert Tab
-assert TableTab
-assert TabView
-assert TabbedTableView

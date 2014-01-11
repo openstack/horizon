@@ -14,9 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+# Importing non-modules that are not used explicitly
+
 # FIXME(gabriel): Legacy imports for API compatibility.
-from django.forms import *  # noqa
+from django.core.exceptions import ValidationError  # noqa
+from django.forms.fields import *  # noqa
+from django.forms.forms import *  # noqa
 from django.forms import widgets
+from django.forms.widgets import *  # noqa
+
 
 # Convenience imports for public API components.
 from horizon.forms.base import DateForm  # noqa
@@ -27,11 +33,36 @@ from horizon.forms.fields import DynamicTypedChoiceField  # noqa
 from horizon.forms.views import ModalFormMixin  # noqa
 from horizon.forms.views import ModalFormView  # noqa
 
-assert widgets
-assert SelfHandlingMixin
-assert SelfHandlingForm
-assert DateForm
-assert ModalFormView
-assert ModalFormMixin
-assert DynamicTypedChoiceField
-assert DynamicChoiceField
+
+__all__ = [
+    "SelfHandlingMixin",
+    "SelfHandlingForm",
+    "DateForm",
+    "ModalFormView",
+    "ModalFormMixin",
+    "DynamicTypedChoiceField",
+    "DynamicChoiceField",
+
+    # From django.forms
+    "ValidationError",
+
+    # From django.forms.fields
+    'Field', 'CharField', 'IntegerField', 'DateField', 'TimeField',
+    'DateTimeField', 'TimeField', 'RegexField', 'EmailField', 'FileField',
+    'ImageField', 'URLField', 'BooleanField', 'NullBooleanField',
+    'ChoiceField', 'MultipleChoiceField', 'ComboField', 'MultiValueField',
+    'FloatField', 'DecimalField', 'SplitDateTimeField', 'IPAddressField',
+    'GenericIPAddressField', 'FilePathField', 'SlugField', 'TypedChoiceField',
+    'TypedMultipleChoiceField',
+
+    # From django.forms.widgets
+    "widgets",
+    'Media', 'MediaDefiningClass', 'Widget', 'TextInput', 'PasswordInput',
+    'HiddenInput', 'MultipleHiddenInput', 'ClearableFileInput', 'FileInput',
+    'DateInput', 'DateTimeInput', 'TimeInput', 'Textarea', 'CheckboxInput',
+    'Select', 'NullBooleanSelect', 'SelectMultiple', 'RadioSelect',
+    'CheckboxSelectMultiple', 'MultiWidget', 'SplitDateTimeWidget',
+
+    # From django.forms.forms
+    'BaseForm', 'Form',
+]

@@ -1,7 +1,5 @@
-from create_instance import LaunchInstance
-from resize_instance import ResizeInstance
-from update_instance import UpdateInstance
+# Importing non-modules that are not used explicitly
 
-assert LaunchInstance
-assert UpdateInstance
-assert ResizeInstance
+from create_instance import LaunchInstance  # noqa
+from resize_instance import ResizeInstance  # noqa
+from update_instance import UpdateInstance  # noqa

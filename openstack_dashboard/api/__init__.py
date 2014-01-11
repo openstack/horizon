@@ -48,17 +48,20 @@ from openstack_dashboard.api import swift
 from openstack_dashboard.api import trove
 from openstack_dashboard.api import vpn
 
-assert base
-assert cinder
-assert fwaas
-assert glance
-assert heat
-assert keystone
-assert lbaas
-assert network
-assert neutron
-assert nova
-assert swift
-assert ceilometer
-assert trove
-assert vpn
+
+__all__ = [
+    "base",
+    "cinder",
+    "fwaas",
+    "glance",
+    "heat",
+    "keystone",
+    "lbaas",
+    "network",
+    "neutron",
+    "nova",
+    "swift",
+    "ceilometer",
+    "trove",
+    "vpn",
+]
