@@ -443,8 +443,8 @@ class CeilometerUsage(object):
     def preload_all_tenants(self):
         """Preloads all tenants into dictionary.
 
-        It's more effective to preload all tenants, rather than fetching many
-        tenants by separate API get calls.
+        It's more effective to preload all tenants, rather than fetching each
+        tenant by separate API get calls.
         """
 
         tenants, more = keystone.tenant_list(self._request)
