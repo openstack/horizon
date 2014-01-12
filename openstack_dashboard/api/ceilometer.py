@@ -49,7 +49,7 @@ def is_iterable(var):
 
 def make_query(user_id=None, tenant_id=None, resource_id=None,
         user_ids=None, tenant_ids=None, resource_ids=None):
-    """Returns query built form given parameters.
+    """Returns query built from given parameters.
 
     This query can be then used for querying resources, meters and
     statistics.
@@ -175,7 +175,7 @@ class Resource(base.APIResourceWrapper):
 class ResourceAggregate(Resource):
     """Represents aggregate of more resources together.
 
-    Aggregate of resources can be obtain by specifing
+    Aggregate of resources can be obtain by specifying
     multiple ids in one parameter or by not specifying
     one parameter.
     Or it can be specified by query directly.
@@ -385,7 +385,7 @@ class CeilometerUsage(object):
         self._tenants = {}
 
     def get_user(self, user_id):
-        """Returns user fetched form API
+        """Returns user fetched from API
 
         Caching the result, so it doesn't contact API twice with the
         same query
@@ -412,7 +412,7 @@ class CeilometerUsage(object):
             self._users[u.id] = u
 
     def get_tenant(self, tenant_id):
-        """Returns tenant fetched form API.
+        """Returns tenant fetched from API.
 
         Caching the result, so it doesn't contact API twice with the
         same query
@@ -426,7 +426,7 @@ class CeilometerUsage(object):
         return tenant
 
     def preload_all_tenants(self):
-        """Preloads all teannts into dictionary.
+        """Preloads all tenants into dictionary.
 
         It's more effective to preload all tenants, rather the fetching many
         tenants by separate API get calls.
