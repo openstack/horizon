@@ -97,6 +97,23 @@ def check(actions, request, target={}):
     :returns: boolean if the user has permission or not for the actions.
     """
     user = auth_utils.get_user(request)
+
+    # Several service policy engines default to a project id check for
+    # ownership. Since the user is already scoped to a project, if a
+    # different project id has not been specified use the currently scoped
+    # project's id.
+    #
+    # The reason is the operator can edit the local copies of the service
+    # policy file. If a rule is removed, then the default rule is used. We
+    # don't want to block all actions because the operator did not fully
+    # understand the implication of editing the policy file. Additionally,
+    # the service APIs will correct us if we are too permissive.
+    if 'project_id' not in target:
+        target['project_id'] = user.project_id
+    # same for user_id
+    if 'user_id' not in target:
+        target['user_id'] = user.id
+
     credentials = _user_to_credentials(request, user)
 
     enforcer = _get_enforcer()
@@ -106,7 +123,17 @@ def check(actions, request, target={}):
         if scope in enforcer:
             # if any check fails return failure
             if not enforcer[scope].enforce(action, target, credentials):
-                return False
+                # to match service implementations, if a rule is not found,
+                # use the default rule for that service policy
+                #
+                # waiting to make the check because the first call to
+                # enforce loads the rules
+                if action not in enforcer[scope].rules:
+                    if not enforcer[scope].enforce('default',
+                                                   target, credentials):
+                        return False
+                else:
+                    return False
         # if no policy for scope, allow action, underlying API will
         # ultimately block the action if not permitted, treat as though
         # allowed

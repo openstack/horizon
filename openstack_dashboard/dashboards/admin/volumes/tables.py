@@ -23,11 +23,13 @@ class CreateVolumeType(tables.LinkAction):
     verbose_name = _("Create Volume Type")
     url = "horizon:admin:volumes:create_type"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("volume", "volume_extension:types_manage"),)
 
 
 class DeleteVolumeType(tables.DeleteAction):
     data_type_singular = _("Volume Type")
     data_type_plural = _("Volume Types")
+    policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, obj_id):
         cinder.volume_type_delete(request, obj_id)

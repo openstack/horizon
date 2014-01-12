@@ -28,6 +28,7 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
 
 
@@ -38,6 +39,13 @@ class DeleteVolume(tables.DeleteAction):
     data_type_singular = _("Volume")
     data_type_plural = _("Volumes")
     action_past = _("Scheduled deletion of %(data_type)s")
+    policy_rules = (("volume", "volume:delete"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, "os-vol-tenant-attr:tenant_id", None)
+        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         obj = self.table.get_object_by_id(obj_id)
@@ -61,6 +69,7 @@ class CreateVolume(tables.LinkAction):
     verbose_name = _("Create Volume")
     url = "horizon:project:volumes:create"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("volume", "volume:create"),)
 
     def allowed(self, request, volume=None):
         usages = quotas.tenant_quota_usages(request)
@@ -84,7 +93,20 @@ class EditAttachments(tables.LinkAction):
     classes = ("ajax-modal", "btn-edit")
 
     def allowed(self, request, volume=None):
-        return volume.status in ("available", "in-use")
+        if volume:
+            project_id = getattr(volume, "os-vol-tenant-attr:tenant_id", None)
+            attach_allowed = \
+                policy.check((("compute", "compute:attach_volume"),),
+                             request,
+                             {"project_id": project_id})
+            detach_allowed = \
+                policy.check((("compute", "compute:detach_volume"),),
+                             request,
+                             {"project_id": project_id})
+
+            if attach_allowed or detach_allowed:
+                return volume.status in ("available", "in-use")
+        return False
 
 
 class CreateSnapshot(tables.LinkAction):
@@ -92,6 +114,13 @@ class CreateSnapshot(tables.LinkAction):
     verbose_name = _("Create Snapshot")
     url = "horizon:project:volumes:create_snapshot"
     classes = ("ajax-modal", "btn-camera")
+    policy_rules = (("volume", "volume:create_snapshot"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, "os-vol-tenant-attr:tenant_id", None)
+        return {"project_id": project_id}
 
     def allowed(self, request, volume=None):
         return volume.status in ("available", "in-use")
@@ -219,6 +248,7 @@ class DetachVolume(tables.BatchAction):
     data_type_singular = _("Volume")
     data_type_plural = _("Volumes")
     classes = ('btn-danger', 'btn-detach')
+    policy_rules = (("compute", "compute:detach_volume"),)
 
     def action(self, request, obj_id):
         attachment = self.table.get_object_by_id(obj_id)
