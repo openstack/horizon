@@ -221,7 +221,7 @@ find a ``urls.py`` file in your panel directory which will define a view named
 ``index`` that handles the default view for that panel. This is what your
 ``urls.py`` file might look like::
 
-    from django.conf.urls.defaults import patterns, url
+    from django.conf.urls import patterns, url
     from .views import IndexView
 
     urlpatterns = patterns('',
