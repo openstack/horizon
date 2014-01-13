@@ -15,7 +15,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import datetime
+import time
 
 from django.conf import settings  # noqa
 
@@ -43,8 +43,7 @@ class MiddlewareTests(test.TestCase):
             timeout = settings.SESSION_TIMEOUT
         except AttributeError:
             timeout = 1800
-        request.session['last_activity'] =\
-            datetime.datetime.now() - datetime.timedelta(seconds=timeout + 10)
+        request.session['last_activity'] = int(time.time()) - (timeout + 10)
         mw = middleware.HorizonMiddleware()
         resp = mw.process_request(request)
         self.assertEqual(resp.status_code, 302)
