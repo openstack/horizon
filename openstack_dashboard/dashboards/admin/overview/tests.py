@@ -58,15 +58,22 @@ class UsageViewTests(test.BaseAdminViewTests):
     def test_usage_disabled(self):
         self._test_usage(nova_stu_enabled=False)
 
-    def _test_usage(self, nova_stu_enabled=True):
+    def test_usage_with_deleted_tenant(self):
+        self._test_usage(tenant_deleted=True)
+
+    def _test_usage(self, nova_stu_enabled=True, tenant_deleted=False):
         self._stub_nova_api_calls(nova_stu_enabled)
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
         now = timezone.now()
-        usage_obj = api.nova.NovaUsage(self.usages.first())
-        api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                    .AndReturn([self.tenants.list(), False])
+        usage_list = [api.nova.NovaUsage(u) for u in self.usages.list()]
+        if tenant_deleted:
+            api.keystone.tenant_list(IsA(http.HttpRequest)) \
+                .AndReturn([[self.tenants.first()], False])
+        else:
+            api.keystone.tenant_list(IsA(http.HttpRequest)) \
+                .AndReturn([self.tenants.list(), False])
 
         if nova_stu_enabled:
             api.nova.usage_list(IsA(http.HttpRequest),
@@ -76,7 +83,7 @@ class UsageViewTests(test.BaseAdminViewTests):
                                 datetime.datetime(now.year,
                                                   now.month,
                                                   now.day, 23, 59, 59, 0)) \
-                .AndReturn([usage_obj])
+                .AndReturn(usage_list)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
@@ -102,14 +109,30 @@ class UsageViewTests(test.BaseAdminViewTests):
                       '<td class="sortable normal_column">%s</td>' \
                       '<td class="sortable normal_column">%.2f</td>' \
                       '<td class="sortable normal_column">%.2f</td>' % \
-                      (usage_obj.vcpus,
-                       usage_obj.disk_gb_hours,
-                       sizeformat.mbformat(usage_obj.memory_mb),
-                       usage_obj.vcpu_hours,
-                       usage_obj.total_local_gb_usage)
+                      (usage_list[0].vcpus,
+                       usage_list[0].disk_gb_hours,
+                       sizeformat.mbformat(usage_list[0].memory_mb),
+                       usage_list[0].vcpu_hours,
+                       usage_list[0].total_local_gb_usage)
+        # test for deleted project
+        usage_table1 = '<td class="sortable normal_column">3 (Deleted)</td>' \
+                       '<td class="sortable normal_column">%s</td>' \
+                       '<td class="sortable normal_column">%s</td>' \
+                       '<td class="sortable normal_column">%s</td>' \
+                       '<td class="sortable normal_column">%.2f</td>' \
+                       '<td class="sortable normal_column">%.2f</td>' % \
+                      (usage_list[1].vcpus,
+                       usage_list[1].disk_gb_hours,
+                       sizeformat.mbformat(usage_list[1].memory_mb),
+                       usage_list[1].vcpu_hours,
+                       usage_list[1].total_local_gb_usage)
 
         if nova_stu_enabled:
             self.assertContains(res, usage_table)
+            if tenant_deleted:
+                self.assertContains(res, usage_table1)
+            else:
+                self.assertNotContains(res, usage_table1)
         else:
             self.assertNotContains(res, usage_table)
 
