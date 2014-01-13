@@ -316,6 +316,7 @@ class APITestCase(TestCase):
             keystone_client.Client.service_catalog = None
             keystone_client.Client.tenant_id = '1'
             keystone_client.Client.tenant_name = 'tenant_1'
+            keystone_client.Client.management_url = ""
             self.keystoneclient = self.mox.CreateMock(keystone_client.Client)
         return self.keystoneclient
 
