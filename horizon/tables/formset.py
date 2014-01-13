@@ -168,7 +168,7 @@ class FormsetDataTable(FormsetDataTableMixin, horizon_tables.DataTable):
 
     .. attribute:: formset_class
 
-        A classs made with ``django.forms.formsets.formset_factory``
+        A class made with ``django.forms.formsets.formset_factory``
         containing the definition of the formset to use with this data table.
 
         The columns that are named the same as the formset fields will be

@@ -45,7 +45,7 @@ def logout_with_message(request, msg):
     """Send HttpResponseRedirect to LOGOUT_URL.
 
     `msg` is a message displayed on the login page after the logout, to explain
-    the logout reson.
+    the logout reason.
     """
     logout(request)
     response = http.HttpResponseRedirect(
