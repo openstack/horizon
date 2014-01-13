@@ -837,3 +837,25 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_update',
+                                 'volume_get',)})
+    def test_update_volume(self):
+        volume = self.volumes.get(name="my_volume")
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_update(IsA(http.HttpRequest),
+                             volume.id,
+                             volume.display_name,
+                             volume.display_description)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateForm',
+                    'name': volume.display_name,
+                    'description': volume.display_description}
+
+        url = reverse('horizon:project:volumes:update',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)

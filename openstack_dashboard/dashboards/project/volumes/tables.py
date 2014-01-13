@@ -126,6 +126,23 @@ class CreateSnapshot(tables.LinkAction):
         return volume.status in ("available", "in-use")
 
 
+class EditVolume(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit Volume")
+    url = "horizon:project:volumes:update"
+    classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("volume", "volume:update"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, "os-vol-tenant-attr:tenant_id", None)
+        return {"project_id": project_id}
+
+    def allowed(self, request, volume=None):
+        return volume.status in ("available", "in-use")
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -238,7 +255,8 @@ class VolumesTable(VolumesTableBase):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (CreateVolume, DeleteVolume, VolumesFilterAction)
-        row_actions = (EditAttachments, CreateSnapshot, DeleteVolume)
+        row_actions = (EditAttachments, EditVolume,
+                       CreateSnapshot, DeleteVolume)
 
 
 class DetachVolume(tables.BatchAction):

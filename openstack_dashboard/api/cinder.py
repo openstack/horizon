@@ -105,6 +105,13 @@ def volume_delete(request, volume_id):
     return cinderclient(request).volumes.delete(volume_id)
 
 
+def volume_update(request, volume_id, name, description):
+    vol_data = {'display_name': name,
+                'display_description': description}
+    return cinderclient(request).volumes.update(volume_id,
+                                                **vol_data)
+
+
 def volume_snapshot_get(request, snapshot_id):
     return cinderclient(request).volume_snapshots.get(snapshot_id)
 

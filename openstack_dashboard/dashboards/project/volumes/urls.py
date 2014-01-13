@@ -32,4 +32,7 @@ urlpatterns = patterns('openstack_dashboard.dashboards.project.volumes.views',
     url(r'^(?P<volume_id>[^/]+)/$',
         views.DetailView.as_view(),
         name='detail'),
+    url(r'^(?P<volume_id>[^/]+)/update/$',
+        views.UpdateView.as_view(),
+        name='update'),
 )
