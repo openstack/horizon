@@ -62,7 +62,7 @@ class VolumeTableMixIn(object):
                                 "attachment information"))
             return []
 
-    def _set_id_if_nameless(self, volumes, instances):
+    def _set_id_if_nameless(self, volumes):
         for volume in volumes:
             # It is possible to create a volume with no name through the
             # EC2 API, use the ID in those cases.
@@ -84,7 +84,7 @@ class IndexView(tables.DataTableView, VolumeTableMixIn):
     def get_data(self):
         volumes = self._get_volumes()
         instances = self._get_instances()
-        self._set_id_if_nameless(volumes, instances)
+        self._set_id_if_nameless(volumes)
         self._set_attachments_string(volumes, instances)
         return volumes
 
