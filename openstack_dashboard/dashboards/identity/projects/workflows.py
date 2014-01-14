@@ -88,6 +88,25 @@ class UpdateProjectQuotaAction(workflows.Action):
         slug = 'update_quotas'
         help_text = _("Set maximum quotas for the project.")
 
+    def clean(self):
+        cleaned_data = super(UpdateProjectQuotaAction, self).clean()
+        usages = quotas.tenant_quota_usages(self.request)
+        # Validate the quota values before updating quotas.
+        bad_values = []
+        for key, value in cleaned_data.items():
+            used = usages[key].get('used', 0)
+            if value is not None and value >= 0 and used > value:
+                bad_values.append(_('%(used)s %(key)s used') %
+                                    {'used': used,
+                                     'key': key})
+        if bad_values:
+            value_str = ", ".join(bad_values)
+            msg = (_('Quota value(s) cannot be less than the current usage '
+                     'value(s): %s.') %
+                   value_str)
+            raise forms.ValidationError(msg)
+        return cleaned_data
+
 
 class UpdateProjectQuota(workflows.Step):
     action_class = UpdateProjectQuotaAction
