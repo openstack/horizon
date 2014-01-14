@@ -24,6 +24,35 @@ class HeatApiTests(test.APITestCase):
         heatclient.stacks = self.mox.CreateMockAnything()
         heatclient.stacks.list().AndReturn(iter(api_stacks))
         self.mox.ReplayAll()
-
         stacks = api.heat.stacks_list(self.request)
         self.assertItemsEqual(stacks, api_stacks)
+
+    def test_template_get(self):
+        api_stacks = self.stacks.list()
+        stack_id = api_stacks[0].id
+        mock_data_template = self.stack_templates.list()[0]
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        heatclient.stacks.template(stack_id).AndReturn(mock_data_template)
+        self.mox.ReplayAll()
+
+        template = api.heat.template_get(self.request, stack_id)
+        self.assertEqual(template.data, mock_data_template.data)
+
+    def test_stack_update(self):
+        api_stacks = self.stacks.list()
+        stack = api_stacks[0]
+        stack_id = stack.id
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        form_data = {'timeout_mins': 600}
+        heatclient.stacks.update(stack_id, **form_data).AndReturn(stack)
+        self.mox.ReplayAll()
+
+        returned_stack = api.heat.stack_update(self.request,
+                                            stack_id,
+                                            **form_data)
+        from heatclient.v1 import stacks
+        self.assertIsInstance(returned_stack, stacks.Stack)

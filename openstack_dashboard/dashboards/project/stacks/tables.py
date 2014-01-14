@@ -12,9 +12,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core import urlresolvers
 from django.http import Http404  # noqa
 from django.template.defaultfilters import timesince  # noqa
 from django.template.defaultfilters import title  # noqa
+from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import messages
@@ -32,6 +34,16 @@ class LaunchStack(tables.LinkAction):
     verbose_name = _("Launch Stack")
     url = "horizon:project:stacks:select_template"
     classes = ("btn-create", "ajax-modal")
+
+
+class ChangeStackTemplate(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Change Stack Template")
+    url = "horizon:project:stacks:change_template"
+    classes = ("ajax-modal", "btn-edit")
+
+    def get_link_url(self, stack):
+        return urlresolvers.reverse(self.url, args=[stack.id])
 
 
 class DeleteStack(tables.BatchAction):
@@ -100,7 +112,8 @@ class StacksTable(tables.DataTable):
         status_columns = ["status", ]
         row_class = StacksUpdateRow
         table_actions = (LaunchStack, DeleteStack,)
-        row_actions = (DeleteStack, )
+        row_actions = (DeleteStack,
+                       ChangeStackTemplate)
 
 
 class EventsTable(tables.DataTable):

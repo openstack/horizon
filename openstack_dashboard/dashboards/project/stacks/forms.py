@@ -145,18 +145,39 @@ class TemplateForm(forms.SelfHandlingForm):
 
         return cleaned
 
-    def handle(self, request, data):
+    def create_kwargs(self, data):
         kwargs = {'parameters': data['template_validate'],
                   'template_data': data['template_data'],
                   'template_url': data['template_url']}
+        if data.get('stack_id'):
+            kwargs['stack_id'] = data['stack_id']
+        return kwargs
+
+    def handle(self, request, data):
+        kwargs = self.create_kwargs(data)
         # NOTE (gabriel): This is a bit of a hack, essentially rewriting this
         # request so that we can chain it as an input to the next view...
         # but hey, it totally works.
         request.method = 'GET'
+
         return self.next_view.as_view()(request, **kwargs)
 
 
-class StackCreateForm(forms.SelfHandlingForm):
+class ChangeTemplateForm(TemplateForm):
+    class Meta:
+        name = _('Edit Template')
+        help_text = _('From here you can select a new template to re-launch '
+                      'a stack.')
+    stack_id = forms.CharField(label=_('Stack ID'),
+        widget=forms.widgets.HiddenInput,
+        required=True)
+    stack_name = forms.CharField(label=_('Stack Name'),
+        widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        ))
+
+
+class CreateStackForm(forms.SelfHandlingForm):
 
     param_prefix = '__param_'
 
@@ -193,11 +214,13 @@ class StackCreateForm(forms.SelfHandlingForm):
 
     def __init__(self, *args, **kwargs):
         parameters = kwargs.pop('parameters')
-        super(StackCreateForm, self).__init__(*args, **kwargs)
+        # special case: load template data from API, not passed in params
+        if(kwargs.get('validate_me')):
+            parameters = kwargs.pop('validate_me')
+        super(CreateStackForm, self).__init__(*args, **kwargs)
         self._build_parameter_fields(parameters)
 
     def _build_parameter_fields(self, template_validate):
-
         self.fields['password'] = forms.CharField(
             label=_('Password for user "%s"') % self.request.user.username,
             help_text=_('This is required for operations to be performed '
@@ -267,3 +290,49 @@ class StackCreateForm(forms.SelfHandlingForm):
         except Exception as e:
             msg = exception_to_validation_msg(e)
             exceptions.handle(request, msg or _('Stack creation failed.'))
+
+
+class EditStackForm(CreateStackForm):
+
+    class Meta:
+        name = _('Update Stack Parameters')
+
+    stack_id = forms.CharField(label=_('Stack ID'),
+        widget=forms.widgets.HiddenInput,
+        required=True)
+    stack_name = forms.CharField(label=_('Stack Name'),
+        widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        ))
+
+    @sensitive_variables('password')
+    def handle(self, request, data):
+        prefix_length = len(self.param_prefix)
+        params_list = [(k[prefix_length:], v) for (k, v) in data.iteritems()
+                       if k.startswith(self.param_prefix)]
+
+        stack_id = data.get('stack_id')
+        fields = {
+            'stack_name': data.get('stack_name'),
+            'timeout_mins': data.get('timeout_mins'),
+            'disable_rollback': not(data.get('enable_rollback')),
+            'parameters': dict(params_list),
+            'password': data.get('password')
+        }
+
+        # if the user went directly to this form, resubmit the existing
+        # template data. otherwise, submit what they had from the first form
+        if data.get('template_data'):
+            fields['template'] = data.get('template_data')
+        elif data.get('template_url'):
+            fields['template_url'] = data.get('template_url')
+        elif data.get('parameters'):
+            fields['template'] = data.get('parameters')
+
+        try:
+            api.heat.stack_update(self.request, stack_id=stack_id, **fields)
+            messages.success(request, _("Stack update started."))
+            return True
+        except Exception as e:
+            msg = exception_to_validation_msg(e)
+            exceptions.handle(request, msg or _('Stack update failed.'))

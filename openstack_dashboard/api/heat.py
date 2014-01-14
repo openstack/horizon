@@ -64,8 +64,18 @@ def stack_get(request, stack_id):
     return heatclient(request).stacks.get(stack_id)
 
 
+def template_get(request, stack_id):
+    return heatclient(request).stacks.template(stack_id)
+
+
 def stack_create(request, password=None, **kwargs):
     return heatclient(request, password).stacks.create(**kwargs)
+
+
+def stack_update(request, stack_id, **kwargs):
+    if kwargs.get('password'):
+        kwargs.pop('password')
+    return heatclient(request).stacks.update(stack_id, **kwargs)
 
 
 def events_list(request, stack_name):

@@ -326,6 +326,17 @@ def data(TEST):
                     "05b4f39f-ea96-4d91-910c-e758c078a089",
             "rel": "self"
         }],
+        "parameters": {
+            'DBUsername': '******',
+            'InstanceType': 'm1.small',
+            'AWS::StackId':
+        'arn:openstack:heat::2ce287:stacks/teststack/88553ec',
+            'DBRootPassword': '******',
+            'AWS::StackName': 'teststack',
+            'DBPassword': '******',
+            'AWS::Region': 'ap-southeast-1',
+            'DBName': u'wordpress'
+        },
         "stack_status_reason": "Stack successfully created",
         "stack_name": "stack-test",
         "creation_time": "2013-04-22T00:11:39Z",
