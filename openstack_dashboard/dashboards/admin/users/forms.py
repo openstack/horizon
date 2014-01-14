@@ -90,7 +90,6 @@ class CreateUserForm(BaseUserForm):
         error_messages={'invalid': validators.password_validator_msg()})
     confirm_password = forms.CharField(
         label=_("Confirm Password"),
-        required=False,
         widget=forms.PasswordInput(render_value=False))
     project = forms.DynamicChoiceField(label=_("Primary Project"),
                                        add_item_link=ADD_PROJECT_URL)
