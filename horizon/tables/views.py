@@ -256,7 +256,7 @@ class MixedDataTableView(DataTableView):
         self.table = super(MixedDataTableView, self).get_table()
         if not self.table._meta.mixed_data_type:
             raise AttributeError('You must have at least two elements in '
-                                 'the data_types attibute '
+                                 'the data_types attribute '
                                  'in table %s to use MixedDataTableView.'
                                  % self.table._meta.name)
         return self.table

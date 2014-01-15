@@ -848,7 +848,7 @@ class Workflow(html.HTMLElement):
 
     def add_error_to_step(self, message, slug):
         """Adds an error to the workflow's Step with the
-        specifed slug based on API issues. This is useful
+        specified slug based on API issues. This is useful
         when you wish for API errors to appear as errors on
         the form rather than using the messages framework.
         """
