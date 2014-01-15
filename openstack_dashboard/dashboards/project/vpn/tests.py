@@ -90,8 +90,16 @@ class VPNTests(test.TestCase):
             IsA(http.HttpRequest), ipsecpolicy2.id).AndReturn(ipsecpolicy2)
 
         # retrieves ipsecsiteconnections
+
+        # In unit tests memoized decorator is not called when methods with
+        # memoized decorators are stubbed out.
+        # That's the reason MultipleTimes is needed here.
+
         api.vpn.ipsecsiteconnection_list(
-            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).MultipleTimes() \
+            .AndReturn(self.ipsecsiteconnections.list())
+        api.vpn.ipsecsiteconnection_list(
+            IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(self.ipsecsiteconnections.list())
 
     def set_up_expect_with_exception(self):
@@ -724,3 +732,94 @@ class VPNTests(test.TestCase):
         res = self.client.post(reverse(self.ADDVPNCONNECTION_PATH), form_data)
 
         self.assertFormErrors(res, 1)
+
+    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
+                                  'vpnservice_list',
+                                  'ipsecsiteconnection_list', 'ikepolicy_get',
+                                  'ipsecpolicy_get', 'vpnservice_get',
+                                  'ipsecsiteconnection_get',
+                                  'vpnservice_delete',)})
+    def test_delete_vpnservice(self):
+        self.set_up_expect()
+
+        vpnservice = self.vpnservices.first()
+
+        api.vpn.vpnservice_delete(IsA(http.HttpRequest), vpnservice.id)
+
+        self.mox.ReplayAll()
+
+        form_data = {"action":
+                     "vpnservicestable__deletevpnservice__%s" % vpnservice.id}
+
+        res = self.client.post(self.INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
+                                  'vpnservice_list',
+                                  'ipsecsiteconnection_list', 'ikepolicy_get',
+                                  'ipsecpolicy_get', 'vpnservice_get',
+                                  'ipsecsiteconnection_get',
+                                  'ikepolicy_delete',)})
+    def test_delete_ikepolicy(self):
+        self.set_up_expect()
+
+        ikepolicy = self.ikepolicies.first()
+
+        api.vpn.ikepolicy_delete(IsA(http.HttpRequest), ikepolicy.id)
+
+        self.mox.ReplayAll()
+
+        form_data = {"action":
+                     "ikepoliciestable__deleteikepolicy__%s" % ikepolicy.id}
+
+        res = self.client.post(self.INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
+                                  'vpnservice_list',
+                                  'ipsecsiteconnection_list', 'ikepolicy_get',
+                                  'ipsecpolicy_get', 'vpnservice_get',
+                                  'ipsecsiteconnection_get',
+                                  'ipsecpolicy_delete',)})
+    def test_delete_ipsecpolicy(self):
+        self.set_up_expect()
+
+        ipsecpolicy = self.ipsecpolicies.first()
+
+        api.vpn.ipsecpolicy_delete(IsA(http.HttpRequest), ipsecpolicy.id)
+
+        self.mox.ReplayAll()
+
+        form_data = {"action":
+                     "ipsecpoliciestable__deleteipsecpolicy__%s"
+                     % ipsecpolicy.id}
+
+        res = self.client.post(self.INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
+                                  'vpnservice_list',
+                                  'ipsecsiteconnection_list', 'ikepolicy_get',
+                                  'ipsecpolicy_get', 'vpnservice_get',
+                                  'ipsecsiteconnection_get',
+                                  'ipsecsiteconnection_delete',)})
+    def test_delete_ipsecsiteconnection(self):
+        self.set_up_expect()
+
+        ipsecsiteconnection = self.ipsecsiteconnections.first()
+
+        api.vpn.ipsecsiteconnection_delete(
+            IsA(http.HttpRequest), ipsecsiteconnection.id)
+
+        self.mox.ReplayAll()
+
+        form_data = {"action":
+                     "ipsecsiteconnectionstable__deleteipsecsiteconnection__%s"
+                     % ipsecsiteconnection.id}
+
+        res = self.client.post(self.INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)

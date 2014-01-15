@@ -59,6 +59,11 @@ class DeleteVPNServiceLink(tables.DeleteAction):
     data_type_singular = _("VPN Service")
     data_type_plural = _("VPN Services")
 
+    def allowed(self, request, datum=None):
+        if datum and datum.ipsecsiteconns:
+            return False
+        return True
+
 
 class DeleteIKEPolicyLink(tables.DeleteAction):
     name = "deleteikepolicy"
@@ -67,6 +72,11 @@ class DeleteIKEPolicyLink(tables.DeleteAction):
     data_type_singular = _("IKE Policy")
     data_type_plural = _("IKE Policies")
 
+    def allowed(self, request, datum=None):
+        if datum and datum.ipsecsiteconns:
+            return False
+        return True
+
 
 class DeleteIPSecPolicyLink(tables.DeleteAction):
     name = "deleteipsecpolicy"
@@ -74,6 +84,11 @@ class DeleteIPSecPolicyLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("IPSec Policy")
     data_type_plural = _("IPSec Policies")
+
+    def allowed(self, request, datum=None):
+        if datum and datum.ipsecsiteconns:
+            return False
+        return True
 
 
 class DeleteIPSecSiteConnectionLink(tables.DeleteAction):

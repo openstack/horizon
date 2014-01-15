@@ -61,7 +61,7 @@ class IPSecSiteConnectionsTab(tabs.TableTab):
             ipsecsiteconnections = api.vpn.ipsecsiteconnection_list(
                 self.tab_group.request, tenant_id=tenant_id)
             ipsecsiteconnectionsFormatted = [s.readable(self.tab_group.request)
-                for s in ipsecsiteconnections]
+                                             for s in ipsecsiteconnections]
         except Exception:
             ipsecsiteconnectionsFormatted = []
             exceptions.handle(self.tab_group.request,
@@ -80,8 +80,8 @@ class VPNServicesTab(tabs.TableTab):
             tenant_id = self.request.user.tenant_id
             vpnservices = api.vpn.vpnservice_list(
                 self.tab_group.request, tenant_id=tenant_id)
-            vpnservicesFormatted = [s.readable(self.tab_group.request) for
-                              s in vpnservices]
+            vpnservicesFormatted = [s.readable(self.tab_group.request)
+                                    for s in vpnservices]
         except Exception:
             vpnservicesFormatted = []
             exceptions.handle(self.tab_group.request,
@@ -100,11 +100,13 @@ class IKEPoliciesTab(tabs.TableTab):
             tenant_id = self.request.user.tenant_id
             ikepolicies = api.vpn.ikepolicy_list(
                 self.tab_group.request, tenant_id=tenant_id)
+            ikepoliciesFormatted = [s.readable(self.tab_group.request)
+                                    for s in ikepolicies]
         except Exception:
-            ikepolicies = []
+            ikepoliciesFormatted = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve IKE Policies list.'))
-        return ikepolicies
+        return ikepoliciesFormatted
 
 
 class IPSecPoliciesTab(tabs.TableTab):
@@ -118,11 +120,13 @@ class IPSecPoliciesTab(tabs.TableTab):
             tenant_id = self.request.user.tenant_id
             ipsecpolicies = api.vpn.ipsecpolicy_list(
                 self.tab_group.request, tenant_id=tenant_id)
+            ipsecpoliciesFormatted = [s.readable(self.tab_group.request)
+                                      for s in ipsecpolicies]
         except Exception:
-            ipsecpolicies = []
+            ipsecpoliciesFormatted = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve IPSec Policies list.'))
-        return ipsecpolicies
+        return ipsecpoliciesFormatted
 
 
 class VPNTabs(tabs.TabGroup):

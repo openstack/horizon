@@ -33,7 +33,7 @@ from openstack_dashboard.dashboards.project.vpn import \
 import re
 
 
-class IndexView(tabs.TabbedTableView):
+class IndexView(tabs.TabView):
     tab_group_class = vpn_tabs.VPNTabs
     template_name = 'project/vpn/index.html'
 
