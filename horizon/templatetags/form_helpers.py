@@ -10,56 +10,49 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django import forms
+import django.forms
 from django import template as django_template
 
 register = django_template.Library()
 
 
 @register.filter
-def bootstrap_form_field(element):
-    markup_classes = {'label': '', 'value': '', 'single_value': ''}
-    return render(element, markup_classes)
+def add_bootstrap_class(field):
+    """Add a "form-control" CSS class to the field's widget.
 
-
-def add_input_classes(field):
-    if (not is_checkbox(field) and
-            not is_multiple_checkbox(field) and
-            not is_radio(field) and
-            not is_file(field)):
-        field_classes = field.field.widget.attrs.get('class', '')
-        field_classes += ' form-control'
-        field.field.widget.attrs['class'] = field_classes
-
-
-def render(element, markup_classes):
-    add_input_classes(element)
-    template = django_template.loader.get_template(
-        "horizon/common/_bootstrap_form_field.html")
-    context = django_template.Context({'field': element,
-                                       'classes': markup_classes})
-
-    return template.render(context)
+    This is so that Bootstrap styles it properly.
+    """
+    if not isinstance(field, (
+        django.forms.CheckboxInput,
+        django.forms.CheckboxSelectMultiple,
+        django.forms.RadioSelect,
+        django.forms.FileInput,
+        str,
+    )):
+        field_classes = set(field.field.widget.attrs.get('class', '').split())
+        field_classes.add('form-control')
+        field.field.widget.attrs['class'] = ' '.join(field_classes)
+    return field
 
 
 @register.filter
 def is_checkbox(field):
-    return isinstance(field.field.widget, forms.CheckboxInput)
+    return isinstance(field.field.widget, django.forms.CheckboxInput)
 
 
 @register.filter
 def is_multiple_checkbox(field):
-    return isinstance(field.field.widget, forms.CheckboxSelectMultiple)
+    return isinstance(field.field.widget, django.forms.CheckboxSelectMultiple)
 
 
 @register.filter
 def is_radio(field):
-    return isinstance(field.field.widget, forms.RadioSelect)
+    return isinstance(field.field.widget, django.forms.RadioSelect)
 
 
 @register.filter
 def is_file(field):
-    return isinstance(field.field.widget, forms.FileInput)
+    return isinstance(field.field.widget, django.forms.FileInput)
 
 
 @register.filter

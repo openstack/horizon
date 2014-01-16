@@ -1,0 +1,13 @@
+{% for hidden in form.hidden_fields %}
+  {{ hidden }}
+{% endfor %}
+{% if form.warnings %}
+  <div class="alert alert-message alert-warning">
+    {{ form.warnings }}
+  </div>
+{% endif %}
+{% if form.non_field_errors %}
+  <div class="alert alert-message alert-danger">
+    {{ form.non_field_errors }}
+  </div>
+{% endif %}
