@@ -23,6 +23,9 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.databases \
+    import tables as project_tables
+
 
 LOG = logging.getLogger(__name__)
 
@@ -48,7 +51,8 @@ class BackupDetailsAction(workflows.Action):
             instances = []
             msg = _("Unable to list database instance to backup.")
             exceptions.handle(request, msg)
-        return [(i.id, i.name) for i in instances]
+        return [(i.id, i.name) for i in instances
+                if i.status in project_tables.ACTIVE_STATES]
 
 
 class SetBackupDetails(workflows.Step):

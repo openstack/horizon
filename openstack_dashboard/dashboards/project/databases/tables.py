@@ -105,7 +105,8 @@ class CreateBackup(tables.LinkAction):
     classes = ("ajax-modal", "btn-camera")
 
     def allowed(self, request, instance=None):
-        return request.user.has_perm('openstack.services.object-store')
+        return (instance.status in ACTIVE_STATES and
+                request.user.has_perm('openstack.services.object-store'))
 
     def get_link_url(self, datam):
         url = urlresolvers.reverse(self.url)
