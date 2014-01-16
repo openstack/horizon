@@ -45,11 +45,16 @@ class CreateFlavorInfoAction(workflows.Action):
                              required=False,
                              initial='auto',
                              help_text=_flavor_id_help_text)
-    vcpus = forms.IntegerField(label=_("VCPUs"))
-    memory_mb = forms.IntegerField(label=_("RAM MB"))
-    disk_gb = forms.IntegerField(label=_("Root Disk GB"))
-    eph_gb = forms.IntegerField(label=_("Ephemeral Disk GB"))
-    swap_mb = forms.IntegerField(label=_("Swap Disk MB"))
+    vcpus = forms.IntegerField(label=_("VCPUs"),
+                            min_value=1)
+    memory_mb = forms.IntegerField(label=_("RAM MB"),
+                            min_value=1)
+    disk_gb = forms.IntegerField(label=_("Root Disk GB"),
+                            min_value=0)
+    eph_gb = forms.IntegerField(label=_("Ephemeral Disk GB"),
+                            min_value=0)
+    swap_mb = forms.IntegerField(label=_("Swap Disk MB"),
+                            min_value=0)
 
     class Meta:
         name = _("Flavor Info")
