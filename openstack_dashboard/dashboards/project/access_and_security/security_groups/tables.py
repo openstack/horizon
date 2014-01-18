@@ -24,11 +24,30 @@ from openstack_dashboard import api
 from openstack_dashboard.utils import filters
 
 
+POLICY_CHECK = getattr(settings, "POLICY_CHECK_FUNCTION",
+                       lambda policy, request, target: True)
+
+
 class DeleteGroup(tables.DeleteAction):
     data_type_singular = _("Security Group")
     data_type_plural = _("Security Groups")
 
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
+
     def allowed(self, request, security_group=None):
+        policy_target = self.get_policy_target(request, security_group)
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "delete_security_group"),)
+        else:
+            policy = (("compute", "compute_extension:security_groups"),)
+
+        if not POLICY_CHECK(policy, request, policy_target):
+            return False
+
         if not security_group:
             return True
         return security_group.name != 'default'
@@ -43,6 +62,14 @@ class CreateGroup(tables.LinkAction):
     url = "horizon:project:access_and_security:security_groups:create"
     classes = ("ajax-modal", "btn-create")
 
+    def allowed(self, request, security_group=None):
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "create_security_group"),)
+        else:
+            policy = (("compute", "compute_extension:security_groups"),)
+
+        return POLICY_CHECK(policy, request, target={})
+
 
 class EditGroup(tables.LinkAction):
     name = "edit"
@@ -50,7 +77,22 @@ class EditGroup(tables.LinkAction):
     url = "horizon:project:access_and_security:security_groups:update"
     classes = ("ajax-modal", "btn-edit")
 
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
+
     def allowed(self, request, security_group=None):
+        policy_target = self.get_policy_target(request, security_group)
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "update_security_group"),)
+        else:
+            policy = (("compute", "compute_extension:security_groups"),)
+
+        if not POLICY_CHECK(policy, request, policy_target):
+            return False
+
         if not security_group:
             return True
         return security_group.name != 'default'
@@ -61,6 +103,21 @@ class ManageRules(tables.LinkAction):
     verbose_name = _("Manage Rules")
     url = "horizon:project:access_and_security:security_groups:detail"
     classes = ("btn-edit")
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
+
+    def allowed(self, request, security_group=None):
+        policy_target = self.get_policy_target(request, security_group)
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "get_security_group"),)
+        else:
+            policy = (("compute", "compute_extension:security_groups"),)
+
+        return POLICY_CHECK(policy, request, policy_target)
 
 
 class SecurityGroupsTable(tables.DataTable):
@@ -83,6 +140,14 @@ class CreateRule(tables.LinkAction):
     url = "horizon:project:access_and_security:security_groups:add_rule"
     classes = ("ajax-modal", "btn-create")
 
+    def allowed(self, request, security_group_rule=None):
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "create_security_group_rule"),)
+        else:
+            policy = (("compute", "compute_extension:security_groups"),)
+
+        return POLICY_CHECK(policy, request, target={})
+
     def get_link_url(self):
         return reverse(self.url, args=[self.table.kwargs['security_group_id']])
 
@@ -90,6 +155,14 @@ class CreateRule(tables.LinkAction):
 class DeleteRule(tables.DeleteAction):
     data_type_singular = _("Rule")
     data_type_plural = _("Rules")
+
+    def allowed(self, request, security_group_rule=None):
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "delete_security_group_rule"),)
+        else:
+            policy = (("compute", "compute_extension:security_groups"),)
+
+        return POLICY_CHECK(policy, request, target={})
 
     def delete(self, request, obj_id):
         api.network.security_group_rule_delete(request, obj_id)
