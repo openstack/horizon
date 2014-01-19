@@ -18,6 +18,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
+from django.core.urlresolvers import reverse  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -70,7 +72,8 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
         return {'flavor_id': self.kwargs['id']}
 
     def get_success_url(self):
-        return "/admin/flavors/%s/extras/" % (self.kwargs['id'])
+        return reverse("horizon:admin:flavors:extras:index",
+                       args=(self.kwargs["id"],))
 
 
 class EditView(ExtraSpecMixin, forms.ModalFormView):
