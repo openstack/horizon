@@ -21,7 +21,6 @@ from django import http
 from horizon.workflows import views
 
 from openstack_dashboard import api
-from openstack_dashboard.api import lbaas
 from openstack_dashboard.test import helpers as test
 
 from openstack_dashboard.dashboards.project.loadbalancers import workflows
@@ -208,24 +207,17 @@ class LoadBalancerTests(test.TestCase):
         api.neutron.provider_list(IsA(http.HttpRequest)) \
             .AndReturn(self.providers.list())
 
-        api.lbaas.pool_create(
-            IsA(http.HttpRequest),
-            name=pool.name,
-            description=pool.description,
-            subnet_id=pool.subnet_id,
-            protocol=pool.protocol,
-            lb_method=pool.lb_method,
-            admin_state_up=pool.admin_state_up,
-            provider=pool.provider).AndReturn(pool)
-
-        self.mox.ReplayAll()
-
         form_data = {'name': pool.name,
                      'description': pool.description,
                      'subnet_id': pool.subnet_id,
                      'protocol': pool.protocol,
                      'lb_method': pool.lb_method,
                      'admin_state_up': pool.admin_state_up}
+
+        api.lbaas.pool_create(
+            IsA(http.HttpRequest), **form_data).AndReturn(pool)
+
+        self.mox.ReplayAll()
 
         res = self.client.post(reverse(self.ADDPOOL_PATH), form_data)
 
@@ -409,20 +401,6 @@ class LoadBalancerTests(test.TestCase):
     def test_add_monitor_post(self):
         monitor = self.monitors.first()
 
-        api.lbaas.pool_health_monitor_create(
-            IsA(http.HttpRequest),
-            type=monitor.type,
-            delay=monitor.delay,
-            timeout=monitor.timeout,
-            max_retries=monitor.max_retries,
-            http_method=monitor.http_method,
-            url_path=monitor.url_path,
-            expected_codes=monitor.expected_codes,
-            admin_state_up=monitor.admin_state_up).AndReturn(
-                lbaas.PoolMonitor(monitor))
-
-        self.mox.ReplayAll()
-
         form_data = {'type': monitor.type,
                      'delay': monitor.delay,
                      'timeout': monitor.timeout,
@@ -431,6 +409,11 @@ class LoadBalancerTests(test.TestCase):
                      'url_path': monitor.url_path,
                      'expected_codes': monitor.expected_codes,
                      'admin_state_up': monitor.admin_state_up}
+
+        api.lbaas.pool_health_monitor_create(
+            IsA(http.HttpRequest), **form_data).AndReturn(monitor)
+
+        self.mox.ReplayAll()
 
         res = self.client.post(reverse(self.ADDMONITOR_PATH), form_data)
 
@@ -519,7 +502,7 @@ class LoadBalancerTests(test.TestCase):
         if with_weight:
             params['weight'] = member.weight
         api.lbaas.member_create(IsA(http.HttpRequest),
-                                **params).AndReturn(lbaas.Member(member))
+                                **params).AndReturn(member)
 
         self.mox.ReplayAll()
 
@@ -774,19 +757,15 @@ class LoadBalancerTests(test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(monitors)
 
-        api.lbaas.pool_monitor_association_create(
-            IsA(http.HttpRequest),
-            monitor_id=monitor.id,
-            pool_id=pool.id,
-            pool_monitors=pool.health_monitors,
-            pool_name=pool.name).AndReturn(None)
-
-        self.mox.ReplayAll()
-
         form_data = {'monitor_id': monitor.id,
                      'pool_id': pool.id,
                      'pool_monitors': pool.health_monitors,
                      'pool_name': pool.name}
+
+        api.lbaas.pool_monitor_association_create(
+            IsA(http.HttpRequest), **form_data).AndReturn(None)
+
+        self.mox.ReplayAll()
 
         res = self.client.post(
             reverse(self.ADDASSOC_PATH, args=(pool.id,)), form_data)
@@ -827,19 +806,15 @@ class LoadBalancerTests(test.TestCase):
         api.lbaas.pool_health_monitor_list(
             IsA(http.HttpRequest)).AndReturn(monitors)
 
-        api.lbaas.pool_monitor_association_delete(
-            IsA(http.HttpRequest),
-            monitor_id=monitor.id,
-            pool_id=pool.id,
-            pool_monitors=pool.health_monitors,
-            pool_name=pool.name).AndReturn(None)
-
-        self.mox.ReplayAll()
-
         form_data = {'monitor_id': monitor.id,
                      'pool_id': pool.id,
                      'pool_monitors': pool.health_monitors,
                      'pool_name': pool.name}
+
+        api.lbaas.pool_monitor_association_delete(
+            IsA(http.HttpRequest), **form_data).AndReturn(None)
+
+        self.mox.ReplayAll()
 
         res = self.client.post(
             reverse(self.DELETEASSOC_PATH, args=(pool.id,)), form_data)
