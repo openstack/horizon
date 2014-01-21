@@ -38,7 +38,7 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(resp, "admin/flavors/extras/index.html")
 
     @test.create_stubs({api.nova: ('flavor_extra_set', ), })
-    def test_extra_create_post(self):
+    def _generic_extra_create_post(self, key_name):
         flavor = self.flavors.first()
         create_url = reverse('horizon:admin:flavors:extras:create',
                              args=[flavor.id])
@@ -48,16 +48,16 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         # GET to display the flavor_name
         api.nova.flavor_extra_set(IsA(http.HttpRequest),
                                   flavor.id,
-                                  {'k1': 'v1'})
+                                  {key_name: 'v1'})
         self.mox.ReplayAll()
 
         data = {'flavor_id': flavor.id,
-                'key': 'k1',
+                'key': key_name,
                 'value': 'v1'}
         resp = self.client.post(create_url, data)
         self.assertNoFormErrors(resp)
-        self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(resp, index_url)
+        self.mox.UnsetStubs()
 
     @test.create_stubs({api.nova: ('flavor_get', ), })
     def test_extra_create_get(self):
@@ -72,3 +72,33 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp,
                                 'admin/flavors/extras/create.html')
+
+    @test.create_stubs({api.nova: ('flavor_get', ), })
+    def _generic_extra_create_names_format_fail(self, key_name):
+        flavor = self.flavors.first()
+        create_url = reverse('horizon:admin:flavors:extras:create',
+                             args=[flavor.id])
+        api.nova.flavor_get(IsA(http.HttpRequest), flavor.id).AndReturn(flavor)
+
+        self.mox.ReplayAll()
+
+        data = {'flavor_id': flavor.id,
+                'key': key_name,
+                'value': 'v1'}
+
+        resp = self.client.post(create_url, data)
+        msg = ('Name may only contain letters, numbers, underscores, periods, '
+              'colons, spaces and hyphens.')
+
+        self.assertFormErrors(resp, 1, msg)
+        self.mox.UnsetStubs()
+
+    def test_create_extra_key_names_valid_formats(self):
+        valid_keys = ("key1", "month.price", "I-Am:AK-ey. 22-")
+        for x in valid_keys:
+            self._generic_extra_create_post(key_name=x)
+
+    def test_create_extra_key_names_invalid_formats(self):
+        invalid_keys = ("key1/", "<key>", "$$akey$", "!akey")
+        for x in invalid_keys:
+            self._generic_extra_create_names_format_fail(key_name=x)
