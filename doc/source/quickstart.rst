@@ -2,6 +2,23 @@
 Horizon Quickstart
 ==================
 
+..  Note ::
+
+    This section has been tested for Horizon on Ubuntu (12.04-64) and Fedora-based (RHEL 6.4) distributions. Feel free to add notes and any changes according to your experiences or operating system.
+
+Linux Systems
+=============
+
+Install the prerequisite packages.
+
+On Ubuntu::
+
+    > sudo apt-get install git python-dev python-virtualenv
+
+On Fedora-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)::
+
+    > sudo yum install gcc git-core python-devel python-virtualenv openssl-devel
+
 Setup
 =====
 
