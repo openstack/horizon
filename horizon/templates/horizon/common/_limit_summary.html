@@ -47,7 +47,7 @@
     <div class="d3_quota_bar">
       <div class="d3_pie_chart" data-used="{% widthratio usage.limits.totalGigabytesUsed usage.limits.maxTotalVolumeGigabytes 100 %}"></div>
       <strong>{% trans "Volume Storage" %} <br />
-        {% blocktrans with used=usage.limits.totalGigabytesUsed|diskgbformat available=usage.limits.maxTotalVolumeGigabytes|diskgbformat %}Used <span> {{ used }} </span> of <span> {{ available  }} </span>{% endblocktrans %}
+        {% blocktrans with used=usage.limits.totalGigabytesUsed|diskgbformat available=usage.limits.maxTotalVolumeGigabytes|quotainf|diskgbformat %}Used <span> {{ used }} </span> of <span> {{ available  }} </span>{% endblocktrans %}
       </strong>
     </div>
   {% endif %}

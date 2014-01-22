@@ -64,26 +64,25 @@ def filesizeformat(bytes, filesize_number_format):
             filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024 * 1024))
 
 
+def float_cast_filesizeformat(value, multiplier=1, format=int_format):
+    try:
+        value = float(value)
+        value = filesizeformat(value * multiplier, format).replace(' ', '')
+    except (TypeError, ValueError):
+        value = value or '0 bytes'
+    return value
+
+
 @register.filter(name='mbformat')
 def mbformat(mb):
-    if not mb:
-        return 0
-    return filesizeformat(mb * 1024 * 1024, int_format).replace(' ', '')
+    return float_cast_filesizeformat(mb, 1024 * 1024, int_format)
 
 
 @register.filter(name='mb_float_format')
 def mb_float_format(mb):
-    """Takes a size value in mb, and prints returns the data in a
-    saner unit.
-    """
-    if not mb:
-        return 0
-    return filesizeformat(mb * 1024 * 1024, float_format)
+    return float_cast_filesizeformat(mb, 1024 * 1024, float_format)
 
 
 @register.filter(name='diskgbformat')
 def diskgbformat(gb):
-    if not gb:
-        gb = 0
-    return filesizeformat(gb * 1024 * 1024 * 1024,
-                          float_format).replace(' ', '')
+    return float_cast_filesizeformat(gb, 1024 * 1024 * 1024, float_format)
