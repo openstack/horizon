@@ -531,7 +531,13 @@ horizon.network_topology = {
         return $0.toUpperCase();
       }),
       status:d.status,
-      status_class:(d.status === "ACTIVE")? 'active' : 'down'
+      status_class:(d.status === "ACTIVE")? 'active' : 'down',
+      status_label: gettext("STATUS"),
+      id_label: gettext("ID"),
+      interfaces_label: gettext("Interfaces"),
+      interface_label: gettext("Interface"),
+      open_console_label: gettext("open console"),
+      view_details_label: interpolate(gettext("view %s details"), [d.type])
     };
     if (d.type === 'router') {
       html_data.port = ports;
