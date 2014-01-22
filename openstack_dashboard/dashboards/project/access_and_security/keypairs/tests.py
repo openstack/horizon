@@ -126,7 +126,7 @@ class KeyPairViewTests(test.TestCase):
         url = reverse('horizon:project:access_and_security:keypairs:import')
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
-        msg = 'Unable to import keypair.'
+        msg = 'Unable to import key pair.'
         self.assertFormErrors(res, count=1, message=msg)
 
     def test_import_keypair_invalid_key_name(self):

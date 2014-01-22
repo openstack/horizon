@@ -408,9 +408,9 @@ KEYPAIR_IMPORT_URL = "horizon:project:access_and_security:keypairs:import"
 
 
 class SetAccessControlsAction(workflows.Action):
-    keypair = forms.DynamicChoiceField(label=_("Keypair"),
+    keypair = forms.DynamicChoiceField(label=_("Key Pair"),
                                        required=False,
-                                       help_text=_("Which keypair to use for "
+                                       help_text=_("Which key pair to use for "
                                                    "authentication."),
                                        add_item_link=KEYPAIR_IMPORT_URL)
     admin_pass = forms.RegexField(
@@ -432,7 +432,7 @@ class SetAccessControlsAction(workflows.Action):
 
     class Meta:
         name = _("Access & Security")
-        help_text = _("Control access to your instance via keypairs, "
+        help_text = _("Control access to your instance via key pairs, "
                       "security groups, and other mechanisms.")
 
     def __init__(self, request, *args, **kwargs):
@@ -448,13 +448,13 @@ class SetAccessControlsAction(workflows.Action):
         except Exception:
             keypair_list = []
             exceptions.handle(request,
-                              _('Unable to retrieve keypairs.'))
+                              _('Unable to retrieve key pairs.'))
         if keypair_list:
             if len(keypair_list) == 1:
                 self.fields['keypair'].initial = keypair_list[0][0]
-            keypair_list.insert(0, ("", _("Select a keypair")))
+            keypair_list.insert(0, ("", _("Select a key pair")))
         else:
-            keypair_list = (("", _("No keypairs available")),)
+            keypair_list = (("", _("No key pairs available")),)
         return keypair_list
 
     def populate_groups_choices(self, request, context):

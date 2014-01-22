@@ -264,7 +264,7 @@ def data(TEST):
              "flavor_id": "dddddddd-dddd-dddd-dddd-dddddddddddd"})
     TEST.flavor_access.add(flavor_access_1, flavor_access_2)
 
-    # Keypairs
+    # Key pairs
     keypair = keypairs.Keypair(keypairs.KeypairManager(None),
                                dict(name='keyName'))
     TEST.keypairs.add(keypair)

@@ -70,7 +70,7 @@ class GenerateView(View):
         except Exception:
             redirect = reverse('horizon:project:access_and_security:index')
             exceptions.handle(self.request,
-                              _('Unable to create keypair: %(exc)s'),
+                              _('Unable to create key pair: %(exc)s'),
                               redirect=redirect)
 
         response = http.HttpResponse(mimetype='application/binary')
