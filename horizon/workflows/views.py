@@ -164,7 +164,7 @@ class WorkflowView(generic.TemplateView):
                                        validate_step_start,
                                        validate_step_end)
             return http.HttpResponse(json.dumps(data),
-                                     mimetype="application/json")
+                                     content_type="application/json")
         if workflow.is_valid():
             try:
                 success = workflow.finalize()
