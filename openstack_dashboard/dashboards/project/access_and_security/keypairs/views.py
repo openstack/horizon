@@ -73,7 +73,7 @@ class GenerateView(View):
                               _('Unable to create key pair: %(exc)s'),
                               redirect=redirect)
 
-        response = http.HttpResponse(mimetype='application/binary')
+        response = http.HttpResponse(content_type='application/binary')
         response['Content-Disposition'] = \
                 'attachment; filename=%s.pem' % slugify(keypair.name)
         response.write(keypair.private_key)

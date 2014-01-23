@@ -206,4 +206,4 @@ class SamplesView(TemplateView):
         ret['settings'] = {}
 
         return HttpResponse(json.dumps(ret),
-            mimetype='application/json')
+            content_type='application/json')

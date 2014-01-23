@@ -134,7 +134,7 @@ def console(request, instance_id):
     except Exception:
         data = _('Unable to get log for instance "%s".') % instance_id
         exceptions.handle(request, ignore=True)
-    response = http.HttpResponse(mimetype='text/plain')
+    response = http.HttpResponse(content_type='text/plain')
     response.write(data)
     response.flush()
     return response
