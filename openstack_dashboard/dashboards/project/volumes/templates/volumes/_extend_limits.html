@@ -1,0 +1,25 @@
+{% load i18n horizon humanize %}
+
+<h3>{% trans "Description" %}:</h3>
+
+<p>{% trans "From here you can extend the size of a volume." %}</p>
+
+<h3>{% trans "Volume Limits" %}</h3>
+
+<div class="quota_title clearfix">
+  <strong>{% trans "Total Gigabytes" %} <span>({{ usages.gigabytesUsed|intcomma }} {% trans "GB" %})</span></strong>
+  <p>{{ usages.maxTotalVolumeGigabytes|quota:_("GB")|intcomma }}</p>
+</div>
+
+<div id="quota_size" data-progress-indicator-for="id_new_size" data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}" data-quota-used="{{ usages.gigabytesUsed }}" class="quota_bar">
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  if(typeof horizon.Quota !== 'undefined') {
+    horizon.Quota.init();
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.Quota.init();
+    });
+  }
+</script>

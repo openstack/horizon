@@ -859,3 +859,53 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_get',
+                                 'volume_extend')})
+    def test_extend_volume(self):
+        volume = self.volumes.first()
+        formData = {'name': u'A Volume I Am Making',
+                    'orig_size': volume.size,
+                    'new_size': 100}
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).\
+                          AndReturn(self.volumes.first())
+
+        cinder.volume_extend(IsA(http.HttpRequest),
+                             volume.id,
+                             formData['new_size']).AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:extend',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+
+        redirect_url = reverse('horizon:project:volumes:index')
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+    @test.create_stubs({cinder: ('volume_get',),
+                        quotas: ('tenant_limit_usages',)})
+    def test_extend_volume_with_wrong_size(self):
+        volume = self.volumes.first()
+        usage_limit = {'maxTotalVolumeGigabytes': 100,
+                       'gigabytesUsed': 20,
+                       'volumesUsed': len(self.volumes.list()),
+                       'maxTotalVolumes': 6}
+        formData = {'name': u'A Volume I Am Making',
+                    'orig_size': volume.size,
+                    'new_size': 10}
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).\
+            AndReturn(self.volumes.first())
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+            AndReturn(usage_limit)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:extend',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+        self.assertFormError(res, 'form', None,
+                             "New size for extend must be greater than "
+                             "current size.")
