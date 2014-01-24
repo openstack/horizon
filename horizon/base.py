@@ -474,7 +474,7 @@ class Dashboard(Registry, HorizonComponent):
         _decorate_urlconf(urlpatterns, require_perms, permissions)
         _decorate_urlconf(urlpatterns, _current_component, dashboard=self)
 
-        # Return the three arguments to django.conf.urls.defaults.include
+        # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.slug, self.slug
 
     def _autodiscover(self):
@@ -760,7 +760,7 @@ class Site(Registry, HorizonComponent):
             urlpatterns += patterns('',
                     url(r'^%s/' % dash.slug, include(dash._decorated_urls)))
 
-        # Return the three arguments to django.conf.urls.defaults.include
+        # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.namespace, self.slug
 
     def _autodiscover(self):
