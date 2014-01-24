@@ -131,6 +131,8 @@ class AddIKEPolicyAction(workflows.Action):
 
         auth_algorithm_choices = [("sha1", "sha1")]
         self.fields['auth_algorithm'].choices = auth_algorithm_choices
+        # Currently this field has only one choice, so mark it as readonly.
+        self.fields['auth_algorithm'].widget.attrs['readonly'] = True
 
         encryption_algorithm_choices = [("3des", "3des"),
                                         ("aes-128", "aes-128"),
@@ -139,8 +141,6 @@ class AddIKEPolicyAction(workflows.Action):
         self.fields[
             'encryption_algorithm'].choices = encryption_algorithm_choices
         self.fields['encryption_algorithm'].initial = "aes-128"
-        # Currently this field has only one choice, so mark it as readonly.
-        self.fields['encryption_algorithm'].widget.attrs['readonly'] = True
 
         ike_version_choices = [("v1", "v1"),
                                ("v2", "v2")]

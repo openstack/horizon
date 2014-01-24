@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Edit IPSec Policy" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Edit IPSec Policy") %}
+{% endblock page_header %}
+
+{% block main %}
+  {% include 'project/vpn/_update_ipsecpolicy.html' %}
+{% endblock %}
