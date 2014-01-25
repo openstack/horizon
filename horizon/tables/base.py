@@ -1087,7 +1087,7 @@ class DataTable(object):
                                     and request_method == 'GET'
                                     and action.needs_preloading)
                 valid_method = (request_method == action.method)
-                if (filter_string and valid_method) or needs_preloading:
+                if valid_method or needs_preloading:
                     if self._meta.mixed_data_type:
                         self._filtered_data = action.data_type_filter(self,
                                                                 self.data,

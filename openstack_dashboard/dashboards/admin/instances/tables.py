@@ -69,11 +69,27 @@ class AdminUpdateRow(project_tables.UpdateRow):
 
 
 class AdminInstanceFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (('project', _("Project")),
+                      ('name', _("Name"))
+                      )
+    needs_preloading = True
+
     def filter(self, table, instances, filter_string):
-        """Naive case-insensitive search."""
-        q = filter_string.lower()
-        return [instance for instance in instances
-                if q in instance.name.lower()]
+        """Server side search.
+        When filtering is supported in the api, then we will handle in view
+        """
+        filter_field = table.request.POST.get('instances__filter__q_field')
+        self.filter_field = filter_field
+        self.filter_string = filter_string
+        if filter_field == 'project' and filter_string:
+            return [inst for inst in instances
+                    if inst.tenant_name == filter_string]
+        if filter_field == 'name' and filter_string:
+            q = filter_string.lower()
+            return [instance for instance in instances
+                    if q in instance.name.lower()]
+        return instances
 
 
 class AdminInstancesTable(tables.DataTable):
