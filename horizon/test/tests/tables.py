@@ -65,6 +65,11 @@ TEST_DATA_5 = (
                'down', 'optional_1'),
 )
 
+TEST_DATA_6 = (
+    FakeObject('1', 'object_1', 'DELETED', 'down'),
+    FakeObject('2', 'object_2', 'CREATED', 'up'),
+)
+
 
 class MyLinkAction(tables.LinkAction):
     name = "login"
@@ -93,6 +98,13 @@ class MyAction(tables.Action):
 
 class MyColumn(tables.Column):
     pass
+
+
+class MyRowSelectable(tables.Row):
+    ajax = True
+
+    def can_be_selected(self, datum):
+        return datum.value != 'DELETED'
 
 
 class MyRow(tables.Row):
@@ -196,6 +208,15 @@ class MyTable(tables.DataTable):
         column_class = MyColumn
         table_actions = (MyFilterAction, MyAction, MyBatchAction)
         row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
+
+
+class MyTableSelectable(MyTable):
+    class Meta:
+        name = "my_table"
+        columns = ('id', 'name', 'value', 'status')
+        row_class = MyRowSelectable
+        status_columns = ["status"]
+        multi_select = True
 
 
 class MyTableNotAllowedInlineEdit(MyTable):
@@ -1012,6 +1033,63 @@ class DataTableTests(test.TestCase):
         self.assertEqual(handled["location"], "/my_url/")
         self.assertEqual(list(req._messages)[0].message,
                         u"Downed Item: N/A")
+
+    def test_table_column_can_be_selected(self):
+        self.table = MyTableSelectable(self.request, TEST_DATA_6)
+        #non selectable row
+        row = self.table.get_rows()[0]
+        #selectable
+        row1 = self.table.get_rows()[1]
+
+        id_col = self.table.columns['id']
+        name_col = self.table.columns['name']
+        value_col = self.table.columns['value']
+        # transform
+        self.assertEqual(row.cells['id'].data, '1')  # Standard attr access
+        self.assertEqual(row.cells['name'].data, 'custom object_1')  # Callable
+        # name and verbose_name
+        self.assertEqual(unicode(id_col), "Id")
+        self.assertEqual(unicode(name_col), "Verbose Name")
+        self.assertIn("sortable", name_col.get_final_attrs().get('class', ""))
+        # hidden
+        self.assertEqual(id_col.hidden, True)
+        self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
+        self.assertEqual(name_col.hidden, False)
+        self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
+        # link, link_classes and get_link_url
+        self.assertIn('href="http://example.com/"', row.cells['value'].value)
+        self.assertIn('class="link-modal"', row.cells['value'].value)
+        self.assertIn('href="/auth/login/"', row.cells['status'].value)
+        # classes
+        self.assertEqual(value_col.get_final_attrs().get('class', ""),
+                         "green blue sortable anchor normal_column")
+
+        self.assertQuerysetEqual(row.get_cells(),
+                                 ['<Cell: multi_select, my_table__row__1>',
+                                  '<Cell: id, my_table__row__1>',
+                                  '<Cell: name, my_table__row__1>',
+                                  '<Cell: value, my_table__row__1>',
+                                  '<Cell: status, my_table__row__1>',
+                                  ])
+        #can_be_selected = False
+        self.assertTrue(row.get_cells()[0].data == "")
+        #can_be_selected = True
+        self.assertIn('checkbox', row1.get_cells()[0].data)
+        #status
+        cell_status = row.cells['status'].status
+        self.assertEqual(row.cells['status'].get_status_class(cell_status),
+                         'status_down')
+        # status_choices
+        id_col.status = True
+        id_col.status_choices = (('1', False), ('2', True))
+        cell_status = row.cells['id'].status
+        self.assertEqual(cell_status, False)
+        self.assertEqual(row.cells['id'].get_status_class(cell_status),
+                         'status_down')
+        # Ensure data is not cached on the column across table instances
+        self.table = MyTable(self.request, TEST_DATA_6)
+        row = self.table.get_rows()[0]
+        self.assertTrue("down" in row.cells['status'].value)
 
 
 class SingleTableView(table_views.DataTableView):
