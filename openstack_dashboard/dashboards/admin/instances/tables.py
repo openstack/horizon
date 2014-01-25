@@ -37,6 +37,13 @@ class MigrateInstance(tables.BatchAction):
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
     classes = ("btn-migrate", "btn-danger")
+    policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES
@@ -52,6 +59,14 @@ class LiveMigrateInstance(tables.LinkAction):
     verbose_name = _("Live Migrate Instance")
     url = "horizon:admin:instances:live_migrate"
     classes = ("ajax-modal", "btn-migrate", "btn-danger")
+    policy_rules = (
+        ("compute", "compute_extension:admin_actions:migrateLive"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES)
