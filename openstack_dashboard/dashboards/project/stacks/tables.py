@@ -45,9 +45,17 @@ class DeleteStack(tables.BatchAction):
     def action(self, request, stack_id):
         api.heat.stack_delete(request, stack_id)
 
+    def allowed(self, request, stack):
+        if stack is not None:
+            return stack.stack_status != 'DELETE_COMPLETE'
+        return True
+
 
 class StacksUpdateRow(tables.Row):
     ajax = True
+
+    def can_be_selected(self, datum):
+        return datum.stack_status != 'DELETE_COMPLETE'
 
     def get_data(self, request, stack_id):
         try:
@@ -66,6 +74,7 @@ class StacksTable(tables.DataTable):
         ("Update Complete", True),
         ("Create Failed", False),
         ("Update Failed", False),
+        ('Delete Complete', True)
     )
     name = tables.Column("stack_name",
                          verbose_name=_("Stack Name"),
