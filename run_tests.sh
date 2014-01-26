@@ -310,8 +310,11 @@ function run_tests_all {
   if [ "$NOSE_WITH_HTML_OUTPUT" = '1' ]; then
     export NOSE_HTML_OUT_FILE='horizon_nose_results.html'
   fi
-  ${command_wrapper} coverage erase
-  ${command_wrapper} coverage run -p $root/manage.py test horizon --settings=horizon.test.settings $testopts
+  if [ $with_coverage -eq 1 ]; then
+    ${command_wrapper} coverage erase
+    coverage_run="coverage run -p"
+  fi
+  ${command_wrapper} ${coverage_run} $root/manage.py test horizon --settings=horizon.test.settings $testopts
   # get results of the Horizon tests
   HORIZON_RESULT=$?
 
@@ -320,7 +323,7 @@ function run_tests_all {
   if [ "$NOSE_WITH_HTML_OUTPUT" = '1' ]; then
     export NOSE_HTML_OUT_FILE='dashboard_nose_results.html'
   fi
-  ${command_wrapper} coverage run -p $root/manage.py test openstack_dashboard --settings=openstack_dashboard.test.settings $testopts
+  ${command_wrapper} ${coverage_run} $root/manage.py test openstack_dashboard --settings=openstack_dashboard.test.settings $testopts
   # get results of the openstack_dashboard tests
   DASHBOARD_RESULT=$?
 
