@@ -120,6 +120,17 @@ class TestWorkflowView(workflows.WorkflowView):
     template_name = "workflow.html"
 
 
+class TestFullscreenWorkflow(workflows.Workflow):
+    slug = 'test_fullscreen_workflow'
+    default_steps = (TestStepOne, TestStepTwo)
+    fullscreen = True
+
+
+class TestFullscreenWorkflowView(workflows.WorkflowView):
+    workflow_class = TestFullscreenWorkflow
+    template_name = "workflow.html"
+
+
 class WorkflowsTests(test.TestCase):
     def setUp(self):
         super(WorkflowsTests, self).setUp()
@@ -263,3 +274,21 @@ class WorkflowsTests(test.TestCase):
 
         flow = TestWorkflow(req, entry_point="test_action_two")
         self.assertEqual(flow.get_entry_point(), "test_action_two")
+
+    def test_fullscreenworkflow_view(self):
+        view = TestFullscreenWorkflowView.as_view()
+        req = self.factory.get("/")
+        req.is_ajax = lambda: True
+        res = view(req)
+        output = res.render()
+        self.assertRegexpMatches(str(output),
+                                 'class="[^"]*\\bfullscreen\\b[^"]*"')
+
+    def test_notfullscreenworkflow_view(self):
+        view = TestWorkflowView.as_view()
+        req = self.factory.get("/")
+        req.is_ajax = lambda: True
+        res = view(req)
+        output = res.render()
+        self.assertNotRegexpMatches(str(output),
+                                    'class="[^"]*\\bfullscreen\\b[^"]*"')

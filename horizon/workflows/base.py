@@ -580,6 +580,14 @@ class Workflow(html.HTMLElement):
 
         Whether to present the workflow as a wizard, with "prev" and "next"
         buttons and validation after every step.
+
+    .. attribute:: fullscreen
+
+        If the workflow is presented in a modal, and this attribute is
+        set to True, then the ``fullscreen`` css class will be added so
+        the modal can take advantage of the available screen estate.
+        Defaults to ``False``.
+
     """
     __metaclass__ = WorkflowMetaclass
     slug = None
@@ -591,6 +599,7 @@ class Workflow(html.HTMLElement):
     redirect_param_name = "next"
     multipart = False
     wizard = False
+    fullscreen = False
     _registerable_class = Step
 
     def __unicode__(self):
