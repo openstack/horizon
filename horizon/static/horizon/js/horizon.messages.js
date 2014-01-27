@@ -8,11 +8,11 @@ horizon.alert = function (type, message, extra_tags) {
     params = {
       "type": type,
       "type_display": {
-        'danger': gettext("Danger"),
-        'warning': gettext("Warning"),
-        'info': gettext("Notice"),
-        'success': gettext("Success"),
-        'error': gettext("Error")
+        'danger': gettext("Danger: "),
+        'warning': gettext("Warning: "),
+        'info': gettext("Notice: "),
+        'success': gettext("Success: "),
+        'error': gettext("Error: ")
       }[type],
       "message": message,
       "safe": safe
