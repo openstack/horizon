@@ -29,7 +29,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
     current_host = forms.CharField(label=_("Current Host"),
                                    required=False,
                                    widget=forms.TextInput(
-                                   attrs={'readonly': 'readonly'}))
+                                       attrs={'readonly': 'readonly'}))
     host = forms.ChoiceField(label=_("New Host"),
                              required=True,
                              help_text=_("Choose a Host to migrate to."))
