@@ -35,6 +35,7 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
+from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.images \
@@ -141,6 +142,11 @@ class SetInstanceDetailsAction(workflows.Action):
         self.context = context
         super(SetInstanceDetailsAction, self).__init__(
             request, context, *args, **kwargs)
+
+        # Hide the device field if the hypervisor doesn't support it.
+        if not nova.can_set_mount_point():
+            self.fields['device_name'].widget = forms.widgets.HiddenInput()
+
         source_type_choices = [
             ('', _("Select source")),
             ("image_id", _("Boot from image")),

@@ -853,3 +853,10 @@ def can_set_server_password():
 def instance_action_list(request, instance_id):
     return nova_instance_action.InstanceActionManager(
         novaclient(request)).list(instance_id)
+
+
+def can_set_mount_point():
+    """Return the Hypervisor's capability of setting mount points."""
+    hypervisor_features = getattr(
+        settings, "OPENSTACK_HYPERVISOR_FEATURES", {})
+    return hypervisor_features.get("can_set_mount_point", False)
