@@ -40,7 +40,6 @@ horizon.d3_pie_chart = {
       .attr("class", "chart")
       .attr("width", self.w)
       .attr("height", self.h)
-      .style("background-color", "white")
       .append("g")
       .attr("transform",
             "translate(" + (self.r + 2) + "," + (self.r + 2) + ")");
