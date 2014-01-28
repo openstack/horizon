@@ -86,7 +86,13 @@ horizon.d3_pie_chart = {
             .attr("d", arc)
             .style("fill", self.bkgrnd)
             .style("stroke", "#CCCCCC")
-            .style("stroke-width", 1)
+            .style("stroke-width", function(d) {
+              if (self.data[0].percentage >= 100) {
+                return 0;
+              } else {
+                return 1;
+              }
+            })
             .each(function(d) {
               self.current = d;
               return d;
