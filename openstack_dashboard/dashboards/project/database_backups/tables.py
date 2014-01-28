@@ -47,6 +47,9 @@ class RestoreLink(tables.LinkAction):
     url = "horizon:project:databases:launch"
     classes = ("btn-launch", "ajax-modal")
 
+    def allowed(self, request, backup=None):
+        return backup.status == 'COMPLETED'
+
     def get_link_url(self, datum):
         url = reverse(self.url)
         return url + '?backup=%s' % datum.id

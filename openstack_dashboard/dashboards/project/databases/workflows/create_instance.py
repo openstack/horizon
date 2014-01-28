@@ -123,7 +123,8 @@ class RestoreAction(workflows.Action):
         empty = [('', '-')]
         try:
             backups = api.trove.backup_list(request)
-            backup_list = [(b.id, b.name) for b in backups]
+            backup_list = [(b.id, b.name) for b in backups
+                           if b.status == 'COMPLETED']
         except Exception:
             backup_list = []
         return empty + backup_list
