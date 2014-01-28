@@ -21,7 +21,7 @@ import zipfile
 
 from django import http
 from django import shortcuts
-from django.template.loader import render_to_string  # noqa
+from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions

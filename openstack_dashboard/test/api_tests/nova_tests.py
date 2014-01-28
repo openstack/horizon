@@ -23,7 +23,7 @@ from __future__ import absolute_import
 
 from django.conf import settings
 from django import http
-from django.test.utils import override_settings  # noqa
+from django.test.utils import override_settings
 
 from mox import IsA  # noqa
 from novaclient.v1_1 import servers

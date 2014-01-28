@@ -21,7 +21,7 @@
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.test.utils import override_settings  # noqa
+from django.test.utils import override_settings
 
 from mox import IsA  # noqa
 

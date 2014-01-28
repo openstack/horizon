@@ -16,7 +16,7 @@
 
 from __future__ import absolute_import
 
-from django.utils.datastructures import SortedDict  # noqa
+from django.utils.datastructures import SortedDict
 
 from openstack_dashboard.api import neutron
 
