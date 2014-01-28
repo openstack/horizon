@@ -183,6 +183,20 @@ the site header when logged in.
 If you do not have multiple regions you should use the ``OPENSTACK_HOST`` and
 ``OPENSTACK_KEYSTONE_URL`` settings instead.
 
+``IMAGES_LIST_FILTER_TENANTS``
+------------------------------
+
+Default: ``None``
+
+A list of dictionaries to add optional categories to the image filters
+in the Images & Snapshots panel, based on project ownership.
+
+Each dictionary should contain a `tenant` attribute with the project
+id, and optionally a `text` attribute specifying the category name, and
+an `icon` attribute that displays an icon in the filter button. The
+icon names are based on the default icon theme provided by Bootstrap.
+
+Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', 'icon': 'icon-ok'}]``
 
 ``OPENSTACK_ENDPOINT_TYPE``
 ---------------------------
