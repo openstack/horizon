@@ -301,6 +301,20 @@ icon names are based on the default icon theme provided by Bootstrap.
 
 Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', 'icon': 'icon-ok'}]``
 
+``IMAGE_RESERVED_CUSTOM_PROPERTIES``
+------------------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``[]``
+
+A list of image custom property keys that should not be displayed in the
+Image Custom Properties table.
+
+This setting can be used in the case where a separate panel is used for
+managing a custom property or if a certain custom property should never be
+edited.
+
 ``OPENSTACK_ENABLE_PASSWORD_RETRIEVE``
 --------------------------------------
 
