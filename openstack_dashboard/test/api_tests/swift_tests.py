@@ -182,6 +182,23 @@ class SwiftApiTests(test.APITestCase):
                                       obj.name,
                                       FakeFile())
 
+    def test_swift_upload_object_without_file(self):
+        container = self.containers.first()
+        obj = self.objects.first()
+
+        swift_api = self.stub_swiftclient()
+        swift_api.put_object(container.name,
+                             obj.name,
+                             None,
+                             headers={})
+        self.mox.ReplayAll()
+
+        response = api.swift.swift_upload_object(self.request,
+                                                 container.name,
+                                                 obj.name,
+                                                 None)
+        self.assertEqual(0, response['bytes'])
+
     def test_swift_object_exists(self):
         container = self.containers.first()
         obj = self.objects.first()

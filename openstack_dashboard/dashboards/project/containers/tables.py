@@ -332,6 +332,9 @@ class DownloadObject(tables.LinkAction):
         return reverse(self.url, args=(http.urlquote(container_name),
                                        http.urlquote(obj.name)))
 
+    def allowed(self, request, object):
+        return object.bytes and object.bytes > 0
+
 
 class ObjectFilterAction(tables.FilterAction):
     def _filtered_data(self, table, filter_string):

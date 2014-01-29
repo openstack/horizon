@@ -204,6 +204,36 @@ class SwiftTests(test.TestCase):
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
+    @test.create_stubs({api.swift: ('swift_upload_object',)})
+    def test_upload_without_file(self):
+        container = self.containers.first()
+        obj = self.objects.first()
+
+        api.swift.swift_upload_object(IsA(http.HttpRequest),
+                                      container.name,
+                                      obj.name,
+                                      None).AndReturn(obj)
+        self.mox.ReplayAll()
+
+        upload_url = reverse('horizon:project:containers:object_upload',
+                             args=[container.name])
+
+        res = self.client.get(upload_url)
+        self.assertTemplateUsed(res, 'project/containers/upload.html')
+
+        res = self.client.get(upload_url)
+        self.assertContains(res, 'enctype="multipart/form-data"')
+
+        formData = {'method': forms.UploadObject.__name__,
+                    'container_name': container.name,
+                    'name': obj.name,
+                    'object_file': None}
+        res = self.client.post(upload_url, formData)
+
+        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        index_url = reverse('horizon:project:containers:index', args=args)
+        self.assertRedirectsNoFollow(res, index_url)
+
     @test.create_stubs({api.swift: ('swift_create_pseudo_folder',)})
     def test_create_pseudo_folder(self):
         container = self.containers.first()
