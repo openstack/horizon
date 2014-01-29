@@ -73,21 +73,19 @@ class APIResourceWrapper(object):
     api object as the only argument to the constructor
     """
     _attrs = []
+    _apiresource = None  # Make sure _apiresource is there even in __init__.
 
     def __init__(self, apiresource):
         self._apiresource = apiresource
 
-    def __getattr__(self, attr):
-        if attr in self._attrs:
+    def __getattribute__(self, attr):
+        try:
+            return object.__getattribute__(self, attr)
+        except AttributeError:
+            if attr not in self._attrs:
+                raise
             # __getattr__ won't find properties
-            return self._apiresource.__getattribute__(attr)
-        else:
-            msg = ('Attempted to access unknown attribute "%s" on '
-                   'APIResource object of type "%s" wrapping resource of '
-                   'type "%s".') % (attr, self.__class__,
-                                    self._apiresource.__class__)
-            LOG.debug(exceptions.error_color(msg))
-            raise AttributeError(attr)
+            return getattr(self._apiresource, attr)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__,
@@ -106,28 +104,30 @@ class APIDictWrapper(object):
     Attribute access is the preferred method of access, to be
     consistent with api resource objects from novaclient.
     """
+
+    _apidict = {}  # Make sure _apidict is there even in __init__.
+
     def __init__(self, apidict):
         self._apidict = apidict
 
-    def __getattr__(self, attr):
+    def __getattribute__(self, attr):
         try:
+            return object.__getattribute__(self, attr)
+        except AttributeError:
+            if attr not in self._apidict:
+                raise
             return self._apidict[attr]
-        except KeyError:
-            msg = 'Unknown attribute "%(attr)s" on APIResource object ' \
-                  'of type "%(cls)s"' % {'attr': attr, 'cls': self.__class__}
-            LOG.debug(exceptions.error_color(msg))
-            raise AttributeError(msg)
 
     def __getitem__(self, item):
         try:
-            return self.__getattr__(item)
+            return getattr(self, item)
         except AttributeError as e:
             # caller is expecting a KeyError
             raise KeyError(e)
 
     def get(self, item, default=None):
         try:
-            return self.__getattr__(item)
+            return getattr(self, item)
         except AttributeError:
             return default
 
