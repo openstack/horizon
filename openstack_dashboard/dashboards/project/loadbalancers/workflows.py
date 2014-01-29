@@ -523,7 +523,25 @@ class AddMonitor(workflows.Workflow):
         return False
 
 
-class AddPMAssociationAction(workflows.Action):
+class MonitorMixin():
+
+    def _get_monitor_display_name(self, monitor):
+        fields = ['type', 'delay', 'max_retries', 'timeout']
+        if monitor.type in ['HTTP', 'HTTPS']:
+            fields.extend(['url_path', 'expected_codes', 'http_method'])
+            name = _("%(type)s url:%(url_path)s "
+                     "method:%(http_method)s codes:%(expected_codes)s "
+                     "delay:%(delay)d retries:%(max_retries)d "
+                     "timeout:%(timeout)d")
+        else:
+            name = _("%(type)s delay:%(delay)d "
+                     "retries:%(max_retries)d "
+                     "timeout:%(timeout)d")
+        params = dict((key, getattr(monitor, key)) for key in fields)
+        return name % params
+
+
+class AddPMAssociationAction(workflows.Action, MonitorMixin):
     monitor_id = forms.ChoiceField(label=_("Monitor"))
 
     def __init__(self, request, *args, **kwargs):
@@ -538,7 +556,8 @@ class AddPMAssociationAction(workflows.Action):
             monitors = api.lbaas.pool_health_monitors_get(request)
             for m in monitors:
                 if m.id not in context['pool_monitors']:
-                    monitor_id_choices.append((m.id, m.id))
+                    display_name = self._get_monitor_display_name(m)
+                    monitor_id_choices.append((m.id, display_name))
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve monitors list.'))
@@ -582,7 +601,7 @@ class AddPMAssociation(workflows.Workflow):
         return False
 
 
-class DeletePMAssociationAction(workflows.Action):
+class DeletePMAssociationAction(workflows.Action, MonitorMixin):
     monitor_id = forms.ChoiceField(label=_("Monitor"))
 
     def __init__(self, request, *args, **kwargs):
@@ -595,8 +614,11 @@ class DeletePMAssociationAction(workflows.Action):
 
         monitor_id_choices = [('', _("Select a Monitor"))]
         try:
-            for m_id in context['pool_monitors']:
-                monitor_id_choices.append((m_id, m_id))
+            monitors = api.lbaas.pool_health_monitors_get(request)
+            for m in monitors:
+                if m.id in context['pool_monitors']:
+                    display_name = self._get_monitor_display_name(m)
+                    monitor_id_choices.append((m.id, display_name))
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve monitors list.'))
