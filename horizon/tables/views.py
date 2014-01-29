@@ -14,7 +14,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import defaultdict  # noqa
+from collections import defaultdict
 
 from django.views import generic
 

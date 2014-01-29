@@ -17,7 +17,7 @@
 
 import logging
 
-from django.conf import settings  # noqa
+from django.conf import settings
 from django.core import urlresolvers
 from django import shortcuts
 from django import template

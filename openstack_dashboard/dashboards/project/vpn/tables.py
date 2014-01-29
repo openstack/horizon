@@ -17,7 +17,7 @@
 # @author: Tatiana Mazur
 
 
-from django.core.urlresolvers import reverse  # noqa
+from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
 

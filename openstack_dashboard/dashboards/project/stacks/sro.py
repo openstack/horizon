@@ -11,7 +11,7 @@
 # under the License.
 
 from django.template.defaultfilters import title  # noqa
-from django.template.loader import render_to_string  # noqa
+from django.template.loader import render_to_string
 
 from horizon.utils import filters
 

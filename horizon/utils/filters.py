@@ -18,7 +18,7 @@ import iso8601
 
 from django.template.defaultfilters import register  # noqa
 from django.template.defaultfilters import timesince  # noqa
-from django.utils.safestring import mark_safe  # noqa
+from django.utils.safestring import mark_safe
 from django.utils import timezone
 
 
