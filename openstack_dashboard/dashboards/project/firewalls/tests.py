@@ -345,25 +345,30 @@ class FirewallTests(test.TestCase):
 
         self.assertFormErrors(res, 1)
 
+    @test.create_stubs({api.fwaas: ('rule_get',)})
+    def test_update_rule_get(self):
+        rule = self.fw_rules.first()
+
+        api.fwaas.rule_get(IsA(http.HttpRequest), rule.id).AndReturn(rule)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse(self.UPDATERULE_PATH, args=(rule.id,)))
+
+        self.assertTemplateUsed(res, 'project/firewalls/updaterule.html')
+
     @test.create_stubs({api.fwaas: ('rule_get', 'rule_update')})
     def test_update_rule_post(self):
         rule = self.fw_rules.first()
 
         api.fwaas.rule_get(IsA(http.HttpRequest), rule.id).AndReturn(rule)
 
-        rule.name = 'new name'
-        rule.description = 'new desc'
-        rule.protocol = 'ICMP'
-        rule.action = 'ALLOW'
-        rule.shared = False
-        rule.enabled = True
-
-        data = {'name': rule.name,
-                'description': rule.description,
-                'protocol': rule.protocol,
-                'action': rule.action,
-                'shared': rule.shared,
-                'enabled': rule.enabled,
+        data = {'name': 'new name',
+                'description': 'new desc',
+                'protocol': 'ICMP',
+                'action': 'ALLOW',
+                'shared': False,
+                'enabled': True,
                 'source_ip_address': rule.source_ip_address,
                 'destination_ip_address': None,
                 'source_port': None,
@@ -375,23 +380,29 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        form_data = {'name': rule.name,
-                     'description': rule.description,
-                     'protocol': rule.protocol,
-                     'action': rule.action,
-                     'shared': rule.shared,
-                     'enabled': rule.enabled,
-                     'source_ip_address': rule.source_ip_address,
-                     'destination_ip_address': '',
-                     'source_port': '',
-                     'destination_port': rule.destination_port,
-                     }
+        form_data = data.copy()
+        form_data['destination_ip_address'] = ''
+        form_data['source_port'] = ''
 
         res = self.client.post(
             reverse(self.UPDATERULE_PATH, args=(rule.id,)), form_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.fwaas: ('policy_get',)})
+    def test_update_policy_get(self):
+        policy = self.fw_policies.first()
+
+        api.fwaas.policy_get(IsA(http.HttpRequest),
+                             policy.id).AndReturn(policy)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEPOLICY_PATH, args=(policy.id,)))
+
+        self.assertTemplateUsed(res, 'project/firewalls/updatepolicy.html')
 
     @test.create_stubs({api.fwaas: ('policy_get', 'policy_update',
                                     'rule_list')})
@@ -401,15 +412,10 @@ class FirewallTests(test.TestCase):
         api.fwaas.policy_get(IsA(http.HttpRequest),
                              policy.id).AndReturn(policy)
 
-        policy.name = 'new name'
-        policy.description = 'new desc'
-        policy.shared = True
-        policy.audited = False
-
-        data = {'name': policy.name,
-                'description': policy.description,
-                'shared': policy.shared,
-                'audited': policy.audited
+        data = {'name': 'new name',
+                'description': 'new desc',
+                'shared': True,
+                'audited': False
                 }
 
         api.fwaas.policy_update(IsA(http.HttpRequest), policy.id, **data)\
@@ -423,6 +429,25 @@ class FirewallTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
+    @test.create_stubs({api.fwaas: ('firewall_get', 'policy_list')})
+    def test_update_firewall_get(self):
+        firewall = self.firewalls.first()
+        policies = self.fw_policies.list()
+        tenant_id = self.tenant.id
+
+        api.fwaas.policy_list(
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(policies)
+
+        api.fwaas.firewall_get(IsA(http.HttpRequest),
+                               firewall.id).AndReturn(firewall)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(self.UPDATEFIREWALL_PATH, args=(firewall.id,)))
+
+        self.assertTemplateUsed(res, 'project/firewalls/updatefirewall.html')
+
     @test.create_stubs({api.fwaas: ('firewall_get', 'policy_list',
                                     'firewall_update')})
     def test_update_firewall_post(self):
@@ -431,14 +456,10 @@ class FirewallTests(test.TestCase):
         api.fwaas.firewall_get(IsA(http.HttpRequest),
                                firewall.id).AndReturn(firewall)
 
-        firewall.name = 'new name'
-        firewall.description = 'new desc'
-        firewall.admin_state_up = False
-
-        data = {'name': firewall.name,
-                'description': firewall.description,
+        data = {'name': 'new name',
+                'description': 'new desc',
                 'firewall_policy_id': firewall.firewall_policy_id,
-                'admin_state_up': firewall.admin_state_up
+                'admin_state_up': False
                 }
 
         policies = self.fw_policies.list()
@@ -528,3 +549,48 @@ class FirewallTests(test.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.fwaas: ('firewall_list',
+                                    'policy_list',
+                                    'rule_list',
+                                    'rule_delete')})
+    def test_delete_rule(self):
+        self.set_up_expect()
+        rule = self.fw_rules.first()
+        api.fwaas.rule_delete(IsA(http.HttpRequest), rule.id)
+        self.mox.ReplayAll()
+
+        form_data = {"action": "rulestable__deleterule__%s" % rule.id}
+        res = self.client.post(self.INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.fwaas: ('firewall_list',
+                                    'policy_list',
+                                    'rule_list',
+                                    'policy_delete')})
+    def test_delete_policy(self):
+        self.set_up_expect()
+        policy = self.fw_policies.first()
+        api.fwaas.policy_delete(IsA(http.HttpRequest), policy.id)
+        self.mox.ReplayAll()
+
+        form_data = {"action": "policiestable__deletepolicy__%s" % policy.id}
+        res = self.client.post(self.INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.fwaas: ('firewall_list',
+                                    'policy_list',
+                                    'rule_list',
+                                    'firewall_delete')})
+    def test_delete_firewall(self):
+        self.set_up_expect()
+        fwl = self.firewalls.first()
+        api.fwaas.firewall_delete(IsA(http.HttpRequest), fwl.id)
+        self.mox.ReplayAll()
+
+        form_data = {"action": "firewallstable__deletefirewall__%s" % fwl.id}
+        res = self.client.post(self.INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
