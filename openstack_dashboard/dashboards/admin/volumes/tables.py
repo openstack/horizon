@@ -41,11 +41,11 @@ class VolumesFilterAction(tables.FilterAction):
         """Naive case-insensitive search."""
         q = filter_string.lower()
         return [volume for volume in volumes
-                if q in volume.display_name.lower()]
+                if q in volume.name.lower()]
 
 
 class VolumesTable(project_tables.VolumesTable):
-    name = tables.Column("display_name",
+    name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:admin:volumes:detail")
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))

@@ -115,7 +115,7 @@ class ExtendView(forms.ModalFormView):
     def get_initial(self):
         volume = self.get_object()
         return {'id': self.kwargs['volume_id'],
-                'name': volume.display_name,
+                'name': volume.name,
                 'orig_size': volume.size}
 
 
@@ -171,8 +171,8 @@ class UpdateView(forms.ModalFormView):
     def get_initial(self):
         volume = self.get_object()
         return {'volume_id': self.kwargs["volume_id"],
-                'name': volume.display_name,
-                'description': volume.display_description}
+                'name': volume.name,
+                'description': volume.description}
 
 
 class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):

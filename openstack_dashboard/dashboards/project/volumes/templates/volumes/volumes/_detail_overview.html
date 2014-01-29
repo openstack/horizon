@@ -8,12 +8,12 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ volume.display_name }}</dd>
+    <dd>{{ volume.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ volume.id }}</dd>
-    {% if volume.display_description %}
+    {% if volume.description %}
     <dt>{% trans "Description" %}</dt>
-    <dd>{{ volume.display_description }}</dd>
+    <dd>{{ volume.description }}</dd>
     {% endif %}
     <dt>{% trans "Status" %}</dt>
     <dd>{{ volume.status|capfirst }}</dd>

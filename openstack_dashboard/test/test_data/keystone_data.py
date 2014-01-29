@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
 from datetime import timedelta  # noqa
 
 from django.conf import settings
@@ -47,7 +48,7 @@ SERVICE_CATALOG = [
           "internalURL": "http://int.nova2.example.com:8774/v2",
           "publicURL": "http://public.nova2.example.com:8774/v2"}]},
     {"type": "volume",
-     "name": "nova",
+     "name": "cinder",
      "endpoints_links": [],
      "endpoints": [
          {"region": "RegionOne",
@@ -126,7 +127,9 @@ SERVICE_CATALOG = [
 
 
 def data(TEST):
-    TEST.service_catalog = SERVICE_CATALOG
+    # Make a deep copy of the catalog to avoid persisting side-effects
+    # when tests modify the catalog.
+    TEST.service_catalog = copy.deepcopy(SERVICE_CATALOG)
     TEST.tokens = utils.TestDataContainer()
     TEST.domains = utils.TestDataContainer()
     TEST.users = utils.TestDataContainer()
@@ -205,7 +208,7 @@ def data(TEST):
     user5 = users.User(users.UserManager(None), user_dict)
     TEST.users.add(user, user2, user3, user4, user5)
     TEST.user = user  # Your "current" user
-    TEST.user.service_catalog = SERVICE_CATALOG
+    TEST.user.service_catalog = copy.deepcopy(SERVICE_CATALOG)
 
     group_dict = {'id': "1",
                  'name': 'group_one',

@@ -35,12 +35,12 @@ class VolumeSnapshotsViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_get',),
                         quotas: ('tenant_limit_usages',)})
     def test_create_snapshot_get(self):
-        volume = self.volumes.first()
+        volume = self.cinder_volumes.first()
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
             .AndReturn(volume)
         usage_limit = {'maxTotalVolumeGigabytes': 250,
                        'gigabytesUsed': 20,
-                       'volumesUsed': len(self.volumes.list()),
+                       'volumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
@@ -56,15 +56,15 @@ class VolumeSnapshotsViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_get',
                                  'volume_snapshot_create',)})
     def test_create_snapshot_post(self):
-        volume = self.volumes.first()
-        snapshot = self.volume_snapshots.first()
+        volume = self.cinder_volumes.first()
+        snapshot = self.cinder_volume_snapshots.first()
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
             .AndReturn(volume)
         cinder.volume_snapshot_create(IsA(http.HttpRequest),
                                       volume.id,
-                                      snapshot.display_name,
-                                      snapshot.display_description,
+                                      snapshot.name,
+                                      snapshot.description,
                                       force=False) \
             .AndReturn(snapshot)
         self.mox.ReplayAll()
@@ -72,8 +72,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
         formData = {'method': 'CreateSnapshotForm',
                     'tenant_id': self.tenant.id,
                     'volume_id': volume.id,
-                    'name': snapshot.display_name,
-                    'description': snapshot.display_description}
+                    'name': snapshot.name,
+                    'description': snapshot.description}
         url = reverse('horizon:project:volumes:volumes:create_snapshot',
                       args=[volume.id])
         res = self.client.post(url, formData)
@@ -82,15 +82,15 @@ class VolumeSnapshotsViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_get',
                                  'volume_snapshot_create',)})
     def test_force_create_snapshot(self):
-        volume = self.volumes.get(name='my_volume')
-        snapshot = self.volume_snapshots.first()
+        volume = self.cinder_volumes.get(name='my_volume')
+        snapshot = self.cinder_volume_snapshots.first()
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
             .AndReturn(volume)
         cinder.volume_snapshot_create(IsA(http.HttpRequest),
                                       volume.id,
-                                      snapshot.display_name,
-                                      snapshot.display_description,
+                                      snapshot.name,
+                                      snapshot.description,
                                       force=True) \
             .AndReturn(snapshot)
         self.mox.ReplayAll()
@@ -98,8 +98,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
         formData = {'method': 'CreateSnapshotForm',
                     'tenant_id': self.tenant.id,
                     'volume_id': volume.id,
-                    'name': snapshot.display_name,
-                    'description': snapshot.display_description}
+                    'name': snapshot.name,
+                    'description': snapshot.description}
         url = reverse('horizon:project:volumes:volumes:create_snapshot',
                       args=[volume.id])
         res = self.client.post(url, formData)
@@ -111,9 +111,9 @@ class VolumeSnapshotsViewTests(test.TestCase):
                                      'volume_snapshot_delete'),
                         quotas: ('tenant_quota_usages',)})
     def test_delete_volume_snapshot(self):
-        vol_snapshots = self.volume_snapshots.list()
-        volumes = self.volumes.list()
-        snapshot = self.volume_snapshots.first()
+        vol_snapshots = self.cinder_volume_snapshots.list()
+        volumes = self.cinder_volumes.list()
+        snapshot = self.cinder_volume_snapshots.first()
 
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
             AndReturn(vol_snapshots)
@@ -142,8 +142,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
     @test.create_stubs({api.cinder: ('volume_snapshot_get', 'volume_get')})
     def test_volume_snapshot_detail_get(self):
-        volume = self.volumes.first()
-        snapshot = self.volume_snapshots.first()
+        volume = self.cinder_volumes.first()
+        snapshot = self.cinder_volume_snapshots.first()
 
         api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
             AndReturn(volume)
@@ -158,19 +158,16 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.assertContains(res,
                             "<h2>Volume Snapshot Details: %s</h2>" %
-                            snapshot.display_name,
+                            snapshot.name,
                             1, 200)
         self.assertContains(res, "<dd>test snapshot</dd>", 1, 200)
-        self.assertContains(res,
-                            "<dd>40f3fabf-3613-4f5e-90e5-6c9a08333fc3</dd>",
-                            1,
-                            200)
+        self.assertContains(res, "<dd>%s</dd>" % snapshot.id, 1, 200)
         self.assertContains(res, "<dd>Available</dd>", 1, 200)
 
     @test.create_stubs({api.cinder: ('volume_snapshot_get',)})
     def test_volume_snapshot_detail_get_with_exception(self):
         # Test to verify redirect if get volume snapshot fails
-        snapshot = self.volume_snapshots.first()
+        snapshot = self.cinder_volume_snapshots.first()
 
         api.cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id).\
             AndRaise(self.exceptions.cinder)
@@ -185,8 +182,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
     @test.create_stubs({api.cinder: ('volume_snapshot_get', 'volume_get')})
     def test_volume_snapshot_detail_with_volume_get_exception(self):
         # Test to verify redirect if get volume fails
-        volume = self.volumes.first()
-        snapshot = self.volume_snapshots.first()
+        volume = self.cinder_volumes.first()
+        snapshot = self.cinder_volume_snapshots.first()
 
         api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
             AndRaise(self.exceptions.cinder)
