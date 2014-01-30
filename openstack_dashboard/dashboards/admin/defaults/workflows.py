@@ -79,8 +79,8 @@ class UpdateDefaultQuotas(workflows.Workflow):
     slug = "update_default_quotas"
     name = _("Update Default Quotas")
     finalize_button_name = _("Update Defaults")
-    success_message = _('Default quotas updated "%s".')
-    failure_message = _('Unable to update default quotas "%s".')
+    success_message = _('Default quotas updated.')
+    failure_message = _('Unable to update default quotas.')
     success_url = "horizon:admin:defaults:index"
     default_steps = (UpdateDefaultQuotas,)
 
