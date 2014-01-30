@@ -162,7 +162,9 @@ class AddPMAssociationLink(tables.LinkAction):
 
     def allowed(self, request, datum=None):
         try:
-            monitors = api.lbaas.pool_health_monitors_get(request)
+            tenant_id = request.user.tenant_id
+            monitors = api.lbaas.pool_health_monitors_get(request,
+                                                          tenant_id=tenant_id)
             for m in monitors:
                 if m.id not in datum['health_monitors']:
                     return True

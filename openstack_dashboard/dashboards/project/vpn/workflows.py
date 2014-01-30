@@ -57,7 +57,8 @@ class AddVPNServiceAction(workflows.Action):
     def populate_router_id_choices(self, request, context):
         router_id_choices = [('', _("Select a Router"))]
         try:
-            routers = api.neutron.router_list(request)
+            tenant_id = request.user.tenant_id
+            routers = api.neutron.router_list(request, tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve routers list.'))
@@ -339,7 +340,8 @@ class AddIPSecSiteConnectionAction(workflows.Action):
     def populate_ikepolicy_id_choices(self, request, context):
         ikepolicy_id_choices = [('', _("Select IKE Policy"))]
         try:
-            ikepolicies = api.vpn.ikepolicies_get(request)
+            tenant_id = self.request.user.tenant_id
+            ikepolicies = api.vpn.ikepolicies_get(request, tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve IKE Policies list.'))
@@ -352,7 +354,9 @@ class AddIPSecSiteConnectionAction(workflows.Action):
     def populate_ipsecpolicy_id_choices(self, request, context):
         ipsecpolicy_id_choices = [('', _("Select IPSec Policy"))]
         try:
-            ipsecpolicies = api.vpn.ipsecpolicies_get(request)
+            tenant_id = self.request.user.tenant_id
+            ipsecpolicies = api.vpn.ipsecpolicies_get(request,
+                                                      tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve IPSec Policies list.'))
@@ -365,7 +369,8 @@ class AddIPSecSiteConnectionAction(workflows.Action):
     def populate_vpnservice_id_choices(self, request, context):
         vpnservice_id_choices = [('', _("Select VPN Service"))]
         try:
-            vpnservices = api.vpn.vpnservices_get(request)
+            tenant_id = self.request.user.tenant_id
+            vpnservices = api.vpn.vpnservices_get(request, tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve VPN Services list.'))
