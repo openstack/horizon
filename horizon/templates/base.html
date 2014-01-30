@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    {% include "horizon/_custom_meta.html" %}
     <title>{% block title %}{% endblock %} - {% site_branding %}</title>
     {% comment %} Load CSS sheets before Javascript  {% endcomment %}
     {% block css %}
@@ -10,6 +11,7 @@
     {% endblock %}
     {% include "horizon/_conf.html" %}
     {% include "horizon/client_side/_script_loader.html" %}
+    {% include "horizon/_custom_head_js.html" %}
   </head>
   <body id="{% block body_id %}{% endblock %}" ng-app='horizonApp'>
     {% block content %}

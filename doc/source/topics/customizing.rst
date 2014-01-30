@@ -227,7 +227,24 @@ my_custom_dashboard/templates/my_custom_dashboard/base.html`` override
 The result is a single compressed js file consisting both Horizon and
 dashboard's custom scripts.
 
+Additionally, some marketing and analytics scripts require you to place them
+within the page's <head> tag. To do this, place them within the
+``horizon/_custom_head_js.html`` file. Similar to the ``_scripts.html`` file
+mentioned above, you may link to an existing file::
+
+    <script src='{{ STATIC_URL }}/my_custom_dashboard/js/my_marketing_js.js' type='text/javascript' charset='utf-8'></script>
+
+or you can paste your script directly in the file, being sure to use
+appropriate tags::
+
+<script type="text/javascript">
+  //some javascript
+</script>
 
 
+Customizing Meta Attributes
+===========================
 
-
+To add custom metadata attributes to your project's base template, include
+them in the ``horizon/_custom_meta.html`` file. The contents of this file will be
+inserted into the page's <head> just after the default Horizon meta tags.
