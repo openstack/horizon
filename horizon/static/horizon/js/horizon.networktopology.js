@@ -613,7 +613,3 @@ horizon.network_topology = {
     $('#' + id).remove();
   }
 };
-
-horizon.addInitFunction(function () {
-  horizon.network_topology.init();
-});
