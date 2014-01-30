@@ -1,5 +1,6 @@
-{% load i18n %}
+{% load branding i18n %}
 {% load url from future %}
+<h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
 <div id="user_info" class="pull-right">
   <span>{% blocktrans with username=request.user.username %}Logged in as: {{ username }}{% endblocktrans %}</span>
   {% if HORIZON_CONFIG.help_url %}

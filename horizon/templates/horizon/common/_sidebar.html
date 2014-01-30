@@ -2,55 +2,5 @@
 {% load url from future %}
 
 <div class='sidebar'>
-  <h1 class="brand clearfix"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
-
-  {% horizon_main_nav %}
-
-  {% if request.horizon.dashboard.supports_tenants %}
-  <div id="tenant_switcher" class="dropdown switcher_bar" tabindex="1">
-    {% with num_of_tenants=authorized_tenants|length %}
-      {% if num_of_tenants > 1 %}
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
-      {% endif %}
-        <h4>{% trans "Current Project" %}</h4>
-        <h3>{{ request.user.tenant_name }}</h3>
-      {% if num_of_tenants > 1 %}
-      </a>
-      {% endif %}
-
-      {% if num_of_tenants > 1 %}
-        <ul id="tenant_list" class="dropdown-menu">
-          <li class='divider'></li>
-          {% with authorized_tenants_sorted=authorized_tenants|dictsort:"name" %}
-            {% for tenant in authorized_tenants_sorted %}
-              {% if tenant.enabled and tenant.id != request.user.tenant_id %}
-                <li><a href="{% url 'switch_tenants' tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
-              {% endif %}
-            {% endfor %}
-          {% endwith %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-  </div>
-  {% endif %}
-
-  {% with num_of_regions=request.user.available_services_regions|length %}
-  {% if num_of_regions > 1 %}
-  <div id="services_region_switcher" class="dropdown switcher_bar" tabindex="1">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#services_region_switcher">
-        <h4>{% trans "Managing Region" %}</h4>
-        <h3>{{ request.user.services_region }}</h3>
-    </a>
-
-    <ul id="services_regions_list" class="dropdown-menu">
-        <li class='divider'></li>
-        {% for region in request.user.available_services_regions %}
-        <li><a href="{% url 'switch_services_region' region %}?next={{ request.horizon.panel.get_absolute_url }}">{{ region }}</a></li>
-        {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-  {% endwith %}
-
-  {% horizon_dashboard_nav %}
+  {% horizon_nav %}
 </div>

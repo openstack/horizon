@@ -42,6 +42,36 @@ def has_permissions_on_list(components, user):
                 in components if has_permissions(user, component)]
 
 
+@register.inclusion_tag('horizon/_accordion_nav.html', takes_context=True)
+def horizon_nav(context):
+    if 'request' not in context:
+        return {}
+    current_dashboard = context['request'].horizon.get('dashboard', None)
+    current_panel = context['request'].horizon.get('panel', None)
+    dashboards = []
+    for dash in Horizon.get_dashboards():
+        panel_groups = dash.get_panel_groups()
+        non_empty_groups = []
+        for group in panel_groups.values():
+            allowed_panels = []
+            for panel in group:
+                if callable(panel.nav) and panel.nav(context):
+                    allowed_panels.append(panel)
+                elif not callable(panel.nav) and panel.nav:
+                    allowed_panels.append(panel)
+            if allowed_panels:
+                non_empty_groups.append((group.name, allowed_panels))
+        if callable(dash.nav) and dash.nav(context):
+            dashboards.append((dash, SortedDict(non_empty_groups)))
+        elif not callable(dash.nav) and dash.nav:
+            dashboards.append((dash, SortedDict(non_empty_groups)))
+    return {'components': dashboards,
+            'user': context['request'].user,
+            'current': current_dashboard,
+            'current_panel': current_panel.slug if current_panel else '',
+            'request': context['request']}
+
+
 @register.inclusion_tag('horizon/_nav_list.html', takes_context=True)
 def horizon_main_nav(context):
     """Generates top-level dashboard navigation entries."""
