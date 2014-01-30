@@ -53,6 +53,23 @@ def exception_to_validation_msg(e):
                 return match.group(1)
 
 
+def create_upload_form_attributes(prefix, input_type, name):
+    """Creates attribute dicts for the switchable upload form
+
+    :type prefix: str
+    :param prefix: prefix (environment, template) of field
+    :type input_type: str
+    :param input_type: field type (file, raw, url)
+    :type name: str
+    :param name: translated text label to display to user
+    :rtype: dict
+    :return: an attribute set to pass to form build
+    """
+    attributes = {'class': 'switched', 'data-switch-on': prefix + 'source'}
+    attributes['data-' + prefix + 'source-' + input_type] = name
+    return attributes
+
+
 class TemplateForm(forms.SelfHandlingForm):
 
     class Meta:
@@ -60,34 +77,79 @@ class TemplateForm(forms.SelfHandlingForm):
         help_text = _('From here you can select a template to launch '
                       'a stack.')
 
+    choices = [('url', _('URL')),
+               ('file', _('File')),
+               ('raw', _('Direct Input'))]
+    attributes = {'class': 'switchable', 'data-slug': 'templatesource'}
     template_source = forms.ChoiceField(label=_('Template Source'),
-                                        choices=[('url', _('URL')),
-                                                 ('file', _('File')),
-                                                 ('raw', _('Direct Input'))],
-                                        widget=forms.Select(attrs={
-                                            'class': 'switchable',
-                                            'data-slug': 'source'}))
+                                        choices=choices,
+                                        widget=forms.Select(attrs=attributes))
+
+    attributes = create_upload_form_attributes(
+        'template',
+        'file',
+        _('Template File'))
     template_upload = forms.FileField(
         label=_('Template File'),
         help_text=_('A local template to upload.'),
-        widget=forms.FileInput(attrs={'class': 'switched',
-                                      'data-switch-on': 'source',
-                                      'data-source-file': _('Template File')}),
+        widget=forms.FileInput(attrs=attributes),
         required=False)
+
+    attributes = create_upload_form_attributes(
+        'template',
+        'url',
+        _('Template URL'))
     template_url = forms.URLField(
         label=_('Template URL'),
         help_text=_('An external (HTTP) URL to load the template from.'),
-        widget=forms.TextInput(attrs={'class': 'switched',
-                                      'data-switch-on': 'source',
-                                      'data-source-url': _('Template URL')}),
+        widget=forms.TextInput(attrs=attributes),
         required=False)
+
+    attributes = create_upload_form_attributes(
+        'template',
+        'raw',
+        _('Template Data'))
     template_data = forms.CharField(
         label=_('Template Data'),
         help_text=_('The raw contents of the template.'),
-        widget=forms.widgets.Textarea(attrs={
-                                      'class': 'switched',
-                                      'data-switch-on': 'source',
-                                      'data-source-raw': _('Template Data')}),
+        widget=forms.widgets.Textarea(attrs=attributes),
+        required=False)
+
+    attributes = {'data-slug': 'envsource', 'class': 'switchable'}
+    environment_source = forms.ChoiceField(
+        label=_('Environment Source'),
+        choices=choices,
+        widget=forms.Select(attrs=attributes),
+        required=False)
+
+    attributes = create_upload_form_attributes(
+        'env',
+        'file',
+        _('Environment File'))
+    environment_upload = forms.FileField(
+        label=_('Environment File'),
+        help_text=_('A local environment to upload.'),
+        widget=forms.FileInput(attrs=attributes),
+        required=False)
+
+    attributes = create_upload_form_attributes(
+        'env',
+        'url',
+        _('Environment URL'))
+    environment_url = forms.URLField(
+        label=_('Environment URL'),
+        help_text=_('An external (HTTP) URL to load the environment from.'),
+        widget=forms.TextInput(attrs=attributes),
+        required=False)
+
+    attributes = create_upload_form_attributes(
+        'env',
+        'raw',
+        _('Environment Data'))
+    environment_data = forms.CharField(
+        label=_('Environment Data'),
+        help_text=_('The raw contents of the environment file.'),
+        widget=forms.widgets.Textarea(attrs=attributes),
         required=False)
 
     def __init__(self, *args, **kwargs):
@@ -96,35 +158,13 @@ class TemplateForm(forms.SelfHandlingForm):
 
     def clean(self):
         cleaned = super(TemplateForm, self).clean()
-        template_url = cleaned.get('template_url')
-        template_data = cleaned.get('template_data')
+
         files = self.request.FILES
-        has_upload = 'template_upload' in files
-
-        # Uploaded file handler
-        if has_upload and not template_url:
-            log_template_name = self.request.FILES['template_upload'].name
-            LOG.info('got upload %s' % log_template_name)
-
-            tpl = self.request.FILES['template_upload'].read()
-            if tpl.startswith('{'):
-                try:
-                    json.loads(tpl)
-                except Exception as e:
-                    msg = _('There was a problem parsing the template: %s') % e
-                    raise forms.ValidationError(msg)
-            cleaned['template_data'] = tpl
-
-        # URL handler
-        elif template_url and (has_upload or template_data):
-            msg = _('Please specify a template using only one source method.')
-            raise forms.ValidationError(msg)
-
-        # Check for raw template input
-        elif not template_url and not template_data:
-            msg = _('You must specify a template via one of the '
-                    'available sources.')
-            raise forms.ValidationError(msg)
+        self.clean_uploaded_files('template', _('template'), cleaned, files)
+        self.clean_uploaded_files('environment',
+            _('environment'),
+            cleaned,
+            files)
 
         # Validate the template and get back the params.
         kwargs = {}
@@ -145,8 +185,62 @@ class TemplateForm(forms.SelfHandlingForm):
 
         return cleaned
 
+    def clean_uploaded_files(self, prefix, field_label, cleaned, files):
+        """Cleans Template & Environment data from form upload.
+
+        Does some of the crunchy bits for processing uploads vs raw
+        data depending on what the user specified. Identical process
+        for environment data & template data.
+
+        :type prefix: str
+        :param prefix: prefix (environment, template) of field
+        :type field_label: str
+        :param field_label: translated prefix str for messages
+        :type input_type: dict
+        :param prefix: existing cleaned fields from form
+        :rtype: dict
+        :return: cleaned dict including environment & template data
+        """
+
+        upload_str = prefix + "_upload"
+        data_str = prefix + "_data"
+        url = cleaned.get(prefix + '_url')
+        data = cleaned.get(prefix + '_data')
+
+        has_upload = upload_str in files
+        # Uploaded file handler
+        if has_upload and not url:
+            log_template_name = files[upload_str].name
+            LOG.info('got upload %s' % log_template_name)
+
+            tpl = files[upload_str].read()
+            if tpl.startswith('{'):
+                try:
+                    json.loads(tpl)
+                except Exception as e:
+                    msg = _('There was a problem parsing the'
+                            ' %(prefix)s: %(error)s')
+                    msg = msg % {'prefix': prefix, 'error': e}
+                    raise forms.ValidationError(msg)
+            cleaned[data_str] = tpl
+
+        # URL handler
+        elif url and (has_upload or data):
+            msg = _('Please specify a %s using only one source method.')
+            msg = msg % field_label
+            raise forms.ValidationError(msg)
+
+        elif prefix == 'template':
+            # Check for raw template input - blank environment allowed
+            if not url and not data:
+                msg = _('You must specify a template via one of the '
+                        'available sources.')
+                raise forms.ValidationError(msg)
+
     def create_kwargs(self, data):
         kwargs = {'parameters': data['template_validate'],
+                  'environment_data': data['environment_data'],
+                  'environment_url': data['environment_url'],
                   'template_data': data['template_data'],
                   'template_url': data['template_url']}
         if data.get('stack_id'):
@@ -188,6 +282,12 @@ class CreateStackForm(forms.SelfHandlingForm):
         widget=forms.widgets.HiddenInput,
         required=False)
     template_url = forms.CharField(
+        widget=forms.widgets.HiddenInput,
+        required=False)
+    environment_data = forms.CharField(
+        widget=forms.widgets.HiddenInput,
+        required=False)
+    environment_url = forms.CharField(
         widget=forms.widgets.HiddenInput,
         required=False)
     parameters = forms.CharField(
@@ -282,6 +382,11 @@ class CreateStackForm(forms.SelfHandlingForm):
             fields['template'] = data.get('template_data')
         else:
             fields['template_url'] = data.get('template_url')
+
+        if data.get('environment_data'):
+            fields['environment'] = data.get('environment_data')
+        elif data.get('environment_url'):
+            fields['environment_url'] = data.get('environment_url')
 
         try:
             api.heat.stack_create(self.request, **fields)
