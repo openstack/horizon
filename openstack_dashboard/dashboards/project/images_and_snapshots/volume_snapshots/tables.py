@@ -23,6 +23,7 @@ from django.utils.translation import ugettext_lazy as _  # noqa
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 
 from openstack_dashboard.dashboards.project.volumes \
@@ -50,7 +51,9 @@ class CreateVolumeFromSnapshot(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, volume=None):
-        return volume.status == "available" if volume else False
+        if volume and base.is_service_enabled(request, 'volume'):
+            return volume.status == "available"
+        return False
 
 
 class UpdateRow(tables.Row):

@@ -26,6 +26,7 @@ from horizon import tables
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
+from openstack_dashboard.api import base
 
 
 class LaunchImage(tables.LinkAction):
@@ -103,7 +104,7 @@ class CreateVolumeFromImage(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, image=None):
-        if image:
+        if image and base.is_service_enabled(request, 'volume'):
             return image.status == "active"
         return False
 
