@@ -209,7 +209,8 @@ POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 POLICY_FILES = {
     'identity': 'keystone_policy.json',
     'compute': 'nova_policy.json',
-    'volume': 'cinder_policy.json'
+    'volume': 'cinder_policy.json',
+    'image': 'glance_policy.json',
 }
 
 SECRET_KEY = None

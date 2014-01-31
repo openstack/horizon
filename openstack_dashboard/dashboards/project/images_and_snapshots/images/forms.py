@@ -31,6 +31,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 
 IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
@@ -45,6 +46,7 @@ class CreateImageForm(forms.SelfHandlingForm):
 
     source_type = forms.ChoiceField(
         label=_('Image Source'),
+        required=False,
         choices=[('url', _('Image Location')),
                  ('file', _('Image File'))],
         widget=forms.Select(attrs={
@@ -91,10 +93,15 @@ class CreateImageForm(forms.SelfHandlingForm):
     is_public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
-    def __init__(self, *args, **kwargs):
-        super(CreateImageForm, self).__init__(*args, **kwargs)
-        if not settings.HORIZON_IMAGES_ALLOW_UPLOAD:
+    def __init__(self, request, *args, **kwargs):
+        super(CreateImageForm, self).__init__(request, *args, **kwargs)
+        if (not settings.HORIZON_IMAGES_ALLOW_UPLOAD or
+                not policy.check((("image", "upload_image"),), request)):
             self._hide_file_source_type()
+        if not policy.check((("image", "set_image_location"),), request):
+            self._hide_url_source_type()
+        if not policy.check((("image", "publicize_image"),), request):
+            self._hide_is_public()
         self.fields['disk_format'].choices = IMAGE_FORMAT_CHOICES
 
     def _hide_file_source_type(self):
@@ -105,17 +112,30 @@ class CreateImageForm(forms.SelfHandlingForm):
         if len(source_type.choices) == 1:
             source_type.widget = HiddenInput()
 
+    def _hide_url_source_type(self):
+        self.fields['copy_from'].widget = HiddenInput()
+        source_type = self.fields['source_type']
+        source_type.choices = [choice for choice in source_type.choices
+                               if choice[0] != 'url']
+        if len(source_type.choices) == 1:
+            source_type.widget = HiddenInput()
+
+    def _hide_is_public(self):
+        self.fields['is_public'].widget = HiddenInput()
+        self.fields['is_public'].initial = False
+
     def clean(self):
         data = super(CreateImageForm, self).clean()
 
         # The image_file key can be missing based on particular upload
         # conditions. Code defensively for it here...
         image_file = data.get('image_file', None)
+        image_url = data.get('copy_from', None)
 
-        if not data['copy_from'] and not image_file:
+        if not image_url and not image_file:
             raise ValidationError(
                 _("A image or external image location must be specified."))
-        elif data['copy_from'] and image_file:
+        elif image_url and image_file:
             raise ValidationError(
                 _("Can not specify both image and external image location."))
         else:
@@ -146,6 +166,7 @@ class CreateImageForm(forms.SelfHandlingForm):
         if data['architecture']:
             meta['properties']['architecture'] = data['architecture']
         if (settings.HORIZON_IMAGES_ALLOW_UPLOAD and
+                policy.check((("image", "upload_image"),), request) and
                 data.get('image_file', None)):
             meta['data'] = self.files['image_file']
         else:
@@ -187,6 +208,12 @@ class UpdateImageForm(forms.SelfHandlingForm):
                                   ))
     public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateImageForm, self).__init__(request, *args, **kwargs)
+        if not policy.check((("image", "publicize_image"),), request):
+            self.fields['public'].widget = forms.CheckboxInput(
+                attrs={'readonly': 'readonly'})
 
     def handle(self, request, data):
         image_id = data['image_id']
