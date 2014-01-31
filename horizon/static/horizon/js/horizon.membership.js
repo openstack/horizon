@@ -129,16 +129,20 @@ horizon.membership = {
    * from the lists.
    **/
   remove_member_from_role: function(step_slug, data_id, role_id) {
-    var role_list;
+    var role, membership = horizon.membership.current_membership[step_slug];
     if (role_id) {
-      role_list = horizon.membership.current_membership[step_slug][role_id];
-      horizon.membership.remove_member(step_slug, data_id, role_id, role_list);
+      horizon.membership.remove_member(
+        step_slug, data_id, role_id, membership[role_id]
+      );
     }
     else {
       // search for membership in role lists
-      for (var role in horizon.membership.current_membership[step_slug]) {
-        role_list = horizon.membership.current_membership[step_slug][role];
-        horizon.membership.remove_member(step_slug, data_id, role, role_list);
+      for (role in membership) {
+        if (membership.hasOwnProperty(role)) {
+          horizon.membership.remove_member(
+            step_slug, data_id, role,  membership[role]
+          );
+        }
       }
     }
   },
@@ -193,25 +197,31 @@ horizon.membership = {
    * as a list item in the member list.
    **/
   generate_member_element: function(step_slug, display_name, data_id, role_ids, text) {
-    var str_id = "id_" + step_slug + "_" + data_id;
+    var roles = [],
+      that = this,
+      membership_roles = that.roles[step_slug],
+      r;
 
-    var roles = [];
-    for (var r in horizon.membership.roles[step_slug]) {
-      var role = {};
-      role.role_id = r;
-      role.role_name = horizon.membership.roles[step_slug][r];
-      roles.push(role);
+    for (r in membership_roles) {
+      if (membership_roles.hasOwnProperty(r)){
+        roles.push({
+          role_id: r,
+          role_name: membership_roles[r]
+        });
+      }
     }
 
     var template = horizon.templates.compiled_templates["#membership_template"],
-      params = {data_id: str_id,
+      params = {
+        data_id: "id_" + step_slug + "_" + data_id,
         step_slug: step_slug,
-        default_role: horizon.membership.roles[horizon.membership.default_role_id[step_slug]],
+        default_role: that.roles[that.default_role_id[step_slug]],
         display_name: display_name,
         text: text,
-        roles: roles},
+        roles: roles
+      },
       member_el = $(template.render(params));
-    this.update_member_role_dropdown(step_slug, str_id, role_ids, member_el);
+    this.update_member_role_dropdown(step_slug, params.data_id, role_ids, member_el);
     return $(member_el);
   },
 
@@ -219,16 +229,17 @@ horizon.membership = {
    * Generates the HTML structure for the membership UI.
    **/
   generate_html: function(step_slug) {
-    var data;
-    for (data in horizon.membership.data[step_slug]) {
-      var data_id = data;
-      var display_name = horizon.membership.data[step_slug][data_id];
-      var role_ids = this.get_member_roles(step_slug, data_id);
-      if (role_ids.length > 0) {
-        $("." + step_slug + "_members").append(this.generate_member_element(step_slug, display_name, data_id, role_ids, "-"));
-      }
-      else {
-        $(".available_" + step_slug).append(this.generate_member_element(step_slug, display_name, data_id, role_ids, "+"));
+    var data_id, data = horizon.membership.data[step_slug];
+    for (data_id in data) {
+      if(data.hasOwnProperty(data_id)){
+        var display_name = data[data_id];
+        var role_ids = this.get_member_roles(step_slug, data_id);
+        if (role_ids.length > 0) {
+          $("." + step_slug + "_members").append(this.generate_member_element(step_slug, display_name, data_id, role_ids, "-"));
+        }
+        else {
+          $(".available_" + step_slug).append(this.generate_member_element(step_slug, display_name, data_id, role_ids, "+"));
+        }
       }
     }
     horizon.membership.detect_no_results(step_slug);
