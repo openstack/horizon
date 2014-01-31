@@ -447,14 +447,8 @@ class Step(object):
         self.action.add_error(message)
 
     def has_required_fields(self):
-        """
-        Returns True if action contains any required fields
-        """
-        for key in self.contributes:
-            field = self.action.fields.get(key, None)
-            if (field and field.required):
-                return True
-        return False
+        """Returns True if action contains any required fields."""
+        return any(field.required for field in self.action.fields.values())
 
 
 class WorkflowMetaclass(type):
