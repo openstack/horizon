@@ -21,9 +21,9 @@
 Middleware provided and used by Horizon.
 """
 
-import datetime
 import json
 import logging
+import time
 
 from django.conf import settings  # noqa
 from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
@@ -61,11 +61,12 @@ class HorizonMiddleware(object):
             timeout = 1800
 
         last_activity = request.session.get('last_activity', None)
-        timestamp = datetime.datetime.now()
+        timestamp = int(time.time())
         request.horizon = {'dashboard': None,
                            'panel': None,
                            'async_messages': []}
-        if last_activity and (timestamp - last_activity).seconds > timeout:
+        if (isinstance(last_activity, int)
+                and (timestamp - last_activity) > timeout):
             request.session.pop('last_activity')
             response = HttpResponseRedirect(
                 '%s?next=%s' % (settings.LOGOUT_URL, request.path))
