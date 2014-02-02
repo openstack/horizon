@@ -9,7 +9,7 @@
 # Loïc Chabert <chabert.loic.74@gmail.com>, 2013
 # Loïc Chabert <chabert.loic.74@gmail.com>, 2013
 # Christophe kryskool <christophe.chauvet@gmail.com>, 2013
-# codegin <codegin.se@gmail.com>, 2013
+# codegin, 2013
 # c <cverheyd@hotmail.com>, 2013
 # steff00 <stephane.eveillard@gmail.com>, 2013
 # François Bureau <francois.bureau@cloudwatt.com>, 2013
@@ -17,6 +17,7 @@
 # jftalta <jftalta@gmail.com>, 2013
 # Jérôme Fenal <jfenal@gmail.com>, 2013
 # jftalta <jftalta@gmail.com>, 2013
+# cloudwatt_l10n <l10n@cloudwatt.com>, 2014
 # RainDropR <rajaa@hilltx.com>, 2013
 # Tom Fifield <tom@openstack.org>, 2013
 # c <cverheyd@hotmail.com>, 2013
@@ -25,9 +26,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-07 04:40-0600\n"
-"PO-Revision-Date: 2013-12-07 10:50+0000\n"
-"Last-Translator: Jérôme Fenal <jfenal@gmail.com>\n"
+"POT-Creation-Date: 2014-02-02 12:19-0600\n"
+"PO-Revision-Date: 2014-02-02 18:25+0000\n"
+"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/openstack/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,21 +128,21 @@ msgstr "Chinois traditionnel"
 msgid "Unknown instance"
 msgstr "Instance inconnue"
 
-#: api/keystone.py:94
+#: api/keystone.py:96
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:322
+#: api/keystone.py:324
 msgid "Identity service does not allow editing user data."
 msgstr "Le service d'identité n'autorise pas la modification de données utilisateur."
 
-#: api/keystone.py:348
+#: api/keystone.py:350
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "L'utilisateur %s n'a pas de rôle défini pour ce projet."
 
-#: api/keystone.py:360 api/keystone.py:376
+#: api/keystone.py:362 api/keystone.py:378
 #: dashboards/settings/password/forms.py:63
 msgid "Password changed. Please log in again to continue."
 msgstr "Mot de passe changé. Connectez-vous à nouveau pour poursuivre."
@@ -310,7 +311,7 @@ msgstr "IP flottantes"
 #: dashboards/project/access_and_security/security_groups/tables.py:29
 #: dashboards/project/access_and_security/security_groups/tables.py:75
 #: dashboards/project/instances/templates/instances/_detail_overview.html:58
-#: dashboards/project/instances/workflows/create_instance.py:394
+#: dashboards/project/instances/workflows/create_instance.py:403
 #: dashboards/project/instances/workflows/update_instance.py:82
 msgid "Security Groups"
 msgstr "Groupes de Sécurité"
@@ -406,7 +407,7 @@ msgstr "Créer un Domaine"
 #: dashboards/admin/domains/tables.py:63
 #: dashboards/admin/flavors/extras/tables.py:46
 #: dashboards/admin/roles/tables.py:37 dashboards/admin/users/tables.py:30
-#: dashboards/project/images_and_snapshots/images/tables.py:81
+#: dashboards/project/images_and_snapshots/images/tables.py:82
 msgid "Edit"
 msgstr "Editer"
 
@@ -486,13 +487,13 @@ msgstr "Le contexte du domaine a été retiré."
 #: dashboards/project/images_and_snapshots/images/forms.py:154
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:9
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:10
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:84
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:87
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
 #: dashboards/project/instances/workflows/update_instance.py:108
 #: dashboards/project/loadbalancers/forms.py:35
 #: dashboards/project/loadbalancers/forms.py:74
-#: dashboards/project/loadbalancers/tables.py:189
+#: dashboards/project/loadbalancers/tables.py:191
 #: dashboards/project/loadbalancers/workflows.py:33
 #: dashboards/project/loadbalancers/workflows.py:150
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
@@ -515,9 +516,9 @@ msgstr "Le contexte du domaine a été retiré."
 #: dashboards/project/vpn/tables.py:94 dashboards/project/vpn/tables.py:123
 #: dashboards/project/vpn/tables.py:143 dashboards/project/vpn/tables.py:161
 #: dashboards/project/vpn/workflows.py:30
-#: dashboards/project/vpn/workflows.py:112
-#: dashboards/project/vpn/workflows.py:211
-#: dashboards/project/vpn/workflows.py:308
+#: dashboards/project/vpn/workflows.py:113
+#: dashboards/project/vpn/workflows.py:212
+#: dashboards/project/vpn/workflows.py:309
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:7
@@ -575,7 +576,7 @@ msgstr "Nom"
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:79
-#: dashboards/project/loadbalancers/tables.py:191
+#: dashboards/project/loadbalancers/tables.py:193
 #: dashboards/project/loadbalancers/workflows.py:36
 #: dashboards/project/loadbalancers/workflows.py:153
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
@@ -593,9 +594,9 @@ msgstr "Nom"
 #: dashboards/project/volumes/templates/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/_limits.html:3
 #: dashboards/project/vpn/tables.py:125 dashboards/project/vpn/workflows.py:33
-#: dashboards/project/vpn/workflows.py:115
-#: dashboards/project/vpn/workflows.py:214
-#: dashboards/project/vpn/workflows.py:311
+#: dashboards/project/vpn/workflows.py:116
+#: dashboards/project/vpn/workflows.py:215
+#: dashboards/project/vpn/workflows.py:312
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
@@ -737,7 +738,7 @@ msgstr "Types d'Instance"
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
 #: dashboards/project/databases/workflows/create_instance.py:32
 #: dashboards/project/instances/templates/instances/_detail_overview.html:27
-#: dashboards/project/instances/workflows/create_instance.py:92
+#: dashboards/project/instances/workflows/create_instance.py:82
 msgid "Flavor"
 msgstr "Type d'instance"
 
@@ -815,9 +816,9 @@ msgstr "Disque de Swap"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:12
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:75
-#: dashboards/project/loadbalancers/forms.py:166
-#: dashboards/project/loadbalancers/forms.py:213
-#: dashboards/project/loadbalancers/tables.py:237
+#: dashboards/project/loadbalancers/forms.py:167
+#: dashboards/project/loadbalancers/forms.py:215
+#: dashboards/project/loadbalancers/tables.py:239
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
@@ -841,8 +842,8 @@ msgstr "ID"
 #: dashboards/admin/flavors/tables.py:106
 #: dashboards/project/images_and_snapshots/images/forms.py:89
 #: dashboards/project/images_and_snapshots/images/forms.py:176
-#: dashboards/project/images_and_snapshots/images/tables.py:131
-#: dashboards/project/images_and_snapshots/images/tables.py:212
+#: dashboards/project/images_and_snapshots/images/tables.py:132
+#: dashboards/project/images_and_snapshots/images/tables.py:213
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:19
 msgid "Public"
 msgstr "Publique"
@@ -1191,7 +1192,7 @@ msgstr "Supprimé"
 #: dashboards/admin/groups/tables.py:126 dashboards/admin/groups/tables.py:183
 #: dashboards/admin/users/tables.py:47 dashboards/admin/users/tables.py:90
 #: dashboards/project/databases/tables.py:66
-#: dashboards/project/instances/workflows/create_instance.py:50
+#: dashboards/project/instances/workflows/create_instance.py:51
 msgid "User"
 msgstr "Utilisateur"
 
@@ -1235,13 +1236,13 @@ msgstr "Membres du Groupe"
 #: dashboards/project/firewalls/workflows.py:291
 #: dashboards/project/loadbalancers/workflows.py:131
 #: dashboards/project/loadbalancers/workflows.py:237
-#: dashboards/project/loadbalancers/workflows.py:369
-#: dashboards/project/loadbalancers/workflows.py:510
-#: dashboards/project/loadbalancers/workflows.py:569
-#: dashboards/project/vpn/workflows.py:94
-#: dashboards/project/vpn/workflows.py:193
-#: dashboards/project/vpn/workflows.py:290
-#: dashboards/project/vpn/workflows.py:462
+#: dashboards/project/loadbalancers/workflows.py:370
+#: dashboards/project/loadbalancers/workflows.py:511
+#: dashboards/project/loadbalancers/workflows.py:591
+#: dashboards/project/vpn/workflows.py:95
+#: dashboards/project/vpn/workflows.py:194
+#: dashboards/project/vpn/workflows.py:291
+#: dashboards/project/vpn/workflows.py:467
 msgid "Add"
 msgstr "Ajouter"
 
@@ -1315,8 +1316,8 @@ msgstr "Nom d'Hôte"
 #: dashboards/admin/routers/ports/tables.py:34
 #: dashboards/project/access_and_security/security_groups/forms.py:170
 #: dashboards/project/access_and_security/security_groups/forms.py:177
-#: dashboards/project/images_and_snapshots/images/tables.py:204
-#: dashboards/project/loadbalancers/workflows.py:394
+#: dashboards/project/images_and_snapshots/images/tables.py:205
+#: dashboards/project/loadbalancers/workflows.py:395
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:35
 #: dashboards/project/routers/ports/tables.py:88
@@ -1387,17 +1388,17 @@ msgstr "Utilisation Disque"
 #: dashboards/admin/images/panel.py:29 dashboards/admin/images/tables.py:51
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/templates/images/index.html:6
-#: dashboards/project/images_and_snapshots/images/tables.py:57
-#: dashboards/project/images_and_snapshots/images/tables.py:225
+#: dashboards/project/images_and_snapshots/images/tables.py:58
+#: dashboards/project/images_and_snapshots/images/tables.py:226
 msgid "Images"
 msgstr "Images"
 
 #: dashboards/admin/images/tables.py:47
 #: dashboards/admin/instances/tables.py:94
-#: dashboards/project/images_and_snapshots/images/tables.py:202
+#: dashboards/project/images_and_snapshots/images/tables.py:203
 #: dashboards/project/instances/tables.py:548
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
-#: dashboards/project/instances/workflows/create_instance.py:115
+#: dashboards/project/instances/workflows/create_instance.py:104
 msgid "Image Name"
 msgstr "Nom de l'Image"
 
@@ -1464,7 +1465,7 @@ msgid ""
 msgstr "Le champ Emplacement de l'Image DOIT être une URL valide et pointant directement vers le binaire de l'image. Si l'URL est une redirection ou renvoie une page d'erreur, cela résultera en une image inutilisable. "
 
 #: dashboards/admin/images/templates/images/_create.html:33
-#: dashboards/project/images_and_snapshots/images/tables.py:74
+#: dashboards/project/images_and_snapshots/images/tables.py:75
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_create.html:33
 msgid "Create Image"
 msgstr "Créer une Image"
@@ -1551,7 +1552,7 @@ msgstr "Zone"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/firewalls/tables.py:197
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images_and_snapshots/images/tables.py:208
+#: dashboards/project/images_and_snapshots/images/tables.py:209
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:17
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:18
 #: dashboards/project/instances/tables.py:558
@@ -1595,7 +1596,7 @@ msgid "Compute Services"
 msgstr "Services de Calcul"
 
 #: dashboards/admin/info/tables.py:134
-#: dashboards/project/instances/workflows/create_instance.py:87
+#: dashboards/project/instances/workflows/create_instance.py:77
 msgid "Availability Zone"
 msgstr "Zone de Disponibilité"
 
@@ -1670,8 +1671,8 @@ msgstr "Instance"
 #: dashboards/admin/projects/tables.py:87
 #: dashboards/admin/routers/tables.py:50 dashboards/admin/volumes/tables.py:38
 #: dashboards/project/dashboard.py:63
-#: dashboards/project/images_and_snapshots/images/tables.py:125
-#: dashboards/project/instances/workflows/create_instance.py:49
+#: dashboards/project/images_and_snapshots/images/tables.py:126
+#: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:82
 #: dashboards/router/nexus1000v/forms.py:135
 #: dashboards/router/nexus1000v/tables.py:62
@@ -1685,7 +1686,7 @@ msgstr "Projet"
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/databases/tables.py:163
 #: dashboards/project/instances/tables.py:550
-#: dashboards/project/loadbalancers/tables.py:220
+#: dashboards/project/loadbalancers/tables.py:222
 msgid "IP Address"
 msgstr "Adresse IP"
 
@@ -1817,11 +1818,11 @@ msgstr "Nombre de paquets sortants pour une interface VM"
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Durée de type d'instance  %s (type d'instance Openstack)"
 
-#: dashboards/admin/metering/views.py:157
+#: dashboards/admin/metering/views.py:152
 msgid "Unable to retrieve tenant list."
 msgstr "Impossible de récupérer la liste des projets."
 
-#: dashboards/admin/metering/views.py:186
+#: dashboards/admin/metering/views.py:196
 msgid "Unable to retrieve statistics."
 msgstr "Impossible de récupérer les statistiques."
 
@@ -2063,12 +2064,12 @@ msgstr "Profil Réseau"
 #: dashboards/project/firewalls/workflows.py:246
 #: dashboards/project/loadbalancers/forms.py:42
 #: dashboards/project/loadbalancers/forms.py:94
-#: dashboards/project/loadbalancers/forms.py:173
-#: dashboards/project/loadbalancers/forms.py:231
+#: dashboards/project/loadbalancers/forms.py:174
+#: dashboards/project/loadbalancers/forms.py:233
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/workflows.py:179
 #: dashboards/project/loadbalancers/workflows.py:302
-#: dashboards/project/loadbalancers/workflows.py:456
+#: dashboards/project/loadbalancers/workflows.py:457
 #: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/tables.py:102
 #: dashboards/project/networks/workflows.py:42
@@ -2078,7 +2079,7 @@ msgstr "Profil Réseau"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/ports/tables.py:90
 #: dashboards/project/vpn/workflows.py:36
-#: dashboards/project/vpn/workflows.py:412
+#: dashboards/project/vpn/workflows.py:417
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:68
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:35
 msgid "Admin State"
@@ -2151,7 +2152,7 @@ msgstr "Echec lors de la mise à jour du réseau %s"
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:72
-#: dashboards/project/instances/workflows/create_instance.py:480
+#: dashboards/project/instances/workflows/create_instance.py:489
 #: dashboards/project/networks/panel.py:25
 #: dashboards/project/networks/tables.py:44
 #: dashboards/project/networks/tables.py:106
@@ -2339,7 +2340,7 @@ msgid "Unable to retrieve network."
 msgstr "Impossible de récupérer le réseau."
 
 #: dashboards/admin/networks/subnets/tables.py:32
-#: dashboards/project/loadbalancers/tables.py:194
+#: dashboards/project/loadbalancers/tables.py:196
 #: dashboards/project/loadbalancers/workflows.py:40
 #: dashboards/project/networks/workflows.py:116
 #: dashboards/project/networks/subnets/tables.py:45
@@ -2864,7 +2865,7 @@ msgid "Router Detail"
 msgstr "Détail du Routeur"
 
 #: dashboards/admin/users/forms.py:63 dashboards/project/instances/forms.py:73
-#: dashboards/project/instances/workflows/create_instance.py:438
+#: dashboards/project/instances/workflows/create_instance.py:447
 #: dashboards/settings/password/forms.py:48
 msgid "Passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
@@ -3023,7 +3024,7 @@ msgid "Manage Databases"
 msgstr "Gérer les Bases de Données"
 
 #: dashboards/project/access_and_security/panel.py:26
-#: dashboards/project/instances/workflows/create_instance.py:402
+#: dashboards/project/instances/workflows/create_instance.py:411
 msgid "Access & Security"
 msgstr "Accès et Sécurité"
 
@@ -3092,9 +3093,9 @@ msgstr "Erreur pendant le téléchargement du fichier RC : %s"
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:33
 #: dashboards/project/loadbalancers/forms.py:80
-#: dashboards/project/loadbalancers/forms.py:169
+#: dashboards/project/loadbalancers/forms.py:170
 #: dashboards/project/loadbalancers/tables.py:83
-#: dashboards/project/loadbalancers/tables.py:226
+#: dashboards/project/loadbalancers/tables.py:228
 #: dashboards/project/loadbalancers/workflows.py:285
 msgid "Pool"
 msgstr "Pool"
@@ -3216,33 +3217,33 @@ msgstr "Adresse IP %s associée."
 msgid "Unable to associate IP address %s."
 msgstr "Impossible d'associer l'adresse IP %s."
 
-#: dashboards/project/access_and_security/keypairs/forms.py:38
-#: dashboards/project/access_and_security/keypairs/forms.py:49
-#: dashboards/project/access_and_security/keypairs/tables.py:47
-msgid "Keypair Name"
-msgstr "Nom de la Paire de Clés"
-
-#: dashboards/project/access_and_security/keypairs/forms.py:40
+#: dashboards/project/access_and_security/keypairs/forms.py:34
 msgid ""
 "Keypair names may only contain letters, numbers, underscores and hyphens."
 msgstr "Le nom des paires de clés ne peut contenir que des lettres, des chiffres, des caractères de soulignement et des traits d'union."
 
-#: dashboards/project/access_and_security/keypairs/forms.py:51
+#: dashboards/project/access_and_security/keypairs/forms.py:41
+#: dashboards/project/access_and_security/keypairs/forms.py:50
+#: dashboards/project/access_and_security/keypairs/tables.py:47
+msgid "Keypair Name"
+msgstr "Nom de la Paire de Clés"
+
+#: dashboards/project/access_and_security/keypairs/forms.py:53
 msgid "Public Key"
 msgstr "Clé publique"
 
-#: dashboards/project/access_and_security/keypairs/forms.py:60
+#: dashboards/project/access_and_security/keypairs/forms.py:62
 #, python-format
 msgid "Successfully imported public key: %s"
 msgstr "Clé publique importée avec succès : %s"
 
-#: dashboards/project/access_and_security/keypairs/forms.py:65
+#: dashboards/project/access_and_security/keypairs/forms.py:67
 msgid "Unable to import keypair."
 msgstr "Impossible d'importer la paire de clés."
 
 #: dashboards/project/access_and_security/keypairs/tables.py:25
 #: dashboards/project/instances/tables.py:555
-#: dashboards/project/instances/workflows/create_instance.py:379
+#: dashboards/project/instances/workflows/create_instance.py:388
 msgid "Keypair"
 msgstr "Paire de clés"
 
@@ -3890,7 +3891,7 @@ msgstr "Restaurer une Sauvegarde"
 #: dashboards/project/loadbalancers/tables.py:81
 #: dashboards/project/loadbalancers/tables.py:89
 #: dashboards/project/loadbalancers/tables.py:97
-#: dashboards/project/loadbalancers/workflows.py:628
+#: dashboards/project/loadbalancers/workflows.py:653
 #: dashboards/project/stacks/tables.py:39 dashboards/project/vpn/tables.py:57
 #: dashboards/project/vpn/tables.py:65 dashboards/project/vpn/tables.py:73
 #: dashboards/project/vpn/tables.py:81
@@ -3901,7 +3902,7 @@ msgstr "Supprimer"
 #: dashboards/project/firewalls/tables.py:49
 #: dashboards/project/firewalls/tables.py:57
 #: dashboards/project/firewalls/tables.py:65
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:35
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:36
 #: dashboards/project/loadbalancers/tables.py:69
 #: dashboards/project/loadbalancers/tables.py:82
 #: dashboards/project/loadbalancers/tables.py:90
@@ -4029,7 +4030,7 @@ msgstr "Description de la sauvegarde optionnelle"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:39
 #: dashboards/project/databases/workflows/create_instance.py:40
-#: dashboards/project/instances/workflows/create_instance.py:140
+#: dashboards/project/instances/workflows/create_instance.py:129
 msgid "Details"
 msgstr "Détails"
 
@@ -4044,14 +4045,14 @@ msgstr "Sauvegarde \"%(name)s\" planifiée."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:64
 #: dashboards/project/databases/workflows/create_instance.py:156
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:562
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Impossible de lancer %(count)s instance(s) nommée(s) \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:74
 #: dashboards/project/databases/workflows/create_instance.py:162
-#: dashboards/project/instances/workflows/create_instance.py:568
+#: dashboards/project/instances/workflows/create_instance.py:577
 msgid "instance"
 msgstr "instance"
 
@@ -4109,7 +4110,7 @@ msgstr "Erreur lors de la suppression de la base de données sur l'instance."
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/instances/tables.py:183
 #: dashboards/project/instances/tables.py:204
-#: dashboards/project/instances/workflows/create_instance.py:550
+#: dashboards/project/instances/workflows/create_instance.py:559
 #: dashboards/project/network_topology/templates/network_topology/index.html:27
 msgid "Launch Instance"
 msgstr "Lancer une Instance"
@@ -4273,7 +4274,7 @@ msgid "Edit Instance"
 msgstr "Editer l'Instance"
 
 #: dashboards/project/databases/workflows/create_instance.py:33
-#: dashboards/project/instances/workflows/create_instance.py:93
+#: dashboards/project/instances/workflows/create_instance.py:83
 msgid "Size of image to launch."
 msgstr "Taille de l'image à lancer."
 
@@ -4330,14 +4331,14 @@ msgid "Unable to find backup!"
 msgstr "Impossible de trouver la sauvegarde !"
 
 #: dashboards/project/databases/workflows/create_instance.py:154
-#: dashboards/project/images_and_snapshots/images/tables.py:33
-#: dashboards/project/instances/workflows/create_instance.py:551
+#: dashboards/project/images_and_snapshots/images/tables.py:34
+#: dashboards/project/instances/workflows/create_instance.py:560
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Lancer"
 
 #: dashboards/project/databases/workflows/create_instance.py:155
-#: dashboards/project/instances/workflows/create_instance.py:552
+#: dashboards/project/instances/workflows/create_instance.py:561
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s instance(s) nommée(s) \"%(name)s\" ont été lancée(s)."
@@ -4346,7 +4347,7 @@ msgstr "%(count)s instance(s) nommée(s) \"%(name)s\" ont été lancée(s)."
 #: dashboards/project/firewalls/tables.py:147
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
-#: dashboards/project/loadbalancers/tables.py:195
+#: dashboards/project/loadbalancers/tables.py:197
 #: dashboards/project/loadbalancers/workflows.py:41
 #: dashboards/project/loadbalancers/workflows.py:166
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
@@ -4407,7 +4408,7 @@ msgstr "Port de destination (nombre entier dans l'intervalle  [1, 65535] ou plag
 
 #: dashboards/project/firewalls/forms.py:82
 #: dashboards/project/firewalls/workflows.py:42
-#: dashboards/project/loadbalancers/workflows.py:396
+#: dashboards/project/loadbalancers/workflows.py:397
 msgid "TCP"
 msgstr "TCP"
 
@@ -4907,7 +4908,7 @@ msgstr "Une image locale à télécharger."
 
 #: dashboards/project/images_and_snapshots/images/forms.py:70
 #: dashboards/project/images_and_snapshots/images/forms.py:172
-#: dashboards/project/images_and_snapshots/images/tables.py:219
+#: dashboards/project/images_and_snapshots/images/tables.py:220
 msgid "Format"
 msgstr "Format"
 
@@ -4916,7 +4917,6 @@ msgid "Minimum Disk (GB)"
 msgstr "Espace disque minimal (Go)"
 
 #: dashboards/project/images_and_snapshots/images/forms.py:76
-#: dashboards/project/images_and_snapshots/images/forms.py:83
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
@@ -4926,9 +4926,15 @@ msgstr "La taille minimale du disque nécessaire pour démarrer l'image. Si non 
 msgid "Minimum Ram (MB)"
 msgstr "RAM minimale (Mo)"
 
+#: dashboards/project/images_and_snapshots/images/forms.py:83
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr "La taille minimale de mémoire nécessaire pour démarrer l'image. Si non spécifiée, la valeur par défaut est 0 (pas de minimum)."
+
 #: dashboards/project/images_and_snapshots/images/forms.py:90
 #: dashboards/project/images_and_snapshots/images/forms.py:177
-#: dashboards/project/images_and_snapshots/images/tables.py:216
+#: dashboards/project/images_and_snapshots/images/tables.py:217
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:21
 msgid "Protected"
 msgstr "Protégée"
@@ -4974,13 +4980,13 @@ msgstr "Impossible de mettre à jour l'image \"%s\"."
 msgid "Image was successfully updated."
 msgstr "Image mise à jour avec succès."
 
-#: dashboards/project/images_and_snapshots/images/tables.py:56
+#: dashboards/project/images_and_snapshots/images/tables.py:57
 #: dashboards/project/volumes/forms.py:122
 msgid "Image"
 msgstr "Image"
 
-#: dashboards/project/images_and_snapshots/images/tables.py:96
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:43
+#: dashboards/project/images_and_snapshots/images/tables.py:97
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:44
 #: dashboards/project/volumes/tables.py:61
 #: dashboards/project/volumes/tables.py:74
 #: dashboards/project/volumes/templates/volumes/_create.html:9
@@ -4989,7 +4995,7 @@ msgstr "Image"
 msgid "Create Volume"
 msgstr "Créer un Volume"
 
-#: dashboards/project/images_and_snapshots/images/tables.py:130
+#: dashboards/project/images_and_snapshots/images/tables.py:131
 msgid "Shared with Me"
 msgstr "Partagé avec Moi"
 
@@ -5034,7 +5040,7 @@ msgstr "Aperçu de l'Image"
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:18
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/images/_detail_overview.html:26
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:72
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:75
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
@@ -5117,8 +5123,8 @@ msgstr "Les instantanés préservent l'état du disque d'une instance en fonctio
 
 #: dashboards/project/images_and_snapshots/templates/images_and_snapshots/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:113
-#: dashboards/project/instances/workflows/create_instance.py:109
-#: dashboards/project/instances/workflows/create_instance.py:275
+#: dashboards/project/instances/workflows/create_instance.py:98
+#: dashboards/project/instances/workflows/create_instance.py:284
 #: dashboards/project/volumes/tables.py:38
 #: dashboards/project/volumes/tables.py:216
 msgid "Volume"
@@ -5136,17 +5142,17 @@ msgstr "Détails de l'Instantané du Volume"
 msgid "Volume Snapshot Detail"
 msgstr "Détail de l'Instantané du Volume"
 
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:33
-#: dashboards/project/instances/workflows/create_instance.py:111
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:34
+#: dashboards/project/instances/workflows/create_instance.py:100
 msgid "Volume Snapshot"
 msgstr "Instantané du Volume"
 
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:34
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:92
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:35
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:95
 msgid "Volume Snapshots"
 msgstr "Instantanés du Volume"
 
-#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:87
+#: dashboards/project/images_and_snapshots/volume_snapshots/tables.py:90
 #: dashboards/project/volumes/forms.py:32
 msgid "Volume Name"
 msgstr "Nom du Volume"
@@ -5157,7 +5163,7 @@ msgstr "Impossible de récupérer les détails de l'instantané."
 
 #: dashboards/project/instances/forms.py:40
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:292
+#: dashboards/project/instances/workflows/create_instance.py:301
 msgid "Select Image"
 msgstr "Sélectionner une Image "
 
@@ -5305,7 +5311,7 @@ msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
 msgstr "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disques"
 
 #: dashboards/project/instances/tables.py:546
-#: dashboards/project/instances/workflows/create_instance.py:90
+#: dashboards/project/instances/workflows/create_instance.py:80
 #: dashboards/project/overview/views.py:33 usage/tables.py:58
 msgid "Instance Name"
 msgstr "Nom de l'Instance"
@@ -5412,7 +5418,7 @@ msgid "Key Name"
 msgstr "Nom de la Clé"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:87
-#: dashboards/project/loadbalancers/tables.py:193
+#: dashboards/project/loadbalancers/tables.py:195
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:22
 msgid "N/A"
 msgstr "N/D"
@@ -5522,80 +5528,84 @@ msgstr "Réseaux disponibles"
 msgid "Instance Detail"
 msgstr "Détail de l'Instance"
 
-#: dashboards/project/instances/workflows/create_instance.py:64
+#: dashboards/project/instances/workflows/create_instance.py:65
 msgid "Project & User"
 msgstr "Projet & Utilisateur"
 
-#: dashboards/project/instances/workflows/create_instance.py:77
-msgid "--- Select source ---"
-msgstr "--- Sélectionnez la source ---"
-
-#: dashboards/project/instances/workflows/create_instance.py:78
-msgid "Boot from image."
-msgstr "Démarrer depuis une image."
-
-#: dashboards/project/instances/workflows/create_instance.py:79
-msgid "Boot from snapshot."
-msgstr "Démarrer depuis un instantané."
-
-#: dashboards/project/instances/workflows/create_instance.py:80
-msgid "Boot from volume."
-msgstr "démarrage depuis le volume"
-
-#: dashboards/project/instances/workflows/create_instance.py:81
-msgid "Boot from image (creates a new volume)."
-msgstr "Démarrer depuis une image (créé un nouveau volume)."
-
-#: dashboards/project/instances/workflows/create_instance.py:83
-msgid "Boot from volume snapshot (creates a new volume)."
-msgstr "Démarrer depuis un instantané de volume (crée un nouveau volume)."
-
-#: dashboards/project/instances/workflows/create_instance.py:95
+#: dashboards/project/instances/workflows/create_instance.py:85
 msgid "Instance Count"
 msgstr "Nombre d'Instances"
 
-#: dashboards/project/instances/workflows/create_instance.py:98
+#: dashboards/project/instances/workflows/create_instance.py:88
 msgid "Number of instances to launch."
 msgstr "Nombre d'instances à lancer."
 
-#: dashboards/project/instances/workflows/create_instance.py:100
+#: dashboards/project/instances/workflows/create_instance.py:90
 msgid "Instance Boot Source"
 msgstr "Source de l'instance de démarrage."
 
-#: dashboards/project/instances/workflows/create_instance.py:103
+#: dashboards/project/instances/workflows/create_instance.py:92
 msgid "Choose Your Boot Source Type."
 msgstr "Choisisse votre type de source de démarrage."
 
-#: dashboards/project/instances/workflows/create_instance.py:106
+#: dashboards/project/instances/workflows/create_instance.py:95
 msgid "Instance Snapshot"
 msgstr "Instantané d'Instance"
 
-#: dashboards/project/instances/workflows/create_instance.py:122
+#: dashboards/project/instances/workflows/create_instance.py:111
 msgid "Device size (GB)"
 msgstr "Taille du périphérique (Go)"
 
-#: dashboards/project/instances/workflows/create_instance.py:124
+#: dashboards/project/instances/workflows/create_instance.py:113
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Taille du volume en giga-octets (valeur entière)."
 
-#: dashboards/project/instances/workflows/create_instance.py:127
+#: dashboards/project/instances/workflows/create_instance.py:116
 #: dashboards/project/volumes/forms.py:223
 msgid "Device Name"
 msgstr "Nom du Périphérique"
 
-#: dashboards/project/instances/workflows/create_instance.py:130
+#: dashboards/project/instances/workflows/create_instance.py:119
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr "Point de montage du volume (e.g. 'vda' monté sur '/dev/vda')."
 
-#: dashboards/project/instances/workflows/create_instance.py:133
+#: dashboards/project/instances/workflows/create_instance.py:122
 msgid "Delete on Terminate"
 msgstr "Supprimer après Terminaison"
 
-#: dashboards/project/instances/workflows/create_instance.py:136
+#: dashboards/project/instances/workflows/create_instance.py:125
 msgid "Delete volume on instance terminate"
 msgstr "Supprimer le volume après terminaison de l'instance"
 
-#: dashboards/project/instances/workflows/create_instance.py:157
+#: dashboards/project/instances/workflows/create_instance.py:138
+msgid "--- Select source ---"
+msgstr "--- Sélectionnez la source ---"
+
+#: dashboards/project/instances/workflows/create_instance.py:139
+msgid "Boot from image"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:140
+msgid "Boot from snapshot"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:143
+msgid "Boot from volume"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:149
+msgid "Boot from image (creates a new volume)."
+msgstr "Démarrer depuis une image (créé un nouveau volume)."
+
+#: dashboards/project/instances/workflows/create_instance.py:151
+msgid "Unable to retrieve extensions information."
+msgstr "Impossible de récupérer l'information concernant les extensions."
+
+#: dashboards/project/instances/workflows/create_instance.py:155
+msgid "Boot from volume snapshot (creates a new volume)."
+msgstr "Démarrer depuis un instantané de volume (crée un nouveau volume)."
+
+#: dashboards/project/instances/workflows/create_instance.py:166
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -5606,193 +5616,193 @@ msgid_plural ""
 msgstr[0] "L'instance demandée ne peut pas être lancée car vous n'avez seulement que %(avail)i disponibles dans votre quota."
 msgstr[1] "Les %(req)i instances demandées ne peuvent pas être lancées car vous n'avez seulement que %(avail)i disponibles dans votre quota."
 
-#: dashboards/project/instances/workflows/create_instance.py:175
-#: dashboards/project/instances/workflows/create_instance.py:197
+#: dashboards/project/instances/workflows/create_instance.py:184
+#: dashboards/project/instances/workflows/create_instance.py:206
 msgid "You must select an image."
 msgstr "Vous devez sélectionner une image"
 
-#: dashboards/project/instances/workflows/create_instance.py:180
-#: dashboards/project/instances/workflows/create_instance.py:208
+#: dashboards/project/instances/workflows/create_instance.py:189
+#: dashboards/project/instances/workflows/create_instance.py:217
 msgid "You must select a snapshot."
 msgstr "Vous devez sélectionner un instantané."
 
-#: dashboards/project/instances/workflows/create_instance.py:185
+#: dashboards/project/instances/workflows/create_instance.py:194
 msgid "You must select a volume."
 msgstr "Vous devez sélectionner un volume."
 
-#: dashboards/project/instances/workflows/create_instance.py:191
+#: dashboards/project/instances/workflows/create_instance.py:200
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "Le lancement d'instances multiples n'est accepté que pour les images et les instantanés d'instance."
 
-#: dashboards/project/instances/workflows/create_instance.py:200
+#: dashboards/project/instances/workflows/create_instance.py:209
 msgid "You must set volume size"
 msgstr "Vous devez définir la taille du volume"
 
-#: dashboards/project/instances/workflows/create_instance.py:203
-#: dashboards/project/instances/workflows/create_instance.py:211
+#: dashboards/project/instances/workflows/create_instance.py:212
+#: dashboards/project/instances/workflows/create_instance.py:220
 msgid "You must set device name"
 msgstr "Vous devez définir le nom du périphérique"
 
-#: dashboards/project/instances/workflows/create_instance.py:232
+#: dashboards/project/instances/workflows/create_instance.py:241
 msgid "Unable to retrieve instance flavors."
 msgstr "Impossible de récupérer les types de l'instance."
 
-#: dashboards/project/instances/workflows/create_instance.py:241
+#: dashboards/project/instances/workflows/create_instance.py:250
 msgid "Unable to retrieve availability zones."
 msgstr "Impossible de récupérer les zones de disponibilité."
 
-#: dashboards/project/instances/workflows/create_instance.py:247
+#: dashboards/project/instances/workflows/create_instance.py:256
 msgid "No availability zones found."
 msgstr "Aucune zone de disponibilité trouvée."
 
-#: dashboards/project/instances/workflows/create_instance.py:249
+#: dashboards/project/instances/workflows/create_instance.py:258
 msgid "Any Availability Zone"
 msgstr "Toutes les zones de disponibilité"
 
-#: dashboards/project/instances/workflows/create_instance.py:262
+#: dashboards/project/instances/workflows/create_instance.py:271
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:214
 msgid "Unable to retrieve quota information."
 msgstr "Impossible de récupérer les informations de quotas."
 
-#: dashboards/project/instances/workflows/create_instance.py:272
+#: dashboards/project/instances/workflows/create_instance.py:281
 #: dashboards/project/volumes/forms.py:109
 msgid "Snapshot"
 msgstr "Instantané"
 
-#: dashboards/project/instances/workflows/create_instance.py:277
+#: dashboards/project/instances/workflows/create_instance.py:286
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s Go (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:294
+#: dashboards/project/instances/workflows/create_instance.py:303
 msgid "No images available"
 msgstr "Aucune image disponible"
 
-#: dashboards/project/instances/workflows/create_instance.py:305
+#: dashboards/project/instances/workflows/create_instance.py:314
 msgid "Select Instance Snapshot"
 msgstr "Sélectionner un Instantané d'Instance"
 
-#: dashboards/project/instances/workflows/create_instance.py:307
+#: dashboards/project/instances/workflows/create_instance.py:316
 msgid "No snapshots available."
 msgstr "Aucun instantané disponible."
 
-#: dashboards/project/instances/workflows/create_instance.py:318
+#: dashboards/project/instances/workflows/create_instance.py:327
 msgid "Unable to retrieve list of volumes."
 msgstr "Impossible de récupérer la liste des volumes."
 
-#: dashboards/project/instances/workflows/create_instance.py:320
+#: dashboards/project/instances/workflows/create_instance.py:329
 msgid "Select Volume"
 msgstr "Sélectionner un Volume "
 
-#: dashboards/project/instances/workflows/create_instance.py:322
+#: dashboards/project/instances/workflows/create_instance.py:331
 msgid "No volumes available."
 msgstr "Aucun volume disponible."
 
-#: dashboards/project/instances/workflows/create_instance.py:333
+#: dashboards/project/instances/workflows/create_instance.py:342
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Impossible de récupérer la liste des instantanés du volume."
 
-#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/instances/workflows/create_instance.py:345
 msgid "Select Volume Snapshot"
 msgstr "Sélectionner un Instantané de Volume"
 
-#: dashboards/project/instances/workflows/create_instance.py:338
+#: dashboards/project/instances/workflows/create_instance.py:347
 msgid "No volume snapshots available."
 msgstr "Aucun instantané de volume disponible."
 
-#: dashboards/project/instances/workflows/create_instance.py:381
+#: dashboards/project/instances/workflows/create_instance.py:390
 msgid "Which keypair to use for authentication."
 msgstr "Quelle paire de clés utiliser pour l'authentification."
 
-#: dashboards/project/instances/workflows/create_instance.py:385
+#: dashboards/project/instances/workflows/create_instance.py:394
 msgid "Admin Pass"
 msgstr "Mot de Passe Admin"
 
-#: dashboards/project/instances/workflows/create_instance.py:391
+#: dashboards/project/instances/workflows/create_instance.py:400
 msgid "Confirm Admin Pass"
 msgstr "Confirmer le Mot de Passe Admin"
 
-#: dashboards/project/instances/workflows/create_instance.py:398
+#: dashboards/project/instances/workflows/create_instance.py:407
 msgid "Launch instance in these security groups."
 msgstr "Lancer l'instance dans ces groupes de sécurité."
 
-#: dashboards/project/instances/workflows/create_instance.py:403
+#: dashboards/project/instances/workflows/create_instance.py:412
 msgid ""
 "Control access to your instance via keypairs, security groups, and other "
 "mechanisms."
 msgstr "Contrôler l'accès à votre instance en utilisant les paires de clés, les groupes de sécurité et d'autres mécanismes."
 
-#: dashboards/project/instances/workflows/create_instance.py:413
+#: dashboards/project/instances/workflows/create_instance.py:422
 msgid "Unable to retrieve keypairs."
 msgstr "Impossible de récupérer les paires de clés."
 
-#: dashboards/project/instances/workflows/create_instance.py:417
+#: dashboards/project/instances/workflows/create_instance.py:426
 msgid "Select a keypair"
 msgstr "Sélectionner une paire de clés"
 
-#: dashboards/project/instances/workflows/create_instance.py:419
+#: dashboards/project/instances/workflows/create_instance.py:428
 msgid "No keypairs available."
 msgstr "Pas de paires de clés disponibles."
 
-#: dashboards/project/instances/workflows/create_instance.py:428
+#: dashboards/project/instances/workflows/create_instance.py:437
 msgid "Unable to retrieve list of security groups"
 msgstr "Impossible de récupérer la liste des groupes de sécurité"
 
-#: dashboards/project/instances/workflows/create_instance.py:460
+#: dashboards/project/instances/workflows/create_instance.py:469
 msgid "Customization Script"
 msgstr "Script de Personnalisation"
 
-#: dashboards/project/instances/workflows/create_instance.py:462
+#: dashboards/project/instances/workflows/create_instance.py:471
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Un script ou une série de commandes à exécuter après la construction de l'instance (max 16 Ko)."
 
-#: dashboards/project/instances/workflows/create_instance.py:469
+#: dashboards/project/instances/workflows/create_instance.py:478
 msgid "Post-Creation"
 msgstr "Post-Création"
 
-#: dashboards/project/instances/workflows/create_instance.py:485
+#: dashboards/project/instances/workflows/create_instance.py:494
 msgid "At least one network must be specified."
 msgstr "Au moins un réseau doit être spécifié."
 
-#: dashboards/project/instances/workflows/create_instance.py:487
+#: dashboards/project/instances/workflows/create_instance.py:496
 msgid "Launch instance with these networks"
 msgstr "Lancer l'instance avec ces réseaux"
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:499
 msgid "Policy Profiles"
 msgstr "Politique des Profils"
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:501
 msgid "Launch instance with this policy profile"
 msgstr "Lancez une instance avec cette politique de profil"
 
-#: dashboards/project/instances/workflows/create_instance.py:496
+#: dashboards/project/instances/workflows/create_instance.py:505
 msgid "Networking"
 msgstr "Réseaux"
 
-#: dashboards/project/instances/workflows/create_instance.py:498
+#: dashboards/project/instances/workflows/create_instance.py:507
 msgid "Select networks for your instance."
 msgstr "Sélectionner les réseaux pour votre instance."
 
-#: dashboards/project/instances/workflows/create_instance.py:510
+#: dashboards/project/instances/workflows/create_instance.py:519
 msgid "Unable to retrieve networks."
 msgstr "Impossible de récupérer les réseaux."
 
-#: dashboards/project/instances/workflows/create_instance.py:519
+#: dashboards/project/instances/workflows/create_instance.py:528
 msgid "Unable to retrieve profiles."
 msgstr "Impossible de récupérer les profils."
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:574
 #, python-format
 msgid "%s instances"
 msgstr "%s instances"
 
-#: dashboards/project/instances/workflows/create_instance.py:623
+#: dashboards/project/instances/workflows/create_instance.py:632
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Port non créé pour le profile-id (%s)."
@@ -5925,94 +5935,94 @@ msgid ""
 "not set"
 msgstr "Nombre maximal de connexions autorisées pour la VIP ou '-1' si la limite n'est pas définie"
 
-#: dashboards/project/loadbalancers/forms.py:107
-#: dashboards/project/loadbalancers/forms.py:186
-#: dashboards/project/loadbalancers/tabs.py:42
-#: dashboards/project/loadbalancers/workflows.py:314
+#: dashboards/project/loadbalancers/forms.py:108
+#: dashboards/project/loadbalancers/forms.py:188
+#: dashboards/project/loadbalancers/tabs.py:44
+#: dashboards/project/loadbalancers/workflows.py:315
 msgid "Unable to retrieve pools list."
 msgstr "Impossible de récupérer la liste des pools."
 
-#: dashboards/project/loadbalancers/forms.py:118
+#: dashboards/project/loadbalancers/forms.py:119
 msgid "No session persistence"
 msgstr "Pas de persistance de session"
 
-#: dashboards/project/loadbalancers/forms.py:128
+#: dashboards/project/loadbalancers/forms.py:129
 #: dashboards/project/loadbalancers/workflows.py:205
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "Le nom du cookie est nécessaire pour la persistance APP_COOKIE."
 
-#: dashboards/project/loadbalancers/forms.py:154
+#: dashboards/project/loadbalancers/forms.py:155
 #, python-format
 msgid "VIP %s was successfully updated."
 msgstr "La VIP %s a été mise à jour avec succès."
 
-#: dashboards/project/loadbalancers/forms.py:159
+#: dashboards/project/loadbalancers/forms.py:160
 #, python-format
 msgid "Failed to update VIP %s"
 msgstr "Echec de la mise à jour de la VIP %s"
 
-#: dashboards/project/loadbalancers/forms.py:170
+#: dashboards/project/loadbalancers/forms.py:171
 #: dashboards/project/loadbalancers/workflows.py:294
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:21
 msgid "Weight"
 msgstr "Poids"
 
-#: dashboards/project/loadbalancers/forms.py:171
+#: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/workflows.py:296
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "Part relative de requêtes servie par cet élément du pool"
 
-#: dashboards/project/loadbalancers/forms.py:200
+#: dashboards/project/loadbalancers/forms.py:202
 #, python-format
 msgid "Member %s was successfully updated."
 msgstr "Le membre %s a été mis à jour avec succès."
 
-#: dashboards/project/loadbalancers/forms.py:206
+#: dashboards/project/loadbalancers/forms.py:208
 #, python-format
 msgid "Failed to update member %s"
 msgstr "Echec lors de la mise à jour du membre %s"
 
-#: dashboards/project/loadbalancers/forms.py:218
-#: dashboards/project/loadbalancers/workflows.py:405
+#: dashboards/project/loadbalancers/forms.py:220
+#: dashboards/project/loadbalancers/workflows.py:406
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "Retard"
 
-#: dashboards/project/loadbalancers/forms.py:219
-#: dashboards/project/loadbalancers/workflows.py:406
+#: dashboards/project/loadbalancers/forms.py:221
+#: dashboards/project/loadbalancers/workflows.py:407
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "Temps minimal, en secondes, entre deux vérifications d'un membre"
 
-#: dashboards/project/loadbalancers/forms.py:223
-#: dashboards/project/loadbalancers/workflows.py:410
+#: dashboards/project/loadbalancers/forms.py:225
+#: dashboards/project/loadbalancers/workflows.py:411
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:61
 msgid "Timeout"
 msgstr "Délai d'expiration"
 
-#: dashboards/project/loadbalancers/forms.py:224
-#: dashboards/project/loadbalancers/workflows.py:411
+#: dashboards/project/loadbalancers/forms.py:226
+#: dashboards/project/loadbalancers/workflows.py:412
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "Temps d'attente maximal, en secondes, d'une réponse par un moniteur"
 
-#: dashboards/project/loadbalancers/forms.py:228
-#: dashboards/project/loadbalancers/workflows.py:415
+#: dashboards/project/loadbalancers/forms.py:230
+#: dashboards/project/loadbalancers/workflows.py:416
 msgid "Max Retries (1~10)"
 msgstr "Max tentatives (1~10)"
 
-#: dashboards/project/loadbalancers/forms.py:229
-#: dashboards/project/loadbalancers/workflows.py:416
+#: dashboards/project/loadbalancers/forms.py:231
+#: dashboards/project/loadbalancers/workflows.py:417
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
 msgstr "Nombre d'échecs permis avant de passer le statut d'un membre à inactif"
 
-#: dashboards/project/loadbalancers/forms.py:247
+#: dashboards/project/loadbalancers/forms.py:249
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "Le moniteur de santé %s a été mis à jour avec succès."
 
-#: dashboards/project/loadbalancers/forms.py:253
+#: dashboards/project/loadbalancers/forms.py:255
 #, python-format
 msgid "Failed to update health monitor %s"
 msgstr "La mise à jour du moniteur de santé %s a échoué. "
@@ -6032,17 +6042,17 @@ msgid "Add VIP"
 msgstr "Ajouter un VIP"
 
 #: dashboards/project/loadbalancers/tables.py:54
-#: dashboards/project/loadbalancers/workflows.py:368
+#: dashboards/project/loadbalancers/workflows.py:369
 msgid "Add Member"
 msgstr "Ajouter un Membre"
 
 #: dashboards/project/loadbalancers/tables.py:61
-#: dashboards/project/loadbalancers/workflows.py:509
+#: dashboards/project/loadbalancers/workflows.py:510
 msgid "Add Monitor"
 msgstr "Ajouter un Moniteur"
 
 #: dashboards/project/loadbalancers/tables.py:70
-#: dashboards/project/loadbalancers/tables.py:196
+#: dashboards/project/loadbalancers/tables.py:198
 msgid "VIP"
 msgstr "VIP"
 
@@ -6051,20 +6061,20 @@ msgid "VIPs"
 msgstr "VIPs"
 
 #: dashboards/project/loadbalancers/tables.py:84
-#: dashboards/project/loadbalancers/tables.py:201
+#: dashboards/project/loadbalancers/tables.py:203
 #: dashboards/project/loadbalancers/tabs.py:30
 msgid "Pools"
 msgstr "Pools"
 
 #: dashboards/project/loadbalancers/tables.py:91
-#: dashboards/project/loadbalancers/workflows.py:527
-#: dashboards/project/loadbalancers/workflows.py:586
+#: dashboards/project/loadbalancers/workflows.py:546
+#: dashboards/project/loadbalancers/workflows.py:608
 msgid "Monitor"
 msgstr "Moniteur"
 
 #: dashboards/project/loadbalancers/tables.py:92
-#: dashboards/project/loadbalancers/tables.py:243
-#: dashboards/project/loadbalancers/tabs.py:66
+#: dashboards/project/loadbalancers/tables.py:245
+#: dashboards/project/loadbalancers/tabs.py:70
 msgid "Monitors"
 msgstr "Moniteurs"
 
@@ -6073,8 +6083,8 @@ msgid "Member"
 msgstr "Membre"
 
 #: dashboards/project/loadbalancers/tables.py:100
-#: dashboards/project/loadbalancers/tables.py:230
-#: dashboards/project/loadbalancers/tabs.py:48
+#: dashboards/project/loadbalancers/tables.py:232
+#: dashboards/project/loadbalancers/tabs.py:50
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
 msgid "Members"
 msgstr "Membres"
@@ -6111,21 +6121,21 @@ msgstr "Editer le Moniteur"
 msgid "Add Health Monitor"
 msgstr "Ajouter un moniteur de santé"
 
-#: dashboards/project/loadbalancers/tables.py:171
+#: dashboards/project/loadbalancers/tables.py:173
 msgid "Failed to retrieve health monitors."
 msgstr "Echec de la récupération du moniteur de santé"
 
-#: dashboards/project/loadbalancers/tables.py:177
+#: dashboards/project/loadbalancers/tables.py:179
 msgid "Delete Health Monitor"
 msgstr "Supprimer le Moniteur de Santé"
 
-#: dashboards/project/loadbalancers/tables.py:192
+#: dashboards/project/loadbalancers/tables.py:194
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:21
 msgid "Provider"
 msgstr "Fournisseur"
 
-#: dashboards/project/loadbalancers/tables.py:224
+#: dashboards/project/loadbalancers/tables.py:226
 #: dashboards/project/loadbalancers/workflows.py:162
 #: dashboards/project/loadbalancers/workflows.py:298
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:18
@@ -6133,47 +6143,47 @@ msgstr "Fournisseur"
 msgid "Protocol Port"
 msgstr "Port du Protocole"
 
-#: dashboards/project/loadbalancers/tables.py:239
+#: dashboards/project/loadbalancers/tables.py:241
 msgid "Monitor Type"
 msgstr "Type de Moniteur"
 
-#: dashboards/project/loadbalancers/tabs.py:60
+#: dashboards/project/loadbalancers/tabs.py:64
 msgid "Unable to retrieve member list."
 msgstr "Impossible de récupérer la liste des membres."
 
-#: dashboards/project/loadbalancers/tabs.py:77
+#: dashboards/project/loadbalancers/tabs.py:82
 msgid "Unable to retrieve monitor list."
 msgstr "Impossible de récupérer la liste des moniteurs."
 
-#: dashboards/project/loadbalancers/tabs.py:88
+#: dashboards/project/loadbalancers/tabs.py:93
 msgid "Pool Details"
 msgstr "Détails du Pool"
 
-#: dashboards/project/loadbalancers/tabs.py:99
+#: dashboards/project/loadbalancers/tabs.py:104
 msgid "Unable to retrieve pool details."
 msgstr "Impossible de récupérer les détails du Pool."
 
-#: dashboards/project/loadbalancers/tabs.py:104
+#: dashboards/project/loadbalancers/tabs.py:109
 msgid "VIP Details"
 msgstr "Détails de VIP"
 
-#: dashboards/project/loadbalancers/tabs.py:115
+#: dashboards/project/loadbalancers/tabs.py:120
 msgid "Unable to retrieve VIP details."
 msgstr "Impossible de récupérer les détails de la VIP."
 
-#: dashboards/project/loadbalancers/tabs.py:120
+#: dashboards/project/loadbalancers/tabs.py:125
 msgid "Member Details"
 msgstr "Détails du Membre"
 
-#: dashboards/project/loadbalancers/tabs.py:131
+#: dashboards/project/loadbalancers/tabs.py:136
 msgid "Unable to retrieve member details."
 msgstr "Impossible de récupérer les détails du membre."
 
-#: dashboards/project/loadbalancers/tabs.py:136
+#: dashboards/project/loadbalancers/tabs.py:141
 msgid "Monitor Details"
 msgstr "Détails du Moniteur"
 
-#: dashboards/project/loadbalancers/tabs.py:147
+#: dashboards/project/loadbalancers/tabs.py:152
 msgid "Unable to retrieve monitor details."
 msgstr "Impossible de récupérer les détails du moniteur."
 
@@ -6368,7 +6378,7 @@ msgid "At least one member must be specified"
 msgstr "Un membre au moins doit être spécifié"
 
 #: dashboards/project/loadbalancers/workflows.py:293
-#: dashboards/project/loadbalancers/workflows.py:333
+#: dashboards/project/loadbalancers/workflows.py:334
 msgid "Select members for this pool "
 msgstr "Sélectionner les membres pour ce pool"
 
@@ -6376,172 +6386,184 @@ msgstr "Sélectionner les membres pour ce pool"
 msgid "Select a Pool"
 msgstr "Sélectionner un Pool"
 
-#: dashboards/project/loadbalancers/workflows.py:327
+#: dashboards/project/loadbalancers/workflows.py:328
 msgid "Unable to retrieve instances list."
 msgstr "Impossible de récupérer la liste des instances."
 
-#: dashboards/project/loadbalancers/workflows.py:330
+#: dashboards/project/loadbalancers/workflows.py:331
 msgid "No servers available. Click Add to cancel."
 msgstr "Aucun serveur disponible. Cliquer sur Ajouter pour annuler."
 
-#: dashboards/project/loadbalancers/workflows.py:346
+#: dashboards/project/loadbalancers/workflows.py:347
 msgid "Add New Member"
 msgstr "Ajouter un nouveau Membre"
 
-#: dashboards/project/loadbalancers/workflows.py:348
+#: dashboards/project/loadbalancers/workflows.py:349
 msgid ""
 "Add member to selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
 msgstr "Ajouter un membre au pool sélectionné.\n\nChoisissez une ou plusieurs instances à ajouter au pool en tant que membre(s). Attribuez un poids à ce membre. Précisez le numéro de port sur lequel le membre opère; e.g 80."
 
-#: dashboards/project/loadbalancers/workflows.py:370
+#: dashboards/project/loadbalancers/workflows.py:371
 msgid "Added member(s)."
 msgstr "Membre(s) ajouté(s)."
 
-#: dashboards/project/loadbalancers/workflows.py:371
+#: dashboards/project/loadbalancers/workflows.py:372
 msgid "Unable to add member(s)."
 msgstr "Impossible d'ajouter le(s) membre(s)."
 
-#: dashboards/project/loadbalancers/workflows.py:395
+#: dashboards/project/loadbalancers/workflows.py:396
 msgid "PING"
 msgstr "PING"
 
-#: dashboards/project/loadbalancers/workflows.py:397
+#: dashboards/project/loadbalancers/workflows.py:398
 msgid "HTTP"
 msgstr "HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:398
+#: dashboards/project/loadbalancers/workflows.py:399
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: dashboards/project/loadbalancers/workflows.py:421
+#: dashboards/project/loadbalancers/workflows.py:422
 msgid "GET"
 msgstr "GET"
 
-#: dashboards/project/loadbalancers/workflows.py:422
-#: dashboards/project/loadbalancers/workflows.py:427
+#: dashboards/project/loadbalancers/workflows.py:423
 #: dashboards/project/loadbalancers/workflows.py:428
+#: dashboards/project/loadbalancers/workflows.py:429
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
 msgid "HTTP Method"
 msgstr "Méthode HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:423
+#: dashboards/project/loadbalancers/workflows.py:424
 msgid "HTTP method used to check health status of a member"
 msgstr "Type de méthode HTTP utilisé pour vérifier l'état de santé d'un membre"
 
-#: dashboards/project/loadbalancers/workflows.py:434
-#: dashboards/project/loadbalancers/workflows.py:438
+#: dashboards/project/loadbalancers/workflows.py:435
 #: dashboards/project/loadbalancers/workflows.py:439
+#: dashboards/project/loadbalancers/workflows.py:440
 #: dashboards/project/stacks/forms.py:66
 msgid "URL"
 msgstr "URL"
 
-#: dashboards/project/loadbalancers/workflows.py:446
-#: dashboards/project/loadbalancers/workflows.py:453
+#: dashboards/project/loadbalancers/workflows.py:447
 #: dashboards/project/loadbalancers/workflows.py:454
+#: dashboards/project/loadbalancers/workflows.py:455
 msgid "Expected HTTP Status Codes"
 msgstr "Codes de statut HTTP attendus"
 
-#: dashboards/project/loadbalancers/workflows.py:447
+#: dashboards/project/loadbalancers/workflows.py:448
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
 "202), or range of values (e.g. 200-204)"
 msgstr "Le code attendu peut être une valeur unique (e.g. 200) , une liste de valeurs (e.g. 200, 202) ou une plage de valeurs (e.g. 200-204)"
 
-#: dashboards/project/loadbalancers/workflows.py:472
+#: dashboards/project/loadbalancers/workflows.py:473
 msgid "Please choose a HTTP method"
 msgstr "Veuillez choisir une méthode HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:475
+#: dashboards/project/loadbalancers/workflows.py:476
 msgid "Please specify an URL"
 msgstr "Veuillez spécifier une URL"
 
-#: dashboards/project/loadbalancers/workflows.py:478
+#: dashboards/project/loadbalancers/workflows.py:479
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "Veuillez entrer une seule valeur (e.g. 200), une liste de valeurs (e.g. 200, 202) ou une plage de valeurs (e.g. 200-204)"
 
-#: dashboards/project/loadbalancers/workflows.py:485
+#: dashboards/project/loadbalancers/workflows.py:486
 msgid "Add New Monitor"
 msgstr "Ajouter un nouveau Moniteur"
 
-#: dashboards/project/loadbalancers/workflows.py:487
+#: dashboards/project/loadbalancers/workflows.py:488
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "Créer un modèle de supervision.\n\nSélectionner le type de supervision. Spécifier le délai, le délai d'attente, et le nombre de tentatives requises par le moniteur. Spécifiez la méthode, le chemin URL et les codes de retour HTTP attendus en cas de succès. "
 
-#: dashboards/project/loadbalancers/workflows.py:511
+#: dashboards/project/loadbalancers/workflows.py:512
 msgid "Added monitor"
 msgstr "Moniteur ajouté"
 
-#: dashboards/project/loadbalancers/workflows.py:512
+#: dashboards/project/loadbalancers/workflows.py:513
 msgid "Unable to add monitor"
 msgstr "Impossible d'ajouter le moniteur"
 
-#: dashboards/project/loadbalancers/workflows.py:522
+#: dashboards/project/loadbalancers/workflows.py:523
 msgid "Unable to add monitor."
 msgstr "Impossible d'ajouter le moniteur."
 
 #: dashboards/project/loadbalancers/workflows.py:533
 #, python-format
+msgid ""
+"%(type)s url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
+"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:538
+#, python-format
+msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:552
+#, python-format
 msgid "Select a monitor template for %s"
 msgstr "Sélectionner un modèle de moniteur pour %s"
 
-#: dashboards/project/loadbalancers/workflows.py:536
-#: dashboards/project/loadbalancers/workflows.py:596
+#: dashboards/project/loadbalancers/workflows.py:555
+#: dashboards/project/loadbalancers/workflows.py:618
 msgid "Select a Monitor"
 msgstr "Sélectionner un Moniteur"
 
-#: dashboards/project/loadbalancers/workflows.py:544
-#: dashboards/project/loadbalancers/workflows.py:602
+#: dashboards/project/loadbalancers/workflows.py:566
+#: dashboards/project/loadbalancers/workflows.py:627
 msgid "Unable to retrieve monitors list."
 msgstr "Impossible de récupérer la liste des moniteurs."
 
-#: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/loadbalancers/workflows.py:608
+#: dashboards/project/loadbalancers/workflows.py:572
+#: dashboards/project/loadbalancers/workflows.py:633
 msgid "Association Details"
 msgstr "Détails de l'Association"
 
-#: dashboards/project/loadbalancers/workflows.py:552
+#: dashboards/project/loadbalancers/workflows.py:574
 msgid "Associate a health monitor with target pool."
 msgstr "Associer un moniteur de santé au pool cible."
 
-#: dashboards/project/loadbalancers/workflows.py:568
+#: dashboards/project/loadbalancers/workflows.py:590
 msgid "Add Association"
 msgstr "Ajouter une Association"
 
-#: dashboards/project/loadbalancers/workflows.py:570
+#: dashboards/project/loadbalancers/workflows.py:592
 msgid "Added association."
 msgstr "Association ajoutée."
 
-#: dashboards/project/loadbalancers/workflows.py:571
-#: dashboards/project/loadbalancers/workflows.py:581
+#: dashboards/project/loadbalancers/workflows.py:593
+#: dashboards/project/loadbalancers/workflows.py:603
 msgid "Unable to add association."
 msgstr "Impossible d'ajouter une association."
 
-#: dashboards/project/loadbalancers/workflows.py:593
+#: dashboards/project/loadbalancers/workflows.py:615
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "Sélectionner un moniteur de santé de %s"
 
-#: dashboards/project/loadbalancers/workflows.py:610
+#: dashboards/project/loadbalancers/workflows.py:635
 msgid "Disassociate a health monitor from target pool. "
 msgstr "Dissocier un moniteur de santé du pool cible."
 
-#: dashboards/project/loadbalancers/workflows.py:627
+#: dashboards/project/loadbalancers/workflows.py:652
 msgid "Delete Association"
 msgstr "Supprimer une Association"
 
-#: dashboards/project/loadbalancers/workflows.py:629
+#: dashboards/project/loadbalancers/workflows.py:654
 msgid "Deleted association."
 msgstr "Association supprimée."
 
-#: dashboards/project/loadbalancers/workflows.py:630
-#: dashboards/project/loadbalancers/workflows.py:640
+#: dashboards/project/loadbalancers/workflows.py:655
+#: dashboards/project/loadbalancers/workflows.py:665
 msgid "Unable to delete association."
 msgstr "Impossible de supprimer l'association."
 
@@ -7733,19 +7755,19 @@ msgstr "Création d'un instantané du volume"
 msgid "VPN"
 msgstr "VPN"
 
-#: dashboards/project/vpn/tables.py:29 dashboards/project/vpn/workflows.py:192
+#: dashboards/project/vpn/tables.py:29 dashboards/project/vpn/workflows.py:193
 msgid "Add IKE Policy"
 msgstr "Ajouter une politique IKE"
 
-#: dashboards/project/vpn/tables.py:36 dashboards/project/vpn/workflows.py:289
+#: dashboards/project/vpn/tables.py:36 dashboards/project/vpn/workflows.py:290
 msgid "Add IPSec Policy"
 msgstr "Ajouter une politique IPSec"
 
-#: dashboards/project/vpn/tables.py:43 dashboards/project/vpn/workflows.py:93
+#: dashboards/project/vpn/tables.py:43 dashboards/project/vpn/workflows.py:94
 msgid "Add VPN Service"
 msgstr "Ajouter un service VPN"
 
-#: dashboards/project/vpn/tables.py:50 dashboards/project/vpn/workflows.py:461
+#: dashboards/project/vpn/tables.py:50 dashboards/project/vpn/workflows.py:466
 msgid "Add IPSec Site Connection"
 msgstr "Ajouter une connexion IPSec de site"
 
@@ -7755,7 +7777,7 @@ msgid "VPN Service"
 msgstr "Service VPN"
 
 #: dashboards/project/vpn/tables.py:60 dashboards/project/vpn/tables.py:136
-#: dashboards/project/vpn/tabs.py:73
+#: dashboards/project/vpn/tabs.py:74
 msgid "VPN Services"
 msgstr "Services VPN"
 
@@ -7765,7 +7787,7 @@ msgid "IKE Policy"
 msgstr "Politique IKE"
 
 #: dashboards/project/vpn/tables.py:68 dashboards/project/vpn/tables.py:154
-#: dashboards/project/vpn/tabs.py:92
+#: dashboards/project/vpn/tabs.py:94
 msgid "IKE Policies"
 msgstr "Politiques IKE"
 
@@ -7775,7 +7797,7 @@ msgid "IPSec Policy"
 msgstr "Politique IPSec"
 
 #: dashboards/project/vpn/tables.py:76 dashboards/project/vpn/tables.py:172
-#: dashboards/project/vpn/tabs.py:109
+#: dashboards/project/vpn/tabs.py:112
 msgid "IPSec Policies"
 msgstr "Politiques IPSec"
 
@@ -7789,16 +7811,16 @@ msgid "IPSec Site Connections"
 msgstr "Connexions IPSec de site"
 
 #: dashboards/project/vpn/tables.py:146 dashboards/project/vpn/tables.py:164
-#: dashboards/project/vpn/workflows.py:116
-#: dashboards/project/vpn/workflows.py:215
+#: dashboards/project/vpn/workflows.py:117
+#: dashboards/project/vpn/workflows.py:216
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:18
 msgid "Authorization algorithm"
 msgstr "Algorithme d'autorisation"
 
 #: dashboards/project/vpn/tables.py:149 dashboards/project/vpn/tables.py:167
-#: dashboards/project/vpn/workflows.py:117
-#: dashboards/project/vpn/workflows.py:217
+#: dashboards/project/vpn/workflows.py:118
+#: dashboards/project/vpn/workflows.py:218
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:24
 msgid "Encryption algorithm"
@@ -7808,51 +7830,51 @@ msgstr "Algorithme de chiffrement"
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tabs.py:67
+#: dashboards/project/vpn/tabs.py:68
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Impossible de récupérer la liste des connexions IPSec de site."
 
-#: dashboards/project/vpn/tabs.py:86 dashboards/project/vpn/workflows.py:371
+#: dashboards/project/vpn/tabs.py:88 dashboards/project/vpn/workflows.py:376
 msgid "Unable to retrieve VPN Services list."
 msgstr "Impossible de récupérer la liste des services VPN."
 
-#: dashboards/project/vpn/tabs.py:103 dashboards/project/vpn/workflows.py:345
+#: dashboards/project/vpn/tabs.py:106 dashboards/project/vpn/workflows.py:347
 msgid "Unable to retrieve IKE Policies list."
 msgstr "Impossible de récupérer la liste des politiques IKE."
 
-#: dashboards/project/vpn/tabs.py:120 dashboards/project/vpn/workflows.py:358
+#: dashboards/project/vpn/tabs.py:124 dashboards/project/vpn/workflows.py:362
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "Impossible de récupérer la liste des politiques IPSec."
 
-#: dashboards/project/vpn/tabs.py:132
+#: dashboards/project/vpn/tabs.py:136
 msgid "IKE Policy Details"
 msgstr "Détails de la politique IKE."
 
-#: dashboards/project/vpn/tabs.py:142
+#: dashboards/project/vpn/tabs.py:146
 msgid "Unable to retrieve IKE Policy details."
 msgstr "Impossible de récupérer les détails de la politique IKE."
 
-#: dashboards/project/vpn/tabs.py:153
+#: dashboards/project/vpn/tabs.py:157
 msgid "IPSec Policy Details"
 msgstr "Détails de la politique IPSec"
 
-#: dashboards/project/vpn/tabs.py:163
+#: dashboards/project/vpn/tabs.py:167
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "Impossible de récupérer les détails de la politique IPSec"
 
-#: dashboards/project/vpn/tabs.py:174
+#: dashboards/project/vpn/tabs.py:178
 msgid "VPN Service Details"
 msgstr "Détails du service VPN"
 
-#: dashboards/project/vpn/tabs.py:184
+#: dashboards/project/vpn/tabs.py:188
 msgid "Unable to retrieve VPN Service details."
 msgstr "Impossible de récupérer les détails des services VPN."
 
-#: dashboards/project/vpn/tabs.py:204
+#: dashboards/project/vpn/tabs.py:208
 msgid "IPSec Site Connection Details"
 msgstr "Détails de la connexion IPSec de site"
 
-#: dashboards/project/vpn/tabs.py:214
+#: dashboards/project/vpn/tabs.py:218
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "Impossible de récupérer les détails de la connexion IPSec de site"
 
@@ -7896,242 +7918,242 @@ msgstr "Impossible de supprimer la connexion IPSec de Site."
 msgid "Select a Router"
 msgstr "Sélectionnez un Routeur"
 
-#: dashboards/project/vpn/workflows.py:63
+#: dashboards/project/vpn/workflows.py:64
 msgid "Unable to retrieve routers list."
 msgstr "Impossible de récupérer la liste des routeurs."
 
-#: dashboards/project/vpn/workflows.py:71
+#: dashboards/project/vpn/workflows.py:72
 msgid "Add New VPN Service"
 msgstr "Ajouter un nouveau Service VPN"
 
-#: dashboards/project/vpn/workflows.py:73
+#: dashboards/project/vpn/workflows.py:74
 msgid ""
 "Create VPN Service for current project.\n"
 "\n"
 "Assign a name and description for the VPN Service. Select a router and a subnet. Admin State is Up (checked) by default."
 msgstr "Créer un service VPN pour le projet en cours.\n\nDonner un nom et une description au service VPN. Sélectionner un routeur et un sous-réseau. Admin State est Up (vérifié) par défaut."
 
-#: dashboards/project/vpn/workflows.py:95
+#: dashboards/project/vpn/workflows.py:96
 #, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "Service VPN \"%s\" ajouté."
 
-#: dashboards/project/vpn/workflows.py:96
+#: dashboards/project/vpn/workflows.py:97
 #, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "Impossible d'ajouter le service VPN \"%s\"."
 
-#: dashboards/project/vpn/workflows.py:118
+#: dashboards/project/vpn/workflows.py:119
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:24
 msgid "IKE version"
 msgstr "Version IKE"
 
-#: dashboards/project/vpn/workflows.py:119
+#: dashboards/project/vpn/workflows.py:120
 msgid "Lifetime units for IKE keys"
 msgstr "Unités de durée de vie pour les clés IKE"
 
-#: dashboards/project/vpn/workflows.py:121
+#: dashboards/project/vpn/workflows.py:122
 msgid "Lifetime value for IKE keys"
 msgstr "Valeur de durée de vie pour les clés IKE"
 
-#: dashboards/project/vpn/workflows.py:123
-#: dashboards/project/vpn/workflows.py:222
+#: dashboards/project/vpn/workflows.py:124
+#: dashboards/project/vpn/workflows.py:223
 msgid "Equal to or more than 60"
 msgstr "Egal ou supérieur à 60"
 
-#: dashboards/project/vpn/workflows.py:124
-#: dashboards/project/vpn/workflows.py:223
+#: dashboards/project/vpn/workflows.py:125
+#: dashboards/project/vpn/workflows.py:224
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:33
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:33
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
-#: dashboards/project/vpn/workflows.py:126
+#: dashboards/project/vpn/workflows.py:127
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:36
 msgid "IKE Phase1 negotiation mode"
 msgstr "Mode de négociation IKE Phase 1"
 
-#: dashboards/project/vpn/workflows.py:166
+#: dashboards/project/vpn/workflows.py:167
 msgid "Add New IKE Policy"
 msgstr "Ajouter un nouvelle Politique IKE"
 
-#: dashboards/project/vpn/workflows.py:168
+#: dashboards/project/vpn/workflows.py:169
 msgid ""
 "Create IKE Policy for current project.\n"
 "\n"
 "Assign a name and description for the IKE Policy. "
 msgstr "Créer une politique IKE pour le projet en cours.\n\nAttribuer un nom et une description pour la Politique IKE."
 
-#: dashboards/project/vpn/workflows.py:194
+#: dashboards/project/vpn/workflows.py:195
 #, python-format
 msgid "Added IKE Policy \"%s\"."
 msgstr "Politique IKE \"%s\" ajoutée."
 
-#: dashboards/project/vpn/workflows.py:195
+#: dashboards/project/vpn/workflows.py:196
 #, python-format
 msgid "Unable to add IKE Policy \"%s\"."
 msgstr "Impossible d'ajouter la politique IKE \"%s\"."
 
-#: dashboards/project/vpn/workflows.py:216
+#: dashboards/project/vpn/workflows.py:217
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:21
 msgid "Encapsulation mode"
 msgstr "Mode d'encapsulation"
 
-#: dashboards/project/vpn/workflows.py:218
+#: dashboards/project/vpn/workflows.py:219
 msgid "Lifetime units"
 msgstr "Unités de durée de vie"
 
-#: dashboards/project/vpn/workflows.py:220
+#: dashboards/project/vpn/workflows.py:221
 msgid "Lifetime value for IKE keys "
 msgstr "Valeur de durée de vie pour les clés IKE"
 
-#: dashboards/project/vpn/workflows.py:224
+#: dashboards/project/vpn/workflows.py:225
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:36
 msgid "Transform Protocol"
 msgstr "Protocole de transformation"
 
-#: dashboards/project/vpn/workflows.py:263
+#: dashboards/project/vpn/workflows.py:264
 msgid "Add New IPSec Policy"
 msgstr "Ajouter une nouvelle politique IPSec"
 
-#: dashboards/project/vpn/workflows.py:265
+#: dashboards/project/vpn/workflows.py:266
 msgid ""
 "Create IPSec Policy for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Policy. "
 msgstr "Créer une Politique IPSec pour le projet en cours.\n\nAttribuer un nom et une description pour la Politique IPSec."
 
-#: dashboards/project/vpn/workflows.py:291
+#: dashboards/project/vpn/workflows.py:292
 #, python-format
 msgid "Added IPSec Policy \"%s\"."
 msgstr "Politique IPSec \"%s\" ajoutée."
 
-#: dashboards/project/vpn/workflows.py:292
+#: dashboards/project/vpn/workflows.py:293
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
 msgstr "Impossible d'ajouter la politique IPSec \"%s\"."
 
-#: dashboards/project/vpn/workflows.py:313
+#: dashboards/project/vpn/workflows.py:314
 msgid "VPN Service associated with this connection"
 msgstr "Service VPN associée à cette connection"
 
-#: dashboards/project/vpn/workflows.py:315
+#: dashboards/project/vpn/workflows.py:316
 msgid "IKE Policy associated with this connection"
 msgstr "Politique IKE associée à cette connexion"
 
-#: dashboards/project/vpn/workflows.py:317
+#: dashboards/project/vpn/workflows.py:318
 msgid "IPSec Policy associated with this connection"
 msgstr "Politique IPSec associée à cette connexion"
 
-#: dashboards/project/vpn/workflows.py:319
+#: dashboards/project/vpn/workflows.py:320
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:31
 msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
 msgstr "Passerelle publique de Peer Adresse IPv4/IPv6 ou FQDN"
 
-#: dashboards/project/vpn/workflows.py:320
+#: dashboards/project/vpn/workflows.py:321
 msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
 msgstr "Passerelle publique de Peer adresse IPv4/IPv6 ou FQDN pour la connexion VPN"
 
-#: dashboards/project/vpn/workflows.py:325
+#: dashboards/project/vpn/workflows.py:326
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:34
 msgid "Peer router identity for authentication (Peer ID)"
 msgstr "Identité du routeur Peer pour l'authentification (ID du Peer)"
 
-#: dashboards/project/vpn/workflows.py:326
+#: dashboards/project/vpn/workflows.py:327
 msgid ""
 "Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
 "key ID, or FQDN"
 msgstr "Routeur d'identité de Peer pour l'authentification. Peut être l'adresse IPv4/IPv6, l'e-mail, le key ID ou le FQDN"
 
-#: dashboards/project/vpn/workflows.py:330
+#: dashboards/project/vpn/workflows.py:331
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:37
 msgid "Remote peer subnet"
 msgstr "Sous-réseau de peer distant"
 
-#: dashboards/project/vpn/workflows.py:331
+#: dashboards/project/vpn/workflows.py:332
 msgid "Remote peer subnet address with mask in CIDR format (e.g. 20.1.0.0/24)"
 msgstr "Adresse de sous-réseau du peer distant avec un masque au format CIDR (e.g. 20.1.0.0/24)"
 
-#: dashboards/project/vpn/workflows.py:337
+#: dashboards/project/vpn/workflows.py:338
 msgid "Pre-Shared Key (PSK) string"
 msgstr "Chaîne de Clé pré-partagée (PSK)"
 
-#: dashboards/project/vpn/workflows.py:340
+#: dashboards/project/vpn/workflows.py:341
 msgid "Select IKE Policy"
 msgstr "Sélectionner la Politique IKE"
 
-#: dashboards/project/vpn/workflows.py:353
+#: dashboards/project/vpn/workflows.py:355
 msgid "Select IPSec Policy"
 msgstr "Sélectionner la politique IPSec"
 
-#: dashboards/project/vpn/workflows.py:366
+#: dashboards/project/vpn/workflows.py:370
 msgid "Select VPN Service"
 msgstr "Sélectionner un Service VPN"
 
-#: dashboards/project/vpn/workflows.py:379
+#: dashboards/project/vpn/workflows.py:384
 msgid "Add New IPSec Site Connection"
 msgstr "Ajouter un nouvelle connexion IPSec de site "
 
-#: dashboards/project/vpn/workflows.py:381
+#: dashboards/project/vpn/workflows.py:386
 msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in this tab are required."
 msgstr "Créer une connexion IPSec de Site pour le projet en cours.\n\nAttribuer un nom et une description pour la connexion IPSec de Site. Tous les champs de cet onglet sont obligatoires."
 
-#: dashboards/project/vpn/workflows.py:398
+#: dashboards/project/vpn/workflows.py:403
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Taille de l'unité de transmission maximum  pour la connexion"
 
-#: dashboards/project/vpn/workflows.py:400
+#: dashboards/project/vpn/workflows.py:405
 msgid ""
 "Equal to or more than 68 if the local subnet is IPv4. Equal to or more than "
 "1280 if the local subnet is IPv6."
 msgstr "Supérieur ou égal à 68 sur le sous-réseau local est en IPV4. Supérieur ou égal à 1280 si le sous-réseau local est en IPV6."
 
-#: dashboards/project/vpn/workflows.py:402
+#: dashboards/project/vpn/workflows.py:407
 msgid "Dead peer detection actions"
 msgstr "Actions de dead peer detection"
 
-#: dashboards/project/vpn/workflows.py:404
+#: dashboards/project/vpn/workflows.py:409
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:56
 msgid "Dead peer detection interval"
 msgstr "intervalle de dead peer detection"
 
-#: dashboards/project/vpn/workflows.py:406
+#: dashboards/project/vpn/workflows.py:411
 msgid "Valid integer"
 msgstr "Valeur entière correcte"
 
-#: dashboards/project/vpn/workflows.py:408
+#: dashboards/project/vpn/workflows.py:413
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:59
 msgid "Dead peer detection timeout"
 msgstr "Délai d'expiration de dead peer detection"
 
-#: dashboards/project/vpn/workflows.py:410
+#: dashboards/project/vpn/workflows.py:415
 msgid "Valid integer greater than the DPD interval"
 msgstr "Valeur entière correcte plus grande que l'intervalle DPD"
 
-#: dashboards/project/vpn/workflows.py:411
+#: dashboards/project/vpn/workflows.py:416
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:50
 msgid "Initiator state"
 msgstr "Etat initiator"
 
-#: dashboards/project/vpn/workflows.py:433
+#: dashboards/project/vpn/workflows.py:438
 msgid "Optional Parameters"
 msgstr "Paramètres optionnels"
 
-#: dashboards/project/vpn/workflows.py:435
+#: dashboards/project/vpn/workflows.py:440
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
 msgstr "Les champs dans cet onglet sont optionnels. Vous pouvez paramétrer les détails de la connexion IPsec de site créée."
 
-#: dashboards/project/vpn/workflows.py:463
+#: dashboards/project/vpn/workflows.py:468
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
 msgstr "Connexion IPSec de site \"%s\" ajoutée."
 
-#: dashboards/project/vpn/workflows.py:464
+#: dashboards/project/vpn/workflows.py:469
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
 msgstr "Impossible d'ajouter la connexion IPSec de site \"%s\"."

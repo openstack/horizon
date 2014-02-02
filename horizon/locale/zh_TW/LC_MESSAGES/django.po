@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-07 04:40-0600\n"
-"PO-Revision-Date: 2013-12-06 07:10+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2014-01-27 06:50+0000\n"
+"Last-Translator: zero00072 <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openstack/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,7 +201,7 @@ msgstr "限制摘要"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
-msgstr "執行個體"
+msgstr "執行實例"
 
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
@@ -267,7 +267,7 @@ msgstr "日期的格式應該為 YY-mm-dd。"
 
 #: templates/horizon/common/_usage_summary.html:14
 msgid "Active Instances"
-msgstr "活躍的執行個體"
+msgstr "活躍的執行實例"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Active RAM"
