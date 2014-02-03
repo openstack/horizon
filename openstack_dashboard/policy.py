@@ -108,10 +108,10 @@ def check(actions, request, target={}):
     # don't want to block all actions because the operator did not fully
     # understand the implication of editing the policy file. Additionally,
     # the service APIs will correct us if we are too permissive.
-    if 'project_id' not in target:
+    if target.get('project_id') is None:
         target['project_id'] = user.project_id
     # same for user_id
-    if 'user_id' not in target:
+    if target.get('user_id') is None:
         target['user_id'] = user.id
 
     credentials = _user_to_credentials(request, user)
