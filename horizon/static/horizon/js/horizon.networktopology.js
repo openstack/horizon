@@ -133,7 +133,7 @@ horizon.network_topology = {
   select_draw_mode:function() {
     var self = this;
     var draw_mode = $.cookie('ntp_draw_mode');
-    if (draw_mode && (draw_mode === 'normal'| draw_mode === 'small')) {
+    if (draw_mode && (draw_mode === 'normal' || draw_mode === 'small')) {
       self.draw_mode = draw_mode;
     } else {
       if (self.model.networks.length *
