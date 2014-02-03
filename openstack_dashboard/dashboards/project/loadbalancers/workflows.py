@@ -341,7 +341,7 @@ class AddMemberAction(workflows.Action):
 
         if len(servers) == 0:
             self.fields['members'].label = _(
-                "No servers available. To add a member, you"
+                "No servers available. To add a member, you "
                 "need at least one running instance.")
             self.fields['members'].required = True
             self.fields['members'].help_text = _("Select members "
