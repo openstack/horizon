@@ -348,7 +348,6 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.disk,
                                swap=new_flavor.swap,
                                ephemeral=eph,
-                               flavorid=flavor.id,
                                is_public=True).AndReturn(new_flavor)
 
         # Put mocks in replay mode
@@ -418,7 +417,6 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.disk,
                                swap=new_flavor.swap,
                                ephemeral=eph,
-                               flavorid=flavor.id,
                                is_public=True).AndReturn(new_flavor)
         api.nova.flavor_extra_set(IsA(http.HttpRequest),
                                   new_flavor.id, extra_specs)
@@ -490,7 +488,6 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.disk,
                                swap=new_flavor.swap,
                                ephemeral=eph,
-                               flavorid=flavor.id,
                                is_public=True)\
                                .AndRaise(self.exceptions.nova)
 
@@ -566,7 +563,6 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.disk,
                                swap=new_flavor.swap,
                                ephemeral=eph,
-                               flavorid=flavor.id,
                                is_public=new_flavor.is_public) \
                                .AndReturn(new_flavor)
 
