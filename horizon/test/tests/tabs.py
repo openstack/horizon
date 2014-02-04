@@ -236,11 +236,11 @@ class TabTests(test.TestCase):
         self.assertEqual(len(tabs), 1)
         tab = tabs[0]
         # Make sure it's the tab we think it is.
-        self.assertTrue(isinstance(tab, horizon_tabs.TableTab))
+        self.assertIsInstance(tab, horizon_tabs.TableTab)
         # Data should not be loaded yet.
         self.assertFalse(tab._table_data_loaded)
         table = tab._tables[MyTable.Meta.name]
-        self.assertTrue(isinstance(table, MyTable))
+        self.assertIsInstance(table, MyTable)
         # Let's make sure the data *really* isn't loaded yet.
         self.assertEqual(table.data, None)
         # Okay, load the data.

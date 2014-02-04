@@ -133,7 +133,7 @@ class HorizonTests(BaseHorizonTests):
 
         # Retrieval
         my_dash_instance_by_name = horizon.get_dashboard("mydash")
-        self.assertTrue(isinstance(my_dash_instance_by_name, MyDash))
+        self.assertIsInstance(my_dash_instance_by_name, MyDash)
         my_dash_instance_by_class = horizon.get_dashboard(MyDash)
         self.assertEqual(my_dash_instance_by_name, my_dash_instance_by_class)
         with self.assertRaises(base.NotRegistered):
@@ -216,7 +216,7 @@ class HorizonTests(BaseHorizonTests):
 
     def test_lazy_urls(self):
         urlpatterns = horizon.urls[0]
-        self.assertTrue(isinstance(urlpatterns, base.LazyURLPattern))
+        self.assertIsInstance(urlpatterns, base.LazyURLPattern)
         # The following two methods simply should not raise any exceptions
         iter(urlpatterns)
         reversed(urlpatterns)
