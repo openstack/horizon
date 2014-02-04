@@ -40,7 +40,7 @@ horizon.autoDismissAlerts = function() {
     var $alert = $(this),
       types = $alert.attr('class').split(' '),
       intersection = $.grep(types, function (value) {
-        $.inArray(value, horizon.conf.auto_fade_alerts.types);
+        return $.inArray(value, horizon.conf.auto_fade_alerts.types) !== -1;
       });
     // Check if alert should auto-fade
     if (intersection.length > 0) {
