@@ -292,7 +292,6 @@ class UpdateFlavor(workflows.Workflow):
                                             data['disk_gb'],
                                             ephemeral=data['eph_gb'],
                                             swap=data['swap_mb'],
-                                            flavorid=flavor_id,
                                             is_public=is_public)
             if (extras_dict):
                 api.nova.flavor_extra_set(request, flavor.id, extras_dict)
