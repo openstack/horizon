@@ -285,6 +285,10 @@ class VolumesTable(VolumesTableBase):
     bootable = tables.Column('is_bootable',
                          verbose_name=_("Bootable"),
                          filters=(filters.yesno, filters.capfirst))
+    encryption = tables.Column("encrypted",
+                               verbose_name=_("Encrypted"),
+                               empty_value="-",
+                               filters=(filters.yesno, filters.capfirst))
 
     class Meta:
         name = "volumes"
