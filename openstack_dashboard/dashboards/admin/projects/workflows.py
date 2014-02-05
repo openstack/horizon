@@ -105,7 +105,8 @@ class CreateProjectInfoAction(workflows.Action):
     domain_name = forms.CharField(label=_("Domain Name"),
                                   required=False,
                                   widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"))
+    name = forms.CharField(label=_("Name"),
+                           max_length=64)
     description = forms.CharField(widget=forms.widgets.Textarea(),
                                   label=_("Description"),
                                   required=False)
