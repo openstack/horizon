@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create Group" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Create Group") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'identity/groups/_create.html' %}
+{% endblock %}

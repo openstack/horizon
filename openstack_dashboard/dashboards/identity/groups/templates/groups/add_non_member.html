@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Add User to Group' %}{% endblock %}
+
+{% block main %}
+    {% include 'identity/groups/_add_non_member.html' %}
+{% endblock %}

@@ -3,12 +3,16 @@
 {% for heading, panels in components.iteritems %}
   {% with panels|has_permissions_on_list:user as filtered_panels %}
     {% if filtered_panels %}
-      {% if heading %}<h4>{{ heading }}</h4>{% endif %}
+      {% if accessible_panels %}
+        {% if heading %}<h4>{{ heading }}</h4>{% endif %}
+      {% endif %}
       <ul class="main_nav">
         {% for panel in filtered_panels %}
-          <li>
-            <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %} tabindex='1'>{{ panel.name }}</a>
-          </li>
+          {% if panel in accessible_panels or current == panel.slug %}
+            <li>
+              <a href="{{ panel.get_absolute_url }}" {% if current == panel.slug %}class="active"{% endif %} tabindex='1'>{{ panel.name }}</a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
     {% endif %}

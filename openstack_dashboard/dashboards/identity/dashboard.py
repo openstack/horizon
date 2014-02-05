@@ -1,4 +1,4 @@
-# Copyright 2012 Nebula, Inc.
+# Copyright 2014 Hewlett-Packard Development Company, L.P.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -12,25 +12,17 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
 
-class SystemPanels(horizon.PanelGroup):
-    slug = "admin"
-    name = _("System")
-    panels = ('overview', 'metering', 'hypervisors', 'aggregates',
-              'instances', 'volumes', 'flavors', 'images',
-              'networks', 'routers', 'info')
+class Identity(horizon.Dashboard):
+    name = _("Identity")
+    slug = "identity"
+    default_panel = 'projects'
+    panels = ('domains', 'projects', 'users', 'groups', 'roles',)
 
 
-class Admin(horizon.Dashboard):
-    name = _("Admin")
-    slug = "admin"
-    panels = (SystemPanels,)
-    default_panel = 'overview'
-    permissions = ('openstack.roles.admin',)
-
-
-horizon.register(Admin)
+horizon.register(Identity)

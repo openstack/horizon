@@ -1,4 +1,4 @@
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 Hewlett-Packard Development Company, L.P.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -12,25 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.conf.urls import patterns  # noqa
+from django.conf.urls import url  # noqa
 
-import horizon
+from openstack_dashboard.dashboards.identity.roles import views
 
-
-class SystemPanels(horizon.PanelGroup):
-    slug = "admin"
-    name = _("System")
-    panels = ('overview', 'metering', 'hypervisors', 'aggregates',
-              'instances', 'volumes', 'flavors', 'images',
-              'networks', 'routers', 'info')
-
-
-class Admin(horizon.Dashboard):
-    name = _("Admin")
-    slug = "admin"
-    panels = (SystemPanels,)
-    default_panel = 'overview'
-    permissions = ('openstack.roles.admin',)
-
-
-horizon.register(Admin)
+urlpatterns = patterns('openstack_dashboard.dashboards.identity.roles.views',
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^(?P<role_id>[^/]+)/update/$',
+        views.UpdateView.as_view(), name='update'),
+    url(r'^create/$', views.CreateView.as_view(), name='create'))
