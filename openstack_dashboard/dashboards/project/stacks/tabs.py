@@ -22,6 +22,7 @@ from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.stacks \
     import api as project_api
+from openstack_dashboard.dashboards.project.stacks import mappings
 from openstack_dashboard.dashboards.project.stacks \
     import tables as project_tables
 
@@ -58,8 +59,11 @@ class ResourceOverviewTab(tabs.Tab):
     template_name = "project/stacks/_resource_overview.html"
 
     def get_context_data(self, request):
+        resource = self.tab_group.kwargs['resource']
+        resource_url = mappings.resource_to_url(resource)
         return {
-            "resource": self.tab_group.kwargs['resource'],
+            "resource": resource,
+            "resource_url": resource_url,
             "metadata": self.tab_group.kwargs['metadata']}
 
 
