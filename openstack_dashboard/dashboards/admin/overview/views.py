@@ -20,6 +20,7 @@
 
 from django.conf import settings
 from django.template.defaultfilters import floatformat  # noqa
+from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -66,8 +67,12 @@ class GlobalOverview(usage.UsageView):
                               _('Unable to retrieve project list.'))
         for instance in data:
             project = filter(lambda t: t.id == instance.tenant_id, projects)
+            # If we could not get the project name, show the tenant_id with
+            # a 'Deleted' identifier instead.
             if project:
                 instance.project_name = getattr(project[0], "name", None)
             else:
-                instance.project_name = None
+                deleted = _("Deleted")
+                instance.project_name = translation.string_concat(
+                    instance.tenant_id, " (", deleted, ")")
         return data
