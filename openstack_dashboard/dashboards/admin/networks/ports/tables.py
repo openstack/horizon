@@ -33,6 +33,13 @@ LOG = logging.getLogger(__name__)
 class DeletePort(tables.DeleteAction):
     data_type_singular = _("Port")
     data_type_plural = _("Ports")
+    policy_rules = (("network", "delete_port"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         try:
@@ -51,6 +58,7 @@ class CreatePort(tables.LinkAction):
     verbose_name = _("Create Port")
     url = "horizon:admin:networks:addport"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("network", "create_port"),)
 
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
@@ -62,6 +70,13 @@ class UpdatePort(tables.LinkAction):
     verbose_name = _("Edit Port")
     url = "horizon:admin:networks:editport"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("network", "update_port"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def get_link_url(self, port):
         network_id = self.table.kwargs['network_id']

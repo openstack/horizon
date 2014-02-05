@@ -33,6 +33,7 @@ class AddIKEPolicyLink(tables.LinkAction):
     verbose_name = _("Add IKE Policy")
     url = "horizon:project:vpn:addikepolicy"
     classes = ("ajax-modal", "btn-addikepolicy",)
+    policy_rules = (("network", "create_ikepolicy"),)
 
 
 class AddIPSecPolicyLink(tables.LinkAction):
@@ -40,6 +41,7 @@ class AddIPSecPolicyLink(tables.LinkAction):
     verbose_name = _("Add IPSec Policy")
     url = "horizon:project:vpn:addipsecpolicy"
     classes = ("ajax-modal", "btn-addipsecpolicy",)
+    policy_rules = (("network", "create_ipsecpolicy"),)
 
 
 class AddVPNServiceLink(tables.LinkAction):
@@ -47,6 +49,7 @@ class AddVPNServiceLink(tables.LinkAction):
     verbose_name = _("Add VPN Service")
     url = "horizon:project:vpn:addvpnservice"
     classes = ("ajax-modal", "btn-addvpnservice",)
+    policy_rules = (("network", "create_vpnservice"),)
 
 
 class AddIPSecSiteConnectionLink(tables.LinkAction):
@@ -54,6 +57,7 @@ class AddIPSecSiteConnectionLink(tables.LinkAction):
     verbose_name = _("Add IPSec Site Connection")
     url = "horizon:project:vpn:addipsecsiteconnection"
     classes = ("ajax-modal", "btn-addipsecsiteconnection",)
+    policy_rules = (("network", "create_ipsec_site_connection"),)
 
 
 class DeleteVPNServiceLink(tables.DeleteAction):
@@ -62,6 +66,7 @@ class DeleteVPNServiceLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("VPN Service")
     data_type_plural = _("VPN Services")
+    policy_rules = (("network", "delete_vpnservice"),)
 
     def allowed(self, request, datum=None):
         if datum and datum.ipsecsiteconns:
@@ -75,6 +80,7 @@ class DeleteIKEPolicyLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("IKE Policy")
     data_type_plural = _("IKE Policies")
+    policy_rules = (("network", "delete_ikepolicy"),)
 
     def allowed(self, request, datum=None):
         if datum and datum.ipsecsiteconns:
@@ -88,6 +94,7 @@ class DeleteIPSecPolicyLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("IPSec Policy")
     data_type_plural = _("IPSec Policies")
+    policy_rules = (("network", "delete_ipsecpolicy"),)
 
     def allowed(self, request, datum=None):
         if datum and datum.ipsecsiteconns:
@@ -101,12 +108,14 @@ class DeleteIPSecSiteConnectionLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("IPSec Site Connection")
     data_type_plural = _("IPSec Site Connections")
+    policy_rules = (("network", "delete_ipsec_site_connection"),)
 
 
 class UpdateVPNServiceLink(tables.LinkAction):
     name = "update_vpnservice"
     verbose_name = _("Edit VPN Service")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "update_vpnservice"),)
 
     def get_link_url(self, vpnservice):
         return reverse("horizon:project:vpn:update_vpnservice",
@@ -122,6 +131,7 @@ class UpdateIKEPolicyLink(tables.LinkAction):
     name = "updateikepolicy"
     verbose_name = _("Edit IKE Policy")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "update_ikepolicy"),)
 
     def get_link_url(self, ikepolicy):
         return reverse("horizon:project:vpn:update_ikepolicy",
@@ -135,6 +145,7 @@ class UpdateIPSecPolicyLink(tables.LinkAction):
     name = "updateipsecpolicy"
     verbose_name = _("Edit IPSec Policy")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "update_ipsecpolicy"),)
 
     def get_link_url(self, ipsecpolicy):
         return reverse("horizon:project:vpn:update_ipsecpolicy",
@@ -148,6 +159,7 @@ class UpdateIPSecSiteConnectionLink(tables.LinkAction):
     name = "updateipsecsiteconnection"
     verbose_name = _("Edit Connection")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "update_ipsec_site_connection"),)
 
     def get_link_url(self, ipsecsiteconnection):
         return reverse("horizon:project:vpn:update_ipsecsiteconnection",

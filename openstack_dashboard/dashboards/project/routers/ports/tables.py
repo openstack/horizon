@@ -42,6 +42,13 @@ class AddInterface(tables.LinkAction):
     verbose_name = _("Add Interface")
     url = "horizon:project:routers:addinterface"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("network", "add_router_interface"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def get_link_url(self, datum=None):
         router_id = self.table.kwargs['router_id']
@@ -52,6 +59,13 @@ class RemoveInterface(tables.DeleteAction):
     data_type_singular = _("Interface")
     data_type_plural = _("Interfaces")
     failure_url = 'horizon:project:routers:detail'
+    policy_rules = (("network", "remove_router_interface"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         try:

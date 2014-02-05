@@ -34,6 +34,13 @@ LOG = logging.getLogger(__name__)
 class DeleteNetwork(tables.DeleteAction):
     data_type_singular = _("Network")
     data_type_plural = _("Networks")
+    policy_rules = (("network", "delete_network"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         try:
@@ -50,6 +57,7 @@ class CreateNetwork(tables.LinkAction):
     verbose_name = _("Create Network")
     url = "horizon:admin:networks:create"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("network", "create_network"),)
 
 
 class EditNetwork(tables.LinkAction):
@@ -57,6 +65,13 @@ class EditNetwork(tables.LinkAction):
     verbose_name = _("Edit Network")
     url = "horizon:admin:networks:update"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("network", "update_network"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
 
 #def _get_subnets(network):
