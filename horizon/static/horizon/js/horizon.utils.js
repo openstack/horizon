@@ -43,7 +43,7 @@ horizon.utils = {
   },
 
   loadAngular: function (element) {
-    angular.injector(['ng', 'horizonApp']).
+    angular.injector(['ng', 'hz']).
       invoke(['$rootScope', '$compile', function ($rootScope, $compile) {
         try {
           $compile(element)($rootScope);
