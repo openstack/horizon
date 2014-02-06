@@ -5,7 +5,24 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      if ($volName.is(':empty')) {
+      if ($volName.val() == "") {
+        $volName.val($option.data("display_name"));
+      }
+      var $volSize = $form.find('input#id_size');
+      var volSize = parseInt($volSize.val(), 10) || -1;
+      var dataSize = parseInt($option.data("size"), 10) || -1;
+      if (volSize < dataSize) {
+        $volSize.val(dataSize);
+      }
+    });
+  },
+
+  handle_volume_source: function() {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_volume_source", function(evt) {
+      var $option = $(this).find("option:selected");
+      var $form = $(this).closest('form');
+      var $volName = $form.find('input#id_name');
+      if ($volName.val() == "") {
         $volName.val($option.data("display_name"));
       }
       var $volSize = $form.find('input#id_size');
@@ -22,7 +39,7 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      if ($volName.is(':empty')) {
+      if ($volName.val() == "") {
         $volName.val($option.data("name"));
       }
       var $volSize = $form.find('input#id_size');
@@ -114,6 +131,7 @@ horizon.addInitFunction(function () {
   horizon.modals.addModalInitFunction(horizon.forms.init_examples);
 
   horizon.forms.handle_snapshot_source();
+  horizon.forms.handle_volume_source();
   horizon.forms.handle_image_source();
   horizon.forms.datepicker();
 

@@ -66,6 +66,14 @@ class CreateForm(forms.SelfHandlingForm):
             data_attrs=('size', 'name', 'min_disk'),
             transform=lambda x: "%s (%s)" % (x.name, filesizeformat(x.bytes))),
         required=False)
+    volume_source = forms.ChoiceField(
+        label=_("Use a volume as source"),
+        widget=fields.SelectWidget(
+            attrs={'class': 'image-selector'},
+            data_attrs=('size', 'display_name'),
+            transform=lambda x: "%s (%s)" % (x.display_name,
+                filesizeformat(x.size * 1024 * 1024 * 1024))),
+        required=False)
     availability_zone = forms.ChoiceField(
         label=_("Availability Zone"),
         required=False,
@@ -82,7 +90,7 @@ class CreateForm(forms.SelfHandlingForm):
                                       [(type.name, type.name)
                                        for type in volume_types]
 
-        if ("snapshot_id" in request.GET):
+        if "snapshot_id" in request.GET:
             try:
                 snapshot = self.get_snapshot(request,
                                              request.GET["snapshot_id"])
@@ -106,7 +114,7 @@ class CreateForm(forms.SelfHandlingForm):
             except Exception:
                 exceptions.handle(request,
                                   _('Unable to load the specified snapshot.'))
-        elif ('image_id' in request.GET):
+        elif 'image_id' in request.GET:
             self.fields['availability_zone'].choices = \
                 self.availability_zones(request)
             try:
@@ -134,6 +142,30 @@ class CreateForm(forms.SelfHandlingForm):
             except Exception:
                 msg = _('Unable to load the specified image. %s')
                 exceptions.handle(request, msg % request.GET['image_id'])
+        elif 'volume_id' in request.GET:
+            self.fields['availability_zone'].choices = \
+                self.availability_zones(request)
+            volume = None
+            try:
+                volume = self.get_volume(request, request.GET["volume_id"])
+            except Exception:
+                msg = _('Unable to load the specified volume. %s')
+                exceptions.handle(request, msg % request.GET['volume_id'])
+
+            if volume is not None:
+                self.fields['name'].initial = volume.display_name
+                self.fields['description'].initial = volume.display_description
+                min_vol_size = volume.size
+                size_help_text = _('Volume size must be equal to or greater '
+                                   'than the origin volume size (%s)') \
+                                 % filesizeformat(volume.size)
+                self.fields['size'].initial = min_vol_size
+                self.fields['size'].help_text = size_help_text
+                self.fields['volume_source'].choices = ((volume.id, volume),)
+                self.fields['type'].initial = volume.type
+                del self.fields['snapshot_source']
+                del self.fields['image_source']
+                del self.fields['volume_source_type']
         else:
             source_type_choices = []
             self.fields['availability_zone'].choices = \
@@ -167,6 +199,16 @@ class CreateForm(forms.SelfHandlingForm):
                 self.fields['image_source'].choices = choices
             else:
                 del self.fields['image_source']
+
+            volumes = self.get_volumes(request)
+            if volumes:
+                source_type_choices.append(("volume_source", _("Volume")))
+                choices = [('', _("Choose a volume"))]
+                for volume in volumes:
+                    choices.append((volume.id, volume))
+                self.fields['volume_source'].choices = choices
+            else:
+                del self.fields['volume_source']
 
             if source_type_choices:
                 choices = ([('no_source_type',
@@ -204,6 +246,18 @@ class CreateForm(forms.SelfHandlingForm):
 
         return zone_list
 
+    def get_volumes(self, request):
+        volumes = []
+        try:
+            volume_list = cinder.volume_list(self.request)
+            if volume_list is not None:
+                volumes = [v for v in volume_list
+                           if v.status == api.cinder.VOLUME_STATE_AVAILABLE]
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve list of volumes.'))
+        return volumes
+
     def handle(self, request, data):
         try:
             usages = quotas.tenant_limit_usages(self.request)
@@ -213,6 +267,7 @@ class CreateForm(forms.SelfHandlingForm):
 
             snapshot_id = None
             image_id = None
+            volume_id = None
             source_type = data.get('volume_source_type', None)
             az = data.get('availability_zone', None) or None
             if (data.get("snapshot_source", None) and
@@ -242,6 +297,16 @@ class CreateForm(forms.SelfHandlingForm):
                     error_message = _('The volume size cannot be less than '
                         'the image minimum disk size (%sGB)') % min_disk_size
                     raise ValidationError(error_message)
+            elif (data.get("volume_source", None) and
+                  source_type in [None, 'volume_source']):
+                # Create from volume
+                volume = self.get_volume(request, data["volume_source"])
+                volume_id = volume.id
+
+                if data['size'] < volume.size:
+                    error_message = _('The volume size cannot be less than '
+                        'the volume size (%sGB)') % volume.size
+                    raise ValidationError(error_message)
             else:
                 if type(data['size']) is str:
                     data['size'] = int(data['size'])
@@ -268,7 +333,8 @@ class CreateForm(forms.SelfHandlingForm):
                                           snapshot_id=snapshot_id,
                                           image_id=image_id,
                                           metadata=metadata,
-                                          availability_zone=az)
+                                          availability_zone=az,
+                                          source_volid=volume_id)
             message = _('Creating volume "%s"') % data['name']
             messages.info(request, message)
             return volume
@@ -287,6 +353,10 @@ class CreateForm(forms.SelfHandlingForm):
     @memoized
     def get_image(self, request, id):
         return glance.image_get(request, id)
+
+    @memoized
+    def get_volume(self, request, id):
+        return cinder.volume_get(request, id)
 
 
 class AttachForm(forms.SelfHandlingForm):
