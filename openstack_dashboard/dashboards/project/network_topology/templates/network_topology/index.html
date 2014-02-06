@@ -36,4 +36,14 @@
 </div>
 <span data-networktopology="{% url 'horizon:project:network_topology:json' %}" id="networktopology"></span>
 <div id="topologyMessages"></div>
+
+<script type="text/javascript">
+  if (typeof horizon.network_topology !== 'undefined') {
+    horizon.network_topology.init();
+  } else {
+    addHorizonLoadEvent(function () {
+      horizon.network_topology.init();
+    });
+  }
+</script>
 {% endblock %}
