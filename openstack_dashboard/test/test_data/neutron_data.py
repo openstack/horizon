@@ -444,6 +444,21 @@ def data(TEST):
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(lbaas.Pool(pool_dict))
 
+    # 2nd pool
+    pool_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d50',
+                 'tenant_id': '1',
+                 'vip_id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
+                 'name': 'pool2',
+                 'description': 'pool description',
+                 'subnet_id': TEST.subnets.first().id,
+                 'protocol': 'HTTPS',
+                 'lb_method': 'ROUND_ROBIN',
+                 'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff97'],
+                 'status': 'PENDING_CREATE',
+                 'admin_state_up': True}
+    TEST.api_pools.add(pool_dict)
+    TEST.pools.add(lbaas.Pool(pool_dict))
+
     # 1st vip
     vip_dict = {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
                 'name': 'vip1',
@@ -505,21 +520,6 @@ def data(TEST):
                   'admin_state_up': True}
     TEST.api_members.add(member_dict)
     TEST.members.add(lbaas.Member(member_dict))
-
-    # 2nd pool
-    pool_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d50',
-                 'tenant_id': '1',
-                 'vip_id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
-                 'name': 'pool2',
-                 'description': 'pool description',
-                 'subnet_id': TEST.subnets.first().id,
-                 'protocol': 'HTTPS',
-                 'lb_method': 'ROUND_ROBIN',
-                 'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff97'],
-                 'status': 'PENDING_CREATE',
-                 'admin_state_up': True}
-    TEST.api_pools.add(pool_dict)
-    TEST.pools.add(lbaas.Pool(pool_dict))
 
     # 1st monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
@@ -629,7 +629,8 @@ def data(TEST):
                        'vpn_type': 'ipsec',
                        'ipsecsiteconnections': [],
                        'admin_state_up': True,
-                       'status': 'Active'}
+                       'status': 'Active',
+                       'ipsecsiteconns': TEST.ipsecsiteconnections.list()}
     TEST.api_vpnservices.add(vpnservice_dict)
     TEST.vpnservices.add(vpn.VPNService(vpnservice_dict))
 
@@ -643,7 +644,8 @@ def data(TEST):
                        'vpn_type': 'ipsec',
                        'ipsecsiteconnections': [],
                        'admin_state_up': True,
-                       'status': 'Active'}
+                       'status': 'Active',
+                       'ipsecsiteconns': []}
     TEST.api_vpnservices.add(vpnservice_dict)
     TEST.vpnservices.add(vpn.VPNService(vpnservice_dict))
 
@@ -657,7 +659,8 @@ def data(TEST):
                       'ike_version': 'v1',
                       'lifetime': {'units': 'seconds', 'value': 3600},
                       'phase1_negotiation_mode': 'main',
-                      'pfs': 'group5'}
+                      'pfs': 'group5',
+                      'ipsecsiteconns': TEST.ipsecsiteconnections.list()}
     TEST.api_ikepolicies.add(ikepolicy_dict)
     TEST.ikepolicies.add(vpn.IKEPolicy(ikepolicy_dict))
 
@@ -671,7 +674,8 @@ def data(TEST):
                       'ike_version': 'v1',
                       'lifetime': {'units': 'seconds', 'value': 3600},
                       'phase1_negotiation_mode': 'main',
-                      'pfs': 'group5'}
+                      'pfs': 'group5',
+                      'ipsecsiteconns': []}
     TEST.api_ikepolicies.add(ikepolicy_dict)
     TEST.ikepolicies.add(vpn.IKEPolicy(ikepolicy_dict))
 
@@ -685,7 +689,8 @@ def data(TEST):
                       'encryption_algorithm': '3des',
                       'lifetime': {'units': 'seconds', 'value': 3600},
                       'pfs': 'group5',
-                      'transform_protocol': 'esp'}
+                      'transform_protocol': 'esp',
+                      'ipsecsiteconns': TEST.ipsecsiteconnections.list()}
     TEST.api_ipsecpolicies.add(ipsecpolicy_dict)
     TEST.ipsecpolicies.add(vpn.IPSecPolicy(ipsecpolicy_dict))
 
@@ -699,7 +704,8 @@ def data(TEST):
                       'encryption_algorithm': '3des',
                       'lifetime': {'units': 'seconds', 'value': 3600},
                       'pfs': 'group5',
-                      'transform_protocol': 'esp'}
+                      'transform_protocol': 'esp',
+                      'ipsecsiteconns': []}
     TEST.api_ipsecpolicies.add(ipsecpolicy_dict)
     TEST.ipsecpolicies.add(vpn.IPSecPolicy(ipsecpolicy_dict))
 

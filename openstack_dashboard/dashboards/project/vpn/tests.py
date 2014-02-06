@@ -60,52 +60,23 @@ class VPNTests(test.TestCase):
 
     def set_up_expect(self):
         # retrieves vpnservices
-        vpnservice1, vpnservice2 = self.vpnservices.list()[:2]
-
         api.vpn.vpnservice_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.vpnservices.list())
-
-        api.vpn.vpnservice_get(
-            IsA(http.HttpRequest), vpnservice1.id).AndReturn(vpnservice1)
-        api.vpn.vpnservice_get(
-            IsA(http.HttpRequest), vpnservice2.id).AndReturn(vpnservice2)
 
         # retrieves ikepolicies
         api.vpn.ikepolicy_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.ikepolicies.list())
 
-        ikepolicy1, ikepolicy2 = self.ikepolicies.list()[:2]
-
-        api.vpn.ikepolicy_get(
-            IsA(http.HttpRequest), ikepolicy1.id).AndReturn(ikepolicy1)
-        api.vpn.ikepolicy_get(
-            IsA(http.HttpRequest), ikepolicy2.id).AndReturn(ikepolicy2)
-
         # retrieves ipsecpolicies
         api.vpn.ipsecpolicy_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.ipsecpolicies.list())
 
-        ipsecpolicy1, ipsecpolicy2 = self.ipsecpolicies.list()[:2]
-
-        api.vpn.ipsecpolicy_get(
-            IsA(http.HttpRequest), ipsecpolicy1.id).AndReturn(ipsecpolicy1)
-        api.vpn.ipsecpolicy_get(
-            IsA(http.HttpRequest), ipsecpolicy2.id).AndReturn(ipsecpolicy2)
-
         # retrieves ipsecsiteconnections
-
-        # In unit tests memoized decorator is not called when methods with
-        # memoized decorators are stubbed out.
-        # That's the reason MultipleTimes is needed here.
-
         api.vpn.ipsecsiteconnection_list(
-            IsA(http.HttpRequest), tenant_id=self.tenant.id).MultipleTimes() \
-            .AndReturn(self.ipsecsiteconnections.list())
-        api.vpn.ipsecsiteconnection_list(
-            IsA(http.HttpRequest)).MultipleTimes() \
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.ipsecsiteconnections.list())
 
     def set_up_expect_with_exception(self):
@@ -124,9 +95,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get')})
+                                  'ipsecsiteconnection_list')})
     def test_index_vpnservices(self):
         self.set_up_expect()
 
@@ -142,9 +111,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get')})
+                                  'ipsecsiteconnection_list')})
     def test_index_ikepolicies(self):
         self.set_up_expect()
 
@@ -160,9 +127,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get')})
+                                  'ipsecsiteconnection_list')})
     def test_index_ipsecpolicies(self):
         self.set_up_expect()
 
@@ -178,9 +143,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get')})
+                                  'ipsecsiteconnection_list')})
     def test_index_ipsecsiteconnections(self):
         self.set_up_expect()
 
@@ -264,15 +227,11 @@ class VPNTests(test.TestCase):
     @test.create_stubs({api.neutron: ('network_list_for_tenant',
                                       'router_list')})
     def test_add_vpnservice_get(self):
-        subnet = self.subnets.first()
-
-        networks = [{'subnets': [subnet, ]}, ]
+        networks = [{'subnets': [self.subnets.first(), ]}, ]
+        routers = self.routers.list()
 
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
-
-        routers = self.routers.list()
-
         api.neutron.router_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
 
@@ -292,17 +251,13 @@ class VPNTests(test.TestCase):
                         api.vpn: ('vpnservice_create', )})
     def test_add_vpnservice_post(self):
         vpnservice = self.vpnservices.first()
-
+        networks = [{'subnets': [self.subnets.first(), ]}, ]
         routers = self.routers.list()
-
-        api.neutron.router_list(
-            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
-
-        subnet = self.subnets.first()
-        networks = [{'subnets': [subnet, ]}, ]
 
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
+        api.neutron.router_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
 
         api.vpn.vpnservice_create(
             IsA(http.HttpRequest),
@@ -330,17 +285,13 @@ class VPNTests(test.TestCase):
                                       'network_list_for_tenant')})
     def test_add_vpnservice_post_error(self):
         vpnservice = self.vpnservices.first()
-
+        networks = [{'subnets': [self.subnets.first(), ]}, ]
         routers = self.routers.list()
-
-        api.neutron.router_list(
-            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
-
-        subnet = self.subnets.first()
-        networks = [{'subnets': [subnet, ]}, ]
 
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
+        api.neutron.router_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(routers)
 
         self.mox.ReplayAll()
 
@@ -942,9 +893,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get',
+                                  'ipsecsiteconnection_list',
                                   'vpnservice_delete',)})
     def test_delete_vpnservice(self):
         self.set_up_expect()
@@ -964,9 +913,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get',
+                                  'ipsecsiteconnection_list',
                                   'ikepolicy_delete',)})
     def test_delete_ikepolicy(self):
         self.set_up_expect()
@@ -986,9 +933,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get',
+                                  'ipsecsiteconnection_list',
                                   'ipsecpolicy_delete',)})
     def test_delete_ipsecpolicy(self):
         self.set_up_expect()
@@ -1009,9 +954,7 @@ class VPNTests(test.TestCase):
 
     @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
                                   'vpnservice_list',
-                                  'ipsecsiteconnection_list', 'ikepolicy_get',
-                                  'ipsecpolicy_get', 'vpnservice_get',
-                                  'ipsecsiteconnection_get',
+                                  'ipsecsiteconnection_list',
                                   'ipsecsiteconnection_delete',)})
     def test_delete_ipsecsiteconnection(self):
         self.set_up_expect()

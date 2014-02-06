@@ -16,6 +16,8 @@
 
 from __future__ import absolute_import
 
+from django.utils.datastructures import SortedDict
+
 from openstack_dashboard.api import neutron
 
 neutronclient = neutron.neutronclient
@@ -36,71 +38,12 @@ class Pool(neutron.NeutronAPIDictWrapper):
             apiresource['provider'] = None
         super(Pool, self).__init__(apiresource)
 
-    class AttributeDict(dict):
-        def __getattr__(self, attr):
-            return self[attr]
-
-        def __setattr__(self, attr, value):
-            self[attr] = value
-
-    def readable(self, request):
-        pFormatted = {'id': self.id,
-                      'name': self.name,
-                      'description': self.description,
-                      'status': self.status,
-                      'protocol': self.protocol,
-                      'health_monitors': self.health_monitors,
-                      'provider': self.provider}
-        try:
-            pFormatted['subnet_id'] = self.subnet_id
-            pFormatted['subnet_name'] = neutron.subnet_get(
-                request, self.subnet_id).cidr
-        except Exception:
-            pFormatted['subnet_id'] = self.subnet_id
-            pFormatted['subnet_name'] = self.subnet_id
-
-        if self.vip_id is not None:
-            try:
-                pFormatted['vip_id'] = self.vip_id
-                pFormatted['vip_name'] = vip_get(
-                    request, self.vip_id).name
-            except Exception:
-                pFormatted['vip_id'] = self.vip_id
-                pFormatted['vip_name'] = self.vip_id
-        else:
-            pFormatted['vip_id'] = None
-            pFormatted['vip_name'] = None
-
-        return self.AttributeDict(pFormatted)
-
 
 class Member(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer member."""
 
     def __init__(self, apiresource):
         super(Member, self).__init__(apiresource)
-
-    class AttributeDict(dict):
-        def __getattr__(self, attr):
-            return self[attr]
-
-        def __setattr__(self, attr, value):
-            self[attr] = value
-
-    def readable(self, request):
-        mFormatted = {'id': self.id,
-                      'status': self.status,
-                      'address': self.address,
-                      'protocol_port': self.protocol_port}
-        try:
-            mFormatted['pool_id'] = self.pool_id
-            mFormatted['pool_name'] = pool_get(
-                request, self.pool_id).name
-        except Exception:
-            mFormatted['pool_id'] = self.pool_id
-            mFormatted['pool_name'] = self.pool_id
-
-        return self.AttributeDict(mFormatted)
 
 
 class PoolStats(neutron.NeutronAPIDictWrapper):
@@ -189,13 +132,49 @@ def pool_create(request, **kwargs):
     return Pool(pool)
 
 
+def _get_vip_name(request, pool, vip_dict):
+    if pool['vip_id'] is not None:
+        try:
+            if vip_dict:
+                return vip_dict.get(pool['vip_id']).name
+            else:
+                return vip_get(request, pool['vip_id']).name
+        except Exception:
+            return pool['vip_id']
+    else:
+        return None
+
+
 def pool_list(request, **kwargs):
+    return _pool_list(request, expand_subnet=True, expand_vip=True, **kwargs)
+
+
+def _pool_list(request, expand_subnet=False, expand_vip=False, **kwargs):
     pools = neutronclient(request).list_pools(**kwargs).get('pools')
+    if expand_subnet:
+        subnets = neutron.subnet_list(request)
+        subnet_dict = SortedDict((s.id, s) for s in subnets)
+        for p in pools:
+            p['subnet_name'] = subnet_dict.get(p['subnet_id']).cidr
+    if expand_vip:
+        vips = vip_list(request)
+        vip_dict = SortedDict((v.id, v) for v in vips)
+        for p in pools:
+            p['vip_name'] = _get_vip_name(request, p, vip_dict)
     return [Pool(p) for p in pools]
 
 
 def pool_get(request, pool_id):
+    return _pool_get(request, pool_id, expand_subnet=True, expand_vip=True)
+
+
+def _pool_get(request, pool_id, expand_subnet=False, expand_vip=False):
     pool = neutronclient(request).show_pool(pool_id).get('pool')
+    if expand_subnet:
+        pool['subnet_name'] = neutron.subnet_get(request,
+                                                 pool['subnet_id']).cidr
+    if expand_vip:
+        pool['vip_name'] = _get_vip_name(request, pool, vip_dict=False)
     return Pool(pool)
 
 
@@ -288,12 +267,27 @@ def member_create(request, **kwargs):
 
 
 def member_list(request, **kwargs):
+    return _member_list(request, expand_pool=True, **kwargs)
+
+
+def _member_list(request, expand_pool, **kwargs):
     members = neutronclient(request).list_members(**kwargs).get('members')
+    if expand_pool:
+        pools = _pool_list(request)
+        pool_dict = SortedDict((p.id, p) for p in pools)
+        for m in members:
+            m['pool_name'] = pool_dict.get(m['pool_id']).name
     return [Member(m) for m in members]
 
 
 def member_get(request, member_id):
+    return _member_get(request, member_id, expand_pool=True)
+
+
+def _member_get(request, member_id, expand_pool):
     member = neutronclient(request).show_member(member_id).get('member')
+    if expand_pool:
+        member['pool_name'] = _pool_get(request, member['pool_id']).name
     return Member(member)
 
 

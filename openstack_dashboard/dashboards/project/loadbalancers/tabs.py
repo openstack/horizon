@@ -36,13 +36,13 @@ class PoolsTab(tabs.TableTab):
             tenant_id = self.request.user.tenant_id
             pools = api.lbaas.pool_list(self.tab_group.request,
                                         tenant_id=tenant_id)
-            poolsFormatted = [p.readable(self.tab_group.request) for
-                              p in pools]
         except Exception:
-            poolsFormatted = []
+            pools = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve pools list.'))
-        return poolsFormatted
+        for p in pools:
+            p.set_id_as_name_if_empty()
+        return pools
 
 
 class MembersTab(tabs.TableTab):
@@ -56,13 +56,13 @@ class MembersTab(tabs.TableTab):
             tenant_id = self.request.user.tenant_id
             members = api.lbaas.member_list(self.tab_group.request,
                                             tenant_id=tenant_id)
-            membersFormatted = [m.readable(self.tab_group.request) for
-                                m in members]
         except Exception:
-            membersFormatted = []
+            members = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve member list.'))
-        return membersFormatted
+        for m in members:
+            m.set_id_as_name_if_empty()
+        return members
 
 
 class MonitorsTab(tabs.TableTab):
