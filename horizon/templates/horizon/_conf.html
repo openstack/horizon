@@ -25,11 +25,7 @@ horizonApp
       fade_duration: {{ HORIZON_CONFIG.auto_fade_alerts.fade_duration|default:"1500" }},
       types: {{ HORIZON_CONFIG.auto_fade_alerts.types|default:"[]"|safe }}
     };
-}])
-  .run(['hzConfig', function (hzConfig) {
-    //expose the configuration for horizon legacy variable
-    horizon.conf = hzConfig;
-  }]);
+}]);
 
 </script>
 {% endcompress %}
