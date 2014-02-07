@@ -15,7 +15,9 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import messages
 from horizon import tabs
+
 from openstack_dashboard import api
 from openstack_dashboard.api import ceilometer
 
@@ -37,6 +39,9 @@ class GlobalStatsTab(tabs.Tab):
 
     def get_context_data(self, request):
         meters = ceilometer.Meters(request)
+        if not meters._ceilometer_meter_list:
+            msg = _("There are no meters defined yet.")
+            messages.warning(request, msg)
 
         context = {
             'nova_meters': meters.list_nova(),

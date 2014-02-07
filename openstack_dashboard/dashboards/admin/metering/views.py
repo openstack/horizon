@@ -61,6 +61,10 @@ class SamplesView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         meter = request.GET.get('meter', None)
+        if not meter:
+            return HttpResponse(json.dumps({}),
+                                content_type='application/json')
+
         meter_name = meter.replace(".", "_")
         date_options = request.GET.get('date_options', None)
         date_from = request.GET.get('date_from', None)
