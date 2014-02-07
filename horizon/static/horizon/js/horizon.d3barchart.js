@@ -524,7 +524,7 @@ horizon.d3_bar_chart = {
     var self = this;
     self.wrapper = wrapper;
 
-    // FIXME woud be good to abstract all atributes and resolve orientation inside
+    // FIXME would be good to abstract all attributes and resolve orientation inside
     if (wrapper.horizontal_orientation()){
       // Horizontal Bars
       self.wrapper.average_value_in_pixels = (self.wrapper.w / 100) * self.wrapper.percentage_average;

@@ -452,7 +452,7 @@ horizon.membership = {
         return; // continue
       }
 
-      // call the initalization functions
+      // call the initialization functions
       horizon.membership.init_properties(step_slug);
       horizon.membership.generate_html(step_slug);
       horizon.membership.update_membership(step_slug);

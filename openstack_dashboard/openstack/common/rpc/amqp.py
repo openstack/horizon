@@ -187,7 +187,7 @@ class ReplyProxy(ConnectionContext):
     def __init__(self, conf, connection_pool):
         self._call_waiters = {}
         self._num_call_waiters = 0
-        self._num_call_waiters_wrn_threshhold = 10
+        self._num_call_waiters_wrn_threshold = 10
         self._reply_q = 'reply_' + uuid.uuid4().hex
         super(ReplyProxy, self).__init__(conf, connection_pool, pooled=False)
         self.declare_direct_consumer(self._reply_q, self._process_data)
@@ -205,11 +205,11 @@ class ReplyProxy(ConnectionContext):
 
     def add_call_waiter(self, waiter, msg_id):
         self._num_call_waiters += 1
-        if self._num_call_waiters > self._num_call_waiters_wrn_threshhold:
+        if self._num_call_waiters > self._num_call_waiters_wrn_threshold:
             LOG.warn(_('Number of call waiters is greater than warning '
-                       'threshhold: %d. There could be a MulticallProxyWaiter '
-                       'leak.') % self._num_call_waiters_wrn_threshhold)
-            self._num_call_waiters_wrn_threshhold *= 2
+                       'threshold: %d. There could be a MulticallProxyWaiter '
+                       'leak.') % self._num_call_waiters_wrn_threshold)
+            self._num_call_waiters_wrn_threshold *= 2
         self._call_waiters[msg_id] = waiter
 
     def del_call_waiter(self, msg_id):

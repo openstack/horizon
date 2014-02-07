@@ -55,7 +55,7 @@ class BaseActionMetaClass(type):
 
         # Iterate in reverse to preserve final order
         for base in bases[::-1]:
-            # It actualy throws all super classes away except immediate
+            # It actually throws all super classes away except immediate
             # superclass. But it's fine, immediate super-class base_options
             # includes everything because superclasses was created also by
             # this metaclass. Same principle is used in DataTableMetaclass.

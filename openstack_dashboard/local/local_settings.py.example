@@ -27,7 +27,7 @@ TEMPLATE_DEBUG = DEBUG
 #SESSION_COOKIE_SECURE = True
 
 # Overrides for OpenStack API versions. Use this setting to force the
-# OpenStack dashboard to use a specfic API version for a given service API.
+# OpenStack dashboard to use a specific API version for a given service API.
 # NOTE: The version should be formatted as it appears in the URL for the
 # service API. For example, The identity service APIs have inconsistent
 # use of the decimal point, so valid options would be "2.0" or "3".
@@ -159,7 +159,7 @@ OPENSTACK_HYPERVISOR_FEATURES = {
 }
 
 # The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
-# services provided by neutron. Options currenly available are load
+# services provided by neutron. Options currently available are load
 # balancer service, security groups, quotas, VPN service.
 OPENSTACK_NEUTRON_NETWORK = {
     'enable_lb': False,
