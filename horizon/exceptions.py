@@ -22,7 +22,6 @@ import logging
 import os
 import sys
 
-from django.contrib.auth import logout  # noqa
 from django.core.management import color_style  # noqa
 from django.http import HttpRequest  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -283,6 +282,12 @@ def handle(request, message=None, redirect=None, ignore=False,
         # Escalation means logging the user out and raising NotAuthorized
         # so the middleware will redirect them appropriately.
         if escalate:
+            # Prevents creation of circular import. django.contrib.auth
+            # requires openstack_dashboard.settings to be loaded (by trying to
+            # access settings.CACHES in in django.core.caches) while
+            # openstack_dashboard.settings requires django.contrib.auth to be
+            # loaded while importing openstack_auth.utils
+            from django.contrib.auth import logout  # noqa
             logout(request)
             raise NotAuthorized
         # Otherwise continue and present our "unauthorized" error message.
