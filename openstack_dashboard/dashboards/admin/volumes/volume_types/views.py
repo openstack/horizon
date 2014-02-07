@@ -86,15 +86,8 @@ class CreateVolumeTypeEncryptionView(forms.ModalFormView):
 
     @memoized.memoized_method
     def get_name(self):
-        try:
-            volume_type_list = api.cinder.volume_type_list(self.request)
-            for volume_type in volume_type_list:
-                if volume_type.id == self.kwargs['volume_type_id']:
-                    self.name = volume_type.name
-        except Exception:
-            msg = _('Unable to retrieve volume type name.')
-            url = reverse('horizon:admin:volumes:index')
-            exceptions.handle(self.request, msg, redirect=url)
+        if not hasattr(self, "name"):
+            self.name = _get_volume_type_name(self.request, self.kwargs)
         return self.name
 
     def get_context_data(self, **kwargs):
@@ -145,6 +138,67 @@ class EditVolumeTypeView(forms.ModalFormView):
         return {'id': self.kwargs['type_id'],
                 'name': volume_type.name,
                 'description': getattr(volume_type, 'description', "")}
+
+
+def _get_volume_type_name(request, kwargs):
+    try:
+        volume_type_list = api.cinder.volume_type_list(request)
+        for volume_type in volume_type_list:
+            if volume_type.id == kwargs['volume_type_id']:
+                return volume_type.name
+    except Exception:
+        msg = _('Unable to retrieve volume type name.')
+        url = reverse('horizon:admin:volumes:index')
+        exceptions.handle(request, msg, redirect=url)
+
+
+class UpdateVolumeTypeEncryptionView(forms.ModalFormView):
+    form_class = volume_types_forms.UpdateVolumeTypeEncryption
+    form_id = "update_volume_form"
+    modal_header = _("Update Volume Type Encryption")
+    modal_id = "update_volume_type_modal"
+    template_name = ("admin/volumes/volume_types/"
+                     "update_volume_type_encryption.html")
+    page_title = _("Update an Encrypted Volume Type")
+    submit_label = _("Update Volume Type Encryption")
+    submit_url = "horizon:admin:volumes:volume_types:update_type_encryption"
+    success_url = reverse_lazy('horizon:admin:volumes:index')
+
+    def get_object(self):
+        if not hasattr(self, "_object"):
+            try:
+                self._object = api.cinder.\
+                    volume_encryption_type_get(self.request,
+                                               self.kwargs['volume_type_id'])
+            except Exception:
+                msg = _('Unable to retrieve encryption type.')
+                url = reverse('horizon:admin:volumes:index')
+                exceptions.handle(self.request, msg, redirect=url)
+        return self._object
+
+    @memoized.memoized_method
+    def get_name(self):
+        if not hasattr(self, "name"):
+            self.name = _get_volume_type_name(self.request, self.kwargs)
+        return self.name
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateVolumeTypeEncryptionView, self).\
+            get_context_data(**kwargs)
+        context['volume_type_id'] = self.kwargs['volume_type_id']
+        args = (self.kwargs['volume_type_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_initial(self):
+        encryption_type = self.get_object()
+        name = self.get_name()
+        return {'volume_type_id': encryption_type.volume_type_id,
+                'control_location': encryption_type.control_location,
+                'key_size': encryption_type.key_size,
+                'provider': encryption_type.provider,
+                'cipher': encryption_type.cipher,
+                'name': name}
 
 
 class CreateQosSpecView(forms.ModalFormView):
