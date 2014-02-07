@@ -690,13 +690,40 @@ def service_list(request):
     return novaclient(request).services.list()
 
 
-def aggregate_list(request):
+def aggregate_details_list(request):
     result = []
     c = novaclient(request)
     for aggregate in c.aggregates.list():
         result.append(c.aggregates.get_details(aggregate.id))
-
     return result
+
+
+def aggregate_create(request, name, availability_zone=None):
+    return novaclient(request).aggregates.create(name, availability_zone)
+
+
+def aggregate_delete(request, aggregate_id):
+    return novaclient(request).aggregates.delete(aggregate_id)
+
+
+def aggregate_get(request, aggregate_id):
+    return novaclient(request).aggregates.get(aggregate_id)
+
+
+def aggregate_update(request, aggregate_id, values):
+    return novaclient(request).aggregates.update(aggregate_id, values)
+
+
+def host_list(request):
+    return novaclient(request).hosts.list()
+
+
+def add_host_to_aggregate(request, aggregate_id, host):
+    return novaclient(request).aggregates.add_host(aggregate_id, host)
+
+
+def remove_host_from_aggregate(request, aggregate_id, host):
+    return novaclient(request).aggregates.remove_host(aggregate_id, host)
 
 
 @memoized

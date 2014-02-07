@@ -1,0 +1,26 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}edit_aggregate_form{% endblock %}
+{% block form_action %}{% url 'horizon:admin:aggregates:update' id %}{% endblock %}
+
+{% block modal_id %}edit_aggregate_modal{% endblock %}
+{% block modal-header %}{% trans "Edit Host Aggregate" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description" %}:</h3>
+  <p>{% trans "From here you can edit the aggregate name and availability zone" %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save" %}" />
+  <a href="{% url 'horizon:admin:aggregates:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

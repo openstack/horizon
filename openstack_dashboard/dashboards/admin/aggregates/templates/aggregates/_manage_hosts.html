@@ -1,0 +1,29 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:aggregates:manage_hosts' id%}{% endblock %}
+
+{% block modal_id %}add_aggregate_modal{% endblock %}
+{% block modal-header %}{% trans "Manage Hosts" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description" %}:</h3>
+  <p>{% blocktrans %}
+    Here you can add/remove hosts to the selected aggregate host.
+    Note that while a host can be a member of multiple aggregates, it can belong to one availability zone at most.
+    {% endblocktrans %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Add Host" %}" />
+  <a href="{% url 'horizon:admin:aggregates:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

@@ -21,6 +21,7 @@ from novaclient.v1_1 import certs
 from novaclient.v1_1 import flavor_access
 from novaclient.v1_1 import flavors
 from novaclient.v1_1 import floating_ips
+from novaclient.v1_1 import hosts
 from novaclient.v1_1 import hypervisors
 from novaclient.v1_1 import keypairs
 from novaclient.v1_1 import quotas
@@ -170,6 +171,7 @@ def data(TEST):
     TEST.hypervisors = utils.TestDataContainer()
     TEST.services = utils.TestDataContainer()
     TEST.aggregates = utils.TestDataContainer()
+    TEST.hosts = utils.TestDataContainer()
 
     # Data return by novaclient.
     # It is used if API layer does data conversion.
@@ -616,7 +618,7 @@ def data(TEST):
     aggregate_1 = aggregates.Aggregate(aggregates.AggregateManager(None),
         {
             "name": "foo",
-            "availability_zone": None,
+            "availability_zone": "testing",
             "deleted": 0,
             "created_at": "2013-07-04T13:34:38.000000",
             "updated_at": None,
@@ -649,3 +651,22 @@ def data(TEST):
 
     TEST.aggregates.add(aggregate_1)
     TEST.aggregates.add(aggregate_2)
+
+    host1 = hosts.Host(hosts.HostManager(None),
+        {
+            "host_name": "devstack001",
+            "service": "compute",
+            "zone": "testing"
+        }
+    )
+
+    host2 = hosts.Host(hosts.HostManager(None),
+        {
+            "host_name": "devstack002",
+            "service": "nova-conductor",
+            "zone": "testing"
+        }
+    )
+
+    TEST.hosts.add(host1)
+    TEST.hosts.add(host2)
