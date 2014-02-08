@@ -21,14 +21,14 @@
   <h4>{% trans "Connection Info" %}</h4>
   <hr class="header_rule">
   <dl>
-    {% with instance.ip.0 as ipaddress %}
-    <dt>{% trans "Instance IP Address" %}</dt>
-    <dd>{{ ipaddress }}</dd>
+    {% with instance.host as host %}
+    <dt>{% trans "Host" %}</dt>
+    <dd>{{ host }}</dd>
     <dt>{% trans "Database Port" %}</dt>
     <dd>3306</dd> {# TODO: This should be a config #}
     <dt>{% trans "Connection Examples" %}</dt>
-    <dd>mysql -h {{ ipaddress }} -u USERNAME -p</dd>
-    <dd>mysql://USERNAME:PASSWORD@{{ ipaddress }}:3306/DATABASE</dd>
+    <dd>mysql -h {{ host }} -u USERNAME -p</dd>
+    <dd>mysql://USERNAME:PASSWORD@{{ host }}:3306/DATABASE</dd>
     {% endwith %}
   </dl>
 </div>

@@ -126,13 +126,6 @@ class UpdateRow(tables.Row):
         return instance
 
 
-def get_ips(instance):
-    if hasattr(instance, "ip"):
-        if len(instance.ip):
-            return instance.ip[0]
-    return _("Not Assigned")
-
-
 def get_size(instance):
     if hasattr(instance, "full_flavor"):
         size_string = _("%(name)s | %(RAM)s RAM")
@@ -161,7 +154,7 @@ class InstancesTable(tables.DataTable):
     name = tables.Column("name",
                          link=("horizon:project:databases:detail"),
                          verbose_name=_("Database Name"))
-    ip = tables.Column(get_ips, verbose_name=_("IP Address"))
+    host = tables.Column("host", verbose_name=_("Host"))
     size = tables.Column(get_size,
                          verbose_name=_("Size"),
                          attrs={'data-type': 'size'})
