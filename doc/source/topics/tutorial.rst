@@ -471,44 +471,40 @@ overrides.
 Specifying dashboards
 ~~~~~~~~~~~~~~~~~~~~~
 
-The most basic thing to do is to add your own custom dashboard using the
-``HORIZON_CONFIG`` dictionary in the settings file::
+Adding your own dashboard is as simple as creating a file in the
+``openstack_dashboard/local/enabled`` directory named ``_50_visualizations.py``.
+The contents of this file should resemble::
 
-    HORIZON_CONFIG = {
-        'dashboards': ('project', 'admin', 'settings',),
-    }
+    DASHBOARD = 'visualizations'
+    DEFAULT = True
+    ADD_EXCEPTIONS = {}
+    ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.visualizations']
 
-Please note, the dashboards also must be added to settings.py::
+.. seealso::
 
-    INSTALLED_APPS = (
-        'openstack_dashboard',
-        ...
-        'horizon',
-        'openstack_dashboard.dashboards.project',
-        'openstack_dashboard.dashboards.admin',
-        'openstack_dashboard.dashboards.settings',
-        ...
-    )
+    For more information on the significance of the file naming and an
+    explanation of the contents, check out
+    :doc:`Pluggable Settings for Dashboards </topics/settings>`
 
-In this case, we've taken the default Horizon ``'dashboards'`` config and
-added our ``visualizations`` dashboard to it. Note that the name here is the
-name of the dashboard's module on the python path. It will find our
-``dashboard.py`` file inside of it and load both the dashboard and its panels
-automatically from there.
+In this case, we've added our ``visualizations`` dashboard to the list of
+dashboards to load. Note that the name here is the name of the dashboard's
+module on the python path. It will find our ``dashboard.py`` file inside of
+it and load both the dashboard and its panels automatically from there.
 
 Error handling
 ~~~~~~~~~~~~~~
 
 Adding custom error handler for your API client is quite easy. While it's not
-necessary for this example, it would be done by customizing the
-``'exceptions'`` value in the ``HORIZON_CONFIG`` dictionary::
+necessary for this example, it would be done by customizing the ``ADD_EXCEPTIONS``
+dictionary in the file added to ``openstack/local/enabled``::
 
     import my_api.exceptions as my_api
 
-    'exceptions': {'recoverable': [my_api.Error,
-                                   my_api.ClientConnectionError],
-                   'not_found': [my_api.NotFound],
-                   'unauthorized': [my_api.NotAuthorized]},
+    ADD_EXCEPTIONS: {
+        'recoverable': [my_api.Error, my_api.ClientConnectionError],
+        'not_found': [my_api.NotFound],
+        'unauthorized': [my_api.NotAuthorized]
+    }
 
 .. _overrides:
 
