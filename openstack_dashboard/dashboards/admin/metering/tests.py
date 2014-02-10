@@ -41,6 +41,13 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/metering/index.html')
         self.assertTemplateUsed(res, 'admin/metering/stats.html')
 
+    def test_report_page(self):
+        # getting report page with no api access
+        res = self.client.get(reverse('horizon:admin:metering:index') +
+            "?tab=ceilometer_overview__daily_report")
+        self.assertTemplateUsed(res, 'admin/metering/index.html')
+        self.assertTemplateUsed(res, 'admin/metering/daily.html')
+
     def _verify_series(self, series, value, date, expected_names):
         expected_names.reverse()
         data = json.loads(series)
@@ -145,6 +152,44 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
                           'fake_resource_id2']
         self._verify_series(res._container[0], 4.55, '2012-12-21T11:00:55',
                             expected_names)
+
+    @test.create_stubs({api.keystone: ('tenant_list',)})
+    def test_report(self):
+        meters = self.meters.list()
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.meters = self.mox.CreateMockAnything()
+        ceilometerclient.meters.list(None).AndReturn(meters)
+
+        api.keystone.tenant_list(IsA(http.HttpRequest),
+                                 domain=None,
+                                 paginate=False). \
+            MultipleTimes()\
+            .AndReturn([self.tenants.list(), False])
+
+        statistics = self.statistics.list()
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.statistics = self.mox.CreateMockAnything()
+
+        ceilometerclient.statistics.list(meter_name="instance",
+                                         period=IsA(int), q=IsA(list)).\
+            MultipleTimes().\
+            AndReturn(statistics)
+        ceilometerclient.statistics.list(meter_name="disk.read.bytes",
+                                         period=IsA(int), q=IsA(list)).\
+            MultipleTimes().\
+            AndReturn(statistics)
+        ceilometerclient.statistics.list(meter_name="disk.write.bytes",
+                                         period=IsA(int), q=IsA(list)).\
+            MultipleTimes().\
+            AndReturn(statistics)
+
+        self.mox.ReplayAll()
+
+        # generate report with mock data
+        res = self.client.post(reverse('horizon:admin:metering:report'),
+                               data={"date_options": "7"})
+
+        self.assertTemplateUsed(res, 'admin/metering/report.html')
 
 
 class MeteringStatsTabTests(test.APITestCase):

@@ -12,7 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-
+from django import template
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import messages
@@ -55,7 +55,17 @@ class GlobalStatsTab(tabs.Tab):
         return context
 
 
+class DailyReportTab(tabs.Tab):
+    name = _("Daily Report")
+    slug = "daily_report"
+    template_name = ("admin/metering/daily.html")
+
+    def get_context_data(self, request):
+        context = template.RequestContext(request)
+        return context
+
+
 class CeilometerOverviewTabs(tabs.TabGroup):
     slug = "ceilometer_overview"
-    tabs = (GlobalStatsTab,)
+    tabs = (DailyReportTab, GlobalStatsTab, )
     sticky = True

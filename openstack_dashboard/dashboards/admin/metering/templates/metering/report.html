@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+{% block title %}{% trans 'Usage Report' %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Daily Usage Report Per Project")%}
+{% endblock page_header %}
+
+{% block main %}
+      <a href="{% url 'horizon:admin:metering:index' %}"><button class="btn btn-small">{% trans 'Back' %}</button></a>
+{% for table in tables %}
+    {{ table.render }}
+{% endfor %}
+{% endblock %}
+
