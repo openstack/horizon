@@ -1103,7 +1103,7 @@ class Meters(object):
         return datastructures.SortedDict([
             ('volume', {
                 'label': '',
-                'description': _("Duration of volune"),
+                'description': _("Duration of volume"),
             }),
             ('volume.size', {
                 'label': '',
