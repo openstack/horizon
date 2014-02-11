@@ -42,7 +42,7 @@
         This attribute is used to tell this quota JavaScript that this
         progress bar is controller by an instance flavor select form element.
         This attribute takes no value, but is used and configured
-        automatically by this script to update when a new flavor is choosen
+        automatically by this script to update when a new flavor is chosen
         by the end-user.
  */
 horizon.Quota = {

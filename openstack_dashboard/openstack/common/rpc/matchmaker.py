@@ -94,7 +94,7 @@ class MatchMakerBase(object):
         """
         Acknowledge that a key.host is alive.
         Used internally for updating heartbeats,
-        but may also be used publically to acknowledge
+        but may also be used publicly to acknowledge
         a system is alive (i.e. rpc message successfully
         sent to host)
         """
@@ -187,7 +187,7 @@ class HeartbeatMatchMakerBase(MatchMakerBase):
         """
         Acknowledge that a host.topic is alive.
         Used internally for updating heartbeats,
-        but may also be used publically to acknowledge
+        but may also be used publicly to acknowledge
         a system is alive (i.e. rpc message successfully
         sent to host)
         """
