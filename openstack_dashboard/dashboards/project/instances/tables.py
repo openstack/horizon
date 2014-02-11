@@ -87,7 +87,8 @@ class TerminateInstance(tables.BatchAction):
         return {"project_id": project_id}
 
     def allowed(self, request, instance=None):
-        return True
+        """Allow terminate action if instance not currently being deleted."""
+        return not is_deleting(instance)
 
     def action(self, request, obj_id):
         api.nova.server_delete(request, obj_id)
