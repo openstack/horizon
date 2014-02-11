@@ -594,9 +594,7 @@ class Dashboard(Registry, HorizonComponent):
 
 
 class Workflow(object):
-    def __init__(*args, **kwargs):
-        raise NotImplementedError()
-
+    pass
 
 try:
     from django.utils.functional import empty  # noqa

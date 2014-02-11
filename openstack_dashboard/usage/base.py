@@ -191,7 +191,7 @@ class BaseUsage(object):
         self.get_cinder_limits()
 
     def get_usage_list(self, start, end):
-        raise NotImplementedError("You must define a get_usage_list method.")
+        return []
 
     def summarize(self, start, end):
         if not api.nova.extension_supported('SimpleTenantUsage', self.request):
