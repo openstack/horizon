@@ -109,6 +109,7 @@ class StacksTable(tables.DataTable):
     class Meta:
         name = "stacks"
         verbose_name = _("Stacks")
+        pagination_param = 'stack_marker'
         status_columns = ["status", ]
         row_class = StacksUpdateRow
         table_actions = (LaunchStack, DeleteStack,)
