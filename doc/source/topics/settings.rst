@@ -42,8 +42,22 @@ behavior of your Horizon installation. All of them are contained in the
 
 Default: ``None``
 
-A list containing the slugs of any dashboards which should be active in this
-Horizon installation. The dashboards listed must be in a Python module which
+Horizon Dashboards are automatically discovered in the following way:
+
+* By traversing Django's list of
+  `INSTALLED_APPS <https://docs.djangoproject.com/en/1.4/ref/settings/#std:setting-INSTALLED_APPS>`_
+  and importing any files that have the name ``"dashboard.py"`` and include
+  code to register themselves as a Horizon dashboard.
+* By adding a configuration file to the ``openstack_dashboard/local/enabled``
+  directory (for more information see :ref:`pluggable-settings-label`).
+
+By default, these dashboards are ordered alphabetically.
+However, if a list of dashboard slugs is provided in this setting, the supplied
+ordering is applied to the list of discovered dashboards. If the list of
+dashboard slugs is shorter than the number of discovered dashboards, the
+remaining dashboards are appended in alphabetical order.
+
+The dashboards listed must be in a Python module which
 is included in the ``INSTALLED_APPS`` list and on the Python path.
 
 ``default_dashboard``
@@ -450,6 +464,8 @@ generate a secret key for a single installation.
 These three settings should be configured if you are deploying Horizon with
 SSL. The values indicated in the default ``local_settings.py.example`` file
 are generally safe to use.
+
+.. _pluggable-settings-label:
 
 Pluggable Settings for Dashboards
 =================================
