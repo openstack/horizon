@@ -36,6 +36,7 @@ class LaunchImage(tables.LinkAction):
     verbose_name = _("Launch")
     url = "horizon:project:instances:launch"
     classes = ("btn-launch", "ajax-modal")
+    policy_rules = (("compute", "compute:create"),)
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)
@@ -58,6 +59,7 @@ class LaunchImage(tables.LinkAction):
 class DeleteImage(tables.DeleteAction):
     data_type_singular = _("Image")
     data_type_plural = _("Images")
+    policy_rules = (("image", "delete_image"),)
 
     def allowed(self, request, image=None):
         # Protected images can not be deleted.
@@ -77,6 +79,7 @@ class CreateImage(tables.LinkAction):
     verbose_name = _("Create Image")
     url = "horizon:project:images_and_snapshots:images:create"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("image", "add_image"),)
 
 
 class EditImage(tables.LinkAction):
@@ -84,6 +87,7 @@ class EditImage(tables.LinkAction):
     verbose_name = _("Edit")
     url = "horizon:project:images_and_snapshots:images:update"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("image", "modify_image"),)
 
     def allowed(self, request, image=None):
         if image:
@@ -99,6 +103,7 @@ class CreateVolumeFromImage(tables.LinkAction):
     verbose_name = _("Create Volume")
     url = "horizon:project:volumes:create"
     classes = ("ajax-modal", "btn-camera")
+    policy_rules = (("volume", "volume:create"),)
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)
