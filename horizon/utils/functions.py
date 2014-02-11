@@ -11,6 +11,7 @@
 # under the License.
 
 import math
+import re
 
 from django.conf import settings
 from django.contrib.auth import logout  # noqa
@@ -62,3 +63,8 @@ def get_page_size(request, default=20):
                                        getattr(settings,
                                                'API_RESULT_PAGE_SIZE',
                                                default))))
+
+
+def natural_sort(attr):
+    return lambda x: [int(s) if s.isdigit() else s for s in
+                      re.split(r'(\d+)', getattr(x, attr, x))]
