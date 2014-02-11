@@ -211,6 +211,7 @@ POLICY_FILES = {
     'compute': 'nova_policy.json',
     'volume': 'cinder_policy.json',
     'image': 'glance_policy.json',
+    'orchestration': 'heat_policy.json',
 }
 
 SECRET_KEY = None
