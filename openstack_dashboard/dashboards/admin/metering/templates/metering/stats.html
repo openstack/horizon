@@ -105,6 +105,7 @@
                 id="date_options" name="date_options" class="span2">
           <option value="1">{% trans "Last day" %}</option>
           <option value="7" selected="selected">{% trans "Last week" %}</option>
+          <option value="{% now 'j' %}">{% trans "Month to date" %}</option>
           <option value="15">{% trans "Last 15 days" %}</option>
           <option value="30">{% trans "Last 30 days" %}</option>
           <option value="365">{% trans "Last year" %}</option>
