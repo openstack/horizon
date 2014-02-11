@@ -46,6 +46,9 @@ class DatabaseTests(test.TestCase):
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/databases/index.html')
+        # Check the Host column displaying ip or hostname
+        self.assertContains(res, '10.0.0.3')
+        self.assertContains(res, 'trove.instance-2.com')
 
     @test.create_stubs(
         {api.trove: ('instance_list', 'flavor_list')})
@@ -79,7 +82,9 @@ class DatabaseTests(test.TestCase):
         {api.trove: ('instance_list', 'flavor_list')})
     def test_index_pagination(self):
         # Mock database instances
-        databases = common.Paginated(self.databases.list(),
+        databases = self.databases.list()
+        last_record = databases[-1]
+        databases = common.Paginated(databases,
             next_marker="foo")
         api.trove.instance_list(IsA(http.HttpRequest), marker=None)\
             .AndReturn(databases)
@@ -91,7 +96,7 @@ class DatabaseTests(test.TestCase):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/databases/index.html')
         self.assertContains(
-            res, 'marker=6ddc36d9-73db-4e23-b52e-368937d72719')
+            res, 'marker=' + last_record.id)
 
     @test.create_stubs(
         {api.trove: ('instance_list', 'flavor_list')})
@@ -182,12 +187,24 @@ class DatabaseTests(test.TestCase):
 
     @test.create_stubs(
         {api.trove: ('instance_get', 'flavor_get',)})
-    def test_details(self):
+    def _test_details(self, database, with_designate=False):
         api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
-            .AndReturn(self.databases.first())
+            .AndReturn(database)
         api.trove.flavor_get(IsA(http.HttpRequest), IsA(str))\
             .AndReturn(self.flavors.first())
 
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
         self.assertTemplateUsed(res, 'project/databases/detail.html')
+        if with_designate:
+            self.assertContains(res, database.hostname)
+        else:
+            self.assertContains(res, database.ip[0])
+
+    def test_details_with_ip(self):
+        database = self.databases.first()
+        self._test_details(database, with_designate=False)
+
+    def test_details_with_hostname(self):
+        database = self.databases.list()[1]
+        self._test_details(database, with_designate=True)
