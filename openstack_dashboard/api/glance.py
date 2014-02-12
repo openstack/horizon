@@ -23,9 +23,9 @@ from __future__ import absolute_import
 import itertools
 import logging
 import thread
-import urlparse
 
 from django.conf import settings
+import six.moves.urllib.parse as urlparse
 
 import glanceclient as glance_client
 
