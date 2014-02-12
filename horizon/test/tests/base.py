@@ -334,11 +334,11 @@ class GetUserHomeTests(BaseHorizonTests):
                                base.Horizon.get_user_home(self.test_user))
 
     def test_using_module_function(self):
-        module_func = 'django.utils.html.strip_tags'
+        module_func = 'django.utils.encoding.force_unicode'
         settings.HORIZON_CONFIG['user_home'] = module_func
         conf.HORIZON_CONFIG._setup()
 
-        self.test_user.username = '<ignore>testname<ignore>'
+        self.test_user.username = 'testname'
         self.assertEqual(self.original_username,
                                base.Horizon.get_user_home(self.test_user))
 
