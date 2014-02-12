@@ -46,6 +46,7 @@ def filesizeformat(bytes, filesize_number_format):
                 "%(size)d Bytes", 0) % {'size': 0}
 
     if bytes < 1024:
+        bytes = int(bytes)
         return translation.ungettext_lazy("%(size)d Byte",
                 "%(size)d Bytes", bytes) % {'size': bytes}
     if bytes < 1024 * 1024:
