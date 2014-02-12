@@ -213,13 +213,13 @@ class LoadBalancerTests(test.TestCase):
                                       'provider_list',
                                       'is_extension_supported')})
     def test_add_pool_get(self):
-        self._test_add_pool_get(with_service_type=True)
+        self._test_add_pool_get()
 
     @test.create_stubs({api.neutron: ('network_list_for_tenant',
                                       'provider_list',
                                       'is_extension_supported')})
     def test_add_pool_get_provider_list_exception(self):
-        self._test_add_pool_get(with_service_type=True)
+        self._test_add_pool_get(with_provider_exception=True)
 
     @test.create_stubs({api.neutron: ('network_list_for_tenant',
                                       'is_extension_supported')})
