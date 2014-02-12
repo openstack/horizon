@@ -166,7 +166,7 @@ class Action(forms.Form):
 
     def add_error(self, message):
         """Adds an error to the Action's Step based on API issues."""
-        self._get_errors()[NON_FIELD_ERRORS] = self.error_class([message])
+        self.errors[NON_FIELD_ERRORS] = self.error_class([message])
 
     def handle(self, request, context):
         """Handles any requisite processing for this action. The method should
