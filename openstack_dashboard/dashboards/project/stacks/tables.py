@@ -82,11 +82,8 @@ class StacksUpdateRow(tables.Row):
 
 class StacksTable(tables.DataTable):
     STATUS_CHOICES = (
-        ("Create Complete", True),
-        ("Update Complete", True),
-        ("Create Failed", False),
-        ("Update Failed", False),
-        ('Delete Complete', True)
+        ("Complete", True),
+        ("Failed", False),
     )
     name = tables.Column("stack_name",
                          verbose_name=_("Stack Name"),
@@ -97,7 +94,7 @@ class StacksTable(tables.DataTable):
     updated = tables.Column("updated_time",
                             verbose_name=_("Updated"),
                             filters=(filters.parse_isotime, timesince))
-    status = tables.Column("stack_status",
+    status = tables.Column("status",
                            filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
