@@ -1,5 +1,3 @@
-# vim: tabstop=4 shiftwidth=4 softtabstop=4
-
 # Copyright 2012,  Nachi Ueno,  NTT MCL,  Inc.
 # Copyright 2013,  Big Switch Networks, Inc.
 #
