@@ -307,7 +307,7 @@ class Column(html.HTMLElement):
         if callable(self.transform):
             data = self.transform(datum)
         # Dict lookups
-        elif isinstance(datum, collections.Iterable) and \
+        elif isinstance(datum, collections.Mapping) and \
                 self.transform in datum:
             data = datum.get(self.transform)
         else:
