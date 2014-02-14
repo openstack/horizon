@@ -24,13 +24,13 @@ from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon.utils import csvbase
 
 from openstack_dashboard import api
 from openstack_dashboard import usage
-from openstack_dashboard.usage import base
 
 
-class GlobalUsageCsvRenderer(base.BaseCsvResponse):
+class GlobalUsageCsvRenderer(csvbase.BaseCsvResponse):
 
     columns = [_("Project Name"), _("VCPUs"), _("Ram (MB)"),
                _("Disk (GB)"), _("Usage (Hours)")]

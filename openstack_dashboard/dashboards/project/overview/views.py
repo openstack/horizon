@@ -24,11 +24,12 @@ from django.template.defaultfilters import floatformat  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView  # noqa
 
+from horizon.utils import csvbase
+
 from openstack_dashboard import usage
-from openstack_dashboard.usage import base
 
 
-class ProjectUsageCsvRenderer(base.BaseCsvResponse):
+class ProjectUsageCsvRenderer(csvbase.BaseCsvResponse):
 
     columns = [_("Instance Name"), _("VCPUs"), _("Ram (MB)"),
                _("Disk (GB)"), _("Usage (Hours)"),
