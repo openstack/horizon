@@ -176,6 +176,7 @@
         // want to refresh, but show hide the date fields
         if ($(this).find("option:selected").val() == "other"){
           evt.stopPropagation();
+          $("#date_from .controls input, #date_to .controls input").val('');
           $("#date_from, #date_to").show();
         } else {
           $("#date_from, #date_to").hide();
