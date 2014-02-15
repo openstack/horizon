@@ -218,7 +218,8 @@ horizon.membership = {
         default_role: that.roles[that.default_role_id[step_slug]],
         display_name: display_name,
         text: text,
-        roles: roles
+        roles: roles,
+        roles_label: gettext("Roles")
       },
       member_el = $(template.render(params));
     this.update_member_role_dropdown(step_slug, params.data_id, role_ids, member_el);

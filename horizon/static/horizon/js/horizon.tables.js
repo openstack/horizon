@@ -34,7 +34,10 @@ horizon.datatables = {
                 if(row_count === 0) {
                   colspan = $table.find('th[colspan]').attr('colspan');
                   template = horizon.templates.compiled_templates["#empty_row_template"];
-                  params = {"colspan": colspan};
+                  params = {
+                      "colspan": colspan,
+                      no_items_label: gettext("No items to display.")
+                  };
                   empty_row = template.render(params);
                   $row.replaceWith(empty_row);
                 } else {
@@ -248,7 +251,10 @@ horizon.datatables.add_no_results_row = function (table) {
   template = horizon.templates.compiled_templates["#empty_row_template"];
   if (!table.find("tbody tr:visible").length && typeof(template) !== "undefined") {
     colspan = table.find("th[colspan]").attr('colspan');
-    params = {"colspan": colspan};
+    params = {
+        "colspan": colspan,
+        no_items_label: gettext("No items to display.")
+    };
     table.find("tbody").append(template.render(params));
   }
 };
