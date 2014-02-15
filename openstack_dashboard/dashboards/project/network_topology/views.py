@@ -211,7 +211,7 @@ class JSONView(View):
                                                 router['id'],
                                                 external_network):
                 continue
-            fake_port = {'id': 'fake%s' % external_network,
+            fake_port = {'id': 'gateway%s' % external_network,
                          'network_id': external_network,
                          'device_id': router['id'],
                          'fixed_ips': []}
