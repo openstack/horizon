@@ -453,7 +453,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         ret = api.network.tenant_floating_ip_get(self.request, fip['id'])
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
             self.assertEqual(ret.__getattr__(attr), fip[attr])
-        self.assertEqual(ret.instance_id, None)
+        self.assertIsNone(ret.instance_id)
 
     def test_floating_ip_allocate(self):
         ext_nets = [n for n in self.api_networks.list()
@@ -469,7 +469,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
                                                       ext_net['id'])
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
             self.assertEqual(ret.__getattr__(attr), fip[attr])
-        self.assertEqual(ret.instance_id, None)
+        self.assertIsNone(ret.instance_id)
 
     def test_floating_ip_release(self):
         fip = self.api_q_floating_ips.first()

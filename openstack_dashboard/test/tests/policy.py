@@ -30,7 +30,7 @@ class PolicyTestCase(test.TestCase):
         policy._get_enforcer()
         self.assertEqual(len(policy._ENFORCER), 2)
         policy.reset()
-        self.assertEqual(policy._ENFORCER, None)
+        self.assertIsNone(policy._ENFORCER)
 
     def test_check_admin_required_false(self):
         policy.reset()

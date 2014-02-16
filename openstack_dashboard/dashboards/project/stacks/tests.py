@@ -228,4 +228,4 @@ malformed or otherwise incorrect.
 }"""
 
         msg = forms.exception_to_validation_msg(json_error)
-        self.assertEqual(msg, None)
+        self.assertIsNone(msg)

@@ -122,10 +122,10 @@ class TabTests(test.TestCase):
         self.assertEqual(tg.get_tab("tab_one").slug, "tab_one")
 
         # Test selected is None w/o GET input
-        self.assertEqual(tg.selected, None)
+        self.assertIsNone(tg.selected)
 
         # Test get_selected_tab is None w/o GET input
-        self.assertEqual(tg.get_selected_tab(), None)
+        self.assertIsNone(tg.get_selected_tab())
 
     def test_tab_group_active_tab(self):
         tg = Group(self.request)
@@ -161,7 +161,7 @@ class TabTests(test.TestCase):
 
         # Disallowed tab isn't even returned
         tab_disallowed = tg.get_tab("tab_disallowed")
-        self.assertEqual(tab_disallowed, None)
+        self.assertIsNone(tab_disallowed)
 
         # get_id
         self.assertEqual(tab_one.get_id(), "tab_group__tab_one")
@@ -242,7 +242,7 @@ class TabTests(test.TestCase):
         table = tab._tables[MyTable.Meta.name]
         self.assertIsInstance(table, MyTable)
         # Let's make sure the data *really* isn't loaded yet.
-        self.assertEqual(table.data, None)
+        self.assertIsNone(table.data)
         # Okay, load the data.
         tab.load_table_data()
         self.assertTrue(tab._table_data_loaded)
