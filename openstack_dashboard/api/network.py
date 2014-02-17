@@ -130,3 +130,15 @@ def server_update_security_groups(request, instance_id,
 
 def security_group_backend(request):
     return NetworkClient(request).secgroups.backend
+
+
+def servers_update_addresses(request, servers):
+    """Retrieve servers networking information from Neutron if enabled.
+
+       Should be used when up to date networking information is required,
+       and Nova's networking info caching mechanism is not fast enough.
+
+    """
+    neutron_enabled = base.is_service_enabled(request, 'network')
+    if neutron_enabled:
+        neutron.servers_update_addresses(request, servers)
