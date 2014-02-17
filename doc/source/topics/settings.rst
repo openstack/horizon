@@ -493,7 +493,54 @@ by cinder.  Currently only the backup service is available.
 Default: ``{'enable_lb': False}``
 
 A dictionary of settings which can be used to enable optional services provided
-by neutron.  Currently only the load balancer service is available.
+by neutron and configure neutron specific features.  The following options are
+available.
+
+.. enable_lb:
+
+``enable_lb``
+-------------
+
+.. versionadded:: 2013.2(Havana)
+
+Default: ``False``
+
+Enable or disable the load balancer service.
+
+.. supported_provider_types:
+
+``supported_provider_types``
+----------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``["*"]``
+
+For use with the provider network extension. Use this to explicitly set which
+provider network types are supported. Only the network types in this list will
+be available to choose from when creating a network. Network types include
+local, flat, vlan, gre, and vxlan. By default all provider network types will
+be available to choose from.
+
+Example: ``['local', 'flat', 'gre']``
+
+.. segmentation_id_range:
+
+``segmentation_id_range``
+-------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``None``
+
+For use with the provider network extension. This is a dictionary where each
+key is a provider network type and each value is a list containing two numbers.
+The first number is the minimum segmentation ID that is valid. The second
+number is the maximum segmentation ID. Pertains only to the vlan, gre, and
+vxlan network types. By default this option is not provided and each minimum
+and maximum value will be the default for the provider network type.
+
+Example: ``{'vlan': [1024, 2048], 'gre': [4094, 65536]}``
 
 
 ``OPENSTACK_SSL_CACERT``
