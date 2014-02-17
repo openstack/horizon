@@ -158,7 +158,7 @@ During the Grizzly cycle we started holding a weekly project meeting on IRC.
 This has been extremely beneficial for the growth and progress of the project.
 Check out the `OpenStack Meetings wiki page`_ for specifics.
 
-.. _Openstack Meetings wiki page: https://wiki.openstack.org/wiki/Meetings#Horizon_team_meeting
+.. _OpenStack Meetings wiki page: https://wiki.openstack.org/wiki/Meetings#Horizon_team_meeting
 
 
 Under The Hood
