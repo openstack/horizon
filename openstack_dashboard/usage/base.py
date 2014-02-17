@@ -16,13 +16,13 @@ from csv import DictWriter  # noqa
 from csv import writer  # noqa
 
 import datetime
-from StringIO import StringIO
 
 from django.http import HttpResponse  # noqa
 from django import template as django_template
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django import VERSION  # noqa
+import six
 
 from horizon import exceptions
 from horizon import forms
@@ -294,7 +294,7 @@ class CsvDataMixin(object):
         will be shown in the result file. Optional.
     """
     def __init__(self):
-        self.out = StringIO()
+        self.out = six.StringIO()
         super(CsvDataMixin, self).__init__()
         if hasattr(self, "columns"):
             self.writer = DictWriter(self.out, map(self.encode, self.columns))
