@@ -19,8 +19,8 @@
 #    under the License.
 
 import logging
-import urllib
 
+import six.moves.urllib.parse as urlparse
 import swiftclient
 
 from django.conf import settings
@@ -163,7 +163,7 @@ def swift_get_container(request, container_name, with_data=True):
             swift_endpoint = base.url_for(request,
                                           'object-store',
                                           endpoint_type='publicURL')
-            public_url = swift_endpoint + '/' + urllib.quote(container_name)
+            public_url = swift_endpoint + '/' + urlparse.quote(container_name)
         ts_float = float(headers.get('x-timestamp'))
         timestamp = timeutils.iso8601_from_timestamp(ts_float)
     except Exception:
