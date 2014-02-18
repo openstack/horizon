@@ -79,7 +79,7 @@ class NetworkProfile(tables.DataTable):
 class EditPolicyProfile(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Policy Profile")
-    url = "horizon:project:images_and_snapshots:images:update"
+    url = "horizon:project:images:images:update"
     classes = ("ajax-modal", "btn-edit")
 
 

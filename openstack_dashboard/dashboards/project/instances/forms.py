@@ -27,7 +27,7 @@ from horizon.utils import fields
 from horizon.utils import validators
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.images_and_snapshots import utils
+from openstack_dashboard.dashboards.project.images import utils
 
 
 def _image_choice_title(img):

@@ -290,7 +290,7 @@ class EditInstanceSecurityGroups(EditInstance):
 class CreateSnapshot(tables.LinkAction):
     name = "snapshot"
     verbose_name = _("Create Snapshot")
-    url = "horizon:project:images_and_snapshots:snapshots:create"
+    url = "horizon:project:images:snapshots:create"
     classes = ("ajax-modal", "btn-camera")
     policy_rules = (("compute", "compute:snapshot"),)
 

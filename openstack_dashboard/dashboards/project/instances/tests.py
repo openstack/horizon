@@ -855,8 +855,6 @@ class InstanceTests(test.TestCase):
                                    'server_list',
                                    'flavor_list',
                                    'server_delete'),
-                        cinder: ('volume_snapshot_list',
-                                 'volume_list',),
                         api.glance: ('image_list_detailed',)})
     def test_create_instance_snapshot(self):
         server = self.servers.first()
@@ -868,17 +866,15 @@ class InstanceTests(test.TestCase):
 
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([[], False])
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
-        cinder.volume_list(IsA(http.HttpRequest)).AndReturn([])
 
         self.mox.ReplayAll()
 
         formData = {'instance_id': server.id,
                     'method': 'CreateSnapshot',
                     'name': 'snapshot1'}
-        url = reverse('horizon:project:images_and_snapshots:snapshots:create',
+        url = reverse('horizon:project:images:snapshots:create',
                       args=[server.id])
-        redir_url = reverse('horizon:project:images_and_snapshots:index')
+        redir_url = reverse('horizon:project:images:index')
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
 

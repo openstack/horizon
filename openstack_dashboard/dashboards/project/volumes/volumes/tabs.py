@@ -14,19 +14,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import include  # noqa
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard.dashboards.project.volumes import views
-from openstack_dashboard.dashboards.project.volumes.volumes \
-    import urls as volume_urls
+from horizon import tabs
 
 
-urlpatterns = patterns('',
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'', include(volume_urls, namespace='volumes')),
-    url(r'^snapshots/(?P<snapshot_id>[^/]+)/$',
-        views.DetailView.as_view(),
-        name='detail'),
-)
+class OverviewTab(tabs.Tab):
+    name = _("Overview")
+    slug = "overview"
+    template_name = ("project/volumes/volumes/_detail_overview.html")
+
+    def get_context_data(self, request):
+        return {"volume": self.tab_group.kwargs['volume']}
+
+
+class VolumeDetailTabs(tabs.TabGroup):
+    slug = "volume_details"
+    tabs = (OverviewTab,)

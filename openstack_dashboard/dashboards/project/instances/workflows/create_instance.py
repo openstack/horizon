@@ -40,7 +40,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.images_and_snapshots import utils
+from openstack_dashboard.dashboards.project.images import utils
 
 
 LOG = logging.getLogger(__name__)

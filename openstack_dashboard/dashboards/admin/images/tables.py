@@ -19,7 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.images_and_snapshots.images \
+from openstack_dashboard.dashboards.project.images.images \
     import tables as project_tables
 
 

@@ -25,8 +25,7 @@ from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project \
-    .images_and_snapshots.images import views
+from openstack_dashboard.dashboards.project.images.images import views
 
 from openstack_dashboard.dashboards.admin.images import forms
 from openstack_dashboard.dashboards.admin.images \

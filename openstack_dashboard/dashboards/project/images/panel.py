@@ -1,6 +1,7 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
 # Copyright 2012 Nebula, Inc.
+# Copyright 2012 OpenStack Foundation
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -14,19 +15,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import include  # noqa
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard.dashboards.project.volumes import views
-from openstack_dashboard.dashboards.project.volumes.volumes \
-    import urls as volume_urls
+import horizon
+
+from openstack_dashboard.dashboards.project import dashboard
 
 
-urlpatterns = patterns('',
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'', include(volume_urls, namespace='volumes')),
-    url(r'^snapshots/(?P<snapshot_id>[^/]+)/$',
-        views.DetailView.as_view(),
-        name='detail'),
-)
+class Images(horizon.Panel):
+    name = _("Images")
+    slug = 'images'
+
+
+dashboard.Project.register(Images)

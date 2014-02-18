@@ -1,0 +1,26 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:project:volumes:volumes:extend' volume.id%}{% endblock %}
+
+{% block modal_id %}extend_volume_modal{% endblock %}
+{% block modal-header %}{% trans "Extend Volume" %}{% endblock %}
+
+{% block modal-body %}
+  <div class="left">
+    <fieldset>
+      {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+  </div>
+
+  <div class="right quota-dynamic">
+    {% include "project/volumes/volumes/_extend_limits.html" with usages=usages %}
+  </div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Extend Volume" %}" />
+  <a href="{% url 'horizon:project:volumes:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

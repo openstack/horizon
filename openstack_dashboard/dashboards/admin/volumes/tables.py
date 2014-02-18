@@ -15,7 +15,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.volumes \
-    import tables as project_tables
+    .volumes import tables as project_tables
 
 
 class CreateVolumeType(tables.LinkAction):

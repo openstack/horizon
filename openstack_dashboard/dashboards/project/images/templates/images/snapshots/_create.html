@@ -1,0 +1,26 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}create_snapshot_form{% endblock %}
+{% block form_action %}{% url 'horizon:project:images:snapshots:create' instance.id %}{% endblock %}
+
+{% block modal_id %}create_snapshot_modal{% endblock %}
+{% block modal-header %}{% trans "Create Snapshot" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Snapshots preserve the disk state of a running instance." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+     <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Snapshot" %}" />
+     <a href="{% url 'horizon:project:images:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

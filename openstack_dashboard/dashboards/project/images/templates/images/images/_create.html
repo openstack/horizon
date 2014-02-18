@@ -1,0 +1,35 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}create_image_form{% endblock %}
+{% block form_action %}{% url 'horizon:project:images:images:create' %}{% endblock %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+
+{% block modal-header %}{% trans "Create An Image" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>
+        {% trans "Specify an image to upload to the Image Service." %}
+    </p>
+    <p>
+        {% trans "Currently only images available via an HTTP URL are supported. The image location must be accessible to the Image Service. Compressed image binaries are supported (.zip and .tar.gz.)" %}
+    </p>
+    <p>
+        <strong>{% trans "Please note: " %}</strong>
+        {% trans "The Image Location field MUST be a valid and direct URL to the image binary. URLs that redirect or serve error pages will result in unusable images." %}
+    </p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Image" %}" />
+  <a href="{% url 'horizon:project:images:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

@@ -100,7 +100,7 @@
     {% with default_key_name="<em>"|add:_("None")|add:"</em>" %}
     <dd>{{ instance.key_name|default:default_key_name }}</dd>
     {% endwith %}
-    {% url 'horizon:project:images_and_snapshots:images:detail' instance.image.id as image_url %}
+    {% url 'horizon:project:images:images:detail' instance.image.id as image_url %}
     <dt>{% trans "Image Name" %}</dt>
     <dd><a href="{{ image_url }}">{{ instance.image_name }}</a></dd>
     {% with default_item_value="<em>"|add:_("N/A")|add:"</em>" %}
