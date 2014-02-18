@@ -1293,7 +1293,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.post(url, workflow_data)
 
         self.assertNoFormErrors(res)
-        self.assertMessageCount(error=1, warning=0)
+        self.assertMessageCount(error=2, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.keystone: ('tenant_get',
@@ -1414,7 +1414,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.post(url, workflow_data)
 
         self.assertNoFormErrors(res)
-        self.assertMessageCount(error=1, warning=0)
+        self.assertMessageCount(error=2, warning=0)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.keystone: ('get_default_role',

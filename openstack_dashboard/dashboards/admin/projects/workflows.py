@@ -632,7 +632,7 @@ class UpdateProject(workflows.Workflow):
                                          'update project quotas.')
                                        % {'users_to_modify': users_to_modify,
                                           'group_msg': group_msg})
-            return True
+            return False
 
         if PROJECT_GROUP_ENABLED:
             # update project groups
@@ -703,7 +703,7 @@ class UpdateProject(workflows.Workflow):
                                              'members, update project groups '
                                              'and update project quotas.'
                                              % groups_to_modify))
-                return True
+                return False
 
         # update the project quota
         nova_data = dict(
@@ -732,4 +732,4 @@ class UpdateProject(workflows.Workflow):
             exceptions.handle(request, _('Modified project information and '
                                          'members, but unable to modify '
                                          'project quotas.'))
-            return True
+            return False
