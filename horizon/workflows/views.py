@@ -70,7 +70,7 @@ class WorkflowView(generic.TemplateView):
         return copy.copy(self.request.GET)
 
     def get_workflow(self):
-        """Returns the instanciated workflow class."""
+        """Returns the instantiated workflow class."""
         extra_context = self.get_initial()
         entry_point = self.request.GET.get("step", None)
         workflow = self.workflow_class(self.request,
@@ -97,7 +97,7 @@ class WorkflowView(generic.TemplateView):
 
     def get_layout(self):
         """returns classes for the workflow element in template based on
-        the workflow caracteristics
+        the workflow characteristics
         """
         if self.request.is_ajax():
             layout = ['modal', 'hide', ]
