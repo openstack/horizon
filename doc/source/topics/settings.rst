@@ -183,6 +183,24 @@ the site header when logged in.
 If you do not have multiple regions you should use the ``OPENSTACK_HOST`` and
 ``OPENSTACK_KEYSTONE_URL`` settings instead.
 
+``CREATE_INSTANCE_FLAVOR_SORT``
+-------------------
+
+Default: ``{'key':'ram'}``
+
+When launching a new instance the default flavor is sorted by RAM usage in
+ascending order.
+You can customize the sort order by: id, name, ram, disk and vcpus.
+Additionally, you can insert any custom callback function,
+see the description in local_settings.py.example for more information.
+
+This example sorts flavors by vcpus in descending order::
+
+    CREATE_INSTANCE_FLAVOR_SORT = {
+         'key':'vcpus',
+         'reverse': True,
+    }
+
 ``IMAGES_LIST_FILTER_TENANTS``
 ------------------------------
 
@@ -404,7 +422,6 @@ generate a secret key for a single installation.
 These three settings should be configured if you are deploying Horizon with
 SSL. The values indicated in the default ``local_settings.py.example`` file
 are generally safe to use.
-
 
 Pluggable Settings for Dashboards
 =================================
