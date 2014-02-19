@@ -90,6 +90,8 @@ class WorkflowView(generic.TemplateView):
         next = self.request.REQUEST.get(workflow.redirect_param_name, None)
         context['REDIRECT_URL'] = next
         context['layout'] = self.get_layout()
+        # For consistency with Workflow class
+        context['modal'] = 'modal' in context['layout']
 
         if ADD_TO_FIELD_HEADER in self.request.META:
             context['add_to_field'] = self.request.META[ADD_TO_FIELD_HEADER]
