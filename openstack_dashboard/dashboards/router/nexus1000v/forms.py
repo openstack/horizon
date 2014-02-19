@@ -53,24 +53,49 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                            required=True)
     segment_type = forms.ChoiceField(label=_('Segment Type'),
                                      choices=[('vlan', _('VLAN')),
-                                              ('vxlan', _('VXLAN'))],
+                                              ('overlay', _('OVERLAY'))],
                                      widget=forms.Select
                                      (attrs={'class': 'switchable',
                                              'data-slug': 'segtype'}))
+    sub_type = forms.ChoiceField(label=_('Sub Type'),
+                                 choices=[('native_vxlan', _('NATIVE VXLAN')),
+                                          ('enhanced', _('ENHANCED')),
+                                          ('other', _('OTHER'))],
+                                 required=False,
+                                 widget=forms.Select
+                                 (attrs={'class': 'switchable switched',
+                                         'data-slug': 'subtype',
+                                         'data-switch-on': 'segtype',
+                                         'data-segtype-overlay':
+                                             _("Sub Type")}))
     segment_range = forms.CharField(max_length=255,
                                     label=_("Segment Range"),
                                     required=True,
-                                    help_text=_("1-4093 for VLAN"))
-    # TODO(absubram): Update help text for VXLAN segment range value.
+                                    help_text=_("1-4093 for VLAN; "
+                                                "5000-10000 for Overlay"))
     multicast_ip_range = forms.CharField(max_length=30,
                                          label=_("Multicast IP Range"),
                                          required=False,
                                          widget=forms.TextInput
                                          (attrs={'class': 'switched',
                                                  'data-switch-on':
-                                                     'segtype',
-                                                 'data-segtype-vxlan':
-                                                     _("Multicast IP Range")}))
+                                                     'subtype',
+                                                 'data-subtype-native_vxlan':
+                                                     _("Multicast IP Range")}),
+                                         help_text=_("Multicast IPv4 range"
+                                                     "(e.g. 132.0.0.0-"
+                                                     "132.0.0.100)"))
+    other_subtype = forms.CharField(max_length=255,
+                                    label=_("Sub Type Value (Manual Input)"),
+                                    required=False,
+                                    widget=forms.TextInput
+                                    (attrs={'class': 'switched',
+                                            'data-switch-on':
+                                                'subtype',
+                                            'data-subtype-other':
+                                                _("Sub Type Value "
+                                                  "(Manual Input)")}),
+                            help_text=_("Enter parameter (e.g. GRE)"))
     physical_network = forms.CharField(max_length=255,
                                        label=_("Physical Network"),
                                        required=False,
@@ -86,21 +111,34 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
         super(CreateNetworkProfile, self).__init__(request, *args, **kwargs)
         self.fields['project_id'].choices = get_tenant_choices(request)
 
+    def clean(self):
+        # If sub_type is 'other' then assign this new value for sub_type
+        cleaned_data = super(CreateNetworkProfile, self).clean()
+
+        segment_type = cleaned_data.get('segment_type')
+        if segment_type == 'overlay':
+            sub_type = cleaned_data.get('sub_type')
+            if sub_type == 'other':
+                other_subtype = cleaned_data.get('other_subtype')
+                cleaned_data['sub_type'] = other_subtype
+                LOG.debug('subtype is now %(params)s',
+                          {'params': other_subtype})
+
+        return cleaned_data
+
     def handle(self, request, data):
         try:
             LOG.debug('request = %(req)s, params = %(params)s',
                       {'req': request, 'params': data})
+            params = {'name': data['name'],
+                      'segment_type': data['segment_type'],
+                      'sub_type': data['sub_type'],
+                      'segment_range': data['segment_range'],
+                      'physical_network': data['physical_network'],
+                      'multicast_ip_range': data['multicast_ip_range'],
+                      'tenant_id': data['project_id']}
             profile = api.neutron.profile_create(request,
-                                                 name=data['name'],
-                                                 segment_type=
-                                                 data['segment_type'],
-                                                 segment_range=
-                                                 data['segment_range'],
-                                                 physical_network=
-                                                 data['physical_network'],
-                                                 multicast_ip_range=
-                                                 data['multicast_ip_range'],
-                                                 tenant_id=data['project_id'])
+                                                 **params)
             msg = _('Network Profile %s '
                     'was successfully created.') % data['name']
             LOG.debug(msg)

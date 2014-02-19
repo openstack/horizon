@@ -105,8 +105,8 @@ class Port(NeutronAPIDictWrapper):
 
 class Profile(NeutronAPIDictWrapper):
     """Wrapper for neutron profiles."""
-    _attrs = ['profile_id', 'name', 'segment_type',
-              'segment_range', 'multicast_ip_index', 'multicast_ip_range']
+    _attrs = ['profile_id', 'name', 'segment_type', 'segment_range',
+              'sub_type', 'multicast_ip_index', 'multicast_ip_range']
 
     def __init__(self, apiresource):
         super(Profile, self).__init__(apiresource)

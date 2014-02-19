@@ -115,10 +115,10 @@ def data(TEST):
     net_profile_dict = {'name': 'net_profile_test1',
                         'segment_type': 'vlan',
                         'physical_network': 'phys1',
-                        'segment_range': '3000-31000',
+                        'segment_range': '3000-3100',
                         'id':
                         '00000000-1111-1111-1111-000000000000',
-                        'tenant_id': network_dict['tenant_id']}
+                        'project_id': network_dict['tenant_id']}
 
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))
@@ -148,6 +148,28 @@ def data(TEST):
     TEST.api_policy_profile_binding.add(policy_profile_binding_dict)
     TEST.policy_profile_binding.add(neutron.Profile(
         policy_profile_binding_dict))
+
+    # 2nd network profile for network when using the cisco n1k plugin
+    net_profile_dict = {'name': 'net_profile_test2',
+                        'segment_type': 'overlay',
+                        'sub_type': 'native_vxlan',
+                        'segment_range': '10000-10100',
+                        'multicast_ip_range': '144.0.0.0-144.0.0.100',
+                        'id':
+                        '00000000-2222-2222-2222-000000000000',
+                        'project_id': network_dict['tenant_id']}
+
+    TEST.api_net_profiles.add(net_profile_dict)
+    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
+
+    # 2nd network profile binding
+    network_profile_binding_dict = {'profile_id':
+                                    '00000000-2222-2222-2222-000000000000',
+                                    'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_network_profile_binding.add(network_profile_binding_dict)
+    TEST.network_profile_binding.add(neutron.Profile(
+        network_profile_binding_dict))
 
     # ports on 1st network
     port_dict = {'admin_state_up': True,
