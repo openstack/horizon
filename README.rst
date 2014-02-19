@@ -40,7 +40,7 @@ environment.  To do this, create a ``local_settings.py`` file in the
 
 If all is well you should able to run the development server locally:
 
-  $ tools/with_venv.sh manage.py runserver
+  $ tools/with_venv.sh ./manage.py runserver
 
 or, as a shortcut::
 
