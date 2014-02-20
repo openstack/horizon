@@ -59,7 +59,7 @@ horizon.datatables = {
             if ($new_row.hasClass('status_unknown')) {
               var spinner_elm = $new_row.find("td.status_unknown:last");
 
-              if ($new_row.find('a.btn-action-required').length > 0) {
+              if ($new_row.find('.btn-action-required').length > 0) {
                 spinner_elm.prepend(
                   $("<div />")
                     .addClass("action_required_img")
