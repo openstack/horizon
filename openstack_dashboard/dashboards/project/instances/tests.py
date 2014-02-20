@@ -1091,7 +1091,8 @@ class InstanceTests(test.TestCase):
                             ['<SetInstanceDetails: setinstancedetailsaction>',
                              '<SetAccessControls: setaccesscontrolsaction>',
                              '<SetNetwork: setnetworkaction>',
-                             '<PostCreationStep: customizeaction>'])
+                             '<PostCreationStep: customizeaction>',
+                             '<SetAdvanced: setadvancedaction>'])
 
         if custom_flavor_sort == 'id':
             # Reverse sorted by id
@@ -1257,7 +1258,8 @@ class InstanceTests(test.TestCase):
                                nics=nics,
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
-                               admin_pass=u'')
+                               admin_pass=u'',
+                               disk_config=u'AUTO')
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1277,7 +1279,8 @@ class InstanceTests(test.TestCase):
                      'availability_zone': avail_zone.zoneName,
                      'volume_type': '',
                      'network': self.networks.first().id,
-                     'count': 1}
+                     'count': 1,
+                     'disk_config': 'AUTO'}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -1366,7 +1369,8 @@ class InstanceTests(test.TestCase):
                                nics=nics,
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
-                               admin_pass=u'')
+                               admin_pass=u'',
+                               disk_config=u'AUTO')
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
 
@@ -1386,7 +1390,8 @@ class InstanceTests(test.TestCase):
                      'volume_id': volume_choice,
                      'device_name': device_name,
                      'network': self.networks.first().id,
-                     'count': 1}
+                     'count': 1,
+                     'disk_config': 'AUTO'}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -1481,7 +1486,8 @@ class InstanceTests(test.TestCase):
                                nics=nics,
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
-                               admin_pass=u'')
+                               admin_pass=u'',
+                               disk_config='MANUAL')
 
         self.mox.ReplayAll()
 
@@ -1499,7 +1505,8 @@ class InstanceTests(test.TestCase):
                      'volume_type': 'volume_id',
                      'volume_id': volume_choice,
                      'device_name': device_name,
-                     'count': 1}
+                     'count': 1,
+                     'disk_config': 'MANUAL'}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -1729,7 +1736,8 @@ class InstanceTests(test.TestCase):
                                nics=nics,
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
-                               admin_pass='password') \
+                               admin_pass='password',
+                               disk_config='AUTO') \
                       .AndRaise(self.exceptions.keystone)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
@@ -1754,7 +1762,8 @@ class InstanceTests(test.TestCase):
                      'network': self.networks.first().id,
                      'count': 1,
                      'admin_pass': 'password',
-                     'confirm_admin_pass': 'password'}
+                     'confirm_admin_pass': 'password',
+                     'disk_config': 'AUTO'}
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -2327,9 +2336,10 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def _instance_resize_post(self, server_id, flavor_id):
+    def _instance_resize_post(self, server_id, flavor_id, disk_config):
         formData = {'flavor': flavor_id,
-                    'default_role': 'member'}
+                    'default_role': 'member',
+                    'disk_config': disk_config}
         url = reverse('horizon:project:instances:resize',
                       args=[server_id])
         return self.client.post(url, formData)
@@ -2347,12 +2357,12 @@ class InstanceTests(test.TestCase):
                 .AndReturn(server)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id) \
-                .AndReturn([])
+        api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id,
+                               'AUTO').AndReturn([])
 
         self.mox.ReplayAll()
 
-        res = self._instance_resize_post(server.id, flavor.id)
+        res = self._instance_resize_post(server.id, flavor.id, u'AUTO')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
@@ -2365,12 +2375,13 @@ class InstanceTests(test.TestCase):
                 .AndReturn(server)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
-        api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id) \
-                .AndRaise(self.exceptions.nova)
+        api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id,
+                               'AUTO') \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
-        res = self._instance_resize_post(server.id, flavor.id)
+        res = self._instance_resize_post(server.id, flavor.id, 'AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
@@ -2404,9 +2415,11 @@ class InstanceTests(test.TestCase):
         self.test_rebuild_instance_get(expect_password_fields=False)
 
     def _instance_rebuild_post(self, server_id, image_id,
-                               password=None, confirm_password=None):
+                               password=None, confirm_password=None,
+                               disk_config=None):
         form_data = {'instance_id': server_id,
-                     'image': image_id}
+                     'image': image_id,
+                     'disk_config': disk_config}
         if password is not None:
             form_data.update(password=password)
         if confirm_password is not None:
@@ -2436,13 +2449,15 @@ class InstanceTests(test.TestCase):
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
-                                password).AndReturn([])
+                                password,
+                                'AUTO').AndReturn([])
 
         self.mox.ReplayAll()
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=password,
-                                          confirm_password=password)
+                                          confirm_password=password,
+                                          disk_config='AUTO')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
@@ -2462,13 +2477,16 @@ class InstanceTests(test.TestCase):
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
-                                None).AndRaise(self.exceptions.nova)
+                                None,
+                                'AUTO') \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=None,
-                                          confirm_password=None)
+                                          confirm_password=None,
+                                          disk_config='AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs(instance_rebuild_post_stubs)
@@ -2490,7 +2508,8 @@ class InstanceTests(test.TestCase):
         self.mox.ReplayAll()
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=pass1,
-                                          confirm_password=pass2)
+                                          confirm_password=pass2,
+                                          disk_config='MANUAL')
 
         self.assertContains(res, "Passwords do not match.")
 
@@ -2510,13 +2529,15 @@ class InstanceTests(test.TestCase):
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
-                                None).AndReturn([])
+                                None,
+                                'AUTO').AndReturn([])
 
         self.mox.ReplayAll()
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=u'',
-                                          confirm_password=u'')
+                                          confirm_password=u'',
+                                          disk_config=u'AUTO')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
@@ -2537,13 +2558,16 @@ class InstanceTests(test.TestCase):
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
-                                password).AndRaise(self.exceptions.nova)
+                                password,
+                                'AUTO') \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
         res = self._instance_rebuild_post(server.id, image.id,
                                           password=password,
-                                          confirm_password=password)
+                                          confirm_password=password,
+                                          disk_config='AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
 

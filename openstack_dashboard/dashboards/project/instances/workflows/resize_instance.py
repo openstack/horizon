@@ -28,6 +28,8 @@ from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.instances \
     import utils as instance_utils
+from openstack_dashboard.dashboards.project.instances.workflows \
+    import create_instance
 
 
 class SetFlavorChoiceAction(workflows.Action):
@@ -93,7 +95,7 @@ class ResizeInstance(workflows.Workflow):
     success_message = _('Preparing instance "%s" for resize.')
     failure_message = _('Unable to resize instance "%s".')
     success_url = "horizon:project:instances:index"
-    default_steps = (SetFlavorChoice,)
+    default_steps = (SetFlavorChoice, create_instance.SetAdvanced)
 
     def format_status_message(self, message):
         return message % self.context.get('name', 'unknown instance')
@@ -102,8 +104,9 @@ class ResizeInstance(workflows.Workflow):
     def handle(self, request, context):
         instance_id = context.get('instance_id', None)
         flavor = context.get('flavor', None)
+        disk_config = context.get('disk_config', None)
         try:
-            api.nova.server_resize(request, instance_id, flavor)
+            api.nova.server_resize(request, instance_id, flavor, disk_config)
             return True
         except Exception:
             exceptions.handle(request)

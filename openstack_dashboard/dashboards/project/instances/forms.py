@@ -49,6 +49,8 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
     confirm_password = forms.CharField(label=_("Confirm Rebuild Password"),
             required=False,
             widget=forms.PasswordInput(render_value=False))
+    disk_config = forms.ChoiceField(label=_("Disk Partition"),
+                                    required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(RebuildInstanceForm, self).__init__(request, *args, **kwargs)
@@ -67,6 +69,10 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
             del self.fields['password']
             del self.fields['confirm_password']
 
+        # Set our disk_config choices
+        config_choices = [("AUTO", _("Automatic")), ("MANUAL", _("Manual"))]
+        self.fields['disk_config'].choices = config_choices
+
     def clean(self):
         cleaned_data = super(RebuildInstanceForm, self).clean()
         if 'password' in cleaned_data:
@@ -84,8 +90,10 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         instance = data.get('instance_id')
         image = data.get('image')
         password = data.get('password') or None
+        disk_config = data.get('disk_config', None)
         try:
-            api.nova.server_rebuild(request, instance, image, password)
+            api.nova.server_rebuild(request, instance, image, password,
+                                    disk_config)
             messages.success(request, _('Rebuilding instance %s.') % instance)
         except Exception:
             redirect = reverse('horizon:project:instances:index')
