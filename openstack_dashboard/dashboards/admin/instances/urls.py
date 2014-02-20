@@ -22,8 +22,6 @@ from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
 from openstack_dashboard.dashboards.admin.instances import views
-from openstack_dashboard.dashboards.project.instances \
-    import views as project_views
 
 
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
@@ -32,8 +30,7 @@ INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 urlpatterns = patterns('openstack_dashboard.dashboards.admin.instances.views',
     url(r'^$', views.AdminIndexView.as_view(), name='index'),
     url(INSTANCES % 'update', views.AdminUpdateView.as_view(), name='update'),
-    url(INSTANCES % 'detail',
-        project_views.DetailView.as_view(), name='detail'),
+    url(INSTANCES % 'detail', views.DetailView.as_view(), name='detail'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),

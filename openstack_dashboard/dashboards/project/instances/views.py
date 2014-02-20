@@ -217,6 +217,7 @@ class RebuildView(forms.ModalFormView):
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.InstanceDetailTabs
     template_name = 'project/instances/detail.html'
+    redirect_url = 'horizon:project:instances:index'
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -237,7 +238,7 @@ class DetailView(tabs.TabView):
             instance.security_groups = api.network.server_security_groups(
                 self.request, instance_id)
         except Exception:
-            redirect = reverse('horizon:project:instances:index')
+            redirect = reverse(self.redirect_url)
             exceptions.handle(self.request,
                               _('Unable to retrieve details for '
                                 'instance "%s".') % instance_id,
