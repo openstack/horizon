@@ -427,6 +427,7 @@ def neutronclient(request):
     LOG.debug('user_id=%(user)s, tenant_id=%(tenant)s' %
               {'user': request.user.id, 'tenant': request.user.tenant_id})
     c = neutron_client.Client(token=request.user.token.id,
+                              auth_url=base.url_for(request, 'identity'),
                               endpoint_url=base.url_for(request, 'network'),
                               insecure=insecure, ca_cert=cacert)
     return c
