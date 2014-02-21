@@ -163,3 +163,7 @@ class LiveMigrateView(forms.ModalFormView):
                             'current_host': current_host,
                             'hosts': self.get_hosts()})
         return initial
+
+
+class DetailView(views.DetailView):
+    redirect_url = 'horizon:admin:instances:index'

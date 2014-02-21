@@ -739,6 +739,21 @@ class InstanceTests(test.TestCase):
         res = self.client.get(url)
         self.assertItemsEqual(res.context['instance'].fault, server.fault)
 
+    @test.create_stubs({api.nova: ('server_get',)})
+    def test_instance_details_exception(self):
+        server = self.servers.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                        .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:detail',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @test.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log(self):
         server = self.servers.first()

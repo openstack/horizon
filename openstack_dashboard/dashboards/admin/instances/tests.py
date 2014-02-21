@@ -316,3 +316,18 @@ class InstanceViewTest(test.BaseAdminViewTests):
                       args=[server.id])
         res = self.client.post(url, {'host': host, 'instance_id': server.id})
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('server_get',)})
+    def test_instance_details_exception(self):
+        server = self.servers.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                        .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:instances:detail',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
