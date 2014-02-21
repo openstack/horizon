@@ -30,6 +30,18 @@ from openstack_dashboard.dashboards.project.volumes \
     .volumes import tables as volume_tables
 
 
+class LaunchSnapshot(volume_tables.LaunchVolume):
+    name = "launch_snapshot"
+
+    def get_link_url(self, datum):
+        base_url = reverse(self.url)
+
+        vol_id = "%s:snap" % self.table.get_object_id(datum)
+        params = urlencode({"source_type": "volume_snapshot_id",
+                            "source_id": vol_id})
+        return "?".join([base_url, params])
+
+
 class DeleteVolumeSnapshot(tables.DeleteAction):
     data_type_singular = _("Volume Snapshot")
     data_type_plural = _("Volume Snapshots")
@@ -104,7 +116,8 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
         name = "volume_snapshots"
         verbose_name = _("Volume Snapshots")
         table_actions = (DeleteVolumeSnapshot,)
-        row_actions = (CreateVolumeFromSnapshot, DeleteVolumeSnapshot)
+        row_actions = (CreateVolumeFromSnapshot, LaunchSnapshot,
+                       DeleteVolumeSnapshot)
         row_class = UpdateRow
         status_columns = ("status",)
         permissions = ['openstack.services.volume']

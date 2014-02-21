@@ -18,6 +18,7 @@ from django.core.urlresolvers import NoReverseMatch  # noqa
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title  # noqa
 from django.utils import html
+from django.utils.http import urlencode
 from django.utils import safestring
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -33,6 +34,27 @@ from openstack_dashboard.usage import quotas
 
 
 DELETABLE_STATES = ("available", "error", "error_extending")
+
+
+class LaunchVolume(tables.LinkAction):
+    name = "launch_volume"
+    verbose_name = _("Launch")
+    url = "horizon:project:instances:launch"
+    classes = ("btn-launch", "ajax-modal")
+    policy_rules = (("compute", "compute:create"),)
+
+    def get_link_url(self, datum):
+        base_url = reverse(self.url)
+
+        vol_id = "%s:vol" % self.table.get_object_id(datum)
+        params = urlencode({"source_type": "volume_id",
+                            "source_id": vol_id})
+        return "?".join([base_url, params])
+
+    def allowed(self, request, volume=None):
+        if volume:
+            return volume.status == "available"
+        return False
 
 
 class DeleteVolume(tables.DeleteAction):
@@ -270,7 +292,7 @@ class VolumesTable(VolumesTableBase):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (CreateVolume, DeleteVolume, VolumesFilterAction)
-        row_actions = (EditVolume, ExtendVolume, EditAttachments,
+        row_actions = (EditVolume, ExtendVolume, LaunchVolume, EditAttachments,
                        CreateSnapshot, DeleteVolume)
 
 
