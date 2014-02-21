@@ -977,3 +977,8 @@ def can_set_mount_point():
     hypervisor_features = getattr(
         settings, "OPENSTACK_HYPERVISOR_FEATURES", {})
     return hypervisor_features.get("can_set_mount_point", False)
+
+
+def requires_keypair():
+    features = getattr(settings, 'OPENSTACK_HYPERVISOR_FEATURES', {})
+    return features.get('requires_keypair', False)
