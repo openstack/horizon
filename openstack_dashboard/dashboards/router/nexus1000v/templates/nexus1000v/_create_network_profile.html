@@ -16,7 +16,10 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans "Select a name for your network profile."%}</p>
+    <p><strong>{% trans "Name" %}</strong>: {% blocktrans %} Select a name for your network profile.{% endblocktrans %}</p>
+    <p><strong>{% trans "Segment Type" %}</strong>: {% blocktrans %} Segment types available are VLAN and OVERLAY.{% endblocktrans %}</p>
+    <p><strong>{% trans "Segment Sub Type" %}</strong>: {% blocktrans %} Sub types available are for the Overlay segment. Available sub-types for overlay are: native_vxlan, enhanced or 'other' (eg. GRE) which can be manually inputed as a text parameter for subtype.{% endblocktrans %}</p>
+    <p><strong>{% trans "Segment Range" %}</strong>: {% blocktrans %} Segment Ranges are 1-4093 for VLAN and above 5000 for enhanced overlay.{% endblocktrans %}</p>
 </div>
 {% endblock %}
 
