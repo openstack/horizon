@@ -754,6 +754,20 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.nova: ("server_get",)})
+    def test_instance_details_unauthorized(self):
+        server = self.servers.first()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id)\
+            .AndRaise(self.exceptions.nova_unauthorized)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:detail',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @test.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log(self):
         server = self.servers.first()
