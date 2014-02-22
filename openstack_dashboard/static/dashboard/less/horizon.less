@@ -2449,3 +2449,22 @@ label.log-length {
   }
 
 }
+
+/**** Sort Indicator ****/
+.tablesorter thead tr th
+{
+  &.tablesorter-header {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 99% center;
+    background-position: right 5px center;
+  }
+
+  &.tablesorter-headerAsc {
+    background-image: url(/static/dashboard/img/up_arrow.png);
+  }
+
+  &.tablesorter-headerDesc {
+    background-image: url(/static/dashboard/img/drop_arrow.png);
+  }
+}
