@@ -522,17 +522,19 @@ class SimpleDisassociateIP(tables.Action):
         try:
             # target_id is port_id for Neutron and instance_id for Nova Network
             # (Neutron API wrapper returns a 'portid_fixedip' string)
-            target_id = api.network.floating_ip_target_get_by_instance(
-                request, instance_id).split('_')[0]
+            targets = api.network.floating_ip_target_list_by_instance(
+                request, instance_id)
+
+            target_ids = [t.split('_')[0] for t in targets]
 
             fips = [fip for fip in api.network.tenant_floating_ip_list(request)
-                    if fip.port_id == target_id]
+                    if fip.port_id in target_ids]
             # Removing multiple floating IPs at once doesn't work, so this pops
             # off the first one.
             if fips:
                 fip = fips.pop()
                 api.network.floating_ip_disassociate(request,
-                                                     fip.id, target_id)
+                                                     fip.id, fip.port_id)
                 messages.success(request,
                                  _("Successfully disassociated "
                                    "floating IP: %s") % fip.ip)

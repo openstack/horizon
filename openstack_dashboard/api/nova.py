@@ -354,6 +354,9 @@ class FloatingIpManager(network_base.FloatingIpManager):
     def get_target_id_by_instance(self, instance_id):
         return instance_id
 
+    def list_target_id_by_instance(self, instance_id):
+        return [instance_id, ]
+
     def is_simple_associate_supported(self):
         return conf.HORIZON_CONFIG["simple_ip_management"]
 
