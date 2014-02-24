@@ -15,6 +15,7 @@ import copy
 
 from django.core.urlresolvers import reverse
 from django import http
+
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
@@ -28,9 +29,12 @@ class RouterTests(test.TestCase):
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
-    def _mock_external_network_list(self):
+    def _mock_external_network_list(self, alter_ids=False):
         search_opts = {'router:external': True}
         ext_nets = [n for n in self.networks.list() if n['router:external']]
+        if alter_ids:
+            for ext_net in ext_nets:
+                ext_net.id += 'some extra garbage'
         api.neutron.network_list(
             IsA(http.HttpRequest),
             **search_opts).AndReturn(ext_nets)
@@ -69,6 +73,25 @@ class RouterTests(test.TestCase):
 
         self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
         self.assertEqual(len(res.context['table'].data), 0)
+        self.assertMessageCount(res, error=1)
+
+    @test.create_stubs({api.neutron: ('router_list', 'network_list')})
+    def test_set_external_network_empty(self):
+        router = self.routers.first()
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn([router])
+        self._mock_external_network_list(alter_ids=True)
+        self.mox.ReplayAll()
+
+        res = self.client.get(self.INDEX_URL)
+
+        table_data = res.context['table'].data
+        self.assertEqual(len(table_data), 1)
+        self.assertIn('(Not Found)',
+                      table_data[0]['external_gateway_info']['network'])
+        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
         self.assertMessageCount(res, error=1)
 
     @test.create_stubs({api.neutron: ('router_get', 'port_list',
