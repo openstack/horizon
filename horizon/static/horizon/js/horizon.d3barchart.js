@@ -42,7 +42,7 @@
         Json with variety of settings described below.
 
         used-label-placement='string' OPTIONAL
-          String determinign where the floating label stating number of percent
+          String determining where the floating label stating number of percent
           will be placed. So far only left is supported.
 
           width="integer" OPTIONAL
