@@ -1,5 +1,9 @@
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
+# Copyright 2012 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -18,15 +22,15 @@ from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.project.volumes import views
-from openstack_dashboard.dashboards.project.volumes.volumes \
-    import urls as volume_urls
+from openstack_dashboard.dashboards.project.images.images \
+    import urls as image_urls
+from openstack_dashboard.dashboards.project.images.snapshots \
+    import urls as snapshot_urls
+from openstack_dashboard.dashboards.project.images import views
 
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'', include(volume_urls, namespace='volumes')),
-    url(r'^snapshots/(?P<snapshot_id>[^/]+)/$',
-        views.DetailView.as_view(),
-        name='detail'),
+    url(r'', include(image_urls, namespace='images')),
+    url(r'', include(snapshot_urls, namespace='snapshots')),
 )

@@ -34,10 +34,13 @@ from openstack_dashboard.dashboards.admin.volumes \
 from openstack_dashboard.dashboards.admin.volumes \
     import tables as project_tables
 
-from openstack_dashboard.dashboards.project.volumes import views
+from openstack_dashboard.dashboards.project.volumes \
+    import tabs as project_tabs
+from openstack_dashboard.dashboards.project.volumes \
+    .volumes import views as volume_views
 
 
-class IndexView(tables.MultiTableView, views.VolumeTableMixIn):
+class IndexView(tables.MultiTableView, project_tabs.VolumeTableMixIn):
     table_classes = (project_tables.VolumesTable,
                      project_tables.VolumeTypesTable)
     template_name = "admin/volumes/index.html"
@@ -74,7 +77,7 @@ class IndexView(tables.MultiTableView, views.VolumeTableMixIn):
         return volume_types
 
 
-class DetailView(views.DetailView):
+class DetailView(volume_views.DetailView):
     template_name = "admin/volumes/detail.html"
 
 

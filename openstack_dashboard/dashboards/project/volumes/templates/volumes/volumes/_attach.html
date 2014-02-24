@@ -1,0 +1,26 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}attach_volume_form{% endblock %}
+{% block form_action %}{% url 'horizon:project:volumes:volumes:attach' volume.id %}{% endblock %}
+{% block form_class %}{{ block.super }} horizontal {% if show_attach %}split_half{% else %} no_split{% endif %}{% endblock %}
+
+{% block modal_id %}attach_volume_modal{% endblock %}
+{% block modal-header %}{% trans "Manage Volume Attachments" %}{% endblock %}
+
+{% block modal-body %}
+    {% if show_attach %}
+    <h3>{% trans "Attach To Instance" %}</h3>
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+    {% endif %}
+{% endblock %}
+
+{% block modal-footer %}
+    {% if show_attach %}
+        <input class="btn btn-primary pull-right" type="submit" value="{% trans "Attach Volume" %}" />
+    {% endif %}
+    <a href="{% url 'horizon:project:volumes:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
