@@ -26,9 +26,18 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 
+import re
+
 
 class CreateExtraSpec(forms.SelfHandlingForm):
-    key = forms.CharField(max_length="255", label=_("Key"))
+    _extraspec_name_regex = re.compile(r"^[\w\.\-: ]+$", re.UNICODE)
+    key = forms.RegexField(
+        max_length="255",
+        label=_("Key"),
+        regex=_extraspec_name_regex,
+        error_messages={'invalid': _('Key Name may only contain letters, '
+                            'numbers, underscores, periods, colons, '
+                            'spaces and hyphens.')})
     value = forms.CharField(max_length="255", label=_("Value"))
     flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
