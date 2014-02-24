@@ -21,7 +21,6 @@
 import json
 import logging
 
-from django.conf import settings
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -40,20 +39,13 @@ from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.images import utils
+from openstack_dashboard.dashboards.project.images \
+    import utils as image_utils
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instance_utils
 
 
 LOG = logging.getLogger(__name__)
-
-
-def _flavor_list(request):
-    """Utility method to retrieve a list of flavor."""
-    try:
-        return api.nova.flavor_list(request)
-    except Exception:
-        exceptions.handle(request,
-                          _('Unable to retrieve instance flavors.'))
-        return []
 
 
 class SelectProjectUserAction(workflows.Action):
@@ -203,7 +195,7 @@ class SetInstanceDetailsAction(workflows.Action):
                     # however get_available_images uses a cache of image list,
                     # so it is used instead of image_get to reduce the number
                     # of API calls.
-                    images = utils.get_available_images(
+                    images = image_utils.get_available_images(
                         self.request,
                         self.context.get('project_id'),
                         self._images_cache)
@@ -217,7 +209,7 @@ class SetInstanceDetailsAction(workflows.Action):
                     # however flavor_list uses a memoized decorator
                     # so it is used instead of flavor_get to reduce the number
                     # of API calls.
-                    flavors = _flavor_list(self.request)
+                    flavors = instance_utils.flavor_list(self.request)
                     flavor = [x for x in flavors if x.id == flavor_id][0]
                 except IndexError:
                     flavor = None
@@ -277,30 +269,9 @@ class SetInstanceDetailsAction(workflows.Action):
         return cleaned_data
 
     def populate_flavor_choices(self, request, context):
-        """By default, returns the available flavors, sorted by RAM
-        usage (ascending).
-        Override these behaviours with a CREATE_INSTANCE_FLAVOR_SORT dict
-        in local_settings.py.
-        """
-        def get_key(flavor, sort_key):
-            try:
-                return getattr(flavor, sort_key)
-            except AttributeError:
-                LOG.warning('Could not find sort key "%s". Using the default '
-                            '"ram" instead.', sort_key)
-                return getattr(flavor, 'ram')
-
-        flavors = _flavor_list(request)
+        flavors = instance_utils.flavor_list(request)
         if flavors:
-            flavor_sort = getattr(settings, 'CREATE_INSTANCE_FLAVOR_SORT', {})
-            rev = flavor_sort.get('reverse', False)
-            sort_key = flavor_sort.get('key', 'ram')
-            if not callable(sort_key):
-                key = lambda flavor: get_key(flavor, sort_key)
-            else:
-                key = sort_key
-            return [(flavor.id, "%s" % flavor.name)
-                    for flavor in sorted(flavors, key=key, reverse=rev)]
+            return instance_utils.sort_flavor_list(request, flavors)
         return []
 
     def populate_availability_zone_choices(self, request, context):
@@ -325,9 +296,10 @@ class SetInstanceDetailsAction(workflows.Action):
         try:
             extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
-            flavors = json.dumps([f._info for f in _flavor_list(self.request)])
+            flavors = json.dumps([f._info for f in
+                                  instance_utils.flavor_list(self.request)])
             extra['flavors'] = flavors
-            images = utils.get_available_images(self.request,
+            images = image_utils.get_available_images(self.request,
                                                 self.initial['project_id'],
                                                 self._images_cache)
             if images is not None:
@@ -361,7 +333,7 @@ class SetInstanceDetailsAction(workflows.Action):
 
     def populate_image_id_choices(self, request, context):
         choices = []
-        images = utils.get_available_images(request,
+        images = image_utils.get_available_images(request,
                                             context.get('project_id'),
                                             self._images_cache)
         for image in images:
@@ -376,7 +348,7 @@ class SetInstanceDetailsAction(workflows.Action):
         return choices
 
     def populate_instance_snapshot_id_choices(self, request, context):
-        images = utils.get_available_images(request,
+        images = image_utils.get_available_images(request,
                                             context.get('project_id'),
                                             self._images_cache)
         choices = [(image.id, image.name)
