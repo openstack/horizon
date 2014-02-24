@@ -237,9 +237,9 @@ mentioned above, you may link to an existing file::
 or you can paste your script directly in the file, being sure to use
 appropriate tags::
 
-<script type="text/javascript">
+  <script type="text/javascript">
   //some javascript
-</script>
+  </script>
 
 
 Customizing Meta Attributes
