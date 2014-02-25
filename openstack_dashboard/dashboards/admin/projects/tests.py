@@ -19,6 +19,7 @@ import datetime
 import logging
 import os
 
+import django
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
@@ -243,8 +244,13 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:admin:projects:create'))
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
-        self.assertContains(res, '<input name="subnet" id="id_subnet" '
-                            'value="10" type="text" />', html=True)
+        if django.VERSION >= (1, 6):
+            self.assertContains(res, '<input id="id_subnet" min="-1" '
+                                'name="subnet" type="number" value="10" />',
+                                html=True)
+        else:
+            self.assertContains(res, '<input name="subnet" id="id_subnet" '
+                                'value="10" type="text" />', html=True)
 
         workflow = res.context['workflow']
         self.assertEqual(res.context['workflow'].name,
