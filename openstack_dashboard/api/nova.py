@@ -498,7 +498,7 @@ def server_get(request, instance_id):
 
 def server_list(request, search_opts=None, all_tenants=False):
     page_size = utils.get_page_size(request)
-
+    c = novaclient(request)
     paginate = False
     if search_opts is None:
         search_opts = {}
@@ -512,7 +512,7 @@ def server_list(request, search_opts=None, all_tenants=False):
     else:
         search_opts['project_id'] = request.user.tenant_id
     servers = [Server(s, request)
-                for s in novaclient(request).servers.list(True, search_opts)]
+                for s in c.servers.list(True, search_opts)]
 
     has_more_data = False
     if paginate and len(servers) > page_size:
@@ -687,8 +687,9 @@ def service_list(request):
 
 def aggregate_list(request):
     result = []
-    for aggregate in novaclient(request).aggregates.list():
-        result.append(novaclient(request).aggregates.get_details(aggregate.id))
+    c = novaclient(request)
+    for aggregate in c.aggregates.list():
+        result.append(c.aggregates.get_details(aggregate.id))
 
     return result
 
