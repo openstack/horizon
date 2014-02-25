@@ -15,10 +15,10 @@
 import json
 import logging
 import re
-import urlparse
 
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import register  # noqa
+import six.moves.urllib.parse as urlparse
 
 from openstack_dashboard.api import swift
 

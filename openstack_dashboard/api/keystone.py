@@ -20,10 +20,10 @@
 #    under the License.
 
 import logging
-import urlparse
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+import six.moves.urllib.parse as urlparse
 
 from keystoneclient import exceptions as keystone_exceptions
 
