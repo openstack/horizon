@@ -22,6 +22,7 @@ import sys
 
 from django.core.management import color_style  # noqa
 from django.http import HttpRequest  # noqa
+from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
 from django.views.debug import CLEANSED_SUBSTITUTE  # noqa
 from django.views.debug import SafeExceptionReporterFilter  # noqa
@@ -260,6 +261,8 @@ def handle(request, message=None, redirect=None, ignore=False,
         exc_type, exc_value, exc_traceback = exc_value.wrapped
         wrap = True
 
+    log_entry = encoding.force_unicode(exc_value)
+
     # We trust messages from our own exceptions
     if issubclass(exc_type, HorizonException):
         message = exc_value
@@ -268,13 +271,14 @@ def handle(request, message=None, redirect=None, ignore=False,
         message = exc_value._safe_message
     # If the message has a placeholder for the exception, fill it in
     elif message and "%(exc)s" in message:
-        message = message % {"exc": exc_value}
+        message = encoding.force_unicode(message) % {"exc": log_entry}
+    message = encoding.force_unicode(message)
 
     if issubclass(exc_type, UNAUTHORIZED):
         if ignore:
             return NotAuthorized
         if not force_silence and not handled:
-            log_method(error_color("Unauthorized: %s" % exc_value))
+            log_method(error_color("Unauthorized: %s" % log_entry))
         if not handled:
             if message:
                 message = _("Unauthorized: %s") % message
@@ -299,9 +303,9 @@ def handle(request, message=None, redirect=None, ignore=False,
     if issubclass(exc_type, NOT_FOUND):
         wrap = True
         if not force_silence and not handled and (not ignore or force_log):
-            log_method(error_color("Not Found: %s" % exc_value))
+            log_method(error_color("Not Found: %s" % log_entry))
         if not ignore and not handled:
-            messages.error(request, message or exc_value)
+            messages.error(request, message or log_entry)
         if redirect:
             raise Http302(redirect)
         if not escalate:
@@ -312,9 +316,9 @@ def handle(request, message=None, redirect=None, ignore=False,
         if not force_silence and not handled and (not ignore or force_log):
             # Default recoverable error to WARN log level
             log_method = getattr(LOG, log_level or "warning")
-            log_method(error_color("Recoverable error: %s" % exc_value))
+            log_method(error_color("Recoverable error: %s" % log_entry))
         if not ignore and not handled:
-            messages.error(request, message or exc_value)
+            messages.error(request, message or log_entry)
         if redirect:
             raise Http302(redirect)
         if not escalate:
