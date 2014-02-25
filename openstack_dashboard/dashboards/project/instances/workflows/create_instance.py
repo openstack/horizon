@@ -110,7 +110,7 @@ class SetInstanceDetailsAction(workflows.Action):
             transform=lambda x: ("%s (%s)" % (x.name,
                                               filesizeformat(x.bytes)))))
 
-    volume_size = forms.CharField(label=_("Device size (GB)"),
+    volume_size = forms.IntegerField(label=_("Device size (GB)"),
                                   required=False,
                                   help_text=_("Volume size in gigabytes "
                                               "(integer value)."))
@@ -183,7 +183,7 @@ class SetInstanceDetailsAction(workflows.Action):
         # Validate our instance source.
         source_type = self.data.get('source_type', None)
 
-        if source_type == 'image_id':
+        if source_type in ('image_id', 'volume_image_id'):
             if not cleaned_data.get('image_id'):
                 msg = _("You must select an image.")
                 self._errors['image_id'] = self.error_class([msg])
@@ -229,6 +229,21 @@ class SetInstanceDetailsAction(workflows.Action):
                                      'min_disk': image.min_disk})
                             self._errors['image_id'] = self.error_class([msg])
                             break  # Not necessary to continue the tests.
+
+                    volume_size = cleaned_data.get('volume_size')
+                    if volume_size and source_type == 'volume_image_id':
+                        volume_size = int(volume_size)
+                        img_gigs = functions.bytes_to_gigabytes(image.size)
+                        smallest_size = max(img_gigs, image.min_disk)
+                        if volume_size < smallest_size:
+                            msg = _("The Volume size is too small for the"
+                                    " '%(image_name)s' image and has to be"
+                                    " greater than or equal to "
+                                    "'%(smallest_size)d' GB." %
+                                    {'image_name': image.name,
+                                     'smallest_size': smallest_size})
+                            self._errors['volume_size'] = self.error_class(
+                                [msg])
 
         elif source_type == 'instance_snapshot_id':
             if not cleaned_data['instance_snapshot_id']:
@@ -338,8 +353,12 @@ class SetInstanceDetailsAction(workflows.Action):
                                             self._images_cache)
         for image in images:
             image.bytes = image.size
-            image.volume_size = functions.bytes_to_gigabytes(image.bytes)
+            image.volume_size = max(
+                image.min_disk, functions.bytes_to_gigabytes(image.bytes))
             choices.append((image.id, image))
+            if context.get('image_id') == image.id and \
+                    'volume_size' not in context:
+                context['volume_size'] = image.volume_size
         if choices:
             choices.sort(key=lambda c: c[1].name)
             choices.insert(0, ("", _("Select Image")))

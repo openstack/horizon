@@ -1957,6 +1957,108 @@ class InstanceTests(test.TestCase):
         image.min_disk = flavor.disk
         self._test_launch_form_instance_requirement_error(image, flavor)
 
+    @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
+                        api.nova: ('extension_supported',
+                                   'flavor_list',
+                                   'keypair_list',
+                                   'tenant_absolute_limits',
+                                   'availability_zone_list',),
+                        api.network: ('security_group_list',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def _test_launch_form_instance_volume_size(self, image, volume_size, msg):
+        flavor = self.flavors.get(name='m1.massive')
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        sec_group = self.security_groups.first()
+        avail_zone = self.availability_zones.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        quota_usages = self.quota_usages.first()
+
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.availability_zones.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+                  .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                  .AndReturn([[], False])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+                .AndReturn(self.networks.list()[1:])
+        # TODO(absubram): Remove if clause and create separate
+        # test stubs for when profile_support is being used.
+        # Additionally ensure those are always run even in default setting
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'policy').AndReturn(policy_profiles)
+        cinder.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+
+        self.mox.ReplayAll()
+
+        form_data = {
+            'flavor': flavor.id,
+            'source_type': 'volume_image_id',
+            'image_id': image.id,
+            'availability_zone': avail_zone.zoneName,
+            'keypair': keypair.name,
+            'name': server.name,
+            'customization_script': customization_script,
+            'project_id': self.tenants.first().id,
+            'user_id': self.user.id,
+            'groups': sec_group.name,
+            'volume_size': volume_size,
+            'device_name': device_name,
+            'count': 1
+        }
+        url = reverse('horizon:project:instances:launch')
+
+        res = self.client.post(url, form_data)
+        self.assertContains(res, msg)
+
+    def test_launch_form_instance_volume_size_error(self):
+        image = self.images.get(name='protected_images')
+        volume_size = image.min_disk / 2
+        msg = ("The Volume size is too small for the &#39;%s&#39; image" %
+               image.name)
+        self._test_launch_form_instance_volume_size(image, volume_size, msg)
+
+    def test_launch_form_instance_non_int_volume_size(self):
+        image = self.images.get(name='protected_images')
+        msg = "Enter a whole number."
+        self._test_launch_form_instance_volume_size(image, 1.5, msg)
+
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'tenant_absolute_limits',
                                    'extension_supported',),
