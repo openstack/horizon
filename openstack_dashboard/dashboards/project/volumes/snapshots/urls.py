@@ -1,7 +1,3 @@
-# vim: tabstop=4 shiftwidth=4 softtabstop=4
-
-# Copyright 2012 Nebula, Inc.
-#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -14,12 +10,17 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon import tabs
+from django.conf.urls import patterns  # noqa
+from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.project.volumes \
-    import tabs as project_tabs
+from openstack_dashboard.dashboards.project.volumes.snapshots import views
 
 
-class IndexView(tabs.TabbedTableView):
-    tab_group_class = project_tabs.VolumeAndSnapshotTabs
-    template_name = 'project/volumes/index.html'
+urlpatterns = patterns('',
+    url(r'^(?P<snapshot_id>[^/]+)$',
+        views.DetailView.as_view(),
+        name='detail'),
+    url(r'^(?P<snapshot_id>[^/]+)/update/$',
+        views.UpdateView.as_view(),
+        name='update'),
+)

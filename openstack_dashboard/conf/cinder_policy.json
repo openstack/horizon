@@ -16,6 +16,7 @@
     "volume:create_snapshot": [["rule:default"]],
     "volume:delete_snapshot": [["rule:default"]],
     "volume:get_snapshot": [],
+    "volume:update_snapshot": [["rule:default"]],
     "volume:get_all_snapshots": [],
     "volume:extend": [],
 

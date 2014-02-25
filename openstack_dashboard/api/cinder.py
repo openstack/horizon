@@ -222,6 +222,14 @@ def volume_snapshot_delete(request, snapshot_id):
     return cinderclient(request).volume_snapshots.delete(snapshot_id)
 
 
+def volume_snapshot_update(request, snapshot_id, name, description):
+    snapshot_data = {'name': name,
+                     'description': description}
+    snapshot_data = _replace_v2_parameters(snapshot_data)
+    return cinderclient(request).volume_snapshots.update(snapshot_id,
+                                                         **snapshot_data)
+
+
 def tenant_quota_get(request, tenant_id):
     c_client = cinderclient(request)
     if c_client is None:
