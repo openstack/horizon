@@ -41,12 +41,14 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         images = []
+        filters = {'is_public': None}
         marker = self.request.GET.get(
             project_tables.AdminImagesTable._meta.pagination_param, None)
         try:
             images, self._more = api.glance.image_list_detailed(self.request,
-                                                                marker=marker,
-                                                                paginate=True)
+                                                            marker=marker,
+                                                            paginate=True,
+                                                            filters=filters)
         except Exception:
             self._more = False
             msg = _('Unable to retrieve image list.')

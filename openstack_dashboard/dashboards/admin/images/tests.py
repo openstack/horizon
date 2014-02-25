@@ -37,9 +37,11 @@ class ImageCreateViewTest(test.BaseAdminViewTests):
 class ImagesViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_images_list(self):
+        filters = {'is_public': None}
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True) \
+                                       paginate=True,
+                                       filters=filters) \
             .AndReturn([self.images.list(),
                         False])
         self.mox.ReplayAll()
@@ -54,25 +56,29 @@ class ImagesViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_images_list_get_pagination(self):
         images = self.images.list()[:5]
-
+        filters = {'is_public': None}
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True) \
+                                       paginate=True,
+                                       filters=filters) \
                                 .AndReturn([images,
                                             True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True) \
+                                       paginate=True,
+                                       filters=filters) \
                                 .AndReturn([images[:2],
                                             True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
-                                       paginate=True) \
+                                       paginate=True,
+                                       filters=filters) \
                                 .AndReturn([images[2:4],
                                             True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[4].id,
-                                       paginate=True) \
+                                       paginate=True,
+                                       filters=filters) \
                                 .AndReturn([images[4:],
                                             True])
         self.mox.ReplayAll()
