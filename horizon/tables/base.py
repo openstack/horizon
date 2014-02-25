@@ -561,6 +561,12 @@ class Row(html.HTMLElement):
                             "obj_id": self.table.get_object_id(self.datum)})
         return "%s?%s" % (table_url, params)
 
+    def can_be_selected(self, datum):
+        """By default if multiselect enabled return True. You can remove the
+        checkbox after an ajax update here if required.
+        """
+        return True
+
     def get_data(self, request, obj_id):
         """Fetches the updated data for the row based on the object id
         passed in. Must be implemented by a subclass to allow AJAX updating.
@@ -594,11 +600,13 @@ class Cell(html.HTMLElement):
         """Fetches the data to be displayed in this cell."""
         table = row.table
         if column.auto == "multi_select":
-            widget = forms.CheckboxInput(check_test=lambda value: False)
-            # Convert value to string to avoid accidental type conversion
-            data = widget.render('object_ids',
-                                 unicode(table.get_object_id(datum)),
-                                 {'class': 'table-row-multi-select'})
+            data = ""
+            if row.can_be_selected(datum):
+                widget = forms.CheckboxInput(check_test=lambda value: False)
+                # Convert value to string to avoid accidental type conversion
+                data = widget.render('object_ids',
+                                     unicode(table.get_object_id(datum)),
+                                     {'class': 'table-row-multi-select'})
             table._data_cache[column][table.get_object_id(datum)] = data
         elif column.auto == "form_field":
             widget = column.form_field
