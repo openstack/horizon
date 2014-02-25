@@ -111,7 +111,16 @@ class DeleteContainer(tables.DeleteAction):
     success_url = "horizon:project:containers:index"
 
     def delete(self, request, obj_id):
-        api.swift.swift_delete_container(request, obj_id)
+        try:
+            api.swift.swift_delete_container(request, obj_id)
+        except exceptions.Conflict:
+            messages.error(request, _("The container cannot be deleted since "
+                                      "it's not empty."))
+            raise exceptions.Http302(self.success_url)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to delete container.'),
+                              redirect=self.success_url)
 
     def get_success_url(self, request=None):
         """Returns the URL to redirect to after a successful action.
@@ -400,8 +409,8 @@ def get_size(obj):
 def get_link_subfolder(subfolder):
     container_name = subfolder.container_name
     return reverse("horizon:project:containers:index",
-                    args=(http.urlquote(wrap_delimiter(container_name)),
-                          http.urlquote(wrap_delimiter(subfolder.name))))
+                   args=(http.urlquote(wrap_delimiter(container_name)),
+                         http.urlquote(wrap_delimiter(subfolder.name))))
 
 
 class ObjectsTable(tables.DataTable):
