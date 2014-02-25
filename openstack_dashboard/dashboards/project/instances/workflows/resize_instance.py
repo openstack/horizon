@@ -26,6 +26,9 @@ from horizon import workflows
 
 from openstack_dashboard import api
 
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instance_utils
+
 
 class SetFlavorChoiceAction(workflows.Action):
     old_flavor_id = forms.CharField(required=False, widget=forms.HiddenInput())
@@ -54,14 +57,14 @@ class SetFlavorChoiceAction(workflows.Action):
         return cleaned_data
 
     def populate_flavor_choices(self, request, context):
-        flavors = context.get('flavors')
-        flavor_list = [(flavor.id, '%s' % flavor.name)
-                       for flavor in flavors.values()]
-        if flavor_list:
-            flavor_list.insert(0, ("", _("Select an New Flavor")))
+        flavors = context.get('flavors').values()
+        if len(flavors) > 1:
+            flavors = instance_utils.sort_flavor_list(request, flavors)
+        if flavors:
+            flavors.insert(0, ("", _("Select a New Flavor")))
         else:
-            flavor_list.insert(0, ("", _("No flavors available")))
-        return sorted(flavor_list)
+            flavors.insert(0, ("", _("No flavors available")))
+        return flavors
 
     def get_help_text(self):
         extra = {}
@@ -69,7 +72,7 @@ class SetFlavorChoiceAction(workflows.Action):
             extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
             flavors = json.dumps([f._info for f in
-                                  api.nova.flavor_list(self.request)])
+                                  instance_utils.flavor_list(self.request)])
             extra['flavors'] = flavors
         except Exception:
             exceptions.handle(self.request,
