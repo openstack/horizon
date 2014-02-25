@@ -17,6 +17,7 @@
 import copy
 import json
 
+from django import forms
 from django import http
 from django import shortcuts
 from django.views import generic
@@ -183,28 +184,27 @@ class WorkflowView(generic.TemplateView):
                                        validate_step_end)
             return http.HttpResponse(json.dumps(data),
                                      content_type="application/json")
-        if workflow.is_valid():
-            try:
-                success = workflow.finalize()
-            except Exception:
-                success = False
-                exceptions.handle(request)
-            next = self.request.REQUEST.get(workflow.redirect_param_name, None)
-            if success:
-                msg = workflow.format_status_message(workflow.success_message)
-                messages.success(request, msg)
-            else:
-                msg = workflow.format_status_message(workflow.failure_message)
-                messages.error(request, msg)
-
-            if "HTTP_X_HORIZON_ADD_TO_FIELD" in self.request.META:
-                field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
-                data = [self.get_object_id(workflow.object),
-                        self.get_object_display(workflow.object)]
-                response = http.HttpResponse(json.dumps(data))
-                response["X-Horizon-Add-To-Field"] = field_id
-                return response
-            else:
-                return shortcuts.redirect(next or workflow.get_success_url())
-        else:
+        if not workflow.is_valid():
             return self.render_to_response(context)
+        try:
+            success = workflow.finalize()
+        except forms.ValidationError:
+            return self.render_to_response(context)
+        except Exception:
+            success = False
+            exceptions.handle(request)
+        if success:
+            msg = workflow.format_status_message(workflow.success_message)
+            messages.success(request, msg)
+        else:
+            msg = workflow.format_status_message(workflow.failure_message)
+            messages.error(request, msg)
+        if "HTTP_X_HORIZON_ADD_TO_FIELD" in self.request.META:
+            field_id = self.request.META["HTTP_X_HORIZON_ADD_TO_FIELD"]
+            data = [self.get_object_id(workflow.object),
+                    self.get_object_display(workflow.object)]
+            response = http.HttpResponse(json.dumps(data))
+            response["X-Horizon-Add-To-Field"] = field_id
+            return response
+        next_url = self.request.REQUEST.get(workflow.redirect_param_name, None)
+        return shortcuts.redirect(next_url or workflow.get_success_url())
