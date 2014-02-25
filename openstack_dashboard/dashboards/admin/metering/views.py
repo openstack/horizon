@@ -18,15 +18,19 @@ from datetime import timedelta  # noqa
 import json
 
 from django.http import HttpResponse   # noqa
+from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView  # noqa
 
 from horizon import exceptions
+from horizon import tables
 from horizon import tabs
 
 from openstack_dashboard import api
 from openstack_dashboard.api import ceilometer
 
+from openstack_dashboard.dashboards.admin.metering import tables as \
+    metering_tables
 from openstack_dashboard.dashboards.admin.metering import tabs as \
     metering_tabs
 
@@ -91,6 +95,83 @@ class SamplesView(TemplateView):
 
         return HttpResponse(json.dumps(ret),
             content_type='application/json')
+
+
+class ReportView(tables.MultiTableView):
+    template_name = 'admin/metering/report.html'
+
+    def get_tables(self):
+        if self._tables:
+            return self._tables
+        project_data = self.load_data(self.request)
+        table_instances = []
+        limit = int(self.request.POST.get('limit', '1000'))
+        for project in project_data.keys():
+            table = metering_tables.UsageTable(self.request,
+                                               data=project_data[project],
+                                               kwargs=self.kwargs.copy())
+            table.title = project
+            t = (table.name, table)
+            table_instances.append(t)
+            if len(table_instances) == limit:
+                break
+        self._tables = SortedDict(table_instances)
+        self.project_data = project_data
+        return self._tables
+
+    def handle_table(self, table):
+        name = table.name
+        handled = self._tables[name].maybe_handle()
+        return handled
+
+    def load_data(self, request):
+        meters = ceilometer.Meters(request)
+        services = {
+            _('Nova'): meters.list_nova(),
+            _('Neutron'): meters.list_neutron(),
+            _('Glance'): meters.list_glance(),
+            _('Cinder'): meters.list_cinder(),
+            _('Swift_meters'): meters.list_swift(),
+            _('Kwapi'): meters.list_kwapi(),
+        }
+        project_rows = {}
+        date_options = request.POST.get('date_options', None)
+        date_from = request.POST.get('date_from', None)
+        date_to = request.POST.get('date_to', None)
+        for meter in meters._cached_meters.values():
+            for name, m_list in services.items():
+                if meter in m_list:
+                    service = name
+            # show detailed samples
+            # samples = ceilometer.sample_list(request, meter.name)
+            res, unit = query_data(request,
+                                   date_from,
+                                   date_to,
+                                   date_options,
+                                   "project",
+                                   meter.name,
+                                   3600 * 24)
+            for re in res:
+                values = getattr(re, meter.name.replace(".", "_"))
+                if values:
+                    for value in values:
+                        row = {"name": 'none',
+                               "project": re.id,
+                               "meter": meter.name,
+                               "description": meter.description,
+                               "service": service,
+                               "time": value._apiresource.period_end,
+                               "value": value._apiresource.avg}
+                        if re.id not in project_rows:
+                            project_rows[re.id] = [row]
+                        else:
+                            project_rows[re.id].append(row)
+        return project_rows
+
+    def get_context_data(self, **kwargs):
+        context = {}
+        context['tables'] = self.get_tables().values()
+        return context
 
 
 def _calc_period(date_from, date_to):

@@ -1,0 +1,70 @@
+{% load i18n %}
+<div id="ceilometer-report">
+  <form class="form-horizontal" action="{% url 'horizon:admin:metering:report' %}" method="POST">
+      {% csrf_token %}
+    <div class="control-group">
+      <label for="report_date_options" class="control-label">{% trans "Period" %}:&nbsp;</label>
+      <div class="controls">
+        <select data-line-chart-command="select_box_change"
+                id="report_date_options" name="date_options" class="span2">
+          <option value="1">{% trans "Last day" %}</option>
+          <option value="7" selected="selected">{% trans "Last week" %}</option>
+          <option value="{% now 'j' %}">{% trans "Month to date" %}</option>
+          <option value="15">{% trans "Last 15 days" %}</option>
+          <option value="30">{% trans "Last 30 days" %}</option>
+          <option value="365">{% trans "Last year" %}</option>
+          <option value="other">{% trans "Other" %}</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group" id="report_date_from">
+      <label for="date_from" class="control-label">{% trans "From" %}:&nbsp;</label>
+      <div class="controls">
+        <input data-line-chart-command="date_picker_change"
+               type="text" id="date_from" name="date_from" class="span2 example"/>
+      </div>
+    </div>
+    <div class="control-group" id="report_date_to">
+      <label for="date_to" class="control-label">{% trans "To" %}:&nbsp;</label>
+      <div class="controls">
+        <input data-line-chart-command="date_picker_change"
+               type="text" name="date_to" class="span2 example"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label for="limit" class="control-label">{% trans "Limit project count" %}:&nbsp;</label>
+      <div class="controls">
+        <input type="text" name="limit" class="span2 example" value="20"/>
+      </div>
+    </div>
+      <button type="submit" class="btn btn-small">{% trans 'Generate Report' %}</button>
+  </form>
+</div>
+<script type="text/javascript">
+  if (typeof $ !== 'undefined') {
+    show_hide_datepickers();
+  } else {
+    addHorizonLoadEvent(function() {
+      show_hide_datepickers();
+    });
+  }
+
+  function show_hide_datepickers() {
+    $("#report_date_options").change(function(evt) {
+        // Enhancing behaviour of selectbox, on 'other' value selected, I don't
+        // want to refresh, but show hide the date fields
+        if ($(this).find("option:selected").val() == "other"){
+          evt.stopPropagation();
+          $("#date_from .controls input, #date_to .controls input").val('');
+          $("#report_date_from, #report_date_to").show();
+        } else {
+          $("#report_date_from, #report_date_to").hide();
+        }
+    });
+    if ($("#report_date_options").find("option:selected").val() == "other"){
+      $("#report_date_from, #report_date_to").show();
+    } else {
+      $("#report_date_from, #report_date_to").hide();
+    }
+  }
+</script>
