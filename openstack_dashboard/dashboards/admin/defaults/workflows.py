@@ -70,7 +70,7 @@ class UpdateDefaultQuotasAction(workflows.Action):
                       "(max limits).")
 
 
-class UpdateDefaultQuotas(workflows.Step):
+class UpdateDefaultQuotasStep(workflows.Step):
     action_class = UpdateDefaultQuotasAction
     contributes = (quotas.QUOTA_FIELDS + quotas.MISSING_QUOTA_FIELDS)
 
@@ -82,7 +82,7 @@ class UpdateDefaultQuotas(workflows.Workflow):
     success_message = _('Default quotas updated.')
     failure_message = _('Unable to update default quotas.')
     success_url = "horizon:admin:defaults:index"
-    default_steps = (UpdateDefaultQuotas,)
+    default_steps = (UpdateDefaultQuotasStep,)
 
     def handle(self, request, data):
         # Update the default quotas.
