@@ -56,13 +56,11 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self._get_default_domain()
         domain_id = domain.id
         users = self._get_users(domain_id)
-        api.keystone.user_list(IgnoreArg(), domain=domain_id) \
-                .AndReturn(users)
+        api.keystone.user_list(IgnoreArg(),
+                               domain=domain_id).AndReturn(users)
 
         self.mox.ReplayAll()
-
         res = self.client.get(USERS_INDEX_URL)
-
         self.assertTemplateUsed(res, 'admin/users/index.html')
         self.assertItemsEqual(res.context['table'].data, users)
 
@@ -91,7 +89,9 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         api.keystone.get_default_domain(IgnoreArg()) \
             .MultipleTimes().AndReturn(domain)
-        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=None) \
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=domain_id,
+                                 user=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_create(IgnoreArg(),
                                  name=user.name,
@@ -125,6 +125,49 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
         self.test_create()
+
+    @test.create_stubs({api.keystone: ('user_create',
+                                       'get_default_domain',
+                                       'tenant_list',
+                                       'add_tenant_user_role',
+                                       'get_default_role',
+                                       'role_list')})
+    def test_create_with_empty_email(self):
+        user = self.users.get(id="5")
+        domain = self._get_default_domain()
+        domain_id = domain.id
+        role = self.roles.first()
+        api.keystone.get_default_domain(IgnoreArg()) \
+            .MultipleTimes().AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=domain_id,
+                                 user=None) \
+            .AndReturn([self.tenants.list(), False])
+        api.keystone.user_create(IgnoreArg(),
+                                 name=user.name,
+                                 email=user.email,
+                                 password=user.password,
+                                 project=self.tenant.id,
+                                 enabled=True,
+                                 domain=domain_id).AndReturn(user)
+        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+        api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
+        api.keystone.add_tenant_user_role(IgnoreArg(), self.tenant.id,
+                                          user.id, role.id)
+
+        self.mox.ReplayAll()
+        formData = {'method': 'CreateUserForm',
+                    'domain_id': domain_id,
+                    'name': user.name,
+                    'email': "",
+                    'password': user.password,
+                    'project': self.tenant.id,
+                    'role_id': self.roles.first().id,
+                    'confirm_password': user.password}
+        res = self.client.post(USER_CREATE_URL, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(success=1)
 
     @test.create_stubs({api.keystone: ('get_default_domain',
                                        'tenant_list',
@@ -236,6 +279,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                                        'user_update',
                                        'roles_for_user', )})
     def _update(self, user):
+        user = self.users.get(id="1")
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
         test_password = 'normalpwd'
@@ -243,9 +287,11 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
-        api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
-            .AndReturn(domain)
-        api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=user.id) \
+        api.keystone.domain_get(IsA(http.HttpRequest),
+                                domain_id).AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=domain_id,
+                                 user=user.id) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
@@ -268,14 +314,46 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    def test_update(self):
-        user = self.users.get(id="1")
-        self._update(user)
-
+    @test.create_stubs({api.keystone: ('user_get',
+                                       'domain_get',
+                                       'tenant_list',
+                                       'user_update_tenant',
+                                       'user_update_password',
+                                       'user_update',
+                                       'roles_for_user', )})
     def test_update_with_no_email_attribute(self):
-        user = self.users.get(id="1")
-        del user.email
-        self._update(user)
+        user = self.users.get(id="5")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
+
+        api.keystone.user_get(IsA(http.HttpRequest), '1',
+                              admin=True).AndReturn(user)
+        api.keystone.domain_get(IsA(http.HttpRequest),
+                                domain_id).AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=domain_id,
+                                 user=user.id) \
+            .AndReturn([self.tenants.list(), False])
+        api.keystone.user_update(IsA(http.HttpRequest),
+                                 user.id,
+                                 email=user.email,
+                                 name=user.name,
+                                 password=user.password,
+                                 project=self.tenant.id).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateUserForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'email': "",
+                    'password': user.password,
+                    'project': self.tenant.id,
+                    'confirm_password': user.password}
+
+        res = self.client.post(USER_UPDATE_URL, formData)
+
+        self.assertNoFormErrors(res)
 
     @test.create_stubs({api.keystone: ('user_get',
                                        'domain_get',
