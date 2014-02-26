@@ -108,7 +108,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
     @test.create_stubs({api.nova: ('server_list',),
                         api.cinder: ('volume_snapshot_list',
                                      'volume_list',
-                                     'volume_snapshot_delete')})
+                                     'volume_snapshot_delete'),
+                        quotas: ('tenant_quota_usages',)})
     def test_delete_volume_snapshot(self):
         vol_snapshots = self.volume_snapshots.list()
         volumes = self.volumes.list()
@@ -128,6 +129,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
             AndReturn([])
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes(). \
+            AndReturn(self.quota_usages.first())
         self.mox.ReplayAll()
 
         formData = {'action':
