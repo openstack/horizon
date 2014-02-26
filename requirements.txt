@@ -18,7 +18,7 @@ python-swiftclient>=1.6
 python-ceilometerclient>=1.0.6
 python-troveclient>=1.0.3
 pytz>=2010h
-six>=1.4.1
+six>=1.5.2
 # Horizon Utility Requirements
 # for SECURE_KEY generation
 lockfile>=0.8
