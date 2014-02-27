@@ -155,11 +155,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'compressor',
     'horizon',
-    'openstack_dashboard.dashboards.project',
-    'openstack_dashboard.dashboards.admin',
-    'openstack_dashboard.dashboards.settings',
     'openstack_auth',
-    'openstack_dashboard.dashboards.router',
 ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
