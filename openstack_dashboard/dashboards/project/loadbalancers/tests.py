@@ -67,7 +67,7 @@ class LoadBalancerTests(test.TestCase):
         # retrieves monitors
         api.lbaas.pool_health_monitor_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id).MultipleTimes() \
-                .AndReturn(self.monitors.list())
+            .AndReturn(self.monitors.list())
 
     def set_up_expect_with_exception(self):
         api.lbaas.pool_list(
@@ -108,7 +108,7 @@ class LoadBalancerTests(test.TestCase):
                                 % self.DASHBOARD)
         self.assertTemplateUsed(res, 'horizon/common/_detail_table.html')
         self.assertEqual(len(res.context['memberstable_table'].data),
-                              len(self.members.list()))
+                         len(self.members.list()))
 
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list')})
@@ -123,7 +123,7 @@ class LoadBalancerTests(test.TestCase):
                                 % self.DASHBOARD)
         self.assertTemplateUsed(res, 'horizon/common/_detail_table.html')
         self.assertEqual(len(res.context['monitorstable_table'].data),
-                              len(self.monitors.list()))
+                         len(self.monitors.list()))
 
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list')})
@@ -269,19 +269,26 @@ class LoadBalancerTests(test.TestCase):
     def test_add_vip_post_no_connection_limit(self):
         self._test_add_vip_post(with_conn_limit=False)
 
+    def test_add_vip_post_with_diff_subnet(self):
+        self._test_add_vip_post(with_diff_subnet=True)
+
     @test.create_stubs({api.lbaas: ('pool_get', 'vip_create'),
-                        api.neutron: ('subnet_get', )})
-    def _test_add_vip_post(self, with_conn_limit=True):
+                        api.neutron: (
+                            'network_list_for_tenant', 'subnet_get', )})
+    def _test_add_vip_post(self, with_diff_subnet=False, with_conn_limit=True):
         vip = self.vips.first()
 
         subnet = self.subnets.first()
         pool = self.pools.first()
-
+        networks = [{'subnets': [subnet, ]}, ]
         api.lbaas.pool_get(
             IsA(http.HttpRequest), pool.id).MultipleTimes().AndReturn(pool)
 
         api.neutron.subnet_get(
             IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
+
+        api.neutron.network_list_for_tenant(
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
 
         params = {'name': vip.name,
                   'description': vip.description,
@@ -289,8 +296,7 @@ class LoadBalancerTests(test.TestCase):
                   'address': vip.address,
                   'floatip_address': vip.floatip_address,
                   'other_address': vip.other_address,
-                  'subnet': vip.subnet,
-                  'subnet_id': vip.subnet_id,
+                  'subnet_id': pool.subnet_id,
                   'protocol_port': vip.protocol_port,
                   'protocol': vip.protocol,
                   'session_persistence': vip.session_persistence['type'],
@@ -299,6 +305,8 @@ class LoadBalancerTests(test.TestCase):
                   }
         if with_conn_limit:
             params['connection_limit'] = vip.connection_limit
+        if with_diff_subnet:
+            params['subnet_id'] = vip.subnet_id
         api.lbaas.vip_create(
             IsA(http.HttpRequest), **params).AndReturn(vip)
 
@@ -311,8 +319,7 @@ class LoadBalancerTests(test.TestCase):
             'address': vip.address,
             'floatip_address': vip.floatip_address,
             'other_address': vip.other_address,
-            'subnet_id': vip.subnet_id,
-            'subnet': vip.subnet,
+            'subnet_id': pool.subnet_id,
             'protocol_port': vip.protocol_port,
             'protocol': vip.protocol,
             'session_persistence': vip.session_persistence['type'].lower(),
@@ -321,6 +328,9 @@ class LoadBalancerTests(test.TestCase):
         if with_conn_limit:
             form_data['connection_limit'] = vip.connection_limit
 
+        if with_diff_subnet:
+            params['subnet_id'] = vip.subnet_id
+
         res = self.client.post(
             reverse(self.ADDVIP_PATH, args=(pool.id,)), form_data)
 
@@ -328,16 +338,21 @@ class LoadBalancerTests(test.TestCase):
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
     @test.create_stubs({api.lbaas: ('pool_get', ),
-                        api.neutron: ('subnet_get', )})
+                        api.neutron: (
+                            'network_list_for_tenant', 'subnet_get', )})
     def test_add_vip_post_with_error(self):
         vip = self.vips.first()
 
         subnet = self.subnets.first()
         pool = self.pools.first()
+        networks = [{'subnets': [subnet, ]}, ]
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
         api.neutron.subnet_get(
             IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
+
+        api.neutron.network_list_for_tenant(
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
 
         self.mox.ReplayAll()
 
@@ -346,7 +361,7 @@ class LoadBalancerTests(test.TestCase):
             'description': vip.description,
             'pool_id': vip.pool_id,
             'address': vip.address,
-            'subnet_id': vip.subnet_id,
+            'subnet_id': pool.subnet_id,
             'protocol_port': 65536,
             'protocol': vip.protocol,
             'session_persistence': vip.session_persistence['type'].lower(),
@@ -359,15 +374,26 @@ class LoadBalancerTests(test.TestCase):
 
         self.assertFormErrors(res, 2)
 
-    @test.create_stubs({api.lbaas: ('pool_get', ),
-                        api.neutron: ('subnet_get', )})
     def test_add_vip_get(self):
+        self._test_add_vip_get()
+
+    def test_add_vip_get_with_diff_subnet(self):
+        self._test_add_vip_get(with_diff_subnet=True)
+
+    @test.create_stubs({api.lbaas: ('pool_get', ),
+                        api.neutron: (
+                            'network_list_for_tenant', 'subnet_get', )})
+    def _test_add_vip_get(self, with_diff_subnet=False):
         subnet = self.subnets.first()
         pool = self.pools.first()
+        networks = [{'subnets': [subnet, ]}, ]
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
         api.neutron.subnet_get(
             IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
+
+        api.neutron.network_list_for_tenant(
+            IsA(http.HttpRequest), self.tenant.id).AndReturn(networks)
 
         self.mox.ReplayAll()
 
@@ -379,6 +405,9 @@ class LoadBalancerTests(test.TestCase):
 
         expected_objs = ['<AddVipStep: addvipaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
+
+        if with_diff_subnet:
+            self.assertNotEqual(networks[0], pool.subnet_id)
 
     @test.create_stubs({api.lbaas: ('pool_health_monitor_create', )})
     def test_add_monitor_post(self):
@@ -519,7 +548,7 @@ class LoadBalancerTests(test.TestCase):
 
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn([[server1,
                                                                 server2],
-                                                                False])
+                                                               False])
 
         self.mox.ReplayAll()
 
@@ -699,7 +728,8 @@ class LoadBalancerTests(test.TestCase):
                 'max_retries': monitor.max_retries,
                 'admin_state_up': monitor.admin_state_up}
 
-        api.lbaas.pool_health_monitor_update(IsA(http.HttpRequest),
+        api.lbaas.pool_health_monitor_update(
+            IsA(http.HttpRequest),
             monitor.id, health_monitor=data).AndReturn(monitor)
 
         self.mox.ReplayAll()

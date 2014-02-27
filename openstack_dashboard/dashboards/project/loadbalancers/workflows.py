@@ -39,7 +39,7 @@ class AddPoolAction(workflows.Action):
     protocol = forms.ChoiceField(label=_("Protocol"))
     lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
     admin_state_up = forms.BooleanField(label=_("Admin State"),
-                                     initial=True, required=False)
+                                    initial=True, required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(AddPoolAction, self).__init__(request, *args, **kwargs)
@@ -153,14 +153,18 @@ class AddVipAction(workflows.Action):
         label=_("VIP Address from Floating IPs"),
         widget=forms.Select(attrs={'disabled': 'disabled'}),
         required=False)
+    subnet_id = forms.ChoiceField(label=_("VIP Subnet"),
+                                  initial="",
+                                  required=False)
     other_address = forms.IPField(required=False,
                                    initial="",
                                    version=forms.IPv4,
                                    mask=False)
-    protocol_port = forms.IntegerField(label=_("Protocol Port"), min_value=1,
-                              help_text=_("Enter an integer value "
-                                          "between 1 and 65535."),
-                              validators=[validators.validate_port_range])
+    protocol_port = forms.IntegerField(
+        label=_("Protocol Port"), min_value=1,
+        help_text=_("Enter an integer value "
+                    "between 1 and 65535."),
+        validators=[validators.validate_port_range])
     protocol = forms.ChoiceField(label=_("Protocol"))
     session_persistence = forms.ChoiceField(
         required=False, initial={}, label=_("Session Persistence"),
@@ -187,10 +191,20 @@ class AddVipAction(workflows.Action):
 
     def __init__(self, request, *args, **kwargs):
         super(AddVipAction, self).__init__(request, *args, **kwargs)
-
-        self.fields['other_address'].label = _("Specify a free IP address"
-                                               " from %s") % args[0]['subnet']
-
+        tenant_id = request.user.tenant_id
+        subnet_id_choices = [('', _("Select a Subnet"))]
+        try:
+            networks = api.neutron.network_list_for_tenant(request, tenant_id)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve networks list.'))
+            networks = []
+        for n in networks:
+            for s in n['subnets']:
+                subnet_id_choices.append((s.id, s.cidr))
+        self.fields['subnet_id'].choices = subnet_id_choices
+        self.fields['other_address'].label = _("Specify a free IP address "
+                                               "from the selected subnet")
         protocol_choices = [('', _("Select a Protocol"))]
         [protocol_choices.append((p, p)) for p in AVAILABLE_PROTOCOLS]
         self.fields['protocol'].choices = protocol_choices
@@ -230,7 +244,7 @@ class AddVipAction(workflows.Action):
 class AddVipStep(workflows.Step):
     action_class = AddVipAction
     depends_on = ("pool_id", "subnet")
-    contributes = ("name", "description", "floatip_address",
+    contributes = ("name", "description", "floatip_address", "subnet_id",
                    "other_address", "protocol_port", "protocol",
                    "session_persistence", "cookie_name",
                    "connection_limit", "admin_state_up")
@@ -254,6 +268,17 @@ class AddVip(workflows.Workflow):
         return message % name
 
     def handle(self, request, context):
+        if context['subnet_id'] == '':
+            try:
+                pool = api.lbaas.pool_get(request, context['pool_id'])
+                context['subnet_id'] = pool['subnet_id']
+            except Exception:
+                context['subnet_id'] = None
+                self.failure_message = _(
+                    'Unable to retrieve the specified pool. '
+                    'Unable to add VIP "%s".')
+                return False
+
         if context['other_address'] == '':
             context['address'] = context['floatip_address']
         else:
@@ -263,14 +288,6 @@ class AddVip(workflows.Workflow):
                 return False
             else:
                 context['address'] = context['other_address']
-        try:
-            pool = api.lbaas.pool_get(request, context['pool_id'])
-            context['subnet_id'] = pool['subnet_id']
-        except Exception:
-            context['subnet_id'] = None
-            self.failure_message = _('Unable to retrieve the specified pool. '
-                                     'Unable to add VIP "%s".')
-            return False
 
         if context['session_persistence']:
             stype = context['session_persistence']
