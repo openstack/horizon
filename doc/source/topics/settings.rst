@@ -434,7 +434,7 @@ settings.
 
 The default location for the dashboard configuration files is
 ``openstack_dashboard/enabled``, with another directory,
-``openstack_dashboarrd/local/enabled`` for local overrides. Both sets of files
+``openstack_dashboard/local/enabled`` for local overrides. Both sets of files
 will be loaded, but the settings in ``openstack_dashboard/local/enabled`` will
 overwrite the default ones. The settings are applied in alphabetical order of
 the filenames. If the same dashboard has configuration files in ``enabled`` and
@@ -493,3 +493,91 @@ create a file ``openstack_dashboard/local/enabled/_50_tuskar.py`` with::
         'not_found': exceptions.NOT_FOUND,
         'unauthorized': exceptions.UNAUTHORIZED,
     }
+
+Pluggable Settings for Panels
+=================================
+
+Panels customization can be made by providing a custom python module that
+contains python code to add or remove panel to/from the dashboard. This
+requires altering the settings file. For panels provided by third-party,
+making this changes to add the panel is challenging. Panel configuration
+files can now be dropped to a specified location and it will be read at startup
+to alter the dashboard configuration.
+
+The default location for the panel configuration files is
+``openstack_dashboard/enabled``, with another directory,
+``openstack_dashboard/local/enabled`` for local overrides. Both sets of files
+will be loaded, but the settings in ``openstack_dashboard/local/enabled`` will
+overwrite the default ones. The settings are applied in alphabetical order of
+the filenames. If the same panel has configuration files in ``enabled`` and
+``local/enabled``, the local name will be used. Note, that since names of
+python modules can't start with a digit, the files are usually named with a
+leading underscore and a number, so that you can control their order easily.
+
+The files contain following keys:
+
+``PANEL``
+-------------
+
+The name of the panel to be added to ``HORIZON_CONFIG``. Required.
+
+``PANEL_DASHBOARD``
+-------------
+
+The name of the dashboard the ``PANEL`` associated with. Required.
+
+
+``PANEL_GROUP``
+-------------
+
+The name of the panel group the ``PANEL`` is associated with.
+
+``DEFAULT_PANEL``
+-----------
+
+If set, it will update the default panel of the ``PANEL_DASHBOARD``.
+
+``ADD_PANEL``
+----------------------
+
+Python panel class of the ``PANEL`` to be added.
+
+``REMOVE_PANEL``
+------------
+
+If set to ``True``, the PANEL will be removed from PANEL_DASHBOARD/PANEL_GROUP.
+
+``DISABLED``
+------------
+
+If set to ``True``, this panel configuration will be skipped.
+
+Examples
+--------
+
+To add a new panel to the Admin panel group in Admin dashboard, create a file
+``openstack_dashboard/local/enabled/_60_admin_add_panel.py`` with the follwing
+content::
+
+    PANEL = 'plugin_panel'
+    PANEL_DASHBOARD = 'admin'
+    PANEL_GROUP = 'admin'
+    ADD_PANEL = 'test_panels.plugin_panel.panel.PluginPanel'
+
+To remove Info panel from Admin panel group in Admin dashboard locally, create
+a file ``openstack_dashboard/local/enabled/_70_admin_remove_panel.py`` with
+the following content::
+
+    PANEL = 'info'
+    PANEL_DASHBOARD = 'admin'
+    PANEL_GROUP = 'admin'
+    REMOVE_PANEL = True
+
+To change the default panel of Admin dashboard to Defaults panel, create a file
+``openstack_dashboard/local/enabled/_80_admin_default_panel.py`` with the
+following content::
+
+    PANEL = 'defaults'
+    PANEL_DASHBOARD = 'admin'
+    PANEL_GROUP = 'admin'
+    DEFAULT_PANEL = 'defaults'
