@@ -38,6 +38,7 @@ from openstack_dashboard.utils import filters
 
 class CreateGroup(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"),
+                           max_length=255,
                            error_messages={
                                'required': _('This field is required.'),
                                'invalid': _("The string may only contain"
@@ -64,6 +65,7 @@ class CreateGroup(forms.SelfHandlingForm):
 class UpdateGroup(forms.SelfHandlingForm):
     id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(label=_("Name"),
+                           max_length=255,
                            error_messages={
                                'required': _('This field is required.'),
                                'invalid': _("The string may only contain"
