@@ -126,8 +126,24 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',)})
-    def test_router_create_post_exception(self):
+    def test_router_create_post_exception_error_case_409(self):
         router = self.routers.first()
+        self.exceptions.neutron.status_code = 409
+        api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
+            .AndRaise(self.exceptions.neutron)
+        self.mox.ReplayAll()
+
+        form_data = {'name': router.name}
+        url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, self.INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('router_create',)})
+    def test_router_create_post_exception_error_case_non_409(self):
+        router = self.routers.first()
+        self.exceptions.neutron.status_code = 999
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
