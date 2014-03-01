@@ -29,6 +29,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
 from django.views.generic import TemplateView  # noqa
 
 import horizon
+from horizon.test.jasmine import jasmine
 
 
 urlpatterns = patterns('',
@@ -39,7 +40,8 @@ urlpatterns = patterns('',
     url(r'auth/', include('django.contrib.auth.urls')),
     url(r'^qunit/$',
         TemplateView.as_view(template_name="horizon/qunit.html"),
-        name='qunit_tests')
+        name='qunit_tests'),
+    url(r'^jasmine/(.*?)$', jasmine.dispatcher)
 )
 
 urlpatterns += staticfiles_urlpatterns()

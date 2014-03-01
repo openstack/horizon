@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+<link rel="shortcut icon" type="image/png" href="">
+  <link rel="stylesheet" type="text/css" href="">
+
+  <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}horizon/lib/jasmine-1.3.1/jasmine.css">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}horizon/lib/jasmine-1.3.1/jasmine.css">
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jasmine-1.3.1/jasmine.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jasmine-1.3.1/jasmine-html.js"></script>
+
+
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/angular/angular.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/angular/angular-mock.js"></script>
+  {% for source in sources %}
+    <script type="application/javascript" src="{{ STATIC_URL }}{{ source }}"></script>
+  {% endfor %}
+
+  {% for spec in specs %}
+    <script type="application/javascript" src="{{ STATIC_URL }}{{ spec }}"></script>
+  {% endfor %}
+
+
+
+  <div id="main_content" class="hidden" style="visibility:hidden; height: 0">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+<script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>

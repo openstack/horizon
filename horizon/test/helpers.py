@@ -179,3 +179,64 @@ class SeleniumTestCase(django_test.LiveServerTestCase):
         socket.setdefaulttimeout(10)
         self.ui = selenium_ui
         super(SeleniumTestCase, self).setUp()
+
+
+class JasmineTests(SeleniumTestCase):
+    """Helper class which allows you to create a simple Jasmine test running
+    through Selenium
+
+    To run a jasmine test suite create a class which extends JasmineTests in
+    the :file:`horizon/test/jasmine/jasmine.py` and define two classes
+    attributes
+
+    .. attribute:: sources
+
+        A list of of JS source files (the {{STATIC_URL}} will be added
+        automatically, these are the source files tested
+
+    .. attribute:: specs
+
+        A list of of Jasmine JS spec files (the {{STATIC_URL}} will be added
+        automatically
+
+    .. attribute:: template_name
+
+        A template which will contain the html needed by the test,
+        this attribute is optional, if it is not specified the default template
+        will be used. The template, if specified, must extends
+        :file:`horizon/jasmine/jasmine.html` and insert the html in a block
+        which name must be content
+    """
+    sources = []
+    specs = []
+    template_name = None
+
+    def run_jasmine(self):
+        self.selenium.get(
+            "%s%s%s" % (self.live_server_url,
+                        "/jasmine/",
+                        self.__class__.__name__))
+
+        wait = self.ui.WebDriverWait(self.selenium, 120)
+
+        def jasmine_done(driver):
+            text = driver.find_element_by_class_name("duration").text
+            return "finished" in text
+
+        wait.until(jasmine_done)
+        failures = \
+            self.selenium.find_elements_by_css_selector(".specDetail.failed")
+
+        results = []
+        for failure in failures:
+            results.append(
+                failure.find_element_by_class_name("description").text)
+            results.append(
+                failure.find_element_by_class_name("stackTrace").text)
+
+        self.assertEqual(results, [], '\n\n' + '\n\n'.join(results) + '\n\n')
+
+    def test(self):
+        if self.__class__ == JasmineTests:
+            return
+        self.run_jasmine()

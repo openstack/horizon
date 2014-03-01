@@ -23,7 +23,7 @@ from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 from django.views.generic import TemplateView  # noqa
-
+from horizon.test.jasmine import jasmine
 
 urlpatterns = patterns('horizon.views',
     url(r'^home/$', 'user_home', name='user_home')
@@ -44,4 +44,5 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^qunit/$',
             TemplateView.as_view(template_name="horizon/qunit.html"),
-            name='qunit_tests'))
+            name='qunit_tests'),
+        url(r'^jasmine/(.*?)$', jasmine.dispatcher))
