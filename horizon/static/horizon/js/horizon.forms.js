@@ -6,7 +6,7 @@ horizon.forms = {
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
       if ($volName.val() == "") {
-        $volName.val($option.data("display_name"));
+        $volName.val($option.data("name"));
       }
       var $volSize = $form.find('input#id_size');
       var volSize = parseInt($volSize.val(), 10) || -1;
@@ -23,7 +23,7 @@ horizon.forms = {
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
       if ($volName.val() == "") {
-        $volName.val($option.data("display_name"));
+        $volName.val($option.data("name"));
       }
       var $volSize = $form.find('input#id_size');
       var volSize = parseInt($volSize.val(), 10) || -1;

@@ -31,7 +31,7 @@ class VolumeTests(test.BaseAdminViewTests):
                         keystone: ('tenant_list',)})
     def test_index(self):
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
-                           'all_tenants': True}).AndReturn(self.volumes.list())
+            'all_tenants': True}).AndReturn(self.cinder_volumes.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}) \
                        .AndReturn([self.servers.list(), False])
@@ -47,7 +47,7 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/volumes/index.html')
         volumes = res.context['volumes_table'].data
 
-        self.assertItemsEqual(volumes, self.volumes.list())
+        self.assertItemsEqual(volumes, self.cinder_volumes.list())
 
     @test.create_stubs({cinder: ('volume_type_create',)})
     def test_create_volume_type(self):
@@ -74,7 +74,7 @@ class VolumeTests(test.BaseAdminViewTests):
         formData = {'action': 'volume_types__delete__%s' % volume_type.id}
 
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
-                           'all_tenants': True}).AndReturn(self.volumes.list())
+            'all_tenants': True}).AndReturn(self.cinder_volumes.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}) \
                          .AndReturn([self.servers.list(), False])

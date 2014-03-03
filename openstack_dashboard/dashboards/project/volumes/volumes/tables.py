@@ -165,8 +165,6 @@ class UpdateRow(tables.Row):
 
     def get_data(self, request, volume_id):
         volume = cinder.volume_get(request, volume_id)
-        if not volume.display_name:
-            volume.display_name = volume_id
         return volume
 
 
@@ -226,10 +224,10 @@ class VolumesTableBase(tables.DataTable):
         ("creating", None),
         ("error", False),
     )
-    name = tables.Column("display_name",
+    name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:volumes:volumes:detail")
-    description = tables.Column("display_description",
+    description = tables.Column("description",
                                 verbose_name=_("Description"),
                                 truncate=40)
     size = tables.Column(get_size,
@@ -242,7 +240,7 @@ class VolumesTableBase(tables.DataTable):
                            status_choices=STATUS_CHOICES)
 
     def get_object_display(self, obj):
-        return obj.display_name
+        return obj.name
 
 
 class VolumesFilterAction(tables.FilterAction):
@@ -251,11 +249,11 @@ class VolumesFilterAction(tables.FilterAction):
         """Naive case-insensitive search."""
         q = filter_string.lower()
         return [volume for volume in volumes
-                if q in volume.display_name.lower()]
+                if q in volume.name.lower()]
 
 
 class VolumesTable(VolumesTableBase):
-    name = tables.Column("display_name",
+    name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:volumes:volumes:detail")
     volume_type = tables.Column(get_volume_type,

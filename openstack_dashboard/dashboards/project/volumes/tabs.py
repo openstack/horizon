@@ -49,13 +49,6 @@ class VolumeTableMixIn(object):
                                 "attachment information"))
             return []
 
-    def _set_id_if_nameless(self, volumes):
-        for volume in volumes:
-            # It is possible to create a volume with no name through the
-            # EC2 API, use the ID in those cases.
-            if not volume.display_name:
-                volume.display_name = volume.id
-
     def _set_attachments_string(self, volumes, instances):
         instances = SortedDict([(inst.id, inst) for inst in instances])
         for volume in volumes:
@@ -73,7 +66,6 @@ class VolumeTab(tabs.TableTab, VolumeTableMixIn):
     def get_volumes_data(self):
         volumes = self._get_volumes()
         instances = self._get_instances()
-        self._set_id_if_nameless(volumes)
         self._set_attachments_string(volumes, instances)
         return volumes
 

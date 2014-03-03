@@ -56,8 +56,8 @@ class CreateForm(forms.SelfHandlingForm):
         label=_("Use snapshot as a source"),
         widget=fields.SelectWidget(
             attrs={'class': 'snapshot-selector'},
-            data_attrs=('size', 'display_name'),
-            transform=lambda x: "%s (%sGB)" % (x.display_name, x.size)),
+            data_attrs=('size', 'name'),
+            transform=lambda x: "%s (%sGB)" % (x.name, x.size)),
         required=False)
     image_source = forms.ChoiceField(
         label=_("Use image as a source"),
@@ -70,8 +70,8 @@ class CreateForm(forms.SelfHandlingForm):
         label=_("Use a volume as source"),
         widget=fields.SelectWidget(
             attrs={'class': 'image-selector'},
-            data_attrs=('size', 'display_name'),
-            transform=lambda x: "%s (%s)" % (x.display_name,
+            data_attrs=('size', 'name'),
+            transform=lambda x: "%s (%s)" % (x.name,
                 filesizeformat(x.size * 1024 * 1024 * 1024))),
         required=False)
     availability_zone = forms.ChoiceField(
@@ -94,7 +94,7 @@ class CreateForm(forms.SelfHandlingForm):
             try:
                 snapshot = self.get_snapshot(request,
                                              request.GET["snapshot_id"])
-                self.fields['name'].initial = snapshot.display_name
+                self.fields['name'].initial = snapshot.name
                 self.fields['size'].initial = snapshot.size
                 self.fields['snapshot_source'].choices = ((snapshot.id,
                                                            snapshot),)
@@ -153,8 +153,8 @@ class CreateForm(forms.SelfHandlingForm):
                 exceptions.handle(request, msg % request.GET['volume_id'])
 
             if volume is not None:
-                self.fields['name'].initial = volume.display_name
-                self.fields['description'].initial = volume.display_description
+                self.fields['name'].initial = volume.name
+                self.fields['description'].initial = volume.description
                 min_vol_size = volume.size
                 size_help_text = _('Volume size must be equal to or greater '
                                    'than the origin volume size (%s)') \
@@ -417,12 +417,8 @@ class AttachForm(forms.SelfHandlingForm):
                                                      data['instance'],
                                                      data.get('device', ''))
             volume = cinder.volume_get(request, data['volume_id'])
-            if not volume.display_name:
-                volume_name = volume.id
-            else:
-                volume_name = volume.display_name
             message = _('Attaching volume %(vol)s to instance '
-                         '%(inst)s on %(dev)s.') % {"vol": volume_name,
+                         '%(inst)s on %(dev)s.') % {"vol": volume.name,
                                                     "inst": instance_name,
                                                     "dev": attach.device}
             messages.info(request, message)

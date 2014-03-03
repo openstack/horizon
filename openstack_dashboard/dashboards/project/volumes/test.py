@@ -33,8 +33,8 @@ class VolumeAndSnapshotsTests(test.TestCase):
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
-        vol_snaps = self.volume_snapshots.list()
-        volumes = self.volumes.list()
+        vol_snaps = self.cinder_volume_snapshots.list()
+        volumes = self.cinder_volumes.list()
 
         api.cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn(volumes)
@@ -48,4 +48,5 @@ class VolumeAndSnapshotsTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
+        self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'project/volumes/index.html')

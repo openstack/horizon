@@ -79,7 +79,7 @@ class SnapshotVolumeNameColumn(tables.Column):
     def get_raw_data(self, snapshot):
         volume = snapshot._volume
         if volume:
-            volume_name = volume.display_name or volume.id
+            volume_name = volume.name
             volume_name = html.escape(volume_name)
         else:
             volume_name = _("Unknown")
@@ -93,11 +93,10 @@ class SnapshotVolumeNameColumn(tables.Column):
 
 
 class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
-    name = tables.Column("display_name",
+    name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:volumes:detail")
-    volume_name = SnapshotVolumeNameColumn(
-        "display_name",
+    volume_name = SnapshotVolumeNameColumn("name",
         verbose_name=_("Volume Name"),
         link="horizon:project:volumes:volumes:detail")
 

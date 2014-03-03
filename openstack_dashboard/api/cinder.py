@@ -27,7 +27,6 @@ import logging
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-from cinderclient.v1 import client as cinder_client
 from cinderclient.v1.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
@@ -44,27 +43,98 @@ VOLUME_STATE_AVAILABLE = "available"
 DEFAULT_QUOTA_NAME = 'default'
 
 
+VERSIONS = base.APIVersionManager("volume", preferred_version=1)
+
+try:
+    from cinderclient.v1 import client as cinder_client_v1
+    VERSIONS.load_supported_version(1, {"client": cinder_client_v1,
+                                        "version": 1})
+except ImportError:
+    pass
+
+try:
+    from cinderclient.v2 import client as cinder_client_v2
+    VERSIONS.load_supported_version(2, {"client": cinder_client_v2,
+                                        "version": 2})
+except ImportError:
+    pass
+
+
+class BaseCinderAPIResourceWrapper(base.APIResourceWrapper):
+
+    @property
+    def name(self):
+        # If a volume doesn't have a name, use its id.
+        return (getattr(self._apiresource, 'name', None) or
+                getattr(self._apiresource, 'display_name', None) or
+                getattr(self._apiresource, 'id', None))
+
+    @property
+    def description(self):
+        return (getattr(self._apiresource, 'description', None) or
+                getattr(self._apiresource, 'display_description', None))
+
+
+class Volume(BaseCinderAPIResourceWrapper):
+
+    _attrs = ['id', 'name', 'description', 'size', 'status', 'created_at',
+              'volume_type', 'availability_zone', 'imageRef', 'bootable'
+              'snapshot_id', 'source_volid', 'attachments', 'tenant_name',
+              'os-vol-host-attr:host', 'os-vol-tenant-attr:tenant_id',
+              'metadata']
+
+
+class VolumeSnapshot(BaseCinderAPIResourceWrapper):
+
+    _attrs = ['id', 'name', 'description', 'size', 'status',
+              'created_at', 'volume_id',
+              'os-extended-snapshot-attributes:project_id']
+
+
 def cinderclient(request):
+    api_version = VERSIONS.get_active_version()
+
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     cinder_url = ""
     try:
-        cinder_url = base.url_for(request, 'volume')
+        # The cinder client assumes that the v2 endpoint type will be
+        # 'volumev2'. However it also allows 'volume' type as a
+        # fallback if the requested version is 2 and there is no
+        # 'volumev2' endpoint.
+        if api_version['version'] == 2:
+            try:
+                cinder_url = base.url_for(request, 'volumev2')
+            except exceptions.ServiceCatalogException:
+                LOG.warning("Cinder v2 requested but no 'volumev2' service "
+                            "type available in Keystone catalog. Falling back "
+                            "to 'volume'.")
+        if cinder_url == "":
+            cinder_url = base.url_for(request, 'volume')
     except exceptions.ServiceCatalogException:
         LOG.debug('no volume service configured.')
         return None
     LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, cinder_url))
-    c = cinder_client.Client(request.user.username,
-                             request.user.token.id,
-                             project_id=request.user.tenant_id,
-                             auth_url=cinder_url,
-                             insecure=insecure,
-                             cacert=cacert,
-                             http_log_debug=settings.DEBUG)
+    c = api_version['client'].Client(request.user.username,
+                                     request.user.token.id,
+                                     project_id=request.user.tenant_id,
+                                     auth_url=cinder_url,
+                                     insecure=insecure,
+                                     cacert=cacert,
+                                     http_log_debug=settings.DEBUG)
     c.client.auth_token = request.user.token.id
     c.client.management_url = cinder_url
     return c
+
+
+def _replace_v2_parameters(data):
+    if VERSIONS.active < 2:
+        data['display_name'] = data['name']
+        data['display_description'] = data['description']
+        del data['name']
+        del data['description']
+    return data
 
 
 def volume_list(request, search_opts=None):
@@ -74,7 +144,7 @@ def volume_list(request, search_opts=None):
     c_client = cinderclient(request)
     if c_client is None:
         return []
-    return c_client.volumes.list(search_opts=search_opts)
+    return [Volume(v) for v in c_client.volumes.list(search_opts=search_opts)]
 
 
 def volume_get(request, volume_id):
@@ -89,16 +159,24 @@ def volume_get(request, volume_id):
             # the lack a server_id property; to work around that we'll
             # give the attached instance a generic name.
             attachment['instance_name'] = _("Unknown instance")
-    return volume_data
+    return Volume(volume_data)
 
 
 def volume_create(request, size, name, description, volume_type,
                   snapshot_id=None, metadata=None, image_id=None,
                   availability_zone=None, source_volid=None):
-    return cinderclient(request).volumes.create(size, display_name=name,
-            display_description=description, volume_type=volume_type,
-            snapshot_id=snapshot_id, metadata=metadata, imageRef=image_id,
-            availability_zone=availability_zone, source_volid=source_volid)
+    data = {'name': name,
+            'description': description,
+            'volume_type': volume_type,
+            'snapshot_id': snapshot_id,
+            'metadata': metadata,
+            'imageRef': image_id,
+            'availability_zone': availability_zone,
+            'source_volid': source_volid}
+    data = _replace_v2_parameters(data)
+
+    volume = cinderclient(request).volumes.create(size, **data)
+    return Volume(volume)
 
 
 def volume_extend(request, volume_id, new_size):
@@ -110,28 +188,34 @@ def volume_delete(request, volume_id):
 
 
 def volume_update(request, volume_id, name, description):
-    vol_data = {'display_name': name,
-                'display_description': description}
+    vol_data = {'name': name,
+                'description': description}
+    vol_data = _replace_v2_parameters(vol_data)
     return cinderclient(request).volumes.update(volume_id,
                                                 **vol_data)
 
 
 def volume_snapshot_get(request, snapshot_id):
-    return cinderclient(request).volume_snapshots.get(snapshot_id)
+    snapshot = cinderclient(request).volume_snapshots.get(snapshot_id)
+    return VolumeSnapshot(snapshot)
 
 
 def volume_snapshot_list(request):
     c_client = cinderclient(request)
     if c_client is None:
         return []
-    return c_client.volume_snapshots.list()
+    return [VolumeSnapshot(s) for s in c_client.volume_snapshots.list()]
 
 
 def volume_snapshot_create(request, volume_id, name,
                            description=None, force=False):
-    return cinderclient(request).volume_snapshots.create(
-        volume_id, force=force, display_name=name,
-        display_description=description)
+    data = {'name': name,
+            'description': description,
+            'force': force}
+    data = _replace_v2_parameters(data)
+
+    return VolumeSnapshot(cinderclient(request).volume_snapshots.create(
+        volume_id, **data))
 
 
 def volume_snapshot_delete(request, snapshot_id):

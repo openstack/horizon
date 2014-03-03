@@ -8,20 +8,20 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ snapshot.display_name }}</dd>
+    <dd>{{ snapshot.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ snapshot.id }}</dd>
-    {% if snapshot.display_description %}
+    {% if snapshot.description %}
     <dt>{% trans "Description" %}</dt>
-    <dd>{{ snapshot.display_description }}</dd>
+    <dd>{{ snapshot.description }}</dd>
     {% endif %}
     <dt>{% trans "Status" %}</dt>
     <dd>{{ snapshot.status|capfirst }}</dd>
     <dt>{% trans "Volume" %}</dt>
     <dd>
       <a href="{% url 'horizon:project:volumes:volumes:detail' snapshot.volume_id %}">
-        {% if volume.display_name %}
-          {{ volume.display_name }}
+        {% if volume.name %}
+          {{ volume.name }}
         {% else %}
           {{ snapshot.volume_id }}
         {% endif %}
