@@ -57,7 +57,7 @@ class APIDict(api_base.APIDictWrapper):
 class APIResourceWrapperTests(test.TestCase):
     def test_get_attribute(self):
         resource = APIResource.get_instance()
-        self.assertEqual(resource.foo, 'foo')
+        self.assertEqual('foo', resource.foo)
 
     def test_get_invalid_attribute(self):
         resource = APIResource.get_instance()
@@ -84,8 +84,8 @@ class APIDictWrapperTests(test.TestCase):
     # style access.  Test both
     def test_get_item(self):
         resource = APIDict.get_instance()
-        self.assertEqual(resource.foo, 'foo')
-        self.assertEqual(resource['foo'], 'foo')
+        self.assertEqual('foo', resource.foo)
+        self.assertEqual('foo', resource['foo'])
 
     def test_get_invalid_item(self):
         resource = APIDict.get_instance()
@@ -106,7 +106,7 @@ class APIDictWrapperTests(test.TestCase):
     def test_get_with_default(self):
         resource = APIDict.get_instance()
 
-        self.assertEqual(resource.get('foo'), 'foo')
+        self.assertEqual('foo', resource.get('foo'))
 
         self.assertIsNone(resource.get('baz'))
 
@@ -150,28 +150,28 @@ class ApiHelperTests(test.TestCase):
 
     def test_url_for(self):
         url = api_base.url_for(self.request, 'image')
-        self.assertEqual(url, 'http://public.glance.example.com:9292/v1')
+        self.assertEqual('http://public.glance.example.com:9292/v1', url)
 
         url = api_base.url_for(self.request, 'image', endpoint_type='adminURL')
-        self.assertEqual(url, 'http://admin.glance.example.com:9292/v1')
+        self.assertEqual('http://admin.glance.example.com:9292/v1', url)
 
         url = api_base.url_for(self.request, 'compute')
-        self.assertEqual(url, 'http://public.nova.example.com:8774/v2')
+        self.assertEqual('http://public.nova.example.com:8774/v2', url)
 
         url = api_base.url_for(self.request, 'compute',
                                endpoint_type='adminURL')
-        self.assertEqual(url, 'http://admin.nova.example.com:8774/v2')
+        self.assertEqual('http://admin.nova.example.com:8774/v2', url)
 
         url = api_base.url_for(self.request, 'volume')
-        self.assertEqual(url, 'http://public.nova.example.com:8776/v1')
+        self.assertEqual('http://public.nova.example.com:8776/v1', url)
 
         url = api_base.url_for(self.request, 'volume',
                                endpoint_type="internalURL")
-        self.assertEqual(url, 'http://int.nova.example.com:8776/v1')
+        self.assertEqual('http://int.nova.example.com:8776/v1', url)
 
         url = api_base.url_for(self.request, 'volume',
                                endpoint_type='adminURL')
-        self.assertEqual(url, 'http://admin.nova.example.com:8776/v1')
+        self.assertEqual('http://admin.nova.example.com:8776/v1', url)
 
         self.assertNotIn('notAnApi', self.request.user.service_catalog,
                          'Select a new nonexistent service catalog key')
@@ -180,12 +180,12 @@ class ApiHelperTests(test.TestCase):
 
         self.request.user.services_region = "RegionTwo"
         url = api_base.url_for(self.request, 'compute')
-        self.assertEqual(url, 'http://public.nova2.example.com:8774/v2')
+        self.assertEqual('http://public.nova2.example.com:8774/v2', url)
 
         self.request.user.services_region = "RegionTwo"
         url = api_base.url_for(self.request, 'compute',
                                endpoint_type='adminURL')
-        self.assertEqual(url, 'http://admin.nova2.example.com:8774/v2')
+        self.assertEqual('http://admin.nova2.example.com:8774/v2', url)
 
         self.request.user.services_region = "RegionTwo"
         with self.assertRaises(exceptions.ServiceCatalogException):
@@ -194,7 +194,7 @@ class ApiHelperTests(test.TestCase):
         self.request.user.services_region = "bogus_value"
         url = api_base.url_for(self.request, 'identity',
                                endpoint_type='adminURL')
-        self.assertEqual(url, 'http://admin.keystone.example.com:35357/v2.0')
+        self.assertEqual('http://admin.keystone.example.com:35357/v2.0', url)
 
         self.request.user.services_region = "bogus_value"
         with self.assertRaises(exceptions.ServiceCatalogException):
@@ -210,11 +210,11 @@ class QuotaSetTests(test.TestCase):
         other_quota_set = api_base.QuotaSet(other_quota_dict)
 
         quota_set += other_quota_set
-        self.assertEqual(len(quota_set), 3)
+        self.assertEqual(3, len(quota_set))
 
         quota_dict.update(other_quota_dict)
         for q in quota_set:
-            self.assertEqual(q.limit, quota_dict[q.name])
+            self.assertEqual(quota_dict[q.name], q.limit)
 
     def test_quotaset_add_doesnt_override_existing_quota(self):
         quota_dict = {'foo': 1, 'bar': 10}
@@ -222,10 +222,10 @@ class QuotaSetTests(test.TestCase):
         other_quota_set = api_base.QuotaSet({'foo': 12})
 
         quota_set += other_quota_set
-        self.assertEqual(len(quota_set), 2)
+        self.assertEqual(2, len(quota_set))
 
         for q in quota_set:
-            self.assertEqual(q.limit, quota_dict[q.name])
+            self.assertEqual(quota_dict[q.name], q.limit)
 
     def test_quotaset_add_method(self):
         quota_dict = {'foo': 1, 'bar': 10}
@@ -234,11 +234,11 @@ class QuotaSetTests(test.TestCase):
         other_quota_set = api_base.QuotaSet(other_quota_dict)
 
         quota_set.add(other_quota_set)
-        self.assertEqual(len(quota_set), 3)
+        self.assertEqual(3, len(quota_set))
 
         quota_dict.update(other_quota_dict)
         for q in quota_set:
-            self.assertEqual(q.limit, quota_dict[q.name])
+            self.assertEqual(quota_dict[q.name], q.limit)
 
     def test_quotaset_add_with_wrong_type(self):
         quota_set = api_base.QuotaSet({'foo': 1, 'bar': 10})

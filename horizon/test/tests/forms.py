@@ -50,18 +50,18 @@ class FormMixinTests(test.TestCase):
         context = view.get_context_data()
 
         if add_field:
-            self.assertEqual(context['add_to_field'], "keepme")
+            self.assertEqual("keepme", context['add_to_field'])
         else:
             self.assertNotIn('add_to_field', context)
 
     def test_template_name_change_based_on_ajax_request(self):
             view = self._prepare_view(forms.views.ModalFormView,
                 dict(HTTP_X_REQUESTED_WITH='XMLHttpRequest'))
-            self.assertEqual(view.get_template_names(),
-                             '_' + view.template_name)
+            self.assertEqual('_' + view.template_name,
+                             view.get_template_names())
 
             view = self._prepare_view(forms.views.ModalFormView, {})
-            self.assertEqual(view.get_template_names(), view.template_name)
+            self.assertEqual(view.template_name, view.get_template_names())
 
 
 class TestForm(forms.SelfHandlingForm):

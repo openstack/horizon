@@ -94,8 +94,8 @@ class CinderApiVersionTests(test.TestCase):
         description = "A volume description"
         setattr(volume._apiresource, 'display_name', name)
         setattr(volume._apiresource, 'display_description', description)
-        self.assertEqual(volume.name, name)
-        self.assertEqual(volume.description, description)
+        self.assertEqual(name, volume.name)
+        self.assertEqual(description, volume.description)
 
     def test_get_v2_volume_attributes(self):
         # Get a v2 volume
@@ -107,8 +107,8 @@ class CinderApiVersionTests(test.TestCase):
         description = "A v2 volume description"
         setattr(volume._apiresource, 'name', name)
         setattr(volume._apiresource, 'description', description)
-        self.assertEqual(volume.name, name)
-        self.assertEqual(volume.description, description)
+        self.assertEqual(name, volume.name)
+        self.assertEqual(description, volume.description)
 
     def test_get_v1_snapshot_attributes(self):
         # Get a v1 snapshot
@@ -119,8 +119,8 @@ class CinderApiVersionTests(test.TestCase):
         description = "A snapshot description"
         setattr(snapshot._apiresource, 'display_name', name)
         setattr(snapshot._apiresource, 'display_description', description)
-        self.assertEqual(snapshot.name, name)
-        self.assertEqual(snapshot.description, description)
+        self.assertEqual(name, snapshot.name)
+        self.assertEqual(description, snapshot.description)
 
     def test_get_v2_snapshot_attributes(self):
         # Get a v2 snapshot
@@ -132,13 +132,13 @@ class CinderApiVersionTests(test.TestCase):
         description = "A v2 snapshot description"
         setattr(snapshot._apiresource, 'name', name)
         setattr(snapshot._apiresource, 'description', description)
-        self.assertEqual(snapshot.name, name)
-        self.assertEqual(snapshot.description, description)
+        self.assertEqual(name, snapshot.name)
+        self.assertEqual(description, snapshot.description)
 
     def test_get_id_for_nameless_volume(self):
         volume = self.cinder_volumes.first()
         setattr(volume._apiresource, 'display_name', "")
-        self.assertEqual(volume.name, volume.id)
+        self.assertEqual(volume.id, volume.name)
 
     @override_settings(OPENSTACK_API_VERSIONS={'volume': 1})
     def test_adapt_dictionary_to_v1(self):

@@ -77,7 +77,7 @@ class RoleAPITests(test.APITestCase):
         keystoneclient.roles.list().AndReturn(self.roles)
         self.mox.ReplayAll()
         role = api.keystone.get_default_role(self.request)
-        self.assertEqual(role, self.role)
+        self.assertEqual(self.role, role)
         # Verify that a second call doesn't hit the API again,
         # (it would show up in mox as an unexpected method call)
         role = api.keystone.get_default_role(self.request)
@@ -90,14 +90,14 @@ class ServiceAPITests(test.APITestCase):
         identity_data['id'] = 1
         region = identity_data["endpoints"][0]["region"]
         service = api.keystone.Service(identity_data, region)
-        self.assertEqual(unicode(service), u"identity (native backend)")
-        self.assertEqual(service.region,
-                         identity_data["endpoints"][0]["region"])
-        self.assertEqual(service.url,
-                         "http://int.keystone.example.com:5000/v2.0")
-        self.assertEqual(service.public_url,
-                         "http://public.keystone.example.com:5000/v2.0")
-        self.assertEqual(service.host, "int.keystone.example.com")
+        self.assertEqual(u"identity (native backend)", unicode(service))
+        self.assertEqual(identity_data["endpoints"][0]["region"],
+                         service.region)
+        self.assertEqual("http://int.keystone.example.com:5000/v2.0",
+                         service.url)
+        self.assertEqual("http://public.keystone.example.com:5000/v2.0",
+                         service.public_url)
+        self.assertEqual("int.keystone.example.com", service.host)
 
     def test_service_wrapper_service_in_region(self):
         catalog = self.service_catalog
@@ -105,11 +105,11 @@ class ServiceAPITests(test.APITestCase):
         compute_data['id'] = 1
         region = compute_data["endpoints"][1]["region"]
         service = api.keystone.Service(compute_data, region)
-        self.assertEqual(unicode(service), u"compute")
-        self.assertEqual(service.region,
-                         compute_data["endpoints"][1]["region"])
-        self.assertEqual(service.url,
-                         "http://int.nova2.example.com:8774/v2")
-        self.assertEqual(service.public_url,
-                         "http://public.nova2.example.com:8774/v2")
-        self.assertEqual(service.host, "int.nova2.example.com")
+        self.assertEqual(u"compute", unicode(service))
+        self.assertEqual(compute_data["endpoints"][1]["region"],
+                         service.region)
+        self.assertEqual("http://int.nova2.example.com:8774/v2",
+                         service.url)
+        self.assertEqual("http://public.nova2.example.com:8774/v2",
+                         service.public_url)
+        self.assertEqual("int.nova2.example.com", service.host)

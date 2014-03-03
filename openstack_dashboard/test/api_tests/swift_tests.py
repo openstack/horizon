@@ -37,7 +37,7 @@ class SwiftApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         (conts, more) = api.swift.swift_get_containers(self.request)
-        self.assertEqual(len(conts), len(containers))
+        self.assertEqual(len(containers), len(conts))
         self.assertFalse(more)
 
     def test_swift_get_container_with_data(self):
@@ -49,8 +49,8 @@ class SwiftApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         cont = api.swift.swift_get_container(self.request, container.name)
-        self.assertEqual(cont.name, container.name)
-        self.assertEqual(len(cont.data), len(objects))
+        self.assertEqual(container.name, cont.name)
+        self.assertEqual(len(objects), len(cont.data))
 
     def test_swift_get_container_without_data(self):
         container = self.containers.first()
@@ -120,7 +120,7 @@ class SwiftApiTests(test.APITestCase):
 
         (objs, more) = api.swift.swift_get_objects(self.request,
                                                    container.name)
-        self.assertEqual(len(objs), len(objects))
+        self.assertEqual(len(objects), len(objs))
         self.assertFalse(more)
 
     def test_swift_get_object_with_data(self):
@@ -136,7 +136,7 @@ class SwiftApiTests(test.APITestCase):
         obj = api.swift.swift_get_object(self.request,
                                          container.name,
                                          object.name)
-        self.assertEqual(obj.name, object.name)
+        self.assertEqual(object.name, obj.name)
 
     def test_swift_get_object_without_data(self):
         container = self.containers.first()
@@ -152,7 +152,7 @@ class SwiftApiTests(test.APITestCase):
                                          container.name,
                                          object.name,
                                          with_data=False)
-        self.assertEqual(obj.name, object.name)
+        self.assertEqual(object.name, obj.name)
         self.assertIsNone(obj.data)
 
     def test_swift_upload_object(self):

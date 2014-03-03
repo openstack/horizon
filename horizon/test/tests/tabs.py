@@ -112,12 +112,12 @@ class TabTests(test.TestCase):
                                         '<TabDelayed: tab_delayed>',
                                         '<TabDisabled: tab_disabled>'])
         # Test get_id
-        self.assertEqual(tg.get_id(), "tab_group")
+        self.assertEqual("tab_group", tg.get_id())
         # get_default_classes
-        self.assertEqual(tg.get_default_classes(),
-                         horizon_tabs.base.CSS_TAB_GROUP_CLASSES)
+        self.assertEqual(horizon_tabs.base.CSS_TAB_GROUP_CLASSES,
+                         tg.get_default_classes())
         # Test get_tab
-        self.assertEqual(tg.get_tab("tab_one").slug, "tab_one")
+        self.assertEqual("tab_one", tg.get_tab("tab_one").slug)
 
         # Test selected is None w/o GET input
         self.assertIsNone(tg.selected)
@@ -129,33 +129,33 @@ class TabTests(test.TestCase):
         tg = Group(self.request)
 
         # active tab w/o selected
-        self.assertEqual(tg.active, tg.get_tabs()[0])
+        self.assertEqual(tg.get_tabs()[0], tg.active)
 
         # active tab w/ selected
         self.request.GET['tab'] = "tab_group__tab_delayed"
         tg = Group(self.request)
-        self.assertEqual(tg.active, tg.get_tab('tab_delayed'))
+        self.assertEqual(tg.get_tab('tab_delayed'), tg.active)
 
         # active tab w/ invalid selected
         self.request.GET['tab'] = "tab_group__tab_invalid"
         tg = Group(self.request)
-        self.assertEqual(tg.active, tg.get_tabs()[0])
+        self.assertEqual(tg.get_tabs()[0], tg.active)
 
         # active tab w/ disallowed selected
         self.request.GET['tab'] = "tab_group__tab_disallowed"
         tg = Group(self.request)
-        self.assertEqual(tg.active, tg.get_tabs()[0])
+        self.assertEqual(tg.get_tabs()[0], tg.active)
 
         # active tab w/ disabled selected
         self.request.GET['tab'] = "tab_group__tab_disabled"
         tg = Group(self.request)
-        self.assertEqual(tg.active, tg.get_tabs()[0])
+        self.assertEqual(tg.get_tabs()[0], tg.active)
 
         # active tab w/ non-empty garbage selected
         # Note: this entry does not contain the '__' SEPARATOR string.
         self.request.GET['tab'] = "<!--"
         tg = Group(self.request)
-        self.assertEqual(tg.active, tg.get_tabs()[0])
+        self.assertEqual(tg.get_tabs()[0], tg.active)
 
     def test_tab_basics(self):
         tg = Group(self.request)
@@ -168,13 +168,13 @@ class TabTests(test.TestCase):
         self.assertIsNone(tab_disallowed)
 
         # get_id
-        self.assertEqual(tab_one.get_id(), "tab_group__tab_one")
+        self.assertEqual("tab_group__tab_one", tab_one.get_id())
 
         # get_default_classes
-        self.assertEqual(tab_one.get_default_classes(),
-                         horizon_tabs.base.CSS_ACTIVE_TAB_CLASSES)
-        self.assertEqual(tab_disabled.get_default_classes(),
-                         horizon_tabs.base.CSS_DISABLED_TAB_CLASSES)
+        self.assertEqual(horizon_tabs.base.CSS_ACTIVE_TAB_CLASSES,
+                         tab_one.get_default_classes())
+        self.assertEqual(horizon_tabs.base.CSS_DISABLED_TAB_CLASSES,
+                         tab_disabled.get_default_classes())
 
         # load, allowed, enabled
         self.assertTrue(tab_one.load)
@@ -216,28 +216,28 @@ class TabTests(test.TestCase):
 
         # tab
         output = tab_one.render()
-        self.assertEqual(output.strip(), tab_one.name)
+        self.assertEqual(tab_one.name, output.strip())
 
         # disabled tab
         output = tab_disabled.render()
-        self.assertEqual(output.strip(), "")
+        self.assertEqual("", output.strip())
 
         # preload false
         output = tab_delayed.render()
-        self.assertEqual(output.strip(), "")
+        self.assertEqual("", output.strip())
 
         # preload false w/ active
         self.request.GET['tab'] = tab_delayed.get_id()
         tg = Group(self.request)
         tab_delayed = tg.get_tab("tab_delayed")
         output = tab_delayed.render()
-        self.assertEqual(output.strip(), tab_delayed.name)
+        self.assertEqual(tab_delayed.name, output.strip())
 
     def test_table_tabs(self):
         tab_group = TableTabGroup(self.request)
         tabs = tab_group.get_tabs()
         # Only one tab, as expected.
-        self.assertEqual(len(tabs), 1)
+        self.assertEqual(1, len(tabs))
         tab = tabs[0]
         # Make sure it's the tab we think it is.
         self.assertIsInstance(tab, horizon_tabs.TableTab)
@@ -255,9 +255,9 @@ class TabTests(test.TestCase):
                                               '<FakeObject: object_3>'])
         context = tab.get_context_data(self.request)
         # Make sure our table is loaded into the context correctly
-        self.assertEqual(context['my_table_table'], table)
+        self.assertEqual(table, context['my_table_table'])
         # Since we only had one table we should get the shortcut name too.
-        self.assertEqual(context['table'], table)
+        self.assertEqual(table, context['table'])
 
     def test_tabbed_table_view(self):
         view = TabWithTableView.as_view()
@@ -273,7 +273,7 @@ class TabTests(test.TestCase):
         req = self.factory.get('/', params,
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         res = view(req)
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(200, res.status_code)
         # Make sure we got back a row but not a table or body
         self.assertContains(res, "<tr", 1)
         self.assertContains(res, "<table", 0)
@@ -283,8 +283,8 @@ class TabTests(test.TestCase):
         action_string = "my_table__toggle__2"
         req = self.factory.post('/', {'action': action_string})
         res = view(req)
-        self.assertEqual(res.status_code, 302)
-        self.assertEqual(res["location"], "/")
+        self.assertEqual(302, res.status_code)
+        self.assertEqual("/", res["location"])
 
         # Ensure that lookup errors are raised as such instead of converted
         # to TemplateSyntaxErrors.

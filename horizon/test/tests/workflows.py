@@ -147,21 +147,21 @@ class WorkflowsTests(test.TestCase):
                                  ['<TestStepOne: test_action_one>',
                                   '<TestExtraStep: test_action_three>',
                                   '<TestStepTwo: test_action_two>'])
-        self.assertEqual(flow.depends_on, set(['project_id']))
+        self.assertEqual(set(['project_id']), flow.depends_on)
 
     def test_step_construction(self):
         step_one = TestStepOne(TestWorkflow(self.request))
         # Action slug is moved from Meta by metaclass, and
         # Step inherits slug from action.
-        self.assertEqual(step_one.name, TestActionOne.name)
-        self.assertEqual(step_one.slug, TestActionOne.slug)
+        self.assertEqual(TestActionOne.name, step_one.name)
+        self.assertEqual(TestActionOne.slug, step_one.slug)
         # Handlers should be empty since there are no connections.
         self.assertEqual(step_one._handlers, {})
 
         step_two = TestStepTwo(TestWorkflow(self.request))
         # Handlers should be populated since we do have connections.
-        self.assertEqual(step_two._handlers["project_id"],
-                         [local_callback_func, other_callback_func])
+        self.assertEqual([local_callback_func, other_callback_func],
+                         step_two._handlers["project_id"])
 
     def test_step_invalid_connections_handlers_not_list_or_tuple(self):
         class InvalidStepA(TestStepTwo):
@@ -203,15 +203,15 @@ class WorkflowsTests(test.TestCase):
 
         # This should set the value without any errors, but trigger nothing
         flow.context['does_not_exist'] = False
-        self.assertEqual(flow.context['does_not_exist'], False)
+        self.assertEqual(False, flow.context['does_not_exist'])
 
         # The order here is relevant. Note that we inserted "extra" between
         # steps one and two, and one has no handlers, so we should see
         # a response from extra, then one from each of step two's handlers.
         val = flow.context.set('project_id', PROJECT_ID)
-        self.assertEqual(val, [('test_action_three', 'extra'),
-                               ('test_action_two', 'one'),
-                               ('test_action_two', 'two')])
+        self.assertEqual([('test_action_three', 'extra'),
+                          ('test_action_two', 'one'),
+                          ('test_action_two', 'two')], val)
 
     def test_workflow_validation(self):
         flow = TestWorkflow(self.request)
@@ -245,7 +245,7 @@ class WorkflowsTests(test.TestCase):
         view = TestWorkflowView.as_view()
         req = self.factory.get("/")
         res = view(req)
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(200, res.status_code)
 
     def test_workflow_registration(self):
         req = self.factory.get("/foo")
@@ -294,10 +294,10 @@ class WorkflowsTests(test.TestCase):
     def test_entry_point(self):
         req = self.factory.get("/foo")
         flow = TestWorkflow(req)
-        self.assertEqual(flow.get_entry_point(), "test_action_one")
+        self.assertEqual("test_action_one", flow.get_entry_point())
 
         flow = TestWorkflow(req, entry_point="test_action_two")
-        self.assertEqual(flow.get_entry_point(), "test_action_two")
+        self.assertEqual("test_action_two", flow.get_entry_point())
 
     def test_fullscreenworkflow_view(self):
         view = TestFullscreenWorkflowView.as_view()

@@ -88,7 +88,7 @@ class QuotaTests(test.APITestCase):
         expected_output = self.get_usages()
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(quota_usages.usages, expected_output)
+        self.assertEqual(expected_output, quota_usages.usages)
 
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
@@ -121,7 +121,7 @@ class QuotaTests(test.APITestCase):
         expected_output = self.get_usages(with_volume=False)
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(quota_usages.usages, expected_output)
+        self.assertEqual(expected_output, quota_usages.usages)
 
         # Make sure that the `in` operator and the `.get()` method
         # behave as expected
@@ -161,7 +161,7 @@ class QuotaTests(test.APITestCase):
             'cores': {'available': 10, 'used': 0, 'quota': 10}})
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(quota_usages.usages, expected_output)
+        self.assertEqual(expected_output, quota_usages.usages)
 
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
@@ -248,4 +248,4 @@ class QuotaTests(test.APITestCase):
         expected_output['floating_ips']['available'] = 1
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(quota_usages.usages, expected_output)
+        self.assertEqual(expected_output, quota_usages.usages)

@@ -61,11 +61,11 @@ class FwaasApiTests(test.APITestCase):
         ret_val = api.fwaas.rule_list(self.request)
         for (v, d) in zip(ret_val, exp_rules):
             self.assertIsInstance(v, api.fwaas.Rule)
-            self.assertEqual(v.name, d.name)
+            self.assertEqual(d.name, v.name)
             self.assertTrue(v.id)
             if d.policy:
-                self.assertEqual(v.policy.id, d.firewall_policy_id)
-                self.assertEqual(v.policy.name, d.policy.name)
+                self.assertEqual(d.firewall_policy_id, v.policy.id, )
+                self.assertEqual(d.policy.name, v.policy.name)
             else:
                 self.assertIsNone(v.policy)
 
@@ -85,8 +85,8 @@ class FwaasApiTests(test.APITestCase):
         self.assertIsInstance(ret_val, api.fwaas.Rule)
         self.assertEqual(exp_rule.name, ret_val.name)
         self.assertTrue(ret_val.id)
-        self.assertEqual(ret_val.policy.id, exp_rule.firewall_policy_id)
-        self.assertEqual(ret_val.policy.name, exp_rule.policy.name)
+        self.assertEqual(exp_rule.firewall_policy_id, ret_val.policy.id)
+        self.assertEqual(exp_rule.policy.name, ret_val.policy.name)
 
     @test.create_stubs({neutronclient: ('update_firewall_rule',)})
     def test_rule_update(self):
@@ -163,12 +163,12 @@ class FwaasApiTests(test.APITestCase):
         ret_val = api.fwaas.policy_list(self.request)
         for (v, d) in zip(ret_val, exp_policies):
             self.assertIsInstance(v, api.fwaas.Policy)
-            self.assertEqual(v.name, d.name)
+            self.assertEqual(d.name, v.name)
             self.assertTrue(v.id)
             self.assertEqual(len(d.firewall_rules), len(v.rules))
             self.assertEqual(len(d.firewall_rules), len(v.firewall_rules))
             for (r, exp_r) in zip(v.rules, d.rules):
-                self.assertEqual(r.id, exp_r.id)
+                self.assertEqual(exp_r.id, r.id)
 
     @test.create_stubs({neutronclient: ('show_firewall_policy',
                                         'list_firewall_rules')})
@@ -318,10 +318,10 @@ class FwaasApiTests(test.APITestCase):
         ret_val = api.fwaas.firewall_list(self.request)
         for (v, d) in zip(ret_val, exp_firewalls):
             self.assertIsInstance(v, api.fwaas.Firewall)
-            self.assertEqual(v.name, d.name)
+            self.assertEqual(d.name, v.name)
             self.assertTrue(v.id)
-            self.assertEqual(v.policy.id, d.firewall_policy_id)
-            self.assertEqual(v.policy.name, d.policy.name)
+            self.assertEqual(d.firewall_policy_id, v.policy.id)
+            self.assertEqual(d.policy.name, v.policy.name)
 
     @test.create_stubs({neutronclient: ('show_firewall',
                                         'show_firewall_policy')})
@@ -339,8 +339,8 @@ class FwaasApiTests(test.APITestCase):
         self.assertIsInstance(ret_val, api.fwaas.Firewall)
         self.assertEqual(exp_firewall.name, ret_val.name)
         self.assertTrue(ret_val.id)
-        self.assertEqual(ret_val.policy.id, exp_firewall.firewall_policy_id)
-        self.assertEqual(ret_val.policy.name, exp_firewall.policy.name)
+        self.assertEqual(exp_firewall.firewall_policy_id, ret_val.policy.id)
+        self.assertEqual(exp_firewall.policy.name, ret_val.policy.name)
 
     @test.create_stubs({neutronclient: ('update_firewall',)})
     def test_firewall_update(self):

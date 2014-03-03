@@ -19,4 +19,4 @@ class BrowserTests(test.SeleniumTestCase):
     def test_splash(self):
         self.selenium.get(self.live_server_url)
         button = self.selenium.find_element_by_tag_name("button")
-        self.assertEqual(button.text, "Sign In")
+        self.assertEqual("Sign In", button.text)

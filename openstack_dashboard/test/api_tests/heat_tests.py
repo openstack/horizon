@@ -174,7 +174,7 @@ class HeatApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         template = api.heat.template_get(self.request, stack_id)
-        self.assertEqual(template.data, mock_data_template.data)
+        self.assertEqual(mock_data_template.data, template.data)
 
     def test_stack_update(self):
         api_stacks = self.stacks.list()

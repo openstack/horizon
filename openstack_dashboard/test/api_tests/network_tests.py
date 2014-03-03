@@ -110,7 +110,7 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
         self.mox.ReplayAll()
 
         ret = api.network.floating_ip_pools_list(self.request)
-        self.assertEqual([p.name for p in ret], pool_names)
+        self.assertEqual(pool_names, [p.name for p in ret])
 
     def test_floating_ip_list(self):
         fips = self.api_floating_ips.list()
@@ -122,8 +122,8 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
         ret = api.network.tenant_floating_ip_list(self.request)
         for r, e in zip(ret, fips):
             for attr in ['id', 'ip', 'pool', 'fixed_ip', 'instance_id']:
-                self.assertEqual(getattr(r, attr), getattr(e, attr))
-            self.assertEqual(r.port_id, e.instance_id)
+                self.assertEqual(getattr(e, attr), getattr(r, attr))
+            self.assertEqual(e.instance_id, r.port_id)
 
     def test_floating_ip_get(self):
         fip = self.api_floating_ips.first()
@@ -134,8 +134,8 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
 
         ret = api.network.tenant_floating_ip_get(self.request, fip.id)
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'instance_id']:
-            self.assertEqual(getattr(ret, attr), getattr(fip, attr))
-        self.assertEqual(ret.port_id, fip.instance_id)
+            self.assertEqual(getattr(fip, attr), getattr(ret, attr))
+        self.assertEqual(fip.instance_id, ret.port_id)
 
     def test_floating_ip_allocate(self):
         pool_name = 'fip_pool'
@@ -147,8 +147,8 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
 
         ret = api.network.tenant_floating_ip_allocate(self.request, pool_name)
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'instance_id']:
-            self.assertEqual(getattr(ret, attr), getattr(fip, attr))
-        self.assertEqual(ret.port_id, fip.instance_id)
+            self.assertEqual(getattr(fip, attr), getattr(ret, attr))
+        self.assertEqual(fip.instance_id, ret.port_id)
 
     def test_floating_ip_release(self):
         fip = self.api_floating_ips.first()
@@ -202,8 +202,8 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
 
         targets = api.network.floating_ip_target_list(self.request)
         for target, server in zip(targets, servers):
-            self.assertEqual(target.id, server.id)
-            self.assertEqual(target.name, '%s (%s)' % (server.name, server.id))
+            self.assertEqual(server.id, target.id)
+            self.assertEqual('%s (%s)' % (server.name, server.id), target.name)
 
     def test_floating_ip_target_get_by_instance(self):
         self.mox.ReplayAll()
@@ -341,10 +341,14 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         self.assertEqual(exprule['id'], retrule.id)
         self.assertEqual(exprule['security_group_id'],
                          retrule.parent_group_id)
-        self.assertEqual(exprule['direction'], retrule.direction)
-        self.assertEqual(exprule['ethertype'], retrule.ethertype)
-        self.assertEqual(exprule['port_range_min'], retrule.from_port)
-        self.assertEqual(exprule['port_range_max'], retrule.to_port)
+        self.assertEqual(exprule['direction'],
+                         retrule.direction)
+        self.assertEqual(exprule['ethertype'],
+                         retrule.ethertype)
+        self.assertEqual(exprule['port_range_min'],
+                         retrule.from_port)
+        self.assertEqual(exprule['port_range_max'],
+                         retrule.to_port,)
         if (exprule['remote_ip_prefix'] is None and
                 exprule['remote_group_id'] is None):
             expcidr = ('::/0' if exprule['ethertype'] == 'IPv6'
@@ -501,8 +505,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
 
     def test_security_group_backend(self):
         self.mox.ReplayAll()
-        self.assertEqual(api.network.security_group_backend(self.request),
-                         'neutron')
+        self.assertEqual('neutron',
+                         api.network.security_group_backend(self.request))
 
 
 class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
@@ -532,8 +536,8 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
         rets = api.network.floating_ip_pools_list(self.request)
         for attr in ['id', 'name']:
-            self.assertEqual([getattr(p, attr) for p in rets],
-                             [p[attr] for p in ext_nets])
+            self.assertEqual([p[attr] for p in ext_nets],
+                             [getattr(p, attr) for p in rets])
 
     def test_floating_ip_list(self):
         fips = self.api_q_floating_ips.list()
@@ -549,10 +553,10 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         self.assertEqual(len(fips), len(rets))
         for ret, exp in zip(rets, fips):
             for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-                self.assertEqual(getattr(ret, attr), exp[attr])
+                self.assertEqual(exp[attr], getattr(ret, attr))
             if exp['port_id']:
                 dev_id = assoc_port['device_id'] if exp['port_id'] else None
-                self.assertEqual(ret.instance_id, dev_id)
+                self.assertEqual(dev_id, ret.instance_id)
 
     def test_floating_ip_get_associated(self):
         fip = self.api_q_floating_ips.list()[1]
@@ -564,8 +568,8 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
         ret = api.network.tenant_floating_ip_get(self.request, fip['id'])
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-            self.assertEqual(getattr(ret, attr), fip[attr])
-        self.assertEqual(ret.instance_id, assoc_port['device_id'])
+            self.assertEqual(fip[attr], getattr(ret, attr))
+        self.assertEqual(assoc_port['device_id'], ret.instance_id)
 
     def test_floating_ip_get_unassociated(self):
         fip = self.api_q_floating_ips.list()[0]
@@ -574,7 +578,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
         ret = api.network.tenant_floating_ip_get(self.request, fip['id'])
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-            self.assertEqual(getattr(ret, attr), fip[attr])
+            self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
 
     def test_floating_ip_allocate(self):
@@ -590,7 +594,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         ret = api.network.tenant_floating_ip_allocate(self.request,
                                                       ext_net['id'])
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
-            self.assertEqual(getattr(ret, attr), fip[attr])
+            self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
 
     def test_floating_ip_release(self):
@@ -650,10 +654,10 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         self.mox.ReplayAll()
 
         rets = api.network.floating_ip_target_list(self.request)
-        self.assertEqual(len(rets), len(target_ports))
+        self.assertEqual(len(target_ports), len(rets))
         for ret, exp in zip(rets, target_ports):
-            self.assertEqual(ret.id, exp[0])
-            self.assertEqual(ret.name, exp[1])
+            self.assertEqual(exp[0], ret.id)
+            self.assertEqual(exp[1], ret.name)
 
     def test_floating_ip_target_get_by_instance(self):
         ports = self.api_ports.list()
@@ -663,7 +667,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         self.mox.ReplayAll()
 
         ret = api.network.floating_ip_target_get_by_instance(self.request, '1')
-        self.assertEqual(ret, self._get_target_id(candidates[0]))
+        self.assertEqual(self._get_target_id(candidates[0]), ret)
 
     def test_target_floating_ip_port_by_instance(self):
         ports = self.api_ports.list()
@@ -674,5 +678,5 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
         ret = api.network.floating_ip_target_list_by_instance(self.request,
                                                               '1')
-        self.assertEqual(ret[0], self._get_target_id(candidates[0]))
-        self.assertEqual(len(ret), len(candidates))
+        self.assertEqual(self._get_target_id(candidates[0]), ret[0])
+        self.assertEqual(len(candidates), len(ret))

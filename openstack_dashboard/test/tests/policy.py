@@ -20,13 +20,13 @@ class PolicyTestCase(test.TestCase):
     def test_policy_file_load(self):
         policy.reset()
         enforcer = policy._get_enforcer()
-        self.assertEqual(len(enforcer), 2)
+        self.assertEqual(2, len(enforcer))
         self.assertTrue('identity' in enforcer)
         self.assertTrue('compute' in enforcer)
 
     def test_policy_reset(self):
         policy._get_enforcer()
-        self.assertEqual(len(policy._ENFORCER), 2)
+        self.assertEqual(2, len(policy._ENFORCER))
         policy.reset()
         self.assertIsNone(policy._ENFORCER)
 
