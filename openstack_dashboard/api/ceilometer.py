@@ -700,7 +700,7 @@ class Meters(object):
     It is listing meters defined in this class that are available
     in Ceilometer meter_list.
 
-    It is storing information that are not available in Ceiloemter, i.e.
+    It is storing information that is not available in Ceilometer, i.e.
     label, description.
 
     """
