@@ -623,6 +623,27 @@ class SetNetwork(workflows.Step):
         return context
 
 
+class SetAdvancedAction(workflows.Action):
+    disk_config = forms.ChoiceField(label=_("Disk Partition"),
+                                    required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(SetAdvancedAction, self).__init__(request, *args, **kwargs)
+        # Set our disk_config choices
+        config_choices = [("AUTO", _("Automatic")), ("MANUAL", _("Manual"))]
+        self.fields['disk_config'].choices = config_choices
+
+    class Meta:
+        name = _("Advanced Options")
+        help_text_template = ("project/instances/"
+                              "_launch_advanced_help.html")
+
+
+class SetAdvanced(workflows.Step):
+    action_class = SetAdvancedAction
+    contributes = ("disk_config",)
+
+
 class LaunchInstance(workflows.Workflow):
     slug = "launch_instance"
     name = _("Launch Instance")
@@ -634,7 +655,8 @@ class LaunchInstance(workflows.Workflow):
                      SetInstanceDetails,
                      SetAccessControls,
                      SetNetwork,
-                     PostCreationStep)
+                     PostCreationStep,
+                     SetAdvanced)
 
     def format_status_message(self, message):
         name = self.context.get('name', 'unknown instance')
@@ -719,7 +741,8 @@ class LaunchInstance(workflows.Workflow):
                                    nics=nics,
                                    availability_zone=avail_zone,
                                    instance_count=int(context['count']),
-                                   admin_pass=context['admin_pass'])
+                                   admin_pass=context['admin_pass'],
+                                   disk_config=context['disk_config'])
             return True
         except Exception:
             exceptions.handle(request)

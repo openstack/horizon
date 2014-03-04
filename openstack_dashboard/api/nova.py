@@ -76,7 +76,8 @@ class Server(base.APIResourceWrapper):
              'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
              'tenant_id', 'user_id', 'created', 'OS-EXT-STS:power_state',
              'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
-             'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone']
+             'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone',
+             'OS-DCF:diskConfig']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -478,14 +479,16 @@ def keypair_list(request):
 def server_create(request, name, image, flavor, key_name, user_data,
                   security_groups, block_device_mapping=None,
                   block_device_mapping_v2=None, nics=None,
-                  availability_zone=None, instance_count=1, admin_pass=None):
+                  availability_zone=None, instance_count=1, admin_pass=None,
+                  disk_config=None):
     return Server(novaclient(request).servers.create(
         name, image, flavor, userdata=user_data,
         security_groups=security_groups,
         key_name=key_name, block_device_mapping=block_device_mapping,
         block_device_mapping_v2=block_device_mapping_v2,
         nics=nics, availability_zone=availability_zone,
-        min_count=instance_count, admin_pass=admin_pass), request)
+        min_count=instance_count, admin_pass=admin_pass,
+        disk_config=disk_config), request)
 
 
 def server_delete(request, instance):
@@ -553,9 +556,10 @@ def server_reboot(request, instance_id, soft_reboot=False):
     novaclient(request).servers.reboot(instance_id, hardness)
 
 
-def server_rebuild(request, instance_id, image_id, password=None):
+def server_rebuild(request, instance_id, image_id, password=None,
+                   disk_config=None):
     return novaclient(request).servers.rebuild(instance_id, image_id,
-                                               password)
+                                               password, disk_config)
 
 
 def server_update(request, instance_id, name):
@@ -573,8 +577,9 @@ def server_live_migrate(request, instance_id, host, block_migration=False,
                                              disk_over_commit)
 
 
-def server_resize(request, instance_id, flavor, **kwargs):
-    novaclient(request).servers.resize(instance_id, flavor, **kwargs)
+def server_resize(request, instance_id, flavor, disk_config=None, **kwargs):
+    novaclient(request).servers.resize(instance_id, flavor,
+                                       disk_config, **kwargs)
 
 
 def server_confirm_resize(request, instance_id):
