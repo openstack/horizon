@@ -1154,6 +1154,16 @@ class DataTable(object):
         """
         return self.request.get_full_path().partition('?')[0]
 
+    def get_full_url(self):
+        """Returns the full URL path for this table.
+
+        This is used for the POST action attribute on the form element
+        wrapping the table. We use this method to persist the
+        pagination marker.
+
+        """
+        return self.request.get_full_path()
+
     def get_empty_message(self):
         """Returns the message to be displayed when there is no data."""
         return self._no_data_message
