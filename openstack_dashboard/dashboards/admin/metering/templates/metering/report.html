@@ -12,5 +12,10 @@
 {% for table in tables %}
     {{ table.render }}
 {% endfor %}
+{% if not tables %}
+    <p>
+    {% trans 'No data available' %}
+    </p>
+{% endif %}
 {% endblock %}
 
