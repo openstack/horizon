@@ -743,6 +743,9 @@ class Site(Registry, HorizonComponent):
         for dash in self._registry.values():
             dash._autodiscover()
 
+        # Load the plugin-based panel configuration
+        self._load_panel_customization()
+
         # Allow for override modules
         if self._conf.get("customization_module", None):
             customization_module = self._conf["customization_module"]
@@ -787,6 +790,61 @@ class Site(Registry, HorizonComponent):
                     self._registry = before_import_registry
                     if module_has_submodule(mod, mod_name):
                         raise
+
+    def _load_panel_customization(self):
+        """Applies the plugin-based panel configurations.
+
+        This method parses the panel customization from the ``HORIZON_CONFIG``
+        and make changes to the dashboard accordingly.
+
+        It supports adding, removing and setting default panels on the
+        dashboard.
+        """
+        panel_customization = self._conf.get("panel_customization", [])
+
+        for config in panel_customization:
+            dashboard = config.get('PANEL_DASHBOARD')
+            if not dashboard:
+                LOG.warning("Skipping %s because it doesn't have "
+                            "PANEL_DASHBOARD defined.", config.__name__)
+                continue
+            try:
+                panel_slug = config.get('PANEL')
+                dashboard_cls = self.get_dashboard(dashboard)
+                panel_group = config.get('PANEL_GROUP')
+                default_panel = config.get('DEFAULT_PANEL')
+
+                # Set the default panel
+                if default_panel:
+                    dashboard_cls.default_panel = default_panel
+
+                # Remove the panel
+                if config.get('REMOVE_PANEL', False):
+                    for panel in dashboard_cls.get_panels():
+                        if panel_slug == panel.slug:
+                            dashboard_cls.unregister(panel.__class__)
+                elif config.get('ADD_PANEL', None):
+                    # Add the panel to the dashboard
+                    panel_path = config['ADD_PANEL']
+                    mod_path, panel_cls = panel_path.rsplit(".", 1)
+                    try:
+                        mod = import_module(mod_path)
+                    except ImportError:
+                        LOG.warning("Could not load panel: %s", mod_path)
+                        continue
+
+                    panel = getattr(mod, panel_cls)
+                    dashboard_cls.register(panel)
+                    if panel_group:
+                        dashboard_cls.get_panel_group(panel_group).\
+                            panels.append(panel.slug)
+                    else:
+                        panels = list(dashboard_cls.panels)
+                        panels.append(panel)
+                        dashboard_cls.panels = tuple(panels)
+            except Exception as e:
+                LOG.warning('Could not process panel %(panel)s: %(exc)s',
+                            {'panel': panel_slug, 'exc': e})
 
 
 class HorizonSite(Site):

@@ -41,19 +41,21 @@ def import_dashboard_config(modules):
     config = collections.defaultdict(dict)
     for module in modules:
         for key, submodule in import_submodules(module).iteritems():
-            try:
+            if hasattr(submodule, 'DASHBOARD'):
                 dashboard = submodule.DASHBOARD
-            except AttributeError:
-                logging.warning("Skipping %s because it doesn't "
-                                "have DASHBOARD defined." % submodule.__name__)
-            else:
                 config[dashboard].update(submodule.__dict__)
+            elif hasattr(submodule, 'PANEL'):
+                config[submodule.__name__] = submodule.__dict__
+                #_update_panels(config, submodule)
+            else:
+                logging.warning("Skipping %s because it doesn't have DASHBOARD"
+                                " or PANEL defined.", submodule.__name__)
     return sorted(config.iteritems(),
                   key=lambda c: c[1]['__name__'].rsplit('.', 1))
 
 
 def update_dashboards(modules, horizon_config, installed_apps):
-    """Imports dashboard configuration from modules and applies it.
+    """Imports dashboard and panel configuration from modules and applies it.
 
     The submodules from specified modules are imported, and the configuration
     for the specific dashboards is merged, with the later modules overriding
@@ -75,18 +77,30 @@ def update_dashboards(modules, horizon_config, installed_apps):
     configurations will be applied in order ``qux``, ``baz`` (``baz`` is
     second, because the most recent file which contributed to it, ``_30_baz``,
     comes after ``_20_qux``).
+
+    Panel specific configurations are stored in horizon_config. Dashboards
+    from both plugin-based and openstack_dashboard must be registered before
+    the panel configuration can be applied. Making changes to the panel is
+    deferred until the horizon autodiscover is completed, configurations are
+    applied in alphabetical order of files where it was imported.
     """
     dashboards = []
     exceptions = {}
     apps = []
-    for dashboard, config in import_dashboard_config(modules):
+    panel_customization = []
+    for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
             continue
-        dashboards.append(dashboard)
-        exceptions.update(config.get('ADD_EXCEPTIONS', {}))
-        apps.extend(config.get('ADD_INSTALLED_APPS', []))
-        if config.get('DEFAULT', False):
-            horizon_config['default_dashboard'] = dashboard
+        if config.get('DASHBOARD'):
+            dashboard = key
+            dashboards.append(dashboard)
+            exceptions.update(config.get('ADD_EXCEPTIONS', {}))
+            apps.extend(config.get('ADD_INSTALLED_APPS', []))
+            if config.get('DEFAULT', False):
+                horizon_config['default_dashboard'] = dashboard
+        elif config.get('PANEL'):
+            panel_customization.append(config)
+    horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
     horizon_config['exceptions'].update(exceptions)
     installed_apps.extend(apps)
