@@ -470,3 +470,14 @@ SECURITY_GROUP_RULES = {
         'to_port': '3389',
     },
 }
+
+FLAVOR_EXTRA_KEYS = {
+    'flavor_keys': [
+        ('quota:read_bytes_sec', _('Quota: Read bytes')),
+        ('quota:write_bytes_sec', _('Quota: Write bytes')),
+        ('quota:cpu_quota', _('Quota: CPU')),
+        ('quota:cpu_period', _('Quota: CPU period')),
+        ('quota:inbound_average', _('Quota: Inbound average')),
+        ('quota:outbound_average', _('Quota: Outbound average')),
+    ]
+}

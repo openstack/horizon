@@ -79,6 +79,11 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
 class EditView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.EditExtraSpec
     template_name = 'admin/flavors/extras/edit.html'
+    success_url = 'horizon:admin:flavors:extras:index'
+
+    def get_success_url(self):
+        return reverse(self.success_url,
+                       args=(self.kwargs['id'],))
 
     def get_initial(self):
         flavor_id = self.kwargs['id']

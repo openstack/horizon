@@ -369,6 +369,25 @@ Default: ``"1800"``
 Specifies the timespan in seconds inactivity, until a user is considered as
  logged out.
 
+``FLAVOR_EXTRA_KEYS``
+---------------------------
+
+Default::
+
+    {
+        'flavor_keys': [
+            ('quota:read_bytes_sec', _('Quota: Read bytes')),
+            ('quota:write_bytes_sec', _('Quota: Write bytes')),
+            ('quota:cpu_quota', _('Quota: CPU')),
+            ('quota:cpu_period', _('Quota: CPU period')),
+            ('quota:inbound_average', _('Quota: Inbound average')),
+            ('quota:outbound_average', _('Quota: Outbound average'))
+        ]
+    }
+
+Used to customize flavor extra specs keys
+
+
 Django Settings (Partial)
 =========================
 
