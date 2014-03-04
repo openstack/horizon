@@ -8,7 +8,10 @@
 {% endblock page_header %}
 
 {% block main %}
+    <div class="table_actions">
+      <a href="{{ csv_url }}"><button class="btn btn-small btn-download" >{% trans 'Download CSV Summary' %}</button></a>
       <a href="{% url 'horizon:admin:metering:index' %}"><button class="btn btn-small">{% trans 'Back' %}</button></a>
+    </div>
 {% for table in tables %}
     {{ table.render }}
 {% endfor %}
