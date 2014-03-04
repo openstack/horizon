@@ -41,9 +41,7 @@ def openstack(request):
 
     # Auth/Keystone context
     context.setdefault('authorized_tenants', [])
-    current_dash = request.horizon['dashboard']
-    needs_tenants = getattr(current_dash, 'supports_tenants', False)
-    if request.user.is_authenticated() and needs_tenants:
+    if request.user.is_authenticated():
         context['authorized_tenants'] = request.user.authorized_tenants
 
     # Region context/support

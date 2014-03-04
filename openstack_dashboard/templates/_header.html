@@ -1,11 +1,66 @@
-{% load i18n %}
+{% load branding i18n %}
 {% load url from future %}
-<div id="user_info" class="pull-right">
-  <span>{% blocktrans with username=request.user.username %}Logged in as: {{ username }}{% endblocktrans %}</span>
-  <a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a>
-  {% if HORIZON_CONFIG.help_url %}
-  <a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a>
+<h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
+
+<div class="context-box">
+  <div id="tenant_switcher" class="dropdown switcher_bar" tabindex="1">
+  {% with num_of_tenants=authorized_tenants|length %}
+    {% if num_of_tenants > 1 %}
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
+    {% endif %}
+    <h3>{{ request.user.project_name }}</h3>
+    {% if num_of_tenants > 1 %}
+      </a>
+    {% endif %}
+
+    {% if num_of_tenants > 1 %}
+      <ul id="tenant_list" class="dropdown-menu">
+        <li class='divider'></li>
+        {% with authorized_tenants_sorted=authorized_tenants|dictsort:"name" %}
+          {% for tenant in authorized_tenants_sorted %}
+            {% if tenant.enabled and tenant.id != request.user.tenant_id %}
+              <li><a href="{% url 'switch_tenants' tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% endwith %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  </div>
+
+  {% with num_of_regions=request.user.available_services_regions|length %}
+  {% if num_of_regions > 1 %}
+    <div id="services_region_switcher" class="dropdown switcher_bar" tabindex="1">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#services_region_switcher">
+        <h3>{{ request.user.services_region }}</h3>
+      </a>
+
+      <ul id="services_regions_list" class="dropdown-menu">
+        <li class='divider'></li>
+        {% for region in request.user.available_services_regions %}
+          <li><a href="{% url 'switch_services_region' region %}?next={{ request.horizon.panel.get_absolute_url }}">{{ region }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
   {% endif %}
+  {% endwith %}
+</div>
+
+<div id="user_info" class="pull-right">
+  <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
+      <div>{{ request.user.username }}</div>
+    </a>
+    <ul id="editor_list" class="dropdown-menu">
+      <li class='divider'></li>
+      <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
+      {% if HORIZON_CONFIG.help_url %}
+        <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
   <a href="{% url 'logout' %}">{% trans "Sign Out" %}</a>
   {% include "horizon/common/_region_selector.html" %}
 </div>
+

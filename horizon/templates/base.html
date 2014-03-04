@@ -16,16 +16,18 @@
   <body id="{% block body_id %}{% endblock %}" ng-app='hz'>
     {% block content %}
       <div id="container">
-        {% block sidebar %}
-          {% include 'horizon/common/_sidebar.html' %}
-        {% endblock %}
-        <div id='main_content'>
-          <div class='topbar'>
+        <div class='topbar'>
           {% include "_header.html" %}
-          {% block page_header %}{% endblock %}
-          </div>
+        </div>
+        <div id='main_content'>
           {% include "horizon/_messages.html" %}
-          {% block main %}{% endblock %}
+          {% block sidebar %}
+            {% include 'horizon/common/_sidebar.html' %}
+          {% endblock %}
+          <div id='content_body'>
+            {% block page_header %}{% endblock %}
+            {% block main %}{% endblock %}
+          </div>
         </div>
       </div>
     {% endblock %}

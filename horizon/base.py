@@ -356,9 +356,12 @@ class Dashboard(Registry, HorizonComponent):
         which are not connected to specific panels. Default: ``None``.
 
     .. attribute:: nav
+    .. method:: nav(context)
 
-        Optional boolean to control whether or not this dashboard should
-        appear in automatically-generated navigation. Default: ``True``.
+        The ``nav`` attribute can be either boolean value or a callable
+        which accepts a ``RequestContext`` object as a single argument
+        to control whether or not this dashboard should appear in
+        automatically-generated navigation. Default: ``True``.
 
     .. attribute:: supports_tenants
 
