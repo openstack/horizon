@@ -442,6 +442,10 @@ def data(TEST):
     console = {u'console': {u'url': u'http://example.com:6080/spice_auto.html',
                             u'type': u'spice'}}
     TEST.servers.spice_console_data = console
+    # RDP Console Data
+    console = {u'console': {u'url': u'http://example.com:6080/rdp_auto.html',
+                            u'type': u'rdp'}}
+    TEST.servers.rdp_console_data = console
 
     # Floating IPs
     def generate_fip(conf):

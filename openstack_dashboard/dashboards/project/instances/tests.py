@@ -865,6 +865,42 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_instance_rdp(self):
+        server = self.servers.first()
+        CONSOLE_OUTPUT = '/rdpserver'
+
+        console_mock = self.mox.CreateMock(api.nova.RDPConsole)
+        console_mock.url = CONSOLE_OUTPUT
+
+        self.mox.StubOutWithMock(api.nova, 'server_rdp_console')
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+            .AndReturn(server)
+        api.nova.server_rdp_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:rdp',
+                      args=[server.id])
+        res = self.client.get(url)
+        redirect = CONSOLE_OUTPUT + '&title=%s(1)' % server.name
+        self.assertRedirectsNoFollow(res, redirect)
+
+    @test.create_stubs({api.nova: ('server_rdp_console',)})
+    def test_instance_rdp_exception(self):
+        server = self.servers.first()
+
+        api.nova.server_rdp_console(IsA(http.HttpRequest), server.id) \
+                        .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:rdp',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @test.create_stubs({api.nova: ('server_get',
                                    'snapshot_create',
                                    'server_list',

@@ -54,6 +54,11 @@ def spice(args, **kvargs):
     return views.spice(args, **kvargs)
 
 
+# re-use rdp from project.instances.views to make reflection work
+def rdp(args, **kvargs):
+    return views.rdp(args, **kvargs)
+
+
 class AdminUpdateView(views.UpdateView):
     workflow_class = update_instance.AdminUpdateInstance
 

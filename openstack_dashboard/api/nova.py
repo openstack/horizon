@@ -65,6 +65,13 @@ class SPICEConsole(base.APIDictWrapper):
     _attrs = ['url', 'type']
 
 
+class RDPConsole(base.APIDictWrapper):
+    """Wrapper for the "console" dictionary returned by the
+    novaclient.servers.get_rdp_console method.
+    """
+    _attrs = ['url', 'type']
+
+
 class Server(base.APIResourceWrapper):
     """Simple wrapper around novaclient.server.Server
 
@@ -386,6 +393,11 @@ def server_vnc_console(request, instance_id, console_type='novnc'):
 
 def server_spice_console(request, instance_id, console_type='spice-html5'):
     return SPICEConsole(novaclient(request).servers.get_spice_console(
+        instance_id, console_type)['console'])
+
+
+def server_rdp_console(request, instance_id, console_type='rdp-html5'):
+    return RDPConsole(novaclient(request).servers.get_rdp_console(
         instance_id, console_type)['console'])
 
 
