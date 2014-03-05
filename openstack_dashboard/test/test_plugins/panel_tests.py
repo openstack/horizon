@@ -50,7 +50,7 @@ class PanelPluginTests(test.TestCase):
         base.Horizon._urls()
         # Trigger discovery, registration, and URLconf generation if it
         # hasn't happened yet.
-        self.client.get(settings.LOGIN_URL)
+        self.client.get("/")
 
     def tearDown(self):
         super(PanelPluginTests, self).tearDown()
