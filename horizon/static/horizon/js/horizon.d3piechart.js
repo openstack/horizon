@@ -80,15 +80,7 @@ horizon.d3_pie_chart_usage = {
       .append("path")
       .attr("class","arc")
       .attr("d", arc)
-      .style("fill", function(){
-        if (self.data[0].percentage >= 100) {
-          return FULL;
-        } else if (self.data[0].percentage >= 80) {
-          return NEARLY_FULL;
-        } else {
-          return FRGRND;
-        }
-      })
+      .style("fill", BKGRND)
       .style("stroke", STROKE)
       .style("stroke-width", 1)
       .each(function(d) {
@@ -104,10 +96,18 @@ horizon.d3_pie_chart_usage = {
         .append("path")
         .attr("class","arc")
         .attr("d", arc)
-        .style("fill", BKGRND)
+        .style("fill", function(){
+          if (self.data[0].percentage >= 100) {
+            return FULL;
+          } else if (self.data[0].percentage >= 80) {
+            return NEARLY_FULL;
+          } else {
+            return FRGRND;
+          }
+        })
         .style("stroke", STROKE)
         .style("stroke-width", function() {
-          if (self.data[0].percentage >= 100) {
+          if (self.data[0].percentage <= 0 || self.data[0].percentage >= 100) {
             return 0;
           } else {
             return 1;
@@ -119,9 +119,13 @@ horizon.d3_pie_chart_usage = {
         })
         .transition()
         .duration(500)
-        .attrTween("d", function(a) {
-          var tween = d3.interpolate(self.current, a);
-          self.current = tween(0);
+        .attrTween("d", function(start) {
+          start.endAngle = start.startAngle = 0;
+          var end = {
+            startAngle: 0,
+            endAngle: 2 * Math.PI * (100 - start.value) / 100
+          };
+          var tween = d3.interpolate(start, end);
           return function(t) { return arc(tween(t)); };
         });
     };
