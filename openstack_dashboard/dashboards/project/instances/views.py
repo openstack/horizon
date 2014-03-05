@@ -34,6 +34,9 @@ from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
+
+from openstack_dashboard.dashboards.project.instances \
+    import console as project_console
 from openstack_dashboard.dashboards.project.instances \
     import forms as project_forms
 from openstack_dashboard.dashboards.project.instances \
@@ -149,10 +152,9 @@ def console(request, instance_id):
 
 def vnc(request, instance_id):
     try:
-        console = api.nova.server_vnc_console(request, instance_id)
         instance = api.nova.server_get(request, instance_id)
-        return shortcuts.redirect(console.url +
-                ("&title=%s(%s)" % (instance.name, instance_id)))
+        console_url = project_console.get_console(request, 'VNC', instance)
+        return shortcuts.redirect(console_url)
     except Exception:
         redirect = reverse("horizon:project:instances:index")
         msg = _('Unable to get VNC console for instance "%s".') % instance_id
@@ -161,10 +163,9 @@ def vnc(request, instance_id):
 
 def spice(request, instance_id):
     try:
-        console = api.nova.server_spice_console(request, instance_id)
         instance = api.nova.server_get(request, instance_id)
-        return shortcuts.redirect(console.url +
-                ("&title=%s(%s)" % (instance.name, instance_id)))
+        console_url = project_console.get_console(request, 'SPICE', instance)
+        return shortcuts.redirect(console_url)
     except Exception:
         redirect = reverse("horizon:project:instances:index")
         msg = _('Unable to get SPICE console for instance "%s".') % instance_id
@@ -173,10 +174,9 @@ def spice(request, instance_id):
 
 def rdp(request, instance_id):
     try:
-        console = api.nova.server_rdp_console(request, instance_id)
         instance = api.nova.server_get(request, instance_id)
-        return shortcuts.redirect(console.url +
-                ("&title=%s(%s)" % (instance.name, instance_id)))
+        console_url = project_console.get_console(request, 'RDP', instance)
+        return shortcuts.redirect(console_url)
     except Exception:
         redirect = reverse("horizon:project:instances:index")
         msg = _('Unable to get RDP console for instance "%s".') % instance_id

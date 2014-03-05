@@ -29,16 +29,18 @@ from django.utils.http import urlencode
 from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa
 
+from horizon import exceptions
 from horizon.workflows import views
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
-from openstack_dashboard.test import helpers as test
-from openstack_dashboard.usage import quotas
-
+from openstack_dashboard.dashboards.project.instances import console
 from openstack_dashboard.dashboards.project.instances import tables
 from openstack_dashboard.dashboards.project.instances import tabs
 from openstack_dashboard.dashboards.project.instances import workflows
+from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
+
 
 INDEX_URL = reverse('horizon:project:instances:index')
 SEC_GROUP_ROLE_PREFIX = \
@@ -809,30 +811,35 @@ class InstanceTests(test.TestCase):
     def test_instance_vnc(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/vncserver'
+        CONSOLE_TITLE = '&title=%s(%s)' % (server.name, server.id)
+        CONSOLE_URL = CONSOLE_OUTPUT + CONSOLE_TITLE
 
         console_mock = self.mox.CreateMock(api.nova.VNCConsole)
         console_mock.url = CONSOLE_OUTPUT
 
-        self.mox.StubOutWithMock(api.nova, 'server_vnc_console')
         self.mox.StubOutWithMock(api.nova, 'server_get')
+        self.mox.StubOutWithMock(console, 'get_console')
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.server_vnc_console(IgnoreArg(), server.id) \
-            .AndReturn(console_mock)
+        console.get_console(IgnoreArg(), 'VNC', server) \
+            .AndReturn(CONSOLE_URL)
+
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:instances:vnc',
                       args=[server.id])
         res = self.client.get(url)
-        redirect = CONSOLE_OUTPUT + '&title=%s(1)' % server.name
+        redirect = CONSOLE_URL
         self.assertRedirectsNoFollow(res, redirect)
 
-    @test.create_stubs({api.nova: ('server_vnc_console',)})
-    def test_instance_vnc_exception(self):
+    def test_instance_vnc_error(self):
         server = self.servers.first()
-
-        api.nova.server_vnc_console(IsA(http.HttpRequest), server.id) \
-                        .AndRaise(self.exceptions.nova)
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        self.mox.StubOutWithMock(console, 'get_console')
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+            .AndReturn(server)
+        console.get_console(IgnoreArg(), 'VNC', server) \
+            .AndRaise(exceptions.NotAvailable('console'))
 
         self.mox.ReplayAll()
 
@@ -845,30 +852,35 @@ class InstanceTests(test.TestCase):
     def test_instance_spice(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/spiceserver'
+        CONSOLE_TITLE = '&title=%s(%s)' % (server.name, server.id)
+        CONSOLE_URL = CONSOLE_OUTPUT + CONSOLE_TITLE
 
         console_mock = self.mox.CreateMock(api.nova.SPICEConsole)
         console_mock.url = CONSOLE_OUTPUT
 
-        self.mox.StubOutWithMock(api.nova, 'server_spice_console')
+        self.mox.StubOutWithMock(console, 'get_console')
         self.mox.StubOutWithMock(api.nova, 'server_get')
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.server_spice_console(IgnoreArg(), server.id) \
-            .AndReturn(console_mock)
+        console.get_console(IgnoreArg(), 'SPICE', server) \
+            .AndReturn(CONSOLE_URL)
+
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:instances:spice',
                       args=[server.id])
         res = self.client.get(url)
-        redirect = CONSOLE_OUTPUT + '&title=%s(1)' % server.name
+        redirect = CONSOLE_URL
         self.assertRedirectsNoFollow(res, redirect)
 
-    @test.create_stubs({api.nova: ('server_spice_console',)})
     def test_instance_spice_exception(self):
         server = self.servers.first()
-
-        api.nova.server_spice_console(IsA(http.HttpRequest), server.id) \
-                        .AndRaise(self.exceptions.nova)
+        self.mox.StubOutWithMock(console, 'get_console')
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+            .AndReturn(server)
+        console.get_console(IgnoreArg(), 'SPICE', server) \
+            .AndRaise(exceptions.NotAvailable('console'))
 
         self.mox.ReplayAll()
 
@@ -881,30 +893,36 @@ class InstanceTests(test.TestCase):
     def test_instance_rdp(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/rdpserver'
+        CONSOLE_TITLE = '&title=%s(%s)' % (server.name, server.id)
+        CONSOLE_URL = CONSOLE_OUTPUT + CONSOLE_TITLE
 
         console_mock = self.mox.CreateMock(api.nova.RDPConsole)
         console_mock.url = CONSOLE_OUTPUT
 
-        self.mox.StubOutWithMock(api.nova, 'server_rdp_console')
+        self.mox.StubOutWithMock(console, 'get_console')
         self.mox.StubOutWithMock(api.nova, 'server_get')
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
-        api.nova.server_rdp_console(IgnoreArg(), server.id) \
-            .AndReturn(console_mock)
+        console.get_console(IgnoreArg(), 'RDP', server) \
+            .AndReturn(CONSOLE_URL)
+
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:instances:rdp',
                       args=[server.id])
         res = self.client.get(url)
-        redirect = CONSOLE_OUTPUT + '&title=%s(1)' % server.name
+        redirect = CONSOLE_URL
         self.assertRedirectsNoFollow(res, redirect)
 
-    @test.create_stubs({api.nova: ('server_rdp_console',)})
     def test_instance_rdp_exception(self):
         server = self.servers.first()
 
-        api.nova.server_rdp_console(IsA(http.HttpRequest), server.id) \
-                        .AndRaise(self.exceptions.nova)
+        self.mox.StubOutWithMock(console, 'get_console')
+        self.mox.StubOutWithMock(api.nova, 'server_get')
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+            .AndReturn(server)
+        console.get_console(IgnoreArg(), 'RDP', server) \
+            .AndRaise(exceptions.NotAvailable('console'))
 
         self.mox.ReplayAll()
 
@@ -2913,3 +2931,92 @@ class InstanceAjaxTests(test.TestCase):
         # a different availability zone.', u'']]
         self.assertEqual(messages[0][0], 'error')
         self.assertTrue(messages[0][1].startswith('Failed'))
+
+
+class ConsoleManagerTests(test.TestCase):
+
+    def setup_consoles(self):
+        #need to refresh with mocks or will fail since mox do not detect
+        #the api_call() as mocked
+        console.CONSOLES = SortedDict([
+            ('VNC', api.nova.server_vnc_console),
+            ('SPICE', api.nova.server_spice_console),
+            ('RDP', api.nova.server_rdp_console)])
+
+    def test_get_console_vnc(self):
+        server = self.servers.first()
+        console_mock = self.mox.CreateMock(api.nova.VNCConsole)
+        console_mock.url = '/VNC'
+
+        self.mox.StubOutWithMock(api.nova, 'server_vnc_console')
+        api.nova.server_vnc_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
+
+        self.mox.ReplayAll()
+        self.setup_consoles()
+
+        url = '/VNC&title=%s(%s)' % (server.name, server.id)
+        data = console.get_console(self.request, 'VNC', server)
+        self.assertEqual(data, url)
+
+    def test_get_console_spice(self):
+        server = self.servers.first()
+        console_mock = self.mox.CreateMock(api.nova.SPICEConsole)
+        console_mock.url = '/SPICE'
+
+        self.mox.StubOutWithMock(api.nova, 'server_spice_console')
+        api.nova.server_spice_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
+
+        self.mox.ReplayAll()
+        self.setup_consoles()
+
+        url = '/SPICE&title=%s(%s)' % (server.name, server.id)
+        data = console.get_console(self.request, 'SPICE',
+                                                  server)
+        self.assertEqual(data, url)
+
+    def test_get_console_rdp(self):
+        server = self.servers.first()
+        console_mock = self.mox.CreateMock(api.nova.RDPConsole)
+        console_mock.url = '/RDP'
+
+        self.mox.StubOutWithMock(api.nova, 'server_rdp_console')
+        api.nova.server_rdp_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
+
+        self.mox.ReplayAll()
+        self.setup_consoles()
+
+        url = '/RDP&title=%s(%s)' % (server.name, server.id)
+        data = console.get_console(self.request, 'RDP', server)
+        self.assertEqual(data, url)
+
+    def test_get_console_auto_iterate_available(self):
+        server = self.servers.first()
+
+        console_mock = self.mox.CreateMock(api.nova.RDPConsole)
+        console_mock.url = '/RDP'
+
+        self.mox.StubOutWithMock(api.nova, 'server_vnc_console')
+        api.nova.server_vnc_console(IgnoreArg(), server.id) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.StubOutWithMock(api.nova, 'server_spice_console')
+        api.nova.server_spice_console(IgnoreArg(), server.id) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.StubOutWithMock(api.nova, 'server_rdp_console')
+        api.nova.server_rdp_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
+
+        self.mox.ReplayAll()
+        self.setup_consoles()
+
+        url = '/RDP&title=%s(%s)' % (server.name, server.id)
+        data = console.get_console(self.request, 'AUTO', server)
+        self.assertEqual(data, url)
+
+    def test_invalid_console_type_raise_value_error(self):
+        self.assertRaises(exceptions.NotAvailable,
+                          console.get_console, None, 'FAKE', None)

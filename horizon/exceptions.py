@@ -169,6 +169,11 @@ class AlreadyExists(HorizonException):
         return _(self.msg) % self.attrs
 
 
+class NotAvailable(HorizonException):
+    """Exception to be raised when something is not available."""
+    pass
+
+
 class WorkflowError(HorizonException):
     """Exception to be raised when something goes wrong in a workflow."""
     pass
@@ -191,7 +196,7 @@ class HandledException(HorizonException):
 
 UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
 NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
-RECOVERABLE = (AlreadyExists, Conflict,)
+RECOVERABLE = (AlreadyExists, Conflict, NotAvailable)
 RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
 

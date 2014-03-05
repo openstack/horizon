@@ -19,6 +19,7 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.instances import console
 
 
 class OverviewTab(tabs.Tab):
@@ -58,63 +59,12 @@ class ConsoleTab(tabs.Tab):
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
-        # Currently prefer VNC over SPICE, since noVNC has had much more
-        # testing than spice-html5
         console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
-        if console_type == 'AUTO':
-            try:
-                console = api.nova.server_vnc_console(request, instance.id)
-                console_url = "%s&title=%s(%s)" % (
-                    console.url,
-                    getattr(instance, "name", ""),
-                    instance.id)
-            except Exception:
-                try:
-                    console = api.nova.server_spice_console(request,
-                                                            instance.id)
-                    console_url = "%s&title=%s(%s)" % (
-                        console.url,
-                        getattr(instance, "name", ""),
-                        instance.id)
-                except Exception:
-                    try:
-                        console = api.nova.server_rdp_console(request,
-                                                              instance.id)
-                        console_url = "%s&title=%s(%s)" % (
-                            console.url,
-                            getattr(instance, "name", ""),
-                            instance.id)
-                    except Exception:
-                        console_url = None
-        elif console_type == 'VNC':
-            try:
-                console = api.nova.server_vnc_console(request, instance.id)
-                console_url = "%s&title=%s(%s)" % (
-                    console.url,
-                    getattr(instance, "name", ""),
-                    instance.id)
-            except Exception:
-                console_url = None
-        elif console_type == 'SPICE':
-            try:
-                console = api.nova.server_spice_console(request, instance.id)
-                console_url = "%s&title=%s(%s)" % (
-                    console.url,
-                    getattr(instance, "name", ""),
-                    instance.id)
-            except Exception:
-                console_url = None
-        elif console_type == 'RDP':
-            try:
-                console = api.nova.server_rdp_console(request, instance.id)
-                console_url = "%s&title=%s(%s)" % (
-                    console.url,
-                    getattr(instance, "name", ""),
-                    instance.id)
-            except Exception:
-                console_url = None
-        else:
-            console_url = None
+        console_url = None
+        try:
+            console_url = console.get_console(request, console_type, instance)
+        except exceptions.NotAvailable:
+            pass
 
         return {'console_url': console_url, 'instance_id': instance.id}
 
