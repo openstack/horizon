@@ -1,5 +1,3 @@
-# vim: tabstop=4 shiftwidth=4 softtabstop=4
-
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -24,6 +22,7 @@ from openstack_dashboard.api import keystone
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
 
+from openstack_dashboard.dashboards.admin.info import constants
 from openstack_dashboard.dashboards.admin.info import tables
 
 
@@ -31,7 +30,7 @@ class ServicesTab(tabs.TableTab):
     table_classes = (tables.ServicesTable,)
     name = _("Services")
     slug = "services"
-    template_name = ("horizon/common/_detail_table.html")
+    template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def get_services_data(self):
         request = self.tab_group.request
@@ -43,50 +42,16 @@ class ServicesTab(tabs.TableTab):
         return services
 
 
-class ZonesTab(tabs.TableTab):
-    table_classes = (tables.ZonesTable,)
-    name = _("Availability Zones")
-    slug = "zones"
-    template_name = ("horizon/common/_detail_table.html")
-
-    def get_zones_data(self):
-        request = self.tab_group.request
-        zones = []
-        try:
-            zones = nova.availability_zone_list(request, detailed=True)
-        except Exception:
-            msg = _('Unable to retrieve availability zone data.')
-            exceptions.handle(request, msg)
-        return zones
-
-
-class HostAggregatesTab(tabs.TableTab):
-    table_classes = (tables.AggregatesTable,)
-    name = _("Host Aggregates")
-    slug = "aggregates"
-    template_name = ("horizon/common/_detail_table.html")
-
-    def get_aggregates_data(self):
-        aggregates = []
-        try:
-            aggregates = nova.aggregate_list(self.tab_group.request)
-        except Exception:
-            exceptions.handle(self.request,
-                _('Unable to retrieve host aggregates list.'))
-        return aggregates
-
-
 class NovaServicesTab(tabs.TableTab):
     table_classes = (tables.NovaServicesTable,)
     name = _("Compute Services")
     slug = "nova_services"
-    template_name = ("horizon/common/_detail_table.html")
+    template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def get_nova_services_data(self):
         try:
             services = nova.service_list(self.tab_group.request)
         except Exception:
-            services = []
             msg = _('Unable to get nova services list.')
             exceptions.check_message(["Connection", "refused"], msg)
             raise
@@ -98,7 +63,7 @@ class NetworkAgentsTab(tabs.TableTab):
     table_classes = (tables.NetworkAgentsTable,)
     name = _("Network Agents")
     slug = "network_agents"
-    template_name = ("horizon/common/_detail_table.html")
+    template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def allowed(self, request):
         return base.is_service_enabled(request, 'network')
@@ -107,7 +72,6 @@ class NetworkAgentsTab(tabs.TableTab):
         try:
             agents = neutron.agent_list(self.tab_group.request)
         except Exception:
-            agents = []
             msg = _('Unable to get network agents list.')
             exceptions.check_message(["Connection", "refused"], msg)
             raise
@@ -118,6 +82,5 @@ class NetworkAgentsTab(tabs.TableTab):
 class SystemInfoTabs(tabs.TabGroup):
     slug = "system_info"
     tabs = (ServicesTab, NovaServicesTab,
-            ZonesTab, HostAggregatesTab,
             NetworkAgentsTab)
     sticky = True

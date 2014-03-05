@@ -1,9 +1,3 @@
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
-# Copyright 2012 Nebula, Inc.
-#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -16,12 +10,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon import tabs
+from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard.dashboards.admin.info import constants
-from openstack_dashboard.dashboards.admin.info import tabs as project_tabs
+import horizon
+
+from openstack_dashboard.dashboards.admin import dashboard
 
 
-class IndexView(tabs.TabbedTableView):
-    tab_group_class = project_tabs.SystemInfoTabs
-    template_name = constants.INFO_TEMPLATE_NAME
+class Aggregates(horizon.Panel):
+    name = _("Host Aggregates")
+    slug = 'aggregates'
+
+
+dashboard.Admin.register(Aggregates)

@@ -26,17 +26,11 @@ INDEX_URL = reverse('horizon:admin:info:index')
 
 class SystemInfoViewTests(test.BaseAdminViewTests):
 
-    @test.create_stubs({api.nova: ('service_list',
-                                   'availability_zone_list',
-                                   'aggregate_list'),
+    @test.create_stubs({api.nova: ('service_list',),
                         api.neutron: ('agent_list',)})
     def test_index(self):
         services = self.services.list()
         api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
-        api.nova.availability_zone_list(IsA(http.HttpRequest), detailed=True) \
-            .AndReturn(self.availability_zones.list())
-        api.nova.aggregate_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.aggregates.list())
         agents = self.agents.list()
         api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn(agents)
 
@@ -58,14 +52,6 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                                   '<Service: metering>',
                                   '<Service: orchestration>',
                                   '<Service: database>'])
-
-        zones_tab = res.context['tab_group'].get_tab('zones')
-        self.assertQuerysetEqual(zones_tab._tables['zones'].data,
-                                 ['<AvailabilityZone: nova>'])
-
-        aggregates_tab = res.context['tab_group'].get_tab('aggregates')
-        self.assertQuerysetEqual(aggregates_tab._tables['aggregates'].data,
-                                 ['<Aggregate: 1>', '<Aggregate: 2>'])
 
         network_agents_tab = res.context['tab_group'].get_tab('network_agents')
         self.assertQuerysetEqual(
