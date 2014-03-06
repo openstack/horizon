@@ -42,8 +42,9 @@ from openstack_dashboard.usage import quotas
 
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label=_("Volume Name"))
-    description = forms.CharField(widget=forms.Textarea,
-            label=_("Description"), required=False)
+    description = forms.CharField(widget=forms.Textarea(
+        attrs={'class': 'modal-body-fixed-width'}),
+        label=_("Description"), required=False)
     type = forms.ChoiceField(label=_("Type"),
                              required=False)
     size = forms.IntegerField(min_value=1, label=_("Size (GB)"))

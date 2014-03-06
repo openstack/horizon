@@ -40,9 +40,10 @@ IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
 
 class CreateImageForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label=_("Name"), required=True)
-    description = forms.CharField(widget=forms.widgets.Textarea(),
-                                  label=_("Description"),
-                                  required=False)
+    description = forms.CharField(widget=forms.widgets.Textarea(
+        attrs={'class': 'modal-body-fixed-width'}),
+        label=_("Description"),
+        required=False)
 
     source_type = forms.ChoiceField(
         label=_('Image Source'),
