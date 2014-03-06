@@ -50,9 +50,7 @@ def d3_data(request, stack_id=''):
             'image_y': -30,
             'text_x': 40,
             'text_y': ".35em",
-            'in_progress': True if (mappings.get_resource_status(
-                                    stack.stack_status) ==
-                                   'IN_PROGRESS') else False,
+            'in_progress': (stack.status == 'IN_PROGRESS'),
             'info_box': sro.stack_info(stack, stack_image)
         }
         d3_data['stack'] = stack_node
