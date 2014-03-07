@@ -72,6 +72,11 @@ def get_aggregate_hosts(aggregate):
     return [host for host in aggregate.hosts]
 
 
+def get_metadata(aggregate):
+    return [' = '.join([key, val]) for key, val
+            in aggregate.metadata.iteritems()]
+
+
 def get_available(zone):
     return zone.zoneState['available']
 
@@ -94,6 +99,10 @@ class HostAggregatesTable(tables.DataTable):
                           verbose_name=_("Hosts"),
                           wrap_list=True,
                           filters=(filters.unordered_list,))
+    metadata = tables.Column(get_metadata,
+                             verbose_name=_("Metadata"),
+                             wrap_list=True,
+                             filters=(filters.unordered_list,))
 
     class Meta:
         name = "host_aggregates"
