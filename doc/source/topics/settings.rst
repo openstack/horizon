@@ -481,7 +481,7 @@ A dictionary of exception classes to be added to ``HORIZON['exceptions']``.
 ``ADD_INSTALLED_APPS``
 ----------------------
 
-A list of applications to be added to ``INSTALLED_APPS``.
+A list of applications to be prepended to ``INSTALLED_APPS``.
 
 ``DISABLED``
 ------------
