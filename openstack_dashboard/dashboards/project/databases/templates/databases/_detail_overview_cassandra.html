@@ -1,0 +1,26 @@
+{% extends "project/databases/_detail_overview.html" %}
+{% load i18n sizeformat %}
+
+{% block connection_info %}
+    <div class="addresses row-fluid detail">
+    <h4>{% trans "Connection Info" %}</h4>
+    <hr class="header_rule">
+    <dl>
+        {% with instance.host as host %}
+            <dt>{% trans "Host" %}</dt>
+            <dd>
+            {% if not host %}
+                {% trans "Not Assigned" %}
+            </dd>
+            {% else %}
+                {{ host }}
+            </dd>
+            <dt>{% trans "Database Port" %}</dt>
+            <dd>9160</dd>
+            <dt>{% trans "Connection Examples" %}</dt>
+            <dd>cqlsh {{ host }} 9160</dd>
+            {% endif %} <!-- ends else block -->
+        {% endwith %}
+    </dl>
+</div>
+{% endblock %}

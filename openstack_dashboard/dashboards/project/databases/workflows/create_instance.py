@@ -34,10 +34,18 @@ class SetInstanceDetailsAction(workflows.Action):
                                 min_value=0,
                                 initial=1,
                                 help_text=_("Size of the volume in GB."))
+    datastore = forms.ChoiceField(label=_("Datastore"),
+                                  help_text=_("Type and version of datastore."))
 
     class Meta:
         name = _("Details")
         help_text_template = ("project/databases/_launch_details_help.html")
+
+    def clean(self):
+        if self.data.get("datastore", None) == "select_datastore_type_version":
+            msg = _("You must select a datastore type and version.")
+            self._errors["datastore"] = self.error_class([msg])
+        return self.cleaned_data
 
     @memoized.memoized_method
     def flavors(self, request):
@@ -51,6 +59,52 @@ class SetInstanceDetailsAction(workflows.Action):
         flavor_list = [(f.id, "%s" % f.name) for f in self.flavors(request)]
         return sorted(flavor_list)
 
+    @memoized.memoized_method
+    def datastores(self, request):
+        try:
+            return api.trove.datastore_list(request)
+        except Exception:
+            LOG.exception("Exception while obtaining datastores list")
+            self._datastores = []
+
+    @memoized.memoized_method
+    def datastore_versions(self, request, datastore):
+        try:
+            return api.trove.datastore_version_list(request, datastore)
+        except Exception:
+            LOG.exception("Exception while obtaining datastore version list")
+            self._datastore_versions = []
+
+    def populate_datastore_choices(self, request, context):
+        choices = ()
+        set_initial = False
+        datastores = self.datastores(request)
+        if datastores is not None:
+            num_datastores_with_one_version = 0
+            for ds in datastores:
+                versions = self.datastore_versions(request, ds.name)
+                if not set_initial:
+                    if len(versions) >= 2:
+                        set_initial = True
+                    elif len(versions) == 1:
+                        num_datastores_with_one_version = num_datastores_with_one_version + 1
+                        if num_datastores_with_one_version > 1:
+                            set_initial = True
+                if len(versions) > 0:
+                    # only add to choices if datastore has at least one version
+                    version_choices = ()
+                    for v in versions:
+                        version_choices = (version_choices +
+                                           ((ds.name + ',' + v.name, v.name),))
+                    datastore_choices = (ds.name, version_choices)
+                    choices = choices + (datastore_choices,)
+            if set_initial:
+                # prepend choice to force user to choose
+                initial = (('select_datastore_type_version',
+                            _('Select datastore type and version')))
+                choices = (initial,) + choices
+        return choices
+
 
 TROVE_ADD_USER_PERMS = getattr(settings, 'TROVE_ADD_USER_PERMS', [])
 TROVE_ADD_DATABASE_PERMS = getattr(settings, 'TROVE_ADD_DATABASE_PERMS', [])
@@ -59,7 +113,7 @@ TROVE_ADD_PERMS = TROVE_ADD_USER_PERMS + TROVE_ADD_DATABASE_PERMS
 
 class SetInstanceDetails(workflows.Step):
     action_class = SetInstanceDetailsAction
-    contributes = ("name", "volume", "flavor")
+    contributes = ("name", "volume", "flavor", "datastore")
 
 
 class SetNetworkAction(workflows.Action):
@@ -263,16 +317,23 @@ class LaunchInstance(workflows.Workflow):
 
     def handle(self, request, context):
         try:
+            datastore = self.context['datastore'].split(',')[0]
+            datastore_version = self.context['datastore'].split(',')[1]
             LOG.info("Launching database instance with parameters "
-                     "{name=%s, volume=%s, flavor=%s, dbs=%s, users=%s, "
+                     "{name=%s, volume=%s, flavor=%s, "
+                     "datastore=%s, datastore_version=%s, "
+                     "dbs=%s, users=%s, "
                      "backups=%s, nics=%s}",
                      context['name'], context['volume'], context['flavor'],
+                     datastore, datastore_version,
                      self._get_databases(context), self._get_users(context),
                      self._get_backup(context), self._get_nics(context))
             api.trove.instance_create(request,
                                       context['name'],
                                       context['volume'],
                                       context['flavor'],
+                                      datastore=datastore,
+                                      datastore_version=datastore_version,
                                       databases=self._get_databases(context),
                                       users=self._get_users(context),
                                       restore_point=self._get_backup(context),
