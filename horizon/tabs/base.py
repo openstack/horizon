@@ -93,6 +93,9 @@ class TabGroup(html.HTMLElement):
         if not hasattr(self, "tabs"):
             raise NotImplementedError('%s must declare a "tabs" attribute.'
                                       % self.__class__)
+        if not self.slug:
+            raise NotImplementedError('%s must declare a "slug" attribute.'
+                                      % self.__class__)
         self.request = request
         self.kwargs = kwargs
         self._data = None
