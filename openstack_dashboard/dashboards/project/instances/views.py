@@ -226,6 +226,22 @@ class RebuildView(forms.ModalFormView):
         return {'instance_id': self.kwargs['instance_id']}
 
 
+class DecryptPasswordView(forms.ModalFormView):
+    form_class = project_forms.DecryptPasswordInstanceForm
+    template_name = 'project/instances/decryptpassword.html'
+    success_url = reverse_lazy('horizon:project:instances:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(DecryptPasswordView, self).get_context_data(**kwargs)
+        context['instance_id'] = self.kwargs['instance_id']
+        context['keypair_name'] = self.kwargs['keypair_name']
+        return context
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs['instance_id'],
+                'keypair_name': self.kwargs['keypair_name']}
+
+
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.InstanceDetailTabs
     template_name = 'project/instances/detail.html'

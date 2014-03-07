@@ -100,3 +100,58 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
             exceptions.handle(request, _("Unable to rebuild instance."),
                               redirect=redirect)
         return True
+
+
+class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
+    instance_id = forms.CharField(widget=forms.HiddenInput())
+    _keypair_name_label = _("Key Pair Name")
+    _keypair_name_help = _("The Key Pair name that "
+                           "was associated with the instance")
+    _attrs = {'readonly': 'readonly'}
+    keypair_name = forms.CharField(widget=forms.widgets.TextInput(_attrs),
+                                   label=_keypair_name_label,
+                                   help_text=_keypair_name_help,
+                                   required=False)
+    _encrypted_pwd_help = _("The instance password encrypted "
+                            "with your public key.")
+    encrypted_password = forms.CharField(widget=forms.widgets.Textarea(_attrs),
+                                         label=_("Encrypted Password"),
+                                         help_text=_encrypted_pwd_help,
+                                         required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(DecryptPasswordInstanceForm, self).__init__(request,
+                                                          *args,
+                                                          **kwargs)
+        instance_id = kwargs.get('initial', {}).get('instance_id')
+        self.fields['instance_id'].initial = instance_id
+        keypair_name = kwargs.get('initial', {}).get('keypair_name')
+        self.fields['keypair_name'].initial = keypair_name
+        try:
+            result = api.nova.get_password(request, instance_id)
+            if not result:
+                _unavailable = _("Instance Password is not set"
+                                 " or is not yet available")
+                self.fields['encrypted_password'].initial = _unavailable
+            else:
+                self.fields['encrypted_password'].initial = result
+                self.fields['private_key_file'] = forms.FileField(
+                    label=_('Private Key File'),
+                    widget=forms.FileInput(),
+                    required=True)
+                self.fields['private_key'] = forms.CharField(
+                    widget=forms.widgets.Textarea(),
+                    label=_("OR Copy/Paste your Private Key"),
+                    required=True)
+                _attrs = {'readonly': 'readonly'}
+                self.fields['decrypted_password'] = forms.CharField(
+                    widget=forms.widgets.TextInput(_attrs),
+                    label=_("Password:"),
+                    required=False)
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            _error = _("Unable to retrieve instance password.")
+            exceptions.handle(request, _error, redirect=redirect)
+
+    def handle(self, request, data):
+        return True

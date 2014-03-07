@@ -439,6 +439,29 @@ class RebuildInstance(tables.LinkAction):
         return urlresolvers.reverse(self.url, args=[instance_id])
 
 
+class DecryptInstancePassword(tables.LinkAction):
+    name = "decryptpassword"
+    verbose_name = _("Retrieve Password")
+    classes = ("btn-decrypt", "ajax-modal")
+    url = "horizon:project:instances:decryptpassword"
+
+    def allowed(self, request, instance):
+        enable = getattr(settings,
+                         'OPENSTACK_ENABLE_PASSWORD_RETRIEVE',
+                         False)
+        return (enable
+                and (instance.status in ACTIVE_STATES
+                     or instance.status == 'SHUTOFF')
+                and not is_deleting(instance)
+                and get_keyname(instance) is not None)
+
+    def get_link_url(self, datum):
+        instance_id = self.table.get_object_id(datum)
+        keypair_name = get_keyname(datum)
+        return urlresolvers.reverse(self.url, args=[instance_id,
+                                                    keypair_name])
+
+
 class AssociateIP(tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate Floating IP")
@@ -741,7 +764,7 @@ class InstancesTable(tables.DataTable):
         row_actions = (StartInstance, ConfirmResize, RevertResize,
                        CreateSnapshot, SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, EditInstance,
-                       EditInstanceSecurityGroups, ConsoleLink, LogLink,
-                       TogglePause, ToggleSuspend, ResizeLink,
-                       SoftRebootInstance, RebootInstance, StopInstance,
-                       RebuildInstance, TerminateInstance)
+                       DecryptInstancePassword, EditInstanceSecurityGroups,
+                       ConsoleLink, LogLink, TogglePause, ToggleSuspend,
+                       ResizeLink, SoftRebootInstance, RebootInstance,
+                       StopInstance, RebuildInstance, TerminateInstance)

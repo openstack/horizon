@@ -216,6 +216,15 @@ icon names are based on the default icon theme provided by Bootstrap.
 
 Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', 'icon': 'icon-ok'}]``
 
+``OPENSTACK_ENABLE_PASSWORD_RETRIEVE``
+---------------------------
+
+Default: ``"False"``
+
+When set, enables the instance action "Retrieve password" allowing password retrieval
+from metadata service.
+
+
 ``OPENSTACK_ENDPOINT_TYPE``
 ---------------------------
 
