@@ -107,13 +107,18 @@ class CreateStackView(forms.ModalFormView):
 
     def get_initial(self):
         initial = {}
-        if 'template_data' in self.kwargs:
-            initial['template_data'] = self.kwargs['template_data']
-        if 'template_url' in self.kwargs:
-            initial['template_url'] = self.kwargs['template_url']
+        self.load_kwargs(initial)
         if 'parameters' in self.kwargs:
             initial['parameters'] = json.dumps(self.kwargs['parameters'])
         return initial
+
+    def load_kwargs(self, initial):
+        # load the "passed through" data from template form
+        for prefix in ('template', 'environment'):
+            for suffix in ('_data', '_url'):
+                key = prefix + suffix
+                if key in self.kwargs:
+                    initial[key] = self.kwargs[key]
 
     def get_form_kwargs(self):
         kwargs = super(CreateStackView, self).get_form_kwargs()
