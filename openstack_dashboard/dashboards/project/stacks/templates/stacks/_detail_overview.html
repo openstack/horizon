@@ -36,9 +36,8 @@
     <dt>{{ output.output_key }}</dt>
     <dd>{{ output.description }}</dd>
     <dd>
-    {% autoescape off %}
     {{ output.output_value|stack_output }}
-    {% endautoescape %}</dd>
+    </dd>
     {% endfor %}
   </dl>
 </div>

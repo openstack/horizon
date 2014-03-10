@@ -16,6 +16,7 @@ import json
 
 from django.core.urlresolvers import reverse  # noqa
 from django import http
+from django.utils import html
 
 from mox import IsA  # noqa
 
@@ -77,12 +78,16 @@ class MappingsTests(test.TestCase):
         self.assertEqual(u'foo', mappings.stack_output('foo'))
         self.assertEqual(u'', mappings.stack_output(None))
 
-        self.assertEqual(
-            u'<pre>[\n  "one", \n  "two", \n  "three"\n]</pre>',
-            mappings.stack_output(['one', 'two', 'three']))
-        self.assertEqual(
-            u'<pre>{\n  "foo": "bar"\n}</pre>',
-            mappings.stack_output({'foo': 'bar'}))
+        outputs = ['one', 'two', 'three']
+        expected_text = """[\n  "one", \n  "two", \n  "three"\n]"""
+
+        self.assertEqual(u'<pre>%s</pre>' % html.escape(expected_text),
+                         mappings.stack_output(outputs))
+
+        outputs = {'foo': 'bar'}
+        expected_text = """{\n  "foo": "bar"\n}"""
+        self.assertEqual(u'<pre>%s</pre>' % html.escape(expected_text),
+                         mappings.stack_output(outputs))
 
         self.assertEqual(
             u'<a href="http://www.example.com/foo" target="_blank">'
