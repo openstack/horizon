@@ -19,7 +19,12 @@
         <span class="help-inline">{{ error }}</span>
       {% endfor %}
     {% endif %}
-    <span class="help-block">{{ field.help_text }}</span>
+    {% comment %}
+    Escape help_text a second time here, to avoid an XSS issue in bootstrap.js.
+    This can most likely be removed once we upgrade bootstrap.js past 2.0.2.
+    Note: the spaces are necessary here.
+    {% endcomment %}
+    <span class="help-block">{% filter force_escape %} {{ field.help_text }} {% endfilter %} </span>
     <div class="input">
       {{ field }}
     </div>

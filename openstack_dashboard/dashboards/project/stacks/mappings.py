@@ -18,6 +18,8 @@ import re
 
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import register  # noqa
+from django.utils import html
+from django.utils import safestring
 import six.moves.urllib.parse as urlparse
 
 from openstack_dashboard.api import swift
@@ -76,11 +78,15 @@ def stack_output(output):
     if not output:
         return u''
     if isinstance(output, dict) or isinstance(output, list):
-        return u'<pre>%s</pre>' % json.dumps(output, indent=2)
+        json_string = json.dumps(output, indent=2)
+        safe_output = u'<pre>%s</pre>' % html.escape(json_string)
+        return safestring.mark_safe(safe_output)
     if isinstance(output, basestring):
         parts = urlparse.urlsplit(output)
         if parts.netloc and parts.scheme in ('http', 'https'):
-            return u'<a href="%s" target="_blank">%s</a>' % (output, output)
+            url = html.escape(output)
+            safe_link = u'<a href="%s" target="_blank">%s</a>' % (url, url)
+            return safestring.mark_safe(safe_link)
     return unicode(output)
 
 
