@@ -63,8 +63,9 @@ class TestData(object):
     You can load as little or as much data as you like as long as the loaders
     don't conflict with each other.
 
-    See the :class:`~horizon.tests.test_data.utils.TestDataContainer` class
-    for a list of available methods.
+    See the
+    :class:`~openstack_dashboard.test.test_data.utils.TestDataContainer`
+    class for a list of available methods.
     """
     def __init__(self, *args):
         for data_func in args:
