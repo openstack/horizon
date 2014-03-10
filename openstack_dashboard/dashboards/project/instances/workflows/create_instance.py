@@ -79,7 +79,8 @@ class SetInstanceDetailsAction(workflows.Action):
     availability_zone = forms.ChoiceField(label=_("Availability Zone"),
                                           required=False)
 
-    name = forms.CharField(max_length=80, label=_("Instance Name"))
+    name = forms.CharField(label=_("Instance Name"),
+                           max_length=255)
 
     flavor = forms.ChoiceField(label=_("Flavor"),
                                help_text=_("Size of image to launch."))

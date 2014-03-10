@@ -105,7 +105,8 @@ class UpdateInstanceSecurityGroups(workflows.UpdateMembersStep):
 
 class UpdateInstanceInfoAction(workflows.Action):
     name = forms.CharField(required=True,
-                           label=_("Name"))
+                           label=_("Name"),
+                           max_length=255)
 
     def handle(self, request, data):
         try:
