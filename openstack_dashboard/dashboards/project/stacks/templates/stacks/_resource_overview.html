@@ -11,7 +11,11 @@
   </dl>
   <dl>
     <dt>{% trans "Resource ID" %}</dt>
-    <dd>{{ resource.physical_resource_id }}</dd>
+    <dd>
+      <a href="{{ resource_url }}">
+          {{ resource.physical_resource_id }}
+      </a>
+    </dd>
   </dl>
   <dl>
     <dt>{% trans "Stack Resource Type" %}</dt>
