@@ -40,7 +40,7 @@
 
 
 <script>
-  if (typeof $ !== 'undefined') {
+  if (typeof horizon.membership !== 'undefined') {
     horizon.membership.workflow_init($(".workflow"), "{{ step.slug }}", "{{ step.get_id }}");
   } else {
     addHorizonLoadEvent(function() {
