@@ -251,7 +251,7 @@ Default::
 
     {
         'can_set_mount_point': False,
-        'can_set_password': True
+        'can_set_password': False
     }
 
 A dictionary containing settings which can be used to identify the
@@ -262,7 +262,7 @@ to instances (other Hypervisors currently do not). Setting
 ``can_set_mount_point`` to ``True`` will add the option to set the mount point
 from the UI.
 
-Setting ``can_set_password`` to ``False`` will remove the option to set
+Setting ``can_set_password`` to ``True`` will enable the option to set
 an administrator password when launching or rebuilding an instance.
 
 
