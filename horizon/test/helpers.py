@@ -186,7 +186,7 @@ class JasmineTests(SeleniumTestCase):
     through Selenium
 
     To run a jasmine test suite create a class which extends JasmineTests in
-    the :file:`horizon/test/jasmine/jasmine.py` and define two classes
+    the :file:`horizon/test/jasmine/jasmine_tests.py` and define two class
     attributes
 
     .. attribute:: sources
