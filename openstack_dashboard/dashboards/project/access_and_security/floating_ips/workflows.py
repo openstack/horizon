@@ -61,6 +61,7 @@ class AssociateIPAction(workflows.Action):
             self.initial['instance_id'] = target_id
 
     def populate_ip_id_choices(self, request, context):
+        ips = []
         try:
             ips = api.network.tenant_floating_ip_list(self.request)
         except Exception:
@@ -77,6 +78,7 @@ class AssociateIPAction(workflows.Action):
         return options
 
     def populate_instance_id_choices(self, request, context):
+        targets = []
         try:
             targets = api.network.floating_ip_target_list(self.request)
         except Exception:
