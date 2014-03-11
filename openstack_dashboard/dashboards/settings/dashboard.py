@@ -27,7 +27,8 @@ class Settings(horizon.Dashboard):
     default_panel = 'user'
 
     def nav(self, context):
-        if context['request'].horizon.get('dashboard', None).slug == self.slug:
+        dash = context['request'].horizon.get('dashboard', None)
+        if dash and dash.slug == self.slug:
             return True
         return False
 
