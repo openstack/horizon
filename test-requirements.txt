@@ -12,3 +12,5 @@ oslosphinx
 selenium
 sphinx>=1.1.2,<1.2
 testtools>=0.9.34
+# This also needs xvfb library installed on your OS
+xvfbwrapper>=0.1.3

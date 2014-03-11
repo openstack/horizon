@@ -32,6 +32,7 @@ from django import test as django_test
 from django.test.client import RequestFactory  # noqa
 from django.utils.encoding import force_unicode
 from django.utils import unittest
+import xvfbwrapper
 
 LOG = logging.getLogger(__name__)
 
@@ -169,6 +170,10 @@ class SeleniumTestCase(django_test.LiveServerTestCase):
         socket.setdefaulttimeout(60)
         if os.environ.get('WITH_SELENIUM', False):
             time.sleep(1)
+             # Start a virtual display server for running the tests headless.
+            if os.environ.get('SELENIUM_HEADLESS', False):
+                cls.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
+                cls.vdisplay.start()
             cls.selenium = WebDriver()
         super(SeleniumTestCase, cls).setUpClass()
 
@@ -177,6 +182,8 @@ class SeleniumTestCase(django_test.LiveServerTestCase):
         if os.environ.get('WITH_SELENIUM', False):
             cls.selenium.quit()
             time.sleep(1)
+        if hasattr(cls, 'vdisplay'):
+            cls.vdisplay.stop()
         super(SeleniumTestCase, cls).tearDownClass()
 
     def setUp(self):
