@@ -106,8 +106,9 @@ class TestCase(horizon_helpers.TestCase):
 
       * A full suite of test data through various attached objects and
         managers (e.g. ``self.servers``, ``self.user``, etc.). See the
-        docs for :class:`~horizon.tests.test_data.utils.TestData` for more
-        information.
+        docs for
+        :class:`~openstack_dashboard.test.test_data.utils.TestData`
+        for more information.
       * The ``mox`` mocking framework via ``self.mox``.
       * A set of request context data via ``self.context``.
       * A ``RequestFactory`` class which supports Django's ``contrib.messages``
