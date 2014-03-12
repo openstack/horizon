@@ -14,12 +14,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import datetime
+
 import iso8601
 
 from django.template.defaultfilters import register  # noqa
 from django.template.defaultfilters import timesince  # noqa
 from django.utils.safestring import mark_safe
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 
 @register.filter
@@ -36,6 +39,21 @@ def parse_isotime(timestr, default=None):
         return iso8601.parse_date(timestr)
     except (iso8601.ParseError, TypeError):
         return default or ''
+
+
+@register.filter
+def timesince_or_never(dt, default=None):
+    """Call the Django ``timesince`` filter, but return the string
+    *default* if *dt* is not a valid ``date`` or ``datetime`` object.
+    When *default* is None, "Never" is returned.
+    """
+    if default is None:
+        default = _("Never")
+
+    if isinstance(dt, datetime.date):
+        return timesince(dt)
+    else:
+        return default
 
 
 @register.filter
