@@ -153,6 +153,12 @@ class TabTests(test.TestCase):
         tg = Group(self.request)
         self.assertEqual(tg.active, tg.get_tabs()[0])
 
+        # active tab w/ non-empty garbage selected
+        # Note: this entry does not contain the '__' SEPARATOR string.
+        self.request.GET['tab'] = "<!--"
+        tg = Group(self.request)
+        self.assertEqual(tg.active, tg.get_tabs()[0])
+
     def test_tab_basics(self):
         tg = Group(self.request)
         tab_one = tg.get_tab("tab_one")
