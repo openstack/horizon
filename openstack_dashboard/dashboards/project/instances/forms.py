@@ -146,7 +146,7 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
                 _attrs = {'readonly': 'readonly'}
                 self.fields['decrypted_password'] = forms.CharField(
                     widget=forms.widgets.TextInput(_attrs),
-                    label=_("Password:"),
+                    label=_("Password"),
                     required=False)
         except Exception:
             redirect = reverse('horizon:project:instances:index')
