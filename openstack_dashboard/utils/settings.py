@@ -103,4 +103,4 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
     horizon_config['exceptions'].update(exceptions)
-    installed_apps.extend(apps)
+    installed_apps[:] = apps + installed_apps
