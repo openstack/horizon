@@ -218,6 +218,21 @@ $.tablesorter.addParser({
   type: 'numeric'
 });
 
+$.tablesorter.addParser({
+  id: "timestampSorter",
+  is: function() {
+    return false;
+  },
+  format: function(s) {
+    s = s.replace(/\-/g, " ").replace(/:/g, " ");
+    s = s.replace("T", " ").replace("Z", " ");
+    s = s.split(" ");
+    return $.tablesorter.formatInt(
+      new Date(s[0], s[1], s[2], s[3], s[4], s[5]).getTime());
+  },
+  type: "numeric"
+});
+
 horizon.datatables.disable_buttons = function() {
   $("table .table_actions").on("click", ".btn.disabled", function(event){
     event.preventDefault();
@@ -287,6 +302,8 @@ horizon.datatables.set_table_sorting = function (parent) {
           header_options[i] = {sorter: 'ipAddress'};
         } else if ($th.data('type') === 'timesince'){
           header_options[i] = {sorter: 'timesinceSorter'};
+        } else if ($th.data('type') === 'timestamp'){
+          header_options[i] = {sorter: 'timestampSorter'};
         }
       });
       $table.tablesorter({
