@@ -92,7 +92,7 @@ class ResizeInstance(workflows.Workflow):
     slug = "resize_instance"
     name = _("Resize Instance")
     finalize_button_name = _("Resize")
-    success_message = _('Preparing instance "%s" for resize.')
+    success_message = _('Scheduled resize of instance "%s".')
     failure_message = _('Unable to resize instance "%s".')
     success_url = "horizon:project:instances:index"
     default_steps = (SetFlavorChoice, create_instance.SetAdvanced)
