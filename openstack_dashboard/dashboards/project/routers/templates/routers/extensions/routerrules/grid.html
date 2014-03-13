@@ -94,7 +94,7 @@
                  <div class="modal-body">
                    <p>{% blocktrans %}A more specific rule affects a portion of this traffic so a rule cannot be automatically generated to control the behavior of the entire source/destination combination.{% endblocktrans %}</p>
                    <hr>
-                   <h4>Conflicting Rule:</h4>
+                   <h4>{% trans "Conflicting Rule" %}</h4>
                    <b>{% trans "Source" %}:</b> {{ dest.conflicting_rule.source }}<br>
                    <b>{% trans "Destination" %}:</b> {{ dest.conflicting_rule.destination }}<br>
                    <b>{% trans "Action" %}:</b> {{ dest.conflicting_rule.action }}<br>
@@ -118,7 +118,7 @@
       </tr>
     </tfoot>
   </table>
-  <h3>Description:</h3>
+  <h3>{% trans "Description" %}</h3>
   <p>{% blocktrans %}The color and icon of an intersection indicates whether or not traffic is permitted from the source (row) to the destination (column).
      Clicking the <i class="icon-random"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>
 
