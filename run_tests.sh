@@ -296,6 +296,10 @@ function run_tests {
     export SKIP_UNITTESTS=1
   fi
 
+  if [ $with_selenium -eq 0 -a $integration -eq 0 ]; then
+      testopts="$testopts --exclude-dir=openstack_dashboard/test/integration_tests"
+  fi
+
   if [ -z "$testargs" ]; then
      run_tests_all
   else
