@@ -125,3 +125,4 @@ class AvailabilityZonesTable(tables.DataTable):
         name = "availability_zones"
         verbose_name = _("Availability Zones")
         table_actions = (AggregateFilterAction,)
+        multi_select = False
