@@ -269,6 +269,27 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'server_get',)})
+    def test_instance_live_migrate_list_hypervisor_without_current(self):
+        server = self.servers.first()
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+                .AndReturn(server)
+        api.nova.hypervisor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.hypervisors.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:instances:live_migrate',
+                      args=[server.id])
+        res = self.client.get(url)
+        self.assertNotContains(
+            res, "<option value=\"devstack003\">devstack003</option>")
+        self.assertContains(
+            res, "<option value=\"devstack001\">devstack001</option>")
+        self.assertContains(
+            res, "<option value=\"devstack002\">devstack002</option>")
+
+    @test.create_stubs({api.nova: ('hypervisor_list',
                                    'server_get',
                                    'server_live_migrate',)})
     def test_instance_live_migrate_post(self):

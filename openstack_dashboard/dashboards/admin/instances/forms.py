@@ -53,7 +53,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
         host_list = [(host.hypervisor_hostname,
                       host.hypervisor_hostname)
                      for host in hosts
-                     if host.hypervisor_hostname != current_host]
+                     if host.service['host'] != current_host]
         if host_list:
             host_list.insert(0, ("", _("Select a new host")))
         else:
