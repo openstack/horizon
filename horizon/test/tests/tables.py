@@ -18,6 +18,7 @@ from django.core.urlresolvers import reverse
 from django import forms
 from django import http
 from django import shortcuts
+from django.template import defaultfilters
 
 from mox import IsA  # noqa
 
@@ -1090,6 +1091,19 @@ class DataTableTests(test.TestCase):
         self.table = MyTable(self.request, TEST_DATA_6)
         row = self.table.get_rows()[0]
         self.assertTrue("down" in row.cells['status'].value)
+
+    def test_broken_filter(self):
+        class MyTableBrokenFilter(MyTable):
+            value = tables.Column('value',
+                                  filters=(defaultfilters.timesince,))
+
+        value = "not_a_date"
+        data = TEST_DATA[0]
+        data.value = value
+
+        table = MyTableBrokenFilter(self.request, [data])
+        resp = http.HttpResponse(table.render())
+        self.assertContains(resp, value)
 
 
 class SingleTableView(table_views.DataTableView):
