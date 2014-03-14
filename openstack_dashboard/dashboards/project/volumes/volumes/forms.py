@@ -110,6 +110,7 @@ class CreateForm(forms.SelfHandlingForm):
                             'to or greater than the snapshot size (%sGB)') \
                             % snapshot.size
                 del self.fields['image_source']
+                del self.fields['volume_source']
                 del self.fields['volume_source_type']
                 del self.fields['availability_zone']
             except Exception:
@@ -139,6 +140,7 @@ class CreateForm(forms.SelfHandlingForm):
                 self.fields['size'].help_text = size_help_text
                 self.fields['image_source'].choices = ((image.id, image),)
                 del self.fields['snapshot_source']
+                del self.fields['volume_source']
                 del self.fields['volume_source_type']
             except Exception:
                 msg = _('Unable to load the specified image. %s')
