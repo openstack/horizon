@@ -46,7 +46,7 @@ def get_enabled(service, reverse=False):
 
 
 class ServicesTable(tables.DataTable):
-    id = tables.Column('id', verbose_name=_('Id'), hidden=True)
+    id = tables.Column('id', hidden=True)
     name = tables.Column("name", verbose_name=_('Name'))
     service_type = tables.Column('__unicode__', verbose_name=_('Service'))
     host = tables.Column('host', verbose_name=_('Host'))

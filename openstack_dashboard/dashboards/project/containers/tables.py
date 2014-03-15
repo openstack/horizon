@@ -247,7 +247,6 @@ class ContainersTable(tables.DataTable):
                              verbose_name=_("Container Details"),
                              classes=('nowrap-col', ),)
     metadata_loaded = tables.Column(get_metadata_loaded,
-                                    verbose_name=_("Metadata Loaded"),
                                     status=True,
                                     status_choices=METADATA_LOADED_CHOICES,
                                     hidden=True)
