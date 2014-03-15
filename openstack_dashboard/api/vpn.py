@@ -99,7 +99,7 @@ def _vpnservice_list(request, expand_subnet=False, expand_router=False,
         routers = neutron.router_list(request)
         router_dict = SortedDict((r.id, r) for r in routers)
         for s in vpnservices:
-            s['router_name'] = router_dict.get(s['router_id']).name
+            s['router_name'] = router_dict.get(s['router_id']).name_or_id
     if expand_conns:
         ipsecsiteconns = _ipsecsiteconnection_list(request, **kwargs)
         for s in vpnservices:
@@ -118,14 +118,14 @@ def _vpnservice_get(request, vpnservice_id, expand_subnet=False,
     vpnservice = neutronclient(request).show_vpnservice(vpnservice_id).get(
         'vpnservice')
     if expand_subnet:
-        vpnservice['subnet_name'] = neutron.subnet_get(
-            request, vpnservice['subnet_id']).cidr
+        vpnservice['subnet'] = neutron.subnet_get(
+            request, vpnservice['subnet_id'])
     if expand_router:
-        vpnservice['router_name'] = neutron.router_get(
-            request, vpnservice['router_id']).name
+        vpnservice['router'] = neutron.router_get(
+            request, vpnservice['router_id'])
     if expand_conns:
         ipsecsiteconns = _ipsecsiteconnection_list(request)
-        vpnservice['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+        vpnservice['ipsecsiteconns'] = [c for c in ipsecsiteconns
                                         if c.vpnservice_id == vpnservice['id']]
     return VPNService(vpnservice)
 
@@ -192,7 +192,7 @@ def _ikepolicy_get(request, ikepolicy_id, expand_conns=False):
         ikepolicy_id).get('ikepolicy')
     if expand_conns:
         ipsecsiteconns = _ipsecsiteconnection_list(request)
-        ikepolicy['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+        ikepolicy['ipsecsiteconns'] = [c for c in ipsecsiteconns
                                        if c.ikepolicy_id == ikepolicy['id']]
     return IKEPolicy(ikepolicy)
 
@@ -259,7 +259,7 @@ def _ipsecpolicy_get(request, ipsecpolicy_id, expand_conns=False):
         ipsecpolicy_id).get('ipsecpolicy')
     if expand_conns:
         ipsecsiteconns = _ipsecsiteconnection_list(request)
-        ipsecpolicy['ipsecsiteconns'] = [c.id for c in ipsecsiteconns
+        ipsecpolicy['ipsecsiteconns'] = [c for c in ipsecsiteconns
             if c.ipsecpolicy_id == ipsecpolicy['id']]
     return IPSecPolicy(ipsecpolicy)
 
@@ -329,17 +329,19 @@ def _ipsecsiteconnection_list(request, expand_ikepolicies=False,
         ikepolicies = _ikepolicy_list(request, **kwargs)
         policy_dict = SortedDict((p.id, p) for p in ikepolicies)
         for c in ipsecsiteconnections:
-            c['ikepolicy_name'] = policy_dict.get(c['ikepolicy_id']).name
+            c['ikepolicy_name'] = policy_dict.get(c['ikepolicy_id']).name_or_id
     if expand_ipsecpolicies:
         ipsecpolicies = _ipsecpolicy_list(request, **kwargs)
         policy_dict = SortedDict((p.id, p) for p in ipsecpolicies)
         for c in ipsecsiteconnections:
-            c['ipsecpolicy_name'] = policy_dict.get(c['ipsecpolicy_id']).name
+            c['ipsecpolicy_name'] = policy_dict.get(c['ipsecpolicy_id']
+                                                    ).name_or_id
     if expand_vpnservices:
         vpnservices = _vpnservice_list(request, **kwargs)
         service_dict = SortedDict((s.id, s) for s in vpnservices)
         for c in ipsecsiteconnections:
-            c['vpnservice_name'] = service_dict.get(c['vpnservice_id']).name
+            c['vpnservice_name'] = service_dict.get(c['vpnservice_id']
+                                                    ).name_or_id
     return [IPSecSiteConnection(v) for v in ipsecsiteconnections]
 
 
@@ -356,13 +358,13 @@ def _ipsecsiteconnection_get(request, ipsecsiteconnection_id,
     ipsecsiteconnection = neutronclient(request).show_ipsec_site_connection(
         ipsecsiteconnection_id).get('ipsec_site_connection')
     if expand_ikepolicies:
-        ipsecsiteconnection['ikepolicy_name'] = _ikepolicy_get(
-            request, ipsecsiteconnection['ikepolicy_id']).name
+        ipsecsiteconnection['ikepolicy'] = _ikepolicy_get(
+            request, ipsecsiteconnection['ikepolicy_id'])
     if expand_ipsecpolicies:
-        ipsecsiteconnection['ipsecpolicy_name'] = _ipsecpolicy_get(
-            request, ipsecsiteconnection['ipsecpolicy_id']).name
+        ipsecsiteconnection['ipsecpolicy'] = _ipsecpolicy_get(
+            request, ipsecsiteconnection['ipsecpolicy_id'])
     if expand_vpnservices:
-        ipsecsiteconnection['vpnservice_name'] = _vpnservice_get(
+        ipsecsiteconnection['vpnservice'] = _vpnservice_get(
             request, ipsecsiteconnection['vpnservice_id'])
     return IPSecSiteConnection(ipsecsiteconnection)
 

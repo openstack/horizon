@@ -22,11 +22,11 @@
 
     <dt>{% trans "Subnet ID" %}</dt>
     {% url 'horizon:project:networks:subnets:detail' vpnservice.subnet_id as subnet_url %}
-    <dd><a href="{{ subnet_url}}">{{ vpnservice.subnet.name_or_id }}</a></dd>
+    <dd><a href="{{ subnet_url}}">{{ vpnservice.subnet.name_or_id}} {{vpnservice.subnet.cidr}}</a></dd>
 
     <dt>{% trans "VPN Connections" %}</dt>
     <dd>
-      {% for conn in vpnservice.vpnconnections %}
+      {% for conn in vpnservice.ipsecsiteconns %}
       {% url 'horizon:project:vpn:ipsecsiteconnectiondetails' conn.id as conn_url %}
       <a href="{{ conn_url }}">{{ conn.name_or_id }}</a><br>
       {% endfor %}
