@@ -191,8 +191,7 @@ class AddVipAction(workflows.Action):
         super(AddVipAction, self).__init__(request, *args, **kwargs)
 
         self.fields['other_address'].label = _("Specify a free IP address"
-                                               " from %s" %
-                                               args[0]['subnet'])
+                                               " from %s") % args[0]['subnet']
 
         protocol_choices = [('', _("Select a Protocol"))]
         [protocol_choices.append((p, p)) for p in AVAILABLE_PROTOCOLS]
@@ -564,7 +563,7 @@ class AddPMAssociationAction(workflows.Action, MonitorMixin):
 
     def populate_monitor_id_choices(self, request, context):
         self.fields['monitor_id'].label = _("Select a monitor template "
-                                            "for %s" % context['pool_name'])
+                                            "for %s") % context['pool_name']
 
         monitor_id_choices = [('', _("Select a Monitor"))]
         try:
