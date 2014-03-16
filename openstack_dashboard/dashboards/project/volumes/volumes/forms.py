@@ -308,7 +308,7 @@ class CreateForm(forms.SelfHandlingForm):
 
                 if data['size'] < volume.size:
                     error_message = _('The volume size cannot be less than '
-                        'the volume size (%sGB)') % volume.size
+                        'the source volume size (%sGB)') % volume.size
                     raise ValidationError(error_message)
             else:
                 if type(data['size']) is str:
