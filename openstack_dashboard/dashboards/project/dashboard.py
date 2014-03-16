@@ -21,7 +21,7 @@ import horizon
 
 class BasePanels(horizon.PanelGroup):
     slug = "compute"
-    name = _("Manage Compute")
+    name = _("Compute")
     panels = ('overview',
               'instances',
               'volumes',
@@ -31,7 +31,7 @@ class BasePanels(horizon.PanelGroup):
 
 class NetworkPanels(horizon.PanelGroup):
     slug = "network"
-    name = _("Manage Network")
+    name = _("Network")
     panels = ('network_topology',
               'networks',
               'routers',
@@ -53,7 +53,7 @@ class OrchestrationPanels(horizon.PanelGroup):
 
 
 class DatabasePanels(horizon.PanelGroup):
-    name = _("Manage Databases")
+    name = _("Databases")
     slug = "database"
     panels = ('databases',
               'database_backups',)
