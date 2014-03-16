@@ -1658,3 +1658,44 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         self.assertTrue(data_wrapper.text == u'test_tenant',
                         "Error: saved tenant name is expected to be "
                         "'test_tenant'")
+
+    @test.create_stubs({api.keystone: ('get_default_domain',
+                                       'get_default_role',
+                                       'user_list',
+                                       'group_list',
+                                       'role_list'),
+                        api.base: ('is_service_enabled',),
+                        quotas: ('get_default_quota_data',)})
+    def test_membership_list_loads_correctly(self):
+        member_css_class = ".available_members"
+        users = self.users.list()
+
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .MultipleTimes().AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+            .MultipleTimes().AndReturn(False)
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(self.domain)
+        quotas.get_default_quota_data(IsA(http.HttpRequest)) \
+              .AndReturn(self.quotas.first())
+
+        api.keystone.get_default_role(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(self.roles.first())
+        api.keystone.user_list(IsA(http.HttpRequest), domain=self.domain.id) \
+            .AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.roles.list())
+        api.keystone.group_list(IsA(http.HttpRequest), domain=self.domain.id) \
+            .AndReturn(self.groups.list())
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.roles.list())
+
+        self.mox.ReplayAll()
+
+        self.selenium.get("%s%s" % (self.live_server_url,
+                                reverse('horizon:admin:projects:create')))
+
+        members = self.selenium.find_element_by_css_selector(member_css_class)
+
+        for user in users:
+            self.assertIn(user.name, members.text)
