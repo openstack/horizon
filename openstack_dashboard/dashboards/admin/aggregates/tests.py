@@ -219,8 +219,15 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
 class ManageHostsTests(test.BaseAdminViewTests):
 
+    @test.create_stubs({api.nova: ('aggregate_get', 'host_list')})
     def test_manage_hosts(self):
         aggregate = self.aggregates.first()
+        api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
+                .AndReturn(aggregate)
+        api.nova.host_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.hosts.list())
+        self.mox.ReplayAll()
+
         res = self.client.get(reverse(constants.AGGREGATES_MANAGE_HOSTS_URL,
                                       args=[aggregate.id]))
         self.assertEqual(res.status_code, 200)
