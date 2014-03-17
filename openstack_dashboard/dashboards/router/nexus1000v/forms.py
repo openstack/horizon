@@ -104,12 +104,12 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                                                'data-switch-on': 'segtype',
                                                'data-segtype-vlan':
                                                    _("Physical Network")}))
-    project_id = forms.ChoiceField(label=_("Project"),
-                                  required=False)
+    project = forms.ChoiceField(label=_("Project"),
+                                required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateNetworkProfile, self).__init__(request, *args, **kwargs)
-        self.fields['project_id'].choices = get_tenant_choices(request)
+        self.fields['project'].choices = get_tenant_choices(request)
 
     def clean(self):
         # If sub_type is 'other' then assign this new value for sub_type
@@ -136,7 +136,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
                       'segment_range': data['segment_range'],
                       'physical_network': data['physical_network'],
                       'multicast_ip_range': data['multicast_ip_range'],
-                      'tenant_id': data['project_id']}
+                      'tenant_id': data['project']}
             profile = api.neutron.profile_create(request,
                                                  **params)
             msg = _('Network Profile %s '
@@ -170,7 +170,7 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
     physical_network = forms.CharField(max_length=255,
                                        label=_("Physical Network"),
                                        required=False)
-    project_id = forms.CharField(label=_("Project"), required=False)
+    project = forms.CharField(label=_("Project"), required=False)
 
     def handle(self, request, data):
         try:

@@ -74,7 +74,7 @@ if api.neutron.is_port_profiles_supported():
                       'segment_type': net_profile.segment_type,
                       'segment_range': net_profile.segment_range,
                       'physical_network': net_profile.physical_network,
-                      'tenant_id': net_profile.project_id,
+                      'tenant_id': net_profile.project,
                       # vlan profiles have no sub_type or multicast_ip_range
                       'multicast_ip_range': '',
                       'sub_type': ''}
@@ -89,7 +89,7 @@ if api.neutron.is_port_profiles_supported():
                          'segment_type': net_profile.segment_type,
                          'segment_range': net_profile.segment_range,
                          'physical_network': net_profile.physical_network,
-                         'project_id': net_profile.project_id}
+                         'project': net_profile.project}
             form_data.update(form_data_no_overlay())
             url = reverse('horizon:router:nexus1000v:create_network_profile')
             res = self.client.post(url, form_data)
@@ -109,7 +109,7 @@ if api.neutron.is_port_profiles_supported():
                       'segment_range': net_profile.segment_range,
                       'multicast_ip_range': net_profile.multicast_ip_range,
                       'sub_type': net_profile.sub_type,
-                      'tenant_id': net_profile.project_id,
+                      'tenant_id': net_profile.project,
                       # overlay profiles have no physical_network type
                       'physical_network': ''}
 
@@ -124,7 +124,7 @@ if api.neutron.is_port_profiles_supported():
                          'segment_range': net_profile.segment_range,
                          'multicast_ip_range': net_profile.multicast_ip_range,
                          'sub_type': net_profile.sub_type,
-                         'project_id': net_profile.project_id}
+                         'project': net_profile.project}
             form_data.update(form_data_overlay())
             url = reverse('horizon:router:nexus1000v:create_network_profile')
             res = self.client.post(url, form_data)
