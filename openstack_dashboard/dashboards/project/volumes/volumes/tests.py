@@ -1031,5 +1031,5 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertFormError(res, 'form', None,
-                             "New size for extend must be greater than "
+                             "New size must be greater than "
                              "current size.")

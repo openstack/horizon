@@ -242,6 +242,7 @@ class VolumesTableBase(tables.DataTable):
         ("available", True),
         ("creating", None),
         ("error", False),
+        ("error_extending", False),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),

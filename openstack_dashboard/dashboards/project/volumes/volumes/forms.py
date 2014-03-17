@@ -493,15 +493,19 @@ class ExtendForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Volume Name"),
                            widget=forms.TextInput(
                                attrs={'readonly': 'readonly'}
-                           ))
-    new_size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
+                           ), required=False)
+    orig_size = forms.IntegerField(label=_("Current Size (GB)"),
+                           widget=forms.TextInput(
+                               attrs={'readonly': 'readonly'}
+                           ), required=False)
+    new_size = forms.IntegerField(label=_("New Size (GB)"))
 
     def clean(self):
         cleaned_data = super(ExtendForm, self).clean()
-        new_size = cleaned_data.get('new_size', 1)
+        new_size = cleaned_data.get('new_size')
         if new_size <= self.initial['orig_size']:
             raise ValidationError(
-                _("New size for extend must be greater than current size."))
+                _("New size must be greater than current size."))
 
         return cleaned_data
 
@@ -512,8 +516,8 @@ class ExtendForm(forms.SelfHandlingForm):
                                           volume_id,
                                           data['new_size'])
 
-            message = _('Successfully extended volume: "%s"') % data['name']
-            messages.success(request, message)
+            message = _('Extending volume: "%s"') % data['name']
+            messages.info(request, message)
             return volume
         except Exception:
             redirect = reverse("horizon:project:volumes:index")
