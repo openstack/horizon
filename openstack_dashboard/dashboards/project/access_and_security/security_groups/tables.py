@@ -56,9 +56,9 @@ class EditGroup(tables.LinkAction):
         return security_group.name != 'default'
 
 
-class EditRules(tables.LinkAction):
-    name = "edit_rules"
-    verbose_name = _("Edit Rules")
+class ManageRules(tables.LinkAction):
+    name = "manage_rules"
+    verbose_name = _("Manage Rules")
     url = "horizon:project:access_and_security:security_groups:detail"
     classes = ("btn-edit")
 
@@ -74,7 +74,7 @@ class SecurityGroupsTable(tables.DataTable):
         name = "security_groups"
         verbose_name = _("Security Groups")
         table_actions = (CreateGroup, DeleteGroup)
-        row_actions = (EditRules, EditGroup, DeleteGroup)
+        row_actions = (ManageRules, EditGroup, DeleteGroup)
 
 
 class CreateRule(tables.LinkAction):
