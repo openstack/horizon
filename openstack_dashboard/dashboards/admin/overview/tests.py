@@ -20,6 +20,7 @@ import datetime
 
 from django.core.urlresolvers import reverse
 from django import http
+from django.utils import encoding
 from django.utils import timezone
 
 from mox import IsA  # noqa
@@ -94,45 +95,53 @@ class UsageViewTests(test.BaseAdminViewTests):
                            .AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
-
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertTemplateUsed(res, 'admin/overview/usage.html')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
         self.assertEqual(nova_stu_enabled,
                          res.context['simple_tenant_usage_enabled'])
 
-        usage_table = '<td class="sortable normal_column">test_tenant</td>' \
-                      '<td class="sortable normal_column">%s</td>' \
-                      '<td class="sortable normal_column">%s</td>' \
-                      '<td class="sortable normal_column">%s</td>' \
-                      '<td class="sortable normal_column">%.2f</td>' \
-                      '<td class="sortable normal_column">%.2f</td>' % \
-                      (usage_list[0].vcpus,
-                       usage_list[0].disk_gb_hours,
-                       sizeformat.mbformat(usage_list[0].memory_mb),
-                       usage_list[0].vcpu_hours,
-                       usage_list[0].total_local_gb_usage)
+        usage_table = encoding.smart_str(u'''
+            <tr class="" data-object-id="1" id="global_usage__row__1">
+              <td class="sortable normal_column">test_tenant</td>
+              <td class="sortable normal_column">%s</td>
+              <td class="sortable normal_column">%s</td>
+              <td class="sortable normal_column">%s</td>
+              <td class="sortable normal_column">%.2f</td>
+              <td class="sortable normal_column">%.2f</td>
+            </tr>
+            ''' % (usage_list[0].vcpus,
+                   usage_list[0].disk_gb_hours,
+                   sizeformat.mbformat(usage_list[0].memory_mb),
+                   usage_list[0].vcpu_hours,
+                   usage_list[0].total_local_gb_usage)
+        )
+
         # test for deleted project
-        usage_table1 = '<td class="sortable normal_column">3 (Deleted)</td>' \
-                       '<td class="sortable normal_column">%s</td>' \
-                       '<td class="sortable normal_column">%s</td>' \
-                       '<td class="sortable normal_column">%s</td>' \
-                       '<td class="sortable normal_column">%.2f</td>' \
-                       '<td class="sortable normal_column">%.2f</td>' % \
-                      (usage_list[1].vcpus,
-                       usage_list[1].disk_gb_hours,
-                       sizeformat.mbformat(usage_list[1].memory_mb),
-                       usage_list[1].vcpu_hours,
-                       usage_list[1].total_local_gb_usage)
+        usage_table_deleted = encoding.smart_str(u'''
+            <tr class="" data-object-id="3" id="global_usage__row__3">
+              <td class="sortable normal_column">3 (Deleted)</td>
+              <td class="sortable normal_column">%s</td>
+              <td class="sortable normal_column">%s</td>
+              <td class="sortable normal_column">%s</td>
+              <td class="sortable normal_column">%.2f</td>
+              <td class="sortable normal_column">%.2f</td>
+            </tr>
+            ''' % (usage_list[1].vcpus,
+                   usage_list[1].disk_gb_hours,
+                   sizeformat.mbformat(usage_list[1].memory_mb),
+                   usage_list[1].vcpu_hours,
+                   usage_list[1].total_local_gb_usage)
+        )
 
         if nova_stu_enabled:
-            self.assertContains(res, usage_table)
+            self.assertContains(res, usage_table, html=True)
             if tenant_deleted:
-                self.assertContains(res, usage_table1)
+                self.assertContains(res, usage_table_deleted, html=True)
             else:
-                self.assertNotContains(res, usage_table1)
+                self.assertNotContains(res, usage_table_deleted, html=True)
         else:
-            self.assertNotContains(res, usage_table)
+            self.assertNotContains(res, usage_table, html=True)
 
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)

@@ -122,8 +122,9 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
                 compute_hosts.append(host)
 
         for host in compute_hosts:
-            api.nova.add_host_to_aggregate(IsA(http.HttpRequest),
-                                           aggregate.id, host.host_name)
+            api.nova.add_host_to_aggregate(
+                IsA(http.HttpRequest),
+                aggregate.id, host.host_name).InAnyOrder()
 
         self.mox.ReplayAll()
 
@@ -246,10 +247,10 @@ class ManageHostsTests(test.BaseAdminViewTests):
 
         api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
                                             str(aggregate.id),
-                                            'host2')
+                                            'host2').InAnyOrder()
         api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
                                             str(aggregate.id),
-                                            'host1')
+                                            'host1').InAnyOrder()
         api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
                 .AndReturn(aggregate)
         api.nova.host_list(IsA(http.HttpRequest)) \
@@ -279,14 +280,14 @@ class ManageHostsTests(test.BaseAdminViewTests):
                      [host1.host_name, host3.host_name]}
 
         api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
+                .InAnyOrder().AndReturn(aggregate)
         api.nova.host_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.hosts.list())
+                .InAnyOrder().AndReturn(self.hosts.list())
         api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
-                .AndReturn(aggregate)
+                .InAnyOrder().AndReturn(aggregate)
         api.nova.add_host_to_aggregate(IsA(http.HttpRequest),
-                                       str(aggregate.id), host3.host_name)\
-                .AndRaise(self.exceptions.nova)
+                                       str(aggregate.id), host3.host_name) \
+                .InAnyOrder().AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         res = self.client.post(reverse(constants.AGGREGATES_MANAGE_HOSTS_URL,
@@ -302,13 +303,10 @@ class ManageHostsTests(test.BaseAdminViewTests):
                                    'host_list')})
     def test_manage_hosts_update_clean_not_empty_aggregate_should_fail(self):
         aggregate = self.aggregates.first()
-        aggregate.hosts = ['host1', 'host2', 'host3']
+        aggregate.hosts = ['host2']
         form_data = {'manageaggregatehostsaction_role_member':
                      []}
 
-        api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
-                                            str(aggregate.id),
-                                            'host3')
         api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
                                             str(aggregate.id),
                                             'host2')\
@@ -341,13 +339,13 @@ class ManageHostsTests(test.BaseAdminViewTests):
         if cleanAggregates:
             api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
                                                 str(aggregate.id),
-                                                'host3')
+                                                'host3').InAnyOrder()
             api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
                                                 str(aggregate.id),
-                                                'host2')
+                                                'host2').InAnyOrder()
             api.nova.remove_host_from_aggregate(IsA(http.HttpRequest),
                                                 str(aggregate.id),
-                                                'host1')
+                                                'host1').InAnyOrder()
         api.nova.aggregate_get(IsA(http.HttpRequest), str(aggregate.id)) \
                 .AndReturn(aggregate)
         api.nova.host_list(IsA(http.HttpRequest)) \

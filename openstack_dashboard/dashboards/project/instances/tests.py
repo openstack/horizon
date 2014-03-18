@@ -24,6 +24,7 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.test import utils as test_utils
 from django.utils.datastructures import SortedDict
+from django.utils import encoding
 from django.utils.http import urlencode
 
 from mox import IgnoreArg  # noqa
@@ -2383,12 +2384,15 @@ class InstanceTests(test.TestCase):
         classes = list(launch.get_default_classes()) + list(launch.classes)
         link_name = "%s (%s)" % (unicode(launch.verbose_name),
                                  "Quota exceeded")
-        expected_string = "<a href='%s' id='instances__action_launch' " \
-            "title='%s' class='%s disabled' data-update-url=" \
-            "'/project/instances/?action=launch&amp;table=instances'>%s</a>" \
-            % (url, link_name, " ".join(classes), link_name)
 
         res = self.client.get(INDEX_URL)
+        expected_string = encoding.smart_str(u'''
+            <a href="%s" id="instances__action_launch" title="%s"
+            class="%s disabled"
+            data-update-url =
+            "/project/instances/?action=launch&amp;table=instances">%s</a>
+            ''' % (url, link_name, " ".join(classes), link_name), res._charset)
+
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The launch button is not disabled")
 

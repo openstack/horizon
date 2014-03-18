@@ -561,9 +561,11 @@ class Row(html.HTMLElement):
 
     def get_ajax_update_url(self):
         table_url = self.table.get_absolute_url()
-        params = urlencode({"table": self.table.name,
-                            "action": self.ajax_action_name,
-                            "obj_id": self.table.get_object_id(self.datum)})
+        params = urlencode(SortedDict([
+            ("action", self.ajax_action_name),
+            ("table", self.table.name),
+            ("obj_id", self.table.get_object_id(self.datum))
+        ]))
         return "%s?%s" % (table_url, params)
 
     def can_be_selected(self, datum):
@@ -732,10 +734,13 @@ class Cell(html.HTMLElement):
     def get_ajax_update_url(self):
         column = self.column
         table_url = column.table.get_absolute_url()
-        params = urlencode({"table": column.table.name,
-                            "action": self.row.ajax_cell_action_name,
-                            "obj_id": column.table.get_object_id(self.datum),
-                            "cell_name": column.name})
+        params = urlencode(SortedDict([
+            ("action", self.row.ajax_cell_action_name),
+            ("table", column.table.name),
+            ("cell_name", column.name),
+            ("obj_id", column.table.get_object_id(self.datum))
+        ]))
+
         return "%s?%s" % (table_url, params)
 
     @property
