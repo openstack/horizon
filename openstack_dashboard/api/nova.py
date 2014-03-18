@@ -622,10 +622,6 @@ def default_quota_get(request, tenant_id):
     return base.QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
-def default_quota_update(request, **kwargs):
-    novaclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
-
-
 def usage_get(request, tenant_id, start, end):
     return NovaUsage(novaclient(request).usage.get(tenant_id, start, end))
 
