@@ -57,7 +57,7 @@ class EditNetworkProfile(tables.LinkAction):
 
 
 class NetworkProfile(tables.DataTable):
-    id = tables.Column("profile_id", hidden=True)
+    id = tables.Column("id", hidden=True)
     name = tables.Column("name", verbose_name=_("Network Profile"), )
     project = tables.Column("project_name", verbose_name=_("Project"))
     segment_type = tables.Column("segment_type",
@@ -78,17 +78,10 @@ class NetworkProfile(tables.DataTable):
         row_actions = (EditNetworkProfile, DeleteNetworkProfile,)
 
 
-class EditPolicyProfile(tables.LinkAction):
-    name = "edit"
-    verbose_name = _("Edit Policy Profile")
-    url = "horizon:project:images:images:update"
-    classes = ("ajax-modal", "btn-edit")
-
-
 class PolicyProfile(tables.DataTable):
-    id = tables.Column("profile_id", hidden=True)
+    id = tables.Column("id", hidden=True)
     name = tables.Column("name", verbose_name=_("Policy Profile"), )
-    project_id = tables.Column("project_name", verbose_name=_("Project"))
+    project = tables.Column("project_name", verbose_name=_("Project"))
 
     class Meta:
         name = "policy_profile"

@@ -57,15 +57,15 @@ def _get_profiles(request, type_p):
         msg = _('Network Profiles could not be retrieved.')
         exceptions.handle(request, msg)
     if profiles:
+        # Set project name
         tenant_dict = _get_tenant_list(request)
         bindings = api.neutron.profile_bindings_list(request, type_p)
+        bindings_dict = datastructures.SortedDict(
+            [(b.profile_id, b.tenant_id) for b in bindings])
         for p in profiles:
-        # Set tenant name
-            if bindings:
-                for b in bindings:
-                    if (p.id == b.profile_id):
-                        tenant = tenant_dict.get(b.tenant_id, None)
-                        p.tenant_name = getattr(tenant, 'name', None)
+            project_id = bindings_dict.get(p.id)
+            project = tenant_dict.get(project_id)
+            p.project_name = getattr(project, 'name', None)
     return profiles
 
 

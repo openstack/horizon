@@ -68,7 +68,6 @@ HORIZON_CONFIG = {
     # using run_tests will require the registration of the "router" dashboard.
     # TODO (absubram): Need to make this permanent when a better solution
     # for run_tests is implemented to use with and without the n1k sub-plugin.
-    #'openstack_dashboard.dashboards.router',
     #'dashboards': ('project', 'admin', 'settings', 'router',),
     'default_dashboard': 'project',
     "password_validator": {
