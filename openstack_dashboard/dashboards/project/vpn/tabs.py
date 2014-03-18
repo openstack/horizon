@@ -28,27 +28,6 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.vpn import tables
 
 
-def get_resource_or_fake(request, base_obj, resource, api_module):
-    """Return a resource detail or a fake object if it fails.
-
-    This methods retrieves a specified resource of base_obj.
-    It gets the resource ID from base_obj.<resource>_id and then
-    calls api_module.<resource>_get(resource_id).
-    If the api call fails, it returns a fake object which contains
-    only resource_id for the specified resouce.
-    The retrieved object is set to base_obj.<resource>.
-    """
-    obj_id = getattr(base_obj, '%s_id' % resource)
-    try:
-        obj_getter = getattr(api_module, '%_list' % resource)
-        obj = obj_getter(request, obj_id)
-        setattr(base_obj, resource, obj)
-    except Exception:
-        fake_dict = {'id': obj_id, 'name': ''}
-        setattr(base_obj, resource,
-                api.neutron.NeutronAPIDictWrapper(fake_dict))
-
-
 class IPSecSiteConnectionsTab(tabs.TableTab):
     table_classes = (tables.IPSecSiteConnectionsTable,)
     name = _("IPSec Site Connections")
@@ -197,9 +176,6 @@ class VPNServiceDetailsTab(tabs.Tab):
             vpnservice.vpnconnections = connections
         except Exception:
             vpnservice.vpnconnections = []
-
-        get_resource_or_fake(request, vpnservice, 'router', api.neutron)
-        get_resource_or_fake(request, vpnservice, 'subnet', api.neutron)
         return {'vpnservice': vpnservice}
 
 
@@ -221,10 +197,6 @@ class IPSecSiteConnectionDetailsTab(tabs.Tab):
         except Exception:
             msg = _('Unable to retrieve IPSec Site Connection details.')
             exceptions.handle(request, msg, redirect=self.failure_url)
-
-        get_resource_or_fake(request, ipsecsiteconn, 'vpnservice', api.vpn)
-        get_resource_or_fake(request, ipsecsiteconn, 'ipsecpolicy', api.vpn)
-        get_resource_or_fake(request, ipsecsiteconn, 'ikepolicy', api.vpn)
         return {'ipsecsiteconnection': ipsecsiteconn}
 
 
