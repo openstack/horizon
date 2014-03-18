@@ -51,6 +51,47 @@ case change the ``OPENSTACK_HOST`` setting in the
 ``openstack_dashboard/local/local_settings.py`` file, to the actual IP address
 of the OpenStack end-point Horizon should use.
 
+You can save changes you made to
+``openstack_dashboard/local/local_settings.py`` with the following command::
+
+    > python manage.py migrate_settings --gendiff
+
+.. note::
+
+    This creates a ``local_settings.diff`` file which is a diff between
+    ``local_settings.py`` and ``local_settings.py.example``
+
+If you upgrade Horizon, you might need to update your
+``openstack_dashboard/local/local_settings.py`` file with new parameters from
+``openstack_dashboard/local/local_settings.py.example`` to do so, first update
+Horizon::
+
+    > git remote update && git pull --ff-only origin master
+
+Then update your  ``openstack_dashboard/local/local_settings.py`` file::
+
+    > mv openstack_dashboard/local/local_settings.py openstack_dashboard/local/local_settings.py.old
+    > python manage.py migrate_settings
+
+.. note::
+
+    This applies ``openstack_dashboard/local/local_settings.diff`` on
+    ``openstack_dashboard/local/local_settings.py.example`` to regenerate an
+    ``openstack_dashboard/local/local_settings.py`` file.
+    The migration can sometimes have difficulties to migrate some settings, if
+    this happens you will be warned with a conflict message pointing to an
+    ``openstack_dashboard/local/local_settings.py_Some_DateTime.rej`` file.
+    In this file, you will see the lines which could not be automatically
+    changed and you will have to redo only these few changes manually instead
+    of modifying the full
+    ``openstack_dashboard/local/local_settings.py.example`` file.
+
+When all settings have been migrated, it is safe to regenerate a clean diff in
+order to prevent Conflicts for future migrations::
+
+    > mv openstack_dashboard/local/local_settings.diff openstack_dashboard/local/local_settings.diff.old
+    > python manage.py migrate_settings --gendiff
+
 To start the Horizon development server use ``run_tests.sh``::
 
     > ./run_tests.sh --runserver localhost:9000
