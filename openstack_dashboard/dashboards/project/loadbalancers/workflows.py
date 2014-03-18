@@ -445,21 +445,44 @@ class AddMember(workflows.Workflow):
 
     def handle(self, request, context):
         if context['member_type'] == 'server_list':
+            try:
+                pool = api.lbaas.pool_get(request, context['pool_id'])
+                subnet_id = pool['subnet_id']
+            except Exception:
+                self.failure_message = _('Unable to retrieve '
+                                         'the specified pool.')
+                return False
             for m in context['members']:
                 params = {'device_id': m}
                 try:
                     plist = api.neutron.port_list(request, **params)
                 except Exception:
                     return False
-                if plist:
-                    context['address'] = plist[0].fixed_ips[0]['ip_address']
-                try:
-                    context['member_id'] = api.lbaas.member_create(
-                        request, **context).id
-                except Exception as e:
-                    msg = self.failure_message
-                    LOG.info('%s: %s' % (msg, e))
-                    return False
+
+                # Sort port list for each member. This is needed to avoid
+                # attachment of random ports in case of creation of several
+                # members attached to several networks.
+                plist = sorted(plist, key=lambda port: port.network_id)
+                psubnet = [p for p in plist for ips in p.fixed_ips
+                           if ips['subnet_id'] == subnet_id]
+
+                # If possible, select a port on pool subnet.
+                if psubnet:
+                    selected_port = psubnet[0]
+                elif plist:
+                    selected_port = plist[0]
+                else:
+                    selected_port = None
+
+                if selected_port:
+                    context['address'] = \
+                        selected_port.fixed_ips[0]['ip_address']
+                    try:
+                        api.lbaas.member_create(request, **context).id
+                    except Exception as e:
+                        msg = self.failure_message
+                        LOG.info('%s: %s' % (msg, e))
+                        return False
             return True
         else:
             try:
