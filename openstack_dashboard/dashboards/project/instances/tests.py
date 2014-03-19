@@ -1105,7 +1105,8 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get(self,
                                  expect_password_fields=True,
                                  block_device_mapping_v2=True,
-                                 custom_flavor_sort=None):
+                                 custom_flavor_sort=None,
+                                 only_one_network=False):
         image = self.images.first()
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -1127,8 +1128,12 @@ class InstanceTests(test.TestCase):
                                  tenant_id=self.tenant.id,
                                  shared=False) \
                 .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
+        if only_one_network:
+            api.neutron.network_list(IsA(http.HttpRequest),
+                                     shared=True).AndReturn([])
+        else:
+            api.neutron.network_list(IsA(http.HttpRequest),
+                                     shared=True) \
                 .AndReturn(self.networks.list()[1:])
         # TODO(absubram): Remove if clause and create separate
         # test stubs for when profile_support is being used.
@@ -1215,6 +1220,12 @@ class InstanceTests(test.TestCase):
         else:
             self.assertNotContains(res, boot_from_image_field_label)
 
+        checked_label = '<label for="id_network_0"><input checked="checked"'
+        if only_one_network:
+            self.assertContains(res, checked_label)
+        else:
+            self.assertNotContains(res, checked_label)
+
     @test_utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
@@ -1254,6 +1265,9 @@ class InstanceTests(test.TestCase):
         })
     def test_launch_instance_get_custom_flavor_sort_by_missing_column(self):
         self.test_launch_instance_get(custom_flavor_sort='no_such_column')
+
+    def test_launch_instance_get_with_only_one_network(self):
+        self.test_launch_instance_get(only_one_network=True)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',

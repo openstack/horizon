@@ -570,6 +570,12 @@ class SetNetworkAction(workflows.Action):
                                     help_text=_("Launch instance with "
                                                 "this policy profile"))
 
+    def __init__(self, request, *args, **kwargs):
+        super(SetNetworkAction, self).__init__(request, *args, **kwargs)
+        network_list = self.fields["network"].choices
+        if len(network_list) == 1:
+            self.fields['network'].initial = [network_list[0][0]]
+
     class Meta:
         name = _("Networking")
         permissions = ('openstack.services.network',)
