@@ -223,6 +223,9 @@ class ImagesTable(tables.DataTable):
                               empty_value=False,
                               filters=(filters.yesno, filters.capfirst))
     disk_format = tables.Column(get_format, verbose_name=_("Format"))
+    size = tables.Column("size",
+                         filters=(filters.filesizeformat,),
+                         verbose_name=_("Size"))
 
     class Meta:
         name = "images"
