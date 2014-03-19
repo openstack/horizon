@@ -72,11 +72,11 @@ class AdminIndexView(tables.DataTableView):
         instances = []
         marker = self.request.GET.get(
             project_tables.AdminInstancesTable._meta.pagination_param, None)
+        search_opts = self.get_filters({'marker': marker, 'paginate': True})
         try:
             instances, self._more = api.nova.server_list(
                 self.request,
-                search_opts={'marker': marker,
-                             'paginate': True},
+                search_opts=search_opts,
                 all_tenants=True)
         except Exception:
             self._more = False
@@ -125,6 +125,15 @@ class AdminIndexView(tables.DataTableView):
                 tenant = tenant_dict.get(inst.tenant_id, None)
                 inst.tenant_name = getattr(tenant, "name", None)
         return instances
+
+    def get_filters(self, filters):
+        filter_field = self.table.get_filter_field()
+        filter_action = self.table._meta._filter_action
+        if filter_action.is_api_filter(filter_field):
+            filter_string = self.table.get_filter_string()
+            if filter_field and filter_string:
+                filters[filter_field] = filter_string
+        return filters
 
 
 class LiveMigrateView(forms.ModalFormView):

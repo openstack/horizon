@@ -82,26 +82,28 @@ class AdminUpdateRow(project_tables.UpdateRow):
 
 
 class AdminInstanceFilterAction(tables.FilterAction):
+    # Change default name of 'filter' to distinguish this one from the
+    # project instances table filter, since this is used as part of the
+    # session property used for persisting the filter.
+    name = "filter_admin_instances"
     filter_type = "server"
-    filter_choices = (('project', _("Project")),
-                      ('name', _("Name"))
-                      )
-    needs_preloading = True
+    filter_choices = (('project', _("Project"), False),
+                      ('host', _("Host ="), True),
+                      ('name', _("Name"), True),
+                      ('ip', _("IPv4 Address ="), True),
+                      ('ip6', _("IPv6 Address ="), True),
+                      ('status', _("Status ="), True),
+                      ('image', _("Image ID ="), True),
+                      ('flavor', _("Flavor ID ="), True))
 
     def filter(self, table, instances, filter_string):
         """Server side search.
         When filtering is supported in the api, then we will handle in view
         """
-        filter_field = table.request.POST.get('instances__filter__q_field')
-        self.filter_field = filter_field
-        self.filter_string = filter_string
+        filter_field = table.get_filter_field()
         if filter_field == 'project' and filter_string:
             return [inst for inst in instances
                     if inst.tenant_name == filter_string]
-        if filter_field == 'name' and filter_string:
-            q = filter_string.lower()
-            return [instance for instance in instances
-                    if q in instance.name.lower()]
         return instances
 
 

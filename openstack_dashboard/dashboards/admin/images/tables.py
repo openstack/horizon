@@ -55,6 +55,15 @@ class UpdateRow(tables.Row):
         return image
 
 
+class AdminImageFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (('name', _("Image Name ="), True),
+                      ('status', _('Status ='), True),
+                      ('disk_format', _('Format ='), True),
+                      ('size_min', _('Min. Size (MB)'), True),
+                      ('size_max', _('Max. Size (MB)'), True))
+
+
 class AdminImagesTable(project_tables.ImagesTable):
     name = tables.Column("name",
                          link="horizon:admin:images:detail",
@@ -65,5 +74,6 @@ class AdminImagesTable(project_tables.ImagesTable):
         row_class = UpdateRow
         status_columns = ["status"]
         verbose_name = _("Images")
-        table_actions = (AdminCreateImage, AdminDeleteImage)
+        table_actions = (AdminCreateImage, AdminDeleteImage,
+                         AdminImageFilterAction)
         row_actions = (AdminEditImage, ViewCustomProperties, AdminDeleteImage)

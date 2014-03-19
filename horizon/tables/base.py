@@ -1137,21 +1137,39 @@ class DataTable(object):
                                     and action.needs_preloading)
                 valid_method = (request_method == action.method)
                 if valid_method or needs_preloading:
+                    filter_field = self.get_filter_field()
                     if self._meta.mixed_data_type:
                         self._filtered_data = action.data_type_filter(self,
                                                                 self.data,
                                                                 filter_string)
-                    else:
+                    elif not action.is_api_filter(filter_field):
                         self._filtered_data = action.filter(self,
                                                             self.data,
                                                             filter_string)
         return self._filtered_data
 
     def get_filter_string(self):
+        """Get the filter string value. For 'server' type filters this is
+        saved in the session so that it gets persisted across table loads.
+        For other filter types this is obtained from the POST dict.
+        """
         filter_action = self._meta._filter_action
         param_name = filter_action.get_param_name()
-        filter_string = self.request.POST.get(param_name, '')
+        filter_string = ''
+        if filter_action.filter_type == 'server':
+            filter_string = self.request.session.get(param_name, '')
+        else:
+            filter_string = self.request.POST.get(param_name, '')
         return filter_string
+
+    def get_filter_field(self):
+        """Get the filter field value used for 'server' type filters. This
+        is the value from the filter action's list of filter choices.
+        """
+        filter_action = self._meta._filter_action
+        param_name = '%s_field' % filter_action.get_param_name()
+        filter_field = self.request.session.get(param_name, '')
+        return filter_field
 
     def _populate_data_cache(self):
         self._data_cache = {}

@@ -1,4 +1,5 @@
 # Copyright 2012 Nebula, Inc.
+# Copyright 2014 IBM Corp.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -168,6 +169,20 @@ class MyFilterAction(tables.FilterAction):
         return filter(comp, objs)
 
 
+class MyServerFilterAction(tables.FilterAction):
+    filter_type = 'server'
+    filter_choices = (('name', 'Name', False),
+                      ('status', 'Status', True))
+    needs_preloading = True
+
+    def filter(self, table, items, filter_string):
+        filter_field = table.get_filter_field()
+        if filter_field == 'name' and filter_string:
+            return [item for item in items
+                    if filter_string in item.name]
+        return items
+
+
 class MyUpdateAction(tables.UpdateAction):
     def allowed(self, *args):
         return True
@@ -218,6 +233,18 @@ class MyTable(tables.DataTable):
         row_class = MyRow
         column_class = MyColumn
         table_actions = (MyFilterAction, MyAction, MyBatchAction)
+        row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
+
+
+class MyServerFilterTable(MyTable):
+    class Meta:
+        name = "my_table"
+        verbose_name = "My Table"
+        status_columns = ["status"]
+        columns = ('id', 'name', 'value', 'optional', 'status')
+        row_class = MyRow
+        column_class = MyColumn
+        table_actions = (MyServerFilterAction, MyAction, MyBatchAction)
         row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
 
 
@@ -904,6 +931,32 @@ class DataTableTests(test.TestCase):
         self.assertEqual(unicode(row_actions[0].verbose_name), "Delete Me")
         self.assertEqual(unicode(row_actions[1].verbose_name), "Log In")
 
+    def test_server_filtering(self):
+        filter_value_param = "my_table__filter__q"
+        filter_field_param = '%s_field' % filter_value_param
+
+        # Server Filtering
+        req = self.factory.post('/my_url/')
+        req.session[filter_value_param] = '2'
+        req.session[filter_field_param] = 'name'
+        self.table = MyServerFilterTable(req, TEST_DATA)
+        handled = self.table.maybe_handle()
+        self.assertIsNone(handled)
+        self.assertQuerysetEqual(self.table.filtered_data,
+                                 ['<FakeObject: object_2>'])
+
+        # Ensure API filtering does not filter on server, e.g. no filter here
+        req = self.factory.post('/my_url/')
+        req.session[filter_value_param] = 'up'
+        req.session[filter_field_param] = 'status'
+        self.table = MyServerFilterTable(req, TEST_DATA)
+        handled = self.table.maybe_handle()
+        self.assertIsNone(handled)
+        self.assertQuerysetEqual(self.table.filtered_data,
+                                 ['<FakeObject: object_1>',
+                                  '<FakeObject: object_2>',
+                                  '<FakeObject: object_3>'])
+
     def test_inline_edit_update_action_get_non_ajax(self):
         # Non ajax inline edit request should return None.
         url = ('/my_url/?action=cell_update'
@@ -1183,6 +1236,10 @@ class SingleTableView(table_views.DataTableView):
         return TEST_DATA
 
 
+class APIFilterTableView(SingleTableView):
+    table_class = MyServerFilterTable
+
+
 class TableWithPermissions(tables.DataTable):
     id = tables.Column('id')
 
@@ -1247,6 +1304,26 @@ class DataTableViewTests(test.TestCase):
         self.assertEqual(context['my_table_table'].__class__, MyTable)
         self.assertEqual(context['table_with_permissions_table'].__class__,
                          TableWithPermissions)
+
+    def test_api_filter_table_view(self):
+        filter_value_param = "my_table__filter__q"
+        filter_field_param = '%s_field' % filter_value_param
+        req = self.factory.post('/my_url/', {filter_value_param: 'up',
+                                             filter_field_param: 'status'})
+        req.user = self.user
+        view = APIFilterTableView()
+        view.request = req
+        view.kwargs = {}
+        view.handle_server_filter(req)
+        context = view.get_context_data()
+        self.assertEqual(context['table'].__class__, MyServerFilterTable)
+        data = view.get_data()
+        self.assertQuerysetEqual(data,
+                                 ['<FakeObject: object_1>',
+                                  '<FakeObject: object_2>',
+                                  '<FakeObject: object_3>'])
+        self.assertEqual(req.session.get(filter_value_param), 'up')
+        self.assertEqual(req.session.get(filter_field_param), 'status')
 
 
 class FormsetTableTests(test.TestCase):
