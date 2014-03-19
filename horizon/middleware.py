@@ -66,6 +66,11 @@ class HorizonMiddleware(object):
                            'panel': None,
                            'async_messages': []}
 
+        if not hasattr(request, "user") or not request.user.is_authenticated():
+            # proceed no further if the current request is already known
+            # not to be authenticated
+            return None
+
         # If we use cookie-based sessions, check that the cookie size does not
         # reach the max size accepted by common web browsers.
         if (
