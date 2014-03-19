@@ -1498,7 +1498,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
-        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
 
         if nova_stu_enabled:

@@ -82,7 +82,7 @@ class UsageViewTests(test.TestCase):
             api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                                datetime.datetime(now.year,
                                                  now.month,
-                                                 now.day, 0, 0, 0, 0),
+                                                 1, 0, 0, 0, 0),
                                datetime.datetime(now.year,
                                                  now.month,
                                                  now.day, 23, 59, 59, 0)) \
@@ -124,7 +124,7 @@ class UsageViewTests(test.TestCase):
             api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                                datetime.datetime(now.year,
                                                  now.month,
-                                                 now.day, 0, 0, 0, 0),
+                                                1, 0, 0, 0, 0),
                                datetime.datetime(now.year,
                                                  now.month,
                                                  now.day, 23, 59, 59, 0)) \
@@ -160,7 +160,7 @@ class UsageViewTests(test.TestCase):
         api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                            datetime.datetime(now.year,
                                              now.month,
-                                             now.day, 0, 0, 0, 0),
+                                             1, 0, 0, 0, 0),
                            datetime.datetime(now.year,
                                              now.month,
                                              now.day, 23, 59, 59, 0)) \
@@ -190,7 +190,7 @@ class UsageViewTests(test.TestCase):
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
-        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
 
         if nova_stu_enabled:
@@ -209,7 +209,7 @@ class UsageViewTests(test.TestCase):
 
     def test_usage_exception_usage(self):
         now = timezone.now()
-        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         self._stub_nova_api_calls()
         api.nova.extension_supported(
@@ -235,7 +235,7 @@ class UsageViewTests(test.TestCase):
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(True)
-        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
@@ -257,7 +257,7 @@ class UsageViewTests(test.TestCase):
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(True)
-        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
@@ -288,7 +288,7 @@ class UsageViewTests(test.TestCase):
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(True)
         self.mox.StubOutWithMock(api.neutron, 'tenant_quota_get')
-        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
@@ -333,7 +333,7 @@ class UsageViewTests(test.TestCase):
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(True)
 
-        start = datetime.datetime(now.year, now.month, now.day, 0, 0, 0, 0)
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
         api.nova.usage_get(IsA(http.HttpRequest),
                            self.tenant.id,
