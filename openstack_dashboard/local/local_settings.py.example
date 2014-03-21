@@ -160,7 +160,7 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # from the UI.
 OPENSTACK_HYPERVISOR_FEATURES = {
     'can_set_mount_point': False,
-    'can_set_password': True,
+    'can_set_password': False,
 }
 
 # The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
