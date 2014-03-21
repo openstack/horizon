@@ -21,6 +21,7 @@
 import json
 import uuid
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 from django.test import utils as test_utils
@@ -2645,6 +2646,96 @@ class InstanceTests(test.TestCase):
                                           confirm_password=password,
                                           disk_config='AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test_utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.nova: ('flavor_list',
+                                   'server_list',
+                                   'tenant_absolute_limits',
+                                   'extension_supported',),
+                        api.glance: ('image_list_detailed',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',),
+                        })
+    def test_index_form_action_with_pagination(self):
+        """The form action on the next page should have marker
+           object from the previous page last element.
+        """
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
+        servers = self.servers.list()[:3]
+
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .MultipleTimes().AndReturn((self.images.list(), False))
+
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers[:page_size], True])
+        api.nova.server_list(IsA(http.HttpRequest), search_opts={
+            'marker': servers[page_size - 1].id, 'paginate': True}) \
+            .AndReturn([servers[page_size:], False])
+
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'project/instances/index.html')
+        # get first page with 2 items
+        self.assertEqual(len(res.context['instances_table'].data), page_size)
+
+        # update INDEX_URL with marker object
+        next_page_url = "?".join([reverse('horizon:project:instances:index'),
+                    "=".join([tables.InstancesTable._meta.pagination_param,
+                              servers[page_size - 1].id])])
+        form_action = 'action="%s"' % next_page_url
+
+        res = self.client.get(next_page_url)
+        # get next page with remaining items (item 3)
+        self.assertEqual(len(res.context['instances_table'].data), 1)
+        # ensure that marker object exists in form action
+        self.assertContains(res, form_action, count=1)
+
+    @test_utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.nova: ('server_list',
+                                   'flavor_list',
+                                   'server_delete',),
+                        api.glance: ('image_list_detailed',),
+                        api.network: ('servers_update_addresses',)})
+    def test_terminate_instance_with_pagination(self):
+        """Instance should be deleted from
+           the next page.
+        """
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
+        servers = self.servers.list()[:3]
+        server = servers[-1]
+
+        search_opts = {'marker': servers[page_size - 1].id, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers[page_size:], False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest),
+                                             servers[page_size:])
+        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False))
+        api.nova.server_delete(IsA(http.HttpRequest), server.id)
+        self.mox.ReplayAll()
+
+        # update INDEX_URL with marker object
+        next_page_url = "?".join([reverse('horizon:project:instances:index'),
+                    "=".join([tables.InstancesTable._meta.pagination_param,
+                              servers[page_size - 1].id])])
+        formData = {'action': 'instances__terminate__%s' % server.id}
+        res = self.client.post(next_page_url, formData)
+
+        self.assertRedirectsNoFollow(res, next_page_url)
+        self.assertMessageCount(success=1)
 
 
 class InstanceAjaxTests(test.TestCase):

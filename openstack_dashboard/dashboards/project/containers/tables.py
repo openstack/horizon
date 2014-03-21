@@ -269,6 +269,17 @@ class ContainersTable(tables.DataTable):
         url = super(ContainersTable, self).get_absolute_url()
         return http.urlquote(url)
 
+    def get_full_url(self):
+        """Returns the encoded absolute URL path with its query string.
+
+        This is used for the POST action attribute on the form element
+        wrapping the table. We use this method to persist the
+        pagination marker.
+
+        """
+        url = super(ContainersTable, self).get_full_url()
+        return http.urlquote(url)
+
 
 class ViewObject(tables.LinkAction):
     name = "view"
@@ -415,4 +426,15 @@ class ObjectsTable(tables.DataTable):
 
     def get_absolute_url(self):
         url = super(ObjectsTable, self).get_absolute_url()
+        return http.urlquote(url)
+
+    def get_full_url(self):
+        """Returns the encoded absolute URL path with its query string.
+
+        This is used for the POST action attribute on the form element
+        wrapping the table. We use this method to persist the
+        pagination marker.
+
+        """
+        url = super(ObjectsTable, self).get_full_url()
         return http.urlquote(url)
