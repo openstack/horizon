@@ -133,3 +133,73 @@ if api.neutron.is_port_profiles_supported():
             self.assertRedirectsNoFollow(res,
                                          reverse
                                          ('horizon:router:nexus1000v:index'))
+
+        @test.create_stubs({api.neutron: ('profile_create',),
+                            api.keystone: ('tenant_list',)})
+        def test_create_overlay_other_net_profile(self):
+            tenants = self.tenants.list()
+            net_profile = self.net_profiles.list()[2]
+            params = {'name': net_profile.name,
+                      'segment_type': net_profile.segment_type,
+                      'segment_range': net_profile.segment_range,
+                      'sub_type': net_profile.other_subtype,
+                      'tenant_id': net_profile.project,
+                      # overlay 'other' profiles have no multicast_ip_range
+                      # or physical_network type
+                      'multicast_ip_range': '',
+                      'physical_network': ''}
+
+            api.neutron.profile_create(IsA(http.HttpRequest),
+                                     **params).AndReturn(net_profile)
+            api.keystone.tenant_list(
+                IsA(http.HttpRequest)).AndReturn([tenants, False])
+            self.mox.ReplayAll()
+
+            form_data = {'name': net_profile.name,
+                         'segment_type': net_profile.segment_type,
+                         'segment_range': net_profile.segment_range,
+                         'sub_type': net_profile.sub_type,
+                         'other_subtype': net_profile.other_subtype,
+                         'project': net_profile.project}
+            form_data.update(form_data_overlay())
+            url = reverse('horizon:router:nexus1000v:create_network_profile')
+            res = self.client.post(url, form_data)
+
+            self.assertNoFormErrors(res)
+            self.assertRedirectsNoFollow(res,
+                                         reverse
+                                         ('horizon:router:nexus1000v:index'))
+
+        @test.create_stubs({api.neutron: ('profile_create',),
+                            api.keystone: ('tenant_list',)})
+        def test_create_trunk_net_profile(self):
+            tenants = self.tenants.list()
+            net_profile = self.net_profiles.list()[3]
+            params = {'name': net_profile.name,
+                      'segment_type': net_profile.segment_type,
+                      'sub_type': net_profile.sub_type_trunk,
+                      'tenant_id': net_profile.project,
+                      # trunk profiles have no multicast_ip_range,
+                      # no segment_range or no physical_network type
+                      'multicast_ip_range': '',
+                      'segment_range': '',
+                      'physical_network': ''}
+
+            api.neutron.profile_create(IsA(http.HttpRequest),
+                                     **params).AndReturn(net_profile)
+            api.keystone.tenant_list(
+                IsA(http.HttpRequest)).AndReturn([tenants, False])
+            self.mox.ReplayAll()
+
+            form_data = {'name': net_profile.name,
+                         'segment_type': net_profile.segment_type,
+                         'sub_type_trunk': net_profile.sub_type_trunk,
+                         'project': net_profile.project}
+            form_data.update(form_data_no_overlay())
+            url = reverse('horizon:router:nexus1000v:create_network_profile')
+            res = self.client.post(url, form_data)
+
+            self.assertNoFormErrors(res)
+            self.assertRedirectsNoFollow(res,
+                                         reverse
+                                         ('horizon:router:nexus1000v:index'))

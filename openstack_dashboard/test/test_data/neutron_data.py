@@ -911,3 +911,47 @@ def data(TEST):
     TEST.api_network_profile_binding.add(network_profile_binding_dict)
     TEST.network_profile_binding.add(neutron.Profile(
         network_profile_binding_dict))
+
+    # 3rd network profile for network when using the cisco n1k plugin
+    # Profile applied on 1st network
+    net_profile_dict = {'name': 'net_profile_test3',
+                        'segment_type': 'overlay',
+                        'sub_type': 'other',
+                        'other_subtype': 'GRE',
+                        'segment_range': '11000-11100',
+                        'id':
+                        '00000000-3333-3333-3333-000000000000',
+                        'project': '1'}
+
+    TEST.api_net_profiles.add(net_profile_dict)
+    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
+
+    # 3rd network profile binding
+    network_profile_binding_dict = {'profile_id':
+                                    '00000000-3333-3333-3333-000000000000',
+                                    'tenant_id': '1'}
+
+    TEST.api_network_profile_binding.add(network_profile_binding_dict)
+    TEST.network_profile_binding.add(neutron.Profile(
+        network_profile_binding_dict))
+
+    # 4th network profile for network when using the cisco n1k plugin
+    # Profile applied on 1st network
+    net_profile_dict = {'name': 'net_profile_test4',
+                        'segment_type': 'trunk',
+                        'sub_type_trunk': 'vlan',
+                        'id':
+                        '00000000-4444-4444-4444-000000000000',
+                        'project': '1'}
+
+    TEST.api_net_profiles.add(net_profile_dict)
+    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
+
+    # 4th network profile binding
+    network_profile_binding_dict = {'profile_id':
+                                    '00000000-4444-4444-4444-000000000000',
+                                    'tenant_id': '1'}
+
+    TEST.api_network_profile_binding.add(network_profile_binding_dict)
+    TEST.network_profile_binding.add(neutron.Profile(
+        network_profile_binding_dict))
