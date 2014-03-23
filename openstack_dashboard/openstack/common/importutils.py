@@ -1,5 +1,3 @@
-# vim: tabstop=4 shiftwidth=4 softtabstop=4
-
 # Copyright 2011 OpenStack Foundation.
 # All Rights Reserved.
 #
@@ -41,8 +39,9 @@ def import_object(import_str, *args, **kwargs):
 
 
 def import_object_ns(name_space, import_str, *args, **kwargs):
-    """
-    Import a class and return an instance of it, first by trying
+    """Tries to import object from default namespace.
+
+    Imports a class and return an instance of it, first by trying
     to find the class in a default namespace, then failing back to
     a full path if not found in the default namespace.
     """
@@ -57,6 +56,13 @@ def import_module(import_str):
     """Import a module."""
     __import__(import_str)
     return sys.modules[import_str]
+
+
+def import_versioned_module(version, submodule=None):
+    module = 'openstack_dashboard.v%s' % version
+    if submodule:
+        module = '.'.join((module, submodule))
+    return import_module(module)
 
 
 def try_import(import_str, default=None):
