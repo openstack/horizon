@@ -23,6 +23,9 @@ import sys
 import django
 from django.utils import html_parser
 from horizon.test import patches
+import xstatic.main
+import xstatic.pkg.jquery
+
 
 # Patch django.utils.html_parser.HTMLParser as a workaround for bug 1273943
 if django.get_version() == '1.4' and sys.version_info[:3] > (2, 7, 3):
@@ -133,6 +136,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
+)
+
+STATICFILES_DIRS = (
+    ('horizon/lib/jquery', xstatic.main.XStatic(xstatic.pkg.jquery).base_dir),
 )
 
 LOGGING = {
