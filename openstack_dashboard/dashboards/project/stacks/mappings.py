@@ -35,7 +35,7 @@ resource_urls = {
     "AWS::EC2::Subnet": {
         'link': 'horizon:project:networks:subnets:detail'},
     "AWS::EC2::Volume": {
-        'link': 'horizon:project:volumes:detail'},
+        'link': 'horizon:project:volumes:volumes:detail'},
     "AWS::EC2::VPC": {
         'link': 'horizon:project:networks:detail'},
     "AWS::S3::Bucket": {
