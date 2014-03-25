@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -25,6 +27,9 @@ from openstack_dashboard.dashboards.project.loadbalancers import utils
 
 AVAILABLE_PROTOCOLS = ('HTTP', 'HTTPS', 'TCP')
 AVAILABLE_METHODS = ('ROUND_ROBIN', 'LEAST_CONNECTIONS', 'SOURCE_IP')
+
+
+LOG = logging.getLogger(__name__)
 
 
 class AddPoolAction(workflows.Action):
@@ -292,14 +297,35 @@ class AddVip(workflows.Workflow):
 
 class AddMemberAction(workflows.Action):
     pool_id = forms.ChoiceField(label=_("Pool"))
+    member_type = forms.ChoiceField(
+        label=_("Member Source"),
+        choices=[('server_list', _("Select from active instances")),
+                 ('member_address', _("Specify member IP address"))],
+        required=False,
+        widget=forms.Select(attrs={
+            'class': 'switchable',
+            'data-slug': 'membertype'
+        }))
     members = forms.MultipleChoiceField(
         label=_("Member(s)"),
-        required=True,
+        required=False,
         initial=["default"],
-        widget=forms.CheckboxSelectMultiple(),
-        error_messages={'required':
-                        _('At least one member must be specified')},
+        widget=forms.SelectMultiple(attrs={
+            'class': 'switched',
+            'data-switch-on': 'membertype',
+            'data-membertype-server_list': _("Member(s)"),
+        }),
         help_text=_("Select members for this pool "))
+    address = forms.IPField(required=False, label=_("Member address"),
+                            help_text=_("Specify member IP address"),
+                            widget=forms.TextInput(attrs={
+                                'class': 'switched',
+                                'data-switch-on': 'membertype',
+                                'data-membertype-member_address':
+                                _("Member address"),
+                            }),
+                            initial="", version=forms.IPv4 | forms.IPv6,
+                            mask=False)
     weight = forms.IntegerField(
         max_value=256, min_value=1, label=_("Weight"), required=False,
         help_text=_("Relative part of requests this pool member serves "
@@ -346,9 +372,6 @@ class AddMemberAction(workflows.Action):
             self.fields['members'].label = _(
                 "No servers available. To add a member, you "
                 "need at least one running instance.")
-            self.fields['members'].required = True
-            self.fields['members'].help_text = _("Select members "
-                                                 "for this pool ")
             self.fields['pool_id'].required = False
             self.fields['protocol_port'].required = False
             return
@@ -358,6 +381,18 @@ class AddMemberAction(workflows.Action):
         self.fields['members'].choices = sorted(
             members_choices,
             key=lambda member: member[1])
+
+    def clean(self):
+        cleaned_data = super(AddMemberAction, self).clean()
+        if (cleaned_data.get('member_type') == 'server_list' and
+                not cleaned_data.get('members')):
+            msg = _('At least one member must be specified')
+            self._errors['members'] = self.error_class([msg])
+        elif (cleaned_data.get('member_type') == 'member_address' and
+                not cleaned_data.get('address')):
+            msg = _('Member IP address must be specified')
+            self._errors['address'] = self.error_class([msg])
+        return cleaned_data
 
     class Meta:
         name = _("Add New Member")
@@ -374,8 +409,8 @@ class AddMemberAction(workflows.Action):
 
 class AddMemberStep(workflows.Step):
     action_class = AddMemberAction
-    contributes = ("pool_id", "members", "protocol_port", "weight",
-                   "admin_state_up")
+    contributes = ("pool_id", "member_type", "members", "address",
+                   "protocol_port", "weight", "admin_state_up")
 
     def contribute(self, data, context):
         context = super(AddMemberStep, self).contribute(data, context)
@@ -387,25 +422,37 @@ class AddMember(workflows.Workflow):
     name = _("Add Member")
     finalize_button_name = _("Add")
     success_message = _('Added member(s).')
-    failure_message = _('Unable to add member(s).')
+    failure_message = _('Unable to add member(s)')
     success_url = "horizon:project:loadbalancers:index"
     default_steps = (AddMemberStep,)
 
     def handle(self, request, context):
-        for m in context['members']:
-            params = {'device_id': m}
-            try:
-                plist = api.neutron.port_list(request, **params)
-            except Exception:
-                return False
-            if plist:
-                context['address'] = plist[0].fixed_ips[0]['ip_address']
+        if context['member_type'] == 'server_list':
+            for m in context['members']:
+                params = {'device_id': m}
+                try:
+                    plist = api.neutron.port_list(request, **params)
+                except Exception:
+                    return False
+                if plist:
+                    context['address'] = plist[0].fixed_ips[0]['ip_address']
+                try:
+                    context['member_id'] = api.lbaas.member_create(
+                        request, **context).id
+                except Exception as e:
+                    msg = self.failure_message
+                    LOG.info('%s: %s' % (msg, e))
+                    return False
+            return True
+        else:
             try:
                 context['member_id'] = api.lbaas.member_create(
                     request, **context).id
-            except Exception:
+                return True
+            except Exception as e:
+                msg = self.failure_message
+                LOG.info('%s: %s' % (msg, e))
                 return False
-        return True
 
 
 class AddMonitorAction(workflows.Action):
