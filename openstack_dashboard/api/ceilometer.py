@@ -1062,7 +1062,7 @@ class Meters(object):
         return datastructures.SortedDict([
             ('image', {
                 'label': '',
-                'description': _("Image polling -> it (still) exists"),
+                'description': _("Image existence check"),
             }),
             ('image.size', {
                 'label': '',
