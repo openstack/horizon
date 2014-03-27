@@ -22,7 +22,7 @@ function usage {
   echo "                           environment. Useful when dependencies have"
   echo "                           been added."
   echo "  -m, --manage             Run a Django management command."
-  echo "  --makemessages           Update all translation files."
+  echo "  --makemessages           Create/Update English translation files."
   echo "  --compilemessages        Compile all translation files."
   echo "  -p, --pep8               Just run pep8"
   echo "  -P, --no-pep8            Don't run pep8 by default"
@@ -393,6 +393,9 @@ function run_compilemessages {
   ${command_wrapper} $root/manage.py compilemessages
   DASHBOARD_RESULT=$?
   cd ..
+  # English is the source language, so compiled catalogs are unnecessary.
+  rm -vf horizon/locale/en/LC_MESSAGES/django*.mo
+  rm -vf openstack_dashboard/locale/en/LC_MESSAGES/django.mo
   exit $(($HORIZON_PY_RESULT || $DASHBOARD_RESULT))
 }
 
