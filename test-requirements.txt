@@ -8,7 +8,7 @@ nose-exclude
 nosehtmloutput>=0.0.3
 nosexcover
 openstack.nose_plugin>=0.7
-oslo.sphinx
+oslosphinx
 selenium
 sphinx>=1.1.2,<1.2
 testtools>=0.9.34

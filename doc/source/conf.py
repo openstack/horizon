@@ -144,7 +144,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.coverage',
               'sphinx.ext.pngmath',
               'sphinx.ext.viewcode',
-              'oslo.sphinx',
+              'oslosphinx',
               ]
 
 # Add any paths that contain templates here, relative to this directory.
