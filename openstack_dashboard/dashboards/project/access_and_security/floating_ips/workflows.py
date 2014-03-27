@@ -73,7 +73,7 @@ class AssociateIPAction(workflows.Action):
         if options:
             options.insert(0, ("", _("Select an IP address")))
         else:
-            options = [("", _("No IP addresses available"))]
+            options = [("", _("No floating IP addresses allocated"))]
 
         return options
 
