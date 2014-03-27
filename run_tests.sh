@@ -369,7 +369,7 @@ function run_integration_tests {
 
 function run_makemessages {
   OPTS="-l en --no-obsolete"
-  DASHBOARD_OPTS="--extension=html,txt,csv --ignore=openstack/common/*"
+  DASHBOARD_OPTS="--extension=html,txt,csv --ignore=openstack"
   echo -n "horizon: "
   cd horizon
   ${command_wrapper} $root/manage.py makemessages $OPTS
