@@ -13,11 +13,11 @@ Install the prerequisite packages.
 
 On Ubuntu::
 
-    > sudo apt-get install git python-dev python-virtualenv
+    > sudo apt-get install git python-dev python-virtualenv libssl-dev libffi-dev
 
 On Fedora-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)::
 
-    > sudo yum install gcc git-core python-devel python-virtualenv openssl-devel
+    > sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel
 
 Setup
 =====
