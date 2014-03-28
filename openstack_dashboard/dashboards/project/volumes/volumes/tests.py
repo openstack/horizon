@@ -706,6 +706,8 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_list',
                                  'volume_snapshot_list',
+                                 'volume_backup_supported',
+                                 'volume_backup_list',
                                  'volume_delete',),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
@@ -715,6 +717,8 @@ class VolumeViewTests(test.TestCase):
         formData = {'action':
                     'volumes__delete__%s' % volume.id}
 
+        cinder.volume_backup_supported(IsA(http.HttpRequest)). \
+            MultipleTimes().AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn(volumes)
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
@@ -723,6 +727,10 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
+            AndReturn(volumes)
+        cinder.volume_backup_list(IsA(http.HttpRequest)).\
+            AndReturn(self.cinder_volume_backups.list())
+        cinder.volume_list(IsA(http.HttpRequest)).\
             AndReturn(volumes)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
@@ -739,6 +747,8 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_list',
                                  'volume_snapshot_list',
+                                 'volume_backup_supported',
+                                 'volume_backup_list',
                                  'volume_delete',),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
@@ -750,6 +760,8 @@ class VolumeViewTests(test.TestCase):
         exc = self.exceptions.cinder.__class__(400,
                                                "error: dependent snapshots")
 
+        cinder.volume_backup_supported(IsA(http.HttpRequest)). \
+            MultipleTimes().AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
                            AndReturn(volumes)
         cinder.volume_delete(IsA(http.HttpRequest), volume.id).\
@@ -763,6 +775,10 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest))\
               .AndReturn(self.cinder_volume_snapshots.list())
         cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
+        cinder.volume_backup_list(IsA(http.HttpRequest)).\
+            AndReturn(self.cinder_volume_backups.list())
+        cinder.volume_list(IsA(http.HttpRequest)).\
+            AndReturn(volumes)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes().\
                                    AndReturn(self.quota_usages.first())
 
@@ -857,7 +873,9 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.status_code, 200)
 
     @test.create_stubs({cinder: ('volume_list',
-                                 'volume_snapshot_list'),
+                                 'volume_snapshot_list',
+                                 'volume_backup_supported',
+                                 'volume_backup_list',),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_disabled_when_quota_exceeded(self):
@@ -865,12 +883,17 @@ class VolumeViewTests(test.TestCase):
         quota_usages['volumes']['available'] = 0
         volumes = self.cinder_volumes.list()
 
+        api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
+            MultipleTimes().AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
               .AndReturn(volumes)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
               .AndReturn([self.servers.list(), False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest))\
               .AndReturn(self.cinder_volume_snapshots.list())
+        cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
+        cinder.volume_backup_list(IsA(http.HttpRequest))\
+              .AndReturn(self.cinder_volume_backups.list())
         cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
         quotas.tenant_quota_usages(IsA(http.HttpRequest))\
               .MultipleTimes().AndReturn(quota_usages)

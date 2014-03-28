@@ -423,6 +423,17 @@ are using HTTPS, running your Keystone server on a nonstandard port, or using
 a nonstandard URL scheme you shouldn't need to touch this setting.
 
 
+``OPENSTACK_CINDER_FEATURES``
+-----------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``{'enable_backup': False}``
+
+A dictionary of settings which can be used to enable optional services provided
+by cinder.  Currently only the backup service is available.
+
+
 ``OPENSTACK_NEUTRON_NETWORK``
 -----------------------------
 

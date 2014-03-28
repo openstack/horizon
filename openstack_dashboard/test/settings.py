@@ -112,6 +112,10 @@ OPENSTACK_KEYSTONE_BACKEND = {
     'can_edit_role': True
 }
 
+OPENSTACK_CINDER_FEATURES = {
+    'enable_backup': True,
+}
+
 OPENSTACK_NEUTRON_NETWORK = {
     'enable_lb': True,
     'enable_firewall': True,

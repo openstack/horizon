@@ -27,13 +27,19 @@ INDEX_URL = reverse('horizon:project:volumes:index')
 
 class VolumeAndSnapshotsTests(test.TestCase):
     @test.create_stubs({api.cinder: ('volume_list',
-                                     'volume_snapshot_list',),
+                                     'volume_snapshot_list',
+                                     'volume_backup_supported',
+                                     'volume_backup_list',
+                                     ),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
-    def test_index(self):
+    def _test_index(self, backup_supported=True):
+        vol_backups = self.cinder_volume_backups.list()
         vol_snaps = self.cinder_volume_snapshots.list()
         volumes = self.cinder_volumes.list()
 
+        api.cinder.volume_backup_supported(IsA(http.HttpRequest)).\
+            MultipleTimes().AndReturn(backup_supported)
         api.cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn(volumes)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
@@ -41,6 +47,10 @@ class VolumeAndSnapshotsTests(test.TestCase):
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(vol_snaps)
         api.cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
+        if backup_supported:
+            api.cinder.volume_backup_list(IsA(http.HttpRequest)).\
+                AndReturn(vol_backups)
+            api.cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes(). \
             AndReturn(self.quota_usages.first())
         self.mox.ReplayAll()
@@ -48,3 +58,9 @@ class VolumeAndSnapshotsTests(test.TestCase):
         res = self.client.get(INDEX_URL)
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'project/volumes/index.html')
+
+    def test_index_back_supported(self):
+        self._test_index(backup_supported=True)
+
+    def test_index_backup_not_supported(self):
+        self._test_index(backup_supported=False)

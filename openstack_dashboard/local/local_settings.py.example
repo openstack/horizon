@@ -168,6 +168,12 @@ OPENSTACK_HYPERVISOR_FEATURES = {
     'can_set_password': False,
 }
 
+# The OPENSTACK_CINDER_FEATURES settings can be used to enable optional
+# services provided by cinder that is not exposed by its extension API.
+OPENSTACK_CINDER_FEATURES = {
+    'enable_backup': False,
+}
+
 # The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
 # services provided by neutron. Options currently available are load
 # balancer service, security groups, quotas, VPN service.

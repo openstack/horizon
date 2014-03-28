@@ -17,6 +17,8 @@ from django.conf.urls import url  # noqa
 
 from openstack_dashboard.dashboards.project.volumes \
     .volumes import views
+from openstack_dashboard.dashboards.project.volumes.backups \
+    import views as backup_views
 
 
 VIEWS_MOD = ('openstack_dashboard.dashboards.project.volumes.volumes.views')
@@ -32,6 +34,9 @@ urlpatterns = patterns(VIEWS_MOD,
     url(r'^(?P<volume_id>[^/]+)/create_snapshot/$',
         views.CreateSnapshotView.as_view(),
         name='create_snapshot'),
+    url(r'^(?P<volume_id>[^/]+)/create_backup/$',
+        backup_views.CreateBackupView.as_view(),
+        name='create_backup'),
     url(r'^(?P<volume_id>[^/]+)/$',
         views.DetailView.as_view(),
         name='detail'),

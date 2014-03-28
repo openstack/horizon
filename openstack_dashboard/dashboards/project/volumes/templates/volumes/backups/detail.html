@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Volume Backup Details" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Volume Backup Details: ")|add:backup.name|default:_("Volume Backup Details:") %}
+{% endblock page_header %}
+{% block main %}
+<div class="row-fluid">
+  <div class="span12">
+  {{ tab_group.render }}
+  </div>
+</div>
+{% endblock %}
