@@ -167,8 +167,8 @@ def get_quota_name(quota):
         'instances': _('Instances'),
         'injected_files': _('Injected Files'),
         'volumes': _('Volumes'),
-        'snapshots': _('Snapshots'),
-        'gigabytes': _('Gigabytes'),
+        'snapshots': _('Volume Snapshots'),
+        'gigabytes': _('Total Size of Volumes and Snapshots (GB)'),
         'ram': _('RAM (MB)'),
         'floating_ips': _('Floating IPs'),
         'security_groups': _('Security Groups'),
@@ -176,8 +176,9 @@ def get_quota_name(quota):
         'key_pairs': _('Key Pairs'),
         'fixed_ips': _('Fixed IPs'),
         'volumes_volume_luks': _('LUKS Volumes'),
-        'snapshots_volume_luks': _('LUKS Volumes Snapshots'),
-        'gigabytes_volume_luks': _('LUKS Volumes Size (GB)'),
+        'snapshots_volume_luks': _('LUKS Volume Snapshots'),
+        'gigabytes_volume_luks':
+        _('Total Size of LUKS Volumes and Snapshots (GB)'),
         'dm-crypt': _('dm-crypt'),
     }
     return QUOTA_NAMES.get(quota.name, quota.name.replace("_", " ").title())
