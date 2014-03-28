@@ -600,7 +600,7 @@ Examples
 --------
 
 To add a new panel to the Admin panel group in Admin dashboard, create a file
-``openstack_dashboard/local/enabled/_60_admin_add_panel.py`` with the follwing
+``openstack_dashboard/local/enabled/_60_admin_add_panel.py`` with the following
 content::
 
     PANEL = 'plugin_panel'
@@ -617,11 +617,11 @@ the following content::
     PANEL_GROUP = 'admin'
     REMOVE_PANEL = True
 
-To change the default panel of Admin dashboard to Defaults panel, create a file
+To change the default panel of Admin dashboard to Instances panel, create a file
 ``openstack_dashboard/local/enabled/_80_admin_default_panel.py`` with the
 following content::
 
-    PANEL = 'defaults'
+    PANEL = 'instances'
     PANEL_DASHBOARD = 'admin'
     PANEL_GROUP = 'admin'
-    DEFAULT_PANEL = 'defaults'
+    DEFAULT_PANEL = 'instances'

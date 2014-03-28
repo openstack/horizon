@@ -21,6 +21,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
+from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.admin.info import constants
 from openstack_dashboard.dashboards.admin.info import tables
@@ -79,8 +80,24 @@ class NetworkAgentsTab(tabs.TableTab):
         return agents
 
 
+class DefaultQuotasTab(tabs.TableTab):
+    table_classes = (tables.QuotasTable,)
+    name = _("Default Quotas")
+    slug = "quotas"
+    template_name = constants.INFO_DETAIL_TEMPLATE_NAME
+
+    def get_quotas_data(self):
+        request = self.tab_group.request
+        try:
+            data = quotas.get_default_quota_data(request)
+        except Exception:
+            data = []
+            exceptions.handle(self.request, _('Unable to get quota info.'))
+        return data
+
+
 class SystemInfoTabs(tabs.TabGroup):
     slug = "system_info"
     tabs = (ServicesTab, NovaServicesTab,
-            NetworkAgentsTab)
+            NetworkAgentsTab, DefaultQuotasTab)
     sticky = True
