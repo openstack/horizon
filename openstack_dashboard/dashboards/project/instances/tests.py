@@ -2668,7 +2668,8 @@ class InstanceTests(test.TestCase):
                                    'extension_supported',),
                         api.glance: ('image_list_detailed',),
                         api.network:
-                            ('floating_ip_simple_associate_supported',),
+                            ('floating_ip_simple_associate_supported',
+                             'servers_update_addresses',),
                         })
     def test_index_form_action_with_pagination(self):
         """The form action on the next page should have marker
@@ -2688,9 +2689,13 @@ class InstanceTests(test.TestCase):
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers[:page_size], True])
+        api.network.servers_update_addresses(
+            IsA(http.HttpRequest), servers[:page_size])
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
             'marker': servers[page_size - 1].id, 'paginate': True}) \
             .AndReturn([servers[page_size:], False])
+        api.network.servers_update_addresses(
+            IsA(http.HttpRequest), servers[page_size:])
 
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
