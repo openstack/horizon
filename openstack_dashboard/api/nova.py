@@ -670,8 +670,9 @@ def service_list(request):
 
 def aggregate_list(request):
     result = []
-    for aggregate in novaclient(request).aggregates.list():
-        result.append(novaclient(request).aggregates.get_details(aggregate.id))
+    c = novaclient(request)
+    for aggregate in c.aggregates.list():
+        result.append(c.aggregates.get_details(aggregate.id))
 
     return result
 
