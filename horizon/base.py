@@ -798,53 +798,96 @@ class Site(Registry, HorizonComponent):
         and make changes to the dashboard accordingly.
 
         It supports adding, removing and setting default panels on the
-        dashboard.
+        dashboard. It also support registering a panel group.
         """
         panel_customization = self._conf.get("panel_customization", [])
 
         for config in panel_customization:
+            if config.get('PANEL'):
+                self._process_panel_configuration(config)
+            elif config.get('PANEL_GROUP'):
+                self._process_panel_group_configuration(config)
+            else:
+                LOG.warning("Skipping %s because it doesn't have PANEL or "
+                            "PANEL_GROUP defined.", config.__name__)
+
+    def _process_panel_configuration(self, config):
+        """Add, remove and set default panels on the dashboard."""
+        try:
             dashboard = config.get('PANEL_DASHBOARD')
             if not dashboard:
                 LOG.warning("Skipping %s because it doesn't have "
                             "PANEL_DASHBOARD defined.", config.__name__)
-                continue
-            try:
-                panel_slug = config.get('PANEL')
-                dashboard_cls = self.get_dashboard(dashboard)
-                panel_group = config.get('PANEL_GROUP')
-                default_panel = config.get('DEFAULT_PANEL')
+                return
+            panel_slug = config.get('PANEL')
+            dashboard_cls = self.get_dashboard(dashboard)
+            panel_group = config.get('PANEL_GROUP')
+            default_panel = config.get('DEFAULT_PANEL')
 
-                # Set the default panel
-                if default_panel:
-                    dashboard_cls.default_panel = default_panel
+            # Set the default panel
+            if default_panel:
+                dashboard_cls.default_panel = default_panel
 
-                # Remove the panel
-                if config.get('REMOVE_PANEL', False):
-                    for panel in dashboard_cls.get_panels():
-                        if panel_slug == panel.slug:
-                            dashboard_cls.unregister(panel.__class__)
-                elif config.get('ADD_PANEL', None):
-                    # Add the panel to the dashboard
-                    panel_path = config['ADD_PANEL']
-                    mod_path, panel_cls = panel_path.rsplit(".", 1)
-                    try:
-                        mod = import_module(mod_path)
-                    except ImportError:
-                        LOG.warning("Could not load panel: %s", mod_path)
-                        continue
+            # Remove the panel
+            if config.get('REMOVE_PANEL', False):
+                for panel in dashboard_cls.get_panels():
+                    if panel_slug == panel.slug:
+                        dashboard_cls.unregister(panel.__class__)
+            elif config.get('ADD_PANEL', None):
+                # Add the panel to the dashboard
+                panel_path = config['ADD_PANEL']
+                mod_path, panel_cls = panel_path.rsplit(".", 1)
+                try:
+                    mod = import_module(mod_path)
+                except ImportError:
+                    LOG.warning("Could not load panel: %s", mod_path)
+                    return
 
-                    panel = getattr(mod, panel_cls)
-                    dashboard_cls.register(panel)
-                    if panel_group:
-                        dashboard_cls.get_panel_group(panel_group).\
-                            panels.append(panel.slug)
-                    else:
-                        panels = list(dashboard_cls.panels)
-                        panels.append(panel)
-                        dashboard_cls.panels = tuple(panels)
-            except Exception as e:
-                LOG.warning('Could not process panel %(panel)s: %(exc)s',
-                            {'panel': panel_slug, 'exc': e})
+                panel = getattr(mod, panel_cls)
+                dashboard_cls.register(panel)
+                if panel_group:
+                    dashboard_cls.get_panel_group(panel_group).\
+                        panels.append(panel.slug)
+                else:
+                    panels = list(dashboard_cls.panels)
+                    panels.append(panel)
+                    dashboard_cls.panels = tuple(panels)
+        except Exception as e:
+            LOG.warning('Could not process panel %(panel)s: %(exc)s',
+                        {'panel': panel_slug, 'exc': e})
+
+    def _process_panel_group_configuration(self, config):
+        """Adds a panel group to the dashboard."""
+        panel_group_slug = config.get('PANEL_GROUP')
+        try:
+            dashboard = config.get('PANEL_GROUP_DASHBOARD')
+            if not dashboard:
+                LOG.warning("Skipping %s because it doesn't have "
+                            "PANEL_GROUP_DASHBOARD defined.", config.__name__)
+                return
+            dashboard_cls = self.get_dashboard(dashboard)
+
+            panel_group_name = config.get('PANEL_GROUP_NAME')
+            if not panel_group_name:
+                LOG.warning("Skipping %s because it doesn't have "
+                            "PANEL_GROUP_NAME defined.", config.__name__)
+                return
+            # Create the panel group class
+            panel_group = type(panel_group_slug,
+                               (PanelGroup, ),
+                               {'slug': panel_group_slug,
+                                'name': panel_group_name},)
+            # Add the panel group to dashboard
+            panels = list(dashboard_cls.panels)
+            panels.append(panel_group)
+            dashboard_cls.panels = tuple(panels)
+            # Trigger the autodiscovery to completely load the new panel group
+            dashboard_cls._autodiscover_complete = False
+            dashboard_cls._autodiscover()
+        except Exception as e:
+            LOG.warning('Could not process panel group %(panel_group)s: '
+                        '%(exc)s',
+                        {'panel_group': panel_group_slug, 'exc': e})
 
 
 class HorizonSite(Site):

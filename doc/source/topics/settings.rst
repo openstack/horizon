@@ -539,7 +539,7 @@ create a file ``openstack_dashboard/local/enabled/_50_tuskar.py`` with::
     }
 
 Pluggable Settings for Panels
-=================================
+=============================
 
 Panels customization can be made by providing a custom python module that
 contains python code to add or remove panel to/from the dashboard. This
@@ -625,3 +625,59 @@ following content::
     PANEL_DASHBOARD = 'admin'
     PANEL_GROUP = 'admin'
     DEFAULT_PANEL = 'instances'
+
+Pluggable Settings for Panel Groups
+===================================
+
+To organize the panels created from the pluggable settings, there is also
+a way to create panel group though configuration file. This creates an empty
+panel group to act as placeholder for the panels that can be created later.
+
+The default location for the panel group configuration files is
+``openstack_dashboard/enabled``, with another directory,
+``openstack_dashboard/local/enabled`` for local overrides. Both sets of files
+will be loaded, but the settings in ``openstack_dashboard/local/enabled`` will
+overwrite the default ones. The settings are applied in alphabetical order of
+the filenames. If the same panel has configuration files in ``enabled`` and
+``local/enabled``, the local name will be used. Note, that since names of
+python modules can't start with a digit, the files are usually named with a
+leading underscore and a number, so that you can control their order easily.
+
+When writing configuration files to create panels and panels group, make sure
+that the panel group configuration file is loaded first because the panel
+configuration might be referencing it. This can be achieved by providing a file
+name that will go before the panel configuration file when the files are sorted
+alphabetically.
+
+The files contain following keys:
+
+``PANEL_GROUP``
+-------------
+
+The name of the panel group to be added to ``HORIZON_CONFIG``. Required.
+
+``PANEL_GROUP_NAME``
+-------------
+
+The display name of the PANEL_GROUP. Required.
+
+``PANEL_GROUP_DASHBOARD``
+-------------
+
+The name of the dashboard the ``PANEL_GROUP`` associated with. Required.
+
+``DISABLED``
+------------
+
+If set to ``True``, this panel configuration will be skipped.
+
+Examples
+--------
+
+To add a new panel group to the Admin dashboard, create a file
+``openstack_dashboard/local/enabled/_90_admin_add_panel_group.py`` with the
+following content::
+
+    PANEL_GROUP = 'plugin_panel_group'
+    PANEL_GROUP_NAME = 'Plugin Panel Group'
+    PANEL_GROUP_DASHBOARD = 'admin'

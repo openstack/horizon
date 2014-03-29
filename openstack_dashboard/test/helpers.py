@@ -25,6 +25,7 @@ from django.conf import settings
 from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
 from django.contrib.messages.storage import default_storage  # noqa
 from django.core.handlers import wsgi
+from django.core import urlresolvers
 from django import http
 from django.test.client import RequestFactory  # noqa
 from django.utils.importlib import import_module  # noqa
@@ -47,6 +48,8 @@ import mox
 from openstack_auth import user
 from openstack_auth import utils
 
+from horizon import base
+from horizon import conf
 from horizon import middleware
 from horizon.test import helpers as horizon_helpers
 
@@ -415,3 +418,54 @@ def my_custom_sort(flavor):
         'm1.massive': 2,
     }
     return sort_order[flavor.name]
+
+
+class PluginTestCase(TestCase):
+    """The ``PluginTestCase`` class is for use with tests which deal with the
+    pluggable dashboard and panel configuration, it takes care of backing up
+    and restoring the Horizon configuration.
+    """
+    def setUp(self):
+        super(PluginTestCase, self).setUp()
+        self.old_horizon_config = conf.HORIZON_CONFIG
+        conf.HORIZON_CONFIG = conf.LazySettings()
+        base.Horizon._urls()
+        # Trigger discovery, registration, and URLconf generation if it
+        # hasn't happened yet.
+        self.client.get("/")
+        # Store our original dashboards
+        self._discovered_dashboards = base.Horizon._registry.keys()
+        # Gather up and store our original panels for each dashboard
+        self._discovered_panels = {}
+        for dash in self._discovered_dashboards:
+            panels = base.Horizon._registry[dash]._registry.keys()
+            self._discovered_panels[dash] = panels
+
+    def tearDown(self):
+        super(PluginTestCase, self).tearDown()
+        conf.HORIZON_CONFIG = self.old_horizon_config
+        # Destroy our singleton and re-create it.
+        base.HorizonSite._instance = None
+        del base.Horizon
+        base.Horizon = base.HorizonSite()
+        # Reload the convenience references to Horizon stored in __init__
+        reload(import_module("horizon"))
+        # Re-register our original dashboards and panels.
+        # This is necessary because autodiscovery only works on the first
+        # import, and calling reload introduces innumerable additional
+        # problems. Manual re-registration is the only good way for testing.
+        for dash in self._discovered_dashboards:
+            base.Horizon.register(dash)
+            for panel in self._discovered_panels[dash]:
+                dash.register(panel)
+        self._reload_urls()
+
+    def _reload_urls(self):
+        """Clears out the URL caches, reloads the root urls module, and
+        re-triggers the autodiscovery mechanism for Horizon. Allows URLs
+        to be re-calculated after registering new dashboards. Useful
+        only for testing and should never be used on a live site.
+        """
+        urlresolvers.clear_url_caches()
+        reload(import_module(settings.ROOT_URLCONF))
+        base.Horizon._urls()

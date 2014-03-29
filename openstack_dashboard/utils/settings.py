@@ -44,12 +44,13 @@ def import_dashboard_config(modules):
             if hasattr(submodule, 'DASHBOARD'):
                 dashboard = submodule.DASHBOARD
                 config[dashboard].update(submodule.__dict__)
-            elif hasattr(submodule, 'PANEL'):
+            elif (hasattr(submodule, 'PANEL')
+                     or hasattr(submodule, 'PANEL_GROUP')):
                 config[submodule.__name__] = submodule.__dict__
-                #_update_panels(config, submodule)
             else:
                 logging.warning("Skipping %s because it doesn't have DASHBOARD"
-                                " or PANEL defined.", submodule.__name__)
+                                ", PANEL or PANEL_GROUP defined.",
+                                submodule.__name__)
     return sorted(config.iteritems(),
                   key=lambda c: c[1]['__name__'].rsplit('.', 1))
 
@@ -98,7 +99,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
             apps.extend(config.get('ADD_INSTALLED_APPS', []))
             if config.get('DEFAULT', False):
                 horizon_config['default_dashboard'] = dashboard
-        elif config.get('PANEL'):
+        elif config.get('PANEL') or config.get('PANEL_GROUP'):
             panel_customization.append(config)
     horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
