@@ -23,19 +23,14 @@ from mox import IsA  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-# TODO(mrunge): remove, when keystone v3 supports
-# change_own_password, incl. password validation
-kver = api.keystone.VERSIONS.active
-if kver == 2:
-    INDEX_URL = reverse('horizon:settings:password:index')
+
+INDEX_URL = reverse('horizon:settings:password:index')
 
 
 class ChangePasswordTests(test.TestCase):
 
     @test.create_stubs({api.keystone: ('user_update_own_password', )})
     def test_change_password(self):
-        if kver == 3:
-            self.skipTest('Password change in keystone v3 unsupported')
         api.keystone.user_update_own_password(IsA(http.HttpRequest),
                                               'oldpwd',
                                               'normalpwd',).AndReturn(None)
@@ -50,8 +45,6 @@ class ChangePasswordTests(test.TestCase):
         self.assertNoFormErrors(res)
 
     def test_change_validation_passwords_not_matching(self):
-        if kver == 3:
-            self.skipTest('Password change in keystone v3 unsupported')
         formData = {'method': 'PasswordForm',
                     'current_password': 'currpasswd',
                     'new_password': 'testpassword',
@@ -62,8 +55,6 @@ class ChangePasswordTests(test.TestCase):
 
     @test.create_stubs({api.keystone: ('user_update_own_password', )})
     def test_change_password_shows_message_on_login_page(self):
-        if kver == 3:
-            self.skipTest('Password change in keystone v3 unsupported')
         api.keystone.user_update_own_password(IsA(http.HttpRequest),
                                               'oldpwd',
                                               'normalpwd').AndReturn(None)
@@ -77,9 +68,3 @@ class ChangePasswordTests(test.TestCase):
 
         info_msg = "Password changed. Please log in again to continue."
         self.assertContains(res, info_msg)
-
-    def test_on_keystone_v3_disabled(self):
-        try:
-            reverse('horizon:settings:password:index')
-        except NoReverseMatch:
-            pass

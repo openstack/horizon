@@ -396,11 +396,11 @@ def user_update_password(request, user, password, admin=True):
 
 def user_update_own_password(request, origpassword, password):
     client = keystoneclient(request, admin=False)
+    client.user_id = request.user.id
     if VERSIONS.active < 3:
-        client.user_id = request.user.id
         return client.users.update_own_password(origpassword, password)
     else:
-        return client.users.update(request.user.id, password=password)
+        return client.users.update_password(origpassword, password)
 
 
 def user_update_tenant(request, user, project, admin=True):

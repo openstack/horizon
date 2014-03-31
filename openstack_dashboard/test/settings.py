@@ -211,3 +211,6 @@ FLAVOR_EXTRA_KEYS = {
         ('quota:outbound_average', 'Quota: Outbound average'),
     ]
 }
+
+# The openstack_auth.user.Token object isn't JSON-serializable ATM
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
