@@ -19,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import messages
 from horizon import tabs
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.stacks \
     import api as project_api
@@ -36,6 +37,12 @@ class StackTopologyTab(tabs.Tab):
     template_name = "project/stacks/_detail_topology.html"
     preload = False
 
+    def allowed(self, request):
+        return policy.check(
+            (("orchestration", "cloudformation:DescribeStacks"),
+             ("orchestration", "cloudformation:ListStackResources"),),
+            request)
+
     def get_context_data(self, request):
         context = {}
         stack = self.tab_group.kwargs['stack']
@@ -49,6 +56,11 @@ class StackOverviewTab(tabs.Tab):
     slug = "overview"
     template_name = "project/stacks/_detail_overview.html"
 
+    def allowed(self, request):
+        return policy.check(
+            (("orchestration", "cloudformation:DescribeStacks"),),
+            request)
+
     def get_context_data(self, request):
         return {"stack": self.tab_group.kwargs['stack']}
 
@@ -57,6 +69,11 @@ class ResourceOverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "resource_overview"
     template_name = "project/stacks/_resource_overview.html"
+
+    def allowed(self, request):
+        return policy.check(
+            (("orchestration", "cloudformation:DescribeStackResource"),),
+            request)
 
     def get_context_data(self, request):
         resource = self.tab_group.kwargs['resource']
@@ -72,6 +89,11 @@ class StackEventsTab(tabs.Tab):
     slug = "events"
     template_name = "project/stacks/_detail_events.html"
     preload = False
+
+    def allowed(self, request):
+        return policy.check(
+            (("orchestration", "cloudformation:DescribeStackEvents"),),
+            request)
 
     def get_context_data(self, request):
         stack = self.tab_group.kwargs['stack']
@@ -92,6 +114,11 @@ class StackResourcesTab(tabs.Tab):
     slug = "resources"
     template_name = "project/stacks/_detail_resources.html"
     preload = False
+
+    def allowed(self, request):
+        return policy.check(
+            (("orchestration", "cloudformation:ListStackResources"),),
+            request)
 
     def get_context_data(self, request):
         stack = self.tab_group.kwargs['stack']

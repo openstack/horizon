@@ -33,6 +33,7 @@ class LaunchStack(tables.LinkAction):
     verbose_name = _("Launch Stack")
     url = "horizon:project:stacks:select_template"
     classes = ("btn-create", "ajax-modal")
+    policy_rules = (("orchestration", "cloudformation:CreateStack"),)
 
 
 class ChangeStackTemplate(tables.LinkAction):
@@ -52,6 +53,7 @@ class DeleteStack(tables.BatchAction):
     data_type_singular = _("Stack")
     data_type_plural = _("Stacks")
     classes = ('btn-danger', 'btn-terminate')
+    policy_rules = (("orchestration", "cloudformation:DeleteStack"),)
 
     def action(self, request, stack_id):
         api.heat.stack_delete(request, stack_id)
