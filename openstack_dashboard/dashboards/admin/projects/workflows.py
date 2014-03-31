@@ -53,8 +53,9 @@ class UpdateProjectQuotaAction(workflows.Action):
     injected_file_content_bytes = forms.IntegerField(min_value=-1,
                                                      label=ifcb_label)
     volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
-    snapshots = forms.IntegerField(min_value=-1, label=_("Snapshots"))
-    gigabytes = forms.IntegerField(min_value=-1, label=_("Gigabytes"))
+    snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
+    gigabytes = forms.IntegerField(
+        min_value=-1, label=_("Total Size of Volumes and Snapshots (GB)"))
     ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
     floating_ips = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
     fixed_ips = forms.IntegerField(min_value=-1, label=_("Fixed IPs"))
