@@ -353,7 +353,7 @@ def data(TEST):
         "stack_status_reason": "Stack successfully created",
         "stack_name": "stack-test",
         "creation_time": "2013-04-22T00:11:39Z",
-        "updated_time": "2013-04-22T00:11:39Z",
+        "updated_time": "null",
         "stack_status": "CREATE_COMPLETE",
         "id": "05b4f39f-ea96-4d91-910c-e758c078a089"
     }

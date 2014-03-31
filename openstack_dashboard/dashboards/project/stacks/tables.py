@@ -14,7 +14,6 @@
 
 from django.core import urlresolvers
 from django.http import Http404  # noqa
-from django.template.defaultfilters import timesince  # noqa
 from django.template.defaultfilters import title  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -90,10 +89,12 @@ class StacksTable(tables.DataTable):
                          link="horizon:project:stacks:detail",)
     created = tables.Column("creation_time",
                             verbose_name=_("Created"),
-                            filters=(filters.parse_isotime, timesince))
+                            filters=(filters.parse_isotime,
+                                     filters.timesince_or_never))
     updated = tables.Column("updated_time",
                             verbose_name=_("Updated"),
-                            filters=(filters.parse_isotime, timesince))
+                            filters=(filters.parse_isotime,
+                                     filters.timesince_or_never))
     status = tables.Column("status",
                            filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),
@@ -123,7 +124,8 @@ class EventsTable(tables.DataTable):
                                       link=mappings.resource_to_url)
     timestamp = tables.Column('event_time',
                               verbose_name=_("Time Since Event"),
-                              filters=(filters.parse_isotime, timesince))
+                              filters=(filters.parse_isotime,
+                                       filters.timesince_or_never))
     status = tables.Column("resource_status",
                            filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),)
@@ -169,7 +171,8 @@ class ResourcesTable(tables.DataTable):
                            verbose_name=_("Stack Resource Type"),)
     updated_time = tables.Column('updated_time',
                               verbose_name=_("Date Updated"),
-                              filters=(filters.parse_isotime, timesince))
+                              filters=(filters.parse_isotime,
+                                       filters.timesince_or_never))
     status = tables.Column("resource_status",
                            filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),

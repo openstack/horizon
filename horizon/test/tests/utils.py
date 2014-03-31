@@ -15,11 +15,11 @@
 #    under the License.
 
 import datetime
-
 import os
 
 from django.core.exceptions import ValidationError  # noqa
 import django.template
+from django.template import defaultfilters
 
 from horizon.test import helpers as test
 from horizon.utils import fields
@@ -286,6 +286,50 @@ class FiltersTests(test.TestCase):
         adate = '2007-01-25T12:00:00Z'
         result = filters.parse_isotime(adate)
         self.assertIsInstance(result, datetime.datetime)
+
+
+class TimeSinceNeverFilterTests(test.TestCase):
+
+    default = u"Never"
+
+    def test_timesince_or_never_returns_default_for_empty_string(self):
+        c = django.template.Context({'time': ''})
+        t = django.template.Template('{{time|timesince_or_never}}')
+        self.assertEqual(t.render(c), self.default)
+
+    def test_timesince_or_never_returns_default_for_none(self):
+        c = django.template.Context({'time': None})
+        t = django.template.Template('{{time|timesince_or_never}}')
+        self.assertEqual(t.render(c), self.default)
+
+    def test_timesince_or_never_returns_default_for_gibberish(self):
+        c = django.template.Context({'time': django.template.Context()})
+        t = django.template.Template('{{time|timesince_or_never}}')
+        self.assertEqual(t.render(c), self.default)
+
+    def test_timesince_or_never_returns_with_custom_default(self):
+        custom = "Hello world"
+        c = django.template.Context({'date': ''})
+        t = django.template.Template('{{date|timesince_or_never:"%s"}}'
+                                     % custom)
+        self.assertEqual(t.render(c), custom)
+
+    def test_timesince_or_never_returns_with_custom_empty_string_default(self):
+        c = django.template.Context({'date': ''})
+        t = django.template.Template('{{date|timesince_or_never:""}}')
+        self.assertEqual(t.render(c), "")
+
+    def test_timesince_or_never_returns_same_output_as_django_date(self):
+        d = datetime.date(year=2014, month=3, day=7)
+        c = django.template.Context({'date': d})
+        t = django.template.Template('{{date|timesince_or_never}}')
+        self.assertEqual(t.render(c), defaultfilters.timesince(d))
+
+    def test_timesince_or_never_returns_same_output_as_django_datetime(self):
+        now = datetime.datetime.now()
+        c = django.template.Context({'date': now})
+        t = django.template.Template('{{date|timesince_or_never}}')
+        self.assertEqual(t.render(c), defaultfilters.timesince(now))
 
 
 class MemoizedTests(test.TestCase):
