@@ -29,7 +29,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.base: ('is_service_enabled',),
                         api.nova: ('default_quota_get', 'service_list'),
-                        api.neutron: ('agent_list', 'is_extension_supported')})
+                        api.neutron: ('agent_list', 'is_extension_supported'),
+                        api.cinder: ('default_quota_get',)})
     def test_index(self):
         services = self.services.list()
         api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
@@ -40,6 +41,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                 .MultipleTimes().AndReturn(True)
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    IgnoreArg()).AndReturn({})
+        api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id)\
+            .AndReturn(self.cinder_quotas.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
 
