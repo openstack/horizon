@@ -192,7 +192,7 @@ Allowed Hosts
 -------------
 
 For production deployments of Horizon you must add the ``ALLOWED_HOSTS``
-setting to your ``settings.py`` or ``local_settings.py`` file. This setting
+setting to your ``local_settings.py`` file. This setting
 was added in Django 1.5 and is an important security feature. For more
 information on it please consult the ``local_settings.py.example`` file
 or Django's documentation.
