@@ -20,7 +20,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon.utils import fields
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -316,25 +315,25 @@ class AddIPSecSiteConnectionAction(workflows.Action):
         label=_("IKE Policy associated with this connection"))
     ipsecpolicy_id = forms.ChoiceField(
         label=_("IPSec Policy associated with this connection"))
-    peer_address = fields.IPField(
+    peer_address = forms.IPField(
         label=_("Peer gateway public IPv4/IPv6 Address or FQDN"),
         help_text=_("Peer gateway public IPv4/IPv6 address or FQDN for "
                     "the VPN Connection"),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         mask=False)
-    peer_id = fields.IPField(
+    peer_id = forms.IPField(
         label=_("Peer router identity for authentication (Peer ID)"),
         help_text=_("Peer router identity for authentication. "
                     "Can be IPv4/IPv6 address, e-mail, key ID, or FQDN"),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         mask=False)
-    peer_cidrs = fields.MultiIPField(
+    peer_cidrs = forms.MultiIPField(
         label=_("Remote peer subnet(s)"),
         help_text=_("Remote peer subnet(s) address(es) "
                     "with mask(s) in CIDR format "
                     "separated with commas if needed "
                     "(e.g. 20.1.0.0/24, 21.1.0.0/24)"),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         mask=True)
     psk = forms.CharField(max_length=80,
                           label=_("Pre-Shared Key (PSK) string"))

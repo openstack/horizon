@@ -29,7 +29,6 @@ from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
 from horizon import forms
-from horizon.utils import fields
 from horizon.utils import functions
 from horizon.utils import validators
 from horizon import workflows
@@ -106,7 +105,7 @@ class SetInstanceDetailsAction(workflows.Action):
     image_id = forms.ChoiceField(
         label=_("Image Name"),
         required=False,
-        widget=fields.SelectWidget(
+        widget=forms.SelectWidget(
             data_attrs=('volume_size',),
             transform=lambda x: ("%s (%s)" % (x.name,
                                               filesizeformat(x.bytes)))))

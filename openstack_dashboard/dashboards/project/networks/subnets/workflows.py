@@ -21,7 +21,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon.utils import fields
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -80,14 +79,14 @@ class CreateSubnet(network_workflows.CreateNetwork):
 
 
 class UpdateSubnetInfoAction(CreateSubnetInfoAction):
-    cidr = fields.IPField(label=_("Network Address"),
+    cidr = forms.IPField(label=_("Network Address"),
                           required=False,
                           initial="",
                           widget=forms.TextInput(
                               attrs={'readonly': 'readonly'}),
                           help_text=_("Network address in CIDR format "
                                       "(e.g. 192.168.0.0/24)"),
-                          version=fields.IPv4 | fields.IPv6,
+                          version=forms.IPv4 | forms.IPv6,
                           mask=True)
     # NOTE(amotoki): When 'disabled' attribute is set for the ChoiceField
     # and ValidationError is raised for POST request, the initial value of
@@ -103,7 +102,7 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
                                    widget=forms.HiddenInput(),
                                    label=_("IP Version"))
 
-    gateway_ip = fields.IPField(
+    gateway_ip = forms.IPField(
         label=_("Gateway IP (optional)"),
         required=False,
         initial="",
@@ -112,7 +111,7 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
                     "to set the gateway. "
                     "If you want to use no gateway, "
                     "check 'Disable Gateway' below."),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         mask=False)
     no_gateway = forms.BooleanField(label=_("Disable Gateway"),
                                     initial=False, required=False)

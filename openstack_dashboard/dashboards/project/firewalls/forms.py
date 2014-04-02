@@ -23,7 +23,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils import fields
 from horizon.utils import validators
 
 from openstack_dashboard import api
@@ -44,14 +43,14 @@ class UpdateRule(forms.SelfHandlingForm):
     action = forms.ChoiceField(
         label=_("Action"), required=False,
         help_text=_('Action for the firewall rule'))
-    source_ip_address = fields.IPField(
+    source_ip_address = forms.IPField(
         label=_("Source IP Address/Subnet"),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         required=False, mask=True,
         help_text=_('Source IP address or subnet'))
-    destination_ip_address = fields.IPField(
+    destination_ip_address = forms.IPField(
         label=_('Destination IP Address/Subnet'),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         required=False, mask=True,
         help_text=_('Destination IP address or subnet'))
     source_port = forms.CharField(

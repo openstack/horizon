@@ -21,8 +21,8 @@ from django.core.exceptions import ValidationError  # noqa
 import django.template
 from django.template import defaultfilters
 
+from horizon import forms
 from horizon.test import helpers as test
-from horizon.utils import fields
 from horizon.utils import filters
 # we have to import the filter in order to register it
 from horizon.utils.filters import parse_isotime  # noqa
@@ -56,7 +56,7 @@ class ValidatorsTests(test.TestCase):
                      "fe80::204:61ff:254.157.241.86/0",
                      "2001:0DB8::CD30:0:0:0:0/60",
                      "2001:0DB8::CD30:0/90")
-        ip = fields.IPField(mask=True, version=fields.IPv4)
+        ip = forms.IPField(mask=True, version=forms.IPv4)
         for cidr in GOOD_CIDRS:
             self.assertIsNone(ip.validate(cidr))
         for cidr in BAD_CIDRS:
@@ -83,7 +83,7 @@ class ValidatorsTests(test.TestCase):
                       "10.144.11.107/4",
                       "255.255.255.255/0",
                       "0.1.2.3/16")
-        ip = fields.IPField(mask=True, version=fields.IPv6)
+        ip = forms.IPField(mask=True, version=forms.IPv6)
         for cidr in GOOD_CIDRS:
             self.assertIsNone(ip.validate(cidr))
         for cidr in BAD_CIDRS:
@@ -112,7 +112,7 @@ class ValidatorsTests(test.TestCase):
                      "127.0.0.1/",
                      "127.0.0.1/33",
                      "127.0.0.1/-1")
-        ip = fields.IPField(mask=True, version=fields.IPv4 | fields.IPv6)
+        ip = forms.IPField(mask=True, version=forms.IPv4 | forms.IPv6)
         for cidr in GOOD_CIDRS:
             self.assertIsNone(ip.validate(cidr))
         for cidr in BAD_CIDRS:
@@ -147,10 +147,10 @@ class ValidatorsTests(test.TestCase):
                      "1111:2222::4444:5555:6666::8888",
                      "1111:2222::4444:5555:6666:8888/",
                      "1111:2222::4444:5555:6666::8888/130")
-        ipv4 = fields.IPField(required=True, version=fields.IPv4)
-        ipv6 = fields.IPField(required=False, version=fields.IPv6)
-        ipmixed = fields.IPField(required=False,
-                                 version=fields.IPv4 | fields.IPv6)
+        ipv4 = forms.IPField(required=True, version=forms.IPv4)
+        ipv6 = forms.IPField(required=False, version=forms.IPv6)
+        ipmixed = forms.IPField(required=False,
+                                 version=forms.IPv4 | forms.IPv6)
 
         for ip_addr in GOOD_IPS_V4:
             self.assertIsNone(ipv4.validate(ip_addr))
@@ -170,10 +170,10 @@ class ValidatorsTests(test.TestCase):
 
         self.assertRaises(ValidationError, ipv4.validate, "")  # required=True
 
-        iprange = fields.IPField(required=False,
+        iprange = forms.IPField(required=False,
                                  mask=True,
                                  mask_range_from=10,
-                                 version=fields.IPv4 | fields.IPv6)
+                                 version=forms.IPv4 | forms.IPv6)
         self.assertRaises(ValidationError, iprange.validate,
                           "fe80::204:61ff:254.157.241.86/6")
         self.assertRaises(ValidationError, iprange.validate,
@@ -188,7 +188,7 @@ class ValidatorsTests(test.TestCase):
                            "1.2.3.4.5/41   0.0.0.0/99",
                            "192.168.1.1/16 192.0.0.1/17")
 
-        ip = fields.MultiIPField(mask=True, version=fields.IPv4)
+        ip = forms.MultiIPField(mask=True, version=forms.IPv4)
         for cidr in GOOD_CIDRS_INPUT:
             self.assertIsNone(ip.validate(cidr))
         for cidr in BAD_CIDRS_INPUT:

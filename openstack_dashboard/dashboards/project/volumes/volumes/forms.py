@@ -28,7 +28,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils import fields
 from horizon.utils import functions
 from horizon.utils.memoized import memoized  # noqa
 
@@ -55,21 +54,21 @@ class CreateForm(forms.SelfHandlingForm):
                                                'data-slug': 'source'}))
     snapshot_source = forms.ChoiceField(
         label=_("Use snapshot as a source"),
-        widget=fields.SelectWidget(
+        widget=forms.SelectWidget(
             attrs={'class': 'snapshot-selector'},
             data_attrs=('size', 'name'),
             transform=lambda x: "%s (%sGB)" % (x.name, x.size)),
         required=False)
     image_source = forms.ChoiceField(
         label=_("Use image as a source"),
-        widget=fields.SelectWidget(
+        widget=forms.SelectWidget(
             attrs={'class': 'image-selector'},
             data_attrs=('size', 'name', 'min_disk'),
             transform=lambda x: "%s (%s)" % (x.name, filesizeformat(x.bytes))),
         required=False)
     volume_source = forms.ChoiceField(
         label=_("Use a volume as source"),
-        widget=fields.SelectWidget(
+        widget=forms.SelectWidget(
             attrs={'class': 'image-selector'},
             data_attrs=('size', 'name'),
             transform=lambda x: "%s (%s)" % (x.name,

@@ -23,14 +23,13 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-from horizon.utils import fields
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import rulemanager
 
 LOG = logging.getLogger(__name__)
 
 
-class RuleCIDRField(fields.IPField):
+class RuleCIDRField(forms.IPField):
     """Extends IPField to allow ('any','external') keywords and requires CIDR
     """
     def __init__(self, *args, **kwargs):
@@ -53,7 +52,7 @@ class AddRouterRule(forms.SelfHandlingForm):
     destination = RuleCIDRField(label=_("Destination CIDR"),
                                   widget=forms.TextInput(), required=True)
     action = forms.ChoiceField(label=_("Action"), required=True)
-    nexthops = fields.MultiIPField(label=_("Optional: Next Hop "
+    nexthops = forms.MultiIPField(label=_("Optional: Next Hop "
                                        "Addresses (comma delimited)"),
                                widget=forms.TextInput(), required=False)
     router_id = forms.CharField(label=_("Router ID"),

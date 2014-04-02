@@ -19,7 +19,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon.utils import fields
 from horizon.utils import validators
 from horizon import workflows
 
@@ -47,13 +46,13 @@ class AddRuleAction(workflows.Action):
         label=_("Action"),
         choices=[('allow', _('ALLOW')),
                  ('deny', _('DENY'))],)
-    source_ip_address = fields.IPField(
+    source_ip_address = forms.IPField(
         label=_("Source IP Address/Subnet"),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         required=False, mask=True)
-    destination_ip_address = fields.IPField(
+    destination_ip_address = forms.IPField(
         label=_("Destination IP Address/Subnet"),
-        version=fields.IPv4 | fields.IPv6,
+        version=forms.IPv4 | forms.IPv6,
         required=False, mask=True)
     source_port = forms.CharField(
         max_length=80,
