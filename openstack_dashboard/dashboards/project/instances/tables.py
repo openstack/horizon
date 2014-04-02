@@ -680,21 +680,81 @@ def get_power_state(instance):
 
 
 STATUS_DISPLAY_CHOICES = (
+    ("deleted", _("Deleted")),
+    ("active", _("Active")),
+    ("shutoff", _("Shutoff")),
+    ("suspended", _("Suspended")),
+    ("paused", _("Paused")),
+    ("error", _("Error")),
     ("resize", _("Resize/Migrate")),
     ("verify_resize", _("Confirm or Revert Resize/Migrate")),
     ("revert_resize", _("Revert Resize/Migrate")),
+    ("reboot", _("Reboot")),
+    ("hard_reboot", _("Hard Reboot")),
+    ("password", _("Password")),
+    ("rebuild", _("Rebuild")),
+    ("migrating", _("Migrating")),
+    ("build", _("Build")),
+    ("rescue", _("Rescue")),
+    ("deleted", _("Deleted")),
+    ("soft_deleted", _("Soft Deleted")),
+    ("shelved", _("Shelved")),
+    ("shelved_offloaded", _("Shelved Offloaded")),
 )
 
 
 TASK_DISPLAY_CHOICES = (
+    ("scheduling", _("Scheduling")),
+    ("block_device_mapping", _("Block Device Mapping")),
+    ("networking", _("Networking")),
+    ("spawning", _("Spawning")),
     ("image_snapshot", _("Snapshotting")),
+    ("image_snapshot_pending", _("Image Snapshot Pending")),
+    ("image_pending_upload", _("Image Pending Upload")),
+    ("image_uploading", _("Image Uploading")),
+    ("image_backup", _("Image Backup")),
+    ("updating_password", _("Updating Password")),
     ("resize_prep", _("Preparing Resize or Migrate")),
     ("resize_migrating", _("Resizing or Migrating")),
     ("resize_migrated", _("Resized or Migrated")),
     ("resize_finish", _("Finishing Resize or Migrate")),
-    ("resize_confirming", _("Confirming Resize or Migrate")),
     ("resize_reverting", _("Reverting Resize or Migrate")),
+    ("resize_confirming", _("Confirming Resize or Migrate")),
+    ("rebooting", _("Rebooting")),
+    ("rebooting_hard", _("Rebooting Hard")),
+    ("pausing", _("Pausing")),
     ("unpausing", _("Resuming")),
+    ("suspending", _("Suspending")),
+    ("resuming", _("Resuming")),
+    ("powering-off", _("Powering Off")),
+    ("powering-on", _("Powering On")),
+    ("rescuing", _("Rescuing")),
+    ("unrescuing", _("Unrescuing")),
+    ("rebuilding", _("Rebuilding")),
+    ("rebuild_block_device_mapping", _("Rebuild Block Device Mapping")),
+    ("rebuild_spawning", _("Rebuild Spawning")),
+    ("migrating", _("Migrating")),
+    ("deleting", _("Deleting")),
+    ("soft-deleting", _("Soft Deleting")),
+    ("restoring", _("Restoring")),
+    ("shelving", _("Shelving")),
+    ("shelving_image_pending_upload", _("Shelving Image Pending Upload")),
+    ("shelving_image_uploading", _("Shelving Image Uploading")),
+    ("shelving_offloading", _("Shelving Offloading")),
+    ("unshelving", _("Unshelving")),
+)
+
+POWER_DISPLAY_CHOICES = (
+    ("NO STATE", _("No State")),
+    ("RUNNING", _("Running")),
+    ("BLOCKED", _("Blocked")),
+    ("PAUSED", _("Paused")),
+    ("SHUTDOWN", _("Shut Down")),
+    ("SHUTOFF", _("Shut Off")),
+    ("CRASHED", _("Crashed")),
+    ("SUSPENDED", _("Suspended")),
+    ("FAILED", _("Failed")),
+    ("BUILDING", _("Building")),
 )
 
 
@@ -747,7 +807,8 @@ class InstancesTable(tables.DataTable):
                          display_choices=TASK_DISPLAY_CHOICES)
     state = tables.Column(get_power_state,
                           filters=(title, filters.replace_underscores),
-                          verbose_name=_("Power State"))
+                          verbose_name=_("Power State"),
+                          display_choices=POWER_DISPLAY_CHOICES)
     created = tables.Column("created",
                             verbose_name=_("Uptime"),
                             filters=(filters.parse_isotime,
