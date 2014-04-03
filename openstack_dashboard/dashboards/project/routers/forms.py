@@ -26,6 +26,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
+
 from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
@@ -45,8 +46,11 @@ class CreateForm(forms.SelfHandlingForm):
             message = _('Router %s was successfully created.') % data['name']
             messages.success(request, message)
             return router
-        except Exception:
-            msg = _('Failed to create router "%s".') % data['name']
+        except Exception as exc:
+            if exc.status_code == 409:
+                msg = _('Quota exceeded for resource router.')
+            else:
+                msg = _('Failed to create router "%s".') % data['name']
             LOG.info(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
