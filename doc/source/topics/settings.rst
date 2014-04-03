@@ -198,7 +198,7 @@ If you do not have multiple regions you should use the ``OPENSTACK_HOST`` and
 ``OPENSTACK_KEYSTONE_URL`` settings instead.
 
 ``CREATE_INSTANCE_FLAVOR_SORT``
--------------------
+-------------------------------
 
 Default: ``{'key':'ram'}``
 
@@ -231,7 +231,7 @@ icon names are based on the default icon theme provided by Bootstrap.
 Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', 'icon': 'icon-ok'}]``
 
 ``OPENSTACK_ENABLE_PASSWORD_RETRIEVE``
----------------------------
+--------------------------------------
 
 Default: ``"False"``
 
@@ -393,7 +393,7 @@ Specifies the timespan in seconds inactivity, until a user is considered as
  logged out.
 
 ``FLAVOR_EXTRA_KEYS``
----------------------------
+---------------------
 
 Default::
 
@@ -561,33 +561,33 @@ leading underscore and a number, so that you can control their order easily.
 The files contain following keys:
 
 ``PANEL``
--------------
+---------
 
 The name of the panel to be added to ``HORIZON_CONFIG``. Required.
 
 ``PANEL_DASHBOARD``
--------------
+-------------------
 
 The name of the dashboard the ``PANEL`` associated with. Required.
 
 
 ``PANEL_GROUP``
--------------
+---------------
 
 The name of the panel group the ``PANEL`` is associated with.
 
 ``DEFAULT_PANEL``
------------
+-----------------
 
 If set, it will update the default panel of the ``PANEL_DASHBOARD``.
 
 ``ADD_PANEL``
-----------------------
+-------------
 
 Python panel class of the ``PANEL`` to be added.
 
 ``REMOVE_PANEL``
-------------
+----------------
 
 If set to ``True``, the PANEL will be removed from PANEL_DASHBOARD/PANEL_GROUP.
 
@@ -652,17 +652,17 @@ alphabetically.
 The files contain following keys:
 
 ``PANEL_GROUP``
--------------
+---------------
 
 The name of the panel group to be added to ``HORIZON_CONFIG``. Required.
 
 ``PANEL_GROUP_NAME``
--------------
+--------------------
 
 The display name of the PANEL_GROUP. Required.
 
 ``PANEL_GROUP_DASHBOARD``
--------------
+-------------------------
 
 The name of the dashboard the ``PANEL_GROUP`` associated with. Required.
 
