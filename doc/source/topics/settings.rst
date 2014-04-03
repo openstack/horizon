@@ -37,6 +37,8 @@ The following options are available in order to configure/customize the
 behavior of your Horizon installation. All of them are contained in the
 ``HORIZON_CONFIG`` dictionary.
 
+.. _dashboards:
+
 ``dashboards``
 --------------
 
