@@ -20,7 +20,6 @@ import netaddr
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.core import validators
 from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
@@ -33,62 +32,68 @@ from openstack_dashboard import api
 from openstack_dashboard.utils import filters
 
 
-class CreateGroup(forms.SelfHandlingForm):
+class GroupBase(forms.SelfHandlingForm):
+    """Base class to handle creation and update of security groups.
+
+    Children classes must define two attributes:
+
+    .. attribute:: success_message
+
+        A success message containing the placeholder %s,
+        which will be replaced by the group name.
+
+    .. attribute:: error_message
+
+        An error message containing the placeholder %s,
+        which will be replaced by the error message.
+    """
     name = forms.CharField(label=_("Name"),
                            max_length=255,
-                           error_messages={
-                               'required': _('This field is required.'),
-                               'invalid': _("The string may only contain"
-                                            " ASCII characters and numbers.")},
-                           validators=[validators.validate_slug])
+                           validators=[
+                               utils_validators.validate_printable_ascii])
     description = forms.CharField(label=_("Description"),
                                   required=False,
                                   widget=forms.Textarea(attrs={'rows': 4}))
 
+    def _call_network_api(self, request, data):
+        """Call the underlying network API: Nova-network or Neutron.
+
+        Used in children classes to create or update a group.
+        """
+        raise NotImplementedError()
+
     def handle(self, request, data):
         try:
-            sg = api.network.security_group_create(request,
-                                                   data['name'],
-                                                   data['description'])
-            messages.success(request,
-                             _('Successfully created security group: %s')
-                             % data['name'])
+            sg = self._call_network_api(request, data)
+            messages.success(request, self.success_message % sg.name)
             return sg
-        except Exception:
+        except Exception as e:
             redirect = reverse("horizon:project:access_and_security:index")
-            exceptions.handle(request,
-                              _('Unable to create security group.'),
-                              redirect=redirect)
+            error_msg = self.error_message % e
+            exceptions.handle(request, error_msg, redirect=redirect)
 
 
-class UpdateGroup(forms.SelfHandlingForm):
+class CreateGroup(GroupBase):
+    success_message = _('Successfully created security group: %s')
+    error_message = _('Unable to create security group: %s')
+
+    def _call_network_api(self, request, data):
+        return api.network.security_group_create(request,
+                                                 data['name'],
+                                                 data['description'])
+
+
+class UpdateGroup(GroupBase):
+    success_message = _('Successfully updated security group: %s')
+    error_message = _('Unable to update security group: %s')
+
     id = forms.CharField(widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"),
-                           max_length=255,
-                           error_messages={
-                               'required': _('This field is required.'),
-                               'invalid': _("The string may only contain"
-                                            " ASCII characters and numbers.")},
-                           validators=[validators.validate_slug])
-    description = forms.CharField(label=_("Description"),
-                                  required=False,
-                                  widget=forms.Textarea(attrs={'rows': 4}))
 
-    def handle(self, request, data):
-        try:
-            sg = api.network.security_group_update(request,
-                                                   data['id'],
-                                                   data['name'],
-                                                   data['description'])
-            messages.success(request,
-                             _('Successfully updated security group: %s')
-                             % data['name'])
-            return sg
-        except Exception:
-            redirect = reverse("horizon:project:access_and_security:index")
-            exceptions.handle(request,
-                              _('Unable to update security group.'),
-                              redirect=redirect)
+    def _call_network_api(self, request, data):
+        return api.network.security_group_update(request,
+                                                 data['id'],
+                                                 data['name'],
+                                                 data['description'])
 
 
 class AddRule(forms.SelfHandlingForm):

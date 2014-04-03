@@ -12,7 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import re
+
 from django.core.exceptions import ValidationError  # noqa
+from django.core import validators  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import conf
@@ -47,3 +50,11 @@ def validate_port_or_colon_separated_port_range(port_range):
                 raise ValidationError(_("Not a valid port number"))
         except ValueError:
             raise ValidationError(_("Port number must be integer"))
+
+# Same as POSIX [:print:]. Accordingly, diacritics are disallowed.
+PRINT_REGEX = re.compile(r'^[\x20-\x7E]*$')
+
+validate_printable_ascii = validators.RegexValidator(
+    PRINT_REGEX,
+    _("The string may only contain ASCII printable characters."),
+    "invalid_characters")
