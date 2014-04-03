@@ -111,7 +111,7 @@ class ManageAggregateHostsAction(workflows.MembershipAction):
 
         aggregate_id = self.initial['id']
         aggregate = api.nova.aggregate_get(request, aggregate_id)
-        aggregate_hosts = aggregate.hosts
+        current_aggregate_hosts = aggregate.hosts
 
         hosts = []
         try:
@@ -128,7 +128,7 @@ class ManageAggregateHostsAction(workflows.MembershipAction):
         self.fields[field_name].choices = \
             [(host_name, host_name) for host_name in host_names]
 
-        self.fields[field_name].initial = aggregate_hosts
+        self.fields[field_name].initial = current_aggregate_hosts
 
     class Meta:
         name = _("Hosts within aggregate")
@@ -181,9 +181,6 @@ class CreateAggregateWorkflow(workflows.Workflow):
     success_url = constants.AGGREGATES_INDEX_URL
     default_steps = (SetAggregateInfoStep, AddHostsToAggregateStep)
 
-    def format_status_message(self, message):
-        return message % self.context['name']
-
     def handle(self, request, context):
         try:
             self.object = \
@@ -195,8 +192,8 @@ class CreateAggregateWorkflow(workflows.Workflow):
             exceptions.handle(request, _('Unable to create host aggregate.'))
             return False
 
-        hosts = context['hosts_aggregate']
-        for host in hosts:
+        context_hosts_aggregate = context['hosts_aggregate']
+        for host in context_hosts_aggregate:
             try:
                 api.nova.add_host_to_aggregate(request, self.object.id, host)
             except Exception:
@@ -216,23 +213,22 @@ class ManageAggregateHostsWorkflow(workflows.Workflow):
     success_url = constants.AGGREGATES_INDEX_URL
     default_steps = (ManageAggregateHostsStep, )
 
-    def format_status_message(self, message):
-        return message
-
     def handle(self, request, context):
-        hosts_aggregate = context['hosts_aggregate']
         aggregate_id = context['id']
         aggregate = api.nova.aggregate_get(request, aggregate_id)
-        aggregate_hosts = aggregate.hosts
-        for host in aggregate_hosts:
-            api.nova.remove_host_from_aggregate(request, aggregate_id, host)
-
-        for host in hosts_aggregate:
-            try:
+        current_aggregate_hosts = set(aggregate.hosts)
+        context_hosts_aggregate = set(context['hosts_aggregate'])
+        removed_hosts = current_aggregate_hosts - context_hosts_aggregate
+        added_hosts = context_hosts_aggregate - current_aggregate_hosts
+        try:
+            for host in removed_hosts:
+                api.nova.remove_host_from_aggregate(request,
+                                                    aggregate_id,
+                                                    host)
+            for host in added_hosts:
                 api.nova.add_host_to_aggregate(request, aggregate_id, host)
-            except Exception:
-                exceptions.handle(
-                    request, _('Error updating the aggregate.'))
-                return False
-
+        except Exception:
+            exceptions.handle(
+                request, _('Error when adding or removing hosts.'))
+            return False
         return True
