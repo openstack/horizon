@@ -1251,6 +1251,19 @@ class DataTable(object):
             bound_actions.append(bound_action)
         return bound_actions
 
+    def set_multiselect_column_visibility(self, visible=True):
+        """hide checkbox column if no current table action is allowed."""
+        if not self.multi_select:
+            return
+        select_column = self.columns.values()[0]
+        #Try to find if the hidden class need to be
+        #removed or added based on visible flag.
+        hidden_found = 'hidden' in select_column.classes
+        if hidden_found and visible:
+            select_column.classes.remove('hidden')
+        elif not hidden_found and not visible:
+            select_column.classes.append('hidden')
+
     def render_table_actions(self):
         """Renders the actions specified in ``Meta.table_actions``."""
         template_path = self._meta.table_actions_template
@@ -1261,6 +1274,7 @@ class DataTable(object):
            self._filter_action(self._meta._filter_action, self.request):
             extra_context["filter"] = self._meta._filter_action
         context = template.RequestContext(self.request, extra_context)
+        self.set_multiselect_column_visibility(len(bound_actions) > 0)
         return table_actions_template.render(context)
 
     def render_row_actions(self, datum):
@@ -1584,4 +1598,5 @@ class DataTable(object):
             LOG.exception("Error while rendering table rows.")
             exc_info = sys.exc_info()
             raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
+
         return rows

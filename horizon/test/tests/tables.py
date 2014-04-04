@@ -148,6 +148,11 @@ class MyToggleAction(tables.BatchAction):
             self.current_past_action = 1
 
 
+class MyDisabledAction(MyToggleAction):
+    def allowed(self, request, obj=None):
+        return False
+
+
 class MyFilterAction(tables.FilterAction):
     def filter(self, table, objs, filter_string):
         q = filter_string.lower()
@@ -242,6 +247,17 @@ class NoActionsTable(tables.DataTable):
         verbose_name = "No Actions Table"
         table_actions = ()
         row_actions = ()
+
+
+class DisabledActionsTable(tables.DataTable):
+    id = tables.Column('id')
+
+    class Meta:
+        name = "disabled_actions_table"
+        verbose_name = "Disabled Actions Table"
+        table_actions = (MyDisabledAction,)
+        row_actions = ()
+        multi_select = True
 
 
 class DataTableTests(test.TestCase):
@@ -1017,6 +1033,13 @@ class DataTableTests(test.TestCase):
         self.assertFalse(table.needs_form_wrapper)
         res = http.HttpResponse(table.render())
         self.assertNotContains(res, "<form")
+
+    def test_table_actions_not_allowed_hide_multiselect(self):
+        table = DisabledActionsTable(self.request, TEST_DATA)
+        self.assertFalse(table.has_actions)
+        self.assertFalse(table.needs_form_wrapper)
+        res = http.HttpResponse(table.render())
+        self.assertContains(res, "multi_select_column hidden")
 
     def test_table_action_object_display_is_none(self):
         action_string = "my_table__toggle__1"
