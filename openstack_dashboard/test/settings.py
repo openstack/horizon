@@ -151,6 +151,10 @@ LOGGING['loggers'].update(
             'handlers': ['test'],
             'propagate': False,
         },
+        'openstack_auth': {
+            'handlers': ['test'],
+            'propagate': False,
+        },
         'novaclient': {
             'handlers': ['test'],
             'propagate': False,
