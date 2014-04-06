@@ -32,7 +32,7 @@ class PageObject(object):
     def is_the_current_page(self):
         if self._page_title not in self.page_title:
             raise AssertionError(
-                "Expected page title: %s. Actual page title: %s"
+                "Expected to find %s in page title, instead found: %s"
                 % (self._page_title, self.page_title))
         return True
 
@@ -71,15 +71,10 @@ class PageObject(object):
         field_element.send_keys(data)
         return field_element
 
-    def fill_field_by_locator(self, data, *locator):
-        field_element = self.get_element(*locator)
-        self.fill_field_element(data, field_element)
-        return field_element
-
     def select_dropdown(self, value, *element):
-        select = Support.Select(self.driver.find_element(*element))
+        select = Support.Select(*element)
         select.select_by_visible_text(value)
 
     def select_dropdown_by_value(self, value, *element):
-        select = Support.Select(self.driver.find_element(*element))
+        select = Support.Select(*element)
         select.select_by_value(value)
