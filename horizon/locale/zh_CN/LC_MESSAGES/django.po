@@ -3,26 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# cateester <cateester@gmail.com>, 2012
-# Chaoliang Zhong <charliezon@gmail.com>, 2013
-# daisy.ycguo <daisy.ycguo@gmail.com>, 2012
-# dangdang <11315889@qq.com>, 2012-2013
-# FIRST AUTHOR Jeffrey Wilcox, 2011
-# laurence.miao <laurence.miao@gmail.com>, 2012
-# linlg <bbpp10@qq.com>, 2013
-# QunShi Zhang <zhang.kris@gmail.com>, 2012
-# Tom Fifield <tom@openstack.org>, 2013
-# scarlet_yeah09 <yelu@unitedstack.com>, 2013
-# daisy.ycguo <daisy.ycguo@gmail.com>, 2013
-# yuanke wei <weiyuanke123@gmail.com>, 2012
-# Yu Zhang <zhyu@cn.ibm.com>, 2013
+# dragon889 <dragon889@163.com>, 2014
+# daisy.ycguo <daisy.ycguo@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-26 00:30-0500\n"
-"PO-Revision-Date: 2013-09-26 17:56+0000\n"
-"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2014-04-04 11:03-0500\n"
+"PO-Revision-Date: 2014-04-01 09:43+0000\n"
+"Last-Translator: dragon889 <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openstack/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +19,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:429
+#: base.py:431
 msgid "Other"
 msgstr "其它"
 
@@ -43,16 +32,16 @@ msgstr "请登录先。"
 msgid "You are not authorized to access %s"
 msgstr "您无权访问 %s"
 
-#: exceptions.py:281
+#: exceptions.py:277
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "无权: %s"
 
-#: exceptions.py:284
+#: exceptions.py:280
 msgid "Unauthorized. Please try logging in again."
 msgstr "未授权。请尝试重新登录。"
 
-#: middleware.py:67
+#: middleware.py:111
 msgid "Session timed out."
 msgstr "会话超时"
 
@@ -60,88 +49,106 @@ msgstr "会话超时"
 msgid "Navigation Item"
 msgstr "导航条目"
 
-#: browsers/views.py:42
+#: browsers/views.py:43
 #, python-format
 msgid "Select a %s to browse."
 msgstr "选择一个%s 浏览"
 
-#: conf/default.py:29
+#: conf/default.py:41
 msgid "Password is not accepted"
 msgstr "密码没有接受"
 
-#: tables/actions.py:381
+#: tables/actions.py:418
 #: templates/horizon/common/_data_table_table_actions.html:13
+#: templates/horizon/common/_data_table_table_actions.html:23
+#: templates/horizon/common/_workflow_step_update_members.html:11
+#: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr "筛选"
 
-#: tables/actions.py:560
+#: tables/actions.py:609
 #, python-format
+msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:594
+#: tables/actions.py:611
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#: tables/actions.py:641 tables/base.py:1408
 msgid "N/A"
 msgstr "无"
 
-#: tables/actions.py:622
+#: tables/actions.py:670
 #, python-format
-msgid "You do not have permission to %(action)s: %(objs)s"
-msgstr "您没有权限执行 %(action)s: %(objs)s"
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "不被允许 %(action)s: %(objs)s"
 
-#: tables/actions.py:628
+#: tables/actions.py:677
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "无法执行 %(action)s: %(objs)s"
 
-#: tables/actions.py:634
+#: tables/actions.py:683
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:644
+#: tables/actions.py:699
 msgid "Delete"
 msgstr "删除"
 
-#: tables/actions.py:645
+#: tables/actions.py:700
 msgid "Deleted"
 msgstr "被删除"
 
-#: tables/base.py:287
+#: tables/actions.py:717
+msgid "Update"
+msgstr "更新"
+
+#: tables/actions.py:718
+msgid "Updated"
+msgstr "已更新"
+
+#: tables/base.py:318
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 
-#: tables/base.py:766
+#: tables/base.py:890
 msgid "No items to display."
 msgstr "没有条目显示。"
 
-#: tables/base.py:870
+#: tables/base.py:996
 msgid "Actions"
 msgstr "动作"
 
-#: tables/base.py:1063
+#: tables/base.py:1202
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "id \"%s\" 没有匹配的返回顶"
 
-#: tables/base.py:1193
+#: tables/base.py:1328
 msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
 
-#: templates/_header.html:4
+#: templates/_header.html:5
 #, python-format
 msgid "Logged in as: %(username)s"
 msgstr "登录身份： %(username)s"
 
-#: templates/_header.html:6
+#: templates/_header.html:7
 msgid "Help"
 msgstr "帮助"
 
-#: templates/_header.html:8
+#: templates/_header.html:9
 msgid "Sign Out"
 msgstr "退出"
 
-#: templates/splash.html:7 templates/auth/login.html:4
+#: templates/splash.html:8 templates/auth/login.html:4
 msgid "Login"
 msgstr "登录"
 
@@ -150,18 +157,17 @@ msgid "Log In"
 msgstr "登录"
 
 #: templates/auth/_login.html:15
-msgid "You don't have permissions to access:"
-msgstr "您没有权限访问："
+msgid "You do not have permission to access the resource:"
+msgstr "你没有被授权访问这些资源："
 
 #: templates/auth/_login.html:17
-msgid "Login as different user or go back to"
-msgstr "以另一用户登录或返回至"
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home "
+"page</a>"
+msgstr "使用其他用户登录或返回 <a href=\"%(home_url)s\">首页</a>"
 
-#: templates/auth/_login.html:18
-msgid "home page"
-msgstr "主页"
-
-#: templates/auth/_login.html:33
+#: templates/auth/_login.html:32
 msgid "Sign In"
 msgstr "登入"
 
@@ -195,19 +201,25 @@ msgstr[0] "显示 %(counter)s 个条目"
 msgid "More"
 msgstr "更多"
 
+#: templates/horizon/common/_formset_table.html:35
+msgid "Add a row"
+msgstr "增加一行"
+
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr "概要"
+msgstr "上限摘要"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
-msgstr "云主机"
+msgstr "实例"
 
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
 #: templates/horizon/common/_limit_summary.html:22
 #: templates/horizon/common/_limit_summary.html:29
 #: templates/horizon/common/_limit_summary.html:36
+#: templates/horizon/common/_limit_summary.html:43
+#: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
@@ -228,131 +240,141 @@ msgstr "浮动IP"
 msgid "Security Groups"
 msgstr "安全组"
 
+#: templates/horizon/common/_limit_summary.html:42
+msgid "Volumes"
+msgstr "云硬盘"
+
+#: templates/horizon/common/_limit_summary.html:49
+msgid "Volume Storage"
+msgstr "卷存储"
+
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "显示了 %(nav_items)s 个条目"
+msgstr[0] "显示 %(nav_items)s 个条目"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "显示了 %(content_items)s 个条目"
+msgstr[0] "显示了 %(content_items)s个条目"
 
-#: templates/horizon/common/_sidebar.html:15
-msgid "Current Project"
-msgstr "当前项目"
-
-#: templates/horizon/common/_sidebar.html:39
-msgid "Managing Region"
-msgstr "管理区域"
-
-#: templates/horizon/common/_usage_summary.html:5
-msgid "Select a period of time to query its usage"
-msgstr "选择需要查询使用情况的时间段"
+#: templates/horizon/common/_usage_summary.html:3
+msgid "Usage Summary"
+msgstr "使用情况摘要"
 
 #: templates/horizon/common/_usage_summary.html:7
+msgid "Select a period of time to query its usage"
+msgstr "选择的一段时间来查询其用量"
+
+#: templates/horizon/common/_usage_summary.html:9
 #, python-format
 msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
 msgstr "<span>从: %(start)s </span><span>到: %(end)s </span>"
 
-#: templates/horizon/common/_usage_summary.html:8
+#: templates/horizon/common/_usage_summary.html:10
 msgid "Submit"
 msgstr "提交"
 
-#: templates/horizon/common/_usage_summary.html:9
+#: templates/horizon/common/_usage_summary.html:11
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期采是YYYY-mm-dd格式。"
 
-#: templates/horizon/common/_usage_summary.html:14
+#: templates/horizon/common/_usage_summary.html:16
 msgid "Active Instances"
 msgstr "活跃的云主机"
 
-#: templates/horizon/common/_usage_summary.html:15
+#: templates/horizon/common/_usage_summary.html:17
 msgid "Active RAM"
 msgstr "活跃的内存"
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:18
 msgid "This Period's VCPU-Hours"
-msgstr "当月的虚拟内核-小时数"
+msgstr "这一时期的的VCPU-小时数"
 
-#: templates/horizon/common/_usage_summary.html:17
+#: templates/horizon/common/_usage_summary.html:19
 msgid "This Period's GB-Hours"
-msgstr "当月的GB-小时数"
+msgstr "这一时期的GB-小时数"
 
-#: templates/horizon/common/_workflow.html:36
+#: templates/horizon/common/_workflow.html:38
+msgid "Back"
+msgstr "返回"
+
+#: templates/horizon/common/_workflow.html:41
+msgid "Next"
+msgstr "下一步"
+
+#: templates/horizon/common/_workflow.html:47
 msgid "Cancel"
 msgstr "取消"
 
-#: templatetags/branding.py:35
+#: templatetags/branding.py:36
 msgid "Horizon"
 msgstr "控制面板"
 
-#: templatetags/horizon.py:92
+#: templatetags/horizon.py:121 templatetags/horizon.py:131
 msgid "No Limit"
 msgstr "无限制"
 
-#: templatetags/horizon.py:94 templatetags/horizon.py:96
+#: templatetags/horizon.py:123 templatetags/horizon.py:125
 msgid "Available"
 msgstr "可用配额"
 
-#: templatetags/sizeformat.py:45
+#: templatetags/sizeformat.py:45 templatetags/sizeformat.py:50
 #, python-format
-msgid "%(size)d byte"
-msgid_plural "%(size)d bytes"
+msgid "%(size)d Byte"
+msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 字节"
 
-#: templatetags/sizeformat.py:49
-#, python-format
-msgid "%(size)d"
-msgid_plural "%(size)d"
-msgstr[0] "%(size)d"
-
-#: templatetags/sizeformat.py:52
+#: templatetags/sizeformat.py:53
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:55
+#: templatetags/sizeformat.py:56
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:58
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:61
+#: templatetags/sizeformat.py:62
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:63
+#: templatetags/sizeformat.py:64
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: utils/fields.py:48
+#: utils/fields.py:59
 msgid "Incorrect format for IP address"
 msgstr "不正确的IP地址格式"
 
-#: utils/fields.py:49
+#: utils/fields.py:60
 msgid "Invalid version for IP address"
 msgstr "IP 地址版本无效"
 
-#: utils/fields.py:50
+#: utils/fields.py:61
 msgid "Invalid subnet mask"
 msgstr "无效的子网掩码"
 
+#: utils/filters.py:51
+msgid "Never"
+msgstr "从不"
+
 #: utils/validators.py:25 utils/validators.py:49
 msgid "Not a valid port number"
-msgstr "无效端口号"
+msgstr "不是一个有效的端口号"
 
 #: utils/validators.py:30
 msgid "Not a valid IP protocol number"
-msgstr "无效IP协议号"
+msgstr "不是一个有效的IP协议号"
 
 #: utils/validators.py:44
 msgid "One colon allowed in port range"
@@ -366,32 +388,32 @@ msgstr "端口号必须为整数"
 msgid "Processing..."
 msgstr "正在处理中, 请稍候..."
 
-#: workflows/base.py:493
+#: workflows/base.py:477
 msgid "All available"
 msgstr "所有可用成员"
 
-#: workflows/base.py:494
+#: workflows/base.py:478
 msgid "Members"
 msgstr "成员"
 
-#: workflows/base.py:495
+#: workflows/base.py:479
 msgid "None available."
 msgstr "没有可用成员。"
 
-#: workflows/base.py:496
+#: workflows/base.py:480
 msgid "No members."
 msgstr "没有成员。"
 
-#: workflows/base.py:601
+#: workflows/base.py:596
 msgid "Save"
 msgstr "保存"
 
-#: workflows/base.py:602
+#: workflows/base.py:597
 #, python-format
 msgid "%s completed successfully."
 msgstr "%s 成功完成"
 
-#: workflows/base.py:603
+#: workflows/base.py:598
 #, python-format
 msgid "%s did not complete."
 msgstr "%s 没有完成"

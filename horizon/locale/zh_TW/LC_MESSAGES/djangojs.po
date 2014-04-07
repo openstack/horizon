@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# zero00072 <zero00072@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-04 11:03-0500\n"
+"PO-Revision-Date: 2014-04-01 09:41+0000\n"
+"Last-Translator: zero00072 <zero00072@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openstack/language/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.modals.js:280
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "讀取中"
+
+#: static/horizon/js/horizon.d3linechart.js:385
+#: static/horizon/js/horizon.d3linechart.js:395
+msgid "No data available."
+msgstr "無可用的資料。"
+
+#: static/horizon/js/horizon.d3linechart.js:401
+#: static/horizon/js/horizon.modals.js:299
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:175
+msgid "An error occurred. Please try again later."
+msgstr "發生錯誤。請稍後再試。"
+
+#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.instances.js:30
+msgid "There was a problem communicating with the server, please try again."
+msgstr "與伺服器間的通訊有問題，請再試一次。"
+
+#: static/horizon/js/horizon.forms.js:117
+msgid "Filter"
+msgstr "篩選"
+
+#: static/horizon/js/horizon.instances.js:232
+msgid "Could not read the file"
+msgstr "不能讀取檔案"
+
+#: static/horizon/js/horizon.instances.js:238
+#: static/horizon/js/horizon.instances.js:265
+msgid "Could not decrypt the password"
+msgstr "不能解鎖密碼"
+
+#: static/horizon/js/horizon.membership.js:190
+msgid "No roles"
+msgstr "無角色"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "角色"
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Danger: "
+msgstr "危險："
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Warning: "
+msgstr "警告："
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Notice: "
+msgstr "注意："
+
+#: static/horizon/js/horizon.messages.js:14
+msgid "Success: "
+msgstr "成功："
+
+#: static/horizon/js/horizon.messages.js:15
+msgid "Error: "
+msgstr "錯誤："
+
+#: static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr "取消"
+
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:172
+msgid "Working"
+msgstr "運作中"
+
+#: static/horizon/js/horizon.modals.js:128
+msgid "There was an error submitting the form. Please try again."
+msgstr "提交表單時有錯誤。請再試一次。"
+
+#: static/horizon/js/horizon.networktopology.js:535
+msgid "STATUS"
+msgstr "狀態"
+
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "ID"
+msgstr "識別號"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Interfaces"
+msgstr "網路卡介面"
+
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "Interface"
+msgstr "網路卡介面"
+
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
+msgstr "打開主控臺"
+
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
+msgstr "檢視 %s 的詳細資訊"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:256
+msgid "No items to display."
+msgstr "沒有項目可以列出。"
+
+#: static/horizon/js/horizon.tables.js:50
+msgid "An error occurred while updating."
+msgstr "更新時發生錯誤。"
+
+#: static/horizon/js/horizon.tables.js:155
+#, c-format
+msgid "You have selected %s. "
+msgstr "您選擇了 %s。"
+
+#: static/horizon/js/horizon.tables.js:157
+#, c-format
+msgid "Confirm %s"
+msgstr "確認 %s"
+
+#: static/horizon/js/horizon.tables.js:158
+msgid "Please confirm your selection. This action cannot be undone."
+msgstr "請確認您的選擇。這個動作將無法回復。"
+
+#: static/horizon/js/horizon.tables.js:243
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "正列出 %s 個項目"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:169
+msgid "Not authorized to do this operation."
+msgstr "沒有足夠的權限執行這個操作。"
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "密碼沒有符合。"

@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Akihiro MOTOKI <amotoki@gmail.com>, 2013
-# Tomoyuki KATO <tomo@dream.daynight.jp>, 2013
+# Akihiro MOTOKI <amotoki@gmail.com>, 2014
+# Akihiro MOTOKI <amotoki@gmail.com>, 2014
+# *Irix_jp* <>, 2014
+# ykatabam <ykatabam@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-15 18:17+0000\n"
-"PO-Revision-Date: 2013-09-26 05:41+0000\n"
-"Last-Translator: Akihiro MOTOKI <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2014-04-04 11:03-0500\n"
+"PO-Revision-Date: 2014-04-01 09:41+0000\n"
+"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,8 +21,21 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/horizon/js/horizon.d3linechart.js:201
-#: static/horizon/js/horizon.modals.js:178
+#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.modals.js:280
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "読み込み中"
+
+#: static/horizon/js/horizon.d3linechart.js:385
+#: static/horizon/js/horizon.d3linechart.js:395
+msgid "No data available."
+msgstr "データがありません。"
+
+#: static/horizon/js/horizon.d3linechart.js:401
+#: static/horizon/js/horizon.modals.js:299
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
 msgstr "エラーが発生しました。後からもう一度お試しください。"
 
@@ -29,57 +44,118 @@ msgstr "エラーが発生しました。後からもう一度お試しくださ
 msgid "There was a problem communicating with the server, please try again."
 msgstr "サーバーとの通信中に問題がありました。再度お試しください。"
 
-#: static/horizon/js/horizon.forms.js:91
-msgid "Additional information here..."
-msgstr "追加情報はこちら..."
-
-#: static/horizon/js/horizon.forms.js:97
+#: static/horizon/js/horizon.forms.js:117
 msgid "Filter"
 msgstr "フィルター"
 
-#: static/horizon/js/horizon.membership.js:185
+#: static/horizon/js/horizon.instances.js:232
+msgid "Could not read the file"
+msgstr "ファイルを読み取れませんでした。"
+
+#: static/horizon/js/horizon.instances.js:238
+#: static/horizon/js/horizon.instances.js:265
+msgid "Could not decrypt the password"
+msgstr "パスワードを暗号化解除できませんでした。"
+
+#: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
 msgstr "ロールがありません"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "ロール"
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Danger: "
+msgstr "危険:"
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Warning: "
+msgstr "警告: "
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Notice: "
+msgstr "注意:"
+
+#: static/horizon/js/horizon.messages.js:14
+msgid "Success: "
+msgstr "成功: "
+
+#: static/horizon/js/horizon.messages.js:15
+msgid "Error: "
+msgstr "エラー: "
 
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "取り消し"
 
-#: static/horizon/js/horizon.modals.js:125
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:172
+msgid "Working"
+msgstr "反映中"
+
+#: static/horizon/js/horizon.modals.js:128
 msgid "There was an error submitting the form. Please try again."
 msgstr "フォームの送信中にエラーが発生しました。再度お試しください。"
 
-#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
-msgid "Loading"
-msgstr "読み込み中"
+#: static/horizon/js/horizon.networktopology.js:535
+msgid "STATUS"
+msgstr "状態"
 
-#: static/horizon/js/horizon.tables.js:47
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Interfaces"
+msgstr "インターフェース"
+
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "Interface"
+msgstr "インターフェース"
+
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
+msgstr "コンソールを開く"
+
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
+msgstr "%s の詳細を参照"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:256
+msgid "No items to display."
+msgstr "表示する項目がありません"
+
+#: static/horizon/js/horizon.tables.js:50
 msgid "An error occurred while updating."
 msgstr "更新中にエラーが発生しました。"
 
-#: static/horizon/js/horizon.tables.js:154
+#: static/horizon/js/horizon.tables.js:155
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s を選択しました。"
 
-#: static/horizon/js/horizon.tables.js:156
+#: static/horizon/js/horizon.tables.js:157
 #, c-format
 msgid "Confirm %s"
 msgstr "%sの確認"
 
-#: static/horizon/js/horizon.tables.js:157
+#: static/horizon/js/horizon.tables.js:158
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "選択内容を確認してください。この操作は取り消せません。"
 
-#: static/horizon/js/horizon.tables.js:171
-msgid "Working"
-msgstr "反映中"
-
-#: static/horizon/js/horizon.tables.js:221
+#: static/horizon/js/horizon.tables.js:243
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "%s 項目を表示中"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:169
+msgid "Not authorized to do this operation."
+msgstr "この操作を行う権限がありません。"
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."

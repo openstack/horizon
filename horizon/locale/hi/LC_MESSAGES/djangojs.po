@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# , 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-04 11:03-0500\n"
+"PO-Revision-Date: 2014-04-06 09:40+0000\n"
+"Last-Translator: Chandan kumar <chandankumar.093047@gmail.com>\n"
+"Language-Team: Hindi (http://www.transifex.com/projects/p/openstack/language/hi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.modals.js:280
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "लोड हो रहा है"
+
+#: static/horizon/js/horizon.d3linechart.js:385
+#: static/horizon/js/horizon.d3linechart.js:395
+msgid "No data available."
+msgstr "कोई आँकड़ा उपलब्ध नहीं."
+
+#: static/horizon/js/horizon.d3linechart.js:401
+#: static/horizon/js/horizon.modals.js:299
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:175
+msgid "An error occurred. Please try again later."
+msgstr "एक त्रुटि हो गई. बाद में पुन: प्रयास करें."
+
+#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.instances.js:30
+msgid "There was a problem communicating with the server, please try again."
+msgstr "सर्वर के साथ संवाद स्थापित करने में कोई समस्या थी, पुन: प्रयास करें."
+
+#: static/horizon/js/horizon.forms.js:117
+msgid "Filter"
+msgstr "छानना शुरू..."
+
+#: static/horizon/js/horizon.instances.js:232
+msgid "Could not read the file"
+msgstr "फ़ाइल को पढ़ नहीं सका"
+
+#: static/horizon/js/horizon.instances.js:238
+#: static/horizon/js/horizon.instances.js:265
+msgid "Could not decrypt the password"
+msgstr "पासवर्ड को डिक्रिप्ट नहीं कर सका"
+
+#: static/horizon/js/horizon.membership.js:190
+msgid "No roles"
+msgstr "भूमिकाएं नहीं है"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "भूमिका"
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Danger: "
+msgstr "खतरा: "
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Warning: "
+msgstr "चेतावनी: "
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Notice: "
+msgstr "सूचना: "
+
+#: static/horizon/js/horizon.messages.js:14
+msgid "Success: "
+msgstr "सफलता:"
+
+#: static/horizon/js/horizon.messages.js:15
+msgid "Error: "
+msgstr "त्रुटि: "
+
+#: static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr "रद्द करें"
+
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:172
+msgid "Working"
+msgstr "काम चालू है"
+
+#: static/horizon/js/horizon.modals.js:128
+msgid "There was an error submitting the form. Please try again."
+msgstr "फार्म जमा करने में त्रुटि हुई. पुन: प्रयास करें."
+
+#: static/horizon/js/horizon.networktopology.js:535
+msgid "STATUS"
+msgstr "स्थिति"
+
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "ID"
+msgstr "आईडी"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Interfaces"
+msgstr "अंतरफलक"
+
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "Interface"
+msgstr "अंतरफलक"
+
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
+msgstr "कंसोल खोलें"
+
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
+msgstr "विवरण  %s देखें"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:256
+msgid "No items to display."
+msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
+
+#: static/horizon/js/horizon.tables.js:50
+msgid "An error occurred while updating."
+msgstr "अद्यतन करते समय एक त्रुटि हुई."
+
+#: static/horizon/js/horizon.tables.js:155
+#, c-format
+msgid "You have selected %s. "
+msgstr "आपने %s का चुनाव किया है. "
+
+#: static/horizon/js/horizon.tables.js:157
+#, c-format
+msgid "Confirm %s"
+msgstr "पुष्टि करें %s"
+
+#: static/horizon/js/horizon.tables.js:158
+msgid "Please confirm your selection. This action cannot be undone."
+msgstr "अपने चयन की पुष्टि करें. इस क्रिया को पूर्ववत नहीं किया जा सकता."
+
+#: static/horizon/js/horizon.tables.js:243
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "सामाग्री %s दिखाएँ"
+msgstr[1] "सामाग्री %s दिखाएँ"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:169
+msgid "Not authorized to do this operation."
+msgstr " इस प्रकिया को कार्यान्वयित करने की अनुमति नहीं है"
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "पासवर्ड मेल नहीं खाते."

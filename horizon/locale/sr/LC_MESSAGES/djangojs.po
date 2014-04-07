@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Nenad Jovanovic <nenaddjovanovic@gmail.com>, 2014
+# Zoran Zivotic <zzivotic56@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-04 11:03-0500\n"
+"PO-Revision-Date: 2014-04-04 08:20+0000\n"
+"Last-Translator: Zoran Zivotic <zzivotic56@gmail.com>\n"
+"Language-Team: Serbian (http://www.transifex.com/projects/p/openstack/language/sr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.modals.js:280
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "Učitavanje"
+
+#: static/horizon/js/horizon.d3linechart.js:385
+#: static/horizon/js/horizon.d3linechart.js:395
+msgid "No data available."
+msgstr "Nema podataka."
+
+#: static/horizon/js/horizon.d3linechart.js:401
+#: static/horizon/js/horizon.modals.js:299
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:175
+msgid "An error occurred. Please try again later."
+msgstr "Greška. Pokušajte ponovo kasnije."
+
+#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.instances.js:30
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Postojao je problem u vezi sa serverom, pokušajte ponovo."
+
+#: static/horizon/js/horizon.forms.js:117
+msgid "Filter"
+msgstr "Filter"
+
+#: static/horizon/js/horizon.instances.js:232
+msgid "Could not read the file"
+msgstr "Ne mogu da pročitam fajl"
+
+#: static/horizon/js/horizon.instances.js:238
+#: static/horizon/js/horizon.instances.js:265
+msgid "Could not decrypt the password"
+msgstr "Ne mogu dešifrovati lozinku"
+
+#: static/horizon/js/horizon.membership.js:190
+msgid "No roles"
+msgstr "Nema uloga"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "Uloge"
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Danger: "
+msgstr "Opasnost:"
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Warning: "
+msgstr "Upozorenje:"
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Notice: "
+msgstr "Uočite:"
+
+#: static/horizon/js/horizon.messages.js:14
+msgid "Success: "
+msgstr "Uspeh:"
+
+#: static/horizon/js/horizon.messages.js:15
+msgid "Error: "
+msgstr "Greška:"
+
+#: static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr "Odustani"
+
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:172
+msgid "Working"
+msgstr "Obrada u toku"
+
+#: static/horizon/js/horizon.modals.js:128
+msgid "There was an error submitting the form. Please try again."
+msgstr "Greška u predaji forme. Pokušajte ponovo."
+
+#: static/horizon/js/horizon.networktopology.js:535
+msgid "STATUS"
+msgstr "STATUS"
+
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Interfaces"
+msgstr "Interfejsi"
+
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "Interface"
+msgstr "Interfejs"
+
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
+msgstr "Otvaranje konzole"
+
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
+msgstr "pogledajte %s detalje"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:256
+msgid "No items to display."
+msgstr "Nema stavke za prikaz."
+
+#: static/horizon/js/horizon.tables.js:50
+msgid "An error occurred while updating."
+msgstr "Greška u toku ažuriranja."
+
+#: static/horizon/js/horizon.tables.js:155
+#, c-format
+msgid "You have selected %s. "
+msgstr "Odabrali ste %s. "
+
+#: static/horizon/js/horizon.tables.js:157
+#, c-format
+msgid "Confirm %s"
+msgstr "Potvrda %s"
+
+#: static/horizon/js/horizon.tables.js:158
+msgid "Please confirm your selection. This action cannot be undone."
+msgstr "Molim potvrdite vaš izbor. Ovaj zahvat je nepovratan."
+
+#: static/horizon/js/horizon.tables.js:243
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Prikazivanje %s stavke"
+msgstr[1] "Prikazivanje %s stavki"
+msgstr[2] "Prikazivanje %s stavke"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:169
+msgid "Not authorized to do this operation."
+msgstr "Niste nadležni za ovaj zahvat."
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "Lozinka se ne podudara."

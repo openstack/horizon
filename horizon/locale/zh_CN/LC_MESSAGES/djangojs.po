@@ -3,17 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Tom Fifield <tom@openstack.org>, 2013
-# wendyliu, 2013
-# daisy.ycguo <daisy.ycguo@gmail.com>, 2013
-# Yu Zhang <zhyu@cn.ibm.com>, 2013
+# dragon889 <dragon889@163.com>, 2014
+# yanheven <yanheven@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-15 18:17+0000\n"
-"PO-Revision-Date: 2013-09-18 08:58+0000\n"
-"Last-Translator: Yu Zhang <zhyu@cn.ibm.com>\n"
+"POT-Creation-Date: 2014-04-04 11:03-0500\n"
+"PO-Revision-Date: 2014-04-01 09:41+0000\n"
+"Last-Translator: yanheven <yanheven@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openstack/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,8 +19,21 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/horizon/js/horizon.d3linechart.js:201
-#: static/horizon/js/horizon.modals.js:178
+#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.modals.js:280
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "加载中"
+
+#: static/horizon/js/horizon.d3linechart.js:385
+#: static/horizon/js/horizon.d3linechart.js:395
+msgid "No data available."
+msgstr "没有可用数据"
+
+#: static/horizon/js/horizon.d3linechart.js:401
+#: static/horizon/js/horizon.modals.js:299
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
 msgstr "发生错误。请稍后重试。"
 
@@ -31,57 +42,118 @@ msgstr "发生错误。请稍后重试。"
 msgid "There was a problem communicating with the server, please try again."
 msgstr "与服务器通信出现问题，请再试一次。"
 
-#: static/horizon/js/horizon.forms.js:91
-msgid "Additional information here..."
-msgstr "在这里写入其他信息..."
-
-#: static/horizon/js/horizon.forms.js:97
+#: static/horizon/js/horizon.forms.js:117
 msgid "Filter"
 msgstr "筛选"
 
-#: static/horizon/js/horizon.membership.js:185
+#: static/horizon/js/horizon.instances.js:232
+msgid "Could not read the file"
+msgstr "不能读取文件"
+
+#: static/horizon/js/horizon.instances.js:238
+#: static/horizon/js/horizon.instances.js:265
+msgid "Could not decrypt the password"
+msgstr "不能解密密码"
+
+#: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
 msgstr "不存在任何角色"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "角色"
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Danger: "
+msgstr "危险"
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Warning: "
+msgstr "警告："
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Notice: "
+msgstr "注意"
+
+#: static/horizon/js/horizon.messages.js:14
+msgid "Success: "
+msgstr "成功："
+
+#: static/horizon/js/horizon.messages.js:15
+msgid "Error: "
+msgstr "错误："
 
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "取消"
 
-#: static/horizon/js/horizon.modals.js:125
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:172
+msgid "Working"
+msgstr "进行中"
+
+#: static/horizon/js/horizon.modals.js:128
 msgid "There was an error submitting the form. Please try again."
 msgstr "在提交表单的时候出现错误，请再次尝试"
 
-#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
-msgid "Loading"
-msgstr "加载中"
+#: static/horizon/js/horizon.networktopology.js:535
+msgid "STATUS"
+msgstr "状态"
 
-#: static/horizon/js/horizon.tables.js:47
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Interfaces"
+msgstr "接口"
+
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "Interface"
+msgstr "接口"
+
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
+msgstr "打开控制台"
+
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
+msgstr "查看 %s 详情"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:256
+msgid "No items to display."
+msgstr "没有条目显示。"
+
+#: static/horizon/js/horizon.tables.js:50
 msgid "An error occurred while updating."
 msgstr "更新时发生错误。"
 
-#: static/horizon/js/horizon.tables.js:154
+#: static/horizon/js/horizon.tables.js:155
 #, c-format
 msgid "You have selected %s. "
 msgstr "你已经选择了 %s 。 "
 
-#: static/horizon/js/horizon.tables.js:156
+#: static/horizon/js/horizon.tables.js:157
 #, c-format
 msgid "Confirm %s"
 msgstr "确认 %s"
 
-#: static/horizon/js/horizon.tables.js:157
+#: static/horizon/js/horizon.tables.js:158
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "请确认您的选择。这个动作不能撤消"
 
-#: static/horizon/js/horizon.tables.js:171
-msgid "Working"
-msgstr "加工"
-
-#: static/horizon/js/horizon.tables.js:221
+#: static/horizon/js/horizon.tables.js:243
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "显示%s个条目"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:169
+msgid "Not authorized to do this operation."
+msgstr "未授权不能进行此操作"
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."

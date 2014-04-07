@@ -3,16 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# 명환 유 <funfun.yoo@gmail.com>, 2013
-# Nalee Jang <nalee999@nate.com>, 2013
-# ujuc Gang <potopro@gmail.com>, 2013
+# ujuc Gang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-15 18:17+0000\n"
-"PO-Revision-Date: 2013-09-26 12:29+0000\n"
-"Last-Translator: 명환 유 <funfun.yoo@gmail.com>\n"
+"POT-Creation-Date: 2014-04-04 11:03-0500\n"
+"PO-Revision-Date: 2014-04-01 09:41+0000\n"
+"Last-Translator: ujuc Gang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openstack/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,8 +18,21 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/horizon/js/horizon.d3linechart.js:201
-#: static/horizon/js/horizon.modals.js:178
+#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.modals.js:280
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "로딩"
+
+#: static/horizon/js/horizon.d3linechart.js:385
+#: static/horizon/js/horizon.d3linechart.js:395
+msgid "No data available."
+msgstr "데이터 없음."
+
+#: static/horizon/js/horizon.d3linechart.js:401
+#: static/horizon/js/horizon.modals.js:299
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
 msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
 
@@ -30,57 +41,118 @@ msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "서버와의 통신에 문제가 발생하였으니, 다시 시도하세요."
 
-#: static/horizon/js/horizon.forms.js:91
-msgid "Additional information here..."
-msgstr "추가 정보는 이곳에서.."
-
-#: static/horizon/js/horizon.forms.js:97
+#: static/horizon/js/horizon.forms.js:117
 msgid "Filter"
 msgstr "필터"
 
-#: static/horizon/js/horizon.membership.js:185
+#: static/horizon/js/horizon.instances.js:232
+msgid "Could not read the file"
+msgstr "파일을 읽을 수 없습니다"
+
+#: static/horizon/js/horizon.instances.js:238
+#: static/horizon/js/horizon.instances.js:265
+msgid "Could not decrypt the password"
+msgstr "암호를 해독할 수 없습니다."
+
+#: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
-msgstr "역할 없음"
+msgstr "Role 없음"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "역할"
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Danger: "
+msgstr "위험:"
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Warning: "
+msgstr "경고:"
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Notice: "
+msgstr "주의:"
+
+#: static/horizon/js/horizon.messages.js:14
+msgid "Success: "
+msgstr "완료:"
+
+#: static/horizon/js/horizon.messages.js:15
+msgid "Error: "
+msgstr "오류:"
 
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "취소"
 
-#: static/horizon/js/horizon.modals.js:125
-msgid "There was an error submitting the form. Please try again."
-msgstr "양식을 제출하는 동안 오류가 발생하였습니다. 다시 시도하세요."
-
-#: static/horizon/js/horizon.modals.js:159 static/horizon/js/horizon.tabs.js:9
-msgid "Loading"
-msgstr "로딩"
-
-#: static/horizon/js/horizon.tables.js:47
-msgid "An error occurred while updating."
-msgstr "업데이트 도중 오류가 발생하였습니다."
-
-#: static/horizon/js/horizon.tables.js:154
-#, c-format
-msgid "You have selected %s. "
-msgstr "%s 를 선택하였습니다"
-
-#: static/horizon/js/horizon.tables.js:156
-#, c-format
-msgid "Confirm %s"
-msgstr "%s 를 확인하세요."
-
-#: static/horizon/js/horizon.tables.js:157
-msgid "Please confirm your selection. This action cannot be undone."
-msgstr "선택 사항을 확인하시기 바랍니다. 이 작업은 취소 할 수 없습니다."
-
-#: static/horizon/js/horizon.tables.js:171
+#: static/horizon/js/horizon.modals.js:98
+#: static/horizon/js/horizon.tables.js:172
 msgid "Working"
 msgstr "작동 중"
 
-#: static/horizon/js/horizon.tables.js:221
+#: static/horizon/js/horizon.modals.js:128
+msgid "There was an error submitting the form. Please try again."
+msgstr "양식을 제출하는 동안 오류가 발생하였습니다. 다시 시도하세요."
+
+#: static/horizon/js/horizon.networktopology.js:535
+msgid "STATUS"
+msgstr "STATUS"
+
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Interfaces"
+msgstr "인터페이스"
+
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "Interface"
+msgstr "인터페이스"
+
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
+msgstr "오픈 콘솔"
+
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
+msgstr "%s 자세한 사항 확인"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:256
+msgid "No items to display."
+msgstr "표시할 항목이 없습니다."
+
+#: static/horizon/js/horizon.tables.js:50
+msgid "An error occurred while updating."
+msgstr "업데이트 도중 오류가 발생하였습니다."
+
+#: static/horizon/js/horizon.tables.js:155
+#, c-format
+msgid "You have selected %s. "
+msgstr "%s를 선택하였습니다. "
+
+#: static/horizon/js/horizon.tables.js:157
+#, c-format
+msgid "Confirm %s"
+msgstr "%s를 확인하세요."
+
+#: static/horizon/js/horizon.tables.js:158
+msgid "Please confirm your selection. This action cannot be undone."
+msgstr "선택 사항을 확인하시기 바랍니다. 이 작업은 취소 할 수 없습니다."
+
+#: static/horizon/js/horizon.tables.js:243
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "%s 항목을 보여줍니다."
+msgstr[0] "%s 아이템을 보여주기"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:169
+msgid "Not authorized to do this operation."
+msgstr "이 작업에 대한 권한이 없습니다."
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
