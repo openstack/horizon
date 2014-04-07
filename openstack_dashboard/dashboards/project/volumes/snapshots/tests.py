@@ -29,6 +29,7 @@ from openstack_dashboard.usage import quotas
 
 
 INDEX_URL = reverse('horizon:project:volumes:index')
+VOLUME_SNAPSHOTS_TAB_URL = reverse('horizon:project:volumes:snapshots_tab')
 
 
 class VolumeSnapshotsViewTests(test.TestCase):
@@ -77,7 +78,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:create_snapshot',
                       args=[volume.id])
         res = self.client.post(url, formData)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res, VOLUME_SNAPSHOTS_TAB_URL)
 
     @test.create_stubs({cinder: ('volume_get',
                                  'volume_snapshot_create',)})
@@ -103,7 +104,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:create_snapshot',
                       args=[volume.id])
         res = self.client.post(url, formData)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res, VOLUME_SNAPSHOTS_TAB_URL)
 
     @test.create_stubs({api.nova: ('server_list',),
                         api.cinder: ('volume_snapshot_list',

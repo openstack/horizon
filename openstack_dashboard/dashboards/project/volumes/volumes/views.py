@@ -73,7 +73,7 @@ class DetailView(tabs.TabView):
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateForm
     template_name = 'project/volumes/volumes/create.html'
-    success_url = reverse_lazy("horizon:project:volumes:index")
+    success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
@@ -122,7 +122,7 @@ class ExtendView(forms.ModalFormView):
 class CreateSnapshotView(forms.ModalFormView):
     form_class = project_forms.CreateSnapshotForm
     template_name = 'project/volumes/volumes/create_snapshot.html'
-    success_url = reverse_lazy("horizon:project:volumes:index")
+    success_url = reverse_lazy('horizon:project:volumes:snapshots_tab')
 
     def get_context_data(self, **kwargs):
         context = super(CreateSnapshotView, self).get_context_data(**kwargs)

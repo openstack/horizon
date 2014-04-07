@@ -35,6 +35,7 @@ from openstack_dashboard.usage import quotas
 
 
 VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
+VOLUME_VOLUMES_TAB_URL = reverse('horizon:project:volumes:volumes_tab')
 
 
 class VolumeViewTests(test.TestCase):
@@ -101,7 +102,7 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_VOLUMES_TAB_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -165,7 +166,7 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_VOLUMES_TAB_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -214,7 +215,7 @@ class VolumeViewTests(test.TestCase):
                                          "snapshot_id=" + str(snapshot.id)]),
                                formData)
 
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_VOLUMES_TAB_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -279,7 +280,7 @@ class VolumeViewTests(test.TestCase):
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:volumes:volumes:create')
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_VOLUMES_TAB_URL
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
         self.assertMessageCount(info=1)
@@ -351,7 +352,7 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_VOLUMES_TAB_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_snapshot_get',
@@ -444,7 +445,7 @@ class VolumeViewTests(test.TestCase):
                                          "image_id=" + str(image.id)]),
                                formData)
 
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_VOLUMES_TAB_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -513,7 +514,7 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_VOLUMES_TAB_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_type_list',
@@ -733,7 +734,7 @@ class VolumeViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:index')
+        url = VOLUME_INDEX_URL
         res = self.client.post(url, formData, follow=True)
         self.assertIn("Scheduled deletion of Volume: Volume name",
                       [m.message for m in res.context['messages']])
@@ -769,7 +770,7 @@ class VolumeViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:index')
+        url = VOLUME_INDEX_URL
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(list(res.context['messages'])[0].message,
                          u'Unable to delete volume "%s". '
@@ -870,7 +871,7 @@ class VolumeViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:volumes:index'))
+        res = self.client.get(VOLUME_INDEX_URL)
         self.assertTemplateUsed(res, 'project/volumes/index.html')
 
         volumes = res.context['volumes_table'].data
@@ -928,7 +929,7 @@ class VolumeViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:index') + \
+        url = VOLUME_INDEX_URL + \
                 "?action=row_update&table=volumes&obj_id=" + volume.id
 
         res = self.client.get(url, {},
@@ -998,7 +999,7 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.post(url, formData)
 
-        redirect_url = reverse('horizon:project:volumes:index')
+        redirect_url = VOLUME_INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_get',),

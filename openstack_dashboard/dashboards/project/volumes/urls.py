@@ -25,6 +25,10 @@ from openstack_dashboard.dashboards.project.volumes.volumes \
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^\?tab=volumes_and_snapshots__snapshots_tab$',
+        views.IndexView.as_view(), name='snapshots_tab'),
+    url(r'^\?tab=volumes_and_snapshots__volumes_tab$',
+        views.IndexView.as_view(), name='volumes_tab'),
     url(r'', include(volume_urls, namespace='volumes')),
     url(r'^snapshots/(?P<snapshot_id>[^/]+)/$',
         views.DetailView.as_view(),
