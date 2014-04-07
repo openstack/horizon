@@ -19,6 +19,7 @@ from selenium.webdriver.support import ui
 import testtools
 
 from openstack_dashboard.test.integration_tests import config
+from openstack_dashboard.test.integration_tests.pages import loginpage
 
 
 class BaseTestCase(testtools.TestCase):
@@ -41,3 +42,17 @@ class BaseTestCase(testtools.TestCase):
         timeout = self.conf.dashboard.page_timeout
         ui.WebDriverWait(self.driver, timeout).until(lambda d:
                                                      self.driver.title)
+
+
+class TestCase(BaseTestCase):
+
+    def setUp(self):
+        super(TestCase, self).setUp()
+        self.login_pg = loginpage.LoginPage(self.driver, self.conf)
+        self.login_pg.go_to_login_page()
+        self.home_pg = self.login_pg.login()
+
+    def tearDown(self):
+        self.home_pg.go_to_home_page()
+        self.home_pg.log_out()
+        super(TestCase, self).tearDown()
