@@ -51,30 +51,36 @@ class LoginPage(pageobject.PageObject):
     def _press_enter_on_login_button(self):
         self.login_button.send_keys(keys.Keys.RETURN)
 
-    def login(self, *args, **kwargs):
-        return self.login_with_mouse_click(*args, **kwargs)
+    def login(self, user=None, password=None):
+        return self.login_with_mouse_click(user, password)
 
-    def login_with_mouse_click(self, *args, **kwargs):
-        return self._do_login(self._click_on_login_button, *args, **kwargs)
+    def login_with_mouse_click(self, user, password):
+        return self._do_login(user, password, self._click_on_login_button)
 
-    def login_with_enter_key(self, *args, **kwargs):
-        return self._do_login(self._press_enter_on_login_button,
-                              *args, **kwargs)
+    def login_with_enter_key(self, user, password):
+        return self._do_login(user, password,
+                              self._press_enter_on_login_button)
 
-    def _do_login(self, login_method, user='user'):
-        if user != 'user':
-            return self.login_as_admin(login_method)
+    def _do_login(self, user, password, login_method):
+        if user == self.conf.identity.admin_username:
+            if password is None:
+                password = self.conf.identity.admin_password
+            return self.login_as_admin(password, login_method)
         else:
-            return self.login_as_user(login_method)
+            if password is None:
+                password = self.conf.identity.password
+            if user is None:
+                user = self.conf.identity.username
+            return self.login_as_user(user, password, login_method)
 
-    def login_as_admin(self, login_method):
+    def login_as_admin(self, password, login_method):
         self.username.send_keys(self.conf.identity.admin_username)
-        self.password.send_keys(self.conf.identity.admin_password)
+        self.password.send_keys(password)
         login_method()
         return adminpage.AdminPage(self.driver, self.conf)
 
-    def login_as_user(self, login_method):
-        self.username.send_keys(self.conf.identity.username)
-        self.password.send_keys(self.conf.identity.password)
+    def login_as_user(self, user, password, login_method):
+        self.username.send_keys(user)
+        self.password.send_keys(password)
         login_method()
         return projectpage.ProjectPage(self.driver, self.conf)
