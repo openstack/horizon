@@ -1,3 +1,15 @@
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
 # Horizon documentation build configuration file, created by
 # sphinx-quickstart on Thu Oct 27 11:38:59 2011.
 #
@@ -10,8 +22,10 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
+from __future__ import print_function
+
 import os
+import sys
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", ".."))
@@ -27,10 +41,10 @@ import horizon.version
 def write_autodoc_index():
 
     def find_autodoc_modules(module_name, sourcedir):
-        """returns a list of modules in the SOURCE directory"""
+        """returns a list of modules in the SOURCE directory."""
         modlist = []
         os.chdir(os.path.join(sourcedir, module_name))
-        print "SEARCHING %s" % sourcedir
+        print("SEARCHING %s" % sourcedir)
         for root, dirs, files in os.walk("."):
             for filename in files:
                 if filename.endswith(".py"):
@@ -78,8 +92,8 @@ def write_autodoc_index():
             os.mkdir(MOD_DIR)
         for module in find_autodoc_modules(modulename, path):
             if any([module.startswith(exclude) for exclude
-                                                in EXCLUDED_MODULES]):
-                print "Excluded module %s." % module
+                   in EXCLUDED_MODULES]):
+                print("Excluded module %s." % module)
                 continue
             mod_path = os.path.join(path, *module.split("."))
             generated_file = os.path.join(MOD_DIR, "%s.rst" % module)
@@ -96,11 +110,11 @@ def write_autodoc_index():
             CURRENT_SOURCES[MOD_DIR].append("%s.rst" % module)
             # Only generate a new file if the source has changed or we don't
             # have a doc file to begin with.
-            if not os.access(generated_file, os.F_OK) or \
-                    os.stat(generated_file).st_mtime < \
-                    os.stat(source_file).st_mtime:
-                print "Module %s updated, generating new documentation." \
-                      % module
+            if not os.access(generated_file, os.F_OK) or (
+                    os.stat(generated_file).st_mtime <
+                    os.stat(source_file).st_mtime):
+                print("Module %s updated, generating new documentation."
+                      % module)
                 FILEOUT = open(generated_file, "w")
                 header = "The :mod:`%s` Module" % module
                 FILEOUT.write("%s\n" % ("=" * len(header),))
@@ -119,7 +133,7 @@ def write_autodoc_index():
     for directory, subdirs, files in list(os.walk(RSTDIR)):
         for old_file in files:
             if old_file not in CURRENT_SOURCES.get(directory, []):
-                print "Removing outdated file for %s" % old_file
+                print("Removing outdated file for %s" % old_file)
                 os.remove(os.path.join(directory, old_file))
 
 
@@ -299,14 +313,14 @@ htmlhelp_basename = 'Horizondoc'
 # -- Options for LaTeX output -------------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    #'papersize': 'letterpaper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    #'pointsize': '10pt',
 
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    #'preamble': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -416,8 +430,8 @@ epub_copyright = u'2012, OpenStack'
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'python': ('http://docs.python.org/', None),
-                       'django':
-                           ('http://docs.djangoproject.com/en/dev/_objects/'),
+                       'django': (
+                           'http://docs.djangoproject.com/en/dev/_objects/'),
                        'nova': ('http://nova.openstack.org', None),
                        'swift': ('http://swift.openstack.org', None),
                        'keystone': ('http://keystone.openstack.org', None),
