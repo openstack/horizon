@@ -258,6 +258,7 @@ horizon.d3_line_chart = {
       self.settings.auto_size = true;
       self.settings.axes_x = true;
       self.settings.axes_y = true;
+      self.settings.interpolation = 'linear';
       // Static y axes values
       self.settings.yMin = undefined;
       self.settings.yMax = undefined;
@@ -299,7 +300,7 @@ horizon.d3_line_chart = {
       var self = this;
 
       var allowed_settings = ['renderer', 'auto_size', 'axes_x', 'axes_y',
-        'yMin', 'yMax', 'bar_chart_settings',
+        'interpolation', 'yMin', 'yMax', 'bar_chart_settings',
         'bar_chart_selector', 'composed_chart_selector',
         'higlight_last_point'];
 
@@ -438,6 +439,7 @@ horizon.d3_line_chart = {
         series: self.series,
         yMin: self.settings.yMin,
         yMax: self.settings.yMax,
+        interpolation: self.settings.interpolation,
       });
 
       /*
