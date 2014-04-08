@@ -441,14 +441,17 @@ def neutronclient(request):
 
 
 def network_list(request, **params):
-    LOG.debug("network_list(): params=%s" % (params))
+    LOG.debug("network_list(): params=%s", params)
     networks = neutronclient(request).list_networks(**params).get('networks')
     # Get subnet list to expand subnet info in network list.
     subnets = subnet_list(request)
-    subnet_dict = SortedDict([(s['id'], s) for s in subnets])
+    subnet_dict = dict([(s['id'], s) for s in subnets])
     # Expand subnet list from subnet_id to values.
     for n in networks:
-        n['subnets'] = [subnet_dict.get(s) for s in n.get('subnets', [])]
+        # Due to potential timing issues, we can't assume the subnet_dict data
+        # is in sync with the network data.
+        n['subnets'] = [subnet_dict[s] for s in n.get('subnets', []) if
+                        s in subnet_dict]
     return [Network(n) for n in networks]
 
 
