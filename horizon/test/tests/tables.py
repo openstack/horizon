@@ -203,7 +203,9 @@ class MyTable(tables.DataTable):
                           attrs={'class': 'green blue'},
                           summation="average",
                           truncate=35,
-                          link_classes=('link-modal',))
+                          link_classes=('link-modal',),
+                          link_attrs={'data-type': 'modal dialog',
+                                      'data-tip': 'click for dialog'})
     status = tables.Column('status', link=get_link)
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
@@ -462,9 +464,11 @@ class DataTableTests(test.TestCase):
         self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
         self.assertEqual(name_col.hidden, False)
         self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
-        # link, link_classes and get_link_url
+        # link, link_classes, link_attrs, and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
         self.assertIn('class="link-modal"', row.cells['value'].value)
+        self.assertIn('data-type="modal dialog"', row.cells['value'].value)
+        self.assertIn('data-tip="click for dialog"', row.cells['value'].value)
         self.assertIn('href="/auth/login/"', row.cells['status'].value)
         # empty_value
         self.assertEqual(row3.cells['optional'].value, "N/A")
@@ -546,6 +550,8 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp, "data-update-interval", 3)
         # Verify our XSS protection
         self.assertContains(resp, '<a href="http://example.com/" '
+                                  'data-tip="click for dialog" '
+                                  'data-type="modal dialog" '
                                   'class="link-modal">'
                                   '&lt;strong&gt;evil&lt;/strong&gt;</a>', 1)
         # Filter = False hides the search box
@@ -1116,9 +1122,11 @@ class DataTableTests(test.TestCase):
         self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
         self.assertEqual(name_col.hidden, False)
         self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
-        # link, link_classes and get_link_url
+        # link, link_classes, link_attrs and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
         self.assertIn('class="link-modal"', row.cells['value'].value)
+        self.assertIn('data-type="modal dialog"', row.cells['value'].value)
+        self.assertIn('data-tip="click for dialog"', row.cells['value'].value)
         self.assertIn('href="/auth/login/"', row.cells['status'].value)
         # classes
         self.assertEqual(value_col.get_final_attrs().get('class', ""),
