@@ -56,8 +56,12 @@ class AddInterface(forms.SelfHandlingForm):
             msg = _('Failed to get network list %s') % e.message
             LOG.info(msg)
             messages.error(request, msg)
-            redirect = reverse(self.failure_url,
-                               args=[request.REQUEST['router_id']])
+            router_id = request.REQUEST.get('router_id',
+                                            self.initial.get('router_id'))
+            if router_id:
+                redirect = reverse(self.failure_url, args=[router_id])
+            else:
+                redirect = reverse('horizon:project:routers:index')
             exceptions.handle(request, msg, redirect=redirect)
             return
 
