@@ -329,36 +329,36 @@ def data(TEST):
     TEST.stack_templates = utils.TestDataContainer()
     TEST.stack_environments = utils.TestDataContainer()
 
-    # Stacks
-    stack1 = {
-        "description": "No description",
-        "links": [{
-            "href": "http://192.168.1.70:8004/v1/"
-                    "051c727ee67040d6a7b7812708485a97/"
-                    "stacks/stack-1211-38/"
-                    "05b4f39f-ea96-4d91-910c-e758c078a089",
-            "rel": "self"
-        }],
-        "parameters": {
-            'DBUsername': '******',
-            'InstanceType': 'm1.small',
-            'AWS::StackId':
-        'arn:openstack:heat::2ce287:stacks/teststack/88553ec',
-            'DBRootPassword': '******',
-            'AWS::StackName': 'teststack',
-            'DBPassword': '******',
-            'AWS::Region': 'ap-southeast-1',
-            'DBName': u'wordpress'
-        },
-        "stack_status_reason": "Stack successfully created",
-        "stack_name": "stack-test",
-        "creation_time": "2013-04-22T00:11:39Z",
-        "updated_time": "null",
-        "stack_status": "CREATE_COMPLETE",
-        "id": "05b4f39f-ea96-4d91-910c-e758c078a089"
-    }
-    stack = stacks.Stack(stacks.StackManager(None), stack1)
-    TEST.stacks.add(stack)
+    for i in range(10):
+        stack_data = {
+            "description": "No description",
+            "links": [{
+                "href": "http://192.168.1.70:8004/v1/"
+                        "051c727ee67040d6a7b7812708485a97/"
+                        "stacks/stack-1211-38/"
+                        "05b4f39f-ea96-4d91-910c-e758c078a089",
+                "rel": "self"
+            }],
+            "parameters": {
+                'DBUsername': '******',
+                'InstanceType': 'm1.small',
+                'AWS::StackId':
+            'arn:openstack:heat::2ce287:stacks/teststack/88553ec',
+                'DBRootPassword': '******',
+                'AWS::StackName': "teststack{0}".format(i),
+                'DBPassword': '******',
+                'AWS::Region': 'ap-southeast-1',
+                'DBName': u'wordpress'
+            },
+            "stack_status_reason": "Stack successfully created",
+            "stack_name": "stack-test{0}".format(i),
+            "creation_time": "2013-04-22T00:11:39Z",
+            "updated_time": "2013-04-22T00:11:39Z",
+            "stack_status": "CREATE_COMPLETE",
+            "id": "05b4f39f-ea96-4d91-910c-e758c078a089{0}".format(i)
+        }
+        stack = stacks.Stack(stacks.StackManager(None), stack_data)
+        TEST.stacks.add(stack)
 
     TEST.stack_templates.add(Template(TEMPLATE, VALIDATE))
     TEST.stack_environments.add(Environment(ENVIRONMENT))

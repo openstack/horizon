@@ -16,6 +16,7 @@ import logging
 
 from django.conf import settings
 from heatclient import client as heat_client
+from horizon.utils import functions as utils
 from openstack_dashboard.api import base
 
 LOG = logging.getLogger(__name__)
@@ -52,8 +53,29 @@ def heatclient(request, password=None):
     return client
 
 
-def stacks_list(request):
-    return [stack for stack in heatclient(request).stacks.list()]
+def stacks_list(request, marker=None, paginate=False):
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    page_size = utils.get_page_size(request)
+
+    if paginate:
+        request_size = page_size + 1
+    else:
+        request_size = limit
+
+    kwargs = {}
+    if marker:
+        kwargs['marker'] = marker
+
+    stacks_iter = heatclient(request).stacks.list(limit=request_size,
+                                                  **kwargs)
+
+    has_more_data = False
+    stacks = list(stacks_iter)
+    if paginate:
+        if len(stacks) > page_size:
+            stacks.pop()
+            has_more_data = True
+    return (stacks, has_more_data)
 
 
 def stack_delete(request, stack_id):
