@@ -88,6 +88,8 @@ horizon.datatables = {
               $table.trigger("update");
               // Reset decay constant.
               $table.removeAttr('decay_constant');
+              // Reset quicksearch's data cache.
+              horizon.datatables.qs[$table.attr('id')].cache();
             }
           },
           complete: function (jqXHR, textStatus) {
@@ -326,11 +328,12 @@ horizon.datatables.add_table_checkboxes = function(parent) {
 };
 
 horizon.datatables.set_table_query_filter = function (parent) {
+  horizon.datatables.qs = {};
   $(parent).find('table').each(function (index, elm) {
     var input = $($(elm).find('div.table_search.client input')),
         table_selector;
     if (input.length > 0) {
-      // Disable server-side searcing if we have client-side searching since
+      // Disable server-side searching if we have client-side searching since
       // (for now) the client-side is actually superior. Server-side filtering
       // remains as a noscript fallback.
       // TODO(gabriel): figure out an overall strategy for making server-side
@@ -346,7 +349,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
 
       // Enable the client-side searching.
       table_selector = 'table#' + $(elm).attr('id');
-      input.quicksearch(table_selector + ' tbody tr', {
+      var qs = input.quicksearch(table_selector + ' tbody tr', {
         'delay': 300,
         'loader': 'span.loading',
         'bind': 'keyup click',
@@ -370,6 +373,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
           return query.test($(_row).find('td:not(.hidden):not(.actions_column)').text());
         }
       });
+      horizon.datatables.qs[$(elm).attr('id')] = qs;
     }
   });
 };
