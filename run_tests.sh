@@ -319,8 +319,8 @@ function run_tests_all {
     export NOSE_HTML_OUT_FILE='horizon_nose_results.html'
   fi
   if [ $with_coverage -eq 1 ]; then
-    ${command_wrapper} coverage erase
-    coverage_run="coverage run -p"
+    ${command_wrapper} python -m coverage.__main__ erase
+    coverage_run="python -m coverage.__main__ run -p"
   fi
   ${command_wrapper} ${coverage_run} $root/manage.py test horizon --settings=horizon.test.settings $testopts
   # get results of the Horizon tests
@@ -337,9 +337,9 @@ function run_tests_all {
 
   if [ $with_coverage -eq 1 ]; then
     echo "Generating coverage reports"
-    ${command_wrapper} coverage combine
-    ${command_wrapper} coverage xml -i --include="horizon/*,openstack_dashboard/*" --omit='/usr*,setup.py,*egg*,.venv/*'
-    ${command_wrapper} coverage html -i --include="horizon/*,openstack_dashboard/*" --omit='/usr*,setup.py,*egg*,.venv/*' -d reports
+    ${command_wrapper} python -m coverage.__main__ combine
+    ${command_wrapper} python -m coverage.__main__ xml -i --include="horizon/*,openstack_dashboard/*" --omit='/usr*,setup.py,*egg*,.venv/*'
+    ${command_wrapper} python -m coverage.__main__ html -i --include="horizon/*,openstack_dashboard/*" --omit='/usr*,setup.py,*egg*,.venv/*' -d reports
   fi
   # Remove the leftover coverage files from the -p flag earlier.
   rm -f .coverage.*
