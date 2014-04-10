@@ -23,7 +23,7 @@
     <p>{% trans "After launching an instance, you login using the private key (the username might be different depending on the image you launched):" %}</p>
     <p><pre>ssh -i cloud.key ubuntu@&lt;instance_ip&gt;</pre></p>
     <p>{% trans "or:" %}</p>
-    <p><pre>ssh -i cloud.key ec2_user@&lt;instance_ip&gt;</pre></p>
+    <p><pre>ssh -i cloud.key ec2-user@&lt;instance_ip&gt;</pre></p>
 </div>
 {% endblock %}
 
