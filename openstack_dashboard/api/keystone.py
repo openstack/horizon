@@ -430,15 +430,7 @@ def group_delete(request, group_id):
 
 def group_list(request, domain=None, project=None, user=None):
     manager = keystoneclient(request, admin=True).groups
-    groups = manager.list(user=user)
-    # TODO(dklyle): once keystoneclient supports filtering by
-    # domain change this to use that cleaner implementation
-    if domain:
-        domain_groups = []
-        for group in groups:
-            if group.domain_id == domain:
-                domain_groups.append(group)
-        groups = domain_groups
+    groups = manager.list(user=user, domain=domain)
 
     if project:
         project_groups = []
