@@ -18,14 +18,23 @@ from django import shortcuts
 from django.views.decorators import vary
 
 import horizon
+from horizon import base
 
 from openstack_auth import views
 
 
 def get_user_home(user):
+    dashboard = None
     if user.is_superuser:
-        return horizon.get_dashboard('admin').get_absolute_url()
-    return horizon.get_dashboard('project').get_absolute_url()
+        try:
+            dashboard = horizon.get_dashboard('admin')
+        except base.NotRegistered:
+            pass
+
+    if dashboard is None:
+        dashboard = horizon.get_default_dashboard()
+
+    return dashboard.get_absolute_url()
 
 
 @vary.vary_on_cookie
