@@ -57,6 +57,116 @@ horizon.modals.modal_spinner = function (text) {
   horizon.modals.spinner.spin(horizon.conf.spinner_options.modal);
 };
 
+horizon.modals.init_wizard = function () {
+  // If workflow is in wizard mode, initialize wizard.
+  var _max_visited_step = 0;
+  var _validate_steps = function (start, end) {
+    var $form = $('.workflow > form'),
+      response = {};
+
+    if (typeof end === 'undefined') {
+      end = start;
+    }
+
+    // Clear old errors.
+    $form.find('td.actions div.alert-error').remove();
+    $form.find('.control-group.error').each(function () {
+      var $group = $(this);
+      $group.removeClass('error');
+      $group.find('span.help-inline.error').remove();
+    });
+
+    // Send the data for validation.
+    $.ajax({
+      type: 'POST',
+      url: $form.attr('action'),
+      headers: {
+        'X-Horizon-Validate-Step-Start': start,
+        'X-Horizon-Validate-Step-End': end
+      },
+      data: $form.serialize(),
+      dataType: 'json',
+      async: false,
+      success: function (data) { response = data; }
+    });
+
+    // Handle errors.
+    if (response.has_errors) {
+      var first_field = true;
+
+      $.each(response.errors, function (step_slug, step_errors) {
+        var step_id = response.workflow_slug + '__' + step_slug,
+          $fieldset = $form.find('#' + step_id);
+        $.each(step_errors, function (field, errors) {
+          var $field;
+          if (field === '__all__') {
+            // Add global errors.
+            $.each(errors, function (index, error) {
+              $fieldset.find('td.actions').prepend(
+                '<div class="alert alert-message alert-error">' +
+                error + '</div>');
+            });
+            $fieldset.find('input,  select, textarea').first().focus();
+            return;
+          }
+          // Add field errors.
+          $field = $fieldset.find('[name="' + field + '"]');
+          $field.closest('.control-group').addClass('error');
+          $.each(errors, function (index, error) {
+            $field.before(
+              '<span class="help-inline error">' +
+              error + '</span>');
+          });
+          // Focus the first invalid field.
+          if (first_field) {
+            $field.focus();
+            first_field = false;
+          }
+        });
+      });
+
+      return false;
+    }
+  };
+
+  $('.workflow.wizard').bootstrapWizard({
+    tabClass: 'wizard-tabs',
+    nextSelector: '.button-next',
+    previousSelector: '.button-previous',
+    onTabShow: function (tab, navigation, index) {
+      var $navs = navigation.find('li');
+      var total = $navs.length;
+      var current = index;
+      var $footer = $('.modal-footer');
+      _max_visited_step = Math.max(_max_visited_step, current);
+      if (current + 1 >= total) {
+        $footer.find('.button-next').hide();
+        $footer.find('.button-final').show();
+      } else {
+        $footer.find('.button-next').show();
+        $footer.find('.button-final').hide();
+      }
+      $navs.each(function(i) {
+        $this = $(this);
+        if (i <= _max_visited_step) {
+          $this.addClass('done');
+        } else {
+          $this.removeClass('done');
+        }
+      });
+    },
+    onNext: function ($tab, $nav, index) {
+      return _validate_steps(index - 1);
+    },
+    onTabClick: function ($tab, $nav, current, index) {
+      // Validate if moving forward, but move backwards without validation
+      return (index <= current ||
+              _validate_steps(current, index - 1) !== false);
+    }
+  });
+};
+
+
 horizon.addInitFunction(function() {
   // Bind handler for initializing new modals.
   $('#modal_wrapper').on('new_modal', function (evt, modal) {
@@ -153,115 +263,6 @@ horizon.addInitFunction(function() {
   // Focus the first usable form field in the modal for accessibility.
   horizon.modals.addModalInitFunction(function (modal) {
     $(modal).find(":text, select, textarea").filter(":visible:first").focus();
-  });
-
-  // If workflow id wizard mode, initialize wizard.
-  horizon.modals.addModalInitFunction(function (modal) {
-    var _max_visited_step = 0;
-    var _validate_steps = function (start, end) {
-      var $form = $('.workflow > form'),
-        response = {};
-
-      if (typeof end === 'undefined') {
-        end = start;
-      }
-
-      // Clear old errors.
-      $form.find('td.actions div.alert-error').remove();
-      $form.find('.control-group.error').each(function () {
-        var $group = $(this);
-        $group.removeClass('error');
-        $group.find('span.help-inline.error').remove();
-      });
-
-      // Send the data for validation.
-      $.ajax({
-        type: 'POST',
-        url: $form.attr('action'),
-        headers: {
-          'X-Horizon-Validate-Step-Start': start,
-          'X-Horizon-Validate-Step-End': end
-        },
-        data: $form.serialize(),
-        dataType: 'json',
-        async: false,
-        success: function (data) { response = data; }
-      });
-
-      // Handle errors.
-      if (response.has_errors) {
-        var first_field = true;
-
-        $.each(response.errors, function (step_slug, step_errors) {
-          var step_id = response.workflow_slug + '__' + step_slug,
-            $fieldset = $form.find('#' + step_id);
-          $.each(step_errors, function (field, errors) {
-            var $field;
-            if (field === '__all__') {
-              // Add global errors.
-              $.each(errors, function (index, error) {
-                $fieldset.find('td.actions').prepend(
-                  '<div class="alert alert-message alert-error">' +
-                  error + '</div>');
-              });
-              $fieldset.find('input,  select, textarea').first().focus();
-              return;
-            }
-            // Add field errors.
-            $field = $fieldset.find('[name="' + field + '"]');
-            $field.closest('.control-group').addClass('error');
-            $.each(errors, function (index, error) {
-              $field.before(
-                '<span class="help-inline error">' +
-                error + '</span>');
-            });
-            // Focus the first invalid field.
-            if (first_field) {
-              $field.focus();
-              first_field = false;
-            }
-          });
-        });
-
-        return false;
-      }
-    };
-
-    $('.workflow.wizard').bootstrapWizard({
-      tabClass: 'wizard-tabs',
-      nextSelector: '.button-next',
-      previousSelector: '.button-previous',
-      onTabShow: function (tab, navigation, index) {
-        var $navs = navigation.find('li');
-        var total = $navs.length;
-        var current = index;
-        var $footer = $('.modal-footer');
-        _max_visited_step = Math.max(_max_visited_step, current);
-        if (current + 1 >= total) {
-          $footer.find('.button-next').hide();
-          $footer.find('.button-final').show();
-        } else {
-          $footer.find('.button-next').show();
-          $footer.find('.button-final').hide();
-        }
-        $navs.each(function(i) {
-          $this = $(this);
-          if (i <= _max_visited_step) {
-            $this.addClass('done');
-          } else {
-            $this.removeClass('done');
-          }
-        });
-      },
-      onNext: function ($tab, $nav, index) {
-        return _validate_steps(index - 1);
-      },
-      onTabClick: function ($tab, $nav, current, index) {
-        // Validate if moving forward, but move backwards without validation
-        return (index <= current ||
-                _validate_steps(current, index - 1) !== false);
-      }
-    });
   });
 
   horizon.modals.addModalInitFunction(horizon.datatables.validate_button);
