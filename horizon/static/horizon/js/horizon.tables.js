@@ -229,8 +229,7 @@ $.tablesorter.addParser({
     s = s.replace(/\-/g, " ").replace(/:/g, " ");
     s = s.replace("T", " ").replace("Z", " ");
     s = s.split(" ");
-    return $.tablesorter.formatInt(
-      new Date(s[0], s[1], s[2], s[3], s[4], s[5]).getTime());
+    return new Date(s[0], s[1], s[2], s[3], s[4], s[5]).getTime();
   },
   type: "numeric"
 });
