@@ -94,7 +94,7 @@ horizon.network_topology = {
     $('.toggleView > .btn').click(function(){
       self.draw_mode = $(this).data('value');
       $('g.network').remove();
-      $.cookie('ntp_draw_mode',self.draw_mode);
+      horizon.cookies.put('ntp_draw_mode',self.draw_mode);
       self.data_convert();
     });
 
@@ -132,7 +132,7 @@ horizon.network_topology = {
   },
   select_draw_mode:function() {
     var self = this;
-    var draw_mode = $.cookie('ntp_draw_mode');
+    var draw_mode = horizon.cookies.get('ntp_draw_mode');
     if (draw_mode && (draw_mode === 'normal' || draw_mode === 'small')) {
       self.draw_mode = draw_mode;
     } else {
@@ -142,7 +142,7 @@ horizon.network_topology = {
       } else {
         self.draw_mode = 'normal';
       }
-      $.cookie('ntp_draw_mode',self.draw_mode);
+      horizon.cookies.put('ntp_draw_mode',self.draw_mode);
     }
     $('.toggleView > .btn').each(function(){
       var $this = $(this);
