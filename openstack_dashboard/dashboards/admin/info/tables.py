@@ -161,7 +161,7 @@ class QuotaFilterAction(tables.FilterAction):
 def get_quota_name(quota):
     QUOTA_NAMES = {
         'injected_file_content_bytes': _('Injected File Content Bytes'),
-        'injected_file_path_bytes': _('Injected File Path Bytes'),
+        'injected_file_path_bytes': _('Length of Injected File Path'),
         'metadata_items': _('Metadata Items'),
         'cores': _('VCPUs'),
         'instances': _('Instances'),
