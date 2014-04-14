@@ -123,7 +123,7 @@ class DetailView(horizon_tabs.TabbedTableView):
                 self.request, instance.flavor["id"])
         except Exception:
             LOG.error('Unable to retrieve flavor details'
-                      ' for database instance: %s') % instance_id
+                      ' for database instance: %s' % instance_id)
         return instance
 
     def get_tabs(self, request, *args, **kwargs):
