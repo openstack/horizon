@@ -1,8 +1,11 @@
 var horizonApp = angular.module('hz', ['hz.conf', 'hz.utils', 'ngCookies'])
-  .config(['$interpolateProvider', function ($interpolateProvider) {
-    $interpolateProvider.startSymbol('{$');
-    $interpolateProvider.endSymbol('$}');
-  }])
+  .config(['$interpolateProvider', '$httpProvider',
+    function ($interpolateProvider, $httpProvider) {
+      $interpolateProvider.startSymbol('{$');
+      $interpolateProvider.endSymbol('$}');
+      $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+      $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    }])
   .run(['hzConfig', 'hzUtils', '$cookieStore',
     function (hzConfig, hzUtils, $cookieStore) {
       //expose the configuration for horizon legacy variable
