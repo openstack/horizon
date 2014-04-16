@@ -36,7 +36,7 @@ function create_vis(chart) {
     .attr("height", HEIGHT)
     .append("g")
     .attr("transform",
-      "translate(" + (RADIUS + 2) + "," + (RADIUS + 2) + ")");
+      "translate(" + (WIDTH / 2) + "," + (HEIGHT / 2) + ")");
 }
 
 function create_arc() {
