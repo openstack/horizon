@@ -177,7 +177,7 @@ class HorizonMiddleware(object):
                     cookie_kwargs = dict((
                         (key, value) for key, value in cookie.iteritems()
                         if key in ('max_age', 'expires', 'path', 'domain',
-                            'secure', 'httponly') and value
+                            'secure', 'httponly', 'logout_reason') and value
                     ))
                     redirect_response.set_cookie(
                         cookie_name, cookie.value, **cookie_kwargs)
