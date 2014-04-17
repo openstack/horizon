@@ -92,11 +92,11 @@ def update_dashboards(modules, horizon_config, installed_apps):
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
             continue
+        apps.extend(config.get('ADD_INSTALLED_APPS', []))
         if config.get('DASHBOARD'):
             dashboard = key
             dashboards.append(dashboard)
             exceptions.update(config.get('ADD_EXCEPTIONS', {}))
-            apps.extend(config.get('ADD_INSTALLED_APPS', []))
             if config.get('DEFAULT', False):
                 horizon_config['default_dashboard'] = dashboard
         elif config.get('PANEL') or config.get('PANEL_GROUP'):

@@ -509,6 +509,7 @@ A dictionary of exception classes to be added to ``HORIZON['exceptions']``.
 ----------------------
 
 A list of applications to be prepended to ``INSTALLED_APPS``.
+This is needed to expose static files from a plugin.
 
 ``DISABLED``
 ------------
@@ -592,6 +593,12 @@ Python panel class of the ``PANEL`` to be added.
 ----------------
 
 If set to ``True``, the PANEL will be removed from PANEL_DASHBOARD/PANEL_GROUP.
+
+``ADD_INSTALLED_APPS``
+----------------------
+
+A list of applications to be prepended to ``INSTALLED_APPS``.
+This is needed to expose static files from a plugin.
 
 ``DISABLED``
 ------------
