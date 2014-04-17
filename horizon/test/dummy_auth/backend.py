@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import datetime
+
 from horizon.test import utils
 
 
@@ -19,7 +21,8 @@ class DummyBackend(object):
         nam='test_user',
         email='test@example.com',
         password='password',
-        token='test_token',
+        token=utils.ObjDictWrapper(
+            expires=datetime.datetime.now() + datetime.timedelta(30)),
         project_id='1',
         enabled=True,
         domain_id="1",
