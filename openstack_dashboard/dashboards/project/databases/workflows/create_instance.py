@@ -15,7 +15,9 @@
 import logging
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
@@ -39,7 +41,7 @@ class SetInstanceDetailsAction(workflows.Action):
 
     class Meta:
         name = _("Details")
-        help_text_template = ("project/databases/_launch_details_help.html")
+        help_text_template = "project/databases/_launch_details_help.html"
 
     def clean(self):
         if self.data.get("datastore", None) == "select_datastore_type_version":
@@ -53,7 +55,10 @@ class SetInstanceDetailsAction(workflows.Action):
             return api.trove.flavor_list(request)
         except Exception:
             LOG.exception("Exception while obtaining flavors list")
-            self._flavors = []
+            redirect = reverse("horizon:project:databases:index")
+            exceptions.handle(request,
+                              _('Unable to obtain flavors.'),
+                              redirect=redirect)
 
     def populate_flavor_choices(self, request, context):
         flavor_list = [(f.id, "%s" % f.name) for f in self.flavors(request)]
@@ -294,7 +299,7 @@ class LaunchInstance(workflows.Workflow):
             user = {
                 'name': context['user'],
                 'password': context['password'],
-                'databases': self._get_databases(context)
+                'databases': self._get_databases(context),
             }
             if context['host']:
                 user['host'] = context['host']
