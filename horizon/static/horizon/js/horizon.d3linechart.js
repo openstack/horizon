@@ -174,7 +174,7 @@ Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create( Rickshaw.Graph.Rende
       xMin: undefined,
       xMax: undefined,
       yMin: undefined,
-      yMax: undefined,
+      yMax: undefined
     });
   },
   domain: function($super) {
@@ -184,7 +184,7 @@ Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create( Rickshaw.Graph.Rende
       ret.y = [this.yMin, this.yMax];
     }
     return ret;
-  },
+  }
 });
 
 horizon.d3_line_chart = {
@@ -439,7 +439,7 @@ horizon.d3_line_chart = {
         series: self.series,
         yMin: self.settings.yMin,
         yMax: self.settings.yMax,
-        interpolation: self.settings.interpolation,
+        interpolation: self.settings.interpolation
       });
 
       /*
