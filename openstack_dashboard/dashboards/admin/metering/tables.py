@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.contrib.humanize.templatetags import humanize
 from django.utils import text
 from django.utils.translation import ugettext_lazy as _
 
@@ -28,7 +29,8 @@ class UsageTable(tables.DataTable):
     description = tables.Column('description', verbose_name=_('Description'))
     time = tables.Column('time', verbose_name=_('Day'),
                          filters=[show_date])
-    value = tables.Column('value', verbose_name=_('Value (Avg)'))
+    value = tables.Column('value', verbose_name=_('Value (Avg)'),
+                          filters=[humanize.intcomma])
 
     def get_object_id(self, datum):
         return datum['time'] + datum['meter']
