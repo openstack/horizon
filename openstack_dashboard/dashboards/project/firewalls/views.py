@@ -64,26 +64,27 @@ class IndexView(tabs.TabView):
             for obj_id in obj_ids:
                 try:
                     api.fwaas.rule_delete(request, obj_id)
-                    messages.success(request, 'Deleted rule %s' % obj_id)
+                    messages.success(request, _('Deleted rule %s') % obj_id)
                 except Exception as e:
                     exceptions.handle(request,
-                                      _('Unable to delete rule. %s' % e))
+                                      _('Unable to delete rule. %s') % e)
         if obj_type == 'policy':
             for obj_id in obj_ids:
                 try:
                     api.fwaas.policy_delete(request, obj_id)
-                    messages.success(request, 'Deleted policy %s' % obj_id)
+                    messages.success(request, _('Deleted policy %s') % obj_id)
                 except Exception as e:
                     exceptions.handle(request,
-                                      _('Unable to delete policy. %s' % e))
+                                      _('Unable to delete policy. %s') % e)
         if obj_type == 'firewall':
             for obj_id in obj_ids:
                 try:
                     api.fwaas.firewall_delete(request, obj_id)
-                    messages.success(request, 'Deleted firewall %s' % obj_id)
+                    messages.success(request,
+                                     _('Deleted firewall %s') % obj_id)
                 except Exception as e:
                     exceptions.handle(request,
-                                      _('Unable to delete firewall. %s' % e))
+                                      _('Unable to delete firewall. %s') % e)
         return self.get(request, *args, **kwargs)
 
 
