@@ -158,8 +158,7 @@ function run_pep8 {
 
 function run_sphinx {
     echo "Building sphinx..."
-    export DJANGO_SETTINGS_MODULE=openstack_dashboard.settings
-    ${command_wrapper} sphinx-build -b html doc/source doc/build/html
+    ${command_wrapper} python setup.py build_sphinx
     echo "Build complete."
 }
 
