@@ -181,7 +181,7 @@ class DynamicSelectWidget(widgets.Select):
         try:
             if self.add_item_link_args:
                 return urlresolvers.reverse(self.add_item_link,
-                                            args=[self.add_item_link_args])
+                                            args=self.add_item_link_args)
             else:
                 return urlresolvers.reverse(self.add_item_link)
         except urlresolvers.NoReverseMatch:
