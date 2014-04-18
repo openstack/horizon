@@ -142,9 +142,8 @@ class TogglePause(tables.BatchAction):
         if not api.nova.extension_supported('AdminActions',
                                             request):
             return False
-        self.paused = False
         if not instance:
-            return self.paused
+            return False
         self.paused = instance.status == "PAUSED"
         if self.paused:
             self.current_present_action = UNPAUSE
@@ -184,9 +183,8 @@ class ToggleSuspend(tables.BatchAction):
         if not api.nova.extension_supported('AdminActions',
                                             request):
             return False
-        self.suspended = False
         if not instance:
-            self.suspended
+            return False
         self.suspended = instance.status == "SUSPENDED"
         if self.suspended:
             self.current_present_action = RESUME
