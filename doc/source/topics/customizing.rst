@@ -15,18 +15,20 @@ The file ``local_settings.py`` can be found at the Horizon directory path of
 Changing the Logo
 =================
 
-The OpenStack Logo is pulled in through ``style.css``::
+There are currently two places where the OpenStack logo is pulled in 
+through ``horizon.less``. The first is shown at the login screen and the other
+on top of the menu bar::
 
-    #splash .modal {
-        background: #fff url(../images/logo.png) no-repeat center 35px;
+    #splash .login {
+        background: url(/static/dashboard/img/logo-splash.png) no-repeat center 35px;
 
     h1.brand a {
-        background: url(../images/logo.png) top left no-repeat;
+        background: url(/static/dashboard/img/logo.png) top left no-repeat;
 
 To override the OpenStack Logo image, replace the image at the directory path
 ``openstack_dashboard/static/dashboard/img/logo.png``.
 
-The dimensions should be ``width: 108px, height: 121px``.
+The dimensions should be ``width: 216px, height: 35px``.
 
 Changing the Brand Link
 =======================
