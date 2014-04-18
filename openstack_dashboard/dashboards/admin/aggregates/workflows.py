@@ -91,7 +91,7 @@ class AddHostsToAggregateAction(workflows.MembershipAction):
             [(host_name, host_name) for host_name in host_names]
 
     class Meta:
-        name = _("Hosts within aggregate")
+        name = _("Manage Hosts within Aggregate")
         slug = "add_host_to_aggregate"
 
 
@@ -131,7 +131,7 @@ class ManageAggregateHostsAction(workflows.MembershipAction):
         self.fields[field_name].initial = current_aggregate_hosts
 
     class Meta:
-        name = _("Hosts within aggregate")
+        name = _("Manage Hosts within Aggregate")
 
 
 class AddHostsToAggregateStep(workflows.UpdateMembersStep):
