@@ -18,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables
+from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.hypervisors \
     import tables as project_tables
@@ -31,6 +32,7 @@ class AdminIndexView(tables.DataTableView):
         hypervisors = []
         try:
             hypervisors = api.nova.hypervisor_list(self.request)
+            hypervisors.sort(key=utils.natural_sort('hypervisor_hostname'))
         except Exception:
             exceptions.handle(self.request,
                 _('Unable to retrieve hypervisor information.'))
