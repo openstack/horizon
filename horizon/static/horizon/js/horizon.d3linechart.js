@@ -736,5 +736,5 @@ horizon.d3_line_chart = {
 
 /* Init the graphs */
 horizon.addInitFunction(function () {
-  horizon.d3_line_chart.init('div[data-chart-type="line_chart"]', {'auto_resize': true});
+  horizon.d3_line_chart.init('div[data-chart-type="line_chart"]', {});
 });
