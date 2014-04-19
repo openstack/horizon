@@ -88,24 +88,27 @@ class LbaasApiTests(test.APITestCase):
             self.assertIsInstance(v, api.lbaas.Vip)
             self.assertTrue(v.id)
 
-    @test.create_stubs({neutronclient: ('show_vip',)})
+    @test.create_stubs({neutronclient: ('show_vip', 'show_pool'),
+                        api.neutron: ('subnet_get', 'port_get')})
     def test_vip_get(self):
-        vip = {'vip': {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                       'address': '10.0.0.100',
-                       'name': 'vip1name',
-                       'description': 'vip1description',
-                       'subnet_id': '12381d38-c3eb-4fee-9763-12de3338041e',
-                       'protocol_port': '80',
-                       'protocol': 'HTTP',
-                       'pool_id': '8913dde8-4915-4b90-8d3e-b95eeedb0d49',
-                       'connection_limit': '10',
-                       'admin_state_up': True
-                       }}
-        neutronclient.show_vip(vip['vip']['id']).AndReturn(vip)
+        vip = self.api_vips.first()
+        neutronclient.show_vip(vip['id']).AndReturn({'vip': vip})
+        api.neutron.subnet_get(self.request, vip['subnet_id']
+                               ).AndReturn(self.subnets.first())
+        api.neutron.port_get(self.request, vip['port_id']
+                             ).AndReturn(self.ports.first())
+        neutronclient.show_pool(vip['pool_id']
+                                ).AndReturn({'pool': self.api_pools.first()})
         self.mox.ReplayAll()
 
-        ret_val = api.lbaas.vip_get(self.request, vip['vip']['id'])
+        ret_val = api.lbaas.vip_get(self.request, vip['id'])
         self.assertIsInstance(ret_val, api.lbaas.Vip)
+        self.assertIsInstance(ret_val.subnet, api.neutron.Subnet)
+        self.assertEqual(vip['subnet_id'], ret_val.subnet.id)
+        self.assertIsInstance(ret_val.port, api.neutron.Port)
+        self.assertEqual(vip['port_id'], ret_val.port.id)
+        self.assertIsInstance(ret_val.pool, api.lbaas.Pool)
+        self.assertEqual(self.api_pools.first()['id'], ret_val.pool.id)
 
     @test.create_stubs({neutronclient: ('update_vip',)})
     def test_vip_update(self):
@@ -181,7 +184,9 @@ class LbaasApiTests(test.APITestCase):
             self.assertIsInstance(v, api.lbaas.Pool)
             self.assertTrue(v.id)
 
-    @test.create_stubs({neutronclient: ('show_pool', 'show_vip'),
+    @test.create_stubs({neutronclient: ('show_pool', 'show_vip',
+                                        'list_members',
+                                        'list_health_monitors',),
                         api.neutron: ('subnet_get',)})
     def test_pool_get(self):
         pool = self.pools.first()
@@ -192,10 +197,23 @@ class LbaasApiTests(test.APITestCase):
         neutronclient.show_pool(pool.id).AndReturn(pool_dict)
         api.neutron.subnet_get(self.request, subnet.id).AndReturn(subnet)
         neutronclient.show_vip(pool.vip_id).AndReturn(vip_dict)
+        neutronclient.list_members(pool_id=pool.id).AndReturn(
+            {'members': self.members.list()})
+        neutronclient.list_health_monitors(id=pool.health_monitors).AndReturn(
+            {'health_monitors': [self.monitors.first()]})
         self.mox.ReplayAll()
 
         ret_val = api.lbaas.pool_get(self.request, pool.id)
         self.assertIsInstance(ret_val, api.lbaas.Pool)
+        self.assertIsInstance(ret_val.vip, api.lbaas.Vip)
+        self.assertEqual(ret_val.vip.id, vip_dict['vip']['id'])
+        self.assertIsInstance(ret_val.subnet, api.neutron.Subnet)
+        self.assertEqual(ret_val.subnet.id, subnet.id)
+        self.assertEqual(2, len(ret_val.members))
+        self.assertIsInstance(ret_val.members[0], api.lbaas.Member)
+        self.assertEqual(1, len(ret_val.health_monitors))
+        self.assertIsInstance(ret_val.health_monitors[0],
+                              api.lbaas.PoolMonitor)
 
     @test.create_stubs({neutronclient: ('update_pool',)})
     def test_pool_update(self):
@@ -267,25 +285,21 @@ class LbaasApiTests(test.APITestCase):
             self.assertIsInstance(v, api.lbaas.PoolMonitor)
             self.assertTrue(v.id)
 
-    @test.create_stubs({neutronclient: ('show_health_monitor',)})
+    @test.create_stubs({neutronclient: ('show_health_monitor',
+                                        'list_pools')})
     def test_pool_health_monitor_get(self):
-        monitor = {'health_monitor':
-                   {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                    'type': 'PING',
-                    'delay': '10',
-                    'timeout': '10',
-                    'max_retries': '10',
-                    'http_method': 'GET',
-                    'url_path': '/monitor',
-                    'expected_codes': '200',
-                    'admin_state_up': True}}
+        monitor = self.api_monitors.first()
         neutronclient.show_health_monitor(
-            monitor['health_monitor']['id']).AndReturn(monitor)
+            monitor['id']).AndReturn({'health_monitor': monitor})
+        neutronclient.list_pools(id=[p['pool_id'] for p in monitor['pools']]
+                                 ).AndReturn({'pools': self.api_pools.list()})
         self.mox.ReplayAll()
 
         ret_val = api.lbaas.pool_health_monitor_get(
-            self.request, monitor['health_monitor']['id'])
+            self.request, monitor['id'])
         self.assertIsInstance(ret_val, api.lbaas.PoolMonitor)
+        self.assertEqual(2, len(ret_val.pools))
+        self.assertIsInstance(ret_val.pools[0], api.lbaas.Pool)
 
     @test.create_stubs({neutronclient: ('create_member', )})
     def test_member_create(self):

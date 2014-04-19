@@ -438,6 +438,7 @@ def data(TEST):
                  'protocol': 'HTTP',
                  'lb_method': 'ROUND_ROBIN',
                  'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff96'],
+                 'members': ['78a46e5e-eb1a-418a-88c7-0e3f5968b08'],
                  'admin_state_up': True,
                  'status': 'ACTIVE',
                  'provider': 'haproxy'}
@@ -454,6 +455,7 @@ def data(TEST):
                  'protocol': 'HTTPS',
                  'lb_method': 'ROUND_ROBIN',
                  'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff97'],
+                 'members': [],
                  'status': 'PENDING_CREATE',
                  'admin_state_up': True}
     TEST.api_pools.add(pool_dict)
@@ -467,6 +469,7 @@ def data(TEST):
                 'other_address': '10.0.0.100',
                 'description': 'vip description',
                 'subnet_id': TEST.subnets.first().id,
+                'port_id': TEST.ports.first().id,
                 'subnet': TEST.subnets.first().cidr,
                 'protocol_port': 80,
                 'protocol': pool_dict['protocol'],
@@ -486,6 +489,7 @@ def data(TEST):
                 'other_address': '10.0.0.110',
                 'description': 'vip description',
                 'subnet_id': TEST.subnets.first().id,
+                'port_id': TEST.ports.list()[0].id,
                 'subnet': TEST.subnets.first().cidr,
                 'protocol_port': 80,
                 'protocol': pool_dict['protocol'],
@@ -523,14 +527,17 @@ def data(TEST):
 
     # 1st monitor
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
-                    'type': 'ping',
+                    'type': 'http',
                     'delay': 10,
                     'timeout': 10,
                     'max_retries': 10,
                     'http_method': 'GET',
                     'url_path': '/',
                     'expected_codes': '200',
-                    'admin_state_up': True}
+                    'admin_state_up': True,
+                    "pools": [{"pool_id": TEST.pools.list()[0].id},
+                              {"pool_id": TEST.pools.list()[1].id}],
+                    }
     TEST.api_monitors.add(monitor_dict)
     TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
 
@@ -540,10 +547,9 @@ def data(TEST):
                     'delay': 10,
                     'timeout': 10,
                     'max_retries': 10,
-                    'http_method': 'GET',
-                    'url_path': '/',
-                    'expected_codes': '200',
-                    'admin_state_up': True}
+                    'admin_state_up': True,
+                    'pools': [],
+                    }
     TEST.api_monitors.add(monitor_dict)
     TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
 

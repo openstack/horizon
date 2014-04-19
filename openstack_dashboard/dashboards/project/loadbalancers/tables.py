@@ -244,11 +244,24 @@ class MembersTable(tables.DataTable):
         row_actions = (UpdateMemberLink, DeleteMemberLink)
 
 
+def get_monitor_details(monitor):
+    if monitor.type in ('HTTP', 'HTTPS'):
+        return ("%(http_method)s %(url_path)s => %(codes)s" %
+                {'http_method': monitor.http_method,
+                 'url_path': monitor.url_path,
+                 'codes': monitor.expected_codes})
+    else:
+        return _("-")
+
+
 class MonitorsTable(tables.DataTable):
-    id = tables.Column("id",
-                       verbose_name=_("ID"),
-                       link="horizon:project:loadbalancers:monitordetails")
-    monitorType = tables.Column('type', verbose_name=_("Monitor Type"))
+    monitor_type = tables.Column(
+        "type", verbose_name=_("Monitor Type"),
+        link="horizon:project:loadbalancers:monitordetails")
+    delay = tables.Column("delay", verbose_name=_("Delay"))
+    timeout = tables.Column("timeout", verbose_name=_("Timeout"))
+    max_retries = tables.Column("max_retries", verbose_name=_("Max Retries"))
+    details = tables.Column(get_monitor_details, verbose_name=_("Details"))
 
     class Meta:
         name = "monitorstable"

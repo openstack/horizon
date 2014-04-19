@@ -22,6 +22,7 @@ from horizon.utils import validators
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.loadbalancers import utils
 
 
 AVAILABLE_PROTOCOLS = ('HTTP', 'HTTPS', 'TCP')
@@ -536,25 +537,7 @@ class AddMonitor(workflows.Workflow):
         return False
 
 
-class MonitorMixin():
-
-    def _get_monitor_display_name(self, monitor):
-        fields = ['type', 'delay', 'max_retries', 'timeout']
-        if monitor.type in ['HTTP', 'HTTPS']:
-            fields.extend(['url_path', 'expected_codes', 'http_method'])
-            name = _("%(type)s url:%(url_path)s "
-                     "method:%(http_method)s codes:%(expected_codes)s "
-                     "delay:%(delay)d retries:%(max_retries)d "
-                     "timeout:%(timeout)d")
-        else:
-            name = _("%(type)s delay:%(delay)d "
-                     "retries:%(max_retries)d "
-                     "timeout:%(timeout)d")
-        params = dict((key, getattr(monitor, key)) for key in fields)
-        return name % params
-
-
-class AddPMAssociationAction(workflows.Action, MonitorMixin):
+class AddPMAssociationAction(workflows.Action):
     monitor_id = forms.ChoiceField(label=_("Monitor"))
 
     def __init__(self, request, *args, **kwargs):
@@ -571,7 +554,7 @@ class AddPMAssociationAction(workflows.Action, MonitorMixin):
                                                           tenant_id=tenant_id)
             for m in monitors:
                 if m.id not in context['pool_monitors']:
-                    display_name = self._get_monitor_display_name(m)
+                    display_name = utils.get_monitor_display_name(m)
                     monitor_id_choices.append((m.id, display_name))
         except Exception:
             exceptions.handle(request,
@@ -616,7 +599,7 @@ class AddPMAssociation(workflows.Workflow):
             return False
 
 
-class DeletePMAssociationAction(workflows.Action, MonitorMixin):
+class DeletePMAssociationAction(workflows.Action):
     monitor_id = forms.ChoiceField(label=_("Monitor"))
 
     def __init__(self, request, *args, **kwargs):
@@ -632,7 +615,7 @@ class DeletePMAssociationAction(workflows.Action, MonitorMixin):
             monitors = api.lbaas.pool_health_monitor_list(request)
             for m in monitors:
                 if m.id in context['pool_monitors']:
-                    display_name = self._get_monitor_display_name(m)
+                    display_name = utils.get_monitor_display_name(m)
                     monitor_id_choices.append((m.id, display_name))
         except Exception:
             exceptions.handle(request,

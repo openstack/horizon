@@ -15,14 +15,20 @@
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ pool.tenant_id }}</dd>
 
-    <dt>{% trans "VIP ID" %}</dt>
-    <dd>{{ pool.vip_id|default:_("-") }}</dd>
+    <dt>{% trans "VIP" %}</dt>
+    {% if pool.vip_id %}
+      {% url 'horizon:project:loadbalancers:vipdetails' pool.vip_id as vip_url %}
+      <dd><a href="{{vip_url}}">{{ pool.vip.name_or_id }}</a></dd>
+    {% else %}
+      <dd>{% trans "-" %}</dd>
+    {% endif %}
 
     <dt>{% trans "Provider" %}</dt>
     <dd>{{ pool.provider|default:_("N/A") }}</dd>
 
-    <dt>{% trans "Subnet ID" %}</dt>
-    <dd>{{ pool.subnet_id }}</dd>
+    <dt>{% trans "Subnet" %}</dt>
+    {% url 'horizon:project:networks:subnets:detail' pool.subnet_id as subnet_url %}
+    <dd><a href="{{subnet_url}}">{{ pool.subnet.name_or_id }} {{pool.subnet.cidr}}</a></dd>
 
     <dt>{% trans "Protocol" %}</dt>
     <dd>{{ pool.protocol }}</dd>
@@ -31,10 +37,28 @@
     <dd>{{ pool.lb_method }}</dd>
 
     <dt>{% trans "Members" %}</dt>
-    <dd>{{ pool.members }}</dd>
+    <dd>
+      {% if pool.members %}
+      {% for member in pool.members %}
+      {% url 'horizon:project:loadbalancers:memberdetails' member.id as member_url %}
+      <a href="{{member_url}}">{{member.address}}:{{member.protocol_port}}</a><br>
+      {% endfor %}
+      {% else %}
+      <dd>{% trans "-" %}</dd>
+      {% endif %}
+    </dd>
 
     <dt>{% trans "Health Monitors" %}</dt>
-    <dd>{{ pool.health_monitors }}</dd>
+    <dd>
+      {% if pool.health_monitors %}
+      {% for monitor in pool.health_monitors %}
+      {% url 'horizon:project:loadbalancers:monitordetails' monitor.id as monitor_url %}
+      <a href="{{monitor_url}}">{{ monitor.display_name }}</a><br>
+      {% endfor %}
+      {% else %}
+      <dd>{% trans "-" %}</dd>
+      {% endif %}
+    </dd>
 
     <dt>{% trans "Admin State Up" %}</dt>
     <dd>{{ pool.admin_state_up|yesno|capfirst }}</dd>
