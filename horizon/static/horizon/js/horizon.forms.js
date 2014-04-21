@@ -76,6 +76,14 @@ horizon.forms = {
     }).on('changeDate', function(ev) {
         endDate.hide();
       }).data('datepicker');
+
+    $("input#id_start").mousedown(function(){
+      endDate.hide();
+    });
+
+    $("input#id_end").mousedown(function(){
+      startDate.hide();
+    });
   }
 };
 
