@@ -57,9 +57,8 @@ class BaseUsage(object):
 
     def get_date_range(self):
         if not hasattr(self, "start") or not hasattr(self, "end"):
-            args_start = args_end = (self.today.year,
-                                     self.today.month,
-                                     self.today.day)
+            args_start = (self.today.year, self.today.month, 1)
+            args_end = (self.today.year, self.today.month, self.today.day)
             form = self.get_form()
             if form.is_valid():
                 start = form.cleaned_data['start']
@@ -80,15 +79,9 @@ class BaseUsage(object):
 
     def init_form(self):
         today = datetime.date.today()
-        first = datetime.date(day=1, month=today.month, year=today.year)
-        if today.day in range(5):
-            self.end = first - datetime.timedelta(days=1)
-            self.start = datetime.date(day=1,
-                                       month=self.end.month,
-                                       year=self.end.year)
-        else:
-            self.end = today
-            self.start = first
+        self.start = datetime.date(day=1, month=today.month, year=today.year)
+        self.end = today
+
         return self.start, self.end
 
     def get_form(self):
