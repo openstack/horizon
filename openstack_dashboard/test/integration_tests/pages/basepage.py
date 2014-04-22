@@ -18,31 +18,45 @@ from openstack_dashboard.test.integration_tests.pages import pageobject
 class BasePage(pageobject.PageObject):
     """Base class for all dashboard page objects."""
     @property
-    def top_bar(self):
+    def topbar(self):
         return BasePage.TopBarRegion(self.driver, self.conf)
 
     @property
     def is_logged_in(self):
-        return self.top_bar.is_logged_in
+        return self.topbar.is_logged_in
 
     def go_to_login_page(self):
         self.driver.get(self.login_url)
 
+    def go_to_home_page(self):
+        self.topbar.brand.click()
+
     def log_out(self):
-        self.top_bar.logout_link.click()
+        self.topbar.logout_link.click()
         return self.go_to_login_page()
 
     class TopBarRegion(pageobject.PageObject):
-        _user_indicator_locator = (by.By.CSS_SELECTOR, "#user_info")
+        _user_indicator_locator = (by.By.CSS_SELECTOR,
+                                   '#profile_editor_switcher > '
+                                   'a.dropdown-toggle > div')
         _user_dropdown_menu_locator = (by.By.CSS_SELECTOR,
-                                       "#profile_editor_switcher >"
-                                       " a.dropdown-toggle")
+                                       '#profile_editor_switcher >'
+                                       ' a.dropdown-toggle')
         _settings_link_locator = (by.By.CSS_SELECTOR,
-                                  "a[href*='/settings/']")
+                                  'a[href*="/settings/"]')
         _help_link_locator = (by.By.CSS_SELECTOR,
-                              "ul#editor_list li:nth-of-type(3) > a")
+                              'ul#editor_list li:nth-of-type(3) > a')
         _logout_link_locator = (by.By.CSS_SELECTOR,
-                                "a[href*='/auth/logout/']")
+                                'a[href*="/auth/logout/"]')
+        _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
+
+        @property
+        def user(self):
+            return self.get_element(*self._user_indicator_locator)
+
+        @property
+        def brand(self):
+            return self.get_element(*self._openstack_brand_locator)
 
         @property
         def logout_link(self):
