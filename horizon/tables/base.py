@@ -1063,7 +1063,7 @@ class DataTable(object):
 
         # Associate these actions with this table
         for action in self.base_actions.values():
-            action.table = self
+            action.associate_with_table(self)
 
         self.needs_summary_row = any([col.summation
                                       for col in self.columns.values()])

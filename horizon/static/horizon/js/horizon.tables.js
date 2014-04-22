@@ -45,6 +45,8 @@ horizon.datatables = {
                 }
                 // Reset tablesorter's data cache.
                 $table.trigger("update");
+                // Enable launch action if quota is not exceeded
+                horizon.datatables.update_actions();
                 break;
               default:
                 horizon.utils.log(gettext("An error occurred while updating."));
@@ -112,6 +114,27 @@ horizon.datatables = {
         });
       });
     }
+  },
+
+  update_actions: function() {
+    var $actions_to_update = $('.btn-launch.ajax-update');
+    $actions_to_update.each(function(index, action) {
+      var $action = $(this);
+      horizon.ajax.queue({
+        url: $action.attr('data-update-url'),
+        error: function (jqXHR, textStatus, errorThrown) {
+          horizon.utils.log(gettext("An error occurred while updating."));
+        },
+        success: function (data, textStatus, jqXHR) {
+          var $new_action = $(data);
+
+          // Only replace row if the html content has changed
+          if($new_action.html() != $action.html()) {
+            $action.replaceWith($new_action);
+          }
+        }
+      });
+    });
   },
 
   validate_button: function () {
