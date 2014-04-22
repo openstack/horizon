@@ -240,6 +240,8 @@ horizon.d3_bar_chart = {
      */
     self.refresh = function(){
       var self = this;
+      // Clear the chart before rendering it
+      self.jquery_element.empty();
       self.render();
     };
 
