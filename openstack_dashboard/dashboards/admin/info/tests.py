@@ -63,7 +63,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
                                   '<Service: ec2>',
                                   '<Service: metering>',
                                   '<Service: orchestration>',
-                                  '<Service: database>'])
+                                  '<Service: database>',
+                                  '<Service: data_processing>', ])
 
         network_agents_tab = res.context['tab_group'].get_tab('network_agents')
         self.assertQuerysetEqual(

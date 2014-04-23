@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<h3>{% trans "Data Processing Plugin Overview" %}</h3>
+
+<div class="status row-fluid detail">
+    <h4>{% trans "Info" %}</h4>
+    <hr class="header_rule">
+    <dl>
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ plugin.name }}</dd>
+        <dt>{% trans "Title" %}</dt>
+        <dd>{{ plugin.title }}</dd>
+        <dt>{% trans "Description" %}</dt>
+        <dd>{{ plugin.description }}</dd>
+        <dt>{% trans "Supported Versions" %}</dt>
+        <dd>
+            <ul>
+                {% for version in plugin.versions %}
+                    <li>{{ version }}</li>
+                {% endfor %}
+            </ul>
+        </dd>
+
+    </dl>
+</div>
