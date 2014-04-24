@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Edit Image Tags" %}{% endblock %}
+
+{% block page_header %}
+    {% include "horizon/common/_page_header.html" with title=_("Edit Image Tags") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'project/data_processing.data_image_registry/_edit_tags.html' %}
+{% endblock %}

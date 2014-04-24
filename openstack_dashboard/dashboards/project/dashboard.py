@@ -60,7 +60,8 @@ class DatabasePanels(horizon.PanelGroup):
 class DataProcessingPanels(horizon.PanelGroup):
     name = _("Data Processing")
     slug = "data_processing"
-    panels = ('data_processing.data_plugins',)
+    panels = ('data_processing.data_plugins',
+              'data_processing.data_image_registry', )
 
 
 class Project(horizon.Dashboard):
