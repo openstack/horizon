@@ -942,6 +942,55 @@ class InstanceTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
 
+    @test_utils.override_settings(OPENSTACK_ENABLE_PASSWORD_RETRIEVE=False)
+    def test_instances_index_retrieve_password_action_disabled(self):
+        self. _test_instances_index_retrieve_password_action()
+
+    @test_utils.override_settings(OPENSTACK_ENABLE_PASSWORD_RETRIEVE=True)
+    def test_instances_index_retrieve_password_action_enabled(self):
+        self._test_instances_index_retrieve_password_action()
+
+    @test.create_stubs({api.nova: ('flavor_list',
+                                   'server_list',
+                                   'tenant_absolute_limits',
+                                   'extension_supported',),
+                        api.glance: ('image_list_detailed',),
+                        api.network:
+                            ('floating_ip_simple_associate_supported',
+                             'servers_update_addresses',),
+                        })
+    def _test_instances_index_retrieve_password_action(self):
+        servers = self.servers.list()
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+                                     .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+           .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
+
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:instances:index')
+        res = self.client.get(url)
+        for server in servers:
+            _action_id = ''.join(["instances__row_",
+                                  server.id,
+                                  "__action_decryptpassword"])
+            if settings.OPENSTACK_ENABLE_PASSWORD_RETRIEVE and \
+                    server.status == "ACTIVE" and \
+                    server.key_name is not None:
+                self.assertContains(res, _action_id)
+            else:
+                self.assertNotContains(res, _action_id)
+
     @test.create_stubs({api.nova: ('get_password',)})
     def test_decrypt_instance_password(self):
         server = self.servers.first()
