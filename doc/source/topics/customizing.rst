@@ -182,13 +182,13 @@ In this template, redefine ``block css``. (Don't forget to include
 
       {% load compress %}
       {% compress css %}
-      <link href='{{ STATIC_URL }}my_custom_dashboard/less/my_custom_dashboard.less' type='text/less' media='screen' rel='stylesheet' />
+      <link href='{{ STATIC_URL }}my_custom_dashboard/scss/my_custom_dashboard.scss' type='text/scss' media='screen' rel='stylesheet' />
       {% endcompress %}
     {% endblock %}
 
 The custom stylesheets then reside in the dashboard's own ``static`` folder
 ``openstack_dashboard/dashboards/my_custom_dashboard/static/
-my_custom_dashboard/less/my_custom_dashboard.less``.
+my_custom_dashboard/scss/my_custom_dashboard.scss``.
 
 All dashboard's templates have to inherit from dashboard's base.html::
 
