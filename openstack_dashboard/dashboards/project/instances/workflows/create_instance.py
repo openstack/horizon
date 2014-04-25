@@ -635,9 +635,17 @@ class SetAdvancedAction(workflows.Action):
 
     def __init__(self, request, *args, **kwargs):
         super(SetAdvancedAction, self).__init__(request, *args, **kwargs)
-        # Set our disk_config choices
-        config_choices = [("AUTO", _("Automatic")), ("MANUAL", _("Manual"))]
-        self.fields['disk_config'].choices = config_choices
+        try:
+            if not api.nova.extension_supported("DiskConfig", request):
+                del self.fields['disk_config']
+            else:
+                # Set our disk_config choices
+                config_choices = [("AUTO", _("Automatic")),
+                                  ("MANUAL", _("Manual"))]
+                self.fields['disk_config'].choices = config_choices
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve extensions '
+                                         'information.'))
 
     class Meta:
         name = _("Advanced Options")

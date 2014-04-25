@@ -69,9 +69,17 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
             del self.fields['password']
             del self.fields['confirm_password']
 
-        # Set our disk_config choices
-        config_choices = [("AUTO", _("Automatic")), ("MANUAL", _("Manual"))]
-        self.fields['disk_config'].choices = config_choices
+        try:
+            if not api.nova.extension_supported("DiskConfig", request):
+                del self.fields['disk_config']
+            else:
+                # Set our disk_config choices
+                config_choices = [("AUTO", _("Automatic")),
+                                  ("MANUAL", _("Manual"))]
+                self.fields['disk_config'].choices = config_choices
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve extensions '
+                                         'information.'))
 
     def clean(self):
         cleaned_data = super(RebuildInstanceForm, self).clean()
