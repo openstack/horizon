@@ -100,6 +100,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
             if config.get('DEFAULT', False):
                 horizon_config['default_dashboard'] = dashboard
         elif config.get('PANEL') or config.get('PANEL_GROUP'):
+            config.pop("__builtins__", None)
             panel_customization.append(config)
     horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
