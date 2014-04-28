@@ -64,7 +64,8 @@ def data(TEST):
                   'properties': {'image_type': u'image'},
                   'is_public': True,
                   'protected': False,
-                  'min_ram': 0}
+                  'min_ram': 0,
+                  'created_at': '2014-02-14T20:56:53'}
     public_image = images.Image(images.ImageManager(None), image_dict)
 
     image_dict = {'id': 'a001c047-22f8-47d0-80a1-8ec94a9524fe',
@@ -76,7 +77,8 @@ def data(TEST):
                   'container_format': 'aki',
                   'is_public': False,
                   'protected': False,
-                  'min_ram': 0}
+                  'min_ram': 0,
+                  'created_at': '2014-03-14T12:56:53'}
     private_image = images.Image(images.ImageManager(None), image_dict)
 
     image_dict = {'id': 'd6936c86-7fec-474a-85c5-5e467b371c3c',
@@ -89,7 +91,8 @@ def data(TEST):
                   'properties': {'image_type': u'image'},
                   'is_public': True,
                   'protected': True,
-                  'min_ram': 0}
+                  'min_ram': 0,
+                  'created_at': '2014-03-16T06:22:14'}
     protected_image = images.Image(images.ImageManager(None), image_dict)
 
     image_dict = {'id': '278905a6-4b52-4d1e-98f9-8c57bb25ba32',

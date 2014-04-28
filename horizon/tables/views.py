@@ -108,6 +108,9 @@ class MultiTableMixin(object):
             context["%s_table" % name] = table
         return context
 
+    def has_prev_data(self, table):
+        return False
+
     def has_more_data(self, table):
         return False
 
@@ -116,6 +119,7 @@ class MultiTableMixin(object):
         data = self._get_data_dict()
         self._tables[name].data = data[table._meta.name]
         self._tables[name]._meta.has_more_data = self.has_more_data(table)
+        self._tables[name]._meta.has_prev_data = self.has_prev_data(table)
         handled = self._tables[name].maybe_handle()
         return handled
 

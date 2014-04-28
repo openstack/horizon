@@ -70,11 +70,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
 
@@ -133,11 +133,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -259,11 +259,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
 
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
@@ -316,11 +316,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -478,11 +478,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
@@ -632,11 +632,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
@@ -681,11 +681,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\

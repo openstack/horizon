@@ -66,7 +66,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -127,7 +127,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.nova)
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                 AndReturn(full_flavors[server.flavor["id"]])
@@ -172,7 +172,7 @@ class InstanceTests(test.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         for server in servers:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
                 AndRaise(self.exceptions.nova)
@@ -213,7 +213,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -247,7 +247,7 @@ class InstanceTests(test.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         api.nova.server_delete(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
 
@@ -271,7 +271,7 @@ class InstanceTests(test.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         api.nova.server_delete(IsA(http.HttpRequest), server.id) \
                           .AndRaise(self.exceptions.nova)
 
@@ -298,7 +298,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -328,7 +328,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -359,7 +359,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -390,7 +390,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -416,7 +416,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -443,7 +443,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -471,7 +471,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -502,7 +502,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -532,7 +532,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -564,7 +564,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -595,7 +595,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -948,7 +948,8 @@ class InstanceTests(test.TestCase):
                                  "snapshot1").AndReturn(self.snapshots.first())
 
         api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None).AndReturn([[], False])
+                                       marker=None).AndReturn([[], False,
+                                       False])
 
         self.mox.ReplayAll()
 
@@ -986,7 +987,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -1187,11 +1188,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                .AndReturn([[], False])
+                .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1374,11 +1375,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                .AndReturn([[], False])
+                .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1471,11 +1472,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1592,11 +1593,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1708,12 +1709,12 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
 
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1815,11 +1816,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                .AndReturn([[], False])
+                .AndReturn([[], False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                .AndReturn([[], False])
+                .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1893,11 +1894,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1973,11 +1974,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -2088,11 +2089,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -2181,11 +2182,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -2288,11 +2289,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False])
+                  .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False])
+                  .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -2376,7 +2377,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -2423,7 +2424,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
@@ -2460,11 +2461,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                .AndReturn([[], False])
+                .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -2526,7 +2527,7 @@ class InstanceTests(test.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         api.network.floating_ip_target_get_by_instance(
             IsA(http.HttpRequest),
             server.id).AndReturn(server.id)
@@ -2561,7 +2562,7 @@ class InstanceTests(test.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         api.network.floating_ip_target_list_by_instance(
             IsA(http.HttpRequest),
             server.id).AndReturn([server.id, ])
@@ -2698,11 +2699,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-            .AndReturn([[], False])
+            .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2753,11 +2754,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-            .AndReturn([[], False])
+            .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2784,11 +2785,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-            .AndReturn([[], False])
+            .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2817,11 +2818,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-            .AndReturn([[], False])
+            .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
@@ -2842,11 +2843,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-            .AndReturn([[], False])
+            .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
@@ -2874,11 +2875,11 @@ class InstanceTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-            .AndReturn([self.images.list(), False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-            .AndReturn([[], False])
+            .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
@@ -2920,7 +2921,7 @@ class InstanceTests(test.TestCase):
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .MultipleTimes().AndReturn((self.images.list(), False))
+            .MultipleTimes().AndReturn((self.images.list(), False, False))
 
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
@@ -2978,7 +2979,7 @@ class InstanceTests(test.TestCase):
                                              servers[page_size:])
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False))
+            .AndReturn((self.images.list(), False, False))
         api.nova.server_delete(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
 
