@@ -306,7 +306,7 @@ class CreateStackForm(forms.SelfHandlingForm):
             field_key = self.param_prefix + param_key
             field_args = {
                 'initial': param.get('Default', None),
-                'label': param_key,
+                'label': param.get('Label', param_key),
                 'help_text': param.get('Description', ''),
                 'required': param.get('Default', None) is None
             }
