@@ -1,0 +1,45 @@
+{% load i18n sizeformat %}
+{% load url from future %}
+<h3>{% trans "Template Overview" %}</h3>
+<div class="status row-fluid detail">
+    <dl>
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ template.name }}</dd>
+        <dt>{% trans "ID" %}</dt>
+        <dd>{{ template.id }}</dd>
+        <dt>{% trans "Description" %}</dt>
+        <dd>{{ template.description|default:"None" }}</dd>
+    </dl>
+    <dl>
+        <dt>{% trans "Flavor" %}</dt>
+        <dd>{{ flavor.name }}</dd>
+    </dl>
+    <dl>
+        <dt>{% trans "Plugin" %}</dt>
+        <dd><a href="{% url 'horizon:project:data_processing.data_plugins:details' template.plugin_name %}">{{ template.plugin_name }}</a></dd>
+        <dt>{% trans "Hadoop Version" %}</dt>
+        <dd>{{ template.hadoop_version }}</dd>
+    </dl>
+    <dl>
+        <dt>{% trans "Node Processes" %}</dt>
+        <dd>
+            <ul>
+                {% for process in template.node_processes %}
+                    <li>{{ process }}</li>
+                {% endfor %}
+            </ul>
+        </dd>
+    </dl>
+    <dl>
+        <h4>{% trans "HDFS placement" %}</h4>
+        {% if template.volumes_per_node %}
+        <h6>{% trans "Cinder volumes" %}</h6>
+        <dt>{% trans "Volumes per node" %}</dt>
+        <dd>{{ template.volumes_per_node }}</dd>
+        <dt>{% trans "Volumes size" %}</dt>
+        <dd>{{ template.volumes_size }}</dd>
+        {% else %}
+        <h6>{% trans "Ephemeral drive" %}</h6>
+        {% endif %}
+    </dl>
+</div>
