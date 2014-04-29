@@ -167,8 +167,8 @@ class CreateSubnetDetailAction(workflows.Action):
     allocation_pools = forms.CharField(
         widget=forms.Textarea(),
         label=_("Allocation Pools"),
-        help_text=_("IP address allocation pools. Each entry is "
-                    "&lt;start_ip_address&gt;,&lt;end_ip_address&gt; "
+        help_text=_("IP address allocation pools. Each entry is: "
+                    "start_ip_address,end_ip_address "
                     "(e.g., 192.168.1.100,192.168.1.120) "
                     "and one entry per line."),
         required=False)
@@ -182,7 +182,7 @@ class CreateSubnetDetailAction(workflows.Action):
         widget=forms.widgets.Textarea(),
         label=_("Host Routes"),
         help_text=_("Additional routes announced to the hosts. "
-                    "Each entry is &lt;destination_cidr&gt;,&lt;nexthop&gt; "
+                    "Each entry is: destination_cidr,nexthop "
                     "(e.g., 192.168.200.0/24,10.56.1.254) "
                     "and one entry per line."),
         required=False)
