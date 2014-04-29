@@ -1,0 +1,5 @@
+<ul>
+    {% for group in node_groups %}
+        <li>{{ group.name }}:&nbsp{{ group.count }}</li>
+    {% endfor %}
+</ul>
