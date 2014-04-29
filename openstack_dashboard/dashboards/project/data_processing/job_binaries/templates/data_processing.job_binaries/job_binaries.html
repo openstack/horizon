@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Data Processing" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Job Binaries") %}
+{% endblock page_header %}
+
+{% block main %}
+<style type="text/css">
+  #id_job_binary_url {
+    width: 200px !important; }
+  .form-help-block {
+    float: left;
+    text-align: left;
+    width: 300px; }
+</style>
+
+<div class="job_binaries">
+    {{ job_binaries_table.render }}
+</div>
+
+{% include "project/data_processing.job_binaries/job_binaries_form_script.html" %}
+
+{% endblock %}

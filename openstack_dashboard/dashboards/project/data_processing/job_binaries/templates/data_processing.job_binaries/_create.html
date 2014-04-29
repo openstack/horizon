@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+
+{% load url from future %}
+
+{% load i18n %}
+
+{% block form_id %}create-job-binary{% endblock %}
+{% block form_action %}{% url 'horizon:project:data_processing.job_binaries:create-job-binary' %}{% endblock %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+
+{% block modal-header %}{% trans "Create Job Binary" %}{% endblock %}
+
+{% block modal-body %}
+    <div class="left">
+        <fieldset>
+            {% include "horizon/common/_form_fields.html" %}
+        </fieldset>
+    </div>
+    <div class="form-help-block">
+    {{ form.get_help_text }}
+    </div>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn btn-primary pull-right" id="upload_file_btn" type="submit" value="{% trans "Create" %}"/>
+    <a href="{% url 'horizon:project:data_processing.job_binaries:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

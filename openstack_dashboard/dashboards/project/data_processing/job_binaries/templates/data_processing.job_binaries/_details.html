@@ -1,0 +1,19 @@
+{% load i18n %}
+<h3>{% trans "Job Binary Overview" %}</h3>
+<div class="status row-fluid detail">
+    <dl>
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ job_binary.name }}</dd>
+        <dt>{% trans "ID" %}</dt>
+        <dd>{{ job_binary.id }}</dd>
+        <dt>{% trans "URL" %}</dt>
+        <dd>{{ job_binary.url }}</dd>
+        <dt>{% trans "Description" %}</dt>
+        <dd>{{ job_binary.description|default:_("None") }}</dd>
+        <dt>{% trans "Project id" %}</dt>
+        <dd>{{ job_binary.tenant_id }}</dd>
+        <dt>{% trans "Create time" %}</dt>
+        <dd>{{ job_binary.created_at }}</dd>
+    </dl>
+    <a href="{% url 'horizon:project:data_processing.job_binaries:download' job_binary.id %}">{% trans "Download job binary" %}</a>
+</div>
