@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Data Processing" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Data Sources") %}
+{% endblock page_header %}
+
+{% block main %}
+<style type="text/css">
+  #id_data_source_url {
+    width: 250px !important; }
+</style>
+
+<div class="data_sources">
+    {{ data_sources_table.render }}
+</div>
+
+{% include "project/data_processing.data_sources/data_sources_form_script.html" %}
+
+{% endblock %}
