@@ -1107,7 +1107,8 @@ class InstanceTests(test.TestCase):
                                  expect_password_fields=True,
                                  block_device_mapping_v2=True,
                                  custom_flavor_sort=None,
-                                 only_one_network=False):
+                                 only_one_network=False,
+                                 disk_config=True):
         image = self.images.first()
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -1143,6 +1144,9 @@ class InstanceTests(test.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(disk_config)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
                 .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1227,6 +1231,12 @@ class InstanceTests(test.TestCase):
         else:
             self.assertNotContains(res, checked_label)
 
+        disk_config_field_label = 'Disk Partition'
+        if disk_config:
+            self.assertContains(res, disk_config_field_label)
+        else:
+            self.assertNotContains(res, disk_config_field_label)
+
     @test_utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
@@ -1234,6 +1244,9 @@ class InstanceTests(test.TestCase):
 
     def test_launch_instance_get_no_block_device_mapping_v2_supported(self):
         self.test_launch_instance_get(block_device_mapping_v2=False)
+
+    def test_launch_instance_get_no_disk_config_supported(self):
+        self.test_launch_instance_get(disk_config=False)
 
     @test_utils.override_settings(
         CREATE_INSTANCE_FLAVOR_SORT={
@@ -1334,6 +1347,9 @@ class InstanceTests(test.TestCase):
                 IsA(http.HttpRequest),
                 network_id=self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn([])
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1445,6 +1461,9 @@ class InstanceTests(test.TestCase):
                 network_id=self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
             nics = [{"port-id": port.id}]
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1559,6 +1578,9 @@ class InstanceTests(test.TestCase):
                 network_id=self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
             nics = [{"port-id": port.id}]
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1654,6 +1676,9 @@ class InstanceTests(test.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
@@ -1729,6 +1754,9 @@ class InstanceTests(test.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
            .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1814,6 +1842,9 @@ class InstanceTests(test.TestCase):
                 network_id=self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
             nics = [{"port-id": port.id}]
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         cinder.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
@@ -1918,6 +1949,9 @@ class InstanceTests(test.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2008,6 +2042,9 @@ class InstanceTests(test.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2112,6 +2149,9 @@ class InstanceTests(test.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2283,6 +2323,9 @@ class InstanceTests(test.TestCase):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -2375,7 +2418,8 @@ class InstanceTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_get',
                                    'flavor_list',
-                                   'tenant_absolute_limits')})
+                                   'tenant_absolute_limits',
+                                   'extension_supported')})
     def test_instance_resize_get(self):
         server = self.servers.first()
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
@@ -2386,6 +2430,9 @@ class InstanceTests(test.TestCase):
                 .AndReturn(self.flavors.list())
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
            .AndReturn(self.limits['absolute'])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -2438,7 +2485,8 @@ class InstanceTests(test.TestCase):
 
     instance_resize_post_stubs = {
         api.nova: ('server_get', 'server_resize',
-                   'flavor_list', 'flavor_get')}
+                   'flavor_list', 'flavor_get',
+                   'extension_supported')}
 
     @test.create_stubs(instance_resize_post_stubs)
     def test_instance_resize_post(self):
@@ -2449,6 +2497,9 @@ class InstanceTests(test.TestCase):
                 .AndReturn(server)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id,
                                'AUTO').AndReturn([])
 
@@ -2467,6 +2518,9 @@ class InstanceTests(test.TestCase):
                 .AndReturn(server)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         api.nova.server_resize(IsA(http.HttpRequest), server.id, flavor.id,
                                'AUTO') \
             .AndRaise(self.exceptions.nova)
@@ -2476,7 +2530,8 @@ class InstanceTests(test.TestCase):
         res = self._instance_resize_post(server.id, flavor.id, 'AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    @test.create_stubs({api.glance: ('image_list_detailed',),
+                        api.nova: ('extension_supported',)})
     def test_rebuild_instance_get(self, expect_password_fields=True):
         server = self.servers.first()
         api.glance.image_list_detailed(IsA(http.HttpRequest),
@@ -2487,6 +2542,9 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
             .AndReturn([[], False])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -2521,7 +2579,8 @@ class InstanceTests(test.TestCase):
         return self.client.post(url, form_data)
 
     instance_rebuild_post_stubs = {
-        api.nova: ('server_rebuild',),
+        api.nova: ('server_rebuild',
+                   'extension_supported'),
         api.glance: ('image_list_detailed',)}
 
     @test.create_stubs(instance_rebuild_post_stubs)
@@ -2538,6 +2597,9 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
             .AndReturn([[], False])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
@@ -2566,6 +2628,9 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
             .AndReturn([[], False])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
@@ -2596,6 +2661,9 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
             .AndReturn([[], False])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
 
         self.mox.ReplayAll()
         res = self._instance_rebuild_post(server.id, image.id,
@@ -2618,6 +2686,9 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
             .AndReturn([[], False])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
@@ -2647,6 +2718,9 @@ class InstanceTests(test.TestCase):
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
             .AndReturn([[], False])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(True)
         api.nova.server_rebuild(IsA(http.HttpRequest),
                                 server.id,
                                 image.id,
