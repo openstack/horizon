@@ -74,6 +74,14 @@ class AdminIndexView(tables.DataTableView):
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'))
         if instances:
+            try:
+                api.network.servers_update_addresses(self.request, instances)
+            except Exception:
+                exceptions.handle(
+                    self.request,
+                    message=_('Unable to retrieve IP addresses from Neutron.'),
+                    ignore=True)
+
             # Gather our flavors to correlate against IDs
             try:
                 flavors = api.nova.flavor_list(self.request)
