@@ -184,6 +184,13 @@ class SetInstanceDetailsAction(workflows.Action):
         source_type = self.data.get('source_type', None)
 
         if source_type in ('image_id', 'volume_image_id'):
+            if source_type == 'volume_image_id':
+                if not self.data.get('volume_size', None):
+                    msg = _("You must set volume size")
+                    self._errors['volume_size'] = self.error_class([msg])
+                if not cleaned_data.get('device_name'):
+                    msg = _("You must set device name")
+                    self._errors['device_name'] = self.error_class([msg])
             if not cleaned_data.get('image_id'):
                 msg = _("You must select an image.")
                 self._errors['image_id'] = self.error_class([msg])
@@ -261,17 +268,6 @@ class SetInstanceDetailsAction(workflows.Action):
                 msg = _('Launching multiple instances is only supported for '
                         'images and instance snapshots.')
                 raise forms.ValidationError(msg)
-
-        elif source_type == 'volume_image_id':
-            if not cleaned_data['image_id']:
-                msg = _("You must select an image.")
-                self._errors['image_id'] = self.error_class([msg])
-            if not self.data.get('volume_size', None):
-                msg = _("You must set volume size")
-                self._errors['volume_size'] = self.error_class([msg])
-            if not cleaned_data.get('device_name'):
-                msg = _("You must set device name")
-                self._errors['device_name'] = self.error_class([msg])
 
         elif source_type == 'volume_snapshot_id':
             if not cleaned_data.get('volume_snapshot_id'):
