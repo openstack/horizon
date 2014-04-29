@@ -240,13 +240,15 @@ def query_data(request,
                date_options,
                group_by,
                meter,
-               period=None):
+               period=None,
+               additional_query=None):
     date_from, date_to = _calc_date_args(date_from,
                                          date_to,
                                          date_options)
     if not period:
         period = _calc_period(date_from, date_to)
-    additional_query = []
+    if additional_query is None:
+        additional_query = []
     if date_from:
         additional_query += [{'field': 'timestamp',
                               'op': 'ge',
