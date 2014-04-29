@@ -22,7 +22,7 @@
             {% endif %}
             <ul>
             {% for panel in filtered_panels %}
-              <li><a href="{{ panel.get_absolute_url }}" {% if current.slug == dashboard.slug and current_panel == panel.slug %}class="active"{% endif %} >{{ panel.name }}</a></li>
+              <li><a href="{{ panel.get_absolute_url }}" {% if current.slug == dashboard.slug and current_panel == panel.slug %}class="active"{% endif %} tabindex="{{ forloop.counter }}" >{{ panel.name }}</a></li>
             {% endfor %}
             </ul>
             {% if heading %}
