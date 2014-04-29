@@ -89,6 +89,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     exceptions = {}
     apps = []
     panel_customization = []
+    update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
             continue
@@ -99,9 +100,12 @@ def update_dashboards(modules, horizon_config, installed_apps):
             apps.extend(config.get('ADD_INSTALLED_APPS', []))
             if config.get('DEFAULT', False):
                 horizon_config['default_dashboard'] = dashboard
+            update_horizon_config.update(
+                config.get('UPDATE_HORIZON_CONFIG', {}))
         elif config.get('PANEL') or config.get('PANEL_GROUP'):
             panel_customization.append(config)
     horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
     horizon_config['exceptions'].update(exceptions)
+    horizon_config.update(update_horizon_config)
     installed_apps[:] = apps + installed_apps

@@ -673,6 +673,14 @@ The name of the dashboard the ``PANEL_GROUP`` associated with. Required.
 
 If set to ``True``, this panel configuration will be skipped.
 
+``UPDATE_HORIZON_CONFIG``
+-------------------------
+
+A dictionary of values that will replace the values in ``HORIZON_CONFIG``. The
+order in which this setting is applied is the same as for the other pluggable
+settings, and is described at the beginning of this section.
+
+
 Examples
 --------
 
