@@ -22,8 +22,11 @@ from django import shortcuts
 from django import template
 from django.template.defaultfilters import title  # noqa
 from django.utils.http import urlencode
+from django.utils.translation import npgettext_lazy
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import conf
 from horizon import exceptions
@@ -76,13 +79,25 @@ def is_deleting(instance):
 
 class TerminateInstance(tables.BatchAction):
     name = "terminate"
-    action_present = _("Terminate")
-    action_past = _("Scheduled termination of %(data_type)s")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ("btn-danger",)
     icon = "off"
     policy_rules = (("compute", "compute:delete"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Terminate Instance",
+            u"Terminate Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled termination of Instance",
+            u"Scheduled termination of Instances",
+            count
+        )
 
     def get_policy_target(self, request, datum=None):
         project_id = None
@@ -100,12 +115,24 @@ class TerminateInstance(tables.BatchAction):
 
 class RebootInstance(tables.BatchAction):
     name = "reboot"
-    action_present = _("Hard Reboot")
-    action_past = _("Hard Rebooted")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ('btn-danger', 'btn-reboot')
     policy_rules = (("compute", "compute:reboot"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Hard Reboot Instance",
+            u"Hard Reboot Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Hard Rebooted Instance",
+            u"Hard Rebooted Instances",
+            count
+        )
 
     def get_policy_target(self, request, datum=None):
         project_id = None
@@ -127,8 +154,22 @@ class RebootInstance(tables.BatchAction):
 
 class SoftRebootInstance(RebootInstance):
     name = "soft_reboot"
-    action_present = _("Soft Reboot")
-    action_past = _("Soft Rebooted")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Soft Reboot Instance",
+            u"Soft Reboot Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Soft Rebooted Instance",
+            u"Soft Rebooted Instances",
+            count
+        )
 
     def action(self, request, obj_id):
         api.nova.server_reboot(request, obj_id, soft_reboot=True)
@@ -136,11 +177,37 @@ class SoftRebootInstance(RebootInstance):
 
 class TogglePause(tables.BatchAction):
     name = "pause"
-    action_present = (_("Pause"), _("Resume"))
-    action_past = (_("Paused"), _("Resumed"))
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     icon = "pause"
+
+    @staticmethod
+    def action_present(count):
+        return (
+            ungettext_lazy(
+                u"Pause Instance",
+                u"Pause Instances",
+                count
+            ),
+            ungettext_lazy(
+                u"Resume Instance",
+                u"Resume Instances",
+                count
+            ),
+        )
+
+    @staticmethod
+    def action_past(count):
+        return (
+            ungettext_lazy(
+                u"Paused Instance",
+                u"Paused Instances",
+                count
+            ),
+            ungettext_lazy(
+                u"Resumed Instance",
+                u"Resumed Instances",
+                count
+            ),
+        )
 
     def allowed(self, request, instance=None):
         if not api.nova.extension_supported('AdminActions',
@@ -177,11 +244,37 @@ class TogglePause(tables.BatchAction):
 
 class ToggleSuspend(tables.BatchAction):
     name = "suspend"
-    action_present = (_("Suspend"), _("Resume"))
-    action_past = (_("Suspended"), _("Resumed"))
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ("btn-suspend",)
+
+    @staticmethod
+    def action_present(count):
+        return (
+            ungettext_lazy(
+                u"Suspend Instance",
+                u"Suspend Instances",
+                count
+            ),
+            ungettext_lazy(
+                u"Resume Instance",
+                u"Resume Instances",
+                count
+            ),
+        )
+
+    @staticmethod
+    def action_past(count):
+        return (
+            ungettext_lazy(
+                u"Suspended Instance",
+                u"Suspended Instances",
+                count
+            ),
+            ungettext_lazy(
+                u"Resumed Instance",
+                u"Resumed Instances",
+                count
+            ),
+        )
 
     def allowed(self, request, instance=None):
         if not api.nova.extension_supported('AdminActions',
@@ -634,11 +727,23 @@ class UpdateRow(tables.Row):
 
 class StartInstance(tables.BatchAction):
     name = "start"
-    action_present = _("Start")
-    action_past = _("Started")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     policy_rules = (("compute", "compute:start"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Start Instance",
+            u"Start Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Started Instance",
+            u"Started Instances",
+            count
+        )
 
     def get_policy_target(self, request, datum=None):
         project_id = None
@@ -655,12 +760,26 @@ class StartInstance(tables.BatchAction):
 
 class StopInstance(tables.BatchAction):
     name = "stop"
-    action_present = _("Shut Off")
-    action_past = _("Shut Off")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ('btn-danger',)
     policy_rules = (("compute", "compute:stop"),)
+
+    @staticmethod
+    def action_present(count):
+        return npgettext_lazy(
+            "Action to perform (the instance is currently running)",
+            u"Shut Off Instance",
+            u"Shut Off Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return npgettext_lazy(
+            "Past action (the instance is currently already Shut Off)",
+            u"Shut Off Instance",
+            u"Shut Off Instances",
+            count
+        )
 
     def get_policy_target(self, request, datum=None):
         project_id = None
@@ -714,81 +833,117 @@ def get_power_state(instance):
 
 
 STATUS_DISPLAY_CHOICES = (
-    ("deleted", _("Deleted")),
-    ("active", _("Active")),
-    ("shutoff", _("Shutoff")),
-    ("suspended", _("Suspended")),
-    ("paused", _("Paused")),
-    ("error", _("Error")),
-    ("resize", _("Resize/Migrate")),
-    ("verify_resize", _("Confirm or Revert Resize/Migrate")),
-    ("revert_resize", _("Revert Resize/Migrate")),
-    ("reboot", _("Reboot")),
-    ("hard_reboot", _("Hard Reboot")),
-    ("password", _("Password")),
-    ("rebuild", _("Rebuild")),
-    ("migrating", _("Migrating")),
-    ("build", _("Build")),
-    ("rescue", _("Rescue")),
-    ("deleted", _("Deleted")),
-    ("soft_deleted", _("Soft Deleted")),
-    ("shelved", _("Shelved")),
-    ("shelved_offloaded", _("Shelved Offloaded")),
+    ("deleted", pgettext_lazy("Current status of an Instance", u"Deleted")),
+    ("active", pgettext_lazy("Current status of an Instance", u"Active")),
+    ("shutoff", pgettext_lazy("Current status of an Instance", u"Shutoff")),
+    ("suspended", pgettext_lazy("Current status of an Instance",
+                                u"Suspended")),
+    ("paused", pgettext_lazy("Current status of an Instance", u"Paused")),
+    ("error", pgettext_lazy("Current status of an Instance", u"Error")),
+    ("resize", pgettext_lazy("Current status of an Instance",
+                             u"Resize/Migrate")),
+    ("verify_resize", pgettext_lazy("Current status of an Instance",
+                                    u"Confirm or Revert Resize/Migrate")),
+    ("revert_resize", pgettext_lazy(
+        "Current status of an Instance", u"Revert Resize/Migrate")),
+    ("reboot", pgettext_lazy("Current status of an Instance", u"Reboot")),
+    ("hard_reboot", pgettext_lazy("Current status of an Instance",
+                                  u"Hard Reboot")),
+    ("password", pgettext_lazy("Current status of an Instance", u"Password")),
+    ("rebuild", pgettext_lazy("Current status of an Instance", u"Rebuild")),
+    ("migrating", pgettext_lazy("Current status of an Instance",
+                                u"Migrating")),
+    ("build", pgettext_lazy("Current status of an Instance", u"Build")),
+    ("rescue", pgettext_lazy("Current status of an Instance", u"Rescue")),
+    ("deleted", pgettext_lazy("Current status of an Instance", u"Deleted")),
+    ("soft_deleted", pgettext_lazy("Current status of an Instance",
+                                   u"Soft Deleted")),
+    ("shelved", pgettext_lazy("Current status of an Instance", u"Shelved")),
+    ("shelved_offloaded", pgettext_lazy("Current status of an Instance",
+                                        u"Shelved Offloaded")),
 )
 
 
 TASK_DISPLAY_CHOICES = (
-    ("scheduling", _("Scheduling")),
-    ("block_device_mapping", _("Block Device Mapping")),
-    ("networking", _("Networking")),
-    ("spawning", _("Spawning")),
-    ("image_snapshot", _("Snapshotting")),
-    ("image_snapshot_pending", _("Image Snapshot Pending")),
-    ("image_pending_upload", _("Image Pending Upload")),
-    ("image_uploading", _("Image Uploading")),
-    ("image_backup", _("Image Backup")),
-    ("updating_password", _("Updating Password")),
-    ("resize_prep", _("Preparing Resize or Migrate")),
-    ("resize_migrating", _("Resizing or Migrating")),
-    ("resize_migrated", _("Resized or Migrated")),
-    ("resize_finish", _("Finishing Resize or Migrate")),
-    ("resize_reverting", _("Reverting Resize or Migrate")),
-    ("resize_confirming", _("Confirming Resize or Migrate")),
-    ("rebooting", _("Rebooting")),
-    ("rebooting_hard", _("Rebooting Hard")),
-    ("pausing", _("Pausing")),
-    ("unpausing", _("Resuming")),
-    ("suspending", _("Suspending")),
-    ("resuming", _("Resuming")),
-    ("powering-off", _("Powering Off")),
-    ("powering-on", _("Powering On")),
-    ("rescuing", _("Rescuing")),
-    ("unrescuing", _("Unrescuing")),
-    ("rebuilding", _("Rebuilding")),
-    ("rebuild_block_device_mapping", _("Rebuild Block Device Mapping")),
-    ("rebuild_spawning", _("Rebuild Spawning")),
-    ("migrating", _("Migrating")),
-    ("deleting", _("Deleting")),
-    ("soft-deleting", _("Soft Deleting")),
-    ("restoring", _("Restoring")),
-    ("shelving", _("Shelving")),
-    ("shelving_image_pending_upload", _("Shelving Image Pending Upload")),
-    ("shelving_image_uploading", _("Shelving Image Uploading")),
-    ("shelving_offloading", _("Shelving Offloading")),
-    ("unshelving", _("Unshelving")),
+    ("scheduling", pgettext_lazy("Task status of an Instance",
+                                 u"Scheduling")),
+    ("block_device_mapping", pgettext_lazy("Task status of an Instance",
+                                           u"Block Device Mapping")),
+    ("networking", pgettext_lazy("Task status of an Instance",
+                                 u"Networking")),
+    ("spawning", pgettext_lazy("Task status of an Instance", u"Spawning")),
+    ("image_snapshot", pgettext_lazy("Task status of an Instance",
+                                     u"Snapshotting")),
+    ("image_snapshot_pending", pgettext_lazy("Task status of an Instance",
+                                             u"Image Snapshot Pending")),
+    ("image_pending_upload", pgettext_lazy("Task status of an Instance",
+                                           u"Image Pending Upload")),
+    ("image_uploading", pgettext_lazy("Task status of an Instance",
+                                      u"Image Uploading")),
+    ("image_backup", pgettext_lazy("Task status of an Instance",
+                                   u"Image Backup")),
+    ("updating_password", pgettext_lazy("Task status of an Instance",
+                                        u"Updating Password")),
+    ("resize_prep", pgettext_lazy("Task status of an Instance",
+                                  u"Preparing Resize or Migrate")),
+    ("resize_migrating", pgettext_lazy("Task status of an Instance",
+                                       u"Resizing or Migrating")),
+    ("resize_migrated", pgettext_lazy("Task status of an Instance",
+                                      u"Resized or Migrated")),
+    ("resize_finish", pgettext_lazy("Task status of an Instance",
+                                    u"Finishing Resize or Migrate")),
+    ("resize_reverting", pgettext_lazy("Task status of an Instance",
+                                       u"Reverting Resize or Migrate")),
+    ("resize_confirming", pgettext_lazy("Task status of an Instance",
+                                        u"Confirming Resize or Migrate")),
+    ("rebooting", pgettext_lazy("Task status of an Instance", u"Rebooting")),
+    ("rebooting_hard", pgettext_lazy("Task status of an Instance",
+                                     u"Rebooting Hard")),
+    ("pausing", pgettext_lazy("Task status of an Instance", u"Pausing")),
+    ("unpausing", pgettext_lazy("Task status of an Instance", u"Resuming")),
+    ("suspending", pgettext_lazy("Task status of an Instance",
+                                 u"Suspending")),
+    ("resuming", pgettext_lazy("Task status of an Instance", u"Resuming")),
+    ("powering-off", pgettext_lazy("Task status of an Instance",
+                                   u"Powering Off")),
+    ("powering-on", pgettext_lazy("Task status of an Instance",
+                                  u"Powering On")),
+    ("rescuing", pgettext_lazy("Task status of an Instance", u"Rescuing")),
+    ("unrescuing", pgettext_lazy("Task status of an Instance",
+                                 u"Unrescuing")),
+    ("rebuilding", pgettext_lazy("Task status of an Instance",
+                                 u"Rebuilding")),
+    ("rebuild_block_device_mapping", pgettext_lazy(
+        "Task status of an Instance", u"Rebuild Block Device Mapping")),
+    ("rebuild_spawning", pgettext_lazy("Task status of an Instance",
+                                       u"Rebuild Spawning")),
+    ("migrating", pgettext_lazy("Task status of an Instance", u"Migrating")),
+    ("deleting", pgettext_lazy("Task status of an Instance", u"Deleting")),
+    ("soft-deleting", pgettext_lazy("Task status of an Instance",
+                                    u"Soft Deleting")),
+    ("restoring", pgettext_lazy("Task status of an Instance", u"Restoring")),
+    ("shelving", pgettext_lazy("Task status of an Instance", u"Shelving")),
+    ("shelving_image_pending_upload", pgettext_lazy(
+        "Task status of an Instance", u"Shelving Image Pending Upload")),
+    ("shelving_image_uploading", pgettext_lazy("Task status of an Instance",
+                                               u"Shelving Image Uploading")),
+    ("shelving_offloading", pgettext_lazy("Task status of an Instance",
+                                          u"Shelving Offloading")),
+    ("unshelving", pgettext_lazy("Task status of an Instance",
+                                 u"Unshelving")),
 )
 
 POWER_DISPLAY_CHOICES = (
-    ("NO STATE", _("No State")),
-    ("RUNNING", _("Running")),
-    ("BLOCKED", _("Blocked")),
-    ("PAUSED", _("Paused")),
-    ("SHUTDOWN", _("Shut Down")),
-    ("SHUTOFF", _("Shut Off")),
-    ("CRASHED", _("Crashed")),
-    ("SUSPENDED", _("Suspended")),
-    ("FAILED", _("Failed")),
-    ("BUILDING", _("Building")),
+    ("NO STATE", pgettext_lazy("Power state of an Instance", u"No State")),
+    ("RUNNING", pgettext_lazy("Power state of an Instance", u"Running")),
+    ("BLOCKED", pgettext_lazy("Power state of an Instance", u"Blocked")),
+    ("PAUSED", pgettext_lazy("Power state of an Instance", u"Paused")),
+    ("SHUTDOWN", pgettext_lazy("Power state of an Instance", u"Shut Down")),
+    ("SHUTOFF", pgettext_lazy("Power state of an Instance", u"Shut Off")),
+    ("CRASHED", pgettext_lazy("Power state of an Instance", u"Crashed")),
+    ("SUSPENDED", pgettext_lazy("Power state of an Instance", u"Suspended")),
+    ("FAILED", pgettext_lazy("Power state of an Instance", u"Failed")),
+    ("BUILDING", pgettext_lazy("Power state of an Instance", u"Building")),
 )
 
 
