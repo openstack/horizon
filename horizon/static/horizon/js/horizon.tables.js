@@ -90,8 +90,11 @@ horizon.datatables = {
               $table.trigger("update");
               // Reset decay constant.
               $table.removeAttr('decay_constant');
+              // Check that quicksearch is enabled for this table
               // Reset quicksearch's data cache.
-              horizon.datatables.qs[$table.attr('id')].cache();
+              if ($table.attr('id') in horizon.datatables.qs) {
+                horizon.datatables.qs[$table.attr('id')].cache();
+              }
             }
           },
           complete: function (jqXHR, textStatus) {
