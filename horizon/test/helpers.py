@@ -31,6 +31,7 @@ from django.core.handlers import wsgi
 from django import http
 from django import test as django_test
 from django.test.client import RequestFactory  # noqa
+from django.utils.encoding import force_unicode
 from django.utils import unittest
 
 LOG = logging.getLogger(__name__)
@@ -154,7 +155,8 @@ class TestCase(django_test.TestCase):
 
         # Otherwise, make sure we got the expected messages.
         for msg_type, count in kwargs.items():
-            msgs = [m.message for m in messages if msg_type in m.tags]
+            msgs = [force_unicode(m.message)
+                    for m in messages if msg_type in m.tags]
             assert len(msgs) == count, \
                    "%s messages not as expected: %s" % (msg_type.title(),
                                                         ", ".join(msgs))
