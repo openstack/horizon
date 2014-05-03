@@ -252,7 +252,9 @@ TIME_ZONE = "UTC"
 # Map of local copy of service policy files
 #POLICY_FILES = {
 #    'identity': 'keystone_policy.json',
-#    'compute': 'nova_policy.json'
+#    'compute': 'nova_policy.json',
+#    'volume': 'cinder_policy.json',
+#    'image': 'glance_policy.json',
 #}
 
 # Trove user and database extension support. By default support for
