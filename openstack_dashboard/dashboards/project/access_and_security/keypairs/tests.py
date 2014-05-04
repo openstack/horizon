@@ -111,11 +111,11 @@ class KeyPairViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertMessageCount(res, success=1)
 
+    @test.create_stubs({api.nova: ("keypair_import",)})
     def test_import_keypair_invalid_key(self):
         key_name = "new_key_pair"
         public_key = "ABCDEF"
 
-        self.mox.StubOutWithMock(api.nova, 'keypair_import')
         api.nova.keypair_import(IsA(http.HttpRequest), key_name, public_key) \
                         .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
@@ -130,7 +130,7 @@ class KeyPairViewTests(test.TestCase):
         self.assertFormErrors(res, count=1, message=msg)
 
     def test_import_keypair_invalid_key_name(self):
-        key_name = "new key pair"
+        key_name = "invalid#key?name=!"
         public_key = "ABCDEF"
 
         formData = {'method': 'ImportKeypair',
@@ -142,10 +142,10 @@ class KeyPairViewTests(test.TestCase):
         msg = unicode(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
+    @test.create_stubs({api.nova: ("keypair_create",)})
     def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()
 
-        self.mox.StubOutWithMock(api.nova, 'keypair_create')
         api.nova.keypair_create(IsA(http.HttpRequest), keypair.name) \
                         .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
@@ -157,3 +157,46 @@ class KeyPairViewTests(test.TestCase):
 
         self.assertRedirectsNoFollow(
             res, reverse('horizon:project:access_and_security:index'))
+
+    @test.create_stubs({api.nova: ("keypair_import",)})
+    def test_import_keypair_with_regex_defined_name(self):
+        key1_name = "new-key-pair with_regex"
+        public_key = "ssh-rsa ABCDEFGHIJKLMNOPQR\r\n" \
+                     "STUVWXYZ1234567890\r" \
+                     "XXYYZZ user@computer\n\n"
+        api.nova.keypair_import(IsA(http.HttpRequest), key1_name,
+                                public_key.replace("\r", "").replace("\n", ""))
+        self.mox.ReplayAll()
+
+        formData = {'method': 'ImportKeypair',
+                    'name': key1_name,
+                    'public_key': public_key}
+        url = reverse('horizon:project:access_and_security:keypairs:import')
+        res = self.client.post(url, formData)
+        self.assertMessageCount(res, success=1)
+
+    @test.create_stubs({api.nova: ("keypair_create",)})
+    def test_create_keypair_with_regex_name_get(self):
+        keypair = self.keypairs.first()
+        keypair.name = "key-space pair-regex_name-0123456789"
+        keypair.private_key = "secret"
+
+        api.nova.keypair_create(IsA(http.HttpRequest),
+                                keypair.name).AndReturn(keypair)
+        self.mox.ReplayAll()
+
+        context = {'keypair_name': keypair.name}
+        url = reverse('horizon:project:access_and_security:keypairs:generate',
+                      kwargs={'keypair_name': keypair.name})
+        res = self.client.get(url, context)
+
+        self.assertTrue(res.has_header('content-disposition'))
+
+    def test_download_with_regex_name_get(self):
+        keypair_name = "key pair-regex_name-0123456789"
+        context = {'keypair_name': keypair_name}
+        url = reverse('horizon:project:access_and_security:keypairs:download',
+                      kwargs={'keypair_name': keypair_name})
+        res = self.client.get(url, context)
+        self.assertTemplateUsed(
+            res, 'project/access_and_security/keypairs/download.html')

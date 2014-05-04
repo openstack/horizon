@@ -20,7 +20,6 @@
 
 import re
 
-from django.core import validators
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -31,15 +30,18 @@ from openstack_dashboard import api
 
 
 NEW_LINES = re.compile(r"\r|\n")
-KEYPAIR_ERROR_MESSAGES = {'invalid': _('Key pair names may '
-                                'only contain letters, numbers, underscores '
-                                'and hyphens.')}
+
+KEYPAIR_NAME_REGEX = re.compile(r"^[\w\- ]+$", re.UNICODE)
+KEYPAIR_ERROR_MESSAGES = {'invalid': _('Key pair name may '
+                                   'only contain letters, '
+                                   'numbers, underscores, '
+                                   'spaces and hyphens.')}
 
 
 class CreateKeypair(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255",
+    name = forms.RegexField(max_length="255",
                            label=_("Key Pair Name"),
-                           validators=[validators.validate_slug],
+                           regex=KEYPAIR_NAME_REGEX,
                            error_messages=KEYPAIR_ERROR_MESSAGES)
 
     def handle(self, request, data):
@@ -47,9 +49,10 @@ class CreateKeypair(forms.SelfHandlingForm):
 
 
 class ImportKeypair(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label=_("Key Pair Name"),
-                 validators=[validators.validate_slug],
-                 error_messages=KEYPAIR_ERROR_MESSAGES)
+    name = forms.RegexField(max_length="255",
+                           label=_("Key Pair Name"),
+                           regex=KEYPAIR_NAME_REGEX,
+                           error_messages=KEYPAIR_ERROR_MESSAGES)
     public_key = forms.CharField(label=_("Public Key"), widget=forms.Textarea(
         attrs={'class': 'modal-body-fixed-width'}))
 
