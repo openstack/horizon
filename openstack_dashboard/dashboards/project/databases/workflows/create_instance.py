@@ -157,6 +157,13 @@ class LaunchInstance(workflows.Workflow):
     success_url = "horizon:project:databases:index"
     default_steps = (SetInstanceDetails, InitializeDatabase, RestoreBackup)
 
+    def __init__(self, request=None, context_seed=None, entry_point=None,
+                 *args, **kwargs):
+        super(LaunchInstance, self).__init__(request, context_seed,
+                                             entry_point, *args, **kwargs)
+        self.attrs['autocomplete'] = (
+            settings.HORIZON_CONFIG.get('password_autocomplete'))
+
     def format_status_message(self, message):
         name = self.context.get('name', 'unknown instance')
         return message % {"count": _("instance"), "name": name}
