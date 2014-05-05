@@ -12,7 +12,7 @@ way:
 
 Included at the root of the repository is the ``run_tests.sh`` script
 which invokes both sets of tests, and  optionally generates analyses on both
-components in the process. This script is what what Jenkins uses to verify the
+components in the process. This script is what Jenkins uses to verify the
 stability of the project, so you should make sure you run it and it passes
 before you submit any pull requests/patches.
 
