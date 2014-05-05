@@ -14,6 +14,7 @@ import logging
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import exceptions
 
@@ -71,3 +72,85 @@ def availability_zone_list(request):
         exceptions.handle(request,
                           _('Unable to retrieve Nova availability zones.'))
         return []
+
+
+def network_field_data(request, include_empty_option=False):
+    """Returns a list of tuples of all networks.
+
+    Generates a list of networks available to the user (request). And returns
+    a list of (id, name) tuples.
+
+    :param request: django http request object
+    :param include_empty_option: flag to include a empty tuple in the front of
+    the list
+    :return: list of (id, name) tuples
+    """
+    tenant_id = request.user.tenant_id
+    try:
+        networks = api.neutron.network_list_for_tenant(request, tenant_id)
+        networks = [(n.id, n.name_or_id) for n in networks]
+        networks.sort(key=lambda obj: obj[1])
+    except Exception as e:
+        msg = _('Failed to get network list {0}').format(six.text_type(e))
+        exceptions.handle(request, msg)
+
+    if not networks:
+        if include_empty_option:
+            return [("", _("No networks available")), ]
+        return []
+
+    if include_empty_option:
+        return [("", _("Select Network")), ] + networks
+    return networks
+
+
+def keypair_field_data(request, include_empty_option=False):
+    """Returns a list of tuples of all keypairs.
+
+    Generates a list of keypairs available to the user (request). And returns
+    a list of (id, name) tuples.
+
+    :param request: django http request object
+    :param include_empty_option: flag to include a empty tuple in the front of
+    the list
+    :return: list of (id, name) tuples
+    """
+    keypair_list = []
+    try:
+        keypairs = api.nova.keypair_list(request)
+        keypair_list = [(kp.name, kp.name) for kp in keypairs]
+    except Exception:
+        exceptions.handle(request, _('Unable to retrieve key pairs.'))
+        keypair_list = []
+
+    if not keypair_list:
+        if include_empty_option:
+            return [("", _("No key pairs available")), ]
+        return []
+
+    if include_empty_option:
+        return [("", _("Select a key pair")), ] + keypair_list
+    return keypair_list
+
+
+def flavor_field_data(request, include_empty_option=False):
+    """Returns a list of tuples of all image flavors.
+
+    Generates a list of image flavors available. And returns a list of
+    (id, name) tuples.
+
+    :param request: django http request object
+    :param include_empty_option: flag to include a empty tuple in the front of
+    the list
+    :return: list of (id, name) tuples
+    """
+    flavors = flavor_list(request)
+    if flavors:
+        flavors_list = sort_flavor_list(request, flavors)
+        if include_empty_option:
+            return [("", _("Select Flavor")), ] + flavors_list
+        return flavors_list
+
+    if include_empty_option:
+        return [("", _("No flavors available")), ]
+    return []

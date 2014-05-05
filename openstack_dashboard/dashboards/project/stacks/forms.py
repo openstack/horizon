@@ -24,6 +24,10 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.images \
+    import utils as image_utils
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instance_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -128,9 +132,7 @@ class TemplateForm(forms.SelfHandlingForm):
 
         files = self.request.FILES
         self.clean_uploaded_files('template', _('template'), cleaned, files)
-        self.clean_uploaded_files('environment',
-                                  _('environment'),
-                                  cleaned,
+        self.clean_uploaded_files('environment', _('environment'), cleaned,
                                   files)
 
         # Validate the template and get back the params.
@@ -226,12 +228,11 @@ class ChangeTemplateForm(TemplateForm):
     class Meta(object):
         name = _('Edit Template')
         help_text = _('Select a new template to re-launch a stack.')
-    stack_id = forms.CharField(
-        label=_('Stack ID'),
-        widget=forms.widgets.HiddenInput)
-    stack_name = forms.CharField(
-        label=_('Stack Name'),
-        widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    stack_id = forms.CharField(label=_('Stack ID'),
+                               widget=forms.widgets.HiddenInput)
+    stack_name = forms.CharField(label=_('Stack Name'),
+                                 widget=forms.TextInput(attrs={'readonly':
+                                                               'readonly'}))
 
 
 class CreateStackForm(forms.SelfHandlingForm):
@@ -309,8 +310,13 @@ class CreateStackForm(forms.SelfHandlingForm):
 
             param_type = param.get('Type', None)
             hidden = strutils.bool_from_string(param.get('NoEcho', 'false'))
+            if 'CustomConstraint' in param:
+                choices = self._populate_custom_choices(
+                    param['CustomConstraint'])
+                field_args['choices'] = choices
+                field = forms.ChoiceField(**field_args)
 
-            if 'AllowedValues' in param:
+            elif 'AllowedValues' in param:
                 choices = map(lambda x: (x, x), param['AllowedValues'])
                 field_args['choices'] = choices
                 field = forms.ChoiceField(**field_args)
@@ -368,6 +374,17 @@ class CreateStackForm(forms.SelfHandlingForm):
             return True
         except Exception:
             exceptions.handle(request)
+
+    def _populate_custom_choices(self, custom_type):
+        if custom_type == 'neutron.network':
+            return instance_utils.network_field_data(self.request, True)
+        if custom_type == 'nova.keypair':
+            return instance_utils.keypair_field_data(self.request, True)
+        if custom_type == 'glance.image':
+            return image_utils.image_field_data(self.request, True)
+        if custom_type == 'nova.flavor':
+            return instance_utils.flavor_field_data(self.request, True)
+        return []
 
 
 class EditStackForm(CreateStackForm):

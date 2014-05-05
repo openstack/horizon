@@ -90,6 +90,10 @@ TEMPLATE = """
 "RHEL-6.2",
 "RHEL-6.3"
 ]
+},
+"Network": {
+"Type": "String",
+"CustomConstraint": "neutron.network"
 }
 },
 "Mappings": {
@@ -299,6 +303,10 @@ VALIDATE = """
 "m1.large",
 "m1.xlarge"
 ]
+},
+"Network": {
+"Type": "String",
+"CustomConstraint": "neutron.network"
 }
 }
 }
