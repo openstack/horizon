@@ -163,7 +163,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
         # two instances of name, other name comes from row data-display
         self.assertContains(res, "server_1", 2, 200)
         self.assertContains(res, "10.0.0.1", 1, 200)
-        self.assertContains(res, "512MB RAM | 1 VCPU | 0Bytes Disk", 1, 200)
+        self.assertContains(res, "RAM</th><td>512MB", 1, 200)
+        self.assertContains(res, "VCPUs</th><td>1", 1, 200)
+        self.assertContains(res, "Size</th><td>0 GB", 1, 200)
         self.assertContains(res, "Active", 1, 200)
         self.assertContains(res, "Running", 1, 200)
 

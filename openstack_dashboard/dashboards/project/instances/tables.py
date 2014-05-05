@@ -663,13 +663,20 @@ def get_ips(instance):
 
 def get_size(instance):
     if hasattr(instance, "full_flavor"):
-        size_string = _("%(name)s | %(RAM)s RAM | %(VCPU)s VCPU "
-                        "| %(disk)s Disk")
-        vals = {'name': instance.full_flavor.name,
-                'RAM': sizeformat.mbformat(instance.full_flavor.ram),
-                'VCPU': instance.full_flavor.vcpus,
-                'disk': sizeformat.diskgbformat(instance.full_flavor.disk)}
-        return size_string % vals
+        template_name = 'project/instances/_instance_flavor.html'
+        size_ram = sizeformat.mb_float_format(instance.full_flavor.ram)
+        if instance.full_flavor.disk > 0:
+            size_disk = sizeformat.diskgbformat(instance.full_flavor.disk)
+        else:
+            size_disk = _("%s GB") % "0"
+        context = {
+            "name": instance.full_flavor.name,
+            "flavor_id": instance.full_flavor.id,
+            "size_disk": size_disk,
+            "size_ram": size_ram,
+            "vcpus": instance.full_flavor.vcpus
+        }
+        return template.loader.render_to_string(template_name, context)
     return _("Not available")
 
 

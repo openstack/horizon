@@ -2560,3 +2560,8 @@ $contentTableWidth:       $browserWrapperWidth - $navigationTableWidth;
     background-image: url(/static/dashboard/img/drop_arrow.png);
   }
 }
+
+/**** Popover ****/
+a.link-popover { cursor: default; }
+
+a:hover.link-popover { text-decoration: none; }
