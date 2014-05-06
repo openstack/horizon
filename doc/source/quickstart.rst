@@ -34,6 +34,10 @@ Next you will need to setup your Django application config by copying ``openstac
 
     > cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
 
+.. note::
+
+    To add new settings or customize existing settings, modify the ``local_settings.py`` file.
+
 Horizon assumes a single end-point for OpenStack services which defaults to
 the local host (127.0.0.1). If this is not the case change the
 ``OPENSTACK_HOST`` setting in the ``openstack_dashboard/local/local_settings.py`` file, to the actual IP address of the OpenStack end-point Horizon should use.

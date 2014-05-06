@@ -49,9 +49,9 @@ This allows for common site-customization requirements such as:
 * Re-ordering panels within a dashboard or panel group.
 
 To specify the python module containing your modifications, add the key
-``customization_module`` to your ``settings.HORIZON_CONFIG`` dictionary.
-The value should be a string containing the path to your module in dotted
-python path notation. Example::
+``customization_module`` to your ``HORIZON_CONFIG`` dictionary in
+``local_settings.py``. The value should be a string containing the path to your 
+module in dotted python path notation. Example::
 
     HORIZON_CONFIG = {
         "customization_module": "my_project.overrides"
