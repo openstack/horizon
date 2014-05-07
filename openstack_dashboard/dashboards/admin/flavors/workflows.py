@@ -35,7 +35,7 @@ class CreateFlavorInfoAction(workflows.Action):
                              "Leave this field blank or use 'auto' to set "
                              "a random UUID4.")
     name = forms.RegexField(label=_("Name"),
-                            max_length=25,
+                            max_length=255,
                             regex=r'^[\w\.\- ]+$',
                             error_messages={'invalid': _('Name may only '
                                 'contain letters, numbers, underscores, '
