@@ -66,6 +66,7 @@ horizon.forms = {
           $('input#id_end')[0].focus();
         }
         startDate.hide();
+        endDate.update();
       }).data('datepicker');
 
     var endDate = $('input#id_end').datepicker({
