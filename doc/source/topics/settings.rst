@@ -156,6 +156,24 @@ when associating one with an instance.
     can be associated with each VIF and we need to check whether there is only
     one VIF for an instance to enable simple association support.
 
+``angular_modules``
+-------------------------
+
+Default: ``[]``
+
+A list of AngularJS modules to be loaded when Angular bootstraps. These modules
+are added as dependencies on the root Horizon application ``hz``.
+
+``js_files``
+-------------------------
+
+Default: ``[]``
+
+A list of javascript files to be included in the compressed set of files that are
+loaded on every page. This is needed for AngularJS modules that are referenced in
+``angular_modules`` and therefore need to be include in every page.
+
+
 OpenStack Settings (Partial)
 ============================
 
@@ -511,6 +529,19 @@ A dictionary of exception classes to be added to ``HORIZON['exceptions']``.
 A list of applications to be prepended to ``INSTALLED_APPS``.
 This is needed to expose static files from a plugin.
 
+``ADD_ANGULAR_MODULES``
+----------------------
+
+A list of AngularJS modules to be loaded when Angular bootstraps. These modules
+are added as dependencies on the root Horizon application ``hz``.
+
+``ADD_JS_FILES``
+----------------------
+
+A list of javascript files to be included in the compressed set of files that are
+loaded on every page. This is needed for AngularJS modules that are referenced in
+``ADD_ANGULAR_MODULES`` and therefore need to be included in every page.
+
 ``DISABLED``
 ------------
 
@@ -599,6 +630,19 @@ If set to ``True``, the PANEL will be removed from PANEL_DASHBOARD/PANEL_GROUP.
 
 A list of applications to be prepended to ``INSTALLED_APPS``.
 This is needed to expose static files from a plugin.
+
+``ADD_ANGULAR_MODULES``
+----------------------
+
+A list of AngularJS modules to be loaded when Angular bootstraps. These modules
+are added as dependencies on the root Horizon application ``hz``.
+
+``ADD_JS_FILES``
+----------------------
+
+A list of javascript files to be included in the compressed set of files that are
+loaded on every page. This is needed for AngularJS modules that are referenced in
+``ADD_ANGULAR_MODULES`` and therefore need to be included in every page.
 
 ``DISABLED``
 ------------
