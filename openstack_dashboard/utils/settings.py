@@ -103,6 +103,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
             update_horizon_config.update(
                 config.get('UPDATE_HORIZON_CONFIG', {}))
         elif config.get('PANEL') or config.get('PANEL_GROUP'):
+            config.pop("__builtins__", None)
             panel_customization.append(config)
     horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
