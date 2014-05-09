@@ -175,7 +175,7 @@ horizon.addInitFunction(function () {
         break;
 
       case "volume_id":
-        $("#id_volume_id").closest(".control-group").show();
+        $("#id_volume_id, #id_delete_on_terminate").closest(".control-group").show();
         break;
 
       case "volume_image_id":
