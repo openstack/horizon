@@ -26,6 +26,7 @@ from horizon.test import helpers as test
 from horizon.utils import filters
 # we have to import the filter in order to register it
 from horizon.utils.filters import parse_isotime  # noqa
+from horizon.utils import functions
 from horizon.utils import memoized
 from horizon.utils import secret_key
 from horizon.utils import validators
@@ -353,3 +354,46 @@ class MemoizedTests(test.TestCase):
         for x in range(0, 5):
             cache_calls(1)
         self.assertEqual(len(values_list), 1)
+
+
+class GetPageSizeTests(test.TestCase):
+    def test_bad_session_value(self):
+        requested_url = '/project/instances/'
+        request = self.factory.get(requested_url)
+        request.session['horizon_pagesize'] = 'not int-able'
+        default = 30
+        self.assertEqual(functions.get_page_size(request, default), default)
+
+    def test_bad_cookie_value(self):
+        requested_url = '/project/instances/'
+        request = self.factory.get(requested_url)
+        if 'horizon_pagesize' in request.session:
+            del request.session['horizon_pagesize']
+        request.COOKIES['horizon_pagesize'] = 'not int-able'
+        default = 30
+        self.assertEqual(functions.get_page_size(request, default), default)
+
+    def test_float_default_value(self):
+        requested_url = '/project/instances/'
+        request = self.factory.get(requested_url)
+        request.session['horizon_pagesize'] = 'not int-able'
+        default = 30.1
+        expected = 30
+        self.assertEqual(functions.get_page_size(request, default), expected)
+
+    def test_session_gets_set(self):
+        requested_url = '/project/instances/'
+        request = self.factory.get(requested_url)
+        request.session['horizon_pagesize'] = 'not int-able'
+        default = 30
+        functions.get_page_size(request, default)
+        self.assertEqual(request.session['horizon_pagesize'], default)
+
+    def test_bad_default_value(self):
+        requested_url = '/project/instances/'
+        request = self.factory.get(requested_url)
+        request.session['horizon_pagesize'] = 'not int-able'
+        default = 'also not int-able'
+        self.assertRaises(ValueError,
+                          functions.get_page_size,
+                          request, default)
