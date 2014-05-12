@@ -33,7 +33,12 @@ def int_format(value):
 
 
 def float_format(value):
-    return formats.number_format(round(value, 1), 1)
+    rounded_value = round(value, 1)
+    if rounded_value.is_integer():
+        decimal_pos = 0
+    else:
+        decimal_pos = 1
+    return formats.number_format(rounded_value, decimal_pos)
 
 
 def filesizeformat(bytes, filesize_number_format):

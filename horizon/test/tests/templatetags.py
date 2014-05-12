@@ -55,7 +55,7 @@ class TemplateTagTests(test.TestCase):
         size_str = ('5|diskgbformat', '10|diskgbformat',
                     '5555|mb_float_format', '80|mb_float_format',
                     '.5|mbformat', '0.005|mbformat', '0.0005|mbformat')
-        expected = u' 5.0GB 10.0GB 5.4GB 80.0MB 512KB 5KB 524Bytes '
+        expected = u' 5GB 10GB 5.4GB 80MB 512KB 5KB 524Bytes '
 
         text = ''
         for size_filter in size_str:
