@@ -38,12 +38,12 @@ class AdminHypervisorsTable(tables.DataTable):
     memory = tables.Column('memory_mb',
                            verbose_name=_("RAM (total)"),
                            attrs={'data-type': 'size'},
-                           filters=(sizeformat.mbformat,))
+                           filters=(sizeformat.mb_float_format,))
 
     memory_used = tables.Column('memory_mb_used',
                                 verbose_name=_("RAM (used)"),
                                 attrs={'data-type': 'size'},
-                                filters=(sizeformat.mbformat,))
+                                filters=(sizeformat.mb_float_format,))
 
     local = tables.Column('local_gb',
                           verbose_name=_("Storage (total)"),
