@@ -60,6 +60,25 @@ class DeleteVolumeSnapshot(tables.DeleteAction):
         api.cinder.volume_snapshot_delete(request, obj_id)
 
 
+class EditVolumeSnapshot(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit Snapshot")
+    url = "horizon:project:volumes:snapshots:update"
+    classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("volume", "volume:update_snapshot"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum,
+                                 "os-extended-snapshot-attributes:project_id",
+                                 None)
+        return {"project_id": project_id}
+
+    def allowed(self, request, snapshot=None):
+        return snapshot.status == "available"
+
+
 class CreateVolumeFromSnapshot(tables.LinkAction):
     name = "create_from_snapshot"
     verbose_name = _("Create Volume")
@@ -107,8 +126,9 @@ class SnapshotVolumeNameColumn(tables.Column):
 class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
     name = tables.Column("name",
                          verbose_name=_("Name"),
-                         link="horizon:project:volumes:detail")
-    volume_name = SnapshotVolumeNameColumn("name",
+                         link="horizon:project:volumes:snapshots:detail")
+    volume_name = SnapshotVolumeNameColumn(
+        "name",
         verbose_name=_("Volume Name"),
         link="horizon:project:volumes:volumes:detail")
 
@@ -117,7 +137,7 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
         verbose_name = _("Volume Snapshots")
         table_actions = (DeleteVolumeSnapshot,)
         row_actions = (CreateVolumeFromSnapshot, LaunchSnapshot,
-                       DeleteVolumeSnapshot)
+                       EditVolumeSnapshot, DeleteVolumeSnapshot)
         row_class = UpdateRow
         status_columns = ("status",)
         permissions = ['openstack.services.volume']

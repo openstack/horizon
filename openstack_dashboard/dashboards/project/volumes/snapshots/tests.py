@@ -153,7 +153,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:detail',
+        url = reverse('horizon:project:volumes:snapshots:detail',
                       args=[snapshot.id])
         res = self.client.get(url)
 
@@ -174,7 +174,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
             AndRaise(self.exceptions.cinder)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:detail',
+        url = reverse('horizon:project:volumes:snapshots:detail',
                       args=[snapshot.id])
         res = self.client.get(url)
 
@@ -193,8 +193,30 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:detail',
+        url = reverse('horizon:project:volumes:snapshots:detail',
                       args=[snapshot.id])
         res = self.client.get(url)
 
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_snapshot_update',
+                                 'volume_snapshot_get')})
+    def test_update_snapshot(self):
+        snapshot = self.cinder_volume_snapshots.first()
+
+        cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id) \
+            .AndReturn(snapshot)
+        cinder.volume_snapshot_update(IsA(http.HttpRequest),
+                                      snapshot.id,
+                                      snapshot.name,
+                                      snapshot.description) \
+            .AndReturn(snapshot)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateSnapshotForm',
+                    'name': snapshot.name,
+                    'description': snapshot.description}
+        url = reverse(('horizon:project:volumes:snapshots:update'),
+                      args=[snapshot.id])
+        res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
