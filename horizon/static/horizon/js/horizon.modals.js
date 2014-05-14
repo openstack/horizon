@@ -292,7 +292,9 @@ horizon.addInitFunction(horizon.modals.init = function() {
     $(modal).find(":text, select, textarea").filter(":visible:first").focus();
   });
 
-  horizon.modals.addModalInitFunction(horizon.datatables.validate_button);
+  horizon.modals.addModalInitFunction(function(modal) {
+    horizon.datatables.validate_button($(modal).find(".table_wrapper > form"));
+  });
   horizon.modals.addModalInitFunction(horizon.utils.loadAngular);
 
   // Load modals for ajax-modal links.

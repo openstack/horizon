@@ -779,6 +779,12 @@ class BatchAction(Action):
             return self.success_url
         return request.get_full_path()
 
+    def get_default_attrs(self):
+        """Returns a list of the default HTML attributes for the action."""
+        attrs = super(BatchAction, self).get_default_attrs()
+        attrs.update({'data-batch-action': 'true'})
+        return attrs
+
     def handle(self, table, request, obj_ids):
         action_success = []
         action_failure = []
