@@ -25,7 +25,7 @@ Getting Started
 ===============
 
 For local development, first create a virtualenv for the project.
-In the ``tools`` directory there is a script to create one for you:
+In the ``tools`` directory there is a script to create one for you::
 
   $ python tools/install_venv.py
 
@@ -38,9 +38,9 @@ environment.  To do this, create a ``local_settings.py`` file in the
 ``openstack_dashboard/local/`` directory.  There is a
 ``local_settings.py.example`` file there that may be used as a template.
 
-If all is well you should able to run the development server locally:
+If all is well you should able to run the development server locally::
 
-  $ tools/with_venv.sh manage.py runserver
+  $ tools/with_venv.sh ./manage.py runserver
 
 or, as a shortcut::
 
@@ -91,11 +91,11 @@ Building Contributor Documentation
 
 This documentation is written by contributors, for contributors.
 
-The source is maintained in the ``doc/source`` folder using
+The source is maintained in the ``doc/source`` directory using
 `reStructuredText`_ and built by `Sphinx`_
 
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
-.. _Sphinx: http://sphinx.pocoo.org/
+.. _Sphinx: http://sphinx-doc.org/
 
 * Building Automatically::
 
@@ -103,8 +103,6 @@ The source is maintained in the ``doc/source`` folder using
 
 * Building Manually::
 
-    $ export DJANGO_SETTINGS_MODULE=local.local_settings
-    $ python doc/generate_autodoc_index.py
-    $ sphinx-build -b html doc/source build/sphinx/html
+    $ tools/with_venv.sh sphinx-build doc/source doc/build/html
 
-Results are in the `build/sphinx/html` directory
+Results are in the ``doc/build/html`` directory
