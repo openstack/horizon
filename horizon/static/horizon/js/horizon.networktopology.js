@@ -543,7 +543,7 @@ horizon.network_topology = {
       html_data.port = ports;
       html = balloon_tmpl.render(html_data,{
         table1:device_tmpl,
-        table2:port_tmpl
+        table2:(ports.length > 0) ? port_tmpl : null
       });
     } else if (d.type === 'instance') {
       html_data.console_id = d.id;
