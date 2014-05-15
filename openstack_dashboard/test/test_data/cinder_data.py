@@ -82,6 +82,8 @@ def data(TEST):
                              'volume_type': None,
                              'bootable': 'true',
                              'attachments': []})
+    volume_v2.bootable = 'true'
+
     TEST.cinder_volumes.add(api.cinder.Volume(volume_v2))
 
     snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),
@@ -98,6 +100,9 @@ def data(TEST):
                          'size': 80,
                          'status': 'available',
                          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+
+    snapshot.bootable = 'true'
+    snapshot2.bootable = 'true'
 
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot2))

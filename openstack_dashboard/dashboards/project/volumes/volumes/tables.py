@@ -14,13 +14,12 @@
 
 from django.core.urlresolvers import NoReverseMatch  # noqa
 from django.core.urlresolvers import reverse
-from django.template.defaultfilters import title  # noqa
+from django.template import defaultfilters as filters
 from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
-
 
 from horizon import exceptions
 from horizon import tables
@@ -254,7 +253,7 @@ class VolumesTableBase(tables.DataTable):
                          verbose_name=_("Size"),
                          attrs={'data-type': 'size'})
     status = tables.Column("status",
-                           filters=(title,),
+                           filters=(filters.title,),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=STATUS_CHOICES)
@@ -283,6 +282,9 @@ class VolumesTable(VolumesTableBase):
                                 verbose_name=_("Attached To"))
     availability_zone = tables.Column("availability_zone",
                          verbose_name=_("Availability Zone"))
+    bootable = tables.Column('is_bootable',
+                         verbose_name=_("Bootable"),
+                         filters=(filters.yesno, filters.capfirst))
 
     class Meta:
         name = "volumes"

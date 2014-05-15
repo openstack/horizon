@@ -81,6 +81,10 @@ class Volume(BaseCinderAPIResourceWrapper):
               'os-vol-host-attr:host', 'os-vol-tenant-attr:tenant_id',
               'metadata']
 
+    @property
+    def is_bootable(self):
+        return self.bootable == 'true'
+
 
 class VolumeSnapshot(BaseCinderAPIResourceWrapper):
 
