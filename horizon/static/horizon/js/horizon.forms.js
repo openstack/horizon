@@ -56,6 +56,34 @@ horizon.forms = {
     });
   },
 
+  /**
+   * In the container's upload object form, copy the selected file name in the
+   * object name field if the field is empty. The filename string is stored in
+   * the input as an attribute "filename". The value is used as comparison to
+   * compare with the value of the new filename string.
+   */
+  handle_object_upload_source: function() {
+    $("div.table_wrapper, #modal_wrapper").on("change", "input#id_object_file", function(evt) {
+      if (typeof($(this).attr("filename")) == 'undefined') {
+        $(this).attr("filename", "");
+      }
+      var $form = $(this).closest("form");
+      var $obj_name = $form.find("input#id_name");
+      var $fullPath = $(this).val();
+      var $startIndex = ($fullPath.indexOf('\\') >= 0 ? $fullPath.lastIndexOf('\\') : $fullPath.lastIndexOf('/'));
+      var $filename = $fullPath.substring($startIndex);
+
+      if ($filename.indexOf('\\') === 0 || $filename.indexOf('/') === 0) {
+        $filename = $filename.substring(1);
+      }
+
+      if (typeof($obj_name.val()) == 'undefined' || $(this).attr("filename").localeCompare($obj_name.val()) == 0) {
+        $obj_name.val($filename);
+        $(this).attr("filename", $filename);
+      }
+    });
+  },
+
   datepicker: function() {
     var startDate = $('input#id_start').datepicker()
       .on('changeDate', function(ev) {
@@ -133,6 +161,7 @@ horizon.addInitFunction(function () {
   horizon.forms.handle_snapshot_source();
   horizon.forms.handle_volume_source();
   horizon.forms.handle_image_source();
+  horizon.forms.handle_object_upload_source();
   horizon.forms.datepicker();
 
   // Bind event handlers to confirm dangerous actions.
