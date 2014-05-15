@@ -1281,6 +1281,89 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get_with_only_one_network(self):
         self.test_launch_instance_get(only_one_network=True)
 
+    @test.create_stubs({api.nova: ('extension_supported',
+                                   'flavor_list',
+                                   'keypair_list',
+                                   'tenant_absolute_limits',
+                                   'availability_zone_list',),
+                        api.network: ('security_group_list',),
+                        cinder: ('volume_snapshot_list',
+                                 'volume_list',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
+                        api.glance: ('image_list_detailed',)})
+    def test_launch_instance_get_bootable_volumes(self,
+                                 block_device_mapping_v2=True,
+                                 only_one_network=False,
+                                 disk_config=True):
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(block_device_mapping_v2)
+        cinder.volume_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.volumes.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+                .AndReturn([[], False])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+                .AndReturn(self.networks.list()[:1])
+        if only_one_network:
+            api.neutron.network_list(IsA(http.HttpRequest),
+                                     shared=True).AndReturn([])
+        else:
+            api.neutron.network_list(IsA(http.HttpRequest),
+                                     shared=True) \
+                .AndReturn(self.networks.list()[1:])
+
+        if api.neutron.is_port_profiles_supported():
+            policy_profiles = self.policy_profiles.list()
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'policy').AndReturn(policy_profiles)
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+                .AndReturn(disk_config)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+                .AndReturn(self.limits['absolute'])
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.keypairs.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
+                                .AndReturn(self.availability_zones.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.get(url)
+
+        bootable_volumes = [v.id for v in self.volumes.list()
+                        if v.bootable == 'true' and v.status == 'available']
+
+        volume_sources = res.context_data['workflow'].steps[0].\
+                            action.fields['volume_id'].choices
+
+        volume_sources_ids = []
+        for volume in volume_sources:
+            self.assertTrue(volume[0].split(":vol")[0] in bootable_volumes or
+                            volume[0] == '')
+            if volume[0] != '':
+                volume_sources_ids.append(volume[0].split(":vol")[0])
+
+        for volume in bootable_volumes:
+            self.assertTrue(volume in volume_sources_ids)
+
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',

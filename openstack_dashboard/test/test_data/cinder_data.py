@@ -62,6 +62,11 @@ def data(TEST):
                              'volume_type': None,
                              'attachments': [{"id": "1", "server_id": '1',
                                             "device": "/dev/hda"}]})
+
+    volume.bootable = 'true'
+    nameless_volume.bootable = 'true'
+    other_volume.bootable = 'true'
+
     TEST.cinder_volumes.add(api.cinder.Volume(volume))
     TEST.cinder_volumes.add(api.cinder.Volume(nameless_volume))
     TEST.cinder_volumes.add(api.cinder.Volume(other_volume))
@@ -75,6 +80,7 @@ def data(TEST):
                              'size': 20,
                              'created_at': '2014-01-27 10:30:00',
                              'volume_type': None,
+                             'bootable': 'true',
                              'attachments': []})
     TEST.cinder_volumes.add(api.cinder.Volume(volume_v2))
 
