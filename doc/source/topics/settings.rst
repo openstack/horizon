@@ -312,7 +312,7 @@ Default::
 
     {
         'image_formats': [
-            ('', ''),
+            ('', _('Select format')),
             ('aki', _('AKI - Amazon Kernel Image')),
             ('ami', _('AMI - Amazon Machine Image')),
             ('ari', _('ARI - Amazon Ramdisk Image')),

@@ -132,7 +132,7 @@ OPENSTACK_HYPERVISOR_FEATURES = {
 
 OPENSTACK_IMAGE_BACKEND = {
     'image_formats': [
-        ('', ''),
+        ('', 'Select format'),
         ('aki', 'AKI - Amazon Kernel Image'),
         ('ami', 'AMI - Amazon Machine Image'),
         ('ari', 'ARI - Amazon Ramdisk Image'),
