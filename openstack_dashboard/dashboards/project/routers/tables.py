@@ -38,12 +38,12 @@ class DeleteRouter(tables.DeleteAction):
         try:
             api.neutron.router_delete(request, obj_id)
         except q_ext.NeutronClientException as e:
-            msg = _('Unable to delete router "%s"') % e.message
+            msg = _('Unable to delete router "%s"') % e
             LOG.info(msg)
             messages.error(request, msg)
             redirect = reverse(self.redirect_url)
             raise exceptions.Http302(redirect, message=msg)
-        except Exception as e:
+        except Exception:
             msg = _('Unable to delete router "%s"') % name
             LOG.info(msg)
             exceptions.handle(request, msg)
@@ -88,7 +88,7 @@ class ClearGateway(tables.BatchAction):
         except Exception as e:
             msg = (_('Unable to clear gateway for router '
                      '"%(name)s": "%(msg)s"')
-                   % {"name": name, "msg": e.message})
+                   % {"name": name, "msg": e})
             LOG.info(msg)
             redirect = reverse(self.redirect_url)
             exceptions.handle(request, msg, redirect=redirect)
