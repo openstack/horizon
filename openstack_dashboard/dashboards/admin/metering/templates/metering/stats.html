@@ -137,16 +137,15 @@
     <hr class="header_rule" />
     <div class="info row-fluid detail">
       <div class="span9 chart_container">
-          <div class="chart"
-               data-chart-type="line_chart"
-               data-url="{% url 'horizon:admin:metering:samples'%}"
-               data-form-selector='#linechart_general_form'
-               data-legend-selector="#legend"
-               data-smoother-selector="#smoother"
-               data-slider-selector="#slider">
-          </div>
-          <div id="slider"></div>
+        <div class="chart"
+             data-chart-type="line_chart"
+             data-url="{% url 'horizon:admin:metering:samples'%}"
+             data-form-selector='#linechart_general_form'
+             data-legend-selector="#legend"
+             data-smoother-selector="#smoother"
+             data-slider-selector="#slider">
         </div>
+        <div id="slider"></div>
         <div class="span3 legend_container">
           <div id="smoother" title="Smoothing"></div>
           <div id="legend"></div>
