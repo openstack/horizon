@@ -26,7 +26,7 @@
     <dt>{% trans "Flavor" %}</dt>
     <dd>{{ instance.full_flavor.name }}</dd>
     <dt>{% trans "RAM" %}</dt>
-    <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
+    <dd>{{ instance.full_flavor.ram|mb_float_format }}</dd>
     {% if instance.volume %}
       <dt>{% trans "Volume Size" %}</dt>
       <dd>{{ instance.volume.size|diskgbformat }}</dd>

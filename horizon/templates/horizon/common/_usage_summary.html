@@ -18,7 +18,7 @@
   </form>
   <p id="activity">
     <span><strong>{% trans "Active Instances:" %}</strong> {{ usage.summary.instances|default:'0' }}</span>
-    <span><strong>{% trans "Active RAM:" %}</strong> {{ usage.summary.memory_mb|mbformat|default:'0' }}</span>
+    <span><strong>{% trans "Active RAM:" %}</strong> {{ usage.summary.memory_mb|mb_float_format|default:'0' }}</span>
     <span><strong>{% trans "This Period's VCPU-Hours:" %}</strong> {{ usage.summary.vcpus|floatformat:2|default:'0' }}</span>
     <span><strong>{% trans "This Period's GB-Hours:" %}</strong> {{ usage.summary.disk_gb_hours|floatformat:2|default:'0' }}</span>
   </p>

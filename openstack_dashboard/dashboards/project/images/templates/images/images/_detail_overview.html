@@ -55,7 +55,7 @@
     {% endif %}
     {% if image.min_ram %}
       <dt>{% trans "Min RAM" %}</dt>
-      <dd>{{ image.min_ram|mbformat }}</dd>
+      <dd>{{ image.min_ram|mb_float_format }}</dd>
     {% endif %}
   </dl>
 </div>

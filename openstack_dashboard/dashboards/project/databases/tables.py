@@ -226,7 +226,7 @@ def get_size(instance):
     if hasattr(instance, "full_flavor"):
         size_string = _("%(name)s | %(RAM)s RAM")
         vals = {'name': instance.full_flavor.name,
-                'RAM': sizeformat.mbformat(instance.full_flavor.ram)}
+                'RAM': sizeformat.mb_float_format(instance.full_flavor.ram)}
         return size_string % vals
     return _("Not available")
 
