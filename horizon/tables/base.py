@@ -157,6 +157,28 @@ class Column(html.HTMLElement):
         A dict of HTML attribute strings which should be added to this column.
         Example: ``attrs={"data-foo": "bar"}``.
 
+    .. attribute:: cell_attributes_getter
+
+       A callable to get the HTML attributes of a column cell depending
+       on the data. For example, to add additional description or help
+       information for data in a column cell (e.g. in Images panel, for the
+       column 'format'):
+
+            helpText = {
+              'ARI':'Amazon Ramdisk Image'
+              'QCOW2':'QEMU' Emulator'
+              }
+
+            getHoverHelp(data):
+              text = helpText.get(data, None)
+              if text:
+                  return {'title': text}
+              else:
+                  return {}
+            ...
+            ...
+            cell_attributes_getter = getHoverHelp
+
     .. attribute:: truncate
 
         An integer for the maximum length of the string in this column. If the
@@ -245,7 +267,8 @@ class Column(html.HTMLElement):
                  empty_value=None, filters=None, classes=None, summation=None,
                  auto=None, truncate=None, link_classes=None, wrap_list=False,
                  form_field=None, form_field_attributes=None,
-                 update_action=None, link_attrs=None):
+                 update_action=None, link_attrs=None,
+                 cell_attributes_getter=None):
 
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
@@ -283,6 +306,7 @@ class Column(html.HTMLElement):
         self.link_attrs = link_attrs or {}
         if link_classes:
             self.link_attrs['class'] = ' '.join(link_classes)
+        self.cell_attributes_getter = cell_attributes_getter
 
         if status_choices:
             self.status_choices = status_choices
@@ -654,6 +678,9 @@ class Cell(html.HTMLElement):
             table._data_cache[column][table.get_object_id(datum)] = data
         else:
             data = column.get_data(datum)
+            if column.cell_attributes_getter:
+                cell_attributes = column.cell_attributes_getter(data) or {}
+                self.attrs.update(cell_attributes)
         return data
 
     def __repr__(self):
