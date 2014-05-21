@@ -281,6 +281,7 @@ The hostname of the Keystone server used for authentication if you only have
 one region. This is often the *only* setting that needs to be set for a
 basic deployment.
 
+.. _hypervisor-settings-label:
 
 ``OPENSTACK_HYPERVISOR_FEATURES``
 ---------------------------------
