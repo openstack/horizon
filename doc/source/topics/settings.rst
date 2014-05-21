@@ -217,6 +217,26 @@ This example sorts flavors by vcpus in descending order::
          'reverse': True,
     }
 
+``FLAVOR_EXTRA_KEYS``
+---------------------
+
+.. versionadded:: 2014.1(Icehouse)
+
+Default::
+
+    {
+        'flavor_keys': [
+            ('quota:read_bytes_sec', _('Quota: Read bytes')),
+            ('quota:write_bytes_sec', _('Quota: Write bytes')),
+            ('quota:cpu_quota', _('Quota: CPU')),
+            ('quota:cpu_period', _('Quota: CPU period')),
+            ('quota:inbound_average', _('Quota: Inbound average')),
+            ('quota:outbound_average', _('Quota: Outbound average'))
+        ]
+    }
+
+Used to customize flavor extra specs keys
+
 ``IMAGES_LIST_FILTER_TENANTS``
 ------------------------------
 
@@ -234,6 +254,8 @@ Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', '
 
 ``OPENSTACK_ENABLE_PASSWORD_RETRIEVE``
 --------------------------------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 Default: ``"False"``
 
@@ -394,24 +416,6 @@ Default: ``"1800"``
 Specifies the timespan in seconds inactivity, until a user is considered as
  logged out.
 
-``FLAVOR_EXTRA_KEYS``
----------------------
-
-Default::
-
-    {
-        'flavor_keys': [
-            ('quota:read_bytes_sec', _('Quota: Read bytes')),
-            ('quota:write_bytes_sec', _('Quota: Write bytes')),
-            ('quota:cpu_quota', _('Quota: CPU')),
-            ('quota:cpu_period', _('Quota: CPU period')),
-            ('quota:inbound_average', _('Quota: Inbound average')),
-            ('quota:outbound_average', _('Quota: Outbound average'))
-        ]
-    }
-
-Used to customize flavor extra specs keys
-
 
 Django Settings (Partial)
 =========================
@@ -472,6 +476,8 @@ are generally safe to use.
 Pluggable Settings for Dashboards
 =================================
 
+.. versionadded:: 2014.1(Icehouse)
+
 Many dashboards may require their own modifications to the settings, and their
 installation would therefore require modifying the settings file. This is not
 optimal, so the dashboards can provide the settings that they require in a
@@ -493,26 +499,36 @@ The files contain following keys:
 ``DASHBOARD``
 -------------
 
+.. versionadded:: 2014.1(Icehouse)
+
 The name of the dashboard to be added to ``HORIZON['dashboards']``. Required.
 
 ``DEFAULT``
 -----------
+
+.. versionadded:: 2014.1(Icehouse)
 
 If set to ``True``, this dashboard will be set as the default dashboard.
 
 ``ADD_EXCEPTIONS``
 ------------------
 
+.. versionadded:: 2014.1(Icehouse)
+
 A dictionary of exception classes to be added to ``HORIZON['exceptions']``.
 
 ``ADD_INSTALLED_APPS``
 ----------------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 A list of applications to be prepended to ``INSTALLED_APPS``.
 This is needed to expose static files from a plugin.
 
 ``DISABLED``
 ------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 If set to ``True``, this dashboard will not be added to the settings.
 
@@ -544,6 +560,8 @@ create a file ``openstack_dashboard/local/enabled/_50_tuskar.py`` with::
 Pluggable Settings for Panels
 =============================
 
+.. versionadded:: 2014.1(Icehouse)
+
 Panels customization can be made by providing a custom python module that
 contains python code to add or remove panel to/from the dashboard. This
 requires altering the settings file. For panels provided by third-party,
@@ -566,10 +584,14 @@ The files contain following keys:
 ``PANEL``
 ---------
 
+.. versionadded:: 2014.1(Icehouse)
+
 The name of the panel to be added to ``HORIZON_CONFIG``. Required.
 
 ``PANEL_DASHBOARD``
 -------------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 The name of the dashboard the ``PANEL`` associated with. Required.
 
@@ -577,20 +599,28 @@ The name of the dashboard the ``PANEL`` associated with. Required.
 ``PANEL_GROUP``
 ---------------
 
+.. versionadded:: 2014.1(Icehouse)
+
 The name of the panel group the ``PANEL`` is associated with.
 
 ``DEFAULT_PANEL``
 -----------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 If set, it will update the default panel of the ``PANEL_DASHBOARD``.
 
 ``ADD_PANEL``
 -------------
 
+.. versionadded:: 2014.1(Icehouse)
+
 Python panel class of the ``PANEL`` to be added.
 
 ``REMOVE_PANEL``
 ----------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 If set to ``True``, the PANEL will be removed from PANEL_DASHBOARD/PANEL_GROUP.
 
@@ -602,6 +632,8 @@ This is needed to expose static files from a plugin.
 
 ``DISABLED``
 ------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 If set to ``True``, this panel configuration will be skipped.
 
@@ -638,6 +670,8 @@ following content::
 Pluggable Settings for Panel Groups
 ===================================
 
+.. versionadded:: 2014.1(Icehouse)
+
 To organize the panels created from the pluggable settings, there is also
 a way to create panel group though configuration file. This creates an empty
 panel group to act as placeholder for the panels that can be created later.
@@ -663,25 +697,35 @@ The files contain following keys:
 ``PANEL_GROUP``
 ---------------
 
+.. versionadded:: 2014.1(Icehouse)
+
 The name of the panel group to be added to ``HORIZON_CONFIG``. Required.
 
 ``PANEL_GROUP_NAME``
 --------------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 The display name of the PANEL_GROUP. Required.
 
 ``PANEL_GROUP_DASHBOARD``
 -------------------------
 
+.. versionadded:: 2014.1(Icehouse)
+
 The name of the dashboard the ``PANEL_GROUP`` associated with. Required.
 
 ``DISABLED``
 ------------
 
+.. versionadded:: 2014.1(Icehouse)
+
 If set to ``True``, this panel configuration will be skipped.
 
 ``UPDATE_HORIZON_CONFIG``
 -------------------------
+
+.. versionadded:: 2014.1(Icehouse)
 
 A dictionary of values that will replace the values in ``HORIZON_CONFIG``. The
 order in which this setting is applied is the same as for the other pluggable
