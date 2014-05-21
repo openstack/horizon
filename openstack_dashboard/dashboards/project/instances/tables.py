@@ -783,6 +783,8 @@ class InstancesTable(tables.DataTable):
         ("suspended", True),
         ("paused", True),
         ("error", False),
+        ("rescue", True),
+        ("shelved offloaded", True),
     )
     name = tables.Column("name",
                          link=("horizon:project:instances:detail"),
