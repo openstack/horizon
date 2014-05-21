@@ -3,8 +3,8 @@
 <h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
 
 <div class="context-box">
-  <div id="tenant_switcher" class="dropdown switcher_bar" tabindex="1">
   {% with num_of_tenants=authorized_tenants|length %}
+    <div id="tenant_switcher" class="dropdown switcher_bar {% if num_of_tenants == 1 %} hide_image {% endif %}" tabindex="1">
     {% if num_of_tenants > 1 %}
       <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
     {% endif %}
