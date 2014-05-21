@@ -377,7 +377,8 @@ class SetInstanceDetailsAction(workflows.Action):
         try:
             volumes = [self._get_volume_display_name(v)
                        for v in cinder.volume_list(self.request)
-                       if v.status == api.cinder.VOLUME_STATE_AVAILABLE]
+                       if v.status == api.cinder.VOLUME_STATE_AVAILABLE
+                        and v.bootable == 'true']
         except Exception:
             volumes = []
             exceptions.handle(self.request,

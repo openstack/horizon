@@ -212,9 +212,25 @@ def data(TEST):
                               volume_type='vol_type_2',
                               attachments=[{"id": "2", "server_id": '1',
                                             "device": "/dev/hdk"}]))
+    non_bootable_volume = volumes.Volume(volumes.VolumeManager(None),
+                            dict(id="41023e92-8008-4c8b-8059-7f2293ff3771",
+                                 name='non_bootable_volume',
+                                 status='available',
+                                 size=40,
+                                 display_name='Non Bootable Volume',
+                                 created_at='2012-04-01 10:30:00',
+                                 volume_type=None,
+                                 attachments=[]))
+
+    volume.bootable = 'true'
+    nameless_volume.bootable = 'true'
+    attached_volume.bootable = 'true'
+    non_bootable_volume.bootable = 'false'
+
     TEST.volumes.add(volume)
     TEST.volumes.add(nameless_volume)
     TEST.volumes.add(attached_volume)
+    TEST.volumes.add(non_bootable_volume)
 
     vol_type1 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
                                         {'id': 1,
