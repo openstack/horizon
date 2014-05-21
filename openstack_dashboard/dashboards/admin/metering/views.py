@@ -18,11 +18,12 @@ import json
 from django.http import HttpResponse   # noqa
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import TemplateView  # noqa
+from django.views import generic
 
 from horizon import exceptions
 from horizon import tables
 from horizon import tabs
+from horizon.utils import csvbase
 
 from openstack_dashboard import api
 from openstack_dashboard.api import ceilometer
@@ -38,7 +39,7 @@ class IndexView(tabs.TabbedTableView):
     template_name = 'admin/metering/index.html'
 
 
-class SamplesView(TemplateView):
+class SamplesView(generic.TemplateView):
     template_name = "admin/metering/samples.csv"
 
     @staticmethod
@@ -101,7 +102,7 @@ class ReportView(tables.MultiTableView):
     def get_tables(self):
         if self._tables:
             return self._tables
-        project_data = self.load_data(self.request)
+        project_data = load_report_data(self.request)
         table_instances = []
         limit = int(self.request.POST.get('limit', '1000'))
         for project in project_data.keys():
@@ -122,54 +123,41 @@ class ReportView(tables.MultiTableView):
         handled = self._tables[name].maybe_handle()
         return handled
 
-    def load_data(self, request):
-        meters = ceilometer.Meters(request)
-        services = {
-            _('Nova'): meters.list_nova(),
-            _('Neutron'): meters.list_neutron(),
-            _('Glance'): meters.list_glance(),
-            _('Cinder'): meters.list_cinder(),
-            _('Swift_meters'): meters.list_swift(),
-            _('Kwapi'): meters.list_kwapi(),
-        }
-        project_rows = {}
-        date_options = request.POST.get('date_options', None)
-        date_from = request.POST.get('date_from', None)
-        date_to = request.POST.get('date_to', None)
-        for meter in meters._cached_meters.values():
-            for name, m_list in services.items():
-                if meter in m_list:
-                    service = name
-            # show detailed samples
-            # samples = ceilometer.sample_list(request, meter.name)
-            res, unit = query_data(request,
-                                   date_from,
-                                   date_to,
-                                   date_options,
-                                   "project",
-                                   meter.name,
-                                   3600 * 24)
-            for re in res:
-                values = getattr(re, meter.name.replace(".", "_"))
-                if values:
-                    for value in values:
-                        row = {"name": 'none',
-                               "project": re.id,
-                               "meter": meter.name,
-                               "description": meter.description,
-                               "service": service,
-                               "time": value._apiresource.period_end,
-                               "value": value._apiresource.avg}
-                        if re.id not in project_rows:
-                            project_rows[re.id] = [row]
-                        else:
-                            project_rows[re.id].append(row)
-        return project_rows
-
     def get_context_data(self, **kwargs):
-        context = {}
-        context['tables'] = self.get_tables().values()
+        context = {'tables': self.get_tables().values()}
+        url = self.request.get_full_path().replace('/report', '/report/csv')
+        context['csv_url'] = url
         return context
+
+
+class CsvReportView(generic.View):
+    def get(self, request, **response_kwargs):
+        render_class = ReportCsvRenderer
+        response_kwargs.setdefault("filename", "usage.csv")
+        context = {'usage': load_report_data(request)}
+        resp = render_class(request=request,
+                            template=None,
+                            context=context,
+                            content_type='csv',
+                            **response_kwargs)
+        return resp
+
+
+class ReportCsvRenderer(csvbase.BaseCsvResponse):
+
+    columns = [_("Project Name"), _("Meter"), _("Description"),
+               _("Service"), _("Time"), _("Value (Avg)")]
+
+    def get_row_data(self):
+
+        for p in self.context['usage'].values():
+            for u in p:
+                yield (u["project"],
+                       u["meter"],
+                       u["description"],
+                       u["service"],
+                       u["time"],
+                       u["value"])
 
 
 def _calc_period(date_from, date_to):
@@ -314,3 +302,50 @@ def query_data(request,
             exceptions.handle(request,
                               _('Unable to retrieve statistics.'))
     return resources, unit
+
+
+def load_report_data(request):
+    meters = ceilometer.Meters(request)
+    services = {
+        _('Nova'): meters.list_nova(),
+        _('Neutron'): meters.list_neutron(),
+        _('Glance'): meters.list_glance(),
+        _('Cinder'): meters.list_cinder(),
+        _('Swift_meters'): meters.list_swift(),
+        _('Kwapi'): meters.list_kwapi(),
+    }
+    project_rows = {}
+    date_options = request.GET.get('date_options', 7)
+    date_from = request.GET.get('date_from')
+    date_to = request.GET.get('date_to')
+    for meter in meters._cached_meters.values():
+        service = None
+        for name, m_list in services.items():
+            if meter in m_list:
+                service = name
+                break
+        # show detailed samples
+        # samples = ceilometer.sample_list(request, meter.name)
+        res, unit = query_data(request,
+                               date_from,
+                               date_to,
+                               date_options,
+                               "project",
+                               meter.name,
+                               3600 * 24)
+        for re in res:
+            values = getattr(re, meter.name.replace(".", "_"))
+            if values:
+                for value in values:
+                    row = {"name": 'none',
+                           "project": re.id,
+                           "meter": meter.name,
+                           "description": meter.description,
+                           "service": service,
+                           "time": value._apiresource.period_end,
+                           "value": value._apiresource.avg}
+                    if re.id not in project_rows:
+                        project_rows[re.id] = [row]
+                    else:
+                        project_rows[re.id].append(row)
+    return project_rows
