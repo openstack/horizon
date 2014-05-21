@@ -49,6 +49,20 @@
   </dl>
 </div>
 
+{% if volume.volume_image_metadata %}
+<div class="status row-fluid detail">
+  <h4>{% trans "Volume Source" %}</h4>
+  <hr class="header_rule">
+  <dl>
+      <dt>{% trans "Image" %}</dt>
+      <dd>
+        {% url 'horizon:project:images:images:detail' volume.volume_image_metadata.image_id as image_url%}
+        <a href="{{ image_url }}">{{ volume.volume_image_metadata.image_name }}</a>
+      </dd>
+  </dl>
+</div>
+{% endif %}
+
 <div class="status row-fluid detail">
   <h4>{% trans "Metadata" %}</h4>
   <hr class="header_rule">

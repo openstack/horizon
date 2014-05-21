@@ -79,7 +79,7 @@ class Volume(BaseCinderAPIResourceWrapper):
               'volume_type', 'availability_zone', 'imageRef', 'bootable',
               'snapshot_id', 'source_volid', 'attachments', 'tenant_name',
               'os-vol-host-attr:host', 'os-vol-tenant-attr:tenant_id',
-              'metadata']
+              'metadata', 'volume_image_metadata']
 
     @property
     def is_bootable(self):
