@@ -333,9 +333,9 @@ class AttachmentsTable(tables.DataTable):
 
     def get_object_display(self, attachment):
         instance_name = get_attachment_name(self.request, attachment)
-        vals = {"dev": attachment['device'],
+        vals = {"volume_name": attachment['volume_name'],
                 "instance_name": html.strip_tags(instance_name)}
-        return _("%(dev)s on instance %(instance_name)s") % vals
+        return _("Volume %(volume_name)s on instance %(instance_name)s") % vals
 
     def get_object_by_id(self, obj_id):
         for obj in self.data:
