@@ -51,8 +51,15 @@ horizon.instances = {
     $(this.get_network_element("")).each(function(){
       var $this = $(this);
       var $input = $this.children("input");
+      var name = $this.text().replace(/^\s+/,"")
+                             .replace(/&/g, '&amp;')
+                             .replace(/</g, '&lt;')
+                             .replace(/>/g, '&gt;')
+                             .replace(/"/g, '&quot;')
+                             .replace(/'/g, '&#x27;')
+                             .replace(/\//g, '&#x2F;');
       var network_property = {
-        name:$this.text().replace(/^\s+/,""),
+        name:name,
         id:$input.attr("id"),
         value:$input.attr("value")
       };
