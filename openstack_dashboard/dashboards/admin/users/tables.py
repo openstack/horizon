@@ -131,7 +131,9 @@ class UsersTable(tables.DataTable):
     email = tables.Column('email', verbose_name=_('Email'),
                           filters=(lambda v: defaultfilters
                                    .default_if_none(v, ""),
-                                   defaultfilters.urlize))
+                                   defaultfilters.escape,
+                                   defaultfilters.urlize)
+                          )
     # Default tenant is not returned from Keystone currently.
     #default_tenant = tables.Column('default_tenant',
     #                               verbose_name=_('Default Project'))

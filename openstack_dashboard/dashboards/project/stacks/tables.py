@@ -114,11 +114,16 @@ class StacksTable(tables.DataTable):
                        ChangeStackTemplate)
 
 
+def get_resource_url(obj):
+    return urlresolvers.reverse('horizon:project:stacks:resource',
+                                args=(obj.stack_id, obj.resource_name))
+
+
 class EventsTable(tables.DataTable):
 
     logical_resource = tables.Column('resource_name',
                                      verbose_name=_("Stack Resource"),
-                                     link=lambda d: d.resource_name,)
+                                     link=get_resource_url)
     physical_resource = tables.Column('physical_resource_id',
                                       verbose_name=_("Resource"),
                                       link=mappings.resource_to_url)
@@ -163,7 +168,7 @@ class ResourcesTable(tables.DataTable):
 
     logical_resource = tables.Column('resource_name',
                                      verbose_name=_("Stack Resource"),
-                                     link=lambda d: d.resource_name)
+                                     link=get_resource_url)
     physical_resource = tables.Column('physical_resource_id',
                                      verbose_name=_("Resource"),
                                      link=mappings.resource_to_url)
