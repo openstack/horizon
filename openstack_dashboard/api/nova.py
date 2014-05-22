@@ -94,7 +94,7 @@ class Server(base.APIResourceWrapper):
         import glanceclient.exc as glance_exceptions
         from openstack_dashboard.api import glance
         if not self.image:
-            return "(not found)"
+            return "-"
         if hasattr(self.image, 'name'):
             return self.image.name
         if 'name' in self.image:
@@ -104,7 +104,7 @@ class Server(base.APIResourceWrapper):
                 image = glance.image_get(self.request, self.image['id'])
                 return image.name
             except glance_exceptions.ClientException:
-                return "(not found)"
+                return "-"
 
     @property
     def internal_name(self):

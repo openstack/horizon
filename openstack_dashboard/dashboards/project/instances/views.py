@@ -104,10 +104,6 @@ class IndexView(tables.DataTableView):
                     if isinstance(instance.image, dict):
                         if instance.image.get('id') in image_map:
                             instance.image = image_map[instance.image['id']]
-                    else:
-                        # Instance from volume returns a string
-                        instance.image = {'name':
-                                instance.image if instance.image else _("-")}
 
                 try:
                     flavor_id = instance.flavor["id"]
