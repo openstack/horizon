@@ -46,13 +46,13 @@ class RuleCIDRField(forms.IPField):
 
 class AddRouterRule(forms.SelfHandlingForm):
     source = RuleCIDRField(label=_("Source CIDR"),
-                                  widget=forms.TextInput(), required=True)
+                           widget=forms.TextInput(), required=True)
     destination = RuleCIDRField(label=_("Destination CIDR"),
-                                  widget=forms.TextInput(), required=True)
+                                widget=forms.TextInput(), required=True)
     action = forms.ChoiceField(label=_("Action"), required=True)
     nexthops = forms.MultiIPField(label=_("Optional: Next Hop "
-                                       "Addresses (comma delimited)"),
-                               widget=forms.TextInput(), required=False)
+                                          "Addresses (comma delimited)"),
+                                  widget=forms.TextInput(), required=False)
     router_id = forms.CharField(label=_("Router ID"),
                                 widget=forms.TextInput(attrs={'readonly':
                                                               'readonly'}))
@@ -67,8 +67,8 @@ class AddRouterRule(forms.SelfHandlingForm):
         try:
             if 'rule_to_delete' in request.POST:
                 rulemanager.remove_rules(request,
-                    [request.POST['rule_to_delete']],
-                    router_id=data['router_id'])
+                                         [request.POST['rule_to_delete']],
+                                         router_id=data['router_id'])
         except Exception:
             exceptions.handle(request, _('Unable to delete router rule.'))
         try:
@@ -90,7 +90,7 @@ class AddRouterRule(forms.SelfHandlingForm):
             messages.success(request, msg)
             return True
         except Exception as e:
-            msg = _('Failed to add router rule %s') % e.message
+            msg = _('Failed to add router rule %s') % e
             LOG.info(msg)
             messages.error(request, msg)
             redirect = reverse(self.failure_url, args=[data['router_id']])

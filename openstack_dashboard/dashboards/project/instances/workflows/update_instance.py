@@ -72,7 +72,7 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
             api.network.server_update_security_groups(request, instance_id,
                                                       wanted_groups)
         except Exception as e:
-            exceptions.handle(request, e.message)
+            exceptions.handle(request, str(e))
             return False
         return True
 
