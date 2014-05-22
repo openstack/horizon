@@ -21,4 +21,4 @@ python-novaclient>=2.17.0
 python-swiftclient>=1.6
 python-troveclient>=1.0.3
 pytz>=2010h
-six>=1.5.2
+six>=1.6.0
