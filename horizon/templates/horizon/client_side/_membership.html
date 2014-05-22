@@ -3,8 +3,7 @@
 
 {% block id %}membership_template{% endblock %}
 
-{% block template %}
-{% jstemplate %}
+{% block template %}{% spaceless %}{% jstemplate %}
 <ul class="nav nav-pills btn-group">
   <li class="member" data-[[step_slug]]-id="[[data_id]]">
     <span class="display_name">[[display_name]]</span>
@@ -22,5 +21,4 @@
     </ul>
   </li>
 </ul>
-{% endjstemplate %}
-{% endblock %}
+{% endjstemplate %}{% endspaceless %}{% endblock %}

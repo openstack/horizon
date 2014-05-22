@@ -53,7 +53,7 @@ horizon.autoDismissAlerts = function() {
 
 horizon.addInitFunction(function () {
   // Bind AJAX message handling.
-  $("body").ajaxComplete(function(event, request, settings){
+  $(document).ajaxComplete(function(event, request, settings){
     var message_array = $.parseJSON(horizon.ajax.get_messages(request));
     $(message_array).each(function (index, item) {
       horizon.alert(item[0], item[1], item[2]);

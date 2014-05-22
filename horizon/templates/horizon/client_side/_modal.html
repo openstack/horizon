@@ -3,8 +3,7 @@
 
 {% block id %}modal_template{% endblock %}
 
-{% block template %}
-{% jstemplate %}
+{% block template %}{% spaceless %}{% jstemplate %}
 <div class="modal hide">
   <div class='modal-header'>
     <a class='close' data-dismiss='modal'>&times;</a>
@@ -18,5 +17,4 @@
     <a href='#' class='btn cancel' data-dismiss='modal'>[[cancel]]</a>
   </div>
 </div>
-{% endjstemplate %}
-{% endblock %}
+{% endjstemplate %}{% endspaceless %}{% endblock %}
