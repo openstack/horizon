@@ -64,7 +64,7 @@ class ConsoleTab(tabs.Tab):
         try:
             console_url = console.get_console(request, console_type, instance)
         except exceptions.NotAvailable:
-            pass
+            exceptions.handle(request, ignore=True, force_log=True)
 
         return {'console_url': console_url, 'instance_id': instance.id}
 
