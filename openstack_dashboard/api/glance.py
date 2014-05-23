@@ -94,16 +94,20 @@ def image_update(request, image_id, **kwargs):
 
 
 def image_create(request, **kwargs):
-    copy_from = None
-
-    if kwargs.get('copy_from'):
-        copy_from = kwargs.pop('copy_from')
+    copy_from = kwargs.pop('copy_from', None)
+    data = kwargs.pop('data', None)
 
     image = glanceclient(request).images.create(**kwargs)
 
-    if copy_from:
+    if data:
         thread.start_new_thread(image_update,
                                 (request, image.id),
-                                {'copy_from': copy_from})
+                                {'data': data,
+                                 'purge_props': False})
+    elif copy_from:
+        thread.start_new_thread(image_update,
+                                (request, image.id),
+                                {'copy_from': copy_from,
+                                 'purge_props': False})
 
     return image
