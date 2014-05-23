@@ -696,9 +696,10 @@ class Cell(html.HTMLElement):
         if self.column.status or \
                 self.column.name in self.column.table._meta.status_columns:
             #returns the first matching status found
-            data_value_lower = unicode(self.data).lower()
+            data_status_lower = unicode(
+                self.column.get_raw_data(self.datum)).lower()
             for status_name, status_value in self.column.status_choices:
-                if unicode(status_name).lower() == data_value_lower:
+                if unicode(status_name).lower() == data_status_lower:
                     self._status = status_value
                     return self._status
         self._status = None
