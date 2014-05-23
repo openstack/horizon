@@ -79,6 +79,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                                        'tenant_list',
                                        'add_tenant_user_role',
                                        'get_default_role',
+                                       'roles_for_user',
                                        'role_list')})
     def test_create(self):
         user = self.users.get(id="1")
@@ -102,6 +103,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                                  domain=domain_id).AndReturn(user)
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
+        api.keystone.roles_for_user(IgnoreArg(), user.id, self.tenant.id)
         api.keystone.add_tenant_user_role(IgnoreArg(), self.tenant.id,
                                           user.id, role.id)
 
@@ -128,9 +130,10 @@ class UsersViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('user_create',
                                        'get_default_domain',
-                                       'tenant_list',
                                        'add_tenant_user_role',
+                                       'tenant_list',
                                        'get_default_role',
+                                       'roles_for_user',
                                        'role_list')})
     def test_create_with_empty_email(self):
         user = self.users.get(id="5")
@@ -154,6 +157,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.keystone.get_default_role(IgnoreArg()).AndReturn(role)
         api.keystone.add_tenant_user_role(IgnoreArg(), self.tenant.id,
                                           user.id, role.id)
+        api.keystone.roles_for_user(IgnoreArg(), user.id, self.tenant.id)
 
         self.mox.ReplayAll()
         formData = {'method': 'CreateUserForm',
