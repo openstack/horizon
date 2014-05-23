@@ -59,7 +59,7 @@ class VolumesTable(project_tables.VolumesTable):
         table_actions = (project_tables.DeleteVolume, VolumesFilterAction)
         row_actions = (project_tables.DeleteVolume,)
         columns = ('tenant', 'host', 'name', 'size', 'status', 'volume_type',
-                   'attachments',)
+                   'attachments', 'bootable')
 
 
 class VolumeTypesTable(tables.DataTable):
