@@ -725,7 +725,7 @@ class Site(Registry, HorizonComponent):
         """Lazy loading for URL patterns.
 
         This method avoids problems associated with attempting to evaluate
-        the the URLconf before the settings module has been loaded.
+        the URLconf before the settings module has been loaded.
         """
         def url_patterns():
             return self._urls()[0]

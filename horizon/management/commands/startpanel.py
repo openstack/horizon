@@ -58,7 +58,7 @@ class Command(TemplateCommand):
         dashboard_path = options.get('dashboard')
         dashboard_mod_path = ".".join([dashboard_path, "dashboard"])
 
-        # Check the the dashboard.py file in the dashboard app can be imported.
+        # Check the dashboard.py file in the dashboard app can be imported.
         # Add the dashboard information to our options to pass along if all
         # goes well.
         try:
