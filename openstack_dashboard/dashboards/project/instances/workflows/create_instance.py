@@ -137,7 +137,7 @@ class SetInstanceDetailsAction(workflows.Action):
         super(SetInstanceDetailsAction, self).__init__(
             request, context, *args, **kwargs)
         source_type_choices = [
-            ('', _("--- Select source ---")),
+            ('', _("Select source")),
             ("image_id", _("Boot from image")),
             ("instance_snapshot_id", _("Boot from snapshot")),
         ]
