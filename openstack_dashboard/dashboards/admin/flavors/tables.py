@@ -95,6 +95,10 @@ def get_ephemeral_size(flavor):
     return _("%sGB") % getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', 0)
 
 
+def get_extra_specs(flavor):
+    return flavor.get_keys()
+
+
 class FlavorsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Flavor Name'))
     vcpus = tables.Column('vcpus', verbose_name=_('VCPUs'))
@@ -115,6 +119,11 @@ class FlavorsTable(tables.DataTable):
                            verbose_name=_("Public"),
                            empty_value=False,
                            filters=(filters.yesno, filters.capfirst))
+    extra_specs = tables.Column(get_extra_specs,
+                                verbose_name=_("Extra Specs"),
+                                link=("horizon:admin:flavors:extras:index"),
+                                empty_value=False,
+                                filters=(filters.yesno, filters.capfirst))
 
     class Meta:
         name = "flavors"

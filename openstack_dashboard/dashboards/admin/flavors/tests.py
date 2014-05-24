@@ -25,10 +25,12 @@ INDEX_URL = reverse('horizon:admin:flavors:index')
 
 
 class FlavorsViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('flavor_list',), })
+    @test.create_stubs({api.nova: ('flavor_list',),
+                        flavors.Flavor: ('get_keys',), })
     def test_index(self):
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
                 .AndReturn(self.flavors.list())
+        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
