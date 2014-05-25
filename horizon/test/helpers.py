@@ -19,6 +19,7 @@
 import logging
 import os
 import socket
+import time
 
 from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
 from django.contrib.auth.models import Permission  # noqa
@@ -36,7 +37,7 @@ LOG = logging.getLogger(__name__)
 
 
 try:
-    from selenium.webdriver.firefox.webdriver import WebDriver  # noqa
+    from horizon.test.webdriver import WebDriver  # noqa
     from selenium.webdriver.support import ui as selenium_ui
 except ImportError as e:
     # NOTE(saschpe): Several distribution can't ship selenium due to its
@@ -165,7 +166,9 @@ class TestCase(django_test.TestCase):
 class SeleniumTestCase(django_test.LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
+        socket.setdefaulttimeout(60)
         if os.environ.get('WITH_SELENIUM', False):
+            time.sleep(1)
             cls.selenium = WebDriver()
         super(SeleniumTestCase, cls).setUpClass()
 
@@ -173,10 +176,11 @@ class SeleniumTestCase(django_test.LiveServerTestCase):
     def tearDownClass(cls):
         if os.environ.get('WITH_SELENIUM', False):
             cls.selenium.quit()
+            time.sleep(1)
         super(SeleniumTestCase, cls).tearDownClass()
 
     def setUp(self):
-        socket.setdefaulttimeout(10)
+        socket.setdefaulttimeout(60)
         self.ui = selenium_ui
         super(SeleniumTestCase, self).setUp()
 

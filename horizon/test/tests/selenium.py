@@ -18,7 +18,7 @@ from horizon.test import helpers as test
 class BrowserTests(test.SeleniumTestCase):
     def test_qunit(self):
         self.selenium.get("%s%s" % (self.live_server_url, "/qunit/"))
-        wait = self.ui.WebDriverWait(self.selenium, 10)
+        wait = self.ui.WebDriverWait(self.selenium, 120)
 
         def qunit_done(driver):
             text = driver.find_element_by_id("qunit-testresult").text
