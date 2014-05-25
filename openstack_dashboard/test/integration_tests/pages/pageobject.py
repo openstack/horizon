@@ -63,8 +63,8 @@ class PageObject(object):
     def return_to_previous_page(self):
         self.driver.back()
 
-    def get_element(self, *element):
-        return self.driver.find_element(*element)
+    def get_element(self, *locator):
+        return self.driver.find_element(*locator)
 
     def fill_field_element(self, data, field_element):
         field_element.clear()

@@ -11,9 +11,15 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests.pages import basepage
+from openstack_dashboard.test.integration_tests.pages import settingspage
 
 
 class ProjectPage(basepage.BasePage):
     def __init__(self, driver, conf):
         super(ProjectPage, self).__init__(driver, conf)
         self._page_title = 'Instance Overview'
+
+    def go_to_settings_page(self):
+        self.topbar.user_dropdown_menu.click()
+        self.topbar.settings_link.click()
+        return settingspage.SettingsPage(self.driver, self.conf)
