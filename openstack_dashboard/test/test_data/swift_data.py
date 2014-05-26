@@ -23,6 +23,7 @@ from openstack_dashboard.test.test_data import utils
 def data(TEST):
     TEST.containers = utils.TestDataContainer()
     TEST.objects = utils.TestDataContainer()
+    TEST.folder = utils.TestDataContainer()
 
     # '%' can break URL if not properly url-quoted
     # ' ' (space) can break 'Content-Disposition' if not properly
@@ -81,3 +82,13 @@ def data(TEST):
                                            container_1.name,
                                            data=obj_data)
         TEST.objects.add(swift_object)
+
+    folder_dict = {"name": u"test folder%\u6346",
+                   "content_type": u"text/plain",
+                   "bytes": 128,
+                   "timestamp": timeutils.isotime(),
+                   "_table_data_type": u"subfolders",
+                   "last_modified": None,
+                   "hash": u"object_hash"}
+
+    TEST.folder.add(swift.PseudoFolder(folder_dict, container_1.name))
