@@ -20,6 +20,8 @@ from django import http
 from django import shortcuts
 from django.views import generic
 
+import six
+
 from horizon import exceptions
 from horizon.forms.views import ADD_TO_FIELD_HEADER  # noqa
 from horizon import messages
@@ -151,7 +153,7 @@ class WorkflowView(generic.TemplateView):
             if not step.action.is_valid():
                 errors[step.slug] = dict(
                     (field, [unicode(error) for error in errors])
-                    for (field, errors) in step.action.errors.iteritems())
+                    for (field, errors) in six.iteritems(step.action.errors))
         return {
             'has_errors': bool(errors),
             'workflow_slug': workflow.slug,

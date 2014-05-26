@@ -16,6 +16,8 @@ import functools
 import warnings
 import weakref
 
+import six
+
 
 class UnhashableKeyWarning(RuntimeWarning):
     """Raised when trying to memoize a function with an unhashable argument."""
@@ -40,7 +42,7 @@ def _get_key(args, kwargs, remove_callback):
     # Sort it, so that we don't depend on the order of keys.
     weak_kwargs = tuple(sorted(
         (key, _try_weakref(value, remove_callback))
-        for (key, value) in kwargs.iteritems()))
+        for (key, value) in six.iteritems(kwargs)))
     return weak_args, weak_kwargs
 
 

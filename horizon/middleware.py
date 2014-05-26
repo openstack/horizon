@@ -34,6 +34,8 @@ from django.utils.encoding import iri_to_uri  # noqa
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
+import six
+
 from horizon import exceptions
 from horizon.utils import functions as utils
 
@@ -89,7 +91,7 @@ class HorizonMiddleware(object):
             if max_cookie_size is not None and session_key is not None:
                 cookie_size = sum((
                     len(key) + len(value)
-                    for key, value in request.COOKIES.iteritems()
+                    for key, value in six.iteritems(request.COOKIES)
                 ))
                 if cookie_size >= max_cookie_size:
                     LOG.error(
@@ -171,9 +173,9 @@ class HorizonMiddleware(object):
                 else:
                     redirect_response = http.HttpResponse()
                 # Copy cookies from HttpResponseRedirect towards HttpResponse
-                for cookie_name, cookie in response.cookies.iteritems():
+                for cookie_name, cookie in six.iteritems(response.cookies):
                     cookie_kwargs = dict((
-                        (key, value) for key, value in cookie.iteritems()
+                        (key, value) for key, value in six.iteritems(cookie)
                         if key in ('max_age', 'expires', 'path', 'domain',
                             'secure', 'httponly', 'logout_reason') and value
                     ))

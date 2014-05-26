@@ -16,6 +16,8 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables  # noqa
 
+import six
+
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -336,7 +338,7 @@ class CreateStackForm(forms.SelfHandlingForm):
     @sensitive_variables('password')
     def handle(self, request, data):
         prefix_length = len(self.param_prefix)
-        params_list = [(k[prefix_length:], v) for (k, v) in data.iteritems()
+        params_list = [(k[prefix_length:], v) for (k, v) in six.iteritems(data)
                        if k.startswith(self.param_prefix)]
         fields = {
             'stack_name': data.get('stack_name'),
@@ -380,7 +382,7 @@ class EditStackForm(CreateStackForm):
     @sensitive_variables('password')
     def handle(self, request, data):
         prefix_length = len(self.param_prefix)
-        params_list = [(k[prefix_length:], v) for (k, v) in data.iteritems()
+        params_list = [(k[prefix_length:], v) for (k, v) in six.iteritems(data)
                        if k.startswith(self.param_prefix)]
 
         stack_id = data.get('stack_id')

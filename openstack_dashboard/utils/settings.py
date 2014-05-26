@@ -16,6 +16,8 @@ import pkgutil
 
 from django.utils import importlib
 
+import six
+
 
 def import_submodules(module):
     """Import all submodules and make them available in a dict."""
@@ -38,7 +40,7 @@ def import_dashboard_config(modules):
     """Imports configuration from all the modules and merges it."""
     config = collections.defaultdict(dict)
     for module in modules:
-        for key, submodule in import_submodules(module).iteritems():
+        for key, submodule in six.iteritems(import_submodules(module)):
             if hasattr(submodule, 'DASHBOARD'):
                 dashboard = submodule.DASHBOARD
                 config[dashboard].update(submodule.__dict__)
@@ -49,7 +51,7 @@ def import_dashboard_config(modules):
                 logging.warning("Skipping %s because it doesn't have DASHBOARD"
                                 ", PANEL or PANEL_GROUP defined.",
                                 submodule.__name__)
-    return sorted(config.iteritems(),
+    return sorted(six.iteritems(config),
                   key=lambda c: c[1]['__name__'].rsplit('.', 1))
 
 

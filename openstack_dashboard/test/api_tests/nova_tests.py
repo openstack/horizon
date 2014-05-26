@@ -25,6 +25,7 @@ from django.test.utils import override_settings
 
 from mox import IsA  # noqa
 from novaclient.v1_1 import servers
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -214,7 +215,7 @@ class ComputeApiTests(test.APITestCase):
         values = {"maxTotalCores": -1, "maxTotalInstances": 10}
         limits = self.mox.CreateMockAnything()
         limits.absolute = []
-        for key, val in values.iteritems():
+        for key, val in six.iteritems(values):
             limit = self.mox.CreateMockAnything()
             limit.name = key
             limit.value = val
