@@ -39,6 +39,7 @@ from openstack_dashboard.usage import quotas
 with_sel = os.environ.get('WITH_SELENIUM', False)
 if with_sel:
     from selenium.webdriver import ActionChains  # noqa
+    from selenium.webdriver.common import keys
 
 from socket import timeout as socket_timeout  # noqa
 
@@ -1583,7 +1584,9 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         td_element = self.selenium.find_element_by_xpath(
             "//td[@data-update-url='/admin/projects/?action=cell_update"
             "&table=tenants&cell_name=name&obj_id=1']")
-        td_element.find_element_by_tag_name('input').send_keys("Changed ")
+        name_input = td_element.find_element_by_tag_name('input')
+        name_input.send_keys(keys.Keys.HOME)
+        name_input.send_keys("Changed ")
         # Saving new project name by AJAX
         td_element.find_element_by_class_name('inline-edit-submit').click()
         # Waiting for the AJAX response of cell refresh
