@@ -602,7 +602,8 @@ The name of the dashboard the ``PANEL`` associated with. Required.
 
 .. versionadded:: 2014.1(Icehouse)
 
-The name of the panel group the ``PANEL`` is associated with.
+The name of the panel group the ``PANEL`` is associated with. If you want the panel to show up
+without a panel group, use the panel group "default".
 
 ``DEFAULT_PANEL``
 -----------------
