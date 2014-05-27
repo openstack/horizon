@@ -170,7 +170,7 @@ def data(TEST):
                   'protected': False}
     multi_prop_image = images.Image(images.ImageManager(None), image_dict)
 
-    # An image wihout name being returned based on current api
+    # An image without name being returned based on current api
     image_dict = {'id': 'c8756975-7a3b-4e43-b7f7-433576112849',
                   'status': "active",
                   'size': 8 * 1024 ** 3,

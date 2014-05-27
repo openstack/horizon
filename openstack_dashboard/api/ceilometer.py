@@ -117,7 +117,7 @@ class Resource(base.APIResourceWrapper):
     def __init__(self, apiresource, ceilometer_usage=None):
         super(Resource, self).__init__(apiresource)
 
-        # Save empty strings to IDs rather then None, sop it gets
+        # Save empty strings to IDs rather than None, so it gets
         # serialized correctly. We don't want 'None' strings.
         self.project_id = self.project_id or ""
         self.user_id = self.user_id or ""

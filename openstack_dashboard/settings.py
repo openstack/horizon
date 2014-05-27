@@ -257,6 +257,6 @@ if DEBUG:
 # during django reloads and an active user is logged in, the monkey
 # patch below will not otherwise be applied in time - resulting in developers
 # appearing to be logged out.  In typical production deployments this section
-# below may be ommited, though it should not be harmful
+# below may be omitted, though it should not be harmful
 from openstack_auth import utils as auth_utils
 auth_utils.patch_middleware_get_user()

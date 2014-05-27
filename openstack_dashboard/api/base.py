@@ -175,7 +175,7 @@ class QuotaSet(Sequence):
 
     def __add__(self, other):
         """Merge another QuotaSet into this one. Existing quotas are
-        not overriden.
+        not overridden.
         """
         if not isinstance(other, QuotaSet):
             msg = "Can only add QuotaSet to QuotaSet, " \
