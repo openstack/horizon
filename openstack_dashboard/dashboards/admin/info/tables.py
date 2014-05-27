@@ -66,18 +66,6 @@ def get_available(zone):
     return zone.zoneState['available']
 
 
-class NovaServiceFilterAction(tables.FilterAction):
-    def filter(self, table, services, filter_string):
-        q = filter_string.lower()
-
-        def comp(service):
-            if q in service.type.lower():
-                return True
-            return False
-
-        return filter(comp, services)
-
-
 def get_nova_agent_status(agent):
     template_name = 'admin/info/_cell_status.html'
     context = {
@@ -104,7 +92,30 @@ class NovaServicesTable(tables.DataTable):
     class Meta:
         name = "nova_services"
         verbose_name = _("Compute Services")
-        table_actions = (NovaServiceFilterAction,)
+        table_actions = (ServiceFilterAction,)
+        multi_select = False
+
+
+class CinderServicesTable(tables.DataTable):
+    binary = tables.Column("binary", verbose_name=_('Name'))
+    host = tables.Column('host', verbose_name=_('Host'))
+    zone = tables.Column('zone', verbose_name=_('Zone'))
+    status = tables.Column('status', verbose_name=_('Status'),
+                           filters=(filters.title, ))
+    state = tables.Column('state', verbose_name=_('State'),
+                          filters=(filters.title, ))
+    updated_at = tables.Column('updated_at',
+                               verbose_name=_('Updated At'),
+                               filters=(utils_filters.parse_isotime,
+                                        filters.timesince))
+
+    def get_object_id(self, obj):
+        return "%s-%s-%s" % (obj.binary, obj.host, obj.zone)
+
+    class Meta:
+        name = "cinder_services"
+        verbose_name = _("Block Storage Services")
+        table_actions = (ServiceFilterAction,)
         multi_select = False
 
 

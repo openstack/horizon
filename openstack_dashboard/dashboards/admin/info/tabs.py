@@ -18,6 +18,7 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard.api import base
+from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
@@ -54,6 +55,23 @@ class NovaServicesTab(tabs.TableTab):
             services = nova.service_list(self.tab_group.request)
         except Exception:
             msg = _('Unable to get nova services list.')
+            exceptions.check_message(["Connection", "refused"], msg)
+            raise
+
+        return services
+
+
+class CinderServicesTab(tabs.TableTab):
+    table_classes = (tables.CinderServicesTable,)
+    name = _("Block Storage Services")
+    slug = "cinder_services"
+    template_name = constants.INFO_DETAIL_TEMPLATE_NAME
+
+    def get_cinder_services_data(self):
+        try:
+            services = cinder.service_list(self.tab_group.request)
+        except Exception:
+            msg = _('Unable to get cinder services list.')
             exceptions.check_message(["Connection", "refused"], msg)
             raise
 
@@ -98,6 +116,6 @@ class DefaultQuotasTab(tabs.TableTab):
 
 class SystemInfoTabs(tabs.TabGroup):
     slug = "system_info"
-    tabs = (ServicesTab, NovaServicesTab,
+    tabs = (ServicesTab, NovaServicesTab, CinderServicesTab,
             NetworkAgentsTab, DefaultQuotasTab)
     sticky = True
