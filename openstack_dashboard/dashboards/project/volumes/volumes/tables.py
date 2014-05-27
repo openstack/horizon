@@ -35,7 +35,7 @@ DELETABLE_STATES = ("available", "error", "error_extending")
 
 class LaunchVolume(tables.LinkAction):
     name = "launch_volume"
-    verbose_name = _("Launch")
+    verbose_name = _("Launch as Instance")
     url = "horizon:project:instances:launch"
     classes = ("btn-launch", "ajax-modal")
     policy_rules = (("compute", "compute:create"),)
