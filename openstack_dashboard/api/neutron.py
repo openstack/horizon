@@ -392,16 +392,25 @@ class FloatingIpManager(network_base.FloatingIpManager):
                 targets.append(FloatingIpTarget(target))
         return targets
 
-    def get_target_id_by_instance(self, instance_id):
-        # In Neutron one port can have multiple ip addresses, so this method
-        # picks up the first one and generate target id.
+    def _target_ports_by_instance(self, instance_id):
         if not instance_id:
             return None
         search_opts = {'device_id': instance_id}
-        ports = port_list(self.request, **search_opts)
+        return port_list(self.request, **search_opts)
+
+    def get_target_id_by_instance(self, instance_id):
+        # In Neutron one port can have multiple ip addresses, so this method
+        # picks up the first one and generate target id.
+        ports = self._target_ports_by_instance(instance_id)
         if not ports:
             return None
-        return '%s_%s' % (ports[0].id, ports[0].fixed_ips[0]['ip_address'])
+        return '{0}_{1}'.format(ports[0].id,
+                                ports[0].fixed_ips[0]['ip_address'])
+
+    def list_target_id_by_instance(self, instance_id):
+        ports = self._target_ports_by_instance(instance_id)
+        return ['{0}_{1}'.format(p.id, p.fixed_ips[0]['ip_address'])
+                for p in ports]
 
     def is_simple_associate_supported(self):
         # NOTE: There are two reason that simple association support
