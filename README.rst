@@ -30,7 +30,11 @@ In the ``tools`` directory there is a script to create one for you::
   $ python tools/install_venv.py
 
 Alternatively, the ``run_tests.sh`` script will also install the environment
-for you and then run the full test suite to verify everything is installed
+for you. Activate the newly installed ``.venv`` virtualenv:
+
+  $ source .venv/bin/activate
+
+and then run the full test suite to verify everything is installed
 and functioning correctly.
 
 Now that the virtualenv is created, you need to configure your local
