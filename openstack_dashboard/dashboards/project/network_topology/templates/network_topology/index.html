@@ -24,9 +24,15 @@
   </div>
   
   <div class="launchButtons">
+  {% if launch_instance_allowed %}
   <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-small btn-launch ajax-modal">{%trans "Launch Instance" %}</a>
+  {% endif %}
+  {% if create_network_allowed %}
   <a href="{% url 'horizon:project:network_topology:createnetwork' %}" id="networks__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Network" %}</a>
+  {% endif %}
+  {% if create_router_allowed %}
   <a href="{% url 'horizon:project:network_topology:createrouter' %}" id="Routers__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Router" %}</a>
+  {% endif %}
   </div>
 </div>
 

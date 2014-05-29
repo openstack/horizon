@@ -43,6 +43,13 @@ class CheckNetworkEditable(object):
 class DeleteSubnet(CheckNetworkEditable, tables.DeleteAction):
     data_type_singular = _("Subnet")
     data_type_plural = _("Subnets")
+    policy_rules = (("network", "delete_subnet"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"network:project_id": project_id}
 
     def delete(self, request, obj_id):
         try:
@@ -61,6 +68,14 @@ class CreateSubnet(CheckNetworkEditable, tables.LinkAction):
     verbose_name = _("Create Subnet")
     url = "horizon:project:networks:addsubnet"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("network", "create_subnet"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        network = self.table._get_network()
+        if network:
+            project_id = getattr(network, 'tenant_id', None)
+        return {"network:project_id": project_id}
 
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
@@ -72,6 +87,13 @@ class UpdateSubnet(CheckNetworkEditable, tables.LinkAction):
     verbose_name = _("Edit Subnet")
     url = "horizon:project:networks:editsubnet"
     classes = ("ajax-modal", "btn-edit")
+    policy_rules = (("network", "update_subnet"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"network:project_id": project_id}
 
     def get_link_url(self, subnet):
         network_id = self.table.kwargs['network_id']

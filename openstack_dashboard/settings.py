@@ -209,6 +209,7 @@ POLICY_FILES = {
     'volume': 'cinder_policy.json',
     'image': 'glance_policy.json',
     'orchestration': 'heat_policy.json',
+    'network': 'neutron_policy.json',
 }
 
 SECRET_KEY = None

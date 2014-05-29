@@ -257,6 +257,7 @@ TIME_ZONE = "UTC"
 #    'volume': 'cinder_policy.json',
 #    'image': 'glance_policy.json',
 #    'orchestration': 'heat_policy.json',
+#    'network': 'neutron_policy.json',
 #}
 
 # Trove user and database extension support. By default support for

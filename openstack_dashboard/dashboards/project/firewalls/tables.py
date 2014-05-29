@@ -26,6 +26,7 @@ class AddRuleLink(tables.LinkAction):
     verbose_name = _("Add Rule")
     url = "horizon:project:firewalls:addrule"
     classes = ("ajax-modal", "btn-create",)
+    policy_rules = (("network", "create_firewall_rule"),)
 
 
 class AddPolicyLink(tables.LinkAction):
@@ -33,6 +34,7 @@ class AddPolicyLink(tables.LinkAction):
     verbose_name = _("Add Policy")
     url = "horizon:project:firewalls:addpolicy"
     classes = ("ajax-modal", "btn-addpolicy",)
+    policy_rules = (("network", "create_firewall_policy"),)
 
 
 class AddFirewallLink(tables.LinkAction):
@@ -40,6 +42,7 @@ class AddFirewallLink(tables.LinkAction):
     verbose_name = _("Create Firewall")
     url = "horizon:project:firewalls:addfirewall"
     classes = ("ajax-modal", "btn-addfirewall",)
+    policy_rules = (("network", "create_firewall"),)
 
 
 class DeleteRuleLink(tables.DeleteAction):
@@ -48,6 +51,13 @@ class DeleteRuleLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Rule")
     data_type_plural = _("Rules")
+    policy_rules = (("network", "delete_firewall_rule"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
 
 class DeletePolicyLink(tables.DeleteAction):
@@ -56,6 +66,13 @@ class DeletePolicyLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Policy")
     data_type_plural = _("Policies")
+    policy_rules = (("network", "delete_firewall_policy"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
 
 class DeleteFirewallLink(tables.DeleteAction):
@@ -64,12 +81,26 @@ class DeleteFirewallLink(tables.DeleteAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Firewall")
     data_type_plural = _("Firewalls")
+    policy_rules = (("network", "delete_firewall"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
 
 class UpdateRuleLink(tables.LinkAction):
     name = "updaterule"
     verbose_name = _("Edit Rule")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "update_firewall_rule"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def get_link_url(self, rule):
         base_url = reverse("horizon:project:firewalls:updaterule",
@@ -81,6 +112,13 @@ class UpdatePolicyLink(tables.LinkAction):
     name = "updatepolicy"
     verbose_name = _("Edit Policy")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "update_firewall_policy"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:updatepolicy",
@@ -92,6 +130,13 @@ class UpdateFirewallLink(tables.LinkAction):
     name = "updatefirewall"
     verbose_name = _("Edit Firewall")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "update_firewall"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def get_link_url(self, firewall):
         base_url = reverse("horizon:project:firewalls:updatefirewall",
@@ -103,6 +148,14 @@ class InsertRuleToPolicyLink(tables.LinkAction):
     name = "insertrule"
     verbose_name = _("Insert Rule")
     classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "get_firewall_policy"),
+        ("network", "insert_rule"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:insertrule",
@@ -114,6 +167,14 @@ class RemoveRuleFromPolicyLink(tables.LinkAction):
     name = "removerule"
     verbose_name = _("Remove Rule")
     classes = ("ajax-modal", "btn-danger",)
+    policy_rules = (("network", "get_firewall_policy"),
+        ("network", "remove_rule"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:removerule",

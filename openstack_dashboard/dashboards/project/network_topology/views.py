@@ -89,6 +89,26 @@ class RouterDetailView(r_views.DetailView):
 class NetworkTopologyView(TemplateView):
     template_name = 'project/network_topology/index.html'
 
+    def _has_permission(self, policy):
+        has_permission = True
+        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+
+        if policy_check:
+            has_permission = policy_check(policy, self.request)
+
+        return has_permission
+
+    def get_context_data(self, **kwargs):
+        context = super(NetworkTopologyView, self).get_context_data(**kwargs)
+
+        context['launch_instance_allowed'] = self._has_permission(
+            (("compute", "compute:create"),))
+        context['create_network_allowed'] = self._has_permission(
+            (("network", "create_network"),))
+        context['create_router_allowed'] = self._has_permission(
+            (("network", "create_router"),))
+        return context
+
 
 class JSONView(View):
     def add_resource_url(self, view, resources):
