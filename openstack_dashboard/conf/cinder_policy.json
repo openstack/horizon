@@ -31,6 +31,7 @@
 
     "volume_extension:quotas:show": [],
     "volume_extension:quotas:update": [["rule:admin_api"]],
+    "volume_extension:quota_classes": [],
 
     "volume_extension:volume_admin_actions:reset_status": [["rule:admin_api"]],
     "volume_extension:snapshot_admin_actions:reset_status": [["rule:admin_api"]],

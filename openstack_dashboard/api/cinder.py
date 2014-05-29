@@ -393,6 +393,10 @@ def volume_type_list_with_qos_associations(request):
     return vol_types
 
 
+def default_quota_update(request, **kwargs):
+    cinderclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
+
+
 def volume_type_list(request):
     return cinderclient(request).volume_types.list()
 

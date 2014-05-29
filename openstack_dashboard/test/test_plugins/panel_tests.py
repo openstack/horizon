@@ -48,4 +48,4 @@ class PanelPluginTests(test.PluginTestCase):
 
     def test_default_panel(self):
         dashboard = horizon.get_dashboard("admin")
-        self.assertEqual('instances', dashboard.default_panel)
+        self.assertEqual('defaults', dashboard.default_panel)

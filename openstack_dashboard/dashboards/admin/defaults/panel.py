@@ -1,4 +1,4 @@
-# Copyright 2012 Nebula, Inc.
+# Copyright 2013 Kylin, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -16,21 +16,12 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-
-class SystemPanels(horizon.PanelGroup):
-    slug = "admin"
-    name = _("System")
-    panels = ('overview', 'metering', 'hypervisors', 'aggregates',
-              'instances', 'volumes', 'flavors', 'images',
-              'networks', 'routers', 'defaults', 'info')
+from openstack_dashboard.dashboards.admin import dashboard
 
 
-class Admin(horizon.Dashboard):
-    name = _("Admin")
-    slug = "admin"
-    panels = (SystemPanels,)
-    default_panel = 'overview'
-    permissions = ('openstack.roles.admin',)
+class Defaults(horizon.Panel):
+    name = _("Defaults")
+    slug = 'defaults'
 
 
-horizon.register(Admin)
+dashboard.Admin.register(Defaults)
