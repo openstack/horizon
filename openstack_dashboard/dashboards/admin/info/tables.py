@@ -80,7 +80,8 @@ class NovaServicesTable(tables.DataTable):
     host = tables.Column('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Zone'))
     status = tables.Column(get_nova_agent_status, verbose_name=_('Status'))
-    state = tables.Column('state', verbose_name=_('State'))
+    state = tables.Column('state', verbose_name=_('State'),
+                          filters=(filters.title,))
     updated_at = tables.Column('updated_at',
                                verbose_name=_('Updated At'),
                                filters=(utils_filters.parse_isotime,

@@ -1,5 +1,5 @@
 {% load i18n %}
-{{ status }}
+{{ status|title }}
 {% if status == 'disabled' and disabled_reason %}
 <br/><i>{% trans "Reason" %}: {{ disabled_reason }}</i>
 {% endif %}
