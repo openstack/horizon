@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-05-27 07:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2014-05-28 15:37+0000\n"
+"Last-Translator: CarstenD <cad@teuto.net>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: settings.py:82
 msgid "Select format"
-msgstr ""
+msgstr "Format auswählen"
 
 #: settings.py:83
 msgid "AKI - Amazon Kernel Image"
@@ -5225,7 +5225,7 @@ msgstr "Firewalldetails können nicht abgerufen werden."
 #: dashboards/project/firewalls/views.py:67
 #, python-format
 msgid "Deleted rule %s"
-msgstr ""
+msgstr "Regel %s gelöscht"
 
 #: dashboards/project/firewalls/views.py:70
 #, python-format
@@ -5235,7 +5235,7 @@ msgstr "Regel %s kann nicht gelöscht werden."
 #: dashboards/project/firewalls/views.py:75
 #, python-format
 msgid "Deleted policy %s"
-msgstr ""
+msgstr "Richtlinie %s gelöscht"
 
 #: dashboards/project/firewalls/views.py:78
 #, python-format
@@ -5245,7 +5245,7 @@ msgstr "Richtlinie %s konnte nicht gelöscht werden."
 #: dashboards/project/firewalls/views.py:84
 #, python-format
 msgid "Deleted firewall %s"
-msgstr ""
+msgstr "Firewall %s gelöscht"
 
 #: dashboards/project/firewalls/views.py:87
 #, python-format
@@ -6518,7 +6518,7 @@ msgstr "Lösche Datenträger beim Beenden der Instanz"
 
 #: dashboards/project/instances/workflows/create_instance.py:140
 msgid "Select source"
-msgstr ""
+msgstr "Quelle auswählen"
 
 #: dashboards/project/instances/workflows/create_instance.py:141
 msgid "Boot from image"
@@ -8660,7 +8660,7 @@ msgstr "Aktualisiere Volume Snapshot \"%s\""
 
 #: dashboards/project/volumes/snapshots/forms.py:43
 msgid "Unable to update volume snapshot."
-msgstr ""
+msgstr "Volume-Snapshot kann nicht aktualisiert werden."
 
 #: dashboards/project/volumes/snapshots/tables.py:63
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:9
@@ -8979,7 +8979,7 @@ msgstr "Datenträger kann nicht erweitert werden."
 
 #: dashboards/project/volumes/volumes/tables.py:38
 msgid "Launch as Instance"
-msgstr ""
+msgstr "Starten als Instanz"
 
 #: dashboards/project/volumes/volumes/tables.py:75
 #, python-format
@@ -9002,7 +9002,7 @@ msgstr "%(instance)s wurde an %(dev)s angehängt"
 
 #: dashboards/project/volumes/volumes/tables.py:286
 msgid "Bootable"
-msgstr ""
+msgstr "Bootfähig"
 
 #: dashboards/project/volumes/volumes/tables.py:301
 msgid "Detach"
