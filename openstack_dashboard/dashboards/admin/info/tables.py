@@ -12,6 +12,7 @@
 
 from django import template
 from django.template import defaultfilters as filters
+from django.utils.translation import pgettext  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -82,7 +83,9 @@ class NovaServicesTable(tables.DataTable):
     status = tables.Column(get_nova_agent_status, verbose_name=_('Status'))
     state = tables.Column('state', verbose_name=_('State'))
     updated_at = tables.Column('updated_at',
-                               verbose_name=_('Updated At'),
+                               verbose_name=pgettext(
+                                   'Time since the last update',
+                                   u'Last Updated'),
                                filters=(utils_filters.parse_isotime,
                                         filters.timesince))
 
@@ -105,7 +108,9 @@ class CinderServicesTable(tables.DataTable):
     state = tables.Column('state', verbose_name=_('State'),
                           filters=(filters.title, ))
     updated_at = tables.Column('updated_at',
-                               verbose_name=_('Updated At'),
+                               verbose_name=pgettext(
+                                   'Time since the last update',
+                                   u'Last Updated'),
                                filters=(utils_filters.parse_isotime,
                                         filters.timesince))
 
@@ -152,7 +157,9 @@ class NetworkAgentsTable(tables.DataTable):
     status = tables.Column(get_network_agent_status, verbose_name=_('Status'))
     state = tables.Column(get_network_agent_state, verbose_name=_('State'))
     heartbeat_timestamp = tables.Column('heartbeat_timestamp',
-                                        verbose_name=_('Updated At'),
+                                        verbose_name=pgettext(
+                                            'Time since the last update',
+                                            u'Last Updated'),
                                         filters=(utils_filters.parse_isotime,
                                                  filters.timesince))
 
