@@ -311,7 +311,7 @@ class Dashboard(Registry, HorizonComponent):
 
             class SystemPanels(horizon.PanelGroup):
                 slug = "syspanel"
-                name = _("System Panel")
+                name = _("System")
                 panels = ('overview', 'instances', ...)
 
             class Syspanel(horizon.Dashboard):
