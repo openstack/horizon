@@ -32,6 +32,6 @@
             </div>
         </td>
     {% else %}
-        <td{{ cell.attr_string|safe }}>{{ cell.value }}</td>
+        <td{{ cell.attr_string|safe }}>{%if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{%if cell.wrap_list %}</ul>{% endif %}</td>
     {% endif %}
 {% endif %}
