@@ -86,12 +86,16 @@ def update_dashboards(modules, horizon_config, installed_apps):
     dashboards = []
     exceptions = {}
     apps = []
+    angular_modules = []
+    js_files = set()
     panel_customization = []
     update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
             continue
         apps.extend(config.get('ADD_INSTALLED_APPS', []))
+        angular_modules.extend(config.get('ADD_ANGULAR_MODULES', []))
+        js_files.update(config.get('ADD_JS_FILES', []))
         if config.get('DASHBOARD'):
             dashboard = key
             dashboards.append(dashboard)
@@ -107,4 +111,6 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config['dashboards'] = tuple(dashboards)
     horizon_config['exceptions'].update(exceptions)
     horizon_config.update(update_horizon_config)
+    horizon_config.setdefault('angular_modules', []).extend(angular_modules)
+    horizon_config.setdefault('js_files', []).extend(js_files)
     installed_apps[:] = apps + installed_apps

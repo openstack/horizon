@@ -121,7 +121,7 @@ HORIZON_CONFIG = {
         "help_text": "Password must be between 8 and 18 characters."
     },
     'user_home': None,
-    'help_url': "http://example.com"
+    'help_url': "http://example.com",
 }
 
 COMPRESS_ENABLED = True
