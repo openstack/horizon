@@ -18,7 +18,15 @@
 
 import os
 import socket
+import sys
 
+import django
+from django.utils import html_parser
+from horizon.test import patches
+
+# Patch django.utils.html_parser.HTMLParser as a workaround for bug 1273943
+if django.get_version() == '1.4' and sys.version_info[:3] > (2, 7, 3):
+    html_parser.HTMLParser.parse_starttag = patches.parse_starttag_patched
 
 socket.setdefaulttimeout(1)
 
