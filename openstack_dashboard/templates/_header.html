@@ -16,13 +16,11 @@
     {% if num_of_tenants > 1 %}
       <ul id="tenant_list" class="dropdown-menu">
         <li class='divider'></li>
-        {% with authorized_tenants_sorted=authorized_tenants|dictsort:"name" %}
-          {% for tenant in authorized_tenants_sorted %}
-            {% if tenant.enabled and tenant.id != request.user.tenant_id %}
-              <li><a href="{% url 'switch_tenants' tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
-            {% endif %}
-          {% endfor %}
-        {% endwith %}
+        {% for tenant in authorized_tenants %}
+          {% if tenant.enabled and tenant.id != request.user.tenant_id %}
+            <li><a href="{% url 'switch_tenants' tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
+          {% endif %}
+        {% endfor %}
       </ul>
     {% endif %}
   {% endwith %}
