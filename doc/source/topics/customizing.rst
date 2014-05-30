@@ -99,6 +99,35 @@ You can also override existing methods with your own versions::
     tables.SimpleAssociateIP.allowed = NO
     tables.SimpleDisassociateIP.allowed = NO
 
+You could also customize what columns are displayed in an existing
+table, by redefining the ``columns`` attribute of its ``Meta``
+class. This can be achieved in 3 steps:
+
+#. Extend the table that you wish to modify
+#. Redefine the ``columns`` attribute under the ``Meta`` class for this
+   new table
+#. Modify the ``table_class`` attribute for the related view so that it
+   points to the new table
+
+
+For example, if you wished to remove the Admin State column from the
+:class:`~openstack_dashboard.dashboards.admin.networks.tables.NetworksTable`,
+you could do the following::
+
+    from openstack_dashboard.dashboards.project.networks import tables
+    from openstack_dashboard.dashboards.project.networks import views
+
+    class MyNetworksTable(tables.NetworksTable):
+
+        class Meta(tables.NetworksTable.Meta):
+            columns = ('name', 'subnets', 'shared', 'status')
+
+    views.IndexView.table_class = MyNetworksTable
+
+If you want to add a column you can override the parent table in a
+similar way, add the new column definition and then use the ``Meta``
+``columns`` attribute to control the column order as needed.
+
 .. NOTE::
 
     ``my_project.overrides`` needs to be importable by the python process running
