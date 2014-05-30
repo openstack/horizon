@@ -477,6 +477,12 @@ horizon.d3_line_chart = {
         var hoverDetail = new Rickshaw.Graph.HoverDetail({
           graph: graph,
           formatter: function(series, x, y) {
+            if(y % 1 === 0) {
+              y = parseInt(y);
+            } else {
+              y = parseFloat(y).toFixed(2);
+            }
+
             var d = new Date(x * 1000);
             // Convert datetime to YYYY-MM-DD HH:MM:SS GMT
             var datetime_string = d.getUTCFullYear() + "-" +
@@ -488,8 +494,7 @@ horizon.d3_line_chart = {
 
             var date = '<span class="date">' + datetime_string + '</span>';
             var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
-            var content = swatch + series.name + ': ' + parseFloat(y).toFixed(2) + ' ' + series.unit + '<br>' + date;
-            return content;
+            return swatch + series.name + ': ' + y + ' ' + series.unit + '<br>' + date;
           }
         });
       }

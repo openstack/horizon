@@ -28,7 +28,7 @@ from openstack_dashboard.utils import metering
 class GlobalStatsTab(tabs.TableTab):
     name = _("Stats")
     slug = "stats"
-    template_name = ("admin/metering/stats.html")
+    template_name = "admin/metering/stats.html"
     preload = False
     table_classes = (metering_tables.UsageTable,)
 
