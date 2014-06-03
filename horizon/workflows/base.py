@@ -26,6 +26,7 @@ from django.template.defaultfilters import slugify  # noqa
 from django.utils.encoding import force_unicode
 from django.utils.importlib import import_module  # noqa
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import base
 from horizon import exceptions
@@ -73,6 +74,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         return cls
 
 
+@six.add_metaclass(ActionMetaclass)
 class Action(forms.Form):
     """An ``Action`` represents an atomic logical interaction you can have with
     the system. This is easier to understand with a conceptual example: in the
@@ -122,8 +124,6 @@ class Action(forms.Form):
         :meth:`~horizon.workflows.Action.get_help_text` method you can
         customize your help text template to display practically anything.
     """
-
-    __metaclass__ = ActionMetaclass
 
     def __init__(self, request, context, *args, **kwargs):
         if request.method == "POST":
@@ -484,6 +484,7 @@ class UpdateMembersStep(Step):
             return self.slug + "_role_" + role_id
 
 
+@six.add_metaclass(WorkflowMetaclass)
 class Workflow(html.HTMLElement):
     """A Workflow is a collection of Steps. Its interface is very
     straightforward, but it is responsible for handling some very
@@ -587,7 +588,6 @@ class Workflow(html.HTMLElement):
         Defaults to ``False``.
 
     """
-    __metaclass__ = WorkflowMetaclass
     slug = None
     default_steps = ()
     template_name = "horizon/common/_workflow.html"

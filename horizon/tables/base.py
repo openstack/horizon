@@ -33,6 +33,7 @@ from django.utils.http import urlencode
 from django.utils.safestring import mark_safe
 from django.utils import termcolors
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import conf
 from horizon import exceptions
@@ -1015,6 +1016,7 @@ class DataTableMetaclass(type):
         return type.__new__(mcs, name, bases, attrs)
 
 
+@six.add_metaclass(DataTableMetaclass)
 class DataTable(object):
     """A class which defines a table with all data and associated actions.
 
@@ -1039,7 +1041,6 @@ class DataTable(object):
         :class:`~horizon.tables.FilterAction` class (if one is provided)
         using the current request's query parameters.
     """
-    __metaclass__ = DataTableMetaclass
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         self.request = request
