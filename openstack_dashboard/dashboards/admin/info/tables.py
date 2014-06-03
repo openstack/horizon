@@ -35,7 +35,7 @@ def get_stats(service):
                                             {'service': service})
 
 
-def get_enabled(service, reverse=False):
+def get_status(service, reverse=False):
     options = ["Enabled", "Disabled"]
     if reverse:
         options.reverse()
@@ -50,16 +50,16 @@ class ServicesTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_('Name'))
     service_type = tables.Column('__unicode__', verbose_name=_('Service'))
     host = tables.Column('host', verbose_name=_('Host'))
-    enabled = tables.Column(get_enabled,
-                            verbose_name=_('Enabled'),
-                            status=True)
+    status = tables.Column(get_status,
+                           verbose_name=_('Status'),
+                           status=True)
 
     class Meta:
         name = "services"
         verbose_name = _("Services")
         table_actions = (ServiceFilterAction,)
         multi_select = False
-        status_columns = ["enabled"]
+        status_columns = ["status"]
 
 
 def get_available(zone):
