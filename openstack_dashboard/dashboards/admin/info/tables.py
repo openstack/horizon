@@ -19,6 +19,15 @@ from horizon import tables
 from horizon.utils import filters as utils_filters
 
 
+SERVICE_ENABLED = "enabled"
+SERVICE_DISABLED = "disabled"
+
+SERVICE_STATUS_DISPLAY_CHOICES = (
+    (SERVICE_ENABLED, _("Enabled")),
+    (SERVICE_DISABLED, _("Disabled")),
+)
+
+
 class ServiceFilterAction(tables.FilterAction):
     def filter(self, table, services, filter_string):
         q = filter_string.lower()
@@ -36,13 +45,10 @@ def get_stats(service):
                                             {'service': service})
 
 
-def get_status(service, reverse=False):
-    options = ["Enabled", "Disabled"]
-    if reverse:
-        options.reverse()
+def get_status(service):
     # if not configured in this region, neither option makes sense
     if service.host:
-        return options[0] if not service.disabled else options[1]
+        return SERVICE_ENABLED if not service.disabled else SERVICE_DISABLED
     return None
 
 
@@ -53,7 +59,8 @@ class ServicesTable(tables.DataTable):
     host = tables.Column('host', verbose_name=_('Host'))
     status = tables.Column(get_status,
                            verbose_name=_('Status'),
-                           status=True)
+                           status=True,
+                           display_choices=SERVICE_STATUS_DISPLAY_CHOICES)
 
     class Meta:
         name = "services"
