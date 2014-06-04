@@ -28,6 +28,7 @@ function usage {
   echo "  -P, --no-pep8            Don't run pep8 by default"
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
+  echo "  -j, --jshint             Just run jshint"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
   echo "                           Implies -V if -N is not set."
   echo "  --only-selenium          Run only the Selenium unit tests"
@@ -67,6 +68,7 @@ no_pep8=0
 just_pylint=0
 just_docs=0
 just_tabs=0
+just_jshint=0
 never_venv=0
 quiet=0
 restore_env=0
@@ -98,6 +100,7 @@ function process_option {
     -p|--pep8) just_pep8=1;;
     -P|--no-pep8) no_pep8=1;;
     -y|--pylint) just_pylint=1;;
+    -j|--jshint) just_jshint=1;;
     -f|--force) force=1;;
     -t|--tabs) just_tabs=1;;
     -q|--quiet) quiet=1;;
@@ -140,6 +143,12 @@ function run_pylint {
       echo "Completed with problems."
       exit $CODE
   fi
+}
+
+function run_jshint {
+  echo "Running jshint ..."
+  jshint horizon/static/horizon/js
+  jshint horizon/static/horizon/tests
 }
 
 function run_pep8 {
@@ -474,6 +483,12 @@ fi
 # Pylint
 if [ $just_pylint -eq 1 ]; then
     run_pylint
+    exit $?
+fi
+
+# Jshint
+if [ $just_jshint -eq 1 ]; then
+    run_jshint
     exit $?
 fi
 

@@ -3,6 +3,7 @@ django-nose
 docutils==0.9.1
 hacking>=0.8.0,<0.9
 mox>=0.5.3
+nodeenv>=0.9.4
 nose
 nose-exclude
 nosehtmloutput>=0.0.3
