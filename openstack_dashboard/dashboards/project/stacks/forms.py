@@ -49,12 +49,14 @@ class TemplateForm(forms.SelfHandlingForm):
         help_text = _('From here you can select a template to launch '
                       'a stack.')
 
-    choices = [('url', _('URL')),
-               ('file', _('File')),
+    # TODO(jomara) - update URL choice for template & environment files
+    # w/ client side download when applicable
+    base_choices = [('file', _('File')),
                ('raw', _('Direct Input'))]
+    url_choice = [('url', _('URL'))]
     attributes = {'class': 'switchable', 'data-slug': 'templatesource'}
     template_source = forms.ChoiceField(label=_('Template Source'),
-                                        choices=choices,
+                                        choices=base_choices + url_choice,
                                         widget=forms.Select(attrs=attributes))
 
     attributes = create_upload_form_attributes(
@@ -90,7 +92,7 @@ class TemplateForm(forms.SelfHandlingForm):
     attributes = {'data-slug': 'envsource', 'class': 'switchable'}
     environment_source = forms.ChoiceField(
         label=_('Environment Source'),
-        choices=choices,
+        choices=base_choices,
         widget=forms.Select(attrs=attributes),
         required=False)
 
@@ -102,16 +104,6 @@ class TemplateForm(forms.SelfHandlingForm):
         label=_('Environment File'),
         help_text=_('A local environment to upload.'),
         widget=forms.FileInput(attrs=attributes),
-        required=False)
-
-    attributes = create_upload_form_attributes(
-        'env',
-        'url',
-        _('Environment URL'))
-    environment_url = forms.URLField(
-        label=_('Environment URL'),
-        help_text=_('An external (HTTP) URL to load the environment from.'),
-        widget=forms.TextInput(attrs=attributes),
         required=False)
 
     attributes = create_upload_form_attributes(
@@ -144,6 +136,9 @@ class TemplateForm(forms.SelfHandlingForm):
             kwargs['template'] = cleaned['template_data']
         else:
             kwargs['template_url'] = cleaned['template_url']
+
+        if cleaned['environment_data']:
+            kwargs['environment'] = cleaned['environment_data']
 
         try:
             validated = api.heat.template_validate(self.request, **kwargs)
@@ -208,7 +203,6 @@ class TemplateForm(forms.SelfHandlingForm):
     def create_kwargs(self, data):
         kwargs = {'parameters': data['template_validate'],
                   'environment_data': data['environment_data'],
-                  'environment_url': data['environment_url'],
                   'template_data': data['template_data'],
                   'template_url': data['template_url']}
         if data.get('stack_id'):
@@ -253,9 +247,6 @@ class CreateStackForm(forms.SelfHandlingForm):
         widget=forms.widgets.HiddenInput,
         required=False)
     environment_data = forms.CharField(
-        widget=forms.widgets.HiddenInput,
-        required=False)
-    environment_url = forms.CharField(
         widget=forms.widgets.HiddenInput,
         required=False)
     parameters = forms.CharField(
@@ -353,8 +344,6 @@ class CreateStackForm(forms.SelfHandlingForm):
 
         if data.get('environment_data'):
             fields['environment'] = data.get('environment_data')
-        elif data.get('environment_url'):
-            fields['environment_url'] = data.get('environment_url')
 
         try:
             api.heat.stack_create(self.request, **fields)
