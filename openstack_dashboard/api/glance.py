@@ -100,6 +100,7 @@ def image_create(request, **kwargs):
     if copy_from:
         thread.start_new_thread(image_update,
                                 (request, image.id),
-                                {'copy_from': copy_from})
+                                {'copy_from': copy_from,
+                                 'purge_props': False})
 
     return image
