@@ -78,11 +78,20 @@ class NovaServiceFilterAction(tables.FilterAction):
         return filter(comp, services)
 
 
+def get_nova_agent_status(agent):
+    template_name = 'admin/info/_cell_status.html'
+    context = {
+        'status': agent.status,
+        'disabled_reason': agent.disabled_reason
+    }
+    return template.loader.render_to_string(template_name, context)
+
+
 class NovaServicesTable(tables.DataTable):
     binary = tables.Column("binary", verbose_name=_('Name'))
     host = tables.Column('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Zone'))
-    status = tables.Column('status', verbose_name=_('Status'))
+    status = tables.Column(get_nova_agent_status, verbose_name=_('Status'))
     state = tables.Column('state', verbose_name=_('State'))
     updated_at = tables.Column('updated_at',
                                verbose_name=_('Updated At'),
