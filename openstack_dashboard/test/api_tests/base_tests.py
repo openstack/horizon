@@ -112,6 +112,38 @@ class APIDictWrapperTests(test.TestCase):
 
         self.assertEqual('retValue', resource.get('baz', 'retValue'))
 
+    def test_get_with_non_str(self):
+        resource = APIDict.get_instance()
+        self.assertNotIn(0, resource._attrs,
+                         msg="Test assumption broken.  "
+                             "Find new missing attribute.")
+        self.assertIsNone(resource.get(0))
+        self.assertEqual('retValue', resource.get(0, 'retValue'))
+
+    def test_get_item_non_str(self):
+        resource = APIDict.get_instance()
+        self.assertNotIn(0, resource._attrs,
+                         msg="Test assumption broken.  "
+                             "Find new missing attribute.")
+        with self.assertRaises(KeyError):
+            resource[0]
+
+    def test_in_not_there_str(self):
+        resource = APIDict.get_instance()
+        self.assertNotIn('missing', resource._attrs,
+                         msg="Test assumption broken.  "
+                             "Find new missing attribute.")
+        # We're primarily interested in this test NOT raising a TypeError.
+        self.assertFalse('missing' in resource)
+
+    def test_in_not_there_non_str(self):
+        resource = APIDict.get_instance()
+        self.assertNotIn(0, resource._attrs,
+                         msg="Test assumption broken.  "
+                             "Find new missing attribute.")
+        # We're primarily interested in this test NOT raising a TypeError.
+        self.assertFalse(0 in resource)
+
 
 class ApiHelperTests(test.TestCase):
     """Tests for functions that don't use one of the api objects."""
