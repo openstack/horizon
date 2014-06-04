@@ -42,6 +42,8 @@ behavior of your Horizon installation. All of them are contained in the
 ``dashboards``
 --------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``None``
 
 Horizon Dashboards are automatically discovered in the following way:
@@ -65,6 +67,8 @@ is included in the ``INSTALLED_APPS`` list and on the Python path.
 ``default_dashboard``
 ---------------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``None``
 
 The slug of the dashboard which should act as the first-run/fallback dashboard
@@ -72,6 +76,8 @@ whenever a user logs in or is otherwise redirected to an ambiguous location.
 
 ``user_home``
 -------------
+
+.. versionadded:: 2012.1(Essex)
 
 Default: ``settings.LOGIN_REDIRECT_URL``
 
@@ -82,6 +88,8 @@ a user should be redirected to based on the attributes of that user.
 ``ajax_queue_limit``
 --------------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``10``
 
 The maximum number of simultaneous AJAX connections the dashboard may try
@@ -91,6 +99,8 @@ instances, volumes, etc. which are all actively trying to update/change state.
 ``ajax_poll_interval``
 ----------------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``2500``
 
 How frequently resources in transition states should be polled for updates,
@@ -98,6 +108,8 @@ expressed in milliseconds.
 
 ``help_url``
 ------------
+
+.. versionadded:: 2012.2(Folsom)
 
 Default: ``None``
 
@@ -107,6 +119,8 @@ to the value of this settings (ideally a URL containing help information).
 ``exceptions``
 --------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``{'unauthorized': [], 'not_found': [], 'recoverable': []}``
 
 A dictionary containing classes of exceptions which Horizon's centralized
@@ -114,6 +128,8 @@ exception handling should be aware of.
 
 ``password_validator``
 ----------------------
+
+.. versionadded:: 2012.1(Essex)
 
 Default: ``{'regex': '.*', 'help_text': _("Password is not accepted")}``
 
@@ -128,6 +144,8 @@ requires them.
 ``password_autocomplete``
 -------------------------
 
+.. versionadded:: 2013.1(Grizzly)
+
 Default: ``"on"``
 
 Controls whether browser autocompletion should be enabled on the login form.
@@ -135,6 +153,8 @@ Valid values are ``"on"`` and ``"off"``.
 
 ``simple_ip_management``
 ------------------------
+
+.. versionadded:: 2013.1(Grizzly)
 
 Default: ``True``
 
@@ -188,6 +208,8 @@ Most of the following settings are defined in
 ``API_RESULT_LIMIT``
 --------------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``1000``
 
 The maximum number of objects (e.g. Swift objects or Glance images) to display
@@ -197,6 +219,8 @@ results.
 ``API_RESULT_PAGE_SIZE``
 ------------------------
 
+.. versionadded:: 2012.2(Folsom)
+
 Default: ``20``
 
 Similar to ``API_RESULT_LIMIT``. This setting currently only controls the
@@ -205,6 +229,8 @@ Glance image list page size. It will be removed in a future version.
 
 ``AVAILABLE_REGIONS``
 ---------------------
+
+.. versionadded:: 2012.1(Essex)
 
 Default: ``None``
 
@@ -219,6 +245,8 @@ If you do not have multiple regions you should use the ``OPENSTACK_HOST`` and
 
 ``CREATE_INSTANCE_FLAVOR_SORT``
 -------------------------------
+
+.. versionadded:: 2013.2(Havana)
 
 Default: ``{'key':'ram'}``
 
@@ -258,6 +286,8 @@ Used to customize flavor extra specs keys
 ``IMAGES_LIST_FILTER_TENANTS``
 ------------------------------
 
+.. versionadded:: 2013.1(Grizzly)
+
 Default: ``None``
 
 A list of dictionaries to add optional categories to the image filters
@@ -284,6 +314,8 @@ from metadata service.
 ``OPENSTACK_ENDPOINT_TYPE``
 ---------------------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``"publicURL"``
 
 A string which specifies the endpoint type to use for the endpoints in the
@@ -292,6 +324,8 @@ Keystone service catalog. The default value for all services except for identity
 
 ``OPENSTACK_HOST``
 ------------------
+
+.. versionadded:: 2012.1(Essex)
 
 Default: ``"127.0.0.1"``
 
@@ -303,6 +337,8 @@ basic deployment.
 
 ``OPENSTACK_HYPERVISOR_FEATURES``
 ---------------------------------
+
+.. versionadded:: 2012.2(Folsom)
 
 Default::
 
@@ -325,6 +361,8 @@ an administrator password when launching or rebuilding an instance.
 
 ``OPENSTACK_IMAGE_BACKEND``
 ---------------------------
+
+.. versionadded:: 2013.2(Havana)
 
 Default::
 
@@ -350,6 +388,8 @@ supported image formats.
 ``OPENSTACK_KEYSTONE_BACKEND``
 ------------------------------
 
+.. versionadded:: 2012.1(Essex)
+
 Default: ``{'name': 'native', 'can_edit_user': True, 'can_edit_project': True}``
 
 A dictionary containing settings which can be used to identify the
@@ -362,6 +402,8 @@ If Keystone has been configured to use LDAP as the auth backend then set
 ``OPENSTACK_KEYSTONE_DEFAULT_ROLE``
 -----------------------------------
 
+.. versionadded:: 2011.3(Diablo)
+
 Default: ``"_member_"``
 
 The name of the role which will be assigned to a user when added to a project.
@@ -370,6 +412,8 @@ This name must correspond to a role name in Keystone.
 
 ``OPENSTACK_KEYSTONE_URL``
 --------------------------
+
+.. versionadded:: 2011.3(Diablo)
 
 Default: ``"http://%s:5000/v2.0" % OPENSTACK_HOST``
 
@@ -381,6 +425,8 @@ a nonstandard URL scheme you shouldn't need to touch this setting.
 ``OPENSTACK_NEUTRON_NETWORK``
 -----------------------------
 
+.. versionadded:: 2013.2(Havana)
+
 Default: ``{'enable_lb': False}``
 
 A dictionary of settings which can be used to enable optional services provided
@@ -389,6 +435,8 @@ by neutron.  Currently only the load balancer service is available.
 
 ``OPENSTACK_SSL_CACERT``
 ------------------------
+
+.. versionadded:: 2013.2(Havana)
 
 Default: ``None``
 
@@ -403,6 +451,8 @@ connections to openstack services when making API calls.
 ``OPENSTACK_SSL_NO_VERIFY``
 ---------------------------
 
+.. versionadded:: 2012.2(Folsom)
+
 Default: ``False``
 
 Disable SSL certificate checks in the OpenStack clients (useful for self-signed
@@ -411,6 +461,8 @@ certificates).
 
 ``POLICY_FILES``
 ----------------
+
+.. versionadded:: 2013.2(Havana)
 
 Default: ``{'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}``
 
@@ -422,6 +474,8 @@ they should be included here too.
 ``POLICY_FILES_PATH``
 ---------------------
 
+.. versionadded:: 2013.2(Havana)
+
 Default:  ``os.path.join(ROOT_PATH, "conf")``
 
 Specifies where service based policy files are located.  These are used to
@@ -429,6 +483,8 @@ define the policy rules actions are verified against.
 
 ``SESSION_TIMEOUT``
 -------------------
+
+.. versionadded:: 2013.2(Havana)
 
 Default: ``"1800"``
 
@@ -452,6 +508,8 @@ Deploying Horizon section of this documentation.
 ``ALLOWED_HOSTS``
 -----------------
 
+.. versionadded:: 2013.2(Havana)
+
 Default: ``['localhost']``
 
 This list should contain names (or IP addresses) of the host
@@ -463,6 +521,8 @@ IP address, that should be added. The setting may contain more than one entry.
 
 ``DEBUG`` and ``TEMPLATE_DEBUG``
 --------------------------------
+
+.. versionadded:: 2011.2(Cactus)
 
 Default: ``True``
 
@@ -476,6 +536,8 @@ alike.
 ``SECRET_KEY``
 --------------
 
+.. versionadded:: 2012.1(Essex)
+
 This should absolutely be set to a unique (and secret) value for your
 deployment. Unless you are running a load-balancer with multiple Horizon
 installations behind it, each Horizon instance should have a unique secret key.
@@ -485,6 +547,8 @@ generate a secret key for a single installation.
 
 ``SECURE_PROXY_SSL_HEADER``, ``CSRF_COOKIE_SECURE`` and ``SESSION_COOKIE_SECURE``
 ---------------------------------------------------------------------------------
+
+.. versionadded:: 2013.1(Grizzly)
 
 These three settings should be configured if you are deploying Horizon with
 SSL. The values indicated in the default ``local_settings.py.example`` file
