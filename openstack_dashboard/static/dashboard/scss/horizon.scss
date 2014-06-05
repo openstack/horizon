@@ -1700,7 +1700,10 @@ label.log-length {
     float: left;
   }
   input {
-    background: url(/static/dashboard/img/search.png) no-repeat 105px 5px whiteSmoke;
+    background: url(/static/dashboard/img/search.png) no-repeat 105px 5px;
+  }
+  input[type="text"]:disabled {
+    background: url(/static/dashboard/img/search.png) no-repeat 105px 5px $gray-lighter;
   }
   .fake_table_header {
     background-color: $body-bg;
