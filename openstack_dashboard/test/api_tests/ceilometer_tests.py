@@ -161,8 +161,7 @@ class CeilometerApiTests(test.APITestCase):
                                                          "get_tenant")})
     def test_global_data_get(self):
         class TempUsage(api.base.APIResourceWrapper):
-            _attrs = ["id", "tenant", "user", "resource", "fake_meter_1",
-                      "fake_meter_2"]
+            _attrs = ["id", "tenant", "user", "resource", "get_meter"]
 
             meters = ["fake_meter_1",
                       "fake_meter_2"]
@@ -207,9 +206,9 @@ class CeilometerApiTests(test.APITestCase):
         self.assertEqual(first.user.name, 'user')
         self.assertEqual(first.tenant.name, 'test_tenant')
         self.assertEqual(first.resource, 'fake_resource_id')
-        self.assertEqual(first.fake_meter_1, 9)
-        self.assertEqual(first.fake_meter_2, 9)
-
+        self.assertEqual(first.get_meter('fake_meter_1'), 9)
+        self.assertEqual(first.get_meter('fake_meter_2'), 9)
+        self.assertEqual(len(first.meters), 2)
         # check that only one resource is returned
         self.assertEqual(len(data), 1)
 
@@ -262,8 +261,7 @@ class CeilometerApiTests(test.APITestCase):
                                                          "get_tenant")})
     def test_global_data_get_all_statistic_data(self):
         class TempUsage(api.base.APIResourceWrapper):
-            _attrs = ["id", "tenant", "user", "resource", "fake_meter_1",
-                      "fake_meter_2"]
+            _attrs = ["id", "tenant", "user", "resource", "get_meter", ]
 
             meters = ["fake_meter_1",
                       "fake_meter_2"]
@@ -308,7 +306,9 @@ class CeilometerApiTests(test.APITestCase):
 
         statistic_obj = api.ceilometer.Statistic(statistics[0])
         # check that it returns whole statistic object
-        self.assertEqual(vars(first.fake_meter_1[0]), vars(statistic_obj))
-        self.assertEqual(vars(first.fake_meter_2[0]), vars(statistic_obj))
+        self.assertEqual(vars(first.get_meter('fake_meter_1')[0]),
+                         vars(statistic_obj))
+        self.assertEqual(vars(first.get_meter('fake_meter_2')[0]),
+                         vars(statistic_obj))
 
         self.assertEqual(len(data), len(resources))

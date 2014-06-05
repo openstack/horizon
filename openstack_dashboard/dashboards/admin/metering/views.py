@@ -51,11 +51,11 @@ class SamplesView(generic.TemplateView):
         """Construct datapoint series for a meter from resource aggregates."""
         series = []
         for resource in aggregates:
-            if getattr(resource, meter_name):
+            if resource.get_meter(meter_name):
                 point = {'unit': unit,
                          'name': getattr(resource, resource_name),
                          'data': []}
-                for statistic in getattr(resource, meter_name):
+                for statistic in resource.get_meter(meter_name):
                     date = statistic.duration_end[:19]
                     value = float(getattr(statistic, stats_name))
                     point['data'].append({'x': date, 'y': value})
@@ -334,7 +334,7 @@ def load_report_data(request):
                                meter.name,
                                3600 * 24)
         for re in res:
-            values = getattr(re, meter.name.replace(".", "_"))
+            values = re.get_meter(meter.name.replace(".", "_"))
             if values:
                 for value in values:
                     row = {"name": 'none',
