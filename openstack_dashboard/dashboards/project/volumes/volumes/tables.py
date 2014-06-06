@@ -14,6 +14,7 @@
 
 from django.core.urlresolvers import NoReverseMatch  # noqa
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse  # noqa
 from django.template import defaultfilters as filters
 from django.utils import html
 from django.utils.http import urlencode
@@ -89,6 +90,11 @@ class CreateVolume(tables.LinkAction):
     url = "horizon:project:volumes:volumes:create"
     classes = ("ajax-modal", "btn-create")
     policy_rules = (("volume", "volume:create"),)
+    ajax = True
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(CreateVolume, self).__init__(attrs, **kwargs)
 
     def allowed(self, request, volume=None):
         usages = quotas.tenant_quota_usages(request)
@@ -103,6 +109,10 @@ class CreateVolume(tables.LinkAction):
             classes = [c for c in self.classes if c != "disabled"]
             self.classes = classes
         return True
+
+    def single(self, table, request, object_id=None):
+        self.allowed(request, None)
+        return HttpResponse(self.render())
 
 
 class ExtendVolume(tables.LinkAction):

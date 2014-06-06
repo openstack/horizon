@@ -120,7 +120,7 @@ horizon.datatables = {
   },
 
   update_actions: function() {
-    var $actions_to_update = $('.btn-launch.ajax-update');
+    var $actions_to_update = $('.btn-launch.ajax-update, .btn-create.ajax-update');
     $actions_to_update.each(function(index, action) {
       var $action = $(this);
       horizon.ajax.queue({

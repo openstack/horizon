@@ -890,8 +890,9 @@ class VolumeViewTests(test.TestCase):
         link_name = "%s (%s)" % (unicode(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
-                          "id='volumes__action_create'>%s</a>" \
-                            % (url, link_name, " ".join(classes), link_name)
+            "id='volumes__action_create'  data-update-url=" \
+            "'/project/volumes/?action=create&amp;table=volumes'>%s</a>" \
+            % (url, link_name, " ".join(classes), link_name)
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The create button is not disabled")
 
