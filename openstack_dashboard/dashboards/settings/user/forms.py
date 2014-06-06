@@ -14,6 +14,7 @@
 
 from datetime import datetime  # noqa
 import pytz
+import string
 
 from django.conf import settings
 from django import shortcuts
@@ -49,6 +50,7 @@ class UserSettingsForm(forms.SelfHandlingForm):
         def get_language_display_name(code, desc):
             try:
                 desc = translation.get_language_info(code)['name_local']
+                desc = string.capwords(desc)
             except KeyError:
                 # If a language is not defined in django.conf.locale.LANG_INFO
                 # get_language_info raises KeyError
