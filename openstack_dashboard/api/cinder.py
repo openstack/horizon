@@ -271,6 +271,10 @@ def tenant_absolute_limits(request):
     return limits_dict
 
 
+def service_list(request):
+    return cinderclient(request).services.list()
+
+
 def availability_zone_list(request, detailed=False):
     return cinderclient(request).availability_zones.list(detailed=detailed)
 

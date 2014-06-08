@@ -69,6 +69,34 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
             [agent.__repr__() for agent in self.agents.list()]
         )
 
+    @test.create_stubs({api.base: ('is_service_enabled',),
+                        api.cinder: ('service_list', ),
+                        api.nova: ('default_quota_get', 'service_list'),
+                        api.neutron: ('agent_list', 'is_extension_supported')})
+    def test_cinder_services_index(self):
+        cinder_services = self.cinder_services.list()
+        api.nova.service_list(IsA(http.HttpRequest)).AndReturn([])
+        api.cinder.service_list(IsA(http.HttpRequest)).\
+            AndReturn(cinder_services)
+        api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn([])
+        api.base.is_service_enabled(IsA(http.HttpRequest), IgnoreArg()) \
+                .MultipleTimes().AndReturn(True)
+        api.nova.default_quota_get(IsA(http.HttpRequest),
+                                   IgnoreArg()).AndReturn({})
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group').AndReturn(True)
+
+        self.mox.ReplayAll()
+        res = self.client.get(INDEX_URL)
+        cinder_services_tab = res.context['tab_group'].\
+            get_tab('cinder_services')
+
+        self.assertTemplateUsed(res, 'admin/info/index.html')
+        self.assertQuerysetEqual(cinder_services_tab._tables
+                                 ['cinder_services'].data,
+                                 ['<Service: cinder-scheduler>',
+                                  '<Service: cinder-volume>'])
+
     def test_default_quotas_index(self):
         self._test_default_quotas_index(neutron_enabled=True)
 

@@ -14,6 +14,7 @@
 
 from cinderclient.v1 import availability_zones
 from cinderclient.v1 import quotas
+from cinderclient.v1 import services
 from cinderclient.v1 import volume_snapshots as vol_snaps
 from cinderclient.v1 import volumes
 from cinderclient.v2 import volume_snapshots as vol_snaps_v2
@@ -26,11 +27,41 @@ from openstack_dashboard.test.test_data import utils
 
 
 def data(TEST):
+    TEST.cinder_services = utils.TestDataContainer()
     TEST.cinder_volumes = utils.TestDataContainer()
     TEST.cinder_volume_snapshots = utils.TestDataContainer()
     TEST.cinder_quotas = utils.TestDataContainer()
     TEST.cinder_quota_usages = utils.TestDataContainer()
     TEST.cinder_availability_zones = utils.TestDataContainer()
+
+     # Services
+    service_1 = services.Service(services.ServiceManager(None),
+        {
+            "service": "cinder-scheduler",
+            "status": "enabled",
+            "binary": "cinder-scheduler",
+            "zone": "internal",
+            "state": "up",
+            "updated_at": "2013-07-08T05:21:00.000000",
+            "host": "devstack001",
+            "disabled_reason": None
+        }
+    )
+
+    service_2 = services.Service(services.ServiceManager(None),
+        {
+            "service": "cinder-volume",
+            "status": "enabled",
+            "binary": "cinder-volume",
+            "zone": "nova",
+            "state": "up",
+            "updated_at": "2013-07-08T05:20:51.000000",
+            "host": "devstack001",
+            "disabled_reason": None
+        }
+    )
+    TEST.cinder_services.add(service_1)
+    TEST.cinder_services.add(service_2)
 
     # Volumes - Cinder v1
     volume = volumes.Volume(volumes.VolumeManager(None),
