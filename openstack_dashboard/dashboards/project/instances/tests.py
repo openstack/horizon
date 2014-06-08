@@ -1444,7 +1444,8 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post(self):
+    def test_launch_instance_post(self,
+                                  disk_config=True):
         flavor = self.flavors.first()
         image = self.images.first()
         keypair = self.keypairs.first()
@@ -1497,10 +1498,14 @@ class InstanceTests(test.TestCase):
                 policy_profile_id=policy_profile_id).AndReturn(port)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
-                .AndReturn(True)
+                .AndReturn(disk_config)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn([])
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        if disk_config:
+            disk_config_value = u'AUTO'
+        else:
+            disk_config_value = None
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                image.id,
@@ -1514,7 +1519,7 @@ class InstanceTests(test.TestCase):
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
                                admin_pass=u'',
-                               disk_config=u'AUTO')
+                               disk_config=disk_config_value)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1534,13 +1539,17 @@ class InstanceTests(test.TestCase):
                      'availability_zone': avail_zone.zoneName,
                      'volume_type': '',
                      'network': self.networks.first().id,
-                     'count': 1,
-                     'disk_config': 'AUTO'}
+                     'count': 1}
+        if disk_config:
+            form_data['disk_config'] = 'AUTO'
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_launch_instance_post_no_disk_config_supported(self):
+        self.test_launch_instance_post(disk_config=False)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
