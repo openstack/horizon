@@ -127,6 +127,9 @@ class Resource(base.APIResourceWrapper):
                                    self.user_id,
                                    self.resource_id)
 
+        # Meters with statistics data
+        self._meters = {}
+
         # TODO(lsmola) make parallel obtaining of tenant and user
         # make the threading here, thread join into resource_list
         if ceilometer_usage and self.project_id:
@@ -169,6 +172,16 @@ class Resource(base.APIResourceWrapper):
     def query(self):
         return self._query
 
+    @property
+    def meters(self):
+        return self._meters
+
+    def get_meter(self, meter_name):
+        return self._meters.get(meter_name, None)
+
+    def set_meter(self, meter_name, value):
+        self._meters[meter_name] = value
+
 
 class ResourceAggregate(Resource):
     """Represents aggregate of more resources together.
@@ -194,6 +207,9 @@ class ResourceAggregate(Resource):
         self.tenant_id = None
         self.user_id = None
         self.resource_id = None
+
+        # Meters with statistics data
+        self._meters = {}
 
         if query:
             self._query = query
@@ -563,13 +579,14 @@ class CeilometerUsage(object):
             if statistics:
                 if stats_attr:
                     # I want to load only a specific attribute
-                    setattr(resource, meter,
-                            getattr(statistics[0], stats_attr, None))
+                    resource.set_meter(
+                        meter,
+                        getattr(statistics[0], stats_attr, None))
                 else:
                     # I want a dictionary of all statistics
-                    setattr(resource, meter, statistics)
+                    resource.set_meter(meter, statistics)
             else:
-                setattr(resource, meter, None)
+                resource.set_meter(meter, None)
 
         return resource
 
