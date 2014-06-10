@@ -17,6 +17,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from socket import timeout as socket_timeout  # noqa
+
 from django.core.urlresolvers import reverse
 from django import http
 
@@ -30,6 +32,7 @@ from openstack_dashboard.test import helpers as test
 
 
 INDEX_URL = reverse('horizon:project:images:index')
+CREATE_URL = reverse('horizon:project:images:images:create')
 
 
 class ImagesAndSnapshotsTests(test.TestCase):
@@ -297,3 +300,87 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+
+
+class SeleniumTests(test.SeleniumTestCase):
+    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    def test_modal_create_image_from_url(self):
+        driver = self.selenium
+        images = self.images.list()
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn([images,
+                                                               False, False])
+        self.mox.ReplayAll()
+
+        driver.get("%s%s" % (self.live_server_url, INDEX_URL))
+
+        # Open the modal menu
+        driver.find_element_by_id("images__action_create").send_keys("\n")
+        wait = self.ui.WebDriverWait(self.selenium, 10,
+                                     ignored_exceptions=[socket_timeout])
+        wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
+
+        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
+        srctypes.select_by_value("url")
+        copyfrom = driver.find_element_by_id("id_copy_from")
+        copyfrom.send_keys("http://www.test.com/test.iso")
+        formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
+        body = formats.first_selected_option
+        self.assertTrue("ISO" in body.text,
+                        "ISO should be selected when the extention is *.iso")
+
+    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    def test_modal_create_image_from_file(self):
+        driver = self.selenium
+        images = self.images.list()
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None).AndReturn([images,
+                                                               False, False])
+        self.mox.ReplayAll()
+
+        driver.get("%s%s" % (self.live_server_url, INDEX_URL))
+
+        # Open the modal menu
+        driver.find_element_by_id("images__action_create").send_keys("\n")
+        wait = self.ui.WebDriverWait(driver, 10,
+                                     ignored_exceptions=[socket_timeout])
+        wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
+
+        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
+        srctypes.select_by_value("file")
+        driver.find_element_by_id("id_image_file").send_keys("/tmp/test.iso")
+        formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
+        body = formats.first_selected_option
+        self.assertTrue("ISO" in body.text,
+                        "ISO should be selected when the extention is *.iso")
+
+    def test_create_image_from_url(self):
+        driver = self.selenium
+        driver.get("%s%s" % (self.live_server_url, CREATE_URL))
+        wait = self.ui.WebDriverWait(driver, 10,
+                                     ignored_exceptions=[socket_timeout])
+        wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
+
+        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
+        srctypes.select_by_value("url")
+        copyfrom = driver.find_element_by_id("id_copy_from")
+        copyfrom.send_keys("http://www.test.com/test.iso")
+        formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
+        body = formats.first_selected_option
+        self.assertTrue("ISO" in body.text,
+                        "ISO should be selected when the extention is *.iso")
+
+    def test_create_image_from_file(self):
+        driver = self.selenium
+        driver.get("%s%s" % (self.live_server_url, CREATE_URL))
+        wait = self.ui.WebDriverWait(driver, 10,
+                                     ignored_exceptions=[socket_timeout])
+        wait.until(lambda x: driver.find_element_by_id("id_disk_format"))
+
+        srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
+        srctypes.select_by_value("file")
+        driver.find_element_by_id("id_image_file").send_keys("/tmp/test.iso")
+        formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
+        body = formats.first_selected_option
+        self.assertTrue("ISO" in body.text,
+                        "ISO should be selected when the extention is *.iso")
