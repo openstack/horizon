@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-05-27 07:12+0000\n"
+"POT-Creation-Date: 2014-06-09 23:31-0500\n"
+"PO-Revision-Date: 2014-06-09 20:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -17,245 +17,245 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:82
+#: settings.py:84
 msgid "Select format"
 msgstr ""
 
-#: settings.py:83
+#: settings.py:85
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon 核心映像檔"
 
-#: settings.py:84
+#: settings.py:86
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon 機器映像檔"
 
-#: settings.py:85
+#: settings.py:87
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk 映像檔"
 
-#: settings.py:86
+#: settings.py:88
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光碟映像檔"
 
-#: settings.py:87
+#: settings.py:89
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模擬器"
 
-#: settings.py:88
+#: settings.py:90
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:89
+#: settings.py:91
 msgid "VDI"
 msgstr "VDI - 微軟虛擬桌面基礎結構"
 
-#: settings.py:90
+#: settings.py:92
 msgid "VHD"
 msgstr "VHD - 微軟虛擬硬碟"
 
-#: settings.py:91
+#: settings.py:93
 msgid "VMDK"
 msgstr "VMDK - VMware 虛擬機器硬碟"
 
-#: api/ceilometer.py:719
+#: api/ceilometer.py:736
 msgid "Unable to retrieve Ceilometer meterlist."
 msgstr "無法取回 Ceilometer 量測器列表。"
 
-#: api/ceilometer.py:893
+#: api/ceilometer.py:910
 msgid "Duration of instance"
 msgstr "執行實例的用量"
 
-#: api/ceilometer.py:897
+#: api/ceilometer.py:914
 msgid "Duration of instance <type> (openstack types)"
 msgstr "執行實例的用量 <類型>（OpenStack 類型）"
 
-#: api/ceilometer.py:902
+#: api/ceilometer.py:919
 msgid "Volume of RAM in MB"
 msgstr "隨機存取記憶體 MB 容量"
 
-#: api/ceilometer.py:906
+#: api/ceilometer.py:923
 msgid "CPU time used"
 msgstr "已使用的處理器時數"
 
-#: api/ceilometer.py:910
+#: api/ceilometer.py:927
 msgid "Average CPU utilization"
 msgstr "平均 CPU 使用量"
 
-#: api/ceilometer.py:914
+#: api/ceilometer.py:931
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "虛擬處理器數量"
 
-#: api/ceilometer.py:918
+#: api/ceilometer.py:935
 msgid "Number of read requests"
 msgstr "讀取請求數量"
 
-#: api/ceilometer.py:922
+#: api/ceilometer.py:939
 msgid "Number of write requests"
 msgstr "寫入請求數量"
 
-#: api/ceilometer.py:926
+#: api/ceilometer.py:943
 msgid "Volume of reads in B"
 msgstr "硬碟讀取位元組"
 
-#: api/ceilometer.py:930
+#: api/ceilometer.py:947
 msgid "Volume of writes in B"
 msgstr "硬碟寫入位元組"
 
-#: api/ceilometer.py:934
+#: api/ceilometer.py:951
 msgid "Size of root disk in GB"
 msgstr "根硬碟 GB 容量"
 
-#: api/ceilometer.py:938
+#: api/ceilometer.py:955
 msgid "Size of ephemeral disk in GB"
 msgstr "暫時性硬碟 GB 容量"
 
-#: api/ceilometer.py:943
+#: api/ceilometer.py:960
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "虛擬機器網路卡在網路上的流入位元組流量"
 
-#: api/ceilometer.py:948
+#: api/ceilometer.py:965
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "虛擬機器網路卡在網路上的傳出位元組流量"
 
-#: api/ceilometer.py:953
+#: api/ceilometer.py:970
 msgid "Number of incoming packets for a VM interface"
 msgstr "虛擬機器網路卡在網路上的流入封包數量"
 
-#: api/ceilometer.py:958
+#: api/ceilometer.py:975
 msgid "Number of outgoing packets for a VM interface"
 msgstr "虛擬機器網路卡在網路上的傳出封包數量"
 
-#: api/ceilometer.py:970
+#: api/ceilometer.py:987
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "%s 類型執行實例的使用時間（Openstack 虛擬硬體樣板）"
 
-#: api/ceilometer.py:990
+#: api/ceilometer.py:1007
 msgid "Duration of network"
 msgstr "網路用量"
 
-#: api/ceilometer.py:994
+#: api/ceilometer.py:1011
 msgid "Creation requests for this network"
 msgstr "此網路的新增請求數"
 
-#: api/ceilometer.py:998
+#: api/ceilometer.py:1015
 msgid "Update requests for this network"
 msgstr "此網路的更新請求數"
 
-#: api/ceilometer.py:1002
+#: api/ceilometer.py:1019
 msgid "Duration of subnet"
 msgstr "子網路用量"
 
-#: api/ceilometer.py:1006
+#: api/ceilometer.py:1023
 msgid "Creation requests for this subnet"
 msgstr "此子網路的新增請求數"
 
-#: api/ceilometer.py:1010
+#: api/ceilometer.py:1027
 msgid "Update requests for this subnet"
 msgstr "此子網路的更新請求數"
 
-#: api/ceilometer.py:1014
+#: api/ceilometer.py:1031
 msgid "Duration of port"
 msgstr "接口用量"
 
-#: api/ceilometer.py:1018
+#: api/ceilometer.py:1035
 msgid "Creation requests for this port"
 msgstr "此接口的新增請求數"
 
-#: api/ceilometer.py:1022
+#: api/ceilometer.py:1039
 msgid "Update requests for this port"
 msgstr "此接口的更新請求數"
 
-#: api/ceilometer.py:1026
+#: api/ceilometer.py:1043
 msgid "Duration of router"
 msgstr "路由器用量"
 
-#: api/ceilometer.py:1030
+#: api/ceilometer.py:1047
 msgid "Creation requests for this router"
 msgstr "此路由器的新增請求數"
 
-#: api/ceilometer.py:1034
+#: api/ceilometer.py:1051
 msgid "Update requests for this router"
 msgstr "此路由器的更新請求數"
 
-#: api/ceilometer.py:1038
+#: api/ceilometer.py:1055
 msgid "Duration of floating ip"
 msgstr "浮動 IP 用量"
 
-#: api/ceilometer.py:1042
+#: api/ceilometer.py:1059
 msgid "Creation requests for this floating ip"
 msgstr "此浮動 IP 的新增請求數"
 
-#: api/ceilometer.py:1046
+#: api/ceilometer.py:1063
 msgid "Update requests for this floating ip"
 msgstr "此浮動 IP 的更新請求數"
 
-#: api/ceilometer.py:1063
+#: api/ceilometer.py:1080
 msgid "Image existence check"
 msgstr "映像檔存在確認"
 
-#: api/ceilometer.py:1067
+#: api/ceilometer.py:1084
 msgid "Uploaded image size"
 msgstr "已更新映像檔規格"
 
-#: api/ceilometer.py:1071
+#: api/ceilometer.py:1088
 msgid "Number of update on the image"
 msgstr "映像檔更新數量"
 
-#: api/ceilometer.py:1075
+#: api/ceilometer.py:1092
 msgid "Number of upload of the image"
 msgstr "映像檔上傳數量"
 
-#: api/ceilometer.py:1079
+#: api/ceilometer.py:1096
 msgid "Number of delete on the image"
 msgstr "映像檔刪除數量"
 
-#: api/ceilometer.py:1083
+#: api/ceilometer.py:1100
 msgid "Image is downloaded"
 msgstr "映像檔已下載"
 
-#: api/ceilometer.py:1087
+#: api/ceilometer.py:1104
 msgid "Image is served out"
 msgstr "已提供之映像檔"
 
-#: api/ceilometer.py:1104
+#: api/ceilometer.py:1121
 msgid "Duration of volume"
 msgstr "儲存空間用量"
 
-#: api/ceilometer.py:1108
+#: api/ceilometer.py:1125
 msgid "Size of volume"
 msgstr "儲存空間規格"
 
-#: api/ceilometer.py:1125
+#: api/ceilometer.py:1142
 msgid "Number of objects"
 msgstr "物件數量"
 
-#: api/ceilometer.py:1129
+#: api/ceilometer.py:1146
 msgid "Total size of stored objects"
 msgstr "已儲存的物件總容量"
 
-#: api/ceilometer.py:1133
+#: api/ceilometer.py:1150
 msgid "Number of containers"
 msgstr "容器數量"
 
-#: api/ceilometer.py:1137
+#: api/ceilometer.py:1154
 msgid "Number of incoming bytes"
 msgstr "流入位元組流量"
 
-#: api/ceilometer.py:1141
+#: api/ceilometer.py:1158
 msgid "Number of outgoing bytes"
 msgstr "傳出位元組流量"
 
-#: api/ceilometer.py:1145
+#: api/ceilometer.py:1162
 msgid "Number of API requests against swift"
 msgstr "針對 Swift 的 API 請求數量"
 
-#: api/ceilometer.py:1162
+#: api/ceilometer.py:1179
 msgid "Amount of energy"
 msgstr "能量"
 
-#: api/ceilometer.py:1166
+#: api/ceilometer.py:1183
 msgid "Power consumption"
 msgstr "能源消耗"
 
@@ -325,12 +325,12 @@ msgid "The container cannot be deleted since it's not empty."
 msgstr "容器不是空的不能刪除。"
 
 #: dashboards/admin/dashboard.py:22
-msgid "System Panel"
-msgstr "系統面板"
+msgid "System"
+msgstr ""
 
 #: dashboards/admin/dashboard.py:30
-msgid "Identity Panel"
-msgstr "身份面板"
+msgid "Identity"
+msgstr "Identity"
 
 #: dashboards/admin/dashboard.py:35
 msgid "Admin"
@@ -344,16 +344,16 @@ msgstr "管理員"
 #: dashboards/admin/flavors/workflows.py:35
 #: dashboards/admin/groups/forms.py:30 dashboards/admin/groups/forms.py:56
 #: dashboards/admin/groups/tables.py:98 dashboards/admin/info/tables.py:50
-#: dashboards/admin/info/tables.py:82 dashboards/admin/info/tables.py:130
-#: dashboards/admin/instances/tables.py:87
+#: dashboards/admin/info/tables.py:79 dashboards/admin/info/tables.py:100
+#: dashboards/admin/info/tables.py:150 dashboards/admin/instances/tables.py:87
 #: dashboards/admin/instances/tables.py:133
 #: dashboards/admin/networks/forms.py:32 dashboards/admin/networks/forms.py:97
 #: dashboards/admin/networks/ports/forms.py:40
-#: dashboards/admin/networks/ports/tables.py:71
-#: dashboards/admin/networks/subnets/tables.py:68
+#: dashboards/admin/networks/ports/tables.py:86
+#: dashboards/admin/networks/subnets/tables.py:91
 #: dashboards/admin/projects/tables.py:167
 #: dashboards/admin/projects/workflows.py:107
-#: dashboards/admin/routers/tables.py:50
+#: dashboards/admin/routers/tables.py:57
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/forms.py:29 dashboards/admin/volumes/tables.py:49
@@ -371,9 +371,9 @@ msgstr "管理員"
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
 #: dashboards/project/firewalls/forms.py:140
-#: dashboards/project/firewalls/tables.py:141
-#: dashboards/project/firewalls/tables.py:173
-#: dashboards/project/firewalls/tables.py:190
+#: dashboards/project/firewalls/tables.py:202
+#: dashboards/project/firewalls/tables.py:234
+#: dashboards/project/firewalls/tables.py:251
 #: dashboards/project/firewalls/workflows.py:32
 #: dashboards/project/firewalls/workflows.py:177
 #: dashboards/project/firewalls/workflows.py:235
@@ -388,21 +388,21 @@ msgstr "管理員"
 #: dashboards/project/instances/workflows/update_instance.py:106
 #: dashboards/project/loadbalancers/forms.py:33
 #: dashboards/project/loadbalancers/forms.py:72
-#: dashboards/project/loadbalancers/tables.py:197
+#: dashboards/project/loadbalancers/tables.py:211
 #: dashboards/project/loadbalancers/workflows.py:31
 #: dashboards/project/loadbalancers/workflows.py:148
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:92
+#: dashboards/project/networks/tables.py:114
 #: dashboards/project/networks/ports/forms.py:34
-#: dashboards/project/networks/ports/tables.py:50
-#: dashboards/project/networks/subnets/tables.py:82
+#: dashboards/project/networks/ports/tables.py:57
+#: dashboards/project/networks/subnets/tables.py:104
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
-#: dashboards/project/routers/tables.py:122
-#: dashboards/project/routers/ports/tables.py:80
+#: dashboards/project/routers/tables.py:144
+#: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/volumes/snapshots/tables.py:126
@@ -412,8 +412,8 @@ msgstr "管理員"
 #: dashboards/project/volumes/volumes/tables.py:276
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:64
 #: dashboards/project/vpn/forms.py:135 dashboards/project/vpn/forms.py:206
-#: dashboards/project/vpn/tables.py:167 dashboards/project/vpn/tables.py:197
-#: dashboards/project/vpn/tables.py:217 dashboards/project/vpn/tables.py:235
+#: dashboards/project/vpn/tables.py:179 dashboards/project/vpn/tables.py:209
+#: dashboards/project/vpn/tables.py:229 dashboards/project/vpn/tables.py:247
 #: dashboards/project/vpn/workflows.py:27
 #: dashboards/project/vpn/workflows.py:110
 #: dashboards/project/vpn/workflows.py:209
@@ -499,7 +499,7 @@ msgid "Hosts"
 msgstr "主機"
 
 #: dashboards/admin/aggregates/tables.py:105
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:53
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "描述資料"
 
@@ -690,7 +690,7 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:77
-#: dashboards/project/loadbalancers/tables.py:199
+#: dashboards/project/loadbalancers/tables.py:213
 #: dashboards/project/loadbalancers/workflows.py:34
 #: dashboards/project/loadbalancers/workflows.py:151
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
@@ -718,7 +718,7 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/project/volumes/volumes/tables.py:250
 #: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:69
 #: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
-#: dashboards/project/vpn/tables.py:199 dashboards/project/vpn/workflows.py:30
+#: dashboards/project/vpn/tables.py:211 dashboards/project/vpn/workflows.py:30
 #: dashboards/project/vpn/workflows.py:113
 #: dashboards/project/vpn/workflows.py:212
 #: dashboards/project/vpn/workflows.py:309
@@ -869,20 +869,20 @@ msgstr "已清除地域環境。"
 
 #: dashboards/admin/domains/tables.py:167
 #: dashboards/admin/projects/workflows.py:101
-#: dashboards/admin/users/forms.py:74 dashboards/admin/users/forms.py:144
+#: dashboards/admin/users/forms.py:74 dashboards/admin/users/forms.py:150
 msgid "Domain ID"
 msgstr "地域識別號"
 
 #: dashboards/admin/domains/tables.py:168
 #: dashboards/admin/domains/workflows.py:38
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:54
-#: dashboards/admin/info/tables.py:116 dashboards/admin/projects/tables.py:178
+#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:136
+#: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
 #: dashboards/admin/projects/workflows.py:473
 #: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:139
 #: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/tables.py:159
+#: dashboards/project/firewalls/tables.py:220
 #: dashboards/project/firewalls/workflows.py:69
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
@@ -1035,7 +1035,7 @@ msgstr "虛擬硬體樣板名稱"
 
 #: dashboards/admin/flavors/tables.py:104
 #: dashboards/admin/flavors/workflows.py:46
-#: dashboards/admin/info/tables.py:166 dashboards/admin/overview/views.py:33
+#: dashboards/admin/info/tables.py:186 dashboards/admin/overview/views.py:33
 #: dashboards/admin/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
@@ -1072,7 +1072,7 @@ msgstr "Swap 硬碟"
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
-#: dashboards/admin/users/forms.py:150
+#: dashboards/admin/users/forms.py:156
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
 #: dashboards/project/database_backups/templates/database_backups/details.html:44
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
@@ -1442,13 +1442,13 @@ msgid "Add..."
 msgstr "加入……"
 
 #: dashboards/admin/groups/tables.py:160 dashboards/admin/users/forms.py:80
-#: dashboards/admin/users/forms.py:151 dashboards/admin/users/tables.py:130
+#: dashboards/admin/users/forms.py:157 dashboards/admin/users/tables.py:130
 #: dashboards/project/databases/tables.py:176
 msgid "User Name"
 msgstr "使用者名稱"
 
 #: dashboards/admin/groups/tables.py:161 dashboards/admin/users/forms.py:82
-#: dashboards/admin/users/forms.py:153 dashboards/admin/users/tables.py:131
+#: dashboards/admin/users/forms.py:159 dashboards/admin/users/tables.py:131
 msgid "Email"
 msgstr "電子郵件信箱"
 
@@ -1542,7 +1542,7 @@ msgid "Hostname"
 msgstr "主機名稱"
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:129
+#: dashboards/admin/info/tables.py:149
 #: dashboards/admin/routers/ports/tables.py:32
 #: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/access_and_security/security_groups/forms.py:176
@@ -1550,7 +1550,7 @@ msgstr "主機名稱"
 #: dashboards/project/loadbalancers/workflows.py:406
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
-#: dashboards/project/routers/ports/tables.py:86
+#: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:45
 #: dashboards/project/volumes/volumes/tables.py:279
 msgid "Type"
@@ -1581,7 +1581,7 @@ msgid "Storage (used)"
 msgstr "儲存容量（使用中）"
 
 #: dashboards/admin/hypervisors/tables.py:57
-#: dashboards/admin/info/tables.py:167 dashboards/admin/instances/panel.py:27
+#: dashboards/admin/info/tables.py:187 dashboards/admin/instances/panel.py:27
 #: dashboards/admin/instances/tables.py:36
 #: dashboards/admin/instances/tables.py:167
 #: dashboards/admin/instances/templates/instances/index.html:3
@@ -1667,7 +1667,7 @@ msgstr "硬碟使用量"
 #: dashboards/admin/images/templates/images/index.html:6
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/images/tables.py:59
-#: dashboards/project/images/images/tables.py:231
+#: dashboards/project/images/images/tables.py:234
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/templates/images/index.html:6
 msgid "Images"
@@ -1783,8 +1783,8 @@ msgstr "系統資訊"
 msgid "Service"
 msgstr "伺服器"
 
-#: dashboards/admin/info/tables.py:52 dashboards/admin/info/tables.py:83
-#: dashboards/admin/info/tables.py:131
+#: dashboards/admin/info/tables.py:52 dashboards/admin/info/tables.py:80
+#: dashboards/admin/info/tables.py:101 dashboards/admin/info/tables.py:151
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
 #: dashboards/project/databases/tables.py:155
@@ -1792,19 +1792,12 @@ msgstr "伺服器"
 msgid "Host"
 msgstr "主機"
 
-#: dashboards/admin/info/tables.py:59 dashboards/admin/info/tabs.py:32
-msgid "Services"
-msgstr "伺服器"
-
-#: dashboards/admin/info/tables.py:84
-msgid "Zone"
-msgstr "區域"
-
-#: dashboards/admin/info/tables.py:85 dashboards/admin/info/tables.py:132
+#: dashboards/admin/info/tables.py:54 dashboards/admin/info/tables.py:82
+#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:152
 #: dashboards/admin/instances/tables.py:145
-#: dashboards/admin/networks/tables.py:73
-#: dashboards/admin/networks/ports/tables.py:77
-#: dashboards/admin/routers/tables.py:54
+#: dashboards/admin/networks/tables.py:88
+#: dashboards/admin/networks/ports/tables.py:92
+#: dashboards/admin/routers/tables.py:61
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/database_backups/tables.py:124
@@ -1813,23 +1806,23 @@ msgstr "區域"
 #: dashboards/project/databases/tables.py:161
 #: dashboards/project/databases/tables.py:214
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
-#: dashboards/project/firewalls/tables.py:196
+#: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:214
 #: dashboards/project/images/templates/images/images/_detail_overview.html:17
 #: dashboards/project/instances/tables.py:803
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
-#: dashboards/project/loadbalancers/tables.py:204
-#: dashboards/project/loadbalancers/tables.py:236
+#: dashboards/project/loadbalancers/tables.py:218
+#: dashboards/project/loadbalancers/tables.py:250
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
-#: dashboards/project/networks/tables.py:98
-#: dashboards/project/networks/ports/tables.py:54
+#: dashboards/project/networks/tables.py:120
+#: dashboards/project/networks/ports/tables.py:61
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:126
-#: dashboards/project/routers/ports/tables.py:84
+#: dashboards/project/routers/tables.py:148
+#: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:100
 #: dashboards/project/stacks/tables.py:132
@@ -1841,62 +1834,75 @@ msgstr "區域"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:257
-#: dashboards/project/vpn/tables.py:177 dashboards/project/vpn/tables.py:204
+#: dashboards/project/vpn/tables.py:189 dashboards/project/vpn/tables.py:216
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
 msgstr "狀態"
 
-#: dashboards/admin/info/tables.py:86 dashboards/admin/info/tables.py:133
-#: dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:59 dashboards/admin/info/tabs.py:33
+msgid "Services"
+msgstr "伺服器"
+
+#: dashboards/admin/info/tables.py:81 dashboards/admin/info/tables.py:102
+msgid "Zone"
+msgstr "區域"
+
+#: dashboards/admin/info/tables.py:83 dashboards/admin/info/tables.py:105
+#: dashboards/admin/info/tables.py:153 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "狀態"
 
-#: dashboards/admin/info/tables.py:88 dashboards/admin/info/tables.py:135
+#: dashboards/admin/info/tables.py:85 dashboards/admin/info/tables.py:108
+#: dashboards/admin/info/tables.py:155
 msgid "Updated At"
 msgstr "已更新"
 
-#: dashboards/admin/info/tables.py:97 dashboards/admin/info/tabs.py:48
+#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tabs.py:49
 msgid "Compute Services"
 msgstr "運算伺服器"
 
-#: dashboards/admin/info/tables.py:118 dashboards/admin/users/tables.py:58
+#: dashboards/admin/info/tables.py:117 dashboards/admin/info/tabs.py:66
+msgid "Block Storage Services"
+msgstr ""
+
+#: dashboards/admin/info/tables.py:138 dashboards/admin/users/tables.py:58
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Disabled"
 msgstr "已關閉"
 
-#: dashboards/admin/info/tables.py:123
+#: dashboards/admin/info/tables.py:143
 msgid "Up"
 msgstr "上線"
 
-#: dashboards/admin/info/tables.py:125
+#: dashboards/admin/info/tables.py:145
 msgid "Down"
 msgstr "離線"
 
-#: dashboards/admin/info/tables.py:144 dashboards/admin/info/tabs.py:65
+#: dashboards/admin/info/tables.py:164 dashboards/admin/info/tabs.py:83
 msgid "Network Agents"
 msgstr "網路代理"
 
-#: dashboards/admin/info/tables.py:163
+#: dashboards/admin/info/tables.py:183
 #: dashboards/admin/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "已注入的資料內容位元組"
 
-#: dashboards/admin/info/tables.py:164
+#: dashboards/admin/info/tables.py:184
 msgid "Length of Injected File Path"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:165
+#: dashboards/admin/info/tables.py:185
 #: dashboards/admin/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "描述資料的項目"
 
-#: dashboards/admin/info/tables.py:168
+#: dashboards/admin/info/tables.py:188
 #: dashboards/admin/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "已注入的資料"
 
-#: dashboards/admin/info/tables.py:169
+#: dashboards/admin/info/tables.py:189
 #: dashboards/admin/projects/workflows.py:53
 #: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tables.py:56
 #: dashboards/admin/volumes/templates/volumes/index.html:3
@@ -1909,7 +1915,7 @@ msgstr "已注入的資料"
 msgid "Volumes"
 msgstr "儲存空間"
 
-#: dashboards/admin/info/tables.py:170
+#: dashboards/admin/info/tables.py:190
 #: dashboards/admin/projects/workflows.py:54
 #: dashboards/project/volumes/tabs.py:73
 #: dashboards/project/volumes/snapshots/tables.py:45
@@ -1917,17 +1923,17 @@ msgstr "儲存空間"
 msgid "Volume Snapshots"
 msgstr "儲存空間即時存檔"
 
-#: dashboards/admin/info/tables.py:171
+#: dashboards/admin/info/tables.py:191
 #: dashboards/admin/projects/workflows.py:56
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "儲存空間與即時存檔總容量（GB）"
 
-#: dashboards/admin/info/tables.py:172
+#: dashboards/admin/info/tables.py:192
 #: dashboards/admin/projects/workflows.py:57
 msgid "RAM (MB)"
 msgstr "隨機存取記憶體（MB）"
 
-#: dashboards/admin/info/tables.py:173
+#: dashboards/admin/info/tables.py:193
 #: dashboards/admin/projects/workflows.py:58
 #: dashboards/admin/projects/workflows.py:70
 #: dashboards/project/access_and_security/tabs.py:74
@@ -1936,7 +1942,7 @@ msgstr "隨機存取記憶體（MB）"
 msgid "Floating IPs"
 msgstr "浮動 IP"
 
-#: dashboards/admin/info/tables.py:174
+#: dashboards/admin/info/tables.py:194
 #: dashboards/admin/projects/workflows.py:61
 #: dashboards/admin/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:42
@@ -1948,72 +1954,80 @@ msgstr "浮動 IP"
 msgid "Security Groups"
 msgstr "安全性群組"
 
-#: dashboards/admin/info/tables.py:175
+#: dashboards/admin/info/tables.py:195
 #: dashboards/admin/projects/workflows.py:63
 #: dashboards/admin/projects/workflows.py:69
 #: dashboards/project/access_and_security/security_groups/tables.py:171
 msgid "Security Group Rules"
 msgstr "安全性群組規則"
 
-#: dashboards/admin/info/tables.py:176
+#: dashboards/admin/info/tables.py:196
 #: dashboards/project/access_and_security/tabs.py:58
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:70
 msgid "Key Pairs"
 msgstr "密鑰對"
 
-#: dashboards/admin/info/tables.py:177
-#: dashboards/admin/networks/ports/tables.py:74
+#: dashboards/admin/info/tables.py:197
+#: dashboards/admin/networks/ports/tables.py:89
 #: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
-#: dashboards/project/networks/ports/tables.py:52
-#: dashboards/project/routers/ports/tables.py:83
+#: dashboards/project/networks/ports/tables.py:59
+#: dashboards/project/routers/ports/tables.py:97
 msgid "Fixed IPs"
 msgstr "固定 IP"
 
-#: dashboards/admin/info/tables.py:178
+#: dashboards/admin/info/tables.py:198
 msgid "LUKS Volumes"
 msgstr "LUKS 加密儲存空間"
 
-#: dashboards/admin/info/tables.py:179
+#: dashboards/admin/info/tables.py:199
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS 加密儲存空間即時存檔"
 
-#: dashboards/admin/info/tables.py:181
+#: dashboards/admin/info/tables.py:201
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "LUKS 加密儲存空間即時存檔總容量（GB）"
 
-#: dashboards/admin/info/tables.py:182
+#: dashboards/admin/info/tables.py:202
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-#: dashboards/admin/info/tables.py:188
+#: dashboards/admin/info/tables.py:208
 msgid "Quota Name"
 msgstr "配額名稱"
 
-#: dashboards/admin/info/tables.py:189
+#: dashboards/admin/info/tables.py:209
 msgid "Limit"
 msgstr "限制"
 
-#: dashboards/admin/info/tables.py:196
+#: dashboards/admin/info/tables.py:216
 msgid "Quotas"
 msgstr "配額"
 
-#: dashboards/admin/info/tabs.py:56
+#: dashboards/admin/info/tabs.py:57
 msgid "Unable to get nova services list."
 msgstr "無法獲得 Nova 伺服器列表。"
 
-#: dashboards/admin/info/tabs.py:76
+#: dashboards/admin/info/tabs.py:74
+msgid "Unable to get cinder services list."
+msgstr ""
+
+#: dashboards/admin/info/tabs.py:94
 msgid "Unable to get network agents list."
 msgstr "無法獲得網路代理列表。"
 
-#: dashboards/admin/info/tabs.py:85
+#: dashboards/admin/info/tabs.py:103
 msgid "Default Quotas"
 msgstr "預設配額"
 
-#: dashboards/admin/info/tabs.py:95
+#: dashboards/admin/info/tabs.py:113
 msgid "Unable to get quota info."
 msgstr "無法獲得配額資訊。"
+
+#: dashboards/admin/info/templates/info/_cell_status.html:4
+msgid "Reason"
+msgstr ""
 
 #: dashboards/admin/instances/forms.py:27
 msgid "Current Host"
@@ -2085,9 +2099,9 @@ msgstr "即時轉移執行實例"
 #: dashboards/admin/instances/tables.py:122
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:34
-#: dashboards/admin/networks/tables.py:66
+#: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
-#: dashboards/admin/routers/tables.py:48 dashboards/admin/volumes/tables.py:52
+#: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
 #: dashboards/project/dashboard.py:61
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:49
@@ -2103,7 +2117,7 @@ msgstr "專案"
 #: dashboards/project/access_and_security/floating_ips/workflows.py:30
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/instances/tables.py:795
-#: dashboards/project/loadbalancers/tables.py:229
+#: dashboards/project/loadbalancers/tables.py:243
 msgid "IP Address"
 msgstr "IP 位址"
 
@@ -2112,6 +2126,7 @@ msgstr "IP 位址"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:157
+#: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:798
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
@@ -2401,9 +2416,9 @@ msgstr "網路基本資料"
 
 #: dashboards/admin/networks/forms.py:37
 #: dashboards/admin/networks/forms.py:102
-#: dashboards/admin/networks/tables.py:75
+#: dashboards/admin/networks/tables.py:90
 #: dashboards/admin/networks/ports/forms.py:42
-#: dashboards/admin/networks/ports/tables.py:79
+#: dashboards/admin/networks/ports/tables.py:94
 #: dashboards/admin/routers/ports/tables.py:34
 #: dashboards/project/firewalls/workflows.py:245
 #: dashboards/project/loadbalancers/forms.py:40
@@ -2415,13 +2430,13 @@ msgstr "網路基本資料"
 #: dashboards/project/loadbalancers/workflows.py:311
 #: dashboards/project/loadbalancers/workflows.py:468
 #: dashboards/project/networks/forms.py:40
-#: dashboards/project/networks/tables.py:100
+#: dashboards/project/networks/tables.py:122
 #: dashboards/project/networks/workflows.py:39
 #: dashboards/project/networks/ports/forms.py:36
-#: dashboards/project/networks/ports/tables.py:56
+#: dashboards/project/networks/ports/tables.py:63
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
-#: dashboards/project/routers/ports/tables.py:88
+#: dashboards/project/routers/ports/tables.py:102
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:257
 #: dashboards/project/vpn/workflows.py:33
 #: dashboards/project/vpn/workflows.py:416
@@ -2432,7 +2447,7 @@ msgstr "管理員狀態"
 
 #: dashboards/admin/networks/forms.py:39
 #: dashboards/admin/networks/forms.py:103
-#: dashboards/admin/networks/tables.py:71
+#: dashboards/admin/networks/tables.py:86
 #: dashboards/project/firewalls/forms.py:68
 #: dashboards/project/firewalls/forms.py:116
 #: dashboards/project/firewalls/workflows.py:67
@@ -2440,16 +2455,16 @@ msgstr "管理員狀態"
 #: dashboards/project/firewalls/workflows.py:242
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:96
+#: dashboards/project/networks/tables.py:118
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "已分享"
 
 #: dashboards/admin/networks/forms.py:41
 #: dashboards/admin/networks/forms.py:104
-#: dashboards/admin/routers/tables.py:57
+#: dashboards/admin/routers/tables.py:64
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:129
+#: dashboards/project/routers/tables.py:151
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "對外網路"
@@ -2493,14 +2508,14 @@ msgstr "更新網路 %s 時失敗"
 
 #: dashboards/admin/networks/panel.py:23
 #: dashboards/admin/networks/tables.py:34
-#: dashboards/admin/networks/tables.py:79
+#: dashboards/admin/networks/tables.py:94
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
 #: dashboards/project/instances/workflows/create_instance.py:553
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
-#: dashboards/project/networks/tables.py:104
+#: dashboards/project/networks/tables.py:126
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 msgid "Networks"
@@ -2514,40 +2529,40 @@ msgstr "網路"
 msgid "Network"
 msgstr "網路"
 
-#: dashboards/admin/networks/tables.py:40
-#: dashboards/project/networks/tables.py:57
+#: dashboards/admin/networks/tables.py:47
+#: dashboards/project/networks/tables.py:64
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "刪除網路 %s 時失敗"
 
-#: dashboards/admin/networks/tables.py:48
+#: dashboards/admin/networks/tables.py:55
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:24
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
-#: dashboards/project/network_topology/templates/network_topology/index.html:28
-#: dashboards/project/networks/tables.py:65
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/networks/tables.py:72
 #: dashboards/project/networks/workflows.py:264
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
 msgstr "新增網路"
 
-#: dashboards/admin/networks/tables.py:55
+#: dashboards/admin/networks/tables.py:63
 #: dashboards/admin/networks/templates/networks/_update.html:8
-#: dashboards/project/networks/tables.py:72
+#: dashboards/project/networks/tables.py:80
 #: dashboards/project/networks/templates/networks/_update.html:8
 msgid "Edit Network"
 msgstr "編輯網路"
 
-#: dashboards/admin/networks/tables.py:67
+#: dashboards/admin/networks/tables.py:82
 #: dashboards/admin/networks/ports/forms.py:33
 #: dashboards/project/networks/workflows.py:35
 msgid "Network Name"
 msgstr "網路名稱"
 
-#: dashboards/admin/networks/tables.py:70
-#: dashboards/project/networks/tables.py:95
+#: dashboards/admin/networks/tables.py:85
+#: dashboards/project/networks/tables.py:117
 msgid "Subnets Associated"
 msgstr "子網路已聯結"
 
@@ -2567,8 +2582,9 @@ msgid "Port list can not be retrieved."
 msgstr "不能取回接口列表。"
 
 #: dashboards/admin/networks/views.py:117
+#: dashboards/admin/networks/subnets/tables.py:107
 #: dashboards/project/networks/views.py:132
-#: dashboards/project/networks/subnets/tables.py:96
+#: dashboards/project/networks/subnets/tables.py:118
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "無法取回網路「%s」的詳細資訊。"
@@ -2632,18 +2648,18 @@ msgid "Port"
 msgstr "接口"
 
 #: dashboards/admin/networks/ports/tables.py:33
-#: dashboards/admin/networks/ports/tables.py:83
+#: dashboards/admin/networks/ports/tables.py:98
 #: dashboards/admin/projects/workflows.py:72
-#: dashboards/project/networks/ports/tables.py:63
+#: dashboards/project/networks/ports/tables.py:70
 msgid "Ports"
 msgstr "接口"
 
-#: dashboards/admin/networks/ports/tables.py:39
+#: dashboards/admin/networks/ports/tables.py:46
 #, python-format
 msgid "Failed to delete port: %s"
 msgstr "刪除接口時失敗：%s"
 
-#: dashboards/admin/networks/ports/tables.py:49
+#: dashboards/admin/networks/ports/tables.py:56
 #: dashboards/admin/networks/templates/networks/ports/_create.html:9
 #: dashboards/admin/networks/templates/networks/ports/_create.html:24
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
@@ -2651,14 +2667,14 @@ msgstr "刪除接口時失敗：%s"
 msgid "Create Port"
 msgstr "新增接口"
 
-#: dashboards/admin/networks/ports/tables.py:60
+#: dashboards/admin/networks/ports/tables.py:68
 #: dashboards/admin/networks/templates/networks/ports/_update.html:8
 #: dashboards/project/networks/ports/tables.py:39
 #: dashboards/project/networks/templates/networks/ports/_update.html:8
 msgid "Edit Port"
 msgstr "編輯接口"
 
-#: dashboards/admin/networks/ports/tables.py:76
+#: dashboards/admin/networks/ports/tables.py:91
 msgid "Device Attached"
 msgstr "已附加裝置"
 
@@ -2690,8 +2706,8 @@ msgstr "無法取回接口詳細資訊。"
 msgid "Unable to retrieve network."
 msgstr "無法取回網路。"
 
-#: dashboards/admin/networks/subnets/tables.py:30
-#: dashboards/project/loadbalancers/tables.py:202
+#: dashboards/admin/networks/subnets/tables.py:31
+#: dashboards/project/loadbalancers/tables.py:216
 #: dashboards/project/loadbalancers/workflows.py:38
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
@@ -2703,38 +2719,38 @@ msgstr "無法取回網路。"
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:44
-#: dashboards/project/vpn/tables.py:200 dashboards/project/vpn/workflows.py:32
+#: dashboards/project/vpn/tables.py:212 dashboards/project/vpn/workflows.py:32
 msgid "Subnet"
 msgstr "子網域"
 
-#: dashboards/admin/networks/subnets/tables.py:31
-#: dashboards/admin/networks/subnets/tables.py:79
+#: dashboards/admin/networks/subnets/tables.py:32
+#: dashboards/admin/networks/subnets/tables.py:114
 #: dashboards/admin/projects/workflows.py:74
 #: dashboards/project/networks/subnets/tables.py:45
-#: dashboards/project/networks/subnets/tables.py:103
+#: dashboards/project/networks/subnets/tables.py:125
 msgid "Subnets"
 msgstr "子網域"
 
-#: dashboards/admin/networks/subnets/tables.py:37
-#: dashboards/project/networks/subnets/tables.py:51
+#: dashboards/admin/networks/subnets/tables.py:45
+#: dashboards/project/networks/subnets/tables.py:58
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "刪除子網路 %s 時失敗"
 
-#: dashboards/admin/networks/subnets/tables.py:47
+#: dashboards/admin/networks/subnets/tables.py:55
 #: dashboards/project/networks/workflows.py:82
-#: dashboards/project/networks/subnets/tables.py:61
+#: dashboards/project/networks/subnets/tables.py:68
 #: dashboards/project/networks/subnets/workflows.py:55
 msgid "Create Subnet"
 msgstr "新增子網路"
 
-#: dashboards/admin/networks/subnets/tables.py:58
-#: dashboards/project/networks/subnets/tables.py:72
+#: dashboards/admin/networks/subnets/tables.py:74
+#: dashboards/project/networks/subnets/tables.py:87
 #: dashboards/project/networks/subnets/workflows.py:149
 msgid "Edit Subnet"
 msgstr "編輯子網路"
 
-#: dashboards/admin/networks/subnets/tables.py:70
+#: dashboards/admin/networks/subnets/tables.py:93
 #: dashboards/project/access_and_security/security_groups/forms.py:192
 #: dashboards/project/access_and_security/security_groups/forms.py:204
 #: dashboards/project/access_and_security/security_groups/forms.py:214
@@ -2742,16 +2758,16 @@ msgstr "編輯子網路"
 msgid "CIDR"
 msgstr "CIDR"
 
-#: dashboards/admin/networks/subnets/tables.py:71
+#: dashboards/admin/networks/subnets/tables.py:94
 #: dashboards/project/networks/workflows.py:95
-#: dashboards/project/networks/subnets/tables.py:85
+#: dashboards/project/networks/subnets/tables.py:107
 #: dashboards/project/networks/subnets/workflows.py:101
 msgid "IP Version"
 msgstr "IP 版本"
 
-#: dashboards/admin/networks/subnets/tables.py:72
+#: dashboards/admin/networks/subnets/tables.py:95
 #: dashboards/project/networks/workflows.py:97
-#: dashboards/project/networks/subnets/tables.py:86
+#: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "Gateway IP"
 msgstr "閘道 IP"
@@ -2961,13 +2977,13 @@ msgid "Unable to retrieve project details."
 msgstr "無法取回專案的詳細資訊。"
 
 #: dashboards/admin/projects/workflows.py:73
-#: dashboards/admin/routers/panel.py:23 dashboards/admin/routers/tables.py:64
+#: dashboards/admin/routers/panel.py:23 dashboards/admin/routers/tables.py:71
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:23
 #: dashboards/project/routers/tables.py:32
-#: dashboards/project/routers/tables.py:136
+#: dashboards/project/routers/tables.py:158
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 msgid "Routers"
@@ -2982,7 +2998,7 @@ msgid "From here you can set quotas (max limits) for the project."
 msgstr "您可以在此為專案設定配額（最大限制）。"
 
 #: dashboards/admin/projects/workflows.py:104
-#: dashboards/admin/users/forms.py:77 dashboards/admin/users/forms.py:147
+#: dashboards/admin/users/forms.py:77 dashboards/admin/users/forms.py:153
 msgid "Domain Name"
 msgstr "地域名稱"
 
@@ -3178,35 +3194,35 @@ msgstr "無法取回路由器列表。"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:21
 #: dashboards/project/routers/extensions/routerrules/forms.py:48
-#: dashboards/project/routers/extensions/routerrules/tables.py:51
+#: dashboards/project/routers/extensions/routerrules/tables.py:65
 msgid "Source CIDR"
 msgstr "來源 CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:23
 #: dashboards/project/routers/extensions/routerrules/forms.py:50
-#: dashboards/project/routers/extensions/routerrules/tables.py:53
+#: dashboards/project/routers/extensions/routerrules/tables.py:67
 msgid "Destination CIDR"
 msgstr "目標 CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:24
 #: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:157
+#: dashboards/project/firewalls/tables.py:218
 #: dashboards/project/firewalls/workflows.py:45
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
-#: dashboards/project/routers/extensions/routerrules/tables.py:54
+#: dashboards/project/routers/extensions/routerrules/tables.py:68
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Action"
 msgstr "行為"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:25
-#: dashboards/project/routers/extensions/routerrules/tables.py:55
+#: dashboards/project/routers/extensions/routerrules/tables.py:69
 msgid "Next Hops"
 msgstr "下一跳點"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:29
-#: dashboards/project/routers/extensions/routerrules/tables.py:41
-#: dashboards/project/routers/extensions/routerrules/tables.py:62
+#: dashboards/project/routers/extensions/routerrules/tables.py:48
+#: dashboards/project/routers/extensions/routerrules/tables.py:76
 #: dashboards/project/routers/extensions/routerrules/tabs.py:32
 msgid "Router Rules"
 msgstr "路由器規則"
@@ -3214,8 +3230,8 @@ msgstr "路由器規則"
 #: dashboards/admin/routers/ports/tables.py:41
 #: dashboards/project/network_topology/ports/tables.py:28
 #: dashboards/project/routers/tabs.py:27
-#: dashboards/project/routers/ports/tables.py:51
-#: dashboards/project/routers/ports/tables.py:95
+#: dashboards/project/routers/ports/tables.py:58
+#: dashboards/project/routers/ports/tables.py:109
 msgid "Interfaces"
 msgstr "網路卡介面"
 
@@ -3291,18 +3307,18 @@ msgstr "無可用的專案"
 msgid "Passwords do not match."
 msgstr "密碼沒有符合。"
 
-#: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:156
+#: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:162
 #: dashboards/project/databases/workflows/create_instance.py:80
 #: dashboards/project/instances/forms.py:155
 #: dashboards/project/instances/tables.py:699
 msgid "Password"
 msgstr "密碼"
 
-#: dashboards/admin/users/forms.py:90 dashboards/admin/users/forms.py:162
+#: dashboards/admin/users/forms.py:90 dashboards/admin/users/forms.py:168
 msgid "Confirm Password"
 msgstr "確認密碼"
 
-#: dashboards/admin/users/forms.py:92 dashboards/admin/users/forms.py:165
+#: dashboards/admin/users/forms.py:92 dashboards/admin/users/forms.py:171
 msgid "Primary Project"
 msgstr "主要的專案"
 
@@ -3311,19 +3327,19 @@ msgstr "主要的專案"
 msgid "User \"%s\" was successfully created."
 msgstr "已成功新增使用者「%s」。"
 
-#: dashboards/admin/users/forms.py:135
+#: dashboards/admin/users/forms.py:141
 msgid "Unable to add user to primary project."
 msgstr "無法將使用者加入主要的專案。"
 
-#: dashboards/admin/users/forms.py:139
+#: dashboards/admin/users/forms.py:145
 msgid "Unable to create user."
 msgstr "無法新增使用者。"
 
-#: dashboards/admin/users/forms.py:196
+#: dashboards/admin/users/forms.py:202
 msgid "User has been updated successfully."
 msgstr "已成功更新使用者。"
 
-#: dashboards/admin/users/forms.py:199
+#: dashboards/admin/users/forms.py:205
 msgid "Unable to update the user."
 msgstr "無法更新使用者。"
 
@@ -3520,8 +3536,8 @@ msgstr "下載 RC 檔錯誤：%s"
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
 #: dashboards/project/loadbalancers/forms.py:78
 #: dashboards/project/loadbalancers/forms.py:168
-#: dashboards/project/loadbalancers/tables.py:81
-#: dashboards/project/loadbalancers/tables.py:235
+#: dashboards/project/loadbalancers/tables.py:86
+#: dashboards/project/loadbalancers/tables.py:249
 #: dashboards/project/loadbalancers/workflows.py:294
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
@@ -3732,7 +3748,7 @@ msgstr "無法更新安全性群組。"
 #: dashboards/project/access_and_security/security_groups/forms.py:92
 #: dashboards/project/access_and_security/security_groups/tables.py:89
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
-#: dashboards/project/firewalls/tables.py:49
+#: dashboards/project/firewalls/tables.py:52
 msgid "Rule"
 msgstr "規則"
 
@@ -3945,9 +3961,9 @@ msgid "Add Rule"
 msgstr "加入規則"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:90
-#: dashboards/project/firewalls/tables.py:50
-#: dashboards/project/firewalls/tables.py:166
-#: dashboards/project/firewalls/tables.py:176
+#: dashboards/project/firewalls/tables.py:53
+#: dashboards/project/firewalls/tables.py:227
+#: dashboards/project/firewalls/tables.py:237
 #: dashboards/project/firewalls/workflows.py:133
 #: dashboards/project/firewalls/workflows.py:139
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
@@ -4453,32 +4469,32 @@ msgstr "下載備份"
 #: dashboards/project/database_backups/tables.py:76
 #: dashboards/project/databases/tables.py:62
 #: dashboards/project/databases/tables.py:78
-#: dashboards/project/firewalls/tables.py:47
-#: dashboards/project/firewalls/tables.py:55
-#: dashboards/project/firewalls/tables.py:63
-#: dashboards/project/loadbalancers/tables.py:66
-#: dashboards/project/loadbalancers/tables.py:79
-#: dashboards/project/loadbalancers/tables.py:92
-#: dashboards/project/loadbalancers/tables.py:100
-#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:59
-#: dashboards/project/vpn/tables.py:72 dashboards/project/vpn/tables.py:85
-#: dashboards/project/vpn/tables.py:98
+#: dashboards/project/firewalls/tables.py:50
+#: dashboards/project/firewalls/tables.py:65
+#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/loadbalancers/tables.py:70
+#: dashboards/project/loadbalancers/tables.py:84
+#: dashboards/project/loadbalancers/tables.py:98
+#: dashboards/project/loadbalancers/tables.py:107
+#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:63
+#: dashboards/project/vpn/tables.py:77 dashboards/project/vpn/tables.py:91
+#: dashboards/project/vpn/tables.py:105
 msgid "Delete"
 msgstr "刪除"
 
 #: dashboards/project/database_backups/tables.py:77
-#: dashboards/project/firewalls/tables.py:48
-#: dashboards/project/firewalls/tables.py:56
-#: dashboards/project/firewalls/tables.py:64
-#: dashboards/project/loadbalancers/tables.py:67
-#: dashboards/project/loadbalancers/tables.py:80
-#: dashboards/project/loadbalancers/tables.py:93
-#: dashboards/project/loadbalancers/tables.py:101
+#: dashboards/project/firewalls/tables.py:51
+#: dashboards/project/firewalls/tables.py:66
+#: dashboards/project/firewalls/tables.py:81
+#: dashboards/project/loadbalancers/tables.py:71
+#: dashboards/project/loadbalancers/tables.py:85
+#: dashboards/project/loadbalancers/tables.py:99
+#: dashboards/project/loadbalancers/tables.py:108
 #: dashboards/project/stacks/tables.py:50
 #: dashboards/project/volumes/snapshots/tables.py:46
 #: dashboards/project/volumes/volumes/tables.py:60
-#: dashboards/project/vpn/tables.py:60 dashboards/project/vpn/tables.py:73
-#: dashboards/project/vpn/tables.py:86 dashboards/project/vpn/tables.py:99
+#: dashboards/project/vpn/tables.py:64 dashboards/project/vpn/tables.py:78
+#: dashboards/project/vpn/tables.py:92 dashboards/project/vpn/tables.py:106
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "已排程%(data_type)s的刪除"
@@ -4602,7 +4618,7 @@ msgstr "選填的備份描述"
 #: dashboards/project/databases/workflows/create_instance.py:39
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 #: dashboards/project/instances/workflows/create_instance.py:129
-#: dashboards/project/loadbalancers/tables.py:262
+#: dashboards/project/loadbalancers/tables.py:276
 msgid "Details"
 msgstr "詳細資訊"
 
@@ -4668,7 +4684,7 @@ msgstr "刪除執行實例上的資料庫出錯。"
 #: dashboards/project/instances/tables.py:216
 #: dashboards/project/instances/tables.py:243
 #: dashboards/project/instances/workflows/create_instance.py:658
-#: dashboards/project/network_topology/templates/network_topology/index.html:27
+#: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "發動執行實例"
 
@@ -4694,7 +4710,7 @@ msgstr "不可用"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
 #: dashboards/project/instances/views.py:110
-#: dashboards/project/loadbalancers/tables.py:252
+#: dashboards/project/loadbalancers/tables.py:266
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:23
@@ -4908,10 +4924,10 @@ msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "已發動名為「%(name)s」%(count)s 個。"
 
 #: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:146
+#: dashboards/project/firewalls/tables.py:207
 #: dashboards/project/firewalls/workflows.py:39
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
-#: dashboards/project/loadbalancers/tables.py:203
+#: dashboards/project/loadbalancers/tables.py:217
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:164
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
@@ -5000,7 +5016,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "更新規則 %(name)s 時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/forms.py:117
-#: dashboards/project/firewalls/tables.py:178
+#: dashboards/project/firewalls/tables.py:239
 #: dashboards/project/firewalls/workflows.py:185
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
@@ -5017,8 +5033,8 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "更新政策 %(name)s 時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/forms.py:145
-#: dashboards/project/firewalls/tables.py:57
-#: dashboards/project/firewalls/tables.py:194
+#: dashboards/project/firewalls/tables.py:67
+#: dashboards/project/firewalls/tables.py:255
 #: dashboards/project/firewalls/workflows.py:240
 msgid "Policy"
 msgstr "政策"
@@ -5047,7 +5063,7 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "更新防火牆 %(name)s 時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/forms.py:194
-#: dashboards/project/firewalls/tables.py:104
+#: dashboards/project/firewalls/tables.py:149
 msgid "Insert Rule"
 msgstr "插入規則"
 
@@ -5075,7 +5091,7 @@ msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "插入規則到政策 %(name)s 中時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/forms.py:259
-#: dashboards/project/firewalls/tables.py:115
+#: dashboards/project/firewalls/tables.py:168
 msgid "Remove Rule"
 msgstr "移除規則"
 
@@ -5095,51 +5111,51 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "從政策 %(name)s 裡移除規則時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/panel.py:22
-#: dashboards/project/firewalls/tables.py:66
-#: dashboards/project/firewalls/tables.py:200
+#: dashboards/project/firewalls/tables.py:83
+#: dashboards/project/firewalls/tables.py:261
 #: dashboards/project/firewalls/tabs.py:75
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "防火牆"
 
-#: dashboards/project/firewalls/tables.py:33
+#: dashboards/project/firewalls/tables.py:34
 #: dashboards/project/firewalls/workflows.py:213
 msgid "Add Policy"
 msgstr "加入政策"
 
-#: dashboards/project/firewalls/tables.py:40
+#: dashboards/project/firewalls/tables.py:42
 msgid "Create Firewall"
 msgstr "新增防火牆"
 
-#: dashboards/project/firewalls/tables.py:58
-#: dashboards/project/firewalls/tables.py:182
+#: dashboards/project/firewalls/tables.py:68
+#: dashboards/project/firewalls/tables.py:243
 msgid "Policies"
 msgstr "政策"
 
-#: dashboards/project/firewalls/tables.py:65
+#: dashboards/project/firewalls/tables.py:82
 msgid "Firewall"
 msgstr "防火牆"
 
-#: dashboards/project/firewalls/tables.py:71
+#: dashboards/project/firewalls/tables.py:95
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "編輯規則"
 
-#: dashboards/project/firewalls/tables.py:82
+#: dashboards/project/firewalls/tables.py:113
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "編輯政策"
 
-#: dashboards/project/firewalls/tables.py:93
+#: dashboards/project/firewalls/tables.py:131
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "編輯防火牆"
 
-#: dashboards/project/firewalls/tables.py:144
+#: dashboards/project/firewalls/tables.py:205
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -5149,25 +5165,25 @@ msgstr "編輯防火牆"
 msgid "ANY"
 msgstr "任意"
 
-#: dashboards/project/firewalls/tables.py:148
+#: dashboards/project/firewalls/tables.py:209
 msgid "Source IP"
 msgstr "來源 IP"
 
-#: dashboards/project/firewalls/tables.py:150
+#: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "來源埠口"
 
-#: dashboards/project/firewalls/tables.py:152
+#: dashboards/project/firewalls/tables.py:213
 msgid "Destination IP"
 msgstr "目標 IP"
 
-#: dashboards/project/firewalls/tables.py:154
+#: dashboards/project/firewalls/tables.py:215
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "目標埠口"
 
-#: dashboards/project/firewalls/tables.py:162
+#: dashboards/project/firewalls/tables.py:223
 msgid "In Policy"
 msgstr "在政策裡"
 
@@ -5547,6 +5563,7 @@ msgid "Image was successfully updated."
 msgstr "已成功更新映像檔。"
 
 #: dashboards/project/images/images/tables.py:58
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
 #: dashboards/project/volumes/volumes/forms.py:193
 msgid "Image"
 msgstr "映像檔"
@@ -6315,7 +6332,7 @@ msgid "Key Name"
 msgstr "密鑰名稱"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:106
-#: dashboards/project/loadbalancers/tables.py:201
+#: dashboards/project/loadbalancers/tables.py:215
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr "N/A"
@@ -6422,9 +6439,9 @@ msgstr "下列的圖表顯示此專案的專案配額中資源的使用情形。
 
 #: dashboards/project/instances/templates/instances/_launch_network_help.html:3
 msgid ""
-"Choose network from Available networks to Selected Networks by push button "
-"or drag and drop, you may change nic order by drag and drop as well. "
-msgstr "以按鍵或拖拉從可用的網路中挑選網路，您可以用拖拉的方式變更網路卡順序。"
+"Choose network from Available networks to Selected networks by push button "
+"or drag and drop, you may change NIC order by drag and drop as well. "
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
@@ -6441,8 +6458,8 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr "您可以在重建執行實例時選填一組密碼。"
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
-msgid "Selected Networks"
-msgstr "已選擇網路"
+msgid "Selected networks"
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:11
 msgid "Available networks"
@@ -6924,7 +6941,7 @@ msgid "Failed to update member %s"
 msgstr "更新成員 %s 時失敗"
 
 #: dashboards/project/loadbalancers/forms.py:218
-#: dashboards/project/loadbalancers/tables.py:259
+#: dashboards/project/loadbalancers/tables.py:273
 #: dashboards/project/loadbalancers/workflows.py:417
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
@@ -6936,7 +6953,7 @@ msgid "The minimum time in seconds between regular checks of a member"
 msgstr "定期偵測一個成員的最短間隔秒數"
 
 #: dashboards/project/loadbalancers/forms.py:223
-#: dashboards/project/loadbalancers/tables.py:260
+#: dashboards/project/loadbalancers/tables.py:274
 #: dashboards/project/loadbalancers/workflows.py:422
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:60
@@ -6979,110 +6996,110 @@ msgstr "負載平衡器"
 msgid "Add Pool"
 msgstr "加入倉庫"
 
-#: dashboards/project/loadbalancers/tables.py:36
+#: dashboards/project/loadbalancers/tables.py:37
 #: dashboards/project/loadbalancers/workflows.py:245
 msgid "Add VIP"
 msgstr "加入虛擬 IP"
 
-#: dashboards/project/loadbalancers/tables.py:52
+#: dashboards/project/loadbalancers/tables.py:54
 #: dashboards/project/loadbalancers/workflows.py:380
 msgid "Add Member"
 msgstr "加入成員"
 
-#: dashboards/project/loadbalancers/tables.py:59
+#: dashboards/project/loadbalancers/tables.py:62
 #: dashboards/project/loadbalancers/workflows.py:521
 msgid "Add Monitor"
 msgstr "加入監視器"
 
-#: dashboards/project/loadbalancers/tables.py:68
-#: dashboards/project/loadbalancers/tables.py:205
+#: dashboards/project/loadbalancers/tables.py:72
+#: dashboards/project/loadbalancers/tables.py:219
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
 msgid "VIP"
 msgstr "虛擬 IP"
 
-#: dashboards/project/loadbalancers/tables.py:69
+#: dashboards/project/loadbalancers/tables.py:73
 msgid "VIPs"
 msgstr "虛擬 IP"
 
-#: dashboards/project/loadbalancers/tables.py:82
-#: dashboards/project/loadbalancers/tables.py:210
+#: dashboards/project/loadbalancers/tables.py:87
+#: dashboards/project/loadbalancers/tables.py:224
 #: dashboards/project/loadbalancers/tabs.py:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr "倉庫"
 
-#: dashboards/project/loadbalancers/tables.py:94
+#: dashboards/project/loadbalancers/tables.py:100
 #: dashboards/project/loadbalancers/workflows.py:539
 #: dashboards/project/loadbalancers/workflows.py:601
 msgid "Monitor"
 msgstr "監視器"
 
-#: dashboards/project/loadbalancers/tables.py:95
-#: dashboards/project/loadbalancers/tables.py:266
+#: dashboards/project/loadbalancers/tables.py:101
+#: dashboards/project/loadbalancers/tables.py:280
 #: dashboards/project/loadbalancers/tabs.py:69
 msgid "Monitors"
 msgstr "監視器"
 
-#: dashboards/project/loadbalancers/tables.py:102
+#: dashboards/project/loadbalancers/tables.py:109
 msgid "Member"
 msgstr "成員"
 
-#: dashboards/project/loadbalancers/tables.py:103
-#: dashboards/project/loadbalancers/tables.py:240
+#: dashboards/project/loadbalancers/tables.py:110
+#: dashboards/project/loadbalancers/tables.py:254
 #: dashboards/project/loadbalancers/tabs.py:49
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr "成員"
 
-#: dashboards/project/loadbalancers/tables.py:108
+#: dashboards/project/loadbalancers/tables.py:116
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:6
 msgid "Edit Pool"
 msgstr "編輯倉庫"
 
-#: dashboards/project/loadbalancers/tables.py:119
+#: dashboards/project/loadbalancers/tables.py:128
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:6
 msgid "Edit VIP"
 msgstr "編輯虛擬 IP"
 
-#: dashboards/project/loadbalancers/tables.py:135
+#: dashboards/project/loadbalancers/tables.py:145
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:6
 msgid "Edit Member"
 msgstr "編輯成員"
 
-#: dashboards/project/loadbalancers/tables.py:146
+#: dashboards/project/loadbalancers/tables.py:157
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:6
 msgid "Edit Monitor"
 msgstr "編輯監視器"
 
-#: dashboards/project/loadbalancers/tables.py:165
+#: dashboards/project/loadbalancers/tables.py:177
 #: dashboards/project/loadbalancers/workflows.py:583
 msgid "Associate Monitor"
 msgstr "聯結監視器"
 
-#: dashboards/project/loadbalancers/tables.py:179
+#: dashboards/project/loadbalancers/tables.py:192
 msgid "Failed to retrieve health monitors."
 msgstr "取回健康監視器時失敗。"
 
-#: dashboards/project/loadbalancers/tables.py:185
+#: dashboards/project/loadbalancers/tables.py:198
 #: dashboards/project/loadbalancers/workflows.py:645
 msgid "Disassociate Monitor"
 msgstr "解除監視器聯結"
 
-#: dashboards/project/loadbalancers/tables.py:200
+#: dashboards/project/loadbalancers/tables.py:214
 #: dashboards/project/loadbalancers/workflows.py:37
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
 msgid "Provider"
 msgstr "提供者"
 
-#: dashboards/project/loadbalancers/tables.py:233
+#: dashboards/project/loadbalancers/tables.py:247
 #: dashboards/project/loadbalancers/workflows.py:160
 #: dashboards/project/loadbalancers/workflows.py:307
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
@@ -7090,11 +7107,11 @@ msgstr "提供者"
 msgid "Protocol Port"
 msgstr "協定埠口"
 
-#: dashboards/project/loadbalancers/tables.py:257
+#: dashboards/project/loadbalancers/tables.py:271
 msgid "Monitor Type"
 msgstr "監視器類型"
 
-#: dashboards/project/loadbalancers/tables.py:261
+#: dashboards/project/loadbalancers/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:21
 msgid "Max Retries"
 msgstr "最大重試數"
@@ -7577,14 +7594,14 @@ msgstr "新增路由器"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
 #: dashboards/project/routers/tables.py:31
-#: dashboards/project/vpn/tables.py:201 dashboards/project/vpn/workflows.py:31
+#: dashboards/project/vpn/tables.py:213 dashboards/project/vpn/workflows.py:31
 #: dashboards/router/dashboard.py:23
 msgid "Router"
 msgstr "路由器"
 
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:29
-#: dashboards/project/routers/tables.py:57
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/routers/tables.py:64
 #: dashboards/project/routers/templates/routers/create.html:3
 #: dashboards/project/routers/templates/routers/create.html:6
 msgid "Create Router"
@@ -7606,11 +7623,11 @@ msgstr "縮小"
 msgid "Normal"
 msgstr "適中"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "無網路、路由器或已連接的執行實例可以列出。"
 
-#: dashboards/project/networks/tables.py:79
+#: dashboards/project/networks/tables.py:94
 msgid "Add Subnet"
 msgstr "加入子網路"
 
@@ -7629,7 +7646,7 @@ msgid "Subnet Name"
 msgstr "子網路名稱"
 
 #: dashboards/project/networks/workflows.py:87
-#: dashboards/project/networks/subnets/tables.py:84
+#: dashboards/project/networks/subnets/tables.py:106
 #: dashboards/project/networks/subnets/workflows.py:80
 msgid "Network Address"
 msgstr "網路位址"
@@ -7801,7 +7818,7 @@ msgstr "已附加"
 msgid "Detached"
 msgstr "已卸除"
 
-#: dashboards/project/networks/ports/tables.py:53
+#: dashboards/project/networks/ports/tables.py:60
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:36
 msgid "Attached Device"
 msgstr "已附加的裝置"
@@ -7990,13 +8007,13 @@ msgstr ""
 msgid "Failed to create router \"%s\"."
 msgstr "新增路由器「%s」時失敗。"
 
-#: dashboards/project/routers/tables.py:41
-#: dashboards/project/routers/tables.py:47
+#: dashboards/project/routers/tables.py:48
+#: dashboards/project/routers/tables.py:54
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "無法刪除路由器「%s」"
 
-#: dashboards/project/routers/tables.py:64
+#: dashboards/project/routers/tables.py:72
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
@@ -8004,23 +8021,23 @@ msgstr "無法刪除路由器「%s」"
 msgid "Set Gateway"
 msgstr "設定閘道"
 
-#: dashboards/project/routers/tables.py:76
+#: dashboards/project/routers/tables.py:91
 msgid "Clear"
 msgstr "清除"
 
-#: dashboards/project/routers/tables.py:77
+#: dashboards/project/routers/tables.py:92
 msgid "Cleared"
 msgstr "已清除"
 
-#: dashboards/project/routers/tables.py:78
+#: dashboards/project/routers/tables.py:93
 msgid "Gateway"
 msgstr "閘道"
 
-#: dashboards/project/routers/tables.py:79
+#: dashboards/project/routers/tables.py:94
 msgid "Gateways"
 msgstr "閘道"
 
-#: dashboards/project/routers/tables.py:89
+#: dashboards/project/routers/tables.py:111
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "無法清除路由器「%(name)s」的閘道：「%(msg)s」"
@@ -8092,7 +8109,7 @@ msgstr "加入路由器規則 %s 時失敗"
 msgid "Add Router Rule"
 msgstr "加入路由器規則"
 
-#: dashboards/project/routers/extensions/routerrules/tables.py:40
+#: dashboards/project/routers/extensions/routerrules/tables.py:47
 msgid "Router Rule"
 msgstr "路由器規則"
 
@@ -8180,11 +8197,11 @@ msgstr "內部網路卡介面"
 msgid "Add Interface"
 msgstr "加入網路卡"
 
-#: dashboards/project/routers/ports/tables.py:50
+#: dashboards/project/routers/ports/tables.py:57
 msgid "Interface"
 msgstr "網路卡介面"
 
-#: dashboards/project/routers/ports/tables.py:65
+#: dashboards/project/routers/ports/tables.py:79
 #, python-format
 msgid "Failed to delete interface %s"
 msgstr "刪除網路卡 %s 時失敗"
@@ -8745,6 +8762,11 @@ msgstr "附件"
 msgid "Not attached"
 msgstr "未附加"
 
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:54
+#: dashboards/project/volumes/volumes/forms.py:48
+msgid "Volume Source"
+msgstr "儲存空間來源"
+
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
@@ -8799,10 +8821,6 @@ msgstr "新增一個儲存空間即時存檔"
 #: dashboards/project/volumes/volumes/forms.py:497
 msgid "Size (GB)"
 msgstr "容量（GB）"
-
-#: dashboards/project/volumes/volumes/forms.py:48
-msgid "Volume Source"
-msgstr "儲存空間來源"
 
 #: dashboards/project/volumes/volumes/forms.py:54
 msgid "Use snapshot as a source"
@@ -9050,7 +9068,7 @@ msgid "Failed to update VPN Service %s"
 msgstr "更新虛擬私人網路伺服器 %s 時失敗"
 
 #: dashboards/project/vpn/forms.py:72 dashboards/project/vpn/forms.py:143
-#: dashboards/project/vpn/tables.py:220 dashboards/project/vpn/tables.py:238
+#: dashboards/project/vpn/tables.py:232 dashboards/project/vpn/tables.py:250
 #: dashboards/project/vpn/workflows.py:114
 #: dashboards/project/vpn/workflows.py:213
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
@@ -9063,7 +9081,7 @@ msgid "sha1"
 msgstr "sha1"
 
 #: dashboards/project/vpn/forms.py:76 dashboards/project/vpn/forms.py:151
-#: dashboards/project/vpn/tables.py:223 dashboards/project/vpn/tables.py:241
+#: dashboards/project/vpn/tables.py:235 dashboards/project/vpn/tables.py:253
 #: dashboards/project/vpn/workflows.py:115
 #: dashboards/project/vpn/workflows.py:215
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
@@ -9318,83 +9336,83 @@ msgstr "虛擬私人網路"
 msgid "Add IKE Policy"
 msgstr "加入網際網路金鑰交換政策"
 
-#: dashboards/project/vpn/tables.py:38 dashboards/project/vpn/workflows.py:287
+#: dashboards/project/vpn/tables.py:39 dashboards/project/vpn/workflows.py:287
 msgid "Add IPSec Policy"
 msgstr "加入 IPSec 政策"
 
-#: dashboards/project/vpn/tables.py:45 dashboards/project/vpn/workflows.py:91
+#: dashboards/project/vpn/tables.py:47 dashboards/project/vpn/workflows.py:91
 msgid "Add VPN Service"
 msgstr "加入虛擬私人網路伺服器"
 
-#: dashboards/project/vpn/tables.py:52 dashboards/project/vpn/workflows.py:469
+#: dashboards/project/vpn/tables.py:55 dashboards/project/vpn/workflows.py:469
 msgid "Add IPSec Site Connection"
 msgstr "加入 IPSec 網站連線"
 
-#: dashboards/project/vpn/tables.py:61 dashboards/project/vpn/tables.py:170
+#: dashboards/project/vpn/tables.py:65 dashboards/project/vpn/tables.py:182
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
 msgid "VPN Service"
 msgstr "虛擬私人網路伺服器"
 
-#: dashboards/project/vpn/tables.py:62 dashboards/project/vpn/tables.py:210
+#: dashboards/project/vpn/tables.py:66 dashboards/project/vpn/tables.py:222
 #: dashboards/project/vpn/tabs.py:51
 msgid "VPN Services"
 msgstr "虛擬私人網路伺服器"
 
-#: dashboards/project/vpn/tables.py:74 dashboards/project/vpn/tables.py:172
+#: dashboards/project/vpn/tables.py:79 dashboards/project/vpn/tables.py:184
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
 msgid "IKE Policy"
 msgstr "網際網路金鑰交換政策"
 
-#: dashboards/project/vpn/tables.py:75 dashboards/project/vpn/tables.py:228
+#: dashboards/project/vpn/tables.py:80 dashboards/project/vpn/tables.py:240
 #: dashboards/project/vpn/tabs.py:71
 msgid "IKE Policies"
 msgstr "網際網路金鑰交換政策"
 
-#: dashboards/project/vpn/tables.py:87 dashboards/project/vpn/tables.py:174
+#: dashboards/project/vpn/tables.py:93 dashboards/project/vpn/tables.py:186
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
 msgid "IPSec Policy"
 msgstr "IPSec 政策"
 
-#: dashboards/project/vpn/tables.py:88 dashboards/project/vpn/tables.py:246
+#: dashboards/project/vpn/tables.py:94 dashboards/project/vpn/tables.py:258
 #: dashboards/project/vpn/tabs.py:91
 msgid "IPSec Policies"
 msgstr "IPSec 政策"
 
-#: dashboards/project/vpn/tables.py:100
+#: dashboards/project/vpn/tables.py:107
 msgid "IPSec Site Connection"
 msgstr "IPSec 網站連線"
 
-#: dashboards/project/vpn/tables.py:101 dashboards/project/vpn/tables.py:183
+#: dashboards/project/vpn/tables.py:108 dashboards/project/vpn/tables.py:195
 #: dashboards/project/vpn/tabs.py:31
 msgid "IPSec Site Connections"
 msgstr "IPSec 網站連線"
 
-#: dashboards/project/vpn/tables.py:106
+#: dashboards/project/vpn/tables.py:114
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:6
 msgid "Edit VPN Service"
 msgstr "編輯虛擬私人網路伺服器"
 
-#: dashboards/project/vpn/tables.py:121
+#: dashboards/project/vpn/tables.py:130
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:6
 msgid "Edit IKE Policy"
 msgstr "編輯網際網路金鑰交換政策"
 
-#: dashboards/project/vpn/tables.py:134
+#: dashboards/project/vpn/tables.py:144
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:6
 msgid "Edit IPSec Policy"
 msgstr "編輯 IPSec 政策"
 
-#: dashboards/project/vpn/tables.py:147
+#: dashboards/project/vpn/tables.py:158
 msgid "Edit Connection"
 msgstr "編輯連線"
 
-#: dashboards/project/vpn/tables.py:224 dashboards/project/vpn/tables.py:242
+#: dashboards/project/vpn/tables.py:236 dashboards/project/vpn/tables.py:254
 msgid "PFS"
 msgstr "PFS"
 
@@ -9880,7 +9898,7 @@ msgstr "Cisco Nexus 1000V"
 msgid "Update Network Profile"
 msgstr "更新網路基本資料"
 
-#: dashboards/settings/dashboard.py:22 templates/_header.html:56
+#: dashboards/settings/dashboard.py:22 templates/_header.html:54
 msgid "Settings"
 msgstr "設定"
 
@@ -9986,11 +10004,11 @@ msgid ""
 "help, contact your local administrator."
 msgstr "發生了一個意外錯誤。試著重整頁面。若這沒有幫助，請聯絡您的在地管理員。"
 
-#: templates/500.html:74 templates/_header.html:58
+#: templates/500.html:74 templates/_header.html:56
 msgid "Help"
 msgstr "幫助"
 
-#: templates/_header.html:63
+#: templates/_header.html:61
 msgid "Sign Out"
 msgstr "登出"
 

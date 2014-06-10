@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# rsimai, 2014
+# Robert Simai, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
+"POT-Creation-Date: 2014-06-09 23:31-0500\n"
 "PO-Revision-Date: 2014-05-05 07:52+0000\n"
-"Last-Translator: rsimai\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Es gab ein Problem bei der Kommunikation mit dem Server. Bitte versuchen Sie es noch einmal."
 
-#: static/horizon/js/horizon.forms.js:118
+#: static/horizon/js/horizon.forms.js:126
 msgid "Filter"
 msgstr "Filter"
 
