@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# ujuc Gang <potopro@gmail.com>, 2014
+# Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-05-27 07:12+0000\n"
+"POT-Creation-Date: 2014-06-09 23:31-0500\n"
+"PO-Revision-Date: 2014-06-09 20:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,245 +18,245 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:82
+#: settings.py:84
 msgid "Select format"
 msgstr ""
 
-#: settings.py:83
+#: settings.py:85
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:84
+#: settings.py:86
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:85
+#: settings.py:87
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:86
+#: settings.py:88
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:87
+#: settings.py:89
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:88
+#: settings.py:90
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:89
+#: settings.py:91
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:90
+#: settings.py:92
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:91
+#: settings.py:93
 msgid "VMDK"
 msgstr "VMDK"
 
-#: api/ceilometer.py:719
+#: api/ceilometer.py:736
 msgid "Unable to retrieve Ceilometer meterlist."
 msgstr "Ceilometer 메터리스트를 찾을 수 없습니다."
 
-#: api/ceilometer.py:893
+#: api/ceilometer.py:910
 msgid "Duration of instance"
 msgstr "인스턴스 지속 시간"
 
-#: api/ceilometer.py:897
+#: api/ceilometer.py:914
 msgid "Duration of instance <type> (openstack types)"
 msgstr "인스턴스 <type> (openstack 타입) 지속 시간"
 
-#: api/ceilometer.py:902
+#: api/ceilometer.py:919
 msgid "Volume of RAM in MB"
 msgstr "RAM 용량 MB"
 
-#: api/ceilometer.py:906
+#: api/ceilometer.py:923
 msgid "CPU time used"
 msgstr "CPU 사용 시간"
 
-#: api/ceilometer.py:910
+#: api/ceilometer.py:927
 msgid "Average CPU utilization"
 msgstr "평균 CPU 사용량"
 
-#: api/ceilometer.py:914
+#: api/ceilometer.py:931
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "VCPUs 수"
 
-#: api/ceilometer.py:918
+#: api/ceilometer.py:935
 msgid "Number of read requests"
 msgstr "읽기 요청 갯수"
 
-#: api/ceilometer.py:922
+#: api/ceilometer.py:939
 msgid "Number of write requests"
 msgstr "쓰기 요청 갯수"
 
-#: api/ceilometer.py:926
+#: api/ceilometer.py:943
 msgid "Volume of reads in B"
 msgstr "읽기 용량 B"
 
-#: api/ceilometer.py:930
+#: api/ceilometer.py:947
 msgid "Volume of writes in B"
 msgstr "쓰기 용량 B"
 
-#: api/ceilometer.py:934
+#: api/ceilometer.py:951
 msgid "Size of root disk in GB"
 msgstr "루트 디스크의 크기 GB"
 
-#: api/ceilometer.py:938
+#: api/ceilometer.py:955
 msgid "Size of ephemeral disk in GB"
 msgstr "Ephemeral 디스크의 크기 GB"
 
-#: api/ceilometer.py:943
+#: api/ceilometer.py:960
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "VM 인터페이스에 대한 네트워크를 통해 들어오는 바이트 수"
 
-#: api/ceilometer.py:948
+#: api/ceilometer.py:965
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "VM 인터페이스에 대한 네트워크에서 나가는 바이트 수"
 
-#: api/ceilometer.py:953
+#: api/ceilometer.py:970
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM 인터페이스에 대해서 들어오는 패킷 수"
 
-#: api/ceilometer.py:958
+#: api/ceilometer.py:975
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM 인터페이스에 대해서 나가는 패킷 수"
 
-#: api/ceilometer.py:970
+#: api/ceilometer.py:987
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "인스턴스 타입 %s 지속 시간 (openstack flavor)"
 
-#: api/ceilometer.py:990
+#: api/ceilometer.py:1007
 msgid "Duration of network"
 msgstr "네트워크 사용 시간"
 
-#: api/ceilometer.py:994
+#: api/ceilometer.py:1011
 msgid "Creation requests for this network"
 msgstr "네트워크에 대해서 생성 요청"
 
-#: api/ceilometer.py:998
+#: api/ceilometer.py:1015
 msgid "Update requests for this network"
 msgstr "네트워크에 대해서 업데이트 요청"
 
-#: api/ceilometer.py:1002
+#: api/ceilometer.py:1019
 msgid "Duration of subnet"
 msgstr "서브넷 사용 시간"
 
-#: api/ceilometer.py:1006
+#: api/ceilometer.py:1023
 msgid "Creation requests for this subnet"
 msgstr "서브넷에 대해서 생성 요청"
 
-#: api/ceilometer.py:1010
+#: api/ceilometer.py:1027
 msgid "Update requests for this subnet"
 msgstr "서브넷애 대해 업데이트 요청"
 
-#: api/ceilometer.py:1014
+#: api/ceilometer.py:1031
 msgid "Duration of port"
 msgstr "포트 유지 기간"
 
-#: api/ceilometer.py:1018
+#: api/ceilometer.py:1035
 msgid "Creation requests for this port"
 msgstr "포트에 대해서 생성 요청"
 
-#: api/ceilometer.py:1022
+#: api/ceilometer.py:1039
 msgid "Update requests for this port"
 msgstr "포트에 대해서 업데이트 요청"
 
-#: api/ceilometer.py:1026
+#: api/ceilometer.py:1043
 msgid "Duration of router"
 msgstr "라우터 사용 시간"
 
-#: api/ceilometer.py:1030
+#: api/ceilometer.py:1047
 msgid "Creation requests for this router"
 msgstr "라우터에 대해 생성 요청"
 
-#: api/ceilometer.py:1034
+#: api/ceilometer.py:1051
 msgid "Update requests for this router"
 msgstr "라우터에 대해 업데이트 요청"
 
-#: api/ceilometer.py:1038
+#: api/ceilometer.py:1055
 msgid "Duration of floating ip"
 msgstr "유동 IP 연결 시간"
 
-#: api/ceilometer.py:1042
+#: api/ceilometer.py:1059
 msgid "Creation requests for this floating ip"
 msgstr "유동 IP에 대해서 생성 요청"
 
-#: api/ceilometer.py:1046
+#: api/ceilometer.py:1063
 msgid "Update requests for this floating ip"
 msgstr "유동 IP에 대해서 업데이트 요청"
 
-#: api/ceilometer.py:1063
+#: api/ceilometer.py:1080
 msgid "Image existence check"
 msgstr "이미지 존재여부 확인"
 
-#: api/ceilometer.py:1067
+#: api/ceilometer.py:1084
 msgid "Uploaded image size"
 msgstr "이미지 크기 업데이트"
 
-#: api/ceilometer.py:1071
+#: api/ceilometer.py:1088
 msgid "Number of update on the image"
 msgstr "이미지에 대한 업데이트 갯수"
 
-#: api/ceilometer.py:1075
+#: api/ceilometer.py:1092
 msgid "Number of upload of the image"
 msgstr "이미지 업로드 갯수"
 
-#: api/ceilometer.py:1079
+#: api/ceilometer.py:1096
 msgid "Number of delete on the image"
 msgstr "이미지 삭제 갯수"
 
-#: api/ceilometer.py:1083
+#: api/ceilometer.py:1100
 msgid "Image is downloaded"
 msgstr "이미지를 내려 받습니다."
 
-#: api/ceilometer.py:1087
+#: api/ceilometer.py:1104
 msgid "Image is served out"
 msgstr "이미지를 제공하지 않습니다."
 
-#: api/ceilometer.py:1104
+#: api/ceilometer.py:1121
 msgid "Duration of volume"
 msgstr "볼륨 사용 시간"
 
-#: api/ceilometer.py:1108
+#: api/ceilometer.py:1125
 msgid "Size of volume"
 msgstr "볼륨 크기"
 
-#: api/ceilometer.py:1125
+#: api/ceilometer.py:1142
 msgid "Number of objects"
 msgstr "오브젝트 갯수"
 
-#: api/ceilometer.py:1129
+#: api/ceilometer.py:1146
 msgid "Total size of stored objects"
 msgstr "저장된 오브젝트의 전체 용량"
 
-#: api/ceilometer.py:1133
+#: api/ceilometer.py:1150
 msgid "Number of containers"
 msgstr "컨테이너 갯수"
 
-#: api/ceilometer.py:1137
+#: api/ceilometer.py:1154
 msgid "Number of incoming bytes"
 msgstr "들어오는 바이트 수"
 
-#: api/ceilometer.py:1141
+#: api/ceilometer.py:1158
 msgid "Number of outgoing bytes"
 msgstr "나가는 바이트 수"
 
-#: api/ceilometer.py:1145
+#: api/ceilometer.py:1162
 msgid "Number of API requests against swift"
 msgstr "Swift에 대한 API 요청 갯수"
 
-#: api/ceilometer.py:1162
+#: api/ceilometer.py:1179
 msgid "Amount of energy"
 msgstr "전력 총계"
 
-#: api/ceilometer.py:1166
+#: api/ceilometer.py:1183
 msgid "Power consumption"
 msgstr "전력 소비량"
 
@@ -326,12 +326,12 @@ msgid "The container cannot be deleted since it's not empty."
 msgstr "컨테이너가 비어있지 않으므로, 삭제할 수 없습니다."
 
 #: dashboards/admin/dashboard.py:22
-msgid "System Panel"
-msgstr "시스템 패널"
+msgid "System"
+msgstr ""
 
 #: dashboards/admin/dashboard.py:30
-msgid "Identity Panel"
-msgstr "Identity 패널"
+msgid "Identity"
+msgstr "인증"
 
 #: dashboards/admin/dashboard.py:35
 msgid "Admin"
@@ -345,16 +345,16 @@ msgstr "관리자"
 #: dashboards/admin/flavors/workflows.py:35
 #: dashboards/admin/groups/forms.py:30 dashboards/admin/groups/forms.py:56
 #: dashboards/admin/groups/tables.py:98 dashboards/admin/info/tables.py:50
-#: dashboards/admin/info/tables.py:82 dashboards/admin/info/tables.py:130
-#: dashboards/admin/instances/tables.py:87
+#: dashboards/admin/info/tables.py:79 dashboards/admin/info/tables.py:100
+#: dashboards/admin/info/tables.py:150 dashboards/admin/instances/tables.py:87
 #: dashboards/admin/instances/tables.py:133
 #: dashboards/admin/networks/forms.py:32 dashboards/admin/networks/forms.py:97
 #: dashboards/admin/networks/ports/forms.py:40
-#: dashboards/admin/networks/ports/tables.py:71
-#: dashboards/admin/networks/subnets/tables.py:68
+#: dashboards/admin/networks/ports/tables.py:86
+#: dashboards/admin/networks/subnets/tables.py:91
 #: dashboards/admin/projects/tables.py:167
 #: dashboards/admin/projects/workflows.py:107
-#: dashboards/admin/routers/tables.py:50
+#: dashboards/admin/routers/tables.py:57
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/forms.py:29 dashboards/admin/volumes/tables.py:49
@@ -372,9 +372,9 @@ msgstr "관리자"
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
 #: dashboards/project/firewalls/forms.py:140
-#: dashboards/project/firewalls/tables.py:141
-#: dashboards/project/firewalls/tables.py:173
-#: dashboards/project/firewalls/tables.py:190
+#: dashboards/project/firewalls/tables.py:202
+#: dashboards/project/firewalls/tables.py:234
+#: dashboards/project/firewalls/tables.py:251
 #: dashboards/project/firewalls/workflows.py:32
 #: dashboards/project/firewalls/workflows.py:177
 #: dashboards/project/firewalls/workflows.py:235
@@ -389,21 +389,21 @@ msgstr "관리자"
 #: dashboards/project/instances/workflows/update_instance.py:106
 #: dashboards/project/loadbalancers/forms.py:33
 #: dashboards/project/loadbalancers/forms.py:72
-#: dashboards/project/loadbalancers/tables.py:197
+#: dashboards/project/loadbalancers/tables.py:211
 #: dashboards/project/loadbalancers/workflows.py:31
 #: dashboards/project/loadbalancers/workflows.py:148
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:92
+#: dashboards/project/networks/tables.py:114
 #: dashboards/project/networks/ports/forms.py:34
-#: dashboards/project/networks/ports/tables.py:50
-#: dashboards/project/networks/subnets/tables.py:82
+#: dashboards/project/networks/ports/tables.py:57
+#: dashboards/project/networks/subnets/tables.py:104
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
-#: dashboards/project/routers/tables.py:122
-#: dashboards/project/routers/ports/tables.py:80
+#: dashboards/project/routers/tables.py:144
+#: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/volumes/snapshots/tables.py:126
@@ -413,8 +413,8 @@ msgstr "관리자"
 #: dashboards/project/volumes/volumes/tables.py:276
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:64
 #: dashboards/project/vpn/forms.py:135 dashboards/project/vpn/forms.py:206
-#: dashboards/project/vpn/tables.py:167 dashboards/project/vpn/tables.py:197
-#: dashboards/project/vpn/tables.py:217 dashboards/project/vpn/tables.py:235
+#: dashboards/project/vpn/tables.py:179 dashboards/project/vpn/tables.py:209
+#: dashboards/project/vpn/tables.py:229 dashboards/project/vpn/tables.py:247
 #: dashboards/project/vpn/workflows.py:27
 #: dashboards/project/vpn/workflows.py:110
 #: dashboards/project/vpn/workflows.py:209
@@ -500,7 +500,7 @@ msgid "Hosts"
 msgstr "호스트"
 
 #: dashboards/admin/aggregates/tables.py:105
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:53
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "메타데이터"
 
@@ -691,7 +691,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:77
-#: dashboards/project/loadbalancers/tables.py:199
+#: dashboards/project/loadbalancers/tables.py:213
 #: dashboards/project/loadbalancers/workflows.py:34
 #: dashboards/project/loadbalancers/workflows.py:151
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
@@ -719,7 +719,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/tables.py:250
 #: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:69
 #: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
-#: dashboards/project/vpn/tables.py:199 dashboards/project/vpn/workflows.py:30
+#: dashboards/project/vpn/tables.py:211 dashboards/project/vpn/workflows.py:30
 #: dashboards/project/vpn/workflows.py:113
 #: dashboards/project/vpn/workflows.py:212
 #: dashboards/project/vpn/workflows.py:309
@@ -870,20 +870,20 @@ msgstr "도메인 컨텍스트가 삭제되었습니다."
 
 #: dashboards/admin/domains/tables.py:167
 #: dashboards/admin/projects/workflows.py:101
-#: dashboards/admin/users/forms.py:74 dashboards/admin/users/forms.py:144
+#: dashboards/admin/users/forms.py:74 dashboards/admin/users/forms.py:150
 msgid "Domain ID"
 msgstr "도메인 아이디"
 
 #: dashboards/admin/domains/tables.py:168
 #: dashboards/admin/domains/workflows.py:38
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:54
-#: dashboards/admin/info/tables.py:116 dashboards/admin/projects/tables.py:178
+#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:136
+#: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
 #: dashboards/admin/projects/workflows.py:473
 #: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:139
 #: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/tables.py:159
+#: dashboards/project/firewalls/tables.py:220
 #: dashboards/project/firewalls/workflows.py:69
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
@@ -1036,7 +1036,7 @@ msgstr "Flavor 이름"
 
 #: dashboards/admin/flavors/tables.py:104
 #: dashboards/admin/flavors/workflows.py:46
-#: dashboards/admin/info/tables.py:166 dashboards/admin/overview/views.py:33
+#: dashboards/admin/info/tables.py:186 dashboards/admin/overview/views.py:33
 #: dashboards/admin/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
@@ -1073,7 +1073,7 @@ msgstr "Swap 디스크"
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
-#: dashboards/admin/users/forms.py:150
+#: dashboards/admin/users/forms.py:156
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
 #: dashboards/project/database_backups/templates/database_backups/details.html:44
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
@@ -1443,13 +1443,13 @@ msgid "Add..."
 msgstr "추가..."
 
 #: dashboards/admin/groups/tables.py:160 dashboards/admin/users/forms.py:80
-#: dashboards/admin/users/forms.py:151 dashboards/admin/users/tables.py:130
+#: dashboards/admin/users/forms.py:157 dashboards/admin/users/tables.py:130
 #: dashboards/project/databases/tables.py:176
 msgid "User Name"
 msgstr "사용자 이름"
 
 #: dashboards/admin/groups/tables.py:161 dashboards/admin/users/forms.py:82
-#: dashboards/admin/users/forms.py:153 dashboards/admin/users/tables.py:131
+#: dashboards/admin/users/forms.py:159 dashboards/admin/users/tables.py:131
 msgid "Email"
 msgstr "Email"
 
@@ -1543,7 +1543,7 @@ msgid "Hostname"
 msgstr "호스트 이름"
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:129
+#: dashboards/admin/info/tables.py:149
 #: dashboards/admin/routers/ports/tables.py:32
 #: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/access_and_security/security_groups/forms.py:176
@@ -1551,7 +1551,7 @@ msgstr "호스트 이름"
 #: dashboards/project/loadbalancers/workflows.py:406
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
-#: dashboards/project/routers/ports/tables.py:86
+#: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:45
 #: dashboards/project/volumes/volumes/tables.py:279
 msgid "Type"
@@ -1582,7 +1582,7 @@ msgid "Storage (used)"
 msgstr "스토리지 (사용중)"
 
 #: dashboards/admin/hypervisors/tables.py:57
-#: dashboards/admin/info/tables.py:167 dashboards/admin/instances/panel.py:27
+#: dashboards/admin/info/tables.py:187 dashboards/admin/instances/panel.py:27
 #: dashboards/admin/instances/tables.py:36
 #: dashboards/admin/instances/tables.py:167
 #: dashboards/admin/instances/templates/instances/index.html:3
@@ -1668,7 +1668,7 @@ msgstr "디스크 사용량"
 #: dashboards/admin/images/templates/images/index.html:6
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/images/tables.py:59
-#: dashboards/project/images/images/tables.py:231
+#: dashboards/project/images/images/tables.py:234
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/templates/images/index.html:6
 msgid "Images"
@@ -1784,8 +1784,8 @@ msgstr "시스템 정보"
 msgid "Service"
 msgstr "서비스"
 
-#: dashboards/admin/info/tables.py:52 dashboards/admin/info/tables.py:83
-#: dashboards/admin/info/tables.py:131
+#: dashboards/admin/info/tables.py:52 dashboards/admin/info/tables.py:80
+#: dashboards/admin/info/tables.py:101 dashboards/admin/info/tables.py:151
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
 #: dashboards/project/databases/tables.py:155
@@ -1793,19 +1793,12 @@ msgstr "서비스"
 msgid "Host"
 msgstr "호스트"
 
-#: dashboards/admin/info/tables.py:59 dashboards/admin/info/tabs.py:32
-msgid "Services"
-msgstr "서비스"
-
-#: dashboards/admin/info/tables.py:84
-msgid "Zone"
-msgstr "영역"
-
-#: dashboards/admin/info/tables.py:85 dashboards/admin/info/tables.py:132
+#: dashboards/admin/info/tables.py:54 dashboards/admin/info/tables.py:82
+#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:152
 #: dashboards/admin/instances/tables.py:145
-#: dashboards/admin/networks/tables.py:73
-#: dashboards/admin/networks/ports/tables.py:77
-#: dashboards/admin/routers/tables.py:54
+#: dashboards/admin/networks/tables.py:88
+#: dashboards/admin/networks/ports/tables.py:92
+#: dashboards/admin/routers/tables.py:61
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/database_backups/tables.py:124
@@ -1814,23 +1807,23 @@ msgstr "영역"
 #: dashboards/project/databases/tables.py:161
 #: dashboards/project/databases/tables.py:214
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
-#: dashboards/project/firewalls/tables.py:196
+#: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:214
 #: dashboards/project/images/templates/images/images/_detail_overview.html:17
 #: dashboards/project/instances/tables.py:803
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
-#: dashboards/project/loadbalancers/tables.py:204
-#: dashboards/project/loadbalancers/tables.py:236
+#: dashboards/project/loadbalancers/tables.py:218
+#: dashboards/project/loadbalancers/tables.py:250
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
-#: dashboards/project/networks/tables.py:98
-#: dashboards/project/networks/ports/tables.py:54
+#: dashboards/project/networks/tables.py:120
+#: dashboards/project/networks/ports/tables.py:61
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:126
-#: dashboards/project/routers/ports/tables.py:84
+#: dashboards/project/routers/tables.py:148
+#: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:100
 #: dashboards/project/stacks/tables.py:132
@@ -1842,62 +1835,75 @@ msgstr "영역"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:257
-#: dashboards/project/vpn/tables.py:177 dashboards/project/vpn/tables.py:204
+#: dashboards/project/vpn/tables.py:189 dashboards/project/vpn/tables.py:216
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
 msgstr "상태"
 
-#: dashboards/admin/info/tables.py:86 dashboards/admin/info/tables.py:133
-#: dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:59 dashboards/admin/info/tabs.py:33
+msgid "Services"
+msgstr "서비스"
+
+#: dashboards/admin/info/tables.py:81 dashboards/admin/info/tables.py:102
+msgid "Zone"
+msgstr "영역"
+
+#: dashboards/admin/info/tables.py:83 dashboards/admin/info/tables.py:105
+#: dashboards/admin/info/tables.py:153 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "상태"
 
-#: dashboards/admin/info/tables.py:88 dashboards/admin/info/tables.py:135
+#: dashboards/admin/info/tables.py:85 dashboards/admin/info/tables.py:108
+#: dashboards/admin/info/tables.py:155
 msgid "Updated At"
 msgstr "업데이트"
 
-#: dashboards/admin/info/tables.py:97 dashboards/admin/info/tabs.py:48
+#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tabs.py:49
 msgid "Compute Services"
 msgstr "Compute 서비스"
 
-#: dashboards/admin/info/tables.py:118 dashboards/admin/users/tables.py:58
+#: dashboards/admin/info/tables.py:117 dashboards/admin/info/tabs.py:66
+msgid "Block Storage Services"
+msgstr ""
+
+#: dashboards/admin/info/tables.py:138 dashboards/admin/users/tables.py:58
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Disabled"
 msgstr "비활성된"
 
-#: dashboards/admin/info/tables.py:123
+#: dashboards/admin/info/tables.py:143
 msgid "Up"
 msgstr "위로"
 
-#: dashboards/admin/info/tables.py:125
+#: dashboards/admin/info/tables.py:145
 msgid "Down"
 msgstr "아래로"
 
-#: dashboards/admin/info/tables.py:144 dashboards/admin/info/tabs.py:65
+#: dashboards/admin/info/tables.py:164 dashboards/admin/info/tabs.py:83
 msgid "Network Agents"
 msgstr "네트워크 에이전트"
 
-#: dashboards/admin/info/tables.py:163
+#: dashboards/admin/info/tables.py:183
 #: dashboards/admin/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "첨부한 파일 콘텐츠 바이트"
 
-#: dashboards/admin/info/tables.py:164
+#: dashboards/admin/info/tables.py:184
 msgid "Length of Injected File Path"
 msgstr "첨부한 파일 위치에 대한 길이"
 
-#: dashboards/admin/info/tables.py:165
+#: dashboards/admin/info/tables.py:185
 #: dashboards/admin/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "Metadata 항목"
 
-#: dashboards/admin/info/tables.py:168
+#: dashboards/admin/info/tables.py:188
 #: dashboards/admin/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "첨부한 파일"
 
-#: dashboards/admin/info/tables.py:169
+#: dashboards/admin/info/tables.py:189
 #: dashboards/admin/projects/workflows.py:53
 #: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tables.py:56
 #: dashboards/admin/volumes/templates/volumes/index.html:3
@@ -1910,7 +1916,7 @@ msgstr "첨부한 파일"
 msgid "Volumes"
 msgstr "볼륨"
 
-#: dashboards/admin/info/tables.py:170
+#: dashboards/admin/info/tables.py:190
 #: dashboards/admin/projects/workflows.py:54
 #: dashboards/project/volumes/tabs.py:73
 #: dashboards/project/volumes/snapshots/tables.py:45
@@ -1918,17 +1924,17 @@ msgstr "볼륨"
 msgid "Volume Snapshots"
 msgstr "볼륨 스냅샷"
 
-#: dashboards/admin/info/tables.py:171
+#: dashboards/admin/info/tables.py:191
 #: dashboards/admin/projects/workflows.py:56
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "볼륨 및 스냅샷 총량 (GB)"
 
-#: dashboards/admin/info/tables.py:172
+#: dashboards/admin/info/tables.py:192
 #: dashboards/admin/projects/workflows.py:57
 msgid "RAM (MB)"
 msgstr "RAM (MB)"
 
-#: dashboards/admin/info/tables.py:173
+#: dashboards/admin/info/tables.py:193
 #: dashboards/admin/projects/workflows.py:58
 #: dashboards/admin/projects/workflows.py:70
 #: dashboards/project/access_and_security/tabs.py:74
@@ -1937,7 +1943,7 @@ msgstr "RAM (MB)"
 msgid "Floating IPs"
 msgstr "유동 IP"
 
-#: dashboards/admin/info/tables.py:174
+#: dashboards/admin/info/tables.py:194
 #: dashboards/admin/projects/workflows.py:61
 #: dashboards/admin/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:42
@@ -1949,72 +1955,80 @@ msgstr "유동 IP"
 msgid "Security Groups"
 msgstr "시큐리티 그룹"
 
-#: dashboards/admin/info/tables.py:175
+#: dashboards/admin/info/tables.py:195
 #: dashboards/admin/projects/workflows.py:63
 #: dashboards/admin/projects/workflows.py:69
 #: dashboards/project/access_and_security/security_groups/tables.py:171
 msgid "Security Group Rules"
 msgstr "시큐리티 그룹 룰"
 
-#: dashboards/admin/info/tables.py:176
+#: dashboards/admin/info/tables.py:196
 #: dashboards/project/access_and_security/tabs.py:58
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:70
 msgid "Key Pairs"
 msgstr "키 패어"
 
-#: dashboards/admin/info/tables.py:177
-#: dashboards/admin/networks/ports/tables.py:74
+#: dashboards/admin/info/tables.py:197
+#: dashboards/admin/networks/ports/tables.py:89
 #: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
-#: dashboards/project/networks/ports/tables.py:52
-#: dashboards/project/routers/ports/tables.py:83
+#: dashboards/project/networks/ports/tables.py:59
+#: dashboards/project/routers/ports/tables.py:97
 msgid "Fixed IPs"
 msgstr "고정 IP"
 
-#: dashboards/admin/info/tables.py:178
+#: dashboards/admin/info/tables.py:198
 msgid "LUKS Volumes"
 msgstr "LUKS 볼륨"
 
-#: dashboards/admin/info/tables.py:179
+#: dashboards/admin/info/tables.py:199
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS 볼륨 스냅샷"
 
-#: dashboards/admin/info/tables.py:181
+#: dashboards/admin/info/tables.py:201
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "LUKS 볼륨 및 스냅샷 총량 (GB)"
 
-#: dashboards/admin/info/tables.py:182
+#: dashboards/admin/info/tables.py:202
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-#: dashboards/admin/info/tables.py:188
+#: dashboards/admin/info/tables.py:208
 msgid "Quota Name"
 msgstr "Quota 이름"
 
-#: dashboards/admin/info/tables.py:189
+#: dashboards/admin/info/tables.py:209
 msgid "Limit"
 msgstr "제한"
 
-#: dashboards/admin/info/tables.py:196
+#: dashboards/admin/info/tables.py:216
 msgid "Quotas"
 msgstr "Quotas"
 
-#: dashboards/admin/info/tabs.py:56
+#: dashboards/admin/info/tabs.py:57
 msgid "Unable to get nova services list."
 msgstr "Nova 서비스 목록을 가져올 수 없습니다"
 
-#: dashboards/admin/info/tabs.py:76
+#: dashboards/admin/info/tabs.py:74
+msgid "Unable to get cinder services list."
+msgstr ""
+
+#: dashboards/admin/info/tabs.py:94
 msgid "Unable to get network agents list."
 msgstr "네트워크 에이전트 목록을 불러올 수 없습니다."
 
-#: dashboards/admin/info/tabs.py:85
+#: dashboards/admin/info/tabs.py:103
 msgid "Default Quotas"
 msgstr "기본 Quotas"
 
-#: dashboards/admin/info/tabs.py:95
+#: dashboards/admin/info/tabs.py:113
 msgid "Unable to get quota info."
 msgstr "Quota 정보를 얻을 수 있습니다."
+
+#: dashboards/admin/info/templates/info/_cell_status.html:4
+msgid "Reason"
+msgstr ""
 
 #: dashboards/admin/instances/forms.py:27
 msgid "Current Host"
@@ -2086,9 +2100,9 @@ msgstr "실시간 마이그레이트 인스턴스 "
 #: dashboards/admin/instances/tables.py:122
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:34
-#: dashboards/admin/networks/tables.py:66
+#: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
-#: dashboards/admin/routers/tables.py:48 dashboards/admin/volumes/tables.py:52
+#: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
 #: dashboards/project/dashboard.py:61
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:49
@@ -2104,7 +2118,7 @@ msgstr "프로젝트"
 #: dashboards/project/access_and_security/floating_ips/workflows.py:30
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/instances/tables.py:795
-#: dashboards/project/loadbalancers/tables.py:229
+#: dashboards/project/loadbalancers/tables.py:243
 msgid "IP Address"
 msgstr "IP 주소"
 
@@ -2113,6 +2127,7 @@ msgstr "IP 주소"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:157
+#: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:798
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
@@ -2402,9 +2417,9 @@ msgstr "네트워크 프로필"
 
 #: dashboards/admin/networks/forms.py:37
 #: dashboards/admin/networks/forms.py:102
-#: dashboards/admin/networks/tables.py:75
+#: dashboards/admin/networks/tables.py:90
 #: dashboards/admin/networks/ports/forms.py:42
-#: dashboards/admin/networks/ports/tables.py:79
+#: dashboards/admin/networks/ports/tables.py:94
 #: dashboards/admin/routers/ports/tables.py:34
 #: dashboards/project/firewalls/workflows.py:245
 #: dashboards/project/loadbalancers/forms.py:40
@@ -2416,13 +2431,13 @@ msgstr "네트워크 프로필"
 #: dashboards/project/loadbalancers/workflows.py:311
 #: dashboards/project/loadbalancers/workflows.py:468
 #: dashboards/project/networks/forms.py:40
-#: dashboards/project/networks/tables.py:100
+#: dashboards/project/networks/tables.py:122
 #: dashboards/project/networks/workflows.py:39
 #: dashboards/project/networks/ports/forms.py:36
-#: dashboards/project/networks/ports/tables.py:56
+#: dashboards/project/networks/ports/tables.py:63
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
-#: dashboards/project/routers/ports/tables.py:88
+#: dashboards/project/routers/ports/tables.py:102
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:257
 #: dashboards/project/vpn/workflows.py:33
 #: dashboards/project/vpn/workflows.py:416
@@ -2433,7 +2448,7 @@ msgstr "관리자 상태"
 
 #: dashboards/admin/networks/forms.py:39
 #: dashboards/admin/networks/forms.py:103
-#: dashboards/admin/networks/tables.py:71
+#: dashboards/admin/networks/tables.py:86
 #: dashboards/project/firewalls/forms.py:68
 #: dashboards/project/firewalls/forms.py:116
 #: dashboards/project/firewalls/workflows.py:67
@@ -2441,16 +2456,16 @@ msgstr "관리자 상태"
 #: dashboards/project/firewalls/workflows.py:242
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:96
+#: dashboards/project/networks/tables.py:118
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "공유"
 
 #: dashboards/admin/networks/forms.py:41
 #: dashboards/admin/networks/forms.py:104
-#: dashboards/admin/routers/tables.py:57
+#: dashboards/admin/routers/tables.py:64
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:129
+#: dashboards/project/routers/tables.py:151
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "외부 네트워크"
@@ -2494,14 +2509,14 @@ msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
 
 #: dashboards/admin/networks/panel.py:23
 #: dashboards/admin/networks/tables.py:34
-#: dashboards/admin/networks/tables.py:79
+#: dashboards/admin/networks/tables.py:94
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
 #: dashboards/project/instances/workflows/create_instance.py:553
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
-#: dashboards/project/networks/tables.py:104
+#: dashboards/project/networks/tables.py:126
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 msgid "Networks"
@@ -2515,40 +2530,40 @@ msgstr "네트워크"
 msgid "Network"
 msgstr "네트워크"
 
-#: dashboards/admin/networks/tables.py:40
-#: dashboards/project/networks/tables.py:57
+#: dashboards/admin/networks/tables.py:47
+#: dashboards/project/networks/tables.py:64
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "네트워크 %s 삭제하지 못하였습니다."
 
-#: dashboards/admin/networks/tables.py:48
+#: dashboards/admin/networks/tables.py:55
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:24
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
-#: dashboards/project/network_topology/templates/network_topology/index.html:28
-#: dashboards/project/networks/tables.py:65
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/networks/tables.py:72
 #: dashboards/project/networks/workflows.py:264
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
 msgstr "네트워크 생성"
 
-#: dashboards/admin/networks/tables.py:55
+#: dashboards/admin/networks/tables.py:63
 #: dashboards/admin/networks/templates/networks/_update.html:8
-#: dashboards/project/networks/tables.py:72
+#: dashboards/project/networks/tables.py:80
 #: dashboards/project/networks/templates/networks/_update.html:8
 msgid "Edit Network"
 msgstr "네트워크 편집"
 
-#: dashboards/admin/networks/tables.py:67
+#: dashboards/admin/networks/tables.py:82
 #: dashboards/admin/networks/ports/forms.py:33
 #: dashboards/project/networks/workflows.py:35
 msgid "Network Name"
 msgstr "네트워크 이름"
 
-#: dashboards/admin/networks/tables.py:70
-#: dashboards/project/networks/tables.py:95
+#: dashboards/admin/networks/tables.py:85
+#: dashboards/project/networks/tables.py:117
 msgid "Subnets Associated"
 msgstr "관련 서브넷"
 
@@ -2568,8 +2583,9 @@ msgid "Port list can not be retrieved."
 msgstr "포트 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/networks/views.py:117
+#: dashboards/admin/networks/subnets/tables.py:107
 #: dashboards/project/networks/views.py:132
-#: dashboards/project/networks/subnets/tables.py:96
+#: dashboards/project/networks/subnets/tables.py:118
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "네트워크 \"%s\"의 세부 정보를 찾을 수 없습니다."
@@ -2633,18 +2649,18 @@ msgid "Port"
 msgstr "포트"
 
 #: dashboards/admin/networks/ports/tables.py:33
-#: dashboards/admin/networks/ports/tables.py:83
+#: dashboards/admin/networks/ports/tables.py:98
 #: dashboards/admin/projects/workflows.py:72
-#: dashboards/project/networks/ports/tables.py:63
+#: dashboards/project/networks/ports/tables.py:70
 msgid "Ports"
 msgstr "포트"
 
-#: dashboards/admin/networks/ports/tables.py:39
+#: dashboards/admin/networks/ports/tables.py:46
 #, python-format
 msgid "Failed to delete port: %s"
 msgstr "포트를 삭제하지 못하였습니다. %s"
 
-#: dashboards/admin/networks/ports/tables.py:49
+#: dashboards/admin/networks/ports/tables.py:56
 #: dashboards/admin/networks/templates/networks/ports/_create.html:9
 #: dashboards/admin/networks/templates/networks/ports/_create.html:24
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
@@ -2652,14 +2668,14 @@ msgstr "포트를 삭제하지 못하였습니다. %s"
 msgid "Create Port"
 msgstr "포트 생성"
 
-#: dashboards/admin/networks/ports/tables.py:60
+#: dashboards/admin/networks/ports/tables.py:68
 #: dashboards/admin/networks/templates/networks/ports/_update.html:8
 #: dashboards/project/networks/ports/tables.py:39
 #: dashboards/project/networks/templates/networks/ports/_update.html:8
 msgid "Edit Port"
 msgstr "포트 편집"
 
-#: dashboards/admin/networks/ports/tables.py:76
+#: dashboards/admin/networks/ports/tables.py:91
 msgid "Device Attached"
 msgstr "장치 연결됨"
 
@@ -2691,8 +2707,8 @@ msgstr "포트에 대한 세부 정보를 찾을 수 없습니다."
 msgid "Unable to retrieve network."
 msgstr "네트워크를 찾을 수 없습니다."
 
-#: dashboards/admin/networks/subnets/tables.py:30
-#: dashboards/project/loadbalancers/tables.py:202
+#: dashboards/admin/networks/subnets/tables.py:31
+#: dashboards/project/loadbalancers/tables.py:216
 #: dashboards/project/loadbalancers/workflows.py:38
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
@@ -2704,38 +2720,38 @@ msgstr "네트워크를 찾을 수 없습니다."
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:44
-#: dashboards/project/vpn/tables.py:200 dashboards/project/vpn/workflows.py:32
+#: dashboards/project/vpn/tables.py:212 dashboards/project/vpn/workflows.py:32
 msgid "Subnet"
 msgstr "서브넷"
 
-#: dashboards/admin/networks/subnets/tables.py:31
-#: dashboards/admin/networks/subnets/tables.py:79
+#: dashboards/admin/networks/subnets/tables.py:32
+#: dashboards/admin/networks/subnets/tables.py:114
 #: dashboards/admin/projects/workflows.py:74
 #: dashboards/project/networks/subnets/tables.py:45
-#: dashboards/project/networks/subnets/tables.py:103
+#: dashboards/project/networks/subnets/tables.py:125
 msgid "Subnets"
 msgstr "서브넷"
 
-#: dashboards/admin/networks/subnets/tables.py:37
-#: dashboards/project/networks/subnets/tables.py:51
+#: dashboards/admin/networks/subnets/tables.py:45
+#: dashboards/project/networks/subnets/tables.py:58
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "서브넷 %s을 삭제하지 못하였습니다."
 
-#: dashboards/admin/networks/subnets/tables.py:47
+#: dashboards/admin/networks/subnets/tables.py:55
 #: dashboards/project/networks/workflows.py:82
-#: dashboards/project/networks/subnets/tables.py:61
+#: dashboards/project/networks/subnets/tables.py:68
 #: dashboards/project/networks/subnets/workflows.py:55
 msgid "Create Subnet"
 msgstr "서브넷 생성"
 
-#: dashboards/admin/networks/subnets/tables.py:58
-#: dashboards/project/networks/subnets/tables.py:72
+#: dashboards/admin/networks/subnets/tables.py:74
+#: dashboards/project/networks/subnets/tables.py:87
 #: dashboards/project/networks/subnets/workflows.py:149
 msgid "Edit Subnet"
 msgstr "서브넷 편집"
 
-#: dashboards/admin/networks/subnets/tables.py:70
+#: dashboards/admin/networks/subnets/tables.py:93
 #: dashboards/project/access_and_security/security_groups/forms.py:192
 #: dashboards/project/access_and_security/security_groups/forms.py:204
 #: dashboards/project/access_and_security/security_groups/forms.py:214
@@ -2743,16 +2759,16 @@ msgstr "서브넷 편집"
 msgid "CIDR"
 msgstr "CIDR"
 
-#: dashboards/admin/networks/subnets/tables.py:71
+#: dashboards/admin/networks/subnets/tables.py:94
 #: dashboards/project/networks/workflows.py:95
-#: dashboards/project/networks/subnets/tables.py:85
+#: dashboards/project/networks/subnets/tables.py:107
 #: dashboards/project/networks/subnets/workflows.py:101
 msgid "IP Version"
 msgstr "IP 버전"
 
-#: dashboards/admin/networks/subnets/tables.py:72
+#: dashboards/admin/networks/subnets/tables.py:95
 #: dashboards/project/networks/workflows.py:97
-#: dashboards/project/networks/subnets/tables.py:86
+#: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "Gateway IP"
 msgstr "게이트웨이 IP"
@@ -2962,13 +2978,13 @@ msgid "Unable to retrieve project details."
 msgstr "프로젝트 세부 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/projects/workflows.py:73
-#: dashboards/admin/routers/panel.py:23 dashboards/admin/routers/tables.py:64
+#: dashboards/admin/routers/panel.py:23 dashboards/admin/routers/tables.py:71
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:23
 #: dashboards/project/routers/tables.py:32
-#: dashboards/project/routers/tables.py:136
+#: dashboards/project/routers/tables.py:158
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 msgid "Routers"
@@ -2983,7 +2999,7 @@ msgid "From here you can set quotas (max limits) for the project."
 msgstr "여기서 프로젝트의 quota (최대치)를 설정할 수 있습니다."
 
 #: dashboards/admin/projects/workflows.py:104
-#: dashboards/admin/users/forms.py:77 dashboards/admin/users/forms.py:147
+#: dashboards/admin/users/forms.py:77 dashboards/admin/users/forms.py:153
 msgid "Domain Name"
 msgstr "도메인 이름"
 
@@ -3179,35 +3195,35 @@ msgstr "라우터 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:21
 #: dashboards/project/routers/extensions/routerrules/forms.py:48
-#: dashboards/project/routers/extensions/routerrules/tables.py:51
+#: dashboards/project/routers/extensions/routerrules/tables.py:65
 msgid "Source CIDR"
 msgstr "소스 CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:23
 #: dashboards/project/routers/extensions/routerrules/forms.py:50
-#: dashboards/project/routers/extensions/routerrules/tables.py:53
+#: dashboards/project/routers/extensions/routerrules/tables.py:67
 msgid "Destination CIDR"
 msgstr "목적지 CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:24
 #: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:157
+#: dashboards/project/firewalls/tables.py:218
 #: dashboards/project/firewalls/workflows.py:45
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
-#: dashboards/project/routers/extensions/routerrules/tables.py:54
+#: dashboards/project/routers/extensions/routerrules/tables.py:68
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Action"
 msgstr "동작"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:25
-#: dashboards/project/routers/extensions/routerrules/tables.py:55
+#: dashboards/project/routers/extensions/routerrules/tables.py:69
 msgid "Next Hops"
 msgstr "다음 홉"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:29
-#: dashboards/project/routers/extensions/routerrules/tables.py:41
-#: dashboards/project/routers/extensions/routerrules/tables.py:62
+#: dashboards/project/routers/extensions/routerrules/tables.py:48
+#: dashboards/project/routers/extensions/routerrules/tables.py:76
 #: dashboards/project/routers/extensions/routerrules/tabs.py:32
 msgid "Router Rules"
 msgstr "라우터 룰"
@@ -3215,8 +3231,8 @@ msgstr "라우터 룰"
 #: dashboards/admin/routers/ports/tables.py:41
 #: dashboards/project/network_topology/ports/tables.py:28
 #: dashboards/project/routers/tabs.py:27
-#: dashboards/project/routers/ports/tables.py:51
-#: dashboards/project/routers/ports/tables.py:95
+#: dashboards/project/routers/ports/tables.py:58
+#: dashboards/project/routers/ports/tables.py:109
 msgid "Interfaces"
 msgstr "인터페이스"
 
@@ -3292,18 +3308,18 @@ msgstr "프로젝트를 사용할 수 없습니다."
 msgid "Passwords do not match."
 msgstr "비밀번호가 일치하지 않습니다."
 
-#: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:156
+#: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:162
 #: dashboards/project/databases/workflows/create_instance.py:80
 #: dashboards/project/instances/forms.py:155
 #: dashboards/project/instances/tables.py:699
 msgid "Password"
 msgstr "비밀번호"
 
-#: dashboards/admin/users/forms.py:90 dashboards/admin/users/forms.py:162
+#: dashboards/admin/users/forms.py:90 dashboards/admin/users/forms.py:168
 msgid "Confirm Password"
 msgstr "비밀번호 확인"
 
-#: dashboards/admin/users/forms.py:92 dashboards/admin/users/forms.py:165
+#: dashboards/admin/users/forms.py:92 dashboards/admin/users/forms.py:171
 msgid "Primary Project"
 msgstr "최초 프로젝트"
 
@@ -3312,19 +3328,19 @@ msgstr "최초 프로젝트"
 msgid "User \"%s\" was successfully created."
 msgstr "사용자 \"%s\"를 성공적으로 생성하였습니다."
 
-#: dashboards/admin/users/forms.py:135
+#: dashboards/admin/users/forms.py:141
 msgid "Unable to add user to primary project."
 msgstr "기본 프로젝트에 사용자를 추가할 수 없습니다."
 
-#: dashboards/admin/users/forms.py:139
+#: dashboards/admin/users/forms.py:145
 msgid "Unable to create user."
 msgstr "사용자를 생성할 수 없습니다."
 
-#: dashboards/admin/users/forms.py:196
+#: dashboards/admin/users/forms.py:202
 msgid "User has been updated successfully."
 msgstr "사용자가 성공적으로 업데이트 되었습니다."
 
-#: dashboards/admin/users/forms.py:199
+#: dashboards/admin/users/forms.py:205
 msgid "Unable to update the user."
 msgstr "사용자 업데이트를 할 수 없습니다."
 
@@ -3521,8 +3537,8 @@ msgstr "RC 파일 다운로드 중 오류: %s"
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
 #: dashboards/project/loadbalancers/forms.py:78
 #: dashboards/project/loadbalancers/forms.py:168
-#: dashboards/project/loadbalancers/tables.py:81
-#: dashboards/project/loadbalancers/tables.py:235
+#: dashboards/project/loadbalancers/tables.py:86
+#: dashboards/project/loadbalancers/tables.py:249
 #: dashboards/project/loadbalancers/workflows.py:294
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
@@ -3733,7 +3749,7 @@ msgstr "시큐리티 그룹을 업데이트 할 수 없습니다."
 #: dashboards/project/access_and_security/security_groups/forms.py:92
 #: dashboards/project/access_and_security/security_groups/tables.py:89
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
-#: dashboards/project/firewalls/tables.py:49
+#: dashboards/project/firewalls/tables.py:52
 msgid "Rule"
 msgstr "룰"
 
@@ -3946,9 +3962,9 @@ msgid "Add Rule"
 msgstr "룰 추가"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:90
-#: dashboards/project/firewalls/tables.py:50
-#: dashboards/project/firewalls/tables.py:166
-#: dashboards/project/firewalls/tables.py:176
+#: dashboards/project/firewalls/tables.py:53
+#: dashboards/project/firewalls/tables.py:227
+#: dashboards/project/firewalls/tables.py:237
 #: dashboards/project/firewalls/workflows.py:133
 #: dashboards/project/firewalls/workflows.py:139
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
@@ -4454,32 +4470,32 @@ msgstr "백업 다운로드"
 #: dashboards/project/database_backups/tables.py:76
 #: dashboards/project/databases/tables.py:62
 #: dashboards/project/databases/tables.py:78
-#: dashboards/project/firewalls/tables.py:47
-#: dashboards/project/firewalls/tables.py:55
-#: dashboards/project/firewalls/tables.py:63
-#: dashboards/project/loadbalancers/tables.py:66
-#: dashboards/project/loadbalancers/tables.py:79
-#: dashboards/project/loadbalancers/tables.py:92
-#: dashboards/project/loadbalancers/tables.py:100
-#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:59
-#: dashboards/project/vpn/tables.py:72 dashboards/project/vpn/tables.py:85
-#: dashboards/project/vpn/tables.py:98
+#: dashboards/project/firewalls/tables.py:50
+#: dashboards/project/firewalls/tables.py:65
+#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/loadbalancers/tables.py:70
+#: dashboards/project/loadbalancers/tables.py:84
+#: dashboards/project/loadbalancers/tables.py:98
+#: dashboards/project/loadbalancers/tables.py:107
+#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:63
+#: dashboards/project/vpn/tables.py:77 dashboards/project/vpn/tables.py:91
+#: dashboards/project/vpn/tables.py:105
 msgid "Delete"
 msgstr "삭제"
 
 #: dashboards/project/database_backups/tables.py:77
-#: dashboards/project/firewalls/tables.py:48
-#: dashboards/project/firewalls/tables.py:56
-#: dashboards/project/firewalls/tables.py:64
-#: dashboards/project/loadbalancers/tables.py:67
-#: dashboards/project/loadbalancers/tables.py:80
-#: dashboards/project/loadbalancers/tables.py:93
-#: dashboards/project/loadbalancers/tables.py:101
+#: dashboards/project/firewalls/tables.py:51
+#: dashboards/project/firewalls/tables.py:66
+#: dashboards/project/firewalls/tables.py:81
+#: dashboards/project/loadbalancers/tables.py:71
+#: dashboards/project/loadbalancers/tables.py:85
+#: dashboards/project/loadbalancers/tables.py:99
+#: dashboards/project/loadbalancers/tables.py:108
 #: dashboards/project/stacks/tables.py:50
 #: dashboards/project/volumes/snapshots/tables.py:46
 #: dashboards/project/volumes/volumes/tables.py:60
-#: dashboards/project/vpn/tables.py:60 dashboards/project/vpn/tables.py:73
-#: dashboards/project/vpn/tables.py:86 dashboards/project/vpn/tables.py:99
+#: dashboards/project/vpn/tables.py:64 dashboards/project/vpn/tables.py:78
+#: dashboards/project/vpn/tables.py:92 dashboards/project/vpn/tables.py:106
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "%(data_type)s 삭제 예약합니다."
@@ -4603,7 +4619,7 @@ msgstr "선택인 백업 설명"
 #: dashboards/project/databases/workflows/create_instance.py:39
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 #: dashboards/project/instances/workflows/create_instance.py:129
-#: dashboards/project/loadbalancers/tables.py:262
+#: dashboards/project/loadbalancers/tables.py:276
 msgid "Details"
 msgstr "세부 정보"
 
@@ -4669,7 +4685,7 @@ msgstr "인스턴스에서 데이터베이스를 삭제하는 동안 오류가 �
 #: dashboards/project/instances/tables.py:216
 #: dashboards/project/instances/tables.py:243
 #: dashboards/project/instances/workflows/create_instance.py:658
-#: dashboards/project/network_topology/templates/network_topology/index.html:27
+#: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "인스턴스 시작"
 
@@ -4695,7 +4711,7 @@ msgstr "사용할 수 없음"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
 #: dashboards/project/instances/views.py:110
-#: dashboards/project/loadbalancers/tables.py:252
+#: dashboards/project/loadbalancers/tables.py:266
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:23
@@ -4909,10 +4925,10 @@ msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
 
 #: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:146
+#: dashboards/project/firewalls/tables.py:207
 #: dashboards/project/firewalls/workflows.py:39
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
-#: dashboards/project/loadbalancers/tables.py:203
+#: dashboards/project/loadbalancers/tables.py:217
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:164
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
@@ -5001,7 +5017,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "룰 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:117
-#: dashboards/project/firewalls/tables.py:178
+#: dashboards/project/firewalls/tables.py:239
 #: dashboards/project/firewalls/workflows.py:185
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
@@ -5018,8 +5034,8 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "정책 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:145
-#: dashboards/project/firewalls/tables.py:57
-#: dashboards/project/firewalls/tables.py:194
+#: dashboards/project/firewalls/tables.py:67
+#: dashboards/project/firewalls/tables.py:255
 #: dashboards/project/firewalls/workflows.py:240
 msgid "Policy"
 msgstr "정책"
@@ -5048,7 +5064,7 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "방화벽 %(name)s 를 업데이트 하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:194
-#: dashboards/project/firewalls/tables.py:104
+#: dashboards/project/firewalls/tables.py:149
 msgid "Insert Rule"
 msgstr "룰 삽입"
 
@@ -5076,7 +5092,7 @@ msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "정책 %(name)s에 룰을 추가하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:259
-#: dashboards/project/firewalls/tables.py:115
+#: dashboards/project/firewalls/tables.py:168
 msgid "Remove Rule"
 msgstr "룰 삭제"
 
@@ -5096,51 +5112,51 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "룰을 정책 %(name)s에서 제거하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:22
-#: dashboards/project/firewalls/tables.py:66
-#: dashboards/project/firewalls/tables.py:200
+#: dashboards/project/firewalls/tables.py:83
+#: dashboards/project/firewalls/tables.py:261
 #: dashboards/project/firewalls/tabs.py:75
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "방화벽"
 
-#: dashboards/project/firewalls/tables.py:33
+#: dashboards/project/firewalls/tables.py:34
 #: dashboards/project/firewalls/workflows.py:213
 msgid "Add Policy"
 msgstr "정책 추가"
 
-#: dashboards/project/firewalls/tables.py:40
+#: dashboards/project/firewalls/tables.py:42
 msgid "Create Firewall"
 msgstr "방화벽 생성"
 
-#: dashboards/project/firewalls/tables.py:58
-#: dashboards/project/firewalls/tables.py:182
+#: dashboards/project/firewalls/tables.py:68
+#: dashboards/project/firewalls/tables.py:243
 msgid "Policies"
 msgstr "정책"
 
-#: dashboards/project/firewalls/tables.py:65
+#: dashboards/project/firewalls/tables.py:82
 msgid "Firewall"
 msgstr "방화벽"
 
-#: dashboards/project/firewalls/tables.py:71
+#: dashboards/project/firewalls/tables.py:95
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "룰 편집"
 
-#: dashboards/project/firewalls/tables.py:82
+#: dashboards/project/firewalls/tables.py:113
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "정책 편집"
 
-#: dashboards/project/firewalls/tables.py:93
+#: dashboards/project/firewalls/tables.py:131
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "방화벽 편집"
 
-#: dashboards/project/firewalls/tables.py:144
+#: dashboards/project/firewalls/tables.py:205
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -5150,25 +5166,25 @@ msgstr "방화벽 편집"
 msgid "ANY"
 msgstr "ANY"
 
-#: dashboards/project/firewalls/tables.py:148
+#: dashboards/project/firewalls/tables.py:209
 msgid "Source IP"
 msgstr "소스 IP"
 
-#: dashboards/project/firewalls/tables.py:150
+#: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "소스 포트"
 
-#: dashboards/project/firewalls/tables.py:152
+#: dashboards/project/firewalls/tables.py:213
 msgid "Destination IP"
 msgstr "대상 IP"
 
-#: dashboards/project/firewalls/tables.py:154
+#: dashboards/project/firewalls/tables.py:215
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "대상 포트"
 
-#: dashboards/project/firewalls/tables.py:162
+#: dashboards/project/firewalls/tables.py:223
 msgid "In Policy"
 msgstr "정책에서"
 
@@ -5548,6 +5564,7 @@ msgid "Image was successfully updated."
 msgstr "이미지를 성공적으로 업데이트 하였습니다."
 
 #: dashboards/project/images/images/tables.py:58
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
 #: dashboards/project/volumes/volumes/forms.py:193
 msgid "Image"
 msgstr "이미지"
@@ -6316,7 +6333,7 @@ msgid "Key Name"
 msgstr "키 이름"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:106
-#: dashboards/project/loadbalancers/tables.py:201
+#: dashboards/project/loadbalancers/tables.py:215
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr "N/A"
@@ -6423,9 +6440,9 @@ msgstr "다음 차트는 이 프로젝트에 관련된 프로젝트 quota에 관
 
 #: dashboards/project/instances/templates/instances/_launch_network_help.html:3
 msgid ""
-"Choose network from Available networks to Selected Networks by push button "
-"or drag and drop, you may change nic order by drag and drop as well. "
-msgstr "버튼을 클릭하거나 드래그 앤 드롭으로 '사용가능한 네트워크에'서 네트워크 항목을 선택하여 '선택한 네트워크'로 이동 하십시오. 드래그 앤 드롭으로 NIC 순서를 변경할 수 있습니다."
+"Choose network from Available networks to Selected networks by push button "
+"or drag and drop, you may change NIC order by drag and drop as well. "
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
@@ -6442,8 +6459,8 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr "옵션으로 인스턴스 다시 빌드시 비밀번호를 설정할 수 있습니다."
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
-msgid "Selected Networks"
-msgstr "네트워크를 선택함."
+msgid "Selected networks"
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:11
 msgid "Available networks"
@@ -6925,7 +6942,7 @@ msgid "Failed to update member %s"
 msgstr "멤버 %s 업데이트 실패하였습니다."
 
 #: dashboards/project/loadbalancers/forms.py:218
-#: dashboards/project/loadbalancers/tables.py:259
+#: dashboards/project/loadbalancers/tables.py:273
 #: dashboards/project/loadbalancers/workflows.py:417
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
@@ -6937,7 +6954,7 @@ msgid "The minimum time in seconds between regular checks of a member"
 msgstr "멤버의 정기 정검 사이의 최소 시간"
 
 #: dashboards/project/loadbalancers/forms.py:223
-#: dashboards/project/loadbalancers/tables.py:260
+#: dashboards/project/loadbalancers/tables.py:274
 #: dashboards/project/loadbalancers/workflows.py:422
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:60
@@ -6980,110 +6997,110 @@ msgstr "로드 발란서"
 msgid "Add Pool"
 msgstr "Pool 추가"
 
-#: dashboards/project/loadbalancers/tables.py:36
+#: dashboards/project/loadbalancers/tables.py:37
 #: dashboards/project/loadbalancers/workflows.py:245
 msgid "Add VIP"
 msgstr "VIP 추가"
 
-#: dashboards/project/loadbalancers/tables.py:52
+#: dashboards/project/loadbalancers/tables.py:54
 #: dashboards/project/loadbalancers/workflows.py:380
 msgid "Add Member"
 msgstr "멤버 추가"
 
-#: dashboards/project/loadbalancers/tables.py:59
+#: dashboards/project/loadbalancers/tables.py:62
 #: dashboards/project/loadbalancers/workflows.py:521
 msgid "Add Monitor"
 msgstr "모니터 추가"
 
-#: dashboards/project/loadbalancers/tables.py:68
-#: dashboards/project/loadbalancers/tables.py:205
+#: dashboards/project/loadbalancers/tables.py:72
+#: dashboards/project/loadbalancers/tables.py:219
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
 msgid "VIP"
 msgstr "VIP"
 
-#: dashboards/project/loadbalancers/tables.py:69
+#: dashboards/project/loadbalancers/tables.py:73
 msgid "VIPs"
 msgstr "VIPs"
 
-#: dashboards/project/loadbalancers/tables.py:82
-#: dashboards/project/loadbalancers/tables.py:210
+#: dashboards/project/loadbalancers/tables.py:87
+#: dashboards/project/loadbalancers/tables.py:224
 #: dashboards/project/loadbalancers/tabs.py:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr "Pools"
 
-#: dashboards/project/loadbalancers/tables.py:94
+#: dashboards/project/loadbalancers/tables.py:100
 #: dashboards/project/loadbalancers/workflows.py:539
 #: dashboards/project/loadbalancers/workflows.py:601
 msgid "Monitor"
 msgstr "모니터"
 
-#: dashboards/project/loadbalancers/tables.py:95
-#: dashboards/project/loadbalancers/tables.py:266
+#: dashboards/project/loadbalancers/tables.py:101
+#: dashboards/project/loadbalancers/tables.py:280
 #: dashboards/project/loadbalancers/tabs.py:69
 msgid "Monitors"
 msgstr "모니터"
 
-#: dashboards/project/loadbalancers/tables.py:102
+#: dashboards/project/loadbalancers/tables.py:109
 msgid "Member"
 msgstr "멤버"
 
-#: dashboards/project/loadbalancers/tables.py:103
-#: dashboards/project/loadbalancers/tables.py:240
+#: dashboards/project/loadbalancers/tables.py:110
+#: dashboards/project/loadbalancers/tables.py:254
 #: dashboards/project/loadbalancers/tabs.py:49
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr "멤버"
 
-#: dashboards/project/loadbalancers/tables.py:108
+#: dashboards/project/loadbalancers/tables.py:116
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:6
 msgid "Edit Pool"
 msgstr "Pool 편집"
 
-#: dashboards/project/loadbalancers/tables.py:119
+#: dashboards/project/loadbalancers/tables.py:128
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:6
 msgid "Edit VIP"
 msgstr "VIP 편집"
 
-#: dashboards/project/loadbalancers/tables.py:135
+#: dashboards/project/loadbalancers/tables.py:145
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:6
 msgid "Edit Member"
 msgstr "멤버 편집"
 
-#: dashboards/project/loadbalancers/tables.py:146
+#: dashboards/project/loadbalancers/tables.py:157
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:6
 msgid "Edit Monitor"
 msgstr "모니터 편집"
 
-#: dashboards/project/loadbalancers/tables.py:165
+#: dashboards/project/loadbalancers/tables.py:177
 #: dashboards/project/loadbalancers/workflows.py:583
 msgid "Associate Monitor"
 msgstr "모니터 연결"
 
-#: dashboards/project/loadbalancers/tables.py:179
+#: dashboards/project/loadbalancers/tables.py:192
 msgid "Failed to retrieve health monitors."
 msgstr "상태 모니터를 찾을 수 없습니다"
 
-#: dashboards/project/loadbalancers/tables.py:185
+#: dashboards/project/loadbalancers/tables.py:198
 #: dashboards/project/loadbalancers/workflows.py:645
 msgid "Disassociate Monitor"
 msgstr "모니터 연결 해제"
 
-#: dashboards/project/loadbalancers/tables.py:200
+#: dashboards/project/loadbalancers/tables.py:214
 #: dashboards/project/loadbalancers/workflows.py:37
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
 msgid "Provider"
 msgstr "공급자"
 
-#: dashboards/project/loadbalancers/tables.py:233
+#: dashboards/project/loadbalancers/tables.py:247
 #: dashboards/project/loadbalancers/workflows.py:160
 #: dashboards/project/loadbalancers/workflows.py:307
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
@@ -7091,11 +7108,11 @@ msgstr "공급자"
 msgid "Protocol Port"
 msgstr "프로토콜 포트"
 
-#: dashboards/project/loadbalancers/tables.py:257
+#: dashboards/project/loadbalancers/tables.py:271
 msgid "Monitor Type"
 msgstr "모니터 타입"
 
-#: dashboards/project/loadbalancers/tables.py:261
+#: dashboards/project/loadbalancers/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:21
 msgid "Max Retries"
 msgstr "최대 재시도"
@@ -7578,14 +7595,14 @@ msgstr "라우터 생성"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
 #: dashboards/project/routers/tables.py:31
-#: dashboards/project/vpn/tables.py:201 dashboards/project/vpn/workflows.py:31
+#: dashboards/project/vpn/tables.py:213 dashboards/project/vpn/workflows.py:31
 #: dashboards/router/dashboard.py:23
 msgid "Router"
 msgstr "라우터"
 
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:29
-#: dashboards/project/routers/tables.py:57
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/routers/tables.py:64
 #: dashboards/project/routers/templates/routers/create.html:3
 #: dashboards/project/routers/templates/routers/create.html:6
 msgid "Create Router"
@@ -7607,11 +7624,11 @@ msgstr "작음"
 msgid "Normal"
 msgstr "기본"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "표시할 네트워크, 라우터, 연결한 인스턴스가 없습니다."
 
-#: dashboards/project/networks/tables.py:79
+#: dashboards/project/networks/tables.py:94
 msgid "Add Subnet"
 msgstr "서브넷 추가"
 
@@ -7630,7 +7647,7 @@ msgid "Subnet Name"
 msgstr "서브넷 이름"
 
 #: dashboards/project/networks/workflows.py:87
-#: dashboards/project/networks/subnets/tables.py:84
+#: dashboards/project/networks/subnets/tables.py:106
 #: dashboards/project/networks/subnets/workflows.py:80
 msgid "Network Address"
 msgstr "네트워크 주소"
@@ -7802,7 +7819,7 @@ msgstr "열결됨"
 msgid "Detached"
 msgstr "연결 해제됨"
 
-#: dashboards/project/networks/ports/tables.py:53
+#: dashboards/project/networks/ports/tables.py:60
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:36
 msgid "Attached Device"
 msgstr "장치 연결됨"
@@ -7991,13 +8008,13 @@ msgstr "리소스 라우터에 대한 quota를 넘었습니다."
 msgid "Failed to create router \"%s\"."
 msgstr "라우터 \"%s\"를 생성하지 못하였습니다."
 
-#: dashboards/project/routers/tables.py:41
-#: dashboards/project/routers/tables.py:47
+#: dashboards/project/routers/tables.py:48
+#: dashboards/project/routers/tables.py:54
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "라우터 \"%s\"를 삭제할 수 없습니다."
 
-#: dashboards/project/routers/tables.py:64
+#: dashboards/project/routers/tables.py:72
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
@@ -8005,23 +8022,23 @@ msgstr "라우터 \"%s\"를 삭제할 수 없습니다."
 msgid "Set Gateway"
 msgstr "게이트웨이 설정"
 
-#: dashboards/project/routers/tables.py:76
+#: dashboards/project/routers/tables.py:91
 msgid "Clear"
 msgstr "제거"
 
-#: dashboards/project/routers/tables.py:77
+#: dashboards/project/routers/tables.py:92
 msgid "Cleared"
 msgstr "제거 완료"
 
-#: dashboards/project/routers/tables.py:78
+#: dashboards/project/routers/tables.py:93
 msgid "Gateway"
 msgstr "게이트웨이"
 
-#: dashboards/project/routers/tables.py:79
+#: dashboards/project/routers/tables.py:94
 msgid "Gateways"
 msgstr "게이트웨이"
 
-#: dashboards/project/routers/tables.py:89
+#: dashboards/project/routers/tables.py:111
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "라우터 \"%(name)s\"에서 게이트웨이를 제거하지 못하였습니다.: \"%(msg)s\""
@@ -8093,7 +8110,7 @@ msgstr "라우터 룰 %s를 추가하는데 실패하였습니다."
 msgid "Add Router Rule"
 msgstr "라우터 룰 추가"
 
-#: dashboards/project/routers/extensions/routerrules/tables.py:40
+#: dashboards/project/routers/extensions/routerrules/tables.py:47
 msgid "Router Rule"
 msgstr "라우터 룰"
 
@@ -8181,11 +8198,11 @@ msgstr "내부 인터페이스"
 msgid "Add Interface"
 msgstr "인터페이스 추가"
 
-#: dashboards/project/routers/ports/tables.py:50
+#: dashboards/project/routers/ports/tables.py:57
 msgid "Interface"
 msgstr "인터페이스"
 
-#: dashboards/project/routers/ports/tables.py:65
+#: dashboards/project/routers/ports/tables.py:79
 #, python-format
 msgid "Failed to delete interface %s"
 msgstr "인터페이스 %s를 삭제하지 못하였습니다."
@@ -8746,6 +8763,11 @@ msgstr "부착물"
 msgid "Not attached"
 msgstr "연결 안됨"
 
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:54
+#: dashboards/project/volumes/volumes/forms.py:48
+msgid "Volume Source"
+msgstr "볼륨 소스"
+
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
@@ -8800,10 +8822,6 @@ msgstr "볼륨 스냅샷 생성"
 #: dashboards/project/volumes/volumes/forms.py:497
 msgid "Size (GB)"
 msgstr "크기 (GB)"
-
-#: dashboards/project/volumes/volumes/forms.py:48
-msgid "Volume Source"
-msgstr "볼륨 소스"
 
 #: dashboards/project/volumes/volumes/forms.py:54
 msgid "Use snapshot as a source"
@@ -9051,7 +9069,7 @@ msgid "Failed to update VPN Service %s"
 msgstr "VPN 서비스 %s를 업데이트 하는데 실패했습니다."
 
 #: dashboards/project/vpn/forms.py:72 dashboards/project/vpn/forms.py:143
-#: dashboards/project/vpn/tables.py:220 dashboards/project/vpn/tables.py:238
+#: dashboards/project/vpn/tables.py:232 dashboards/project/vpn/tables.py:250
 #: dashboards/project/vpn/workflows.py:114
 #: dashboards/project/vpn/workflows.py:213
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
@@ -9064,7 +9082,7 @@ msgid "sha1"
 msgstr "sha1"
 
 #: dashboards/project/vpn/forms.py:76 dashboards/project/vpn/forms.py:151
-#: dashboards/project/vpn/tables.py:223 dashboards/project/vpn/tables.py:241
+#: dashboards/project/vpn/tables.py:235 dashboards/project/vpn/tables.py:253
 #: dashboards/project/vpn/workflows.py:115
 #: dashboards/project/vpn/workflows.py:215
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
@@ -9319,83 +9337,83 @@ msgstr "VPN"
 msgid "Add IKE Policy"
 msgstr "IKE 정책 추가"
 
-#: dashboards/project/vpn/tables.py:38 dashboards/project/vpn/workflows.py:287
+#: dashboards/project/vpn/tables.py:39 dashboards/project/vpn/workflows.py:287
 msgid "Add IPSec Policy"
 msgstr "IPSec 정책 추가"
 
-#: dashboards/project/vpn/tables.py:45 dashboards/project/vpn/workflows.py:91
+#: dashboards/project/vpn/tables.py:47 dashboards/project/vpn/workflows.py:91
 msgid "Add VPN Service"
 msgstr "VPN 서비스 추가"
 
-#: dashboards/project/vpn/tables.py:52 dashboards/project/vpn/workflows.py:469
+#: dashboards/project/vpn/tables.py:55 dashboards/project/vpn/workflows.py:469
 msgid "Add IPSec Site Connection"
 msgstr "IPSec 사이트 연결 추가"
 
-#: dashboards/project/vpn/tables.py:61 dashboards/project/vpn/tables.py:170
+#: dashboards/project/vpn/tables.py:65 dashboards/project/vpn/tables.py:182
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
 msgid "VPN Service"
 msgstr "VPN 서비스"
 
-#: dashboards/project/vpn/tables.py:62 dashboards/project/vpn/tables.py:210
+#: dashboards/project/vpn/tables.py:66 dashboards/project/vpn/tables.py:222
 #: dashboards/project/vpn/tabs.py:51
 msgid "VPN Services"
 msgstr "VPN 서비스"
 
-#: dashboards/project/vpn/tables.py:74 dashboards/project/vpn/tables.py:172
+#: dashboards/project/vpn/tables.py:79 dashboards/project/vpn/tables.py:184
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
 msgid "IKE Policy"
 msgstr "IKE 정책"
 
-#: dashboards/project/vpn/tables.py:75 dashboards/project/vpn/tables.py:228
+#: dashboards/project/vpn/tables.py:80 dashboards/project/vpn/tables.py:240
 #: dashboards/project/vpn/tabs.py:71
 msgid "IKE Policies"
 msgstr "IKE 정책"
 
-#: dashboards/project/vpn/tables.py:87 dashboards/project/vpn/tables.py:174
+#: dashboards/project/vpn/tables.py:93 dashboards/project/vpn/tables.py:186
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
 msgid "IPSec Policy"
 msgstr "IPSec 정책"
 
-#: dashboards/project/vpn/tables.py:88 dashboards/project/vpn/tables.py:246
+#: dashboards/project/vpn/tables.py:94 dashboards/project/vpn/tables.py:258
 #: dashboards/project/vpn/tabs.py:91
 msgid "IPSec Policies"
 msgstr "IPSec 정책"
 
-#: dashboards/project/vpn/tables.py:100
+#: dashboards/project/vpn/tables.py:107
 msgid "IPSec Site Connection"
 msgstr "IPSec 사이트 연결"
 
-#: dashboards/project/vpn/tables.py:101 dashboards/project/vpn/tables.py:183
+#: dashboards/project/vpn/tables.py:108 dashboards/project/vpn/tables.py:195
 #: dashboards/project/vpn/tabs.py:31
 msgid "IPSec Site Connections"
 msgstr "IPSec 사이트 연결"
 
-#: dashboards/project/vpn/tables.py:106
+#: dashboards/project/vpn/tables.py:114
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:6
 msgid "Edit VPN Service"
 msgstr "VPN 서비스 편집"
 
-#: dashboards/project/vpn/tables.py:121
+#: dashboards/project/vpn/tables.py:130
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:6
 msgid "Edit IKE Policy"
 msgstr "IKE 정책 편집"
 
-#: dashboards/project/vpn/tables.py:134
+#: dashboards/project/vpn/tables.py:144
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:6
 msgid "Edit IPSec Policy"
 msgstr "IPSec 정책 편집"
 
-#: dashboards/project/vpn/tables.py:147
+#: dashboards/project/vpn/tables.py:158
 msgid "Edit Connection"
 msgstr "연결 편집"
 
-#: dashboards/project/vpn/tables.py:224 dashboards/project/vpn/tables.py:242
+#: dashboards/project/vpn/tables.py:236 dashboards/project/vpn/tables.py:254
 msgid "PFS"
 msgstr "PFS"
 
@@ -9881,7 +9899,7 @@ msgstr "Cisco Nexus 1000V"
 msgid "Update Network Profile"
 msgstr "네트워크 프로필 업데이트"
 
-#: dashboards/settings/dashboard.py:22 templates/_header.html:56
+#: dashboards/settings/dashboard.py:22 templates/_header.html:54
 msgid "Settings"
 msgstr "설정"
 
@@ -9987,11 +10005,11 @@ msgid ""
 "help, contact your local administrator."
 msgstr "예상치 못한 오류가 발생하였습니다. 페이지를 새로 고침 하십시오. 여전히 해결되지 않으면, 로컬 관리자에게 문의하십시오."
 
-#: templates/500.html:74 templates/_header.html:58
+#: templates/500.html:74 templates/_header.html:56
 msgid "Help"
 msgstr "도움말"
 
-#: templates/_header.html:63
+#: templates/_header.html:61
 msgid "Sign Out"
 msgstr "로그 아웃"
 

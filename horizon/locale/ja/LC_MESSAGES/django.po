@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# yfukuda <fukuda.yuko@jp.fujitsu.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-04-01 08:41+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-06-09 23:31-0500\n"
+"PO-Revision-Date: 2014-06-06 05:10+0000\n"
+"Last-Translator: yfukuda <fukuda.yuko@jp.fujitsu.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,7 +206,7 @@ msgstr "概要"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
+msgstr[0] "%(counter)s件を表示"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -262,13 +263,13 @@ msgstr "ボリュームストレージ"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
+msgstr[0] "%(nav_items)s件表示"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
+msgstr[0] "%(content_items)s件表示"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -335,7 +336,7 @@ msgstr "利用可能"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
+msgstr[0] "%(size)dB"
 
 #: templatetags/sizeformat.py:51
 #, python-format
