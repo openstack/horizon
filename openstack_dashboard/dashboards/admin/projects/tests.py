@@ -732,10 +732,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'user_list',
                                        'roles_for_group',
                                        'group_list',
-                                       'role_list'),
+                                       'role_list',
+                                       'role_assignments_list'),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas')})
     def test_update_project_get(self):
+        keystone_api_version = api.keystone.VERSIONS.active
+
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -744,6 +747,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
         proj_users = self._get_proj_users(project.id)
+        role_assignments = self.role_assignments.list()
 
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 self.tenant.id, admin=True) \
@@ -764,12 +768,20 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               project=self.tenant.id).AndReturn(proj_users)
-        for user in proj_users:
-            api.keystone.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id).AndReturn(roles)
+
+        if keystone_api_version >= 3:
+            api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                               project=self.tenant.id) \
+               .AndReturn(role_assignments)
+        else:
+            api.keystone.user_list(IsA(http.HttpRequest),
+                                   project=self.tenant.id) \
+               .AndReturn(proj_users)
+
+            for user in proj_users:
+                api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                            user.id,
+                                            self.tenant.id).AndReturn(roles)
 
         for group in groups:
             api.keystone.roles_for_group(IsA(http.HttpRequest),
@@ -814,12 +826,16 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'remove_group_role',
                                        'add_group_role',
                                        'group_list',
-                                       'role_list'),
+                                       'role_list',
+                                       'role_assignments_list'),
                         api.nova: ('tenant_quota_update',),
                         api.cinder: ('tenant_quota_update',),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas')})
+
     def test_update_project_save(self, neutron=False):
+        keystone_api_version = api.keystone.VERSIONS.active
+
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -829,6 +845,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         proj_groups = self._get_proj_groups(project.id)
         roles = self.roles.list()
+        role_assignments = self.role_assignments.list()
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest),
@@ -853,13 +870,23 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               project=self.tenant.id).AndReturn(proj_users)
+
         workflow_data = {}
-        for user in proj_users:
-            api.keystone.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id).AndReturn(roles)
+
+        if keystone_api_version >= 3:
+            api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                               project=self.tenant.id) \
+               .AndReturn(role_assignments)
+        else:
+            api.keystone.user_list(IsA(http.HttpRequest),
+                                   project=self.tenant.id) \
+               .AndReturn(proj_users)
+
+            for user in proj_users:
+                api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                            user.id,
+                                            self.tenant.id).AndReturn(roles)
+
         for group in groups:
             api.keystone.roles_for_group(IsA(http.HttpRequest),
                                          group=group.id,
@@ -1051,11 +1078,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'remove_group_role',
                                        'add_group_role',
                                        'group_list',
-                                       'role_list'),
+                                       'role_list',
+                                       'role_assignments_list'),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas'),
                         api.nova: ('tenant_quota_update',)})
     def test_update_project_tenant_update_error(self):
+        keystone_api_version = api.keystone.VERSIONS.active
+
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -1064,6 +1094,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
         proj_users = self._get_proj_users(project.id)
+        role_assignments = self.role_assignments.list()
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
@@ -1085,15 +1116,24 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               project=self.tenant.id).AndReturn(proj_users)
 
         workflow_data = {}
+
+        if keystone_api_version >= 3:
+            api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                               project=self.tenant.id) \
+               .AndReturn(role_assignments)
+        else:
+            api.keystone.user_list(IsA(http.HttpRequest),
+                                   project=self.tenant.id) \
+               .AndReturn(proj_users)
+            for user in proj_users:
+                api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                            user.id,
+                                            self.tenant.id).AndReturn(roles)
+
+        role_ids = [role.id for role in roles]
         for user in proj_users:
-            api.keystone.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id).AndReturn(roles)
-            role_ids = [role.id for role in roles]
             if role_ids:
                 workflow_data.setdefault(USER_ROLE_PREFIX + role_ids[0], []) \
                              .append(user.id)
@@ -1155,11 +1195,14 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'remove_group_role',
                                        'add_group_role',
                                        'group_list',
-                                       'role_list'),
+                                       'role_list',
+                                       'role_assignments_list'),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas'),
                         api.nova: ('tenant_quota_update',)})
     def test_update_project_quota_update_error(self):
+        keystone_api_version = api.keystone.VERSIONS.active
+
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -1169,6 +1212,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         proj_groups = self._get_proj_groups(project.id)
         roles = self.roles.list()
+        role_assignments = self.role_assignments.list()
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
@@ -1190,15 +1234,22 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
-        api.keystone.user_list(IsA(http.HttpRequest),
-                       project=self.tenant.id).AndReturn(proj_users)
 
         workflow_data = {}
 
-        for user in proj_users:
-            api.keystone.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id).AndReturn(roles)
+        if keystone_api_version >= 3:
+            api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                               project=self.tenant.id) \
+               .AndReturn(role_assignments)
+        else:
+            api.keystone.user_list(IsA(http.HttpRequest),
+                                   project=self.tenant.id) \
+               .AndReturn(proj_users)
+
+            for user in proj_users:
+                api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                            user.id,
+                                            self.tenant.id).AndReturn(roles)
 
         for group in groups:
             api.keystone.roles_for_group(IsA(http.HttpRequest),
@@ -1319,10 +1370,13 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'remove_group_role',
                                        'add_group_role',
                                        'group_list',
-                                       'role_list'),
+                                       'role_list',
+                                       'role_assignments_list'),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas')})
     def test_update_project_member_update_error(self):
+        keystone_api_version = api.keystone.VERSIONS.active
+
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -1331,6 +1385,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
+        role_assignments = self.role_assignments.list()
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
@@ -1352,14 +1407,23 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(roles)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
             .AndReturn(groups)
-        api.keystone.user_list(IsA(http.HttpRequest),
-                       project=self.tenant.id).AndReturn(proj_users)
 
         workflow_data = {}
-        for user in proj_users:
-            api.keystone.roles_for_user(IsA(http.HttpRequest),
-                                        user.id,
-                                        self.tenant.id).AndReturn(roles)
+
+        if keystone_api_version >= 3:
+            api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                               project=self.tenant.id) \
+               .AndReturn(role_assignments)
+        else:
+            api.keystone.user_list(IsA(http.HttpRequest),
+                                   project=self.tenant.id) \
+               .AndReturn(proj_users)
+
+            for user in proj_users:
+                api.keystone.roles_for_user(IsA(http.HttpRequest),
+                                            user.id,
+                                            self.tenant.id).AndReturn(roles)
+
         for group in groups:
             api.keystone.roles_for_group(IsA(http.HttpRequest),
                                          group=group.id,

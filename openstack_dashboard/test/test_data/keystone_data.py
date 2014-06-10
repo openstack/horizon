@@ -25,6 +25,7 @@ from keystoneclient.v2_0 import tenants
 from keystoneclient.v2_0 import users
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
+from keystoneclient.v3 import role_assignments
 
 from openstack_auth import user as auth_user
 
@@ -135,6 +136,7 @@ def data(TEST):
     TEST.users = utils.TestDataContainer()
     TEST.groups = utils.TestDataContainer()
     TEST.tenants = utils.TestDataContainer()
+    TEST.role_assignments = utils.TestDataContainer()
     TEST.roles = utils.TestDataContainer()
     TEST.ec2 = utils.TestDataContainer()
 
@@ -235,6 +237,31 @@ def data(TEST):
                  'domain_id': '2'}
     group4 = groups.Group(groups.GroupManager(None), group_dict)
     TEST.groups.add(group, group2, group3, group4)
+
+    role_assignments_dict = {'user': {'id': '1'},
+                             'role': {'id': '1'},
+                             'scope': {'project': {'id': '1'}}}
+    role_assignment1 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    role_assignments_dict = {'user': {'id': '2'},
+                             'role': {'id': '2'},
+                             'scope': {'project': {'id': '1'}}}
+    role_assignment2 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    role_assignments_dict = {'group': {'id': '1'},
+                             'role': {'id': '2'},
+                             'scope': {'project': {'id': '1'}}}
+    role_assignment3 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    role_assignments_dict = {'user': {'id': '3'},
+                             'role': {'id': '2'},
+                             'scope': {'project': {'id': '1'}}}
+    role_assignment4 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    TEST.role_assignments.add(role_assignment1,
+                              role_assignment2,
+                              role_assignment3,
+                              role_assignment4)
 
     tenant_dict = {'id': "1",
                    'name': 'test_tenant',
