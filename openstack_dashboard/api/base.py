@@ -119,14 +119,20 @@ class APIDictWrapper(object):
     def __getitem__(self, item):
         try:
             return getattr(self, item)
-        except AttributeError as e:
+        except (AttributeError, TypeError) as e:
             # caller is expecting a KeyError
             raise KeyError(e)
+
+    def __contains__(self, item):
+        try:
+            return hasattr(self, item)
+        except TypeError:
+            return False
 
     def get(self, item, default=None):
         try:
             return getattr(self, item)
-        except AttributeError:
+        except (AttributeError, TypeError):
             return default
 
     def __repr__(self):
