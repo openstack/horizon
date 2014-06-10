@@ -24,6 +24,7 @@ from django.utils.functional import Promise  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import exceptions
 from horizon import messages
@@ -80,9 +81,9 @@ class BaseActionMetaClass(type):
         return klass
 
 
+@six.add_metaclass(BaseActionMetaClass)
 class BaseAction(html.HTMLElement):
     """Common base class for all ``Action`` classes."""
-    __metaclass__ = BaseActionMetaClass
 
     def __init__(self, **kwargs):
         super(BaseAction, self).__init__()
