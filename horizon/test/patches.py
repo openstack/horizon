@@ -10,8 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import HTMLParser as _HTMLParser
 import re
+
+from six.moves import html_parser as _HTMLParser
 
 
 def parse_starttag_patched(self, i):
