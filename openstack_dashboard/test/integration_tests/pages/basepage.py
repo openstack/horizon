@@ -32,6 +32,10 @@ class BasePage(pageobject.PageObject):
     def is_logged_in(self):
         return self.topbar.is_logged_in
 
+    @property
+    def navaccordion(self):
+        return BasePage.NavigationAccordionRegion(self.driver, self.conf)
+
     def go_to_login_page(self):
         self.driver.get(self.login_url)
 
@@ -92,3 +96,26 @@ class BasePage(pageobject.PageObject):
         @property
         def is_logged_in(self):
             return self.is_element_visible(*self._user_indicator_locator)
+
+    class NavigationAccordionRegion(pageobject.PageObject):
+        # TODO(sunlim): change Xpath to CSS
+        _project_bar_locator = (
+            by.By.XPATH,
+            ".//*[@id='main_content']//div[contains(text(),'Project')]")
+
+        _project_access_security_locator = (
+            by.By.CSS_SELECTOR, 'a[href*="/project/access_and_security/"]')
+
+        @property
+        def project_bar(self):
+            return self.get_element(*self._project_bar_locator)
+
+        def _click_on_project_bar(self):
+            self.project_bar.click()
+
+        @property
+        def access_security(self):
+            return self.get_element(*self._project_access_security_locator)
+
+        def _click_on_access_security(self):
+            self.access_security.click()
