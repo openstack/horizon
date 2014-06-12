@@ -208,8 +208,8 @@ class DeletePMAssociationLink(tables.LinkAction):
 
 class PoolsTable(tables.DataTable):
     name = tables.Column("name",
-                       verbose_name=_("Name"),
-                       link="horizon:project:loadbalancers:pooldetails")
+                         verbose_name=_("Name"),
+                         link="horizon:project:loadbalancers:pooldetails")
     description = tables.Column('description', verbose_name=_("Description"))
     provider = tables.Column('provider', verbose_name=_("Provider"),
                              filters=(lambda v: filters.default(v, _('N/A')),))
@@ -245,8 +245,10 @@ class MembersTable(tables.DataTable):
                             attrs={'data-type': "ip"})
     protocol_port = tables.Column('protocol_port',
                                   verbose_name=_("Protocol Port"))
-    pool_name = tables.Column("pool_name",
-                            verbose_name=_("Pool"), link=get_pool_link)
+    weight = tables.Column('weight',
+                           verbose_name=_("Weight"))
+    pool_name = tables.Column('pool_name',
+                              verbose_name=_("Pool"), link=get_pool_link)
     status = tables.Column('status', verbose_name=_("Status"))
 
     class Meta:
