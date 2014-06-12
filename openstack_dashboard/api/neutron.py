@@ -377,6 +377,11 @@ class FloatingIpManager(network_base.FloatingIpManager):
         ports = port_list(self.request, tenant_id=tenant_id)
         servers, has_more = nova.server_list(self.request)
         server_dict = SortedDict([(s.id, s.name) for s in servers])
+
+        nc = neutronclient(self.request)
+        pool_dict = {p['id']: p['name'] for p in nc.list_pools()['pools']}
+        vip_dict = {v['port_id']: pool_dict[v['pool_id']] for v in nc.list_vips()['vips']}
+
         targets = []
         for p in ports:
             # Remove network ports from Floating IP targets
@@ -384,6 +389,10 @@ class FloatingIpManager(network_base.FloatingIpManager):
                 continue
             port_id = p.id
             server_name = server_dict.get(p.device_id)
+
+            if server_name is None:
+                server_name = vip_dict.get(port_id, None)
+
             for ip in p.fixed_ips:
                 target = {'name': '%s: %s' % (server_name, ip['ip_address']),
                           'id': '%s_%s' % (port_id, ip['ip_address'])}
