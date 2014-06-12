@@ -16,7 +16,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext_lazy as _
+
+from horizon import exceptions
 from horizon import tabs
+from horizon import version
 
 from openstack_dashboard.dashboards.admin.info import constants
 from openstack_dashboard.dashboards.admin.info import tabs as project_tabs
@@ -25,3 +29,13 @@ from openstack_dashboard.dashboards.admin.info import tabs as project_tabs
 class IndexView(tabs.TabbedTableView):
     tab_group_class = project_tabs.SystemInfoTabs
     template_name = constants.INFO_TEMPLATE_NAME
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        try:
+            context["version"] = version.version_info.version_string()
+        except Exception:
+            exceptions.handle(self.request,
+                _('Unable to retrieve version information.'))
+
+        return context

@@ -11,5 +11,9 @@
   <div class="span12">
     {{ tab_group.render }}
   </div>
+  <div class="version_label">
+      {% blocktrans with version_info=version %}Version: {{version_info}}
+      {% endblocktrans %}
+  </div>
 </div>
 {% endblock %}
