@@ -835,7 +835,7 @@ If set to ``True``, this panel configuration will be skipped.
 ``UPDATE_HORIZON_CONFIG``
 -------------------------
 
-.. versionadded:: 2014.1(Icehouse)
+.. versionadded:: 2014.2(Juno)
 
 A dictionary of values that will replace the values in ``HORIZON_CONFIG``. The
 order in which this setting is applied is the same as for the other pluggable
