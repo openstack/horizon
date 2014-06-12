@@ -224,9 +224,8 @@ results.
 
 Default: ``20``
 
-Similar to ``API_RESULT_LIMIT``. This setting currently only controls the
-Glance image list page size. It will be removed in a future version.
-
+Similar to ``API_RESULT_LIMIT``. This setting controls the number of items
+to be shown per page if API pagination support for this exists.
 
 ``AVAILABLE_REGIONS``
 ---------------------
