@@ -1234,8 +1234,9 @@ class InstanceTests(helpers.TestCase):
                                  "snapshot1").AndReturn(self.snapshots.first())
 
         api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       marker=None).AndReturn([[], False,
-                                                               False])
+                                       marker=None,
+                                       paginate=True) \
+            .AndReturn([[], False, False])
 
         self.mox.ReplayAll()
 
