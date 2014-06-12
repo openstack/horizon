@@ -2196,6 +2196,11 @@ label.log-length {
   }
 }
 
+/* Read only text fields */
+.form-control[readonly], .view-credentials input {
+    cursor: text;
+}
+
 /**** Popover ****/
 a.link-popover { cursor: default; }
 

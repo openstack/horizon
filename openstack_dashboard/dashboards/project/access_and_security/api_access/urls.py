@@ -27,4 +27,6 @@ urlpatterns = patterns(
     '',
     url(r'^ec2/$', views.download_ec2_bundle, name='ec2'),
     url(r'^openrc/$', views.download_rc_file, name='openrc'),
+    url(r'^view_credentials/$', views.CredentialsView.as_view(),
+        name='view_credentials')
 )

@@ -48,6 +48,14 @@ class DownloadOpenRC(tables.LinkAction):
     url = "horizon:project:access_and_security:api_access:openrc"
 
 
+class ViewCredentials(tables.LinkAction):
+    name = "view_credentials"
+    verbose_name = _("View Credentials")
+    classes = ("ajax-modal", )
+    icon = "plus"
+    url = "horizon:project:access_and_security:api_access:view_credentials"
+
+
 class EndpointsTable(tables.DataTable):
     api_name = tables.Column('type',
                              verbose_name=_("Service"),
@@ -59,4 +67,4 @@ class EndpointsTable(tables.DataTable):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False
-        table_actions = (DownloadOpenRC, DownloadEC2,)
+        table_actions = (DownloadOpenRC, DownloadEC2, ViewCredentials)

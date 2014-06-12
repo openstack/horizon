@@ -21,7 +21,10 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-EC2_URL = reverse("horizon:project:access_and_security:api_access:ec2")
+API_URL = "horizon:project:access_and_security:api_access"
+EC2_URL = reverse(API_URL + ":ec2")
+OPENRC_URL = reverse(API_URL + ":openrc")
+CREDS_URL = reverse(API_URL + ":view_credentials")
 
 
 class APIAccessTests(test.TestCase):
@@ -47,3 +50,29 @@ class APIAccessTests(test.TestCase):
         res = self.client.get(EC2_URL)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res['content-type'], 'application/zip')
+
+    def test_openrc_credentials(self):
+        res = self.client.get(OPENRC_URL)
+        self.assertEqual(res.status_code, 200)
+        openrc = 'project/access_and_security/api_access/openrc.sh.template'
+        self.assertTemplateUsed(res, openrc)
+        name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
+        id = 'export OS_TENANT_ID={}'.format(self.request.user.tenant_id)
+        self.assertTrue(name in res.content)
+        self.assertTrue(id in res.content)
+
+    @test.create_stubs({api.keystone: ("list_ec2_credentials",)})
+    def test_credential_api(self):
+        certs = self.ec2.list()
+        api.keystone.list_ec2_credentials(IsA(HttpRequest), self.user.id) \
+            .AndReturn(certs)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(CREDS_URL)
+        self.assertEqual(res.status_code, 200)
+        credentials = 'project/access_and_security/api_access/credentials.html'
+        self.assertTemplateUsed(res, credentials)
+        self.assertEqual(self.user.id, res.context['openrc_creds']['user'].id)
+        self.assertEqual(certs[0].access,
+                         res.context['ec2_creds']['ec2_access_key'])
