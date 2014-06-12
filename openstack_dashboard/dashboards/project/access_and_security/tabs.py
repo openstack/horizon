@@ -26,6 +26,8 @@ from horizon import tabs
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
+from openstack_dashboard.api import neutron
+from openstack_dashboard.api import lbaas
 
 from openstack_dashboard.dashboards.project.access_and_security.\
     api_access.tables import EndpointsTable
@@ -100,8 +102,28 @@ class FloatingIPsTab(tabs.TableTab):
 
         instances_dict = dict([(obj.id, obj.name) for obj in instances])
 
+        vips_dict = {}
+        if neutron.is_extension_supported(self.request, 'lbaas'):
+            try:
+                _pools_dict = {p['id']: p['name'] for p in lbaas.pool_list(
+                        self.request)}
+            except Exception:
+                exceptions.handle(self.request,
+                            _('Unable to retrieve LB pool list.'))
+            
+            try:
+                vips_dict = {v['port_id']: _pools_dict[v['pool_id']] for v in 
+                        lbaas.vip_list(self.request)}
+            except Exception:
+                exceptions.handle(self.request,
+                            _('Unable to retrieve LB Vip list.'))
+            
         for ip in floating_ips:
             ip.instance_name = instances_dict.get(ip.instance_id)
+
+            if ip.instance_name is None and ip.port_id in vips_dict:
+                ip.instance_name = vips_dict.get(ip.port_id, None)
+
             ip.pool_name = pool_dict.get(ip.pool, ip.pool)
 
         return floating_ips
