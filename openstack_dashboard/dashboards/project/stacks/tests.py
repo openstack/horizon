@@ -208,7 +208,8 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data) \
+                                   template=template.data,
+                                   environment=environment.data) \
            .AndReturn(json.loads(template.validate))
 
         api.heat.stack_create(IsA(http.HttpRequest),
