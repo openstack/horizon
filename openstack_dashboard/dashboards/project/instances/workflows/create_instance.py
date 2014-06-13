@@ -18,6 +18,7 @@
 
 import json
 import logging
+import operator
 
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
@@ -368,6 +369,7 @@ class SetInstanceDetailsAction(workflows.Action):
                    for image in images
                    if image.properties.get("image_type", '') == "snapshot"]
         if choices:
+            choices.sort(key=operator.itemgetter(1))
             choices.insert(0, ("", _("Select Instance Snapshot")))
         else:
             choices.insert(0, ("", _("No snapshots available")))
