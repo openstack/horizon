@@ -609,7 +609,7 @@ A list of applications to be prepended to ``INSTALLED_APPS``.
 This is needed to expose static files from a plugin.
 
 ``ADD_ANGULAR_MODULES``
-----------------------
+-----------------------
 
 A list of AngularJS modules to be loaded when Angular bootstraps. These modules
 are added as dependencies on the root Horizon application ``hz``.
@@ -728,7 +728,7 @@ A list of applications to be prepended to ``INSTALLED_APPS``.
 This is needed to expose static files from a plugin.
 
 ``ADD_ANGULAR_MODULES``
-----------------------
+-----------------------
 
 A list of AngularJS modules to be loaded when Angular bootstraps. These modules
 are added as dependencies on the root Horizon application ``hz``.
