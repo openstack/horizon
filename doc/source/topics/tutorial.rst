@@ -9,8 +9,6 @@ As an example, we'll build on the Nova instances API to create a new and novel
 "visualizations" dashboard with a "flocking" panel that presents the instance
 data in a different manner.
 
-You can find a reference implementation of the code being described here
-on github at https://github.com/gabrielhurley/horizon_demo.
 
 .. note::
 
@@ -538,12 +536,6 @@ Sadly, the cake was a lie. The information in this "tutorial" was never
 meant to leave you with a working dashboard. It's close. But there's
 waaaaaay too much javascript involved in the visualization to cover it all
 here, and it'd be irrelevant to Horizon anyway.
-
-If you want to see the finished product, check out the github example
-referenced at the beginning of this tutorial.
-
-Clone the repository and simply run ``./run_tests.sh --runserver``. That'll
-give you a 100% working dashboard that uses every technique in this tutorial.
 
 What you've learned here, however, is the fundamentals of almost everything
 you need to know to start writing interfaces for your own project based on the
