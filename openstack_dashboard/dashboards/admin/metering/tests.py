@@ -47,7 +47,6 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/metering/daily.html')
 
     def _verify_series(self, series, value, date, expected_names):
-        expected_names.reverse()
         data = json.loads(series)
         self.assertTrue('series' in data)
         self.assertEqual(len(data['series']), len(expected_names))
@@ -56,8 +55,9 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
             self.assertEqual(len(d['data']), 1)
             self.assertAlmostEqual(d['data'][0].get('y'), value)
             self.assertEqual(d['data'][0].get('x'), date)
-            self.assertEqual(d.get('name'), expected_names.pop())
             self.assertEqual(d.get('unit'), '')
+            self.assertIn(d.get('name'), expected_names)
+            expected_names.remove(d.get('name'))
 
         self.assertEqual(data.get('settings'), {})
 

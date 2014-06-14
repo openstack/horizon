@@ -98,9 +98,10 @@ class CeilometerApiTests(test.APITestCase):
 
         self.assertEqual(len(ret_list), 3)
 
-        self.assertEqual(ret_list[0].name, "disk.read.bytes")
-        self.assertEqual(ret_list[1].name, "disk.write.bytes")
-        self.assertEqual(ret_list[2].name, "instance")
+        names = ["disk.read.bytes", "disk.write.bytes", "instance"]
+        for ret in ret_list:
+            self.assertIn(ret.name, names)
+            names.remove(ret.name)
 
     @test.create_stubs({api.nova: ('flavor_list',),
                         })
@@ -151,8 +152,11 @@ class CeilometerApiTests(test.APITestCase):
         ret_list = meters_object.list_all(except_meters=["disk.write.bytes"])
 
         self.assertEqual(len(ret_list), 2)
-        self.assertEqual(ret_list[0].name, "disk.read.bytes")
-        self.assertEqual(ret_list[1].name, "instance")
+        names = ["disk.read.bytes", "instance"]
+
+        for ret in ret_list:
+            self.assertIn(ret.name, names)
+            names.remove(ret.name)
 
     #TODO(lsmola)
     #test resource aggregates
