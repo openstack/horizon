@@ -24,6 +24,7 @@ from openstack_dashboard.usage import quotas
 class DeleteKeyPairs(tables.DeleteAction):
     data_type_singular = _("Key Pair")
     data_type_plural = _("Key Pairs")
+    policy_rules = (("compute", "compute_extension:keypairs:delete"),)
 
     def delete(self, request, obj_id):
         api.nova.keypair_delete(request, obj_id)
@@ -34,6 +35,7 @@ class ImportKeyPair(tables.LinkAction):
     verbose_name = _("Import Key Pair")
     url = "horizon:project:access_and_security:keypairs:import"
     classes = ("ajax-modal", "btn-upload")
+    policy_rules = (("compute", "compute_extension:keypairs:create"),)
 
 
 class CreateKeyPair(tables.LinkAction):
@@ -41,6 +43,7 @@ class CreateKeyPair(tables.LinkAction):
     verbose_name = _("Create Key Pair")
     url = "horizon:project:access_and_security:keypairs:create"
     classes = ("ajax-modal", "btn-create")
+    policy_rules = (("compute", "compute_extension:keypairs:create"),)
 
     def allowed(self, request, keypair=None):
         usages = quotas.tenant_quota_usages(request)

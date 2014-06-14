@@ -33,6 +33,7 @@ class DownloadEC2(tables.LinkAction):
     verbose_name_plural = _("Download EC2 Credentials")
     classes = ("btn-download",)
     url = "horizon:project:access_and_security:api_access:ec2"
+    policy_rules = (("compute", "compute_extension:certificates"),)
 
 
 class DownloadOpenRC(tables.LinkAction):

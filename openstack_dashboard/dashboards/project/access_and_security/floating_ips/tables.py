@@ -15,6 +15,7 @@
 
 import logging
 
+from django.conf import settings
 from django.core import urlresolvers
 from django import shortcuts
 from django.utils.http import urlencode
@@ -31,6 +32,8 @@ from openstack_dashboard.utils import filters
 
 
 LOG = logging.getLogger(__name__)
+
+POLICY_CHECK = getattr(settings, "POLICY_CHECK_FUNCTION", lambda p, r: True)
 
 
 class AllocateIP(tables.LinkAction):
@@ -53,7 +56,14 @@ class AllocateIP(tables.LinkAction):
             self.verbose_name = _("Allocate IP To Project")
             classes = [c for c in self.classes if c != "disabled"]
             self.classes = classes
-        return True
+
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "create_floatingip"),)
+        else:
+            policy = (("compute", "compute_extension:floating_ips"),
+                      ("compute", "network:allocate_floating_ip"),)
+
+        return POLICY_CHECK(policy, request)
 
 
 class ReleaseIPs(tables.BatchAction):
@@ -63,6 +73,15 @@ class ReleaseIPs(tables.BatchAction):
     data_type_singular = _("Floating IP")
     data_type_plural = _("Floating IPs")
     classes = ('btn-danger', 'btn-release')
+
+    def allowed(self, request, fip=None):
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "delete_floatingip"),)
+        else:
+            policy = (("compute", "compute_extension:floating_ips"),
+                      ("compute", "network:release_floating_ip"),)
+
+        return POLICY_CHECK(policy, request)
 
     def action(self, request, obj_id):
         api.network.tenant_floating_ip_release(request, obj_id)
@@ -75,9 +94,13 @@ class AssociateIP(tables.LinkAction):
     classes = ("ajax-modal", "btn-associate")
 
     def allowed(self, request, fip):
-        if fip.port_id:
-            return False
-        return True
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "update_floatingip"),)
+        else:
+            policy = (("compute", "compute_extension:floating_ips"),
+                      ("compute", "network:associate_floating_ip"),)
+
+        return not fip.port_id and POLICY_CHECK(policy, request)
 
     def get_link_url(self, datum):
         base_url = urlresolvers.reverse(self.url)
@@ -91,9 +114,13 @@ class DisassociateIP(tables.Action):
     classes = ("btn-disassociate", "btn-danger")
 
     def allowed(self, request, fip):
-        if fip.port_id:
-            return True
-        return False
+        if api.base.is_service_enabled(request, "network"):
+            policy = (("network", "update_floatingip"),)
+        else:
+            policy = (("compute", "compute_extension:floating_ips"),
+                      ("compute", "network:disassociate_floating_ip"),)
+
+        return fip.port_id and POLICY_CHECK(policy, request)
 
     def single(self, table, request, obj_id):
         try:
