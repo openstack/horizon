@@ -1033,3 +1033,38 @@ class VolumeViewTests(test.TestCase):
         self.assertFormError(res, 'form', None,
                              "New size for extend must be greater than "
                              "current size.")
+
+    def test_encryption_false(self):
+        self._test_encryption(False)
+
+    def test_encryption_true(self):
+        self._test_encryption(True)
+
+    @test.create_stubs({cinder: ('volume_list',),
+                        api.nova: ('server_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def _test_encryption(self, encryption):
+        volumes = self.volumes.list()
+        for volume in volumes:
+            volume.encrypted = encryption
+        quota_usages = self.quota_usages.first()
+
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
+              .AndReturn(self.volumes.list())
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+                .AndReturn([self.servers.list(), False])
+        quotas.tenant_quota_usages(IsA(http.HttpRequest))\
+              .MultipleTimes().AndReturn(quota_usages)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(VOLUME_INDEX_URL)
+        rows = res.context['volumes_table'].get_rows()
+
+        if encryption:
+            column_value = 'Yes'
+        else:
+            column_value = 'No'
+
+        for row in rows:
+            self.assertEqual(row.cells['encryption'].data, column_value)
