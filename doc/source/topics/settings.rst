@@ -491,6 +491,15 @@ Default: ``"1800"``
 Specifies the timespan in seconds inactivity, until a user is considered as
  logged out.
 
+``SAHARA_AUTO_IP_ALLOCATION_ENABLED``
+-------------------------------------
+
+Default:  ``False``
+
+This setting notifies the Data Processing (Sahara) system whether or not
+automatic IP allocation is enabled.  You would want to set this to True
+if you were running Nova Networking with auto_assign_floating_ip = True.
+
 
 Django Settings (Partial)
 =========================

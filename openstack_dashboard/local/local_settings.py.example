@@ -32,6 +32,7 @@ TEMPLATE_DEBUG = DEBUG
 # service API. For example, The identity service APIs have inconsistent
 # use of the decimal point, so valid options would be "2.0" or "3".
 # OPENSTACK_API_VERSIONS = {
+#     "data_processing": 1.1,
 #     "identity": 3,
 #     "volume": 2
 # }
@@ -492,3 +493,11 @@ FLAVOR_EXTRA_KEYS = {
         ('quota:outbound_average', _('Quota: Outbound average')),
     ]
 }
+
+# Indicate to the Sahara data processing service whether or not
+# automatic floating IP allocation is in effect.  If it is not
+# in effect, the user will be prompted to choose a floating IP
+# pool for use in their cluster.  False by default.  You would want
+# to set this to True if you were running Nova Networking with
+# auto_assign_floating_ip = True.
+# SAHARA_AUTO_IP_ALLOCATION_ENABLED = False
