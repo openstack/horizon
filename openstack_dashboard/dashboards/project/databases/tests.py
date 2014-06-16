@@ -82,8 +82,7 @@ class DatabaseTests(test.TestCase):
         # Mock database instances
         databases = self.databases.list()
         last_record = databases[-1]
-        databases = common.Paginated(databases,
-            next_marker="foo")
+        databases = common.Paginated(databases, next_marker="foo")
         api.trove.instance_list(IsA(http.HttpRequest), marker=None)\
             .AndReturn(databases)
         # Mock flavors
@@ -236,3 +235,43 @@ class DatabaseTests(test.TestCase):
     def test_details_with_hostname(self):
         database = self.databases.list()[1]
         self._test_details(database, with_designate=True)
+
+    @test.create_stubs(
+        {api.trove: ('instance_get', 'flavor_get', 'users_list',
+                     'user_list_access', 'user_delete')})
+    def test_user_delete(self):
+        database = self.databases.first()
+        user = self.database_users.first()
+        user_db = self.database_user_dbs.first()
+
+        database_id = database.id
+        # Instead of using the user's ID, the api uses the user's name. BOOO!
+        user_id = user.name
+
+        # views.py: DetailView.get_data
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+            .AndReturn(database)
+        api.trove.flavor_get(IsA(http.HttpRequest), IsA(str))\
+            .AndReturn(self.flavors.first())
+
+        # tabs.py: UserTab.get_user_data
+        api.trove.users_list(IsA(http.HttpRequest),
+                             database_id).AndReturn([user])
+        api.trove.user_list_access(IsA(http.HttpRequest),
+                                   database_id,
+                                   user_id).AndReturn([user_db])
+
+        # tables.py: DeleteUser.delete
+        api.trove.user_delete(IsA(http.HttpRequest),
+                              database_id,
+                              user_id).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        details_url = reverse('horizon:project:databases:detail',
+                              args=[database_id])
+        url = details_url + '?tab=instance_details__users_tab'
+        action_string = u"users__delete__%s" % user_id
+        form_data = {'action': action_string}
+        res = self.client.post(url, form_data)
+        self.assertRedirectsNoFollow(res, url)
