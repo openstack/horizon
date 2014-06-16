@@ -102,7 +102,13 @@
     {% endwith %}
     {% url 'horizon:project:images:images:detail' instance.image.id as image_url %}
     <dt>{% trans "Image Name" %}</dt>
-    <dd><a href="{{ image_url }}">{{ instance.image_name }}</a></dd>
+    <dd>
+      {% if instance.image %}
+        <a href="{{ image_url }}">{{ instance.image_name }}</a>
+      {% else %}
+        <em>{% trans "None" %}</em>
+      {% endif %}
+    </dd>
     {% with default_item_value="<em>"|add:_("N/A")|add:"</em>" %}
     {% for key, value in instance.metadata.items %}
     <dt>{{ key|force_escape }}</dt>
