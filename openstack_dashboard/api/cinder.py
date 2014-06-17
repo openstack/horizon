@@ -220,6 +220,10 @@ def volume_update(request, volume_id, name, description):
                                                 **vol_data)
 
 
+def volume_reset_state(request, volume_id, state):
+    return cinderclient(request).volumes.reset_state(volume_id, state)
+
+
 def volume_snapshot_get(request, snapshot_id):
     snapshot = cinderclient(request).volume_snapshots.get(snapshot_id)
     return VolumeSnapshot(snapshot)
