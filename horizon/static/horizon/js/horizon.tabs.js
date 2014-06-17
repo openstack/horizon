@@ -86,7 +86,6 @@ horizon.addInitFunction(function () {
       evt.preventDefault();
       $(".nav-tabs a[data-target='#" + prev_pane.attr("id") + "']").tab('show');
       prev_pane.find(":input:last").focus();
-      console.log(prev_pane);
     }
   });
 

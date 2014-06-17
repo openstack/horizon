@@ -137,7 +137,6 @@ function build_node_links(node){
     try {
       target_idx = findNodeIndex(node.required_by[j]);
     } catch(err) {
-      console.log(err);
       push_link =false;
     }
     //check for duplicates
