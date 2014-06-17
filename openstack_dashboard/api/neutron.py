@@ -859,6 +859,10 @@ def is_security_group_extension_supported(request):
     return is_extension_supported(request, 'security-group')
 
 
+def is_agent_extension_supported(request):
+    return is_extension_supported(request, 'agent')
+
+
 # Using this mechanism till a better plugin/sub-plugin detection
 # mechanism is available.
 # Using local_settings to detect if the "router" dashboard

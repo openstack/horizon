@@ -85,7 +85,8 @@ class NetworkAgentsTab(tabs.TableTab):
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def allowed(self, request):
-        return base.is_service_enabled(request, 'network')
+        return (base.is_service_enabled(request, 'network') and
+                neutron.is_agent_extension_supported(request))
 
     def get_network_agents_data(self):
         try:
