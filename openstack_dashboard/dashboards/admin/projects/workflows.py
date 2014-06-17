@@ -459,8 +459,11 @@ class CreateProject(workflows.Workflow):
 
             if api.base.is_service_enabled(request, 'network') and \
                     api.neutron.is_quotas_extension_supported(request):
-                neutron_data = dict([(key, data[key]) for key in
-                                     quotas.NEUTRON_QUOTA_FIELDS])
+                neutron_data = {}
+                disabled_quotas = quotas.get_disabled_quotas(request)
+                for key in quotas.NEUTRON_QUOTA_FIELDS:
+                    if key not in disabled_quotas:
+                        neutron_data[key] = data[key]
                 api.neutron.tenant_quota_update(request,
                                                 project_id,
                                                 **neutron_data)
@@ -721,8 +724,11 @@ class UpdateProject(workflows.Workflow):
 
             if api.base.is_service_enabled(request, 'network') and \
                     api.neutron.is_quotas_extension_supported(request):
-                neutron_data = dict([(key, data[key]) for key in
-                                     quotas.NEUTRON_QUOTA_FIELDS])
+                neutron_data = {}
+                disabled_quotas = quotas.get_disabled_quotas(request)
+                for key in quotas.NEUTRON_QUOTA_FIELDS:
+                    if key not in disabled_quotas:
+                        neutron_data[key] = data[key]
                 api.neutron.tenant_quota_update(request,
                                                 project_id,
                                                 **neutron_data)

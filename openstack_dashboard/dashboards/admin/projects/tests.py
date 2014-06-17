@@ -271,7 +271,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                  'get_disabled_quotas'),
                         api.cinder: ('tenant_quota_update',),
                         api.nova: ('tenant_quota_update',)})
-    def test_add_project_post(self):
+    def test_add_project_post(self, neutron=False):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -284,6 +284,9 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         # init
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(self.disabled_quotas.first())
+        if neutron:
+            quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
+                .AndReturn(self.disabled_quotas.first())
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -362,7 +365,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         api.neutron.tenant_quota_update(IsA(http.HttpRequest),
                                         self.tenant.id,
                                         **neutron_updated_quota)
-        self.test_add_project_post()
+        self.test_add_project_post(neutron=True)
 
     @test.create_stubs({api.keystone: ('user_list',
                                        'role_list',
@@ -816,7 +819,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                         api.cinder: ('tenant_quota_update',),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas')})
-    def test_update_project_save(self):
+    def test_update_project_save(self, neutron=False):
         project = self.tenants.first()
         quota = self.quotas.first()
         default_role = self.roles.first()
@@ -835,6 +838,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(self.disabled_quotas.first())
+        if neutron:
+            quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
+                .AndReturn(self.disabled_quotas.first())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(quota)
@@ -1016,7 +1022,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         api.neutron.tenant_quota_update(IsA(http.HttpRequest),
                                         self.tenant.id,
                                         **neutron_updated_quota)
-        self.test_update_project_save()
+        self.test_update_project_save(neutron=True)
 
     @test.create_stubs({api.keystone: ('tenant_get',)})
     def test_update_project_get_error(self):
