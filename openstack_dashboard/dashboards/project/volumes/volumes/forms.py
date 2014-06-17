@@ -84,7 +84,7 @@ class CreateForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
         volume_types = cinder.volume_type_list(request)
-        self.fields['type'].choices = [("", "")] + \
+        self.fields['type'].choices = [("", _("No volume type"))] + \
                                       [(type.name, type.name)
                                        for type in volume_types]
 
