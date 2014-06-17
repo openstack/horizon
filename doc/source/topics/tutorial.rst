@@ -3,247 +3,231 @@ Building on Horizon
 ===================
 
 This tutorial covers how to use the various components in Horizon to build
-an example dashboard and panel with a data table and tabs.
+an example dashboard and a panel with a tab which has a table containing data
+from the back end.
 
-As an example, we'll build on the Nova instances API to create a new and novel
-"visualizations" dashboard with a "flocking" panel that presents the instance
-data in a different manner.
+As an example, we'll create a new ``My Dashboard`` dashboard with a ``My Panel``
+panel that has an ``Instances Tab`` tab. The tab has a table which contains the
+data pulled by the Nova instances API.
 
 
 .. note::
 
-    There are a variety of other resources which may be helpful to read first,
-    since this is a more advanced tutorial. For example, you may want to start
+    This tutorial assumes you have either a ``devstack`` or ``openstack``
+    environment up and running.
+    There are a variety of other resources which may be helpful to read first.
+    For example, you may want to start
     with the :doc:`Horizon quickstart guide </quickstart>` or the
     `Django tutorial`_.
 
-    .. _Django tutorial: https://docs.djangoproject.com/en/1.4/intro/tutorial01/
+    .. _Django tutorial: https://docs.djangoproject.com/en/1.6/intro/tutorial01/
 
 
 Creating a dashboard
 ====================
 
-.. note::
-
-    It is perfectly valid to create a panel without a dashboard, and
-    incorporate it into an existing dashboard. See the section
-    :ref:`overrides <overrides>` later in this document.
-
 The quick version
 -----------------
 
 Horizon provides a custom management command to create a typical base
-dashboard structure for you. The following command generates most of the
-boilerplate code explained below::
+dashboard structure for you. Run the following commands at the same location
+where the ``run_tests.sh`` file resides. It generates most of the boilerplate
+code you need::
 
-    ./run_tests.sh -m startdash visualizations
+    mkdir openstack_dashboard/dashboards/mydashboard
 
-It's still recommended that you read the rest of this section to understand
-what that command creates and why.
+    ./run_tests.sh -m startdash mydashboard \
+                  --target openstack_dashboard/dashboards/mydashboard
+
+    mkdir openstack_dashboard/dashboards/mydashboard/mypanel
+
+    ./run_tests.sh -m startpanel mypanel \
+                   --dashboard=openstack_dashboard.dashboards.mydashboard \
+                   --target=openstack_dashboard/dashboards/mydashboard/mypanel
+
+
+You will notice that the directory ``mydashboard`` gets automatically
+populated with the files related to a dashboard and the ``mypanel`` directory
+gets automatically populated with the files related to a panel.
+
 
 Structure
 ---------
+If you use the ``tree mydashboard`` command to list the ``mydashboard``
+directory in ``openstack_dashboard/dashboards`` , you will see a directory
+structure that looks like the following::
 
-The recommended structure for a dashboard (or panel) follows suit with the
-typical Django application layout. We'll name our dashboard "visualizations"::
+    mydashboard
+    ├── dashboard.py
+    ├── dashboard.pyc
+    ├── __init__.py
+    ├── __init__.pyc
+    ├── models.py
+    ├── mypanel
+    │   ├── __init__.py
+    │   ├── models.py
+    │   ├── panel.py
+    │   ├── templates
+    │   │   └── mypanel
+    │   │       └── index.html
+    │   ├── tests.py
+    │   ├── urls.py
+    │   └── views.py
+    ├── static
+    │   └── mydashboard
+    │       ├── css
+    │       │   └── mydashboard.css
+    │       └── js
+    │           └── mydashboard.js
+    └── templates
+        └── mydashboard
+            └── base.html
 
-    visualizations
-      |--__init__.py
-      |--dashboard.py
-      |--templates/
-      |--static/
 
-The ``dashboard.py`` module will contain our dashboard class for use by
-Horizon; the ``templates`` and ``static`` directories give us homes for our
-Django template files and static media respectively.
+For this tutorial, we will not deal with the static directory, the ``models.py``
+file and tests.py file. Leave them as they are.
 
-Within the ``static`` and ``templates`` directories it's generally good to
-namespace your files like so::
-
-    templates/
-      |--visualizations/
-    static/
-      |--visualizations/
-         |--css/
-         |--js/
-         |--img/
-
-With those files and directories in place, we can move on to writing our
-dashboard class.
+With the rest of the files and directories in place, we can move on to add our
+own dashboard.
 
 
 Defining a dashboard
 --------------------
 
-A dashboard class can be incredibly simple (about 3 lines at minimum),
-defining nothing more than a name and a slug::
+Open the ``dashboard.py`` file. You will notice the following code has been
+automatically generated::
 
-    import horizon
+   from django.utils.translation import ugettext_lazy as _
 
-    class VizDash(horizon.Dashboard):
-        name = _("Visualizations")
-        slug = "visualizations"
-
-In practice, a dashboard class will usually contain more information, such as a
-list of panels, which panel is the default, and any permissions required to
-access this dashboard::
-
-    class VizDash(horizon.Dashboard):
-        name = _("Visualizations")
-        slug = "visualizations"
-        panels = ('flocking',)
-        default_panel = 'flocking'
-        permissions = ('openstack.roles.admin',)
-
-Building from that previous example we may also want to define a grouping of
-panels which share a common theme and have a sub-heading in the navigation::
-
-    class InstanceVisualizations(horizon.PanelGroup):
-        slug = "instance_visualizations"
-        name = _("Instance Visualizations")
-        panels = ('flocking',)
+   import horizon
 
 
-    class VizDash(horizon.Dashboard):
-        name = _("Visualizations")
-        slug = "visualizations"
-        panels = (InstanceVisualizations,)
-        default_panel = 'flocking'
-        permissions = ('openstack.roles.admin',)
+   class Mydashboard(horizon.Dashboard):
+      name = _("Mydashboard")
+      slug = "mydashboard"
+      panels = ()           # Add your panels here.
+      default_panel = ''    # Specify the slug of the dashboard's default panel.
 
-The ``PanelGroup`` can be added to the dashboard class' ``panels`` list
-just like the slug of the panel can.
 
-Once our dashboard class is complete, all we need to do is register it::
+   horizon.register(Mydashboard)
 
-    horizon.register(VizDash)
 
-The typical place for that would be the bottom of the ``dashboard.py`` file,
-but it could also go elsewhere, such as in an override file (see below).
+If you want the dashboard name to be something else, you can change the ``name``
+attribute in the ``dashboard.py`` file . For example, you can change it
+to be ``My Dashboard`` ::
+
+    name = _("My Dashboard")
+
+
+A dashboard class will usually contain a ``name`` attribute (the display name of
+the dashboard), a ``slug`` attribute (the internal name that could be referenced
+by other components), a list of panels, default panel, etc. We will cover how
+to add a panel in the next section.
 
 
 Creating a panel
 ================
 
-Now that we have our dashboard written, we can also create our panel. We'll
-call it "flocking".
-
-.. note::
-
-    You don't need to write a custom dashboard to add a panel. The structure
-    here is for the sake of completeness in the tutorial.
-
-The quick version
------------------
-
-Horizon provides a custom management command to create a typical base
-panel structure for you. The following command generates most of the
-boilerplate code explained below::
-
-    ./run_tests.sh -m startpanel flocking --dashboard=visualizations --target=auto
-
-The ``dashboard`` argument is required, and tells the command which dashboard
-this panel will be registered with. The ``target`` argument is optional, and
-respects ``auto`` as a special value which means that the files for the panel
-should be created inside the dashboard module as opposed to the current
-directory (the default).
-
-It's still recommended that you read the rest of this section to understand
-what that command creates and why.
+We'll create a panel and call it ``My Panel``.
 
 Structure
 ---------
 
-A panel is a relatively flat structure with the exception that templates
-for a panel in a dashboard live in the dashboard's ``templates`` directory
-rather than in the panel's ``templates`` directory. Continuing our
-visualization/flocking example, let's see what the file structure looks like::
+As described above, the ``mypanel`` directory under
+``openstack_dashboard/dashboards/mydashboard`` should look like the following::
 
-    # stand-alone panel structure
-    flocking/
-      |--__init__.py
-      |--panel.py
-      |--urls.py
-      |--views.py
-      |--templates/
-         |--flocking/
-            |--index.html
+   mypanel
+    ├── __init__.py
+    ├── models.py
+    ├── panel.py
+    ├── templates
+    │   └── mypanel
+    │     └── index.html
+    ├── tests.py
+    ├── urls.py
+    └── views.py
 
-    # panel-in-a-dashboard structure
-    visualizations/
-    |--__init__.py
-    |--dashboard.py
-    |--flocking/
-       |--__init__.py
-       |--panel.py
-       |--urls.py
-       |--views.py
-    |--templates/
-       |--visualizations/
-          |--flocking/
-             |--index.html
-
-That follows standard Django namespacing conventions for apps and submodules
-within apps. It also works cleanly with Django's automatic template discovery
-in both cases.
 
 Defining a panel
 ----------------
 
-The ``panel.py`` file referenced above has a special meaning. Within a
-dashboard, any module name listed in the ``panels`` attribute on the
-dashboard class will be auto-discovered by looking for ``panel.py`` file
-in a corresponding directory (the details are a bit magical, but have been
-thoroughly vetted in Django's admin codebase).
+The ``panel.py`` file referenced above has a special meaning. Within a dashboard,
+any module name listed in the ``panels`` attribute on the dashboard class will
+be auto-discovered by looking for the ``panel.py`` file in a corresponding
+directory (the details are a bit magical, but have been thoroughly vetted in
+Django's admin codebase).
 
-Inside the ``panel.py`` module we define our ``Panel`` class::
+Open the ``panel.py`` file, you will have the following auto-generated code::
 
-    class Flocking(horizon.Panel):
-        name = _("Flocking")
-        slug = 'flocking'
+    from django.utils.translation import ugettext_lazy as _
 
-Simple, right? Once we've defined it, we register it with the dashboard::
+    import horizon
 
-    from visualizations import dashboard
+    from openstack_dashboard.dashboards.mydashboard import dashboard
 
-    dashboard.VizDash.register(Flocking)
 
-Easy! There are more options you can set to customize the ``Panel`` class, but
-it makes some intelligent guesses about what the defaults should be.
+    class Mypanel(horizon.Panel):
+        name = _("Mypanel")
+        slug = "mypanel"
 
-URLs
-----
 
-One of the intelligent assumptions the ``Panel`` class makes is that it can
-find a ``urls.py`` file in your panel directory which will define a view named
-``index`` that handles the default view for that panel. This is what your
-``urls.py`` file might look like::
+    dashboard.Mydashboard.register(Mypanel)
 
-    from django.conf.urls import patterns, url
-    from .views import IndexView
 
-    urlpatterns = patterns('',
-        url(r'^$', IndexView.as_view(), name='index')
-    )
+If you want the panel name to be something else, you can change the ``name``
+attribute in the ``panel.py`` file . For example, you can change it to be
+``My Panel``::
 
-There's nothing there that isn't 100% standard Django code. This example
-(and Horizon in general) uses the class-based views introduced in Django 1.3
-to make code more reusable. Hence the view class is imported in the example
-above, and the ``as_view()`` method is called in the URL pattern.
+    name = _("My Panel")
 
-This, of course, presumes you have a view class, and takes us into the meat
-of writing a ``Panel``.
+
+Open the ``dashboard.py`` file again, insert the following code above the
+``Mydashboard`` class. This code defines the ``Mygroup`` class and adds a panel
+called ``mypanel``::
+
+    class Mygroup(horizon.PanelGroup):
+        slug = "mygroup"
+        name = _("My Group")
+        panels = ('mypanel',)
+
+
+Modify the ``Mydashboard`` class to include ``Mygroup`` and add ``mypanel`` as
+the default panel::
+
+     class Mydashboard(horizon.Dashboard):
+        name = _("My Dashboard")
+        slug = "mydashboard"
+        panels = (Mygroup,)  # Add your panels here.
+        default_panel = 'mypanel'  # Specify the slug of the default panel.
+
+
+The completed ``dashoboard.py`` file should look like
+the following::
+
+    from django.utils.translation import ugettext_lazy as _
+
+    import horizon
+
+
+    class Mygroup(horizon.PanelGroup):
+        slug = "mygroup"
+        name = _("My Group")
+        panels = ('mypanel',)
+
+
+    class Mydashboard(horizon.Dashboard):
+        name = _("My Dashboard")
+        slug = "mydashboard"
+        panels = (Mygroup,)  # Add your panels here.
+        default_panel = 'mypanel'  # Specify the slug of the default panel.
+
+
+    horizon.register(Mydashboard)
+
 
 
 Tables, Tabs, and Views
 -----------------------
-
-Now we get to the really exciting parts; everything before this was structural.
-
-Starting with the high-level view, our end goal is to create a view (our
-``IndexView`` class referenced above) which uses Horizon's ``DataTable``
-class to display data and Horizon's ``TabGroup`` class to give us a
-user-friendly tabbed interface in the browser.
 
 We'll start with the table, combine that with the tabs, and then build our
 view from the pieces.
@@ -255,89 +239,103 @@ Horizon provides a :class:`~horizon.tables.DataTable` class which simplifies
 the vast majority of displaying data to an end-user. We're just going to skim
 the surface here, but it has a tremendous number of capabilities.
 
-In this case, we're going to be presenting data about tables, so let's start
-defining our table (and a ``tables.py`` module::
+Create a ``tables.py`` file under the ``mypanel`` directory and add the
+following code::
+
+    from django.utils.translation import ugettext_lazy as _
 
     from horizon import tables
 
-    class FlockingInstancesTable(tables.DataTable):
-        host = tables.Column("OS-EXT-SRV-ATTR:host", verbose_name=_("Host"))
-        tenant = tables.Column('tenant_name', verbose_name=_("Tenant"))
-        user = tables.Column('user_name', verbose_name=_("user"))
-        vcpus = tables.Column('flavor_vcpus', verbose_name=_("VCPUs"))
-        memory = tables.Column('flavor_memory', verbose_name=_("Memory"))
-        age = tables.Column('age', verbose_name=_("Age"))
+
+    class InstancesTable(tables.DataTable):
+        name = tables.Column("name", verbose_name=_("Name"))
+        status = tables.Column("status", verbose_name=_("Status"))
+        zone = tables.Column('availability_zone',
+                              verbose_name=_("Availability Zone"))
+        image_name = tables.Column('image_name', verbose_name=_("Image Name"))
 
         class Meta:
             name = "instances"
             verbose_name = _("Instances")
 
-There are several things going on here... we created a table subclass,
-and defined six columns on it. Each of those columns defines what attribute
-it accesses on the instance object as the first argument, and since we like to
-make everything translatable, we give each column a ``verbose_name`` that's
-marked for translation.
 
-Lastly, we added a ``Meta`` class which defines some properties about our
-table, notably its (translatable) verbose name, and a semi-unique "slug"-like
-name to identify it.
+There are several things going on here... we created a table subclass,
+and defined four columns that we want to retrieve data and display.
+Each of those columns defines what attribute it accesses on the instance object
+as the first argument, and since we like to make everything translatable,
+we give each column a ``verbose_name`` that's marked for translation.
+
+Lastly, we added a ``Meta`` class which indicates the meta object that describes
+the ``instances`` table.
 
 .. note::
 
     This is a slight simplification from the reality of how the instance
-    object is actually structured. In reality, accessing the flavor, tenant,
-    and user attributes on it requires an additional step. This code can be
-    seen in the example code available on github.
+    object is actually structured. In reality, accessing other attributes
+    requires an additional step.
 
 Defining tabs
 ~~~~~~~~~~~~~
 
 So we have a table, ready to receive our data. We could go straight to a view
-from here, but we can think bigger. In this case we're also going to use
-Horizon's :class:`~horizon.tabs.TabGroup` class. This gives us a clean,
-no-fuss tabbed interface to display both our visualization and, optionally,
-our data table.
+from here, but in this case we're also going to use Horizon's
+:class:`~horizon.tabs.TabGroup` class.
 
-First off, let's make a tab for our visualization::
+Create a ``tabs.py`` file under the ``mypanel`` directory. Let's make a tab
+group which has one tab. The completed code should look like the following::
 
-    class VizTab(tabs.Tab):
-        name = _("Visualization")
-        slug = "viz"
-        template_name = "visualizations/flocking/_flocking.html"
 
-        def get_context_data(self, request):
-            return None
+    from django.utils.translation import ugettext_lazy as _
 
-This is about as simple as you can get. Since our visualization will
-ultimately use AJAX to load it's data we don't need to pass any context
-to the template, and all we need to define is the name and which template
-it should use.
+    from horizon import exceptions
+    from horizon import tabs
 
-Now, we also need a tab for our data table::
+    from openstack_dashboard import api
+    from openstack_dashboard.dashboards.mydashboard.mypanel import tables
 
-    from .tables import FlockingInstancesTable
 
-    class DataTab(tabs.TableTab):
-        name = _("Data")
-        slug = "data"
-        table_classes = (FlockingInstancesTable,)
-        template_name = "horizon/common/_detail_table.html"
+    class InstanceTab(tabs.TableTab):
+        name = _("Instances Tab")
+        slug = "instances_tab"
+        table_classes = (tables.InstancesTable,)
+        template_name = ("horizon/common/_detail_table.html")
         preload = False
+
+        def has_more_data(self, table):
+            return self._has_more
 
         def get_instances_data(self):
             try:
-                instances = utils.get_instances_data(self.tab_group.request)
-            except:
-                instances = []
-                exceptions.handle(self.tab_group.request,
-                                  _('Unable to retrieve instance list.'))
-            return instances
+                marker = self.request.GET.get(
+                            tables.InstancesTable._meta.pagination_param, None)
 
-This tab gets a little more complicated. Foremost, it's a special type of
-tab--one that handles data tables (and all their associated features)--and
-it also uses the ``preload`` attribute to specify that this tab shouldn't
-be loaded by default. It will instead be loaded via AJAX when someone clicks
-on it, saving us on API calls in the vast majority of cases.
+                instances, self._has_more = api.nova.server_list(
+                    self.request,
+                    search_opts={'marker': marker, 'paginate': True})
+
+                return instances
+            except Exception:
+                self._has_more = False
+                error_message = _('Unable to get instances')
+                exceptions.handle(self.request, error_message)
+
+                return instances[]
+
+    class MypanelTabs(tabs.TabGroup):
+        slug = "mypanel_tabs"
+        tabs = (InstanceTab,)
+        sticky = True
+
+
+This tab gets a little more complicated. The tab handles data tables (and
+all their associated features), and it also uses the ``preload`` attribute to
+specify that this tab shouldn't be loaded by default. It will instead be loaded
+via AJAX when someone clicks on it, saving us on API calls in the vast majority
+of cases.
+
+Additionally, the displaying of the table is handled by a reusable template,
+``horizon/common/_detail_table.html``. Some simple pagination code was added
+to handle large instance lists.
 
 Lastly, this code introduces the concept of error handling in Horizon.
 The :func:`horizon.exceptions.handle` function is a centralized error
@@ -348,198 +346,214 @@ Tying it together in a view
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are lots of pre-built class-based views in Horizon. We try to provide
-starting points for all the common combinations of components.
+the starting points for all the common combinations of components.
+
+Open the ``views.py`` file, the auto-generated code is like the following::
+
+    from horizon import views
+
+
+    class IndexView(views.APIView):
+        # A very simple class-based view...
+        template_name = 'mydashboard/mypanel/index.html'
+
+        def get_data(self, request, context, *args, **kwargs):
+            # Add data to the context here...
+            return context
+
 
 In this case we want a starting view type that works with both tabs and
 tables... that'd be the :class:`~horizon.tabs.TabbedTableView` class. It takes
 the best of the dynamic delayed-loading capabilities tab groups provide and
 mixes in the actions and AJAX-updating that tables are capable of with almost
-no work on the user's end. Let's see what the code would look like::
-
-    from .tables import FlockingInstancesTable
-    from .tabs import FlockingTabs
-
-    class IndexView(tabs.TabbedTableView):
-        tab_group_class = FlockingTabs
-        table_class = FlockingInstancesTable
-        template_name = 'visualizations/flocking/index.html'
-
-That would get us 100% of the way to what we need if this particular
-demo didn't involve an extra AJAX call to fetch back our visualization
-data via AJAX. Because of that we need to override the class' ``get()``
-method to return the right data for an AJAX call::
-
-    from .tables import FlockingInstancesTable
-    from .tabs import FlockingTabs
+no work on the user's end. Change ``views.APIView`` to be
+``tabs.TabbedTableView`` and add ``MypanelTabs`` as the tab group class in the
+``IndexView`` class::
 
     class IndexView(tabs.TabbedTableView):
-        tab_group_class = FlockingTabs
-        table_class = FlockingInstancesTable
-        template_name = 'visualizations/flocking/index.html'
+        tab_group_class = mydashboard_tabs.MypanelTabs
 
-        def get(self, request, *args, **kwargs):
-            if self.request.is_ajax() and self.request.GET.get("json", False):
-                try:
-                    instances = utils.get_instances_data(self.request)
-                except:
-                    instances = []
-                    exceptions.handle(request,
-                                      _('Unable to retrieve instance list.'))
-                data = json.dumps([i._apiresource._info for i in instances])
-                return http.HttpResponse(data)
-            else:
-                return super(IndexView, self).get(request, *args, **kwargs)
 
-In this instance, we override the ``get()`` method such that if it's an
-AJAX request and has the GET parameter we're looking for, it returns our
-instance data in JSON format; otherwise it simply returns the view function
-as per the usual.
+After importing the proper package, the completed ``views.py`` file  now looks like
+the following::
+
+    from horizon import tabs
+
+    from openstack_dashboard.dashboards.mydashboard.mypanel \
+        import tabs as mydashboard_tabs
+
+
+    class IndexView(tabs.TabbedTableView):
+        tab_group_class = mydashboard_tabs.MypanelTabs
+        template_name = 'mydashboard/mypanel/index.html'
+
+        def get_data(self, request, context, *args, **kwargs):
+            # Add data to the context here...
+            return context
+
+
+URLs
+----
+The auto-generated ``urls.py`` file is like::
+
+    from django.conf.urls import patterns  # noqa
+    from django.conf.urls import url  # noqa
+
+    from .views import IndexView
+
+
+    urlpatterns = patterns('',
+        url(r'^$', IndexView.as_view(), name='index'),
+    )
+
+
+Adjust the import of ``IndexView`` to make the code readable::
+
+    from openstack_dashboard.dashboards.mydashboard.mypanel import views
+
+
+Update the existing ``url`` pattern to use ``views`` ::
+
+    url(r'^$', views.IndexView.as_view(), name='index'),
+
+
+Insert the following lines after the existing ``url`` pattern::
+
+    url(r'^\?tab=mypanel_tabs__tab$',
+        views.IndexView.as_view(), name='mypanel_tabs'),
+
+
+Notice that ``mypanel_tabs`` is the ``slug`` attribute defined in the
+``MypanelTabs`` class in the ``tabs.py`` file.
+
+The completed ``urls.py`` file should look like the following::
+
+    from django.conf.urls import patterns  # noqa
+    from django.conf.urls import url  # noqa
+
+    from openstack_dashboard.dashboards.mydashboard.mypanel import views
+
+
+    urlpatterns = patterns('',
+        url(r'^$', views.IndexView.as_view(), name='index'),
+        url(r'^\?tab=mypanel_tabs_tab$',
+            views.IndexView.as_view(), name='mypanel_tabs'),
+    )
+
 
 The template
 ~~~~~~~~~~~~
 
-We need three templates here: one for the view, and one for each of our two
-tabs. The view template (in this case) can inherit from one of the other
-dashboards::
+Open the ``index.html`` file in the ``mydashboard/mypanel/templates/mypanel``
+directory, the auto-generated code is like the following::
 
-    {% extends 'base.html' %}
+    {% extends 'mydashboard/base.html' %}
     {% load i18n %}
-    {% block title %}{% trans "Flocking" %}{% endblock %}
+    {% block title %}{% trans "Mypanel" %}{% endblock %}
 
     {% block page_header %}
-      {% include "horizon/common/_page_header.html" with title=_("Flocking") %}
+        {% include "horizon/common/_page_header.html" with title=_("Mypanel") %}
     {% endblock page_header %}
 
-    {% block main %}
+    {% block mydashboard_main %}
+    {% endblock %}
+
+
+Insert the following code inside the ``mydashboard_main`` block::
+
     <div class="row">
       <div class="col-sm-12">
       {{ tab_group.render }}
       </div>
     </div>
-    {% endblock %}
 
-This gives us a custom page title, a header, and render our tab group provided
+
+If you want to change the title of the ``index.html`` file to be something else,
+you can change it. For example, change it to be ``My Panel`` in the
+``block title`` section.  If you want the ``title`` in the ``block page_header``
+section to be something else, you can change it. For example, change it to be
+``My Panel``. The updated code could be like::
+
+   {% extends 'mydashboard/base.html' %}
+   {% load i18n %}
+   {% block title %}{% trans "My Panel" %}{% endblock %}
+
+   {% block page_header %}
+      {% include "horizon/common/_page_header.html" with title=_("My Panel") %}
+   {% endblock page_header %}
+
+   {% block mydashboard_main %}
+   <div class="row">
+      <div class="col-sm-12">
+      {{ tab_group.render }}
+      </div>
+   </div>
+   {% endblock %}
+
+
+This gives us a custom page title, a header, and renders our tab group provided
 by the view.
 
-For the tabs, the one using the table is handled by a reusable template,
-``"horizon/common/_detail_table.html"``. This is appropriate for any tab that
-only displays a single table.
-
-The second tab is a bit of secret sauce for the visualization, but it's still
-quite simple and can be investigated in the github example.
-
-The takeaway here is that each tab needs a template associated with it.
-
-With all our code in place, the only thing left to do is to integrated it into
+With all our code in place, the only thing left to do is to integrate it into
 our OpenStack Dashboard site.
 
-Setting up a project
-====================
 
-The vast majority of people will just customize the OpenStack Dashboard
-example project that ships with Horizon. As such, this tutorial will
-start from that and just illustrate the bits that can be customized.
+.. note::
 
-Structure
----------
+    For more information about Django views, URLs and templates, please refer
+    to the `Django documentation`_.
 
-A site built on Horizon takes the form of a very typical Django project::
+    .. _Django documentation: https://docs.djangoproject.com/en/1.6/
 
-    site/
-      |--__init__.py
-      |--manage.py
-      |--demo_dashboard/
-         |--__init__.py
-         |--models.py  # required for Django even if unused
-         |--settings.py
-         |--templates/
-         |--static/
 
-The key bits here are that ``demo_dashboard`` is on our python path, and that
-the ``settings.py`` file here will contain our customized Horizon config.
+Enable and show the dashboard
+=============================
 
-The settings file
------------------
+In order to make ``My Dashboard`` show up along with the existing dashboards
+like ``Project`` or ``Admin`` on Horizon, you need to create a file called
+``_50_mydashboard.py`` under ``openstack_dashboard/enabled`` and add the
+following::
 
-There are several key things you will generally want to customize in your
-site's settings file: specifying custom dashboards and panels, catching your
-client's exception classes, and (possibly) specifying a file for advanced
-overrides.
+    # The name of the dashboard to be added to HORIZON['dashboards']. Required.
+    DASHBOARD = 'mydashboard'
 
-Specifying dashboards
-~~~~~~~~~~~~~~~~~~~~~
+    # If set to True, this dashboard will not be added to the settings.
+    DISABLED = False
 
-Adding your own dashboard is as simple as creating a file in the
-``openstack_dashboard/local/enabled`` directory named ``_50_visualizations.py``.
-The contents of this file should resemble::
+    # A list of applications to be added to INSTALLED_APPS.
+    ADD_INSTALLED_APPS = [
+        'openstack_dashboard.dashboards.mydashboard',
+    ]
 
-    DASHBOARD = 'visualizations'
-    DEFAULT = True
-    ADD_EXCEPTIONS = {}
-    ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.visualizations']
 
-.. seealso::
+Run and check the dashboard
+=============================
 
-    For more information on the significance of the file naming and an
-    explanation of the contents, check out
-    :doc:`Pluggable Settings for Dashboards </topics/settings>`
+Everything is in place, now run ``Horizon`` on the different port::
 
-In this case, we've added our ``visualizations`` dashboard to the list of
-dashboards to load. Note that the name here is the name of the dashboard's
-module on the python path. It will find our ``dashboard.py`` file inside of
-it and load both the dashboard and its panels automatically from there.
+    ./run_tests.sh --runserver 0.0.0.0:8877
 
-Error handling
-~~~~~~~~~~~~~~
 
-Adding custom error handler for your API client is quite easy. While it's not
-necessary for this example, it would be done by customizing the ``ADD_EXCEPTIONS``
-dictionary in the file added to ``openstack/local/enabled``::
+Go to ``http://<your server>:8877`` using a browser. After login as an admin
+you should be able see ``My Dashboard`` shows up at the left side on Horizon.
+Click it, ``My Group`` will expand with ``My Panel``. Click on ``My Panel``,
+the right side panel will display an ``Instances Tab`` which has an
+``Instances`` table.
 
-    import my_api.exceptions as my_api
-
-    ADD_EXCEPTIONS: {
-        'recoverable': [my_api.Error, my_api.ClientConnectionError],
-        'not_found': [my_api.NotFound],
-        'unauthorized': [my_api.NotAuthorized]
-    }
-
-.. _overrides:
-
-Override file
-~~~~~~~~~~~~~
-
-The override file is the "god-mode" dashboard editor. The hook for this file
-sits right between the automatic discovery mechanisms and the final setup
-routines for the entire site. By specifying an override file you can alter
-any behavior you like in existing code. This tutorial won't go in-depth,
-but let's just say that with great power comes great responsibility.
-
-To specify an override file, you set the ``'customization_module'`` value in
-the ``HORIZON_CONFIG`` dictionary to the dotted python path of your
-override module::
-
-    HORIZON_CONFIG = {
-        'customization_module': 'demo_dashboard.overrides'
-    }
-
-This file is capable of adding dashboards, adding panels to existing
-dashboards, renaming existing dashboards and panels (or altering other
-attributes on them), removing panels from existing dashboards, and so on.
-
-We could say more, but it only gets more dangerous...
+If you don't see any instance data, you haven't created any instances yet.  Go to
+dashboard ``Project`` -> ``Images``, select a small image, for example,
+``crioos-0.3.1-x86_64-uec`` , click ``Launch`` and enter an ``Instance Name``,
+click the button ``Launch``. It should create an instance if the openstack or
+devstack is correctly set up. Once the creation of an instance is successful, go
+to ``My Dashboard`` again to check the data.
 
 Conclusion
 ==========
 
-Sadly, the cake was a lie. The information in this "tutorial" was never
-meant to leave you with a working dashboard. It's close. But there's
-waaaaaay too much javascript involved in the visualization to cover it all
-here, and it'd be irrelevant to Horizon anyway.
+What you've learned here is the fundamentals of how to write interfaces for
+your own project based on the components Horizon provides.
 
-What you've learned here, however, is the fundamentals of almost everything
-you need to know to start writing interfaces for your own project based on the
-components Horizon provides.
+If you have feedback on how this tutorial could be improved, please feel free
+to submit a bug against ``Horizon`` in `launchpad`_.
 
-If you have questions, or feedback on how this tutorial could be improved,
-please feel free to pass them along!
+    .. _launchpad: https://bugs.launchpad.net/horizon
