@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 23:31-0500\n"
-"PO-Revision-Date: 2014-06-09 20:29+0000\n"
+"POT-Creation-Date: 2014-06-17 10:50-0500\n"
+"PO-Revision-Date: 2014-06-17 11:52+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -360,7 +360,7 @@ msgstr "प्रशासक"
 #: dashboards/admin/volumes/tables.py:67
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:64
-#: dashboards/project/access_and_security/security_groups/tables.py:65
+#: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/database_backups/tables.py:117
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
@@ -661,7 +661,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:18
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:71
-#: dashboards/project/access_and_security/security_groups/tables.py:66
+#: dashboards/project/access_and_security/security_groups/tables.py:123
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:18
@@ -1467,8 +1467,8 @@ msgstr "समूह सदस्य"
 #: dashboards/project/firewalls/workflows.py:292
 #: dashboards/project/loadbalancers/workflows.py:129
 #: dashboards/project/loadbalancers/workflows.py:246
-#: dashboards/project/loadbalancers/workflows.py:381
-#: dashboards/project/loadbalancers/workflows.py:522
+#: dashboards/project/loadbalancers/workflows.py:388
+#: dashboards/project/loadbalancers/workflows.py:529
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -1547,7 +1547,7 @@ msgstr "होस्टनाम"
 #: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/access_and_security/security_groups/forms.py:176
 #: dashboards/project/images/images/tables.py:210
-#: dashboards/project/loadbalancers/workflows.py:406
+#: dashboards/project/loadbalancers/workflows.py:413
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
 #: dashboards/project/routers/ports/tables.py:100
@@ -1557,28 +1557,28 @@ msgid "Type"
 msgstr "प्रकार"
 
 #: dashboards/admin/hypervisors/tables.py:31
-msgid "VCPUs (total)"
-msgstr "VCPUs (कुल)"
-
-#: dashboards/admin/hypervisors/tables.py:34
 msgid "VCPUs (used)"
 msgstr "VCPUs ( उपयोग में)"
 
-#: dashboards/admin/hypervisors/tables.py:37
-msgid "RAM (total)"
-msgstr "RAM (कुल)"
+#: dashboards/admin/hypervisors/tables.py:34
+msgid "VCPUs (total)"
+msgstr "VCPUs (कुल)"
 
-#: dashboards/admin/hypervisors/tables.py:42
+#: dashboards/admin/hypervisors/tables.py:37
 msgid "RAM (used)"
 msgstr "RAM (उपयोग में)"
 
-#: dashboards/admin/hypervisors/tables.py:47
-msgid "Storage (total)"
-msgstr "भंडारण  (कुल)"
+#: dashboards/admin/hypervisors/tables.py:42
+msgid "RAM (total)"
+msgstr "RAM (कुल)"
 
-#: dashboards/admin/hypervisors/tables.py:52
+#: dashboards/admin/hypervisors/tables.py:47
 msgid "Storage (used)"
 msgstr "भंडारण (उपयोग में)"
+
+#: dashboards/admin/hypervisors/tables.py:52
+msgid "Storage (total)"
+msgstr "भंडारण  (कुल)"
 
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/info/tables.py:187 dashboards/admin/instances/panel.py:27
@@ -1779,7 +1779,7 @@ msgstr "सिस्टम सूचना"
 
 #: dashboards/admin/info/tables.py:51 dashboards/admin/metering/tables.py:25
 #: dashboards/admin/metering/views.py:149
-#: dashboards/project/access_and_security/api_access/tables.py:48
+#: dashboards/project/access_and_security/api_access/tables.py:49
 msgid "Service"
 msgstr "सेवा"
 
@@ -1813,7 +1813,7 @@ msgstr "होस्ट"
 #: dashboards/project/instances/tables.py:803
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:218
-#: dashboards/project/loadbalancers/tables.py:250
+#: dashboards/project/loadbalancers/tables.py:252
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
@@ -1910,8 +1910,8 @@ msgstr "इंजेक्ट फ़ाइलें "
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:60
 #: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:291
-#: dashboards/project/volumes/volumes/tables.py:304
+#: dashboards/project/volumes/volumes/tables.py:295
+#: dashboards/project/volumes/volumes/tables.py:308
 msgid "Volumes"
 msgstr "वॉल्यूम"
 
@@ -1937,8 +1937,8 @@ msgstr "RAM (MB)"
 #: dashboards/admin/projects/workflows.py:58
 #: dashboards/admin/projects/workflows.py:70
 #: dashboards/project/access_and_security/tabs.py:74
-#: dashboards/project/access_and_security/floating_ips/tables.py:64
-#: dashboards/project/access_and_security/floating_ips/tables.py:145
+#: dashboards/project/access_and_security/floating_ips/tables.py:74
+#: dashboards/project/access_and_security/floating_ips/tables.py:172
 msgid "Floating IPs"
 msgstr " उत्प्लावित IP"
 
@@ -1946,8 +1946,8 @@ msgstr " उत्प्लावित IP"
 #: dashboards/admin/projects/workflows.py:61
 #: dashboards/admin/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:42
-#: dashboards/project/access_and_security/security_groups/tables.py:27
-#: dashboards/project/access_and_security/security_groups/tables.py:73
+#: dashboards/project/access_and_security/security_groups/tables.py:31
+#: dashboards/project/access_and_security/security_groups/tables.py:130
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
 #: dashboards/project/instances/workflows/create_instance.py:461
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1957,14 +1957,14 @@ msgstr "सुरक्षा समूह"
 #: dashboards/admin/info/tables.py:195
 #: dashboards/admin/projects/workflows.py:63
 #: dashboards/admin/projects/workflows.py:69
-#: dashboards/project/access_and_security/security_groups/tables.py:171
+#: dashboards/project/access_and_security/security_groups/tables.py:244
 msgid "Security Group Rules"
 msgstr "सुरक्षा समूह नियम"
 
 #: dashboards/admin/info/tables.py:196
 #: dashboards/project/access_and_security/tabs.py:58
 #: dashboards/project/access_and_security/keypairs/tables.py:26
-#: dashboards/project/access_and_security/keypairs/tables.py:70
+#: dashboards/project/access_and_security/keypairs/tables.py:73
 msgid "Key Pairs"
 msgstr "कुंजी जोड़ी"
 
@@ -2076,7 +2076,7 @@ msgid "Scheduled migration (pending confirmation) of"
 msgstr "अनुसूचित माइग्रेशन (पुष्टि लंबित) की"
 
 #: dashboards/admin/instances/tables.py:35
-#: dashboards/project/access_and_security/floating_ips/tables.py:131
+#: dashboards/project/access_and_security/floating_ips/tables.py:158
 #: dashboards/project/access_and_security/floating_ips/workflows.py:34
 #: dashboards/project/databases/tables.py:36
 #: dashboards/project/instances/tables.py:77
@@ -2086,7 +2086,7 @@ msgstr "अनुसूचित माइग्रेशन (पुष्टि
 #: dashboards/project/instances/tables.py:617
 #: dashboards/project/instances/tables.py:638
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:329
+#: dashboards/project/volumes/volumes/tables.py:333
 msgid "Instance"
 msgstr "इंस्टेंस"
 
@@ -2113,7 +2113,7 @@ msgid "Project"
 msgstr "परियोजना"
 
 #: dashboards/admin/instances/tables.py:137
-#: dashboards/project/access_and_security/floating_ips/tables.py:127
+#: dashboards/project/access_and_security/floating_ips/tables.py:154
 #: dashboards/project/access_and_security/floating_ips/workflows.py:30
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/instances/tables.py:795
@@ -2169,13 +2169,13 @@ msgid "Unable to retrieve instance project information."
 msgstr "इंस्टेंस परियोजना सूचना पाने में असमर्थ."
 
 #: dashboards/admin/instances/views.py:123
-#: dashboards/project/instances/views.py:122
+#: dashboards/project/instances/views.py:118
 msgid "Unable to retrieve instance size information."
 msgstr "इंस्टेंस आकार सूचना पाने में असमर्थ."
 
 #: dashboards/admin/instances/views.py:157
-#: dashboards/project/instances/views.py:202
-#: dashboards/project/instances/views.py:312
+#: dashboards/project/instances/views.py:198
+#: dashboards/project/instances/views.py:308
 msgid "Unable to retrieve instance details."
 msgstr "इंस्टेंस विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -2427,8 +2427,8 @@ msgstr "नेटवर्क प्रोफ़ाइल"
 #: dashboards/project/loadbalancers/forms.py:231
 #: dashboards/project/loadbalancers/workflows.py:41
 #: dashboards/project/loadbalancers/workflows.py:186
-#: dashboards/project/loadbalancers/workflows.py:311
-#: dashboards/project/loadbalancers/workflows.py:468
+#: dashboards/project/loadbalancers/workflows.py:317
+#: dashboards/project/loadbalancers/workflows.py:475
 #: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/tables.py:122
 #: dashboards/project/networks/workflows.py:39
@@ -3246,6 +3246,7 @@ msgstr "रूटर अवलोकन"
 #: dashboards/project/images/templates/images/images/_detail_overview.html:47
 #: dashboards/project/images/templates/images/images/_detail_overview.html:49
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
+#: dashboards/project/instances/templates/instances/_detail_overview.html:109
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:46
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
@@ -3477,7 +3478,7 @@ msgid "Access & Security"
 msgstr "पहुँच और सुरक्षा"
 
 #: dashboards/project/access_and_security/tabs.py:52
-#: dashboards/project/access_and_security/security_groups/views.py:119
+#: dashboards/project/access_and_security/security_groups/views.py:120
 #: usage/base.py:109
 msgid "Unable to retrieve security groups."
 msgstr "सुरक्षा समूहों को पुनः प्राप्त करने में असमर्थ."
@@ -3506,16 +3507,16 @@ msgstr "API अभिगम"
 msgid "Download EC2 Credentials"
 msgstr "EC2 पहचान डाउनलोड करें"
 
-#: dashboards/project/access_and_security/api_access/tables.py:40
 #: dashboards/project/access_and_security/api_access/tables.py:41
+#: dashboards/project/access_and_security/api_access/tables.py:42
 msgid "Download OpenStack RC File"
 msgstr "ओपेनस्टैक RC फ़ाइल डाउनलोड करें"
 
-#: dashboards/project/access_and_security/api_access/tables.py:51
+#: dashboards/project/access_and_security/api_access/tables.py:52
 msgid "Service Endpoint"
 msgstr "सेवा समापन बिंदु"
 
-#: dashboards/project/access_and_security/api_access/tables.py:55
+#: dashboards/project/access_and_security/api_access/tables.py:56
 msgid "API Endpoints"
 msgstr "API अंतबिंदु"
 
@@ -3537,7 +3538,7 @@ msgstr " RC फ़ाइल डाउनलोड करने में त्�
 #: dashboards/project/loadbalancers/forms.py:78
 #: dashboards/project/loadbalancers/forms.py:168
 #: dashboards/project/loadbalancers/tables.py:86
-#: dashboards/project/loadbalancers/tables.py:249
+#: dashboards/project/loadbalancers/tables.py:251
 #: dashboards/project/loadbalancers/workflows.py:294
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
@@ -3557,53 +3558,53 @@ msgstr "आवंटित अस्थायी आईपी %(ip)s."
 msgid "Unable to allocate Floating IP."
 msgstr "अस्थायी आईपी आवंटित करने में असमर्थ."
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:38
-#: dashboards/project/access_and_security/floating_ips/tables.py:53
+#: dashboards/project/access_and_security/floating_ips/tables.py:41
+#: dashboards/project/access_and_security/floating_ips/tables.py:56
 msgid "Allocate IP To Project"
 msgstr "इस परियोजना के लिए आईपी आबंटित करें"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:51
-#: dashboards/project/access_and_security/keypairs/tables.py:53
+#: dashboards/project/access_and_security/floating_ips/tables.py:54
+#: dashboards/project/access_and_security/keypairs/tables.py:56
 #: dashboards/project/instances/tables.py:241
 #: dashboards/project/volumes/volumes/tables.py:100
 msgid "(Quota exceeded)"
 msgstr "(कोटा पूरा हो गया)"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:61
+#: dashboards/project/access_and_security/floating_ips/tables.py:71
 msgid "Release"
 msgstr "जारी"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:62
+#: dashboards/project/access_and_security/floating_ips/tables.py:72
 msgid "Released"
 msgstr "जारी"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:63
+#: dashboards/project/access_and_security/floating_ips/tables.py:73
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:23
 msgid "Floating IP"
 msgstr "अस्थायी आईपी"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:73
+#: dashboards/project/access_and_security/floating_ips/tables.py:92
 #: dashboards/project/access_and_security/floating_ips/workflows.py:125
-#: dashboards/project/loadbalancers/workflows.py:584
+#: dashboards/project/loadbalancers/workflows.py:591
 msgid "Associate"
 msgstr "एसोसियेट"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:90
-#: dashboards/project/loadbalancers/workflows.py:646
+#: dashboards/project/access_and_security/floating_ips/tables.py:113
+#: dashboards/project/loadbalancers/workflows.py:653
 msgid "Disassociate"
 msgstr "अलग करें"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:105
+#: dashboards/project/access_and_security/floating_ips/tables.py:132
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
 msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी को अलग किया: %s"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:109
+#: dashboards/project/access_and_security/floating_ips/tables.py:136
 #: dashboards/project/instances/tables.py:573
 msgid "Unable to disassociate floating IP."
 msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी को अलग करने में असमर्थ"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:134
+#: dashboards/project/access_and_security/floating_ips/tables.py:161
 msgid "Floating IP Pool"
 msgstr "अस्थायी आईपी पूल"
 
@@ -3672,7 +3673,7 @@ msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/forms.py:41
 #: dashboards/project/access_and_security/keypairs/forms.py:51
-#: dashboards/project/access_and_security/keypairs/tables.py:62
+#: dashboards/project/access_and_security/keypairs/tables.py:65
 #: dashboards/project/instances/forms.py:113
 msgid "Key Pair Name"
 msgstr "कुंजी युग्म नाम"
@@ -3696,7 +3697,7 @@ msgstr "कुंजी युग्म आयात करने में अ�
 msgid "Key Pair"
 msgstr "कुंजी युग्म"
 
-#: dashboards/project/access_and_security/keypairs/tables.py:34
+#: dashboards/project/access_and_security/keypairs/tables.py:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:31
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:3
@@ -3704,8 +3705,8 @@ msgstr "कुंजी युग्म"
 msgid "Import Key Pair"
 msgstr "आयात कुंजी जोड़ी"
 
-#: dashboards/project/access_and_security/keypairs/tables.py:41
-#: dashboards/project/access_and_security/keypairs/tables.py:55
+#: dashboards/project/access_and_security/keypairs/tables.py:43
+#: dashboards/project/access_and_security/keypairs/tables.py:58
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:3
@@ -3713,7 +3714,7 @@ msgstr "आयात कुंजी जोड़ी"
 msgid "Create Key Pair"
 msgstr " कुंजी युग्म बनाएं"
 
-#: dashboards/project/access_and_security/keypairs/tables.py:63
+#: dashboards/project/access_and_security/keypairs/tables.py:66
 msgid "Fingerprint"
 msgstr "फिंगरप्रिंट"
 
@@ -3746,7 +3747,7 @@ msgid "Unable to update security group."
 msgstr "सुरक्षा समूह का अद्यतन करने में असमर्थ."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:92
-#: dashboards/project/access_and_security/security_groups/tables.py:89
+#: dashboards/project/access_and_security/security_groups/tables.py:154
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 #: dashboards/project/firewalls/tables.py:52
 msgid "Rule"
@@ -3760,13 +3761,13 @@ msgstr "नियम"
 #: dashboards/project/access_and_security/security_groups/forms.py:110
 #: dashboards/project/access_and_security/security_groups/forms.py:111
 #: dashboards/project/access_and_security/security_groups/forms.py:112
-#: dashboards/project/access_and_security/security_groups/tables.py:152
+#: dashboards/project/access_and_security/security_groups/tables.py:225
 msgid "Direction"
 msgstr "दिशा"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:116
 #: dashboards/project/access_and_security/security_groups/forms.py:123
-#: dashboards/project/access_and_security/security_groups/tables.py:157
+#: dashboards/project/access_and_security/security_groups/tables.py:230
 msgid "IP Protocol"
 msgstr " IP प्रोटोकॉल "
 
@@ -3781,7 +3782,7 @@ msgid "Open Port"
 msgstr "खुला हुआ पोर्ट"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:128
-#: dashboards/project/access_and_security/security_groups/tables.py:160
+#: dashboards/project/access_and_security/security_groups/tables.py:233
 msgid "Port Range"
 msgstr "पोर्ट सीमा"
 
@@ -3789,7 +3790,6 @@ msgstr "पोर्ट सीमा"
 #: dashboards/project/access_and_security/security_groups/forms.py:149
 #: dashboards/project/access_and_security/security_groups/forms.py:160
 #: dashboards/project/loadbalancers/workflows.py:161
-#: dashboards/project/loadbalancers/workflows.py:308
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 और 65535 के बीच एक पूर्णांक मान दर्ज करें."
 
@@ -3818,7 +3818,7 @@ msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr " ICMP कोड के लिए एक मूल्य दर्ज (: 255 -1) रेंज में"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:191
-#: dashboards/project/access_and_security/security_groups/tables.py:161
+#: dashboards/project/access_and_security/security_groups/tables.py:234
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid "Remote"
 msgstr "दूरस्थ"
@@ -3826,7 +3826,7 @@ msgstr "दूरस्थ"
 #: dashboards/project/access_and_security/security_groups/forms.py:193
 #: dashboards/project/access_and_security/security_groups/forms.py:216
 #: dashboards/project/access_and_security/security_groups/forms.py:221
-#: dashboards/project/access_and_security/security_groups/tables.py:26
+#: dashboards/project/access_and_security/security_groups/tables.py:30
 msgid "Security Group"
 msgstr " सुरक्षा समूह "
 
@@ -3842,7 +3842,7 @@ msgstr "वर्गहीन अंतर डोमेन रूटिंग (�
 
 #: dashboards/project/access_and_security/security_groups/forms.py:225
 #: dashboards/project/access_and_security/security_groups/forms.py:233
-#: dashboards/project/access_and_security/security_groups/tables.py:155
+#: dashboards/project/access_and_security/security_groups/tables.py:228
 msgid "Ether Type"
 msgstr "ईथर प्रकार"
 
@@ -3875,12 +3875,12 @@ msgid "Other Protocol"
 msgstr "अन्य प्रोटोकॉल"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:262
-#: dashboards/project/access_and_security/security_groups/tables.py:126
+#: dashboards/project/access_and_security/security_groups/tables.py:199
 msgid "Ingress"
 msgstr "प्रवेश"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:263
-#: dashboards/project/access_and_security/security_groups/tables.py:128
+#: dashboards/project/access_and_security/security_groups/tables.py:201
 msgid "Egress"
 msgstr "निकास"
 
@@ -3931,7 +3931,7 @@ msgstr "सफ़लतापूर्वक जोड़ा गया निय
 msgid "Unable to add rule to security group."
 msgstr "सुरक्षा समूह के लिए शासन को जोड़ने में असमर्थ."
 
-#: dashboards/project/access_and_security/security_groups/tables.py:40
+#: dashboards/project/access_and_security/security_groups/tables.py:59
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
@@ -3939,7 +3939,7 @@ msgstr "सुरक्षा समूह के लिए शासन को 
 msgid "Create Security Group"
 msgstr "सुरक्षा समूह बनाएँ"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:47
+#: dashboards/project/access_and_security/security_groups/tables.py:74
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:3
@@ -3947,11 +3947,11 @@ msgstr "सुरक्षा समूह बनाएँ"
 msgid "Edit Security Group"
 msgstr "संपादित सुरक्षा समूह"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:59
+#: dashboards/project/access_and_security/security_groups/tables.py:101
 msgid "Manage Rules"
 msgstr "नियम प्रबंधित करें"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:80
+#: dashboards/project/access_and_security/security_groups/tables.py:137
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
@@ -3960,7 +3960,7 @@ msgstr "नियम प्रबंधित करें"
 msgid "Add Rule"
 msgstr "नियम जोड़ें"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:90
+#: dashboards/project/access_and_security/security_groups/tables.py:155
 #: dashboards/project/firewalls/tables.py:53
 #: dashboards/project/firewalls/tables.py:227
 #: dashboards/project/firewalls/tables.py:237
@@ -3970,16 +3970,16 @@ msgstr "नियम जोड़ें"
 msgid "Rules"
 msgstr "नियम "
 
-#: dashboards/project/access_and_security/security_groups/tables.py:133
+#: dashboards/project/access_and_security/security_groups/tables.py:206
 msgid "Any"
 msgstr "कोई"
 
 #: dashboards/project/access_and_security/security_groups/views.py:52
-#: dashboards/project/access_and_security/security_groups/views.py:78
+#: dashboards/project/access_and_security/security_groups/views.py:79
 msgid "Unable to retrieve security group."
 msgstr "सुरक्षा समूह को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/access_and_security/security_groups/views.py:126
+#: dashboards/project/access_and_security/security_groups/views.py:127
 #, python-format
 msgid "%s (current)"
 msgstr "%s (वर्तमान)"
@@ -4167,7 +4167,7 @@ msgstr "स्लैश अनुमति दी जाती है, और �
 
 #: dashboards/project/containers/forms.py:94
 #: dashboards/project/containers/templates/containers/_update.html:22
-#: dashboards/project/stacks/forms.py:53
+#: dashboards/project/stacks/forms.py:54
 msgid "File"
 msgstr "फ़ाइल"
 
@@ -4282,14 +4282,12 @@ msgid "Container Details"
 msgstr "कंटेनर विवरण"
 
 #: dashboards/project/containers/tables.py:310
-#: dashboards/project/containers/tables.py:326
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
 msgid "Object"
 msgstr "वस्तु"
 
 #: dashboards/project/containers/tables.py:311
-#: dashboards/project/containers/tables.py:327
 #: dashboards/project/containers/tables.py:416
 msgid "Objects"
 msgstr "वस्तु"
@@ -4618,7 +4616,7 @@ msgstr "वैकल्पिक बैकअप विवरण"
 #: dashboards/project/databases/workflows/create_instance.py:39
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 #: dashboards/project/instances/workflows/create_instance.py:129
-#: dashboards/project/loadbalancers/tables.py:276
+#: dashboards/project/loadbalancers/tables.py:278
 msgid "Details"
 msgstr "विवरण"
 
@@ -4709,8 +4707,7 @@ msgstr "उपलब्ध नहीं"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
-#: dashboards/project/instances/views.py:110
-#: dashboards/project/loadbalancers/tables.py:266
+#: dashboards/project/loadbalancers/tables.py:268
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:23
@@ -4981,7 +4978,7 @@ msgstr "गंतव्य पोर्ट ([1, 65,535] में पूर्�
 
 #: dashboards/project/firewalls/forms.py:80
 #: dashboards/project/firewalls/workflows.py:40
-#: dashboards/project/loadbalancers/workflows.py:408
+#: dashboards/project/loadbalancers/workflows.py:415
 msgid "TCP"
 msgstr "TCP"
 
@@ -6183,7 +6180,7 @@ msgid "Log"
 msgstr "लॉग"
 
 #: dashboards/project/instances/tabs.py:48
-#: dashboards/project/instances/views.py:145
+#: dashboards/project/instances/views.py:141
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "\"%s\" इंस्टेंस के लिए लॉग प्राप्त करने में असमर्थ"
@@ -6200,32 +6197,32 @@ msgstr "इंस्टेंस फ्लेवर को क्रमबद्
 msgid "Unable to retrieve instances."
 msgstr "इंस्टेंस को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/views.py:160
+#: dashboards/project/instances/views.py:156
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "\"%s\" इंस्टेंस के लिए VNC कंसोल प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:171
+#: dashboards/project/instances/views.py:167
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "\"%s\" इंस्टेंस के लिए SPICE कंसोल प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:182
+#: dashboards/project/instances/views.py:178
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "\"%s\" इंस्टेंस के लिए RDp कंसोल प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:269
+#: dashboards/project/instances/views.py:265
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "इंस्टेंस के लिए जानकारी प्राप्त करने में असमर्थ \"%s\"."
 
-#: dashboards/project/instances/views.py:280
+#: dashboards/project/instances/views.py:276
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr " \"%s\" इंस्टेंस के लिए न्यूट्रॉन से आईपी पते को पुनः प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:324
+#: dashboards/project/instances/views.py:320
 msgid "Unable to retrieve flavors."
 msgstr "फ्लेवर को पुनः प्राप्त करने में असमर्थ."
 
@@ -6331,39 +6328,39 @@ msgstr "मेटा"
 msgid "Key Name"
 msgstr "कुंजी नाम"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:106
+#: dashboards/project/instances/templates/instances/_detail_overview.html:112
 #: dashboards/project/loadbalancers/tables.py:215
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr "लागू नहीं"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:116
+#: dashboards/project/instances/templates/instances/_detail_overview.html:122
 msgid "Volumes Attached"
 msgstr "वॉल्यूम संलग्न "
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:120
+#: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
 #: dashboards/project/volumes/volumes/tables.py:282
 msgid "Attached To"
 msgstr "से जुड़ा "
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:129
+#: dashboards/project/instances/templates/instances/_detail_overview.html:135
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:43
 msgid "on"
 msgstr "पर"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:132
+#: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
 #: dashboards/project/instances/workflows/create_instance.py:336
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:58
-#: dashboards/project/volumes/volumes/tables.py:303
+#: dashboards/project/volumes/volumes/tables.py:307
 msgid "Volume"
 msgstr "आयतन"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:133
+#: dashboards/project/instances/templates/instances/_detail_overview.html:139
 msgid "No volumes attached."
 msgstr "कोई वॉल्यूम जुड़ा हुआ नहीं है."
 
@@ -6625,7 +6622,7 @@ msgstr "कोई उपलब्धता क्षेत्र"
 
 #: dashboards/project/instances/workflows/create_instance.py:323
 #: dashboards/project/instances/workflows/resize_instance.py:79
-#: usage/base.py:226
+#: usage/base.py:228
 msgid "Unable to retrieve quota information."
 msgstr "कोटा सूचना पाने में असमर्थ."
 
@@ -6897,7 +6894,7 @@ msgstr "वीआईपी के लिए अनुमति दी गई य
 #: dashboards/project/loadbalancers/forms.py:106
 #: dashboards/project/loadbalancers/forms.py:186
 #: dashboards/project/loadbalancers/tabs.py:41
-#: dashboards/project/loadbalancers/workflows.py:324
+#: dashboards/project/loadbalancers/workflows.py:330
 msgid "Unable to retrieve pools list."
 msgstr "पूल सूची को प्राप्त करने में असमर्थ."
 
@@ -6921,13 +6918,13 @@ msgid "Failed to update VIP %s"
 msgstr "VIP %s अपडेट करने में विफल "
 
 #: dashboards/project/loadbalancers/forms.py:169
-#: dashboards/project/loadbalancers/workflows.py:303
+#: dashboards/project/loadbalancers/tables.py:249
+#: dashboards/project/loadbalancers/workflows.py:304
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
 msgstr "भार"
 
 #: dashboards/project/loadbalancers/forms.py:170
-#: dashboards/project/loadbalancers/workflows.py:305
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "अनुरोधों के सापेक्ष हिस्सा इस पूल सदस्य दूसरों की तुलना में कार्य करता है"
 
@@ -6942,37 +6939,37 @@ msgid "Failed to update member %s"
 msgstr "सदस्य %s अपडेट करने में विफल"
 
 #: dashboards/project/loadbalancers/forms.py:218
-#: dashboards/project/loadbalancers/tables.py:273
-#: dashboards/project/loadbalancers/workflows.py:417
+#: dashboards/project/loadbalancers/tables.py:275
+#: dashboards/project/loadbalancers/workflows.py:424
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "विलम्ब"
 
 #: dashboards/project/loadbalancers/forms.py:219
-#: dashboards/project/loadbalancers/workflows.py:418
+#: dashboards/project/loadbalancers/workflows.py:425
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "सदस्य की नियमित जांच के बीच ही सेकंड में कम से कम समय"
 
 #: dashboards/project/loadbalancers/forms.py:223
-#: dashboards/project/loadbalancers/tables.py:274
-#: dashboards/project/loadbalancers/workflows.py:422
+#: dashboards/project/loadbalancers/tables.py:276
+#: dashboards/project/loadbalancers/workflows.py:429
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:60
 msgid "Timeout"
 msgstr "समय समाप्ति"
 
 #: dashboards/project/loadbalancers/forms.py:224
-#: dashboards/project/loadbalancers/workflows.py:423
+#: dashboards/project/loadbalancers/workflows.py:430
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "उत्तर के लिए प्रतीक्षा करने के लिए एक निगरानी के लिए सेकंड में अधिकतम समय"
 
 #: dashboards/project/loadbalancers/forms.py:228
-#: dashboards/project/loadbalancers/workflows.py:427
+#: dashboards/project/loadbalancers/workflows.py:434
 msgid "Max Retries (1~10)"
 msgstr "अधिकतम कोशिशों (1 ~ 10)"
 
 #: dashboards/project/loadbalancers/forms.py:229
-#: dashboards/project/loadbalancers/workflows.py:428
+#: dashboards/project/loadbalancers/workflows.py:435
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
@@ -7003,12 +7000,12 @@ msgid "Add VIP"
 msgstr "VIP जोड़ें"
 
 #: dashboards/project/loadbalancers/tables.py:54
-#: dashboards/project/loadbalancers/workflows.py:380
+#: dashboards/project/loadbalancers/workflows.py:387
 msgid "Add Member"
 msgstr "सदस्य बनाएँ"
 
 #: dashboards/project/loadbalancers/tables.py:62
-#: dashboards/project/loadbalancers/workflows.py:521
+#: dashboards/project/loadbalancers/workflows.py:528
 msgid "Add Monitor"
 msgstr "मॉनिटर जोड़ें"
 
@@ -7030,13 +7027,13 @@ msgid "Pools"
 msgstr "पुल"
 
 #: dashboards/project/loadbalancers/tables.py:100
-#: dashboards/project/loadbalancers/workflows.py:539
-#: dashboards/project/loadbalancers/workflows.py:601
+#: dashboards/project/loadbalancers/workflows.py:546
+#: dashboards/project/loadbalancers/workflows.py:608
 msgid "Monitor"
 msgstr "मॉनीटर"
 
 #: dashboards/project/loadbalancers/tables.py:101
-#: dashboards/project/loadbalancers/tables.py:280
+#: dashboards/project/loadbalancers/tables.py:282
 #: dashboards/project/loadbalancers/tabs.py:69
 msgid "Monitors"
 msgstr "मॉनीटर"
@@ -7046,7 +7043,7 @@ msgid "Member"
 msgstr "सदस्य"
 
 #: dashboards/project/loadbalancers/tables.py:110
-#: dashboards/project/loadbalancers/tables.py:254
+#: dashboards/project/loadbalancers/tables.py:256
 #: dashboards/project/loadbalancers/tabs.py:49
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
@@ -7081,7 +7078,7 @@ msgid "Edit Monitor"
 msgstr " मॉनिटर संपादित करें"
 
 #: dashboards/project/loadbalancers/tables.py:177
-#: dashboards/project/loadbalancers/workflows.py:583
+#: dashboards/project/loadbalancers/workflows.py:590
 msgid "Associate Monitor"
 msgstr "मॉनिटर जोड़ें"
 
@@ -7090,7 +7087,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "स्वास्थ्य मॉनिटर लाने में असफल."
 
 #: dashboards/project/loadbalancers/tables.py:198
-#: dashboards/project/loadbalancers/workflows.py:645
+#: dashboards/project/loadbalancers/workflows.py:652
 msgid "Disassociate Monitor"
 msgstr "मॉनिटर अलग करें "
 
@@ -7102,17 +7099,17 @@ msgstr "प्रदाता"
 
 #: dashboards/project/loadbalancers/tables.py:247
 #: dashboards/project/loadbalancers/workflows.py:160
-#: dashboards/project/loadbalancers/workflows.py:307
+#: dashboards/project/loadbalancers/workflows.py:311
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:25
 msgid "Protocol Port"
 msgstr "प्रोटोकॉल पोर्ट"
 
-#: dashboards/project/loadbalancers/tables.py:271
+#: dashboards/project/loadbalancers/tables.py:273
 msgid "Monitor Type"
 msgstr "मॉनीटर प्रकार"
 
-#: dashboards/project/loadbalancers/tables.py:275
+#: dashboards/project/loadbalancers/tables.py:277
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:21
 msgid "Max Retries"
 msgstr "अधिकतम कोशिशों"
@@ -7360,174 +7357,188 @@ msgid "At least one member must be specified"
 msgstr "कम से कम एक सदस्य निर्दिष्ट किया जाना चाहिए"
 
 #: dashboards/project/loadbalancers/workflows.py:302
-#: dashboards/project/loadbalancers/workflows.py:344
+#: dashboards/project/loadbalancers/workflows.py:350
 msgid "Select members for this pool "
 msgstr "इस पूल के लिए  सदस्यों का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:317
+#: dashboards/project/loadbalancers/workflows.py:305
+msgid ""
+"Relative part of requests this pool member serves compared to others. \n"
+"The same weight will be applied to all the selected members and can be modified later. Weight must be in the range 1 to 256."
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:312
+msgid ""
+"Enter an integer value between 1 and 65535. The same port will be used for "
+"all the selected members and can be modified later."
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:323
 msgid "Select a Pool"
 msgstr "पूल चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:337
+#: dashboards/project/loadbalancers/workflows.py:343
 msgid "Unable to retrieve instances list."
 msgstr "इंस्टेंस सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:341
+#: dashboards/project/loadbalancers/workflows.py:347
 msgid ""
 "No servers available. To add a member, you need at least one running "
 "instance."
 msgstr " कोई सर्वर उपलब्ध नहीं. एक सदस्य जोड़ने के लिए, आप कम से कम एक चल इंस्टेंस की जरूरत है."
 
-#: dashboards/project/loadbalancers/workflows.py:358
+#: dashboards/project/loadbalancers/workflows.py:363
 msgid "Add New Member"
 msgstr "नए सदस्य जोड़ें"
 
-#: dashboards/project/loadbalancers/workflows.py:360
+#: dashboards/project/loadbalancers/workflows.py:365
 msgid ""
-"Add member to selected pool.\n"
+"Add member(s) to the selected pool.\n"
 "\n"
-"Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for this member Specify the port number the member(s) operate on; e.g., 80."
-msgstr "चयनित पूल के सदस्य जोड़ें.\n\nसदस्य (ओं) के रूप में पूल के लिए जोड़ा जा करने के लिए एक या एक से अधिक सूचीबद्ध इंस्टेंस चुनें. इस सदस्य पोर्ट नंबर सदस्य (ओं) पर काम विनिर्दिष्ट के लिए एक संख्यात्मक वजन आवंटित; उदाहरण के लिए, 80."
+"Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for the selected member(s). Specify the port number the selected member(s) operate(s) on; e.g., 80. \n"
+"\n"
+"There can only be one port associated with each instance."
+msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:382
+#: dashboards/project/loadbalancers/workflows.py:389
 msgid "Added member(s)."
 msgstr "जोड़े गए सदस्य (ओं)."
 
-#: dashboards/project/loadbalancers/workflows.py:383
+#: dashboards/project/loadbalancers/workflows.py:390
 msgid "Unable to add member(s)."
 msgstr "सदस्य (ओं) को जोड़ने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:407
+#: dashboards/project/loadbalancers/workflows.py:414
 msgid "PING"
 msgstr "PING"
 
-#: dashboards/project/loadbalancers/workflows.py:409
+#: dashboards/project/loadbalancers/workflows.py:416
 msgid "HTTP"
 msgstr "HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:410
+#: dashboards/project/loadbalancers/workflows.py:417
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: dashboards/project/loadbalancers/workflows.py:433
+#: dashboards/project/loadbalancers/workflows.py:440
 msgid "GET"
 msgstr "GET"
 
-#: dashboards/project/loadbalancers/workflows.py:434
-#: dashboards/project/loadbalancers/workflows.py:439
-#: dashboards/project/loadbalancers/workflows.py:440
+#: dashboards/project/loadbalancers/workflows.py:441
+#: dashboards/project/loadbalancers/workflows.py:446
+#: dashboards/project/loadbalancers/workflows.py:447
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
 msgid "HTTP Method"
 msgstr " एचटीटीपी विधि "
 
-#: dashboards/project/loadbalancers/workflows.py:435
+#: dashboards/project/loadbalancers/workflows.py:442
 msgid "HTTP method used to check health status of a member"
 msgstr "HTTP विधि एक सदस्य के स्वास्थ्य की स्थिति की जांच करने के लिए इस्तेमाल किया"
 
-#: dashboards/project/loadbalancers/workflows.py:446
-#: dashboards/project/loadbalancers/workflows.py:450
-#: dashboards/project/loadbalancers/workflows.py:451
-#: dashboards/project/stacks/forms.py:52
+#: dashboards/project/loadbalancers/workflows.py:453
+#: dashboards/project/loadbalancers/workflows.py:457
+#: dashboards/project/loadbalancers/workflows.py:458
+#: dashboards/project/stacks/forms.py:56
 msgid "URL"
 msgstr "URL"
 
-#: dashboards/project/loadbalancers/workflows.py:458
 #: dashboards/project/loadbalancers/workflows.py:465
-#: dashboards/project/loadbalancers/workflows.py:466
+#: dashboards/project/loadbalancers/workflows.py:472
+#: dashboards/project/loadbalancers/workflows.py:473
 msgid "Expected HTTP Status Codes"
 msgstr "अपेक्षित HTTP स्थिति कोड"
 
-#: dashboards/project/loadbalancers/workflows.py:459
+#: dashboards/project/loadbalancers/workflows.py:466
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
 "202), or range of values (e.g. 200-204)"
 msgstr "अपेक्षित कोड एक एकल मान (उदाहरण के लिए 200), मानों की सूची (उदाहरण के लिए 200, 202), या मानों की श्रेणी (जैसे 200-204) हो सकता है"
 
-#: dashboards/project/loadbalancers/workflows.py:484
+#: dashboards/project/loadbalancers/workflows.py:491
 msgid "Please choose a HTTP method"
 msgstr "HTTP पद्धति चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:487
+#: dashboards/project/loadbalancers/workflows.py:494
 msgid "Please specify an URL"
 msgstr "यूआरएल निर्दिष्ट करें"
 
-#: dashboards/project/loadbalancers/workflows.py:490
+#: dashboards/project/loadbalancers/workflows.py:497
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "एकल मान (उदाहरण के लिए 200), मानों की सूची (उदाहरण के लिए 200, 202), या मानों की श्रेणी (जैसे 200-204) दर्ज करें"
 
-#: dashboards/project/loadbalancers/workflows.py:497
+#: dashboards/project/loadbalancers/workflows.py:504
 msgid "Add New Monitor"
 msgstr "नए मॉनिटर जोड़ें"
 
-#: dashboards/project/loadbalancers/workflows.py:499
+#: dashboards/project/loadbalancers/workflows.py:506
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "मॉनिटर टेम्पलेट बनाएँ.\n\nनिगरानी के प्रकार का चयन. देरी, मध्यांतर निर्दिष्ट करें, और मॉनिटर द्वारा आवश्यक सीमा को फिर से प्रयास. विधि, URL पथ, और सफलता पर उम्मीद HTTP कोड निर्दिष्ट करें."
 
-#: dashboards/project/loadbalancers/workflows.py:523
+#: dashboards/project/loadbalancers/workflows.py:530
 msgid "Added monitor"
 msgstr "जोड़ा गया मॉनिटर"
 
-#: dashboards/project/loadbalancers/workflows.py:524
+#: dashboards/project/loadbalancers/workflows.py:531
 msgid "Unable to add monitor"
 msgstr "मॉनिटर जोड़ने में असमर्थ"
 
-#: dashboards/project/loadbalancers/workflows.py:534
+#: dashboards/project/loadbalancers/workflows.py:541
 msgid "Unable to add monitor."
 msgstr "मॉनिटर जोड़ने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:545
+#: dashboards/project/loadbalancers/workflows.py:552
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr " %s के लिए एक निगरानी टेम्पलेट का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:548
-#: dashboards/project/loadbalancers/workflows.py:611
+#: dashboards/project/loadbalancers/workflows.py:555
+#: dashboards/project/loadbalancers/workflows.py:618
 msgid "Select a Monitor"
 msgstr "मॉनीटर चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:559
-#: dashboards/project/loadbalancers/workflows.py:620
+#: dashboards/project/loadbalancers/workflows.py:566
+#: dashboards/project/loadbalancers/workflows.py:627
 msgid "Unable to retrieve monitors list."
 msgstr "मॉनिटर सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:565
-#: dashboards/project/loadbalancers/workflows.py:626
+#: dashboards/project/loadbalancers/workflows.py:572
+#: dashboards/project/loadbalancers/workflows.py:633
 msgid "Association Details"
 msgstr "एसोसिएशन विवरण"
 
-#: dashboards/project/loadbalancers/workflows.py:567
+#: dashboards/project/loadbalancers/workflows.py:574
 msgid "Associate a health monitor with target pool."
 msgstr "लक्ष्य पूल के साथ एक स्वास्थ्य पर नजर रखने के एसोसिएट."
 
-#: dashboards/project/loadbalancers/workflows.py:585
+#: dashboards/project/loadbalancers/workflows.py:592
 msgid "Associated monitor."
 msgstr "जुड़ा हुआ मॉनिटर."
 
-#: dashboards/project/loadbalancers/workflows.py:586
-#: dashboards/project/loadbalancers/workflows.py:596
+#: dashboards/project/loadbalancers/workflows.py:593
+#: dashboards/project/loadbalancers/workflows.py:603
 msgid "Unable to associate monitor."
 msgstr "मॉनिटर संबद्ध करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:608
+#: dashboards/project/loadbalancers/workflows.py:615
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s के स्वास्थ्य की निगरानी का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:628
+#: dashboards/project/loadbalancers/workflows.py:635
 msgid "Disassociate a health monitor from target pool. "
 msgstr "लक्ष्य पूल से एक स्वास्थ्य की निगरानी अलग."
 
-#: dashboards/project/loadbalancers/workflows.py:647
+#: dashboards/project/loadbalancers/workflows.py:654
 msgid "Disassociated monitor."
 msgstr "अलग किया हुआ मॉनिटर"
 
-#: dashboards/project/loadbalancers/workflows.py:648
-#: dashboards/project/loadbalancers/workflows.py:658
+#: dashboards/project/loadbalancers/workflows.py:655
+#: dashboards/project/loadbalancers/workflows.py:665
 msgid "Unable to disassociate monitor."
 msgstr "मॉनीटर को अलग करने में असमर्थ."
 
@@ -8299,163 +8310,154 @@ msgstr "टेम्पलेट का चयन करें"
 msgid "From here you can select a template to launch a stack."
 msgstr "यहाँ से आप एक ढेर शुरू करने के लिए एक टेम्पलेट का चयन कर सकते हैं."
 
-#: dashboards/project/stacks/forms.py:54
+#: dashboards/project/stacks/forms.py:55
 msgid "Direct Input"
 msgstr "प्रत्यक्ष निवेश"
 
-#: dashboards/project/stacks/forms.py:56
+#: dashboards/project/stacks/forms.py:58
 msgid "Template Source"
 msgstr "टेम्पलेट स्रोत"
 
-#: dashboards/project/stacks/forms.py:63 dashboards/project/stacks/forms.py:65
+#: dashboards/project/stacks/forms.py:65 dashboards/project/stacks/forms.py:67
 msgid "Template File"
 msgstr "टेम्पलेट फ़ाइल"
 
-#: dashboards/project/stacks/forms.py:66
+#: dashboards/project/stacks/forms.py:68
 msgid "A local template to upload."
 msgstr "अपलोड करने के लिए स्थानीय टेम्पलेट."
 
-#: dashboards/project/stacks/forms.py:73 dashboards/project/stacks/forms.py:75
+#: dashboards/project/stacks/forms.py:75 dashboards/project/stacks/forms.py:77
 msgid "Template URL"
 msgstr "टेम्पलेट यूआरएल"
 
-#: dashboards/project/stacks/forms.py:76
+#: dashboards/project/stacks/forms.py:78
 msgid "An external (HTTP) URL to load the template from."
 msgstr "बाहरी (एचटीटीपी) यूआरएल से टेम्पलेट लोड करने के लिए."
 
-#: dashboards/project/stacks/forms.py:83 dashboards/project/stacks/forms.py:85
+#: dashboards/project/stacks/forms.py:85 dashboards/project/stacks/forms.py:87
 msgid "Template Data"
 msgstr "टेम्पलेट डेटा"
 
-#: dashboards/project/stacks/forms.py:86
+#: dashboards/project/stacks/forms.py:88
 msgid "The raw contents of the template."
 msgstr "टेम्पलेट का कच्चा सामग्री."
 
-#: dashboards/project/stacks/forms.py:92
+#: dashboards/project/stacks/forms.py:94
 msgid "Environment Source"
 msgstr "पर्यावरण स्रोत"
 
-#: dashboards/project/stacks/forms.py:100
 #: dashboards/project/stacks/forms.py:102
+#: dashboards/project/stacks/forms.py:104
 msgid "Environment File"
 msgstr "वातावरण फ़ाइल"
 
-#: dashboards/project/stacks/forms.py:103
+#: dashboards/project/stacks/forms.py:105
 msgid "A local environment to upload."
 msgstr "अपलोड करने के लिए स्थानीय पर्यावरण."
 
-#: dashboards/project/stacks/forms.py:110
 #: dashboards/project/stacks/forms.py:112
-msgid "Environment URL"
-msgstr "वातावरण यूआरएल"
-
-#: dashboards/project/stacks/forms.py:113
-msgid "An external (HTTP) URL to load the environment from."
-msgstr "बाहरी (एचटीटीपी) यूआरएल से पर्यावरण को लोड करने के लिए."
-
-#: dashboards/project/stacks/forms.py:120
-#: dashboards/project/stacks/forms.py:122
+#: dashboards/project/stacks/forms.py:114
 msgid "Environment Data"
 msgstr "वातावरण डाटा"
 
-#: dashboards/project/stacks/forms.py:123
+#: dashboards/project/stacks/forms.py:115
 msgid "The raw contents of the environment file."
 msgstr "वातावरण फ़ाइल की कच्ची सामग्री."
 
-#: dashboards/project/stacks/forms.py:135
+#: dashboards/project/stacks/forms.py:127
 msgid "template"
 msgstr "टैम्प्लेट"
 
-#: dashboards/project/stacks/forms.py:137
+#: dashboards/project/stacks/forms.py:129
 msgid "environment"
 msgstr "वातावरण"
 
-#: dashboards/project/stacks/forms.py:189
+#: dashboards/project/stacks/forms.py:184
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr " %(prefix)s पार्स करने में कोई समस्या हुई थी: %(error)s"
 
-#: dashboards/project/stacks/forms.py:197
+#: dashboards/project/stacks/forms.py:192
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "स्रोत विधि केवल एक का उपयोग कर %s की निर्दिष्ट करें."
 
-#: dashboards/project/stacks/forms.py:204
+#: dashboards/project/stacks/forms.py:199
 msgid "You must specify a template via one of the available sources."
 msgstr "You must specify a template via one of the available sources."
 
-#: dashboards/project/stacks/forms.py:230
+#: dashboards/project/stacks/forms.py:224
 msgid "Edit Template"
 msgstr "टैम्प्लेट का संपादन करें"
 
-#: dashboards/project/stacks/forms.py:231
+#: dashboards/project/stacks/forms.py:225
 msgid "From here you can select a new template to re-launch a stack."
 msgstr "यहाँ से आप एक ढेर को फिर से शुरू करने के लिए एक नया टेम्पलेट का चयन कर सकते हैं."
 
-#: dashboards/project/stacks/forms.py:233
-#: dashboards/project/stacks/forms.py:372
+#: dashboards/project/stacks/forms.py:227
+#: dashboards/project/stacks/forms.py:361
 msgid "Stack ID"
 msgstr "ढेर आईडी"
 
-#: dashboards/project/stacks/forms.py:236
-#: dashboards/project/stacks/forms.py:266
-#: dashboards/project/stacks/forms.py:375
+#: dashboards/project/stacks/forms.py:230
+#: dashboards/project/stacks/forms.py:257
+#: dashboards/project/stacks/forms.py:364
 #: dashboards/project/stacks/tables.py:88
 msgid "Stack Name"
 msgstr " ढेर नाम"
 
-#: dashboards/project/stacks/forms.py:247
+#: dashboards/project/stacks/forms.py:241
 msgid "Create Stack"
 msgstr "ढेर बनाएँ"
 
-#: dashboards/project/stacks/forms.py:267
+#: dashboards/project/stacks/forms.py:258
 msgid "Name of the stack to create."
 msgstr "बनाने के लिए ढेर का नाम."
 
-#: dashboards/project/stacks/forms.py:269
+#: dashboards/project/stacks/forms.py:260
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "नाम एक पत्र के साथ शुरू होगा और केवल अक्षर, संख्या, को रेखांकित करता है, उस समय और हाइफ़न हो सकती है."
 
-#: dashboards/project/stacks/forms.py:275
+#: dashboards/project/stacks/forms.py:266
 msgid "Creation Timeout (minutes)"
 msgstr "निर्माण समय समाप्त (मिनट)"
 
-#: dashboards/project/stacks/forms.py:276
+#: dashboards/project/stacks/forms.py:267
 msgid "Stack creation timeout in minutes."
 msgstr "मिनटों में निर्माण मध्यांतर हो चुकी है."
 
-#: dashboards/project/stacks/forms.py:279
+#: dashboards/project/stacks/forms.py:270
 msgid "Rollback On Failure"
 msgstr "विफलता पर रोलबैक"
 
-#: dashboards/project/stacks/forms.py:280
+#: dashboards/project/stacks/forms.py:271
 msgid "Enable rollback on create/update failure."
 msgstr "अद्यतन / विफलता बनाने पर रोलबैक सक्षम करें."
 
-#: dashboards/project/stacks/forms.py:293
+#: dashboards/project/stacks/forms.py:284
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "\"%s\" उपयोक्ता के लिये शब्दकूट "
 
-#: dashboards/project/stacks/forms.py:294
+#: dashboards/project/stacks/forms.py:285
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "आपरेशन ढेर के जीवन चक्र के दौरान प्रदर्शन किया जा करने के लिए यह आवश्यक है"
 
-#: dashboards/project/stacks/forms.py:361
+#: dashboards/project/stacks/forms.py:350
 msgid "Stack creation started."
 msgstr "ढेर निर्माण शुरू कर दिया."
 
-#: dashboards/project/stacks/forms.py:370
+#: dashboards/project/stacks/forms.py:359
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "अद्यतन ढेर पैरामीटर्स"
 
-#: dashboards/project/stacks/forms.py:406
+#: dashboards/project/stacks/forms.py:395
 msgid "Stack update started."
 msgstr "ढेर अद्यतन शुरू कर दिया."
 
@@ -8755,7 +8757,7 @@ msgid "Volume Overview"
 msgstr "वॉल्यूम अवलोकन"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:350
+#: dashboards/project/volumes/volumes/tables.py:354
 msgid "Attachments"
 msgstr "संलग्नक"
 
@@ -8834,6 +8836,10 @@ msgstr "स्रोत के रूप में छवि का उपयो
 #: dashboards/project/volumes/volumes/forms.py:68
 msgid "Use a volume as source"
 msgstr "स्रोत के रूप में वॉल्यूम का प्रयोग करें"
+
+#: dashboards/project/volumes/volumes/forms.py:87
+msgid "No volume type"
+msgstr ""
 
 #: dashboards/project/volumes/volumes/forms.py:106
 #, python-format
@@ -9020,19 +9026,23 @@ msgstr " %(dev)s पर  %(instance)s संलग्न करने के ल
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:301
+#: dashboards/project/volumes/volumes/tables.py:289
+msgid "Encrypted"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:305
 msgid "Detach"
 msgstr "अलग करें"
 
-#: dashboards/project/volumes/volumes/tables.py:302
+#: dashboards/project/volumes/volumes/tables.py:306
 msgid "Detaching"
 msgstr "अलग कर दिया जा रहा है"
 
-#: dashboards/project/volumes/volumes/tables.py:331
+#: dashboards/project/volumes/volumes/tables.py:335
 msgid "Device"
 msgstr "युक्ति"
 
-#: dashboards/project/volumes/volumes/tables.py:340
+#: dashboards/project/volumes/volumes/tables.py:344
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
@@ -9940,23 +9950,23 @@ msgstr "यहाँ से आप अपने पासवर्ड को ब
 msgid "Change"
 msgstr "बदलें"
 
-#: dashboards/settings/user/forms.py:35
+#: dashboards/settings/user/forms.py:36
 msgid "Language"
 msgstr "भाषा"
 
-#: dashboards/settings/user/forms.py:36
+#: dashboards/settings/user/forms.py:37
 msgid "Timezone"
 msgstr "समयक्षेत्र"
 
-#: dashboards/settings/user/forms.py:37
+#: dashboards/settings/user/forms.py:38
 msgid "Items Per Page"
 msgstr "आइटम प्रति पृष्ठ"
 
-#: dashboards/settings/user/forms.py:42
+#: dashboards/settings/user/forms.py:43
 msgid "Number of items to show per page"
 msgstr "प्रति पृष्ठ दिखाने के लिए आइटम की संख्या"
 
-#: dashboards/settings/user/forms.py:101
+#: dashboards/settings/user/forms.py:103
 msgid "Settings saved."
 msgstr "जमावट सहेजा गया."
 
@@ -10017,28 +10027,28 @@ msgstr "साइन आउट"
 msgid "Invalid date format: Using today as default."
 msgstr "अमान्य तिथि प्रारूप: डिफ़ॉल्ट रूप में आज का उपयोग करना."
 
-#: usage/base.py:158
+#: usage/base.py:162
 msgid "Unable to retrieve network quota information."
 msgstr "नेटवर्क कोटा जानकारी प्राप्त करने में असमर्थ."
 
-#: usage/base.py:175 usage/quotas.py:260
+#: usage/base.py:177 usage/quotas.py:260
 msgid "Unable to retrieve volume limit information."
 msgstr "वॉल्यूम सीमा में सूचना को प्राप्त करने में असमर्थ."
 
-#: usage/base.py:185
+#: usage/base.py:187
 msgid "Unable to retrieve limit information."
 msgstr "सीमा सूचना पाने में असमर्थ."
 
-#: usage/base.py:205
+#: usage/base.py:207
 msgid "Unable to retrieve usage information."
 msgstr "उपयोग की जानकारी प्राप्त करने में असमर्थ."
 
-#: usage/base.py:208
+#: usage/base.py:210
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr "अमान्य समय अवधि. समाप्ति तिथि आरंभ तिथि से अधिक हाल ही में किया जाना चाहिए."
 
-#: usage/base.py:212
+#: usage/base.py:214
 msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
