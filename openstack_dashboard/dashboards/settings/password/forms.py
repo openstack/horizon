@@ -68,5 +68,3 @@ class PasswordForm(forms.SelfHandlingForm):
         else:
             messages.error(request, _('Changing password is not supported.'))
             return False
-
-        return True
