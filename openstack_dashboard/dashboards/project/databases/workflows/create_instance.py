@@ -62,6 +62,59 @@ class SetInstanceDetails(workflows.Step):
     contributes = ("name", "volume", "flavor")
 
 
+class SetNetworkAction(workflows.Action):
+    network = forms.MultipleChoiceField(label=_("Networks"),
+                                        required=True,
+                                        widget=forms.CheckboxSelectMultiple(),
+                                        error_messages={
+                                            'required': _(
+                                                "At least one network must"
+                                                " be specified.")},
+                                        help_text=_("Launch instance with"
+                                                    " these networks"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(SetNetworkAction, self).__init__(request, *args, **kwargs)
+        network_list = self.fields["network"].choices
+        if len(network_list) == 1:
+            self.fields['network'].initial = [network_list[0][0]]
+
+    class Meta:
+        name = _("Networking")
+        permissions = ('openstack.services.network',)
+        help_text = _("Select networks for your instance.")
+
+    def populate_network_choices(self, request, context):
+        try:
+            tenant_id = self.request.user.tenant_id
+            networks = api.neutron.network_list_for_tenant(request, tenant_id)
+            for n in networks:
+                n.set_id_as_name_if_empty()
+            network_list = [(network.id, network.name) for network in networks]
+        except Exception:
+            network_list = []
+            exceptions.handle(request,
+                              _('Unable to retrieve networks.'))
+        return network_list
+
+
+class SetNetwork(workflows.Step):
+    action_class = SetNetworkAction
+    template_name = "project/databases/_launch_networks.html"
+    contributes = ("network_id",)
+
+    def contribute(self, data, context):
+        if data:
+            networks = self.workflow.request.POST.getlist("network")
+            # If no networks are explicitly specified, network list
+            # contains an empty string, so remove it.
+            networks = [n for n in networks if n != '']
+            if networks:
+                context['network_id'] = networks
+
+        return context
+
+
 class AddDatabasesAction(workflows.Action):
     """Initialize the database with users/databases. This tab will honor
     the settings which should be a list of permissions required:
@@ -153,7 +206,10 @@ class LaunchInstance(workflows.Workflow):
     success_message = _('Launched %(count)s named "%(name)s".')
     failure_message = _('Unable to launch %(count)s named "%(name)s".')
     success_url = "horizon:project:databases:index"
-    default_steps = (SetInstanceDetails, InitializeDatabase, RestoreBackup)
+    default_steps = (SetInstanceDetails,
+                     SetNetwork,
+                     InitializeDatabase,
+                     RestoreBackup)
 
     def format_status_message(self, message):
         name = self.context.get('name', 'unknown instance')
@@ -186,21 +242,30 @@ class LaunchInstance(workflows.Workflow):
             backup = {'backupRef': context['backup']}
         return backup
 
+    def _get_nics(self, context):
+        netids = context.get('network_id', None)
+        if netids:
+            return [{"net-id": netid, "v4-fixed-ip": ""}
+                    for netid in netids]
+        else:
+            return None
+
     def handle(self, request, context):
         try:
-            LOG.info("Launching instance with parameters "
+            LOG.info("Launching database instance with parameters "
                      "{name=%s, volume=%s, flavor=%s, dbs=%s, users=%s, "
-                     "backups=%s}",
+                     "backups=%s, nics=%s}",
                      context['name'], context['volume'], context['flavor'],
                      self._get_databases(context), self._get_users(context),
-                     self._get_backup(context))
+                     self._get_backup(context), self._get_nics(context))
             api.trove.instance_create(request,
                                       context['name'],
                                       context['volume'],
                                       context['flavor'],
                                       databases=self._get_databases(context),
                                       users=self._get_users(context),
-                                      restore_point=self._get_backup(context))
+                                      restore_point=self._get_backup(context),
+                                      nics=self._get_nics(context))
             return True
         except Exception:
             exceptions.handle(request)
