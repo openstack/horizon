@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-17 10:50-0500\n"
-"PO-Revision-Date: 2014-06-17 12:40+0000\n"
+"POT-Creation-Date: 2014-06-18 11:14-0500\n"
+"PO-Revision-Date: 2014-06-18 18:51+0000\n"
 "Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -2028,9 +2028,20 @@ msgstr "默认配额"
 msgid "Unable to get quota info."
 msgstr "无法得到配额信息。"
 
+#: dashboards/admin/info/views.py:39
+msgid "Unable to retrieve version information."
+msgstr "无法获取版本信息"
+
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 msgid "Reason"
 msgstr "原因"
+
+#: dashboards/admin/info/templates/info/index.html:15
+#, python-format
+msgid ""
+"Version: %(version_info)s\n"
+"      "
+msgstr "版本: %(version_info)s"
 
 #: dashboards/admin/instances/forms.py:27
 msgid "Current Host"
