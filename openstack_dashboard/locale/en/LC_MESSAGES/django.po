@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-18 01:05-0500\n"
+"POT-Creation-Date: 2014-06-19 01:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2024,8 +2024,19 @@ msgstr ""
 msgid "Unable to get quota info."
 msgstr ""
 
+#: dashboards/admin/info/views.py:39
+msgid "Unable to retrieve version information."
+msgstr ""
+
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 msgid "Reason"
+msgstr ""
+
+#: dashboards/admin/info/templates/info/index.html:15
+#, python-format
+msgid ""
+"Version: %(version_info)s\n"
+"      "
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:27

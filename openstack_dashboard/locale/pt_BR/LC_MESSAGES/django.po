@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-17 10:50-0500\n"
-"PO-Revision-Date: 2014-06-17 11:52+0000\n"
+"POT-Creation-Date: 2014-06-18 11:14-0500\n"
+"PO-Revision-Date: 2014-06-18 18:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -2027,8 +2027,19 @@ msgstr "Cotas Padrão"
 msgid "Unable to get quota info."
 msgstr "Não foi possível obter informações de cota"
 
+#: dashboards/admin/info/views.py:39
+msgid "Unable to retrieve version information."
+msgstr ""
+
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 msgid "Reason"
+msgstr ""
+
+#: dashboards/admin/info/templates/info/index.html:15
+#, python-format
+msgid ""
+"Version: %(version_info)s\n"
+"      "
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:27
