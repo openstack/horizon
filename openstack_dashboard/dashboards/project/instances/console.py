@@ -39,7 +39,6 @@ def get_console(request, console_type, instance):
             check_consoles = {'console_type': CONSOLES[console_type]}
         except KeyError:
             msg = _('Console type "%s" not supported.') % console_type
-            LOG.error(msg)
             raise exceptions.NotAvailable(msg)
 
     for api_call in check_consoles.values():
@@ -49,8 +48,8 @@ def get_console(request, console_type, instance):
         #in case of AUTO
         except nova_exception.HTTPNotImplemented:
             continue
-        except Exception as e:
-            LOG.exception(e)
+        except Exception:
+            LOG.debug('Console not available', exc_info=True)
             continue
 
         console_url = "%s&%s(%s)" % (
