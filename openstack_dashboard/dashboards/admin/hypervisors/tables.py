@@ -66,6 +66,7 @@ class AdminHypervisorsTable(tables.DataTable):
 
 class AdminHypervisorInstancesTable(tables.DataTable):
     name = tables.Column("name",
+                         link=("horizon:admin:instances:detail"),
                          verbose_name=_("Instance Name"))
 
     instance_id = tables.Column("uuid",
