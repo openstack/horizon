@@ -13,7 +13,8 @@
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.admin.volumes.extras import views
+from openstack_dashboard.dashboards.admin.volumes.volumes.extras \
+    import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),

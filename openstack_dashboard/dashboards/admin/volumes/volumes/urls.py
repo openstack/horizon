@@ -14,13 +14,18 @@ from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.admin.volumes import views
+from openstack_dashboard.dashboards.admin.volumes.volumes.extras \
+    import urls as extras_urls
 from openstack_dashboard.dashboards.admin.volumes.volumes \
-    import urls as volumes_urls
+    import views
 
-urlpatterns = patterns('',
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^\?tab=volumes_group_tabs__volumes_tab$',
-        views.IndexView.as_view(), name='volumes_tab'),
-    url(r'', include(volumes_urls, namespace='volumes')),
+VIEWS_MOD = ('openstack_dashboard.dashboards.admin.volumes.volumes.views')
+
+urlpatterns = patterns(VIEWS_MOD,
+    url(r'^create_type$', views.CreateVolumeTypeView.as_view(),
+        name='create_type'),
+    url(r'^(?P<volume_id>[^/]+)/$', views.DetailView.as_view(),
+        name='detail'),
+    url(r'^(?P<type_id>[^/]+)/extras/',
+        include(extras_urls, namespace='extras')),
 )

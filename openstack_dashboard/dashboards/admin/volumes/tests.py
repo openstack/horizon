@@ -55,10 +55,11 @@ class VolumeTests(test.BaseAdminViewTests):
                                   AndReturn(self.volume_types.first())
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:admin:volumes:create_type'),
-                               formData)
+        res = self.client.post(
+            reverse('horizon:admin:volumes:volumes:create_type'),
+            formData)
 
-        redirect = reverse('horizon:admin:volumes:index')
+        redirect = reverse('horizon:admin:volumes:volumes_tab')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, redirect)
 
@@ -84,9 +85,10 @@ class VolumeTests(test.BaseAdminViewTests):
                 .AndReturn([self.tenants.list(), False])
         self.mox.ReplayAll()
 
-        res = self.client.post(reverse('horizon:admin:volumes:index'),
-                               formData)
+        res = self.client.post(
+            reverse('horizon:admin:volumes:volumes_tab'),
+            formData)
 
-        redirect = reverse('horizon:admin:volumes:index')
+        redirect = reverse('horizon:admin:volumes:volumes_tab')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, redirect)

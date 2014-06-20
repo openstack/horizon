@@ -10,17 +10,24 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import include  # noqa
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.core.urlresolvers import reverse
 
-from openstack_dashboard.dashboards.admin.volumes import views
+from horizon import forms
+
 from openstack_dashboard.dashboards.admin.volumes.volumes \
-    import urls as volumes_urls
+    import forms as volumes_forms
+from openstack_dashboard.dashboards.project.volumes.volumes \
+    import views as volumes_views
 
-urlpatterns = patterns('',
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^\?tab=volumes_group_tabs__volumes_tab$',
-        views.IndexView.as_view(), name='volumes_tab'),
-    url(r'', include(volumes_urls, namespace='volumes')),
-)
+
+class DetailView(volumes_views.DetailView):
+    template_name = "admin/volumes/volumes/detail.html"
+
+
+class CreateVolumeTypeView(forms.ModalFormView):
+    form_class = volumes_forms.CreateVolumeType
+    template_name = 'admin/volumes/volumes/create_volume_type.html'
+    success_url = 'horizon:admin:volumes:volumes_tab'
+
+    def get_success_url(self):
+        return reverse(self.success_url)

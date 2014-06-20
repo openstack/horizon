@@ -31,7 +31,7 @@ class ExtraSpecDelete(tables.DeleteAction):
 class ExtraSpecCreate(tables.LinkAction):
     name = "create"
     verbose_name = _("Create")
-    url = "horizon:admin:volumes:extras:create"
+    url = "horizon:admin:volumes:volumes:extras:create"
     classes = ("ajax-modal")
     icon = "plus"
 
@@ -42,7 +42,7 @@ class ExtraSpecCreate(tables.LinkAction):
 class ExtraSpecEdit(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
-    url = "horizon:admin:volumes:extras:edit"
+    url = "horizon:admin:volumes:volumes:extras:edit"
     classes = ("btn-edit", "ajax-modal")
 
     def get_link_url(self, extra_spec):
