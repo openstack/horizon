@@ -85,6 +85,9 @@ class RouterDetailView(r_views.DetailView):
     table_classes = (ports_tables.PortsTable, )
     template_name = 'project/network_topology/iframe.html'
 
+    def get_interfaces_data(self):
+        pass
+
 
 class NetworkTopologyView(TemplateView):
     template_name = 'project/network_topology/index.html'
