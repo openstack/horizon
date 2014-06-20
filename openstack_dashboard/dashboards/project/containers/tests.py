@@ -31,6 +31,8 @@ from openstack_dashboard.dashboards.project.containers import tables
 from openstack_dashboard.dashboards.project.containers import views
 from openstack_dashboard.test import helpers as test
 
+from horizon import exceptions
+
 
 CONTAINER_NAME_1 = u"container one%\u6346"
 CONTAINER_NAME_2 = u"container_two\u6346"
@@ -80,9 +82,16 @@ class SwiftTests(test.TestCase):
         action_string = u"containers__delete__%s" % container.name
         form_data = {"action": action_string}
         req = self.factory.post(CONTAINER_INDEX_URL, form_data)
+        req.META['HTTP_REFERER'] = '%s/%s' % (CONTAINER_INDEX_URL,
+                                              container.name)
         table = tables.ContainersTable(req, self.containers.list())
-        handled = table.maybe_handle()
-        self.assertEqual(handled['location'], CONTAINER_INDEX_URL)
+
+        # I'd prefer to call a self.assertRedirectnoFollow,
+        # but constructing the response object is a different paradigm
+        # from constructing the table and calling the maybe_handle method.
+        # I'd appreciate any suggestions on how this should properly be done.
+        self.assertRaises(exceptions.Http302, table.maybe_handle)
+
         self.assertEqual(unicode(list(req._messages)[0].message),
                          u"The container cannot be deleted "
                          u"since it's not empty.")
