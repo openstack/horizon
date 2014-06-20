@@ -3,10 +3,8 @@
 
 {% block id %}spinner-modal{% endblock %}
 
-{% block template %}
-{% jstemplate %}
+{% block template %}{% spaceless %}{% jstemplate %}
 <div class="modal loading hide">
   <p>[[text]]&hellip;</p>
 </div>
-{% endjstemplate %}
-{% endblock %}
+{% endjstemplate %}{% endspaceless %}{% endblock %}

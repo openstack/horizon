@@ -3,8 +3,6 @@
 
 {% block id %}empty_row_template{% endblock %}
 
-{% block template %}
-{% jstemplate %}
+{% block template %}{% spaceless %}{% jstemplate %}
 <tr class="odd empty"><td colspan="[[colspan]]">[[no_items_label]]</td></tr>
-{% endjstemplate %}
-{% endblock %}
+{% endjstemplate %}{% endspaceless %}{% endblock %}
