@@ -17,6 +17,7 @@
 from django.core.urlresolvers import NoReverseMatch  # noqa
 from django.core.urlresolvers import reverse
 from django import http
+from django.utils import unittest
 
 from mox import IsA  # noqa
 
@@ -53,6 +54,8 @@ class ChangePasswordTests(test.TestCase):
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
+    # TODO(jpichon): Temporarily disabled, see bug #1333144
+    @unittest.skip("Temporarily disabled, see bug #1333144")
     @test.create_stubs({api.keystone: ('user_update_own_password', )})
     def test_change_password_shows_message_on_login_page(self):
         api.keystone.user_update_own_password(IsA(http.HttpRequest),
