@@ -14,6 +14,9 @@
 {% for field in form.visible_fields %}
   <div class="control-group form-field clearfix{% if field.errors %} error{% endif %} {{ field.css_classes }}">
     {{ field.label_tag }}
+    {% if field.help_text %}
+      <span class="help-icon"><i class="icon-question-sign"></i></span>
+    {% endif %}
     {% if field.errors %}
       {% for error in field.errors %}
         <span class="help-inline">{{ error }}</span>
