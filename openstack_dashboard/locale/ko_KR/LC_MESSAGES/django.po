@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-18 11:14-0500\n"
-"PO-Revision-Date: 2014-06-18 18:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-06-23 13:20-0500\n"
+"PO-Revision-Date: 2014-06-24 01:46+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,13 +321,13 @@ msgstr "인스턴스 %s 의 현재 시큐리티 그룹 목록을 가져올 수 �
 msgid "Failed to modify %d instance security groups."
 msgstr "%d 인스턴스 시큐리티 그룹을 수정하지 못했습니다."
 
-#: api/swift.py:200
+#: api/swift.py:200 dashboards/project/containers/tables.py:115
 msgid "The container cannot be deleted since it's not empty."
 msgstr "컨테이너가 비어있지 않으므로, 삭제할 수 없습니다."
 
 #: dashboards/admin/dashboard.py:22
 msgid "System"
-msgstr ""
+msgstr "시스템"
 
 #: dashboards/admin/dashboard.py:30
 msgid "Identity"
@@ -338,7 +338,7 @@ msgid "Admin"
 msgstr "관리자"
 
 #: dashboards/admin/aggregates/forms.py:26
-#: dashboards/admin/aggregates/tables.py:97
+#: dashboards/admin/aggregates/tables.py:99
 #: dashboards/admin/aggregates/workflows.py:24
 #: dashboards/admin/domains/tables.py:164
 #: dashboards/admin/domains/workflows.py:33
@@ -409,8 +409,8 @@ msgstr "관리자"
 #: dashboards/project/volumes/snapshots/tables.py:126
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:247
-#: dashboards/project/volumes/volumes/tables.py:276
+#: dashboards/project/volumes/volumes/tables.py:248
+#: dashboards/project/volumes/volumes/tables.py:277
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:64
 #: dashboards/project/vpn/forms.py:135 dashboards/project/vpn/forms.py:206
 #: dashboards/project/vpn/tables.py:179 dashboards/project/vpn/tables.py:209
@@ -444,18 +444,18 @@ msgid "Unable to update the aggregate."
 msgstr "그룹을 업데이트할 수 없습니다."
 
 #: dashboards/admin/aggregates/panel.py:21
-#: dashboards/admin/aggregates/tables.py:24
-#: dashboards/admin/aggregates/tables.py:111
+#: dashboards/admin/aggregates/tables.py:26
+#: dashboards/admin/aggregates/tables.py:113
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
 msgstr "호스트 그룹"
 
-#: dashboards/admin/aggregates/tables.py:23
+#: dashboards/admin/aggregates/tables.py:25
 msgid "Host Aggregate"
 msgstr "호스트 그룹"
 
-#: dashboards/admin/aggregates/tables.py:32
+#: dashboards/admin/aggregates/tables.py:34
 #: dashboards/admin/aggregates/workflows.py:177
 #: dashboards/admin/aggregates/workflows.py:178
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
@@ -463,26 +463,26 @@ msgstr "호스트 그룹"
 msgid "Create Host Aggregate"
 msgstr "호스트 그룹 생성"
 
-#: dashboards/admin/aggregates/tables.py:39
+#: dashboards/admin/aggregates/tables.py:41
 msgid "Manage Hosts"
 msgstr "호스트 관리"
 
-#: dashboards/admin/aggregates/tables.py:46
+#: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:9
 #: dashboards/admin/aggregates/templates/aggregates/update.html:3
 #: dashboards/admin/aggregates/templates/aggregates/update.html:6
 msgid "Edit Host Aggregate"
 msgstr "호스트 그룹 편지"
 
-#: dashboards/admin/aggregates/tables.py:91
+#: dashboards/admin/aggregates/tables.py:93
 msgid "Services Up"
 msgstr "서비스 켜기"
 
-#: dashboards/admin/aggregates/tables.py:91
+#: dashboards/admin/aggregates/tables.py:93
 msgid "Services Down"
 msgstr "서비스 다운"
 
-#: dashboards/admin/aggregates/tables.py:99
+#: dashboards/admin/aggregates/tables.py:101
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:808
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
@@ -490,29 +490,29 @@ msgstr "서비스 다운"
 #: dashboards/project/volumes/volumes/forms.py:76
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:82
-#: dashboards/project/volumes/volumes/tables.py:284
+#: dashboards/project/volumes/volumes/tables.py:285
 msgid "Availability Zone"
 msgstr "가용성 존"
 
-#: dashboards/admin/aggregates/tables.py:101
-#: dashboards/admin/aggregates/tables.py:124
+#: dashboards/admin/aggregates/tables.py:103
+#: dashboards/admin/aggregates/tables.py:126
 msgid "Hosts"
 msgstr "호스트"
 
-#: dashboards/admin/aggregates/tables.py:105
+#: dashboards/admin/aggregates/tables.py:107
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "메타데이터"
 
-#: dashboards/admin/aggregates/tables.py:122
+#: dashboards/admin/aggregates/tables.py:124
 msgid "Availability Zone Name"
 msgstr "가용성 존 이름"
 
-#: dashboards/admin/aggregates/tables.py:128
+#: dashboards/admin/aggregates/tables.py:130
 msgid "Available"
 msgstr "사용 가능"
 
-#: dashboards/admin/aggregates/tables.py:137
+#: dashboards/admin/aggregates/tables.py:139
 msgid "Availability Zones"
 msgstr "가용성 존"
 
@@ -637,7 +637,7 @@ msgstr "그룹을 업데이트 하였습니다."
 
 #: dashboards/admin/aggregates/workflows.py:232
 msgid "Error when adding or removing hosts."
-msgstr ""
+msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니다."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:166
@@ -716,7 +716,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:44
 #: dashboards/project/volumes/volumes/forms.py:436
 #: dashboards/project/volumes/volumes/forms.py:474
-#: dashboards/project/volumes/volumes/tables.py:250
+#: dashboards/project/volumes/volumes/tables.py:251
 #: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:69
 #: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
 #: dashboards/project/vpn/tables.py:211 dashboards/project/vpn/workflows.py:30
@@ -833,7 +833,7 @@ msgstr "도메인 생성"
 #: dashboards/admin/domains/tables.py:61
 #: dashboards/admin/flavors/extras/tables.py:44
 #: dashboards/admin/roles/tables.py:35 dashboards/admin/users/tables.py:42
-#: dashboards/project/containers/tables.py:297
+#: dashboards/project/containers/tables.py:306
 #: dashboards/project/images/images/tables.py:85
 msgid "Edit"
 msgstr "편집"
@@ -1553,7 +1553,7 @@ msgstr "호스트 이름"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:45
-#: dashboards/project/volumes/volumes/tables.py:279
+#: dashboards/project/volumes/volumes/tables.py:280
 msgid "Type"
 msgstr "타입"
 
@@ -1602,19 +1602,19 @@ msgstr "스토리지 (전체)"
 msgid "Instances"
 msgstr "인스턴스"
 
-#: dashboards/admin/hypervisors/tables.py:69
+#: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/instances/tables.py:791
 #: dashboards/project/instances/workflows/create_instance.py:79
 #: dashboards/project/overview/views.py:32 usage/tables.py:71
 msgid "Instance Name"
 msgstr "인스턴스 이름"
 
-#: dashboards/admin/hypervisors/tables.py:72
+#: dashboards/admin/hypervisors/tables.py:73
 #: dashboards/project/images/snapshots/forms.py:30
 msgid "Instance ID"
 msgstr "인스턴스 ID"
 
-#: dashboards/admin/hypervisors/tables.py:79
+#: dashboards/admin/hypervisors/tables.py:80
 msgid "Hypervisor Instances"
 msgstr "하이퍼바이저 인스턴스"
 
@@ -1834,7 +1834,7 @@ msgstr "호스트"
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:36
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:257
+#: dashboards/project/volumes/volumes/tables.py:258
 #: dashboards/project/vpn/tables.py:189 dashboards/project/vpn/tables.py:216
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -1865,7 +1865,7 @@ msgstr "Compute 서비스"
 
 #: dashboards/admin/info/tables.py:117 dashboards/admin/info/tabs.py:66
 msgid "Block Storage Services"
-msgstr ""
+msgstr "블록 스토리지 서비스"
 
 #: dashboards/admin/info/tables.py:138 dashboards/admin/users/tables.py:58
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
@@ -1911,8 +1911,8 @@ msgstr "첨부한 파일"
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:60
 #: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:295
-#: dashboards/project/volumes/volumes/tables.py:308
+#: dashboards/project/volumes/volumes/tables.py:296
+#: dashboards/project/volumes/volumes/tables.py:309
 msgid "Volumes"
 msgstr "볼륨"
 
@@ -2012,7 +2012,7 @@ msgstr "Nova 서비스 목록을 가져올 수 없습니다"
 
 #: dashboards/admin/info/tabs.py:74
 msgid "Unable to get cinder services list."
-msgstr ""
+msgstr "Cinder 서비스 목록을 가져올 수 없습니다."
 
 #: dashboards/admin/info/tabs.py:94
 msgid "Unable to get network agents list."
@@ -2098,7 +2098,7 @@ msgstr "예약된 마이그레이션 (확인 대기중)"
 #: dashboards/project/instances/tables.py:617
 #: dashboards/project/instances/tables.py:638
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:333
+#: dashboards/project/volumes/volumes/tables.py:334
 msgid "Instance"
 msgstr "인스턴스"
 
@@ -2134,7 +2134,7 @@ msgid "IP Address"
 msgstr "IP 주소"
 
 #: dashboards/admin/instances/tables.py:140
-#: dashboards/project/containers/tables.py:412
+#: dashboards/project/containers/tables.py:421
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:157
@@ -2143,7 +2143,7 @@ msgstr "IP 주소"
 #: dashboards/project/instances/tables.py:798
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:253
+#: dashboards/project/volumes/volumes/tables.py:254
 msgid "Size"
 msgstr "크기"
 
@@ -4145,7 +4145,7 @@ msgid "Private"
 msgstr "사설"
 
 #: dashboards/project/containers/forms.py:48
-#: dashboards/project/containers/tables.py:243
+#: dashboards/project/containers/tables.py:252
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 msgid "Container Name"
 msgstr "컨테이너 이름"
@@ -4168,7 +4168,7 @@ msgid "Unable to create container."
 msgstr "컨테이너를 생성할 수 없습니다."
 
 #: dashboards/project/containers/forms.py:86
-#: dashboards/project/containers/tables.py:409
+#: dashboards/project/containers/tables.py:418
 msgid "Object Name"
 msgstr "오브젝트 이름"
 
@@ -4179,7 +4179,7 @@ msgstr "슬래시가 허용되며, 오브젝트 스토리지에서 가상 폴더
 
 #: dashboards/project/containers/forms.py:94
 #: dashboards/project/containers/templates/containers/_update.html:22
-#: dashboards/project/stacks/forms.py:54
+#: dashboards/project/stacks/forms.py:56
 msgid "File"
 msgstr "파일"
 
@@ -4230,14 +4230,14 @@ msgstr "오브젝트를 복사할 수 없습니다."
 
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
-#: dashboards/project/containers/tables.py:254
+#: dashboards/project/containers/tables.py:263
 #: dashboards/project/containers/templates/containers/index.html:3
 #: dashboards/project/containers/templates/containers/index.html:7
 msgid "Containers"
 msgstr "컨테이너"
 
 #: dashboards/project/containers/tables.py:44
-#: dashboards/project/containers/tables.py:284
+#: dashboards/project/containers/tables.py:293
 msgid "View Details"
 msgstr "세부 정보 보기"
 
@@ -4262,7 +4262,11 @@ msgstr "비공개 상태로 만들기"
 msgid "Successfully updated container access to private."
 msgstr "비공개로 컨테이너 접근 방식을 업데이트했습니다."
 
-#: dashboards/project/containers/tables.py:128
+#: dashboards/project/containers/tables.py:120
+msgid "Unable to delete container."
+msgstr ""
+
+#: dashboards/project/containers/tables.py:137
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -4270,50 +4274,50 @@ msgstr "비공개로 컨테이너 접근 방식을 업데이트했습니다."
 msgid "Create Container"
 msgstr "컨테이너 생성"
 
-#: dashboards/project/containers/tables.py:135
+#: dashboards/project/containers/tables.py:144
 msgid "View Container"
 msgstr "컨테이너 보기"
 
-#: dashboards/project/containers/tables.py:147
+#: dashboards/project/containers/tables.py:156
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:6
 msgid "Create Pseudo-folder"
 msgstr "가상 폴더 만들기"
 
-#: dashboards/project/containers/tables.py:175
+#: dashboards/project/containers/tables.py:184
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "오브젝트 올리기"
 
-#: dashboards/project/containers/tables.py:245
+#: dashboards/project/containers/tables.py:254
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
 msgstr "컨테이너 세부 정보"
 
-#: dashboards/project/containers/tables.py:310
+#: dashboards/project/containers/tables.py:319
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
 msgid "Object"
 msgstr "오브젝트"
 
-#: dashboards/project/containers/tables.py:311
-#: dashboards/project/containers/tables.py:416
+#: dashboards/project/containers/tables.py:320
+#: dashboards/project/containers/tables.py:425
 msgid "Objects"
 msgstr "오브젝트"
 
-#: dashboards/project/containers/tables.py:333
+#: dashboards/project/containers/tables.py:342
 msgid "Copy"
 msgstr "복사"
 
-#: dashboards/project/containers/tables.py:346
+#: dashboards/project/containers/tables.py:355
 #: dashboards/project/databases/tables.py:209
 msgid "Download"
 msgstr "내려받기"
 
-#: dashboards/project/containers/tables.py:394
+#: dashboards/project/containers/tables.py:403
 msgid "pseudo-folder"
 msgstr "가상 폴더"
 
@@ -4649,7 +4653,7 @@ msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
-#: dashboards/project/databases/workflows/create_instance.py:160
+#: dashboards/project/databases/workflows/create_instance.py:167
 #: dashboards/project/instances/workflows/create_instance.py:677
 msgid "instance"
 msgstr "인스턴스"
@@ -4909,7 +4913,7 @@ msgstr "사용자를 생성하려면 적어도 하나의 데이터베이스를 �
 
 #: dashboards/project/databases/workflows/create_instance.py:113
 msgid "Select a backup to restore"
-msgstr ""
+msgstr "복원할 백업본 선택"
 
 #: dashboards/project/databases/workflows/create_instance.py:116
 msgid "Restore From Backup"
@@ -5730,7 +5734,7 @@ msgstr "스냅샷 생성"
 msgid "Console type \"%s\" not supported."
 msgstr ""
 
-#: dashboards/project/instances/console.py:62
+#: dashboards/project/instances/console.py:61
 msgid "No available console found."
 msgstr ""
 
@@ -6353,7 +6357,7 @@ msgstr "볼륨 연결"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
-#: dashboards/project/volumes/volumes/tables.py:282
+#: dashboards/project/volumes/volumes/tables.py:283
 msgid "Attached To"
 msgstr "연결된 곳"
 
@@ -6368,7 +6372,7 @@ msgstr "켜짐"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:58
-#: dashboards/project/volumes/volumes/tables.py:307
+#: dashboards/project/volumes/volumes/tables.py:308
 msgid "Volume"
 msgstr "볼륨"
 
@@ -6542,7 +6546,7 @@ msgstr "인스턴스 종료시 볼륨 삭제"
 
 #: dashboards/project/instances/workflows/create_instance.py:140
 msgid "Select source"
-msgstr ""
+msgstr "소스 선택"
 
 #: dashboards/project/instances/workflows/create_instance.py:141
 msgid "Boot from image"
@@ -7449,7 +7453,7 @@ msgstr "멤버의 상태를 점검하는데 사용된 HTTP 방식 "
 #: dashboards/project/loadbalancers/workflows.py:453
 #: dashboards/project/loadbalancers/workflows.py:457
 #: dashboards/project/loadbalancers/workflows.py:458
-#: dashboards/project/stacks/forms.py:56
+#: dashboards/project/stacks/forms.py:58
 msgid "URL"
 msgstr "URL"
 
@@ -8309,7 +8313,7 @@ msgid ""
 "a gateway for external connectivity."
 msgstr "라우터에 지정된 외부 네트워크를 연결할 수 있습니다. 외부 네트워크는 라우터의 기본 경로와 외부 연결을 위한 게이트웨이 역할을 합니다."
 
-#: dashboards/project/stacks/forms.py:48
+#: dashboards/project/stacks/forms.py:50
 #: dashboards/project/stacks/templates/stacks/_change_template.html:9
 #: dashboards/project/stacks/templates/stacks/_select_template.html:9
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
@@ -8317,158 +8321,158 @@ msgstr "라우터에 지정된 외부 네트워크를 연결할 수 있습니다
 msgid "Select Template"
 msgstr "템플릿 선택"
 
-#: dashboards/project/stacks/forms.py:49
+#: dashboards/project/stacks/forms.py:51
 msgid "From here you can select a template to launch a stack."
 msgstr "여기서 스택을 실행하는 템플릿을 선택할 수 있습니다."
 
-#: dashboards/project/stacks/forms.py:55
+#: dashboards/project/stacks/forms.py:57
 msgid "Direct Input"
 msgstr "직접 입력"
 
-#: dashboards/project/stacks/forms.py:58
+#: dashboards/project/stacks/forms.py:60
 msgid "Template Source"
 msgstr "템플릿 소스"
 
-#: dashboards/project/stacks/forms.py:65 dashboards/project/stacks/forms.py:67
+#: dashboards/project/stacks/forms.py:67 dashboards/project/stacks/forms.py:69
 msgid "Template File"
 msgstr "템플릿 파일"
 
-#: dashboards/project/stacks/forms.py:68
+#: dashboards/project/stacks/forms.py:70
 msgid "A local template to upload."
 msgstr "업로드할 로컬 템플릿."
 
-#: dashboards/project/stacks/forms.py:75 dashboards/project/stacks/forms.py:77
+#: dashboards/project/stacks/forms.py:77 dashboards/project/stacks/forms.py:79
 msgid "Template URL"
 msgstr "템플릿 URL"
 
-#: dashboards/project/stacks/forms.py:78
+#: dashboards/project/stacks/forms.py:80
 msgid "An external (HTTP) URL to load the template from."
 msgstr "템플릿을 외부 (HTTP) URL로 불러옵니다."
 
-#: dashboards/project/stacks/forms.py:85 dashboards/project/stacks/forms.py:87
+#: dashboards/project/stacks/forms.py:87 dashboards/project/stacks/forms.py:89
 msgid "Template Data"
 msgstr "템플릿 데이터"
 
-#: dashboards/project/stacks/forms.py:88
+#: dashboards/project/stacks/forms.py:90
 msgid "The raw contents of the template."
 msgstr "템플릿의 raw 내용."
 
-#: dashboards/project/stacks/forms.py:94
+#: dashboards/project/stacks/forms.py:96
 msgid "Environment Source"
 msgstr "Environment 소스"
 
-#: dashboards/project/stacks/forms.py:102
 #: dashboards/project/stacks/forms.py:104
+#: dashboards/project/stacks/forms.py:106
 msgid "Environment File"
 msgstr "Environment 파일"
 
-#: dashboards/project/stacks/forms.py:105
+#: dashboards/project/stacks/forms.py:107
 msgid "A local environment to upload."
 msgstr "로컬에서 environment 업로드."
 
-#: dashboards/project/stacks/forms.py:112
 #: dashboards/project/stacks/forms.py:114
+#: dashboards/project/stacks/forms.py:116
 msgid "Environment Data"
 msgstr "Environment 데이터"
 
-#: dashboards/project/stacks/forms.py:115
+#: dashboards/project/stacks/forms.py:117
 msgid "The raw contents of the environment file."
 msgstr "Environment 파일의 raw 컨텐트."
 
-#: dashboards/project/stacks/forms.py:127
+#: dashboards/project/stacks/forms.py:129
 msgid "template"
 msgstr "template"
 
-#: dashboards/project/stacks/forms.py:129
+#: dashboards/project/stacks/forms.py:131
 msgid "environment"
 msgstr "environment"
 
-#: dashboards/project/stacks/forms.py:184
+#: dashboards/project/stacks/forms.py:186
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s를 파싱하는동안 문제가 발생했습니다: %(error)s"
 
-#: dashboards/project/stacks/forms.py:192
+#: dashboards/project/stacks/forms.py:194
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "소스 메소드 하나만 사용하여 %s를 지정하십시오."
 
-#: dashboards/project/stacks/forms.py:199
+#: dashboards/project/stacks/forms.py:201
 msgid "You must specify a template via one of the available sources."
 msgstr "사용 가능한 소스중 하나를 선택하여 템필릿을 지정해야 합니다."
 
-#: dashboards/project/stacks/forms.py:224
+#: dashboards/project/stacks/forms.py:226
 msgid "Edit Template"
 msgstr "템플릿 편집"
 
-#: dashboards/project/stacks/forms.py:225
+#: dashboards/project/stacks/forms.py:227
 msgid "From here you can select a new template to re-launch a stack."
 msgstr "스택에 다시 시작할때 사용할 새 템플릿을 선택할 수 있습니다."
 
-#: dashboards/project/stacks/forms.py:227
-#: dashboards/project/stacks/forms.py:361
+#: dashboards/project/stacks/forms.py:229
+#: dashboards/project/stacks/forms.py:363
 msgid "Stack ID"
 msgstr "스택 ID"
 
-#: dashboards/project/stacks/forms.py:230
-#: dashboards/project/stacks/forms.py:257
-#: dashboards/project/stacks/forms.py:364
+#: dashboards/project/stacks/forms.py:232
+#: dashboards/project/stacks/forms.py:259
+#: dashboards/project/stacks/forms.py:366
 #: dashboards/project/stacks/tables.py:88
 msgid "Stack Name"
 msgstr "스택 이름"
 
-#: dashboards/project/stacks/forms.py:241
+#: dashboards/project/stacks/forms.py:243
 msgid "Create Stack"
 msgstr "스택 생성"
 
-#: dashboards/project/stacks/forms.py:258
+#: dashboards/project/stacks/forms.py:260
 msgid "Name of the stack to create."
 msgstr "생성하는 스택의 이름입니다."
 
-#: dashboards/project/stacks/forms.py:260
+#: dashboards/project/stacks/forms.py:262
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "이름은 반드시 문자로 시작되어야 하고, 오직 문자, 숫자, 언더스코어(_), 마침표(.) 및 하이픈(-)만 포함할 수 있습니다. "
 
-#: dashboards/project/stacks/forms.py:266
+#: dashboards/project/stacks/forms.py:268
 msgid "Creation Timeout (minutes)"
 msgstr "생성 Timeout (분)"
 
-#: dashboards/project/stacks/forms.py:267
+#: dashboards/project/stacks/forms.py:269
 msgid "Stack creation timeout in minutes."
 msgstr "스택을 몇분 동안 생성 타임아웃."
 
-#: dashboards/project/stacks/forms.py:270
+#: dashboards/project/stacks/forms.py:272
 msgid "Rollback On Failure"
 msgstr "실패시 롤백"
 
-#: dashboards/project/stacks/forms.py:271
+#: dashboards/project/stacks/forms.py:273
 msgid "Enable rollback on create/update failure."
 msgstr "생성/업데이트 실패시 롤백 사용."
 
-#: dashboards/project/stacks/forms.py:284
+#: dashboards/project/stacks/forms.py:286
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "사용자 \"%s\" 비밀번호"
 
-#: dashboards/project/stacks/forms.py:285
+#: dashboards/project/stacks/forms.py:287
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "스택의 라이프 사이클 동안 실행하는 작동에 필요로 합니다."
 
-#: dashboards/project/stacks/forms.py:350
+#: dashboards/project/stacks/forms.py:352
 msgid "Stack creation started."
 msgstr "스택 생성 중입니다."
 
-#: dashboards/project/stacks/forms.py:359
+#: dashboards/project/stacks/forms.py:361
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "스택 매개변수 업데이트"
 
-#: dashboards/project/stacks/forms.py:395
+#: dashboards/project/stacks/forms.py:397
 msgid "Stack update started."
 msgstr "스택 업데이트를 시작하였습니다."
 
@@ -8768,7 +8772,7 @@ msgid "Volume Overview"
 msgstr "볼륨 개요"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:354
+#: dashboards/project/volumes/volumes/tables.py:355
 msgid "Attachments"
 msgstr "부착물"
 
@@ -8832,7 +8836,6 @@ msgid "Create a Volume Snapshot"
 msgstr "볼륨 스냅샷 생성"
 
 #: dashboards/project/volumes/volumes/forms.py:47
-#: dashboards/project/volumes/volumes/forms.py:497
 msgid "Size (GB)"
 msgstr "크기 (GB)"
 
@@ -8997,16 +9000,24 @@ msgstr "볼륨 \"%s\" 업데이트중"
 msgid "Unable to update volume."
 msgstr "볼륨을 업데이트 할 수 업습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:504
-msgid "New size for extend must be greater than current size."
-msgstr "확장을 위한 새로이 지정한 크기는 현재 크기보다 더 커야합니다."
+#: dashboards/project/volumes/volumes/forms.py:497
+msgid "Current Size (GB)"
+msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:515
+#: dashboards/project/volumes/volumes/forms.py:501
+msgid "New Size (GB)"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:508
+msgid "New size must be greater than current size."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:519
 #, python-format
-msgid "Successfully extended volume: \"%s\""
-msgstr "성공적으로 볼륨 확장하였습니다: \"%s\""
+msgid "Extending volume: \"%s\""
+msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:521
+#: dashboards/project/volumes/volumes/forms.py:525
 msgid "Unable to extend volume."
 msgstr "볼륨을 확장할 수 없습니다."
 
@@ -9033,27 +9044,27 @@ msgstr "연결 설정 정보를 찾을 수 없습니다."
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "%(dev)s에 %(instance)s에 연결"
 
-#: dashboards/project/volumes/volumes/tables.py:286
+#: dashboards/project/volumes/volumes/tables.py:287
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:289
+#: dashboards/project/volumes/volumes/tables.py:290
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:305
+#: dashboards/project/volumes/volumes/tables.py:306
 msgid "Detach"
 msgstr "연결 해제"
 
-#: dashboards/project/volumes/volumes/tables.py:306
+#: dashboards/project/volumes/volumes/tables.py:307
 msgid "Detaching"
 msgstr "연결 해제중"
 
-#: dashboards/project/volumes/volumes/tables.py:335
+#: dashboards/project/volumes/volumes/tables.py:336
 msgid "Device"
 msgstr "장치"
 
-#: dashboards/project/volumes/volumes/tables.py:344
+#: dashboards/project/volumes/volumes/tables.py:345
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""

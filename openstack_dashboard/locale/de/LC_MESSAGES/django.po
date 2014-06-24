@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-18 11:14-0500\n"
-"PO-Revision-Date: 2014-06-18 18:51+0000\n"
+"POT-Creation-Date: 2014-06-23 13:20-0500\n"
+"PO-Revision-Date: 2014-06-20 02:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -322,7 +322,7 @@ msgstr "Aktuelle Sicherheitsgruppe für Instanz %s konnte nicht ermittelt werden
 msgid "Failed to modify %d instance security groups."
 msgstr "%d Instanzsicherheitsgruppen konnten nicht geändert werden."
 
-#: api/swift.py:200
+#: api/swift.py:200 dashboards/project/containers/tables.py:115
 msgid "The container cannot be deleted since it's not empty."
 msgstr "Der Container kann nicht gelöscht werden, da er nicht leer ist."
 
@@ -339,7 +339,7 @@ msgid "Admin"
 msgstr "Administrator"
 
 #: dashboards/admin/aggregates/forms.py:26
-#: dashboards/admin/aggregates/tables.py:97
+#: dashboards/admin/aggregates/tables.py:99
 #: dashboards/admin/aggregates/workflows.py:24
 #: dashboards/admin/domains/tables.py:164
 #: dashboards/admin/domains/workflows.py:33
@@ -410,8 +410,8 @@ msgstr "Administrator"
 #: dashboards/project/volumes/snapshots/tables.py:126
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:247
-#: dashboards/project/volumes/volumes/tables.py:276
+#: dashboards/project/volumes/volumes/tables.py:248
+#: dashboards/project/volumes/volumes/tables.py:277
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:64
 #: dashboards/project/vpn/forms.py:135 dashboards/project/vpn/forms.py:206
 #: dashboards/project/vpn/tables.py:179 dashboards/project/vpn/tables.py:209
@@ -445,18 +445,18 @@ msgid "Unable to update the aggregate."
 msgstr "Aggregat kann nicht aktualisiert werden."
 
 #: dashboards/admin/aggregates/panel.py:21
-#: dashboards/admin/aggregates/tables.py:24
-#: dashboards/admin/aggregates/tables.py:111
+#: dashboards/admin/aggregates/tables.py:26
+#: dashboards/admin/aggregates/tables.py:113
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
 msgstr "Host Aggregate"
 
-#: dashboards/admin/aggregates/tables.py:23
+#: dashboards/admin/aggregates/tables.py:25
 msgid "Host Aggregate"
 msgstr "Hostaggregat"
 
-#: dashboards/admin/aggregates/tables.py:32
+#: dashboards/admin/aggregates/tables.py:34
 #: dashboards/admin/aggregates/workflows.py:177
 #: dashboards/admin/aggregates/workflows.py:178
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
@@ -464,26 +464,26 @@ msgstr "Hostaggregat"
 msgid "Create Host Aggregate"
 msgstr "Erstelle Hostaggregat"
 
-#: dashboards/admin/aggregates/tables.py:39
+#: dashboards/admin/aggregates/tables.py:41
 msgid "Manage Hosts"
 msgstr "Hosts verwalten"
 
-#: dashboards/admin/aggregates/tables.py:46
+#: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:9
 #: dashboards/admin/aggregates/templates/aggregates/update.html:3
 #: dashboards/admin/aggregates/templates/aggregates/update.html:6
 msgid "Edit Host Aggregate"
 msgstr "Bearbeite Host Aggregate"
 
-#: dashboards/admin/aggregates/tables.py:91
+#: dashboards/admin/aggregates/tables.py:93
 msgid "Services Up"
 msgstr "Laufende Dienste"
 
-#: dashboards/admin/aggregates/tables.py:91
+#: dashboards/admin/aggregates/tables.py:93
 msgid "Services Down"
 msgstr "Gestoppte Dienste"
 
-#: dashboards/admin/aggregates/tables.py:99
+#: dashboards/admin/aggregates/tables.py:101
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:808
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
@@ -491,29 +491,29 @@ msgstr "Gestoppte Dienste"
 #: dashboards/project/volumes/volumes/forms.py:76
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:82
-#: dashboards/project/volumes/volumes/tables.py:284
+#: dashboards/project/volumes/volumes/tables.py:285
 msgid "Availability Zone"
 msgstr "Verfügbarkeitszone"
 
-#: dashboards/admin/aggregates/tables.py:101
-#: dashboards/admin/aggregates/tables.py:124
+#: dashboards/admin/aggregates/tables.py:103
+#: dashboards/admin/aggregates/tables.py:126
 msgid "Hosts"
 msgstr "Hosts"
 
-#: dashboards/admin/aggregates/tables.py:105
+#: dashboards/admin/aggregates/tables.py:107
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: dashboards/admin/aggregates/tables.py:122
+#: dashboards/admin/aggregates/tables.py:124
 msgid "Availability Zone Name"
 msgstr "Name der Verfügbarkeitszone"
 
-#: dashboards/admin/aggregates/tables.py:128
+#: dashboards/admin/aggregates/tables.py:130
 msgid "Available"
 msgstr "Verfügbar"
 
-#: dashboards/admin/aggregates/tables.py:137
+#: dashboards/admin/aggregates/tables.py:139
 msgid "Availability Zones"
 msgstr "Verfügbarkeitszonen"
 
@@ -717,7 +717,7 @@ msgstr "Fehler beim Hinzufügen oder Entfernen von Hosts."
 #: dashboards/project/volumes/volumes/forms.py:44
 #: dashboards/project/volumes/volumes/forms.py:436
 #: dashboards/project/volumes/volumes/forms.py:474
-#: dashboards/project/volumes/volumes/tables.py:250
+#: dashboards/project/volumes/volumes/tables.py:251
 #: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:69
 #: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
 #: dashboards/project/vpn/tables.py:211 dashboards/project/vpn/workflows.py:30
@@ -834,7 +834,7 @@ msgstr "Domäne erstellen"
 #: dashboards/admin/domains/tables.py:61
 #: dashboards/admin/flavors/extras/tables.py:44
 #: dashboards/admin/roles/tables.py:35 dashboards/admin/users/tables.py:42
-#: dashboards/project/containers/tables.py:297
+#: dashboards/project/containers/tables.py:306
 #: dashboards/project/images/images/tables.py:85
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -1554,7 +1554,7 @@ msgstr "Hostname"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:45
-#: dashboards/project/volumes/volumes/tables.py:279
+#: dashboards/project/volumes/volumes/tables.py:280
 msgid "Type"
 msgstr "Typ"
 
@@ -1603,19 +1603,19 @@ msgstr "Speicher (gesamt)"
 msgid "Instances"
 msgstr "Instanzen"
 
-#: dashboards/admin/hypervisors/tables.py:69
+#: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/instances/tables.py:791
 #: dashboards/project/instances/workflows/create_instance.py:79
 #: dashboards/project/overview/views.py:32 usage/tables.py:71
 msgid "Instance Name"
 msgstr "Instanzname"
 
-#: dashboards/admin/hypervisors/tables.py:72
+#: dashboards/admin/hypervisors/tables.py:73
 #: dashboards/project/images/snapshots/forms.py:30
 msgid "Instance ID"
 msgstr "Instanz-ID"
 
-#: dashboards/admin/hypervisors/tables.py:79
+#: dashboards/admin/hypervisors/tables.py:80
 msgid "Hypervisor Instances"
 msgstr "Hypervisor-Instanzen"
 
@@ -1835,7 +1835,7 @@ msgstr "Host"
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:36
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:257
+#: dashboards/project/volumes/volumes/tables.py:258
 #: dashboards/project/vpn/tables.py:189 dashboards/project/vpn/tables.py:216
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -1912,8 +1912,8 @@ msgstr "Injizierte Dateien"
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:60
 #: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:295
-#: dashboards/project/volumes/volumes/tables.py:308
+#: dashboards/project/volumes/volumes/tables.py:296
+#: dashboards/project/volumes/volumes/tables.py:309
 msgid "Volumes"
 msgstr "Datenträger"
 
@@ -2099,7 +2099,7 @@ msgstr "Geplante Migration (wartet auf Bestätigung) von"
 #: dashboards/project/instances/tables.py:617
 #: dashboards/project/instances/tables.py:638
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:333
+#: dashboards/project/volumes/volumes/tables.py:334
 msgid "Instance"
 msgstr "Instanz"
 
@@ -2135,7 +2135,7 @@ msgid "IP Address"
 msgstr "IP-Adresse"
 
 #: dashboards/admin/instances/tables.py:140
-#: dashboards/project/containers/tables.py:412
+#: dashboards/project/containers/tables.py:421
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:157
@@ -2144,7 +2144,7 @@ msgstr "IP-Adresse"
 #: dashboards/project/instances/tables.py:798
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:253
+#: dashboards/project/volumes/volumes/tables.py:254
 msgid "Size"
 msgstr "Größe"
 
@@ -4146,7 +4146,7 @@ msgid "Private"
 msgstr "Privat"
 
 #: dashboards/project/containers/forms.py:48
-#: dashboards/project/containers/tables.py:243
+#: dashboards/project/containers/tables.py:252
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 msgid "Container Name"
 msgstr "Containername"
@@ -4169,7 +4169,7 @@ msgid "Unable to create container."
 msgstr "Container konnte nicht erstellt werden. "
 
 #: dashboards/project/containers/forms.py:86
-#: dashboards/project/containers/tables.py:409
+#: dashboards/project/containers/tables.py:418
 msgid "Object Name"
 msgstr "Objektname"
 
@@ -4180,7 +4180,7 @@ msgstr "Schrägstriche (Slashes) sind erlaubt und werden als Pseudo-Ordner des O
 
 #: dashboards/project/containers/forms.py:94
 #: dashboards/project/containers/templates/containers/_update.html:22
-#: dashboards/project/stacks/forms.py:54
+#: dashboards/project/stacks/forms.py:56
 msgid "File"
 msgstr "Datei"
 
@@ -4231,14 +4231,14 @@ msgstr "Objekt konnte nicht kopiert werden. "
 
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
-#: dashboards/project/containers/tables.py:254
+#: dashboards/project/containers/tables.py:263
 #: dashboards/project/containers/templates/containers/index.html:3
 #: dashboards/project/containers/templates/containers/index.html:7
 msgid "Containers"
 msgstr "Container"
 
 #: dashboards/project/containers/tables.py:44
-#: dashboards/project/containers/tables.py:284
+#: dashboards/project/containers/tables.py:293
 msgid "View Details"
 msgstr "Details anzeigen"
 
@@ -4263,7 +4263,11 @@ msgstr "Privat machen"
 msgid "Successfully updated container access to private."
 msgstr "Container wurde erfolgreich als privat markiert."
 
-#: dashboards/project/containers/tables.py:128
+#: dashboards/project/containers/tables.py:120
+msgid "Unable to delete container."
+msgstr ""
+
+#: dashboards/project/containers/tables.py:137
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -4271,50 +4275,50 @@ msgstr "Container wurde erfolgreich als privat markiert."
 msgid "Create Container"
 msgstr "Container erstellen"
 
-#: dashboards/project/containers/tables.py:135
+#: dashboards/project/containers/tables.py:144
 msgid "View Container"
 msgstr "Container anzeigen"
 
-#: dashboards/project/containers/tables.py:147
+#: dashboards/project/containers/tables.py:156
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:6
 msgid "Create Pseudo-folder"
 msgstr "Pseudo-Ordner erzeugen"
 
-#: dashboards/project/containers/tables.py:175
+#: dashboards/project/containers/tables.py:184
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "Objekt hochladen"
 
-#: dashboards/project/containers/tables.py:245
+#: dashboards/project/containers/tables.py:254
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
 msgstr "Container Details"
 
-#: dashboards/project/containers/tables.py:310
+#: dashboards/project/containers/tables.py:319
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
 msgid "Object"
 msgstr "Objekt"
 
-#: dashboards/project/containers/tables.py:311
-#: dashboards/project/containers/tables.py:416
+#: dashboards/project/containers/tables.py:320
+#: dashboards/project/containers/tables.py:425
 msgid "Objects"
 msgstr "Objekte"
 
-#: dashboards/project/containers/tables.py:333
+#: dashboards/project/containers/tables.py:342
 msgid "Copy"
 msgstr "Kopieren"
 
-#: dashboards/project/containers/tables.py:346
+#: dashboards/project/containers/tables.py:355
 #: dashboards/project/databases/tables.py:209
 msgid "Download"
 msgstr "Herunterladen"
 
-#: dashboards/project/containers/tables.py:394
+#: dashboards/project/containers/tables.py:403
 msgid "pseudo-folder"
 msgstr "Pseudo-Ordner"
 
@@ -4650,7 +4654,7 @@ msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Außerstande %(count)s mal \"%(name)s\" zu starten."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
-#: dashboards/project/databases/workflows/create_instance.py:160
+#: dashboards/project/databases/workflows/create_instance.py:167
 #: dashboards/project/instances/workflows/create_instance.py:677
 msgid "instance"
 msgstr "Instanz"
@@ -5731,7 +5735,7 @@ msgstr "Erstelle einen Speicherauszug"
 msgid "Console type \"%s\" not supported."
 msgstr "Konsolentyp \"%s\" wird nicht unterstützt."
 
-#: dashboards/project/instances/console.py:62
+#: dashboards/project/instances/console.py:61
 msgid "No available console found."
 msgstr "Keine verfügbare Konsole gefunden."
 
@@ -6354,7 +6358,7 @@ msgstr "Zugewiesene Datenträger"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
-#: dashboards/project/volumes/volumes/tables.py:282
+#: dashboards/project/volumes/volumes/tables.py:283
 msgid "Attached To"
 msgstr "Zugewiesen zu"
 
@@ -6369,7 +6373,7 @@ msgstr "an"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:58
-#: dashboards/project/volumes/volumes/tables.py:307
+#: dashboards/project/volumes/volumes/tables.py:308
 msgid "Volume"
 msgstr "Datenträger"
 
@@ -7451,7 +7455,7 @@ msgstr "HTTP Methode, die den Zustand eines Mitglieds überprüfen soll"
 #: dashboards/project/loadbalancers/workflows.py:453
 #: dashboards/project/loadbalancers/workflows.py:457
 #: dashboards/project/loadbalancers/workflows.py:458
-#: dashboards/project/stacks/forms.py:56
+#: dashboards/project/stacks/forms.py:58
 msgid "URL"
 msgstr "URL"
 
@@ -8311,7 +8315,7 @@ msgid ""
 "a gateway for external connectivity."
 msgstr "Sie können ein ausgewähltes externes Netzwerk mit dem Router verbinden. Das externe Netzwerk wird als Standardroute des Routers genutzt und der Router agiert als Gateway zur externen Anbindung."
 
-#: dashboards/project/stacks/forms.py:48
+#: dashboards/project/stacks/forms.py:50
 #: dashboards/project/stacks/templates/stacks/_change_template.html:9
 #: dashboards/project/stacks/templates/stacks/_select_template.html:9
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
@@ -8319,158 +8323,158 @@ msgstr "Sie können ein ausgewähltes externes Netzwerk mit dem Router verbinden
 msgid "Select Template"
 msgstr "Template auswählen"
 
-#: dashboards/project/stacks/forms.py:49
+#: dashboards/project/stacks/forms.py:51
 msgid "From here you can select a template to launch a stack."
 msgstr "Hier können sie eine Vorlage auswählen, um einen Stack zu starten."
 
-#: dashboards/project/stacks/forms.py:55
+#: dashboards/project/stacks/forms.py:57
 msgid "Direct Input"
 msgstr "Direkteingabe"
 
-#: dashboards/project/stacks/forms.py:58
+#: dashboards/project/stacks/forms.py:60
 msgid "Template Source"
 msgstr "Vorlagenquelle"
 
-#: dashboards/project/stacks/forms.py:65 dashboards/project/stacks/forms.py:67
+#: dashboards/project/stacks/forms.py:67 dashboards/project/stacks/forms.py:69
 msgid "Template File"
 msgstr "Vorlagendatei"
 
-#: dashboards/project/stacks/forms.py:68
+#: dashboards/project/stacks/forms.py:70
 msgid "A local template to upload."
 msgstr "Eine lokale Vorlage zum hochladen."
 
-#: dashboards/project/stacks/forms.py:75 dashboards/project/stacks/forms.py:77
+#: dashboards/project/stacks/forms.py:77 dashboards/project/stacks/forms.py:79
 msgid "Template URL"
 msgstr "Template URL"
 
-#: dashboards/project/stacks/forms.py:78
+#: dashboards/project/stacks/forms.py:80
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Eine externe (HTTP) URL, von der die Vorlage geladen wird."
 
-#: dashboards/project/stacks/forms.py:85 dashboards/project/stacks/forms.py:87
+#: dashboards/project/stacks/forms.py:87 dashboards/project/stacks/forms.py:89
 msgid "Template Data"
 msgstr "Template Data"
 
-#: dashboards/project/stacks/forms.py:88
+#: dashboards/project/stacks/forms.py:90
 msgid "The raw contents of the template."
 msgstr "Der rohe Inhalt der Vorlage"
 
-#: dashboards/project/stacks/forms.py:94
+#: dashboards/project/stacks/forms.py:96
 msgid "Environment Source"
 msgstr "Umgebungsquelle"
 
-#: dashboards/project/stacks/forms.py:102
 #: dashboards/project/stacks/forms.py:104
+#: dashboards/project/stacks/forms.py:106
 msgid "Environment File"
 msgstr "Umgebungsdatei"
 
-#: dashboards/project/stacks/forms.py:105
+#: dashboards/project/stacks/forms.py:107
 msgid "A local environment to upload."
 msgstr "Eine lokale Umgebung zum Hochladen."
 
-#: dashboards/project/stacks/forms.py:112
 #: dashboards/project/stacks/forms.py:114
+#: dashboards/project/stacks/forms.py:116
 msgid "Environment Data"
 msgstr "Umgebungsdaten"
 
-#: dashboards/project/stacks/forms.py:115
+#: dashboards/project/stacks/forms.py:117
 msgid "The raw contents of the environment file."
 msgstr "Der rohe Inhalt der Umgebungsdatei."
 
-#: dashboards/project/stacks/forms.py:127
+#: dashboards/project/stacks/forms.py:129
 msgid "template"
 msgstr "Vorlage"
 
-#: dashboards/project/stacks/forms.py:129
+#: dashboards/project/stacks/forms.py:131
 msgid "environment"
 msgstr "Umgebung"
 
-#: dashboards/project/stacks/forms.py:184
+#: dashboards/project/stacks/forms.py:186
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Es gab einb Problem beim analysieren von %(prefix)s: %(error)s"
 
-#: dashboards/project/stacks/forms.py:192
+#: dashboards/project/stacks/forms.py:194
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Bitte spezifizieren Sie ein %s, indem Sie nur eine Quell-Methode benutzen."
 
-#: dashboards/project/stacks/forms.py:199
+#: dashboards/project/stacks/forms.py:201
 msgid "You must specify a template via one of the available sources."
 msgstr "Sie müssen eine Vorlage aus den vorhandenen Quellen angeben."
 
-#: dashboards/project/stacks/forms.py:224
+#: dashboards/project/stacks/forms.py:226
 msgid "Edit Template"
 msgstr "Vorlage editieren"
 
-#: dashboards/project/stacks/forms.py:225
+#: dashboards/project/stacks/forms.py:227
 msgid "From here you can select a new template to re-launch a stack."
 msgstr "Hier können Sie eine neue Vorlage auswählen, um einen Stack wieder zu starten."
 
-#: dashboards/project/stacks/forms.py:227
-#: dashboards/project/stacks/forms.py:361
+#: dashboards/project/stacks/forms.py:229
+#: dashboards/project/stacks/forms.py:363
 msgid "Stack ID"
 msgstr "Stack-ID"
 
-#: dashboards/project/stacks/forms.py:230
-#: dashboards/project/stacks/forms.py:257
-#: dashboards/project/stacks/forms.py:364
+#: dashboards/project/stacks/forms.py:232
+#: dashboards/project/stacks/forms.py:259
+#: dashboards/project/stacks/forms.py:366
 #: dashboards/project/stacks/tables.py:88
 msgid "Stack Name"
 msgstr "Stack Name"
 
-#: dashboards/project/stacks/forms.py:241
+#: dashboards/project/stacks/forms.py:243
 msgid "Create Stack"
 msgstr "Erzeuge Stack"
 
-#: dashboards/project/stacks/forms.py:258
+#: dashboards/project/stacks/forms.py:260
 msgid "Name of the stack to create."
 msgstr "Name des Stacks, der erzeugt werden soll."
 
-#: dashboards/project/stacks/forms.py:260
+#: dashboards/project/stacks/forms.py:262
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "Der Name muss mit einem Buchstaben beginnen und darf nur Buchstaben, Nummern, Unterstriche, Punkte und Bindestriche enthalten."
 
-#: dashboards/project/stacks/forms.py:266
+#: dashboards/project/stacks/forms.py:268
 msgid "Creation Timeout (minutes)"
 msgstr "Zeitüberschreitung bei der Erzeugung (Minuten)"
 
-#: dashboards/project/stacks/forms.py:267
+#: dashboards/project/stacks/forms.py:269
 msgid "Stack creation timeout in minutes."
 msgstr "Zeitüberschreitung bei der Erzeugung in Minuten."
 
-#: dashboards/project/stacks/forms.py:270
+#: dashboards/project/stacks/forms.py:272
 msgid "Rollback On Failure"
 msgstr "Zurückrollen nach einem Fehler"
 
-#: dashboards/project/stacks/forms.py:271
+#: dashboards/project/stacks/forms.py:273
 msgid "Enable rollback on create/update failure."
 msgstr "Ermögliche ein Zurückrollen nach einem Erzeugungs/Aktualisierungs-Fehler."
 
-#: dashboards/project/stacks/forms.py:284
+#: dashboards/project/stacks/forms.py:286
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "Passwort für Benutzer \"%s\""
 
-#: dashboards/project/stacks/forms.py:285
+#: dashboards/project/stacks/forms.py:287
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "Dies wird zur Ausführung von Operationen während des Lebenszykluses des Stacks benötigt."
 
-#: dashboards/project/stacks/forms.py:350
+#: dashboards/project/stacks/forms.py:352
 msgid "Stack creation started."
 msgstr "Erzeugung des Stacks gestartet."
 
-#: dashboards/project/stacks/forms.py:359
+#: dashboards/project/stacks/forms.py:361
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "Stack-Parameter aktuakisieren"
 
-#: dashboards/project/stacks/forms.py:395
+#: dashboards/project/stacks/forms.py:397
 msgid "Stack update started."
 msgstr "Stack-Aktualisierung gestartet."
 
@@ -8770,7 +8774,7 @@ msgid "Volume Overview"
 msgstr "Volume-Übersicht"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:354
+#: dashboards/project/volumes/volumes/tables.py:355
 msgid "Attachments"
 msgstr "Anhänge"
 
@@ -8834,7 +8838,6 @@ msgid "Create a Volume Snapshot"
 msgstr "Erzeuge Schattenkopie"
 
 #: dashboards/project/volumes/volumes/forms.py:47
-#: dashboards/project/volumes/volumes/forms.py:497
 msgid "Size (GB)"
 msgstr "Größe (GB)"
 
@@ -8999,16 +9002,24 @@ msgstr "Aktualisiere Datenträger \"%s\""
 msgid "Unable to update volume."
 msgstr "Datenträger konnte nicht aktualisiert werden."
 
-#: dashboards/project/volumes/volumes/forms.py:504
-msgid "New size for extend must be greater than current size."
-msgstr "Neue Größe für die Erweiterung muss größer als die aktuelle Größe sein."
+#: dashboards/project/volumes/volumes/forms.py:497
+msgid "Current Size (GB)"
+msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:515
+#: dashboards/project/volumes/volumes/forms.py:501
+msgid "New Size (GB)"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:508
+msgid "New size must be greater than current size."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:519
 #, python-format
-msgid "Successfully extended volume: \"%s\""
-msgstr "Datenträger erfolgreich erweitert: \"%s\""
+msgid "Extending volume: \"%s\""
+msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:521
+#: dashboards/project/volumes/volumes/forms.py:525
 msgid "Unable to extend volume."
 msgstr "Datenträger kann nicht erweitert werden."
 
@@ -9035,27 +9046,27 @@ msgstr "Anhang-Informationen können nicht abgerufen werden."
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "%(instance)s wurde an %(dev)s angehängt"
 
-#: dashboards/project/volumes/volumes/tables.py:286
+#: dashboards/project/volumes/volumes/tables.py:287
 msgid "Bootable"
 msgstr "Bootfähig"
 
-#: dashboards/project/volumes/volumes/tables.py:289
+#: dashboards/project/volumes/volumes/tables.py:290
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:305
+#: dashboards/project/volumes/volumes/tables.py:306
 msgid "Detach"
 msgstr "Abtrennen"
 
-#: dashboards/project/volumes/volumes/tables.py:306
+#: dashboards/project/volumes/volumes/tables.py:307
 msgid "Detaching"
 msgstr "Abtrennen"
 
-#: dashboards/project/volumes/volumes/tables.py:335
+#: dashboards/project/volumes/volumes/tables.py:336
 msgid "Device"
 msgstr "Gerät"
 
-#: dashboards/project/volumes/volumes/tables.py:344
+#: dashboards/project/volumes/volumes/tables.py:345
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
