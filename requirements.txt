@@ -1,6 +1,6 @@
 # Horizon Core Requirements
 Django>=1.4,<1.7
-django_compressor>=1.3
+django_compressor>=1.4
 django_openstack_auth>=1.1.4
 eventlet>=0.13.0
 iso8601>=0.1.9
@@ -14,12 +14,12 @@ pbr>=0.6,!=0.7,<1.0
 python-ceilometerclient>=1.0.6
 python-cinderclient>=1.0.6
 python-glanceclient>=0.9.0
-python-heatclient>=0.2.3
-python-keystoneclient>=0.8.0
+python-heatclient>=0.2.9
+python-keystoneclient>=0.9.0
 python-neutronclient>=2.3.4,<3
 python-novaclient>=2.17.0
 python-saharaclient>=0.6.0
 python-swiftclient>=2.0.2
 python-troveclient>=1.0.4
 pytz>=2010h
-six>=1.6.0
+six>=1.7.0
