@@ -85,6 +85,11 @@ tests are not run by default.
 
     $ ./run_tests.sh --integration
 
+Like for the unit tests, you can choose to only run a subset. ::
+
+    $ ./run_tests.sh --integration openstack_dashboard.test.integration_tests.tests.test_login
+
+
 Using Dashboard and Panel Templates
 ===================================
 

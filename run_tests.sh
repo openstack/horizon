@@ -362,7 +362,11 @@ function run_integration_tests {
   export INTEGRATION_TESTS=1
 
   echo "Running Horizon integration tests..."
-  ${command_wrapper} nosetests openstack_dashboard/test/integration_tests/tests
+  if [ -z "$testargs" ]; then
+      ${command_wrapper} nosetests openstack_dashboard/test/integration_tests/tests
+  else
+      ${command_wrapper} nosetests $testargs
+  fi
   exit 0
 }
 
