@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-23 13:20-0500\n"
-"PO-Revision-Date: 2014-06-24 01:46+0000\n"
+"POT-Creation-Date: 2014-06-24 04:51-0500\n"
+"PO-Revision-Date: 2014-06-24 17:41+0000\n"
 "Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: settings.py:84
 msgid "Select format"
-msgstr ""
+msgstr "포맷 선택"
 
 #: settings.py:85
 msgid "AKI - Amazon Kernel Image"
@@ -1209,7 +1209,7 @@ msgstr "프로젝트"
 
 #: dashboards/admin/flavors/workflows.py:161
 msgid "Selected Projects"
-msgstr ""
+msgstr "프로젝트 선택됨"
 
 #: dashboards/admin/flavors/workflows.py:162
 msgid "No projects found."
@@ -2242,7 +2242,7 @@ msgstr "프로젝트 이름"
 
 #: dashboards/admin/metering/views.py:149
 msgid "Time"
-msgstr ""
+msgstr "시간"
 
 #: dashboards/admin/metering/views.py:264
 msgid "Unable to retrieve tenant list."
@@ -3403,26 +3403,26 @@ msgstr "여기서 기본 프로젝트를 포함하여 사용자에 대한 세부
 #: dashboards/admin/volumes/forms.py:36
 #, python-format
 msgid "Successfully created volume type: %s"
-msgstr "성공적으로 볼륨 유형이 생성되었습니다: %s"
+msgstr "성공적으로 볼륨 타입이 생성되었습니다: %s"
 
 #: dashboards/admin/volumes/forms.py:41
 msgid "Unable to create volume type."
-msgstr "불륨 유형을 생성할 수 없습니다."
+msgstr "불륨 타입을 생성할 수 없습니다."
 
 #: dashboards/admin/volumes/tables.py:23
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:9
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:28
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:3
 msgid "Create Volume Type"
-msgstr "볼륨 유형 생성"
+msgstr "볼륨 타입 생성"
 
 #: dashboards/admin/volumes/tables.py:30
 msgid "Volume Type"
-msgstr "볼륨 유형"
+msgstr "볼륨 타입"
 
 #: dashboards/admin/volumes/tables.py:31 dashboards/admin/volumes/tables.py:77
 msgid "Volume Types"
-msgstr "볼륨 유형"
+msgstr "볼륨 타입"
 
 #: dashboards/admin/volumes/views.py:56
 msgid "Unable to retrieve volume project information."
@@ -3430,7 +3430,7 @@ msgstr "볼륨 프로젝트 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/volumes/views.py:73
 msgid "Unable to retrieve volume types"
-msgstr "볼륨 유형을 찾을 수 없습니다."
+msgstr "볼륨 타입을 찾을 수 없습니다."
 
 #: dashboards/admin/volumes/templates/volumes/_create_volume_type.html:19
 msgid ""
@@ -3439,11 +3439,11 @@ msgid ""
 "    It usually maps to a set of capabilities of the storage back-end driver to be used for this volume.\n"
 "    Examples: \"Performance\", \"SSD\", \"Backup\", etc.\n"
 "    "
-msgstr "\n볼륨 유형은 볼륨의 특징을 나타냅니다. \n일반적으로 해당 볼륨을 사용하기 위해서 설정하는 스토리지 백엔드 드라이버의 기능 설정에 따릅니다.\n예: \"성능\", \"SSD\", \"백업\" 등."
+msgstr "\n볼륨 타입은 볼륨의 특징을 나타냅니다. \n일반적으로 해당 볼륨을 사용하기 위해서 설정하는 스토리지 백엔드 드라이버의 기능 설정에 따릅니다.\n예: \"성능\", \"SSD\", \"백업\" 등."
 
 #: dashboards/admin/volumes/templates/volumes/create_volume_type.html:6
 msgid "Create a Volume Type"
-msgstr "볼륨 유형 생성"
+msgstr "볼륨 타입 생성"
 
 #: dashboards/admin/volumes/templates/volumes/detail.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/detail.html:3
@@ -5252,7 +5252,7 @@ msgstr "방화벽 세부 정보를 찾을 수 없습니다."
 #: dashboards/project/firewalls/views.py:67
 #, python-format
 msgid "Deleted rule %s"
-msgstr ""
+msgstr "률 %s 삭제됨"
 
 #: dashboards/project/firewalls/views.py:70
 #, python-format
@@ -5262,7 +5262,7 @@ msgstr "룰을 삭제할 수 없습니다. %s"
 #: dashboards/project/firewalls/views.py:75
 #, python-format
 msgid "Deleted policy %s"
-msgstr ""
+msgstr "Policy %s 삭제됨"
 
 #: dashboards/project/firewalls/views.py:78
 #, python-format
@@ -5272,7 +5272,7 @@ msgstr "정책를 삭제할 수 없습니다. %s"
 #: dashboards/project/firewalls/views.py:84
 #, python-format
 msgid "Deleted firewall %s"
-msgstr ""
+msgstr "방화벽 %s 삭제됨"
 
 #: dashboards/project/firewalls/views.py:87
 #, python-format
@@ -6040,23 +6040,23 @@ msgstr "스냅샷 실행 중"
 
 #: dashboards/project/instances/tables.py:717
 msgid "Image Snapshot Pending"
-msgstr ""
+msgstr "이미지 스냅샷 보류"
 
 #: dashboards/project/instances/tables.py:718
 msgid "Image Pending Upload"
-msgstr ""
+msgstr "이미지 보류 업로드"
 
 #: dashboards/project/instances/tables.py:719
 msgid "Image Uploading"
-msgstr ""
+msgstr "이미지 업로드중"
 
 #: dashboards/project/instances/tables.py:720
 msgid "Image Backup"
-msgstr ""
+msgstr "이미지 백업"
 
 #: dashboards/project/instances/tables.py:721
 msgid "Updating Password"
-msgstr ""
+msgstr "업데이트 비밀번호"
 
 #: dashboards/project/instances/tables.py:722
 msgid "Preparing Resize or Migrate"
@@ -6084,11 +6084,11 @@ msgstr "크기 변경 또는 마이그레이션 확인 중"
 
 #: dashboards/project/instances/tables.py:728
 msgid "Rebooting"
-msgstr ""
+msgstr "재시작 중"
 
 #: dashboards/project/instances/tables.py:729
 msgid "Rebooting Hard"
-msgstr ""
+msgstr "하드 재시작중"
 
 #: dashboards/project/instances/tables.py:730
 msgid "Pausing"
@@ -6105,11 +6105,11 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:734
 msgid "Powering Off"
-msgstr ""
+msgstr "전원 차단 중"
 
 #: dashboards/project/instances/tables.py:735
 msgid "Powering On"
-msgstr ""
+msgstr "전원 공급 중"
 
 #: dashboards/project/instances/tables.py:736
 msgid "Rescuing"
@@ -6125,7 +6125,7 @@ msgstr "새로 빌드 중"
 
 #: dashboards/project/instances/tables.py:739
 msgid "Rebuild Block Device Mapping"
-msgstr ""
+msgstr "블록 디바이스 맵핑 재구성"
 
 #: dashboards/project/instances/tables.py:740
 msgid "Rebuild Spawning"
@@ -6133,7 +6133,7 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:742
 msgid "Deleting"
-msgstr ""
+msgstr "삭제 중"
 
 #: dashboards/project/instances/tables.py:743
 msgid "Soft Deleting"
@@ -6141,7 +6141,7 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:744
 msgid "Restoring"
-msgstr ""
+msgstr "복구 중"
 
 #: dashboards/project/instances/tables.py:745
 msgid "Shelving"
@@ -6472,7 +6472,7 @@ msgstr "옵션으로 인스턴스 다시 빌드시 비밀번호를 설정할 수
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
 msgid "Selected networks"
-msgstr ""
+msgstr "네트워크 선택됨"
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:11
 msgid "Available networks"
@@ -8700,7 +8700,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:3
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:6
 msgid "Edit Snapshot"
-msgstr ""
+msgstr "스냅샷 수정"
 
 #: dashboards/project/volumes/snapshots/tables.py:130
 #: dashboards/project/volumes/volumes/forms.py:41
@@ -8853,7 +8853,7 @@ msgstr "소스로 볼륨 사용"
 
 #: dashboards/project/volumes/volumes/forms.py:87
 msgid "No volume type"
-msgstr ""
+msgstr "볼륨 타입이 없음"
 
 #: dashboards/project/volumes/volumes/forms.py:106
 #, python-format
@@ -9023,7 +9023,7 @@ msgstr "볼륨을 확장할 수 없습니다."
 
 #: dashboards/project/volumes/volumes/tables.py:38
 msgid "Launch as Instance"
-msgstr ""
+msgstr "인스턴스로 시작"
 
 #: dashboards/project/volumes/volumes/tables.py:75
 #, python-format
@@ -9067,7 +9067,7 @@ msgstr "장치"
 #: dashboards/project/volumes/volumes/tables.py:345
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
-msgstr ""
+msgstr "인스턴스 %(instance_name)s 에서 볼륨 %(volume_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:62
 msgid "Unable to retrieve volume details."
