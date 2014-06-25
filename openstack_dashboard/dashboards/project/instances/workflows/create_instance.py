@@ -300,8 +300,8 @@ class SetInstanceDetailsAction(workflows.Action):
             zone_list.insert(0, ("", _("Any Availability Zone")))
         return zone_list
 
-    def get_help_text(self):
-        extra = {}
+    def get_help_text(self, extra_context=None):
+        extra = extra_context or {}
         try:
             extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
