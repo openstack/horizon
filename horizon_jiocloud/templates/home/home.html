@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+{% load branding i18n %}
+{% load staticfiles %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>{% block title %}{% site_branding %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/jc-style.css" %}"/>
+	<!--  
+	<script type="text/javascript"
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	-->
+	<script type="text/javascript"
+		src="{% static "js/jquery.min.js" %}"></script>
+	<script type="text/javascript"
+		src="{% static "js/jquery-ui.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jc-script.js" %}"></script>
+	<link rel="shortcut icon" href="{% static "images/jio-logo.png" %}" />
+	<script type="text/javascript">
+		$(document).ready(function(event) {
+			$("#menu").menu();
+		});
+	</script>
+</head>
+<body>
+<div id="jc-wrapper">
+	<header>
+		<div id="header" class="header">
+
+			    {% block header %}
+	     			 {% include "common/header.html" %}
+	   		    {% endblock %}
+
+		</div>
+		<nav>
+			<div id="nav" class="nav">
+
+					    {% block leftnav %}
+			     			 {% include "home/nav.html" %}
+			   		    {% endblock %}
+
+			</div>
+		</nav>
+	</header>
+	<section>
+		<div id="section" class="section">
+			<figure>
+				<div class="figure" id="page-header">
+					<div class="page-header-content">
+						<h2>India's biggest public cloud</h2>
+						<!--<h3>Powered by <em>OpenStack</em></h3>-->
+						<a class="know-more" href="{%url 'horizon:project:overview:index' %}">Get Started</a>
+					</div>
+				</div>
+			</figure>
+			<article>
+				<div id="article" class="article">
+					<div class="page-content">
+						<div class="jc-container">
+							<div class="main-content">							
+								<h3>Enabling Indian Innovators</h3>
+								<p>JioCloud has been founded with a mission to enable you to utilize the best computing tools and resources. JioCloud enables quick access to flexible and low cost IT resources, on-demand via your Internet browser, be it for a simple mobile application, popular website or for business critical operations. JioCloud is built on open standards, thereby facilitates avoidance of being locked into a single Cloud Service Provider.</p>
+							</div>
+							<div class="jc-hm-features">
+								<div class="jc-hm-features-alignLeft">
+									<h3>Blazing Performance</h3>
+									<p>JioCloud has all its data centers in India, bringing down latency by manifold. Your application need not face delays in response due to host servers being located in a different continent. With JioCloud, you can experience much better performance.</p>
+								</div>
+								<div class="jc-hm-features-img-alignRight">
+									<img src="{% static "images/speed.png" %}" alt="" />
+								</div>
+							</div>
+							<div class="jc-hm-features">
+								<div class="jc-hm-features-alignRight">
+									<h3>No vendor lock-in</h3>
+									<p>JioCloud supports open standards allaying your fears of being locked into a single vendor. With AWS API compatibility being offered, you can move your workloads from AWS to JioCloud seamlessly.</p>
+								</div>
+								<div class="jc-hm-features-img-alignLeft">
+									<img src="{% static "images/unlock.png" %}" alt="" />
+								</div>
+							</div>
+							<div class="jc-hm-features">
+								<div class="jc-hm-features-alignLeft">
+									<h3>Pay per use</h3>
+									<p>JioCloud offers highly transparent, flexible and simple pricing, allowing you to plan your budget and resources as per your usage. For instance, you can utilize resources on an hourly-price basis.</p>
+								</div>
+								<div class="jc-hm-features-img-alignRight">
+									<img src="{% static "images/rupee.png" %}" alt="" />
+								</div>
+							</div>
+							<div class="jc-hm-features">
+								<div class="jc-hm-features-alignRight">
+									<h3>24x7 support</h3>
+									<p>JioCloud believes that innovators must not have to worry about anything other than shipping their product ideas. Users can expect excellent support to be one-click away, at any time of the day either through live chat, phone or via e-mail.</p>
+								</div>
+								<div class="jc-hm-features-img-alignLeft">
+									<img src="{% static "images/cust-service.png" %}" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<footer>
+		<div id="footer" class="footer">
+
+			    {% block footer %}
+	     			 {% include "common/footer.html" %}
+	   		    {% endblock %}
+
+		</div>
+	</footer>
+</div>
+</body>
+</html>

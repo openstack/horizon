@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+{% load staticfiles %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>JioCloud</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/jc-style.css" %}"/>
+	<!--  
+	<script type="text/javascript"
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	-->
+	<script type="text/javascript"
+		src="{% static "js/jquery.min.js" %}"></script>
+	<script type="text/javascript"
+		src="{% static "js/jquery-ui.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jc-script.js" %}"></script>
+	<link rel="shortcut icon" href="{% static "images/jio-logo.png" %}"/>
+	<script type="text/javascript">
+		$(document).ready(function(event) {
+			$("#menu").menu();
+		});
+	</script>
+</head>
+<body>
+<div id="jc-wrapper">
+	<header>
+		<div id="header" class="header">
+                            {% block header %}
+                                 {% include "common/header.html" %}
+                            {% endblock %}
+
+		</div>
+		<nav>
+			<div id="nav" class="nav">
+                                            {% block leftnav %}
+                                                 {% include "home/nav.html" %}
+                                            {% endblock %}
+
+			</div>
+		</nav>
+	</header>
+	<section>
+		<div id="section" class="section">
+			<article>
+				<div id="article" class="article">
+					<div class="page-content">
+						<div class="jc-container">
+							<div class="main-content">
+								<div class="page-under-construction">						
+									<h3>This Page is Under Construction</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<footer>
+		<div id="footer" class="footer">
+                            {% block footer %}
+                                 {% include "common/footer.html" %}
+                            {% endblock %}
+
+		</div>
+	</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "static/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Starter Guide" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+<div id="startedGuide">
+<iframe width="970" height="600" allowtransparency="yes" src={%static "pdf/API Documentation v1.0.pdf" %}>Your Browser doesn't support.</iframe>
+</div>
+
+{% endblock %}
+

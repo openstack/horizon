@@ -1,0 +1,19 @@
+{% extends "static/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Documentation" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+<div id="documentation">
+<h3>Documentation Links</h3>
+<ul>
+	<li><a href="{% url 'api_documentation' %}">API</a></li>
+	<li><a href="{% url 'starter-guide' %}">Starter Guide</a></li>
+        <li><a href="{% url 'faqs' %}">FAQs</a></li>
+</ul>
+</div>
+
+{% endblock %}
+

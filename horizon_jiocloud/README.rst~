@@ -1,0 +1,34 @@
+
+
+Dependencies
+==============
+1)
+django-recaptcha>=0.0.6
+2)
+django-cities-light>=2.1.8
+south
+3)
+MySQL-python
+4)
+python-smpplib
+Install from github
+https://github.com/podshumok/python-smpplib
+
+2)
+#dependency of django-cities-light
+easy_install south
+
+How to setup
+============
+a)
+CREATE DATABASE horizon CHARACTER SET utf8;
+
+b)
+python manage.py syncdb
+
+c)
+Copy following file and change the value of variables
+or 
+add the required varables to existing openstack_dashboard/local/local_settings.py
+#cp openstack_dashboard/local/local_settings.py.example to 
+openstack_dashboard/local/local_settings.py

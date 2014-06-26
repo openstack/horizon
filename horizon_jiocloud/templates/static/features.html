@@ -1,0 +1,98 @@
+{% extends "static/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Features" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+<div id="features">
+<h1>Products that take away your grunt work</h1>
+<div style="height:40px"></div>
+</div>
+<table class="center-table">
+<tr>
+<td>
+<div class="feature-name">
+<a href="{% url 'compute' %}">Jio Servers</a>
+</div>
+<div style="height:10px"></div>
+</td>
+<td>
+<div class="feature-name">
+<a href="{% url 'object-store' %}">Jio Files</a>
+</div>
+<div style="height:10px"></div>
+</td>
+<td>
+<div class="feature-name">
+<a href="{% url 'block-store' %}">Jio Disks</a>
+</div>
+<div style="height:10px"></div>
+</td>
+</table>
+<div style="height:50px"></div>
+<div class="center-content">
+<a class="login loginbtn" href="{% url 'horizon:project:overview:index' %}">
+  Ready to ship your product?
+</a>
+</div>
+<div style="height:50px"></div>
+
+<div style="center-content">
+<img src="/static/images/deliver.jpg" alt="Ready to ship your content?"/>
+</div>
+
+<div style="height:50px"></div>
+
+<div style="center-content">
+<h3>Advantage Jio Cloud</h3>
+
+<div style="height:15px"></div>
+
+<div class="center-content">
+We only build products that take away your grunt work, and free up your time and energy to focus on things that add value to your customers.
+
+<div style="height:20px"></div>
+
+<table>
+<tr>
+<td>
+<div class="feature-name">Scale Automatically</div>
+<div style="height:10px"></div>
+We take away your need for capacity planning and enable your application to grow or shrink on demand.
+</td>
+<td>
+<div class="feature-name">Zero Lock-in</div>
+<div style="height:10px"></div>
+If you ever find the need to use a different cloud service provider (but why would you?), you can do so without any change to your application as we support OpenStack and AWS APIs.
+</td>
+<td>
+<div class="feature-name">Pay per use</div>
+<div style="height:10px"></div>
+You only make money from the resources that you use. So we only charge you for what you use.
+</td>
+</tr>
+<tr>
+<td>
+<div class="feature-name">Simple APIs</div>
+<div style="height:10px"></div>
+Instead of re-inventing the wheel for managing your resources, you can use the simple APIs we support.
+</td>
+<td>
+<div class="feature-name">Speed to Market</div>
+<div style="height:10px"></div>
+It is not enough to just ship your idea. You need to do it at the right time. We provide you resources as and when you need, accelerating your transition from idea to customers.
+</td>
+<td>
+<div class="feature-name">24x7 Support</div>
+<div style="height:10px"></div>
+If you need help figuring out why something is not working the way you expect it to, or to figure out the best way to use resources, we are always one click away from helping you.
+</td>
+</tr>
+</table>
+</div>
+
+{% endblock %}
+
+
