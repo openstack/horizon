@@ -1,0 +1,73 @@
+{% extends "static/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Jio Disks" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+<div id="features">
+<h1>Products that take away your grunt work</h1>
+<div style="height:40px"></div>
+<h2> Jio Disks </h2>
+<div style="height:25px"></div>
+<p>
+<div class="center-content">
+ Your ideas. Our resources.
+ <div style="height:15px"></div>
+ Once you have a server up and running, you need disks to store the data your server processes.
+ <br/> 
+ <div style="height:15px"></div>
+ We enable you to set up a persistent disk of any size in just a few seconds.
+ <br/>
+ <div style="height:15px"></div>
+ All you need to do is select the disk size, an Operating System if you wish to boot the disk with one, and you have your disk ready to be attached to any of your servers.
+</div>
+
+<div style="height:50px"></div>
+<div class="center-content">
+<a class="login loginbtn" href="{% url 'horizon:project:overview:index' %}">
+  Ready to ship your product?
+</a>
+</div>
+<div style="height:50px"></div>
+
+<div style="center-content">
+<img src="/static/images/deliver.jpg" alt="Ready to ship your content?"/>
+</div>
+
+<div style="height:50px"></div>
+
+<h3>Advantage Jio Disks</h3>
+
+<div style="height:15px"></div>
+
+<div class="center-content">
+We only build products that take away your grunt work, and free up your time and energy to focus on things that add value to your customers.
+
+<div style="height:20px"></div>
+
+<table>
+<tr>
+<td>
+<div class="feature-name">Triplicated Storage</div>
+<div style="height:10px"></div>
+Hardware components fail. But we make sure you do not lose your date as a result by making three copies of everything stored in Jio Disks.
+</td>
+<td>
+<div class="feature-name">Snapshots</div>
+<div style="height:10px"></div>
+We make it very simple to take point-in-time snapshots of your Disks and instantiate new Disks at any time from these snapshots.
+</td>
+<td>
+<div class="feature-name">Pay per use</div>
+<div style="height:10px"></div>
+You only make money from the resources that you use. So we only charge you for what you use.
+</td>
+</tr>
+</table>
+</div>
+
+{% endblock %}
+
+

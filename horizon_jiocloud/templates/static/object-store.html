@@ -1,0 +1,74 @@
+{% extends "static/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Jio Files" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+<div id="features">
+<h1>Products that take away your grunt work</h1>
+<div style="height:40px"></div>
+<h2> Jio Files </h2>
+<div style="height:25px"></div>
+<p>
+<div class="center-content">
+ Your ideas. Our resources.
+ <div style="height:15px"></div>
+ If you store a large number of files which you randomly access, it is not ideal to store these file in a file system or in Disks. This brings down the performance of your application.
+ <br/> 
+ <div style="height:15px"></div>
+ Instead, we enable you to store and access individual files to significantly enhance your application's performance.
+ <br/>
+ <div style="height:15px"></div>
+ All you need to do is create a folder and upload your files to it.
+</div>
+
+<div style="height:50px"></div>
+<div class="center-content">
+<a class="login loginbtn" href="{% url 'horizon:project:overview:index' %}">
+  Ready to ship your product?
+</a>
+</div>
+<div style="height:50px"></div>
+
+<div style="center-content">
+<img src="/static/images/deliver.jpg" alt="Ready to ship your content?"/>
+</div>
+
+<div style="height:50px"></div>
+
+<div style="center-content">
+<h3>Advantage Jio Files</h3>
+
+<div style="height:15px"></div>
+
+<div class="center-content">
+We only build products that take away your grunt work, and free up your time and energy to focus on things that add value to your customers.
+
+<div style="height:20px"></div>
+
+<table>
+<tr>
+<td>
+<div class="feature-name">Triplicated Storage</div>
+<div style="height:10px"></div>
+Harware components fail. But we make sure you do not lose your data as a result by making three copies of everything stored in Jio Files.
+</td>
+<td>
+<div class="feature-name">Highly Scalable</div>
+<div style="height:10px"></div>
+We enable you to store any number of files of any size and never see a drop in performance.
+</td>
+<td>
+<div class="feature-name">Pay per use</div>
+<div style="height:10px"></div>
+You only make money from the resources that you use. So we only charge you for what you use.
+</td>
+</tr>
+</table>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+{% load branding i18n %}
+{% load staticfiles %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>{% block title %} {{title}} - {% site_branding %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/jc-style.css" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "css/jc-login.css" %}"/>
+	<link rel="shortcut icon" href="{% static "images/jio-logo.png" %}"/>
+
+</head>
+<body>
+<div id="jc-wrapper">
+	<header>
+		<div id="header" class="header">
+                            {% block header %}
+                                 {% include "common/header.html" %}
+                            {% endblock %}
+
+		</div>
+		<nav>
+			<div id="nav" class="nav">
+
+			</div>
+		</nav>
+	</header>
+	<section>
+		<div id="section" class="section">
+			<article>
+				<div id="article" class="article">
+					<div class="page-content">
+						<div class="jc-container">
+							<div class="main-content">
+								{% block content %}
+								{% endblock %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<footer>
+		<div class="footer" id="footer">
+			<div class="jc-container">
+				<div class="jc-copyright">&copy; 2014 Reliance Jio Infocomm Limited</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</body>
+</html>

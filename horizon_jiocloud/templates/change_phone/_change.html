@@ -1,0 +1,29 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}change_phone_modal{% endblock %}
+{% block form_action %}{% url 'horizon:settings:phone:index' %}{% endblock %}
+
+{% block modal_id %}change_phone_modal{% endblock %}
+{% block modal-header %}{% trans "Change Phone" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "From here you can change your phone number. " %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+    {% if request.session.show_sms_button %}
+        <a href="{% url 'horizon:settings:phone:sendSms' %}" class="btn btn-primary">Resend SMS</a>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">{% trans "Change" %}</button>
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<div class="jc-container">
+	<ul id="menu" class="ui-menu">
+		<li><a href="{% url 'features' %}">Features</a>
+			<ul>
+				<li class="first"><a href="{% url 'compute' %}">Jio Servers</a></li>
+				<li><a href="{% url 'object-store' %}">Jio Files</a></li>
+				<li><a href="{% url 'block-store' %}">Jio Disks</a></li>
+			</ul>
+		</li>
+		<li><a href="{% url 'documentation' %}">Documentation</a>
+			<ul>
+				<li class="first"><a href="{%url 'api_documentation' %}">API Documentation</a></li>
+				<li><a href="{% url 'starter-guide' %}">Starter Guide</a></li>
+				<li><a href="{% url 'faqs' %}">FAQs</a></li>
+			</ul>
+		</li>
+	</ul>
+	<div class="jc-credentials">
+		{% if request.user.is_authenticated %}
+                        Logged in as: 
+                        <a href="{% url 'horizon:settings:user:index' %}">{{ request.session.display_name }}</a>
+			<a class="login" href="{%url 'horizon:project:overview:index' %}">Dashboard</a>
+			<a class="sign-up" href="{% url 'logout' %}">Sign Out</a>
+		{% else %}
+			<a class="login" href="{% url 'login' %}">Login</a>
+			<a class="sign-up" href="{% url 'signup' %}">Sign Up</a>
+		{% endif %}
+
+	</div>
+</div>

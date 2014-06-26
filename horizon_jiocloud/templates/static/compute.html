@@ -1,0 +1,166 @@
+{% extends "static/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Jio Servers" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+<div id="features">
+<h1>Products that take away your grunt work</h1>
+<div style="height:40px"></div>
+<h2> Jio Servers </h2>
+<div style="height:25px"></div>
+<p>
+<div class="center-content">
+ Your ideas. Our resources.
+ <div style="height:15px"></div>
+  The first thing you need before you start building your application is a server.
+ <br/> 
+ <div style="height:15px"></div>
+ We enable you to set one up in just a few seconds.
+ <br/>
+ <div style="height:15px"></div>
+ All you need to do is select a server template, an Operating System, and you have your own server with root access. 
+</div>
+
+<div style="height:50px"></div>
+<div class="center-content">
+<a class="login loginbtn" href="{% url 'horizon:project:overview:index' %}">
+  Ready to ship your product?
+</a>
+</div>
+<div style="height:50px"></div>
+
+<div style="center-content">
+<img src="/static/images/deliver.jpg" alt="Ready to ship your content?"/>
+</div>
+
+<div style="height:50px"></div>
+
+<div style="center-content">
+<h3>Jio Server Templates</h3>
+<table width="100%" cellpadding="0" cellspacing="0" border="1">
+	<tr>
+		<th class="first">&nbsp;</th>
+		<th>Memory</th>
+		<th>CPUs</th>
+		<th>Root Disk</th>
+		<th>Platform (Bit)</th>
+	</tr>
+	<tr>
+		<td class="first">Tiny</td>
+		<td>512 MB</td>
+		<td>1</td>
+		<td>40 GB</td>
+		<td>64</td>
+	</tr>
+	<tr>
+		<td class="first">Small</td>
+		<td>2 GB</td>
+		<td>2</td>
+		<td>180 GB</td>
+		<td>64</td>
+	</tr>
+	<tr>
+		<td class="first">Medium</td>
+		<td>4 GB</td>
+		<td>4</td>
+		<td>180 GB</td>
+		<td>64</td>
+	</tr>
+	<tr>
+		<td class="first">Large</td>
+		<td>8 GB</td>
+		<td>8</td>
+		<td>340 GB</td>
+		<td>64</td>
+	</tr>
+	<tr>
+		<td class="first">X Large</td>
+		<td>16 GB</td>
+		<td>8</td>
+		<td>660 GB</td>
+		<td>64</td>
+	</tr>
+	<tr>
+		<td class="first">2X Large</td>
+		<td>32 GB</td>
+		<td>8</td>
+		<td>1300 GB</td>
+		<td>64</td>
+	</tr>
+	<tr>
+		<td class="first">4X Large</td>
+		<td>64 GB</td>
+		<td>16</td>
+		<td>1300 GB</td>
+		<td>64</td>
+	</tr>
+</table>
+</div>
+
+<h3>Operating Systems</h3>
+<div class="os-row">
+   <div class="os-logo">
+     <img src="/static/images/jio-logo.png"/>
+   </div>
+   <ul class="two-columns">
+     <li>Ubuntu 12.04</li>
+     <li>Ubuntu 12.10</li>
+     <li>Ubuntu 13.04</li>
+     <li>Ubuntu 13.10</li>
+   </ul>
+</div>
+<br/>
+<div class="os-row">
+  <div class="os-logo">
+    <img src="/static/images/jio-logo.png"/>
+  </div>
+  <ul class="two-columns">
+    <li>CentOS 6.0</li>
+    <li>CentOS 6.04</li>
+  </ul>
+</div>
+<br/>
+<div class="os-row">
+  <div class="os-logo">
+    <img src="/static/images/jio-logo.png"/>
+  </div>
+  <ul class="two-columns">
+    <li>Windows Server</li>
+  </ul>
+</div>
+<h3>Advantage Jio Cloud</h3>
+
+<div style="height:15px"></div>
+
+<div class="center-content">
+We only build products that take away your grunt work, and free up your time and energy to focus on things that add value to your customers.
+
+<div style="height:20px"></div>
+
+<table>
+<tr>
+<td>
+<div class="feature-name">Scale Automatically</div>
+<div style="height:10px"></div>
+We take away your need for capacity planning and enable your application to grow or shrink on demand.
+</td>
+<td>
+<div class="feature-name">Zero Lock-in</div>
+<div style="height:10px"></div>
+If you ever find the need to use a different cloud service provider (but why would you?), you can do so without any change to your application as we support OpenStack and AWS APIs.
+</td>
+<td>
+<div class="feature-name">Pay per use</div>
+<div style="height:10px"></div>
+You only make money from the resources that you use. So we only charge you for what you use.
+</td>
+</tr>
+</table>
+</div>
+
+{% endblock %}
+
+

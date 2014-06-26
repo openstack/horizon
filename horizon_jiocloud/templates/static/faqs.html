@@ -1,0 +1,193 @@
+{% extends "static/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Faqs" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+    $(document).ready(function(event) {
+        $("#faqs #accordion").accordion({
+            collapsible: true,
+            heightStyle: "content"
+        });
+    });
+</script>
+                                <div id="faqs">
+                                    <div id="accordion">
+
+                                        <h3>General</h3>
+                                        <div class="general">
+                                            <ul>
+                                                <li>
+                                                    <h4>Who can use Jio Cloud?</h4>
+                                                    <p>Jio Cloud is a platform for developers who wish to launch and scale their applications quickly and with minimal expenditure. Jio Cloud is the ideal platform to bring start-up ideas to life with zero capital expenditure.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Why should I use Jio Cloud?</h4>
+                                                    <p>Jio Cloud is India's biggest public cloud and has all its data centres in India. This provides very low latency to your applications. Additionally, Jio Cloud offers the cheapest rates in the industry, while at the same time offering the best SLA's.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Do your offer DNS as a Service?</h4>
+                                                    <p>Jio Cloud does not offer a DNS as a service at the moment.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What kind of virtualization technologies does Jio Cloud use?</h4>
+                                                    <p>Jio Cloud uses OpenStack as the underlying software for the IaaS, and KVM as the hypervisor.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>How do I get started with Jio Cloud?</h4>
+                                                    <p>You can sign up for an account on the website. You will immediately be able to login to the dashboard and create instances, volumes and objects. For further help on how to make use of these features for your application, refer to the Jio Cloud Starter Guide.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Why should I verify my phone number while signing up?</h4>
+                                                    <p>Jio Cloud would like to have a valid phone number and e-mail address for every customer, in case they need to be contacted. You will not receive any promotional calls or messages on your phone. The verification is extremely simple. All you need to do is enter a code sent to your number via text message.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What can I do with Jio Cloud instances?</h4>
+                                                    <p>Please refer to our starter guide to get a brief introduction to how you can make use of Jio Cloud instances for a variety of use cases.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What should I do if I forget my Jio Cloud account credentials?</h4>
+                                                    <p>Please send a mail to <a href="mailto:jiocloud.support@ril.com">jiocloud.support@ril.com</a> and a new password will be generated and sent to your registered e-mail address.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <h3>Technical</h3>
+                                        <div class="technical">
+                                            <uL>
+                                                <li>
+                                                    <h4>How do I take backups?</h4>
+                                                    <p>Jio Cloud allows you to take snapshots of your instances and volumes at any time you wish. Once a snapshot is taken, it is stored in the Object Store where three replicas are stored to ensure a backup copy exists in case a copy is lost.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>How do I make use of APIs?</h4>
+                                                    <p>Please refer to the API documentation guide to understand how APIs are used, what the input parameters are and what the expected response codes are.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Will I have console access to my instance?</h4>
+                                                    <p>Yes, Jio Cloud provides you console access to your instances through the Dashboard.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What is the difference between local storage and block storage?</h4>
+                                                    <p>Local storage physically resides on the same server as your virtual machine. It is ephemeral storage and will be wiped upon termination of your virtual machine. Whereas, Jio Cloud Block Store is a persistent storage and your data in it will continue to exist even after your virtual machine is terminated, and can be used later with new virtual machines.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>How long does it take to launch an instance?</h4>
+                                                    <p>It may take up to 50 seconds to launch a new instance.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>How quickly can I scale my capacity up and down?</h4>
+                                                    <p>While Jio Cloud allows you to scale your capacity up and down, the speed depends on various factors like size of the server, time of the day, data and software to be installed on scaling up, etc. Scaling down can take longer than scaling up because the system needs to consolidate and copy data to a smaller size, clean up unused old logs/sessions files to help resize timings, etc. The peak times are start and end of any business day.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What OS environments does Jio Cloud support?</h4>
+                                                    <p>Jio Cloud currently supports Ubuntu, Windows and CentOS. You can contact Jio Cloud support if you wish to use any other OS.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>How many public IP addresses can I use?</h4>
+                                                    <p>You are currently limited to 10 public IP addresses. You can contact Jio Cloud support if you wish to use more public IPs.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What happens to my data when a system terminates?</h4>
+                                                    <p>When your instance is terminated, all data in the local storage will be wiped. However, the data in your Block Store and Object Store will be available for use at a later time.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Can I attach multiple instances to a single volume?</h4>
+                                                    <p>Jio Cloud currently does not allow you to attach multiple instances to a single volume.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Can I use my existing Windows Server license with Jio Cloud?</h4>
+                                                    <p>Absolutely, Jio Cloud allows you to use your own Windows license.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Can I use my existing RHEL license with Jio Cloud?</h4>
+                                                    <p>Absolutely, Jio Cloud allows you to use your own RHEL license.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What if my Jio Cloud instance is malfunctioning/not responding?</h4>
+                                                    <p>If you ever face this situation, please contact us at <a href="mailto:jiocloud.support@ril.com">jiocloud.support@ril.com</a> and our excellent support team will sort out the issue as quickly as possible.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Can I re-size my instance?</h4>
+                                                    <p>Jio Cloud does not allow you to re-size your instance. However, Jio Cloud makes it very easy to scale horizontally.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Is there any limitation on single file transfer size?</h4>
+                                                    <p>Jio Cloud does not add any limit on the size of a file for transfer.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Is FTP allowed to Jio Cloud?</h4>
+                                                    <p>Jio Cloud provides you complete access to your instances. Hence, FTP access is allowed as well.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Does Jio Cloud support live migration?</h4>
+                                                    <p>Jio Cloud does not allow users to live migrate their instances from one physical server to another. However, the Jio Cloud admins have the ability to do that for maintenance of physical servers.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h3>Security</h3>
+                                        <div class="security">
+                                            <ul>
+                                                <li>
+                                                    <h4>How do I prevent other people from viewing my systems?</h4>
+                                                    <p>By default, all your Jio Cloud instances and storage are visible only to you. However, you can make your files stored in the Jio Cloud Object Store public and allow others access to it.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Does Jio Cloud offer encryption on Block Storage?</h4>
+                                                    <p>Unless the client encrypts data prior to transmission, Jio Cloud does not perform any encryption before storing it. Users must select and perform the type and level of encryption best suited for their application.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What level of support is provided by Jio Cloud?</h4>
+                                                    <p>Jio Cloud provides a 24x7 support for any query you might have. Jio Cloud guarantees a response within three hours of logging the request.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Can I protect my instances with firewalls?</h4>
+                                                    <p>Jio Cloud enables you to create security groups which will determine what ports need to be active and what ports need to be closed, allowing you to add a layer of security to your applications.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>Can Jio Cloud lose my data?</h4>
+                                                    <p>Jio Cloud will guarantee data durability as per committed SLAs.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>How does Jio Cloud secure my data?</h4>
+                                                    <p>Jio Cloud doesn't encrypt user data but it takes various measures to ensure your data is kept safe. All traffic between clients and Jio Cloud systems use SSL to establish a secure, encrypted communication channel. The Jio Cloud Identity service ensures that users authenticate with their login credentials (username/password) and access keys to generate a session authentication token. These authentication tokens are used to validate all operations on Jio Cloud.</p>
+                                                </li>
+                                                <li>
+                                                    <h4>What should I do if I lose my private key?</h4>
+                                                    <p>Jio Cloud does not store your private keys. If you forget your paraphrase, you cannot restore your data. Please contact Jio Cloud support to help you reset your keys.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+										<h3>Support</h3>
+										<div class="support">
+										  <ul>
+											<li>
+											  <h4>How do I contact the Jio Cloud support?</h4>
+											  <p>We want to ensure that you get swift and specific solutions to the problems you face.
+												 <p>For operational issues, contact <a href="mailto:cloud.devops@ril.com">cloud.devops@ril.com</a>.</p>
+												 <p>For other queries regarding the architecture and on-boarding of applications, contact <a href="mailto:jiocloud.support@ril.com">jiocloud.support@ril.com</a>.</p>
+												 <p>You can also contact us via phone between 9:30am and 6:30pm from Monday to Friday on +91 22 447 87888.</p>
+											  </p>
+											</li>
+											<li>
+											  <h4>What are the SLAs offered for any tickets raised?</h4>
+											  <p>While we want to ensure uninterrupted services and constant and quick support to meet all your needs, we will not currently offer SLAs for ticket resolution. We will acknowledge any issue raised within 30 minutes of it being raised.
+											  </p>
+											</li>
+											<li>
+											  <h4>Who do I escalate to if I do not get a response to my ticket?</h4>
+											  <p>If you do not get a response within 24 hours, you may escalate to the following people:</p>
+												 <p>Level 1: Sanjeev Jaiswal – <a href="mailto:sanjeev.jaiswal@ril.com">sanjeev.jaiswal@ril.com</a></p>
+												 <p>Level 2: Valliappan Letchumanan – <a href="mailto:valliappan.letchumanan@ril.com">valliappan.letchumanan@ril.com</a></p>
+												 <p>Level 3: Nagappan Arunachalam – <a href="mailto:nagappan.arunachalam@ril.com">nagappan.arunachalam@ril.com</a>
+											  </p>
+											</li>
+										  </ul>
+										</div>
+                                    </div>
+
+
+{% endblock %}
+

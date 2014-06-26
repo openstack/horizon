@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+{% load branding i18n %}
+{% load staticfiles %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>{% block title %} {{title}} - {% site_branding %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/jc-signup.css" %}"/>
+	<script type="text/javascript"
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<!--
+	<script type="text/javascript"
+		src="{% static "js/jquery.min.js" %}"></script>
+	<script type="text/javascript"
+		src="{% static "js/jquery-ui.js" %}"></script>
+	-->
+	<script type="text/javascript" src="{% static "//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jc-script.js" %}"></script> 
+	<script type="text/javascript" src="{% static "js/jc-signup.js" %}"></script>
+	<link rel="shortcut icon" href="{% static "images/jio-logo.png" %}"/>
+
+</head>
+<body>
+<div id="jc-wrapper">
+
+	<section>
+		<div id="section" class="section">
+			<article>
+				<div id="article" class="article">
+					<div class="page-content">
+						<div class="jc-container">
+							<div class="main-content">
+								{% block content %}
+								{% endblock %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+
+</div>
+</body>
+</html>

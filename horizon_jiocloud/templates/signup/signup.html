@@ -1,0 +1,82 @@
+
+{% extends "signup/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "Register" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+			<div id="jcForms">
+				<div class="modal-header">
+    					<h3 title="Jio Cloud">Jio Cloud</h3>
+				</div>
+
+				{% if form.non_field_errors %}
+				  <div class="alert alert-message alert-error">
+				    {{ form.non_field_errors }}
+				  </div>
+				{% endif %}
+
+				<form method="post" action="{% url 'horizon_jiocloud:signup' %}" id="jcRegistrationFrm" name="jcRegistrationFrm">
+					{% csrf_token %}
+					<ul>
+
+						<li>
+
+							<div class="fname">
+								<span class="error">{{ form.first_name.errors }}</span>
+								{{ form.first_name }}
+							</div>
+						</li>
+
+						<li>
+
+							<div class="email">
+								<span class="error">{{ form.email.errors }}</span>	
+								{{ form.email }}
+							</div>
+						</li>
+
+						<li>
+							<div class="password">
+								<span class="error">{{ form.password.errors }}</span>
+								{{ form.password }}
+							</div>
+						</li>
+
+						<li>		
+							<div class="phone">
+								<span class="error">{{ form.phone.errors }}</span>
+								{{ form.phone }}
+							</div>
+						</li>
+
+						<li>
+							<div class="captcha">
+								<span class="error">{{ form.captcha.errors }}</span>
+								{{ form.captcha }}
+								
+							</div>
+						</li>
+
+						<li>
+							<div class="jcRegistrationSubmit">
+								<input type="submit" class="submit" name="submit" value="Register" />
+							</div>
+						</li>
+							
+						<li>
+							<div class="login-user">
+						    		<a href="{% url 'login' %}">Sign in</a>
+  							</div>
+						</li>
+					</ul>
+
+				</form>
+
+			</div>
+
+
+{% endblock %}
+

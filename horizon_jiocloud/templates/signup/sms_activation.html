@@ -1,0 +1,49 @@
+
+{% extends "signup/base.html" %}
+
+{% load branding i18n %}
+
+{% block title %} {% trans "SignUp" %} - {% site_branding %}{% endblock %}
+
+{% block content %}
+
+			<div id="jcForms">
+				<div class="modal-header">
+    					<h3 title="Jio Cloud">Jio Cloud</h3>
+				</div>
+				<h2>Activate Account</h2>
+
+				{% if form.non_field_errors %}
+				  <div class="alert alert-message alert-error">
+				    {{ form.non_field_errors }}
+				  </div>
+				{% endif %}
+
+				<form method="post" action="{% url 'horizon_jiocloud:user_sms_activation' user_id %}" id="jcRegistrationFrm" name="jcRegistrationFrm">
+					{% csrf_token %}
+					<ul>
+
+						<li>
+
+							<div class="left fname">
+								<span class="error">{{ form.code.errors }}</span>
+								{{ form.code }}
+								{{ form.user_id }}
+							</div>
+						</li>
+
+						<li>
+							<div class="jcRegistrationSubmit">
+								<input type="submit" class="submit" name="submit" value="Submit" />
+							</div>
+
+						</li>
+					</ul>
+
+				</form>
+
+			</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+{% load branding i18n %}
+{% load staticfiles %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title> {% trans "Starter Guide Documentation" %} - {% site_branding %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/jc-style.css" %}"/>
+  
+	<script type="text/javascript"
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
+	<script type="text/javascript" src="{% static "js/jc-script.js" %}"></script>
+	<link rel="shortcut icon" href="{% static "images/jio-logo.png" %}"/>
+	<script type="text/javascript">
+		$(document).ready(function(event) {
+			$("#menu").menu();
+		});
+	</script>
+</head>
+<body>
+<div id="jc-wrapper">
+	<header>
+		<div id="header" class="header">
+                            {% block header %}
+                                 {% include "common/header.html" %}
+                            {% endblock %}
+
+		</div>
+		<nav>
+			<div id="nav" class="nav">
+                                            {% block leftnav %}
+                                                 {% include "home/nav.html" %}
+                                            {% endblock %}
+
+			</div>
+		</nav>
+	</header>
+	<section>
+		<div id="section" class="section">
+			<article>
+				<div id="article" class="article">
+					<div class="page-content">
+						<div class="jc-container">
+								<div id="starter-guide">
+									<h3>Starter Guide</h3>
+									<iframe width="970" height="600" allowtransparency="yes" src={%static "pdf/Starter Guide.pdf" %}>Your Browser doesn't support.</iframe>
+								</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<footer>
+		<div id="footer" class="footer">
+                            {% block footer %}
+                                 {% include "common/footer.html" %}
+                            {% endblock %}
+
+		</div>
+	</footer>
+</div>
+</body>
+</html>

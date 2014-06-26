@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<div class="jc-container">
+	<ul id="menu" class="ui-menu">
+		<li><a href="{% url 'horizon:project:overview:index' %}">Public Cloud</a>
+		</li>
+		<li><a href="{% url 'documentation' %}">Private Cloud</a>
+			<ul>
+				<li class="first"><a href="{%url 'api_documentation' %}">Jio Private Cloud</a></li>
+				<li><a href="{% url 'starter-guide' %}">Jio-Cisco Private Cloud</a></li>
+			</ul>
+		</li>
+	</ul>
+	<div class="jc-credentials">
+		{% if request.user.is_authenticated %}
+			Logged in as: {{ request.user.username }}
+			<a class="sign-up" href="{% url 'logout' %}">Sign Out</a>
+		{% else %}
+			<a class="login" href="{% url 'login' %}">Login</a>
+			<a class="sign-up" href="{% url 'signup' %}">Sign Up</a>
+		{% endif %}
+
+	</div>
+</div>

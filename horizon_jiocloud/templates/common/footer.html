@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<div class="jc-container">
+	<div class="jc-footer">
+		<div class="jc-about">
+			<h4>About jioCloud</h4>
+			<ul>
+				<li><a href="{% url 'page_under_construction' %}">Cloud Computing - a utility</a></li>
+				<li><a href="mailto: jiocloud.support@ril.com">Contact Us</a></li>
+				<li style="display: none;"><a href="{% url 'page_under_construction' %}">Careers - We're hiring!</a></li>
+				<li style="display: none;"><a href="{% url 'page_under_construction' %}">Legal</a></li>
+			</ul>
+		</div>
+		<div class="jc-features">
+			<h4>Features</h4>
+			<ul>
+				<li><a href="{% url 'compute' %}">Jio Servers</a></li>
+				<li><a href="{% url 'object-store' %}">Jio Files</a></li>
+				<li><a href="{% url 'block-store' %}">Jio Disks</a></li>
+			</ul>
+		</div>
+		<div class="jc-resources">
+			<h4>Resources</h4>
+			<ul>
+				<li><a href="{% url 'api_documentation' %}">API Documentation</a></li>
+				<li><a href="{% url 'starter-guide' %}">Starter Guide</a></li>
+				<li><a href="{% url 'faqs' %}">FAQs</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="jc-copyright">&copy; 2014 Reliance Jio Infocomm Limited</div>
+</div>

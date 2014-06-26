@@ -1,0 +1,228 @@
+/*
+ * @author  :  Maninder Rajpal
+ * @email   :  Maninder.Rajpal@ril.com
+*/
+
+/*------------------------Start of Reset Styles------------------------*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,figure {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+}
+
+ol,ul {
+        list-style: none;
+}
+
+blockquote,q {
+        quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+        content: '';
+        content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+        outline: 0;
+}
+/* remember to highlight inserts somehow! */
+ins {
+        text-decoration: none;
+}
+
+del {
+        text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+
+article,aside,footer,header,hgroup,nav,section,figure {
+        display: block;
+}
+cite, em {
+        font-style: normal;
+}
+/*------------------------End of Reset Styles------------------------*/
+
+#jcForms {
+        display: block;
+        margin: 80px auto 0;
+
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 20px;
+        background: url(/static/images/form-bg.png) repeat-x bottom #F7F5F5;
+        color: #000;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        padding: 55px;
+        width: 320px;
+        height: auto;
+        font-weight: bold;
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+#jcForms .modal-header {
+        padding: 0 0 45px;
+}
+#jcForms .modal-header h3 {
+        background: url(/static/images/jc-logo.png) no-repeat center;
+        height: 61px;
+        padding: 0;
+        text-indent: -9999em;
+}
+#jcForms h2, #jcForms h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        padding-bottom: 20px;
+}
+#jcForms #jcFormsFrm {
+        float: left;
+        margin: 0 5px;
+}
+#jcForms ul {
+}
+#jcForms ul li {
+        padding-bottom: 5px;
+        width: 100%;
+}
+#jcForms ul li div {
+}
+#jcForms ul li div.left {
+        float: left;
+        margin-right: 10px;
+}
+#jcForms ul li div.right {
+        float: right;
+}
+#jcForms ul li a {
+        color: #3593CB;
+        text-decoration: underline;
+}
+/*#jcForms label {
+        padding-bottom: 5px;
+        display: inline-block;
+}*/
+#jcForms label {
+    color: #555555;
+    font-weight: bold;
+    text-align: left;
+    font-size: 13px;
+}
+
+#jcForms input.error, #jcForms select.error, #jcForms .error input  {
+        border: 1px solid #ff0000;
+}
+#jcForms input.valid, #jcForms select.valid {
+        border: 1px solid #3593CB;
+}
+#jcForms label.error, #jcForms .help-inline, #jcForms .alert-error, #jcForms span.error {
+        color: #D61F27;
+        font-size: 11px;
+        padding: 5px 0 0;
+        display: block;
+        font-weight: normal;
+}
+#jcForms .alert-error {
+        padding: 0;
+}
+#jcForms input, #jcForms select {
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+        color: #555555;
+        font-size: 13px;
+        line-height: 18px;
+        height: 28px;
+        width: 300px;
+        padding: 9px;
+}
+#jcForms .submit, #jcForms .btn-primary {
+        background-color: #D61F27;
+        text-align: center;
+        padding: 10px 0;
+        height: 40px;
+        text-transform: uppercase;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        border: 0;
+        margin-top: 20px;
+        color: #fff;
+}
+#jcForms ul li .jcRegistrationSubmit {
+}
+#jcForms .login-user {
+	padding: 13px 0 0 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+#jcForms .login-user a {
+	background: #525252;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	text-decoration: none;
+	font-size: 13px;
+}
+#jcForms .captcha {
+        margin: 15px auto 0;
+}
+#jcForms #recaptcha_widget_div {
+        width: 318px;
+        margin: 0 auto;
+}
+#jcForms .recaptchatable #recaptcha_image {
+        width: 210px !important;
+}
+#jcForms .recaptchatable .recaptcha_image_cell center img {
+        width: 255px;
+}
+#jcForms .recaptcha_only_if_privacy {
+        display: none;
+}
+
+
+
+input, textarea {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -ms-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+input:focus, textarea:focus {
+  border-color: rgba(82,168,236,.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  outline: 0;
+  outline: thin dotted \9;
+}
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus,
+select:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: thin dotted #333333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/*----------End of Sign up--------*/
+
