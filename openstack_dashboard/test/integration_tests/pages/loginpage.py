@@ -30,7 +30,7 @@ class LoginPage(pageobject.PageObject):
         self._page_title = "Login"
 
     def is_login_page(self):
-        return self.is_the_current_page and \
+        return self.is_the_current_page() and \
             self.is_element_visible(*self._login_submit_button_locator)
 
     @property
