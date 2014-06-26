@@ -3,6 +3,7 @@ Django>=1.4,<1.7
 django_compressor>=1.4
 django_openstack_auth>=1.1.4
 eventlet>=0.13.0
+httplib2>=0.7.5
 iso8601>=0.1.9
 kombu>=2.4.8
 lesscpy>=0.9j
