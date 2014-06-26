@@ -111,6 +111,21 @@ class CreateBackup(tables.LinkAction):
         return url + "?instance=%s" % datam.id
 
 
+class ResizeVolume(tables.LinkAction):
+    name = "resize_volume"
+    verbose_name = _("Resize Volume")
+    url = "horizon:project:databases:resize_volume"
+    classes = ("ajax-modal", "btn-resize")
+
+    def allowed(self, request, instance=None):
+        return ((instance.status in ACTIVE_STATES
+                 or instance.status == 'SHUTOFF'))
+
+    def get_link_url(self, datum):
+        instance_id = self.table.get_object_id(datum)
+        return urlresolvers.reverse(self.url, args=[instance_id])
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -169,7 +184,9 @@ class InstancesTable(tables.DataTable):
         row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance)
         row_actions = (CreateBackup,
-                       RestartInstance, TerminateInstance)
+                       ResizeVolume,
+                       RestartInstance,
+                       TerminateInstance)
 
 
 class UsersTable(tables.DataTable):

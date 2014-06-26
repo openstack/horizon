@@ -73,6 +73,10 @@ def instance_create(request, name, volume, flavor, databases=None,
         nics=nics)
 
 
+def instance_resize_volume(request, instance_id, size):
+    return troveclient(request).instances.resize_volume(instance_id, size)
+
+
 def instance_backups(request, instance_id):
     return troveclient(request).instances.backups(instance_id)
 
