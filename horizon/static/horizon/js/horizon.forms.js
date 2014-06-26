@@ -211,13 +211,12 @@ horizon.addInitFunction(function () {
 
   // Apply standard handler for everything but checkboxes.
   $(document).tooltip({
-    selector: "div.form-field :input:not(:checkbox)",
+    selector: "div.form-field .help-icon",
     placement: function (tip, input) {
       // Position to the right unless this is a "split" for in which case put
       // the tooltip below so it doesn't block the next field.
       return $(input).closest("form[class*='split']").length ? "bottom" : 'right';
     },
-    trigger: 'focus',
     title: function () {
       return $(this).closest('div.form-field').children('.help-block').text();
     }
