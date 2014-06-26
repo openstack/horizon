@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-23 13:20-0500\n"
-"PO-Revision-Date: 2014-06-20 15:20+0000\n"
+"POT-Creation-Date: 2014-06-24 04:51-0500\n"
+"PO-Revision-Date: 2014-06-25 12:51+0000\n"
 "Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -2057,7 +2057,7 @@ msgstr "选择要迁移的目的主机"
 
 #: dashboards/admin/instances/forms.py:34
 msgid "Disk Over Commit"
-msgstr "磁盘超售"
+msgstr "允许磁盘超量"
 
 #: dashboards/admin/instances/forms.py:36
 msgid "Block Migration"
