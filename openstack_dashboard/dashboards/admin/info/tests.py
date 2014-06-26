@@ -32,6 +32,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
     def test_index(self):
         services = self.services.list()
         api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'agent').AndReturn(True)
         agents = self.agents.list()
         api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn(agents)
 
@@ -84,6 +86,8 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    IgnoreArg()).AndReturn({})
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'agent').AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
 
         self.mox.ReplayAll()
@@ -128,9 +132,12 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
 
         if neutron_enabled:
             self.mox.StubOutWithMock(api.neutron, 'agent_list')
+            self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
+            api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                               'agent').AndReturn(True)
+
             api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn([])
 
-            self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
             api.neutron.is_extension_supported(IsA(http.HttpRequest),
                             'security-group').AndReturn(neutron_sg_enabled)
 
