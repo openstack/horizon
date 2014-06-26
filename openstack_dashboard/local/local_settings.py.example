@@ -381,19 +381,19 @@ LOGGING = {
 # It is specified in the form.
 SECURITY_GROUP_RULES = {
     'all_tcp': {
-        'name': 'ALL TCP',
+        'name': _('All TCP'),
         'ip_protocol': 'tcp',
         'from_port': '1',
         'to_port': '65535',
     },
     'all_udp': {
-        'name': 'ALL UDP',
+        'name': _('All UDP'),
         'ip_protocol': 'udp',
         'from_port': '1',
         'to_port': '65535',
     },
     'all_icmp': {
-        'name': 'ALL ICMP',
+        'name': _('All ICMP'),
         'ip_protocol': 'icmp',
         'from_port': '-1',
         'to_port': '-1',
