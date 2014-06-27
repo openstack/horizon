@@ -1,10 +1,10 @@
 {% load shellfilter %}
 #!/bin/bash
 
-# With the addition of Keystone, to use an openstack cloud you should
-# authenticate against keystone, which returns a **Token** and **Service
-# Catalog**.  The catalog contains the endpoint for all services the
-# user/tenant has access to - including nova, glance, keystone, swift.
+# To use an Openstack cloud you need to authenticate against keystone, which
+# returns a **Token** and **Service Catalog**.  The catalog contains the
+# endpoint for all services the user/tenant has access to - including nova,
+# glance, keystone, swift.
 #
 # *NOTE*: Using the 2.0 *auth api* does not mean that compute api is 2.0.  We
 # will use the 1.1 *compute api*
@@ -23,3 +23,9 @@ export OS_USERNAME="{{ user.username|shellfilter }}"
 echo "Please enter your OpenStack Password: "
 read -sr OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
+
+# If your configuration has multiple regions, we set that information here.
+# OS_REGION_NAME is optional and only valid in certain environments.
+export OS_REGION_NAME="{{ region|shellfilter }}"
+# Don't leave a blank variable, unset it if it was empty
+if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
