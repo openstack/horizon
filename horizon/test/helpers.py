@@ -32,7 +32,6 @@ from django import test as django_test
 from django.test.client import RequestFactory  # noqa
 from django.utils.encoding import force_unicode
 from django.utils import unittest
-import xvfbwrapper
 
 LOG = logging.getLogger(__name__)
 
@@ -40,6 +39,7 @@ LOG = logging.getLogger(__name__)
 try:
     from horizon.test.webdriver import WebDriver  # noqa
     from selenium.webdriver.support import ui as selenium_ui
+    import xvfbwrapper  # Only needed when running the Selenium tests headless
 except ImportError as e:
     # NOTE(saschpe): Several distribution can't ship selenium due to its
     # non-free license. So they have to patch it out of test-requirements.txt
