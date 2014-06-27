@@ -63,7 +63,7 @@
           <span class="table_count">{% blocktrans count counter=rows|length %}Displaying {{ counter }} item{% plural %}Displaying {{ counter }} items{% endblocktrans %}</span>
           {% if table.has_more_data %}
           <span class="spacer">|</span>
-          <a href="?{{ table.get_pagination_string }}">More&nbsp;&raquo;</a>
+          <a href="?{{ table.get_pagination_string }}">{% trans "More&nbsp;&raquo;" %}</a>
           {% endif %}
         </td>
       </tr>
