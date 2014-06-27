@@ -507,6 +507,12 @@ FLAVOR_EXTRA_KEYS = {
         ('quota:cpu_period', _('Quota: CPU period')),
         ('quota:vif_inbound_average', _('Quota: Inbound average')),
         ('quota:vif_outbound_average', _('Quota: Outbound average')),
+        ('hw:cpu_sockets', _('Quota: CPU sockets')),
+        ('hw:cpu_cores', _('Quota: CPU cores')),
+        ('hw:cpu_threads', _('Quota: CPU threads')),
+        ('hw:cpu_max_sockets', _('Quota: Max CPU sockets')),
+        ('hw:cpu_max_cores', _('Quota: Max CPU cores')),
+        ('hw:cpu_max_threads', _('Quota: Max CPU threads')),
     ]
 }
 
