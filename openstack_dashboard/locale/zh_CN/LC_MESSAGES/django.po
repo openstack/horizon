@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-24 04:51-0500\n"
-"PO-Revision-Date: 2014-06-25 12:51+0000\n"
+"POT-Creation-Date: 2014-06-27 16:43-0500\n"
+"PO-Revision-Date: 2014-06-29 01:41+0000\n"
 "Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -59,6 +59,18 @@ msgstr "VHD"
 #: settings.py:93
 msgid "VMDK"
 msgstr "VMDK"
+
+#: settings.py:222
+msgid "All TCP"
+msgstr "所有TCP协议"
+
+#: settings.py:228
+msgid "All UDP"
+msgstr "所有UDP协议"
+
+#: settings.py:234
+msgid "All ICMP"
+msgstr "所有ICMP协议"
 
 #: api/ceilometer.py:736
 msgid "Unable to retrieve Ceilometer meterlist."
@@ -488,7 +500,7 @@ msgstr "服务停止"
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:808
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
-#: dashboards/project/instances/workflows/create_instance.py:76
+#: dashboards/project/instances/workflows/create_instance.py:77
 #: dashboards/project/volumes/volumes/forms.py:76
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:82
@@ -626,7 +638,7 @@ msgstr "添加/删除集合中的主机"
 #: dashboards/admin/domains/workflows.py:199
 #: dashboards/admin/flavors/workflows.py:263
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:25
-#: dashboards/admin/projects/workflows.py:494
+#: dashboards/admin/projects/workflows.py:497
 #: dashboards/project/instances/workflows/update_instance.py:134
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -882,7 +894,7 @@ msgstr "域ID"
 #: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
-#: dashboards/admin/projects/workflows.py:473
+#: dashboards/admin/projects/workflows.py:476
 #: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:139
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/tables.py:220
@@ -994,7 +1006,7 @@ msgstr "云主机类型"
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
 #: dashboards/project/databases/workflows/create_instance.py:31
 #: dashboards/project/instances/templates/instances/_detail_overview.html:46
-#: dashboards/project/instances/workflows/create_instance.py:82
+#: dashboards/project/instances/workflows/create_instance.py:83
 msgid "Flavor"
 msgstr "云主机类型"
 
@@ -1426,7 +1438,7 @@ msgstr "已移除"
 #: dashboards/admin/groups/tables.py:124 dashboards/admin/groups/tables.py:181
 #: dashboards/admin/users/tables.py:59 dashboards/admin/users/tables.py:102
 #: dashboards/project/databases/tables.py:64
-#: dashboards/project/instances/workflows/create_instance.py:50
+#: dashboards/project/instances/workflows/create_instance.py:51
 msgid "User"
 msgstr "用户"
 
@@ -1606,7 +1618,7 @@ msgstr "实例"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/instances/tables.py:791
-#: dashboards/project/instances/workflows/create_instance.py:79
+#: dashboards/project/instances/workflows/create_instance.py:80
 #: dashboards/project/overview/views.py:32 usage/tables.py:71
 msgid "Instance Name"
 msgstr "云主机名称"
@@ -1681,7 +1693,7 @@ msgstr "镜像"
 #: dashboards/project/images/images/tables.py:208
 #: dashboards/project/instances/tables.py:793
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
-#: dashboards/project/instances/workflows/create_instance.py:104
+#: dashboards/project/instances/workflows/create_instance.py:105
 msgid "Image Name"
 msgstr "镜像名称"
 
@@ -1952,7 +1964,7 @@ msgstr "浮动IP"
 #: dashboards/project/access_and_security/security_groups/tables.py:31
 #: dashboards/project/access_and_security/security_groups/tables.py:130
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:461
+#: dashboards/project/instances/workflows/create_instance.py:463
 #: dashboards/project/instances/workflows/update_instance.py:80
 msgid "Security Groups"
 msgstr "安全组"
@@ -2016,15 +2028,15 @@ msgstr "无法查询nova服务列表。"
 msgid "Unable to get cinder services list."
 msgstr "无法获取Cinder服务列表"
 
-#: dashboards/admin/info/tabs.py:94
+#: dashboards/admin/info/tabs.py:95
 msgid "Unable to get network agents list."
 msgstr "无法获取网络代理列表。"
 
-#: dashboards/admin/info/tabs.py:103
+#: dashboards/admin/info/tabs.py:104
 msgid "Default Quotas"
 msgstr "默认配额"
 
-#: dashboards/admin/info/tabs.py:113
+#: dashboards/admin/info/tabs.py:114
 msgid "Unable to get quota info."
 msgstr "无法得到配额信息。"
 
@@ -2036,7 +2048,7 @@ msgstr "无法获取版本信息"
 msgid "Reason"
 msgstr "原因"
 
-#: dashboards/admin/info/templates/info/index.html:15
+#: dashboards/admin/info/templates/info/index.html:14
 #, python-format
 msgid ""
 "Version: %(version_info)s\n"
@@ -2118,7 +2130,7 @@ msgstr "实例热迁移"
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
 #: dashboards/project/dashboard.py:61
 #: dashboards/project/images/images/tables.py:132
-#: dashboards/project/instances/workflows/create_instance.py:49
+#: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
 #: dashboards/router/nexus1000v/forms.py:194
 #: dashboards/router/nexus1000v/tables.py:60
@@ -2526,7 +2538,7 @@ msgstr "网络 %s 更新失败。"
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:555
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
 #: dashboards/project/networks/tables.py:126
@@ -2938,7 +2950,7 @@ msgid "Create Project"
 msgstr "创建项目"
 
 #: dashboards/admin/projects/tables.py:79
-#: dashboards/admin/projects/workflows.py:493
+#: dashboards/admin/projects/workflows.py:496
 msgid "Edit Project"
 msgstr "编辑项目"
 
@@ -3017,7 +3029,7 @@ msgid "Domain Name"
 msgstr "域名"
 
 #: dashboards/admin/projects/workflows.py:127
-#: dashboards/admin/projects/workflows.py:476
+#: dashboards/admin/projects/workflows.py:479
 msgid "Project Info"
 msgstr "项目信息"
 
@@ -3082,50 +3094,50 @@ msgstr "无法添加 %(users_to_add)s 项目成员%(group_msg)s 并设定项目�
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "无法添加 %s 项目组并更新项目配额。"
 
-#: dashboards/admin/projects/workflows.py:468
+#: dashboards/admin/projects/workflows.py:471
 msgid "Unable to set project quotas."
 msgstr "无法设置项目配额"
 
-#: dashboards/admin/projects/workflows.py:478
+#: dashboards/admin/projects/workflows.py:481
 msgid "From here you can edit the project details."
 msgstr "在这里您可以编辑项目详情"
 
-#: dashboards/admin/projects/workflows.py:495
+#: dashboards/admin/projects/workflows.py:498
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "已修改项目\"%s\""
 
-#: dashboards/admin/projects/workflows.py:496
+#: dashboards/admin/projects/workflows.py:499
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "无法修改项目\"%s\""
 
-#: dashboards/admin/projects/workflows.py:591
+#: dashboards/admin/projects/workflows.py:594
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "你无法从你目前登录的项目撤销你的管理员权限。请切换至其他有管理员权限的项目，或通过CLI手工移除管理员角色。"
 
-#: dashboards/admin/projects/workflows.py:626
+#: dashboards/admin/projects/workflows.py:629
 msgid ", update project groups"
 msgstr "，更新项目组"
 
-#: dashboards/admin/projects/workflows.py:629
+#: dashboards/admin/projects/workflows.py:632
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "无法修改 %(users_to_modify)s 项目成员%(group_msg)s 并更新项目配额。"
 
-#: dashboards/admin/projects/workflows.py:701
+#: dashboards/admin/projects/workflows.py:704
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "无法修改 %s 项目成员，更新项目组和项目配额。"
 
-#: dashboards/admin/projects/workflows.py:731
+#: dashboards/admin/projects/workflows.py:737
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -3317,7 +3329,7 @@ msgid "No available projects"
 msgstr "没有可用项目"
 
 #: dashboards/admin/users/forms.py:65 dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:511
+#: dashboards/project/instances/workflows/create_instance.py:513
 #: dashboards/settings/password/forms.py:46
 msgid "Passwords do not match."
 msgstr "密码不匹配。"
@@ -3487,7 +3499,7 @@ msgid "Databases"
 msgstr "数据库"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:469
+#: dashboards/project/instances/workflows/create_instance.py:471
 msgid "Access & Security"
 msgstr "访问 & 安全"
 
@@ -3707,7 +3719,7 @@ msgstr "无法导入密钥对。"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:25
 #: dashboards/project/instances/tables.py:800
-#: dashboards/project/instances/workflows/create_instance.py:446
+#: dashboards/project/instances/workflows/create_instance.py:448
 msgid "Key Pair"
 msgstr "值对"
 
@@ -4233,8 +4245,8 @@ msgstr "无法拷贝对象。"
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
 #: dashboards/project/containers/tables.py:263
-#: dashboards/project/containers/templates/containers/index.html:3
-#: dashboards/project/containers/templates/containers/index.html:7
+#: dashboards/project/containers/templates/containers/index.html:5
+#: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr "容器"
 
@@ -4633,7 +4645,7 @@ msgstr "可选备份描述"
 #: dashboards/project/database_backups/workflows/create_backup.py:40
 #: dashboards/project/databases/workflows/create_instance.py:39
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:129
+#: dashboards/project/instances/workflows/create_instance.py:130
 #: dashboards/project/loadbalancers/tables.py:278
 msgid "Details"
 msgstr "详情"
@@ -4649,14 +4661,14 @@ msgstr "已为备份\"%(name)s\"排期."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:66
 #: dashboards/project/databases/workflows/create_instance.py:154
-#: dashboards/project/instances/workflows/create_instance.py:661
+#: dashboards/project/instances/workflows/create_instance.py:663
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "无法启动%(count)s 名字 \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
 #: dashboards/project/databases/workflows/create_instance.py:167
-#: dashboards/project/instances/workflows/create_instance.py:677
+#: dashboards/project/instances/workflows/create_instance.py:679
 msgid "instance"
 msgstr "云主机"
 
@@ -4699,7 +4711,7 @@ msgstr "删除数据库实例错误"
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/instances/tables.py:216
 #: dashboards/project/instances/tables.py:243
-#: dashboards/project/instances/workflows/create_instance.py:658
+#: dashboards/project/instances/workflows/create_instance.py:660
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "启动云主机"
@@ -4869,7 +4881,7 @@ msgid "Edit Instance"
 msgstr "编辑云主机"
 
 #: dashboards/project/databases/workflows/create_instance.py:32
-#: dashboards/project/instances/workflows/create_instance.py:83
+#: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Size of image to launch."
 msgstr "要启动的镜像大小"
 
@@ -4927,13 +4939,13 @@ msgstr "无法找到备份！"
 
 #: dashboards/project/databases/workflows/create_instance.py:152
 #: dashboards/project/images/images/tables.py:34
-#: dashboards/project/instances/workflows/create_instance.py:659
+#: dashboards/project/instances/workflows/create_instance.py:661
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "运行"
 
 #: dashboards/project/databases/workflows/create_instance.py:153
-#: dashboards/project/instances/workflows/create_instance.py:660
+#: dashboards/project/instances/workflows/create_instance.py:662
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "启动了%(count)s 名称\"%(name)s\"."
@@ -5742,7 +5754,7 @@ msgstr "没有可用的控制台"
 
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:358
+#: dashboards/project/instances/workflows/create_instance.py:359
 msgid "Select Image"
 msgstr "选择一个镜像"
 
@@ -5755,28 +5767,28 @@ msgid "Confirm Rebuild Password"
 msgstr "确认重建密码"
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:628
+#: dashboards/project/instances/workflows/create_instance.py:630
 msgid "Disk Partition"
 msgstr "磁盘分区"
 
 #: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:360
+#: dashboards/project/instances/workflows/create_instance.py:361
 msgid "No images available"
 msgstr "没有可用镜像。"
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:638
+#: dashboards/project/instances/workflows/create_instance.py:640
 msgid "Automatic"
 msgstr "自动"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:639
+#: dashboards/project/instances/workflows/create_instance.py:641
 msgid "Manual"
 msgstr "手动"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:153
-#: dashboards/project/instances/workflows/create_instance.py:642
+#: dashboards/project/instances/workflows/create_instance.py:154
+#: dashboards/project/instances/workflows/create_instance.py:644
 msgid "Unable to retrieve extensions information."
 msgstr "无法获取扩展信息"
 
@@ -6028,7 +6040,7 @@ msgid "Block Device Mapping"
 msgstr "块设备映射"
 
 #: dashboards/project/instances/tables.py:714
-#: dashboards/project/instances/workflows/create_instance.py:575
+#: dashboards/project/instances/workflows/create_instance.py:577
 msgid "Networking"
 msgstr "网络"
 
@@ -6369,8 +6381,8 @@ msgid "on"
 msgstr "on"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
-#: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/instances/workflows/create_instance.py:99
+#: dashboards/project/instances/workflows/create_instance.py:337
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:58
@@ -6492,85 +6504,85 @@ msgstr "云主机详情"
 msgid "Instance Details: "
 msgstr "云主机详情："
 
-#: dashboards/project/instances/workflows/create_instance.py:64
+#: dashboards/project/instances/workflows/create_instance.py:65
 msgid "Project & User"
 msgstr "项目 & 用户"
 
-#: dashboards/project/instances/workflows/create_instance.py:85
+#: dashboards/project/instances/workflows/create_instance.py:86
 msgid "Instance Count"
 msgstr "云主机数量"
 
-#: dashboards/project/instances/workflows/create_instance.py:88
+#: dashboards/project/instances/workflows/create_instance.py:89
 msgid "Number of instances to launch."
 msgstr "启动云主机的个数"
 
-#: dashboards/project/instances/workflows/create_instance.py:90
+#: dashboards/project/instances/workflows/create_instance.py:91
 msgid "Instance Boot Source"
 msgstr "云主机启动源 "
 
-#: dashboards/project/instances/workflows/create_instance.py:92
+#: dashboards/project/instances/workflows/create_instance.py:93
 msgid "Choose Your Boot Source Type."
 msgstr "选择你的启动源的类型"
 
-#: dashboards/project/instances/workflows/create_instance.py:95
+#: dashboards/project/instances/workflows/create_instance.py:96
 msgid "Instance Snapshot"
 msgstr "云主机快照"
 
-#: dashboards/project/instances/workflows/create_instance.py:100
+#: dashboards/project/instances/workflows/create_instance.py:101
 #: dashboards/project/volumes/snapshots/tables.py:44
 msgid "Volume Snapshot"
 msgstr "云硬盘快照"
 
-#: dashboards/project/instances/workflows/create_instance.py:111
+#: dashboards/project/instances/workflows/create_instance.py:112
 msgid "Device size (GB)"
 msgstr "设备大小(GB)"
 
-#: dashboards/project/instances/workflows/create_instance.py:113
+#: dashboards/project/instances/workflows/create_instance.py:114
 msgid "Volume size in gigabytes (integer value)."
 msgstr "云硬盘大小(GB, 整数)"
 
-#: dashboards/project/instances/workflows/create_instance.py:116
+#: dashboards/project/instances/workflows/create_instance.py:117
 #: dashboards/project/volumes/volumes/forms.py:366
 msgid "Device Name"
 msgstr "设备名称"
 
-#: dashboards/project/instances/workflows/create_instance.py:119
+#: dashboards/project/instances/workflows/create_instance.py:120
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr "云硬盘挂载点 (例如，'vda' 挂载到 '/dev/vda')."
 
-#: dashboards/project/instances/workflows/create_instance.py:122
+#: dashboards/project/instances/workflows/create_instance.py:123
 msgid "Delete on Terminate"
 msgstr "终止后删除"
 
-#: dashboards/project/instances/workflows/create_instance.py:125
+#: dashboards/project/instances/workflows/create_instance.py:126
 msgid "Delete volume on instance terminate"
 msgstr "终止云主机后删除云硬盘"
 
-#: dashboards/project/instances/workflows/create_instance.py:140
+#: dashboards/project/instances/workflows/create_instance.py:141
 msgid "Select source"
 msgstr "选择源"
 
-#: dashboards/project/instances/workflows/create_instance.py:141
+#: dashboards/project/instances/workflows/create_instance.py:142
 msgid "Boot from image"
 msgstr "从镜像启动"
 
-#: dashboards/project/instances/workflows/create_instance.py:142
+#: dashboards/project/instances/workflows/create_instance.py:143
 msgid "Boot from snapshot"
 msgstr "从快照启动"
 
-#: dashboards/project/instances/workflows/create_instance.py:145
+#: dashboards/project/instances/workflows/create_instance.py:146
 msgid "Boot from volume"
 msgstr "从云硬盘启动"
 
-#: dashboards/project/instances/workflows/create_instance.py:151
+#: dashboards/project/instances/workflows/create_instance.py:152
 msgid "Boot from image (creates a new volume)"
 msgstr "从镜像启动 (创建一个新卷)"
 
-#: dashboards/project/instances/workflows/create_instance.py:157
+#: dashboards/project/instances/workflows/create_instance.py:158
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "从云硬盘快照启动(创建一个新卷)"
 
-#: dashboards/project/instances/workflows/create_instance.py:168
+#: dashboards/project/instances/workflows/create_instance.py:169
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -6580,202 +6592,202 @@ msgid_plural ""
 "%(avail)i of your quota available."
 msgstr[0] "当前可用的配额数量为 %(avail)i, 无法完成创建 %(req)i 个主机的请求."
 
-#: dashboards/project/instances/workflows/create_instance.py:187
+#: dashboards/project/instances/workflows/create_instance.py:188
 msgid "You must set volume size"
 msgstr "你必须设置云硬盘的大小"
 
-#: dashboards/project/instances/workflows/create_instance.py:190
-#: dashboards/project/instances/workflows/create_instance.py:275
+#: dashboards/project/instances/workflows/create_instance.py:191
+#: dashboards/project/instances/workflows/create_instance.py:276
 msgid "You must set device name"
 msgstr "你必须设定设备的名称"
 
-#: dashboards/project/instances/workflows/create_instance.py:193
+#: dashboards/project/instances/workflows/create_instance.py:194
 msgid "You must select an image."
 msgstr "你必须选择一个镜像。"
 
-#: dashboards/project/instances/workflows/create_instance.py:227
+#: dashboards/project/instances/workflows/create_instance.py:228
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "对请求的镜像来说，该类型 '%(flavor)s'太小了。\n最小需求：内存 %(min_ram)s MB，根硬盘 %(min_disk)s GB。"
 
-#: dashboards/project/instances/workflows/create_instance.py:244
+#: dashboards/project/instances/workflows/create_instance.py:245
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "对于镜像 '%(image_name)s' 来说，卷太小了，必须大于或等于'%(smallest_size)d' GB。"
 
-#: dashboards/project/instances/workflows/create_instance.py:255
-#: dashboards/project/instances/workflows/create_instance.py:272
+#: dashboards/project/instances/workflows/create_instance.py:256
+#: dashboards/project/instances/workflows/create_instance.py:273
 msgid "You must select a snapshot."
 msgstr "你必须选择一个快照"
 
-#: dashboards/project/instances/workflows/create_instance.py:260
+#: dashboards/project/instances/workflows/create_instance.py:261
 msgid "You must select a volume."
 msgstr "你必须选择一个云硬盘。"
 
-#: dashboards/project/instances/workflows/create_instance.py:266
+#: dashboards/project/instances/workflows/create_instance.py:267
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "只支持从镜像和云主机快照同时创建多个云主机"
 
-#: dashboards/project/instances/workflows/create_instance.py:292
+#: dashboards/project/instances/workflows/create_instance.py:293
 #: dashboards/project/volumes/volumes/forms.py:240
 msgid "Unable to retrieve availability zones."
 msgstr "无法获取可用域。"
 
-#: dashboards/project/instances/workflows/create_instance.py:298
+#: dashboards/project/instances/workflows/create_instance.py:299
 #: dashboards/project/volumes/volumes/forms.py:243
 msgid "No availability zones found"
 msgstr "找不到可用域。"
 
-#: dashboards/project/instances/workflows/create_instance.py:300
+#: dashboards/project/instances/workflows/create_instance.py:301
 #: dashboards/project/volumes/volumes/forms.py:245
 msgid "Any Availability Zone"
 msgstr "任何可用域"
 
-#: dashboards/project/instances/workflows/create_instance.py:323
+#: dashboards/project/instances/workflows/create_instance.py:324
 #: dashboards/project/instances/workflows/resize_instance.py:79
 #: usage/base.py:228
 msgid "Unable to retrieve quota information."
 msgstr "无法获取配额信息。"
 
-#: dashboards/project/instances/workflows/create_instance.py:333
+#: dashboards/project/instances/workflows/create_instance.py:334
 #: dashboards/project/volumes/volumes/forms.py:180
 msgid "Snapshot"
 msgstr "快照"
 
-#: dashboards/project/instances/workflows/create_instance.py:338
+#: dashboards/project/instances/workflows/create_instance.py:339
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:371
+#: dashboards/project/instances/workflows/create_instance.py:373
 msgid "Select Instance Snapshot"
 msgstr "选择云主机快照"
 
-#: dashboards/project/instances/workflows/create_instance.py:373
+#: dashboards/project/instances/workflows/create_instance.py:375
 msgid "No snapshots available"
 msgstr "无可用快照"
 
-#: dashboards/project/instances/workflows/create_instance.py:385
+#: dashboards/project/instances/workflows/create_instance.py:387
 #: dashboards/project/volumes/volumes/forms.py:258
 msgid "Unable to retrieve list of volumes."
 msgstr "无法取回云硬盘列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:387
+#: dashboards/project/instances/workflows/create_instance.py:389
 msgid "Select Volume"
 msgstr "选择云硬盘"
 
-#: dashboards/project/instances/workflows/create_instance.py:389
+#: dashboards/project/instances/workflows/create_instance.py:391
 msgid "No volumes available"
 msgstr "没有可用云硬盘。"
 
-#: dashboards/project/instances/workflows/create_instance.py:400
+#: dashboards/project/instances/workflows/create_instance.py:402
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "无法取回云硬盘快照列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:403
+#: dashboards/project/instances/workflows/create_instance.py:405
 msgid "Select Volume Snapshot"
 msgstr "选择云硬盘快照"
 
-#: dashboards/project/instances/workflows/create_instance.py:405
+#: dashboards/project/instances/workflows/create_instance.py:407
 msgid "No volume snapshots available"
 msgstr "没有可用的云硬盘快照。"
 
-#: dashboards/project/instances/workflows/create_instance.py:448
+#: dashboards/project/instances/workflows/create_instance.py:450
 msgid "Which key pair to use for authentication."
 msgstr "认证使用哪个密钥对"
 
-#: dashboards/project/instances/workflows/create_instance.py:452
+#: dashboards/project/instances/workflows/create_instance.py:454
 msgid "Admin Pass"
 msgstr "管理员密码"
 
-#: dashboards/project/instances/workflows/create_instance.py:458
+#: dashboards/project/instances/workflows/create_instance.py:460
 msgid "Confirm Admin Pass"
 msgstr "确认管理员密码"
 
-#: dashboards/project/instances/workflows/create_instance.py:465
+#: dashboards/project/instances/workflows/create_instance.py:467
 msgid "Launch instance in these security groups."
 msgstr "在这些安全组中启动云主机。"
 
-#: dashboards/project/instances/workflows/create_instance.py:470
+#: dashboards/project/instances/workflows/create_instance.py:472
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "通过密钥对、防火墙、和其它机制控制你的云主机权限"
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:488
 msgid "Unable to retrieve key pairs."
 msgstr "找不到密钥对。"
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:492
 msgid "Select a key pair"
 msgstr "选择一个密钥对"
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:494
 msgid "No key pairs available"
 msgstr "没有有效的密钥对"
 
-#: dashboards/project/instances/workflows/create_instance.py:501
+#: dashboards/project/instances/workflows/create_instance.py:503
 msgid "Unable to retrieve list of security groups"
 msgstr "无法获取安全组列表"
 
-#: dashboards/project/instances/workflows/create_instance.py:533
+#: dashboards/project/instances/workflows/create_instance.py:535
 msgid "Customization Script"
 msgstr "自定义脚本"
 
-#: dashboards/project/instances/workflows/create_instance.py:535
+#: dashboards/project/instances/workflows/create_instance.py:537
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "在云主机创建后执行的一段脚本或者一组命令(最大16KB)。"
 
-#: dashboards/project/instances/workflows/create_instance.py:542
+#: dashboards/project/instances/workflows/create_instance.py:544
 msgid "Post-Creation"
 msgstr "创建后"
 
-#: dashboards/project/instances/workflows/create_instance.py:558
+#: dashboards/project/instances/workflows/create_instance.py:560
 msgid "At least one network must be specified."
 msgstr "至少选择一个网络"
 
-#: dashboards/project/instances/workflows/create_instance.py:560
+#: dashboards/project/instances/workflows/create_instance.py:562
 msgid "Launch instance with these networks"
 msgstr "使用这些网络启动云主机"
 
-#: dashboards/project/instances/workflows/create_instance.py:563
+#: dashboards/project/instances/workflows/create_instance.py:565
 msgid "Policy Profiles"
 msgstr "策略概要"
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:567
 msgid "Launch instance with this policy profile"
 msgstr "使用这个策略概要来启动云主机"
 
-#: dashboards/project/instances/workflows/create_instance.py:577
+#: dashboards/project/instances/workflows/create_instance.py:579
 msgid "Select networks for your instance."
 msgstr "选择网络"
 
-#: dashboards/project/instances/workflows/create_instance.py:589
+#: dashboards/project/instances/workflows/create_instance.py:591
 msgid "Unable to retrieve networks."
 msgstr "无法获取网络"
 
-#: dashboards/project/instances/workflows/create_instance.py:598
+#: dashboards/project/instances/workflows/create_instance.py:600
 msgid "Unable to retrieve profiles."
 msgstr "无法获取概要"
 
-#: dashboards/project/instances/workflows/create_instance.py:646
+#: dashboards/project/instances/workflows/create_instance.py:648
 msgid "Advanced Options"
 msgstr "高级选项"
 
-#: dashboards/project/instances/workflows/create_instance.py:674
+#: dashboards/project/instances/workflows/create_instance.py:676
 #, python-format
 msgid "%s instances"
 msgstr "%s 云主机"
 
-#: dashboards/project/instances/workflows/create_instance.py:733
+#: dashboards/project/instances/workflows/create_instance.py:735
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "无法为概要(标识符为%s)创建端口"

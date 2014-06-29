@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-04-01 08:41+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-06-27 16:43-0500\n"
+"PO-Revision-Date: 2014-06-27 20:10+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,16 +30,16 @@ msgstr "請登入以繼續。"
 msgid "You are not authorized to access %s"
 msgstr "您沒有足夠的權限存取 %s"
 
-#: exceptions.py:280
+#: exceptions.py:284
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "未授權：%s"
 
-#: exceptions.py:283
+#: exceptions.py:287
 msgid "Unauthorized. Please try logging in again."
 msgstr "未授權。請試著重新登入。"
 
-#: middleware.py:115
+#: middleware.py:117
 msgid "Session timed out."
 msgstr "連線階段過期。"
 
@@ -68,7 +68,7 @@ msgstr "無效的 IP 位址版本"
 msgid "Invalid subnet mask"
 msgstr "無效的子網路遮罩"
 
-#: tables/actions.py:439
+#: tables/actions.py:442
 #: templates/horizon/common/_data_table_table_actions.html:13
 #: templates/horizon/common/_data_table_table_actions.html:23
 #: templates/horizon/common/_workflow_step_update_members.html:11
@@ -76,72 +76,72 @@ msgstr "無效的子網路遮罩"
 msgid "Filter"
 msgstr "篩選"
 
-#: tables/actions.py:630
+#: tables/actions.py:633
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:632
+#: tables/actions.py:635
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:662 tables/base.py:1421
+#: tables/actions.py:665 tables/base.py:1427
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:691
+#: tables/actions.py:694
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "不允許您%(action)s：%(objs)s"
 
-#: tables/actions.py:698
+#: tables/actions.py:701
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "無法%(action)s：%(objs)s"
 
-#: tables/actions.py:704
+#: tables/actions.py:707
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s：%(objs)s"
 
-#: tables/actions.py:720
+#: tables/actions.py:723
 msgid "Delete"
 msgstr "刪除"
 
-#: tables/actions.py:721
+#: tables/actions.py:724
 msgid "Deleted"
 msgstr "已刪除"
 
-#: tables/actions.py:738
+#: tables/actions.py:741
 msgid "Update"
 msgstr "更新"
 
-#: tables/actions.py:739
+#: tables/actions.py:742
 msgid "Updated"
 msgstr "已更新"
 
-#: tables/base.py:316
+#: tables/base.py:317
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 不存在 %(attr)s 屬性。"
 
-#: tables/base.py:889
+#: tables/base.py:895
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
 
-#: tables/base.py:995
+#: tables/base.py:1001
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:1201
+#: tables/base.py:1207
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "沒有符合識別號「%s」的結果。"
 
-#: tables/base.py:1341
+#: tables/base.py:1347
 msgid "Please select a row before taking that action."
 msgstr "執行動作前請選擇一個欄位。"
 
@@ -206,6 +206,10 @@ msgstr "摘要"
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
+
+#: templates/horizon/common/_data_table.html:66
+msgid "More&nbsp;&raquo;"
+msgstr ""
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -382,7 +386,7 @@ msgstr "允許以冒號隔開埠口範圍"
 msgid "Port number must be integer"
 msgstr "埠口號碼必須是整數"
 
-#: workflows/base.py:70
+#: workflows/base.py:71
 msgid "Processing..."
 msgstr "處理中…"
 

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-04-01 08:41+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-06-27 16:43-0500\n"
+"PO-Revision-Date: 2014-06-27 20:10+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,16 +30,16 @@ msgstr "Należy się zalogować, aby można było kontynuować."
 msgid "You are not authorized to access %s"
 msgstr "Brak uprawnień dostępu do %s"
 
-#: exceptions.py:280
+#: exceptions.py:284
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Nieupoważniono: %s"
 
-#: exceptions.py:283
+#: exceptions.py:287
 msgid "Unauthorized. Please try logging in again."
 msgstr "Brak uprawnień. Proszę spróbować się wylogować i zalogować ponownie."
 
-#: middleware.py:115
+#: middleware.py:117
 msgid "Session timed out."
 msgstr "Sesja wygasła."
 
@@ -68,7 +68,7 @@ msgstr "Błędna wersja adresu IP"
 msgid "Invalid subnet mask"
 msgstr "Błędna maska podsieci"
 
-#: tables/actions.py:439
+#: tables/actions.py:442
 #: templates/horizon/common/_data_table_table_actions.html:13
 #: templates/horizon/common/_data_table_table_actions.html:23
 #: templates/horizon/common/_workflow_step_update_members.html:11
@@ -76,72 +76,72 @@ msgstr "Błędna maska podsieci"
 msgid "Filter"
 msgstr "Filtr"
 
-#: tables/actions.py:630
+#: tables/actions.py:633
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:632
+#: tables/actions.py:635
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:662 tables/base.py:1421
+#: tables/actions.py:665 tables/base.py:1427
 msgid "N/A"
 msgstr "n.d."
 
-#: tables/actions.py:691
+#: tables/actions.py:694
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Brak uprawnień do %(action)s: %(objs)s"
 
-#: tables/actions.py:698
+#: tables/actions.py:701
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Nie można %(action)s: %(objs)s"
 
-#: tables/actions.py:704
+#: tables/actions.py:707
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:720
+#: tables/actions.py:723
 msgid "Delete"
 msgstr "Usuń"
 
-#: tables/actions.py:721
+#: tables/actions.py:724
 msgid "Deleted"
 msgstr "Usunięto"
 
-#: tables/actions.py:738
+#: tables/actions.py:741
 msgid "Update"
 msgstr "Aktualizuj"
 
-#: tables/actions.py:739
+#: tables/actions.py:742
 msgid "Updated"
 msgstr "Zaktualizowany"
 
-#: tables/base.py:316
+#: tables/base.py:317
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Atrybut %(attr)s nie istnieje dla %(obj)s."
 
-#: tables/base.py:889
+#: tables/base.py:895
 msgid "No items to display."
 msgstr "Brak pozycji do wyświetlenia."
 
-#: tables/base.py:995
+#: tables/base.py:1001
 msgid "Actions"
 msgstr "Czynności"
 
-#: tables/base.py:1201
+#: tables/base.py:1207
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nie znaleziono wyników dla identyfikatora „%s”."
 
-#: tables/base.py:1341
+#: tables/base.py:1347
 msgid "Please select a row before taking that action."
 msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
 
@@ -208,6 +208,10 @@ msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#: templates/horizon/common/_data_table.html:66
+msgid "More&nbsp;&raquo;"
+msgstr ""
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -390,7 +394,7 @@ msgstr "Tylko jeden dwukropek jest dozwolony w zakresie portów"
 msgid "Port number must be integer"
 msgstr "Numer portu musi być liczbą całkowitą"
 
-#: workflows/base.py:70
+#: workflows/base.py:71
 msgid "Processing..."
 msgstr "Przetwarzanie…"
 

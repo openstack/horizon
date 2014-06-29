@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-23 13:20-0500\n"
-"PO-Revision-Date: 2014-06-20 02:29+0000\n"
+"POT-Creation-Date: 2014-06-27 16:43-0500\n"
+"PO-Revision-Date: 2014-06-29 01:41+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -56,6 +56,18 @@ msgstr "VHD"
 #: settings.py:93
 msgid "VMDK"
 msgstr "VMDK"
+
+#: settings.py:222
+msgid "All TCP"
+msgstr ""
+
+#: settings.py:228
+msgid "All UDP"
+msgstr ""
+
+#: settings.py:234
+msgid "All ICMP"
+msgstr ""
 
 #: api/ceilometer.py:736
 msgid "Unable to retrieve Ceilometer meterlist."
@@ -485,7 +497,7 @@ msgstr "सेवाएँ डाउन"
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:808
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
-#: dashboards/project/instances/workflows/create_instance.py:76
+#: dashboards/project/instances/workflows/create_instance.py:77
 #: dashboards/project/volumes/volumes/forms.py:76
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:82
@@ -623,7 +635,7 @@ msgstr "सकल से होस्ट जोड़ें / हटाये"
 #: dashboards/admin/domains/workflows.py:199
 #: dashboards/admin/flavors/workflows.py:263
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:25
-#: dashboards/admin/projects/workflows.py:494
+#: dashboards/admin/projects/workflows.py:497
 #: dashboards/project/instances/workflows/update_instance.py:134
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -879,7 +891,7 @@ msgstr "डोमेन ID"
 #: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
-#: dashboards/admin/projects/workflows.py:473
+#: dashboards/admin/projects/workflows.py:476
 #: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:139
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/tables.py:220
@@ -991,7 +1003,7 @@ msgstr "फ्लेवर"
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
 #: dashboards/project/databases/workflows/create_instance.py:31
 #: dashboards/project/instances/templates/instances/_detail_overview.html:46
-#: dashboards/project/instances/workflows/create_instance.py:82
+#: dashboards/project/instances/workflows/create_instance.py:83
 msgid "Flavor"
 msgstr "फ्लेवर"
 
@@ -1423,7 +1435,7 @@ msgstr "हटाया हुआ"
 #: dashboards/admin/groups/tables.py:124 dashboards/admin/groups/tables.py:181
 #: dashboards/admin/users/tables.py:59 dashboards/admin/users/tables.py:102
 #: dashboards/project/databases/tables.py:64
-#: dashboards/project/instances/workflows/create_instance.py:50
+#: dashboards/project/instances/workflows/create_instance.py:51
 msgid "User"
 msgstr "उपयोगकर्ता"
 
@@ -1603,7 +1615,7 @@ msgstr "इंस्टेंस"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/instances/tables.py:791
-#: dashboards/project/instances/workflows/create_instance.py:79
+#: dashboards/project/instances/workflows/create_instance.py:80
 #: dashboards/project/overview/views.py:32 usage/tables.py:71
 msgid "Instance Name"
 msgstr "इंस्टैंस नाम"
@@ -1678,7 +1690,7 @@ msgstr "बिंब"
 #: dashboards/project/images/images/tables.py:208
 #: dashboards/project/instances/tables.py:793
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
-#: dashboards/project/instances/workflows/create_instance.py:104
+#: dashboards/project/instances/workflows/create_instance.py:105
 msgid "Image Name"
 msgstr "बिंब नाम"
 
@@ -1949,7 +1961,7 @@ msgstr " उत्प्लावित IP"
 #: dashboards/project/access_and_security/security_groups/tables.py:31
 #: dashboards/project/access_and_security/security_groups/tables.py:130
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:461
+#: dashboards/project/instances/workflows/create_instance.py:463
 #: dashboards/project/instances/workflows/update_instance.py:80
 msgid "Security Groups"
 msgstr "सुरक्षा समूह"
@@ -2013,15 +2025,15 @@ msgstr "नोवा सेवाओं की सूची प्राप्�
 msgid "Unable to get cinder services list."
 msgstr ""
 
-#: dashboards/admin/info/tabs.py:94
+#: dashboards/admin/info/tabs.py:95
 msgid "Unable to get network agents list."
 msgstr "संजाल एजेंटों की सूची प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/info/tabs.py:103
+#: dashboards/admin/info/tabs.py:104
 msgid "Default Quotas"
 msgstr "डिफ़ॉल्ट कोटा"
 
-#: dashboards/admin/info/tabs.py:113
+#: dashboards/admin/info/tabs.py:114
 msgid "Unable to get quota info."
 msgstr "कोटा जानकारी प्राप्त करने में असमर्थ."
 
@@ -2033,7 +2045,7 @@ msgstr ""
 msgid "Reason"
 msgstr ""
 
-#: dashboards/admin/info/templates/info/index.html:15
+#: dashboards/admin/info/templates/info/index.html:14
 #, python-format
 msgid ""
 "Version: %(version_info)s\n"
@@ -2115,7 +2127,7 @@ msgstr "लाइव पलायन इंस्टेंस"
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
 #: dashboards/project/dashboard.py:61
 #: dashboards/project/images/images/tables.py:132
-#: dashboards/project/instances/workflows/create_instance.py:49
+#: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
 #: dashboards/router/nexus1000v/forms.py:194
 #: dashboards/router/nexus1000v/tables.py:60
@@ -2523,7 +2535,7 @@ msgstr "%s संजाल अद्यतन करने में विफ�
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:555
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
 #: dashboards/project/networks/tables.py:126
@@ -2935,7 +2947,7 @@ msgid "Create Project"
 msgstr "परियोजना बनाएँ"
 
 #: dashboards/admin/projects/tables.py:79
-#: dashboards/admin/projects/workflows.py:493
+#: dashboards/admin/projects/workflows.py:496
 msgid "Edit Project"
 msgstr "परियोजना संपादित करें"
 
@@ -3014,7 +3026,7 @@ msgid "Domain Name"
 msgstr "डोमेन नाम"
 
 #: dashboards/admin/projects/workflows.py:127
-#: dashboards/admin/projects/workflows.py:476
+#: dashboards/admin/projects/workflows.py:479
 msgid "Project Info"
 msgstr "परियोजना की जानकारी"
 
@@ -3079,50 +3091,50 @@ msgstr "परियोजना के  %(users_to_add)s सदस्यों 
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "परियोजना समूहों %s और अद्यतन परियोजना कोटा को जोड़ने में विफल."
 
-#: dashboards/admin/projects/workflows.py:468
+#: dashboards/admin/projects/workflows.py:471
 msgid "Unable to set project quotas."
 msgstr "परियोजना का कोटा निर्धारित करने में अक्षम."
 
-#: dashboards/admin/projects/workflows.py:478
+#: dashboards/admin/projects/workflows.py:481
 msgid "From here you can edit the project details."
 msgstr "यहाँ से आप परियोजना विवरण संपादित कर सकते हैं."
 
-#: dashboards/admin/projects/workflows.py:495
+#: dashboards/admin/projects/workflows.py:498
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "परिवर्तित परियोजना \"%s\"."
 
-#: dashboards/admin/projects/workflows.py:496
+#: dashboards/admin/projects/workflows.py:499
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr " \"%s\" परियोजना को संशोधित करने में असमर्थ."
 
-#: dashboards/admin/projects/workflows.py:591
+#: dashboards/admin/projects/workflows.py:594
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "आप वर्तमान में लॉग इन कर रहे हैं परियोजना से अपने प्रशासनिक विशेषाधिकारों को रद्द नहीं कर सकते हैं. प्रशासनिक विशेषाधिकारों के साथ एक अन्य परियोजना के लिए स्विच या सीएलआई के माध्यम से मैन्युअल रूप से प्रशासनिक भूमिका निकाल दें."
 
-#: dashboards/admin/projects/workflows.py:626
+#: dashboards/admin/projects/workflows.py:629
 msgid ", update project groups"
 msgstr ", परियोजना समूहों का अद्यतन करें"
 
-#: dashboards/admin/projects/workflows.py:629
+#: dashboards/admin/projects/workflows.py:632
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "परियोजना के %(users_to_modify)s सदस्यों %(group_msg)s और अद्यतन परियोजना कोटा संशोधित करने में विफल."
 
-#: dashboards/admin/projects/workflows.py:701
+#: dashboards/admin/projects/workflows.py:704
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr " %s परियोजना के सदस्यों, अद्यतन परियोजना समूहों और अद्यतन परियोजना कोटा संशोधित करने में विफल."
 
-#: dashboards/admin/projects/workflows.py:731
+#: dashboards/admin/projects/workflows.py:737
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -3314,7 +3326,7 @@ msgid "No available projects"
 msgstr "कोई उपलब्ध परियोजनाओं नहीं "
 
 #: dashboards/admin/users/forms.py:65 dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:511
+#: dashboards/project/instances/workflows/create_instance.py:513
 #: dashboards/settings/password/forms.py:46
 msgid "Passwords do not match."
 msgstr "पासवर्ड मेल नहीं खाते."
@@ -3484,7 +3496,7 @@ msgid "Databases"
 msgstr "डेटाबेस"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:469
+#: dashboards/project/instances/workflows/create_instance.py:471
 msgid "Access & Security"
 msgstr "पहुँच और सुरक्षा"
 
@@ -3704,7 +3716,7 @@ msgstr "कुंजी युग्म आयात करने में अ�
 
 #: dashboards/project/access_and_security/keypairs/tables.py:25
 #: dashboards/project/instances/tables.py:800
-#: dashboards/project/instances/workflows/create_instance.py:446
+#: dashboards/project/instances/workflows/create_instance.py:448
 msgid "Key Pair"
 msgstr "कुंजी युग्म"
 
@@ -4230,8 +4242,8 @@ msgstr "वस्तु को कॉपी करने में असमर�
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
 #: dashboards/project/containers/tables.py:263
-#: dashboards/project/containers/templates/containers/index.html:3
-#: dashboards/project/containers/templates/containers/index.html:7
+#: dashboards/project/containers/templates/containers/index.html:5
+#: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr "कंटेनर"
 
@@ -4630,7 +4642,7 @@ msgstr "वैकल्पिक बैकअप विवरण"
 #: dashboards/project/database_backups/workflows/create_backup.py:40
 #: dashboards/project/databases/workflows/create_instance.py:39
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:129
+#: dashboards/project/instances/workflows/create_instance.py:130
 #: dashboards/project/loadbalancers/tables.py:278
 msgid "Details"
 msgstr "विवरण"
@@ -4646,14 +4658,14 @@ msgstr "अनुसूचित बैकअप \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:66
 #: dashboards/project/databases/workflows/create_instance.py:154
-#: dashboards/project/instances/workflows/create_instance.py:661
+#: dashboards/project/instances/workflows/create_instance.py:663
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr " %(count)s \"%(name)s\" नामित प्रारंभ करने में अक्षम"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
 #: dashboards/project/databases/workflows/create_instance.py:167
-#: dashboards/project/instances/workflows/create_instance.py:677
+#: dashboards/project/instances/workflows/create_instance.py:679
 msgid "instance"
 msgstr "इंस्टेंस"
 
@@ -4696,7 +4708,7 @@ msgstr "उदाहरण पर डेटाबेस हटाने मे�
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/instances/tables.py:216
 #: dashboards/project/instances/tables.py:243
-#: dashboards/project/instances/workflows/create_instance.py:658
+#: dashboards/project/instances/workflows/create_instance.py:660
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "इंस्टांस लॉन्च करें"
@@ -4866,7 +4878,7 @@ msgid "Edit Instance"
 msgstr "इंस्टांस संपादित करें "
 
 #: dashboards/project/databases/workflows/create_instance.py:32
-#: dashboards/project/instances/workflows/create_instance.py:83
+#: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Size of image to launch."
 msgstr "लॉन्च करने के लिए बिंब का आकार."
 
@@ -4924,13 +4936,13 @@ msgstr "बैकअप पाने में असमर्थ!"
 
 #: dashboards/project/databases/workflows/create_instance.py:152
 #: dashboards/project/images/images/tables.py:34
-#: dashboards/project/instances/workflows/create_instance.py:659
+#: dashboards/project/instances/workflows/create_instance.py:661
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "लांच करें"
 
 #: dashboards/project/databases/workflows/create_instance.py:153
-#: dashboards/project/instances/workflows/create_instance.py:660
+#: dashboards/project/instances/workflows/create_instance.py:662
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr " %(count)s \"%(name)s\" नामित शुभारंभ किया."
@@ -5739,7 +5751,7 @@ msgstr ""
 
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:358
+#: dashboards/project/instances/workflows/create_instance.py:359
 msgid "Select Image"
 msgstr "बिंब चुनें"
 
@@ -5752,28 +5764,28 @@ msgid "Confirm Rebuild Password"
 msgstr "पासवर्ड पुन: निर्माण सुनिश्चित करें "
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:628
+#: dashboards/project/instances/workflows/create_instance.py:630
 msgid "Disk Partition"
 msgstr "डिस्क विभाजन"
 
 #: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:360
+#: dashboards/project/instances/workflows/create_instance.py:361
 msgid "No images available"
 msgstr "कोई बिंब उपलब्ध नहीं"
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:638
+#: dashboards/project/instances/workflows/create_instance.py:640
 msgid "Automatic"
 msgstr "स्वचालित"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:639
+#: dashboards/project/instances/workflows/create_instance.py:641
 msgid "Manual"
 msgstr "हस्तचालित"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:153
-#: dashboards/project/instances/workflows/create_instance.py:642
+#: dashboards/project/instances/workflows/create_instance.py:154
+#: dashboards/project/instances/workflows/create_instance.py:644
 msgid "Unable to retrieve extensions information."
 msgstr "एक्सटेंशन के बारे में सूचना पाने में असमर्थ."
 
@@ -6025,7 +6037,7 @@ msgid "Block Device Mapping"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:714
-#: dashboards/project/instances/workflows/create_instance.py:575
+#: dashboards/project/instances/workflows/create_instance.py:577
 msgid "Networking"
 msgstr "संजालन"
 
@@ -6366,8 +6378,8 @@ msgid "on"
 msgstr "पर"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
-#: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/instances/workflows/create_instance.py:99
+#: dashboards/project/instances/workflows/create_instance.py:337
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:58
@@ -6489,85 +6501,85 @@ msgstr "इंस्टांस विवरण"
 msgid "Instance Details: "
 msgstr "इंस्टांस विवरण: "
 
-#: dashboards/project/instances/workflows/create_instance.py:64
+#: dashboards/project/instances/workflows/create_instance.py:65
 msgid "Project & User"
 msgstr "परियोजना और उपयोगकर्ता"
 
-#: dashboards/project/instances/workflows/create_instance.py:85
+#: dashboards/project/instances/workflows/create_instance.py:86
 msgid "Instance Count"
 msgstr "इंस्टांस गणना"
 
-#: dashboards/project/instances/workflows/create_instance.py:88
+#: dashboards/project/instances/workflows/create_instance.py:89
 msgid "Number of instances to launch."
 msgstr "लॉन्च करने के लिए अनेक इंस्टैंस"
 
-#: dashboards/project/instances/workflows/create_instance.py:90
+#: dashboards/project/instances/workflows/create_instance.py:91
 msgid "Instance Boot Source"
 msgstr "इंस्टांस बूट स्रोत"
 
-#: dashboards/project/instances/workflows/create_instance.py:92
+#: dashboards/project/instances/workflows/create_instance.py:93
 msgid "Choose Your Boot Source Type."
 msgstr "अपने बूट स्रोत प्रकार चुनें."
 
-#: dashboards/project/instances/workflows/create_instance.py:95
+#: dashboards/project/instances/workflows/create_instance.py:96
 msgid "Instance Snapshot"
 msgstr "इंस्टांस स्नैपशॉट"
 
-#: dashboards/project/instances/workflows/create_instance.py:100
+#: dashboards/project/instances/workflows/create_instance.py:101
 #: dashboards/project/volumes/snapshots/tables.py:44
 msgid "Volume Snapshot"
 msgstr "वॉल्यूम स्नैपशॉट"
 
-#: dashboards/project/instances/workflows/create_instance.py:111
+#: dashboards/project/instances/workflows/create_instance.py:112
 msgid "Device size (GB)"
 msgstr "डिवाइस का आकार (जीबी)"
 
-#: dashboards/project/instances/workflows/create_instance.py:113
+#: dashboards/project/instances/workflows/create_instance.py:114
 msgid "Volume size in gigabytes (integer value)."
 msgstr "गीगाबाइट में वॉल्यूम आकार (पूर्णांक मान)."
 
-#: dashboards/project/instances/workflows/create_instance.py:116
+#: dashboards/project/instances/workflows/create_instance.py:117
 #: dashboards/project/volumes/volumes/forms.py:366
 msgid "Device Name"
 msgstr "युक्ति नाम"
 
-#: dashboards/project/instances/workflows/create_instance.py:119
+#: dashboards/project/instances/workflows/create_instance.py:120
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr "वॉल्यूम माउंट बिंदु (उदाहरणार्थ 'vda'  '/dev/vda' पर आरोहित)."
 
-#: dashboards/project/instances/workflows/create_instance.py:122
+#: dashboards/project/instances/workflows/create_instance.py:123
 msgid "Delete on Terminate"
 msgstr "बर्खास्त पर हटाएं"
 
-#: dashboards/project/instances/workflows/create_instance.py:125
+#: dashboards/project/instances/workflows/create_instance.py:126
 msgid "Delete volume on instance terminate"
 msgstr "बर्खास्त इंस्टेंस पर वॉल्यूम हटाएं"
 
-#: dashboards/project/instances/workflows/create_instance.py:140
+#: dashboards/project/instances/workflows/create_instance.py:141
 msgid "Select source"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:141
+#: dashboards/project/instances/workflows/create_instance.py:142
 msgid "Boot from image"
 msgstr "बिंब से बूट करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:142
+#: dashboards/project/instances/workflows/create_instance.py:143
 msgid "Boot from snapshot"
 msgstr "स्नैपशॉट से बूट करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:145
+#: dashboards/project/instances/workflows/create_instance.py:146
 msgid "Boot from volume"
 msgstr "वॉल्यूम से बूट करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:151
+#: dashboards/project/instances/workflows/create_instance.py:152
 msgid "Boot from image (creates a new volume)"
 msgstr "बिंब से बूट करें (नया वॉल्यूम बनाता है)"
 
-#: dashboards/project/instances/workflows/create_instance.py:157
+#: dashboards/project/instances/workflows/create_instance.py:158
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "वॉल्यूम स्नैपशॉट से बूट करें (नया वॉल्यूम बनाता है)"
 
-#: dashboards/project/instances/workflows/create_instance.py:168
+#: dashboards/project/instances/workflows/create_instance.py:169
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -6578,202 +6590,202 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] "आप केवल उपलब्ध अपने कोटे %(avail)i के रूप में अनुरोध किया %(req)i इंस्टेंस लॉन्च नहीं किया जा सकता है."
 
-#: dashboards/project/instances/workflows/create_instance.py:187
+#: dashboards/project/instances/workflows/create_instance.py:188
 msgid "You must set volume size"
 msgstr "आप हमेशा वॉल्यूम आकर सेट कर सकते हैं"
 
-#: dashboards/project/instances/workflows/create_instance.py:190
-#: dashboards/project/instances/workflows/create_instance.py:275
+#: dashboards/project/instances/workflows/create_instance.py:191
+#: dashboards/project/instances/workflows/create_instance.py:276
 msgid "You must set device name"
 msgstr "युक्ति नाम देना आवश्यक हैं "
 
-#: dashboards/project/instances/workflows/create_instance.py:193
+#: dashboards/project/instances/workflows/create_instance.py:194
 msgid "You must select an image."
 msgstr "आप एक बिंब का चयन करना होगा."
 
-#: dashboards/project/instances/workflows/create_instance.py:227
+#: dashboards/project/instances/workflows/create_instance.py:228
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "फ्लेवर %(flavor)s' के लिए अनुरोध बिंब बहुत छोटा है.\nन्यूनतम आवश्यकताओं: %(min_ram)s रैम की एमबी और %(min_disk)s जड़ डिस्क के जीबी."
 
-#: dashboards/project/instances/workflows/create_instance.py:244
+#: dashboards/project/instances/workflows/create_instance.py:245
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "वॉल्यूम आकार '%(image_name)s' छवि के लिए बहुत छोटा है और अधिक से अधिक या '%(smallest_size)d' जीबी के बराबर हो गया है."
 
-#: dashboards/project/instances/workflows/create_instance.py:255
-#: dashboards/project/instances/workflows/create_instance.py:272
+#: dashboards/project/instances/workflows/create_instance.py:256
+#: dashboards/project/instances/workflows/create_instance.py:273
 msgid "You must select a snapshot."
 msgstr "आप एक स्नैपशॉट का चयन करना होगा."
 
-#: dashboards/project/instances/workflows/create_instance.py:260
+#: dashboards/project/instances/workflows/create_instance.py:261
 msgid "You must select a volume."
 msgstr "आपको  वॉल्यूम का चयन करना होगा."
 
-#: dashboards/project/instances/workflows/create_instance.py:266
+#: dashboards/project/instances/workflows/create_instance.py:267
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "एक से अधिक इंस्टेंस को लांच करना केवल बिंब और इंस्टेंस स्नैपशॉट के लिए समर्थित है."
 
-#: dashboards/project/instances/workflows/create_instance.py:292
+#: dashboards/project/instances/workflows/create_instance.py:293
 #: dashboards/project/volumes/volumes/forms.py:240
 msgid "Unable to retrieve availability zones."
 msgstr "उपलब्धता क्षेत्रों को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:298
+#: dashboards/project/instances/workflows/create_instance.py:299
 #: dashboards/project/volumes/volumes/forms.py:243
 msgid "No availability zones found"
 msgstr "कोई उपलब्धता क्षेत्र नहीं मिला"
 
-#: dashboards/project/instances/workflows/create_instance.py:300
+#: dashboards/project/instances/workflows/create_instance.py:301
 #: dashboards/project/volumes/volumes/forms.py:245
 msgid "Any Availability Zone"
 msgstr "कोई उपलब्धता क्षेत्र"
 
-#: dashboards/project/instances/workflows/create_instance.py:323
+#: dashboards/project/instances/workflows/create_instance.py:324
 #: dashboards/project/instances/workflows/resize_instance.py:79
 #: usage/base.py:228
 msgid "Unable to retrieve quota information."
 msgstr "कोटा सूचना पाने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:333
+#: dashboards/project/instances/workflows/create_instance.py:334
 #: dashboards/project/volumes/volumes/forms.py:180
 msgid "Snapshot"
 msgstr "स्नेपशॉट"
 
-#: dashboards/project/instances/workflows/create_instance.py:338
+#: dashboards/project/instances/workflows/create_instance.py:339
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:371
+#: dashboards/project/instances/workflows/create_instance.py:373
 msgid "Select Instance Snapshot"
 msgstr "इंस्टांस स्नैपशॉट चुनें "
 
-#: dashboards/project/instances/workflows/create_instance.py:373
+#: dashboards/project/instances/workflows/create_instance.py:375
 msgid "No snapshots available"
 msgstr "कोई स्नैपशॉट उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:385
+#: dashboards/project/instances/workflows/create_instance.py:387
 #: dashboards/project/volumes/volumes/forms.py:258
 msgid "Unable to retrieve list of volumes."
 msgstr "संस्करणों की सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:387
+#: dashboards/project/instances/workflows/create_instance.py:389
 msgid "Select Volume"
 msgstr "वॉल्यूम चुनें"
 
-#: dashboards/project/instances/workflows/create_instance.py:389
+#: dashboards/project/instances/workflows/create_instance.py:391
 msgid "No volumes available"
 msgstr "कोई वॉल्यूम उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:400
+#: dashboards/project/instances/workflows/create_instance.py:402
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "वॉल्यूम स्नैपशॉट के सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:403
+#: dashboards/project/instances/workflows/create_instance.py:405
 msgid "Select Volume Snapshot"
 msgstr "वॉल्यूम स्नैपशॉट चुनें"
 
-#: dashboards/project/instances/workflows/create_instance.py:405
+#: dashboards/project/instances/workflows/create_instance.py:407
 msgid "No volume snapshots available"
 msgstr "कोई वॉल्यूम स्नैपशॉट उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:448
+#: dashboards/project/instances/workflows/create_instance.py:450
 msgid "Which key pair to use for authentication."
 msgstr "कौन सी कुंजी युग्म प्रमाणीकरण के लिए उपयोग करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:452
+#: dashboards/project/instances/workflows/create_instance.py:454
 msgid "Admin Pass"
 msgstr "व्यवस्थापक पास"
 
-#: dashboards/project/instances/workflows/create_instance.py:458
+#: dashboards/project/instances/workflows/create_instance.py:460
 msgid "Confirm Admin Pass"
 msgstr "डमिन कूटशब्द की पुष्टि करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:465
+#: dashboards/project/instances/workflows/create_instance.py:467
 msgid "Launch instance in these security groups."
 msgstr "इन सुरक्षा समूहों में इंस्टेंस लॉन्च करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:470
+#: dashboards/project/instances/workflows/create_instance.py:472
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "कुंजी जोड़े, सुरक्षा समूह, और अन्य तंत्र के माध्यम से अपने इंस्टेंस के लिए अभिगम नियंत्रण."
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:488
 msgid "Unable to retrieve key pairs."
 msgstr "कुंजी युग्मों को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:492
 msgid "Select a key pair"
 msgstr "कुंजी युग्म चुनें"
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:494
 msgid "No key pairs available"
 msgstr "कोई कुंजी युग्म उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:501
+#: dashboards/project/instances/workflows/create_instance.py:503
 msgid "Unable to retrieve list of security groups"
 msgstr "सुरक्षा समूहों की सूची को प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/workflows/create_instance.py:533
+#: dashboards/project/instances/workflows/create_instance.py:535
 msgid "Customization Script"
 msgstr "कस्टमाइज़ेशन स्क्रिप्ट"
 
-#: dashboards/project/instances/workflows/create_instance.py:535
+#: dashboards/project/instances/workflows/create_instance.py:537
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "इंस्टेंस के बनने के बाद निष्पादित होने वाले  स्क्रिप्ट या कमांड का सेट (अधिकतम 16kb)"
 
-#: dashboards/project/instances/workflows/create_instance.py:542
+#: dashboards/project/instances/workflows/create_instance.py:544
 msgid "Post-Creation"
 msgstr "पोस्ट निर्माण"
 
-#: dashboards/project/instances/workflows/create_instance.py:558
+#: dashboards/project/instances/workflows/create_instance.py:560
 msgid "At least one network must be specified."
 msgstr "कम से कम एक नेटवर्क निर्दिष्ट किया जाना चाहिए."
 
-#: dashboards/project/instances/workflows/create_instance.py:560
+#: dashboards/project/instances/workflows/create_instance.py:562
 msgid "Launch instance with these networks"
 msgstr "इन नेटवर्कों के साथ इंस्टेंस लॉन्च करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:563
+#: dashboards/project/instances/workflows/create_instance.py:565
 msgid "Policy Profiles"
 msgstr "नीति प्रोफाइल"
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:567
 msgid "Launch instance with this policy profile"
 msgstr "इस नीति प्रोफाइल के साथ इंस्टेंस लॉन्च करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:577
+#: dashboards/project/instances/workflows/create_instance.py:579
 msgid "Select networks for your instance."
 msgstr "अपने इंस्टेंस के लिए नेटवर्क का चयन करें."
 
-#: dashboards/project/instances/workflows/create_instance.py:589
+#: dashboards/project/instances/workflows/create_instance.py:591
 msgid "Unable to retrieve networks."
 msgstr "नेटवर्क पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:598
+#: dashboards/project/instances/workflows/create_instance.py:600
 msgid "Unable to retrieve profiles."
 msgstr "प्रोफाइल को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:646
+#: dashboards/project/instances/workflows/create_instance.py:648
 msgid "Advanced Options"
 msgstr "उन्नत विकल्प"
 
-#: dashboards/project/instances/workflows/create_instance.py:674
+#: dashboards/project/instances/workflows/create_instance.py:676
 #, python-format
 msgid "%s instances"
 msgstr "%s इंस्टेंस"
 
-#: dashboards/project/instances/workflows/create_instance.py:733
+#: dashboards/project/instances/workflows/create_instance.py:735
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "पोर्ट प्रोफाइल आईडी के लिए नहीं बनाई गई (%s)."

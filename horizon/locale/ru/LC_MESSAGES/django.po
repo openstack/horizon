@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 23:31-0500\n"
-"PO-Revision-Date: 2014-05-13 15:14+0000\n"
-"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
+"POT-Creation-Date: 2014-06-27 16:43-0500\n"
+"PO-Revision-Date: 2014-06-27 20:10+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,16 +31,16 @@ msgstr "Войдите в систему чтобы продолжить."
 msgid "You are not authorized to access %s"
 msgstr "Вы не авторизованы для доступа к %s"
 
-#: exceptions.py:280
+#: exceptions.py:284
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Не авторизован: %s"
 
-#: exceptions.py:283
+#: exceptions.py:287
 msgid "Unauthorized. Please try logging in again."
 msgstr "Вы не авторизованы. Попробуйте войти в систему еще раз."
 
-#: middleware.py:115
+#: middleware.py:117
 msgid "Session timed out."
 msgstr "Время сеанса истекло"
 
@@ -69,7 +69,7 @@ msgstr "Неправильная версия IP-адреса"
 msgid "Invalid subnet mask"
 msgstr "Неправльная маска подсети"
 
-#: tables/actions.py:439
+#: tables/actions.py:442
 #: templates/horizon/common/_data_table_table_actions.html:13
 #: templates/horizon/common/_data_table_table_actions.html:23
 #: templates/horizon/common/_workflow_step_update_members.html:11
@@ -77,72 +77,72 @@ msgstr "Неправльная маска подсети"
 msgid "Filter"
 msgstr "Фильтр"
 
-#: tables/actions.py:630
+#: tables/actions.py:633
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:632
+#: tables/actions.py:635
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:662 tables/base.py:1421
+#: tables/actions.py:665 tables/base.py:1427
 msgid "N/A"
 msgstr "Недоступно"
 
-#: tables/actions.py:691
+#: tables/actions.py:694
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Вам не разрешено %(action)s: %(objs)s"
 
-#: tables/actions.py:698
+#: tables/actions.py:701
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Невозможно выполнить %(action)s: %(objs)s"
 
-#: tables/actions.py:704
+#: tables/actions.py:707
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:720
+#: tables/actions.py:723
 msgid "Delete"
 msgstr "Удалить"
 
-#: tables/actions.py:721
+#: tables/actions.py:724
 msgid "Deleted"
 msgstr "Удалено"
 
-#: tables/actions.py:738
+#: tables/actions.py:741
 msgid "Update"
 msgstr "Обновить"
 
-#: tables/actions.py:739
+#: tables/actions.py:742
 msgid "Updated"
 msgstr "Обновлён"
 
-#: tables/base.py:316
+#: tables/base.py:317
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Атрибут %(attr)s не существует для %(obj)s."
 
-#: tables/base.py:889
+#: tables/base.py:895
 msgid "No items to display."
 msgstr "Нет элементов для отображения."
 
-#: tables/base.py:995
+#: tables/base.py:1001
 msgid "Actions"
 msgstr "Действия"
 
-#: tables/base.py:1201
+#: tables/base.py:1207
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Не найдено соответствий для id \"%s\"."
 
-#: tables/base.py:1341
+#: tables/base.py:1347
 msgid "Please select a row before taking that action."
 msgstr "Выберите строку перед выполнением этого действия."
 
@@ -209,6 +209,10 @@ msgid_plural "Displaying %(counter)s items"
 msgstr[0] "Показан %(counter)s элемент"
 msgstr[1] "Показано %(counter)s элемента"
 msgstr[2] "Показано %(counter)s элементов"
+
+#: templates/horizon/common/_data_table.html:66
+msgid "More&nbsp;&raquo;"
+msgstr ""
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -391,7 +395,7 @@ msgstr "Одна запятая допустима в списке портов"
 msgid "Port number must be integer"
 msgstr "Номер порта должен быть целым числом"
 
-#: workflows/base.py:70
+#: workflows/base.py:71
 msgid "Processing..."
 msgstr "Обработка…"
 

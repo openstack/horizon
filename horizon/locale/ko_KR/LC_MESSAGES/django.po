@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 23:31-0500\n"
-"PO-Revision-Date: 2014-04-30 04:40+0000\n"
+"POT-Creation-Date: 2014-06-27 16:43-0500\n"
+"PO-Revision-Date: 2014-06-28 12:51+0000\n"
 "Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -31,16 +31,16 @@ msgstr "계속 진행하려면 로그인하십시오."
 msgid "You are not authorized to access %s"
 msgstr "%s에 접근 권한이 없습니다. "
 
-#: exceptions.py:280
+#: exceptions.py:284
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "권한 없음: %s"
 
-#: exceptions.py:283
+#: exceptions.py:287
 msgid "Unauthorized. Please try logging in again."
 msgstr "권한이 없습니다. 다시 로그인 해주십시오."
 
-#: middleware.py:115
+#: middleware.py:117
 msgid "Session timed out."
 msgstr "세션 타임 아웃."
 
@@ -69,7 +69,7 @@ msgstr "IP 주소 버전이 잘못되었습니다."
 msgid "Invalid subnet mask"
 msgstr "서브넷 mask가 잘못되었습니다."
 
-#: tables/actions.py:439
+#: tables/actions.py:442
 #: templates/horizon/common/_data_table_table_actions.html:13
 #: templates/horizon/common/_data_table_table_actions.html:23
 #: templates/horizon/common/_workflow_step_update_members.html:11
@@ -77,72 +77,72 @@ msgstr "서브넷 mask가 잘못되었습니다."
 msgid "Filter"
 msgstr "필터"
 
-#: tables/actions.py:630
+#: tables/actions.py:633
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:632
+#: tables/actions.py:635
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:662 tables/base.py:1421
+#: tables/actions.py:665 tables/base.py:1427
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:691
+#: tables/actions.py:694
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "당신은 %(action)s 이(가) 허용되지 않습니다. : %(objs)s"
 
-#: tables/actions.py:698
+#: tables/actions.py:701
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s를 할 수 없습니다.: %(objs)s"
 
-#: tables/actions.py:704
+#: tables/actions.py:707
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:720
+#: tables/actions.py:723
 msgid "Delete"
 msgstr "삭제"
 
-#: tables/actions.py:721
+#: tables/actions.py:724
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: tables/actions.py:738
+#: tables/actions.py:741
 msgid "Update"
 msgstr "업데이트"
 
-#: tables/actions.py:739
+#: tables/actions.py:742
 msgid "Updated"
 msgstr "업데이트됨"
 
-#: tables/base.py:316
+#: tables/base.py:317
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
 
-#: tables/base.py:889
+#: tables/base.py:895
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
-#: tables/base.py:995
+#: tables/base.py:1001
 msgid "Actions"
 msgstr "실행"
 
-#: tables/base.py:1201
+#: tables/base.py:1207
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
 
-#: tables/base.py:1341
+#: tables/base.py:1347
 msgid "Please select a row before taking that action."
 msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
 
@@ -207,6 +207,10 @@ msgstr "요약"
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "%(counter)s 항목을 보여줍니다"
+
+#: templates/horizon/common/_data_table.html:66
+msgid "More&nbsp;&raquo;"
+msgstr "More&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -383,7 +387,7 @@ msgstr "포트 범위내에서 허용된 하나의 colon"
 msgid "Port number must be integer"
 msgstr "포트 번호는 정수이어야 합니다."
 
-#: workflows/base.py:70
+#: workflows/base.py:71
 msgid "Processing..."
 msgstr "작업 중..."
 
