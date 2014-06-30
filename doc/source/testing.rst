@@ -19,13 +19,31 @@ before you submit any pull requests/patches.
 To run the tests::
 
     $ ./run_tests.sh
-   
+
 It's also possible to :doc:`run a subset of unit tests<ref/run_tests>`.
 
 .. seealso::
 
     :doc:`ref/run_tests`
         Full reference for the ``run_tests.sh`` script.
+
+
+By default running the Selenium tests will open your Firefox browser (you have
+to install it first, else an error is raised), and you will be able to see the
+tests actions.
+If you want to run the suite headless, without being able to see them (as they
+are ran on Jenkins), you can run the tests:
+
+    $ ./run_tests.sh --with-selenium --selenium-headless
+
+Selenium will use a virtual display in this case, instead of your own. In order
+to run the tests this way you have to install the dependency `xvfb`, like this:
+
+    $ sudo apt-get install xvfb
+
+for a Debian OS flavour, or for Fedora/Red Hat flavours:
+
+    $ sudo yum install xorg-x11-server-Xvfb
 
 Writing tests
 =============

@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependency changes, directory renames, etc.
 # Simple integer sequence: 1, 2, 3...
-environment_version=42
+environment_version=43
 #--------------------------------------------------------#
 
 function usage {
@@ -33,6 +33,7 @@ function usage {
   echo "                           Implies -V if -N is not set."
   echo "  --only-selenium          Run only the Selenium unit tests"
   echo "  --with-selenium          Run unit tests including Selenium tests"
+  echo "  --selenium-headless      Run Selenium tests headless"
   echo "  --integration            Run the integration tests (requires a running "
   echo "                           OpenStack environment)"
   echo "  --runserver              Run the Django development server for"
@@ -75,6 +76,7 @@ restore_env=0
 runserver=0
 only_selenium=0
 with_selenium=0
+selenium_headless=0
 integration=0
 testopts=""
 testargs=""
@@ -110,6 +112,7 @@ function process_option {
     --compilemessages) compilemessages=1;;
     --only-selenium) only_selenium=1;;
     --with-selenium) with_selenium=1;;
+    --selenium-headless) selenium_headless=1;;
     --integration) integration=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
@@ -308,6 +311,10 @@ function run_tests {
       testopts="$testopts --exclude-dir=openstack_dashboard/test/integration_tests"
   fi
 
+  if [ $selenium_headless -eq 1 ]; then
+    export SELENIUM_HEADLESS=1
+  fi
+
   if [ -z "$testargs" ]; then
      run_tests_all
   else
@@ -369,6 +376,10 @@ function run_tests_all {
 
 function run_integration_tests {
   export INTEGRATION_TESTS=1
+
+  if [ $selenium_headless -eq 1 ]; then
+    export SELENIUM_HEADLESS=1
+  fi
 
   echo "Running Horizon integration tests..."
   if [ -z "$testargs" ]; then

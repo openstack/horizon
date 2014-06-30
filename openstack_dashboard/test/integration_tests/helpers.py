@@ -15,6 +15,7 @@ import os
 import selenium
 from selenium.webdriver.support import ui
 import testtools
+import xvfbwrapper
 
 from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
@@ -24,6 +25,11 @@ class BaseTestCase(testtools.TestCase):
 
     def setUp(self):
         if os.environ.get('INTEGRATION_TESTS', False):
+            # Start a virtual display server for running the tests headless.
+            if os.environ.get('SELENIUM_HEADLESS', False):
+                self.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
+                self.vdisplay.start()
+            # Start the Selenium webdriver and setup configuration.
             self.driver = selenium.webdriver.Firefox()
             self.conf = config.get_config()
         else:
@@ -34,6 +40,8 @@ class BaseTestCase(testtools.TestCase):
     def tearDown(self):
         if os.environ.get('INTEGRATION_TESTS', False):
             self.driver.close()
+        if hasattr(self, 'vdisplay'):
+            self.vdisplay.stop()
         super(BaseTestCase, self).tearDown()
 
     def wait_for_title(self):
