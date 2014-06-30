@@ -739,6 +739,14 @@ def data(TEST):
         "service": "compute",
         "zone": "testing",
     })
+
+    host4 = hosts.Host(hosts.HostManager(None), {
+        "host_name": "devstack004",
+        "service": "compute",
+        "zone": "testing",
+    })
+
     TEST.hosts.add(host1)
     TEST.hosts.add(host2)
     TEST.hosts.add(host3)
+    TEST.hosts.add(host4)
