@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Łukasz Jernaś <deejay1@srem.org>, 2014
+# stopolewicz <stopolewicz@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-27 16:43-0500\n"
-"PO-Revision-Date: 2014-06-29 01:41+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2014-06-30 23:00+0000\n"
+"Last-Translator: stopolewicz <stopolewicz@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: settings.py:84
 msgid "Select format"
-msgstr ""
+msgstr "Wybierz format"
 
 #: settings.py:85
 msgid "AKI - Amazon Kernel Image"
@@ -60,15 +61,15 @@ msgstr "VMDK"
 
 #: settings.py:222
 msgid "All TCP"
-msgstr ""
+msgstr "Wszystkie TCP"
 
 #: settings.py:228
 msgid "All UDP"
-msgstr ""
+msgstr "Wszystkie UDP"
 
 #: settings.py:234
 msgid "All ICMP"
-msgstr ""
+msgstr "Wszystkie ICMP"
 
 #: api/ceilometer.py:736
 msgid "Unable to retrieve Ceilometer meterlist."
@@ -339,7 +340,7 @@ msgstr "Kontener nie może zostać usunięty, ponieważ nie jest pusty."
 
 #: dashboards/admin/dashboard.py:22
 msgid "System"
-msgstr ""
+msgstr "System"
 
 #: dashboards/admin/dashboard.py:30
 msgid "Identity"
@@ -1221,7 +1222,7 @@ msgstr "Wszystkie projekty"
 
 #: dashboards/admin/flavors/workflows.py:161
 msgid "Selected Projects"
-msgstr ""
+msgstr "Wybrane projekty"
 
 #: dashboards/admin/flavors/workflows.py:162
 msgid "No projects found."
@@ -1877,7 +1878,7 @@ msgstr "Usługi obliczeniowe"
 
 #: dashboards/admin/info/tables.py:117 dashboards/admin/info/tabs.py:66
 msgid "Block Storage Services"
-msgstr ""
+msgstr "Usługi Przechowywania Blokowego"
 
 #: dashboards/admin/info/tables.py:138 dashboards/admin/users/tables.py:58
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
@@ -2040,18 +2041,18 @@ msgstr "Nie można pobrać informacji o limitach."
 
 #: dashboards/admin/info/views.py:39
 msgid "Unable to retrieve version information."
-msgstr ""
+msgstr "Nie można pobrać informacji o wersji."
 
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 msgid "Reason"
-msgstr ""
+msgstr "Powód"
 
 #: dashboards/admin/info/templates/info/index.html:14
 #, python-format
 msgid ""
 "Version: %(version_info)s\n"
 "      "
-msgstr ""
+msgstr "Wersja: %(version_info)s\n      "
 
 #: dashboards/admin/instances/forms.py:27
 msgid "Current Host"
@@ -2254,7 +2255,7 @@ msgstr "Nazwa projektu"
 
 #: dashboards/admin/metering/views.py:149
 msgid "Time"
-msgstr ""
+msgstr "Czas"
 
 #: dashboards/admin/metering/views.py:264
 msgid "Unable to retrieve tenant list."
@@ -2371,7 +2372,7 @@ msgstr "Wstecz"
 
 #: dashboards/admin/metering/templates/metering/report.html:20
 msgid "No data available"
-msgstr ""
+msgstr "Brak dostępnych danych"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric"
@@ -4276,7 +4277,7 @@ msgstr "Ustawiono dostęp kontenera jako prywatny."
 
 #: dashboards/project/containers/tables.py:120
 msgid "Unable to delete container."
-msgstr ""
+msgstr "Nie można usunąć kontenera."
 
 #: dashboards/project/containers/tables.py:137
 #: dashboards/project/containers/templates/containers/_create.html:8
@@ -4925,7 +4926,7 @@ msgstr "Należy podać przynajmniej jedną bazę danych, jeśli ma zostać utwor
 
 #: dashboards/project/databases/workflows/create_instance.py:113
 msgid "Select a backup to restore"
-msgstr ""
+msgstr "Wybierz kopię zapasową aby przywrócić"
 
 #: dashboards/project/databases/workflows/create_instance.py:116
 msgid "Restore From Backup"
@@ -5264,7 +5265,7 @@ msgstr "Nie można pobrać szczegółów zapory ogniowej."
 #: dashboards/project/firewalls/views.py:67
 #, python-format
 msgid "Deleted rule %s"
-msgstr ""
+msgstr "Usunięto regułę %s"
 
 #: dashboards/project/firewalls/views.py:70
 #, python-format
@@ -5998,20 +5999,20 @@ msgstr "Potwierdź lub anuluj zmianę rozmiaru/migrację"
 
 #: dashboards/project/instances/tables.py:697
 msgid "Reboot"
-msgstr ""
+msgstr "Restart"
 
 #: dashboards/project/instances/tables.py:700
 msgid "Rebuild"
-msgstr ""
+msgstr "Przebuduj"
 
 #: dashboards/project/instances/tables.py:701
 #: dashboards/project/instances/tables.py:741
 msgid "Migrating"
-msgstr ""
+msgstr "W trakcie migracji"
 
 #: dashboards/project/instances/tables.py:702
 msgid "Build"
-msgstr ""
+msgstr "Zbuduj"
 
 #: dashboards/project/instances/tables.py:703
 msgid "Rescue"
@@ -6035,7 +6036,7 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:713
 msgid "Block Device Mapping"
-msgstr ""
+msgstr "Mapowanie urządzenia blokowego"
 
 #: dashboards/project/instances/tables.py:714
 #: dashboards/project/instances/workflows/create_instance.py:577
@@ -6052,23 +6053,23 @@ msgstr "Tworzenie migawki"
 
 #: dashboards/project/instances/tables.py:717
 msgid "Image Snapshot Pending"
-msgstr ""
+msgstr "Tworzenie obrazu w toku"
 
 #: dashboards/project/instances/tables.py:718
 msgid "Image Pending Upload"
-msgstr ""
+msgstr "Ładowanie obrazu w toku"
 
 #: dashboards/project/instances/tables.py:719
 msgid "Image Uploading"
-msgstr ""
+msgstr "Ładowanie obrazu"
 
 #: dashboards/project/instances/tables.py:720
 msgid "Image Backup"
-msgstr ""
+msgstr "Kopia zapasowa obrazu"
 
 #: dashboards/project/instances/tables.py:721
 msgid "Updating Password"
-msgstr ""
+msgstr "Aktualizowanie hasła"
 
 #: dashboards/project/instances/tables.py:722
 msgid "Preparing Resize or Migrate"
@@ -6096,11 +6097,11 @@ msgstr "Potwierdź zmianę rozmiaru lub migrację"
 
 #: dashboards/project/instances/tables.py:728
 msgid "Rebooting"
-msgstr ""
+msgstr "Restart"
 
 #: dashboards/project/instances/tables.py:729
 msgid "Rebooting Hard"
-msgstr ""
+msgstr "Twardy restart"
 
 #: dashboards/project/instances/tables.py:730
 msgid "Pausing"
@@ -6113,15 +6114,15 @@ msgstr "Wznawianie"
 
 #: dashboards/project/instances/tables.py:732
 msgid "Suspending"
-msgstr ""
+msgstr "Wstrzymanie"
 
 #: dashboards/project/instances/tables.py:734
 msgid "Powering Off"
-msgstr ""
+msgstr "Wyłączanie"
 
 #: dashboards/project/instances/tables.py:735
 msgid "Powering On"
-msgstr ""
+msgstr "Włączanie"
 
 #: dashboards/project/instances/tables.py:736
 msgid "Rescuing"
@@ -6133,11 +6134,11 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:738
 msgid "Rebuilding"
-msgstr ""
+msgstr "Przebudowanie"
 
 #: dashboards/project/instances/tables.py:739
 msgid "Rebuild Block Device Mapping"
-msgstr ""
+msgstr "Przebuduj mapowanie urządzenia blokowego"
 
 #: dashboards/project/instances/tables.py:740
 msgid "Rebuild Spawning"
@@ -6145,15 +6146,15 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:742
 msgid "Deleting"
-msgstr ""
+msgstr "Usuwanie"
 
 #: dashboards/project/instances/tables.py:743
 msgid "Soft Deleting"
-msgstr ""
+msgstr "Miękkie usuwanie"
 
 #: dashboards/project/instances/tables.py:744
 msgid "Restoring"
-msgstr ""
+msgstr "Przywracanie"
 
 #: dashboards/project/instances/tables.py:745
 msgid "Shelving"
@@ -6185,11 +6186,11 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:755
 msgid "Blocked"
-msgstr ""
+msgstr "Zablokowane"
 
 #: dashboards/project/instances/tables.py:757
 msgid "Shut Down"
-msgstr ""
+msgstr "Wyłączone"
 
 #: dashboards/project/instances/tables.py:759
 msgid "Crashed"
@@ -6197,11 +6198,11 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:761
 msgid "Failed"
-msgstr ""
+msgstr "Nieudane"
 
 #: dashboards/project/instances/tables.py:762
 msgid "Building"
-msgstr ""
+msgstr "Budowanie"
 
 #: dashboards/project/instances/tabs.py:36
 msgid "Log"
@@ -6484,7 +6485,7 @@ msgstr "Pozwala ustawić hasło na przebudowanej instancji."
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
 msgid "Selected networks"
-msgstr ""
+msgstr "Wybrane sieci"
 
 #: dashboards/project/instances/templates/instances/_update_networks.html:11
 msgid "Available networks"
@@ -6558,7 +6559,7 @@ msgstr "Usuwa wolumen podczas niszczenia instancji"
 
 #: dashboards/project/instances/workflows/create_instance.py:141
 msgid "Select source"
-msgstr ""
+msgstr "Wybierz źródło"
 
 #: dashboards/project/instances/workflows/create_instance.py:142
 msgid "Boot from image"
@@ -8867,7 +8868,7 @@ msgstr "Użył wolumenu jako źródła"
 
 #: dashboards/project/volumes/volumes/forms.py:87
 msgid "No volume type"
-msgstr ""
+msgstr "Brak typu wolumenu"
 
 #: dashboards/project/volumes/volumes/forms.py:106
 #, python-format
@@ -9016,20 +9017,20 @@ msgstr "Nie można zaktualizować wolumenu."
 
 #: dashboards/project/volumes/volumes/forms.py:497
 msgid "Current Size (GB)"
-msgstr ""
+msgstr "Bieżący rozmiar (GB)"
 
 #: dashboards/project/volumes/volumes/forms.py:501
 msgid "New Size (GB)"
-msgstr ""
+msgstr "Nowy rozmiar (GB)"
 
 #: dashboards/project/volumes/volumes/forms.py:508
 msgid "New size must be greater than current size."
-msgstr ""
+msgstr "Nowy rozmiar musi być większy niż bieżący."
 
 #: dashboards/project/volumes/volumes/forms.py:519
 #, python-format
 msgid "Extending volume: \"%s\""
-msgstr ""
+msgstr "Rozszerzanie wolumenu: \"%s\""
 
 #: dashboards/project/volumes/volumes/forms.py:525
 msgid "Unable to extend volume."
@@ -9037,7 +9038,7 @@ msgstr "Nie można rozszerzyć wolumenu."
 
 #: dashboards/project/volumes/volumes/tables.py:38
 msgid "Launch as Instance"
-msgstr ""
+msgstr "Uruchom jako Instancję"
 
 #: dashboards/project/volumes/volumes/tables.py:75
 #, python-format
@@ -9064,7 +9065,7 @@ msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:290
 msgid "Encrypted"
-msgstr ""
+msgstr "Zaszyfrowane"
 
 #: dashboards/project/volumes/volumes/tables.py:306
 msgid "Detach"
@@ -9081,7 +9082,7 @@ msgstr "Urządzenie"
 #: dashboards/project/volumes/volumes/tables.py:345
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
-msgstr ""
+msgstr "Wolumen %(volume_name)s w instancji %(instance_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:62
 msgid "Unable to retrieve volume details."
