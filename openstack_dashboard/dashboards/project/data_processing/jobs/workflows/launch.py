@@ -32,17 +32,6 @@ import openstack_dashboard.dashboards.project.data_processing. \
 LOG = logging.getLogger(__name__)
 
 
-class SelectPluginAction(t_flows.SelectPluginAction):
-    class Meta:
-        name = _("Select plugin and hadoop version for cluster")
-        help_text_template = (
-            "project/data_processing.clusters/_create_general_help.html")
-
-
-class SelectPlugin(t_flows.SelectPlugin):
-    pass
-
-
 class JobExecutionGeneralConfigAction(workflows.Action):
     job_input = forms.ChoiceField(
         label=_("Input"),
@@ -401,7 +390,7 @@ class SelectHadoopPluginAction(t_flows.SelectPluginAction):
 
     class Meta:
         name = _("Select plugin and hadoop version for cluster")
-        help_text_template = ("project/data_processing.cluster_templates/"
+        help_text_template = ("project/data_processing.clusters/"
                               "_create_general_help.html")
 
 
