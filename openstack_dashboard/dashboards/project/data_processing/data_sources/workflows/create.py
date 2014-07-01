@@ -13,10 +13,6 @@
 
 import logging
 
-from django.forms import util
-from django.forms import widgets
-
-from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -28,16 +24,6 @@ from openstack_dashboard.api import sahara as saharaclient
 LOG = logging.getLogger(__name__)
 
 
-class LabeledInput(widgets.Input):
-    def render(self, name, values, attrs=None):
-        final_attrs = self.build_attrs(attrs, type=self.input_type, name=name)
-        output = "<span id='%s'>%s</span>%s" %\
-            ("id_%s_label" % name,
-             "swift://",
-             ('<input%s />' % util.flatatt(final_attrs)))
-        return mark_safe(output)
-
-
 class GeneralConfigAction(workflows.Action):
     data_source_name = forms.CharField(label=_("Name"))
 
@@ -46,8 +32,7 @@ class GeneralConfigAction(workflows.Action):
         choices=[("swift", "Swift"), ("hdfs", "HDFS")],
         widget=forms.Select(attrs={"class": "data_source_type_choice"}))
 
-    data_source_url = forms.CharField(label=_("URL"),
-                                      widget=LabeledInput())
+    data_source_url = forms.CharField(label=_("URL"))
 
     data_source_credential_user = forms.CharField(label=_("Source username"))
 
@@ -88,9 +73,12 @@ class GeneralConfig(workflows.Step):
         for k, v in data.items():
             context["general_" + k] = v
 
-        context["source_url"] = "%s://%s" % \
-            (context["general_data_source_type"],
-             context["general_data_source_url"])
+        context["source_url"] = context["general_data_source_url"]
+
+        if context["general_data_source_type"] == "swift":
+            if not context["general_data_source_url"].startswith("swift://"):
+                context["source_url"] = "swift://{0}".format(
+                    context["general_data_source_url"])
 
         return context
 
