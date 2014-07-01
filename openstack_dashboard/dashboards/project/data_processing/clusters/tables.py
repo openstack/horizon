@@ -13,10 +13,15 @@
 
 import logging
 
+from django.http import Http404  # noqa
 from django.utils.translation import ugettext_lazy as _
+
+from horizon import messages
 from horizon import tables
 
 from openstack_dashboard.api import sahara as saharaclient
+
+from saharaclient.api import base as api_base
 
 
 LOG = logging.getLogger(__name__)
@@ -55,8 +60,14 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, instance_id):
-        instance = saharaclient.cluster_get(request, instance_id)
-        return instance
+        try:
+            return saharaclient.cluster_get(request, instance_id)
+        except api_base.APIException as e:
+            if e.error_code == 404:
+                raise Http404
+            else:
+                messages.error(request,
+                               _("Unable to update row"))
 
 
 def get_instances_count(cluster):
