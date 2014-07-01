@@ -814,11 +814,18 @@ class DataTableOptions(object):
         The name of the context variable which will contain the table when
         it is rendered. Defaults to ``"table"``.
 
+    .. attribute:: prev_pagination_param
+
+        The name of the query string parameter which will be used when
+        paginating backward in this table. When using multiple tables in a
+        single view this will need to be changed to differentiate between the
+        tables. Default: ``"prev_marker"``.
+
     .. attribute:: pagination_param
 
         The name of the query string parameter which will be used when
-        paginating this table. When using multiple tables in a single
-        view this will need to be changed to differentiate between the
+        paginating forward in this table. When using multiple tables in a
+        single view this will need to be changed to differentiate between the
         tables. Default: ``"marker"``.
 
     .. attribute:: status_columns
@@ -887,6 +894,9 @@ class DataTableOptions(object):
         self.cell_class = getattr(options, 'cell_class', Cell)
         self.row_class = getattr(options, 'row_class', Row)
         self.column_class = getattr(options, 'column_class', Column)
+        self.prev_pagination_param = getattr(options,
+                                             'prev_pagination_param',
+                                             'prev_marker')
         self.pagination_param = getattr(options, 'pagination_param', 'marker')
         self.browser_table = getattr(options, 'browser_table', None)
         self.footer = getattr(options, 'footer', True)
@@ -925,6 +935,7 @@ class DataTableOptions(object):
                                     len(self.table_actions) > 0)
 
         # Set runtime table defaults; not configurable.
+        self.has_prev_data = False
         self.has_more_data = False
 
         # Set mixed data type table attr
@@ -1526,6 +1537,15 @@ class DataTable(object):
             return datum.name
         return None
 
+    def has_prev_data(self):
+        """Returns a boolean value indicating whether there is previous data
+        available to this table from the source (generally an API).
+
+        The method is largely meant for internal use, but if you want to
+        override it to provide custom behavior you can do so at your own risk.
+        """
+        return self._meta.has_prev_data
+
     def has_more_data(self):
         """Returns a boolean value indicating whether there is more data
         available to this table from the source (generally an API).
@@ -1535,14 +1555,31 @@ class DataTable(object):
         """
         return self._meta.has_more_data
 
+    def get_prev_marker(self):
+        """Returns the identifier for the first object in the current data set
+        for APIs that use marker/limit-based paging.
+        """
+        return http.urlquote_plus(self.get_object_id(self.data[0])) \
+            if self.data else ''
+
     def get_marker(self):
         """Returns the identifier for the last object in the current data set
         for APIs that use marker/limit-based paging.
         """
-        return http.urlquote_plus(self.get_object_id(self.data[-1]))
+        return http.urlquote_plus(self.get_object_id(self.data[-1])) \
+            if self.data else ''
+
+    def get_prev_pagination_string(self):
+        """Returns the query parameter string to paginate this table
+        to the previous page.
+        """
+        return "=".join([self._meta.prev_pagination_param,
+                         self.get_prev_marker()])
 
     def get_pagination_string(self):
-        """Returns the query parameter string to paginate this table."""
+        """Returns the query parameter string to paginate this table
+        to the next page.
+        """
         return "=".join([self._meta.pagination_param, self.get_marker()])
 
     def calculate_row_status(self, statuses):

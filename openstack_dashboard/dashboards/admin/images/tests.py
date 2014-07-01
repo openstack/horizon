@@ -39,9 +39,10 @@ class ImagesViewTest(test.BaseAdminViewTests):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
                                        paginate=True,
-                                       filters=filters) \
+                                       filters=filters,
+                                       sort_dir='desc') \
             .AndReturn([self.images.list(),
-                        False])
+                        False, False])
         self.mox.ReplayAll()
 
         res = self.client.get(
@@ -58,27 +59,31 @@ class ImagesViewTest(test.BaseAdminViewTests):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
                                        paginate=True,
-                                       filters=filters) \
+                                       filters=filters,
+                                       sort_dir='desc') \
                                 .AndReturn([images,
-                                            True])
+                                            True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
                                        paginate=True,
-                                       filters=filters) \
+                                       filters=filters,
+                                       sort_dir='desc') \
                                 .AndReturn([images[:2],
-                                            True])
+                                            True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
                                        paginate=True,
-                                       filters=filters) \
+                                       filters=filters,
+                                       sort_dir='desc') \
                                 .AndReturn([images[2:4],
-                                            True])
+                                            True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[4].id,
                                        paginate=True,
-                                       filters=filters) \
+                                       filters=filters,
+                                       sort_dir='desc') \
                                 .AndReturn([images[4:],
-                                            True])
+                                            True, True])
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:images:index')
@@ -108,3 +113,65 @@ class ImagesViewTest(test.BaseAdminViewTests):
         # get third page (item 5)
         self.assertEqual(len(res.context['images_table'].data),
                          1)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.glance: ('image_list_detailed',)})
+    def test_images_list_get_prev_pagination(self):
+        images = self.images.list()[:3]
+        filters = {'is_public': None}
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None,
+                                       paginate=True,
+                                       filters=filters,
+                                       sort_dir='desc') \
+                                .AndReturn([images,
+                                            True, False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=None,
+                                       paginate=True,
+                                       filters=filters,
+                                       sort_dir='desc') \
+                                .AndReturn([images[:2],
+                                            True, True])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=images[2].id,
+                                       paginate=True,
+                                       filters=filters,
+                                       sort_dir='desc') \
+                                .AndReturn([images[2:],
+                                            True, True])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       marker=images[2].id,
+                                       paginate=True,
+                                       filters=filters,
+                                       sort_dir='asc') \
+                                .AndReturn([images[:2],
+                                            True, True])
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:images:index')
+        res = self.client.get(url)
+        # get all
+        self.assertEqual(len(res.context['images_table'].data),
+                         len(images))
+        self.assertTemplateUsed(res, 'admin/images/index.html')
+
+        res = self.client.get(url)
+        # get first page with 2 items
+        self.assertEqual(len(res.context['images_table'].data),
+                         settings.API_RESULT_PAGE_SIZE)
+
+        url = "?".join([reverse('horizon:admin:images:index'),
+                "=".join([tables.AdminImagesTable._meta.pagination_param,
+                            images[2].id])])
+        res = self.client.get(url)
+        # get second page (item 3)
+        self.assertEqual(len(res.context['images_table'].data), 1)
+
+        url = "?".join([reverse('horizon:admin:images:index'),
+                "=".join([tables.AdminImagesTable._meta.prev_pagination_param,
+                          images[2].id])])
+        res = self.client.get(url)
+        # prev back to get first page with 2 items
+        self.assertEqual(len(res.context['images_table'].data),
+                         settings.API_RESULT_PAGE_SIZE)

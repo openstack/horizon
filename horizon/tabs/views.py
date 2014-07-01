@@ -118,6 +118,7 @@ class TabbedTableView(tables.MultiTableMixin, TabView):
         tab = table_dict['tab']
         tab.load_table_data()
         table_name = table._meta.name
+        tab._tables[table_name]._meta.has_prev_data = self.has_prev_data(table)
         tab._tables[table_name]._meta.has_more_data = self.has_more_data(table)
         handled = tab._tables[table_name].maybe_handle()
         return handled

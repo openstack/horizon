@@ -34,7 +34,7 @@ def get_available_images(request, project_id=None, images_cache=None):
         public = {"is_public": True,
                   "status": "active"}
         try:
-            images, _more = glance.image_list_detailed(
+            images, _more, _prev = glance.image_list_detailed(
                 request, filters=public)
             [public_images.append(image) for image in images]
             images_cache['public_images'] = public_images
@@ -50,7 +50,7 @@ def get_available_images(request, project_id=None, images_cache=None):
         owner = {"property-owner_id": project_id,
                  "status": "active"}
         try:
-            owned_images, _more = glance.image_list_detailed(
+            owned_images, _more, _prev = glance.image_list_detailed(
                 request, filters=owner)
             images_by_project[project_id] = owned_images
         except Exception:

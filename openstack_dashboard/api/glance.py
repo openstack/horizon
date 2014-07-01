@@ -58,7 +58,8 @@ def image_get(request, image_id):
     return image
 
 
-def image_list_detailed(request, marker=None, filters=None, paginate=False):
+def image_list_detailed(request, marker=None, sort_dir='desc',
+                        sort_key='created_at', filters=None, paginate=False):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 
@@ -70,19 +71,32 @@ def image_list_detailed(request, marker=None, filters=None, paginate=False):
     kwargs = {'filters': filters or {}}
     if marker:
         kwargs['marker'] = marker
+    kwargs['sort_dir'] = sort_dir
+    kwargs['sort_key'] = sort_key
 
     images_iter = glanceclient(request).images.list(page_size=request_size,
                                                     limit=limit,
                                                     **kwargs)
+    has_prev_data = False
     has_more_data = False
     if paginate:
         images = list(itertools.islice(images_iter, request_size))
+        # first and middle page condition
         if len(images) > page_size:
             images.pop(-1)
             has_more_data = True
+            # middle page condition
+            if marker is not None:
+                has_prev_data = True
+        # first page condition when reached via prev back
+        elif sort_dir == 'asc' and marker is not None:
+            has_more_data = True
+        # last page condition
+        elif marker is not None:
+            has_prev_data = True
     else:
         images = list(images_iter)
-    return (images, has_more_data)
+    return (images, has_more_data, has_prev_data)
 
 
 def image_update(request, image_id, **kwargs):
