@@ -96,16 +96,16 @@ def update_dashboards(modules, horizon_config, installed_apps):
         if config.get('DISABLED', False):
             continue
         apps.extend(config.get('ADD_INSTALLED_APPS', []))
+        exceptions.update(config.get('ADD_EXCEPTIONS', {}))
         angular_modules.extend(config.get('ADD_ANGULAR_MODULES', []))
         js_files.update(config.get('ADD_JS_FILES', []))
+        update_horizon_config.update(
+            config.get('UPDATE_HORIZON_CONFIG', {}))
         if config.get('DASHBOARD'):
             dashboard = key
             dashboards.append(dashboard)
-            exceptions.update(config.get('ADD_EXCEPTIONS', {}))
             if config.get('DEFAULT', False):
                 horizon_config['default_dashboard'] = dashboard
-            update_horizon_config.update(
-                config.get('UPDATE_HORIZON_CONFIG', {}))
         elif config.get('PANEL') or config.get('PANEL_GROUP'):
             config.pop("__builtins__", None)
             panel_customization.append(config)

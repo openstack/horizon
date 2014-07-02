@@ -124,7 +124,8 @@ to the value of this settings (ideally a URL containing help information).
 Default: ``{'unauthorized': [], 'not_found': [], 'recoverable': []}``
 
 A dictionary containing classes of exceptions which Horizon's centralized
-exception handling should be aware of.
+exception handling should be aware of. Based on these exception categories,
+Horizon will handle the exception and display a message to the user.
 
 ``password_validator``
 ----------------------
@@ -565,16 +566,12 @@ are generally safe to use.
 
 .. _pluggable-settings-label:
 
-Pluggable Settings for Dashboards
+Pluggable Settings
 =================================
-
-.. versionadded:: 2014.1(Icehouse)
-
-Many dashboards may require their own modifications to the settings, and their
-installation would therefore require modifying the settings file. This is not
-optimal, so the dashboards can provide the settings that they require in a
-separate file. Those files are read at startup and used to modify the default
-settings.
+Horizon allows dashboards, panels and panel groups to be added without
+modifying the default settings. Pluggable settings are a mechanism to allow
+settings to be stored in separate files.  Those files are read at startup and
+used to modify the default settings.
 
 The default location for the dashboard configuration files is
 ``openstack_dashboard/enabled``, with another directory,
@@ -586,21 +583,8 @@ the filenames. If the same dashboard has configuration files in ``enabled`` and
 python modules can't start with a digit, the files are usually named with a
 leading underscore and a number, so that you can control their order easily.
 
-The files contain following keys:
-
-``DASHBOARD``
--------------
-
-.. versionadded:: 2014.1(Icehouse)
-
-The name of the dashboard to be added to ``HORIZON['dashboards']``. Required.
-
-``DEFAULT``
------------
-
-.. versionadded:: 2014.1(Icehouse)
-
-If set to ``True``, this dashboard will be set as the default dashboard.
+Before we describe the specific use cases, the following keys can be used in
+any pluggable settings file:
 
 ``ADD_EXCEPTIONS``
 ------------------
@@ -620,11 +604,15 @@ This is needed to expose static files from a plugin.
 ``ADD_ANGULAR_MODULES``
 -----------------------
 
+.. versionadded:: 2014.2(Juno)
+
 A list of AngularJS modules to be loaded when Angular bootstraps. These modules
 are added as dependencies on the root Horizon application ``hz``.
 
 ``ADD_JS_FILES``
 ----------------------
+
+.. versionadded:: 2014.2(Juno)
 
 A list of javascript files to be included in the compressed set of files that are
 loaded on every page. This is needed for AngularJS modules that are referenced in
@@ -635,7 +623,38 @@ loaded on every page. This is needed for AngularJS modules that are referenced i
 
 .. versionadded:: 2014.1(Icehouse)
 
-If set to ``True``, this dashboard will not be added to the settings.
+If set to ``True``, this settings file will not be added to the settings.
+
+``UPDATE_HORIZON_CONFIG``
+-------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+A dictionary of values that will replace the values in ``HORIZON_CONFIG``.
+
+
+Pluggable Settings for Dashboards
+=================================
+
+.. versionadded:: 2014.1(Icehouse)
+
+The following keys are specific to registering a dashboard:
+
+
+``DASHBOARD``
+-------------
+
+.. versionadded:: 2014.1(Icehouse)
+
+The name of the dashboard to be added to ``HORIZON['dashboards']``. Required.
+
+``DEFAULT``
+-----------
+
+.. versionadded:: 2014.1(Icehouse)
+
+If set to ``True``, this dashboard will be set as the default dashboard.
+
 
 Examples
 --------
@@ -662,29 +681,13 @@ create a file ``openstack_dashboard/local/enabled/_50_tuskar.py`` with::
         'unauthorized': exceptions.UNAUTHORIZED,
     }
 
+
 Pluggable Settings for Panels
 =============================
 
 .. versionadded:: 2014.1(Icehouse)
 
-Panels customization can be made by providing a custom python module that
-contains python code to add or remove panel to/from the dashboard. This
-requires altering the settings file. For panels provided by third-party,
-making this changes to add the panel is challenging. Panel configuration
-files can now be dropped to a specified location and it will be read at startup
-to alter the dashboard configuration.
-
-The default location for the panel configuration files is
-``openstack_dashboard/enabled``, with another directory,
-``openstack_dashboard/local/enabled`` for local overrides. Both sets of files
-will be loaded, but the settings in ``openstack_dashboard/local/enabled`` will
-overwrite the default ones. The settings are applied in alphabetical order of
-the filenames. If the same panel has configuration files in ``enabled`` and
-``local/enabled``, the local name will be used. Note, that since names of
-python modules can't start with a digit, the files are usually named with a
-leading underscore and a number, so that you can control their order easily.
-
-The files contain following keys:
+The following keys are specific to registering or removing a panel:
 
 ``PANEL``
 ---------
@@ -730,31 +733,6 @@ Python panel class of the ``PANEL`` to be added.
 
 If set to ``True``, the PANEL will be removed from PANEL_DASHBOARD/PANEL_GROUP.
 
-``ADD_INSTALLED_APPS``
-----------------------
-
-A list of applications to be prepended to ``INSTALLED_APPS``.
-This is needed to expose static files from a plugin.
-
-``ADD_ANGULAR_MODULES``
------------------------
-
-A list of AngularJS modules to be loaded when Angular bootstraps. These modules
-are added as dependencies on the root Horizon application ``hz``.
-
-``ADD_JS_FILES``
-----------------------
-
-A list of javascript files to be included in the compressed set of files that are
-loaded on every page. This is needed for AngularJS modules that are referenced in
-``ADD_ANGULAR_MODULES`` and therefore need to be included in every page.
-
-``DISABLED``
-------------
-
-.. versionadded:: 2014.1(Icehouse)
-
-If set to ``True``, this panel configuration will be skipped.
 
 Examples
 --------
@@ -791,27 +769,8 @@ Pluggable Settings for Panel Groups
 
 .. versionadded:: 2014.1(Icehouse)
 
-To organize the panels created from the pluggable settings, there is also
-a way to create panel group though configuration file. This creates an empty
-panel group to act as placeholder for the panels that can be created later.
 
-The default location for the panel group configuration files is
-``openstack_dashboard/enabled``, with another directory,
-``openstack_dashboard/local/enabled`` for local overrides. Both sets of files
-will be loaded, but the settings in ``openstack_dashboard/local/enabled`` will
-overwrite the default ones. The settings are applied in alphabetical order of
-the filenames. If the same panel has configuration files in ``enabled`` and
-``local/enabled``, the local name will be used. Note, that since names of
-python modules can't start with a digit, the files are usually named with a
-leading underscore and a number, so that you can control their order easily.
-
-When writing configuration files to create panels and panels group, make sure
-that the panel group configuration file is loaded first because the panel
-configuration might be referencing it. This can be achieved by providing a file
-name that will go before the panel configuration file when the files are sorted
-alphabetically.
-
-The files contain following keys:
+The following keys are specific to registering a panel group:
 
 ``PANEL_GROUP``
 ---------------
@@ -834,21 +793,6 @@ The display name of the PANEL_GROUP. Required.
 
 The name of the dashboard the ``PANEL_GROUP`` associated with. Required.
 
-``DISABLED``
-------------
-
-.. versionadded:: 2014.1(Icehouse)
-
-If set to ``True``, this panel configuration will be skipped.
-
-``UPDATE_HORIZON_CONFIG``
--------------------------
-
-.. versionadded:: 2014.2(Juno)
-
-A dictionary of values that will replace the values in ``HORIZON_CONFIG``. The
-order in which this setting is applied is the same as for the other pluggable
-settings, and is described at the beginning of this section.
 
 
 Examples
