@@ -57,6 +57,12 @@ class DatabasePanels(horizon.PanelGroup):
               'database_backups',)
 
 
+class DataProcessingPanels(horizon.PanelGroup):
+    name = _("Data Processing")
+    slug = "data_processing"
+    panels = ('data_processing.data_plugins',)
+
+
 class Project(horizon.Dashboard):
     name = _("Project")
     slug = "project"
@@ -65,7 +71,8 @@ class Project(horizon.Dashboard):
         NetworkPanels,
         ObjectStorePanels,
         OrchestrationPanels,
-        DatabasePanels,)
+        DatabasePanels,
+        DataProcessingPanels,)
     default_panel = 'overview'
     supports_tenants = True
 
