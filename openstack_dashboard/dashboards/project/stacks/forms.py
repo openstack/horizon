@@ -48,8 +48,7 @@ class TemplateForm(forms.SelfHandlingForm):
 
     class Meta:
         name = _('Select Template')
-        help_text = _('From here you can select a template to launch '
-                      'a stack.')
+        help_text = _('Select a template to launch a stack.')
 
     # TODO(jomara) - update URL choice for template & environment files
     # w/ client side download when applicable
@@ -224,8 +223,7 @@ class TemplateForm(forms.SelfHandlingForm):
 class ChangeTemplateForm(TemplateForm):
     class Meta:
         name = _('Edit Template')
-        help_text = _('From here you can select a new template to re-launch '
-                      'a stack.')
+        help_text = _('Select a new template to re-launch a stack.')
     stack_id = forms.CharField(label=_('Stack ID'),
         widget=forms.widgets.HiddenInput)
     stack_name = forms.CharField(label=_('Stack Name'),

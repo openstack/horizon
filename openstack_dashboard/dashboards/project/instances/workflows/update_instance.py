@@ -83,8 +83,8 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
 
 class UpdateInstanceSecurityGroups(workflows.UpdateMembersStep):
     action_class = UpdateInstanceSecurityGroupsAction
-    help_text = _("From here you can add and remove security groups to "
-                  "this project from the list of available security groups.")
+    help_text = _("Add and remove security groups to this project "
+                  "from the list of available security groups.")
     available_list_title = _("All Security Groups")
     members_list_title = _("Instance Security Groups")
     no_available_text = _("No security groups found.")
@@ -118,7 +118,7 @@ class UpdateInstanceInfoAction(workflows.Action):
     class Meta:
         name = _("Info")
         slug = 'instance_info'
-        help_text = _("From here you can edit the instance details.")
+        help_text = _("Edit the instance details.")
 
 
 class UpdateInstanceInfo(workflows.Step):

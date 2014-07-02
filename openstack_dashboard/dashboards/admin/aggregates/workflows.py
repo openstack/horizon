@@ -28,9 +28,10 @@ class SetAggregateInfoAction(workflows.Action):
                                         max_length=255)
 
     class Meta:
-        name = _("Host Aggregate Info")
-        help_text = _("From here you can create a new "
-                      "host aggregate to organize instances.")
+        name = _("Host Aggregate Information")
+        help_text = _("Host aggregates divide an availability zone into "
+                      "logical units by grouping together hosts. Create a "
+                      "host aggregate then select the hosts contained in it.")
         slug = "set_aggregate_info"
 
     def clean(self):
@@ -135,9 +136,8 @@ class ManageAggregateHostsAction(workflows.MembershipAction):
 
 class AddHostsToAggregateStep(workflows.UpdateMembersStep):
     action_class = AddHostsToAggregateAction
-    help_text = _("You can add hosts to this aggregate. One host can be added "
-                  "to one or more aggregate. You can also add the hosts later "
-                  "by editing the aggregate.")
+    help_text = _("Add hosts to this aggregate. Hosts can be in multiple "
+                  "aggregates.")
     available_list_title = _("All available hosts")
     members_list_title = _("Selected hosts")
     no_available_text = _("No hosts found.")
@@ -154,8 +154,8 @@ class AddHostsToAggregateStep(workflows.UpdateMembersStep):
 
 class ManageAggregateHostsStep(workflows.UpdateMembersStep):
     action_class = ManageAggregateHostsAction
-    help_text = _("You can add hosts to this aggregate, as well as remove "
-                  "hosts from it.")
+    help_text = _("Add hosts to this aggregate or remove hosts from it. "
+                  "Hosts can be in multiple aggregates.")
     available_list_title = _("All Available Hosts")
     members_list_title = _("Selected Hosts")
     no_available_text = _("No Hosts found.")

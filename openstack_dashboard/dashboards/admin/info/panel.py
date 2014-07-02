@@ -24,7 +24,7 @@ from openstack_dashboard.dashboards.admin import dashboard
 
 
 class Info(horizon.Panel):
-    name = _("System Info")
+    name = _("System Information")
     slug = 'info'
 
 

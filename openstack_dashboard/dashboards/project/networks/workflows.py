@@ -71,7 +71,7 @@ class CreateNetworkInfoAction(workflows.Action):
 
     class Meta:
         name = _("Network")
-        help_text = _("From here you can create a new network.\n"
+        help_text = _("Create a new network. "
                       "In addition a subnet associated with the network "
                       "can be created in the next panel.")
 
@@ -105,7 +105,7 @@ class CreateSubnetInfoAction(workflows.Action):
                     "network address (e.g. 192.168.0.1 for "
                     "192.168.0.0/24). "
                     "If you use the default, leave blank. "
-                    "If you want to use no gateway, "
+                    "If you do not want to use a gateway, "
                     "check 'Disable Gateway' below."),
         version=forms.IPv4 | forms.IPv6,
         mask=False)
@@ -114,10 +114,10 @@ class CreateSubnetInfoAction(workflows.Action):
 
     class Meta:
         name = _("Subnet")
-        help_text = _('You can create a subnet associated with the new '
-                      'network, in which case "Network Address" must be '
-                      'specified. If you wish to create a network WITHOUT a '
-                      'subnet, uncheck the "Create Subnet" checkbox.')
+        help_text = _('Create a subnet associated with the new network, '
+                      'in which case "Network Address" must be specified. '
+                      'If you wish to create a network without a subnet, '
+                      'uncheck the "Create Subnet" checkbox.')
 
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetInfoAction, self).__init__(request, context, *args,
@@ -198,7 +198,7 @@ class CreateSubnetDetailAction(workflows.Action):
 
     class Meta:
         name = _("Subnet Detail")
-        help_text = _('You can specify additional attributes for the subnet.')
+        help_text = _('Specify additional attributes for the subnet.')
 
     def _convert_ip_address(self, ip, field_name):
         try:

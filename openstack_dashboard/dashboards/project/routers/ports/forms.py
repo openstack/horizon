@@ -29,8 +29,8 @@ class AddInterface(forms.SelfHandlingForm):
     subnet_id = forms.ChoiceField(label=_("Subnet"))
     ip_address = forms.IPField(
         label=_("IP Address (optional)"), required=False, initial="",
-        help_text=_("You can specify an IP address of the interface "
-                    "created if you want (e.g. 192.168.0.254)."),
+        help_text=_("Specify an IP address for the interface "
+                    "created (e.g. 192.168.0.254)."),
         version=forms.IPv4 | forms.IPv6, mask=False)
     router_name = forms.CharField(label=_("Router Name"),
                                   widget=forms.TextInput(

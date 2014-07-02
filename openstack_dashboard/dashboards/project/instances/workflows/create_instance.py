@@ -472,7 +472,7 @@ KEYPAIR_IMPORT_URL = "horizon:project:access_and_security:keypairs:import"
 class SetAccessControlsAction(workflows.Action):
     keypair = forms.DynamicChoiceField(label=_("Key Pair"),
                                        required=False,
-                                       help_text=_("Which key pair to use for "
+                                       help_text=_("Key pair to use for "
                                                    "authentication."),
                                        add_item_link=KEYPAIR_IMPORT_URL)
     admin_pass = forms.RegexField(

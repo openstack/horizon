@@ -69,8 +69,8 @@ class AddVPNServiceAction(workflows.Action):
         name = _("Add New VPN Service")
         permissions = ('openstack.services.network',)
         help_text = _("Create VPN Service for current project.\n\n"
-                      "Assign a name and description for the VPN Service. "
-                      "Select a router and a subnet. "
+                      "Specify a name, description, router, and subnet "
+                      "for the VPN Service. "
                       "Admin State is Up (checked) by default."
                       )
 
@@ -118,7 +118,7 @@ class AddIKEPolicyAction(workflows.Action):
     lifetime_value = forms.IntegerField(
         min_value=60, label=_("Lifetime value for IKE keys"),
         initial=3600,
-        help_text=_("Equal to or more than 60"))
+        help_text=_("Equal to or greater than 60"))
     pfs = forms.ChoiceField(label=_("Perfect Forward Secrecy"))
     phase1_negotiation_mode = forms.ChoiceField(
         label=_("IKE Phase1 negotiation mode"))
@@ -217,7 +217,7 @@ class AddIPSecPolicyAction(workflows.Action):
     lifetime_value = forms.IntegerField(
         min_value=60, label=_("Lifetime value for IKE keys "),
         initial=3600,
-        help_text=_("Equal to or more than 60"))
+        help_text=_("Equal to or greater than 60"))
     pfs = forms.ChoiceField(label=_("Perfect Forward Secrecy"))
     transform_protocol = forms.ChoiceField(label=_("Transform Protocol"))
 
@@ -401,8 +401,9 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
         min_value=68,
         label=_("Maximum Transmission Unit size for the connection"),
         initial=1500,
-        help_text=_("Equal to or more than 68 if the local subnet is IPv4. "
-                    "Equal to or more than 1280 if the local subnet is IPv6."))
+        help_text=_("Equal to or greater than 68 if the local subnet is IPv4. "
+                    "Equal to or greater than 1280 if the local subnet "
+                    "is IPv6."))
     dpd_action = forms.ChoiceField(label=_("Dead peer detection actions"))
     dpd_interval = forms.IntegerField(
         min_value=1, label=_("Dead peer detection interval"),
