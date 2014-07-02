@@ -133,7 +133,8 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_PRECOMPILERS = (
-    ('text/less', ('lesscpy {infile}')),
+    ('text/less', 'lesscpy {infile}'),
+    ('text/scss', 'django_pyscss.compressor.DjangoScssFilter'),
 )
 
 COMPRESS_CSS_FILTERS = (
@@ -153,6 +154,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django_pyscss',
     'compressor',
     'horizon',
     'openstack_auth',

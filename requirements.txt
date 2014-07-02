@@ -2,16 +2,17 @@
 Django>=1.4,<1.7
 django_compressor>=1.4
 django_openstack_auth>=1.1.4
+django_pyscss>=1.0.1
 eventlet>=0.13.0
 httplib2>=0.7.5
 iso8601>=0.1.9
 kombu>=2.4.8
-lesscpy>=0.9j
 # Horizon Utility Requirements
 # for SECURE_KEY generation
 lockfile>=0.8
 netaddr>=0.7.6
 pbr>=0.6,!=0.7,<1.0
+pyscss>=1.2.0
 python-ceilometerclient>=1.0.6
 python-cinderclient>=1.0.7
 python-glanceclient>=0.9.0
