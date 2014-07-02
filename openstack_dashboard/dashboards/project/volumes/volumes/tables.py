@@ -50,7 +50,7 @@ class LaunchVolume(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, volume=None):
-        if volume:
+        if volume and volume.bootable == 'true':
             return volume.status == "available"
         return False
 
