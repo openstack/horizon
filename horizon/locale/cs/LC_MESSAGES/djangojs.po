@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-04-30 12:00+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"POT-Creation-Date: 2014-07-02 00:24-0500\n"
+"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "Vyskytla se chyba. Prosím zkuste to znovu později."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
 
-#: static/horizon/js/horizon.forms.js:118
+#: static/horizon/js/horizon.forms.js:154
 msgid "Filter"
 msgstr "Filtr"
 
@@ -119,6 +119,10 @@ msgstr "otevřít konzoli"
 #, c-format
 msgid "view %s details"
 msgstr "zobrazit podrobnosti %s"
+
+#: static/horizon/js/horizon.networktopology.js:545
+msgid "Add Interface"
+msgstr "Přidat rozhraní"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:320

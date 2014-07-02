@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-27 16:43-0500\n"
-"PO-Revision-Date: 2014-06-29 01:41+0000\n"
+"POT-Creation-Date: 2014-07-02 00:25-0500\n"
+"PO-Revision-Date: 2014-07-02 05:41+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -355,9 +355,9 @@ msgstr "Beheerder"
 #: dashboards/admin/domains/workflows.py:33
 #: dashboards/admin/flavors/workflows.py:35
 #: dashboards/admin/groups/forms.py:30 dashboards/admin/groups/forms.py:56
-#: dashboards/admin/groups/tables.py:98 dashboards/admin/info/tables.py:50
-#: dashboards/admin/info/tables.py:79 dashboards/admin/info/tables.py:100
-#: dashboards/admin/info/tables.py:150 dashboards/admin/instances/tables.py:87
+#: dashboards/admin/groups/tables.py:98 dashboards/admin/info/tables.py:51
+#: dashboards/admin/info/tables.py:80 dashboards/admin/info/tables.py:104
+#: dashboards/admin/info/tables.py:156 dashboards/admin/instances/tables.py:87
 #: dashboards/admin/instances/tables.py:133
 #: dashboards/admin/networks/forms.py:32 dashboards/admin/networks/forms.py:97
 #: dashboards/admin/networks/ports/forms.py:40
@@ -887,7 +887,7 @@ msgstr "Domein ID"
 
 #: dashboards/admin/domains/tables.py:168
 #: dashboards/admin/domains/workflows.py:38
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:136
+#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:142
 #: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
@@ -1047,7 +1047,7 @@ msgstr "Smaaknaam"
 
 #: dashboards/admin/flavors/tables.py:104
 #: dashboards/admin/flavors/workflows.py:46
-#: dashboards/admin/info/tables.py:186 dashboards/admin/overview/views.py:33
+#: dashboards/admin/info/tables.py:194 dashboards/admin/overview/views.py:33
 #: dashboards/admin/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
@@ -1554,7 +1554,7 @@ msgid "Hostname"
 msgstr "Gastheer naam"
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:149
+#: dashboards/admin/info/tables.py:155
 #: dashboards/admin/routers/ports/tables.py:32
 #: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/access_and_security/security_groups/forms.py:176
@@ -1593,7 +1593,7 @@ msgid "Storage (total)"
 msgstr "Opslag (totaal)"
 
 #: dashboards/admin/hypervisors/tables.py:57
-#: dashboards/admin/info/tables.py:187 dashboards/admin/instances/panel.py:27
+#: dashboards/admin/info/tables.py:195 dashboards/admin/instances/panel.py:27
 #: dashboards/admin/instances/tables.py:36
 #: dashboards/admin/instances/tables.py:167
 #: dashboards/admin/instances/templates/instances/index.html:3
@@ -1694,7 +1694,7 @@ msgstr "Afbeeldingen"
 msgid "Image Name"
 msgstr "Afbeeldingsnaam"
 
-#: dashboards/admin/images/views.py:52
+#: dashboards/admin/images/views.py:72
 msgid "Unable to retrieve image list."
 msgstr "Niet in staat om de afbeeldingslijst op te halen."
 
@@ -1789,14 +1789,14 @@ msgstr "Vanuit hier kunt u verschillende eigenschappen van een afbeelding bewerk
 msgid "System Info"
 msgstr "Systeeminformatie"
 
-#: dashboards/admin/info/tables.py:51 dashboards/admin/metering/tables.py:25
+#: dashboards/admin/info/tables.py:52 dashboards/admin/metering/tables.py:25
 #: dashboards/admin/metering/views.py:149
 #: dashboards/project/access_and_security/api_access/tables.py:49
 msgid "Service"
 msgstr "Dienst"
 
-#: dashboards/admin/info/tables.py:52 dashboards/admin/info/tables.py:80
-#: dashboards/admin/info/tables.py:101 dashboards/admin/info/tables.py:151
+#: dashboards/admin/info/tables.py:53 dashboards/admin/info/tables.py:81
+#: dashboards/admin/info/tables.py:105 dashboards/admin/info/tables.py:157
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
 #: dashboards/project/databases/tables.py:155
@@ -1804,8 +1804,8 @@ msgstr "Dienst"
 msgid "Host"
 msgstr "Gastheer"
 
-#: dashboards/admin/info/tables.py:54 dashboards/admin/info/tables.py:82
-#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:152
+#: dashboards/admin/info/tables.py:55 dashboards/admin/info/tables.py:83
+#: dashboards/admin/info/tables.py:107 dashboards/admin/info/tables.py:158
 #: dashboards/admin/instances/tables.py:145
 #: dashboards/admin/networks/tables.py:88
 #: dashboards/admin/networks/ports/tables.py:92
@@ -1852,69 +1852,70 @@ msgstr "Gastheer"
 msgid "Status"
 msgstr "Status"
 
-#: dashboards/admin/info/tables.py:59 dashboards/admin/info/tabs.py:33
+#: dashboards/admin/info/tables.py:60 dashboards/admin/info/tabs.py:33
 msgid "Services"
 msgstr "Diensten"
 
-#: dashboards/admin/info/tables.py:81 dashboards/admin/info/tables.py:102
+#: dashboards/admin/info/tables.py:82 dashboards/admin/info/tables.py:106
 msgid "Zone"
 msgstr "Zone"
 
-#: dashboards/admin/info/tables.py:83 dashboards/admin/info/tables.py:105
-#: dashboards/admin/info/tables.py:153 dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:84 dashboards/admin/info/tables.py:109
+#: dashboards/admin/info/tables.py:159 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "Toestand"
 
-#: dashboards/admin/info/tables.py:85 dashboards/admin/info/tables.py:108
-#: dashboards/admin/info/tables.py:155
-msgid "Updated At"
-msgstr "Bijgewerkt op"
+#: dashboards/admin/info/tables.py:89 dashboards/admin/info/tables.py:114
+#: dashboards/admin/info/tables.py:163
+msgctxt "Time since the last update"
+msgid "Last Updated"
+msgstr "Laatst bijgewerkt"
 
-#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tabs.py:49
+#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tabs.py:49
 msgid "Compute Services"
 msgstr "Rekendiensten"
 
-#: dashboards/admin/info/tables.py:117 dashboards/admin/info/tabs.py:66
+#: dashboards/admin/info/tables.py:123 dashboards/admin/info/tabs.py:66
 msgid "Block Storage Services"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:138 dashboards/admin/users/tables.py:58
+#: dashboards/admin/info/tables.py:144 dashboards/admin/users/tables.py:58
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Disabled"
 msgstr "Gedeactiveerd"
 
-#: dashboards/admin/info/tables.py:143
+#: dashboards/admin/info/tables.py:149
 msgid "Up"
 msgstr "Omhoog"
 
-#: dashboards/admin/info/tables.py:145
+#: dashboards/admin/info/tables.py:151
 msgid "Down"
 msgstr "Omlaag"
 
-#: dashboards/admin/info/tables.py:164 dashboards/admin/info/tabs.py:83
+#: dashboards/admin/info/tables.py:172 dashboards/admin/info/tabs.py:83
 msgid "Network Agents"
 msgstr "Netwerkagenten"
 
-#: dashboards/admin/info/tables.py:183
+#: dashboards/admin/info/tables.py:191
 #: dashboards/admin/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "Geïnjecteerde bestandsinhoud in Bytes"
 
-#: dashboards/admin/info/tables.py:184
+#: dashboards/admin/info/tables.py:192
 msgid "Length of Injected File Path"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:185
+#: dashboards/admin/info/tables.py:193
 #: dashboards/admin/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "Metadata artikelen"
 
-#: dashboards/admin/info/tables.py:188
+#: dashboards/admin/info/tables.py:196
 #: dashboards/admin/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "Geïnjecteerde bestanden"
 
-#: dashboards/admin/info/tables.py:189
+#: dashboards/admin/info/tables.py:197
 #: dashboards/admin/projects/workflows.py:53
 #: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tables.py:56
 #: dashboards/admin/volumes/templates/volumes/index.html:3
@@ -1927,7 +1928,7 @@ msgstr "Geïnjecteerde bestanden"
 msgid "Volumes"
 msgstr "Volumen"
 
-#: dashboards/admin/info/tables.py:190
+#: dashboards/admin/info/tables.py:198
 #: dashboards/admin/projects/workflows.py:54
 #: dashboards/project/volumes/tabs.py:73
 #: dashboards/project/volumes/snapshots/tables.py:45
@@ -1935,17 +1936,17 @@ msgstr "Volumen"
 msgid "Volume Snapshots"
 msgstr "Volume momentopnames"
 
-#: dashboards/admin/info/tables.py:191
+#: dashboards/admin/info/tables.py:199
 #: dashboards/admin/projects/workflows.py:56
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Grootte van de Volumes en Snapshots (GB)"
 
-#: dashboards/admin/info/tables.py:192
+#: dashboards/admin/info/tables.py:200
 #: dashboards/admin/projects/workflows.py:57
 msgid "RAM (MB)"
 msgstr "Werkgeheugen (MB)"
 
-#: dashboards/admin/info/tables.py:193
+#: dashboards/admin/info/tables.py:201
 #: dashboards/admin/projects/workflows.py:58
 #: dashboards/admin/projects/workflows.py:70
 #: dashboards/project/access_and_security/tabs.py:74
@@ -1954,7 +1955,7 @@ msgstr "Werkgeheugen (MB)"
 msgid "Floating IPs"
 msgstr "Vlottende IPs"
 
-#: dashboards/admin/info/tables.py:194
+#: dashboards/admin/info/tables.py:202
 #: dashboards/admin/projects/workflows.py:61
 #: dashboards/admin/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:42
@@ -1966,21 +1967,21 @@ msgstr "Vlottende IPs"
 msgid "Security Groups"
 msgstr "Beveiligingsgroepen"
 
-#: dashboards/admin/info/tables.py:195
+#: dashboards/admin/info/tables.py:203
 #: dashboards/admin/projects/workflows.py:63
 #: dashboards/admin/projects/workflows.py:69
 #: dashboards/project/access_and_security/security_groups/tables.py:244
 msgid "Security Group Rules"
 msgstr "Beveiligingsgroepsregels"
 
-#: dashboards/admin/info/tables.py:196
+#: dashboards/admin/info/tables.py:204
 #: dashboards/project/access_and_security/tabs.py:58
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:73
 msgid "Key Pairs"
 msgstr "Sleutelparen"
 
-#: dashboards/admin/info/tables.py:197
+#: dashboards/admin/info/tables.py:205
 #: dashboards/admin/networks/ports/tables.py:89
 #: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
@@ -1989,31 +1990,31 @@ msgstr "Sleutelparen"
 msgid "Fixed IPs"
 msgstr "Vaste IPs"
 
-#: dashboards/admin/info/tables.py:198
+#: dashboards/admin/info/tables.py:206
 msgid "LUKS Volumes"
 msgstr "LUKS volumen"
 
-#: dashboards/admin/info/tables.py:199
+#: dashboards/admin/info/tables.py:207
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS Volume Snapshots"
 
-#: dashboards/admin/info/tables.py:201
+#: dashboards/admin/info/tables.py:209
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "Grootte van de LUKS Volumes en Snapshots (GB)"
 
-#: dashboards/admin/info/tables.py:202
+#: dashboards/admin/info/tables.py:210
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-#: dashboards/admin/info/tables.py:208
+#: dashboards/admin/info/tables.py:216
 msgid "Quota Name"
 msgstr "Quotum naam"
 
-#: dashboards/admin/info/tables.py:209
+#: dashboards/admin/info/tables.py:217
 msgid "Limit"
 msgstr "Limiet"
 
-#: dashboards/admin/info/tables.py:216
+#: dashboards/admin/info/tables.py:224
 msgid "Quotas"
 msgstr "Quota's"
 
@@ -2192,13 +2193,13 @@ msgid "Unable to retrieve instance project information."
 msgstr "Niet in staat om de projectinformatie voor het exemplaar op te halen."
 
 #: dashboards/admin/instances/views.py:123
-#: dashboards/project/instances/views.py:118
+#: dashboards/project/instances/views.py:119
 msgid "Unable to retrieve instance size information."
 msgstr "Niet in staat om de afmetingsinformatie voor het exemplaar op te halen."
 
 #: dashboards/admin/instances/views.py:157
-#: dashboards/project/instances/views.py:198
-#: dashboards/project/instances/views.py:308
+#: dashboards/project/instances/views.py:199
+#: dashboards/project/instances/views.py:309
 msgid "Unable to retrieve instance details."
 msgstr "Niet in staat om de details van het exemplaar op te halen."
 
@@ -4178,64 +4179,64 @@ msgstr "Map is succesvol gecreerd."
 msgid "Unable to create container."
 msgstr "Niet in staat om de houder te creëren."
 
-#: dashboards/project/containers/forms.py:86
-#: dashboards/project/containers/tables.py:418
-msgid "Object Name"
-msgstr "Objectnaam"
-
-#: dashboards/project/containers/forms.py:87
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "Schuine strepen zijn toegestaan en worden behandeld als pseudo -mappen door de objectopslag."
-
-#: dashboards/project/containers/forms.py:94
+#: dashboards/project/containers/forms.py:84
 #: dashboards/project/containers/templates/containers/_update.html:22
 #: dashboards/project/stacks/forms.py:56
 msgid "File"
 msgstr "Bestand"
 
-#: dashboards/project/containers/forms.py:121
+#: dashboards/project/containers/forms.py:88
+#: dashboards/project/containers/tables.py:418
+msgid "Object Name"
+msgstr "Objectnaam"
+
+#: dashboards/project/containers/forms.py:89
+msgid ""
+"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
+msgstr "Schuine strepen zijn toegestaan en worden behandeld als pseudo -mappen door de objectopslag."
+
+#: dashboards/project/containers/forms.py:120
 msgid "Object was successfully uploaded."
 msgstr "Object is succesvol geupload."
 
-#: dashboards/project/containers/forms.py:125
+#: dashboards/project/containers/forms.py:124
 msgid "Unable to upload object."
 msgstr "Niet in staan om object te uploaden."
 
-#: dashboards/project/containers/forms.py:145
+#: dashboards/project/containers/forms.py:144
 msgid "Object was successfully updated."
 msgstr "Object succesvol opgehaald."
 
-#: dashboards/project/containers/forms.py:148
+#: dashboards/project/containers/forms.py:147
 msgid "Unable to update object."
 msgstr "Het object kon niet worden aangepast."
 
-#: dashboards/project/containers/forms.py:162
+#: dashboards/project/containers/forms.py:161
 msgid "Pseudo-folder Name"
 msgstr "Pseudo-map naam"
 
-#: dashboards/project/containers/forms.py:180
+#: dashboards/project/containers/forms.py:179
 msgid "Pseudo-folder was successfully created."
 msgstr "Pseudo-map %s was succesvol gecreëerd."
 
-#: dashboards/project/containers/forms.py:184
+#: dashboards/project/containers/forms.py:183
 msgid "Unable to create pseudo-folder."
 msgstr "Niet in staat om de pseudo-map te creëren."
 
-#: dashboards/project/containers/forms.py:188
+#: dashboards/project/containers/forms.py:187
 msgid "Destination container"
 msgstr "Doelhouder"
 
-#: dashboards/project/containers/forms.py:192
+#: dashboards/project/containers/forms.py:191
 msgid "Destination object name"
 msgstr "Doelobjectnaam"
 
-#: dashboards/project/containers/forms.py:225
+#: dashboards/project/containers/forms.py:224
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
 msgstr "\"%(orig)s\" gekopieerd naar \"%(dest)s\" als \"%(new)s\"."
 
-#: dashboards/project/containers/forms.py:236
+#: dashboards/project/containers/forms.py:235
 msgid "Unable to copy object."
 msgstr "Niet in staat om het object te kopieren."
 
@@ -4383,9 +4384,9 @@ msgstr "Kopietelling"
 #: dashboards/project/containers/templates/containers/_copy.html:18
 msgid ""
 "Make a new copy of an existing object to store in this or another container."
-" You may also specify a path at which the new copy should live inside of the"
-" selected container."
-msgstr "Maak een nieuw kopie of een bestand object om op te slaan in deze of een andere houder. U mag ook een pad specificeren waar het nieuwe kopie binnen de geselecteerde houder moet verblijven."
+" You may additionally specify the path within the selected container where "
+"the new copy should be stored."
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_create.html:18
 msgid ""
@@ -5486,7 +5487,7 @@ msgstr "Niet in staat om de publieke afbeeldingen op te halen."
 msgid "Unable to retrieve images for the current project."
 msgstr "Niet in staat om de afbeeldingen voor het huidige project op te halen."
 
-#: dashboards/project/images/views.py:51
+#: dashboards/project/images/views.py:54
 msgid "Unable to retrieve images."
 msgstr "Niet in staat om de afbeeldingen op te halen."
 
@@ -6207,7 +6208,7 @@ msgid "Log"
 msgstr "Log"
 
 #: dashboards/project/instances/tabs.py:48
-#: dashboards/project/instances/views.py:141
+#: dashboards/project/instances/views.py:142
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Niet in staat om het log te verkrijgen voor exemplaar \"%s\"."
@@ -6224,32 +6225,32 @@ msgstr "De exemplaar smaken konden niet gesorteerd worden."
 msgid "Unable to retrieve instances."
 msgstr "Niet in staat om de exemplaren op te halen."
 
-#: dashboards/project/instances/views.py:156
+#: dashboards/project/instances/views.py:157
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Niet in staat om het VNC beheervenster te verkrijgen voor exemplaar \"%s\"."
 
-#: dashboards/project/instances/views.py:167
+#: dashboards/project/instances/views.py:168
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Niet in staat om het SPICE beheervenster te verkrijgen voor exemplaar \"%s\"."
 
-#: dashboards/project/instances/views.py:178
+#: dashboards/project/instances/views.py:179
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Het RDP beheervenster voor exemplaar \"%s\" kon niet worden aangesproken."
 
-#: dashboards/project/instances/views.py:265
+#: dashboards/project/instances/views.py:266
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Niet in staat om de details voor exemplaar \"%s\" op te halen."
 
-#: dashboards/project/instances/views.py:276
+#: dashboards/project/instances/views.py:277
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "Het IP adres voor Neutron exemplaar \"%s\" kon niet worden opgehaald."
 
-#: dashboards/project/instances/views.py:320
+#: dashboards/project/instances/views.py:321
 msgid "Unable to retrieve flavors."
 msgstr "Niet in staat om de smaken op te halen."
 

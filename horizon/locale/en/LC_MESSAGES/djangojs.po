@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-28 01:08-0500\n"
+"POT-Creation-Date: 2014-07-02 01:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.forms.js:118
+#: static/horizon/js/horizon.forms.js:154
 msgid "Filter"
 msgstr ""
 
@@ -117,6 +117,10 @@ msgstr ""
 #: static/horizon/js/horizon.networktopology.js:540
 #, c-format
 msgid "view %s details"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:545
+msgid "Add Interface"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39

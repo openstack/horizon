@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-04-30 10:01+0000\n"
-"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"POT-Creation-Date: 2014-07-02 00:24-0500\n"
+"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "发生错误。请稍后重试。"
 msgid "There was a problem communicating with the server, please try again."
 msgstr "与服务器通信出现问题，请再试一次。"
 
-#: static/horizon/js/horizon.forms.js:118
+#: static/horizon/js/horizon.forms.js:154
 msgid "Filter"
 msgstr "筛选"
 
@@ -119,6 +119,10 @@ msgstr "打开控制台"
 #, c-format
 msgid "view %s details"
 msgstr "查看 %s 详情"
+
+#: static/horizon/js/horizon.networktopology.js:545
+msgid "Add Interface"
+msgstr "增加接口"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:320

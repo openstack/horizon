@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 07:33-0500\n"
-"PO-Revision-Date: 2014-04-01 08:37+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-07-02 00:24-0500\n"
+"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +40,7 @@ msgstr "發生錯誤。請稍後再試。"
 msgid "There was a problem communicating with the server, please try again."
 msgstr "與伺服器間的通訊有問題，請再試一次。"
 
-#: static/horizon/js/horizon.forms.js:118
+#: static/horizon/js/horizon.forms.js:154
 msgid "Filter"
 msgstr "篩選"
 
@@ -118,6 +118,10 @@ msgstr "打開主控臺"
 #, c-format
 msgid "view %s details"
 msgstr "檢視 %s 的詳細資訊"
+
+#: static/horizon/js/horizon.networktopology.js:545
+msgid "Add Interface"
+msgstr "加入網路卡"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:320

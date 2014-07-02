@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-27 16:43-0500\n"
-"PO-Revision-Date: 2014-06-27 20:10+0000\n"
+"POT-Creation-Date: 2014-07-02 00:24-0500\n"
+"PO-Revision-Date: 2014-07-01 19:12+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:665 tables/base.py:1427
+#: tables/actions.py:665 tables/base.py:1438
 msgid "N/A"
 msgstr "Nedostupné"
 
@@ -129,20 +129,20 @@ msgstr "Aktualizováno"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Vlastnost %(attr)s neexistuje v %(obj)s."
 
-#: tables/base.py:895
+#: tables/base.py:905
 msgid "No items to display."
 msgstr "Žádné položky k zobrazení."
 
-#: tables/base.py:1001
+#: tables/base.py:1012
 msgid "Actions"
 msgstr "Činnost"
 
-#: tables/base.py:1207
+#: tables/base.py:1218
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nebyla nalezena shoda s id \"%s\"."
 
-#: tables/base.py:1347
+#: tables/base.py:1358
 msgid "Please select a row before taking that action."
 msgstr "Před provedením této činnosti prosím zvolte řádky."
 
@@ -210,7 +210,11 @@ msgstr[0] "Zobrazování %(counter)s položky"
 msgstr[1] "Zobrazování %(counter)s položek"
 msgstr[2] "Zobrazování %(counter)s položek"
 
-#: templates/horizon/common/_data_table.html:66
+#: templates/horizon/common/_data_table.html:68
+msgid "&laquo;&nbsp;Prev"
+msgstr ""
+
+#: templates/horizon/common/_data_table.html:71
 msgid "More&nbsp;&raquo;"
 msgstr ""
 

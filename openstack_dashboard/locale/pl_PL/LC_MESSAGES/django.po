@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-27 16:43-0500\n"
-"PO-Revision-Date: 2014-06-30 23:00+0000\n"
-"Last-Translator: stopolewicz <stopolewicz@gmail.com>\n"
+"POT-Creation-Date: 2014-07-02 00:25-0500\n"
+"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -357,9 +357,9 @@ msgstr "Administracja"
 #: dashboards/admin/domains/workflows.py:33
 #: dashboards/admin/flavors/workflows.py:35
 #: dashboards/admin/groups/forms.py:30 dashboards/admin/groups/forms.py:56
-#: dashboards/admin/groups/tables.py:98 dashboards/admin/info/tables.py:50
-#: dashboards/admin/info/tables.py:79 dashboards/admin/info/tables.py:100
-#: dashboards/admin/info/tables.py:150 dashboards/admin/instances/tables.py:87
+#: dashboards/admin/groups/tables.py:98 dashboards/admin/info/tables.py:51
+#: dashboards/admin/info/tables.py:80 dashboards/admin/info/tables.py:104
+#: dashboards/admin/info/tables.py:156 dashboards/admin/instances/tables.py:87
 #: dashboards/admin/instances/tables.py:133
 #: dashboards/admin/networks/forms.py:32 dashboards/admin/networks/forms.py:97
 #: dashboards/admin/networks/ports/forms.py:40
@@ -889,7 +889,7 @@ msgstr "ID domeny"
 
 #: dashboards/admin/domains/tables.py:168
 #: dashboards/admin/domains/workflows.py:38
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:136
+#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:142
 #: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
@@ -1049,7 +1049,7 @@ msgstr "Nazwa odmiany"
 
 #: dashboards/admin/flavors/tables.py:104
 #: dashboards/admin/flavors/workflows.py:46
-#: dashboards/admin/info/tables.py:186 dashboards/admin/overview/views.py:33
+#: dashboards/admin/info/tables.py:194 dashboards/admin/overview/views.py:33
 #: dashboards/admin/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
@@ -1556,7 +1556,7 @@ msgid "Hostname"
 msgstr "Nazwa hosta"
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:149
+#: dashboards/admin/info/tables.py:155
 #: dashboards/admin/routers/ports/tables.py:32
 #: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/access_and_security/security_groups/forms.py:176
@@ -1595,7 +1595,7 @@ msgid "Storage (total)"
 msgstr "Pamięć masowa (łącznie)"
 
 #: dashboards/admin/hypervisors/tables.py:57
-#: dashboards/admin/info/tables.py:187 dashboards/admin/instances/panel.py:27
+#: dashboards/admin/info/tables.py:195 dashboards/admin/instances/panel.py:27
 #: dashboards/admin/instances/tables.py:36
 #: dashboards/admin/instances/tables.py:167
 #: dashboards/admin/instances/templates/instances/index.html:3
@@ -1696,7 +1696,7 @@ msgstr "Obrazy"
 msgid "Image Name"
 msgstr "Nazwa obrazu"
 
-#: dashboards/admin/images/views.py:52
+#: dashboards/admin/images/views.py:72
 msgid "Unable to retrieve image list."
 msgstr "Nie można pobrać listy obrazów."
 
@@ -1791,14 +1791,14 @@ msgstr "Pozwala na modyfikację różnych właściwości obrazu."
 msgid "System Info"
 msgstr "Informacje systemowe"
 
-#: dashboards/admin/info/tables.py:51 dashboards/admin/metering/tables.py:25
+#: dashboards/admin/info/tables.py:52 dashboards/admin/metering/tables.py:25
 #: dashboards/admin/metering/views.py:149
 #: dashboards/project/access_and_security/api_access/tables.py:49
 msgid "Service"
 msgstr "Usługa"
 
-#: dashboards/admin/info/tables.py:52 dashboards/admin/info/tables.py:80
-#: dashboards/admin/info/tables.py:101 dashboards/admin/info/tables.py:151
+#: dashboards/admin/info/tables.py:53 dashboards/admin/info/tables.py:81
+#: dashboards/admin/info/tables.py:105 dashboards/admin/info/tables.py:157
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
 #: dashboards/project/databases/tables.py:155
@@ -1806,8 +1806,8 @@ msgstr "Usługa"
 msgid "Host"
 msgstr "Host"
 
-#: dashboards/admin/info/tables.py:54 dashboards/admin/info/tables.py:82
-#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:152
+#: dashboards/admin/info/tables.py:55 dashboards/admin/info/tables.py:83
+#: dashboards/admin/info/tables.py:107 dashboards/admin/info/tables.py:158
 #: dashboards/admin/instances/tables.py:145
 #: dashboards/admin/networks/tables.py:88
 #: dashboards/admin/networks/ports/tables.py:92
@@ -1854,69 +1854,70 @@ msgstr "Host"
 msgid "Status"
 msgstr "Stan"
 
-#: dashboards/admin/info/tables.py:59 dashboards/admin/info/tabs.py:33
+#: dashboards/admin/info/tables.py:60 dashboards/admin/info/tabs.py:33
 msgid "Services"
 msgstr "Usługi"
 
-#: dashboards/admin/info/tables.py:81 dashboards/admin/info/tables.py:102
+#: dashboards/admin/info/tables.py:82 dashboards/admin/info/tables.py:106
 msgid "Zone"
 msgstr "Strefa"
 
-#: dashboards/admin/info/tables.py:83 dashboards/admin/info/tables.py:105
-#: dashboards/admin/info/tables.py:153 dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:84 dashboards/admin/info/tables.py:109
+#: dashboards/admin/info/tables.py:159 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "Stan"
 
-#: dashboards/admin/info/tables.py:85 dashboards/admin/info/tables.py:108
-#: dashboards/admin/info/tables.py:155
-msgid "Updated At"
-msgstr "Zaktualizowano"
+#: dashboards/admin/info/tables.py:89 dashboards/admin/info/tables.py:114
+#: dashboards/admin/info/tables.py:163
+msgctxt "Time since the last update"
+msgid "Last Updated"
+msgstr "Ostatnio zaktualizowano"
 
-#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tabs.py:49
+#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tabs.py:49
 msgid "Compute Services"
 msgstr "Usługi obliczeniowe"
 
-#: dashboards/admin/info/tables.py:117 dashboards/admin/info/tabs.py:66
+#: dashboards/admin/info/tables.py:123 dashboards/admin/info/tabs.py:66
 msgid "Block Storage Services"
 msgstr "Usługi Przechowywania Blokowego"
 
-#: dashboards/admin/info/tables.py:138 dashboards/admin/users/tables.py:58
+#: dashboards/admin/info/tables.py:144 dashboards/admin/users/tables.py:58
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Disabled"
 msgstr "Wyłączone"
 
-#: dashboards/admin/info/tables.py:143
+#: dashboards/admin/info/tables.py:149
 msgid "Up"
 msgstr "Podniesiono"
 
-#: dashboards/admin/info/tables.py:145
+#: dashboards/admin/info/tables.py:151
 msgid "Down"
 msgstr "Położono"
 
-#: dashboards/admin/info/tables.py:164 dashboards/admin/info/tabs.py:83
+#: dashboards/admin/info/tables.py:172 dashboards/admin/info/tabs.py:83
 msgid "Network Agents"
 msgstr "Agenci sieciowi"
 
-#: dashboards/admin/info/tables.py:183
+#: dashboards/admin/info/tables.py:191
 #: dashboards/admin/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "Wielkość w bajtach wstrzykniętej zawartości"
 
-#: dashboards/admin/info/tables.py:184
+#: dashboards/admin/info/tables.py:192
 msgid "Length of Injected File Path"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:185
+#: dashboards/admin/info/tables.py:193
 #: dashboards/admin/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "Pozycje metadanych"
 
-#: dashboards/admin/info/tables.py:188
+#: dashboards/admin/info/tables.py:196
 #: dashboards/admin/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "Wstrzyknięte pliki"
 
-#: dashboards/admin/info/tables.py:189
+#: dashboards/admin/info/tables.py:197
 #: dashboards/admin/projects/workflows.py:53
 #: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tables.py:56
 #: dashboards/admin/volumes/templates/volumes/index.html:3
@@ -1929,7 +1930,7 @@ msgstr "Wstrzyknięte pliki"
 msgid "Volumes"
 msgstr "Wolumeny"
 
-#: dashboards/admin/info/tables.py:190
+#: dashboards/admin/info/tables.py:198
 #: dashboards/admin/projects/workflows.py:54
 #: dashboards/project/volumes/tabs.py:73
 #: dashboards/project/volumes/snapshots/tables.py:45
@@ -1937,17 +1938,17 @@ msgstr "Wolumeny"
 msgid "Volume Snapshots"
 msgstr "Migawki wolumenu"
 
-#: dashboards/admin/info/tables.py:191
+#: dashboards/admin/info/tables.py:199
 #: dashboards/admin/projects/workflows.py:56
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Całkowity rozmiar wolumenów i migawek (GB)"
 
-#: dashboards/admin/info/tables.py:192
+#: dashboards/admin/info/tables.py:200
 #: dashboards/admin/projects/workflows.py:57
 msgid "RAM (MB)"
 msgstr "RAM (MB)"
 
-#: dashboards/admin/info/tables.py:193
+#: dashboards/admin/info/tables.py:201
 #: dashboards/admin/projects/workflows.py:58
 #: dashboards/admin/projects/workflows.py:70
 #: dashboards/project/access_and_security/tabs.py:74
@@ -1956,7 +1957,7 @@ msgstr "RAM (MB)"
 msgid "Floating IPs"
 msgstr "Pływające adresy IP"
 
-#: dashboards/admin/info/tables.py:194
+#: dashboards/admin/info/tables.py:202
 #: dashboards/admin/projects/workflows.py:61
 #: dashboards/admin/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:42
@@ -1968,21 +1969,21 @@ msgstr "Pływające adresy IP"
 msgid "Security Groups"
 msgstr "Grupy zabezpieczeń"
 
-#: dashboards/admin/info/tables.py:195
+#: dashboards/admin/info/tables.py:203
 #: dashboards/admin/projects/workflows.py:63
 #: dashboards/admin/projects/workflows.py:69
 #: dashboards/project/access_and_security/security_groups/tables.py:244
 msgid "Security Group Rules"
 msgstr "Reguły grup zabezpieczeń"
 
-#: dashboards/admin/info/tables.py:196
+#: dashboards/admin/info/tables.py:204
 #: dashboards/project/access_and_security/tabs.py:58
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:73
 msgid "Key Pairs"
 msgstr "Pary kluczy"
 
-#: dashboards/admin/info/tables.py:197
+#: dashboards/admin/info/tables.py:205
 #: dashboards/admin/networks/ports/tables.py:89
 #: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
@@ -1991,31 +1992,31 @@ msgstr "Pary kluczy"
 msgid "Fixed IPs"
 msgstr "Stałe adresy IP"
 
-#: dashboards/admin/info/tables.py:198
+#: dashboards/admin/info/tables.py:206
 msgid "LUKS Volumes"
 msgstr "Wolumeny LUKS"
 
-#: dashboards/admin/info/tables.py:199
+#: dashboards/admin/info/tables.py:207
 msgid "LUKS Volume Snapshots"
 msgstr "Migawki wolumenów LUKS"
 
-#: dashboards/admin/info/tables.py:201
+#: dashboards/admin/info/tables.py:209
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "Całkowity rozmiar wolumenów i migawek LUKS (GB)"
 
-#: dashboards/admin/info/tables.py:202
+#: dashboards/admin/info/tables.py:210
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-#: dashboards/admin/info/tables.py:208
+#: dashboards/admin/info/tables.py:216
 msgid "Quota Name"
 msgstr "Nazwa limitu"
 
-#: dashboards/admin/info/tables.py:209
+#: dashboards/admin/info/tables.py:217
 msgid "Limit"
 msgstr "Limit"
 
-#: dashboards/admin/info/tables.py:216
+#: dashboards/admin/info/tables.py:224
 msgid "Quotas"
 msgstr "Limity"
 
@@ -2194,13 +2195,13 @@ msgid "Unable to retrieve instance project information."
 msgstr "Nie można pobrać informacji o projekcie instancji."
 
 #: dashboards/admin/instances/views.py:123
-#: dashboards/project/instances/views.py:118
+#: dashboards/project/instances/views.py:119
 msgid "Unable to retrieve instance size information."
 msgstr "Nie można pobrać informacji o rozmiarze instancji."
 
 #: dashboards/admin/instances/views.py:157
-#: dashboards/project/instances/views.py:198
-#: dashboards/project/instances/views.py:308
+#: dashboards/project/instances/views.py:199
+#: dashboards/project/instances/views.py:309
 msgid "Unable to retrieve instance details."
 msgstr "Nie można pobrać szczegółów instancji."
 
@@ -4180,64 +4181,64 @@ msgstr "Utworzono katalog."
 msgid "Unable to create container."
 msgstr "Nie można utworzyć kontenera."
 
-#: dashboards/project/containers/forms.py:86
-#: dashboards/project/containers/tables.py:418
-msgid "Object Name"
-msgstr "Nazwa obiektu"
-
-#: dashboards/project/containers/forms.py:87
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "Ukośniki są dozwolone i są traktowane jako pseudo katalogi przez magazyn obiektów."
-
-#: dashboards/project/containers/forms.py:94
+#: dashboards/project/containers/forms.py:84
 #: dashboards/project/containers/templates/containers/_update.html:22
 #: dashboards/project/stacks/forms.py:56
 msgid "File"
 msgstr "Plik"
 
-#: dashboards/project/containers/forms.py:121
+#: dashboards/project/containers/forms.py:88
+#: dashboards/project/containers/tables.py:418
+msgid "Object Name"
+msgstr "Nazwa obiektu"
+
+#: dashboards/project/containers/forms.py:89
+msgid ""
+"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
+msgstr "Ukośniki są dozwolone i są traktowane jako pseudo katalogi przez magazyn obiektów."
+
+#: dashboards/project/containers/forms.py:120
 msgid "Object was successfully uploaded."
 msgstr "Wysłano obiekt."
 
-#: dashboards/project/containers/forms.py:125
+#: dashboards/project/containers/forms.py:124
 msgid "Unable to upload object."
 msgstr "Nie można wysłać obiektu."
 
-#: dashboards/project/containers/forms.py:145
+#: dashboards/project/containers/forms.py:144
 msgid "Object was successfully updated."
 msgstr "Zaktualizowano obiekt."
 
-#: dashboards/project/containers/forms.py:148
+#: dashboards/project/containers/forms.py:147
 msgid "Unable to update object."
 msgstr "Nie można zaktualizować obiektu."
 
-#: dashboards/project/containers/forms.py:162
+#: dashboards/project/containers/forms.py:161
 msgid "Pseudo-folder Name"
 msgstr "Nazwa pseudo-katalogu"
 
-#: dashboards/project/containers/forms.py:180
+#: dashboards/project/containers/forms.py:179
 msgid "Pseudo-folder was successfully created."
 msgstr "Pseudo-katalog został utworzony."
 
-#: dashboards/project/containers/forms.py:184
+#: dashboards/project/containers/forms.py:183
 msgid "Unable to create pseudo-folder."
 msgstr "Nie można utworzyć pseud-katalogu."
 
-#: dashboards/project/containers/forms.py:188
+#: dashboards/project/containers/forms.py:187
 msgid "Destination container"
 msgstr "Docelowy kontener"
 
-#: dashboards/project/containers/forms.py:192
+#: dashboards/project/containers/forms.py:191
 msgid "Destination object name"
 msgstr "Nazwa docelowego obiektu"
 
-#: dashboards/project/containers/forms.py:225
+#: dashboards/project/containers/forms.py:224
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
 msgstr "Skopiowano „%(orig)s” do „%(dest)s” jako „%(new)s”."
 
-#: dashboards/project/containers/forms.py:236
+#: dashboards/project/containers/forms.py:235
 msgid "Unable to copy object."
 msgstr "Nie można skopiować obiektu."
 
@@ -4385,9 +4386,9 @@ msgstr "Kopiuj obiekt"
 #: dashboards/project/containers/templates/containers/_copy.html:18
 msgid ""
 "Make a new copy of an existing object to store in this or another container."
-" You may also specify a path at which the new copy should live inside of the"
-" selected container."
-msgstr "Tworzy nową kopię istniejącego obiektu celem przechowywania jej w tym lub w innym kontenerze. Można również podać ścieżkę, pod którą ma się ten obiekt znajdować w wybranym kontenerze."
+" You may additionally specify the path within the selected container where "
+"the new copy should be stored."
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_create.html:18
 msgid ""
@@ -5488,7 +5489,7 @@ msgstr "Nie można pobrać publicznych obrazów."
 msgid "Unable to retrieve images for the current project."
 msgstr "Nie można pobrać obrazów dla bieżącego projektu."
 
-#: dashboards/project/images/views.py:51
+#: dashboards/project/images/views.py:54
 msgid "Unable to retrieve images."
 msgstr "Nie można pobrać obrazów"
 
@@ -6209,7 +6210,7 @@ msgid "Log"
 msgstr "Logi"
 
 #: dashboards/project/instances/tabs.py:48
-#: dashboards/project/instances/views.py:141
+#: dashboards/project/instances/views.py:142
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Nie można pobrać logu dla instancji „%s”."
@@ -6226,32 +6227,32 @@ msgstr "Nie można posortować odmian instancji."
 msgid "Unable to retrieve instances."
 msgstr "Nie można pobrać instancji."
 
-#: dashboards/project/instances/views.py:156
+#: dashboards/project/instances/views.py:157
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Nie można połączyć z konsolą VNC dla instancji „%s”."
 
-#: dashboards/project/instances/views.py:167
+#: dashboards/project/instances/views.py:168
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Nie można uzyskać konsoli SPICE dla instancji „%s”."
 
-#: dashboards/project/instances/views.py:178
+#: dashboards/project/instances/views.py:179
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Nie można pobrać konsoli RDP dla instancji „%s”."
 
-#: dashboards/project/instances/views.py:265
+#: dashboards/project/instances/views.py:266
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Nie można pobrać szczegółów dla instancji „%s”."
 
-#: dashboards/project/instances/views.py:276
+#: dashboards/project/instances/views.py:277
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "Nie można pobrać adresów IP z Neutron dla instancji „%s”."
 
-#: dashboards/project/instances/views.py:320
+#: dashboards/project/instances/views.py:321
 msgid "Unable to retrieve flavors."
 msgstr "Nie można pobrać odmian."
 

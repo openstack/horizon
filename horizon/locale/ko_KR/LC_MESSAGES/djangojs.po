@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 23:31-0500\n"
-"PO-Revision-Date: 2014-04-30 04:40+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2014-07-02 00:24-0500\n"
+"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "서버와의 통신에 문제가 발생하였으니, 다시 시도하세요."
 
-#: static/horizon/js/horizon.forms.js:126
+#: static/horizon/js/horizon.forms.js:154
 msgid "Filter"
 msgstr "필터"
 
@@ -119,6 +119,10 @@ msgstr "오픈 콘솔"
 #, c-format
 msgid "view %s details"
 msgstr "%s 자세한 사항 확인"
+
+#: static/horizon/js/horizon.networktopology.js:545
+msgid "Add Interface"
+msgstr "인터페이스 추가"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:320
