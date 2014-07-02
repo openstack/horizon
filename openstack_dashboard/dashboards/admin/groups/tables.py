@@ -37,7 +37,8 @@ class CreateGroupLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Group")
     url = constants.GROUPS_CREATE_URL
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("identity", "identity:create_group"),)
 
     def allowed(self, request, group):
@@ -48,7 +49,8 @@ class EditGroupLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Group")
     url = constants.GROUPS_UPDATE_URL
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("identity", "identity:update_group"),)
 
     def allowed(self, request, group):
@@ -73,7 +75,7 @@ class ManageUsersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
     url = constants.GROUPS_MANAGE_URL
-    classes = ("btn-edit")
+    icon = "pencil"
     policy_rules = (("identity", "identity:get_group"),
                     ("identity", "identity:list_users"),)
 
@@ -144,7 +146,8 @@ class RemoveMembers(tables.DeleteAction):
 class AddMembersLink(tables.LinkAction):
     name = "add_user_link"
     verbose_name = _("Add...")
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     url = constants.GROUPS_ADD_MEMBER_URL
     policy_rules = (("identity", "identity:list_users"),
                     ("identity", "identity:add_user_to_group"),)
@@ -181,7 +184,7 @@ class AddMembers(tables.BatchAction):
     action_past = _("Added")
     data_type_singular = _("User")
     data_type_plural = _("Users")
-    classes = ("btn-create", )
+    icon = "plus"
     requires_input = True
     success_url = constants.GROUPS_MANAGE_URL
     policy_rules = (("identity", "identity:add_user_to_group"),)

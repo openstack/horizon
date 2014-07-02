@@ -63,7 +63,8 @@ class CreateRouter(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Router")
     url = "horizon:project:routers:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_router"),)
 
 
@@ -71,7 +72,8 @@ class SetGateway(tables.LinkAction):
     name = "setgateway"
     verbose_name = _("Set Gateway")
     url = "horizon:project:routers:setgateway"
-    classes = ("ajax-modal", "btn-camera")
+    classes = ("ajax-modal",)
+    icon = "camera"
     policy_rules = (("network", "update_router"),)
 
     def get_policy_target(self, request, datum=None):

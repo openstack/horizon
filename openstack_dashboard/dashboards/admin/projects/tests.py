@@ -244,12 +244,17 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
         if django.VERSION >= (1, 6):
-            self.assertContains(res, '<input id="id_subnet" min="-1" '
-                                'name="subnet" type="number" value="10" />',
-                                html=True)
+            self.assertContains(res, '''
+                                <input class=" form-control"
+                                id="id_subnet" min="-1"
+                                name="subnet" type="number" value="10" />
+                                ''', html=True)
         else:
-            self.assertContains(res, '<input name="subnet" id="id_subnet" '
-                                'value="10" type="text" />', html=True)
+            self.assertContains(res, '''
+                                <input class=" form-control"
+                                name="subnet" id="id_subnet"
+                                value="10" type="text" />
+                                ''', html=True)
 
         workflow = res.context['workflow']
         self.assertEqual(res.context['workflow'].name,

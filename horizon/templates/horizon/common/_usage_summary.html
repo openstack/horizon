@@ -3,15 +3,18 @@
   <h3 class="quota-heading">{% trans "Usage Summary" %}</h3>
 </div>
 <div class="usage_info_wrapper">
-  <form action="?" method="get" id="date_form" class="form-horizontal">
+  <form action="?" method="get" id="date_form" class="form-inline">
     <h3>{% trans "Select a period of time to query its usage" %}: </h3>
-    <div class="datepicker">
-      {% blocktrans with start=form.start end=form.end %}<span>From: {{ start }} </span><span>To: {{ end }} </span>{% endblocktrans %}
-      <button class="btn btn-primary" type="submit">{% trans "Submit" %}</button>
-      <small>{% trans "The date should be in YYYY-mm-dd format." %}</small>
+    <div class="datepicker form-group">
+      {% blocktrans with start=form.start end=form.end %}
+      <label>From:</label> {{ start }}
     </div>
+    <div class="datepicker form-group">
+      <label>To:</label>{{ end }}{% endblocktrans %}
+    </div>
+    <button class="btn btn-primary" type="submit">{% trans "Submit" %}</button>
+    <small>{% trans "The date should be in YYYY-mm-dd format." %}</small>
   </form>
-
   <p id="activity">
     <span><strong>{% trans "Active Instances" %}:</strong> {{ usage.summary.instances|default:'0' }}</span>
     <span><strong>{% trans "Active RAM" %}:</strong> {{ usage.summary.memory_mb|mbformat|default:'0' }}</span>

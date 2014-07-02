@@ -33,7 +33,8 @@ class LaunchImage(tables.LinkAction):
     name = "launch_image"
     verbose_name = _("Launch")
     url = "horizon:project:instances:launch"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal", "btn-launch")
+    icon = "cloud-upload"
     policy_rules = (("compute", "compute:create"),)
 
     def get_link_url(self, datum):
@@ -76,7 +77,8 @@ class CreateImage(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Image")
     url = "horizon:project:images:images:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("image", "add_image"),)
 
 
@@ -84,7 +86,8 @@ class EditImage(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:project:images:images:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("image", "modify_image"),)
 
     def allowed(self, request, image=None):
@@ -100,7 +103,8 @@ class CreateVolumeFromImage(tables.LinkAction):
     name = "create_volume_from_image"
     verbose_name = _("Create Volume")
     url = "horizon:project:volumes:volumes:create"
-    classes = ("ajax-modal", "btn-camera")
+    classes = ("ajax-modal",)
+    icon = "camera"
     policy_rules = (("volume", "volume:create"),)
 
     def get_link_url(self, datum):

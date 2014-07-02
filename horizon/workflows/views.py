@@ -103,7 +103,7 @@ class WorkflowView(generic.TemplateView):
         the workflow characteristics
         """
         if self.request.is_ajax():
-            layout = ['modal', 'hide', ]
+            layout = ['modal', ]
             if self.workflow_class.fullscreen:
                 layout += ['fullscreen', ]
         else:

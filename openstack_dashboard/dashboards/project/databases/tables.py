@@ -35,7 +35,8 @@ class TerminateInstance(tables.BatchAction):
     action_past = _("Scheduled termination of %(data_type)s")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ('btn-danger', 'btn-terminate')
+    classes = ("ajax-modal",)
+    icon = "off"
 
     def action(self, request, obj_id):
         api.trove.instance_delete(request, obj_id)
@@ -93,14 +94,16 @@ class LaunchLink(tables.LinkAction):
     name = "launch"
     verbose_name = _("Launch Instance")
     url = "horizon:project:databases:launch"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal", "btn-launch")
+    icon = "cloud-upload"
 
 
 class CreateBackup(tables.LinkAction):
     name = "backup"
     verbose_name = _("Create Backup")
     url = "horizon:project:database_backups:create"
-    classes = ("ajax-modal", "btn-camera")
+    classes = ("ajax-modal",)
+    icon = "camera"
 
     def allowed(self, request, instance=None):
         return (instance.status in ACTIVE_STATES and

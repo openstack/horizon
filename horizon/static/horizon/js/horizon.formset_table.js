@@ -53,7 +53,7 @@ horizon.formset_table = (function () {
 
     // if there are extra empty rows, add the button for new rows
     if (add_label) {
-      var button = $('<a href="#" class="btn btn-small pull-right">' +
+      var button = $('<a href="#" class="btn btn-primary btn-sm pull-right">' +
         add_label + '</a>');
       table.find('tfoot td').append(button);
       button.click(function () {

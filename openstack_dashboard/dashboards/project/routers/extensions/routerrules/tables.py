@@ -29,7 +29,8 @@ class AddRouterRule(tables.LinkAction):
     name = "create"
     verbose_name = _("Add Router Rule")
     url = "horizon:project:routers:addrouterrule"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "update_router"),)
 
     def get_policy_target(self, request, datum=None):

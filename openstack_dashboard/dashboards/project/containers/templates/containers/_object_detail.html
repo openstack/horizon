@@ -5,7 +5,7 @@
 {% block modal-header %}{% trans "Object Details" %}{% endblock %}
 
 {% block modal-body %}
-<div class="info row-fluid detail">
+<div class="info row detail">
   <dl>
     <dt>{% trans "Name" %}</dt>
     <dd>{{ object.name }}</dd>
@@ -22,5 +22,5 @@
 {% endblock %}
 
 {% block modal-footer %}
-  <a href="{% url 'horizon:project:containers:index' %}" class="btn secondary cancel close">{% trans "Close" %}</a>
+  <a href="{% url 'horizon:project:containers:index' %}" class="btn btn-default secondary cancel close">{% trans "Close" %}</a>
 {% endblock %}

@@ -126,8 +126,8 @@ horizon.instances = {
       }
       updateForm();
     });
-    if ($("#networkListId > div.control-group.error").length > 0) {
-      var errortext = $("#networkListId > div.control-group.error").find("span.help-inline").text();
+    if ($("#networkListId > div.form-group.error").length > 0) {
+      var errortext = $("#networkListId > div.form-group.error").find("span.help-block").text();
       $("#selected_network_label").before($('<div class="dynamic-error">').html(errortext));
     }
     $(".networklist").sortable({
@@ -164,29 +164,29 @@ horizon.addInitFunction(function () {
     var $this = $(field),
       base_type = $this.val();
 
-    $this.closest(".control-group").nextAll().hide();
+    $this.closest(".form-group").nextAll().hide();
 
     switch(base_type) {
       case "image_id":
-        $("#id_image_id").closest(".control-group").show();
+        $("#id_image_id").closest(".form-group").show();
         break;
 
       case "instance_snapshot_id":
-        $("#id_instance_snapshot_id").closest(".control-group").show();
+        $("#id_instance_snapshot_id").closest(".form-group").show();
         break;
 
       case "volume_id":
-        $("#id_volume_id, #id_delete_on_terminate").closest(".control-group").show();
+        $("#id_volume_id, #id_delete_on_terminate").closest(".form-group").show();
         break;
 
       case "volume_image_id":
         $("#id_image_id, #id_volume_size, #id_device_name, #id_delete_on_terminate")
-          .closest(".control-group").show();
+          .closest(".form-group").show();
         break;
 
       case "volume_snapshot_id":
         $("#id_volume_snapshot_id, #id_device_name, #id_delete_on_terminate")
-          .closest(".control-group").show();
+          .closest(".form-group").show();
         break;
     }
   }

@@ -21,7 +21,7 @@ horizon.alert = function (type, message, extra_tags) {
 };
 
 horizon.clearErrorMessages = function() {
-  $('#main_content .messages .alert.alert-error').remove();
+  $('#main_content .messages .alert.alert-danger').remove();
 };
 
 horizon.clearSuccessMessages = function() {

@@ -392,7 +392,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
           return false;
         }
       });
-      input.next('button.btn-search').on('click keypress', function (evt) {
+      input.next('button.btn span.glyphicon-search').on('click keypress', function (evt) {
         return false;
       });
 

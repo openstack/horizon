@@ -1,32 +1,66 @@
-// LABELS
-// ------
+//
+// Labels
+// --------------------------------------------------
 
-// Base
 .label {
-  padding: 2px 4px 3px;
-  font-size: $baseFontSize * .85;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
   font-weight: bold;
-  color: $white;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-  background-color: $grayLight;
-  @include border-radius(3px);
+  line-height: 1;
+  color: $label-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+
+  // [converter] extracted a& to a.label
+
+  // Empty labels collapse automatically (not available in IE8)
+  &:empty {
+    display: none;
+  }
+
+  // Quick fix for labels in buttons
+  .btn & {
+    position: relative;
+    top: -1px;
+  }
 }
 
-// Hover state
-.label:hover {
-  color: $white;
-  text-decoration: none;
+// Add hover effects, but only for links
+a.label {
+  &:hover,
+  &:focus {
+    color: $label-link-hover-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 // Colors
-.label-important        { background-color: $errorText; }
-.label-important:hover  { background-color: darken($errorText, 10%); }
+// Contextual variations (linked labels get darker on :hover)
 
-.label-warning          { background-color: $orange; }
-.label-warning:hover    { background-color: darken($orange, 10%); }
+.label-default {
+  @include label-variant($label-default-bg);
+}
 
-.label-success          { background-color: $successText; }
-.label-success:hover    { background-color: darken($successText, 10%); }
+.label-primary {
+  @include label-variant($label-primary-bg);
+}
 
-.label-info             { background-color: $infoText; }
-.label-info:hover       { background-color: darken($infoText, 10%); }
+.label-success {
+  @include label-variant($label-success-bg);
+}
+
+.label-info {
+  @include label-variant($label-info-bg);
+}
+
+.label-warning {
+  @include label-variant($label-warning-bg);
+}
+
+.label-danger {
+  @include label-variant($label-danger-bg);
+}

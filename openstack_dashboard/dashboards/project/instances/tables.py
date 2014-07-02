@@ -76,7 +76,8 @@ class TerminateInstance(tables.BatchAction):
     action_past = _("Scheduled termination of %(data_type)s")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ('btn-danger', 'btn-terminate')
+    classes = ("ajax-modal", "btn-danger",)
+    icon = "off"
     policy_rules = (("compute", "compute:delete"),)
 
     def get_policy_target(self, request, datum=None):
@@ -135,7 +136,7 @@ class TogglePause(tables.BatchAction):
     action_past = (_("Paused"), _("Resumed"))
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ("btn-pause",)
+    icon = "pause"
 
     def allowed(self, request, instance=None):
         if not api.nova.extension_supported('AdminActions',
@@ -215,7 +216,8 @@ class LaunchLink(tables.LinkAction):
     name = "launch"
     verbose_name = _("Launch Instance")
     url = "horizon:project:instances:launch"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal", "btn-launch")
+    icon = "cloud-upload"
     policy_rules = (("compute", "compute:create"),)
     ajax = True
 
@@ -233,7 +235,7 @@ class LaunchLink(tables.LinkAction):
                 - limits['totalCoresUsed']
             ram_available = limits['maxTotalRAMSize'] - limits['totalRAMUsed']
 
-            if instances_available <= 0 or cores_available <= 0 \
+            if instances_available >= 0 or cores_available <= 0 \
                     or ram_available <= 0:
                 if "disabled" not in self.classes:
                     self.classes = [c for c in self.classes] + ['disabled']
@@ -258,7 +260,8 @@ class EditInstance(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Instance")
     url = "horizon:project:instances:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("compute", "compute:update"),)
 
     def get_policy_target(self, request, datum=None):
@@ -296,7 +299,8 @@ class CreateSnapshot(tables.LinkAction):
     name = "snapshot"
     verbose_name = _("Create Snapshot")
     url = "horizon:project:images:snapshots:create"
-    classes = ("ajax-modal", "btn-camera")
+    classes = ("ajax-modal",)
+    icon = "camera"
     policy_rules = (("compute", "compute:snapshot"),)
 
     def get_policy_target(self, request, datum=None):
@@ -471,7 +475,8 @@ class AssociateIP(tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate Floating IP")
     url = "horizon:project:access_and_security:floating_ips:associate"
-    classes = ("ajax-modal", "btn-associate")
+    classes = ("ajax-modal",)
+    icon = "link"
     policy_rules = (("compute", "network:associate_floating_ip"),)
 
     def get_policy_target(self, request, datum=None):
@@ -497,7 +502,7 @@ class AssociateIP(tables.LinkAction):
 class SimpleAssociateIP(tables.Action):
     name = "associate-simple"
     verbose_name = _("Associate Floating IP")
-    classes = ("btn-associate-simple",)
+    icon = "link"
     policy_rules = (("compute", "network:associate_floating_ip"),)
 
     def get_policy_target(self, request, datum=None):

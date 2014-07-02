@@ -99,9 +99,9 @@ class UsageViewTests(test.TestCase):
         self.assertEqual(nova_stu_enabled,
                          res.context['simple_tenant_usage_enabled'])
         if nova_stu_enabled:
-            self.assertContains(res, 'form-horizontal')
+            self.assertContains(res, 'form-inline')
         else:
-            self.assertNotContains(res, 'form-horizontal')
+            self.assertNotContains(res, 'form-inline')
         self.assertEqual(usages.limits['maxTotalFloatingIps'], float("inf"))
 
     def test_usage_nova_network(self):
@@ -143,9 +143,9 @@ class UsageViewTests(test.TestCase):
         self.assertEqual(nova_stu_enabled,
                          res.context['simple_tenant_usage_enabled'])
         if nova_stu_enabled:
-            self.assertContains(res, 'form-horizontal')
+            self.assertContains(res, 'form-inline')
         else:
-            self.assertNotContains(res, 'form-horizontal')
+            self.assertNotContains(res, 'form-inline')
         self.assertEqual(usages.limits['maxTotalFloatingIps'], 10)
 
     def test_unauthorized(self):

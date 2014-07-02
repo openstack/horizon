@@ -30,7 +30,8 @@ class CreateNetworkProfile(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Network Profile")
     url = "horizon:router:nexus1000v:create_network_profile"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class DeleteNetworkProfile(tables.DeleteAction):
@@ -51,7 +52,8 @@ class EditNetworkProfile(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Network Profile")
     url = "horizon:router:nexus1000v:update_network_profile"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
 
 class NetworkProfile(tables.DataTable):

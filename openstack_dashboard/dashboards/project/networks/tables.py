@@ -71,7 +71,8 @@ class CreateNetwork(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Network")
     url = "horizon:project:networks:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_network"),)
 
 
@@ -79,7 +80,8 @@ class EditNetwork(CheckNetworkEditable, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Network")
     url = "horizon:project:networks:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("network", "update_network"),)
 
     def get_policy_target(self, request, datum=None):
@@ -93,7 +95,8 @@ class CreateSubnet(CheckNetworkEditable, tables.LinkAction):
     name = "subnet"
     verbose_name = _("Add Subnet")
     url = "horizon:project:networks:addsubnet"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_subnet"),)
 
     def get_policy_target(self, request, datum=None):

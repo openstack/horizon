@@ -30,7 +30,8 @@ class LaunchStack(tables.LinkAction):
     name = "launch"
     verbose_name = _("Launch Stack")
     url = "horizon:project:stacks:select_template"
-    classes = ("btn-create", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("orchestration", "cloudformation:CreateStack"),)
 
 
@@ -38,7 +39,8 @@ class ChangeStackTemplate(tables.LinkAction):
     name = "edit"
     verbose_name = _("Change Stack Template")
     url = "horizon:project:stacks:change_template"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
     def get_link_url(self, stack):
         return urlresolvers.reverse(self.url, args=[stack.id])
@@ -50,7 +52,8 @@ class DeleteStack(tables.BatchAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Stack")
     data_type_plural = _("Stacks")
-    classes = ('btn-danger', 'btn-terminate')
+    classes = ("ajax-modal",)
+    icon = "remove"
     policy_rules = (("orchestration", "cloudformation:DeleteStack"),)
 
     def action(self, request, stack_id):

@@ -411,8 +411,8 @@ dashboards::
     {% endblock page_header %}
 
     {% block main %}
-    <div class="row-fluid">
-      <div class="span12">
+    <div class="row">
+      <div class="col-sm-12">
       {{ tab_group.render }}
       </div>
     </div>

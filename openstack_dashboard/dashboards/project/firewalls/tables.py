@@ -25,7 +25,8 @@ class AddRuleLink(tables.LinkAction):
     name = "addrule"
     verbose_name = _("Add Rule")
     url = "horizon:project:firewalls:addrule"
-    classes = ("ajax-modal", "btn-create",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_firewall_rule"),)
 
 
@@ -41,7 +42,8 @@ class AddFirewallLink(tables.LinkAction):
     name = "addfirewall"
     verbose_name = _("Create Firewall")
     url = "horizon:project:firewalls:addfirewall"
-    classes = ("ajax-modal", "btn-addfirewall",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_firewall"),)
 
 

@@ -197,10 +197,10 @@ horizon.addInitFunction(function () {
           data = $input.data(slug + "-" + val);
 
         if (typeof data === "undefined" || !visible) {
-          $input.closest('.form-field').hide();
+          $input.closest('.form-group').hide();
         } else {
           $('label[for=' + $input.attr('id') + ']').html(data);
-          $input.closest('.form-field').show();
+          $input.closest('.form-group').show();
         }
       });
     });
@@ -220,9 +220,9 @@ horizon.addInitFunction(function () {
 
     $this.find("option").each(function () {
       if (this.value !== base_type) {
-        $("#id_" + this.value).closest(".control-group").hide();
+        $("#id_" + this.value).closest(".form-group").hide();
       } else {
-        $("#id_" + this.value).closest(".control-group").show();
+        $("#id_" + this.value).closest(".form-group").show();
       }
     });
   }
@@ -240,19 +240,19 @@ horizon.addInitFunction(function () {
 
   // Apply standard handler for everything but checkboxes.
   $(document).tooltip({
-    selector: "div.form-field .help-icon",
+    selector: "div.form-group .help-icon",
     placement: function (tip, input) {
       // Position to the right unless this is a "split" for in which case put
       // the tooltip below so it doesn't block the next field.
       return $(input).closest("form[class*='split']").length ? "bottom" : 'right';
     },
     title: function () {
-      return $(this).closest('div.form-field').children('.help-block').text();
+      return $(this).closest('div.form-group').children('.help-block').text();
     }
   });
   // Hide the tooltip upon interaction with the field for select boxes.
   // We use mousedown and keydown since those "open" the select dropdown.
-  $(document).on('mousedown keydown', '.form-field select', function (evt) {
+  $(document).on('mousedown keydown', '.form-group select', function (evt) {
     $(this).tooltip('hide');
   });
   // Hide the tooltip after escape button pressed
@@ -263,5 +263,5 @@ horizon.addInitFunction(function () {
   });
 
   // Hide the help text for js-capable browsers
-  $('span.help-block').hide();
+  $('p.help-block').hide();
 });

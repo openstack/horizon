@@ -19,7 +19,7 @@
     {% with table.get_formset as formset %}
         {{ formset.management_form }}
         {% if formset.non_field_errors %}
-            <div class="alert alert-error">
+            <div class="alert alert-danger">
                 {{ formset.non_field_errors }}
             </div>
         {% endif %}

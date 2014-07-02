@@ -11,11 +11,11 @@
     var message = {};
     message.action = "alert";
     message.iframe_id = $(window.frameElement).attr('id');
-    message.type = 
+    message.type =
       ($this.hasClass('alert-info')) ?    'info' :
       ($this.hasClass('alert-warning')) ? 'warning' :
       ($this.hasClass('alert-success')) ? 'success' :
-      ($this.hasClass('alert-error')) ?   'error' :
+      ($this.hasClass('alert-danger')) ?   'error' :
       null;
     message.message = $this.children('p')
       .html()

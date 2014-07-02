@@ -36,7 +36,7 @@ class FormsetCell(horizon_tables.Cell):
         else:
             if self.field.errors:
                 self.attrs['class'] = (self.attrs.get('class', '') +
-                    ' error control-group')
+                    ' error form-group')
                 self.attrs['title'] = ' '.join(
                     unicode(error) for error in self.field.errors)
 

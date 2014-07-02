@@ -14,8 +14,8 @@
           style='display: inline; background-color: transparent; float: none; margin-left: 0;'>
           {% csrf_token %}
           <input type="hidden" name="router_id" value="{{ router.id }}"/>
-          <button class="btn btn-small btn-danger btn-delete"
-                  type="submit" href="#" name="action" value="routerrules__resetrules">{% trans "Reset to Default" %}</button>
+          <button class="btn btn-sm btn-danger"
+                  type="submit" href="#" name="action" value="routerrules__resetrules"><span class="glyphicon glyphicon-remove"> {% trans "Reset to Default" %}</button>
           </form>
        </div>
      </th>
@@ -74,18 +74,18 @@
            {% if dest.reachable == 'none' %}
               <center>
               <i class="icon-ban-circle"></i>
-              <button type="submit" class="btn btn-mini" href="#"><i class="icon-random"></i></button></center>
+              <button type="submit" class="btn btn-default btn-xs" href="#"><i class="icon-random"></i></button></center>
            {% elif dest.reachable == 'full' %}
            <center>
               <i class="icon-ok"></i>
               {% if not dest.cidr == row.source.cidr %}
-                   <button type="submit" class="btn btn-mini" href="#"><i class="icon-random"></i></button>
+                   <button type="submit" class="btn btn-default btn-xs" href="#"><i class="icon-random"></i></button>
               {% else %}
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {% endif %}
            </center>
            {% else %}
-                <center><a type="button" class="btn btn-mini" href="#modal_{{ dest.subnetid|add:row.source.subnetid }}" data-toggle="modal"><i class="icon-exclamation-sign"></i> Conflict</a></center>
+                <center><a type="button" class="btn btn-default btn-xs" href="#modal_{{ dest.subnetid|add:row.source.subnetid }}" data-toggle="modal"><span class="glyphicon glyphicon-exclamation-sign"></span> Conflict</a></center>
                <div class="modal hide" id="modal_{{ dest.subnetid|add:row.source.subnetid }}">
                  <div class="modal-header">
                    <a class="close" data-dismiss="modal">&times;</a>

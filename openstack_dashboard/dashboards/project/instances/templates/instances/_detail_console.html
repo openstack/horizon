@@ -18,6 +18,6 @@
     }
 </script>
 {% else %}
-<p class='alert alert-error'>{% blocktrans %}console is currently unavailable. Please try again later.{% endblocktrans %}
-<a class='btn btn-mini' href="{% url 'horizon:project:instances:detail' instance_id %}">{% trans "Reload" %}</a></p>
+<p class='alert alert-danger'>{% blocktrans %}console is currently unavailable. Please try again later.{% endblocktrans %}
+<a class='btn btn-default btn-xs' href="{% url 'horizon:project:instances:detail' instance_id %}">{% trans "Reload" %}</a></p>
 {% endif %}

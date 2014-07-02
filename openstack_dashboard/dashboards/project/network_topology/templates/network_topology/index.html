@@ -22,16 +22,16 @@
     <button type="button" class="btn small" data-value="small"><i class="icon-th"></i>{%trans "Small" %}</button>
     <button type="button" class="btn normal" data-value="normal"><i class="icon-th-large"></i>{%trans "Normal" %}</button>
   </div>
-  
+
   <div class="launchButtons">
   {% if launch_instance_allowed %}
-  <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-small btn-launch ajax-modal">{%trans "Launch Instance" %}</a>
+  <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal"><span class="glyphicon glyphicon-cloud-upload"></span> {%trans "Launch Instance" %}</a>
   {% endif %}
   {% if create_network_allowed %}
-  <a href="{% url 'horizon:project:network_topology:createnetwork' %}" id="networks__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Network" %}</a>
+  <a href="{% url 'horizon:project:network_topology:createnetwork' %}" id="networks__action_create" class="btn btn-default btn-sm ajax-modal"><span class="glyphicon glyphicon-plus"></span> {%trans "Create Network" %}</a>
   {% endif %}
   {% if create_router_allowed %}
-  <a href="{% url 'horizon:project:network_topology:createrouter' %}" id="Routers__action_create" class="btn btn-small ajax-modal btn-create">{%trans "Create Router" %}</a>
+  <a href="{% url 'horizon:project:network_topology:createrouter' %}" id="Routers__action_create" class="btn btn-default btn-sm ajax-modal"><span class="glyphicon glyphicon-plus"></span> {%trans "Create Router" %}</a>
   {% endif %}
   </div>
 </div>

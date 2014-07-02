@@ -1,4 +1,9 @@
-@import "/bootstrap/scss/_bootstrap";
+// bootstrap overrides:
+$icon-font-path: "/static/bootstrap/fonts/bootstrap/";
+$font-size-base: 13px;
+$modal-md: 732px;
+
+@import "/bootstrap/scss/bootstrap";
 @import "/bootstrap/scss/_datepicker";
 @import "_variables";
 @import "_accordion_nav";
@@ -112,16 +117,6 @@ dt {
   width: 130px;
 }
 
-.topbar .switcher_bar h3 {
-  padding: 2px 10px 1px;
-  font-size: 13px !important;
-  line-height: 20px;
-  color: $gray;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
 .topbar .switcher_bar div {
   padding: 2px 10px 1px;
   font-size: 11px !important;
@@ -171,6 +166,9 @@ dt {
   font-family: anivers;
   height: auto;
   width: 100%;
+  h2 {
+    margin: 0;
+  }
 }
 
 h2 {
@@ -216,7 +214,7 @@ h2 {
   }
 }
 
-#splash .help-block {
+#splash p.help-block {
   display: none;
 }
 
@@ -235,7 +233,7 @@ h2 {
 
   @include border-radius(0 0 5px 0);
   float: left;
-  min-width: 231px;
+  min-width: 236px;
 }
 
 .sidebar h4 {
@@ -412,10 +410,14 @@ a.current_item:hover h4 {
   min-height: 35px;
   padding: 5px 0;
 }
+
 .table_caption th {
   background-color: transparent;
   border: none;
 }
+
+.table-bordered th.table_header { border: none; }
+
 .table-bordered tr.table_caption + tr th {
   border-top: 1px solid $table-border-color;
 }
@@ -457,7 +459,7 @@ a.current_item:hover h4 {
   font-family: anivers;
   font-weight: normal;
   font-size: 24px;
-  margin-bottom: 5px;
+  margin: 0 0 5px 0;
   float: left;
 }
 .table th.header {
@@ -469,7 +471,6 @@ a.current_item:hover h4 {
 }
 .table tbody td.anchor a {
   display: block;
-  padding: 8px;
 }
 .table tr.table_caption th.header:hover {
   background-color: transparent;
@@ -540,22 +541,22 @@ table form {
   top: 20px;
   right: 20px;
   width: 300px;
-  .alert-block {
+  .alert {
     @include box-shadow(0 3px 7px rgba(0, 0, 0, 0.3));
   }
-  .alert-block.alert-error {
+  .alert.alert-danger {
     border-width: 1px;
     border-style: solid;
     border-color: darken($brand-danger, 5%);
   }
-  .alert-block.alert-success {
+  .alert.alert-success {
     border-width: 1px;
     border-style: solid;
     border-color: darken($brand-success, 5%);
   }
 }
 
-.alert-block .alert-actions {
+.alert .alert-actions {
   margin-top: -23px;
   margin-right: -23px;
 }
@@ -566,12 +567,12 @@ table form {
   margin-bottom: 0;
 }
 
-.alert-block p {
+.alert p {
   overflow: hidden;
   word-wrap: break-word;
 }
 
-.alert-block p:last-child {
+.alert p:last-child {
   margin-bottom: 0;
 }
 
@@ -595,6 +596,16 @@ table form {
 
 .table {
   margin-bottom: 25px;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
 .table tr td {
@@ -615,6 +626,7 @@ table form {
 .table_actions {
   float: right;
   min-width: 400px;
+  @extend .form-inline;
 }
 
 .table_actions .table_search,
@@ -622,63 +634,10 @@ table form {
   display: inline-block;
 }
 
-.table_search input {
-  background: url(/static/dashboard/img/search.png) no-repeat 195px 5px;
-  display: inline-block;
-  margin-bottom: 0;
-}
-
-.table_actions a, .table_actions button {
-  float: right;
-  margin-left: 10px;
-}
-
-.table_actions button.filter {
-  margin-left: 0;
-}
-
-@mixin btn-icon($x, $y, $icons: "/static/bootstrap/img/glyphicons-halflings.png") {
-  padding-left: 23px;
-  position: relative;
-
-  &:before {
-    display: inline-block;
-    content: "";
-    width: 18px;
-    height: 20px;
-    margin-top: 1px;
-    *margin-right: .3em;
-    line-height: 14px;
-    background-image: url($icons);
-    background-position: $x $y;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+.table_search {
+  input[type="text"] {
+    padding-right: 26px;
   }
-}
-
-@mixin btn-icon-danger($x, $y) {
-  @include btn-icon($x, $y, "/static/bootstrap/img/glyphicons-halflings-white.png");
-}
-
-.table_actions {
-
-    a.btn-create, button.btn-create, a.btn-launch {
-      @include btn-icon(-403px, -92px);
-    }
-
-    a.btn-download, button.btn-download {
-      @include btn-icon(-91px, -19px);
-    }
-
-    a.btn-upload, button.btn-upload {
-      @include btn-icon(-283px, -92px);
-    }
-
-    button.btn-delete, button.btn-terminate {
-      @include btn-icon-danger(-451px, 5px);
-    }
 }
 
 td.no-transition {
@@ -990,6 +949,9 @@ div.table_cell_wrapper {
 
 
 /* Forms */
+.datepicker input{
+  @extend .form-control;
+}
 
 form label {
     text-align: left;
@@ -998,25 +960,17 @@ form label {
     display: inline-block;
 }
 
-.modal {
-    width: 700px;
-    max-height: none; /* Prevents large modals from scrolling unnecessarily */
-    top: 80px;
-    margin-top: 0;
-    position: absolute;
-}
-
-.modal.fullscreen {
+.modal.fullscreen .modal-dialog {
   width: 90%;
   margin: auto;
   left: 5%;
 }
 
-.modal.loading {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  overflow: hidden;
+.modal.loading .modal-dialog {
+  width: 170px;
+  .modal-body {
+    height: 170px;
+  }
 }
 
 .modal.loading p {
@@ -1024,39 +978,6 @@ form label {
   position: absolute;
   bottom: 0;
   width: 150px;
-}
-
-.datepicker {
-  margin-top: 10px;
-}
-
-.datepicker input {
-  width: 66px;
-  margin-right: 10px;
-}
-
-.datepicker .btn {
-  margin-right: 10px;
-}
-
-form.horizontal .form-field {
-  float: left;
-}
-
-form.horizontal.split_half .form-field {
-  width: 334px; /* Fits 2 fields to a row */
-}
-
-form.horizontal.split_quarter .form-field {
-  width: 167px; /* Fits 4 fields to a row */
-}
-
-form.horizontal.split_five .form-field {
-    width: 133px; /* Fits 5 fields to a row */
-}
-
-form.horizontal fieldset {
-  width: 100%;
 }
 
 .modal-body {
@@ -1074,7 +995,6 @@ form.horizontal fieldset {
 
 .static_page {
   float: left;
-  width: 700px;
   background-color: $body-bg;
   border: 1px solid $border-color;
 }
@@ -1084,7 +1004,7 @@ form.horizontal fieldset {
 
 .left {
     float: left;
-    width: 347px;
+    width: 342px;
     margin-right: 15px;
 }
 
@@ -1094,7 +1014,7 @@ form.horizontal fieldset {
 
 .right {
   float: left;
-  width: 308px;
+  width: 342px;
 }
 
 .clear {
@@ -1103,29 +1023,6 @@ form.horizontal fieldset {
   height: 0;
   padding: 0;
   margin: 0;
-}
-
-.modal-body fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-.modal-body fieldset ul {
-  width: 90%;
-}
-
-.modal-body fieldset .form-field input,
-.modal-body fieldset .form-field textarea {
-  width: 298px;
-}
-.modal-body fieldset .form-field select {
-  width: 308px;
-}
-.modal-body fieldset .form-field textarea {
-  height: $baseLineHeight * 2;
-}
-.modal-body-fixed-width {
-  max-width: 298px;
 }
 
 .modal-footer input {
@@ -1307,7 +1204,7 @@ td.actions_column ul.row_actions.single button:hover {
 }
 
 th.multi_select_column, td.multi_select_column {
-  width: 25px;
+  width: 41px;
 }
 
 th.multi_select_column, td.multi_select_column {
@@ -1412,10 +1309,6 @@ tr.terminated {
   background-image: url(/static/dashboard/img/drop_arrow.png);
 }
 
-form div.clearfix.error {
-  width: 308px;
-}
-
 .nav-tabs a {
   cursor: pointer;
 }
@@ -1429,7 +1322,7 @@ form div.clearfix.error {
 }
 
 .nav-tabs li.required a:after,
-form .form-field.required > label:after {
+form .form-group.required > label:after {
   content: "*";
   font-weight: bold;
   line-height: 0;
@@ -1544,7 +1437,6 @@ iframe {
 }
 
 .quota_bar {
-  height: 15px;
   margin: -8px 0 8px;
 }
 
@@ -1562,11 +1454,11 @@ div .flavor_table {
   width: 160px;
 }
 
-#main_content .row-fluid {
+#main_content .row {
   margin: 10px 0 20px;
 }
 
-#main_content .row-fluid:last-child {
+#main_content .row:last-child {
   margin-bottom: 0;
 }
 
@@ -1585,13 +1477,12 @@ div .flavor_table {
   margin-right: 50px;
 }
 
-.error .help-inline, .dynamic-error {
-  background: $body-bg;
-  border: 1px solid $border-color;
+.has-error .help-block, .dynamic-error {
   padding: 10px;
-  display: block;
 }
 .dynamic-error {
+  background: $body-bg;
+  border: 1px solid $border-color;
   color: $brand-danger;
   margin-bottom: 0.5em;
 }
@@ -1638,8 +1529,8 @@ label.log-length {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
 }
 
-.split_five div.control-group input[type="text"],
-.split_five div.control-group select {
+.split_five div.form-group input[type="text"],
+.split_five div.form-group select {
   width: 120px;
 }
 
@@ -2409,27 +2300,6 @@ $contentTableWidth:       $browserWrapperWidth - $navigationTableWidth;
 #info_box .error {
   color: darken($brand-danger, 20%);
 }
-
-#ceilometer-stats .form-horizontal {
-  .control-label {
-    width: auto;
-  }
-  .controls {
-    float: left;
-    margin-left: 0;
-  }
-  .control-group {
-    float: left;
-    margin-right: 20px;
-  }
-  .btn {
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 18px;
-  }
-}
-
-
 
 /* Styling for draged firewall rule object */
 #ruleListSortContainer {

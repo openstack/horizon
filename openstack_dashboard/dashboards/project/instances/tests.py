@@ -2397,10 +2397,11 @@ class InstanceTests(test.TestCase):
 
         res = self.client.get(INDEX_URL)
         expected_string = encoding.smart_str(u'''
-            <a href="%s" id="instances__action_launch" title="%s"
-            class="%s disabled"
-            data-update-url =
-            "/project/instances/?action=launch&amp;table=instances">%s</a>
+            <a href="%s" title="%s" class="%s disabled"
+            data-update-url=
+            "/project/instances/?action=launch&amp;table=instances"
+            id="instances__action_launch">
+            <span class="glyphicon glyphicon-cloud-upload"></span>%s</a>
             ''' % (url, link_name, " ".join(classes), link_name), res._charset)
 
         self.assertContains(res, expected_string, html=True,

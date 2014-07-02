@@ -33,7 +33,8 @@ class ExtraSpecCreate(tables.LinkAction):
     name = "create"
     verbose_name = _("Create")
     url = "horizon:admin:flavors:extras:create"
-    classes = ("btn-create", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
     def get_link_url(self, extra_spec=None):
         return reverse(self.url, args=[self.table.kwargs['id']])
@@ -43,7 +44,8 @@ class ExtraSpecEdit(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:admin:flavors:extras:edit"
-    classes = ("btn-edit", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
     def get_link_url(self, extra_spec):
         return reverse(self.url, args=[self.table.kwargs['id'],

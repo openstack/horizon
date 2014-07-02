@@ -58,7 +58,8 @@ class CreateGroup(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Security Group")
     url = "horizon:project:access_and_security:security_groups:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
     def allowed(self, request, security_group=None):
         if api.base.is_service_enabled(request, "network"):
@@ -73,7 +74,8 @@ class EditGroup(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Security Group")
     url = "horizon:project:access_and_security:security_groups:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
     def get_policy_target(self, request, datum=None):
         project_id = None
@@ -100,7 +102,7 @@ class ManageRules(tables.LinkAction):
     name = "manage_rules"
     verbose_name = _("Manage Rules")
     url = "horizon:project:access_and_security:security_groups:detail"
-    classes = ("btn-edit")
+    icon = "pencil"
 
     def get_policy_target(self, request, datum=None):
         project_id = None
@@ -136,7 +138,8 @@ class CreateRule(tables.LinkAction):
     name = "add_rule"
     verbose_name = _("Add Rule")
     url = "horizon:project:access_and_security:security_groups:add_rule"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
     def allowed(self, request, security_group_rule=None):
         if api.base.is_service_enabled(request, "network"):

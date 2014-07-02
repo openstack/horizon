@@ -32,7 +32,7 @@ class DownloadEC2(tables.LinkAction):
     name = "download_ec2"
     verbose_name = _("Download EC2 Credentials")
     verbose_name_plural = _("Download EC2 Credentials")
-    classes = ("btn-download",)
+    icon = "download"
     url = "horizon:project:access_and_security:api_access:ec2"
     policy_rules = (("compute", "compute_extension:certificates"),)
 
@@ -44,7 +44,7 @@ class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
     verbose_name = _("Download OpenStack RC File")
     verbose_name_plural = _("Download OpenStack RC File")
-    classes = ("btn-download",)
+    icon = "download"
     url = "horizon:project:access_and_security:api_access:openrc"
 
 
