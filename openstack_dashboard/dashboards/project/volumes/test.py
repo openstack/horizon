@@ -19,20 +19,19 @@ from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.usage import quotas
 
 
 INDEX_URL = reverse('horizon:project:volumes:index')
 
 
 class VolumeAndSnapshotsTests(test.TestCase):
-    @test.create_stubs({api.cinder: ('volume_list',
+    @test.create_stubs({api.cinder: ('tenant_absolute_limits',
+                                     'volume_list',
                                      'volume_snapshot_list',
                                      'volume_backup_supported',
                                      'volume_backup_list',
                                      ),
-                        api.nova: ('server_list',),
-                        quotas: ('tenant_quota_usages',)})
+                        api.nova: ('server_list',)})
     def _test_index(self, backup_supported=True):
         vol_backups = self.cinder_volume_backups.list()
         vol_snaps = self.cinder_volume_snapshots.list()
@@ -51,8 +50,8 @@ class VolumeAndSnapshotsTests(test.TestCase):
             api.cinder.volume_backup_list(IsA(http.HttpRequest)).\
                 AndReturn(vol_backups)
             api.cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes(). \
-            AndReturn(self.quota_usages.first())
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes(). \
+            AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)

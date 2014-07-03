@@ -17,7 +17,6 @@ from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-from openstack_dashboard.usage import quotas
 
 
 INDEX_URL = reverse('horizon:project:volumes:index')
@@ -58,8 +57,8 @@ class VolumeBackupsViewTests(test.TestCase):
                                      'volume_list',
                                      'volume_backup_supported',
                                      'volume_backup_list',
-                                     'volume_backup_delete'),
-                        quotas: ('tenant_quota_usages',)})
+                                     'volume_backup_delete',
+                                     'tenant_absolute_limits')})
     def test_delete_volume_backup(self):
         vol_backups = self.cinder_volume_backups.list()
         volumes = self.cinder_volumes.list()
@@ -85,8 +84,8 @@ class VolumeBackupsViewTests(test.TestCase):
             AndReturn(vol_backups)
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes(). \
-            AndReturn(self.quota_usages.first())
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+              .MultipleTimes().AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         formData = {'action':
