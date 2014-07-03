@@ -169,6 +169,8 @@ class Column(html.HTMLElement):
 
         An iterable of CSS classes which will be added when the column's text
         is displayed as a link.
+        This is left for backward compatibility. Deprecated in favor of the
+        link_attributes attribute.
         Example: ``classes=('link-foo', 'link-bar')``.
         Defaults to ``None``.
 
@@ -198,6 +200,15 @@ class Column(html.HTMLElement):
         method takes care of saving inline edited data. The tables.base.Row
         get_data method needs to be connected to table for obtaining the data.
         Example: ``update_action=UpdateCell``.
+        Defaults to ``None``.
+
+    .. attribute:: link_attrs
+
+        A dict of HTML attribute strings which should be added when the
+        column's text is displayed as a link.
+        Examples:
+        ``link_attrs={"data-foo": "bar"}``.
+        ``link_attrs={"target": "_blank", "class": "link-foo link-bar"}``.
         Defaults to ``None``.
     """
     summation_methods = {
@@ -234,7 +245,7 @@ class Column(html.HTMLElement):
                  empty_value=None, filters=None, classes=None, summation=None,
                  auto=None, truncate=None, link_classes=None, wrap_list=False,
                  form_field=None, form_field_attributes=None,
-                 update_action=None):
+                 update_action=None, link_attrs=None):
 
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
@@ -265,11 +276,13 @@ class Column(html.HTMLElement):
         self.empty_value = empty_value or '-'
         self.filters = filters or []
         self.truncate = truncate
-        self.link_classes = link_classes or []
         self.wrap_list = wrap_list
         self.form_field = form_field
         self.form_field_attributes = form_field_attributes or {}
         self.update_action = update_action
+        self.link_attrs = link_attrs or {}
+        if link_classes:
+            self.link_attrs['class'] = ' '.join(link_classes)
 
         if status_choices:
             self.status_choices = status_choices
@@ -673,11 +686,13 @@ class Cell(html.HTMLElement):
             data = None
             exc_info = sys.exc_info()
             raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
+
         if self.url:
-            link_classes = ' '.join(self.column.link_classes)
+            link_attrs = ' '.join(['%s="%s"' % (k, v) for (k, v) in
+                                  self.column.link_attrs.items()])
             # Escape the data inside while allowing our HTML to render
-            data = mark_safe('<a href="%s" class="%s">%s</a>' %
-                             (self.url, link_classes, escape(unicode(data))))
+            data = mark_safe('<a href="%s" %s>%s</a>' % (
+                self.url, link_attrs, escape(unicode(data))))
         return data
 
     @property
