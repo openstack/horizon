@@ -442,10 +442,7 @@ horizon.membership = {
    * Calls set-up functions upon loading the workflow.
    **/
   workflow_init: function(modal, step_slug, step_id) {
-    // fix the dropdown menu overflow issues
-    $(".tab-content, .workflow").addClass("dropdown_fix");
-
-    $(modal).find('form').each( function () {
+      $(modal).find('form').each( function () {
       var $form = $(this);
 
       // Do nothing if this isn't a membership modal
