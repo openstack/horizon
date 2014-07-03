@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:25-0500\n"
-"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"POT-Creation-Date: 2014-07-02 23:39-0500\n"
+"PO-Revision-Date: 2014-07-03 02:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -57,15 +57,15 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:222
+#: settings.py:224
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:228
+#: settings.py:230
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:234
+#: settings.py:236
 msgid "All ICMP"
 msgstr ""
 
@@ -374,6 +374,7 @@ msgstr "प्रशासक"
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/database_backups/tables.py:117
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:42
@@ -684,6 +685,8 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
+#: dashboards/project/data_processing/data_plugins/tables.py:39
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
 #: dashboards/project/database_backups/workflows/create_backup.py:34
 #: dashboards/project/firewalls/forms.py:38
@@ -2126,7 +2129,7 @@ msgstr "लाइव पलायन इंस्टेंस"
 #: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
-#: dashboards/project/dashboard.py:61
+#: dashboards/project/dashboard.py:67
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
@@ -2536,6 +2539,7 @@ msgstr "%s संजाल अद्यतन करने में विफ�
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
+#: dashboards/project/databases/workflows/create_instance.py:66
 #: dashboards/project/instances/workflows/create_instance.py:555
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
@@ -3333,7 +3337,7 @@ msgid "Passwords do not match."
 msgstr "पासवर्ड मेल नहीं खाते."
 
 #: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:162
-#: dashboards/project/databases/workflows/create_instance.py:80
+#: dashboards/project/databases/workflows/create_instance.py:133
 #: dashboards/project/instances/forms.py:155
 #: dashboards/project/instances/tables.py:699
 msgid "Password"
@@ -3496,6 +3500,11 @@ msgstr "वाद्य-स्थान"
 msgid "Databases"
 msgstr "डेटाबेस"
 
+#: dashboards/project/dashboard.py:61
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:3
+msgid "Data Processing"
+msgstr ""
+
 #: dashboards/project/access_and_security/panel.py:24
 #: dashboards/project/instances/workflows/create_instance.py:471
 msgid "Access & Security"
@@ -3553,7 +3562,7 @@ msgstr "EC2 पहचान लाने में असमर्थ."
 msgid "Error writing zipfile: %(exc)s"
 msgstr "zipfile लिखने में त्रुटि: %(exc)s"
 
-#: dashboards/project/access_and_security/api_access/views.py:132
+#: dashboards/project/access_and_security/api_access/views.py:136
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr " RC फ़ाइल डाउनलोड करने में त्रुटि: %s"
@@ -4474,6 +4483,64 @@ msgstr "कंटेनर के लिए वस्तु अपलोड क�
 msgid "Upload Objects"
 msgstr "वस्तुएँ अपलोड करें"
 
+#: dashboards/project/data_processing/data_plugins/panel.py:22
+#: dashboards/project/data_processing/data_plugins/tables.py:43
+msgid "Plugins"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/tables.py:32
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
+msgid "Title"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/tables.py:36
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
+msgid "Supported Versions"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/tabs.py:26
+#: dashboards/project/database_backups/workflows/create_backup.py:40
+#: dashboards/project/databases/workflows/create_instance.py:39
+#: dashboards/project/instances/templates/instances/_detail_overview.html:34
+#: dashboards/project/instances/workflows/create_instance.py:130
+#: dashboards/project/loadbalancers/tables.py:278
+msgid "Details"
+msgstr "विवरण"
+
+#: dashboards/project/data_processing/data_plugins/tabs.py:39
+msgid "Unable to retrieve plugin."
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/views.py:40
+msgid "Unable to retrieve data processing plugins."
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
+msgid "Data Processing Plugin Overview"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
+#: dashboards/project/database_backups/templates/database_backups/details.html:15
+#: dashboards/project/databases/templates/databases/_detail_overview.html:6
+#: dashboards/project/images/templates/images/images/_detail_overview.html:6
+#: dashboards/project/instances/templates/instances/_detail_overview.html:7
+#: dashboards/project/instances/workflows/update_instance.py:120
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
+msgid "Info"
+msgstr "सूचना"
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
+msgid "Data Processing Plugin Details"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:6
+msgid "Data Processing Plugins"
+msgstr ""
+
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/templates/database_backups/index.html:3
 msgid "Database Backups"
@@ -4527,7 +4594,7 @@ msgstr "%(data_type)s के अनुसूचित विलोपन"
 
 #: dashboards/project/database_backups/tables.py:78
 #: dashboards/project/database_backups/workflows/create_backup.py:64
-#: dashboards/project/databases/workflows/create_instance.py:111
+#: dashboards/project/databases/workflows/create_instance.py:164
 msgid "Backup"
 msgstr "बैकअप"
 
@@ -4585,18 +4652,6 @@ msgstr "बैकअप विस्तार:"
 msgid "Backup Overview"
 msgstr "बैकअप अवलोकन"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:15
-#: dashboards/project/databases/templates/databases/_detail_overview.html:6
-#: dashboards/project/images/templates/images/images/_detail_overview.html:6
-#: dashboards/project/instances/templates/instances/_detail_overview.html:7
-#: dashboards/project/instances/workflows/update_instance.py:120
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
-msgid "Info"
-msgstr "सूचना"
-
 #: dashboards/project/database_backups/templates/database_backups/details.html:26
 msgid "Backup File Location"
 msgstr "बैकअप फाइल स्थान"
@@ -4640,14 +4695,6 @@ msgstr "डाटाबेस  इंस्टेंस "
 msgid "Optional Backup Description"
 msgstr "वैकल्पिक बैकअप विवरण"
 
-#: dashboards/project/database_backups/workflows/create_backup.py:40
-#: dashboards/project/databases/workflows/create_instance.py:39
-#: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:130
-#: dashboards/project/loadbalancers/tables.py:278
-msgid "Details"
-msgstr "विवरण"
-
 #: dashboards/project/database_backups/workflows/create_backup.py:50
 msgid "Unable to list database instance to backup."
 msgstr "बैकअप करने के लिए डेटाबेस उदाहरण सूचीबद्ध करने में असमर्थ."
@@ -4658,14 +4705,14 @@ msgid "Scheduled backup \"%(name)s\"."
 msgstr "अनुसूचित बैकअप \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:66
-#: dashboards/project/databases/workflows/create_instance.py:154
+#: dashboards/project/databases/workflows/create_instance.py:207
 #: dashboards/project/instances/workflows/create_instance.py:663
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr " %(count)s \"%(name)s\" नामित प्रारंभ करने में अक्षम"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
-#: dashboards/project/databases/workflows/create_instance.py:167
+#: dashboards/project/databases/workflows/create_instance.py:223
 #: dashboards/project/instances/workflows/create_instance.py:679
 msgid "instance"
 msgstr "इंस्टेंस"
@@ -4843,7 +4890,7 @@ msgid "Password (required)"
 msgstr "कूटशब्द (जरूरी)"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:15
-#: dashboards/project/databases/workflows/create_instance.py:82
+#: dashboards/project/databases/workflows/create_instance.py:135
 msgid "Host (optional)"
 msgstr "होस्ट (वैकल्पिक)"
 
@@ -4853,6 +4900,25 @@ msgid ""
 "    only. If not provided this user will be allowed to connect from anywhere.\n"
 "    "
 msgstr "उपयोगकर्ता इस होस्ट से कनेक्ट करने की अनुमति दें\n    केवल. अगर नहीं दिया इस उपयोगकर्ता से कनेक्ट करने के लिए अनुमति दी जाएगी कहीं भी.\n    "
+
+#: dashboards/project/databases/templates/databases/_launch_network_help.html:4
+msgid ""
+"\n"
+"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
+"  clicking the button, or dragging and dropping. You can change the\n"
+"  NIC order by dragging and dropping as well.\n"
+"  "
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_launch_networks.html:8
+#: dashboards/project/instances/templates/instances/_update_networks.html:8
+msgid "Selected networks"
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_launch_networks.html:11
+#: dashboards/project/instances/templates/instances/_update_networks.html:11
+msgid "Available networks"
+msgstr "उपलब्ध संजाल "
 
 #: dashboards/project/databases/templates/databases/_launch_restore_help.html:3
 msgid "Create this database from a previous backup."
@@ -4867,7 +4933,7 @@ msgid "Database Detail: "
 msgstr "डाटाबेस विस्तार:"
 
 #: dashboards/project/databases/templates/databases/launch.html:6
-#: dashboards/project/databases/workflows/create_instance.py:151
+#: dashboards/project/databases/workflows/create_instance.py:204
 msgid "Launch Database"
 msgstr "डाटाबेस लॉन्च करें "
 
@@ -4891,58 +4957,84 @@ msgstr "वॉल्यूम आकार"
 msgid "Size of the volume in GB."
 msgstr "GB में वॉल्यूम के आकार."
 
-#: dashboards/project/databases/workflows/create_instance.py:72
+#: dashboards/project/databases/workflows/create_instance.py:71
+#: dashboards/project/instances/workflows/create_instance.py:560
+msgid "At least one network must be specified."
+msgstr "कम से कम एक नेटवर्क निर्दिष्ट किया जाना चाहिए."
+
+#: dashboards/project/databases/workflows/create_instance.py:73
+#: dashboards/project/instances/workflows/create_instance.py:562
+msgid "Launch instance with these networks"
+msgstr "इन नेटवर्कों के साथ इंस्टेंस लॉन्च करें"
+
+#: dashboards/project/databases/workflows/create_instance.py:83
+#: dashboards/project/instances/tables.py:714
+#: dashboards/project/instances/workflows/create_instance.py:577
+msgid "Networking"
+msgstr "संजालन"
+
+#: dashboards/project/databases/workflows/create_instance.py:85
+#: dashboards/project/instances/workflows/create_instance.py:579
+msgid "Select networks for your instance."
+msgstr "अपने इंस्टेंस के लिए नेटवर्क का चयन करें."
+
+#: dashboards/project/databases/workflows/create_instance.py:97
+#: dashboards/project/instances/workflows/create_instance.py:591
+msgid "Unable to retrieve networks."
+msgstr "नेटवर्क पुनः प्राप्त करने में असमर्थ."
+
+#: dashboards/project/databases/workflows/create_instance.py:125
 msgid "Initial Database"
 msgstr "आरंभिक डाटाबेस"
 
-#: dashboards/project/databases/workflows/create_instance.py:74
+#: dashboards/project/databases/workflows/create_instance.py:127
 msgid "Comma separated list of databases to create"
 msgstr "कॉमा बनाने के लिए डेटाबेस की सूची से अलग किया"
 
-#: dashboards/project/databases/workflows/create_instance.py:76
+#: dashboards/project/databases/workflows/create_instance.py:129
 msgid "Initial Admin User"
 msgstr "प्रारंभिक व्यवस्थापन प्रयोक्ता"
 
-#: dashboards/project/databases/workflows/create_instance.py:78
+#: dashboards/project/databases/workflows/create_instance.py:131
 msgid "Initial admin user to add"
 msgstr "जोड़ने के लिए प्रारंभिक व्यवस्थापक उपयोगकर्ता"
 
-#: dashboards/project/databases/workflows/create_instance.py:84
+#: dashboards/project/databases/workflows/create_instance.py:137
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "उपयोगकर्ता के माध्यम से कनेक्ट करने के लिए अनुमति दी है कि होस्ट या आईपी."
 
-#: dashboards/project/databases/workflows/create_instance.py:88
+#: dashboards/project/databases/workflows/create_instance.py:141
 msgid "Initialize Databases"
 msgstr "डेटाबेस आरंभीकृत करें"
 
-#: dashboards/project/databases/workflows/create_instance.py:96
+#: dashboards/project/databases/workflows/create_instance.py:149
 msgid "You must specify a password if you create a user."
 msgstr "आप एक उपयोगकर्ता बनाते हैं, तो आप एक कूटशब्द निर्दिष्ट करना होगा."
 
-#: dashboards/project/databases/workflows/create_instance.py:99
+#: dashboards/project/databases/workflows/create_instance.py:152
 msgid "You must specify at least one database if you create a user."
 msgstr "आप एक उपयोगकर्ता बनाते हैं, तो आपको कम से कम एक डेटाबेस निर्दिष्ट करना होगा."
 
-#: dashboards/project/databases/workflows/create_instance.py:113
+#: dashboards/project/databases/workflows/create_instance.py:166
 msgid "Select a backup to restore"
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:116
+#: dashboards/project/databases/workflows/create_instance.py:169
 msgid "Restore From Backup"
 msgstr "बैकअप से फिर पाएँ"
 
-#: dashboards/project/databases/workflows/create_instance.py:140
+#: dashboards/project/databases/workflows/create_instance.py:193
 msgid "Unable to find backup!"
 msgstr "बैकअप पाने में असमर्थ!"
 
-#: dashboards/project/databases/workflows/create_instance.py:152
+#: dashboards/project/databases/workflows/create_instance.py:205
 #: dashboards/project/images/images/tables.py:34
 #: dashboards/project/instances/workflows/create_instance.py:661
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "लांच करें"
 
-#: dashboards/project/databases/workflows/create_instance.py:153
+#: dashboards/project/databases/workflows/create_instance.py:206
 #: dashboards/project/instances/workflows/create_instance.py:662
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
@@ -6037,11 +6129,6 @@ msgstr ""
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:714
-#: dashboards/project/instances/workflows/create_instance.py:577
-msgid "Networking"
-msgstr "संजालन"
-
 #: dashboards/project/instances/tables.py:715
 msgid "Spawning"
 msgstr ""
@@ -6482,14 +6569,6 @@ msgstr "अपने इंस्टेंस के पुनर्निर्
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "आप वैकल्पिक पुनर्निर्माण इंस्टेंस पर एक पासवर्ड सेट कर सकते हैं."
 
-#: dashboards/project/instances/templates/instances/_update_networks.html:8
-msgid "Selected networks"
-msgstr ""
-
-#: dashboards/project/instances/templates/instances/_update_networks.html:11
-msgid "Available networks"
-msgstr "उपलब्ध संजाल "
-
 #: dashboards/project/instances/templates/instances/decryptpassword.html:3
 msgid "Instance Admin Password"
 msgstr "इंस्टांस व्यवस्थापक पासवर्ड"
@@ -6749,14 +6828,6 @@ msgstr "इंस्टेंस के बनने के बाद निष�
 msgid "Post-Creation"
 msgstr "पोस्ट निर्माण"
 
-#: dashboards/project/instances/workflows/create_instance.py:560
-msgid "At least one network must be specified."
-msgstr "कम से कम एक नेटवर्क निर्दिष्ट किया जाना चाहिए."
-
-#: dashboards/project/instances/workflows/create_instance.py:562
-msgid "Launch instance with these networks"
-msgstr "इन नेटवर्कों के साथ इंस्टेंस लॉन्च करें"
-
 #: dashboards/project/instances/workflows/create_instance.py:565
 msgid "Policy Profiles"
 msgstr "नीति प्रोफाइल"
@@ -6764,14 +6835,6 @@ msgstr "नीति प्रोफाइल"
 #: dashboards/project/instances/workflows/create_instance.py:567
 msgid "Launch instance with this policy profile"
 msgstr "इस नीति प्रोफाइल के साथ इंस्टेंस लॉन्च करें"
-
-#: dashboards/project/instances/workflows/create_instance.py:579
-msgid "Select networks for your instance."
-msgstr "अपने इंस्टेंस के लिए नेटवर्क का चयन करें."
-
-#: dashboards/project/instances/workflows/create_instance.py:591
-msgid "Unable to retrieve networks."
-msgstr "नेटवर्क पुनः प्राप्त करने में असमर्थ."
 
 #: dashboards/project/instances/workflows/create_instance.py:600
 msgid "Unable to retrieve profiles."
