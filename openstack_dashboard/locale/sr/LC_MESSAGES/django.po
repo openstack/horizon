@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:25-0500\n"
-"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"POT-Creation-Date: 2014-07-02 23:39-0500\n"
+"PO-Revision-Date: 2014-07-03 02:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -57,15 +57,15 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:222
+#: settings.py:224
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:228
+#: settings.py:230
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:234
+#: settings.py:236
 msgid "All ICMP"
 msgstr ""
 
@@ -374,6 +374,7 @@ msgstr "Admin"
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/database_backups/tables.py:117
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:42
@@ -684,6 +685,8 @@ msgstr "Greška pri dodavanju ili uklanjanju hostova."
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
+#: dashboards/project/data_processing/data_plugins/tables.py:39
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
 #: dashboards/project/database_backups/workflows/create_backup.py:34
 #: dashboards/project/firewalls/forms.py:38
@@ -2126,7 +2129,7 @@ msgstr "Selidba instance u radnom stanju"
 #: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
-#: dashboards/project/dashboard.py:61
+#: dashboards/project/dashboard.py:67
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
@@ -2536,6 +2539,7 @@ msgstr "Neuspešno ažuriranje mreže %s"
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
+#: dashboards/project/databases/workflows/create_instance.py:66
 #: dashboards/project/instances/workflows/create_instance.py:555
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
@@ -3333,7 +3337,7 @@ msgid "Passwords do not match."
 msgstr "Lozinka se ne podudara."
 
 #: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:162
-#: dashboards/project/databases/workflows/create_instance.py:80
+#: dashboards/project/databases/workflows/create_instance.py:133
 #: dashboards/project/instances/forms.py:155
 #: dashboards/project/instances/tables.py:699
 msgid "Password"
@@ -3496,6 +3500,11 @@ msgstr "Orkestriranje"
 msgid "Databases"
 msgstr "Baze podataka"
 
+#: dashboards/project/dashboard.py:61
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:3
+msgid "Data Processing"
+msgstr ""
+
 #: dashboards/project/access_and_security/panel.py:24
 #: dashboards/project/instances/workflows/create_instance.py:471
 msgid "Access & Security"
@@ -3553,7 +3562,7 @@ msgstr "Nemoguće je preuzeti EC2 akreditive."
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Greška u zapisu zipfile-a: %(exc)s"
 
-#: dashboards/project/access_and_security/api_access/views.py:132
+#: dashboards/project/access_and_security/api_access/views.py:136
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "Greška u preuzimanju RC file-a: %s"
@@ -4474,6 +4483,64 @@ msgstr "Prebacivanje objekta u kontejner"
 msgid "Upload Objects"
 msgstr "Smestite objekat na sistem"
 
+#: dashboards/project/data_processing/data_plugins/panel.py:22
+#: dashboards/project/data_processing/data_plugins/tables.py:43
+msgid "Plugins"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/tables.py:32
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
+msgid "Title"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/tables.py:36
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
+msgid "Supported Versions"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/tabs.py:26
+#: dashboards/project/database_backups/workflows/create_backup.py:40
+#: dashboards/project/databases/workflows/create_instance.py:39
+#: dashboards/project/instances/templates/instances/_detail_overview.html:34
+#: dashboards/project/instances/workflows/create_instance.py:130
+#: dashboards/project/loadbalancers/tables.py:278
+msgid "Details"
+msgstr "Detalji"
+
+#: dashboards/project/data_processing/data_plugins/tabs.py:39
+msgid "Unable to retrieve plugin."
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/views.py:40
+msgid "Unable to retrieve data processing plugins."
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
+msgid "Data Processing Plugin Overview"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
+#: dashboards/project/database_backups/templates/database_backups/details.html:15
+#: dashboards/project/databases/templates/databases/_detail_overview.html:6
+#: dashboards/project/images/templates/images/images/_detail_overview.html:6
+#: dashboards/project/instances/templates/instances/_detail_overview.html:7
+#: dashboards/project/instances/workflows/update_instance.py:120
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
+msgid "Info"
+msgstr "Informacije"
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
+msgid "Data Processing Plugin Details"
+msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:6
+msgid "Data Processing Plugins"
+msgstr ""
+
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/templates/database_backups/index.html:3
 msgid "Database Backups"
@@ -4527,7 +4594,7 @@ msgstr "Planirano brisanje %(data_type)s"
 
 #: dashboards/project/database_backups/tables.py:78
 #: dashboards/project/database_backups/workflows/create_backup.py:64
-#: dashboards/project/databases/workflows/create_instance.py:111
+#: dashboards/project/databases/workflows/create_instance.py:164
 msgid "Backup"
 msgstr "Sigurnosna kopija - backup"
 
@@ -4585,18 +4652,6 @@ msgstr "Detalj sigurnosne kopije:"
 msgid "Backup Overview"
 msgstr "Pregled sigurnosnih kopija"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:15
-#: dashboards/project/databases/templates/databases/_detail_overview.html:6
-#: dashboards/project/images/templates/images/images/_detail_overview.html:6
-#: dashboards/project/instances/templates/instances/_detail_overview.html:7
-#: dashboards/project/instances/workflows/update_instance.py:120
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
-msgid "Info"
-msgstr "Informacije"
-
 #: dashboards/project/database_backups/templates/database_backups/details.html:26
 msgid "Backup File Location"
 msgstr "Lokacija sigurnosne kopije"
@@ -4640,14 +4695,6 @@ msgstr "Jedinica baze podataka"
 msgid "Optional Backup Description"
 msgstr "Opis baze podataka, neobavezno"
 
-#: dashboards/project/database_backups/workflows/create_backup.py:40
-#: dashboards/project/databases/workflows/create_instance.py:39
-#: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:130
-#: dashboards/project/loadbalancers/tables.py:278
-msgid "Details"
-msgstr "Detalji"
-
 #: dashboards/project/database_backups/workflows/create_backup.py:50
 msgid "Unable to list database instance to backup."
 msgstr "Nemoguće je prikazati jedinicu baze podataka sigurnosnim kopijama."
@@ -4658,14 +4705,14 @@ msgid "Scheduled backup \"%(name)s\"."
 msgstr "Zakazano je pravljenje sigurnosnih kopija \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:66
-#: dashboards/project/databases/workflows/create_instance.py:154
+#: dashboards/project/databases/workflows/create_instance.py:207
 #: dashboards/project/instances/workflows/create_instance.py:663
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nemoguće pokretanje %(count)s po imenu \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
-#: dashboards/project/databases/workflows/create_instance.py:167
+#: dashboards/project/databases/workflows/create_instance.py:223
 #: dashboards/project/instances/workflows/create_instance.py:679
 msgid "instance"
 msgstr "instanca"
@@ -4843,7 +4890,7 @@ msgid "Password (required)"
 msgstr "Lozinka (obavezno)"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:15
-#: dashboards/project/databases/workflows/create_instance.py:82
+#: dashboards/project/databases/workflows/create_instance.py:135
 msgid "Host (optional)"
 msgstr "Host (neobavezno)"
 
@@ -4853,6 +4900,25 @@ msgid ""
 "    only. If not provided this user will be allowed to connect from anywhere.\n"
 "    "
 msgstr "Dozvoli korisniku konekciju samo sa ovog hosta.\n    Ukoliko se ne navede, biće dozvoljenje konekcije sa bilo kog hosta.\n    "
+
+#: dashboards/project/databases/templates/databases/_launch_network_help.html:4
+msgid ""
+"\n"
+"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
+"  clicking the button, or dragging and dropping. You can change the\n"
+"  NIC order by dragging and dropping as well.\n"
+"  "
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_launch_networks.html:8
+#: dashboards/project/instances/templates/instances/_update_networks.html:8
+msgid "Selected networks"
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_launch_networks.html:11
+#: dashboards/project/instances/templates/instances/_update_networks.html:11
+msgid "Available networks"
+msgstr "Dostupne mreže"
 
 #: dashboards/project/databases/templates/databases/_launch_restore_help.html:3
 msgid "Create this database from a previous backup."
@@ -4867,7 +4933,7 @@ msgid "Database Detail: "
 msgstr "Detalj baze podataka:"
 
 #: dashboards/project/databases/templates/databases/launch.html:6
-#: dashboards/project/databases/workflows/create_instance.py:151
+#: dashboards/project/databases/workflows/create_instance.py:204
 msgid "Launch Database"
 msgstr "Pokrenite bazu podataka"
 
@@ -4891,58 +4957,84 @@ msgstr "Veličina Volume-a"
 msgid "Size of the volume in GB."
 msgstr "Veličina Volume-a u GB."
 
-#: dashboards/project/databases/workflows/create_instance.py:72
+#: dashboards/project/databases/workflows/create_instance.py:71
+#: dashboards/project/instances/workflows/create_instance.py:560
+msgid "At least one network must be specified."
+msgstr "Barem jedna mreža mora biti izabrana."
+
+#: dashboards/project/databases/workflows/create_instance.py:73
+#: dashboards/project/instances/workflows/create_instance.py:562
+msgid "Launch instance with these networks"
+msgstr "Pokretanje instance sa ovim mrežama"
+
+#: dashboards/project/databases/workflows/create_instance.py:83
+#: dashboards/project/instances/tables.py:714
+#: dashboards/project/instances/workflows/create_instance.py:577
+msgid "Networking"
+msgstr "Umrežavanje"
+
+#: dashboards/project/databases/workflows/create_instance.py:85
+#: dashboards/project/instances/workflows/create_instance.py:579
+msgid "Select networks for your instance."
+msgstr "Odaberite mrežu za vašu instancu."
+
+#: dashboards/project/databases/workflows/create_instance.py:97
+#: dashboards/project/instances/workflows/create_instance.py:591
+msgid "Unable to retrieve networks."
+msgstr "Nemoguće je dopreti do mreža."
+
+#: dashboards/project/databases/workflows/create_instance.py:125
 msgid "Initial Database"
 msgstr "Početna baza podataka"
 
-#: dashboards/project/databases/workflows/create_instance.py:74
+#: dashboards/project/databases/workflows/create_instance.py:127
 msgid "Comma separated list of databases to create"
 msgstr "Zarezom odvojena lista baza podataka koje se kreiraju"
 
-#: dashboards/project/databases/workflows/create_instance.py:76
+#: dashboards/project/databases/workflows/create_instance.py:129
 msgid "Initial Admin User"
 msgstr "Početni administrator"
 
-#: dashboards/project/databases/workflows/create_instance.py:78
+#: dashboards/project/databases/workflows/create_instance.py:131
 msgid "Initial admin user to add"
 msgstr "Dodatni početni administratori"
 
-#: dashboards/project/databases/workflows/create_instance.py:84
+#: dashboards/project/databases/workflows/create_instance.py:137
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "Host-ovi ili IP adrese preko kojih je korisniku dozvoljeno da se povezuje."
 
-#: dashboards/project/databases/workflows/create_instance.py:88
+#: dashboards/project/databases/workflows/create_instance.py:141
 msgid "Initialize Databases"
 msgstr "Pokrenite baze podataka"
 
-#: dashboards/project/databases/workflows/create_instance.py:96
+#: dashboards/project/databases/workflows/create_instance.py:149
 msgid "You must specify a password if you create a user."
 msgstr "Morate dodeliti lozinku ako kreirate korisnika."
 
-#: dashboards/project/databases/workflows/create_instance.py:99
+#: dashboards/project/databases/workflows/create_instance.py:152
 msgid "You must specify at least one database if you create a user."
 msgstr "Morate dodeliti bar jednu bazu podataka ako kreirate korisnika."
 
-#: dashboards/project/databases/workflows/create_instance.py:113
+#: dashboards/project/databases/workflows/create_instance.py:166
 msgid "Select a backup to restore"
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:116
+#: dashboards/project/databases/workflows/create_instance.py:169
 msgid "Restore From Backup"
 msgstr "Povratite sadržaj iz sigurnosne kopije - backup-a"
 
-#: dashboards/project/databases/workflows/create_instance.py:140
+#: dashboards/project/databases/workflows/create_instance.py:193
 msgid "Unable to find backup!"
 msgstr "Nemoguće je naći sigurnosnu kopiju - backup!"
 
-#: dashboards/project/databases/workflows/create_instance.py:152
+#: dashboards/project/databases/workflows/create_instance.py:205
 #: dashboards/project/images/images/tables.py:34
 #: dashboards/project/instances/workflows/create_instance.py:661
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Pokrenite"
 
-#: dashboards/project/databases/workflows/create_instance.py:153
+#: dashboards/project/databases/workflows/create_instance.py:206
 #: dashboards/project/instances/workflows/create_instance.py:662
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
@@ -6037,11 +6129,6 @@ msgstr ""
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:714
-#: dashboards/project/instances/workflows/create_instance.py:577
-msgid "Networking"
-msgstr "Umrežavanje"
-
 #: dashboards/project/instances/tables.py:715
 msgid "Spawning"
 msgstr ""
@@ -6482,14 +6569,6 @@ msgstr "Odaberite Image da ponovo sastavite instancu."
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "Po želji, možete postaviti lozinku tokom ponovnog sastavljanja instance."
 
-#: dashboards/project/instances/templates/instances/_update_networks.html:8
-msgid "Selected networks"
-msgstr ""
-
-#: dashboards/project/instances/templates/instances/_update_networks.html:11
-msgid "Available networks"
-msgstr "Dostupne mreže"
-
 #: dashboards/project/instances/templates/instances/decryptpassword.html:3
 msgid "Instance Admin Password"
 msgstr "Adnim lozinka instance"
@@ -6750,14 +6829,6 @@ msgstr "Nalog ili niz komandi koji se izvršava nakon pravljenja instance (max 1
 msgid "Post-Creation"
 msgstr "Aktivnosti nakon kreiranja instance"
 
-#: dashboards/project/instances/workflows/create_instance.py:560
-msgid "At least one network must be specified."
-msgstr "Barem jedna mreža mora biti izabrana."
-
-#: dashboards/project/instances/workflows/create_instance.py:562
-msgid "Launch instance with these networks"
-msgstr "Pokretanje instance sa ovim mrežama"
-
 #: dashboards/project/instances/workflows/create_instance.py:565
 msgid "Policy Profiles"
 msgstr "Profili politika"
@@ -6765,14 +6836,6 @@ msgstr "Profili politika"
 #: dashboards/project/instances/workflows/create_instance.py:567
 msgid "Launch instance with this policy profile"
 msgstr "pokrenite računarsku jedinicu sa ovim profilom politika"
-
-#: dashboards/project/instances/workflows/create_instance.py:579
-msgid "Select networks for your instance."
-msgstr "Odaberite mrežu za vašu instancu."
-
-#: dashboards/project/instances/workflows/create_instance.py:591
-msgid "Unable to retrieve networks."
-msgstr "Nemoguće je dopreti do mreža."
 
 #: dashboards/project/instances/workflows/create_instance.py:600
 msgid "Unable to retrieve profiles."
