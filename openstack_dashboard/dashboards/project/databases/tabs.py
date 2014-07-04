@@ -15,6 +15,7 @@
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
@@ -24,7 +25,7 @@ from openstack_dashboard.dashboards.project.databases import tables
 class OverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "overview"
-    template_name = ("project/databases/_detail_overview.html")
+    template_name = "project/databases/_detail_overview.html"
 
     def get_context_data(self, request):
         return {"instance": self.tab_group.kwargs['instance']}
@@ -48,6 +49,8 @@ class UserTab(tabs.TableTab):
                                                          instance.id,
                                                          user.name)
         except Exception:
+            msg = _('Unable to get user data.')
+            exceptions.handle(self.request, msg)
             data = []
         return data
 
@@ -73,6 +76,8 @@ class DatabaseTab(tabs.TableTab):
             add_instance = lambda d: setattr(d, 'instance', instance)
             map(add_instance, data)
         except Exception:
+            msg = _('Unable to get databases data.')
+            exceptions.handle(self.request, msg)
             data = []
         return data
 
@@ -96,6 +101,8 @@ class BackupsTab(tabs.TableTab):
         try:
             data = api.trove.instance_backups(self.request, instance.id)
         except Exception:
+            msg = _('Unable to get database backup data.')
+            exceptions.handle(self.request, msg)
             data = []
         return data
 
