@@ -72,9 +72,9 @@ class QuotaUsage(dict):
         return self.usages[key]
 
     def __setitem__(self, key, value):
-        raise NotImplemented("Directly setting QuotaUsage values is not "
-                             "supported. Please use the add_quota and "
-                             "tally methods.")
+        raise NotImplementedError("Directly setting QuotaUsage values is not "
+                                  "supported. Please use the add_quota and "
+                                  "tally methods.")
 
     def __repr__(self):
         return repr(dict(self.usages))
