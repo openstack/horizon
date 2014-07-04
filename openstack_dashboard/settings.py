@@ -22,6 +22,8 @@ import sys
 import warnings
 
 from django.utils.translation import ugettext_lazy as _
+import xstatic.main
+import xstatic.pkg.jquery
 
 from openstack_dashboard import exceptions
 
@@ -129,7 +131,12 @@ TEMPLATE_DIRS = (
 
 STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+STATICFILES_DIRS = (
+    ('horizon/lib/jquery', xstatic.main.XStatic(xstatic.pkg.jquery).base_dir),
 )
 
 COMPRESS_PRECOMPILERS = (
