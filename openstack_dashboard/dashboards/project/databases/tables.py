@@ -67,7 +67,7 @@ class DeleteUser(tables.DeleteAction):
     def delete(self, request, obj_id):
         datum = self.table.get_object_by_id(obj_id)
         try:
-            api.trove.users_delete(request, datum.instance.id, datum.name)
+            api.trove.user_delete(request, datum.instance.id, datum.name)
         except Exception:
             msg = _('Error deleting database user.')
             exceptions.handle(request, msg)
