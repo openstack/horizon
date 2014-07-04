@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 23:39-0500\n"
-"PO-Revision-Date: 2014-07-03 02:23+0000\n"
+"POT-Creation-Date: 2014-07-04 00:18-0500\n"
+"PO-Revision-Date: 2014-07-04 05:19+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -1449,7 +1449,7 @@ msgstr "ユーザー"
 #: dashboards/admin/users/templates/users/index.html:3
 #: dashboards/admin/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:65
-#: dashboards/project/databases/tabs.py:35
+#: dashboards/project/databases/tabs.py:36
 msgid "Users"
 msgstr "ユーザー"
 
@@ -2710,7 +2710,7 @@ msgstr "デバイスを接続しました"
 #: dashboards/admin/networks/ports/tabs.py:25
 #: dashboards/admin/overview/panel.py:27
 #: dashboards/admin/overview/templates/overview/usage.html:6
-#: dashboards/project/databases/tabs.py:25
+#: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:26
 #: dashboards/project/networks/ports/tabs.py:25
@@ -3495,7 +3495,7 @@ msgstr "Orchestration"
 #: dashboards/project/databases/tables.py:167
 #: dashboards/project/databases/tables.py:178
 #: dashboards/project/databases/tables.py:195
-#: dashboards/project/databases/tabs.py:63
+#: dashboards/project/databases/tabs.py:66
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 msgid "Databases"
@@ -4603,7 +4603,7 @@ msgstr "バックアップ"
 #: dashboards/project/database_backups/tables.py:130
 #: dashboards/project/database_backups/templates/database_backups/index.html:6
 #: dashboards/project/databases/tables.py:220
-#: dashboards/project/databases/tabs.py:88
+#: dashboards/project/databases/tabs.py:93
 msgid "Backups"
 msgstr "バックアップ"
 
@@ -4811,6 +4811,18 @@ msgstr "データベースインスタンスのユーザー"
 #: dashboards/project/databases/tables.py:211
 msgid "Backup File"
 msgstr "バックアップファイル"
+
+#: dashboards/project/databases/tabs.py:52
+msgid "Unable to get user data."
+msgstr ""
+
+#: dashboards/project/databases/tabs.py:79
+msgid "Unable to get databases data."
+msgstr ""
+
+#: dashboards/project/databases/tabs.py:104
+msgid "Unable to get database backup data."
+msgstr ""
 
 #: dashboards/project/databases/views.py:44
 msgid "Not Assigned"
