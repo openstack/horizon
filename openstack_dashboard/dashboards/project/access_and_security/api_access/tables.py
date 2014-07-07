@@ -16,6 +16,7 @@ from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+from openstack_dashboard import api
 
 
 def pretty_service_names(name):
@@ -34,6 +35,9 @@ class DownloadEC2(tables.LinkAction):
     classes = ("btn-download",)
     url = "horizon:project:access_and_security:api_access:ec2"
     policy_rules = (("compute", "compute_extension:certificates"),)
+
+    def allowed(self, request, datum=None):
+        return api.base.is_service_enabled(request, 'ec2')
 
 
 class DownloadOpenRC(tables.LinkAction):

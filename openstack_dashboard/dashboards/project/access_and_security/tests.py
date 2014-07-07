@@ -28,6 +28,9 @@ from horizon.workflows import views
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
+from openstack_dashboard.dashboards.project.access_and_security import (
+     api_access
+)
 
 
 class AccessAndSecurityTests(test.TestCase):
@@ -44,6 +47,7 @@ class AccessAndSecurityTests(test.TestCase):
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'server_list')
         self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
 
         api.nova.server_list(IsA(http.HttpRequest)) \
                     .AndReturn([self.servers.list(), False])
@@ -54,6 +58,12 @@ class AccessAndSecurityTests(test.TestCase):
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes()\
             .AndReturn(quota_data)
+
+
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'network').MultipleTimes().AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'ec2').MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -66,6 +76,54 @@ class AccessAndSecurityTests(test.TestCase):
                               sec_groups)
         self.assertItemsEqual(res.context['floating_ips_table'].data,
                               floating_ips)
+        self.assertTrue(any(map(
+            lambda x: isinstance(x, api_access.tables.DownloadEC2),
+            res.context['endpoints_table'].get_table_actions()
+        )))
+
+    def test_index_with_ec2_disabled(self):
+        keypairs = self.keypairs.list()
+        sec_groups = self.security_groups.list()
+        floating_ips = self.floating_ips.list()
+        quota_data = self.quota_usages.first()
+        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.network, 'security_group_list')
+        self.mox.StubOutWithMock(api.nova, 'keypair_list')
+        self.mox.StubOutWithMock(api.nova, 'server_list')
+        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
+        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
+
+        api.nova.server_list(IsA(http.HttpRequest)) \
+                    .AndReturn([self.servers.list(), False])
+        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(keypairs)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(floating_ips)
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(sec_groups)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes()\
+            .AndReturn(quota_data)
+
+
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'network').MultipleTimes().AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'ec2').MultipleTimes().AndReturn(False)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:access_and_security:index')
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'project/access_and_security/index.html')
+        self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
+        self.assertItemsEqual(res.context['security_groups_table'].data,
+                              sec_groups)
+        self.assertItemsEqual(res.context['floating_ips_table'].data,
+                              floating_ips)
+        self.assertFalse(any(map(
+            lambda x: isinstance(x, api_access.tables.DownloadEC2),
+            res.context['endpoints_table'].get_table_actions()
+        )))
 
     def test_association(self):
         servers = [api.nova.Server(s, self.request)
