@@ -25,5 +25,5 @@ python-swiftclient>=2.0.2
 python-troveclient>=1.0.4
 pytz>=2010h
 six>=1.7.0
-xstatic>=1.0.0
-xstatic-jquery>=1.10.2.1
+xstatic>=1.0.0  # MIT License
+xstatic-jquery>=1.10.2.1  # MIT License
