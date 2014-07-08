@@ -162,6 +162,24 @@ class CreateSnapshot(tables.LinkAction):
         return volume.status in ("available", "in-use")
 
 
+class CreateBackup(tables.LinkAction):
+    name = "backups"
+    verbose_name = _("Create Backup")
+    url = "horizon:project:volumes:volumes:create_backup"
+    classes = ("ajax-modal",)
+    policy_rules = (("volume", "backup:create"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, "os-vol-tenant-attr:tenant_id", None)
+        return {"project_id": project_id}
+
+    def allowed(self, request, volume=None):
+        return (cinder.volume_backup_supported(request) and
+                volume.status == "available")
+
+
 class EditVolume(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Volume")
@@ -298,7 +316,7 @@ class VolumesTable(VolumesTableBase):
         row_class = UpdateRow
         table_actions = (CreateVolume, DeleteVolume, VolumesFilterAction)
         row_actions = (EditVolume, ExtendVolume, LaunchVolume, EditAttachments,
-                       CreateSnapshot, DeleteVolume)
+                       CreateSnapshot, CreateBackup, DeleteVolume)
 
 
 class DetachVolume(tables.BatchAction):

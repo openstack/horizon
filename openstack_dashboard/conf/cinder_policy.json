@@ -49,11 +49,11 @@
     "volume:delete_transfer": [],
     "volume:get_all_transfers": [],
 
-    "backup:create" : [],
-    "backup:delete": [],
+    "backup:create" : ["rule:default"],
+    "backup:delete": ["rule:default"],
     "backup:get": [],
     "backup:get_all": [],
-    "backup:restore": [],
+    "backup:restore": ["rule:default"],
 
     "snapshot_extension:snapshot_actions:update_snapshot_status": []
 }
