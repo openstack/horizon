@@ -126,8 +126,6 @@ class ResourceBrowser(html.HTMLElement):
         self.content_table = tables[self.content_table_class._meta.name]
         navigation_item = self.kwargs.get(self.navigation_kwarg_name)
         content_path = self.kwargs.get(self.content_kwarg_name)
-        # Tells the navigation table what is selected.
-        self.navigation_table.current_item_id = navigation_item
         if self.has_breadcrumb:
             self.prepare_breadcrumb(tables, navigation_item, content_path)
 

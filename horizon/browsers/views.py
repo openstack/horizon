@@ -41,6 +41,14 @@ class ResourceBrowserView(MultiTableView):
             ct._no_data_message = _("Select a %s to browse.") % item
         return browser
 
+    def get_tables(self):
+        tables = super(ResourceBrowserView, self).get_tables()
+        # Tells the navigation table what is selected.
+        navigation_table = tables[self.browser_class.navigation_table_class._meta.name]
+        navigation_item = self.kwargs.get(self.browser_class.navigation_kwarg_name)
+        navigation_table.current_item_id = navigation_item
+        return tables
+
     def get_context_data(self, **kwargs):
         context = super(ResourceBrowserView, self).get_context_data(**kwargs)
         browser = self.get_browser()

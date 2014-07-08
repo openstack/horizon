@@ -1396,9 +1396,13 @@ class DataTable(object):
         if table_name == self.name:
             # Handle AJAX row updating.
             new_row = self._meta.row_class(self)
+
             if new_row.ajax and new_row.ajax_action_name == action_name:
                 try:
                     datum = new_row.get_data(request, obj_id)
+                    if self.get_object_id(datum) == self.current_item_id:
+                        self.selected = True
+                        new_row.classes.append('current_selected')
                     new_row.load_cells(datum)
                     error = False
                 except Exception:
