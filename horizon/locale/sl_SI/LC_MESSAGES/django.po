@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:24-0500\n"
-"PO-Revision-Date: 2014-07-01 19:12+0000\n"
+"POT-Creation-Date: 2014-07-07 23:06-0500\n"
+"PO-Revision-Date: 2014-07-04 09:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/horizon/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -88,14 +88,14 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:665 tables/base.py:1438
+#: tables/actions.py:665 tables/base.py:1453
 msgid "N/A"
 msgstr "N/A"
 
 #: tables/actions.py:694
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Za to akcijo nimate ustreznih pravic:  %(action)s: %(objs)s"
 
 #: tables/actions.py:701
 #, python-format
@@ -123,25 +123,25 @@ msgstr "Posodobi"
 msgid "Updated"
 msgstr "Posodobljeno"
 
-#: tables/base.py:317
+#: tables/base.py:330
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Atribut  %(attr)s za %(obj)s ne obstaja."
 
-#: tables/base.py:905
+#: tables/base.py:920
 msgid "No items to display."
 msgstr "Ni zadetkov"
 
-#: tables/base.py:1012
+#: tables/base.py:1027
 msgid "Actions"
 msgstr "Operacije"
 
-#: tables/base.py:1218
+#: tables/base.py:1233
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Za iskanje id-ja \"%s\" ni zadetkov"
 
-#: tables/base.py:1358
+#: tables/base.py:1373
 msgid "Please select a row before taking that action."
 msgstr "Izberite vrstico preden izberte opravilo."
 
@@ -168,14 +168,14 @@ msgstr "Prijava"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
-msgstr ""
+msgstr "Nimate pravic za dostop do teh virov:"
 
 #: templates/auth/_login.html:17
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr ""
+msgstr "Prijavite se kot drug uporabnik ali pojdite nazaj na <a href=\"%(home_url)s\"> domačo stran</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
@@ -243,7 +243,7 @@ msgstr "Instanca"
 #: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "Porabljeno <span> %(used)s </span> od <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
@@ -293,7 +293,7 @@ msgstr "Povzetek porabe"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
-msgstr ""
+msgstr "Izberite obdobje, za katerega želite preveriti porabo"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -318,11 +318,11 @@ msgstr "Uporabljen RAM"
 
 #: templates/horizon/common/_usage_summary.html:18
 msgid "This Period's VCPU-Hours"
-msgstr ""
+msgstr "VCPU-ure za to obdobje"
 
 #: templates/horizon/common/_usage_summary.html:19
 msgid "This Period's GB-Hours"
-msgstr ""
+msgstr "GB-ure za to obdobje"
 
 #: templates/horizon/common/_workflow.html:38
 msgid "Back"
@@ -384,7 +384,7 @@ msgstr "%s PB"
 
 #: utils/filters.py:49
 msgid "Never"
-msgstr ""
+msgstr "Nikoli"
 
 #: utils/validators.py:23 utils/validators.py:47
 msgid "Not a valid port number"
