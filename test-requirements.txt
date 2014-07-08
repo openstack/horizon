@@ -8,7 +8,6 @@ hacking>=0.9.2,<0.10
 #
 coverage>=3.6
 django-nose
-docutils==0.9.1
 mox>=0.5.3
 nodeenv>=0.9.4 # BSD License
 nose
