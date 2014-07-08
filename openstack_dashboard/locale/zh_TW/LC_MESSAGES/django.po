@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-04 00:18-0500\n"
-"PO-Revision-Date: 2014-07-04 05:19+0000\n"
+"POT-Creation-Date: 2014-07-07 23:07-0500\n"
+"PO-Revision-Date: 2014-07-04 16:53+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -17,55 +17,55 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:84
+#: settings.py:86
 msgid "Select format"
 msgstr ""
 
-#: settings.py:85
+#: settings.py:87
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon 核心映像檔"
 
-#: settings.py:86
+#: settings.py:88
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon 機器映像檔"
 
-#: settings.py:87
+#: settings.py:89
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk 映像檔"
 
-#: settings.py:88
+#: settings.py:90
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光碟映像檔"
 
-#: settings.py:89
+#: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模擬器"
 
-#: settings.py:90
+#: settings.py:92
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:91
+#: settings.py:93
 msgid "VDI"
 msgstr "VDI - 微軟虛擬桌面基礎結構"
 
-#: settings.py:92
+#: settings.py:94
 msgid "VHD"
 msgstr "VHD - 微軟虛擬硬碟"
 
-#: settings.py:93
+#: settings.py:95
 msgid "VMDK"
 msgstr "VMDK - VMware 虛擬機器硬碟"
 
-#: settings.py:224
+#: settings.py:231
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:230
+#: settings.py:237
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:236
+#: settings.py:243
 msgid "All ICMP"
 msgstr ""
 
@@ -299,38 +299,44 @@ msgstr "密碼已變更。請再登入一次以繼續。"
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允許 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:762
+#: api/neutron.py:765
 msgid "Unable to connect to Neutron."
 msgstr "無法與 Neutron 連線。"
 
-#: api/neutron.py:799
+#: api/neutron.py:802
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "無法分析 IP 位址 %s。"
 
-#: api/nova.py:184
+#: api/nova.py:185
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "允許來自 %(group)s 的 %(from)s 至 %(to)s"
 
-#: api/nova.py:189
+#: api/nova.py:190
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "允許來自 %(cidr)s 的 %(from)s 至 %(to)s"
 
-#: api/nova.py:265
+#: api/nova.py:266
 msgid "Couldn't get security group list."
 msgstr "不能獲得安全性群組列表。"
 
-#: api/nova.py:272
+#: api/nova.py:273
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "不能為執行實例 %s 獲得目前的安全性群組列表。"
 
-#: api/nova.py:289
+#: api/nova.py:290
 #, python-format
-msgid "Failed to modify %d instance security groups."
-msgstr "更改 %d 個執行實例的安全性群組時失敗。"
+msgid ""
+"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
+msgstr ""
+
+#: api/nova.py:305
+#, python-format
+msgid "Failed to modify %d instance security groups"
+msgstr ""
 
 #: api/swift.py:200 dashboards/project/containers/tables.py:115
 msgid "The container cannot be deleted since it's not empty."
@@ -1794,7 +1800,7 @@ msgstr "系統資訊"
 
 #: dashboards/admin/info/tables.py:52 dashboards/admin/metering/tables.py:25
 #: dashboards/admin/metering/views.py:149
-#: dashboards/project/access_and_security/api_access/tables.py:49
+#: dashboards/project/access_and_security/api_access/tables.py:53
 msgid "Service"
 msgstr "伺服器"
 
@@ -3535,21 +3541,21 @@ msgstr "無法取回浮動 IP 倉庫。"
 msgid "API Access"
 msgstr "API 存取權"
 
-#: dashboards/project/access_and_security/api_access/tables.py:32
 #: dashboards/project/access_and_security/api_access/tables.py:33
+#: dashboards/project/access_and_security/api_access/tables.py:34
 msgid "Download EC2 Credentials"
 msgstr "下載 EC2 格式的認證"
 
-#: dashboards/project/access_and_security/api_access/tables.py:41
-#: dashboards/project/access_and_security/api_access/tables.py:42
+#: dashboards/project/access_and_security/api_access/tables.py:45
+#: dashboards/project/access_and_security/api_access/tables.py:46
 msgid "Download OpenStack RC File"
 msgstr "下載 OpenStack 用的 RC 檔"
 
-#: dashboards/project/access_and_security/api_access/tables.py:52
+#: dashboards/project/access_and_security/api_access/tables.py:56
 msgid "Service Endpoint"
 msgstr "伺服器端點"
 
-#: dashboards/project/access_and_security/api_access/tables.py:56
+#: dashboards/project/access_and_security/api_access/tables.py:60
 msgid "API Endpoints"
 msgstr "API 端點"
 

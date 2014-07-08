@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-04 01:05-0500\n"
+"POT-Creation-Date: 2014-07-08 01:07-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,55 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:84
+#: settings.py:86
 msgid "Select format"
 msgstr ""
 
-#: settings.py:85
+#: settings.py:87
 msgid "AKI - Amazon Kernel Image"
 msgstr ""
 
-#: settings.py:86
+#: settings.py:88
 msgid "AMI - Amazon Machine Image"
 msgstr ""
 
-#: settings.py:87
+#: settings.py:89
 msgid "ARI - Amazon Ramdisk Image"
 msgstr ""
 
-#: settings.py:88
+#: settings.py:90
 msgid "ISO - Optical Disk Image"
 msgstr ""
 
-#: settings.py:89
+#: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
 msgstr ""
 
-#: settings.py:90
+#: settings.py:92
 msgid "Raw"
 msgstr ""
 
-#: settings.py:91
+#: settings.py:93
 msgid "VDI"
 msgstr ""
 
-#: settings.py:92
+#: settings.py:94
 msgid "VHD"
 msgstr ""
 
-#: settings.py:93
+#: settings.py:95
 msgid "VMDK"
 msgstr ""
 
-#: settings.py:224
+#: settings.py:231
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:230
+#: settings.py:237
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:236
+#: settings.py:243
 msgid "All ICMP"
 msgstr ""
 
@@ -299,37 +299,43 @@ msgstr ""
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
 
-#: api/neutron.py:762
+#: api/neutron.py:765
 msgid "Unable to connect to Neutron."
 msgstr ""
 
-#: api/neutron.py:799
+#: api/neutron.py:802
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr ""
 
-#: api/nova.py:184
+#: api/nova.py:185
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr ""
 
-#: api/nova.py:189
+#: api/nova.py:190
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr ""
 
-#: api/nova.py:265
+#: api/nova.py:266
 msgid "Couldn't get security group list."
 msgstr ""
 
-#: api/nova.py:272
+#: api/nova.py:273
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr ""
 
-#: api/nova.py:289
+#: api/nova.py:290
 #, python-format
-msgid "Failed to modify %d instance security groups."
+msgid ""
+"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
+msgstr ""
+
+#: api/nova.py:305
+#, python-format
+msgid "Failed to modify %d instance security groups"
 msgstr ""
 
 #: api/swift.py:200 dashboards/project/containers/tables.py:115
@@ -1793,7 +1799,7 @@ msgstr ""
 
 #: dashboards/admin/info/tables.py:52 dashboards/admin/metering/tables.py:25
 #: dashboards/admin/metering/views.py:149
-#: dashboards/project/access_and_security/api_access/tables.py:49
+#: dashboards/project/access_and_security/api_access/tables.py:53
 msgid "Service"
 msgstr ""
 
@@ -3535,21 +3541,21 @@ msgstr ""
 msgid "API Access"
 msgstr ""
 
-#: dashboards/project/access_and_security/api_access/tables.py:32
 #: dashboards/project/access_and_security/api_access/tables.py:33
+#: dashboards/project/access_and_security/api_access/tables.py:34
 msgid "Download EC2 Credentials"
 msgstr ""
 
-#: dashboards/project/access_and_security/api_access/tables.py:41
-#: dashboards/project/access_and_security/api_access/tables.py:42
+#: dashboards/project/access_and_security/api_access/tables.py:45
+#: dashboards/project/access_and_security/api_access/tables.py:46
 msgid "Download OpenStack RC File"
 msgstr ""
 
-#: dashboards/project/access_and_security/api_access/tables.py:52
+#: dashboards/project/access_and_security/api_access/tables.py:56
 msgid "Service Endpoint"
 msgstr ""
 
-#: dashboards/project/access_and_security/api_access/tables.py:56
+#: dashboards/project/access_and_security/api_access/tables.py:60
 msgid "API Endpoints"
 msgstr ""
 

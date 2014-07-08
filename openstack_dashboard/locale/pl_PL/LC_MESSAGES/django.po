@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-04 00:18-0500\n"
-"PO-Revision-Date: 2014-07-04 05:19+0000\n"
+"POT-Creation-Date: 2014-07-07 23:07-0500\n"
+"PO-Revision-Date: 2014-07-04 16:53+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -19,55 +19,55 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: settings.py:84
+#: settings.py:86
 msgid "Select format"
 msgstr "Wybierz format"
 
-#: settings.py:85
+#: settings.py:87
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:86
+#: settings.py:88
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:87
+#: settings.py:89
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:88
+#: settings.py:90
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:89
+#: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:90
+#: settings.py:92
 msgid "Raw"
 msgstr "Nieprzetworzone"
 
-#: settings.py:91
+#: settings.py:93
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:92
+#: settings.py:94
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:93
+#: settings.py:95
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:224
+#: settings.py:231
 msgid "All TCP"
 msgstr "Wszystkie TCP"
 
-#: settings.py:230
+#: settings.py:237
 msgid "All UDP"
 msgstr "Wszystkie UDP"
 
-#: settings.py:236
+#: settings.py:243
 msgid "All ICMP"
 msgstr "Wszystkie ICMP"
 
@@ -301,38 +301,44 @@ msgstr "Hasło zmienione. Proszę się zalogować ponownie aby kontynuować."
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "POZWÓL %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:762
+#: api/neutron.py:765
 msgid "Unable to connect to Neutron."
 msgstr "Nie można połączyć z Neutron."
 
-#: api/neutron.py:799
+#: api/neutron.py:802
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Nie można przetworzyć adresu IP %s."
 
-#: api/nova.py:184
+#: api/nova.py:185
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "Pozwól %(from)s:%(to)s z %(group)s"
 
-#: api/nova.py:189
+#: api/nova.py:190
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "Pozwól %(from)s:%(to)s z %(cidr)s"
 
-#: api/nova.py:265
+#: api/nova.py:266
 msgid "Couldn't get security group list."
 msgstr "Nie można pobrać listy grup zabezpieczeń."
 
-#: api/nova.py:272
+#: api/nova.py:273
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "Nie można pobrać aktualnej listy grup zabezpieczeń dla instancji %s."
 
-#: api/nova.py:289
+#: api/nova.py:290
 #, python-format
-msgid "Failed to modify %d instance security groups."
-msgstr "Nie można zmodyfikować %d grup zabezpieczeń dla instancji."
+msgid ""
+"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
+msgstr ""
+
+#: api/nova.py:305
+#, python-format
+msgid "Failed to modify %d instance security groups"
+msgstr ""
 
 #: api/swift.py:200 dashboards/project/containers/tables.py:115
 msgid "The container cannot be deleted since it's not empty."
@@ -1796,7 +1802,7 @@ msgstr "Informacje systemowe"
 
 #: dashboards/admin/info/tables.py:52 dashboards/admin/metering/tables.py:25
 #: dashboards/admin/metering/views.py:149
-#: dashboards/project/access_and_security/api_access/tables.py:49
+#: dashboards/project/access_and_security/api_access/tables.py:53
 msgid "Service"
 msgstr "Usługa"
 
@@ -3537,21 +3543,21 @@ msgstr "Nie można pobrać pul pływających adresów IP."
 msgid "API Access"
 msgstr "Dostęp do API"
 
-#: dashboards/project/access_and_security/api_access/tables.py:32
 #: dashboards/project/access_and_security/api_access/tables.py:33
+#: dashboards/project/access_and_security/api_access/tables.py:34
 msgid "Download EC2 Credentials"
 msgstr "Pobierz dane uwierzytelniające EC2"
 
-#: dashboards/project/access_and_security/api_access/tables.py:41
-#: dashboards/project/access_and_security/api_access/tables.py:42
+#: dashboards/project/access_and_security/api_access/tables.py:45
+#: dashboards/project/access_and_security/api_access/tables.py:46
 msgid "Download OpenStack RC File"
 msgstr "Pobierz plik RC OpenStack"
 
-#: dashboards/project/access_and_security/api_access/tables.py:52
+#: dashboards/project/access_and_security/api_access/tables.py:56
 msgid "Service Endpoint"
 msgstr "Adres usługi"
 
-#: dashboards/project/access_and_security/api_access/tables.py:56
+#: dashboards/project/access_and_security/api_access/tables.py:60
 msgid "API Endpoints"
 msgstr "Adres API"
 
