@@ -1843,9 +1843,9 @@ $tdHeight:                $smallButtonHeight;
 
 $tableCellPadding:        8px;
 
-$contentTableWidth:       70%;
-$navigationTableWidth:    30%;
 $browserWrapperWidth:     100%;
+$navigationTableWidth:    40%;
+$contentTableWidth:       $browserWrapperWidth - $navigationTableWidth;
 
 /* ResourceBrowser style */
 #browser_wrapper {
@@ -1909,6 +1909,11 @@ $browserWrapperWidth:     100%;
     tbody td {
       border-right: $dataTableBorderWidth solid $dataTableBorderColor;
       background-color: white;
+      &.anchor {
+        word-wrap: break-word;
+        white-space: normal;
+        max-width: 145px;
+      }
     }
   }
   div.content_wrapper {
