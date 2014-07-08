@@ -210,7 +210,6 @@ following to ``local_settings.py``::
 
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    SESSION_COOKIE_HTTPONLY = True
 
 Note that the CSRF_COOKIE_SECURE option is only available from Django 1.4. It
 does no harm to have the setting in earlier versions, but it does not take effect.
