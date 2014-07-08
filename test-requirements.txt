@@ -11,7 +11,5 @@ openstack.nose_plugin>=0.7
 nosehtmloutput>=0.0.3
 selenium
 # Docs Requirements
-sphinx>=1.1.2,<1.2
-# for bug 1091333, remove after sphinx >1.1.3 is released.
-docutils==0.9.1
+sphinx>=1.1.2,!=1.2.0,<1.3
 oslo.sphinx
