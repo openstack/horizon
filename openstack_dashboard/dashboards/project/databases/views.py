@@ -39,14 +39,6 @@ from openstack_dashboard.dashboards.project.databases import workflows
 LOG = logging.getLogger(__name__)
 
 
-def get_host(instance):
-    if hasattr(instance, "hostname"):
-        return instance.hostname
-    elif hasattr(instance, "ip") and instance.ip:
-        return instance.ip[0]
-    return None
-
-
 class IndexView(horizon_tables.DataTableView):
     table_class = tables.InstancesTable
     template_name = 'project/databases/index.html'
@@ -68,7 +60,7 @@ class IndexView(horizon_tables.DataTableView):
         flavor = self.get_flavors().get(instance.flavor["id"])
         if flavor is not None:
             instance.full_flavor = flavor
-        instance.host = get_host(instance)
+        instance.host = tables.get_host(instance)
         return instance
 
     def get_data(self):
@@ -113,7 +105,7 @@ class DetailView(horizon_tabs.TabbedTableView):
             LOG.info("Obtaining instance for detailed view ")
             instance_id = self.kwargs['instance_id']
             instance = api.trove.instance_get(self.request, instance_id)
-            instance.host = get_host(instance)
+            instance.host = tables.get_host(instance)
         except Exception:
             redirect = reverse('horizon:project:databases:index')
             msg = _('Unable to retrieve details '
