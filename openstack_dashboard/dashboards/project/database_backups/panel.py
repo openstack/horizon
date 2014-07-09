@@ -20,7 +20,7 @@ from openstack_dashboard.dashboards.project import dashboard
 
 
 class Backups(horizon.Panel):
-    name = _("Database Backups")
+    name = _("Backups")
     slug = 'database_backups'
     permissions = ('openstack.services.database',
                    'openstack.services.object-store',)
