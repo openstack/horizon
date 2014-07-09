@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-07 23:07-0500\n"
-"PO-Revision-Date: 2014-07-04 16:53+0000\n"
+"POT-Creation-Date: 2014-07-08 13:34-0500\n"
+"PO-Revision-Date: 2014-07-08 08:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -274,7 +274,7 @@ msgstr "能源数量"
 msgid "Power consumption"
 msgstr "电源消耗"
 
-#: api/cinder.py:163
+#: api/cinder.py:178
 msgid "Unknown instance"
 msgstr "未知云主机"
 
@@ -427,11 +427,13 @@ msgstr "管理员"
 #: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
+#: dashboards/project/volumes/backups/tables.py:106
 #: dashboards/project/volumes/snapshots/tables.py:126
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:248
-#: dashboards/project/volumes/volumes/tables.py:277
+#: dashboards/project/volumes/volumes/tables.py:266
+#: dashboards/project/volumes/volumes/tables.py:295
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:64
 #: dashboards/project/vpn/forms.py:135 dashboards/project/vpn/forms.py:206
 #: dashboards/project/vpn/tables.py:179 dashboards/project/vpn/tables.py:209
@@ -511,7 +513,7 @@ msgstr "服务停止"
 #: dashboards/project/volumes/volumes/forms.py:76
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:82
-#: dashboards/project/volumes/volumes/tables.py:285
+#: dashboards/project/volumes/volumes/tables.py:303
 msgid "Availability Zone"
 msgstr "可用域"
 
@@ -521,6 +523,7 @@ msgid "Hosts"
 msgstr "主机"
 
 #: dashboards/admin/aggregates/tables.py:107
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:43
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "元数据"
@@ -730,7 +733,10 @@ msgstr "增加或删除主机时错误"
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
+#: dashboards/project/volumes/backups/forms.py:35
+#: dashboards/project/volumes/backups/tables.py:109
 #: dashboards/project/volumes/snapshots/forms.py:27
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
@@ -739,7 +745,7 @@ msgstr "增加或删除主机时错误"
 #: dashboards/project/volumes/volumes/forms.py:44
 #: dashboards/project/volumes/volumes/forms.py:436
 #: dashboards/project/volumes/volumes/forms.py:474
-#: dashboards/project/volumes/volumes/tables.py:251
+#: dashboards/project/volumes/volumes/tables.py:269
 #: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:69
 #: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
 #: dashboards/project/vpn/tables.py:211 dashboards/project/vpn/workflows.py:30
@@ -813,6 +819,8 @@ msgstr "你可以在这里编辑主机集合的名称和可用区域"
 #: dashboards/project/stacks/templates/stacks/_create.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:26
 #: dashboards/project/stacks/templates/stacks/_update.html:25
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:25
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:25
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:25
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:25
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:25
@@ -1048,7 +1056,8 @@ msgid "%sMB"
 msgstr "%s MB"
 
 #: dashboards/admin/flavors/tables.py:91 dashboards/admin/flavors/tables.py:95
-#: dashboards/project/volumes/volumes/tables.py:191
+#: dashboards/project/volumes/backups/tables.py:95
+#: dashboards/project/volumes/volumes/tables.py:209
 #, python-format
 msgid "%sGB"
 msgstr "%sGB"
@@ -1120,6 +1129,7 @@ msgstr "交换盘空间"
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:12
 #: dashboards/project/vpn/forms.py:35 dashboards/project/vpn/forms.py:66
@@ -1576,7 +1586,7 @@ msgstr "主机名字"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:45
-#: dashboards/project/volumes/volumes/tables.py:280
+#: dashboards/project/volumes/volumes/tables.py:298
 msgid "Type"
 msgstr "类型"
 
@@ -1855,9 +1865,11 @@ msgstr "主机"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:36
+#: dashboards/project/volumes/backups/tables.py:116
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:258
+#: dashboards/project/volumes/volumes/tables.py:276
 #: dashboards/project/vpn/tables.py:189 dashboards/project/vpn/tables.py:216
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -1933,16 +1945,18 @@ msgstr "注入的文件"
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
 #: dashboards/project/volumes/panel.py:23
-#: dashboards/project/volumes/tabs.py:60
+#: dashboards/project/volumes/tabs.py:62
+#: dashboards/project/volumes/templates/volumes/index.html:3
+#: dashboards/project/volumes/templates/volumes/index.html:6
 #: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:296
-#: dashboards/project/volumes/volumes/tables.py:309
+#: dashboards/project/volumes/volumes/tables.py:314
+#: dashboards/project/volumes/volumes/tables.py:327
 msgid "Volumes"
 msgstr "云硬盘"
 
 #: dashboards/admin/info/tables.py:198
 #: dashboards/admin/projects/workflows.py:54
-#: dashboards/project/volumes/tabs.py:73
+#: dashboards/project/volumes/tabs.py:75
 #: dashboards/project/volumes/snapshots/tables.py:45
 #: dashboards/project/volumes/snapshots/tables.py:135
 msgid "Volume Snapshots"
@@ -2122,7 +2136,7 @@ msgstr "计划移植(待确认)"
 #: dashboards/project/instances/tables.py:617
 #: dashboards/project/instances/tables.py:638
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:334
+#: dashboards/project/volumes/volumes/tables.py:352
 msgid "Instance"
 msgstr "云主机"
 
@@ -2165,9 +2179,11 @@ msgstr "IP 地址"
 #: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:798
+#: dashboards/project/volumes/backups/tables.py:112
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:254
+#: dashboards/project/volumes/volumes/tables.py:272
 msgid "Size"
 msgstr "配置"
 
@@ -2727,6 +2743,7 @@ msgstr "设备已连接"
 #: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
 #: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
+#: dashboards/project/volumes/backups/tabs.py:24
 #: dashboards/project/volumes/snapshots/tabs.py:25
 #: dashboards/project/volumes/volumes/tabs.py:21
 msgid "Overview"
@@ -4177,6 +4194,7 @@ msgstr "私有"
 #: dashboards/project/containers/forms.py:48
 #: dashboards/project/containers/tables.py:252
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
+#: dashboards/project/volumes/backups/forms.py:38
 msgid "Container Name"
 msgstr "容器名称"
 
@@ -4536,6 +4554,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/update_instance.py:120
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 msgid "Info"
@@ -4557,10 +4576,13 @@ msgstr "数据库备份"
 
 #: dashboards/project/database_backups/tables.py:37
 #: dashboards/project/databases/tables.py:101
+#: dashboards/project/volumes/volumes/tables.py:167
 msgid "Create Backup"
 msgstr "创建备份"
 
 #: dashboards/project/database_backups/tables.py:44
+#: dashboards/project/volumes/backups/tables.py:63
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Restore Backup"
 msgstr "恢复备份"
 
@@ -4675,6 +4697,7 @@ msgstr "初始云硬盘大小"
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
@@ -5772,6 +5795,7 @@ msgstr "镜像概况"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
 #: dashboards/project/routers/templates/routers/_detail_overview.html:12
+#: dashboards/project/volumes/backups/tables.py:36
 #: dashboards/project/volumes/snapshots/tables.py:114
 msgid "Unknown"
 msgstr "未知"
@@ -5785,6 +5809,7 @@ msgstr "校验和"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
 #: dashboards/project/stacks/tables.py:91
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
 msgid "Created"
@@ -5801,6 +5826,7 @@ msgstr "从未更新"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:41
 #: dashboards/project/instances/templates/instances/_detail_overview.html:43
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
 msgid "Specs"
@@ -6477,7 +6503,7 @@ msgstr "云硬盘已连接"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
-#: dashboards/project/volumes/volumes/tables.py:283
+#: dashboards/project/volumes/volumes/tables.py:301
 msgid "Attached To"
 msgstr "连接到"
 
@@ -6489,10 +6515,11 @@ msgstr "on"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:99
 #: dashboards/project/instances/workflows/create_instance.py:337
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:58
-#: dashboards/project/volumes/volumes/tables.py:308
+#: dashboards/project/volumes/volumes/tables.py:326
 msgid "Volume"
 msgstr "云硬盘"
 
@@ -6777,6 +6804,7 @@ msgid "Unable to retrieve list of volumes."
 msgstr "无法取回云硬盘列表。"
 
 #: dashboards/project/instances/workflows/create_instance.py:389
+#: dashboards/project/volumes/backups/forms.py:68
 msgid "Select Volume"
 msgstr "选择云硬盘"
 
@@ -8768,18 +8796,82 @@ msgstr "资源详情："
 msgid "Update Stack"
 msgstr "更新栈"
 
-#: dashboards/project/volumes/tabs.py:36
+#: dashboards/project/volumes/tabs.py:38
 msgid "Unable to retrieve volume list."
 msgstr "无法获取云硬盘列表"
 
-#: dashboards/project/volumes/tabs.py:46
+#: dashboards/project/volumes/tabs.py:48
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "无法获取云硬盘/云主机附件信息"
 
-#: dashboards/project/volumes/tabs.py:86
+#: dashboards/project/volumes/tabs.py:88
 #: dashboards/project/volumes/volumes/forms.py:187
 msgid "Unable to retrieve volume snapshots."
 msgstr "找不到云硬盘快照。"
+
+#: dashboards/project/volumes/tabs.py:102
+#: dashboards/project/volumes/backups/tables.py:48
+#: dashboards/project/volumes/backups/tables.py:126
+msgid "Volume Backups"
+msgstr ""
+
+#: dashboards/project/volumes/tabs.py:118
+msgid "Unable to retrieve volume backups."
+msgstr ""
+
+#: dashboards/project/volumes/backups/forms.py:33
+msgid "Backup Name"
+msgstr ""
+
+#: dashboards/project/volumes/backups/forms.py:55
+#, python-format
+msgid "Creating volume backup \"%s\""
+msgstr ""
+
+#: dashboards/project/volumes/backups/forms.py:62
+msgid "Unable to create volume backup."
+msgstr ""
+
+#: dashboards/project/volumes/backups/forms.py:78
+msgid "Unable to lookup volume or backup information."
+msgstr ""
+
+#: dashboards/project/volumes/backups/forms.py:84
+msgid "Create a New Volume"
+msgstr ""
+
+#: dashboards/project/volumes/backups/forms.py:101
+#, python-format
+msgid ""
+"Successfully restored backup %(backup_name)s to volume with id: "
+"%(volume_id)s"
+msgstr ""
+
+#: dashboards/project/volumes/backups/forms.py:107
+msgid "Unable to restore backup."
+msgstr ""
+
+#: dashboards/project/volumes/backups/tables.py:47
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
+msgid "Volume Backup"
+msgstr ""
+
+#: dashboards/project/volumes/backups/tables.py:49
+msgid "Scheduled deletion of"
+msgstr "已计划删除"
+
+#: dashboards/project/volumes/backups/tables.py:120
+#: dashboards/project/volumes/snapshots/tables.py:130
+#: dashboards/project/volumes/volumes/forms.py:41
+#: dashboards/project/volumes/volumes/forms.py:472
+#: dashboards/project/volumes/volumes/forms.py:493
+msgid "Volume Name"
+msgstr "云硬盘名称"
+
+#: dashboards/project/volumes/backups/tabs.py:38
+#: dashboards/project/volumes/backups/views.py:61
+msgid "Unable to retrieve backup details."
+msgstr ""
 
 #: dashboards/project/volumes/snapshots/forms.py:37
 #, python-format
@@ -8798,13 +8890,6 @@ msgstr "无法更新云硬盘快照"
 msgid "Edit Snapshot"
 msgstr "编辑快照"
 
-#: dashboards/project/volumes/snapshots/tables.py:130
-#: dashboards/project/volumes/volumes/forms.py:41
-#: dashboards/project/volumes/volumes/forms.py:472
-#: dashboards/project/volumes/volumes/forms.py:493
-msgid "Volume Name"
-msgstr "云硬盘名称"
-
 #: dashboards/project/volumes/snapshots/tabs.py:36
 #: dashboards/project/volumes/snapshots/views.py:77
 msgid "Unable to retrieve snapshot details."
@@ -8814,10 +8899,65 @@ msgstr "无法获取快照详情"
 msgid "Unable to retrieve volume snapshot."
 msgstr "无法恢复云硬盘快照"
 
-#: dashboards/project/volumes/templates/volumes/index.html:3
-#: dashboards/project/volumes/templates/volumes/index.html:6
-msgid "Volumes &amp; Snapshots"
-msgstr "云硬盘 &amp; 快照"
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:9
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
+#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
+msgid "Create Volume Backup"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
+msgid ""
+"Volume Backups are stored using the Object Storage service. You must have "
+"this service activated in order to create a backup."
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:19
+msgid ""
+"If no container name is provided, a default container named volumebackups "
+"will be provisioned for you. Backups will be the same size as the volume "
+"they originate from."
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:4
+msgid "Volume Backup Overview"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
+#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
+msgid "Restore Volume Backup"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
+msgid "Select a volume to restore to."
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:19
+msgid "Optionally, you may choose to create a new volume."
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:24
+msgid "Restore Backup to Volume"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
+msgid "Create a Volume Backup"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/detail.html:3
+msgid "Volume Backup Details"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/detail.html:6
+msgid "Volume Backup Details: "
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/detail.html:6
+msgid "Volume Backup Details:"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
+msgid "Restore a Volume Backup"
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
 msgid "Volume Snapshot Overview"
@@ -8868,7 +9008,7 @@ msgid "Volume Overview"
 msgstr "云硬盘概览"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:355
+#: dashboards/project/volumes/volumes/tables.py:373
 msgid "Attachments"
 msgstr "连接的设备"
 
@@ -8915,7 +9055,7 @@ msgstr "云硬盘数量"
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:167
+#: dashboards/project/volumes/volumes/tables.py:185
 msgid "Edit Volume"
 msgstr "编辑卷"
 
@@ -9130,37 +9270,37 @@ msgstr "无法删除云硬盘\"%s\".一个或多个快照存储在上面"
 msgid "Edit Attachments"
 msgstr "编辑挂载"
 
-#: dashboards/project/volumes/volumes/tables.py:204
+#: dashboards/project/volumes/volumes/tables.py:222
 #: dashboards/project/volumes/volumes/views.py:211
 msgid "Unable to retrieve attachment information."
 msgstr "无法获取附件信息"
 
-#: dashboards/project/volumes/volumes/tables.py:222
+#: dashboards/project/volumes/volumes/tables.py:240
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "在设备%(dev)s上连接到%(instance)s"
 
-#: dashboards/project/volumes/volumes/tables.py:287
+#: dashboards/project/volumes/volumes/tables.py:305
 msgid "Bootable"
 msgstr "可启动"
 
-#: dashboards/project/volumes/volumes/tables.py:290
+#: dashboards/project/volumes/volumes/tables.py:308
 msgid "Encrypted"
 msgstr "加密的"
 
-#: dashboards/project/volumes/volumes/tables.py:306
+#: dashboards/project/volumes/volumes/tables.py:324
 msgid "Detach"
 msgstr "断开"
 
-#: dashboards/project/volumes/volumes/tables.py:307
+#: dashboards/project/volumes/volumes/tables.py:325
 msgid "Detaching"
 msgstr "断开zhong"
 
-#: dashboards/project/volumes/volumes/tables.py:336
+#: dashboards/project/volumes/volumes/tables.py:354
 msgid "Device"
 msgstr "设备"
 
-#: dashboards/project/volumes/volumes/tables.py:345
+#: dashboards/project/volumes/volumes/tables.py:363
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "实例%(instance_name)s的附加卷%(volume_name)s"
