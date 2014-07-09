@@ -699,7 +699,7 @@ class Site(Registry, HorizonComponent):
                 return user_home(user)
             elif isinstance(user_home, basestring):
                 # Assume we've got a URL if there's a slash in it
-                if user_home.find("/") != -1:
+                if '/' in user_home:
                     return user_home
                 else:
                     mod, func = user_home.rsplit(".", 1)

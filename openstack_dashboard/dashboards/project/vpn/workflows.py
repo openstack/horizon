@@ -177,8 +177,8 @@ class AddIKEPolicyStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(AddIKEPolicyStep, self).contribute(data, context)
-        context.update({'lifetime': {'units': data['lifetime_units'],
-                                     'value': data['lifetime_value']}})
+        context['lifetime'] = {'units': data['lifetime_units'],
+                               'value': data['lifetime_value']}
         context.pop('lifetime_units')
         context.pop('lifetime_value')
         if data:
@@ -274,8 +274,8 @@ class AddIPSecPolicyStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(AddIPSecPolicyStep, self).contribute(data, context)
-        context.update({'lifetime': {'units': data['lifetime_units'],
-                                     'value': data['lifetime_value']}})
+        context['lifetime'] = {'units': data['lifetime_units'],
+                               'value': data['lifetime_value']}
         context.pop('lifetime_units')
         context.pop('lifetime_value')
         if data:
@@ -450,9 +450,9 @@ class AddIPSecSiteConnectionOptionalStep(workflows.Step):
     def contribute(self, data, context):
         context = super(
             AddIPSecSiteConnectionOptionalStep, self).contribute(data, context)
-        context.update({'dpd': {'action': data['dpd_action'],
-                                'interval': data['dpd_interval'],
-                                'timeout': data['dpd_timeout']}})
+        context['dpd'] = {'action': data['dpd_action'],
+                          'interval': data['dpd_interval'],
+                          'timeout': data['dpd_timeout']}
         context.pop('dpd_action')
         context.pop('dpd_interval')
         context.pop('dpd_timeout')

@@ -578,7 +578,7 @@ class LoadBalancerTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = data.copy()
-        form_data.update({'pool_id': pool.id})
+        form_data['pool_id'] = pool.id
 
         res = self.client.post(
             reverse(self.UPDATEPOOL_PATH, args=(pool.id,)), form_data)
@@ -620,7 +620,7 @@ class LoadBalancerTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = data.copy()
-        form_data.update({'vip_id': vip.id})
+        form_data['vip_id'] = vip.id
 
         res = self.client.post(
             reverse(self.UPDATEVIP_PATH, args=(vip.id,)), form_data)
@@ -662,7 +662,7 @@ class LoadBalancerTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = data.copy()
-        form_data.update({'member_id': member.id})
+        form_data['member_id'] = member.id
 
         res = self.client.post(
             reverse(self.UPDATEMEMBER_PATH, args=(member.id,)), form_data)
@@ -705,7 +705,7 @@ class LoadBalancerTests(test.TestCase):
         self.mox.ReplayAll()
 
         form_data = data.copy()
-        form_data.update({'monitor_id': monitor.id})
+        form_data['monitor_id'] = monitor.id
 
         res = self.client.post(
             reverse(self.UPDATEMONITOR_PATH, args=(monitor.id,)), form_data)
