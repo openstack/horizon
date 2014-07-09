@@ -33,8 +33,10 @@
         <dd>{{ backup.locationRef }}</dd>
         <dt>{% trans "Initial Volume Size" %}</dt>
         <dd>{{ backup.size }} {% trans "GB" %}</dd>
-        <dt>{% trans "Created On" %}</dt>
-        <dd>{{ backup.updated_at|date:"N jS, Y P" }}</dd>
+        <dt>{% trans "Created" %}</dt>
+        <dd>{{ backup.created|parse_isotime }}</dd>
+        <dt>{% trans "Updated" %}</dt>
+        <dd>{{ backup.updated|parse_isotime }}</dd>
         <dt>{% trans "Backup Duration" %}</dt>
         <dd>{{ backup.duration }}</dd>
       </dl>

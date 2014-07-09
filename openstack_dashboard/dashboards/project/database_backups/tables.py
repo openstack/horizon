@@ -131,7 +131,7 @@ class BackupsTable(tables.DataTable):
                               verbose_name=_("Datastore"))
     datastore_version = tables.Column(get_datastore_version,
                                       verbose_name=_("Datastore Version"))
-    created = tables.Column("created", verbose_name=_("Created At"),
+    created = tables.Column("created", verbose_name=_("Created"),
                             filters=[filters.parse_isotime])
     instance = tables.Column(db_name, link=db_link,
                              verbose_name=_("Database"))
