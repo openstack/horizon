@@ -692,7 +692,9 @@ class Cell(html.HTMLElement):
                                   self.column.link_attrs.items()])
             # Escape the data inside while allowing our HTML to render
             data = mark_safe('<a href="%s" %s>%s</a>' % (
-                self.url, link_attrs, escape(unicode(data))))
+                             (escape(self.url),
+                              link_attrs,
+                              escape(unicode(data)))))
         return data
 
     @property
