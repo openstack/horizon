@@ -111,10 +111,26 @@ def db_name(obj):
     return obj.instance.name
 
 
+def get_datastore(obj):
+    if hasattr(obj, "datastore"):
+        return obj.datastore["type"]
+    return _("Not available")
+
+
+def get_datastore_version(obj):
+    if hasattr(obj, "datastore"):
+        return obj.datastore["version"]
+    return _("Not available")
+
+
 class BackupsTable(tables.DataTable):
     name = tables.Column("name",
                          link="horizon:project:database_backups:detail",
                          verbose_name=_("Name"))
+    datastore = tables.Column(get_datastore,
+                              verbose_name=_("Datastore"))
+    datastore_version = tables.Column(get_datastore_version,
+                                      verbose_name=_("Datastore Version"))
     created = tables.Column("created", verbose_name=_("Created At"),
                             filters=[filters.parse_isotime])
     instance = tables.Column(db_name, link=db_link,

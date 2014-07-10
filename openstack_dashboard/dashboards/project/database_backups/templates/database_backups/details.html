@@ -21,6 +21,12 @@
         <dd>{{ backup.description|linebreaksbr }}</dd>
         <dt>{% trans "ID" %}</dt>
         <dd>{{ backup.id }}</dd>
+        {% if backup.datastore %}
+            <dt>{% trans "Datastore" %}</dt>
+            <dd>{{ backup.datastore.type }}</dd>
+            <dt>{% trans "Datastore Version" %}</dt>
+            <dd>{{ backup.datastore.version }}</dd>
+        {% endif %}
         <dt>{% trans "Status" %}</dt>
         <dd>{{ backup.status|title }}</dd>
         <dt>{% trans "Backup File Location" %}</dt>
