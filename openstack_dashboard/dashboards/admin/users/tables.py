@@ -117,7 +117,8 @@ class UsersTable(tables.DataTable):
     )
     name = tables.Column('name', verbose_name=_('User Name'))
     email = tables.Column('email', verbose_name=_('Email'),
-                          filters=[defaultfilters.urlize])
+                          filters=[defaultfilters.escape,
+                                   defaultfilters.urlize])
     # Default tenant is not returned from Keystone currently.
     #default_tenant = tables.Column('default_tenant',
     #                               verbose_name=_('Default Project'))
