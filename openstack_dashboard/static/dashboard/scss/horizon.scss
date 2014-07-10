@@ -3,6 +3,9 @@
 @import "_variables";
 @import "_accordion_nav";
 
+// Components
+@import "components/resource_browser";
+
 
 @mixin border-radius($radius...) {
   border-radius: $radius;
@@ -1830,153 +1833,6 @@ label.log-length {
   padding-top: 2px;
   padding-right: 5px;
   float: left;
-}
-
-//ResourceBrowser
-$dataTableBorderWidth:    1px;
-$dataTableBorderColor:    #ddd;
-
-$actionsColumnPadding:    10px;
-
-$smallButtonHeight:       28px;
-$tdHeight:                $smallButtonHeight;
-
-$tableCellPadding:        8px;
-
-$browserWrapperWidth:     100%;
-$navigationTableWidth:    40%;
-$contentTableWidth:       $browserWrapperWidth - $navigationTableWidth;
-
-/* ResourceBrowser style */
-#browser_wrapper {
-  width: $browserWrapperWidth;
-  min-width: 1000px;
-  background-color: $gray-lighter;
-  border: $dataTableBorderWidth solid $dataTableBorderColor;
-  @include border-radius(4px);
-  .tfoot {
-    clear: both;
-    padding: 8px;
-    border-top: 1px solid $dataTableBorderColor;
-    background-color: #F1F1F1;
-    font-size: 11px;
-    line-height: 14px;
-    span {
-      display: inline-block;
-      &.navigation_table_count {
-        width: $navigationTableWidth;
-      }
-    }
-  }
-  form, table{
-    margin-bottom: 0;
-  }
-  .navigation_wrapper, .content_wrapper{
-    position: relative;
-    float: left;
-  }
-  div.navigation_wrapper {
-    z-index: 10;
-    width: $navigationTableWidth;
-    div.table_wrapper,
-    thead th.table_header {
-      border-right: 0 none;
-      border-top-right-radius: 0;
-    }
-    td {
-      &:first-child {
-        border-left: 0 none;
-      }
-      &.breadcrumb_td {
-        padding-right: 0px;
-        max-width: 200px;
-      }
-    }
-    tr.current_selected td {
-      background-color: #e9f5fa;
-    }
-    tfoot td {
-      border-right: 0 none;
-      border-bottom-right-radius: 0;
-    }
-    ul.breadcrumb {
-      padding-right: 0px;
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-      border-right: none;
-      white-space: nowrap;
-    }
-    tbody td {
-      border-right: $dataTableBorderWidth solid $dataTableBorderColor;
-      background-color: white;
-      &.anchor {
-        word-wrap: break-word;
-        white-space: normal;
-        max-width: 145px;
-      }
-    }
-  }
-  div.content_wrapper {
-    width: $contentTableWidth;
-    div.table_wrapper,
-    thead th.table_header {
-      border-left: 0 none;
-      border-top-left-radius: 0;
-    }
-    td{
-      border-bottom: $dataTableBorderWidth solid $dataTableBorderColor;
-      &:last-child {
-        border-right: 0 none;
-      }
-      &.breadcrumb_td {
-        padding-left: 0px;
-      }
-    }
-    tfoot td {
-      border-left: 0 none;
-      border-bottom-left-radius: 0;
-    }
-    /* FIXME(Ke Wu): for now there are two breadcrumb tr in both table
-    * and this one in the content table is hidden. This hack is made to
-    * fix the alignment of two table, needs a better solution in the
-    * future.
-    */
-    ul.breadcrumb {
-      padding-left: 0px;
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-      border-left: none;
-      li {
-        visibility: hidden;
-      }
-    }
-  }
-  table {
-    border-collapse: collapse;
-    thead {
-      tr th {
-        border-bottom: none;
-        background-color: $gray-lighter;
-      }
-    }
-    tbody {
-      tr:last-child td {
-        border-bottom: 1px solid #ddd;
-        border-radius: 0;
-      }
-      tr.empty td {
-        height: $tdHeight;
-        padding: $actionsColumnPadding;
-      }
-      td.actions_column {
-        position: static;
-      }
-    }
-  }
-  .breadcrumb{
-    padding: 6px;
-    margin: 0 0 1px 0;
-  }
 }
 
 /* Styling for inline object creation buttons */
