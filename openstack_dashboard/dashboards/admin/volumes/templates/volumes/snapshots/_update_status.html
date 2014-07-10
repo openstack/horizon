@@ -1,0 +1,30 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:volumes:snapshots:update_status' snapshot_id %}{% endblock %}
+
+{% block modal_id %}update_volume_snapshot_status_modal{% endblock %}
+{% block modal-header %}{% trans "Update Volume Snapshot Status" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans %}
+    The status of a volume snapshot is normally managed automatically.  In some circumstances
+    an administrator may need to explicitly update the status value. This is equivalent to
+    the <tt>cinder snapshot-reset-state</tt> command.
+    {% endblocktrans %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Update Status" %}" />
+  <a href="{% url 'horizon:admin:volumes:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

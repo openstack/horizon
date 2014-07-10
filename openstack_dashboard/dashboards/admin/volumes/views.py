@@ -13,7 +13,7 @@
 #    under the License.
 
 """
-Admin views for managing volumes.
+Admin views for managing volumes and snapshots.
 """
 
 from horizon import tabs

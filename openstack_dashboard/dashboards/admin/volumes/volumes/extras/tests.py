@@ -96,10 +96,9 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
                                      'volume_type_extra_set',), })
     def test_extra_edit(self):
         vol_type = self.cinder_volume_types.first()
-        extras = [api.cinder.VolTypeExtraSpec(vol_type.id, 'k1', 'v1')]
         key = 'foo'
         edit_url = reverse('horizon:admin:volumes:volumes:extras:edit',
-                             args=[vol_type.id, key])
+                           args=[vol_type.id, key])
         index_url = reverse('horizon:admin:volumes:volumes:extras:index',
                             args=[vol_type.id])
 

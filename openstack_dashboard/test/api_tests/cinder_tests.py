@@ -33,13 +33,15 @@ class CinderApiTests(test.APITestCase):
         api.cinder.volume_list(self.request, search_opts=search_opts)
 
     def test_volume_snapshot_list(self):
+        search_opts = {'all_tenants': 1}
         volume_snapshots = self.cinder_volume_snapshots.list()
         cinderclient = self.stub_cinderclient()
         cinderclient.volume_snapshots = self.mox.CreateMockAnything()
-        cinderclient.volume_snapshots.list().AndReturn(volume_snapshots)
+        cinderclient.volume_snapshots.list(search_opts=search_opts).\
+            AndReturn(volume_snapshots)
         self.mox.ReplayAll()
 
-        api.cinder.volume_snapshot_list(self.request)
+        api.cinder.volume_snapshot_list(self.request, search_opts=search_opts)
 
     def test_volume_snapshot_list_no_volume_configured(self):
         # remove volume from service catalog
@@ -47,14 +49,16 @@ class CinderApiTests(test.APITestCase):
         for service in catalog:
             if service["type"] == "volume":
                 self.service_catalog.remove(service)
+        search_opts = {'all_tenants': 1}
         volume_snapshots = self.cinder_volume_snapshots.list()
 
         cinderclient = self.stub_cinderclient()
         cinderclient.volume_snapshots = self.mox.CreateMockAnything()
-        cinderclient.volume_snapshots.list().AndReturn(volume_snapshots)
+        cinderclient.volume_snapshots.list(search_opts=search_opts).\
+            AndReturn(volume_snapshots)
         self.mox.ReplayAll()
 
-        api.cinder.volume_snapshot_list(self.request)
+        api.cinder.volume_snapshot_list(self.request, search_opts=search_opts)
 
 
 class CinderApiVersionTests(test.TestCase):

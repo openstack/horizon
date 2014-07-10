@@ -72,11 +72,14 @@ class DetailView(tabs.TabView):
             snapshot = api.cinder.volume_snapshot_get(self.request,
                                                       snapshot_id)
         except Exception:
-            redirect = reverse('horizon:project:volumes:index')
+            redirect = self.get_redirect_url()
             exceptions.handle(self.request,
                               _('Unable to retrieve snapshot details.'),
                               redirect=redirect)
         return snapshot
+
+    def get_redirect_url(self):
+        return reverse('horizon:project:volumes:index')
 
     def get_tabs(self, request, *args, **kwargs):
         snapshot = self.get_data()

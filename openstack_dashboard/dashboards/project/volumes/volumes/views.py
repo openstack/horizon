@@ -57,11 +57,14 @@ class DetailView(tabs.TabView):
                 att['instance'] = api.nova.server_get(self.request,
                                                       att['server_id'])
         except Exception:
-            redirect = reverse('horizon:project:volumes:index')
+            redirect = self.get_redirect_url()
             exceptions.handle(self.request,
                               _('Unable to retrieve volume details.'),
                               redirect=redirect)
         return volume
+
+    def get_redirect_url(self):
+        return reverse('horizon:project:volumes:index')
 
     def get_tabs(self, request, *args, **kwargs):
         volume = self.get_data()

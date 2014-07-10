@@ -28,6 +28,9 @@ from openstack_dashboard.dashboards.project.volumes.volumes \
 class DetailView(volumes_views.DetailView):
     template_name = "admin/volumes/volumes/detail.html"
 
+    def get_redirect_url(self):
+        return reverse('horizon:admin:volumes:index')
+
 
 class CreateVolumeTypeView(forms.ModalFormView):
     form_class = volumes_forms.CreateVolumeType

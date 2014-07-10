@@ -31,12 +31,15 @@ class OverviewTab(tabs.Tab):
             snapshot = self.tab_group.kwargs['snapshot']
             volume = cinder.volume_get(request, snapshot.volume_id)
         except Exception:
-            redirect = reverse('horizon:project:volumes:index')
+            redirect = self.get_redirect_url()
             exceptions.handle(self.request,
                               _('Unable to retrieve snapshot details.'),
                               redirect=redirect)
         return {"snapshot": snapshot,
                 "volume": volume}
+
+    def get_redirect_url(self):
+        return reverse('horizon:project:volumes:index')
 
 
 class SnapshotDetailTabs(tabs.TabGroup):
