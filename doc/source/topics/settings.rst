@@ -386,6 +386,43 @@ Used to customize features related to the image service, such as the list of
 supported image formats.
 
 
+``IMAGE_CUSTOM_PROPERTY_TITLES``
+--------------------------------
+
+.. versionadded:: 2014.1(Icehouse)
+
+Default::
+
+    {
+        "architecture": _("Architecture"),
+        "kernel_id": _("Kernel ID"),
+        "ramdisk_id": _("Ramdisk ID"),
+        "image_state": _("Euca2ools state"),
+        "project_id": _("Project ID"),
+        "image_type": _("Image Type")
+    }
+
+Used to customize the titles for image custom property attributes that
+appear on image detail pages.
+
+
+``HORIZON_IMAGES_ALLOW_UPLOAD``
+--------------------------------
+
+.. versionadded:: 2013.1(Grizzly)
+
+Default: ``True``
+
+If set to ``False``, this setting disables *local* uploads to prevent filling
+up the disk on the dashboard server since uploads to the Glance image store
+service tend to be particularly large - in the order of hundreds of megabytes
+to multiple gigabytes.
+
+.. note::
+    This will not disable image creation altogether, as this setting does not
+    affect images created by specifying an image location (URL) as the image source.
+
+
 ``OPENSTACK_KEYSTONE_BACKEND``
 ------------------------------
 
