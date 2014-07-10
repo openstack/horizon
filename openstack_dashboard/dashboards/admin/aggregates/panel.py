@@ -20,6 +20,7 @@ from openstack_dashboard.dashboards.admin import dashboard
 class Aggregates(horizon.Panel):
     name = _("Host Aggregates")
     slug = 'aggregates'
+    permissions = ('openstack.services.compute',)
 
 
 dashboard.Admin.register(Aggregates)

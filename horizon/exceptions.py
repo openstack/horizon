@@ -197,7 +197,7 @@ class HandledException(HorizonException):
 
 UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
 NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
-RECOVERABLE = (AlreadyExists, Conflict, NotAvailable)
+RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException)
 RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
 

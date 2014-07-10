@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.utils.translation import ugettext_lazy as _
+from horizon import exceptions
 from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.usage import base
@@ -38,20 +40,29 @@ class UsageView(tables.DataTableView):
         return "text/html"
 
     def get_data(self):
-        project_id = self.kwargs.get('project_id', self.request.user.tenant_id)
-        self.usage = self.usage_class(self.request, project_id)
-        self.usage.summarize(*self.usage.get_date_range())
-        self.usage.get_limits()
-        self.kwargs['usage'] = self.usage
-        return self.usage.usage_list
+        try:
+            project_id = self.kwargs.get('project_id',
+                                         self.request.user.tenant_id)
+            self.usage = self.usage_class(self.request, project_id)
+            self.usage.summarize(*self.usage.get_date_range())
+            self.usage.get_limits()
+            self.kwargs['usage'] = self.usage
+            return self.usage.usage_list
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve usage information.'))
+            return []
 
     def get_context_data(self, **kwargs):
         context = super(UsageView, self).get_context_data(**kwargs)
         context['table'].kwargs['usage'] = self.usage
         context['form'] = self.usage.form
         context['usage'] = self.usage
-        context['simple_tenant_usage_enabled'] = \
-            api.nova.extension_supported('SimpleTenantUsage', self.request)
+        try:
+            context['simple_tenant_usage_enabled'] = \
+                api.nova.extension_supported('SimpleTenantUsage', self.request)
+        except Exception:
+            context['simple_tenant_usage_enabled'] = True
         return context
 
     def render_to_response(self, context, **response_kwargs):

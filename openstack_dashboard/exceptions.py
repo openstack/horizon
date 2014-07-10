@@ -22,6 +22,7 @@ from heatclient import exc as heatclient
 from keystoneclient import exceptions as keystoneclient
 from neutronclient.common import exceptions as neutronclient
 from novaclient import exceptions as novaclient
+from requests import exceptions as requests
 from saharaclient.api import base as saharaclient
 from swiftclient import client as swiftclient
 from troveclient import exceptions as troveclient
@@ -76,4 +77,5 @@ RECOVERABLE = (
     heatclient.HTTPException,
     troveclient.ClientException,
     saharaclient.APIException,
+    requests.RequestException,
 )
