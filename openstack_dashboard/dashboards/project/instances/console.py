@@ -42,11 +42,16 @@ def get_console(request, console_type, instance):
             raise exceptions.NotAvailable(msg)
 
     for api_call in check_consoles.values():
+        # ugly workaround due novaclient API change from 2.17 to 2.18
+        try:
+            httpnotimplemented = nova_exception.HttpNotImplemented
+        except AttributeError:
+            httpnotimplemented = nova_exception.HTTPNotImplemented
         try:
             console = api_call(request, instance.id)
         #if not supported don't log it to avoid lot of errors
         #in case of AUTO
-        except nova_exception.HTTPNotImplemented:
+        except httpnotimplemented:
             continue
         except Exception:
             LOG.debug('Console not available', exc_info=True)
