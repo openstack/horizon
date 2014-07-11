@@ -14,6 +14,10 @@
     <dd>{{ instance.status|title }}</dd>
     <dt>{% trans "RAM" %}</dt>
     <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
+    {% if instance.volume %}
+        <dt>{% trans "Volume Size" %}</dt>
+        <dd>{{ instance.volume.size|diskgbformat }}</dd>
+    {% endif %}
   </dl>
 </div>
 

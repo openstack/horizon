@@ -133,6 +133,12 @@ def get_size(instance):
     return _("Not available")
 
 
+def get_volume_size(instance):
+    if hasattr(instance, "volume"):
+        return sizeformat.diskgbformat(instance.volume.get("size"))
+    return _("Not available")
+
+
 def get_databases(user):
     if hasattr(user, "access"):
         databases = [db.name for db in user.access]
@@ -155,6 +161,9 @@ class InstancesTable(tables.DataTable):
     host = tables.Column("host", verbose_name=_("Host"))
     size = tables.Column(get_size,
                          verbose_name=_("Size"),
+                         attrs={'data-type': 'size'})
+    volume = tables.Column(get_volume_size,
+                         verbose_name=_("Volume Size"),
                          attrs={'data-type': 'size'})
     status = tables.Column("status",
                            filters=(title, filters.replace_underscores),
