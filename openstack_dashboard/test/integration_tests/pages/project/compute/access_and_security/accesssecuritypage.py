@@ -16,7 +16,8 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.pages import keypairpage
+from openstack_dashboard.test.integration_tests.pages.project.compute.\
+    access_and_security import keypairpage
 
 
 class AccessSecurityPage(basepage.BasePage):
