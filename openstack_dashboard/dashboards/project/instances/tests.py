@@ -61,7 +61,7 @@ class InstanceTests(helpers.TestCase):
             'servers_update_addresses',
         ),
     })
-    def test_index(self):
+    def _get_index(self):
         servers = self.servers.list()
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
@@ -83,7 +83,11 @@ class InstanceTests(helpers.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(INDEX_URL)
+        return self.client.get(INDEX_URL)
+
+    def test_index(self):
+
+        res = self._get_index()
 
         self.assertTemplateUsed(res,
             'project/instances/index.html')
@@ -239,11 +243,36 @@ class InstanceTests(helpers.TestCase):
         self.assertEqual(len(instances), len(servers))
         self.assertContains(res, "(not found)")
 
+    def test_index_with_console_link(self):
+        res = self._get_index()
+
+        instances_table = res.context['instances_table']
+        instances = res.context['instances_table'].data
+        console_link_rendered = False
+        for instance in instances:
+            for action in instances_table.get_row_actions(instance):
+                if isinstance(action, tables.ConsoleLink):
+                    console_link_rendered = True
+                    break
+            if console_link_rendered:
+                break
+            self.assertTrue(console_link_rendered)
+
+    @django.test.utils.override_settings(CONSOLE_TYPE=None)
+    def test_index_without_console_link(self):
+        res = self._get_index()
+
+        instances_table = res.context['instances_table']
+        instances = res.context['instances_table'].data
+        for instance in instances:
+            for action in instances_table.get_row_actions(instance):
+                self.assertNotIsInstance(action, tables.ConsoleLink)
+
     @helpers.create_stubs({api.nova: ('server_list',
-                                   'flavor_list',
-                                   'server_delete',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'flavor_list',
+                                      'server_delete',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_terminate_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -623,52 +652,56 @@ class InstanceTests(helpers.TestCase):
                                    "flavor_get"),
                         api.network: ("server_security_groups",
                                       "servers_update_addresses")})
+    def _get_instance_details(self, server, qs=None,
+                              flavor_return=None, volumes_return=None,
+                              security_groups_return=None, ):
+
+        url = reverse('horizon:project:instances:detail', args=[server.id])
+        if qs:
+            url += qs
+
+        if flavor_return is None:
+            flavor_return = self.flavors.first()
+
+        if volumes_return is None:
+            volumes_return = []
+
+        if security_groups_return is None:
+            security_groups_return = self.security_groups.list()
+
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        api.network.servers_update_addresses(IsA(http.HttpRequest),
+                                             IgnoreArg())
+        api.nova.instance_volumes_list(IsA(http.HttpRequest),
+                                       server.id).AndReturn(volumes_return)
+        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+                .AndReturn(flavor_return)
+        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
+                .AndReturn(security_groups_return)
+
+        self.mox.ReplayAll()
+
+        return self.client.get(url)
+
     def test_instance_details_volumes(self):
         server = self.servers.first()
         volumes = [self.volumes.list()[1]]
+        security_group = self.security_groups.first()
 
-        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.servers_update_addresses(IsA(http.HttpRequest),
-                                             IgnoreArg())
-        api.nova.instance_volumes_list(IsA(http.HttpRequest),
-                                       server.id).AndReturn(volumes)
-        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
-                .AndReturn(self.flavors.first())
-        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
-                .AndReturn(self.security_groups.list())
-
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:instances:detail',
-                      args=[server.id])
-        res = self.client.get(url)
+        res = self._get_instance_details(server, volumes_return=volumes,
+                                         security_groups_return=security_group)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
 
-    @helpers.create_stubs({api.nova: ("server_get",
-                                   "instance_volumes_list",
-                                   "flavor_get"),
-                        api.network: ("server_security_groups",
-                                      "servers_update_addresses")})
+        self.assertItemsEqual(res.context['instance'].volumes, volumes)
+
     def test_instance_details_volume_sorting(self):
         server = self.servers.first()
         volumes = self.volumes.list()[1:3]
+        security_group = self.security_groups.first()
 
-        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.servers_update_addresses(IsA(http.HttpRequest),
-                                             IgnoreArg())
-        api.nova.instance_volumes_list(IsA(http.HttpRequest),
-                                       server.id).AndReturn(volumes)
-        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
-                .AndReturn(self.flavors.first())
-        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
-                .AndReturn(self.security_groups.list())
-
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:instances:detail',
-                      args=[server.id])
-        res = self.client.get(url)
+        res = self._get_instance_details(server, volumes_return=volumes,
+                                         security_groups_return=security_group)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
         self.assertEqual(res.context['instance'].volumes[0].device,
@@ -676,31 +709,12 @@ class InstanceTests(helpers.TestCase):
         self.assertEqual(res.context['instance'].volumes[1].device,
                          "/dev/hdk")
 
-    @helpers.create_stubs({api.nova: ("server_get",
-                                   "instance_volumes_list",
-                                   "flavor_get"),
-                        api.network: ("server_security_groups",
-                                      "servers_update_addresses")})
     def test_instance_details_metadata(self):
         server = self.servers.first()
 
-        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.servers_update_addresses(IsA(http.HttpRequest),
-                                             IgnoreArg())
-        api.nova.instance_volumes_list(IsA(http.HttpRequest),
-                                       server.id).AndReturn([])
-        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
-                .AndReturn(self.flavors.first())
-        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
-                .AndReturn(self.security_groups.list())
-
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:instances:detail',
-                      args=[server.id])
         tg = tabs.InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("overview").get_id())
-        res = self.client.get(url + qs)
+        res = self._get_instance_details(server, qs)
 
         self.assertContains(res, "<dd>keyName</dd>", 1)
         self.assertContains(res, "<dt>someMetaLabel</dt>", 1)
@@ -712,11 +726,6 @@ class InstanceTests(helpers.TestCase):
         # TODO(david-lyle): uncomment when fixed with Django 1.6
         # self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
 
-    @helpers.create_stubs({api.nova: ("server_get",
-                                   "instance_volumes_list",
-                                   "flavor_get"),
-                        api.network: ("server_security_groups",
-                                      "servers_update_addresses")})
     def test_instance_details_fault(self):
         server = self.servers.first()
 
@@ -731,22 +740,36 @@ class InstanceTests(helpers.TestCase):
                                    "(reason=\"\")\n",
                         "created": "2013-10-07T00:08:32Z"}
 
-        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.servers_update_addresses(IsA(http.HttpRequest),
-                                             IgnoreArg())
-        api.nova.instance_volumes_list(IsA(http.HttpRequest),
-                                       server.id).AndReturn([])
-        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
-                .AndReturn(self.flavors.first())
-        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
-                .AndReturn(self.security_groups.list())
-
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:instances:detail',
-                      args=[server.id])
-        res = self.client.get(url)
+        res = self._get_instance_details(server)
         self.assertItemsEqual(res.context['instance'].fault, server.fault)
+
+    def test_instance_details_console_tab(self):
+        server = self.servers.first()
+
+        tg = tabs.InstanceDetailTabs(self.request, instance=server)
+        qs = "?%s=%s" % (tg.param_name, tg.get_tab("console").get_id())
+        res = self._get_instance_details(server, qs)
+        self.assertIn(tabs.ConsoleTab, res.context_data['tab_group'].tabs)
+        self.assertTemplateUsed(res,
+            'project/instances/_detail_console.html')
+        console_tab_rendered = False
+        for tab in res.context_data['tab_group'].get_loaded_tabs():
+            if isinstance(tab, tabs.ConsoleTab):
+                console_tab_rendered = True
+                break
+        self.assertTrue(console_tab_rendered)
+
+    @django.test.utils.override_settings(CONSOLE_TYPE=None)
+    def test_instance_details_console_tab_deactivated(self):
+        server = self.servers.first()
+
+        tg = tabs.InstanceDetailTabs(self.request, instance=server)
+        self.assertIsNone(tg.get_tab("console"))
+        res = self._get_instance_details(server)
+        self.assertTemplateNotUsed(res,
+            'project/instances/_detail_console.html')
+        for tab in res.context_data['tab_group'].get_loaded_tabs():
+            self.assertNotIsInstance(tab, tabs.ConsoleTab)
 
     @helpers.create_stubs({api.nova: ('server_get',)})
     def test_instance_details_exception(self):

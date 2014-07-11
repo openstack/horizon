@@ -15,9 +15,12 @@
     <div class="footerInner">
       <div class="cell link">
         <a href="[[url]]">» [[view_details_label]]</a>
-        [[#console_id]]
-        <a href="[[url]][[console]]" class="vnc_window">» [[open_console_label]]</a>
-        [[/console_id]]
+        {% comment %}The Console link is available if settings.CONSOLE_TYPE is not set at all, or if it's set to any value other than None or False.{% endcomment %}
+        {% if console_type %}
+            [[#console_id]]
+            <a href="[[url]][[console]]" class="vnc_window">» [[open_console_label]]</a>
+            [[/console_id]]
+        {%  endif %}
       </div>
       <a class="add-interface btn btn-primary btn-xs ajax-modal [[type]]" href="[[add_interface_url]]">[[add_interface_label]]</a>
       <div class="cell delete">

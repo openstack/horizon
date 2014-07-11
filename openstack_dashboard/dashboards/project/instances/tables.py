@@ -333,7 +333,10 @@ class ConsoleLink(tables.LinkAction):
         return {"project_id": project_id}
 
     def allowed(self, request, instance=None):
-        return instance.status in ACTIVE_STATES and not is_deleting(instance)
+        # We check if ConsoleLink is allowed only if settings.CONSOLE_TYPE is
+        # not set at all, or if it's set to any value other than None or False.
+        return bool(getattr(settings, 'CONSOLE_TYPE', True)) and \
+            instance.status in ACTIVE_STATES and not is_deleting(instance)
 
     def get_link_url(self, datum):
         base_url = super(ConsoleLink, self).get_link_url(datum)
