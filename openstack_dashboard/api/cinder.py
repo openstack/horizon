@@ -93,6 +93,12 @@ class VolumeSnapshot(BaseCinderAPIResourceWrapper):
               'os-extended-snapshot-attributes:project_id']
 
 
+class VolumeType(BaseCinderAPIResourceWrapper):
+
+    _attrs = ['id', 'name', 'extra_specs', 'created_at',
+              'os-extended-snapshot-attributes:project_id']
+
+
 class VolumeBackup(BaseCinderAPIResourceWrapper):
 
     _attrs = ['id', 'name', 'description', 'container', 'size', 'status',
@@ -162,6 +168,11 @@ def _replace_v2_parameters(data):
     return data
 
 
+def version_get():
+    api_version = VERSIONS.get_active_version()
+    return api_version['version']
+
+
 def volume_list(request, search_opts=None):
     """To see all volumes in the cloud as an admin you can pass in a special
     search option: {'all_tenants': 1}
@@ -210,6 +221,16 @@ def volume_extend(request, volume_id, new_size):
 
 def volume_delete(request, volume_id):
     return cinderclient(request).volumes.delete(volume_id)
+
+
+def volume_retype(request, volume_id, new_type, migration_policy):
+
+    if not retype_supported():
+        raise exceptions.NotAvailable
+
+    return cinderclient(request).volumes.retype(volume_id,
+                                                new_type,
+                                                migration_policy)
 
 
 def volume_update(request, volume_id, name, description):
@@ -399,3 +420,10 @@ def extension_supported(request, extension_name):
         if extension.name == extension_name:
             return True
     return False
+
+
+@memoized
+def retype_supported():
+    """retype is only supported after cinder v2.
+    """
+    return version_get() >= 2

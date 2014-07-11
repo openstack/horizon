@@ -19,6 +19,7 @@
     "volume:update_snapshot": [["rule:default"]],
     "volume:get_all_snapshots": [],
     "volume:extend": [],
+    "volume:retype": [],
 
     "volume_extension:types_manage": [["rule:admin_api"]],
     "volume_extension:types_extra_specs": [["rule:admin_api"]],
