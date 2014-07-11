@@ -171,14 +171,18 @@ class RestoreAction(workflows.Action):
         help_text_template = "project/databases/_launch_restore_help.html"
 
     def populate_backup_choices(self, request, context):
-        empty = [('', '-')]
         try:
             backups = api.trove.backup_list(request)
-            backup_list = [(b.id, b.name) for b in backups
-                           if b.status == 'COMPLETED']
+            choices = [(b.id, b.name) for b in backups
+                       if b.status == 'COMPLETED' ]
         except Exception:
-            backup_list = []
-        return empty + backup_list
+            choices = []
+
+        if choices:
+            choices.insert(0, ("", _("Select backup")))
+        else:
+            choices.insert(0, ("", _("No backups available")))
+        return choices
 
     def clean_backup(self):
         backup = self.cleaned_data['backup']
