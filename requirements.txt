@@ -2,7 +2,7 @@
 Django>=1.4,<1.7
 django_compressor>=1.4
 django_openstack_auth>=1.1.4
-django_pyscss>=1.0.1  # BSD License (2 clause)
+django-pyscss>=1.0.1  # BSD License (2 clause)
 eventlet>=0.13.0
 httplib2>=0.7.5
 iso8601>=0.1.9
