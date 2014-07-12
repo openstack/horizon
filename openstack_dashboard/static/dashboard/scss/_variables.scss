@@ -10,7 +10,7 @@ $brand-info: #5bc0de;
 $brand-warning: #f0ad4e;
 $brand-danger: #d9534f;
 
-$body-bg: white;
+$body-bg: #ffffff;
 
 $text-color: $gray-dark;
 
@@ -24,3 +24,17 @@ $headings-color: $gray-dark;
 $table-border-color: $border-color;
 $table-bg-hover: #f5f5f5;
 $table-bg-odd: #f9f9f9;
+
+// Workflows
+$workflow-color-tab-complete-bg: #007acc;
+$workflow-color-tab-incomplete-bg: #dddddd;
+$workflow-color-tab-trough-bg: #efefef;
+$workflow-color-tab-border: #ffffff;
+$workflow-color-tab-link-active: #ffffff;
+$workflow-color-tab-link-inactive: #43a4d7;
+
+$workflow-color-label-error: $brand-danger;
+
+$workflow-size-tab-border: 2px;
+$workflow-size-tab-arrow: 20px;
+$workflow-size-tab-padding: 15px;
