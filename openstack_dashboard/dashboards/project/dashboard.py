@@ -51,7 +51,7 @@ class OrchestrationPanels(horizon.PanelGroup):
 
 
 class DatabasePanels(horizon.PanelGroup):
-    name = _("Databases")
+    name = _("Database")
     slug = "database"
     panels = ('databases',
               'database_backups',)
