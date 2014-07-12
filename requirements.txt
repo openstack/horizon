@@ -1,3 +1,10 @@
+# Order matters to the pip dependency resolver, so sorting this file
+# changes how packages are installed.  New dependencies should be
+# added in alphabetical order, however, some dependencies may need to
+# be installed in a specific order.
+#
+# PBR should always appear first
+pbr>=0.6,!=0.7,<1.0
 # Horizon Core Requirements
 Django>=1.4,<1.7
 django_compressor>=1.4
@@ -11,7 +18,6 @@ kombu>=2.4.8
 # for SECURE_KEY generation
 lockfile>=0.8
 netaddr>=0.7.6
-pbr>=0.6,!=0.7,<1.0
 pyscss>=1.2.0  # MIT License
 python-ceilometerclient>=1.0.6
 python-cinderclient>=1.0.7
