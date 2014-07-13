@@ -20,7 +20,7 @@ from openstack_dashboard.dashboards.project import dashboard
 
 
 class Databases(horizon.Panel):
-    name = _("Database Instances")
+    name = _("Instances")
     slug = 'databases'
     permissions = ('openstack.services.database',)
 
