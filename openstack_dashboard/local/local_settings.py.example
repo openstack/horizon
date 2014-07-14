@@ -492,12 +492,12 @@ SECURITY_GROUP_RULES = {
 
 FLAVOR_EXTRA_KEYS = {
     'flavor_keys': [
-        ('quota:read_bytes_sec', _('Quota: Read bytes')),
-        ('quota:write_bytes_sec', _('Quota: Write bytes')),
+        ('quota:disk_read_bytes_sec', _('Quota: Read bytes')),
+        ('quota:disk_write_bytes_sec', _('Quota: Write bytes')),
         ('quota:cpu_quota', _('Quota: CPU')),
         ('quota:cpu_period', _('Quota: CPU period')),
-        ('quota:inbound_average', _('Quota: Inbound average')),
-        ('quota:outbound_average', _('Quota: Outbound average')),
+        ('quota:vif_inbound_average', _('Quota: Inbound average')),
+        ('quota:vif_outbound_average', _('Quota: Outbound average')),
     ]
 }
 

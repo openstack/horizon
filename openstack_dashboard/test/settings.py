@@ -213,12 +213,12 @@ POLICY_FILES = {
 
 FLAVOR_EXTRA_KEYS = {
     'flavor_keys': [
-        ('quota:read_bytes_sec', 'Quota: Read bytes'),
-        ('quota:write_bytes_sec', 'Quota: Write bytes'),
+        ('quota:disk_read_bytes_sec', 'Quota: Read bytes'),
+        ('quota:disk_write_bytes_sec', 'Quota: Write bytes'),
         ('quota:cpu_quota', 'Quota: CPU'),
         ('quota:cpu_period', 'Quota: CPU period'),
-        ('quota:inbound_average', 'Quota: Inbound average'),
-        ('quota:outbound_average', 'Quota: Outbound average'),
+        ('quota:vif_inbound_average', 'Quota: Inbound average'),
+        ('quota:vif_outbound_average', 'Quota: Outbound average'),
     ]
 }
 

@@ -71,11 +71,11 @@ class FlavorExtrasTests(test.BaseAdminViewTests):
         # GET to display the flavor_name
         api.nova.flavor_extra_set(IsA(http.HttpRequest),
                                   flavor.id,
-                                  {'quota:read_bytes_sec': '1000'})
+                                  {'quota:disk_read_bytes_sec': '1000'})
         self.mox.ReplayAll()
 
         data = {'flavor_id': flavor.id,
-                'keys': 'quota:read_bytes_sec',
+                'keys': 'quota:disk_read_bytes_sec',
                 'value': '1000'}
         resp = self.client.post(create_url, data)
         self.assertNoFormErrors(resp)
