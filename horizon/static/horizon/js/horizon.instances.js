@@ -45,25 +45,19 @@ horizon.instances = {
    * Initializes an associative array of lists of the current
    * networks.
    **/
-  init_network_list: function() {
+  init_network_list: function () {
     horizon.instances.networks_selected = [];
     horizon.instances.networks_available = [];
-    $(this.get_network_element("")).each(function(){
+    $(this.get_network_element("")).each(function () {
       var $this = $(this);
       var $input = $this.children("input");
-      var name = $this.text().replace(/^\s+/,"")
-                             .replace(/&/g, '&amp;')
-                             .replace(/</g, '&lt;')
-                             .replace(/>/g, '&gt;')
-                             .replace(/"/g, '&quot;')
-                             .replace(/'/g, '&#x27;')
-                             .replace(/\//g, '&#x2F;');
+      var name = horizon.escape_html($this.text().replace(/^\s+/, ""));
       var network_property = {
-        name:name,
-        id:$input.attr("id"),
-        value:$input.attr("value")
+        "name": name,
+        "id": $input.attr("id"),
+        "value": $input.attr("value")
       };
-      if($input.is(':checked')) {
+      if ($input.is(":checked")) {
         horizon.instances.networks_selected.push(network_property);
       } else {
         horizon.instances.networks_available.push(network_property);
