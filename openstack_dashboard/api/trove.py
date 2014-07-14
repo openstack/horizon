@@ -108,8 +108,9 @@ def backup_delete(request, backup_id):
     return troveclient(request).backups.delete(backup_id)
 
 
-def backup_create(request, name, instance_id, description=None):
-    return troveclient(request).backups.create(name, instance_id, description)
+def backup_create(request, name, instance_id, description=None, parent_id=None):
+    return troveclient(request).backups.create(name, instance_id,
+                                               description, parent_id)
 
 
 def flavor_list(request):

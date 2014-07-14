@@ -42,6 +42,20 @@
       </dl>
     </div>
 
+    {% if backup.parent %}
+    <div class="status row-fluid detail">
+      <h4>{% trans "Incremental Backup" %}</h4>
+      <hr class="header_rule">
+      <dl>
+        <dt>{% trans "Parent Backup" %}</dt>
+        <dd>
+           {% url 'horizon:project:database_backups:detail' backup.parent.id as parent_url %}
+           <a href="{{ parent_url }}">{{ backup.parent.name }}</a>
+        </dd>
+      </dl>
+    </div>
+    {% endif %}
+
     {% if instance %}
     <div class="addresses row-fluid detail">
       <h4>{% trans "Database Info" %}</h4>

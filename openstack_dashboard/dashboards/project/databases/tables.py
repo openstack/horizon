@@ -13,7 +13,7 @@
 #    under the License.
 
 from django.core import urlresolvers
-from django.template.defaultfilters import title  # noqa
+from django.template import defaultfilters as d_filters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -197,7 +197,8 @@ class InstancesTable(tables.DataTable):
                          verbose_name=_("Volume Size"),
                          attrs={'data-type': 'size'})
     status = tables.Column("status",
-                           filters=(title, filters.replace_underscores),
+                           filters=(d_filters.title,
+                                    filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=STATUS_CHOICES)
@@ -242,6 +243,10 @@ class DatabaseTable(tables.DataTable):
         return datum.name
 
 
+def is_incremental(obj):
+    return hasattr(obj, 'parent_id') and obj.parent_id is not None
+
+
 class InstanceBackupsTable(tables.DataTable):
     name = tables.Column("name",
                          link=("horizon:project:database_backups:detail"),
@@ -251,8 +256,13 @@ class InstanceBackupsTable(tables.DataTable):
     location = tables.Column(lambda obj: _("Download"),
                              link=lambda obj: obj.locationRef,
                              verbose_name=_("Backup File"))
+    incremental = tables.Column(is_incremental,
+                                verbose_name=_("Incremental"),
+                                filters=(d_filters.yesno,
+                                         d_filters.capfirst))
     status = tables.Column("status",
-                           filters=(title, filters.replace_underscores),
+                           filters=(d_filters.title,
+                                    filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
                            status_choices=backup_tables.STATUS_CHOICES)
