@@ -74,7 +74,7 @@ def float_cast_filesizeformat(value, multiplier=1, format=int_format):
         value = float(value)
         value = filesizeformat(value * multiplier, format).replace(' ', '')
     except (TypeError, ValueError):
-        value = value or _('0 bytes')
+        value = value or _('0 Bytes')
     return value
 
 
