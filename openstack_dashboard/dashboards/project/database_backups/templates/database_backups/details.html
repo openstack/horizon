@@ -42,7 +42,10 @@
         <dt>{% trans "Name" %}</dt>
         <dd>{{ instance.name }}</dd>
         <dt>{% trans "ID" %}</dt>
-        <dd>{{ instance.id }}</dd>
+        <dd>
+          {% url 'horizon:project:databases:detail' instance.id as instance_url %}
+          <a href="{{ instance_url }}">{{ instance.id }}</a>
+        </dd>
         <dt>{% trans "Status" %}</dt>
         <dd>{{ instance.status|title }}</dd>
       </dl>
