@@ -83,6 +83,7 @@ dt {
   display: inline-block;
   height: auto;
   width: 160px;
+  max-width: 160px;
   background-position: 140px center;
   margin-bottom: 0;
   margin-right: 10px;
@@ -95,6 +96,11 @@ dt {
   @include border-radius(4px);
   // How to convert to SCSS?
   // @include box-shadow(inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  ul#tenant_list a {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .topbar .switcher_bar a {
@@ -112,6 +118,8 @@ dt {
   line-height: 20px;
   color: $gray;
   text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .topbar .switcher_bar div {
