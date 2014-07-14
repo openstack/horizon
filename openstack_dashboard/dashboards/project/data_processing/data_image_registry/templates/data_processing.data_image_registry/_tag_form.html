@@ -1,0 +1,119 @@
+{% load i18n %}
+<div id="image_tags_list" class="well"></div>
+<div style="clear: both;"></div>
+<div id="plugin_populate_section">
+    <h5>{% trans "Register tags required for the Plugin with specified Data Processing Version" %}</h5>
+    <br>
+    <table style="margin-bottom: 4px">
+        <tr>
+            <td style="width: 200px">
+                <label for="plugin_select">{% trans "Plugin" %}</label>
+                <select id="plugin_select" class="plugin-choice" style="width: 100%">
+                    {% for plugin, version_dict in plugins.items %}
+                        <option value="{{ plugin }}">{{ plugin }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td style="width: 200px">
+                {% for plugin, version_dict in plugins.items %}
+                <div id="version_group_{{ plugin }}" class="data_processing-version-choice" >
+                    <label for="data_processing_version_{{ plugin }}">{% trans "Version" %}</label>
+                    <select id="data_processing_version_{{ plugin }}" style="width: 100%">
+                        {% for version, tags in version_dict.items %}
+                            <option value="{{ version }}">{{ version }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    <input type="button" id="add_all_btn" class="btn btn-small" value="{% trans "Add all" %}" />
+</div>
+
+<hr />
+<div style="margin-top: 5px;">
+    <input type="text" class="tag-input" id="_sahara_image_tag" data-original-title="" onclick=""/>
+    <a href="#" id="add_tag_btn" class="btn btn-small btn-create btn-inline" onclick="add_tag_to_image()">{% trans "Add custom tag" %}</a>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $(".plugin-choice").change(function(e) {
+            $(".data_processing-version-choice").hide();
+            var val = $(this).val();
+            $("#version_group_" + val).show();
+        }).change();
+
+        $("#add_all_btn").click(function(e) {
+            var plugin = $("#plugin_select").val();
+            var version = $("#data_processing_version_" + plugin).val();
+            var tags = plugin_tags_map[plugin][version];
+            $(tags).each(function(idx, tag) {
+                add_tag_to_image(tag);
+            });
+        })
+    })
+
+   $("#_sahara_image_tag").keypress(function (event) {
+        if (event.keyCode == 13) {
+            add_tag_to_image();
+            return false;
+        }
+        return true;
+    });
+    function add_tag_to_image(tag) {
+        if (!tag) {
+            tag = $.trim($("#_sahara_image_tag").val());
+        }
+        if (tag.length == 0) {
+            return;
+        }
+
+        $("#image_tags_list span").each(function (el) {
+            if ($.trim($(this).text()) == tag) {
+                return;
+            }
+        });
+
+        var tags = get_current_tags();
+        if ($.inArray(tag, tags) == -1) {
+          var span = ' <span class="label label-warning" style="float: left;display: block; margin: 2px;">$tag <i class="icon-remove-sign" onclick="remove_tag(this);"></i></span>'.replace("$tag", tag)
+          $("#image_tags_list").append(span);
+          update_image_tags();
+        }
+        $("#_sahara_image_tag").val("");
+    }
+
+    function get_current_tags() {
+      var tags = [];
+      $("#image_tags_list span").each(function (el) {
+        tags.push($.trim($(this).text()));
+      });
+      return tags;
+    }
+
+    function update_image_tags() {
+        var tags = get_current_tags();
+        $("#id_tags_list").val(JSON.stringify(tags));
+    }
+
+    function remove_tag(icon) {
+        span = icon.parentNode;
+        span.parentNode.removeChild(span);
+        update_image_tags()
+    }
+
+    // {"plugin": {"v1": [...tags...], "v2": [...tags...]},
+    //  "other_plugin": ... }
+    var plugin_tags_map = {};
+    {% for plugin, version_dict in plugins.items %}
+        plugin_tags_map["{{ plugin }}"] = {};
+        {% for version, tags in version_dict.items %}
+            plugin_tags_map["{{ plugin }}"]["{{ version }}"] = [];
+            {% for tag in tags %}
+                plugin_tags_map["{{ plugin }}"]["{{ version }}"].push("{{ tag }}");
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+</script>
