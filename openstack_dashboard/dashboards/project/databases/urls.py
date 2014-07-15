@@ -18,10 +18,14 @@ from django.conf.urls import url  # noqa
 from openstack_dashboard.dashboards.project.databases import views
 
 
+INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
+
+
 urlpatterns = patterns(
     '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^launch$', views.LaunchInstanceView.as_view(), name='launch'),
-    url(r'^(?P<instance_id>[^/]+)/$', views.DetailView.as_view(),
-        name='detail'),
+    url(INSTANCES % '', views.DetailView.as_view(), name='detail'),
+    url(INSTANCES % 'resize_volume', views.ResizeVolumeView.as_view(),
+        name='resize_volume')
 )

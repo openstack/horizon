@@ -275,3 +275,54 @@ class DatabaseTests(test.TestCase):
         form_data = {'action': action_string}
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, url)
+
+    @test.create_stubs(
+        {api.trove: ('instance_get', 'instance_resize_volume' )})
+    def test_resize_volume(self):
+        database = self.databases.first()
+        database_id = database.id
+        database_size = database.volume.get('size')
+
+        # views.py: DetailView.get_data
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+            .AndReturn(database)
+
+        # forms.py: ResizeVolumeForm.handle
+        api.trove.instance_resize_volume(IsA(http.HttpRequest),
+                              database_id, IsA(int)).AndReturn(None)
+
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:databases:resize_volume',
+                              args=[database_id])
+        post = {
+            'instance_id': database_id,
+            'orig_size': database_size,
+            'new_size': database_size + 1
+        }
+        res = self.client.post(url, post)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs(
+        {api.trove: ('instance_get', 'instance_resize_volume' )})
+    def test_resize_volume_bad_value(self):
+        database = self.databases.first()
+        database_id = database.id
+        database_size = database.volume.get('size')
+
+        # views.py: DetailView.get_data
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+            .AndReturn(database)
+
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:databases:resize_volume',
+                              args=[database_id])
+        post = {
+            'instance_id': database_id,
+            'orig_size': database_size,
+            'new_size': database_size
+        }
+        res = self.client.post(url, post)
+        self.assertContains(res,
+             "New size for volume must be greater than current size.")
+

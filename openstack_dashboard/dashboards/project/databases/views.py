@@ -18,16 +18,19 @@ Views for managing database instances.
 import logging
 
 from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import forms as horizon_forms
 from horizon import tables as horizon_tables
 from horizon import tabs as horizon_tabs
 from horizon.utils import memoized
 from horizon import workflows as horizon_workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.databases import forms
 from openstack_dashboard.dashboards.project.databases import tables
 from openstack_dashboard.dashboards.project.databases import tabs
 from openstack_dashboard.dashboards.project.databases import workflows
@@ -127,3 +130,29 @@ class DetailView(horizon_tabs.TabbedTableView):
     def get_tabs(self, request, *args, **kwargs):
         instance = self.get_data()
         return self.tab_group_class(request, instance=instance, **kwargs)
+
+
+class ResizeVolumeView(horizon_forms.ModalFormView):
+    form_class = forms.ResizeVolumeForm
+    template_name = 'project/databases/resize_volume.html'
+    success_url = reverse_lazy('horizon:project:databases:index')
+
+    @memoized.memoized_method
+    def get_object(self, *args, **kwargs):
+        instance_id = self.kwargs['instance_id']
+        try:
+            return api.trove.instance_get(self.request, instance_id)
+        except Exception:
+            msg = _('Unable to retrieve instance details.')
+            redirect = reverse('horizon:project:databases:index')
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super(ResizeVolumeView, self).get_context_data(**kwargs)
+        context['instance_id'] = self.kwargs['instance_id']
+        return context
+
+    def get_initial(self):
+        instance = self.get_object()
+        return {'instance_id': self.kwargs['instance_id'],
+                'orig_size': instance.volume.get('size', 0)}
