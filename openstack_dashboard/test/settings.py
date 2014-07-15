@@ -47,13 +47,7 @@ INSTALLED_APPS = (
     'openstack_dashboard.dashboards.project',
     'openstack_dashboard.dashboards.admin',
     'openstack_dashboard.dashboards.settings',
-    # If the profile_support config is turned on in local_settings
-    # the "router" dashboard will be enabled which can be used to
-    # create and use profiles with networks and instances. In which case
-    # using run_tests will require the registration of the "router" dashboard.
-    # TODO (absubram): Need to make this permanent when a better solution
-    # for run_tests is implemented to use with and without the n1k sub-plugin.
-    #'openstack_dashboard.dashboards.router',
+    'openstack_dashboard.dashboards.router',
 )
 
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
@@ -61,14 +55,7 @@ AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
 SITE_BRANDING = 'OpenStack'
 
 HORIZON_CONFIG = {
-    'dashboards': ('project', 'admin', 'settings',),
-    # If the profile_support config is turned on in local_settings
-    # the "router" dashboard will be enabled which can be used to
-    # create and use profiles with networks and instances. In which case
-    # using run_tests will require the registration of the "router" dashboard.
-    # TODO (absubram): Need to make this permanent when a better solution
-    # for run_tests is implemented to use with and without the n1k sub-plugin.
-    #'dashboards': ('project', 'admin', 'settings', 'router',),
+    'dashboards': ('project', 'admin', 'settings', 'router',),
     'default_dashboard': 'project',
     "password_validator": {
         "regex": '^.{8,18}$',
@@ -121,12 +108,6 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_firewall': True,
     'enable_quotas': False,  # Enabled in specific tests only
     'enable_vpn': True,
-    # If the profile_support config is turned on in local_settings
-    # the "router" dashboard will be enabled which can be used to
-    # create and use profiles with networks and instances. In which case
-    # using run_tests will require the registration of the "router" dashboard.
-    # TODO (absubram): Need to make this permanent when a better solution
-    # for run_tests is implemented to use with and without the n1k sub-plugin.
     'profile_support': None,
     #'profile_support': 'cisco'
 }

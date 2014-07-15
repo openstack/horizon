@@ -35,31 +35,36 @@ class CreateNetworkInfoAction(workflows.Action):
                                label=_("Network Name"),
                                required=False)
     if api.neutron.is_port_profiles_supported():
-        net_profile_id = forms.ChoiceField(label=_("Network Profile"))
+        widget = None
+    else:
+        widget = forms.HiddenInput()
+    net_profile_id = forms.ChoiceField(label=_("Network Profile"),
+                                       required=False,
+                                       widget=widget)
     admin_state = forms.BooleanField(label=_("Admin State"),
                                      initial=True, required=False)
 
-    if api.neutron.is_port_profiles_supported():
-        def __init__(self, request, *args, **kwargs):
-            super(CreateNetworkInfoAction, self).__init__(request,
-                                                          *args, **kwargs)
+    def __init__(self, request, *args, **kwargs):
+        super(CreateNetworkInfoAction, self).__init__(request,
+                                                      *args, **kwargs)
+        if api.neutron.is_port_profiles_supported():
             self.fields['net_profile_id'].choices = (
                 self.get_network_profile_choices(request))
 
-        def get_network_profile_choices(self, request):
-            profile_choices = [('', _("Select a profile"))]
-            for profile in self._get_profiles(request, 'network'):
-                profile_choices.append((profile.id, profile.name))
-            return profile_choices
+    def get_network_profile_choices(self, request):
+        profile_choices = [('', _("Select a profile"))]
+        for profile in self._get_profiles(request, 'network'):
+            profile_choices.append((profile.id, profile.name))
+        return profile_choices
 
-        def _get_profiles(self, request, type_p):
-            try:
-                profiles = api.neutron.profile_list(request, type_p)
-            except Exception:
-                profiles = []
-                msg = _('Network Profiles could not be retrieved.')
-                exceptions.handle(request, msg)
-            return profiles
+    def _get_profiles(self, request, type_p):
+        profiles = []
+        try:
+            profiles = api.neutron.profile_list(request, type_p)
+        except Exception:
+            msg = _('Network Profiles could not be retrieved.')
+            exceptions.handle(request, msg)
+        return profiles
     # TODO(absubram): Add ability to view network profile information
     # in the network detail if a profile is used.
 
@@ -72,10 +77,7 @@ class CreateNetworkInfoAction(workflows.Action):
 
 class CreateNetworkInfo(workflows.Step):
     action_class = CreateNetworkInfoAction
-    if api.neutron.is_port_profiles_supported():
-        contributes = ("net_name", "admin_state", "net_profile_id")
-    else:
-        contributes = ("net_name", "admin_state")
+    contributes = ("net_name", "admin_state", "net_profile_id")
 
 
 class CreateSubnetInfoAction(workflows.Action):
