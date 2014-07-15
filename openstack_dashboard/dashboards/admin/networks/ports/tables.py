@@ -92,9 +92,18 @@ class PortsTable(tables.DataTable):
     status = tables.Column("status", verbose_name=_("Status"))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"))
+    mac_state = tables.Column("mac_state", empty_value=api.neutron.OFF_STATE,
+                              verbose_name=_("Mac Learning State"))
 
     class Meta:
         name = "ports"
         verbose_name = _("Ports")
         table_actions = (CreatePort, DeletePort)
         row_actions = (UpdatePort, DeletePort,)
+
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
+        super(PortsTable, self).__init__(request, data=data,
+                                         needs_form_wrapper=needs_form_wrapper,
+                                         **kwargs)
+        if not api.neutron.is_extension_supported(request, 'mac-learning'):
+            del self.columns['mac_state']

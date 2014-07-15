@@ -60,8 +60,19 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_network_detail(self):
+        self._test_network_detail()
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_network_detail_with_mac_learning(self):
+        self._test_network_detail(mac_learning=True)
+
+    def _test_network_detail(self, mac_learning=False):
         network_id = self.networks.first().id
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
@@ -69,6 +80,9 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
 
         self.mox.ReplayAll()
 
@@ -83,8 +97,19 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_network_detail_network_exception(self):
+        self._test_network_detail_network_exception()
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_network_detail_network_exception_with_mac_learning(self):
+        self._test_network_detail_network_exception(mac_learning=True)
+
+    def _test_network_detail_network_exception(self, mac_learning=False):
         network_id = self.networks.first().id
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndRaise(self.exceptions.neutron)
@@ -92,6 +117,9 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
 
         self.mox.ReplayAll()
 
@@ -103,8 +131,19 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_network_detail_subnet_exception(self):
+        self._test_network_detail_subnet_exception()
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_network_detail_subnet_exception_with_mac_learning(self):
+        self._test_network_detail_subnet_exception(mac_learning=True)
+
+    def _test_network_detail_subnet_exception(self, mac_learning=False):
         network_id = self.networks.first().id
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
             AndReturn(self.networks.first())
@@ -112,6 +151,9 @@ class NetworkTests(test.BaseAdminViewTests):
             AndRaise(self.exceptions.neutron)
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
             AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
 
         self.mox.ReplayAll()
 
@@ -126,8 +168,19 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_network_detail_port_exception(self):
+        self._test_network_detail_port_exception()
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_network_detail_port_exception_with_mac_learning(self):
+        self._test_network_detail_port_exception(mac_learning=True)
+
+    def _test_network_detail_port_exception(self, mac_learning=False):
         network_id = self.networks.first().id
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
             AndReturn(self.networks.first())
@@ -135,6 +188,9 @@ class NetworkTests(test.BaseAdminViewTests):
             AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
             AndRaise(self.exceptions.neutron)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
 
         self.mox.ReplayAll()
 
@@ -583,8 +639,19 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('subnet_delete',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_subnet_delete(self):
+        self._test_subnet_delete()
+
+    @test.create_stubs({api.neutron: ('subnet_delete',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_subnet_delete_with_mac_learning(self):
+        self._test_subnet_delete(mac_learning=True)
+
+    def _test_subnet_delete(self, mac_learning=False):
         subnet = self.subnets.first()
         network_id = subnet.network_id
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
@@ -592,6 +659,9 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
@@ -603,8 +673,19 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('subnet_delete',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_subnet_delete_exception(self):
+        self._test_subnet_delete_exception()
+
+    @test.create_stubs({api.neutron: ('subnet_delete',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_subnet_delete_exception_with_mac_learning(self):
+        self._test_subnet_delete_exception(mac_learning=True)
+
+    def _test_subnet_delete_exception(self, mac_learning=False):
         subnet = self.subnets.first()
         network_id = subnet.network_id
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)\
@@ -613,6 +694,9 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
             .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
@@ -625,11 +709,23 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
 class NetworkPortTests(test.BaseAdminViewTests):
 
-    @test.create_stubs({api.neutron: ('port_get',)})
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',)})
     def test_port_detail(self):
+        self._test_port_detail()
+
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',)})
+    def test_port_detail_with_mac_learning(self):
+        self._test_port_detail(mac_learning=True)
+
+    def _test_port_detail(self, mac_learning=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(self.ports.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
 
         self.mox.ReplayAll()
 
@@ -655,12 +751,24 @@ class NetworkPortTests(test.BaseAdminViewTests):
         redir_url = reverse('horizon:project:networks:index')
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',)})
     def test_port_create_get(self):
+        self._test_port_create_get()
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',)})
+    def test_port_create_get_with_mac_learning(self):
+        self._test_port_create_get(mac_learning=True)
+
+    def _test_port_create_get(self, mac_learning=False):
         network = self.networks.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:addport',
@@ -670,8 +778,18 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/networks/ports/create.html')
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'port_create')})
+                                      'is_extension_supported',
+                                      'port_create',)})
     def test_port_create_post(self):
+        self._test_port_create_post()
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'port_create',)})
+    def test_port_create_post_with_mac_learning(self):
+        self._test_port_create_post(mac_learning=True)
+
+    def _test_port_create_post(self, mac_learning=False):
         network = self.networks.first()
         port = self.ports.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -680,13 +798,20 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
+        extension_kwargs = {}
+        if mac_learning:
+            extension_kwargs['mac_learning_enabled'] = True
         api.neutron.port_create(IsA(http.HttpRequest),
                                 tenant_id=network.tenant_id,
                                 network_id=network.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
                                 device_id=port.device_id,
-                                device_owner=port.device_owner)\
+                                device_owner=port.device_owner,
+                                **extension_kwargs)\
             .AndReturn(port)
         self.mox.ReplayAll()
 
@@ -696,6 +821,8 @@ class NetworkPortTests(test.BaseAdminViewTests):
                      'admin_state': port.admin_state_up,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner}
+        if mac_learning:
+            form_data['mac_state'] = True
         url = reverse('horizon:admin:networks:addport',
                       args=[port.network_id])
         res = self.client.post(url, form_data)
@@ -706,8 +833,18 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'port_create')})
+                                      'port_create',
+                                      'is_extension_supported',)})
     def test_port_create_post_exception(self):
+        self._test_port_create_post_exception()
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'port_create',
+                                      'is_extension_supported',)})
+    def test_port_create_post_exception_with_mac_learning(self):
+        self._test_port_create_post_exception(mac_learning=True)
+
+    def _test_port_create_post_exception(self, mac_learning=False):
         network = self.networks.first()
         port = self.ports.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -716,13 +853,20 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
+        extension_kwargs = {}
+        if mac_learning:
+            extension_kwargs['mac_learning_enabled'] = True
         api.neutron.port_create(IsA(http.HttpRequest),
                                 tenant_id=network.tenant_id,
                                 network_id=network.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
                                 device_id=port.device_id,
-                                device_owner=port.device_owner)\
+                                device_owner=port.device_owner,
+                                **extension_kwargs)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
@@ -730,8 +874,11 @@ class NetworkPortTests(test.BaseAdminViewTests):
                      'network_name': network.name,
                      'name': port.name,
                      'admin_state': port.admin_state_up,
+                     'mac_state': True,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner}
+        if mac_learning:
+            form_data['mac_learning_enabled'] = True
         url = reverse('horizon:admin:networks:addport',
                       args=[port.network_id])
         res = self.client.post(url, form_data)
@@ -741,12 +888,24 @@ class NetworkPortTests(test.BaseAdminViewTests):
                             args=[port.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('port_get',)})
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',)})
     def test_port_update_get(self):
+        self._test_port_update_get()
+
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',)})
+    def test_port_update_get_with_mac_learning(self):
+        self._test_port_update_get(mac_learning=True)
+
+    def _test_port_update_get(self, mac_learning=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest),
                              port.id)\
             .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:editport',
@@ -756,16 +915,33 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/networks/ports/update.html')
 
     @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
                                       'port_update')})
     def test_port_update_post(self):
+        self._test_port_update_post()
+
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
+                                      'port_update')})
+    def test_port_update_post_with_mac_learning(self):
+        self._test_port_update_post(mac_learning=True)
+
+    def _test_port_update_post(self, mac_learning=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
+        extension_kwargs = {}
+        if mac_learning:
+            extension_kwargs['mac_learning_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
                                 device_id=port.device_id,
-                                device_owner=port.device_owner)\
+                                device_owner=port.device_owner,
+                                **extension_kwargs)\
             .AndReturn(port)
         self.mox.ReplayAll()
 
@@ -775,6 +951,8 @@ class NetworkPortTests(test.BaseAdminViewTests):
                      'admin_state': port.admin_state_up,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner}
+        if mac_learning:
+            form_data['mac_state'] = True
         url = reverse('horizon:admin:networks:editport',
                       args=[port.network_id, port.id])
         res = self.client.post(url, form_data)
@@ -784,16 +962,33 @@ class NetworkPortTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
                                       'port_update')})
     def test_port_update_post_exception(self):
+        self._test_port_update_post_exception()
+
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
+                                      'port_update')})
+    def test_port_update_post_exception_with_mac_learning(self):
+        self._test_port_update_post_exception(mac_learning=True)
+
+    def _test_port_update_post_exception(self, mac_learning=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
+        extension_kwargs = {}
+        if mac_learning:
+            extension_kwargs['mac_learning_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
                                 device_id=port.device_id,
-                                device_owner=port.device_owner)\
+                                device_owner=port.device_owner,
+                                **extension_kwargs)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
@@ -803,6 +998,8 @@ class NetworkPortTests(test.BaseAdminViewTests):
                      'admin_state': port.admin_state_up,
                      'device_id': port.device_id,
                      'device_owner': port.device_owner}
+        if mac_learning:
+            form_data['mac_state'] = True
         url = reverse('horizon:admin:networks:editport',
                       args=[port.network_id, port.id])
         res = self.client.post(url, form_data)
@@ -813,8 +1010,19 @@ class NetworkPortTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('port_delete',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_port_delete(self):
+        self._test_port_delete()
+
+    @test.create_stubs({api.neutron: ('port_delete',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_port_delete_with_mac_learning(self):
+        self._test_port_delete(mac_learning=True)
+
+    def _test_port_delete(self, mac_learning=False):
         port = self.ports.first()
         network_id = port.network_id
         api.neutron.port_delete(IsA(http.HttpRequest), port.id)
@@ -822,6 +1030,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
             .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         form_data = {'action': 'ports__delete__%s' % port.id}
@@ -833,8 +1044,19 @@ class NetworkPortTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('port_delete',
                                       'subnet_list',
-                                      'port_list',)})
+                                      'port_list',
+                                      'is_extension_supported',)})
     def test_port_delete_exception(self):
+        self._test_port_delete_exception()
+
+    @test.create_stubs({api.neutron: ('port_delete',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',)})
+    def test_port_delete_exception_with_mac_learning(self):
+        self._test_port_delete_exception(mac_learning=True)
+
+    def _test_port_delete_exception(self, mac_learning=False):
         port = self.ports.first()
         network_id = port.network_id
         api.neutron.port_delete(IsA(http.HttpRequest), port.id)\
@@ -843,6 +1065,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
             .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         form_data = {'action': 'ports__delete__%s' % port.id}
