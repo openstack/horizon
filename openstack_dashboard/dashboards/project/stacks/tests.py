@@ -103,28 +103,31 @@ class StackTests(test.TestCase):
     @test.create_stubs({api.heat: ('stacks_list',)})
     def test_index_paginated(self):
         stacks = self.stacks.list()[:5]
-        # import pdb; pdb.set_trace()
 
         api.heat.stacks_list(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True) \
+                                       paginate=True,
+                                       sort_dir='desc') \
                                 .AndReturn([stacks,
-                                            True])
+                                            True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True) \
+                                       paginate=True,
+                                       sort_dir='desc') \
                                 .AndReturn([stacks[:2],
-                                            True])
+                                            True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                                        marker=stacks[2].id,
-                                       paginate=True) \
+                                       paginate=True,
+                                       sort_dir='desc') \
                                 .AndReturn([stacks[2:4],
-                                            True])
+                                            True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                                        marker=stacks[4].id,
-                                       paginate=True) \
+                                       paginate=True,
+                                       sort_dir='desc') \
                                 .AndReturn([stacks[4:],
-                                            True])
+                                            True, True])
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:stacks:index')
@@ -152,6 +155,62 @@ class StackTests(test.TestCase):
         # get third page (item 5)
         self.assertEqual(len(res.context['stacks_table'].data),
                          1)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.heat: ('stacks_list',)})
+    def test_index_prev_paginated(self):
+        stacks = self.stacks.list()[:3]
+
+        api.heat.stacks_list(IsA(http.HttpRequest),
+                                       marker=None,
+                                       paginate=True,
+                                       sort_dir='desc') \
+                                .AndReturn([stacks,
+                                            True, False])
+        api.heat.stacks_list(IsA(http.HttpRequest),
+                                       marker=None,
+                                       paginate=True,
+                                       sort_dir='desc') \
+                                .AndReturn([stacks[:2],
+                                            True, True])
+        api.heat.stacks_list(IsA(http.HttpRequest),
+                                       marker=stacks[2].id,
+                                       paginate=True,
+                                       sort_dir='desc') \
+                                .AndReturn([stacks[2:],
+                                            True, True])
+        api.heat.stacks_list(IsA(http.HttpRequest),
+                                       marker=stacks[2].id,
+                                       paginate=True,
+                                       sort_dir='asc') \
+                                .AndReturn([stacks[:2],
+                                            True, True])
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:stacks:index')
+        res = self.client.get(url)
+        # get all
+        self.assertEqual(len(res.context['stacks_table'].data),
+                         len(stacks))
+        self.assertTemplateUsed(res, 'project/stacks/index.html')
+
+        res = self.client.get(url)
+        # get first page with 2 items
+        self.assertEqual(len(res.context['stacks_table'].data),
+                         settings.API_RESULT_PAGE_SIZE)
+
+        url = "%s?%s=%s" % (reverse('horizon:project:stacks:index'),
+            tables.StacksTable._meta.pagination_param, stacks[2].id)
+        res = self.client.get(url)
+        # get second page (item 3)
+        self.assertEqual(len(res.context['stacks_table'].data), 1)
+
+        url = "%s?%s=%s" % (reverse('horizon:project:stacks:index'),
+            tables.StacksTable._meta.prev_pagination_param, stacks[2].id)
+        res = self.client.get(url)
+        # prev back to get first page with 2 pages
+        self.assertEqual(len(res.context['stacks_table'].data),
+                         settings.API_RESULT_PAGE_SIZE)
 
     @test.create_stubs({api.heat: ('stack_create', 'template_validate')})
     def test_launch_stack(self):

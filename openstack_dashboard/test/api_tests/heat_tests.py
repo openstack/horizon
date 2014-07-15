@@ -24,11 +24,144 @@ class HeatApiTests(test.APITestCase):
 
         heatclient = self.stub_heatclient()
         heatclient.stacks = self.mox.CreateMockAnything()
-        heatclient.stacks.list(limit=limit).AndReturn(iter(api_stacks))
+        heatclient.stacks.list(limit=limit,
+                               sort_dir='desc',
+                               sort_key='created_at',) \
+            .AndReturn(iter(api_stacks))
         self.mox.ReplayAll()
-        stacks, has_more = api.heat.stacks_list(self.request)
+        stacks, has_more, has_prev = api.heat.stacks_list(self.request)
         self.assertItemsEqual(stacks, api_stacks)
         self.assertFalse(has_more)
+        self.assertFalse(has_prev)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_stack_list_sort_options(self):
+        # Verify that sort_dir and sort_key work
+        api_stacks = self.stacks.list()
+        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        sort_dir = 'asc'
+        sort_key = 'size'
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        heatclient.stacks.list(limit=limit,
+                           sort_dir=sort_dir,
+                           sort_key=sort_key,) \
+            .AndReturn(iter(api_stacks))
+        self.mox.ReplayAll()
+
+        stacks, has_more, has_prev = api.heat.stacks_list(self.request,
+                                                          sort_dir=sort_dir,
+                                                          sort_key=sort_key)
+        self.assertItemsEqual(stacks, api_stacks)
+        self.assertFalse(has_more)
+        self.assertFalse(has_prev)
+
+    @override_settings(API_RESULT_PAGE_SIZE=20)
+    def test_stack_list_pagination_less_page_size(self):
+        api_stacks = self.stacks.list()
+        page_size = settings.API_RESULT_PAGE_SIZE
+        sort_dir = 'desc'
+        sort_key = 'created_at'
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        heatclient.stacks.list(limit=page_size + 1,
+                           sort_dir=sort_dir,
+                           sort_key=sort_key,) \
+            .AndReturn(iter(api_stacks))
+        self.mox.ReplayAll()
+
+        stacks, has_more, has_prev = api.heat.stacks_list(self.request,
+                                                          sort_dir=sort_dir,
+                                                          sort_key=sort_key,
+                                                          paginate=True)
+        expected_stacks = api_stacks[:page_size]
+        self.assertItemsEqual(stacks, expected_stacks)
+        self.assertFalse(has_more)
+        self.assertFalse(has_prev)
+
+    @override_settings(API_RESULT_PAGE_SIZE=10)
+    def test_stack_list_pagination_equal_page_size(self):
+        api_stacks = self.stacks.list()
+        page_size = settings.API_RESULT_PAGE_SIZE
+        sort_dir = 'desc'
+        sort_key = 'created_at'
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        heatclient.stacks.list(limit=page_size + 1,
+                           sort_dir=sort_dir,
+                           sort_key=sort_key,) \
+            .AndReturn(iter(api_stacks))
+        self.mox.ReplayAll()
+
+        stacks, has_more, has_prev = api.heat.stacks_list(self.request,
+                                                          sort_dir=sort_dir,
+                                                          sort_key=sort_key,
+                                                          paginate=True)
+        expected_stacks = api_stacks[:page_size]
+        self.assertItemsEqual(stacks, expected_stacks)
+        self.assertFalse(has_more)
+        self.assertFalse(has_prev)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_stack_list_pagination_marker(self):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        sort_dir = 'desc'
+        sort_key = 'created_at'
+        marker = 'nonsense'
+
+        api_stacks = self.stacks.list()
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        heatclient.stacks.list(limit=page_size + 1,
+                               marker=marker,
+                               sort_dir=sort_dir,
+                               sort_key=sort_key,) \
+            .AndReturn(iter(api_stacks[:page_size + 1]))
+        self.mox.ReplayAll()
+
+        stacks, has_more, has_prev = api.heat.stacks_list(self.request,
+                                                          marker=marker,
+                                                          paginate=True,
+                                                          sort_dir=sort_dir,
+                                                          sort_key=sort_key,)
+
+        self.assertEqual(len(stacks), page_size)
+        self.assertItemsEqual(stacks, api_stacks[:page_size])
+        self.assertTrue(has_more)
+        self.assertTrue(has_prev)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_stack_list_pagination_marker_prev(self):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        sort_dir = 'asc'
+        sort_key = 'created_at'
+        marker = 'nonsense'
+
+        api_stacks = self.stacks.list()
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        heatclient.stacks.list(limit=page_size + 1,
+                               marker=marker,
+                               sort_dir=sort_dir,
+                               sort_key=sort_key,) \
+            .AndReturn(iter(api_stacks[:page_size + 1]))
+        self.mox.ReplayAll()
+
+        stacks, has_more, has_prev = api.heat.stacks_list(self.request,
+                                                          marker=marker,
+                                                          paginate=True,
+                                                          sort_dir=sort_dir,
+                                                          sort_key=sort_key,)
+
+        self.assertEqual(len(stacks), page_size)
+        self.assertItemsEqual(stacks, api_stacks[:page_size])
+        self.assertTrue(has_more)
+        self.assertTrue(has_prev)
 
     def test_template_get(self):
         api_stacks = self.stacks.list()

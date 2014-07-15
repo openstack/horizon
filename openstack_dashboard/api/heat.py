@@ -52,7 +52,8 @@ def heatclient(request, password=None):
     return client
 
 
-def stacks_list(request, marker=None, paginate=False):
+def stacks_list(request, marker=None, sort_dir='desc', sort_key='created_at',
+                paginate=False):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 
@@ -61,20 +62,28 @@ def stacks_list(request, marker=None, paginate=False):
     else:
         request_size = limit
 
-    kwargs = {}
+    kwargs = {'sort_dir': sort_dir, 'sort_key': sort_key}
     if marker:
         kwargs['marker'] = marker
 
     stacks_iter = heatclient(request).stacks.list(limit=request_size,
                                                   **kwargs)
 
+    has_prev_data = False
     has_more_data = False
     stacks = list(stacks_iter)
+
     if paginate:
         if len(stacks) > page_size:
             stacks.pop()
             has_more_data = True
-    return (stacks, has_more_data)
+            if marker is not None:
+                has_prev_data = True
+        elif sort_dir == 'asc' and marker is not None:
+            has_more_data = True
+        elif marker is not None:
+            has_prev_data = True
+    return (stacks, has_more_data, has_prev_data)
 
 
 def stack_delete(request, stack_id):
