@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# gilbird <gilbird@gmail.com>, 2014
+# Chun-Kil Kang <gilbird@gmail.com>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-04 00:18-0500\n"
+"POT-Creation-Date: 2014-07-14 18:58-0500\n"
 "PO-Revision-Date: 2014-07-04 01:50+0000\n"
-"Last-Translator: gilbird <gilbird@gmail.com>\n"
+"Last-Translator: Chun-Kil Kang <gilbird@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,7 +90,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:665 tables/base.py:1453
+#: tables/actions.py:665 tables/base.py:1459
 msgid "N/A"
 msgstr "N/A"
 
@@ -130,20 +130,20 @@ msgstr "업데이트됨"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
 
-#: tables/base.py:920
+#: tables/base.py:922
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
-#: tables/base.py:1027
+#: tables/base.py:1029
 msgid "Actions"
 msgstr "실행"
 
-#: tables/base.py:1233
+#: tables/base.py:1235
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
 
-#: tables/base.py:1373
+#: tables/base.py:1375
 msgid "Please select a row before taking that action."
 msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
 
@@ -341,33 +341,33 @@ msgstr "제한 없음"
 msgid "Available"
 msgstr "사용 가능"
 
-#: templatetags/sizeformat.py:43 templatetags/sizeformat.py:48
+#: templatetags/sizeformat.py:48 templatetags/sizeformat.py:53
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 바이트"
 
-#: templatetags/sizeformat.py:51
+#: templatetags/sizeformat.py:56
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:54
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:57
+#: templatetags/sizeformat.py:62
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:60
+#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:62
+#: templatetags/sizeformat.py:67
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"

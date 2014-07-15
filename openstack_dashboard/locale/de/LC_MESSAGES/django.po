@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andreas Jaeger <jaegerandi@gmail.com>, 2014
 # Carsten Duch <cad@teuto.net>, 2014
 # Robert Simai, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-08 13:34-0500\n"
-"PO-Revision-Date: 2014-07-08 08:31+0000\n"
+"POT-Creation-Date: 2014-07-14 18:58-0500\n"
+"PO-Revision-Date: 2014-07-14 23:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -61,15 +62,15 @@ msgstr "VMDK"
 
 #: settings.py:231
 msgid "All TCP"
-msgstr ""
+msgstr "Alle TCP"
 
 #: settings.py:237
 msgid "All UDP"
-msgstr ""
+msgstr "Alle UDP"
 
 #: settings.py:243
 msgid "All ICMP"
-msgstr ""
+msgstr "Alle ICMP"
 
 #: api/ceilometer.py:736
 msgid "Unable to retrieve Ceilometer meterlist."
@@ -383,11 +384,11 @@ msgstr "Administrator"
 #: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
-#: dashboards/project/database_backups/tables.py:117
+#: dashboards/project/database_backups/tables.py:129
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
-#: dashboards/project/database_backups/templates/database_backups/details.html:42
+#: dashboards/project/database_backups/templates/database_backups/details.html:48
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:206
+#: dashboards/project/databases/tables.py:215
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
@@ -696,6 +697,7 @@ msgstr "Fehler beim Hinzufügen oder Entfernen von Hosts."
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
+#: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:39
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
@@ -792,6 +794,8 @@ msgstr "Hier können Sie den Aggregatnamen und die Verfügbarkeitszone bearbeite
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
 #: dashboards/project/containers/templates/containers/_update.html:28
 #: dashboards/project/containers/templates/containers/_upload.html:27
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:28
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:26
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:27
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:24
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:24
@@ -906,12 +910,12 @@ msgstr "Domänen-ID"
 
 #: dashboards/admin/domains/tables.py:168
 #: dashboards/admin/domains/workflows.py:38
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:142
+#: dashboards/admin/groups/tables.py:165 dashboards/admin/info/tables.py:142
 #: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
 #: dashboards/admin/projects/workflows.py:476
-#: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:139
+#: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:141
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/tables.py:220
 #: dashboards/project/firewalls/workflows.py:69
@@ -1106,7 +1110,7 @@ msgstr "Swap-Platte"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/users/forms.py:156
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
-#: dashboards/project/database_backups/templates/database_backups/details.html:44
+#: dashboards/project/database_backups/templates/database_backups/details.html:50
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:13
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:13
@@ -1453,16 +1457,16 @@ msgstr "Löschen"
 msgid "Removed"
 msgstr "Gelöscht"
 
-#: dashboards/admin/groups/tables.py:124 dashboards/admin/groups/tables.py:181
+#: dashboards/admin/groups/tables.py:124 dashboards/admin/groups/tables.py:182
 #: dashboards/admin/users/tables.py:59 dashboards/admin/users/tables.py:102
 #: dashboards/project/databases/tables.py:64
 #: dashboards/project/instances/workflows/create_instance.py:51
 msgid "User"
 msgstr "Benutzer"
 
-#: dashboards/admin/groups/tables.py:125 dashboards/admin/groups/tables.py:182
+#: dashboards/admin/groups/tables.py:125 dashboards/admin/groups/tables.py:183
 #: dashboards/admin/users/panel.py:27 dashboards/admin/users/tables.py:60
-#: dashboards/admin/users/tables.py:103 dashboards/admin/users/tables.py:146
+#: dashboards/admin/users/tables.py:103 dashboards/admin/users/tables.py:148
 #: dashboards/admin/users/templates/users/index.html:3
 #: dashboards/admin/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:65
@@ -1476,7 +1480,8 @@ msgstr "Hinzufügen..."
 
 #: dashboards/admin/groups/tables.py:160 dashboards/admin/users/forms.py:80
 #: dashboards/admin/users/forms.py:157 dashboards/admin/users/tables.py:130
-#: dashboards/project/databases/tables.py:176
+#: dashboards/project/data_processing/data_image_registry/forms.py:28
+#: dashboards/project/databases/tables.py:185
 msgid "User Name"
 msgstr "Benutzername"
 
@@ -1485,15 +1490,15 @@ msgstr "Benutzername"
 msgid "Email"
 msgstr "E-Mail"
 
-#: dashboards/admin/groups/tables.py:163 dashboards/admin/users/tables.py:138
+#: dashboards/admin/groups/tables.py:164 dashboards/admin/users/tables.py:140
 msgid "User ID"
 msgstr "Benutzer ID"
 
-#: dashboards/admin/groups/tables.py:173
+#: dashboards/admin/groups/tables.py:174
 msgid "Group Members"
 msgstr "Gruppenmitglieder"
 
-#: dashboards/admin/groups/tables.py:179
+#: dashboards/admin/groups/tables.py:180
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
 #: dashboards/project/firewalls/workflows.py:106
 #: dashboards/project/firewalls/workflows.py:214
@@ -1509,11 +1514,11 @@ msgstr "Gruppenmitglieder"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: dashboards/admin/groups/tables.py:180
+#: dashboards/admin/groups/tables.py:181
 msgid "Added"
 msgstr "Hinzugefügt"
 
-#: dashboards/admin/groups/tables.py:211
+#: dashboards/admin/groups/tables.py:212
 msgid "Non-Members"
 msgstr "Nichtmitglieder"
 
@@ -1619,6 +1624,7 @@ msgstr "Speicher (gesamt)"
 #: dashboards/admin/instances/tables.py:167
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/admin/projects/workflows.py:48
+#: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:37
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:78
@@ -1698,6 +1704,7 @@ msgstr "Festplattenbelegung"
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:60
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/templates/images/index.html:6
+#: dashboards/project/data_processing/data_image_registry/tables.py:53
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/images/tables.py:59
 #: dashboards/project/images/images/tables.py:234
@@ -1820,8 +1827,8 @@ msgstr "Dienst"
 #: dashboards/admin/info/tables.py:105 dashboards/admin/info/tables.py:157
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
-#: dashboards/project/databases/tables.py:155
-#: dashboards/project/databases/templates/databases/_detail_overview.html:25
+#: dashboards/project/databases/tables.py:161
+#: dashboards/project/databases/templates/databases/_detail_overview.html:29
 msgid "Host"
 msgstr "Host"
 
@@ -1833,11 +1840,11 @@ msgstr "Host"
 #: dashboards/admin/routers/tables.py:61
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/database_backups/tables.py:124
-#: dashboards/project/database_backups/templates/database_backups/details.html:24
-#: dashboards/project/database_backups/templates/database_backups/details.html:46
-#: dashboards/project/databases/tables.py:161
-#: dashboards/project/databases/tables.py:214
+#: dashboards/project/database_backups/tables.py:140
+#: dashboards/project/database_backups/templates/database_backups/details.html:30
+#: dashboards/project/database_backups/templates/database_backups/details.html:52
+#: dashboards/project/databases/tables.py:170
+#: dashboards/project/databases/tables.py:223
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -1858,8 +1865,8 @@ msgstr "Host"
 #: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:100
-#: dashboards/project/stacks/tables.py:132
-#: dashboards/project/stacks/tables.py:179
+#: dashboards/project/stacks/tables.py:137
+#: dashboards/project/stacks/tables.py:184
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
@@ -2151,7 +2158,7 @@ msgstr "Live-Migrationsinstanz"
 #: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
-#: dashboards/project/dashboard.py:67
+#: dashboards/project/dashboard.py:68
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
@@ -2174,7 +2181,7 @@ msgstr "IP-Adresse"
 #: dashboards/project/containers/tables.py:421
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:157
+#: dashboards/project/databases/tables.py:163
 #: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:798
@@ -3514,18 +3521,14 @@ msgid "Orchestration"
 msgstr "Orchestrierung"
 
 #: dashboards/project/dashboard.py:54
-#: dashboards/project/databases/tables.py:49
-#: dashboards/project/databases/tables.py:81
-#: dashboards/project/databases/tables.py:167
-#: dashboards/project/databases/tables.py:178
-#: dashboards/project/databases/tables.py:195
-#: dashboards/project/databases/tabs.py:66
-#: dashboards/project/databases/templates/databases/index.html:3
-#: dashboards/project/databases/templates/databases/index.html:6
-msgid "Databases"
-msgstr "Datenbanken"
+#: dashboards/project/database_backups/tables.py:137
+#: dashboards/project/databases/tables.py:48
+#: dashboards/project/databases/tables.py:80
+msgid "Database"
+msgstr "Datenbank"
 
 #: dashboards/project/dashboard.py:61
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:3
 msgid "Data Processing"
 msgstr ""
@@ -4360,7 +4363,7 @@ msgid "Copy"
 msgstr "Kopieren"
 
 #: dashboards/project/containers/tables.py:355
-#: dashboards/project/databases/tables.py:209
+#: dashboards/project/databases/tables.py:218
 msgid "Download"
 msgstr "Herunterladen"
 
@@ -4509,15 +4512,156 @@ msgstr "Objekt in Container hochladen"
 msgid "Upload Objects"
 msgstr "Objekte hochladen"
 
+#: dashboards/project/data_processing/data_image_registry/forms.py:46
+msgid "Successfully updated image."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:51
+msgid "Failed to update image."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:60
+#: dashboards/project/data_processing/data_image_registry/tables.py:52
+#: dashboards/project/data_processing/data_image_registry/tables.py:62
+#: dashboards/project/images/images/tables.py:58
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
+#: dashboards/project/volumes/volumes/forms.py:193
+msgid "Image"
+msgstr "Abbild"
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:73
+#: dashboards/project/instances/forms.py:38
+#: dashboards/project/instances/forms.py:61
+#: dashboards/project/instances/workflows/create_instance.py:359
+msgid "Select Image"
+msgstr "Abbild auswählen"
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:75
+msgid "No images available."
+msgstr "Keine Bilder verfügbar."
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:84
+#, python-format
+msgid "Unable to retrieve images with filter %s."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:111
+msgid "Unable to fetch available images."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/panel.py:22
+#: dashboards/project/data_processing/data_image_registry/tables.py:70
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:6
+msgid "Image Registry"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:29
+msgid "Edit Tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:43
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:6
+msgid "Register Image"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:50
+msgid "Unregister"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:51
+msgid "Unregistered"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:66
+msgid "Tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/views.py:47
+msgid "Unable to retrieve image list"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/views.py:57
+#: dashboards/project/data_processing/data_image_registry/views.py:72
+msgid "Unable to process plugin tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/views.py:98
+msgid "Unable to fetch the image details"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:10
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:6
+msgid "Edit Image Tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
+msgid "Done"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:3
+msgid "Image Registry tool:"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:6
+msgid ""
+"Image Registry is used to provide additional information about images for "
+"Data Processing."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:9
+msgid ""
+"Specified User Name will be used by Data Processing to apply configs and "
+"manage processes on instances."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:12
+msgid ""
+"Tags are used for filtering images suitable for each plugin and each Data Processing version.\n"
+"        To add required tags, select a plugin and a Data Processing version and click &quot;Add all&quot; button."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:16
+msgid "You may also add any custom tag."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:19
+msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:5
+msgid ""
+"Register tags required for the Plugin with specified Data Processing Version"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
+msgid "Plugin"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:20
+msgid "Version"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:31
+msgid "Add all"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:37
+msgid "Add custom tag"
+msgstr ""
+
 #: dashboards/project/data_processing/data_plugins/panel.py:22
 #: dashboards/project/data_processing/data_plugins/tables.py:43
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:32
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
@@ -4569,9 +4713,13 @@ msgid "Data Processing Plugins"
 msgstr ""
 
 #: dashboards/project/database_backups/panel.py:23
-#: dashboards/project/database_backups/templates/database_backups/index.html:3
-msgid "Database Backups"
-msgstr "Datenbank Backups"
+#: dashboards/project/database_backups/tables.py:79
+#: dashboards/project/database_backups/tables.py:146
+#: dashboards/project/database_backups/templates/database_backups/index.html:6
+#: dashboards/project/databases/tables.py:229
+#: dashboards/project/databases/tabs.py:93
+msgid "Backups"
+msgstr "Backups"
 
 #: dashboards/project/database_backups/tables.py:37
 #: dashboards/project/databases/tables.py:101
@@ -4628,24 +4776,29 @@ msgstr "Geplante Löschung von %(data_type)s"
 msgid "Backup"
 msgstr "Backup"
 
-#: dashboards/project/database_backups/tables.py:79
-#: dashboards/project/database_backups/tables.py:130
-#: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:220
-#: dashboards/project/databases/tabs.py:93
-msgid "Backups"
-msgstr "Backups"
+#: dashboards/project/database_backups/tables.py:117
+#: dashboards/project/database_backups/tables.py:123
+#: dashboards/project/databases/tables.py:133
+#: dashboards/project/databases/tables.py:139
+#: dashboards/project/instances/tables.py:673
+#: dashboards/project/instances/tables.py:680
+msgid "Not available"
+msgstr "Nicht verfügbar"
 
-#: dashboards/project/database_backups/tables.py:118
-#: dashboards/project/databases/tables.py:207
+#: dashboards/project/database_backups/tables.py:131
+#: dashboards/project/database_backups/templates/database_backups/details.html:25
+msgid "Datastore"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:133
+#: dashboards/project/database_backups/templates/database_backups/details.html:27
+msgid "Datastore Version"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:134
+#: dashboards/project/databases/tables.py:216
 msgid "Created At"
 msgstr "Erstellt am"
-
-#: dashboards/project/database_backups/tables.py:121
-#: dashboards/project/databases/tables.py:48
-#: dashboards/project/databases/tables.py:80
-msgid "Database"
-msgstr "Datenbank"
 
 #: dashboards/project/database_backups/views.py:48
 msgid "Not Found"
@@ -4671,26 +4824,26 @@ msgid "Backup Database"
 msgstr "Datenbank sichern"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:3
-msgid "Backup Detail"
-msgstr "Backup Detail"
+msgid "Backup Details"
+msgstr ""
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:6
-msgid "Backup Detail: "
-msgstr "Backup Detail:"
+msgid "Backup Details: "
+msgstr ""
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:12
 msgid "Backup Overview"
 msgstr "Backup Übersicht"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:26
+#: dashboards/project/database_backups/templates/database_backups/details.html:32
 msgid "Backup File Location"
 msgstr "Speicherort der Sicherungsdatei"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:28
+#: dashboards/project/database_backups/templates/database_backups/details.html:34
 msgid "Initial Volume Size"
 msgstr "Initiale Datenträgergröße"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:29
+#: dashboards/project/database_backups/templates/database_backups/details.html:35
 #: dashboards/project/instances/templates/instances/_detail_overview.html:53
 #: dashboards/project/instances/templates/instances/_detail_overview.html:56
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
@@ -4706,17 +4859,21 @@ msgstr "Initiale Datenträgergröße"
 msgid "GB"
 msgstr "GB"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:30
+#: dashboards/project/database_backups/templates/database_backups/details.html:36
 msgid "Created On"
 msgstr "Erzeugt am"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:32
+#: dashboards/project/database_backups/templates/database_backups/details.html:38
 msgid "Backup Duration"
 msgstr "Dauer des Backups"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:39
+#: dashboards/project/database_backups/templates/database_backups/details.html:45
 msgid "Database Info"
 msgstr "Datenbank Info"
+
+#: dashboards/project/database_backups/templates/database_backups/index.html:3
+msgid "Database Backups"
+msgstr "Datenbank Backups"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:33
 msgid "Database Instance"
@@ -4736,14 +4893,14 @@ msgid "Scheduled backup \"%(name)s\"."
 msgstr "Geplantes Backup \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:66
-#: dashboards/project/databases/workflows/create_instance.py:207
+#: dashboards/project/databases/workflows/create_instance.py:211
 #: dashboards/project/instances/workflows/create_instance.py:663
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Außerstande %(count)s mal \"%(name)s\" zu starten."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
-#: dashboards/project/databases/workflows/create_instance.py:223
+#: dashboards/project/databases/workflows/create_instance.py:227
 #: dashboards/project/instances/workflows/create_instance.py:679
 msgid "instance"
 msgstr "Instanz"
@@ -4751,10 +4908,6 @@ msgstr "Instanz"
 #: dashboards/project/database_backups/workflows/create_backup.py:88
 msgid "Error creating database backup."
 msgstr "Fehler beim Erzeugen des Datenbankbackups."
-
-#: dashboards/project/databases/panel.py:23
-msgid "Database Instances"
-msgstr "Datenbankinstanzen"
 
 #: dashboards/project/databases/tables.py:34
 #: dashboards/project/instances/tables.py:75
@@ -4774,6 +4927,17 @@ msgstr "Neustarten"
 #: dashboards/project/databases/tables.py:47
 msgid "Restarted"
 msgstr "Neu gestartet"
+
+#: dashboards/project/databases/tables.py:49
+#: dashboards/project/databases/tables.py:81
+#: dashboards/project/databases/tables.py:176
+#: dashboards/project/databases/tables.py:187
+#: dashboards/project/databases/tables.py:204
+#: dashboards/project/databases/tabs.py:66
+#: dashboards/project/databases/templates/databases/index.html:3
+#: dashboards/project/databases/templates/databases/index.html:6
+msgid "Databases"
+msgstr "Datenbanken"
 
 #: dashboards/project/databases/tables.py:72
 msgid "Error deleting database user."
@@ -4797,13 +4961,7 @@ msgstr "Instanz starten"
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#: dashboards/project/databases/tables.py:133
-#: dashboards/project/instances/tables.py:673
-#: dashboards/project/instances/tables.py:680
-msgid "Not available"
-msgstr "Nicht verfügbar"
-
-#: dashboards/project/databases/tables.py:141
+#: dashboards/project/databases/tables.py:147
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -4824,21 +4982,27 @@ msgstr "Nicht verfügbar"
 msgid "-"
 msgstr "-"
 
-#: dashboards/project/databases/tables.py:154
-#: dashboards/project/databases/tables.py:191
+#: dashboards/project/databases/tables.py:160
+#: dashboards/project/databases/tables.py:200
 #: dashboards/project/databases/workflows/create_instance.py:30
 msgid "Database Name"
 msgstr "Datenbank Name"
 
-#: dashboards/project/databases/tables.py:177
+#: dashboards/project/databases/tables.py:166
+#: dashboards/project/databases/templates/databases/_detail_overview.html:18
+#: dashboards/project/databases/workflows/create_instance.py:33
+msgid "Volume Size"
+msgstr "Datenträgergröße"
+
+#: dashboards/project/databases/tables.py:186
 msgid "Allowed Hosts"
 msgstr "Zulässige Hosts"
 
-#: dashboards/project/databases/tables.py:182
+#: dashboards/project/databases/tables.py:191
 msgid "Database Instance Users"
 msgstr "Datenbankinstanz-Benutzer"
 
-#: dashboards/project/databases/tables.py:211
+#: dashboards/project/databases/tables.py:220
 msgid "Backup File"
 msgstr "Sicherungsdatei"
 
@@ -4877,15 +5041,15 @@ msgstr "Details zur Datenbankinstanz \"%s\" können nicht abgerufen werden."
 msgid "Instance Overview"
 msgstr "Instanzübersicht"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:21
+#: dashboards/project/databases/templates/databases/_detail_overview.html:25
 msgid "Connection Info"
 msgstr "Verbindungsinformationen"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:27
+#: dashboards/project/databases/templates/databases/_detail_overview.html:31
 msgid "Database Port"
 msgstr "Datenbankport"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:29
+#: dashboards/project/databases/templates/databases/_detail_overview.html:33
 msgid "Connection Examples"
 msgstr "Verbindungsbeispiele"
 
@@ -4968,15 +5132,15 @@ msgid "Create this database from a previous backup."
 msgstr "Diese Datenbank aus einem vorherigen Backup erstellen."
 
 #: dashboards/project/databases/templates/databases/detail.html:3
-msgid "Database Detail"
-msgstr "Datenbankdetails"
+msgid "Database Details"
+msgstr ""
 
 #: dashboards/project/databases/templates/databases/detail.html:6
-msgid "Database Detail: "
-msgstr "Datenbankdetails:"
+msgid "Database Details: "
+msgstr ""
 
 #: dashboards/project/databases/templates/databases/launch.html:6
-#: dashboards/project/databases/workflows/create_instance.py:204
+#: dashboards/project/databases/workflows/create_instance.py:208
 msgid "Launch Database"
 msgstr "Datenbank starten"
 
@@ -4991,10 +5155,6 @@ msgstr "Instanz bearbeiten"
 #: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Size of image to launch."
 msgstr "Größe des zu startenden Abbildes."
-
-#: dashboards/project/databases/workflows/create_instance.py:33
-msgid "Volume Size"
-msgstr "Datenträgergröße"
 
 #: dashboards/project/databases/workflows/create_instance.py:36
 msgid "Size of the volume in GB."
@@ -5066,18 +5226,26 @@ msgstr "Wählen Sie eine Sicherung zur Wiederherstellung aus"
 msgid "Restore From Backup"
 msgstr "Aus Sicherung wiederherstellen"
 
-#: dashboards/project/databases/workflows/create_instance.py:193
+#: dashboards/project/databases/workflows/create_instance.py:182
+msgid "Select backup"
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:184
+msgid "No backups available"
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:197
 msgid "Unable to find backup!"
 msgstr "Sicherung konnte nicht gefunden werden!"
 
-#: dashboards/project/databases/workflows/create_instance.py:205
+#: dashboards/project/databases/workflows/create_instance.py:209
 #: dashboards/project/images/images/tables.py:34
 #: dashboards/project/instances/workflows/create_instance.py:661
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Start"
 
-#: dashboards/project/databases/workflows/create_instance.py:206
+#: dashboards/project/databases/workflows/create_instance.py:210
 #: dashboards/project/instances/workflows/create_instance.py:662
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
@@ -5722,12 +5890,6 @@ msgstr "Abbild \"%s\" konnte nicht aktualisiert werden."
 msgid "Image was successfully updated."
 msgstr "Abbild wurde erfolgreich aktualisiert."
 
-#: dashboards/project/images/images/tables.py:58
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
-#: dashboards/project/volumes/volumes/forms.py:193
-msgid "Image"
-msgstr "Abbild"
-
 #: dashboards/project/images/images/tables.py:101
 #: dashboards/project/volumes/snapshots/tables.py:82
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
@@ -5884,15 +6046,9 @@ msgstr "Erstelle einen Speicherauszug"
 msgid "Console type \"%s\" not supported."
 msgstr "Konsolentyp \"%s\" wird nicht unterstützt."
 
-#: dashboards/project/instances/console.py:61
+#: dashboards/project/instances/console.py:66
 msgid "No available console found."
 msgstr "Keine verfügbare Konsole gefunden."
-
-#: dashboards/project/instances/forms.py:38
-#: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:359
-msgid "Select Image"
-msgstr "Abbild auswählen"
 
 #: dashboards/project/instances/forms.py:42
 msgid "Rebuild Password"
@@ -8623,39 +8779,39 @@ msgstr "Ändern der Stack-Vorlage"
 msgid "Stack"
 msgstr "Stack"
 
-#: dashboards/project/stacks/tables.py:121
-#: dashboards/project/stacks/tables.py:166
+#: dashboards/project/stacks/tables.py:126
+#: dashboards/project/stacks/tables.py:171
 msgid "Stack Resource"
 msgstr "Stackresource"
 
-#: dashboards/project/stacks/tables.py:124
-#: dashboards/project/stacks/tables.py:169
+#: dashboards/project/stacks/tables.py:129
+#: dashboards/project/stacks/tables.py:174
 msgid "Resource"
 msgstr "Resource"
 
-#: dashboards/project/stacks/tables.py:127
+#: dashboards/project/stacks/tables.py:132
 msgid "Time Since Event"
 msgstr "Zeit seit Ereignis"
 
-#: dashboards/project/stacks/tables.py:135
-#: dashboards/project/stacks/tables.py:184
+#: dashboards/project/stacks/tables.py:140
+#: dashboards/project/stacks/tables.py:189
 msgid "Status Reason"
 msgstr "Status Grund"
 
-#: dashboards/project/stacks/tables.py:139
+#: dashboards/project/stacks/tables.py:144
 msgid "Stack Events"
 msgstr "Stackereignisse"
 
-#: dashboards/project/stacks/tables.py:172
+#: dashboards/project/stacks/tables.py:177
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
 msgid "Stack Resource Type"
 msgstr "Stack-Resourcentyp"
 
-#: dashboards/project/stacks/tables.py:174
+#: dashboards/project/stacks/tables.py:179
 msgid "Date Updated"
 msgstr "Datum aktualisiert"
 
-#: dashboards/project/stacks/tables.py:197
+#: dashboards/project/stacks/tables.py:202
 msgid "Stack Resources"
 msgstr "Stack Resourcen"
 
@@ -8667,16 +8823,16 @@ msgstr "Topologie"
 msgid "Events"
 msgstr "Ereignisse"
 
-#: dashboards/project/stacks/tabs.py:105
+#: dashboards/project/stacks/tabs.py:108
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "Außertsande Ereignisse für Stack \"%s\" zu bekommen."
 
-#: dashboards/project/stacks/tabs.py:111
+#: dashboards/project/stacks/tabs.py:114
 msgid "Resources"
 msgstr "Resourcen"
 
-#: dashboards/project/stacks/tabs.py:130
+#: dashboards/project/stacks/tabs.py:136
 #, python-format
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "Außerstande Resourcen für Stack \"%s\" zu bekommen."
