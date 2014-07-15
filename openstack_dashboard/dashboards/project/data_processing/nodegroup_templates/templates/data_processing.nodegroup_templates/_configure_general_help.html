@@ -1,0 +1,20 @@
+{% load i18n horizon %}
+<div class="well">
+<p>
+    {% blocktrans %}This Node Group Template will be created for:{% endblocktrans %}
+    <br >
+    <b>{% blocktrans %}Plugin{% endblocktrans %}</b>: {{ plugin_name }}
+    <br />
+    <b>{% blocktrans %}Hadoop version{% endblocktrans %}</b>: {{ hadoop_version }}
+    <br />
+</p>
+<p>
+    {% blocktrans %}The Node Group Template object should specify processes that will be launched on each instance. Also an OpenStack flavor is required to boot VMs.{% endblocktrans %}
+</p>
+<p>
+    {% blocktrans %}Data Processing provides different storage location options. You may choose Ephemeral Drive or a Cinder Volume to be attached to instances.{% endblocktrans %}
+</p>
+<p>
+    {% blocktrans %}When processes are selected, you may set <b>node</b> scoped Hadoop configurations on corresponding tabs.{% endblocktrans %}
+</p>
+</div>

@@ -1,0 +1,23 @@
+{% load i18n sizeformat %}
+<h3>{% trans "Service Configurations" %}</h3>
+<div class="status row-fluid detail">
+    <dl>
+        {% for service, config in template.node_configs.items %}
+        <dt>{{ service }}</dt>
+        <dd>
+            {% if config %}
+            <ul>
+                {% for conf_name, conf_val in config.items %}
+                    <li>
+                        {{ conf_name }}:&nbsp{{ conf_val }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <h6>No configurations</h6>
+            {% endif %}
+        </dd>
+        {% endfor %}
+    </dl>
+
+</div>
