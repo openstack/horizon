@@ -12,6 +12,15 @@
     <dd>{{ instance.id }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status|title }}</dd>
+  </dl>
+</div>
+
+<div class="specs row-fluid detail">
+  <h4>{% trans "Specs" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dt>{% trans "Flavor" %}</dt>
+    <dd>{{ instance.full_flavor.name }}</dd>
     <dt>{% trans "RAM" %}</dt>
     <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
     {% if instance.volume %}
