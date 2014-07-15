@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-08 13:34-0500\n"
-"PO-Revision-Date: 2014-07-08 08:31+0000\n"
+"POT-Creation-Date: 2014-07-14 18:58-0500\n"
+"PO-Revision-Date: 2014-07-14 23:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -60,15 +60,15 @@ msgstr "VMDK"
 
 #: settings.py:231
 msgid "All TCP"
-msgstr ""
+msgstr "모든 TCP"
 
 #: settings.py:237
 msgid "All UDP"
-msgstr ""
+msgstr "모든 UDP"
 
 #: settings.py:243
 msgid "All ICMP"
-msgstr ""
+msgstr "모든 ICMP"
 
 #: api/ceilometer.py:736
 msgid "Unable to retrieve Ceilometer meterlist."
@@ -382,11 +382,11 @@ msgstr "관리자"
 #: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
-#: dashboards/project/database_backups/tables.py:117
+#: dashboards/project/database_backups/tables.py:129
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
-#: dashboards/project/database_backups/templates/database_backups/details.html:42
+#: dashboards/project/database_backups/templates/database_backups/details.html:48
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:206
+#: dashboards/project/databases/tables.py:215
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
@@ -695,6 +695,7 @@ msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니�
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
+#: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:39
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
@@ -791,6 +792,8 @@ msgstr "여기에서 그룹 이름과 가용성 존을 편집할 수 있습니�
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
 #: dashboards/project/containers/templates/containers/_update.html:28
 #: dashboards/project/containers/templates/containers/_upload.html:27
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:28
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:26
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:27
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:24
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:24
@@ -905,12 +908,12 @@ msgstr "도메인 아이디"
 
 #: dashboards/admin/domains/tables.py:168
 #: dashboards/admin/domains/workflows.py:38
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/info/tables.py:142
+#: dashboards/admin/groups/tables.py:165 dashboards/admin/info/tables.py:142
 #: dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:112
 #: dashboards/admin/projects/workflows.py:476
-#: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:139
+#: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:141
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/tables.py:220
 #: dashboards/project/firewalls/workflows.py:69
@@ -1105,7 +1108,7 @@ msgstr "Swap 디스크"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/users/forms.py:156
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
-#: dashboards/project/database_backups/templates/database_backups/details.html:44
+#: dashboards/project/database_backups/templates/database_backups/details.html:50
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:13
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:13
@@ -1452,16 +1455,16 @@ msgstr "삭제"
 msgid "Removed"
 msgstr "삭제됨"
 
-#: dashboards/admin/groups/tables.py:124 dashboards/admin/groups/tables.py:181
+#: dashboards/admin/groups/tables.py:124 dashboards/admin/groups/tables.py:182
 #: dashboards/admin/users/tables.py:59 dashboards/admin/users/tables.py:102
 #: dashboards/project/databases/tables.py:64
 #: dashboards/project/instances/workflows/create_instance.py:51
 msgid "User"
 msgstr "사용자"
 
-#: dashboards/admin/groups/tables.py:125 dashboards/admin/groups/tables.py:182
+#: dashboards/admin/groups/tables.py:125 dashboards/admin/groups/tables.py:183
 #: dashboards/admin/users/panel.py:27 dashboards/admin/users/tables.py:60
-#: dashboards/admin/users/tables.py:103 dashboards/admin/users/tables.py:146
+#: dashboards/admin/users/tables.py:103 dashboards/admin/users/tables.py:148
 #: dashboards/admin/users/templates/users/index.html:3
 #: dashboards/admin/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:65
@@ -1475,7 +1478,8 @@ msgstr "추가..."
 
 #: dashboards/admin/groups/tables.py:160 dashboards/admin/users/forms.py:80
 #: dashboards/admin/users/forms.py:157 dashboards/admin/users/tables.py:130
-#: dashboards/project/databases/tables.py:176
+#: dashboards/project/data_processing/data_image_registry/forms.py:28
+#: dashboards/project/databases/tables.py:185
 msgid "User Name"
 msgstr "사용자 이름"
 
@@ -1484,15 +1488,15 @@ msgstr "사용자 이름"
 msgid "Email"
 msgstr "Email"
 
-#: dashboards/admin/groups/tables.py:163 dashboards/admin/users/tables.py:138
+#: dashboards/admin/groups/tables.py:164 dashboards/admin/users/tables.py:140
 msgid "User ID"
 msgstr "사용자 ID"
 
-#: dashboards/admin/groups/tables.py:173
+#: dashboards/admin/groups/tables.py:174
 msgid "Group Members"
 msgstr "그룹 멤버"
 
-#: dashboards/admin/groups/tables.py:179
+#: dashboards/admin/groups/tables.py:180
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
 #: dashboards/project/firewalls/workflows.py:106
 #: dashboards/project/firewalls/workflows.py:214
@@ -1508,11 +1512,11 @@ msgstr "그룹 멤버"
 msgid "Add"
 msgstr "추가"
 
-#: dashboards/admin/groups/tables.py:180
+#: dashboards/admin/groups/tables.py:181
 msgid "Added"
 msgstr "추가됨"
 
-#: dashboards/admin/groups/tables.py:211
+#: dashboards/admin/groups/tables.py:212
 msgid "Non-Members"
 msgstr "비 맴버"
 
@@ -1618,6 +1622,7 @@ msgstr "스토리지 (전체)"
 #: dashboards/admin/instances/tables.py:167
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/admin/projects/workflows.py:48
+#: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:37
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:78
@@ -1697,6 +1702,7 @@ msgstr "디스크 사용량"
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:60
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/templates/images/index.html:6
+#: dashboards/project/data_processing/data_image_registry/tables.py:53
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/images/tables.py:59
 #: dashboards/project/images/images/tables.py:234
@@ -1819,8 +1825,8 @@ msgstr "서비스"
 #: dashboards/admin/info/tables.py:105 dashboards/admin/info/tables.py:157
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
-#: dashboards/project/databases/tables.py:155
-#: dashboards/project/databases/templates/databases/_detail_overview.html:25
+#: dashboards/project/databases/tables.py:161
+#: dashboards/project/databases/templates/databases/_detail_overview.html:29
 msgid "Host"
 msgstr "호스트"
 
@@ -1832,11 +1838,11 @@ msgstr "호스트"
 #: dashboards/admin/routers/tables.py:61
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/database_backups/tables.py:124
-#: dashboards/project/database_backups/templates/database_backups/details.html:24
-#: dashboards/project/database_backups/templates/database_backups/details.html:46
-#: dashboards/project/databases/tables.py:161
-#: dashboards/project/databases/tables.py:214
+#: dashboards/project/database_backups/tables.py:140
+#: dashboards/project/database_backups/templates/database_backups/details.html:30
+#: dashboards/project/database_backups/templates/database_backups/details.html:52
+#: dashboards/project/databases/tables.py:170
+#: dashboards/project/databases/tables.py:223
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -1857,8 +1863,8 @@ msgstr "호스트"
 #: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:100
-#: dashboards/project/stacks/tables.py:132
-#: dashboards/project/stacks/tables.py:179
+#: dashboards/project/stacks/tables.py:137
+#: dashboards/project/stacks/tables.py:184
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
@@ -2150,7 +2156,7 @@ msgstr "실시간 마이그레이트 인스턴스 "
 #: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
-#: dashboards/project/dashboard.py:67
+#: dashboards/project/dashboard.py:68
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
@@ -2173,7 +2179,7 @@ msgstr "IP 주소"
 #: dashboards/project/containers/tables.py:421
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:157
+#: dashboards/project/databases/tables.py:163
 #: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:798
@@ -3513,21 +3519,17 @@ msgid "Orchestration"
 msgstr "Orchestration"
 
 #: dashboards/project/dashboard.py:54
-#: dashboards/project/databases/tables.py:49
-#: dashboards/project/databases/tables.py:81
-#: dashboards/project/databases/tables.py:167
-#: dashboards/project/databases/tables.py:178
-#: dashboards/project/databases/tables.py:195
-#: dashboards/project/databases/tabs.py:66
-#: dashboards/project/databases/templates/databases/index.html:3
-#: dashboards/project/databases/templates/databases/index.html:6
-msgid "Databases"
+#: dashboards/project/database_backups/tables.py:137
+#: dashboards/project/databases/tables.py:48
+#: dashboards/project/databases/tables.py:80
+msgid "Database"
 msgstr "데이터베이스"
 
 #: dashboards/project/dashboard.py:61
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:3
 msgid "Data Processing"
-msgstr ""
+msgstr "데이터 프로세싱"
 
 #: dashboards/project/access_and_security/panel.py:24
 #: dashboards/project/instances/workflows/create_instance.py:471
@@ -4359,7 +4361,7 @@ msgid "Copy"
 msgstr "복사"
 
 #: dashboards/project/containers/tables.py:355
-#: dashboards/project/databases/tables.py:209
+#: dashboards/project/databases/tables.py:218
 msgid "Download"
 msgstr "내려받기"
 
@@ -4508,15 +4510,156 @@ msgstr "컨테이너에 오브젝트 올리기"
 msgid "Upload Objects"
 msgstr "오브젝트 올리기"
 
+#: dashboards/project/data_processing/data_image_registry/forms.py:46
+msgid "Successfully updated image."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:51
+msgid "Failed to update image."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:60
+#: dashboards/project/data_processing/data_image_registry/tables.py:52
+#: dashboards/project/data_processing/data_image_registry/tables.py:62
+#: dashboards/project/images/images/tables.py:58
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
+#: dashboards/project/volumes/volumes/forms.py:193
+msgid "Image"
+msgstr "이미지"
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:73
+#: dashboards/project/instances/forms.py:38
+#: dashboards/project/instances/forms.py:61
+#: dashboards/project/instances/workflows/create_instance.py:359
+msgid "Select Image"
+msgstr "이미지 선택"
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:75
+msgid "No images available."
+msgstr "사용 가능한 이미지가 없습니다."
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:84
+#, python-format
+msgid "Unable to retrieve images with filter %s."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/forms.py:111
+msgid "Unable to fetch available images."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/panel.py:22
+#: dashboards/project/data_processing/data_image_registry/tables.py:70
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:6
+msgid "Image Registry"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:29
+msgid "Edit Tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:43
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:6
+msgid "Register Image"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:50
+msgid "Unregister"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:51
+msgid "Unregistered"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/tables.py:66
+msgid "Tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/views.py:47
+msgid "Unable to retrieve image list"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/views.py:57
+#: dashboards/project/data_processing/data_image_registry/views.py:72
+msgid "Unable to process plugin tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/views.py:98
+msgid "Unable to fetch the image details"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:10
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:6
+msgid "Edit Image Tags"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
+msgid "Done"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:3
+msgid "Image Registry tool:"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:6
+msgid ""
+"Image Registry is used to provide additional information about images for "
+"Data Processing."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:9
+msgid ""
+"Specified User Name will be used by Data Processing to apply configs and "
+"manage processes on instances."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:12
+msgid ""
+"Tags are used for filtering images suitable for each plugin and each Data Processing version.\n"
+"        To add required tags, select a plugin and a Data Processing version and click &quot;Add all&quot; button."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:16
+msgid "You may also add any custom tag."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:19
+msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:5
+msgid ""
+"Register tags required for the Plugin with specified Data Processing Version"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
+msgid "Plugin"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:20
+msgid "Version"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:31
+msgid "Add all"
+msgstr ""
+
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:37
+msgid "Add custom tag"
+msgstr ""
+
 #: dashboards/project/data_processing/data_plugins/panel.py:22
 #: dashboards/project/data_processing/data_plugins/tables.py:43
 msgid "Plugins"
-msgstr ""
+msgstr "플러그인"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:32
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
 msgid "Title"
-msgstr ""
+msgstr "제목"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
@@ -4542,7 +4685,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
-msgstr ""
+msgstr "데이터 프로세싱 플러그인 개요"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
 #: dashboards/project/database_backups/templates/database_backups/details.html:15
@@ -4561,16 +4704,20 @@ msgstr "정보"
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
 msgid "Data Processing Plugin Details"
-msgstr ""
+msgstr "데이터 프로세싱 플러그인 상세 정보"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:6
 msgid "Data Processing Plugins"
-msgstr ""
+msgstr "데이터 프로세싱 플러그인"
 
 #: dashboards/project/database_backups/panel.py:23
-#: dashboards/project/database_backups/templates/database_backups/index.html:3
-msgid "Database Backups"
-msgstr "데이터베이스 백업"
+#: dashboards/project/database_backups/tables.py:79
+#: dashboards/project/database_backups/tables.py:146
+#: dashboards/project/database_backups/templates/database_backups/index.html:6
+#: dashboards/project/databases/tables.py:229
+#: dashboards/project/databases/tabs.py:93
+msgid "Backups"
+msgstr "백업"
 
 #: dashboards/project/database_backups/tables.py:37
 #: dashboards/project/databases/tables.py:101
@@ -4627,24 +4774,29 @@ msgstr "%(data_type)s 삭제 예약합니다."
 msgid "Backup"
 msgstr "백업"
 
-#: dashboards/project/database_backups/tables.py:79
-#: dashboards/project/database_backups/tables.py:130
-#: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:220
-#: dashboards/project/databases/tabs.py:93
-msgid "Backups"
-msgstr "백업"
+#: dashboards/project/database_backups/tables.py:117
+#: dashboards/project/database_backups/tables.py:123
+#: dashboards/project/databases/tables.py:133
+#: dashboards/project/databases/tables.py:139
+#: dashboards/project/instances/tables.py:673
+#: dashboards/project/instances/tables.py:680
+msgid "Not available"
+msgstr "사용할 수 없음"
 
-#: dashboards/project/database_backups/tables.py:118
-#: dashboards/project/databases/tables.py:207
+#: dashboards/project/database_backups/tables.py:131
+#: dashboards/project/database_backups/templates/database_backups/details.html:25
+msgid "Datastore"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:133
+#: dashboards/project/database_backups/templates/database_backups/details.html:27
+msgid "Datastore Version"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:134
+#: dashboards/project/databases/tables.py:216
 msgid "Created At"
 msgstr "생성됨"
-
-#: dashboards/project/database_backups/tables.py:121
-#: dashboards/project/databases/tables.py:48
-#: dashboards/project/databases/tables.py:80
-msgid "Database"
-msgstr "데이터베이스"
 
 #: dashboards/project/database_backups/views.py:48
 msgid "Not Found"
@@ -4670,26 +4822,26 @@ msgid "Backup Database"
 msgstr "백업 데이터베이스"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:3
-msgid "Backup Detail"
-msgstr "백업 세부 정보"
+msgid "Backup Details"
+msgstr ""
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:6
-msgid "Backup Detail: "
-msgstr "백업 세부 정보:"
+msgid "Backup Details: "
+msgstr ""
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:12
 msgid "Backup Overview"
 msgstr "백업 개요"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:26
+#: dashboards/project/database_backups/templates/database_backups/details.html:32
 msgid "Backup File Location"
 msgstr "백업 파일 위치"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:28
+#: dashboards/project/database_backups/templates/database_backups/details.html:34
 msgid "Initial Volume Size"
 msgstr "초기 볼륨 크기"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:29
+#: dashboards/project/database_backups/templates/database_backups/details.html:35
 #: dashboards/project/instances/templates/instances/_detail_overview.html:53
 #: dashboards/project/instances/templates/instances/_detail_overview.html:56
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
@@ -4705,17 +4857,21 @@ msgstr "초기 볼륨 크기"
 msgid "GB"
 msgstr "GB"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:30
+#: dashboards/project/database_backups/templates/database_backups/details.html:36
 msgid "Created On"
 msgstr "생성 하였습니다."
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:32
+#: dashboards/project/database_backups/templates/database_backups/details.html:38
 msgid "Backup Duration"
 msgstr "백업 사용 시간"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:39
+#: dashboards/project/database_backups/templates/database_backups/details.html:45
 msgid "Database Info"
 msgstr "데이터베이스 정보"
+
+#: dashboards/project/database_backups/templates/database_backups/index.html:3
+msgid "Database Backups"
+msgstr "데이터베이스 백업"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:33
 msgid "Database Instance"
@@ -4735,14 +4891,14 @@ msgid "Scheduled backup \"%(name)s\"."
 msgstr "\"%(name)s\" 백업할 예정입니다."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:66
-#: dashboards/project/databases/workflows/create_instance.py:207
+#: dashboards/project/databases/workflows/create_instance.py:211
 #: dashboards/project/instances/workflows/create_instance.py:663
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
-#: dashboards/project/databases/workflows/create_instance.py:223
+#: dashboards/project/databases/workflows/create_instance.py:227
 #: dashboards/project/instances/workflows/create_instance.py:679
 msgid "instance"
 msgstr "인스턴스"
@@ -4750,10 +4906,6 @@ msgstr "인스턴스"
 #: dashboards/project/database_backups/workflows/create_backup.py:88
 msgid "Error creating database backup."
 msgstr "데이터베이스 백업을 생성하던 중 오류가 발생하였습니다."
-
-#: dashboards/project/databases/panel.py:23
-msgid "Database Instances"
-msgstr "데이터베이스 인스턴스"
 
 #: dashboards/project/databases/tables.py:34
 #: dashboards/project/instances/tables.py:75
@@ -4773,6 +4925,17 @@ msgstr "재시작"
 #: dashboards/project/databases/tables.py:47
 msgid "Restarted"
 msgstr "재시작함"
+
+#: dashboards/project/databases/tables.py:49
+#: dashboards/project/databases/tables.py:81
+#: dashboards/project/databases/tables.py:176
+#: dashboards/project/databases/tables.py:187
+#: dashboards/project/databases/tables.py:204
+#: dashboards/project/databases/tabs.py:66
+#: dashboards/project/databases/templates/databases/index.html:3
+#: dashboards/project/databases/templates/databases/index.html:6
+msgid "Databases"
+msgstr "데이터베이스"
 
 #: dashboards/project/databases/tables.py:72
 msgid "Error deleting database user."
@@ -4796,13 +4959,7 @@ msgstr "인스턴스 시작"
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#: dashboards/project/databases/tables.py:133
-#: dashboards/project/instances/tables.py:673
-#: dashboards/project/instances/tables.py:680
-msgid "Not available"
-msgstr "사용할 수 없음"
-
-#: dashboards/project/databases/tables.py:141
+#: dashboards/project/databases/tables.py:147
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -4823,35 +4980,41 @@ msgstr "사용할 수 없음"
 msgid "-"
 msgstr "-"
 
-#: dashboards/project/databases/tables.py:154
-#: dashboards/project/databases/tables.py:191
+#: dashboards/project/databases/tables.py:160
+#: dashboards/project/databases/tables.py:200
 #: dashboards/project/databases/workflows/create_instance.py:30
 msgid "Database Name"
 msgstr " 데이트베이스 이름"
 
-#: dashboards/project/databases/tables.py:177
+#: dashboards/project/databases/tables.py:166
+#: dashboards/project/databases/templates/databases/_detail_overview.html:18
+#: dashboards/project/databases/workflows/create_instance.py:33
+msgid "Volume Size"
+msgstr "볼륨 크기"
+
+#: dashboards/project/databases/tables.py:186
 msgid "Allowed Hosts"
 msgstr "허용된 호스트"
 
-#: dashboards/project/databases/tables.py:182
+#: dashboards/project/databases/tables.py:191
 msgid "Database Instance Users"
 msgstr "데이터베이스 인스턴트 사용자"
 
-#: dashboards/project/databases/tables.py:211
+#: dashboards/project/databases/tables.py:220
 msgid "Backup File"
 msgstr "백업 파일"
 
 #: dashboards/project/databases/tabs.py:52
 msgid "Unable to get user data."
-msgstr ""
+msgstr "사용자 데이터를 가져욜 수 없습니다."
 
 #: dashboards/project/databases/tabs.py:79
 msgid "Unable to get databases data."
-msgstr ""
+msgstr "데이터베이스 데이터를 가져올 수 없습니다."
 
 #: dashboards/project/databases/tabs.py:104
 msgid "Unable to get database backup data."
-msgstr ""
+msgstr "데이터베이스 백업 데이터를 가져올 수 없습니다."
 
 #: dashboards/project/databases/views.py:44
 msgid "Not Assigned"
@@ -4876,15 +5039,15 @@ msgstr "인스턴스 데이터베이스에 대한 세부 정보를 찾을 수 �
 msgid "Instance Overview"
 msgstr "인스턴스 개요"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:21
+#: dashboards/project/databases/templates/databases/_detail_overview.html:25
 msgid "Connection Info"
 msgstr "연결 정보"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:27
+#: dashboards/project/databases/templates/databases/_detail_overview.html:31
 msgid "Database Port"
 msgstr "데이터베이스 포트"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:29
+#: dashboards/project/databases/templates/databases/_detail_overview.html:33
 msgid "Connection Examples"
 msgstr "연결 예제"
 
@@ -4967,15 +5130,15 @@ msgid "Create this database from a previous backup."
 msgstr "이전 백업에서 데이터베이스를 생성합니다."
 
 #: dashboards/project/databases/templates/databases/detail.html:3
-msgid "Database Detail"
-msgstr "데이터베이스 세부 정보"
+msgid "Database Details"
+msgstr ""
 
 #: dashboards/project/databases/templates/databases/detail.html:6
-msgid "Database Detail: "
-msgstr "데이터베이스 세부 정보:"
+msgid "Database Details: "
+msgstr ""
 
 #: dashboards/project/databases/templates/databases/launch.html:6
-#: dashboards/project/databases/workflows/create_instance.py:204
+#: dashboards/project/databases/workflows/create_instance.py:208
 msgid "Launch Database"
 msgstr "데이터베이스 시작"
 
@@ -4990,10 +5153,6 @@ msgstr "인스턴스 편집"
 #: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Size of image to launch."
 msgstr "시작시 이미지 크기"
-
-#: dashboards/project/databases/workflows/create_instance.py:33
-msgid "Volume Size"
-msgstr "볼륨 크기"
 
 #: dashboards/project/databases/workflows/create_instance.py:36
 msgid "Size of the volume in GB."
@@ -5065,18 +5224,26 @@ msgstr "복원할 백업본 선택"
 msgid "Restore From Backup"
 msgstr "백업으로 복구"
 
-#: dashboards/project/databases/workflows/create_instance.py:193
+#: dashboards/project/databases/workflows/create_instance.py:182
+msgid "Select backup"
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:184
+msgid "No backups available"
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:197
 msgid "Unable to find backup!"
 msgstr "백업을 찾을 수 없습니다!"
 
-#: dashboards/project/databases/workflows/create_instance.py:205
+#: dashboards/project/databases/workflows/create_instance.py:209
 #: dashboards/project/images/images/tables.py:34
 #: dashboards/project/instances/workflows/create_instance.py:661
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Launch"
 
-#: dashboards/project/databases/workflows/create_instance.py:206
+#: dashboards/project/databases/workflows/create_instance.py:210
 #: dashboards/project/instances/workflows/create_instance.py:662
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
@@ -5721,12 +5888,6 @@ msgstr "이미지 \"%s\"를 업데이트 할 수 없습니다."
 msgid "Image was successfully updated."
 msgstr "이미지를 성공적으로 업데이트 하였습니다."
 
-#: dashboards/project/images/images/tables.py:58
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
-#: dashboards/project/volumes/volumes/forms.py:193
-msgid "Image"
-msgstr "이미지"
-
 #: dashboards/project/images/images/tables.py:101
 #: dashboards/project/volumes/snapshots/tables.py:82
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
@@ -5883,15 +6044,9 @@ msgstr "스냅샷 생성"
 msgid "Console type \"%s\" not supported."
 msgstr ""
 
-#: dashboards/project/instances/console.py:61
+#: dashboards/project/instances/console.py:66
 msgid "No available console found."
 msgstr ""
-
-#: dashboards/project/instances/forms.py:38
-#: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:359
-msgid "Select Image"
-msgstr "이미지 선택"
 
 #: dashboards/project/instances/forms.py:42
 msgid "Rebuild Password"
@@ -6156,11 +6311,11 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:705
 msgid "Soft Deleted"
-msgstr ""
+msgstr "소프트 삭제됨"
 
 #: dashboards/project/instances/tables.py:706
 msgid "Shelved"
-msgstr ""
+msgstr "보류함"
 
 #: dashboards/project/instances/tables.py:707
 msgid "Shelved Offloaded"
@@ -6172,7 +6327,7 @@ msgstr "Scheduling"
 
 #: dashboards/project/instances/tables.py:713
 msgid "Block Device Mapping"
-msgstr ""
+msgstr "블록 디바이스 맵핑"
 
 #: dashboards/project/instances/tables.py:715
 msgid "Spawning"
@@ -8621,39 +8776,39 @@ msgstr "스택 템플릿 변경"
 msgid "Stack"
 msgstr "스택"
 
-#: dashboards/project/stacks/tables.py:121
-#: dashboards/project/stacks/tables.py:166
+#: dashboards/project/stacks/tables.py:126
+#: dashboards/project/stacks/tables.py:171
 msgid "Stack Resource"
 msgstr "스택 리소스"
 
-#: dashboards/project/stacks/tables.py:124
-#: dashboards/project/stacks/tables.py:169
+#: dashboards/project/stacks/tables.py:129
+#: dashboards/project/stacks/tables.py:174
 msgid "Resource"
 msgstr "리소스"
 
-#: dashboards/project/stacks/tables.py:127
+#: dashboards/project/stacks/tables.py:132
 msgid "Time Since Event"
 msgstr "이벤트 이후 시간"
 
-#: dashboards/project/stacks/tables.py:135
-#: dashboards/project/stacks/tables.py:184
+#: dashboards/project/stacks/tables.py:140
+#: dashboards/project/stacks/tables.py:189
 msgid "Status Reason"
 msgstr "상태 현황"
 
-#: dashboards/project/stacks/tables.py:139
+#: dashboards/project/stacks/tables.py:144
 msgid "Stack Events"
 msgstr "스택 이벤트"
 
-#: dashboards/project/stacks/tables.py:172
+#: dashboards/project/stacks/tables.py:177
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
 msgid "Stack Resource Type"
 msgstr "스택 리소스 타입"
 
-#: dashboards/project/stacks/tables.py:174
+#: dashboards/project/stacks/tables.py:179
 msgid "Date Updated"
 msgstr "업데이트한 날짜"
 
-#: dashboards/project/stacks/tables.py:197
+#: dashboards/project/stacks/tables.py:202
 msgid "Stack Resources"
 msgstr "스택 리소스"
 
@@ -8665,16 +8820,16 @@ msgstr "토폴로지"
 msgid "Events"
 msgstr "이벤트"
 
-#: dashboards/project/stacks/tabs.py:105
+#: dashboards/project/stacks/tabs.py:108
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "스택 \"%s\"에 대한 이벤트를 가져올 수 없습니다."
 
-#: dashboards/project/stacks/tabs.py:111
+#: dashboards/project/stacks/tabs.py:114
 msgid "Resources"
 msgstr "리소스"
 
-#: dashboards/project/stacks/tabs.py:130
+#: dashboards/project/stacks/tabs.py:136
 #, python-format
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "스택 \"%s\"에 대한 리소스를 가져오지 못하였습니다."
@@ -8811,7 +8966,7 @@ msgstr "볼륨 스냅샷을 찾을 수 없습니다."
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
 msgid "Volume Backups"
-msgstr ""
+msgstr "볼륩 백업"
 
 #: dashboards/project/volumes/tabs.py:118
 msgid "Unable to retrieve volume backups."
@@ -8819,24 +8974,24 @@ msgstr ""
 
 #: dashboards/project/volumes/backups/forms.py:33
 msgid "Backup Name"
-msgstr ""
+msgstr "백업 이름"
 
 #: dashboards/project/volumes/backups/forms.py:55
 #, python-format
 msgid "Creating volume backup \"%s\""
-msgstr ""
+msgstr "볼륨 백업 \"%s\" 생성중"
 
 #: dashboards/project/volumes/backups/forms.py:62
 msgid "Unable to create volume backup."
-msgstr ""
+msgstr "볼륨 백업을 생성할 수 없습니다."
 
 #: dashboards/project/volumes/backups/forms.py:78
 msgid "Unable to lookup volume or backup information."
-msgstr ""
+msgstr "볼륨 또는 백업 정보를 찾을 수 없습니다."
 
 #: dashboards/project/volumes/backups/forms.py:84
 msgid "Create a New Volume"
-msgstr ""
+msgstr "새로운 볼륨 생성"
 
 #: dashboards/project/volumes/backups/forms.py:101
 #, python-format
@@ -8847,12 +9002,12 @@ msgstr ""
 
 #: dashboards/project/volumes/backups/forms.py:107
 msgid "Unable to restore backup."
-msgstr ""
+msgstr "백업을 복구할 수 없습니다."
 
 #: dashboards/project/volumes/backups/tables.py:47
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup"
-msgstr ""
+msgstr "볼륨 백업"
 
 #: dashboards/project/volumes/backups/tables.py:49
 msgid "Scheduled deletion of"
@@ -8901,7 +9056,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
 msgid "Create Volume Backup"
-msgstr ""
+msgstr "볼륨 백업 생성"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid ""
@@ -8918,16 +9073,16 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:4
 msgid "Volume Backup Overview"
-msgstr ""
+msgstr "볼륨 백업 개요"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
 msgid "Restore Volume Backup"
-msgstr ""
+msgstr "볼륨 백업 복구"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Select a volume to restore to."
-msgstr ""
+msgstr "복구할 볼륨을 선택합니다."
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:19
 msgid "Optionally, you may choose to create a new volume."
@@ -8935,27 +9090,27 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:24
 msgid "Restore Backup to Volume"
-msgstr ""
+msgstr "볼륨에 백업 복구"
 
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
 msgid "Create a Volume Backup"
-msgstr ""
+msgstr "볼륨 백업 생성"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:3
 msgid "Volume Backup Details"
-msgstr ""
+msgstr "볼륨 백업 상세 정보"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details: "
-msgstr ""
+msgstr "볼륨 백업 상세 정보:"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details:"
-msgstr ""
+msgstr "볼륨 백업 상세 정보:"
 
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
 msgid "Restore a Volume Backup"
-msgstr ""
+msgstr "볼륨 백업 복구"
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
 msgid "Volume Snapshot Overview"
@@ -9236,11 +9391,11 @@ msgstr "볼륨을 업데이트 할 수 업습니다."
 
 #: dashboards/project/volumes/volumes/forms.py:497
 msgid "Current Size (GB)"
-msgstr ""
+msgstr "현재 크기 (GB)"
 
 #: dashboards/project/volumes/volumes/forms.py:501
 msgid "New Size (GB)"
-msgstr ""
+msgstr "새로운 크기 (GB)"
 
 #: dashboards/project/volumes/volumes/forms.py:508
 msgid "New size must be greater than current size."
