@@ -16,8 +16,6 @@
 
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard.api import neutron
-
 import horizon
 
 
@@ -29,5 +27,4 @@ class Router(horizon.Dashboard):
     permissions = ('openstack.roles.admin',)
 
 
-if neutron.is_port_profiles_supported():
-    horizon.register(Router)
+horizon.register(Router)

@@ -566,16 +566,23 @@ class SetNetworkAction(workflows.Action):
                                         help_text=_("Launch instance with"
                                                     " these networks"))
     if api.neutron.is_port_profiles_supported():
-        profile = forms.ChoiceField(label=_("Policy Profiles"),
-                                    required=False,
-                                    help_text=_("Launch instance with "
-                                                "this policy profile"))
+        widget = None
+    else:
+        widget = forms.HiddenInput()
+    profile = forms.ChoiceField(label=_("Policy Profiles"),
+                                required=False,
+                                widget=widget,
+                                help_text=_("Launch instance with "
+                                            "this policy profile"))
 
     def __init__(self, request, *args, **kwargs):
         super(SetNetworkAction, self).__init__(request, *args, **kwargs)
         network_list = self.fields["network"].choices
         if len(network_list) == 1:
             self.fields['network'].initial = [network_list[0][0]]
+        if api.neutron.is_port_profiles_supported():
+            self.fields['profile'].choices = (
+                self.get_policy_profile_choices(request))
 
     class Meta:
         name = _("Networking")
@@ -595,14 +602,19 @@ class SetNetworkAction(workflows.Action):
                               _('Unable to retrieve networks.'))
         return network_list
 
-    def populate_profile_choices(self, request, context):
+    def get_policy_profile_choices(self, request):
+        profile_choices = [('', '')]
+        for profile in self._get_profiles(request, 'policy'):
+            profile_choices.append((profile.id, profile.name))
+        return profile_choices
+
+    def _get_profiles(self, request, type_p):
+        profiles = []
         try:
-            profiles = api.neutron.profile_list(request, 'policy')
-            profile_list = [(profile.id, profile.name) for profile in profiles]
+            profiles = api.neutron.profile_list(request, type_p)
         except Exception:
-            profile_list = []
             exceptions.handle(request, _("Unable to retrieve profiles."))
-        return profile_list
+        return profiles
 
 
 class SetNetwork(workflows.Step):

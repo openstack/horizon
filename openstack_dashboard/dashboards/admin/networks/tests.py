@@ -16,6 +16,7 @@
 
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 
 from horizon.workflows import views
 
@@ -151,14 +152,12 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('profile_list',),
                         api.keystone: ('tenant_list',)})
-    def test_network_create_get(self):
+    def test_network_create_get(self,
+                                test_with_profile=False):
         tenants = self.tenants.list()
         api.keystone.tenant_list(IsA(
             http.HttpRequest)).AndReturn([tenants, False])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             net_profiles = self.net_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
@@ -169,10 +168,15 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, 'admin/networks/create.html')
 
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_network_create_get_with_profile(self):
+        self.test_network_create_get(test_with_profile=True)
+
     @test.create_stubs({api.neutron: ('network_create',
                                       'profile_list',),
                         api.keystone: ('tenant_list',)})
-    def test_network_create_post(self):
+    def test_network_create_post(self,
+                                 test_with_profile=False):
         tenants = self.tenants.list()
         tenant_id = self.tenants.first().id
         network = self.networks.first()
@@ -183,10 +187,7 @@ class NetworkTests(test.BaseAdminViewTests):
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
                   'shared': True}
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -201,7 +202,7 @@ class NetworkTests(test.BaseAdminViewTests):
                      'admin_state': network.admin_state_up,
                      'external': True,
                      'shared': True}
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
@@ -209,10 +210,15 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_network_create_post_with_profile(self):
+        self.test_network_create_post(test_with_profile=True)
+
     @test.create_stubs({api.neutron: ('network_create',
                                       'profile_list',),
                         api.keystone: ('tenant_list',)})
-    def test_network_create_post_network_exception(self):
+    def test_network_create_post_network_exception(self,
+                                                   test_with_profile=False):
         tenants = self.tenants.list()
         tenant_id = self.tenants.first().id
         network = self.networks.first()
@@ -223,10 +229,7 @@ class NetworkTests(test.BaseAdminViewTests):
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
                   'shared': False}
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -241,13 +244,18 @@ class NetworkTests(test.BaseAdminViewTests):
                      'admin_state': network.admin_state_up,
                      'external': True,
                      'shared': False}
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
         url = reverse('horizon:admin:networks:create')
         res = self.client.post(url, form_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_network_create_post_network_exception_with_profile(self):
+        self.test_network_create_post_network_exception(test_with_profile=
+                                                        True)
 
     @test.create_stubs({api.neutron: ('network_get',)})
     def test_network_update_get(self):
