@@ -1063,7 +1063,8 @@ class VolumeViewTests(test.TestCase):
     def test_encryption_true(self):
         self._test_encryption(True)
 
-    @test.create_stubs({cinder: ('volume_list', 'volume_snapshot_list'),
+    @test.create_stubs({cinder: ('volume_list', 'volume_snapshot_list',
+                                 'volume_backup_supported'),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',)})
     def _test_encryption(self, encryption):
@@ -1072,6 +1073,8 @@ class VolumeViewTests(test.TestCase):
             volume.encrypted = encryption
         quota_usages = self.quota_usages.first()
 
+        cinder.volume_backup_supported(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(False)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
             .MultipleTimes().AndReturn(self.volumes.list())
         cinder.volume_list(IsA(http.HttpRequest)).AndReturn([])
