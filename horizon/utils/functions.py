@@ -16,13 +16,13 @@ import re
 from django.conf import settings
 from django.contrib.auth import logout  # noqa
 from django import http
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.utils.functional import lazy  # noqa
 from django.utils import translation
 
 
 def _lazy_join(separator, strings):
-    return separator.join([force_unicode(s)
+    return separator.join([force_text(s)
                            for s in strings])
 
 lazy_join = lazy(_lazy_join, unicode)

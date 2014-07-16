@@ -332,7 +332,7 @@ class GetUserHomeTests(BaseHorizonTests):
                                base.Horizon.get_user_home(self.test_user))
 
     def test_using_module_function(self):
-        module_func = 'django.utils.encoding.force_unicode'
+        module_func = 'django.utils.encoding.force_text'
         settings.HORIZON_CONFIG['user_home'] = module_func
         conf.HORIZON_CONFIG._setup()
 

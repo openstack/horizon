@@ -23,7 +23,7 @@ from django import template
 from django.template.defaultfilters import linebreaks  # noqa
 from django.template.defaultfilters import safe  # noqa
 from django.template.defaultfilters import slugify  # noqa
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.utils.importlib import import_module  # noqa
 from django.utils.translation import ugettext_lazy as _
 import six
@@ -139,7 +139,7 @@ class Action(forms.Form):
         self.required_css_class = 'required'
 
     def __unicode__(self):
-        return force_unicode(self.name)
+        return force_text(self.name)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
@@ -159,7 +159,7 @@ class Action(forms.Form):
             context = template.RequestContext(self.request, extra_context)
             text += tmpl.render(context)
         else:
-            text += linebreaks(force_unicode(self.help_text))
+            text += linebreaks(force_text(self.help_text))
         return safe(text)
 
     def add_error(self, message):
@@ -285,7 +285,7 @@ class Step(object):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
 
     def __unicode__(self):
-        return force_unicode(self.name)
+        return force_text(self.name)
 
     def __init__(self, workflow):
         super(Step, self).__init__()
@@ -426,7 +426,7 @@ class Step(object):
 
     def get_help_text(self):
         """Returns the help text for this step."""
-        text = linebreaks(force_unicode(self.help_text))
+        text = linebreaks(force_text(self.help_text))
         text += self.action.get_help_text()
         return safe(text)
 

@@ -261,7 +261,7 @@ def handle(request, message=None, redirect=None, ignore=False,
         exc_type, exc_value, exc_traceback = exc_value.wrapped
         wrap = True
 
-    log_entry = encoding.force_unicode(exc_value)
+    log_entry = encoding.force_text(exc_value)
 
     # We trust messages from our own exceptions
     if issubclass(exc_type, HorizonException):
@@ -271,9 +271,9 @@ def handle(request, message=None, redirect=None, ignore=False,
         message = exc_value._safe_message
     # If the message has a placeholder for the exception, fill it in
     elif message and "%(exc)s" in message:
-        message = encoding.force_unicode(message) % {"exc": log_entry}
+        message = encoding.force_text(message) % {"exc": log_entry}
     if message:
-        message = encoding.force_unicode(message)
+        message = encoding.force_text(message)
 
     if issubclass(exc_type, UNAUTHORIZED):
         if ignore:

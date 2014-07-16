@@ -18,7 +18,7 @@
 
 from django.core.urlresolvers import reverse
 from django.core import validators
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -116,7 +116,7 @@ class UploadObject(forms.SelfHandlingForm):
                                                 data['container_name'],
                                                 object_path,
                                                 object_file)
-            msg = force_unicode(_("Object was successfully uploaded."))
+            msg = force_text(_("Object was successfully uploaded."))
             messages.success(request, msg)
             return obj
         except Exception:

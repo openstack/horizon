@@ -20,7 +20,7 @@ from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
 from django.forms import fields
 from django.forms import widgets
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.utils.functional import Promise  # noqa
 from django.utils import html
 from django.utils.translation import ugettext_lazy as _
@@ -144,21 +144,21 @@ class SelectWidget(widgets.Select):
         super(SelectWidget, self).__init__(attrs, choices)
 
     def render_option(self, selected_choices, option_value, option_label):
-        option_value = force_unicode(option_value)
+        option_value = force_text(option_value)
         other_html = (option_value in selected_choices) and \
                          u' selected="selected"' or ''
         if not isinstance(option_label, (basestring, Promise)):
             for data_attr in self.data_attrs:
                 data_value = html.conditional_escape(
-                    force_unicode(getattr(option_label,
-                                          data_attr, "")))
+                    force_text(getattr(option_label,
+                                       data_attr, "")))
                 other_html += ' data-%s="%s"' % (data_attr, data_value)
 
             if self.transform:
                 option_label = self.transform(option_label)
         return u'<option value="%s"%s>%s</option>' % (
             html.escape(option_value), other_html,
-            html.conditional_escape(force_unicode(option_label)))
+            html.conditional_escape(force_text(option_label)))
 
 
 class DynamicSelectWidget(widgets.Select):
