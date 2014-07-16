@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-14 18:58-0500\n"
-"PO-Revision-Date: 2014-07-14 23:28+0000\n"
+"POT-Creation-Date: 2014-07-15 07:11-0500\n"
+"PO-Revision-Date: 2014-07-15 11:04+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
@@ -382,11 +382,14 @@ msgstr "Admin"
 #: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:72
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
+#: dashboards/project/data_processing/utils/workflow_helpers.py:106
 #: dashboards/project/database_backups/tables.py:129
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:48
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:215
+#: dashboards/project/databases/tables.py:232
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
@@ -698,6 +701,8 @@ msgstr "Error when adding or removing hosts."
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:39
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:40
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
 #: dashboards/project/database_backups/workflows/create_backup.py:34
 #: dashboards/project/firewalls/forms.py:38
@@ -794,6 +799,7 @@ msgstr "From here you can edit the aggregate name and availability zone"
 #: dashboards/project/containers/templates/containers/_upload.html:27
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:28
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:26
+#: dashboards/project/databases/templates/databases/_resize_volume.html:25
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:27
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:24
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:24
@@ -1022,6 +1028,8 @@ msgstr "Flavours"
 #: dashboards/admin/flavors/templates/flavors/extras/create.html:7
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:7
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:14
+#: dashboards/project/databases/templates/databases/_detail_overview.html:22
 #: dashboards/project/databases/workflows/create_instance.py:31
 #: dashboards/project/instances/templates/instances/_detail_overview.html:46
 #: dashboards/project/instances/workflows/create_instance.py:83
@@ -1078,7 +1086,7 @@ msgid "VCPUs"
 msgstr "VCPUs"
 
 #: dashboards/admin/flavors/tables.py:106
-#: dashboards/project/databases/templates/databases/_detail_overview.html:15
+#: dashboards/project/databases/templates/databases/_detail_overview.html:24
 #: dashboards/project/instances/templates/instances/_detail_overview.html:48
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
 #: usage/tables.py:36
@@ -1107,6 +1115,7 @@ msgstr "Swap Disk"
 #: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/users/forms.py:156
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
 #: dashboards/project/database_backups/templates/database_backups/details.html:50
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
@@ -1352,6 +1361,8 @@ msgstr "ExtraSpecs"
 #: dashboards/admin/flavors/extras/tables.py:34
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:25
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:167
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:293
 #: dashboards/project/networks/workflows.py:265
 #: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create"
@@ -1479,7 +1490,7 @@ msgstr "Add..."
 #: dashboards/admin/groups/tables.py:160 dashboards/admin/users/forms.py:80
 #: dashboards/admin/users/forms.py:157 dashboards/admin/users/tables.py:130
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:185
+#: dashboards/project/databases/tables.py:202
 msgid "User Name"
 msgstr "User Name"
 
@@ -1825,8 +1836,8 @@ msgstr "Service"
 #: dashboards/admin/info/tables.py:105 dashboards/admin/info/tables.py:157
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
-#: dashboards/project/databases/tables.py:161
-#: dashboards/project/databases/templates/databases/_detail_overview.html:29
+#: dashboards/project/databases/tables.py:176
+#: dashboards/project/databases/templates/databases/_detail_overview.html:38
 msgid "Host"
 msgstr "Host"
 
@@ -1841,8 +1852,8 @@ msgstr "Host"
 #: dashboards/project/database_backups/tables.py:140
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
 #: dashboards/project/database_backups/templates/database_backups/details.html:52
-#: dashboards/project/databases/tables.py:170
-#: dashboards/project/databases/tables.py:223
+#: dashboards/project/databases/tables.py:185
+#: dashboards/project/databases/tables.py:240
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -2156,7 +2167,7 @@ msgstr "Live Migrate Instance"
 #: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:52
-#: dashboards/project/dashboard.py:68
+#: dashboards/project/dashboard.py:69
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
@@ -2179,7 +2190,7 @@ msgstr "IP Address"
 #: dashboards/project/containers/tables.py:421
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:163
+#: dashboards/project/databases/tables.py:178
 #: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:798
@@ -2230,6 +2241,7 @@ msgid "Unable to retrieve instance size information."
 msgstr "Unable to retrieve instance size information."
 
 #: dashboards/admin/instances/views.py:157
+#: dashboards/project/databases/views.py:146
 #: dashboards/project/instances/views.py:199
 #: dashboards/project/instances/views.py:309
 msgid "Unable to retrieve instance details."
@@ -2918,6 +2930,7 @@ msgid "Unable to retrieve project list."
 msgstr "Unable to retrieve project list."
 
 #: dashboards/admin/overview/views.py:73
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:55
 #: dashboards/project/databases/tables.py:63
 #: dashboards/project/databases/tables.py:79
 #: dashboards/project/instances/tables.py:688
@@ -3528,6 +3541,7 @@ msgstr "Database"
 #: dashboards/project/dashboard.py:61
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:3
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:3
 msgid "Data Processing"
 msgstr ""
 
@@ -4361,7 +4375,7 @@ msgid "Copy"
 msgstr "Copy"
 
 #: dashboards/project/containers/tables.py:355
-#: dashboards/project/databases/tables.py:218
+#: dashboards/project/databases/tables.py:235
 msgid "Download"
 msgstr "Download"
 
@@ -4636,6 +4650,9 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:75
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
 msgid "Plugin"
 msgstr ""
 
@@ -4710,11 +4727,255 @@ msgstr ""
 msgid "Data Processing Plugins"
 msgstr ""
 
+#: dashboards/project/data_processing/nodegroup_templates/panel.py:22
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:83
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
+msgid "Node Group Templates"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:27
+msgid "Create Template"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:35
+msgid "Configure Template"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:44
+msgid "Copy Template"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:51
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:54
+#: dashboards/project/database_backups/tables.py:76
+#: dashboards/project/databases/tables.py:62
+#: dashboards/project/databases/tables.py:78
+#: dashboards/project/firewalls/tables.py:50
+#: dashboards/project/firewalls/tables.py:65
+#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/loadbalancers/tables.py:70
+#: dashboards/project/loadbalancers/tables.py:84
+#: dashboards/project/loadbalancers/tables.py:98
+#: dashboards/project/loadbalancers/tables.py:107
+#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:63
+#: dashboards/project/vpn/tables.py:77 dashboards/project/vpn/tables.py:91
+#: dashboards/project/vpn/tables.py:105
+msgid "Delete"
+msgstr "Delete"
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:56
+msgid "Template"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:57
+msgid "Templates"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:77
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
+#: dashboards/project/data_processing/utils/workflow_helpers.py:165
+msgid "Hadoop Version"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
+msgid "Node Processes"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:29
+msgid "General Info"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:41
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:64
+msgid "Unable to fetch node group template."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:47
+msgid "Unable to fetch flavor for template."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:52
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:2
+msgid "Service Configurations"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/views.py:48
+msgid "Unable to fetch node group template list."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/views.py:103
+msgid "Unable to fetch template object."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:4
+msgid "This Node Group Template will be created for:"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
+msgid "Hadoop version"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:12
+msgid ""
+"The Node Group Template object should specify processes that will be "
+"launched on each instance. Also an OpenStack flavor is required to boot VMs."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:15
+msgid ""
+"Data Processing provides different storage location options. You may choose "
+"Ephemeral Drive or a Cinder Volume to be attached to instances."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
+msgid ""
+"When processes are selected, you may set <b>node</b> scoped Hadoop "
+"configurations on corresponding tabs."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
+msgid "Select a plugin and Hadoop version for a new Node group template."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
+msgid "Template Overview"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:34
+msgid "HDFS placement"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
+msgid "Cinder volumes"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:54
+msgid "Volumes per node"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:39
+msgid "Volumes size"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
+msgid "Ephemeral drive"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:166
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
+msgid "Create Node Group Template"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:3
+msgid "Nodegroup Template Details"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:6
+msgid "Node Group Template Details"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:29
+#, python-format
+msgid "Node Group Template copy %s created"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:77
+msgid "Unable to fetch plugin details."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:38
+msgid "Template Name"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:44
+msgid "OpenStack Flavor"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
+msgid "Storage location"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:48
+msgid "Storage"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:61
+msgid "Volumes size (GB)"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:90
+msgid "Unable to generate process choices."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:98
+msgid "Floating IP pool"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:103
+msgid "Processes"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:105
+msgid "Processes to be launched in node group"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:130
+#: dashboards/project/instances/utils.py:31
+msgid "Unable to retrieve instance flavors."
+msgstr "Unable to retrieve instance flavors."
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:142
+msgid "Configure Node Group Template"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:168
+#, python-format
+msgid "Created Node Group Template %s"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:273
+msgid "Select plugin and hadoop version"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:294
+#: dashboards/project/images/templates/images/images/_detail_overview.html:25
+#: dashboards/project/instances/templates/instances/_detail_overview.html:18
+#: dashboards/project/instances/templates/instances/_detail_overview.html:36
+#: dashboards/project/stacks/tables.py:91
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
+msgid "Created"
+msgstr "Created"
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:295
+msgid "Could not create"
+msgstr ""
+
+#: dashboards/project/data_processing/utils/workflow_helpers.py:111
+msgid "Node group cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/utils/workflow_helpers.py:116
+msgid "Count"
+msgstr ""
+
+#: dashboards/project/data_processing/utils/workflow_helpers.py:157
+msgid "Plugin Name"
+msgstr ""
+
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:79
 #: dashboards/project/database_backups/tables.py:146
 #: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:229
+#: dashboards/project/databases/tables.py:246
 #: dashboards/project/databases/tabs.py:93
 msgid "Backups"
 msgstr "Backups"
@@ -4734,22 +4995,6 @@ msgstr "Restore Backup"
 #: dashboards/project/database_backups/tables.py:58
 msgid "Download Backup"
 msgstr "Download Backup"
-
-#: dashboards/project/database_backups/tables.py:76
-#: dashboards/project/databases/tables.py:62
-#: dashboards/project/databases/tables.py:78
-#: dashboards/project/firewalls/tables.py:50
-#: dashboards/project/firewalls/tables.py:65
-#: dashboards/project/firewalls/tables.py:80
-#: dashboards/project/loadbalancers/tables.py:70
-#: dashboards/project/loadbalancers/tables.py:84
-#: dashboards/project/loadbalancers/tables.py:98
-#: dashboards/project/loadbalancers/tables.py:107
-#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:63
-#: dashboards/project/vpn/tables.py:77 dashboards/project/vpn/tables.py:91
-#: dashboards/project/vpn/tables.py:105
-msgid "Delete"
-msgstr "Delete"
 
 #: dashboards/project/database_backups/tables.py:77
 #: dashboards/project/firewalls/tables.py:51
@@ -4776,8 +5021,8 @@ msgstr "Backup"
 
 #: dashboards/project/database_backups/tables.py:117
 #: dashboards/project/database_backups/tables.py:123
-#: dashboards/project/databases/tables.py:133
-#: dashboards/project/databases/tables.py:139
+#: dashboards/project/databases/tables.py:148
+#: dashboards/project/databases/tables.py:154
 #: dashboards/project/instances/tables.py:673
 #: dashboards/project/instances/tables.py:680
 msgid "Not available"
@@ -4794,7 +5039,7 @@ msgid "Datastore Version"
 msgstr ""
 
 #: dashboards/project/database_backups/tables.py:134
-#: dashboards/project/databases/tables.py:216
+#: dashboards/project/databases/tables.py:233
 msgid "Created At"
 msgstr "Created At"
 
@@ -4907,6 +5152,30 @@ msgstr "instance"
 msgid "Error creating database backup."
 msgstr "Error creating database backup."
 
+#: dashboards/project/databases/forms.py:28
+#: dashboards/project/volumes/volumes/forms.py:497
+msgid "Current Size (GB)"
+msgstr ""
+
+#: dashboards/project/databases/forms.py:32
+#: dashboards/project/volumes/volumes/forms.py:501
+msgid "New Size (GB)"
+msgstr ""
+
+#: dashboards/project/databases/forms.py:39
+msgid "New size for volume must be greater than current size."
+msgstr ""
+
+#: dashboards/project/databases/forms.py:50
+#, python-format
+msgid "Resizing volume \"%s\""
+msgstr ""
+
+#: dashboards/project/databases/forms.py:53
+#, python-format
+msgid "Unable to resize volume. %s"
+msgstr ""
+
 #: dashboards/project/databases/tables.py:34
 #: dashboards/project/instances/tables.py:75
 msgid "Terminate"
@@ -4928,9 +5197,9 @@ msgstr "Restarted"
 
 #: dashboards/project/databases/tables.py:49
 #: dashboards/project/databases/tables.py:81
-#: dashboards/project/databases/tables.py:176
-#: dashboards/project/databases/tables.py:187
+#: dashboards/project/databases/tables.py:191
 #: dashboards/project/databases/tables.py:204
+#: dashboards/project/databases/tables.py:221
 #: dashboards/project/databases/tabs.py:66
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
@@ -4954,12 +5223,16 @@ msgstr "Error deleting database on instance."
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
-#: dashboards/project/databases/tables.py:129
+#: dashboards/project/databases/tables.py:116
+msgid "Resize Volume"
+msgstr ""
+
+#: dashboards/project/databases/tables.py:144
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#: dashboards/project/databases/tables.py:147
+#: dashboards/project/databases/tables.py:162
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -4980,27 +5253,27 @@ msgstr "%(name)s | %(RAM)s RAM"
 msgid "-"
 msgstr "-"
 
-#: dashboards/project/databases/tables.py:160
-#: dashboards/project/databases/tables.py:200
+#: dashboards/project/databases/tables.py:175
+#: dashboards/project/databases/tables.py:217
 #: dashboards/project/databases/workflows/create_instance.py:30
 msgid "Database Name"
 msgstr "Database Name"
 
-#: dashboards/project/databases/tables.py:166
-#: dashboards/project/databases/templates/databases/_detail_overview.html:18
+#: dashboards/project/databases/tables.py:181
+#: dashboards/project/databases/templates/databases/_detail_overview.html:27
 #: dashboards/project/databases/workflows/create_instance.py:33
 msgid "Volume Size"
 msgstr "Volume Size"
 
-#: dashboards/project/databases/tables.py:186
+#: dashboards/project/databases/tables.py:203
 msgid "Allowed Hosts"
 msgstr "Allowed Hosts"
 
-#: dashboards/project/databases/tables.py:191
+#: dashboards/project/databases/tables.py:208
 msgid "Database Instance Users"
 msgstr "Database Instance Users"
 
-#: dashboards/project/databases/tables.py:220
+#: dashboards/project/databases/tables.py:237
 msgid "Backup File"
 msgstr "Backup File"
 
@@ -5016,19 +5289,19 @@ msgstr ""
 msgid "Unable to get database backup data."
 msgstr ""
 
-#: dashboards/project/databases/views.py:44
+#: dashboards/project/databases/views.py:47
 msgid "Not Assigned"
 msgstr "Not Assigned"
 
-#: dashboards/project/databases/views.py:60
+#: dashboards/project/databases/views.py:63
 msgid "Unable to retrieve database size information."
 msgstr "Unable to retrieve database size information."
 
-#: dashboards/project/databases/views.py:81
+#: dashboards/project/databases/views.py:84
 msgid "Unable to retrieve database instances."
 msgstr "Unable to retrieve database instances."
 
-#: dashboards/project/databases/views.py:116
+#: dashboards/project/databases/views.py:119
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Unable to retrieve details for database instance: %s"
@@ -5039,15 +5312,24 @@ msgstr "Unable to retrieve details for database instance: %s"
 msgid "Instance Overview"
 msgstr "Instance Overview"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:25
+#: dashboards/project/databases/templates/databases/_detail_overview.html:19
+#: dashboards/project/images/templates/images/images/_detail_overview.html:41
+#: dashboards/project/instances/templates/instances/_detail_overview.html:43
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
+msgid "Specs"
+msgstr "Specs"
+
+#: dashboards/project/databases/templates/databases/_detail_overview.html:34
 msgid "Connection Info"
 msgstr "Connection Info"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:31
+#: dashboards/project/databases/templates/databases/_detail_overview.html:40
 msgid "Database Port"
 msgstr "Database Port"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:33
+#: dashboards/project/databases/templates/databases/_detail_overview.html:42
 msgid "Connection Examples"
 msgstr "Connection Examples"
 
@@ -5128,6 +5410,23 @@ msgstr "Available networks"
 #: dashboards/project/databases/templates/databases/_launch_restore_help.html:3
 msgid "Create this database from a previous backup."
 msgstr "Create this database from a previous backup."
+
+#: dashboards/project/databases/templates/databases/_resize_volume.html:9
+#: dashboards/project/databases/templates/databases/_resize_volume.html:24
+#: dashboards/project/databases/templates/databases/resize_volume.html:3
+#: dashboards/project/databases/templates/databases/resize_volume.html:6
+msgid "Resize Database Volume"
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_resize_volume.html:18
+msgid "Specify the new volume size for the database instance."
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_resize_volume.html:19
+msgid ""
+"<strong>Please note:</strong> The new value must be greater than the "
+"existing volume size."
+msgstr ""
 
 #: dashboards/project/databases/templates/databases/detail.html:3
 msgid "Database Details"
@@ -5963,17 +6262,6 @@ msgstr "Unknown"
 msgid "Checksum"
 msgstr "Checksum"
 
-#: dashboards/project/images/templates/images/images/_detail_overview.html:25
-#: dashboards/project/instances/templates/instances/_detail_overview.html:18
-#: dashboards/project/instances/templates/instances/_detail_overview.html:36
-#: dashboards/project/stacks/tables.py:91
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
-msgid "Created"
-msgstr "Created"
-
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
 #: dashboards/project/stacks/tables.py:95
 msgid "Updated"
@@ -5982,14 +6270,6 @@ msgstr "Updated"
 #: dashboards/project/images/templates/images/images/_detail_overview.html:35
 msgid "Never updated"
 msgstr "Never updated"
-
-#: dashboards/project/images/templates/images/images/_detail_overview.html:41
-#: dashboards/project/instances/templates/instances/_detail_overview.html:43
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
-msgid "Specs"
-msgstr "Specs"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 msgid "Container Format"
@@ -6499,10 +6779,6 @@ msgstr "Log"
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Unable to get log for instance \"%s\"."
-
-#: dashboards/project/instances/utils.py:31
-msgid "Unable to retrieve instance flavors."
-msgstr "Unable to retrieve instance flavors."
 
 #: dashboards/project/instances/utils.py:62
 msgid "Unable to sort instance flavors."
@@ -9389,14 +9665,6 @@ msgstr "Updating volume \"%s\""
 #: dashboards/project/volumes/volumes/forms.py:488
 msgid "Unable to update volume."
 msgstr "Unable to update volume."
-
-#: dashboards/project/volumes/volumes/forms.py:497
-msgid "Current Size (GB)"
-msgstr ""
-
-#: dashboards/project/volumes/volumes/forms.py:501
-msgid "New Size (GB)"
-msgstr ""
 
 #: dashboards/project/volumes/volumes/forms.py:508
 msgid "New size must be greater than current size."
