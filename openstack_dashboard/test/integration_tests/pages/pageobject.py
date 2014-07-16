@@ -71,10 +71,10 @@ class PageObject(object):
         field_element.send_keys(data)
         return field_element
 
-    def select_dropdown(self, value, *element):
-        select = Support.Select(*element)
+    def select_dropdown(self, value, element):
+        select = Support.Select(element)
         select.select_by_visible_text(value)
 
-    def select_dropdown_by_value(self, value, *element):
-        select = Support.Select(*element)
+    def select_dropdown_by_value(self, value, element):
+        select = Support.Select(element)
         select.select_by_value(value)
