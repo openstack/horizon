@@ -17,6 +17,13 @@ from openstack_dashboard.test.integration_tests.pages import pageobject
 
 class BasePage(pageobject.PageObject):
     """Base class for all dashboard page objects."""
+
+    _heading_locator = (by.By.CSS_SELECTOR, "div.page-header > h2")
+
+    @property
+    def heading(self):
+        return self.get_element(*self._heading_locator)
+
     @property
     def topbar(self):
         return BasePage.TopBarRegion(self.driver, self.conf)
