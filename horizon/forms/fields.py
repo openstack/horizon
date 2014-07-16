@@ -170,7 +170,7 @@ class DynamicSelectWidget(widgets.Select):
     def render(self, *args, **kwargs):
         add_item_url = self.get_add_item_url()
         if add_item_url is not None:
-            self.attrs.update({self._data_add_url_attr: add_item_url})
+            self.attrs[self._data_add_url_attr] = add_item_url
         return super(DynamicSelectWidget, self).render(*args, **kwargs)
 
     def get_add_item_url(self):

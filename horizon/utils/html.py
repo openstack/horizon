@@ -45,7 +45,7 @@ class HTMLElement(object):
         additional = " ".join(getattr(self, "classes", []))
         non_empty = [test for test in (defined, default, additional) if test]
         final_classes = " ".join(non_empty).strip()
-        final_attrs.update({'class': final_classes})
+        final_attrs['class'] = final_classes
         return final_attrs
 
     @property
