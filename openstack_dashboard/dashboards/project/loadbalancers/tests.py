@@ -451,12 +451,14 @@ class LoadBalancerTests(test.TestCase):
     def test_add_member_post_without_weight(self):
         self._test_add_member_post(with_weight=False)
 
+    def test_add_member_post_without_server_list(self):
+        self._test_add_member_post(with_server_list=False)
+
     @test.create_stubs({api.lbaas: ('pool_list', 'member_create'),
                         api.neutron: ('port_list',),
                         api.nova: ('server_list',)})
-    def _test_add_member_post(self, with_weight=True):
+    def _test_add_member_post(self, with_weight=True, with_server_list=True):
         member = self.members.first()
-
         server1 = self.AttributeDict({'id':
                                       '12381d38-c3eb-4fee-9763-12de3338042e',
                                       'name': 'vm1'})
@@ -464,30 +466,16 @@ class LoadBalancerTests(test.TestCase):
                                       '12381d38-c3eb-4fee-9763-12de3338043e',
                                       'name': 'vm2'})
 
-        port1 = self.AttributeDict(
-            {'fixed_ips': [{'ip_address': member.address}]})
-
         api.lbaas.pool_list(IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.pools.list())
-
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn(
             [[server1, server2], False])
 
-        api.neutron.port_list(IsA(http.HttpRequest),
-                              device_id=server1.id).AndReturn([port1, ])
-
-        params = {'pool_id': member.pool_id,
-                  'address': member.address,
-                  'protocol_port': member.protocol_port,
-                  'members': [server1.id],
-                  'admin_state_up': member.admin_state_up,
-                  }
-        if with_weight:
-            params['weight'] = member.weight
-        api.lbaas.member_create(IsA(http.HttpRequest),
-                                **params).AndReturn(member)
-
-        self.mox.ReplayAll()
+        if with_server_list:
+            port1 = self.AttributeDict(
+                {'fixed_ips': [{'ip_address': member.address}]})
+            api.neutron.port_list(IsA(http.HttpRequest),
+                                  device_id=server1.id).AndReturn([port1, ])
 
         form_data = {'pool_id': member.pool_id,
                      'address': member.address,
@@ -496,6 +484,14 @@ class LoadBalancerTests(test.TestCase):
                      'admin_state_up': member.admin_state_up}
         if with_weight:
             form_data['weight'] = member.weight
+        if with_server_list:
+            form_data['member_type'] = 'server_list'
+        else:
+            form_data['member_type'] = 'member_address'
+        api.lbaas.member_create(IsA(http.HttpRequest),
+                                **form_data).AndReturn(member)
+
+        self.mox.ReplayAll()
 
         res = self.client.post(reverse(self.ADDMEMBER_PATH), form_data)
 
