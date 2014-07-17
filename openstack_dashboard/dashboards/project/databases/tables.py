@@ -139,6 +139,18 @@ class UpdateRow(tables.Row):
         return instance
 
 
+def get_datastore(instance):
+    if hasattr(instance, "datastore"):
+        return instance.datastore["type"]
+    return _("Not available")
+
+
+def get_datastore_version(instance):
+    if hasattr(instance, "datastore"):
+        return instance.datastore["version"]
+    return _("Not available")
+
+
 def get_size(instance):
     if hasattr(instance, "full_flavor"):
         size_string = _("%(name)s | %(RAM)s RAM")
@@ -173,6 +185,10 @@ class InstancesTable(tables.DataTable):
     name = tables.Column("name",
                          link=("horizon:project:databases:detail"),
                          verbose_name=_("Database Name"))
+    datastore = tables.Column(get_datastore,
+                              verbose_name=_("Datastore"))
+    datastore_version = tables.Column(get_datastore_version,
+                                      verbose_name=_("Datastore Version"))
     host = tables.Column("host", verbose_name=_("Host"))
     size = tables.Column(get_size,
                          verbose_name=_("Size"),

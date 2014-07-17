@@ -44,7 +44,7 @@ def get_host(instance):
         return instance.hostname
     elif hasattr(instance, "ip") and instance.ip:
         return instance.ip[0]
-    return _("Not Assigned")
+    return None
 
 
 class IndexView(horizon_tables.DataTableView):

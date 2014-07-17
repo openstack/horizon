@@ -14,6 +14,7 @@
 
 from troveclient.v1 import backups
 from troveclient.v1 import databases
+from troveclient.v1 import datastores
 from troveclient.v1 import instances
 from troveclient.v1 import users
 
@@ -37,6 +38,10 @@ DATABASE_DATA_ONE = {
         "id": "1",
         "links": [],
     },
+    "datastore": {
+        "type": "mysql",
+        "version": "5.5"
+    },
     "id": "6ddc36d9-73db-4e23-b52e-368937d72719",
 }
 
@@ -54,6 +59,10 @@ DATABASE_DATA_TWO = {
     "flavor": {
         "id": "1",
         "links": [],
+    },
+    "datastore": {
+        "type": "mysql",
+        "version": "5.6"
     },
     "id": "4d7b3f57-44f5-41d2-8e86-36b88cad572a",
 }
@@ -95,6 +104,38 @@ USER_DB_ONE = {
     "name": "db1",
 }
 
+DATASTORE_ONE = {
+    "id": "537fb940-b5eb-40d9-bdbd-91a3dcb9c17d",
+    "links": [],
+    "name": "mysql"
+}
+
+DATASTORE_TWO = {
+    "id": "ccb31517-c472-409d-89b4-1a13db6bdd36",
+    "links": [],
+    "name": "mysql"
+}
+
+VERSION_ONE = {
+    "name": "5.5",
+    "links": [],
+    "image": "b7956bb5-920e-4299-b68e-2347d830d939",
+    "active": 1,
+    "datastore": "537fb940-b5eb-40d9-bdbd-91a3dcb9c17d",
+    "packages": "5.5",
+    "id": "390a6d52-8347-4e00-8e4c-f4fa9cf96ae9"
+}
+
+VERSION_TWO = {
+    "name": "5.6",
+    "links": [],
+    "image": "c7956bb5-920e-4299-b68e-2347d830d938",
+    "active": 1,
+    "datastore": "537fb940-b5eb-40d9-bdbd-91a3dcb9c17d",
+    "packages": "5.6",
+    "id": "500a6d52-8347-4e00-8e4c-f4fa9cf96ae9"
+}
+
 
 def data(TEST):
     database1 = instances.Instance(instances.Instances(None),
@@ -107,6 +148,16 @@ def data(TEST):
     user_db1 = databases.Database(databases.Databases(None),
                                   USER_DB_ONE)
 
+    datastore1 = datastores.Datastore(datastores.Datastores(None),
+                                      DATASTORE_ONE)
+
+    version1 = datastores.\
+        DatastoreVersion(datastores.DatastoreVersions(None),
+                            VERSION_ONE)
+    version2 = datastores.\
+        DatastoreVersion(datastores.DatastoreVersions(None),
+                            VERSION_TWO)
+
     TEST.databases = utils.TestDataContainer()
     TEST.database_backups = utils.TestDataContainer()
     TEST.database_users = utils.TestDataContainer()
@@ -117,3 +168,8 @@ def data(TEST):
     TEST.database_backups.add(bkup2)
     TEST.database_users.add(user1)
     TEST.database_user_dbs.add(user_db1)
+    TEST.datastores = utils.TestDataContainer()
+    TEST.datastores.add(datastore1)
+    TEST.datastore_versions = utils.TestDataContainer()
+    TEST.datastore_versions.add(version1)
+    TEST.datastore_versions.add(version2)
