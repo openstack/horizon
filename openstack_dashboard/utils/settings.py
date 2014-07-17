@@ -138,4 +138,4 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config.setdefault('angular_modules', []).extend(angular_modules)
     horizon_config.setdefault('js_files', []).extend(js_files)
     horizon_config.setdefault('js_spec_files', []).extend(js_spec_files)
-    installed_apps[:] = apps + installed_apps
+    installed_apps[0:0] = apps

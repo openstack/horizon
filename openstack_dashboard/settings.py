@@ -251,6 +251,7 @@ SECURITY_GROUP_RULES = {
     },
 }
 
+ADD_INSTALLED_APPS = []
 try:
     from local.local_settings import *  # noqa
 except ImportError:
@@ -266,6 +267,7 @@ settings.update_dashboards([
     openstack_dashboard.enabled,
     openstack_dashboard.local.enabled,
 ], HORIZON_CONFIG, INSTALLED_APPS)
+INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
 
 # Ensure that we always have a SECRET_KEY set, even when no local_settings.py
 # file is present. See local_settings.py.example for full documentation on the
