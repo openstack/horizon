@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-15 07:11-0500\n"
-"PO-Revision-Date: 2014-07-15 11:04+0000\n"
+"POT-Creation-Date: 2014-07-16 09:23-0500\n"
+"PO-Revision-Date: 2014-07-16 14:42+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -412,8 +412,8 @@ msgstr "관리자"
 #: dashboards/project/loadbalancers/forms.py:33
 #: dashboards/project/loadbalancers/forms.py:72
 #: dashboards/project/loadbalancers/tables.py:211
-#: dashboards/project/loadbalancers/workflows.py:31
-#: dashboards/project/loadbalancers/workflows.py:148
+#: dashboards/project/loadbalancers/workflows.py:36
+#: dashboards/project/loadbalancers/workflows.py:153
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
@@ -433,8 +433,8 @@ msgstr "관리자"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:266
-#: dashboards/project/volumes/volumes/tables.py:295
+#: dashboards/project/volumes/volumes/tables.py:276
+#: dashboards/project/volumes/volumes/tables.py:305
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:64
 #: dashboards/project/vpn/forms.py:135 dashboards/project/vpn/forms.py:206
 #: dashboards/project/vpn/tables.py:179 dashboards/project/vpn/tables.py:209
@@ -508,13 +508,13 @@ msgstr "서비스 다운"
 
 #: dashboards/admin/aggregates/tables.py:101
 #: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/project/instances/tables.py:808
+#: dashboards/project/instances/tables.py:815
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:77
 #: dashboards/project/volumes/volumes/forms.py:76
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:82
-#: dashboards/project/volumes/volumes/tables.py:303
+#: dashboards/project/volumes/volumes/tables.py:313
 msgid "Availability Zone"
 msgstr "가용성 존"
 
@@ -722,8 +722,8 @@ msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니�
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:77
 #: dashboards/project/loadbalancers/tables.py:213
-#: dashboards/project/loadbalancers/workflows.py:34
-#: dashboards/project/loadbalancers/workflows.py:151
+#: dashboards/project/loadbalancers/workflows.py:39
+#: dashboards/project/loadbalancers/workflows.py:156
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
 #: dashboards/project/networks/templates/networks/_create.html:17
@@ -749,7 +749,7 @@ msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니�
 #: dashboards/project/volumes/volumes/forms.py:44
 #: dashboards/project/volumes/volumes/forms.py:436
 #: dashboards/project/volumes/volumes/forms.py:474
-#: dashboards/project/volumes/volumes/tables.py:269
+#: dashboards/project/volumes/volumes/tables.py:279
 #: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:69
 #: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
 #: dashboards/project/vpn/tables.py:211 dashboards/project/vpn/workflows.py:30
@@ -1066,7 +1066,7 @@ msgstr "%s MB"
 
 #: dashboards/admin/flavors/tables.py:91 dashboards/admin/flavors/tables.py:95
 #: dashboards/project/volumes/backups/tables.py:95
-#: dashboards/project/volumes/volumes/tables.py:209
+#: dashboards/project/volumes/volumes/tables.py:219
 #, python-format
 msgid "%sGB"
 msgstr "%sGB"
@@ -1081,6 +1081,7 @@ msgstr "Flavor 이름"
 #: dashboards/admin/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:4
 #: dashboards/project/overview/views.py:32 usage/tables.py:33
 msgid "VCPUs"
 msgstr "VCPUs"
@@ -1089,6 +1090,7 @@ msgstr "VCPUs"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:24
 #: dashboards/project/instances/templates/instances/_detail_overview.html:48
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:5
 #: usage/tables.py:36
 msgid "RAM"
 msgstr "RAM"
@@ -1512,10 +1514,10 @@ msgstr "그룹 멤버"
 #: dashboards/project/firewalls/workflows.py:106
 #: dashboards/project/firewalls/workflows.py:214
 #: dashboards/project/firewalls/workflows.py:292
-#: dashboards/project/loadbalancers/workflows.py:129
-#: dashboards/project/loadbalancers/workflows.py:246
-#: dashboards/project/loadbalancers/workflows.py:388
-#: dashboards/project/loadbalancers/workflows.py:529
+#: dashboards/project/loadbalancers/workflows.py:134
+#: dashboards/project/loadbalancers/workflows.py:251
+#: dashboards/project/loadbalancers/workflows.py:423
+#: dashboards/project/loadbalancers/workflows.py:576
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -1594,12 +1596,12 @@ msgstr "호스트 이름"
 #: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/access_and_security/security_groups/forms.py:176
 #: dashboards/project/images/images/tables.py:210
-#: dashboards/project/loadbalancers/workflows.py:413
+#: dashboards/project/loadbalancers/workflows.py:460
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:45
-#: dashboards/project/volumes/volumes/tables.py:298
+#: dashboards/project/volumes/volumes/tables.py:308
 msgid "Type"
 msgstr "타입"
 
@@ -1642,7 +1644,7 @@ msgstr "스토리지 (전체)"
 #: dashboards/project/instances/tables.py:178
 #: dashboards/project/instances/tables.py:618
 #: dashboards/project/instances/tables.py:639
-#: dashboards/project/instances/tables.py:827
+#: dashboards/project/instances/tables.py:834
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 #: dashboards/project/network_topology/instances/tables.py:22
@@ -1650,7 +1652,7 @@ msgid "Instances"
 msgstr "인스턴스"
 
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/instances/tables.py:791
+#: dashboards/project/instances/tables.py:798
 #: dashboards/project/instances/workflows/create_instance.py:80
 #: dashboards/project/overview/views.py:32 usage/tables.py:71
 msgid "Instance Name"
@@ -1725,7 +1727,7 @@ msgstr "이미지"
 #: dashboards/admin/images/tables.py:54
 #: dashboards/admin/instances/tables.py:135
 #: dashboards/project/images/images/tables.py:208
-#: dashboards/project/instances/tables.py:793
+#: dashboards/project/instances/tables.py:800
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/instances/workflows/create_instance.py:105
 msgid "Image Name"
@@ -1859,7 +1861,7 @@ msgstr "호스트"
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:214
 #: dashboards/project/images/templates/images/images/_detail_overview.html:17
-#: dashboards/project/instances/tables.py:803
+#: dashboards/project/instances/tables.py:810
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:218
 #: dashboards/project/loadbalancers/tables.py:252
@@ -1884,7 +1886,7 @@ msgstr "호스트"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:276
+#: dashboards/project/volumes/volumes/tables.py:286
 #: dashboards/project/vpn/tables.py:189 dashboards/project/vpn/tables.py:216
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -1963,9 +1965,9 @@ msgstr "첨부한 파일"
 #: dashboards/project/volumes/tabs.py:62
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:314
-#: dashboards/project/volumes/volumes/tables.py:327
+#: dashboards/project/volumes/volumes/tables.py:60
+#: dashboards/project/volumes/volumes/tables.py:324
+#: dashboards/project/volumes/volumes/tables.py:337
 msgid "Volumes"
 msgstr "볼륨"
 
@@ -2151,7 +2153,7 @@ msgstr "예약된 마이그레이션 (확인 대기중)"
 #: dashboards/project/instances/tables.py:617
 #: dashboards/project/instances/tables.py:638
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:352
+#: dashboards/project/volumes/volumes/tables.py:362
 msgid "Instance"
 msgstr "인스턴스"
 
@@ -2181,7 +2183,7 @@ msgstr "프로젝트"
 #: dashboards/project/access_and_security/floating_ips/tables.py:154
 #: dashboards/project/access_and_security/floating_ips/workflows.py:30
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/instances/tables.py:795
+#: dashboards/project/instances/tables.py:802
 #: dashboards/project/loadbalancers/tables.py:243
 msgid "IP Address"
 msgstr "IP 주소"
@@ -2193,27 +2195,28 @@ msgstr "IP 주소"
 #: dashboards/project/databases/tables.py:178
 #: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
-#: dashboards/project/instances/tables.py:798
+#: dashboards/project/instances/tables.py:805
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:272
+#: dashboards/project/volumes/volumes/tables.py:282
 msgid "Size"
 msgstr "크기"
 
 #: dashboards/admin/instances/tables.py:151
-#: dashboards/project/instances/tables.py:810
+#: dashboards/project/instances/tables.py:817
 msgid "Task"
 msgstr "작업"
 
 #: dashboards/admin/instances/tables.py:158
-#: dashboards/project/instances/tables.py:817
+#: dashboards/project/instances/tables.py:824
 msgid "Power State"
 msgstr "전원 상태"
 
 #: dashboards/admin/instances/tables.py:160
-#: dashboards/project/instances/tables.py:820
+#: dashboards/project/instances/tables.py:827
 #: dashboards/project/instances/templates/instances/_detail_overview.html:20
 #: usage/tables.py:74
 msgid "Uptime"
@@ -2493,10 +2496,10 @@ msgstr "네트워크 프로필"
 #: dashboards/project/loadbalancers/forms.py:92
 #: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/workflows.py:41
-#: dashboards/project/loadbalancers/workflows.py:186
-#: dashboards/project/loadbalancers/workflows.py:317
-#: dashboards/project/loadbalancers/workflows.py:475
+#: dashboards/project/loadbalancers/workflows.py:46
+#: dashboards/project/loadbalancers/workflows.py:191
+#: dashboards/project/loadbalancers/workflows.py:343
+#: dashboards/project/loadbalancers/workflows.py:522
 #: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/tables.py:122
 #: dashboards/project/networks/workflows.py:39
@@ -2778,7 +2781,7 @@ msgstr "네트워크를 찾을 수 없습니다."
 
 #: dashboards/admin/networks/subnets/tables.py:31
 #: dashboards/project/loadbalancers/tables.py:216
-#: dashboards/project/loadbalancers/workflows.py:38
+#: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
 #: dashboards/project/networks/workflows.py:113
@@ -2933,8 +2936,8 @@ msgstr "프로젝트 리스트를 찾을 수 없습니다."
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:55
 #: dashboards/project/databases/tables.py:63
 #: dashboards/project/databases/tables.py:79
-#: dashboards/project/instances/tables.py:688
-#: dashboards/project/instances/tables.py:704
+#: dashboards/project/instances/tables.py:695
+#: dashboards/project/instances/tables.py:711
 msgid "Deleted"
 msgstr "삭제됨"
 
@@ -3382,7 +3385,7 @@ msgstr "비밀번호가 일치하지 않습니다."
 #: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:162
 #: dashboards/project/databases/workflows/create_instance.py:133
 #: dashboards/project/instances/forms.py:155
-#: dashboards/project/instances/tables.py:699
+#: dashboards/project/instances/tables.py:706
 msgid "Password"
 msgstr "비밀번호"
 
@@ -3612,7 +3615,7 @@ msgstr "RC 파일 다운로드 중 오류: %s"
 #: dashboards/project/loadbalancers/forms.py:168
 #: dashboards/project/loadbalancers/tables.py:86
 #: dashboards/project/loadbalancers/tables.py:251
-#: dashboards/project/loadbalancers/workflows.py:294
+#: dashboards/project/loadbalancers/workflows.py:299
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
 msgid "Pool"
@@ -3639,7 +3642,7 @@ msgstr "프로젝트에  IP 할당"
 #: dashboards/project/access_and_security/floating_ips/tables.py:54
 #: dashboards/project/access_and_security/keypairs/tables.py:56
 #: dashboards/project/instances/tables.py:241
-#: dashboards/project/volumes/volumes/tables.py:100
+#: dashboards/project/volumes/volumes/tables.py:106
 msgid "(Quota exceeded)"
 msgstr "(Quota 초과)"
 
@@ -3658,12 +3661,12 @@ msgstr "유동 IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:92
 #: dashboards/project/access_and_security/floating_ips/workflows.py:125
-#: dashboards/project/loadbalancers/workflows.py:591
+#: dashboards/project/loadbalancers/workflows.py:638
 msgid "Associate"
 msgstr "연결"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:113
-#: dashboards/project/loadbalancers/workflows.py:653
+#: dashboards/project/loadbalancers/workflows.py:700
 msgid "Disassociate"
 msgstr "연결 해제"
 
@@ -3765,7 +3768,7 @@ msgid "Unable to import key pair."
 msgstr "키 패어를 가져오지 못했습니다."
 
 #: dashboards/project/access_and_security/keypairs/tables.py:25
-#: dashboards/project/instances/tables.py:800
+#: dashboards/project/instances/tables.py:807
 #: dashboards/project/instances/workflows/create_instance.py:448
 msgid "Key Pair"
 msgstr "키 패어"
@@ -3862,7 +3865,7 @@ msgstr "포트 범위"
 #: dashboards/project/access_and_security/security_groups/forms.py:138
 #: dashboards/project/access_and_security/security_groups/forms.py:149
 #: dashboards/project/access_and_security/security_groups/forms.py:160
-#: dashboards/project/loadbalancers/workflows.py:161
+#: dashboards/project/loadbalancers/workflows.py:166
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 ~ 65535 사이의 정수 값을 입력하세요."
 
@@ -4982,7 +4985,7 @@ msgstr "백업"
 
 #: dashboards/project/database_backups/tables.py:37
 #: dashboards/project/databases/tables.py:101
-#: dashboards/project/volumes/volumes/tables.py:167
+#: dashboards/project/volumes/volumes/tables.py:177
 msgid "Create Backup"
 msgstr "백업 생성"
 
@@ -5006,7 +5009,7 @@ msgstr "백업 다운로드"
 #: dashboards/project/loadbalancers/tables.py:108
 #: dashboards/project/stacks/tables.py:50
 #: dashboards/project/volumes/snapshots/tables.py:46
-#: dashboards/project/volumes/volumes/tables.py:60
+#: dashboards/project/volumes/volumes/tables.py:61
 #: dashboards/project/vpn/tables.py:64 dashboards/project/vpn/tables.py:78
 #: dashboards/project/vpn/tables.py:92 dashboards/project/vpn/tables.py:106
 #, python-format
@@ -5023,8 +5026,8 @@ msgstr "백업"
 #: dashboards/project/database_backups/tables.py:123
 #: dashboards/project/databases/tables.py:148
 #: dashboards/project/databases/tables.py:154
-#: dashboards/project/instances/tables.py:673
 #: dashboards/project/instances/tables.py:680
+#: dashboards/project/instances/tables.py:687
 msgid "Not available"
 msgstr "사용할 수 없음"
 
@@ -5468,7 +5471,7 @@ msgid "Launch instance with these networks"
 msgstr "정한 네트워크로 인스턴스 구동"
 
 #: dashboards/project/databases/workflows/create_instance.py:83
-#: dashboards/project/instances/tables.py:714
+#: dashboards/project/instances/tables.py:721
 #: dashboards/project/instances/workflows/create_instance.py:577
 msgid "Networking"
 msgstr "네트워크"
@@ -5553,8 +5556,8 @@ msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
 #: dashboards/project/firewalls/workflows.py:39
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:217
-#: dashboards/project/loadbalancers/workflows.py:39
-#: dashboards/project/loadbalancers/workflows.py:164
+#: dashboards/project/loadbalancers/workflows.py:44
+#: dashboards/project/loadbalancers/workflows.py:169
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:28
 msgid "Protocol"
@@ -5606,7 +5609,7 @@ msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
 
 #: dashboards/project/firewalls/forms.py:80
 #: dashboards/project/firewalls/workflows.py:40
-#: dashboards/project/loadbalancers/workflows.py:415
+#: dashboards/project/loadbalancers/workflows.py:462
 msgid "TCP"
 msgstr "TCP"
 
@@ -6192,8 +6195,8 @@ msgstr "이미지를 성공적으로 업데이트 하였습니다."
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
-#: dashboards/project/volumes/volumes/tables.py:88
-#: dashboards/project/volumes/volumes/tables.py:102
+#: dashboards/project/volumes/volumes/tables.py:89
+#: dashboards/project/volumes/volumes/tables.py:108
 msgid "Create Volume"
 msgstr "볼륨 생성"
 
@@ -6307,7 +6310,7 @@ msgstr "이미지 세부 정보:"
 #: dashboards/project/images/templates/images/snapshots/_create.html:24
 #: dashboards/project/images/templates/images/snapshots/create.html:3
 #: dashboards/project/instances/tables.py:297
-#: dashboards/project/volumes/volumes/tables.py:150
+#: dashboards/project/volumes/volumes/tables.py:160
 msgid "Create Snapshot"
 msgstr "스냅샷 생성"
 
@@ -6400,7 +6403,7 @@ msgid "Unable to retrieve instance password."
 msgstr "인스턴스 비밀번호를 찾을 수 없습니다."
 
 #: dashboards/project/instances/tables.py:98
-#: dashboards/project/instances/tables.py:698
+#: dashboards/project/instances/tables.py:705
 msgid "Hard Reboot"
 msgstr "하드 리붓"
 
@@ -6426,8 +6429,8 @@ msgid "Resume"
 msgstr "재시작"
 
 #: dashboards/project/instances/tables.py:135
-#: dashboards/project/instances/tables.py:692
-#: dashboards/project/instances/tables.py:756
+#: dashboards/project/instances/tables.py:699
+#: dashboards/project/instances/tables.py:763
 msgid "Paused"
 msgstr "정지함"
 
@@ -6441,8 +6444,8 @@ msgid "Suspend"
 msgstr "잠자기"
 
 #: dashboards/project/instances/tables.py:176
-#: dashboards/project/instances/tables.py:691
-#: dashboards/project/instances/tables.py:760
+#: dashboards/project/instances/tables.py:698
+#: dashboards/project/instances/tables.py:767
 msgid "Suspended"
 msgstr "잠자기 함"
 
@@ -6469,7 +6472,7 @@ msgid "Confirm Resize/Migrate"
 msgstr "크기 변경/옮김 확인"
 
 #: dashboards/project/instances/tables.py:407
-#: dashboards/project/instances/tables.py:696
+#: dashboards/project/instances/tables.py:703
 msgid "Revert Resize/Migrate"
 msgstr "크기 변경/옮김 되돌리기"
 
@@ -6539,234 +6542,234 @@ msgstr "작동함"
 
 #: dashboards/project/instances/tables.py:636
 #: dashboards/project/instances/tables.py:637
-#: dashboards/project/instances/tables.py:758
+#: dashboards/project/instances/tables.py:765
 msgid "Shut Off"
 msgstr "정지"
 
-#: dashboards/project/instances/tables.py:666
+#: dashboards/project/instances/tables.py:671
 #, python-format
-msgid "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
-msgstr "%(name)s | %(RAM)s RAM | %(VCPU)s VCPU | %(disk)s Disk"
+msgid "%s GB"
+msgstr "%s GB"
 
-#: dashboards/project/instances/tables.py:689
+#: dashboards/project/instances/tables.py:696
 msgid "Active"
 msgstr "사용"
 
-#: dashboards/project/instances/tables.py:690
+#: dashboards/project/instances/tables.py:697
 msgid "Shutoff"
 msgstr "정지"
 
-#: dashboards/project/instances/tables.py:693
+#: dashboards/project/instances/tables.py:700
 msgid "Error"
 msgstr "에러"
 
-#: dashboards/project/instances/tables.py:694
+#: dashboards/project/instances/tables.py:701
 msgid "Resize/Migrate"
 msgstr "크기 변경/마이그레이션"
 
-#: dashboards/project/instances/tables.py:695
+#: dashboards/project/instances/tables.py:702
 msgid "Confirm or Revert Resize/Migrate"
 msgstr "크기 변경/마이그레이션 확인 또는 되돌리기"
 
-#: dashboards/project/instances/tables.py:697
+#: dashboards/project/instances/tables.py:704
 msgid "Reboot"
 msgstr "재시작"
 
-#: dashboards/project/instances/tables.py:700
+#: dashboards/project/instances/tables.py:707
 msgid "Rebuild"
 msgstr "새로 빌드"
 
-#: dashboards/project/instances/tables.py:701
-#: dashboards/project/instances/tables.py:741
+#: dashboards/project/instances/tables.py:708
+#: dashboards/project/instances/tables.py:748
 msgid "Migrating"
 msgstr "마이그레이션 중"
 
-#: dashboards/project/instances/tables.py:702
+#: dashboards/project/instances/tables.py:709
 msgid "Build"
 msgstr "빌드"
 
-#: dashboards/project/instances/tables.py:703
+#: dashboards/project/instances/tables.py:710
 msgid "Rescue"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:705
+#: dashboards/project/instances/tables.py:712
 msgid "Soft Deleted"
 msgstr "소프트 삭제됨"
 
-#: dashboards/project/instances/tables.py:706
+#: dashboards/project/instances/tables.py:713
 msgid "Shelved"
 msgstr "보류함"
 
-#: dashboards/project/instances/tables.py:707
+#: dashboards/project/instances/tables.py:714
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:712
+#: dashboards/project/instances/tables.py:719
 msgid "Scheduling"
 msgstr "Scheduling"
 
-#: dashboards/project/instances/tables.py:713
+#: dashboards/project/instances/tables.py:720
 msgid "Block Device Mapping"
 msgstr "블록 디바이스 맵핑"
 
-#: dashboards/project/instances/tables.py:715
+#: dashboards/project/instances/tables.py:722
 msgid "Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:716
+#: dashboards/project/instances/tables.py:723
 msgid "Snapshotting"
 msgstr "스냅샷 실행 중"
 
-#: dashboards/project/instances/tables.py:717
+#: dashboards/project/instances/tables.py:724
 msgid "Image Snapshot Pending"
 msgstr "이미지 스냅샷 보류"
 
-#: dashboards/project/instances/tables.py:718
+#: dashboards/project/instances/tables.py:725
 msgid "Image Pending Upload"
 msgstr "이미지 보류 업로드"
 
-#: dashboards/project/instances/tables.py:719
+#: dashboards/project/instances/tables.py:726
 msgid "Image Uploading"
 msgstr "이미지 업로드중"
 
-#: dashboards/project/instances/tables.py:720
+#: dashboards/project/instances/tables.py:727
 msgid "Image Backup"
 msgstr "이미지 백업"
 
-#: dashboards/project/instances/tables.py:721
+#: dashboards/project/instances/tables.py:728
 msgid "Updating Password"
 msgstr "업데이트 비밀번호"
 
-#: dashboards/project/instances/tables.py:722
+#: dashboards/project/instances/tables.py:729
 msgid "Preparing Resize or Migrate"
 msgstr "크기 변경 또는 마이그레이션 준비 중"
 
-#: dashboards/project/instances/tables.py:723
+#: dashboards/project/instances/tables.py:730
 msgid "Resizing or Migrating"
 msgstr "크기 변경 또는 마이그레이션 실행 중"
 
-#: dashboards/project/instances/tables.py:724
+#: dashboards/project/instances/tables.py:731
 msgid "Resized or Migrated"
 msgstr "크기 변경 완료 또는 마이그레이션 완료"
 
-#: dashboards/project/instances/tables.py:725
+#: dashboards/project/instances/tables.py:732
 msgid "Finishing Resize or Migrate"
 msgstr "크기 변경 또는 마이그레이션 마무리 중"
 
-#: dashboards/project/instances/tables.py:726
+#: dashboards/project/instances/tables.py:733
 msgid "Reverting Resize or Migrate"
 msgstr "크기 변경 또는 마이그레이션 되돌리기 중"
 
-#: dashboards/project/instances/tables.py:727
+#: dashboards/project/instances/tables.py:734
 msgid "Confirming Resize or Migrate"
 msgstr "크기 변경 또는 마이그레이션 확인 중"
 
-#: dashboards/project/instances/tables.py:728
+#: dashboards/project/instances/tables.py:735
 msgid "Rebooting"
 msgstr "재시작 중"
 
-#: dashboards/project/instances/tables.py:729
+#: dashboards/project/instances/tables.py:736
 msgid "Rebooting Hard"
 msgstr "하드 재시작중"
 
-#: dashboards/project/instances/tables.py:730
+#: dashboards/project/instances/tables.py:737
 msgid "Pausing"
 msgstr "일시정지 중"
 
-#: dashboards/project/instances/tables.py:731
-#: dashboards/project/instances/tables.py:733
+#: dashboards/project/instances/tables.py:738
+#: dashboards/project/instances/tables.py:740
 msgid "Resuming"
 msgstr "재개 중"
 
-#: dashboards/project/instances/tables.py:732
+#: dashboards/project/instances/tables.py:739
 msgid "Suspending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:734
+#: dashboards/project/instances/tables.py:741
 msgid "Powering Off"
 msgstr "전원 차단 중"
 
-#: dashboards/project/instances/tables.py:735
+#: dashboards/project/instances/tables.py:742
 msgid "Powering On"
 msgstr "전원 공급 중"
 
-#: dashboards/project/instances/tables.py:736
+#: dashboards/project/instances/tables.py:743
 msgid "Rescuing"
 msgstr "구조 중"
 
-#: dashboards/project/instances/tables.py:737
+#: dashboards/project/instances/tables.py:744
 msgid "Unrescuing"
 msgstr "비구조 중"
 
-#: dashboards/project/instances/tables.py:738
+#: dashboards/project/instances/tables.py:745
 msgid "Rebuilding"
 msgstr "새로 빌드 중"
 
-#: dashboards/project/instances/tables.py:739
+#: dashboards/project/instances/tables.py:746
 msgid "Rebuild Block Device Mapping"
 msgstr "블록 디바이스 맵핑 재구성"
 
-#: dashboards/project/instances/tables.py:740
+#: dashboards/project/instances/tables.py:747
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:742
+#: dashboards/project/instances/tables.py:749
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: dashboards/project/instances/tables.py:743
+#: dashboards/project/instances/tables.py:750
 msgid "Soft Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:744
+#: dashboards/project/instances/tables.py:751
 msgid "Restoring"
 msgstr "복구 중"
 
-#: dashboards/project/instances/tables.py:745
+#: dashboards/project/instances/tables.py:752
 msgid "Shelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:746
+#: dashboards/project/instances/tables.py:753
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:747
+#: dashboards/project/instances/tables.py:754
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:748
+#: dashboards/project/instances/tables.py:755
 msgid "Shelving Offloading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:749
+#: dashboards/project/instances/tables.py:756
 msgid "Unshelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:753
+#: dashboards/project/instances/tables.py:760
 msgid "No State"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:754
+#: dashboards/project/instances/tables.py:761
 msgid "Running"
 msgstr "실행"
 
-#: dashboards/project/instances/tables.py:755
+#: dashboards/project/instances/tables.py:762
 msgid "Blocked"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:757
+#: dashboards/project/instances/tables.py:764
 msgid "Shut Down"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:759
+#: dashboards/project/instances/tables.py:766
 msgid "Crashed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:761
+#: dashboards/project/instances/tables.py:768
 msgid "Failed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:762
+#: dashboards/project/instances/tables.py:769
 msgid "Building"
 msgstr "빌드 중"
 
@@ -6932,7 +6935,7 @@ msgstr "볼륨 연결"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
-#: dashboards/project/volumes/volumes/tables.py:301
+#: dashboards/project/volumes/volumes/tables.py:311
 msgid "Attached To"
 msgstr "연결된 곳"
 
@@ -6947,8 +6950,8 @@ msgstr "켜짐"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
-#: dashboards/project/volumes/volumes/tables.py:58
-#: dashboards/project/volumes/volumes/tables.py:326
+#: dashboards/project/volumes/volumes/tables.py:59
+#: dashboards/project/volumes/volumes/tables.py:336
 msgid "Volume"
 msgstr "볼륨"
 
@@ -6957,6 +6960,7 @@ msgid "No volumes attached."
 msgstr "볼륨을 연결할 수 없습니다."
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:6
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:8
 msgid "Flavor Details"
 msgstr "Flavor 세부 정보"
 
@@ -7414,7 +7418,7 @@ msgid "Unable to modify instance \"%s\"."
 msgstr "인스턴스 \"%s\"를 수정할 수 없습니다."
 
 #: dashboards/project/loadbalancers/forms.py:39
-#: dashboards/project/loadbalancers/workflows.py:40
+#: dashboards/project/loadbalancers/workflows.py:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:36
 msgid "Load Balancing Method"
 msgstr "로드 발란싱 메소드"
@@ -7430,30 +7434,30 @@ msgid "Failed to update pool %s"
 msgstr "Pool %s 업데이트 실패"
 
 #: dashboards/project/loadbalancers/forms.py:80
-#: dashboards/project/loadbalancers/workflows.py:166
+#: dashboards/project/loadbalancers/workflows.py:171
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Session Persistence"
 msgstr "세션 지속성"
 
 #: dashboards/project/loadbalancers/forms.py:84
-#: dashboards/project/loadbalancers/workflows.py:173
+#: dashboards/project/loadbalancers/workflows.py:178
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:43
 msgid "Cookie Name"
 msgstr "쿠키 이름"
 
 #: dashboards/project/loadbalancers/forms.py:85
-#: dashboards/project/loadbalancers/workflows.py:174
+#: dashboards/project/loadbalancers/workflows.py:179
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 지속성을 위해 요청되었습니다. 다른 경우 무시됩니다."
 
 #: dashboards/project/loadbalancers/forms.py:89
-#: dashboards/project/loadbalancers/workflows.py:182
+#: dashboards/project/loadbalancers/workflows.py:187
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:49
 msgid "Connection Limit"
 msgstr "연결 제한"
 
 #: dashboards/project/loadbalancers/forms.py:90
-#: dashboards/project/loadbalancers/workflows.py:183
+#: dashboards/project/loadbalancers/workflows.py:188
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
@@ -7462,7 +7466,7 @@ msgstr "VIP에 허용된 연결의 최대 갯수나 '-1'로 설정하게 되면 
 #: dashboards/project/loadbalancers/forms.py:106
 #: dashboards/project/loadbalancers/forms.py:186
 #: dashboards/project/loadbalancers/tabs.py:41
-#: dashboards/project/loadbalancers/workflows.py:330
+#: dashboards/project/loadbalancers/workflows.py:356
 msgid "Unable to retrieve pools list."
 msgstr "Pool 목록을 찾을 수 없습니다."
 
@@ -7471,7 +7475,7 @@ msgid "No session persistence"
 msgstr "세션 지속을 못함"
 
 #: dashboards/project/loadbalancers/forms.py:127
-#: dashboards/project/loadbalancers/workflows.py:214
+#: dashboards/project/loadbalancers/workflows.py:219
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "APP_COOKIE 지속성을 위한 쿠키 이름이 요구됩니다."
 
@@ -7487,7 +7491,7 @@ msgstr "VIP %s 업데이트 실패하였습니다."
 
 #: dashboards/project/loadbalancers/forms.py:169
 #: dashboards/project/loadbalancers/tables.py:249
-#: dashboards/project/loadbalancers/workflows.py:304
+#: dashboards/project/loadbalancers/workflows.py:330
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
 msgstr "Weight"
@@ -7508,36 +7512,36 @@ msgstr "멤버 %s 업데이트 실패하였습니다."
 
 #: dashboards/project/loadbalancers/forms.py:218
 #: dashboards/project/loadbalancers/tables.py:275
-#: dashboards/project/loadbalancers/workflows.py:424
+#: dashboards/project/loadbalancers/workflows.py:471
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "지연"
 
 #: dashboards/project/loadbalancers/forms.py:219
-#: dashboards/project/loadbalancers/workflows.py:425
+#: dashboards/project/loadbalancers/workflows.py:472
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "멤버의 정기 정검 사이의 최소 시간"
 
 #: dashboards/project/loadbalancers/forms.py:223
 #: dashboards/project/loadbalancers/tables.py:276
-#: dashboards/project/loadbalancers/workflows.py:429
+#: dashboards/project/loadbalancers/workflows.py:476
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:60
 msgid "Timeout"
 msgstr "Timeout"
 
 #: dashboards/project/loadbalancers/forms.py:224
-#: dashboards/project/loadbalancers/workflows.py:430
+#: dashboards/project/loadbalancers/workflows.py:477
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "모니터 응답을 기다리는는 최대 시간"
 
 #: dashboards/project/loadbalancers/forms.py:228
-#: dashboards/project/loadbalancers/workflows.py:434
+#: dashboards/project/loadbalancers/workflows.py:481
 msgid "Max Retries (1~10)"
 msgstr "최대 재시도 (1~10)"
 
 #: dashboards/project/loadbalancers/forms.py:229
-#: dashboards/project/loadbalancers/workflows.py:435
+#: dashboards/project/loadbalancers/workflows.py:482
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
@@ -7558,22 +7562,22 @@ msgid "Load Balancers"
 msgstr "로드 발란서"
 
 #: dashboards/project/loadbalancers/tables.py:29
-#: dashboards/project/loadbalancers/workflows.py:128
+#: dashboards/project/loadbalancers/workflows.py:133
 msgid "Add Pool"
 msgstr "Pool 추가"
 
 #: dashboards/project/loadbalancers/tables.py:37
-#: dashboards/project/loadbalancers/workflows.py:245
+#: dashboards/project/loadbalancers/workflows.py:250
 msgid "Add VIP"
 msgstr "VIP 추가"
 
 #: dashboards/project/loadbalancers/tables.py:54
-#: dashboards/project/loadbalancers/workflows.py:387
+#: dashboards/project/loadbalancers/workflows.py:422
 msgid "Add Member"
 msgstr "멤버 추가"
 
 #: dashboards/project/loadbalancers/tables.py:62
-#: dashboards/project/loadbalancers/workflows.py:528
+#: dashboards/project/loadbalancers/workflows.py:575
 msgid "Add Monitor"
 msgstr "모니터 추가"
 
@@ -7595,8 +7599,8 @@ msgid "Pools"
 msgstr "Pools"
 
 #: dashboards/project/loadbalancers/tables.py:100
-#: dashboards/project/loadbalancers/workflows.py:546
-#: dashboards/project/loadbalancers/workflows.py:608
+#: dashboards/project/loadbalancers/workflows.py:593
+#: dashboards/project/loadbalancers/workflows.py:655
 msgid "Monitor"
 msgstr "모니터"
 
@@ -7646,7 +7650,7 @@ msgid "Edit Monitor"
 msgstr "모니터 편집"
 
 #: dashboards/project/loadbalancers/tables.py:177
-#: dashboards/project/loadbalancers/workflows.py:590
+#: dashboards/project/loadbalancers/workflows.py:637
 msgid "Associate Monitor"
 msgstr "모니터 연결"
 
@@ -7655,19 +7659,19 @@ msgid "Failed to retrieve health monitors."
 msgstr "상태 모니터를 찾을 수 없습니다"
 
 #: dashboards/project/loadbalancers/tables.py:198
-#: dashboards/project/loadbalancers/workflows.py:652
+#: dashboards/project/loadbalancers/workflows.py:699
 msgid "Disassociate Monitor"
 msgstr "모니터 연결 해제"
 
 #: dashboards/project/loadbalancers/tables.py:214
-#: dashboards/project/loadbalancers/workflows.py:37
+#: dashboards/project/loadbalancers/workflows.py:42
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
 msgid "Provider"
 msgstr "공급자"
 
 #: dashboards/project/loadbalancers/tables.py:247
-#: dashboards/project/loadbalancers/workflows.py:160
-#: dashboards/project/loadbalancers/workflows.py:311
+#: dashboards/project/loadbalancers/workflows.py:165
+#: dashboards/project/loadbalancers/workflows.py:337
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:25
 msgid "Protocol Port"
@@ -7810,85 +7814,85 @@ msgstr "상태 모니터 세부 정보를 찾을 수 없습니다. %s"
 msgid "Unable to retrieve pool. %s"
 msgstr "Pool을 찾을 수 없습니다. %s"
 
-#: dashboards/project/loadbalancers/workflows.py:49
+#: dashboards/project/loadbalancers/workflows.py:54
 #: dashboards/project/vpn/workflows.py:40
 msgid "Select a Subnet"
 msgstr "서브넷 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:54
+#: dashboards/project/loadbalancers/workflows.py:59
 #: dashboards/project/vpn/workflows.py:46
 msgid "Unable to retrieve networks list."
 msgstr "네트워크 목록을 찾을 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:61
-#: dashboards/project/loadbalancers/workflows.py:194
+#: dashboards/project/loadbalancers/workflows.py:66
+#: dashboards/project/loadbalancers/workflows.py:199
 msgid "Select a Protocol"
 msgstr "프로토콜 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:65
+#: dashboards/project/loadbalancers/workflows.py:70
 msgid "Select a Method"
 msgstr "메소드 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:79
+#: dashboards/project/loadbalancers/workflows.py:84
 msgid "Unable to retrieve providers list."
 msgstr "공급자 목록을 찾을 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:93
+#: dashboards/project/loadbalancers/workflows.py:98
 #, python-format
 msgid "%s (default)"
 msgstr "%s (기본)"
 
-#: dashboards/project/loadbalancers/workflows.py:96
+#: dashboards/project/loadbalancers/workflows.py:101
 msgid "Provider for Load Balancer is not supported"
 msgstr "로드 밸런서에 대한 공급자를 지원하지 않습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:98
+#: dashboards/project/loadbalancers/workflows.py:103
 msgid "No provider is available"
 msgstr "사용 가능한 공급자가 없습니다. "
 
-#: dashboards/project/loadbalancers/workflows.py:104
+#: dashboards/project/loadbalancers/workflows.py:109
 msgid "Add New Pool"
 msgstr "새로운 Pool 추가"
 
-#: dashboards/project/loadbalancers/workflows.py:106
+#: dashboards/project/loadbalancers/workflows.py:111
 msgid ""
 "Create Pool for current project.\n"
 "\n"
 "Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
 msgstr "현재 프로젝트에 Pool을 생성합니다.\n\nPool 이름과 설명을 입력합니다. Pool을 이용하여 모든 멤버들이 사용가능한 서브넷을 선택합니다. Pool에서 사용할 프로토콜과 로드 밸런싱을 선택합니다. 관리자 상태는 UP (checked)로 기본 설정됩니다."
 
-#: dashboards/project/loadbalancers/workflows.py:130
+#: dashboards/project/loadbalancers/workflows.py:135
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" 추가하였습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:131
+#: dashboards/project/loadbalancers/workflows.py:136
 #, python-format
 msgid "Unable to add pool \"%s\"."
 msgstr "Pool \"%s\"를 추가할 수 없습니다"
 
-#: dashboards/project/loadbalancers/workflows.py:153
+#: dashboards/project/loadbalancers/workflows.py:158
 msgid "VIP Address from Floating IPs"
 msgstr "유동 IP의 VIP 주소"
 
-#: dashboards/project/loadbalancers/workflows.py:191
+#: dashboards/project/loadbalancers/workflows.py:196
 #, python-format
 msgid "Specify a free IP address from %s"
 msgstr "%s에서 무료 IP 주소를 지정"
 
-#: dashboards/project/loadbalancers/workflows.py:198
+#: dashboards/project/loadbalancers/workflows.py:203
 msgid "No Session Persistence"
 msgstr "세션 지속을 못함"
 
-#: dashboards/project/loadbalancers/workflows.py:204
+#: dashboards/project/loadbalancers/workflows.py:209
 msgid "Currently Not Supported"
 msgstr "현재 지원되지 않음."
 
-#: dashboards/project/loadbalancers/workflows.py:219
+#: dashboards/project/loadbalancers/workflows.py:224
 msgid "Specify VIP"
 msgstr "VIP 지정"
 
-#: dashboards/project/loadbalancers/workflows.py:221
+#: dashboards/project/loadbalancers/workflows.py:226
 msgid ""
 "Create a VIP for this pool. Assign a name and description for the VIP. "
 "Specify an IP address and port for the VIP. Choose the protocol and session "
@@ -7896,70 +7900,92 @@ msgid ""
 "State is UP (checked) by default."
 msgstr "Pool의 ViP를 생성합니다. VIP 이름과 설명을 입력합니다. VIP에서 사용할 IP 주소와 포트를 지정합니다. ViP 프로토콜과 세션 지속성 방식을 선택합니다. 허용가능한 최대 연결 수를 지정합니다. 관리자 상태는 UP (checked)로 기본 설정됩니다."
 
-#: dashboards/project/loadbalancers/workflows.py:247
+#: dashboards/project/loadbalancers/workflows.py:252
 #, python-format
 msgid "Added VIP \"%s\"."
 msgstr "VIP \"%s\"를 추가합니다."
 
-#: dashboards/project/loadbalancers/workflows.py:248
+#: dashboards/project/loadbalancers/workflows.py:253
 #, python-format
 msgid "Unable to add VIP \"%s\"."
 msgstr "VIP \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:261
+#: dashboards/project/loadbalancers/workflows.py:266
 #, python-format
 msgid "Only one address can be specified. Unable to add VIP \"%s\"."
 msgstr "하나의 주소만 지정할 수 있습니다. VIP \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:271
+#: dashboards/project/loadbalancers/workflows.py:276
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
 msgstr "지정된 pool을 찾을 수 없습니다. VIP \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:296
+#: dashboards/project/loadbalancers/workflows.py:301
+msgid "Member Source"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:302
+msgid "Select from active instances"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:303
+#: dashboards/project/loadbalancers/workflows.py:320
+msgid "Specify member IP address"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:310
+#: dashboards/project/loadbalancers/workflows.py:316
 msgid "Member(s)"
 msgstr "멤버"
 
-#: dashboards/project/loadbalancers/workflows.py:301
-msgid "At least one member must be specified"
-msgstr "최소 하나의 멤버가 지정되어야 합니다. "
-
-#: dashboards/project/loadbalancers/workflows.py:302
-#: dashboards/project/loadbalancers/workflows.py:350
+#: dashboards/project/loadbalancers/workflows.py:318
 msgid "Select members for this pool "
 msgstr "이 pool에서 멤버 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:305
+#: dashboards/project/loadbalancers/workflows.py:319
+#: dashboards/project/loadbalancers/workflows.py:325
+msgid "Member address"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:331
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be modified later. Weight must be in the range 1 to 256."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:312
+#: dashboards/project/loadbalancers/workflows.py:338
 msgid ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
 "all the selected members and can be modified later."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:323
+#: dashboards/project/loadbalancers/workflows.py:349
 msgid "Select a Pool"
 msgstr "Pool 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:343
+#: dashboards/project/loadbalancers/workflows.py:369
 msgid "Unable to retrieve instances list."
 msgstr "인스턴스 목록을 찾을 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:347
+#: dashboards/project/loadbalancers/workflows.py:373
 msgid ""
 "No servers available. To add a member, you need at least one running "
 "instance."
 msgstr "사용 가능한 서버가 없습니다. 멤버를 추가하려면, 최소 1개의 구동 중인 인스턴스가 필요합니다."
 
-#: dashboards/project/loadbalancers/workflows.py:363
+#: dashboards/project/loadbalancers/workflows.py:389
+msgid "At least one member must be specified"
+msgstr "최소 하나의 멤버가 지정되어야 합니다. "
+
+#: dashboards/project/loadbalancers/workflows.py:393
+msgid "Member IP address must be specified"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:398
 msgid "Add New Member"
 msgstr "새로운 멤버 추가"
 
-#: dashboards/project/loadbalancers/workflows.py:365
+#: dashboards/project/loadbalancers/workflows.py:400
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -7968,145 +7994,145 @@ msgid ""
 "There can only be one port associated with each instance."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:389
+#: dashboards/project/loadbalancers/workflows.py:424
 msgid "Added member(s)."
 msgstr "추가된 멤버"
 
-#: dashboards/project/loadbalancers/workflows.py:390
-msgid "Unable to add member(s)."
-msgstr "멤버를 추가할 수 없습니다."
+#: dashboards/project/loadbalancers/workflows.py:425
+msgid "Unable to add member(s)"
+msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:414
+#: dashboards/project/loadbalancers/workflows.py:461
 msgid "PING"
 msgstr "PING"
 
-#: dashboards/project/loadbalancers/workflows.py:416
+#: dashboards/project/loadbalancers/workflows.py:463
 msgid "HTTP"
 msgstr "HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:417
+#: dashboards/project/loadbalancers/workflows.py:464
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: dashboards/project/loadbalancers/workflows.py:440
+#: dashboards/project/loadbalancers/workflows.py:487
 msgid "GET"
 msgstr "GET"
 
-#: dashboards/project/loadbalancers/workflows.py:441
-#: dashboards/project/loadbalancers/workflows.py:446
-#: dashboards/project/loadbalancers/workflows.py:447
+#: dashboards/project/loadbalancers/workflows.py:488
+#: dashboards/project/loadbalancers/workflows.py:493
+#: dashboards/project/loadbalancers/workflows.py:494
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
 msgid "HTTP Method"
 msgstr "HTTP 메서드"
 
-#: dashboards/project/loadbalancers/workflows.py:442
+#: dashboards/project/loadbalancers/workflows.py:489
 msgid "HTTP method used to check health status of a member"
 msgstr "멤버의 상태를 점검하는데 사용된 HTTP 방식 "
 
-#: dashboards/project/loadbalancers/workflows.py:453
-#: dashboards/project/loadbalancers/workflows.py:457
-#: dashboards/project/loadbalancers/workflows.py:458
+#: dashboards/project/loadbalancers/workflows.py:500
+#: dashboards/project/loadbalancers/workflows.py:504
+#: dashboards/project/loadbalancers/workflows.py:505
 #: dashboards/project/stacks/forms.py:58
 msgid "URL"
 msgstr "URL"
 
-#: dashboards/project/loadbalancers/workflows.py:465
-#: dashboards/project/loadbalancers/workflows.py:472
-#: dashboards/project/loadbalancers/workflows.py:473
+#: dashboards/project/loadbalancers/workflows.py:512
+#: dashboards/project/loadbalancers/workflows.py:519
+#: dashboards/project/loadbalancers/workflows.py:520
 msgid "Expected HTTP Status Codes"
 msgstr "예상된 HTTP 상태 코드"
 
-#: dashboards/project/loadbalancers/workflows.py:466
+#: dashboards/project/loadbalancers/workflows.py:513
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
 "202), or range of values (e.g. 200-204)"
 msgstr "예상된 코드는 단일 값(예: 200), 목록 값(예:200, 202), 또는 범위 값(예: 200-204)입니다."
 
-#: dashboards/project/loadbalancers/workflows.py:491
+#: dashboards/project/loadbalancers/workflows.py:538
 msgid "Please choose a HTTP method"
 msgstr "HTTP 방식을 선택하세요"
 
-#: dashboards/project/loadbalancers/workflows.py:494
+#: dashboards/project/loadbalancers/workflows.py:541
 msgid "Please specify an URL"
 msgstr "URL을 지정하세요"
 
-#: dashboards/project/loadbalancers/workflows.py:497
+#: dashboards/project/loadbalancers/workflows.py:544
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "단일 값(예: 200), 목록 값(예:200, 202), 또는 범위 값(예: 200-204)을 입력하세요"
 
-#: dashboards/project/loadbalancers/workflows.py:504
+#: dashboards/project/loadbalancers/workflows.py:551
 msgid "Add New Monitor"
 msgstr "새로운 모니터 추가"
 
-#: dashboards/project/loadbalancers/workflows.py:506
+#: dashboards/project/loadbalancers/workflows.py:553
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "모니터 템플릿을 생성하세요.\n\n모니터링 유형을 선택하세요. 지연, 타임아웃, 및 모니터에 의해 요구된 재시도 횟수를 지정하세요. 방식, URL 경로, 성공 시 예상된 HTTP 코드를 지정하세요. "
 
-#: dashboards/project/loadbalancers/workflows.py:530
+#: dashboards/project/loadbalancers/workflows.py:577
 msgid "Added monitor"
 msgstr "모니터를 추가하였습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:531
+#: dashboards/project/loadbalancers/workflows.py:578
 msgid "Unable to add monitor"
 msgstr "모니터를 추가할 수 없음."
 
-#: dashboards/project/loadbalancers/workflows.py:541
+#: dashboards/project/loadbalancers/workflows.py:588
 msgid "Unable to add monitor."
 msgstr "모니터를 추가할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:552
+#: dashboards/project/loadbalancers/workflows.py:599
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "%s에 대한 모니터 템플릿 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:555
-#: dashboards/project/loadbalancers/workflows.py:618
+#: dashboards/project/loadbalancers/workflows.py:602
+#: dashboards/project/loadbalancers/workflows.py:665
 msgid "Select a Monitor"
 msgstr "모니터 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:566
-#: dashboards/project/loadbalancers/workflows.py:627
+#: dashboards/project/loadbalancers/workflows.py:613
+#: dashboards/project/loadbalancers/workflows.py:674
 msgid "Unable to retrieve monitors list."
 msgstr "모니터 목록을 찾을 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:572
-#: dashboards/project/loadbalancers/workflows.py:633
+#: dashboards/project/loadbalancers/workflows.py:619
+#: dashboards/project/loadbalancers/workflows.py:680
 msgid "Association Details"
 msgstr "연결 세부 정보"
 
-#: dashboards/project/loadbalancers/workflows.py:574
+#: dashboards/project/loadbalancers/workflows.py:621
 msgid "Associate a health monitor with target pool."
 msgstr "상태 모니터는 대상 pool에 연결합니다"
 
-#: dashboards/project/loadbalancers/workflows.py:592
+#: dashboards/project/loadbalancers/workflows.py:639
 msgid "Associated monitor."
 msgstr "모니터가 연결되었습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:593
-#: dashboards/project/loadbalancers/workflows.py:603
+#: dashboards/project/loadbalancers/workflows.py:640
+#: dashboards/project/loadbalancers/workflows.py:650
 msgid "Unable to associate monitor."
 msgstr "모니터를 연결할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:615
+#: dashboards/project/loadbalancers/workflows.py:662
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "상태 모니터 %s 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:635
+#: dashboards/project/loadbalancers/workflows.py:682
 msgid "Disassociate a health monitor from target pool. "
 msgstr "대상 pool에서 상태 모니터를 해제합니다."
 
-#: dashboards/project/loadbalancers/workflows.py:654
+#: dashboards/project/loadbalancers/workflows.py:701
 msgid "Disassociated monitor."
 msgstr "모니터 연결 해제되었습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:655
-#: dashboards/project/loadbalancers/workflows.py:665
+#: dashboards/project/loadbalancers/workflows.py:702
+#: dashboards/project/loadbalancers/workflows.py:712
 msgid "Unable to disassociate monitor."
 msgstr "모니터를 연결 해제할 수 없습니다."
 
@@ -9437,7 +9463,7 @@ msgid "Volume Overview"
 msgstr "볼륨 개요"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:373
+#: dashboards/project/volumes/volumes/tables.py:383
 msgid "Attachments"
 msgstr "부착물"
 
@@ -9454,7 +9480,7 @@ msgstr "볼륨 소스"
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
-#: dashboards/project/volumes/volumes/tables.py:110
+#: dashboards/project/volumes/volumes/tables.py:120
 msgid "Extend Volume"
 msgstr "볼륨 확장"
 
@@ -9484,7 +9510,7 @@ msgstr "볼륨 수"
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:185
+#: dashboards/project/volumes/volumes/tables.py:195
 msgid "Edit Volume"
 msgstr "볼륨 편집"
 
@@ -9678,50 +9704,50 @@ msgstr ""
 msgid "Unable to extend volume."
 msgstr "볼륨을 확장할 수 없습니다."
 
-#: dashboards/project/volumes/volumes/tables.py:38
+#: dashboards/project/volumes/volumes/tables.py:39
 msgid "Launch as Instance"
 msgstr "인스턴스로 시작"
 
-#: dashboards/project/volumes/volumes/tables.py:75
+#: dashboards/project/volumes/volumes/tables.py:76
 #, python-format
 msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
 msgstr "볼륨 \"%s\"를 삭제할 수 없습니다. 하나 이상의 스냅샷에 연결되어 있습니다."
 
-#: dashboards/project/volumes/volumes/tables.py:127
+#: dashboards/project/volumes/volumes/tables.py:137
 msgid "Edit Attachments"
 msgstr "연결 편집"
 
-#: dashboards/project/volumes/volumes/tables.py:222
+#: dashboards/project/volumes/volumes/tables.py:232
 #: dashboards/project/volumes/volumes/views.py:211
 msgid "Unable to retrieve attachment information."
 msgstr "연결 설정 정보를 찾을 수 없습니다."
 
-#: dashboards/project/volumes/volumes/tables.py:240
+#: dashboards/project/volumes/volumes/tables.py:250
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "%(dev)s에 %(instance)s에 연결"
 
-#: dashboards/project/volumes/volumes/tables.py:305
+#: dashboards/project/volumes/volumes/tables.py:315
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:308
+#: dashboards/project/volumes/volumes/tables.py:318
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:324
+#: dashboards/project/volumes/volumes/tables.py:334
 msgid "Detach"
 msgstr "연결 해제"
 
-#: dashboards/project/volumes/volumes/tables.py:325
+#: dashboards/project/volumes/volumes/tables.py:335
 msgid "Detaching"
 msgstr "연결 해제중"
 
-#: dashboards/project/volumes/volumes/tables.py:354
+#: dashboards/project/volumes/volumes/tables.py:364
 msgid "Device"
 msgstr "장치"
 
-#: dashboards/project/volumes/volumes/tables.py:363
+#: dashboards/project/volumes/volumes/tables.py:373
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "인스턴스 %(instance_name)s 에서 볼륨 %(volume_name)s"
