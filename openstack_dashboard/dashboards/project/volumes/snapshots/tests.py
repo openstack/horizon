@@ -37,10 +37,11 @@ class VolumeSnapshotsViewTests(test.TestCase):
         volume = self.cinder_volumes.first()
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
             .AndReturn(volume)
+        snapshot_used = len(self.cinder_volume_snapshots.list())
         usage_limit = {'maxTotalVolumeGigabytes': 250,
                        'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
-                       'maxTotalVolumes': 6}
+                       'snapshotsUsed': snapshot_used,
+                       'maxTotalSnapshots': 6}
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
         self.mox.ReplayAll()
