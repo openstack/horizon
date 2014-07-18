@@ -380,9 +380,15 @@ class AttachForm(forms.SelfHandlingForm):
     instance = forms.ChoiceField(label=_("Attach to Instance"),
                                  help_text=_("Select an instance to "
                                              "attach to."))
+
     device = forms.CharField(label=_("Device Name"),
+                             widget=forms.TextInput(attrs={'placeholder':
+                                                           '/dev/vdc'}),
+                             required=False,
                              help_text=_("Actual device name may differ due "
-                                         "to hypervisor settings."))
+                                         "to hypervisor settings. If not "
+                                         "specified, then hypervisor will "
+                                         "select a device name."))
 
     def __init__(self, *args, **kwargs):
         super(AttachForm, self).__init__(*args, **kwargs)
@@ -395,7 +401,6 @@ class AttachForm(forms.SelfHandlingForm):
                                                       False)
         if not can_set_mount_point:
             self.fields['device'].widget = forms.widgets.HiddenInput()
-            self.fields['device'].required = False
 
         # populate volume_id
         volume = kwargs.get('initial', {}).get("volume", None)

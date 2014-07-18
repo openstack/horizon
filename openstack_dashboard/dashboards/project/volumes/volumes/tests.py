@@ -17,10 +17,10 @@
 #    under the License.
 
 import django
-from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
+from django.test.utils import override_settings
 
 from mox import IsA  # noqa
 
@@ -773,10 +773,9 @@ class VolumeViewTests(test.TestCase):
                          volume.name)
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
+    @override_settings(OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point':
+                                                      True})
     def test_edit_attachments(self):
-        PREV = settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point']
-        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = True
-
         volume = self.cinder_volumes.first()
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
@@ -804,7 +803,33 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertTrue(isinstance(form.fields['device'].widget,
                                    widgets.TextInput))
-        settings.OPENSTACK_HYPERVISOR_FEATURES['can_set_mount_point'] = PREV
+        self.assertFalse(form.fields['device'].required)
+
+    @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
+    @override_settings(OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point':
+                                                      True})
+    def test_edit_attachments_auto_device_name(self):
+        volume = self.cinder_volumes.first()
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
+        volume.attachments = [{'id': volume.id,
+                               'volume_id': volume.id,
+                               'volume_name': volume.name,
+                               'instance': servers[0],
+                               'device': '',
+                               'server_id': servers[0].id}]
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:volumes:attach',
+                      args=[volume.id])
+        res = self.client.get(url)
+        form = res.context['form']
+        self.assertTrue(isinstance(form.fields['device'].widget,
+                                   widgets.TextInput))
+        self.assertFalse(form.fields['device'].required)
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
     def test_edit_attachments_cannot_set_mount_point(self):

@@ -191,9 +191,6 @@ horizon.forms.init_examples = function (el) {
 
   // Table search box.
   $el.find(".table_search input").attr("placeholder", gettext("Filter"));
-
-  // Volume attachment form.
-  $el.find("#attach_volume_form #id_device").attr("placeholder", "/dev/vdc");
 };
 
 horizon.addInitFunction(function () {
