@@ -216,7 +216,7 @@ class InstancesTable(tables.DataTable):
 
 class UsersTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_("User Name"))
-    host = tables.Column("host", verbose_name=_("Allowed Hosts"))
+    host = tables.Column("host", verbose_name=_("Allowed Host"))
     databases = tables.Column(get_databases, verbose_name=_("Databases"))
 
     class Meta:
