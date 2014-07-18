@@ -339,8 +339,7 @@ class DatabaseTests(test.TestCase):
         self.assertRedirectsNoFollow(res, url)
 
     @test.create_stubs({
-        api.trove: ('instance_get', 'instance_resize_volume'),
-    })
+        api.trove: ('instance_get', 'instance_resize_volume')})
     def test_resize_volume(self):
         database = self.databases.first()
         database_id = database.id
@@ -367,9 +366,7 @@ class DatabaseTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({
-        api.trove: ('instance_get', 'instance_resize_volume'),
-    })
+    @test.create_stubs({api.trove: ('instance_get', )})
     def test_resize_volume_bad_value(self):
         database = self.databases.first()
         database_id = database.id
@@ -390,3 +387,62 @@ class DatabaseTests(test.TestCase):
         res = self.client.post(url, post)
         self.assertContains(
             res, "New size for volume must be greater than current size.")
+
+    @test.create_stubs(
+        {api.trove: ('instance_get',
+                     'flavor_list',
+                     'instance_resize')})
+    def test_resize_instance(self):
+        database = self.databases.first()
+
+        # views.py: DetailView.get_data
+        api.trove.instance_get(IsA(http.HttpRequest), database.id)\
+            .AndReturn(database)
+        api.trove.flavor_list(IsA(http.HttpRequest)).\
+            AndReturn(self.database_flavors.list())
+
+        old_flavor = self.database_flavors.list()[0]
+        new_flavor = self.database_flavors.list()[1]
+
+        api.trove.instance_resize(IsA(http.HttpRequest),
+                                  database.id,
+                                  new_flavor.id).AndReturn(None)
+
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:databases:resize_instance',
+                      args=[database.id])
+        post = {
+            'instance_id': database.id,
+            'old_flavor_name': old_flavor.name,
+            'old_flavor_id': old_flavor.id,
+            'new_flavor': new_flavor.id
+        }
+        res = self.client.post(url, post)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs(
+        {api.trove: ('instance_get', 'flavor_list')})
+    def test_resize_instance_bad_value(self):
+        database = self.databases.first()
+
+        api.trove.instance_get(IsA(http.HttpRequest),
+                               database.id).AndReturn(database)
+        api.trove.flavor_list(IsA(http.HttpRequest)).\
+            AndReturn(self.database_flavors.list())
+
+        old_flavor = self.database_flavors.list()[0]
+
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:databases:resize_instance',
+                      args=[database.id])
+        post = {
+            'instance_id': database.id,
+            'old_flavor_name': old_flavor.name,
+            'old_flavor_id': old_flavor.id,
+            'new_flavor': old_flavor.id
+        }
+        res = self.client.post(url, post)
+        self.assertContains(res,
+                            "Please choose a new flavor that is "
+                            "not the same as the old one.")
