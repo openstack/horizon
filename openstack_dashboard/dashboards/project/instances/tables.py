@@ -671,7 +671,7 @@ def get_size(instance):
             size_disk = _("%s GB") % "0"
         context = {
             "name": instance.full_flavor.name,
-            "flavor_id": instance.full_flavor.id,
+            "id": instance.id,
             "size_disk": size_disk,
             "size_ram": size_ram,
             "vcpus": instance.full_flavor.vcpus
