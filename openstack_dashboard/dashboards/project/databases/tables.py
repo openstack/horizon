@@ -45,8 +45,8 @@ class RestartInstance(tables.BatchAction):
     name = "restart"
     action_present = _("Restart")
     action_past = _("Restarted")
-    data_type_singular = _("Database")
-    data_type_plural = _("Databases")
+    data_type_singular = _("Instance")
+    data_type_plural = _("Instances")
     classes = ('btn-danger', 'btn-reboot')
 
     def allowed(self, request, instance=None):
@@ -184,7 +184,7 @@ class InstancesTable(tables.DataTable):
     )
     name = tables.Column("name",
                          link=("horizon:project:databases:detail"),
-                         verbose_name=_("Database Name"))
+                         verbose_name=_("Instance Name"))
     datastore = tables.Column(get_datastore,
                               verbose_name=_("Datastore"))
     datastore_version = tables.Column(get_datastore_version,
@@ -204,7 +204,7 @@ class InstancesTable(tables.DataTable):
 
     class Meta:
         name = "databases"
-        verbose_name = _("Databases")
+        verbose_name = _("Instances")
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (LaunchLink, TerminateInstance)
@@ -221,7 +221,7 @@ class UsersTable(tables.DataTable):
 
     class Meta:
         name = "users"
-        verbose_name = _("Database Instance Users")
+        verbose_name = _("Users")
         table_actions = [DeleteUser]
         row_actions = [DeleteUser]
 
