@@ -1175,7 +1175,8 @@ class InstanceTests(test.TestCase):
                                  block_device_mapping_v2=True,
                                  custom_flavor_sort=None,
                                  only_one_network=False,
-                                 disk_config=True):
+                                 disk_config=True,
+                                 test_with_profile=False):
         image = self.images.first()
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -1204,10 +1205,7 @@ class InstanceTests(test.TestCase):
             api.neutron.network_list(IsA(http.HttpRequest),
                                      shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -1350,6 +1348,11 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get_with_only_one_network(self):
         self.test_launch_instance_get(only_one_network=True)
 
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_instance_get_with_profile(self):
+        self.test_launch_instance_get(test_with_profile=True)
+
     @test.create_stubs({api.nova: ('extension_supported',
                                    'flavor_list',
                                    'keypair_list',
@@ -1364,7 +1367,8 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get_bootable_volumes(self,
                                  block_device_mapping_v2=True,
                                  only_one_network=False,
-                                 disk_config=True):
+                                 disk_config=True,
+                                 test_with_profile=False):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(block_device_mapping_v2)
@@ -1392,7 +1396,7 @@ class InstanceTests(test.TestCase):
                                      shared=True) \
                 .AndReturn(self.networks.list()[1:])
 
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -1433,6 +1437,11 @@ class InstanceTests(test.TestCase):
         for volume in bootable_volumes:
             self.assertTrue(volume in volume_sources_ids)
 
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_instance_get_bootable_volumes_with_profile(self):
+        self.test_launch_instance_get_bootable_volumes(test_with_profile=True)
+
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',
@@ -1447,7 +1456,8 @@ class InstanceTests(test.TestCase):
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post(self,
-                                  disk_config=True):
+                                  disk_config=True,
+                                  test_with_profile=False):
         flavor = self.flavors.first()
         image = self.images.first()
         keypair = self.keypairs.first()
@@ -1484,10 +1494,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             policy_profile_id = self.policy_profiles.first().id
             port = self.ports.first()
@@ -1496,8 +1503,9 @@ class InstanceTests(test.TestCase):
                 'policy').AndReturn(policy_profiles)
             api.neutron.port_create(
                 IsA(http.HttpRequest),
-                network_id=self.networks.first().id,
+                self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
+            nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(disk_config)
@@ -1544,6 +1552,8 @@ class InstanceTests(test.TestCase):
                      'count': 1}
         if disk_config:
             form_data['disk_config'] = 'AUTO'
+        if test_with_profile:
+            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -1553,9 +1563,15 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_post_no_disk_config_supported(self):
         self.test_launch_instance_post(disk_config=False)
 
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_instance_post_with_profile(self):
+        self.test_launch_instance_post(test_with_profile=True)
+
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
-                                      'profile_list',),
+                                      'profile_list',
+                                      'port_create',),
                         api.nova: ('extension_supported',
                                    'flavor_list',
                                    'keypair_list',
@@ -1565,7 +1581,8 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_boot_from_volume(self):
+    def test_launch_instance_post_boot_from_volume(self,
+                                                   test_with_profile=False):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -1605,10 +1622,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             policy_profile_id = self.policy_profiles.first().id
             port = self.ports.first()
@@ -1617,7 +1631,7 @@ class InstanceTests(test.TestCase):
                 'policy').AndReturn(policy_profiles)
             api.neutron.port_create(
                 IsA(http.HttpRequest),
-                network_id=self.networks.first().id,
+                self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
             nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
@@ -1661,11 +1675,18 @@ class InstanceTests(test.TestCase):
                      'network': self.networks.first().id,
                      'count': 1,
                      'disk_config': 'AUTO'}
+        if test_with_profile:
+            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_instance_post_boot_from_volume_with_profile(self):
+        self.test_launch_instance_post_boot_from_volume(test_with_profile=True)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
@@ -1681,7 +1702,9 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_no_images_available_boot_from_volume(self):
+    def test_launch_instance_post_no_images_available_boot_from_volume(
+        self,
+        test_with_profile=False):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -1722,10 +1745,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             policy_profile_id = self.policy_profiles.first().id
             port = self.ports.first()
@@ -1734,7 +1754,7 @@ class InstanceTests(test.TestCase):
                 'policy').AndReturn(policy_profiles)
             api.neutron.port_create(
                 IsA(http.HttpRequest),
-                network_id=self.networks.first().id,
+                self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
             nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
@@ -1779,11 +1799,19 @@ class InstanceTests(test.TestCase):
                      'device_name': device_name,
                      'count': 1,
                      'disk_config': 'MANUAL'}
+        if test_with_profile:
+            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_lnch_inst_post_no_images_avail_boot_from_vol_with_profile(self):
+        self.test_launch_instance_post_no_images_available_boot_from_volume(
+            test_with_profile=True)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
@@ -1797,7 +1825,8 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_no_images_available(self):
+    def test_launch_instance_post_no_images_available(self,
+                                                      test_with_profile=False):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -1828,10 +1857,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -1872,6 +1898,12 @@ class InstanceTests(test.TestCase):
         self.assertFormErrors(res, 1, "You must select an image.")
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_instance_post_no_images_available_with_profile(self):
+        self.test_launch_instance_post_no_images_available(
+            test_with_profile=True)
+
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',),
@@ -1883,7 +1915,8 @@ class InstanceTests(test.TestCase):
                                    'keypair_list',
                                    'tenant_absolute_limits',
                                    'availability_zone_list',)})
-    def test_launch_flavorlist_error(self):
+    def test_launch_flavorlist_error(self,
+                                     test_with_profile=False):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
@@ -1906,10 +1939,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -1936,6 +1966,11 @@ class InstanceTests(test.TestCase):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_flavorlist_error_with_profile(self):
+        self.test_launch_flavorlist_error(test_with_profile=True)
+
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',
@@ -1949,7 +1984,8 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def test_launch_form_keystone_exception(self):
+    def test_launch_form_keystone_exception(self,
+                                            test_with_profile=False):
         flavor = self.flavors.first()
         image = self.images.first()
         keypair = self.keypairs.first()
@@ -1986,10 +2022,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             policy_profile_id = self.policy_profiles.first().id
             port = self.ports.first()
@@ -1998,7 +2031,7 @@ class InstanceTests(test.TestCase):
                 'policy').AndReturn(policy_profiles)
             api.neutron.port_create(
                 IsA(http.HttpRequest),
-                network_id=self.networks.first().id,
+                self.networks.first().id,
                 policy_profile_id=policy_profile_id).AndReturn(port)
             nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
@@ -2045,10 +2078,17 @@ class InstanceTests(test.TestCase):
                      'admin_pass': 'password',
                      'confirm_admin_pass': 'password',
                      'disk_config': 'AUTO'}
+        if test_with_profile:
+            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_form_keystone_exception_with_profile(self):
+        self.test_launch_form_keystone_exception(test_with_profile=True)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
@@ -2062,7 +2102,8 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def test_launch_form_instance_count_error(self):
+    def test_launch_form_instance_count_error(self,
+                                              test_with_profile=False):
         flavor = self.flavors.first()
         image = self.images.first()
         keypair = self.keypairs.first()
@@ -2101,10 +2142,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -2145,6 +2183,11 @@ class InstanceTests(test.TestCase):
 
         self.assertContains(res, "greater than or equal to 1")
 
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_form_instance_count_error_with_profile(self):
+        self.test_launch_form_instance_count_error(test_with_profile=True)
+
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',),
@@ -2157,7 +2200,8 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def _test_launch_form_instance_requirement_error(self, image, flavor):
+    def _test_launch_form_instance_requirement_error(self, image, flavor,
+                                                     test_with_profile=False):
         keypair = self.keypairs.first()
         server = self.servers.first()
         volume = self.volumes.first()
@@ -2194,10 +2238,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -2239,19 +2280,37 @@ class InstanceTests(test.TestCase):
         msg = "The flavor &#39;%s&#39; is too small" % flavor.name
         self.assertContains(res, msg)
 
-    def test_launch_form_instance_requirement_error_disk(self):
+    def test_launch_form_instance_requirement_error_disk(
+        self,
+        test_with_profile=False):
         flavor = self.flavors.first()
         image = self.images.first()
         image.min_ram = flavor.ram
         image.min_disk = flavor.disk + 1
-        self._test_launch_form_instance_requirement_error(image, flavor)
+        self._test_launch_form_instance_requirement_error(image, flavor,
+                                                          test_with_profile)
 
-    def test_launch_form_instance_requirement_error_ram(self):
+    def test_launch_form_instance_requirement_error_ram(
+        self,
+        test_with_profile=False):
         flavor = self.flavors.first()
         image = self.images.first()
         image.min_ram = flavor.ram + 1
         image.min_disk = flavor.disk
-        self._test_launch_form_instance_requirement_error(image, flavor)
+        self._test_launch_form_instance_requirement_error(image, flavor,
+                                                          test_with_profile)
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_form_instance_requirement_error_disk_with_profile(self):
+        self.test_launch_form_instance_requirement_error_disk(
+            test_with_profile=True)
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_form_instance_requirement_error_ram_with_profile(self):
+        self.test_launch_form_instance_requirement_error_ram(
+            test_with_profile=True)
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
@@ -2265,7 +2324,8 @@ class InstanceTests(test.TestCase):
                         cinder: ('volume_list',
                                  'volume_snapshot_list',),
                         quotas: ('tenant_quota_usages',)})
-    def _test_launch_form_instance_volume_size(self, image, volume_size, msg):
+    def _test_launch_form_instance_volume_size(self, image, volume_size, msg,
+                                               test_with_profile=False):
         flavor = self.flavors.get(name='m1.massive')
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -2301,10 +2361,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -2346,17 +2403,33 @@ class InstanceTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertContains(res, msg)
 
-    def test_launch_form_instance_volume_size_error(self):
+    def test_launch_form_instance_volume_size_error(self,
+                                                    test_with_profile=False):
         image = self.images.get(name='protected_images')
         volume_size = image.min_disk / 2
         msg = ("The Volume size is too small for the &#39;%s&#39; image" %
                image.name)
-        self._test_launch_form_instance_volume_size(image, volume_size, msg)
+        self._test_launch_form_instance_volume_size(image, volume_size, msg,
+                                                    test_with_profile)
 
-    def test_launch_form_instance_non_int_volume_size(self):
+    def test_launch_form_instance_non_int_volume_size(self,
+                                                      test_with_profile=False):
         image = self.images.get(name='protected_images')
         msg = "Enter a whole number."
-        self._test_launch_form_instance_volume_size(image, 1.5, msg)
+        self._test_launch_form_instance_volume_size(image, 1.5, msg,
+                                                    test_with_profile)
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_form_instance_volume_size_error_with_profile(self):
+        self.test_launch_form_instance_volume_size_error(
+            test_with_profile=True)
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_form_instance_non_int_volume_size_with_profile(self):
+        self.test_launch_form_instance_non_int_volume_size(
+            test_with_profile=True)
 
     @test.create_stubs({api.nova: ('flavor_list', 'server_list',
                                    'tenant_absolute_limits',
@@ -2451,7 +2524,8 @@ class InstanceTests(test.TestCase):
                         api.neutron: ('network_list',
                                       'profile_list'),
                         api.glance: ('image_list_detailed',)})
-    def test_select_default_keypair_if_only_one(self):
+    def test_select_default_keypair_if_only_one(self,
+                                                test_with_profile=False):
         keypair = self.keypairs.first()
 
         cinder.volume_list(IsA(http.HttpRequest)) \
@@ -2473,10 +2547,7 @@ class InstanceTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True) \
                 .AndReturn(self.networks.list()[1:])
-        # TODO(absubram): Remove if clause and create separate
-        # test stubs for when profile_support is being used.
-        # Additionally ensure those are always run even in default setting
-        if api.neutron.is_port_profiles_supported():
+        if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
@@ -2508,6 +2579,11 @@ class InstanceTests(test.TestCase):
                  "%(key)s</option>" % {'key': keypair.name},
             html=True,
             msg_prefix="The default key pair was not selected.")
+
+    @test_utils.override_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_select_default_keypair_if_only_one_with_profile(self):
+        self.test_select_default_keypair_if_only_one(test_with_profile=True)
 
     @test.create_stubs({api.network: ('floating_ip_target_get_by_instance',
                                       'tenant_floating_ip_allocate',

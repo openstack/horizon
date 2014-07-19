@@ -16,7 +16,6 @@
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
-from openstack_dashboard.api import neutron as neutron
 from openstack_dashboard.dashboards.router import dashboard
 
 
@@ -25,5 +24,4 @@ class Nexus1000v(horizon.Panel):
     slug = 'nexus1000v'
     permissions = ('openstack.services.network',)
 
-if neutron.is_port_profiles_supported():
-    dashboard.Router.register(Nexus1000v)
+dashboard.Router.register(Nexus1000v)

@@ -33,7 +33,12 @@ class CreateNetwork(forms.SelfHandlingForm):
                            required=False)
     tenant_id = forms.ChoiceField(label=_("Project"))
     if api.neutron.is_port_profiles_supported():
-        net_profile_id = forms.ChoiceField(label=_("Network Profile"))
+        widget = None
+    else:
+        widget = forms.HiddenInput()
+    net_profile_id = forms.ChoiceField(label=_("Network Profile"),
+                                       required=False,
+                                       widget=widget)
     admin_state = forms.BooleanField(label=_("Admin State"),
                                      initial=True, required=False)
     shared = forms.BooleanField(label=_("Shared"),

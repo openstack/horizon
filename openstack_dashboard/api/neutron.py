@@ -868,12 +868,10 @@ def is_agent_extension_supported(request):
 
 # Using this mechanism till a better plugin/sub-plugin detection
 # mechanism is available.
-# Using local_settings to detect if the "router" dashboard
-# should be turned on or not. When using specific plugins the
-# profile_support can be turned on if needed.
+# When using specific plugins the profile_support can be
+# turned on if needed to configure and/or use profiles.
 # Since this is a temporary mechanism used to detect profile_support
-# @memorize is not being used. This is mainly used in the run_tests
-# environment to detect when to use profile_support neutron APIs.
+# @memorize is not being used.
 # TODO(absubram): Change this config variable check with
 # subplugin/plugin detection API when it becomes available.
 def is_port_profiles_supported():
