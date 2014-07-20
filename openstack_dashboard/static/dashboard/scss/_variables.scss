@@ -1,3 +1,5 @@
+/* Horizon Variables */
+
 $gray-darker: #222222;
 $gray-dark: #333333;
 $gray: #555555;
@@ -25,7 +27,9 @@ $table-border-color: $border-color;
 $table-bg-hover: #f5f5f5;
 $table-bg-odd: #f9f9f9;
 
-// Workflows
+
+/* Workflows */
+
 $workflow-color-tab-complete-bg: #007acc;
 $workflow-color-tab-incomplete-bg: #dddddd;
 $workflow-color-tab-trough-bg: #efefef;
@@ -38,3 +42,28 @@ $workflow-color-label-error: $brand-danger;
 $workflow-size-tab-border: 2px;
 $workflow-size-tab-arrow: 20px;
 $workflow-size-tab-padding: 15px;
+
+
+/* Resource Browser */
+
+$rbrowser-data-table-border-width: 1px;
+$rbrowser-data-table-border-color: $border-color;
+
+$rbrowser-actions-column-padding: 10px;
+
+$rbrowser-small-button-height: 28px;
+$rbrowser-td-height: $rbrowser-small-button-height;
+
+$rbrowser-table-cell-padding: 8px;
+
+$rbrowser-selected-color: #e9f5fa;
+
+$rbrowser-wrapper-width: 100%;
+$rbrowser-navigation-table-width: 40%;
+$rbrowser-content-table-width: $rbrowser-wrapper-width - $rbrowser-navigation-table-width;
+
+$rbrowser-body-background-color: $body-bg;
+$rbrowser-header-background-color: $gray-lighter;
+$rbrowser-footer-background-color: #f1f1f1;
+// Note: the content-wrapper background colors are determined by
+//       .table-striped-datatable styles.
