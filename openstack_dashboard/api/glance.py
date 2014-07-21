@@ -34,13 +34,21 @@ from openstack_dashboard.api import base
 LOG = logging.getLogger(__name__)
 
 
-def glanceclient(request):
+class ImageCustomProperty(object):
+    def __init__(self, image_id, key, val):
+        self.image_id = image_id
+        self.id = key
+        self.key = key
+        self.value = val
+
+
+def glanceclient(request, version='1'):
     url = base.url_for(request, 'image')
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     LOG.debug('glanceclient connection created using token "%s" and url "%s"'
               % (request.user.token.id, url))
-    return glance_client.Client('1', url, token=request.user.token.id,
+    return glance_client.Client(version, url, token=request.user.token.id,
                                 insecure=insecure, cacert=cacert)
 
 
@@ -56,6 +64,26 @@ def image_get(request, image_id):
     if not hasattr(image, 'name'):
         image.name = None
     return image
+
+
+def image_get_properties(request, image_id, reserved=True):
+    """List all custom properties of an image."""
+    image = glanceclient(request, '2').images.get(image_id)
+    reserved_props = getattr(settings, 'IMAGE_RESERVED_CUSTOM_PROPERTIES', [])
+    properties_list = []
+    for key in image.keys():
+        if reserved or key not in reserved_props:
+            prop = ImageCustomProperty(image_id, key, image.get(key))
+            properties_list.append(prop)
+    return properties_list
+
+
+def image_get_property(request, image_id, key, reserved=True):
+    """Get a custom property of an image."""
+    for prop in image_get_properties(request, image_id, reserved):
+        if prop.key == key:
+            return prop
+    return None
 
 
 def image_list_detailed(request, marker=None, sort_dir='desc',
@@ -121,3 +149,13 @@ def image_create(request, **kwargs):
                                  'purge_props': False})
 
     return image
+
+
+def image_update_properties(request, image_id, **kwargs):
+    """Add or update a custom property of an image."""
+    return glanceclient(request, '2').images.update(image_id, None, **kwargs)
+
+
+def image_delete_properties(request, image_id, keys):
+    """Delete custom properties for an image."""
+    return glanceclient(request, '2').images.update(image_id, keys)

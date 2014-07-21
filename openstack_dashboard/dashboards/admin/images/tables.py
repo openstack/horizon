@@ -40,6 +40,13 @@ class AdminEditImage(project_tables.EditImage):
         return True
 
 
+class ViewCustomProperties(tables.LinkAction):
+    name = "properties"
+    verbose_name = _("View Custom Properties")
+    url = "horizon:admin:images:properties:index"
+    classes = ("btn-edit",)
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -59,4 +66,4 @@ class AdminImagesTable(project_tables.ImagesTable):
         status_columns = ["status"]
         verbose_name = _("Images")
         table_actions = (AdminCreateImage, AdminDeleteImage)
-        row_actions = (AdminEditImage, AdminDeleteImage)
+        row_actions = (AdminEditImage, ViewCustomProperties, AdminDeleteImage)
