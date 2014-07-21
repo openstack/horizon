@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Volume Type Extra Specs" %}{% endblock %}
+
+{% block page_header %}
+  <h2>{% trans "Volume Type" %}: {{vol_type.name}} </h2>
+{% endblock page_header %}
+
+{% block main %}
+  {% include "admin/volumes/extras/_index.html" %}
+{% endblock %}
