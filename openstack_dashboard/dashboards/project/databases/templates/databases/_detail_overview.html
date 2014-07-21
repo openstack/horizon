@@ -31,6 +31,10 @@
         <dt>{% trans "Volume Size" %}</dt>
         <dd>{{ instance.volume.size|diskgbformat }}</dd>
     {% endif %}
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ instance.created|parse_isotime }}</dd>
+    <dt>{% trans "Updated" %}</dt>
+    <dd>{{ instance.updated|parse_isotime }}</dd>
   </dl>
 </div>
 
