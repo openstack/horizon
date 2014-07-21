@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-16 09:23-0500\n"
-"PO-Revision-Date: 2014-07-16 14:42+0000\n"
+"POT-Creation-Date: 2014-07-20 13:39-0500\n"
+"PO-Revision-Date: 2014-07-20 19:12+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -367,7 +367,8 @@ msgstr "Admin"
 #: dashboards/admin/info/tables.py:80 dashboards/admin/info/tables.py:104
 #: dashboards/admin/info/tables.py:156 dashboards/admin/instances/tables.py:87
 #: dashboards/admin/instances/tables.py:133
-#: dashboards/admin/networks/forms.py:32 dashboards/admin/networks/forms.py:97
+#: dashboards/admin/networks/forms.py:32
+#: dashboards/admin/networks/forms.py:102
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/ports/tables.py:86
 #: dashboards/admin/networks/subnets/tables.py:91
@@ -390,7 +391,7 @@ msgstr "Admin"
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:48
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:232
+#: dashboards/project/databases/tables.py:248
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
@@ -1030,7 +1031,7 @@ msgstr "Flavors"
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:7
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:14
-#: dashboards/project/databases/templates/databases/_detail_overview.html:22
+#: dashboards/project/databases/templates/databases/_detail_overview.html:26
 #: dashboards/project/databases/workflows/create_instance.py:31
 #: dashboards/project/instances/templates/instances/_detail_overview.html:46
 #: dashboards/project/instances/workflows/create_instance.py:83
@@ -1088,7 +1089,7 @@ msgid "VCPUs"
 msgstr "vCPUs"
 
 #: dashboards/admin/flavors/tables.py:106
-#: dashboards/project/databases/templates/databases/_detail_overview.html:24
+#: dashboards/project/databases/templates/databases/_detail_overview.html:28
 #: dashboards/project/instances/templates/instances/_detail_overview.html:48
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:5
@@ -1113,7 +1114,7 @@ msgstr "Disco de Swap"
 
 #: dashboards/admin/flavors/tables.py:117
 #: dashboards/admin/flavors/workflows.py:41
-#: dashboards/admin/networks/forms.py:99
+#: dashboards/admin/networks/forms.py:104
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
@@ -1366,7 +1367,7 @@ msgstr "ExtraSpecs"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:167
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:293
-#: dashboards/project/networks/workflows.py:265
+#: dashboards/project/networks/workflows.py:267
 #: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create"
 msgstr "Criar"
@@ -1482,7 +1483,7 @@ msgstr "Usuário"
 #: dashboards/admin/users/templates/users/index.html:3
 #: dashboards/admin/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:65
-#: dashboards/project/databases/tabs.py:36
+#: dashboards/project/databases/tabs.py:48
 msgid "Users"
 msgstr "Usuários"
 
@@ -1493,7 +1494,7 @@ msgstr "Adicionar..."
 #: dashboards/admin/groups/tables.py:160 dashboards/admin/users/forms.py:80
 #: dashboards/admin/users/forms.py:157 dashboards/admin/users/tables.py:130
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:202
+#: dashboards/project/databases/tables.py:218
 msgid "User Name"
 msgstr "Nome do Usuário"
 
@@ -1839,8 +1840,12 @@ msgstr "Serviço"
 #: dashboards/admin/info/tables.py:105 dashboards/admin/info/tables.py:157
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/volumes/tables.py:51
-#: dashboards/project/databases/tables.py:176
-#: dashboards/project/databases/templates/databases/_detail_overview.html:38
+#: dashboards/project/databases/tables.py:192
+#: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
+#: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:10
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:10
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:10
+#: dashboards/project/databases/templates/databases/_detail_overview_redis.html:10
 msgid "Host"
 msgstr "Host"
 
@@ -1854,10 +1859,10 @@ msgstr "Host"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/database_backups/tables.py:140
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
-#: dashboards/project/database_backups/templates/database_backups/details.html:52
-#: dashboards/project/databases/tables.py:185
-#: dashboards/project/databases/tables.py:240
-#: dashboards/project/databases/templates/databases/_detail_overview.html:13
+#: dashboards/project/database_backups/templates/database_backups/details.html:55
+#: dashboards/project/databases/tables.py:201
+#: dashboards/project/databases/tables.py:256
+#: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:214
@@ -2193,7 +2198,7 @@ msgstr "Endereço IP"
 #: dashboards/project/containers/tables.py:421
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:178
+#: dashboards/project/databases/tables.py:194
 #: dashboards/project/images/images/tables.py:228
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:805
@@ -2477,8 +2482,8 @@ msgstr "Soma."
 msgid "Statistics of all resources"
 msgstr "Estatísticas de todos recursos"
 
-#: dashboards/admin/networks/forms.py:36
-#: dashboards/project/networks/workflows.py:38
+#: dashboards/admin/networks/forms.py:39
+#: dashboards/project/networks/workflows.py:41
 #: dashboards/router/nexus1000v/tables.py:37
 #: dashboards/router/nexus1000v/tables.py:59
 #: dashboards/router/nexus1000v/tables.py:74
@@ -2486,8 +2491,8 @@ msgstr "Estatísticas de todos recursos"
 msgid "Network Profile"
 msgstr "Perfil de Rede"
 
-#: dashboards/admin/networks/forms.py:37
-#: dashboards/admin/networks/forms.py:102
+#: dashboards/admin/networks/forms.py:42
+#: dashboards/admin/networks/forms.py:107
 #: dashboards/admin/networks/tables.py:90
 #: dashboards/admin/networks/ports/forms.py:42
 #: dashboards/admin/networks/ports/tables.py:94
@@ -2503,7 +2508,7 @@ msgstr "Perfil de Rede"
 #: dashboards/project/loadbalancers/workflows.py:522
 #: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/tables.py:122
-#: dashboards/project/networks/workflows.py:39
+#: dashboards/project/networks/workflows.py:44
 #: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:63
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
@@ -2517,8 +2522,8 @@ msgstr "Perfil de Rede"
 msgid "Admin State"
 msgstr "Estado de Admin"
 
-#: dashboards/admin/networks/forms.py:39
-#: dashboards/admin/networks/forms.py:103
+#: dashboards/admin/networks/forms.py:44
+#: dashboards/admin/networks/forms.py:108
 #: dashboards/admin/networks/tables.py:86
 #: dashboards/project/firewalls/forms.py:68
 #: dashboards/project/firewalls/forms.py:116
@@ -2532,8 +2537,8 @@ msgstr "Estado de Admin"
 msgid "Shared"
 msgstr "Compartilhado"
 
-#: dashboards/admin/networks/forms.py:41
-#: dashboards/admin/networks/forms.py:104
+#: dashboards/admin/networks/forms.py:46
+#: dashboards/admin/networks/forms.py:109
 #: dashboards/admin/routers/tables.py:64
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/tables.py:151
@@ -2541,38 +2546,40 @@ msgstr "Compartilhado"
 msgid "External Network"
 msgstr "Rede Externa"
 
-#: dashboards/admin/networks/forms.py:50 dashboards/admin/users/forms.py:57
+#: dashboards/admin/networks/forms.py:55 dashboards/admin/users/forms.py:57
 msgid "Select a project"
 msgstr "Selecionar um projeto"
 
-#: dashboards/admin/networks/forms.py:62
-#: dashboards/project/networks/workflows.py:50
+#: dashboards/admin/networks/forms.py:67
+#: dashboards/project/instances/workflows/create_instance.py:602
+#: dashboards/project/networks/workflows.py:55
 msgid "Select a profile"
 msgstr "Selecione um perfil"
 
-#: dashboards/admin/networks/forms.py:72
-#: dashboards/project/networks/workflows.py:60
+#: dashboards/admin/networks/forms.py:77
+#: dashboards/project/instances/workflows/create_instance.py:612
+#: dashboards/project/networks/workflows.py:65
 #: dashboards/router/nexus1000v/views.py:55
 msgid "Network Profiles could not be retrieved."
 msgstr "Perfis de Rede não puderam ser obtidos."
 
-#: dashboards/admin/networks/forms.py:86
+#: dashboards/admin/networks/forms.py:91
 #, python-format
 msgid "Network %s was successfully created."
 msgstr "Rede \"%s\" criada com sucesso."
 
-#: dashboards/admin/networks/forms.py:92
+#: dashboards/admin/networks/forms.py:97
 #, python-format
 msgid "Failed to create network %s"
 msgstr "Falha ao criar rede %s"
 
-#: dashboards/admin/networks/forms.py:115
+#: dashboards/admin/networks/forms.py:120
 #: dashboards/project/networks/forms.py:49
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "Rede %s foi atualizado com sucesso."
 
-#: dashboards/admin/networks/forms.py:120
+#: dashboards/admin/networks/forms.py:125
 #: dashboards/project/networks/forms.py:54
 #, python-format
 msgid "Failed to update network %s"
@@ -2584,7 +2591,7 @@ msgstr "Falha ao atualizar rede %s"
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
-#: dashboards/project/databases/workflows/create_instance.py:66
+#: dashboards/project/databases/workflows/create_instance.py:120
 #: dashboards/project/instances/workflows/create_instance.py:555
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
@@ -2596,7 +2603,7 @@ msgstr "Redes"
 
 #: dashboards/admin/networks/tables.py:33 dashboards/project/dashboard.py:32
 #: dashboards/project/networks/tables.py:41
-#: dashboards/project/networks/workflows.py:67
+#: dashboards/project/networks/workflows.py:72
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
@@ -2615,7 +2622,7 @@ msgstr "Falha ao excluir rede %s"
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:72
-#: dashboards/project/networks/workflows.py:264
+#: dashboards/project/networks/workflows.py:266
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2754,7 +2761,7 @@ msgstr "Dispositivo anexado"
 #: dashboards/admin/networks/ports/tabs.py:25
 #: dashboards/admin/overview/panel.py:27
 #: dashboards/admin/overview/templates/overview/usage.html:6
-#: dashboards/project/databases/tabs.py:26
+#: dashboards/project/databases/tabs.py:27
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:26
 #: dashboards/project/networks/ports/tabs.py:25
@@ -2785,7 +2792,7 @@ msgstr "Não é possível recuperar redes."
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:113
+#: dashboards/project/networks/workflows.py:115
 #: dashboards/project/networks/subnets/tables.py:44
 #: dashboards/project/networks/subnets/workflows.py:37
 #: dashboards/project/networks/subnets/workflows.py:118
@@ -2812,7 +2819,7 @@ msgid "Failed to delete subnet %s"
 msgstr "Falha ao excluir sub-rede %s"
 
 #: dashboards/admin/networks/subnets/tables.py:55
-#: dashboards/project/networks/workflows.py:82
+#: dashboards/project/networks/workflows.py:84
 #: dashboards/project/networks/subnets/tables.py:68
 #: dashboards/project/networks/subnets/workflows.py:55
 msgid "Create Subnet"
@@ -2833,14 +2840,14 @@ msgid "CIDR"
 msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/networks/workflows.py:95
+#: dashboards/project/networks/workflows.py:97
 #: dashboards/project/networks/subnets/tables.py:107
 #: dashboards/project/networks/subnets/workflows.py:101
 msgid "IP Version"
 msgstr "Versão IP"
 
 #: dashboards/admin/networks/subnets/tables.py:95
-#: dashboards/project/networks/workflows.py:97
+#: dashboards/project/networks/workflows.py:99
 #: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "Gateway IP"
@@ -3384,7 +3391,7 @@ msgid "Passwords do not match."
 msgstr "As senhas não conferem."
 
 #: dashboards/admin/users/forms.py:85 dashboards/admin/users/forms.py:162
-#: dashboards/project/databases/workflows/create_instance.py:133
+#: dashboards/project/databases/workflows/create_instance.py:187
 #: dashboards/project/instances/forms.py:155
 #: dashboards/project/instances/tables.py:706
 msgid "Password"
@@ -4379,7 +4386,7 @@ msgid "Copy"
 msgstr "Copiar"
 
 #: dashboards/project/containers/tables.py:355
-#: dashboards/project/databases/tables.py:235
+#: dashboards/project/databases/tables.py:251
 msgid "Download"
 msgstr "Baixar"
 
@@ -4689,7 +4696,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_plugins/tabs.py:26
 #: dashboards/project/database_backups/workflows/create_backup.py:40
-#: dashboards/project/databases/workflows/create_instance.py:39
+#: dashboards/project/databases/workflows/create_instance.py:41
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 #: dashboards/project/instances/workflows/create_instance.py:130
 #: dashboards/project/loadbalancers/tables.py:278
@@ -4979,8 +4986,8 @@ msgstr ""
 #: dashboards/project/database_backups/tables.py:79
 #: dashboards/project/database_backups/tables.py:146
 #: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:246
-#: dashboards/project/databases/tabs.py:93
+#: dashboards/project/databases/tables.py:262
+#: dashboards/project/databases/tabs.py:105
 msgid "Backups"
 msgstr "Backups"
 
@@ -5019,14 +5026,16 @@ msgstr "Agendada exclusão de %(data_type)s"
 
 #: dashboards/project/database_backups/tables.py:78
 #: dashboards/project/database_backups/workflows/create_backup.py:64
-#: dashboards/project/databases/workflows/create_instance.py:164
+#: dashboards/project/databases/workflows/create_instance.py:218
 msgid "Backup"
 msgstr "Backup"
 
 #: dashboards/project/database_backups/tables.py:117
 #: dashboards/project/database_backups/tables.py:123
-#: dashboards/project/databases/tables.py:148
-#: dashboards/project/databases/tables.py:154
+#: dashboards/project/databases/tables.py:145
+#: dashboards/project/databases/tables.py:151
+#: dashboards/project/databases/tables.py:160
+#: dashboards/project/databases/tables.py:166
 #: dashboards/project/instances/tables.py:680
 #: dashboards/project/instances/tables.py:687
 msgid "Not available"
@@ -5034,16 +5043,21 @@ msgstr "Não disponível"
 
 #: dashboards/project/database_backups/tables.py:131
 #: dashboards/project/database_backups/templates/database_backups/details.html:25
+#: dashboards/project/databases/tables.py:189
+#: dashboards/project/databases/templates/databases/_detail_overview.html:13
+#: dashboards/project/databases/workflows/create_instance.py:37
 msgid "Datastore"
 msgstr ""
 
 #: dashboards/project/database_backups/tables.py:133
 #: dashboards/project/database_backups/templates/database_backups/details.html:27
+#: dashboards/project/databases/tables.py:191
+#: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
 msgstr ""
 
 #: dashboards/project/database_backups/tables.py:134
-#: dashboards/project/databases/tables.py:233
+#: dashboards/project/databases/tables.py:249
 msgid "Created At"
 msgstr "Criado em"
 
@@ -5140,15 +5154,15 @@ msgid "Scheduled backup \"%(name)s\"."
 msgstr "Backup \"%(name)s\" agendado."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:66
-#: dashboards/project/databases/workflows/create_instance.py:211
-#: dashboards/project/instances/workflows/create_instance.py:663
+#: dashboards/project/databases/workflows/create_instance.py:265
+#: dashboards/project/instances/workflows/create_instance.py:676
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Não foi possível disparar %(count)s chamadas \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:76
-#: dashboards/project/databases/workflows/create_instance.py:227
-#: dashboards/project/instances/workflows/create_instance.py:679
+#: dashboards/project/databases/workflows/create_instance.py:281
+#: dashboards/project/instances/workflows/create_instance.py:692
 msgid "instance"
 msgstr "instância"
 
@@ -5201,10 +5215,10 @@ msgstr "Reiniciado"
 
 #: dashboards/project/databases/tables.py:49
 #: dashboards/project/databases/tables.py:81
-#: dashboards/project/databases/tables.py:191
-#: dashboards/project/databases/tables.py:204
-#: dashboards/project/databases/tables.py:221
-#: dashboards/project/databases/tabs.py:66
+#: dashboards/project/databases/tables.py:207
+#: dashboards/project/databases/tables.py:220
+#: dashboards/project/databases/tables.py:237
+#: dashboards/project/databases/tabs.py:78
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 msgid "Databases"
@@ -5222,7 +5236,7 @@ msgstr "Erro excluindo base de dados na instância."
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/instances/tables.py:216
 #: dashboards/project/instances/tables.py:243
-#: dashboards/project/instances/workflows/create_instance.py:660
+#: dashboards/project/instances/workflows/create_instance.py:673
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Disparar Instância"
@@ -5231,12 +5245,12 @@ msgstr "Disparar Instância"
 msgid "Resize Volume"
 msgstr ""
 
-#: dashboards/project/databases/tables.py:144
+#: dashboards/project/databases/tables.py:156
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#: dashboards/project/databases/tables.py:162
+#: dashboards/project/databases/tables.py:174
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -5257,45 +5271,41 @@ msgstr "%(name)s | %(RAM)s RAM"
 msgid "-"
 msgstr "-"
 
-#: dashboards/project/databases/tables.py:175
-#: dashboards/project/databases/tables.py:217
+#: dashboards/project/databases/tables.py:187
+#: dashboards/project/databases/tables.py:233
 #: dashboards/project/databases/workflows/create_instance.py:30
 msgid "Database Name"
 msgstr "Nome da Base de Dados"
 
-#: dashboards/project/databases/tables.py:181
-#: dashboards/project/databases/templates/databases/_detail_overview.html:27
+#: dashboards/project/databases/tables.py:197
+#: dashboards/project/databases/templates/databases/_detail_overview.html:31
 #: dashboards/project/databases/workflows/create_instance.py:33
 msgid "Volume Size"
 msgstr "Tamanho do Volume"
 
-#: dashboards/project/databases/tables.py:203
+#: dashboards/project/databases/tables.py:219
 msgid "Allowed Hosts"
 msgstr "Hosts Permitidos"
 
-#: dashboards/project/databases/tables.py:208
+#: dashboards/project/databases/tables.py:224
 msgid "Database Instance Users"
 msgstr "Usuários da Instância da Base de Dados"
 
-#: dashboards/project/databases/tables.py:237
+#: dashboards/project/databases/tables.py:253
 msgid "Backup File"
 msgstr "Arquivo de Backup"
 
-#: dashboards/project/databases/tabs.py:52
+#: dashboards/project/databases/tabs.py:64
 msgid "Unable to get user data."
 msgstr ""
 
-#: dashboards/project/databases/tabs.py:79
+#: dashboards/project/databases/tabs.py:91
 msgid "Unable to get databases data."
 msgstr ""
 
-#: dashboards/project/databases/tabs.py:104
+#: dashboards/project/databases/tabs.py:116
 msgid "Unable to get database backup data."
 msgstr ""
-
-#: dashboards/project/databases/views.py:47
-msgid "Not Assigned"
-msgstr "Não Atribuído"
 
 #: dashboards/project/databases/views.py:63
 msgid "Unable to retrieve database size information."
@@ -5316,7 +5326,7 @@ msgstr "Não foi possível obter detalhes para a instância da base de dados: %s
 msgid "Instance Overview"
 msgstr "Visão geral da Instância"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:19
+#: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:41
 #: dashboards/project/instances/templates/instances/_detail_overview.html:43
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
@@ -5325,17 +5335,51 @@ msgstr "Visão geral da Instância"
 msgid "Specs"
 msgstr "Especificações"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:34
+#: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:6
+#: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:6
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:6
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:6
+#: dashboards/project/databases/templates/databases/_detail_overview_redis.html:6
 msgid "Connection Info"
 msgstr "Informações de Conexão"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:40
+#: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:13
+#: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:13
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:13
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:13
+#: dashboards/project/databases/templates/databases/_detail_overview_redis.html:13
+msgid "Not Assigned"
+msgstr "Não Atribuído"
+
+#: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:18
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:18
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:18
 msgid "Database Port"
 msgstr "Porta da Base de Dados"
 
-#: dashboards/project/databases/templates/databases/_detail_overview.html:42
+#: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:20
+#: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:18
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:20
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:20
+#: dashboards/project/databases/templates/databases/_detail_overview_redis.html:18
 msgid "Connection Examples"
 msgstr "Exemplos de Conexão"
+
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:22
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:21
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:22
+msgid "USERNAME"
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:22
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:22
+msgid "PASSWORD"
+msgstr ""
+
+#: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:22
+#: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:22
+msgid "DATABASE"
+msgstr ""
 
 #: dashboards/project/databases/templates/databases/_launch_details_help.html:3
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:5
@@ -5381,7 +5425,7 @@ msgid "Password (required)"
 msgstr "Senha (requerido)"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:15
-#: dashboards/project/databases/workflows/create_instance.py:135
+#: dashboards/project/databases/workflows/create_instance.py:189
 msgid "Host (optional)"
 msgstr "Host (opcional)"
 
@@ -5441,7 +5485,7 @@ msgid "Database Details: "
 msgstr ""
 
 #: dashboards/project/databases/templates/databases/launch.html:6
-#: dashboards/project/databases/workflows/create_instance.py:208
+#: dashboards/project/databases/workflows/create_instance.py:262
 msgid "Launch Database"
 msgstr "Disparar Base de Dados"
 
@@ -5461,93 +5505,105 @@ msgstr "Tamanho da imagem a disparar."
 msgid "Size of the volume in GB."
 msgstr "Tamanho do volume em GB."
 
-#: dashboards/project/databases/workflows/create_instance.py:71
+#: dashboards/project/databases/workflows/create_instance.py:38
+msgid "Type and version of datastore."
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:46
+msgid "You must select a datastore type and version."
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:104
+msgid "Select datastore type and version"
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:125
 #: dashboards/project/instances/workflows/create_instance.py:560
 msgid "At least one network must be specified."
 msgstr "Ao menos uma rede deve ser espeicifacada."
 
-#: dashboards/project/databases/workflows/create_instance.py:73
+#: dashboards/project/databases/workflows/create_instance.py:127
 #: dashboards/project/instances/workflows/create_instance.py:562
 msgid "Launch instance with these networks"
 msgstr "Disparar instância com estas redes"
 
-#: dashboards/project/databases/workflows/create_instance.py:83
+#: dashboards/project/databases/workflows/create_instance.py:137
 #: dashboards/project/instances/tables.py:721
-#: dashboards/project/instances/workflows/create_instance.py:577
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid "Networking"
 msgstr "Rede"
 
-#: dashboards/project/databases/workflows/create_instance.py:85
-#: dashboards/project/instances/workflows/create_instance.py:579
+#: dashboards/project/databases/workflows/create_instance.py:139
+#: dashboards/project/instances/workflows/create_instance.py:586
 msgid "Select networks for your instance."
 msgstr "Selecione as redes para sua instância."
 
-#: dashboards/project/databases/workflows/create_instance.py:97
-#: dashboards/project/instances/workflows/create_instance.py:591
+#: dashboards/project/databases/workflows/create_instance.py:151
+#: dashboards/project/instances/workflows/create_instance.py:598
 msgid "Unable to retrieve networks."
 msgstr "Não é possível recuperar redes."
 
-#: dashboards/project/databases/workflows/create_instance.py:125
+#: dashboards/project/databases/workflows/create_instance.py:179
 msgid "Initial Database"
 msgstr "Base de dados Inicial"
 
-#: dashboards/project/databases/workflows/create_instance.py:127
+#: dashboards/project/databases/workflows/create_instance.py:181
 msgid "Comma separated list of databases to create"
 msgstr "Lista separada por vírgula de bases de dados a se criar."
 
-#: dashboards/project/databases/workflows/create_instance.py:129
+#: dashboards/project/databases/workflows/create_instance.py:183
 msgid "Initial Admin User"
 msgstr "Usuário Inicial Admin"
 
-#: dashboards/project/databases/workflows/create_instance.py:131
+#: dashboards/project/databases/workflows/create_instance.py:185
 msgid "Initial admin user to add"
 msgstr "Usuário admin inicial a se adicionar"
 
-#: dashboards/project/databases/workflows/create_instance.py:137
+#: dashboards/project/databases/workflows/create_instance.py:191
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "Host ou IP através do qual o usuário pode conectar-se."
 
-#: dashboards/project/databases/workflows/create_instance.py:141
+#: dashboards/project/databases/workflows/create_instance.py:195
 msgid "Initialize Databases"
 msgstr "Inicializar Bases de dados"
 
-#: dashboards/project/databases/workflows/create_instance.py:149
+#: dashboards/project/databases/workflows/create_instance.py:203
 msgid "You must specify a password if you create a user."
 msgstr "Você deve especificar uma senha se você criar um usuário."
 
-#: dashboards/project/databases/workflows/create_instance.py:152
+#: dashboards/project/databases/workflows/create_instance.py:206
 msgid "You must specify at least one database if you create a user."
 msgstr "Você deve especificar ao menos uma base de dados se você criar um usuário."
 
-#: dashboards/project/databases/workflows/create_instance.py:166
+#: dashboards/project/databases/workflows/create_instance.py:220
 msgid "Select a backup to restore"
 msgstr "Selecione um Backup para Restaurar"
 
-#: dashboards/project/databases/workflows/create_instance.py:169
+#: dashboards/project/databases/workflows/create_instance.py:223
 msgid "Restore From Backup"
 msgstr "Restaurar de um Backup"
 
-#: dashboards/project/databases/workflows/create_instance.py:182
+#: dashboards/project/databases/workflows/create_instance.py:236
 msgid "Select backup"
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:184
+#: dashboards/project/databases/workflows/create_instance.py:238
 msgid "No backups available"
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:197
+#: dashboards/project/databases/workflows/create_instance.py:251
 msgid "Unable to find backup!"
 msgstr "Não foi possível encontrar o backup!"
 
-#: dashboards/project/databases/workflows/create_instance.py:209
+#: dashboards/project/databases/workflows/create_instance.py:263
 #: dashboards/project/images/images/tables.py:34
-#: dashboards/project/instances/workflows/create_instance.py:661
+#: dashboards/project/instances/workflows/create_instance.py:674
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Disparar"
 
-#: dashboards/project/databases/workflows/create_instance.py:210
-#: dashboards/project/instances/workflows/create_instance.py:662
+#: dashboards/project/databases/workflows/create_instance.py:264
+#: dashboards/project/instances/workflows/create_instance.py:675
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Disparadas %(count)s chamadas \"%(name)s\"."
@@ -6341,7 +6397,7 @@ msgid "Confirm Rebuild Password"
 msgstr "Confirmar Reconstrução de Senha"
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:630
+#: dashboards/project/instances/workflows/create_instance.py:643
 msgid "Disk Partition"
 msgstr "Partição de disco"
 
@@ -6351,18 +6407,18 @@ msgid "No images available"
 msgstr "Sem imagens disponíveis"
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:640
+#: dashboards/project/instances/workflows/create_instance.py:653
 msgid "Automatic"
 msgstr "Automático"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:641
+#: dashboards/project/instances/workflows/create_instance.py:654
 msgid "Manual"
 msgstr "Manual"
 
 #: dashboards/project/instances/forms.py:79
 #: dashboards/project/instances/workflows/create_instance.py:154
-#: dashboards/project/instances/workflows/create_instance.py:644
+#: dashboards/project/instances/workflows/create_instance.py:657
 msgid "Unable to retrieve extensions information."
 msgstr "Não é possível recuperar informações de extensões."
 
@@ -7311,28 +7367,24 @@ msgstr "Um script é um conjunto de comandos a ser executado após a construçã
 msgid "Post-Creation"
 msgstr "Pós-Criação"
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:568
 msgid "Policy Profiles"
 msgstr "Perfis de Política"
 
-#: dashboards/project/instances/workflows/create_instance.py:567
+#: dashboards/project/instances/workflows/create_instance.py:571
 msgid "Launch instance with this policy profile"
 msgstr "Dispare instância com este perfil de política"
 
-#: dashboards/project/instances/workflows/create_instance.py:600
-msgid "Unable to retrieve profiles."
-msgstr "Não foi possível obter perfis."
-
-#: dashboards/project/instances/workflows/create_instance.py:648
+#: dashboards/project/instances/workflows/create_instance.py:661
 msgid "Advanced Options"
 msgstr "Opções Avançadas"
 
-#: dashboards/project/instances/workflows/create_instance.py:676
+#: dashboards/project/instances/workflows/create_instance.py:689
 #, python-format
 msgid "%s instances"
 msgstr "%s instâncias"
 
-#: dashboards/project/instances/workflows/create_instance.py:735
+#: dashboards/project/instances/workflows/create_instance.py:748
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Porta não criada para profile-id (%s)."
@@ -8203,7 +8255,7 @@ msgstr "Criar roteador"
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
 #: dashboards/project/routers/tables.py:31
 #: dashboards/project/vpn/tables.py:213 dashboards/project/vpn/workflows.py:31
-#: dashboards/router/dashboard.py:23
+#: dashboards/router/dashboard.py:21
 msgid "Router"
 msgstr "Roteador"
 
@@ -8243,28 +8295,28 @@ msgstr "Adicionar Sub-rede"
 msgid "Unable to retrieve network details."
 msgstr "Não foi possível obter detalhes da rede."
 
-#: dashboards/project/networks/workflows.py:68
+#: dashboards/project/networks/workflows.py:73
 msgid ""
 "From here you can create a new network.\n"
 "In addition a subnet associated with the network can be created in the next panel."
 msgstr "A partir daqui você pode criar uma nova rede. ⏎ Além disso, uma sub-rede associada com a rede pode ser criada no próximo painel."
 
-#: dashboards/project/networks/workflows.py:85
+#: dashboards/project/networks/workflows.py:87
 msgid "Subnet Name"
 msgstr "Nome da Sub-rede"
 
-#: dashboards/project/networks/workflows.py:87
+#: dashboards/project/networks/workflows.py:89
 #: dashboards/project/networks/subnets/tables.py:106
 #: dashboards/project/networks/subnets/workflows.py:80
 msgid "Network Address"
 msgstr "Endereço de Rede"
 
-#: dashboards/project/networks/workflows.py:90
+#: dashboards/project/networks/workflows.py:92
 #: dashboards/project/networks/subnets/workflows.py:85
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "Endereço de rede no formato CIDR (ex: 192.168.0.0/24)"
 
-#: dashboards/project/networks/workflows.py:100
+#: dashboards/project/networks/workflows.py:102
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
@@ -8272,148 +8324,148 @@ msgid ""
 "Gateway' below."
 msgstr "Endereço IP do Gateway (ex: 192.168.0.254). O valor padrão é o primeiro IP do endereço de rede (ex: 192.168.0.1 para 192.168.0.0/24). Se você utilizar o padrão, deixe em branco. Se você não quer utilizar um gateway, marque 'Desabilitar Gateway' abaixo."
 
-#: dashboards/project/networks/workflows.py:109
+#: dashboards/project/networks/workflows.py:111
 #: dashboards/project/networks/subnets/workflows.py:114
 msgid "Disable Gateway"
 msgstr "Desabilitar Gateway"
 
-#: dashboards/project/networks/workflows.py:114
+#: dashboards/project/networks/workflows.py:116
 msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "Você pode criar uma sub-rede associada com a nova rede, quando no caso o \"Endereço de Rede\" deve ser especificado. Se você deseja criar uma rede SEM uma sub-rede, desmarque a caixa \"Criar Sub-rede\"."
 
-#: dashboards/project/networks/workflows.py:125
+#: dashboards/project/networks/workflows.py:127
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "Especifique o \"Endereço de Rede\" ou desmarque a caixa \"Criar Sub-rede\".  "
 
-#: dashboards/project/networks/workflows.py:131
+#: dashboards/project/networks/workflows.py:133
 msgid "Network Address and IP version are inconsistent."
 msgstr "Endereço de Rede e versão de IP são inconsistentes."
 
-#: dashboards/project/networks/workflows.py:135
+#: dashboards/project/networks/workflows.py:137
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "A sub-rede no Endereço de Rede é muito pequena (/%s)."
 
-#: dashboards/project/networks/workflows.py:140
+#: dashboards/project/networks/workflows.py:142
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "IP do gateway e versão de IP são inconsistentes."
 
-#: dashboards/project/networks/workflows.py:143
+#: dashboards/project/networks/workflows.py:145
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Especifique o endereço IP do gateway, ou marque 'Desabilitar Gateway'."
 
-#: dashboards/project/networks/workflows.py:163
+#: dashboards/project/networks/workflows.py:165
 msgid "Enable DHCP"
 msgstr "Habilitar DHCP"
 
-#: dashboards/project/networks/workflows.py:167
+#: dashboards/project/networks/workflows.py:169
 msgid "Allocation Pools"
 msgstr "Pools de Alocação"
 
-#: dashboards/project/networks/workflows.py:168
+#: dashboards/project/networks/workflows.py:170
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:175
+#: dashboards/project/networks/workflows.py:177
 msgid "DNS Name Servers"
 msgstr "Servidores de nome DNS"
 
-#: dashboards/project/networks/workflows.py:176
+#: dashboards/project/networks/workflows.py:178
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "Lista de endereços IP de servidores de nome DNS para esta sub-rede. Uma entrada por linha."
 
-#: dashboards/project/networks/workflows.py:181
+#: dashboards/project/networks/workflows.py:183
 msgid "Host Routes"
 msgstr "Rotas de Host"
 
-#: dashboards/project/networks/workflows.py:182
+#: dashboards/project/networks/workflows.py:184
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:189
+#: dashboards/project/networks/workflows.py:191
 #: dashboards/project/networks/subnets/workflows.py:139
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "Detalhes da Sub-rede"
 
-#: dashboards/project/networks/workflows.py:190
+#: dashboards/project/networks/workflows.py:192
 #: dashboards/project/networks/subnets/workflows.py:140
 msgid "You can specify additional attributes for the subnet."
 msgstr "Você pode especificar atributos adicionais para a sub-rede."
 
-#: dashboards/project/networks/workflows.py:196
+#: dashboards/project/networks/workflows.py:198
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Endereço IP inválido (valor=%(ip)s)"
 
-#: dashboards/project/networks/workflows.py:205
+#: dashboards/project/networks/workflows.py:207
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: Endereço IP inválido (valor=%(network)s)"
 
-#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:219
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Endereço inicial e final devem ser especificados (valor=%s)"
 
-#: dashboards/project/networks/workflows.py:223
+#: dashboards/project/networks/workflows.py:225
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "Endereço inicial é maior que endereço final (valor=%s)"
 
-#: dashboards/project/networks/workflows.py:241
+#: dashboards/project/networks/workflows.py:243
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "Erro no formato das Rotas de Host: CIDR destino e nexthop devem ser especificados (valor=%s)"
 
-#: dashboards/project/networks/workflows.py:266
+#: dashboards/project/networks/workflows.py:268
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "Rede \"%s\" criada."
 
-#: dashboards/project/networks/workflows.py:267
+#: dashboards/project/networks/workflows.py:269
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "Incapaz de criar a rede \"%s\"."
 
-#: dashboards/project/networks/workflows.py:292
+#: dashboards/project/networks/workflows.py:294
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "Rede \"%s\" criada com sucesso."
 
-#: dashboards/project/networks/workflows.py:296
+#: dashboards/project/networks/workflows.py:298
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "Falha ao criar rede \"%(network)s\": %(reason)s"
 
-#: dashboards/project/networks/workflows.py:352
+#: dashboards/project/networks/workflows.py:354
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "Sub-rede \"%s\" criada com sucesso."
 
-#: dashboards/project/networks/workflows.py:356
+#: dashboards/project/networks/workflows.py:358
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "Falha ao criar sub-rede \"%(sub)s\" para rede \"%(net)s\": %(reason)s"
 
-#: dashboards/project/networks/workflows.py:372
+#: dashboards/project/networks/workflows.py:374
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Exclui a rede criada \"%s\" devido à falha na criação da sub-rede."
 
-#: dashboards/project/networks/workflows.py:380
+#: dashboards/project/networks/workflows.py:382
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Falha ao excluir rede \"%s\""
@@ -9508,6 +9560,18 @@ msgstr "Volumes são dispositivos de bloco que podem ser anexados às instância
 msgid "Number of Volumes"
 msgstr "Número de Volumes"
 
+#: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
+msgid "From here you can create a snapshot of a volume."
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:9
+msgid "Snapshot Limits"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:21
+msgid "Number of Snapshots"
+msgstr ""
+
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
@@ -10530,7 +10594,7 @@ msgstr "Falha ao criar perfil de rede %s"
 msgid "Network Profile %s was successfully updated."
 msgstr "Perfil de Rede %s foi atualizado com sucesso."
 
-#: dashboards/router/nexus1000v/panel.py:24
+#: dashboards/router/nexus1000v/panel.py:23
 msgid "Cisco Nexus 1000v"
 msgstr "Cisco Nexus 1000v"
 
@@ -10738,7 +10802,7 @@ msgstr "Formato de data inválido: Utilizando hoje como padrão."
 msgid "Unable to retrieve network quota information."
 msgstr "Não foi possível obter informações de cota de rede."
 
-#: usage/base.py:177 usage/quotas.py:260
+#: usage/base.py:177 usage/quotas.py:262
 msgid "Unable to retrieve volume limit information."
 msgstr "Não foi possível obter informações de limite de volume."
 
