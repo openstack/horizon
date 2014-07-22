@@ -282,6 +282,42 @@ $.tablesorter.addParser({
   type: 'numeric'
 });
 
+$.tablesorter.addParser({
+  id: 'IPv4Address',
+  is: function(s, table, cell) {
+    // the first arg to this function is a string of all the cell's
+    // innertext smashed together with no delimiters, so we need to find
+    // the original cell and grab its first element to do the work
+    var a = $(cell).find('li').first().text().split('.');
+    if (a.length !== 4) {
+      return false;
+    }
+    for (var i = 0; i < a.length; i++) {
+      if (isNaN(a[i])) {
+        return false;
+      }
+      if ((a[i] & 0xFF) != a[i]) {
+        return false;
+      }
+    }
+    return true;
+  },
+  format: function(s, table, cell) {
+    var result = 0;
+    var a = $(cell).find('li').first().text().split('.');
+    var last_index = a.length - 1;
+    // inet_aton(3), Javascript-style.  The unsigned-right-shift operation is
+    // needed to keep the result from flipping over to negative when suitably
+    // large values are generated
+    for (var i = 0; i < a.length; i++) {
+      var shift = 8 * (last_index - i);
+      result += ((parseInt(a[i], 10) << shift) >>> 0);
+    }
+    return result;
+  },
+  type: 'numeric'
+});
+
 horizon.datatables.disable_buttons = function() {
   $("table .table_actions").on("click", ".btn.disabled", function(event){
     event.preventDefault();
@@ -348,7 +384,7 @@ horizon.datatables.set_table_sorting = function (parent) {
         } else if ($th.data('type') === 'size'){
           header_options[i] = {sorter: 'sizeSorter'};
         } else if ($th.data('type') === 'ip'){
-          header_options[i] = {sorter: 'ipAddress'};
+          header_options[i] = {sorter: 'IPv4Address'};
         } else if ($th.data('type') === 'timesince'){
           header_options[i] = {sorter: 'timesinceSorter'};
         } else if ($th.data('type') === 'timestamp'){
