@@ -31,6 +31,7 @@ class BaseTestCase(testtools.TestCase):
                 self.vdisplay.start()
             # Start the Selenium webdriver and setup configuration.
             self.driver = selenium.webdriver.Firefox()
+            self.driver.maximize_window()
             self.conf = config.get_config()
         else:
             msg = "The INTEGRATION_TESTS env variable is not set."
