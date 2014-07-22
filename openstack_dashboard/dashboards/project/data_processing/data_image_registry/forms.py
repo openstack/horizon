@@ -77,7 +77,8 @@ class RegisterImageForm(ImageForm):
 
     def _get_images(self, request, filter):
         try:
-            images, _more = glance.image_list_detailed(request, filters=filter)
+            images, _more, _prev = (
+                glance.image_list_detailed(request, filters=filter))
         except Exception:
             images = []
             exceptions.handle(request,
