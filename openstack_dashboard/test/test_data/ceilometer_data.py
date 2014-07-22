@@ -55,9 +55,9 @@ def data(TEST):
                  'project_id': '2',
                  'enabled': True,
                  'domain_id': "2"}
-    TEST.ceilometer_users.add(users.User(users.UserManager(None),
+    TEST.ceilometer_users.add(users.User(None,
                                          ceilometer_user_dict1))
-    TEST.ceilometer_users.add(users.User(users.UserManager(None),
+    TEST.ceilometer_users.add(users.User(None,
                                          ceilometer_user_dict2))
 
     #tenants
