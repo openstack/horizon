@@ -93,6 +93,19 @@ BACKUP_TWO = {
 }
 
 
+BACKUP_TWO_INC = {
+    "instance_id": "4d7b3f57-44f5-41d2-8e86-36b88cad572a",
+    "status": "COMPLETED",
+    "updated": "2013-08-10T20:20:55",
+    "locationRef": "http://swift/v1/AUTH/database_backups/f145.tar.gz",
+    "name": "backup2-Incr",
+    "created": "2013-08-10T20:20:37",
+    "size": 0.13,
+    "id": "e4602a3c-2bca-478f-b059-b6c215510fb5",
+    "description": "Longer description of backup",
+    "parent_id": "e4602a3c-2bca-478f-b059-b6c215510fb4",
+}
+
 USER_ONE = {
     "name": "Test_User",
     "host": "%",
@@ -144,6 +157,7 @@ def data(TEST):
                                    DATABASE_DATA_TWO)
     bkup1 = backups.Backup(backups.Backups(None), BACKUP_ONE)
     bkup2 = backups.Backup(backups.Backups(None), BACKUP_TWO)
+    bkup3 = backups.Backup(backups.Backups(None), BACKUP_TWO_INC)
     user1 = users.User(users.Users(None), USER_ONE)
     user_db1 = databases.Database(databases.Databases(None),
                                   USER_DB_ONE)
@@ -166,6 +180,7 @@ def data(TEST):
     TEST.databases.add(database2)
     TEST.database_backups.add(bkup1)
     TEST.database_backups.add(bkup2)
+    TEST.database_backups.add(bkup3)
     TEST.database_users.add(user1)
     TEST.database_user_dbs.add(user_db1)
     TEST.datastores = utils.TestDataContainer()

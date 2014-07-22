@@ -35,6 +35,9 @@ class BackupDetailsAction(workflows.Action):
                                   widget=forms.TextInput(),
                                   required=False,
                                   help_text=_("Optional Backup Description"))
+    parent = forms.ChoiceField(label=_("Parent Backup"),
+                               required=False,
+                               help_text=_("Optional parent backup"))
 
     class Meta:
         name = _("Details")
@@ -47,15 +50,31 @@ class BackupDetailsAction(workflows.Action):
             instances = api.trove.instance_list(request)
         except Exception:
             instances = []
-            msg = _("Unable to list database instance to backup.")
+            msg = _("Unable to list database instances to backup.")
             exceptions.handle(request, msg)
         return [(i.id, i.name) for i in instances
                 if i.status in project_tables.ACTIVE_STATES]
 
+    def populate_parent_choices(self, request, context):
+        try:
+            backups = api.trove.backup_list(request)
+            choices = [(b.id, b.name) for b in backups
+                if b.status == 'COMPLETED']
+        except Exception:
+            choices = []
+            msg = _("Unable to list database backups for parent.")
+            exceptions.handle(request, msg)
+
+        if choices:
+            choices.insert(0, ("", _("Select parent backup")))
+        else:
+            choices.insert(0, ("", _("No backups available")))
+        return choices
+
 
 class SetBackupDetails(workflows.Step):
     action_class = BackupDetailsAction
-    contributes = ["name", "description", "instance"]
+    contributes = ["name", "description", "instance", "parent"]
 
 
 class CreateBackup(workflows.Workflow):
@@ -81,7 +100,8 @@ class CreateBackup(workflows.Workflow):
             api.trove.backup_create(request,
                                     context['name'],
                                     context['instance'],
-                                    context['description'])
+                                    context['description'],
+                                    context['parent'])
             return True
         except Exception:
             LOG.exception("Exception while creating backup")
