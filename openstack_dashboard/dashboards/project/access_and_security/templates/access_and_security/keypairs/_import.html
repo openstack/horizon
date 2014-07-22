@@ -21,9 +21,7 @@
     <p><pre>ssh-keygen -t rsa -f cloud.key</pre></p>
     <p>{% trans "This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here." %}</p>
     <p>{% trans "After launching an instance, you login using the private key (the username might be different depending on the image you launched):" %}</p>
-    <p><pre>ssh -i cloud.key ubuntu@&lt;instance_ip&gt;</pre></p>
-    <p>{% trans "or:" %}</p>
-    <p><pre>ssh -i cloud.key ec2-user@&lt;instance_ip&gt;</pre></p>
+    <p><pre>ssh -i cloud.key &lt;username&gt;@&lt;instance_ip&gt;</pre></p>
 </div>
 {% endblock %}
 
