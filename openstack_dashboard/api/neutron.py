@@ -40,6 +40,9 @@ LOG = logging.getLogger(__name__)
 
 IP_VERSION_DICT = {4: 'IPv4', 6: 'IPv6'}
 
+OFF_STATE = 'OFF'
+ON_STATE = 'ON'
+
 
 class NeutronAPIDictWrapper(base.APIDictWrapper):
 
@@ -98,6 +101,9 @@ class Port(NeutronAPIDictWrapper):
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
             'UP' if apiresource['admin_state_up'] else 'DOWN'
+        if 'mac_learning_enabled' in apiresource:
+            apiresource['mac_state'] = \
+                ON_STATE if apiresource['mac_learning_enabled'] else OFF_STATE
         super(Port, self).__init__(apiresource)
 
 

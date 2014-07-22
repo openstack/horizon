@@ -49,6 +49,12 @@ class CreatePort(forms.SelfHandlingForm):
                                                "port"),
                                    required=False)
 
+    def __init__(self, request, *args, **kwargs):
+        super(CreatePort, self).__init__(request, *args, **kwargs)
+        if api.neutron.is_extension_supported(request, 'mac-learning'):
+            self.fields['mac_state'] = forms.BooleanField(
+                label=_("MAC Learning State"), initial=False, required=False)
+
     def handle(self, request, data):
         try:
             # We must specify tenant_id of the network which a subnet is
@@ -58,6 +64,9 @@ class CreatePort(forms.SelfHandlingForm):
             data['admin_state_up'] = data['admin_state']
             del data['network_name']
             del data['admin_state']
+            if 'mac_state' in data:
+                data['mac_learning_enabled'] = data['mac_state']
+                del data['mac_state']
 
             port = api.neutron.port_create(request, **data)
             msg = _('Port %s was successfully created.') % port['id']
@@ -87,11 +96,15 @@ class UpdatePort(project_forms.UpdatePort):
     def handle(self, request, data):
         try:
             LOG.debug('params = %s' % data)
+            extension_kwargs = {}
+            if 'mac_state' in data:
+                extension_kwargs['mac_learning_enabled'] = data['mac_state']
             port = api.neutron.port_update(request, data['port_id'],
                                            name=data['name'],
                                            admin_state_up=data['admin_state'],
                                            device_id=data['device_id'],
-                                           device_owner=data['device_owner'])
+                                           device_owner=data['device_owner'],
+                                           **extension_kwargs)
             msg = _('Port %s was successfully updated.') % data['port_id']
             LOG.debug(msg)
             messages.success(request, msg)

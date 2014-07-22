@@ -63,10 +63,16 @@ class UpdateView(forms.ModalFormView):
 
     def get_initial(self):
         port = self._get_object()
-        return {'port_id': port['id'],
-                'network_id': port['network_id'],
-                'tenant_id': port['tenant_id'],
-                'name': port['name'],
-                'admin_state': port['admin_state_up'],
-                'device_id': port['device_id'],
-                'device_owner': port['device_owner']}
+        initial = {'port_id': port['id'],
+                   'network_id': port['network_id'],
+                   'tenant_id': port['tenant_id'],
+                   'name': port['name'],
+                   'admin_state': port['admin_state_up'],
+                   'device_id': port['device_id'],
+                   'device_owner': port['device_owner']}
+        try:
+            initial['mac_state'] = port['mac_learning_enabled']
+        except Exception:
+            # MAC Learning is not set
+            pass
+        return initial
