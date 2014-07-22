@@ -169,7 +169,7 @@ def data(TEST):
                  'project_id': '1',
                  'enabled': True,
                  'domain_id': "1"}
-    user = users.User(users.UserManager(None), user_dict)
+    user = users.User(None, user_dict)
     user_dict = {'id': "2",
                  'name': 'user_two',
                  'email': 'two@example.com',
@@ -178,7 +178,7 @@ def data(TEST):
                  'project_id': '1',
                  'enabled': True,
                  'domain_id': "1"}
-    user2 = users.User(users.UserManager(None), user_dict)
+    user2 = users.User(None, user_dict)
     user_dict = {'id': "3",
                  'name': 'user_three',
                  'email': 'three@example.com',
@@ -187,7 +187,7 @@ def data(TEST):
                  'project_id': '1',
                  'enabled': True,
                  'domain_id': "1"}
-    user3 = users.User(users.UserManager(None), user_dict)
+    user3 = users.User(None, user_dict)
     user_dict = {'id': "4",
                  'name': 'user_four',
                  'email': 'four@example.com',
@@ -196,7 +196,7 @@ def data(TEST):
                  'project_id': '2',
                  'enabled': True,
                  'domain_id': "2"}
-    user4 = users.User(users.UserManager(None), user_dict)
+    user4 = users.User(None, user_dict)
     user_dict = {'id': "5",
                  'name': 'user_five',
                  'email': None,
@@ -205,7 +205,7 @@ def data(TEST):
                  'project_id': '2',
                  'enabled': True,
                  'domain_id': "1"}
-    user5 = users.User(users.UserManager(None), user_dict)
+    user5 = users.User(None, user_dict)
     TEST.users.add(user, user2, user3, user4, user5)
     TEST.user = user  # Your "current" user
     TEST.user.service_catalog = copy.deepcopy(SERVICE_CATALOG)
