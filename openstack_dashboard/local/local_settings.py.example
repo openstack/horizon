@@ -385,6 +385,10 @@ LOGGING = {
             'handlers': ['null'],
             'propagate': False,
         },
+        'scss': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
     }
 }
 
