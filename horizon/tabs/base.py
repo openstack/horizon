@@ -238,11 +238,17 @@ class Tab(html.HTMLElement):
 
         Read-only access to determine whether or not this tab's data should
         be loaded immediately.
+
+    .. attribute:: permissions
+
+        A list of permission names which this tab requires in order to be
+        displayed. Defaults to an empty list (``[]``).
     """
     name = None
     slug = None
     preload = True
     _active = None
+    permissions = []
 
     def __init__(self, tab_group, request=None):
         super(Tab, self).__init__()
@@ -255,11 +261,15 @@ class Tab(html.HTMLElement):
         self.tab_group = tab_group
         self.request = request
         if request:
-            self._allowed = self.allowed(request)
+            self._allowed = self.allowed(request) and (
+                self._has_permissions(request))
             self._enabled = self.enabled(request)
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
+
+    def _has_permissions(self, request):
+        return request.user.has_perms(self.permissions)
 
     def is_active(self):
         """Method to access whether or not this tab is the active tab."""

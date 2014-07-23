@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -49,6 +50,7 @@ class NovaServicesTab(tabs.TableTab):
     name = _("Compute Services")
     slug = "nova_services"
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
+    permissions = ('openstack.services.compute',)
 
     def get_nova_services_data(self):
         try:
@@ -56,8 +58,8 @@ class NovaServicesTab(tabs.TableTab):
         except Exception:
             msg = _('Unable to get nova services list.')
             exceptions.check_message(["Connection", "refused"], msg)
-            raise
-
+            exceptions.handle(self.request, msg)
+            services = []
         return services
 
 
@@ -66,6 +68,7 @@ class CinderServicesTab(tabs.TableTab):
     name = _("Block Storage Services")
     slug = "cinder_services"
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
+    permissions = ('openstack.services.volume',)
 
     def get_cinder_services_data(self):
         try:
@@ -73,8 +76,8 @@ class CinderServicesTab(tabs.TableTab):
         except Exception:
             msg = _('Unable to get cinder services list.')
             exceptions.check_message(["Connection", "refused"], msg)
-            raise
-
+            exceptions.handle(self.request, msg)
+            services = []
         return services
 
 
@@ -85,8 +88,12 @@ class NetworkAgentsTab(tabs.TableTab):
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def allowed(self, request):
-        return (base.is_service_enabled(request, 'network') and
-                neutron.is_agent_extension_supported(request))
+        try:
+            return (base.is_service_enabled(request, 'network') and
+                    neutron.is_agent_extension_supported(request))
+        except Exception:
+            exceptions.handle(request, _('Unable to get network agents info.'))
+            return False
 
     def get_network_agents_data(self):
         try:
@@ -94,8 +101,8 @@ class NetworkAgentsTab(tabs.TableTab):
         except Exception:
             msg = _('Unable to get network agents list.')
             exceptions.check_message(["Connection", "refused"], msg)
-            raise
-
+            exceptions.handle(self.request, msg)
+            agents = []
         return agents
 
 
@@ -104,6 +111,7 @@ class DefaultQuotasTab(tabs.TableTab):
     name = _("Default Quotas")
     slug = "quotas"
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
+    permissions = ('openstack.services.compute',)
 
     def get_quotas_data(self):
         request = self.tab_group.request

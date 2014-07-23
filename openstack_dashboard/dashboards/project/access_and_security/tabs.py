@@ -42,6 +42,7 @@ class SecurityGroupsTab(tabs.TableTab):
     name = _("Security Groups")
     slug = "security_groups_tab"
     template_name = "horizon/common/_detail_table.html"
+    permissions = ('openstack.services.compute',)
 
     def get_security_groups_data(self):
         try:
@@ -58,6 +59,7 @@ class KeypairsTab(tabs.TableTab):
     name = _("Key Pairs")
     slug = "keypairs_tab"
     template_name = "horizon/common/_detail_table.html"
+    permissions = ('openstack.services.compute',)
 
     def get_keypairs_data(self):
         try:
@@ -74,6 +76,7 @@ class FloatingIPsTab(tabs.TableTab):
     name = _("Floating IPs")
     slug = "floating_ips_tab"
     template_name = "horizon/common/_detail_table.html"
+    permissions = ('openstack.services.compute',)
 
     def get_floating_ips_data(self):
         try:

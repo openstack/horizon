@@ -26,6 +26,7 @@ from openstack_dashboard.dashboards.admin import dashboard
 class Flavors(horizon.Panel):
     name = _("Flavors")
     slug = 'flavors'
+    permissions = ('openstack.services.compute',)
 
 
 dashboard.Admin.register(Flavors)
