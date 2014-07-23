@@ -191,15 +191,11 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
 
     def get_data(self):
         attachments = []
-        try:
-            volumes = self.get_object()
-            for att in volumes.attachments:
-                att['volume_name'] = getattr(volumes,
-                                             'name', att['device'])
+        volume = self.get_object()
+        if volume is not None:
+            for att in volume.attachments:
+                att['volume_name'] = getattr(volume, 'name', att['device'])
                 attachments.append(att)
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve volume information.'))
         return attachments
 
     def get_initial(self):
