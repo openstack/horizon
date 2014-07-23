@@ -457,6 +457,16 @@ def remove_group_user(request, group_id, user_id):
     return manager.remove_from_group(group=group_id, user=user_id)
 
 
+def role_assignments_list(request, project=None, user=None, role=None,
+                          group=None, domain=None, effective=False):
+    if VERSIONS.active < 3:
+        raise exceptions.NotAvailable
+
+    manager = keystoneclient(request, admin=True).role_assignments
+    return manager.list(project=project, user=user, role=role, group=group,
+                        domain=domain, effective=effective)
+
+
 def role_create(request, name):
     manager = keystoneclient(request, admin=True).roles
     return manager.create(name)
@@ -488,6 +498,30 @@ def roles_for_user(request, user, project):
         return manager.roles_for_user(user, project)
     else:
         return manager.list(user=user, project=project)
+
+
+def get_project_users_roles(request, project):
+    users_roles = {}
+    if VERSIONS.active < 3:
+        project_users = user_list(request, project=project)
+
+        for user in project_users:
+            roles = roles_for_user(request, user.id, project)
+            roles_ids = [role.id for role in roles]
+            users_roles[user.id] = roles_ids
+    else:
+        project_role_assignments = role_assignments_list(request,
+                                                         project=project)
+        for role_assignment in project_role_assignments:
+            if not hasattr(role_assignment, 'user'):
+                continue
+            user_id = role_assignment.user['id']
+            role_id = role_assignment.role['id']
+            if user_id in users_roles:
+                users_roles[user_id].append(role_id)
+            else:
+                users_roles[user_id] = [role_id]
+    return users_roles
 
 
 def add_tenant_user_role(request, project=None, user=None, role=None,
