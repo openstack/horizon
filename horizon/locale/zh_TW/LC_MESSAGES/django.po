@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Tom Fifield <tom@openstack.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:24-0500\n"
-"PO-Revision-Date: 2014-07-01 19:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-07-23 00:10-0500\n"
+"PO-Revision-Date: 2014-07-22 22:01+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +89,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:665 tables/base.py:1438
+#: tables/actions.py:665 tables/base.py:1459
 msgid "N/A"
 msgstr "N/A"
 
@@ -123,25 +124,25 @@ msgstr "更新"
 msgid "Updated"
 msgstr "已更新"
 
-#: tables/base.py:317
+#: tables/base.py:330
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 不存在 %(attr)s 屬性。"
 
-#: tables/base.py:905
+#: tables/base.py:922
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
 
-#: tables/base.py:1012
+#: tables/base.py:1029
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:1218
+#: tables/base.py:1235
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "沒有符合識別號「%s」的結果。"
 
-#: tables/base.py:1358
+#: tables/base.py:1375
 msgid "Please select a row before taking that action."
 msgstr "執行動作前請選擇一個欄位。"
 
@@ -205,7 +206,7 @@ msgstr "摘要"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
+msgstr[0] "顯示 %(counter)s 個項目"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -270,13 +271,13 @@ msgstr "儲存空間"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
+msgstr[0] "顯示 %(nav_items)s 個項目"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
+msgstr[0] "顯示 %(content_items)s 個項目"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -339,33 +340,33 @@ msgstr "不限制"
 msgid "Available"
 msgstr "可用"
 
-#: templatetags/sizeformat.py:43 templatetags/sizeformat.py:48
+#: templatetags/sizeformat.py:48 templatetags/sizeformat.py:53
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
+msgstr[0] "%(size)d 位元組"
 
-#: templatetags/sizeformat.py:51
+#: templatetags/sizeformat.py:56
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:54
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:57
+#: templatetags/sizeformat.py:62
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:60
+#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:62
+#: templatetags/sizeformat.py:67
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"

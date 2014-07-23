@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-21 21:33-0500\n"
-"PO-Revision-Date: 2014-07-21 21:19+0000\n"
+"POT-Creation-Date: 2014-07-23 00:10-0500\n"
+"PO-Revision-Date: 2014-07-23 05:10+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -296,16 +296,16 @@ msgstr "O usuário %s não possui um papel definido para o projeto."
 msgid "Password changed. Please log in again to continue."
 msgstr "Senha Alterada. Por favor faça login novamente para continuar."
 
-#: api/neutron.py:199
+#: api/neutron.py:205
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:765
+#: api/neutron.py:771
 msgid "Unable to connect to Neutron."
 msgstr "Não é possível conectar ao Neutron."
 
-#: api/neutron.py:802
+#: api/neutron.py:808
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Não é possível interpretar o endereço IP %s"
@@ -383,15 +383,21 @@ msgstr "Admin"
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
+#: dashboards/project/data_processing/cluster_templates/tables.py:97
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
+#: dashboards/project/data_processing/clusters/tables.py:82
+#: dashboards/project/data_processing/clusters/tabs.py:123
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:106
-#: dashboards/project/database_backups/tables.py:129
+#: dashboards/project/database_backups/tables.py:133
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
-#: dashboards/project/database_backups/templates/database_backups/details.html:50
+#: dashboards/project/database_backups/templates/database_backups/details.html:64
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:248
+#: dashboards/project/databases/tables.py:253
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
@@ -421,7 +427,7 @@ msgstr "Admin"
 #: dashboards/project/networks/forms.py:35
 #: dashboards/project/networks/tables.py:114
 #: dashboards/project/networks/ports/forms.py:34
-#: dashboards/project/networks/ports/tables.py:57
+#: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/subnets/tables.py:104
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
@@ -706,6 +712,11 @@ msgstr "Erro ao errar ou adicionar hosts."
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
+#: dashboards/project/data_processing/cluster_templates/tables.py:106
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:103
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
+#: dashboards/project/data_processing/clusters/workflows/create.py:71
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:39
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
@@ -800,7 +811,7 @@ msgstr "Aqui você pode editar o nome do agregado e a zona de disponibilidade"
 #: dashboards/admin/volumes/templates/volumes/extras/_edit.html:26
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:25
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:32
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:30
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:28
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:25
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:25
@@ -809,6 +820,8 @@ msgstr "Aqui você pode editar o nome do agregado e a zona de disponibilidade"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
 #: dashboards/project/containers/templates/containers/_update.html:28
 #: dashboards/project/containers/templates/containers/_upload.html:27
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:23
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:22
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:28
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:26
 #: dashboards/project/databases/templates/databases/_resize_volume.html:25
@@ -1042,6 +1055,8 @@ msgstr "Flavors"
 #: dashboards/admin/flavors/templates/flavors/extras/create.html:7
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:7
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:7
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:11
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:14
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:14
 #: dashboards/project/databases/templates/databases/_detail_overview.html:26
 #: dashboards/project/databases/workflows/create_instance.py:31
@@ -1131,9 +1146,11 @@ msgstr "Disco de Swap"
 #: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/users/forms.py:156
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
-#: dashboards/project/database_backups/templates/database_backups/details.html:52
+#: dashboards/project/database_backups/templates/database_backups/details.html:66
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:13
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:13
@@ -1395,6 +1412,9 @@ msgstr "ExtraSpecs"
 #: dashboards/admin/volumes/extras/tables.py:33
 #: dashboards/admin/volumes/templates/volumes/extras/_create.html:25
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:84
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:227
+#: dashboards/project/data_processing/clusters/workflows/create.py:196
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:167
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:293
 #: dashboards/project/networks/workflows.py:267
@@ -1527,7 +1547,7 @@ msgstr "Adicionar..."
 #: dashboards/admin/groups/tables.py:160 dashboards/admin/users/forms.py:80
 #: dashboards/admin/users/forms.py:157 dashboards/admin/users/tables.py:130
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:218
+#: dashboards/project/databases/tables.py:219
 msgid "User Name"
 msgstr "Nome do Usuário"
 
@@ -1670,6 +1690,7 @@ msgstr "Armazenamento (total)"
 #: dashboards/admin/instances/tables.py:167
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/admin/projects/workflows.py:48
+#: dashboards/project/data_processing/clusters/tabs.py:138
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:37
 #: dashboards/project/instances/panel.py:23
@@ -1999,11 +2020,13 @@ msgstr "Host"
 #: dashboards/admin/routers/tables.py:61
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/database_backups/tables.py:140
+#: dashboards/project/data_processing/clusters/tables.py:85
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
+#: dashboards/project/database_backups/tables.py:149
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
-#: dashboards/project/database_backups/templates/database_backups/details.html:57
-#: dashboards/project/databases/tables.py:201
-#: dashboards/project/databases/tables.py:256
+#: dashboards/project/database_backups/templates/database_backups/details.html:71
+#: dashboards/project/databases/tables.py:202
+#: dashboards/project/databases/tables.py:266
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -2017,7 +2040,7 @@ msgstr "Host"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
 #: dashboards/project/networks/tables.py:120
-#: dashboards/project/networks/ports/tables.py:61
+#: dashboards/project/networks/ports/tables.py:63
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/routers/tables.py:148
@@ -2041,7 +2064,7 @@ msgstr "Host"
 msgid "Status"
 msgstr "Status"
 
-#: dashboards/admin/info/tables.py:60 dashboards/admin/info/tabs.py:33
+#: dashboards/admin/info/tables.py:60 dashboards/admin/info/tabs.py:34
 msgid "Services"
 msgstr "Serviços"
 
@@ -2060,11 +2083,11 @@ msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Última Atualização"
 
-#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tabs.py:49
+#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tabs.py:50
 msgid "Compute Services"
 msgstr "Serviços de Computação"
 
-#: dashboards/admin/info/tables.py:123 dashboards/admin/info/tabs.py:66
+#: dashboards/admin/info/tables.py:123 dashboards/admin/info/tabs.py:68
 msgid "Block Storage Services"
 msgstr ""
 
@@ -2081,7 +2104,7 @@ msgstr "Ativo"
 msgid "Down"
 msgstr "Inativo"
 
-#: dashboards/admin/info/tables.py:172 dashboards/admin/info/tabs.py:83
+#: dashboards/admin/info/tables.py:172 dashboards/admin/info/tabs.py:86
 msgid "Network Agents"
 msgstr "Agentes de Rede"
 
@@ -2140,7 +2163,7 @@ msgstr "RAM (MB)"
 #: dashboards/admin/info/tables.py:201
 #: dashboards/admin/projects/workflows.py:58
 #: dashboards/admin/projects/workflows.py:70
-#: dashboards/project/access_and_security/tabs.py:74
+#: dashboards/project/access_and_security/tabs.py:76
 #: dashboards/project/access_and_security/floating_ips/tables.py:74
 #: dashboards/project/access_and_security/floating_ips/tables.py:172
 msgid "Floating IPs"
@@ -2166,7 +2189,7 @@ msgid "Security Group Rules"
 msgstr "Regras do Grupo de Segurança"
 
 #: dashboards/admin/info/tables.py:204
-#: dashboards/project/access_and_security/tabs.py:58
+#: dashboards/project/access_and_security/tabs.py:59
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:73
 msgid "Key Pairs"
@@ -2176,7 +2199,7 @@ msgstr "Pares de Chave"
 #: dashboards/admin/networks/ports/tables.py:89
 #: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
-#: dashboards/project/networks/ports/tables.py:59
+#: dashboards/project/networks/ports/tables.py:61
 #: dashboards/project/routers/ports/tables.py:97
 msgid "Fixed IPs"
 msgstr "IPs Fixos"
@@ -2209,23 +2232,27 @@ msgstr "Limite"
 msgid "Quotas"
 msgstr "Cotas"
 
-#: dashboards/admin/info/tabs.py:57
+#: dashboards/admin/info/tabs.py:59
 msgid "Unable to get nova services list."
 msgstr "Não é possível obter a lista de serviços nova."
 
-#: dashboards/admin/info/tabs.py:74
+#: dashboards/admin/info/tabs.py:77
 msgid "Unable to get cinder services list."
 msgstr ""
 
 #: dashboards/admin/info/tabs.py:95
+msgid "Unable to get network agents info."
+msgstr ""
+
+#: dashboards/admin/info/tabs.py:102
 msgid "Unable to get network agents list."
 msgstr "Não foi possível obter lista de agentes de rede."
 
-#: dashboards/admin/info/tabs.py:104
+#: dashboards/admin/info/tabs.py:111
 msgid "Default Quotas"
 msgstr "Cotas Padrão"
 
-#: dashboards/admin/info/tabs.py:114
+#: dashboards/admin/info/tabs.py:122
 msgid "Unable to get quota info."
 msgstr "Não foi possível obter informações de cota"
 
@@ -2317,7 +2344,7 @@ msgstr "Migração em tempo real da instância"
 #: dashboards/admin/networks/tables.py:81
 #: dashboards/admin/projects/tables.py:103
 #: dashboards/admin/routers/tables.py:55 dashboards/admin/volumes/tables.py:60
-#: dashboards/project/dashboard.py:69
+#: dashboards/project/dashboard.py:71
 #: dashboards/project/images/images/tables.py:132
 #: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:122
@@ -2371,7 +2398,7 @@ msgid "Uptime"
 msgstr "Tempo de execução"
 
 #: dashboards/admin/instances/views.py:84
-#: dashboards/project/access_and_security/tabs.py:99
+#: dashboards/project/access_and_security/tabs.py:102
 #: dashboards/project/access_and_security/floating_ips/workflows.py:84
 msgid "Unable to retrieve instance list."
 msgstr "Não foi possível recuperar a lista de instâncias."
@@ -2652,7 +2679,7 @@ msgstr "Perfil de Rede"
 #: dashboards/project/networks/tables.py:122
 #: dashboards/project/networks/workflows.py:44
 #: dashboards/project/networks/ports/forms.py:36
-#: dashboards/project/networks/ports/tables.py:63
+#: dashboards/project/networks/ports/tables.py:65
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/ports/tables.py:102
@@ -2818,45 +2845,51 @@ msgid "Network ID"
 msgstr "ID de Rede"
 
 #: dashboards/admin/networks/ports/forms.py:44
-#: dashboards/admin/networks/ports/forms.py:78
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:39
+#: dashboards/admin/networks/ports/forms.py:87
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
 msgid "Device ID"
 msgstr "ID do Dispositivo"
 
 #: dashboards/admin/networks/ports/forms.py:45
-#: dashboards/admin/networks/ports/forms.py:79
+#: dashboards/admin/networks/ports/forms.py:88
 msgid "Device ID attached to the port"
 msgstr "ID do dispositivo conectado à porta"
 
 #: dashboards/admin/networks/ports/forms.py:47
-#: dashboards/admin/networks/ports/forms.py:81
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:38
+#: dashboards/admin/networks/ports/forms.py:90
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
 msgid "Device Owner"
 msgstr "Dono do dispositivo"
 
 #: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/ports/forms.py:82
+#: dashboards/admin/networks/ports/forms.py:91
 msgid "Device owner attached to the port"
 msgstr "Dono do dispositivo conectado à porta"
 
-#: dashboards/admin/networks/ports/forms.py:63
+#: dashboards/admin/networks/ports/forms.py:56
+#: dashboards/project/networks/ports/tables.py:67
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:37
+msgid "MAC Learning State"
+msgstr ""
+
+#: dashboards/admin/networks/ports/forms.py:72
 #, python-format
 msgid "Port %s was successfully created."
 msgstr "Porta %s criada com sucesso."
 
-#: dashboards/admin/networks/ports/forms.py:68
+#: dashboards/admin/networks/ports/forms.py:77
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr "Falha ao criar uma porta para a rede %s"
 
-#: dashboards/admin/networks/ports/forms.py:95
-#: dashboards/project/networks/ports/forms.py:45
+#: dashboards/admin/networks/ports/forms.py:108
+#: dashboards/project/networks/ports/forms.py:55
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Porta %s atualizada com sucesso."
 
-#: dashboards/admin/networks/ports/forms.py:100
-#: dashboards/project/networks/ports/forms.py:50
+#: dashboards/admin/networks/ports/forms.py:113
+#: dashboards/project/networks/ports/forms.py:60
 #, python-format
 msgid "Failed to update port %s"
 msgstr "Falha ao atualizar porta %s"
@@ -2870,9 +2903,9 @@ msgid "Port"
 msgstr "Porta"
 
 #: dashboards/admin/networks/ports/tables.py:33
-#: dashboards/admin/networks/ports/tables.py:98
+#: dashboards/admin/networks/ports/tables.py:100
 #: dashboards/admin/projects/workflows.py:72
-#: dashboards/project/networks/ports/tables.py:70
+#: dashboards/project/networks/ports/tables.py:74
 msgid "Ports"
 msgstr "Portas"
 
@@ -2891,7 +2924,7 @@ msgstr "Criar Porta"
 
 #: dashboards/admin/networks/ports/tables.py:68
 #: dashboards/admin/networks/templates/networks/ports/_update.html:8
-#: dashboards/project/networks/ports/tables.py:39
+#: dashboards/project/networks/ports/tables.py:41
 #: dashboards/project/networks/templates/networks/ports/_update.html:8
 msgid "Edit Port"
 msgstr "Editar Porta"
@@ -2899,6 +2932,11 @@ msgstr "Editar Porta"
 #: dashboards/admin/networks/ports/tables.py:91
 msgid "Device Attached"
 msgstr "Dispositivo anexado"
+
+#: dashboards/admin/networks/ports/tables.py:96
+#: dashboards/project/networks/ports/forms.py:43
+msgid "Mac Learning State"
+msgstr ""
 
 #: dashboards/admin/networks/ports/tabs.py:25
 #: dashboards/admin/overview/panel.py:27
@@ -3083,6 +3121,8 @@ msgid "Unable to retrieve project list."
 msgstr "Não foi possível obter a lista de projeto."
 
 #: dashboards/admin/overview/views.py:73
+#: dashboards/project/data_processing/cluster_templates/tables.py:70
+#: dashboards/project/data_processing/clusters/tables.py:45
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:55
 #: dashboards/project/databases/tables.py:63
 #: dashboards/project/databases/tables.py:79
@@ -3481,7 +3521,7 @@ msgstr "Visão Geral de Roteador"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:31
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:38
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
@@ -3730,13 +3770,15 @@ msgid "Orchestration"
 msgstr "Orquestração"
 
 #: dashboards/project/dashboard.py:54
-#: dashboards/project/database_backups/tables.py:137
+#: dashboards/project/database_backups/tables.py:141
 #: dashboards/project/databases/tables.py:48
 #: dashboards/project/databases/tables.py:80
 msgid "Database"
 msgstr "Base de dados"
 
 #: dashboards/project/dashboard.py:61
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:3
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:3
@@ -3748,28 +3790,28 @@ msgstr ""
 msgid "Access & Security"
 msgstr "Acesso e Segurança"
 
-#: dashboards/project/access_and_security/tabs.py:52
+#: dashboards/project/access_and_security/tabs.py:53
 #: dashboards/project/access_and_security/security_groups/views.py:120
 #: usage/base.py:109
 msgid "Unable to retrieve security groups."
 msgstr "Não é possível recuperar grupos de segurança"
 
-#: dashboards/project/access_and_security/tabs.py:68
+#: dashboards/project/access_and_security/tabs.py:70
 msgid "Unable to retrieve key pair list."
 msgstr "Não foi possível obter a lista de pares de chave."
 
-#: dashboards/project/access_and_security/tabs.py:84
+#: dashboards/project/access_and_security/tabs.py:87
 #: dashboards/project/access_and_security/floating_ips/workflows.py:67
 #: usage/base.py:104
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Não foi possível obter o endereço IP flutuante."
 
-#: dashboards/project/access_and_security/tabs.py:91
+#: dashboards/project/access_and_security/tabs.py:94
 #: dashboards/project/access_and_security/floating_ips/views.py:66
 msgid "Unable to retrieve floating IP pools."
 msgstr "Não foi possível obter os pools de endereço IP flutuante."
 
-#: dashboards/project/access_and_security/tabs.py:112
+#: dashboards/project/access_and_security/tabs.py:115
 msgid "API Access"
 msgstr "Acesso à API"
 
@@ -3876,6 +3918,7 @@ msgid "Unable to disassociate floating IP."
 msgstr "Não é possível desassociar IP flutuante."
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:161
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
 msgid "Floating IP Pool"
 msgstr "Pool de IPs flutuantes"
 
@@ -3970,7 +4013,7 @@ msgstr "Par de chaves"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:8
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:31
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:29
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:6
 msgid "Import Key Pair"
@@ -4314,10 +4357,6 @@ msgid ""
 "might be different depending on the image you launched):"
 msgstr "Depois de lançar uma instancia, você loga usando a chave privada (o nome de usuário pode ser diferente, dependendo da imagem que você lançou):"
 
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:25
-msgid "or:"
-msgstr "ou:"
-
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:7
 msgid "Download Key Pair"
@@ -4573,7 +4612,7 @@ msgid "Copy"
 msgstr "Copiar"
 
 #: dashboards/project/containers/tables.py:355
-#: dashboards/project/databases/tables.py:251
+#: dashboards/project/databases/tables.py:256
 msgid "Download"
 msgstr "Baixar"
 
@@ -4722,6 +4761,500 @@ msgstr "Faça upload do objeto para o contêiner"
 msgid "Upload Objects"
 msgstr "Enviar Objetos"
 
+#: dashboards/project/data_processing/cluster_templates/forms.py:31
+msgid "Cluster Template Name"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/forms.py:39
+#: dashboards/project/data_processing/cluster_templates/tables.py:71
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:30
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:56
+msgid "Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/forms.py:58
+msgid "Unable to upload cluster template file"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/panel.py:22
+#: dashboards/project/data_processing/cluster_templates/tables.py:110
+msgid "Cluster Templates"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:37
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
+msgid "Upload Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:44
+#: dashboards/project/data_processing/clusters/tables.py:27
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:3
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:6
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:6
+#: dashboards/project/data_processing/clusters/workflows/create.py:52
+#: dashboards/project/data_processing/clusters/workflows/create.py:195
+msgid "Launch Cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:59
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:44
+msgid "Copy Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:66
+msgid "Delete Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:69
+#: dashboards/project/data_processing/clusters/tables.py:44
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:51
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:54
+#: dashboards/project/database_backups/tables.py:76
+#: dashboards/project/databases/tables.py:62
+#: dashboards/project/databases/tables.py:78
+#: dashboards/project/firewalls/tables.py:50
+#: dashboards/project/firewalls/tables.py:65
+#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/loadbalancers/tables.py:70
+#: dashboards/project/loadbalancers/tables.py:84
+#: dashboards/project/loadbalancers/tables.py:98
+#: dashboards/project/loadbalancers/tables.py:107
+#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:63
+#: dashboards/project/vpn/tables.py:77 dashboards/project/vpn/tables.py:91
+#: dashboards/project/vpn/tables.py:105
+msgid "Delete"
+msgstr "Excluir"
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:72
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:57
+msgid "Templates"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:80
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:27
+msgid "Create Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:88
+msgid "Configure Cluster Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:100
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:75
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
+msgid "Plugin"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:102
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:77
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
+#: dashboards/project/data_processing/utils/workflow_helpers.py:165
+msgid "Hadoop Version"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:104
+#: dashboards/project/data_processing/cluster_templates/tabs.py:48
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:208
+#: dashboards/project/data_processing/clusters/tabs.py:85
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
+msgid "Node Groups"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tabs.py:31
+#: dashboards/project/data_processing/clusters/tabs.py:36
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:29
+msgid "General Info"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tabs.py:43
+msgid "Unable to fetch cluster template details."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/tabs.py:68
+msgid "Unable to fetch node group details."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/views.py:106
+#: dashboards/project/data_processing/clusters/views.py:97
+msgid "Unable to fetch cluster template."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:4
+msgid "This Cluster Template will be created for:"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:62
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
+msgid "Hadoop version"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:12
+msgid ""
+"The Cluster Template object should specify Node Group Templates that will be used to build a Hadoop Cluster.\n"
+"    You can add Node Groups using Node Group Templates on a &quotNode Groups&quot tab."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
+msgid ""
+"You may set <b>cluster</b> scoped Hadoop configurations on corresponding "
+"tabs."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:19
+msgid ""
+"The Cluster Template object may specify a list of processes in anti-affinity group.\n"
+"    That means these processes may not be launched more than once on a single host."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_create_general_help.html:3
+msgid "Select a plugin and Hadoop version for a new Cluster template."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
+msgid "Template Overview"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:20
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:46
+msgid "Anti-affinity enabled for"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:30
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:56
+msgid "no processes"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:34
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:60
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:42
+msgid "Node Configurations"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:51
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:77
+msgid "Cluster configurations are not specified"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:7
+msgid "Node Group"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
+msgid "Nodes Count"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:18
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:34
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:26
+msgid "Template not specified"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
+msgid "Node Processes"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:31
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:39
+msgid "Node processes are not specified"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
+msgid "No configurations"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:51
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:59
+msgid "Node configurations are not specified"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
+msgid "Upload"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
+msgid "Data Processing - Cluster Templates"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:6
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:3
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:6
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:226
+msgid "Create Cluster Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:6
+msgid "Cluster Template Details"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/copy.py:30
+#, python-format
+msgid "Cluster Template copy %s created"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/copy.py:80
+msgid "Unable to fetch template to copy."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:50
+msgid "Unable to fetch plugin list."
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:54
+msgid "Plugin name"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:72
+msgid "Select plugin and hadoop version for cluster template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:85
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:294
+#: dashboards/project/database_backups/tables.py:138
+#: dashboards/project/database_backups/templates/database_backups/details.html:36
+#: dashboards/project/databases/tables.py:254
+#: dashboards/project/databases/templates/databases/_detail_overview.html:34
+#: dashboards/project/images/templates/images/images/_detail_overview.html:25
+#: dashboards/project/instances/templates/instances/_detail_overview.html:18
+#: dashboards/project/instances/templates/instances/_detail_overview.html:36
+#: dashboards/project/stacks/tables.py:91
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
+msgid "Created"
+msgstr "Criado"
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:86
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:295
+msgid "Could not create"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:100
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:38
+msgid "Template Name"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:142
+#: dashboards/project/data_processing/data_plugins/tabs.py:26
+#: dashboards/project/database_backups/workflows/create_backup.py:43
+#: dashboards/project/databases/workflows/create_instance.py:41
+#: dashboards/project/instances/templates/instances/_detail_overview.html:34
+#: dashboards/project/instances/workflows/create_instance.py:130
+#: dashboards/project/loadbalancers/tables.py:278
+msgid "Details"
+msgstr "Detalhes"
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:228
+#, python-format
+msgid "Created Cluster Template %s"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:305
+msgid "Cluster template creation failed"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/panel.py:22
+#: dashboards/project/data_processing/clusters/tables.py:47
+#: dashboards/project/data_processing/clusters/tables.py:93
+msgid "Clusters"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tables.py:34
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
+#: dashboards/project/data_processing/clusters/workflows/scale.py:41
+msgid "Scale Cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tables.py:46
+msgid "Cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tables.py:69
+#: dashboards/project/data_processing/clusters/workflows/create.py:177
+msgid "Configure Cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tables.py:89
+msgid "Instances Count"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tabs.py:106
+msgid "Unable to get node group details."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tabs.py:126
+msgid "Internal IP"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tabs.py:129
+msgid "Management IP"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tabs.py:134
+msgid " "
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tabs.py:163
+msgid "Unable to fetch instance details."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/views.py:47
+msgid "Unable to fetch cluster list"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:4
+msgid "This Cluster will be started with:"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:12
+msgid "Cluster can be launched using existing Cluster Templates."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:15
+msgid ""
+"The Cluster object should specify OpenStack Image to boot instances for "
+"Hadoop Cluster."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:18
+msgid "User has to choose a keypair to have access to clusters instances."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:21
+msgid " Done"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
+msgid "Select a plugin and Hadoop version for a new Cluster."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:3
+msgid "Cluster Overview"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:17
+msgid "Error Details"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
+#: dashboards/project/data_processing/clusters/workflows/create.py:78
+msgid "Base Image"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:39
+#: dashboards/project/data_processing/clusters/workflows/create.py:94
+msgid "Neutron Management Network"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:42
+#: dashboards/project/data_processing/clusters/workflows/create.py:82
+msgid "Keypair"
+msgstr "Par de chave"
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
+msgid "Cluster Instances"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
+msgid "Number of Nodes"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:6
+msgid "Data Processing - Clusters"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:6
+msgid "Cluster Details"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:41
+msgid "Select plugin and hadoop version for cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:68
+msgid "Cluster Name"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:74
+msgid "Cluster Template"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:84
+msgid "Which keypair to use for authentication."
+msgstr "Qual par de chaves utilizar para autenticação."
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:125
+msgid "Unable to fetch image choices."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:134
+msgid "Unable to fetch keypair choices."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:136
+msgid "No keypair"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:197
+#, python-format
+msgid "Created Cluster %s"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:229
+msgid "Unable to create the cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/scale.py:42
+msgid "Scale"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/scale.py:49
+msgid "Scaled cluster successfully started."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/scale.py:100
+msgid "Unable to fetch cluster to scale"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/scale.py:155
+msgid "Unable to fetch cluster to scale."
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/scale.py:165
+msgid "Scale cluster operation failed"
+msgstr ""
+
 #: dashboards/project/data_processing/data_image_registry/forms.py:46
 msgid "Successfully updated image."
 msgstr ""
@@ -4838,13 +5371,6 @@ msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:75
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
-msgid "Plugin"
-msgstr ""
-
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:20
 msgid "Version"
 msgstr ""
@@ -4871,15 +5397,6 @@ msgstr ""
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
 msgid "Supported Versions"
 msgstr ""
-
-#: dashboards/project/data_processing/data_plugins/tabs.py:26
-#: dashboards/project/database_backups/workflows/create_backup.py:40
-#: dashboards/project/databases/workflows/create_instance.py:41
-#: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:130
-#: dashboards/project/loadbalancers/tables.py:278
-msgid "Details"
-msgstr "Detalhes"
 
 #: dashboards/project/data_processing/data_plugins/tabs.py:39
 msgid "Unable to retrieve plugin."
@@ -4922,57 +5439,8 @@ msgstr ""
 msgid "Node Group Templates"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:27
-msgid "Create Template"
-msgstr ""
-
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:35
 msgid "Configure Template"
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:44
-msgid "Copy Template"
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:51
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:54
-#: dashboards/project/database_backups/tables.py:76
-#: dashboards/project/databases/tables.py:62
-#: dashboards/project/databases/tables.py:78
-#: dashboards/project/firewalls/tables.py:50
-#: dashboards/project/firewalls/tables.py:65
-#: dashboards/project/firewalls/tables.py:80
-#: dashboards/project/loadbalancers/tables.py:70
-#: dashboards/project/loadbalancers/tables.py:84
-#: dashboards/project/loadbalancers/tables.py:98
-#: dashboards/project/loadbalancers/tables.py:107
-#: dashboards/project/stacks/tables.py:49 dashboards/project/vpn/tables.py:63
-#: dashboards/project/vpn/tables.py:77 dashboards/project/vpn/tables.py:91
-#: dashboards/project/vpn/tables.py:105
-msgid "Delete"
-msgstr "Excluir"
-
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:56
-msgid "Template"
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:57
-msgid "Templates"
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:77
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
-#: dashboards/project/data_processing/utils/workflow_helpers.py:165
-msgid "Hadoop Version"
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
-msgid "Node Processes"
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/tabs.py:29
-msgid "General Info"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:41
@@ -5001,10 +5469,6 @@ msgstr ""
 msgid "This Node Group Template will be created for:"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
-msgid "Hadoop version"
-msgstr ""
-
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:12
 msgid ""
 "The Node Group Template object should specify processes that will be "
@@ -5025,10 +5489,6 @@ msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and Hadoop version for a new Node group template."
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
-msgid "Template Overview"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:34
@@ -5076,10 +5536,6 @@ msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:77
 msgid "Unable to fetch plugin details."
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:38
-msgid "Template Name"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:44
@@ -5132,25 +5588,23 @@ msgstr ""
 msgid "Select plugin and hadoop version"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:294
-#: dashboards/project/database_backups/tables.py:134
-#: dashboards/project/database_backups/templates/database_backups/details.html:36
-#: dashboards/project/databases/tables.py:249
-#: dashboards/project/databases/templates/databases/_detail_overview.html:34
-#: dashboards/project/images/templates/images/images/_detail_overview.html:25
-#: dashboards/project/instances/templates/instances/_detail_overview.html:18
-#: dashboards/project/instances/templates/instances/_detail_overview.html:36
-#: dashboards/project/stacks/tables.py:91
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
-msgid "Created"
-msgstr "Criado"
-
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:295
-msgid "Could not create"
+#: dashboards/project/data_processing/utils/anti_affinity.py:31
+msgid "Use anti-affinity groups for: "
 msgstr ""
+
+#: dashboards/project/data_processing/utils/anti_affinity.py:33
+msgid "Use anti-affinity groups for processes"
+msgstr ""
+
+#: dashboards/project/data_processing/utils/anti_affinity.py:66
+msgid "Unable to populate anti-affinity processes."
+msgstr ""
+
+#: dashboards/project/data_processing/utils/neutron_support.py:32
+#: dashboards/project/databases/workflows/create_instance.py:151
+#: dashboards/project/instances/workflows/create_instance.py:598
+msgid "Unable to retrieve networks."
+msgstr "Não é possível recuperar redes."
 
 #: dashboards/project/data_processing/utils/workflow_helpers.py:111
 msgid "Node group cluster"
@@ -5166,9 +5620,9 @@ msgstr ""
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:79
-#: dashboards/project/database_backups/tables.py:146
+#: dashboards/project/database_backups/tables.py:155
 #: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:262
+#: dashboards/project/databases/tables.py:272
 #: dashboards/project/databases/tabs.py:105
 msgid "Backups"
 msgstr "Backups"
@@ -5207,7 +5661,7 @@ msgid "Scheduled deletion of %(data_type)s"
 msgstr "Agendada exclusão de %(data_type)s"
 
 #: dashboards/project/database_backups/tables.py:78
-#: dashboards/project/database_backups/workflows/create_backup.py:64
+#: dashboards/project/database_backups/workflows/create_backup.py:83
 #: dashboards/project/databases/workflows/create_instance.py:218
 msgid "Backup"
 msgstr "Backup"
@@ -5223,7 +5677,7 @@ msgstr "Backup"
 msgid "Not available"
 msgstr "Não disponível"
 
-#: dashboards/project/database_backups/tables.py:131
+#: dashboards/project/database_backups/tables.py:135
 #: dashboards/project/database_backups/templates/database_backups/details.html:25
 #: dashboards/project/databases/tables.py:189
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
@@ -5231,11 +5685,16 @@ msgstr "Não disponível"
 msgid "Datastore"
 msgstr ""
 
-#: dashboards/project/database_backups/tables.py:133
+#: dashboards/project/database_backups/tables.py:137
 #: dashboards/project/database_backups/templates/database_backups/details.html:27
 #: dashboards/project/databases/tables.py:191
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:143
+#: dashboards/project/databases/tables.py:260
+msgid "Incremental"
 msgstr ""
 
 #: dashboards/project/database_backups/views.py:48
@@ -5251,13 +5710,25 @@ msgstr "Erro buscando lista de backup da base de dados."
 msgid "Unable to retrieve details for backup: %s"
 msgstr "Não foi possível obter detalhes do backup: %s"
 
+#: dashboards/project/database_backups/views.py:96
+#, python-format
+msgid "Unable to retrieve details for parent backup: %s"
+msgstr ""
+
 #: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:3
-msgid "Specify the details for the backup."
-msgstr "Especifique os detalhes para o backup."
+msgid "Specify the details for the database backup."
+msgstr ""
+
+#: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:4
+msgid ""
+"You can perform an incremental backup by specifying a parent backup. "
+"<strong>However,</strong> not all databases support incremental backups in "
+"which case this operation will result in an error."
+msgstr ""
 
 #: dashboards/project/database_backups/templates/database_backups/backup.html:3
 #: dashboards/project/database_backups/templates/database_backups/backup.html:6
-#: dashboards/project/database_backups/workflows/create_backup.py:63
+#: dashboards/project/database_backups/workflows/create_backup.py:82
 msgid "Backup Database"
 msgstr "Fazer Backup da Base de Dados"
 
@@ -5309,6 +5780,15 @@ msgid "Backup Duration"
 msgstr "Duração do Backup"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:47
+msgid "Incremental Backup"
+msgstr ""
+
+#: dashboards/project/database_backups/templates/database_backups/details.html:50
+#: dashboards/project/database_backups/workflows/create_backup.py:38
+msgid "Parent Backup"
+msgstr ""
+
+#: dashboards/project/database_backups/templates/database_backups/details.html:61
 msgid "Database Info"
 msgstr "Informações da Base de Dados"
 
@@ -5324,29 +5804,46 @@ msgstr "Instância de Base de Dados"
 msgid "Optional Backup Description"
 msgstr "Descrição Opcional de Backup"
 
-#: dashboards/project/database_backups/workflows/create_backup.py:50
-msgid "Unable to list database instance to backup."
-msgstr "Não foi possível listar instância de base de dados para backup."
+#: dashboards/project/database_backups/workflows/create_backup.py:40
+msgid "Optional parent backup"
+msgstr ""
+
+#: dashboards/project/database_backups/workflows/create_backup.py:53
+msgid "Unable to list database instances to backup."
+msgstr ""
 
 #: dashboards/project/database_backups/workflows/create_backup.py:65
+msgid "Unable to list database backups for parent."
+msgstr ""
+
+#: dashboards/project/database_backups/workflows/create_backup.py:69
+msgid "Select parent backup"
+msgstr ""
+
+#: dashboards/project/database_backups/workflows/create_backup.py:71
+#: dashboards/project/databases/workflows/create_instance.py:238
+msgid "No backups available"
+msgstr ""
+
+#: dashboards/project/database_backups/workflows/create_backup.py:84
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
 msgstr "Backup \"%(name)s\" agendado."
 
-#: dashboards/project/database_backups/workflows/create_backup.py:66
+#: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:265
 #: dashboards/project/instances/workflows/create_instance.py:676
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Não foi possível disparar %(count)s chamadas \"%(name)s\"."
 
-#: dashboards/project/database_backups/workflows/create_backup.py:76
+#: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:281
 #: dashboards/project/instances/workflows/create_instance.py:692
 msgid "instance"
 msgstr "instância"
 
-#: dashboards/project/database_backups/workflows/create_backup.py:88
+#: dashboards/project/database_backups/workflows/create_backup.py:108
 msgid "Error creating database backup."
 msgstr "Erro criando backup da base de dados."
 
@@ -5395,9 +5892,9 @@ msgstr "Reiniciado"
 
 #: dashboards/project/databases/tables.py:49
 #: dashboards/project/databases/tables.py:81
-#: dashboards/project/databases/tables.py:207
-#: dashboards/project/databases/tables.py:220
-#: dashboards/project/databases/tables.py:237
+#: dashboards/project/databases/tables.py:208
+#: dashboards/project/databases/tables.py:221
+#: dashboards/project/databases/tables.py:238
 #: dashboards/project/databases/tabs.py:78
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
@@ -5452,7 +5949,7 @@ msgid "-"
 msgstr "-"
 
 #: dashboards/project/databases/tables.py:187
-#: dashboards/project/databases/tables.py:233
+#: dashboards/project/databases/tables.py:234
 #: dashboards/project/databases/workflows/create_instance.py:30
 msgid "Database Name"
 msgstr "Nome da Base de Dados"
@@ -5463,15 +5960,15 @@ msgstr "Nome da Base de Dados"
 msgid "Volume Size"
 msgstr "Tamanho do Volume"
 
-#: dashboards/project/databases/tables.py:219
-msgid "Allowed Hosts"
-msgstr "Hosts Permitidos"
+#: dashboards/project/databases/tables.py:220
+msgid "Allowed Host"
+msgstr ""
 
-#: dashboards/project/databases/tables.py:224
+#: dashboards/project/databases/tables.py:225
 msgid "Database Instance Users"
 msgstr "Usuários da Instância da Base de Dados"
 
-#: dashboards/project/databases/tables.py:253
+#: dashboards/project/databases/tables.py:258
 msgid "Backup File"
 msgstr "Arquivo de Backup"
 
@@ -5575,41 +6072,39 @@ msgid ""
 msgstr "<strong>Por favor observe:</strong> O valor especificado no campo Tamanho do Volume deve ser maior que 0, entretanto, algumas configurações não suportam especificar o tamanho de volume. Se especificar o volume resultar em um erro dizendo que o suporte de volume não está habilitado, digite 0."
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:3
-msgid "Create an initial database and/or add initial users."
-msgstr "Crie uma base de dados inicial e/ou adicione usuários iniciais."
+#: dashboards/project/databases/workflows/create_instance.py:179
+msgid "Initial Databases"
+msgstr ""
 
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:5
-msgid "Create Initial Databases"
-msgstr "Cria Bases de Dados Iniciais"
-
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:6
+#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:4
 msgid "Optionally provide a comma separated list of databases to create:"
 msgstr "Opcionalmente forneça uma lista separada por vírgula das bases de dados a criar:"
 
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:9
-msgid "Create Initial Admin User"
-msgstr "Cria um Usuário Inicial Admin"
+#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:7
+#: dashboards/project/databases/workflows/create_instance.py:183
+msgid "Initial Admin User"
+msgstr "Usuário Inicial Admin"
 
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:10
+#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:8
 msgid ""
 "Create an optional initial user.\n"
 "   This user will have access to all databases you create."
 msgstr "Cria um usuário inicial opcional.\nEste usuário terá acesso à todas as bases de dados que você criar."
 
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:13
+#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:12
 msgid "Username (required)"
 msgstr "Nome de usuário (requerido)"
 
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:14
+#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:13
 msgid "Password (required)"
 msgstr "Senha (requerido)"
 
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:15
+#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:14
 #: dashboards/project/databases/workflows/create_instance.py:189
-msgid "Host (optional)"
-msgstr "Host (opcional)"
+msgid "Allowed Host (optional)"
+msgstr ""
 
-#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:16
+#: dashboards/project/databases/templates/databases/_launch_initialize_help.html:15
 msgid ""
 "Allow the user to connect from this host\n"
 "    only. If not provided this user will be allowed to connect from anywhere.\n"
@@ -5718,22 +6213,9 @@ msgstr "Rede"
 msgid "Select networks for your instance."
 msgstr "Selecione as redes para sua instância."
 
-#: dashboards/project/databases/workflows/create_instance.py:151
-#: dashboards/project/instances/workflows/create_instance.py:598
-msgid "Unable to retrieve networks."
-msgstr "Não é possível recuperar redes."
-
-#: dashboards/project/databases/workflows/create_instance.py:179
-msgid "Initial Database"
-msgstr "Base de dados Inicial"
-
 #: dashboards/project/databases/workflows/create_instance.py:181
 msgid "Comma separated list of databases to create"
 msgstr "Lista separada por vírgula de bases de dados a se criar."
-
-#: dashboards/project/databases/workflows/create_instance.py:183
-msgid "Initial Admin User"
-msgstr "Usuário Inicial Admin"
 
 #: dashboards/project/databases/workflows/create_instance.py:185
 msgid "Initial admin user to add"
@@ -5765,10 +6247,6 @@ msgstr "Restaurar de um Backup"
 
 #: dashboards/project/databases/workflows/create_instance.py:236
 msgid "Select backup"
-msgstr ""
-
-#: dashboards/project/databases/workflows/create_instance.py:238
-msgid "No backups available"
 msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:251
@@ -8642,16 +9120,16 @@ msgstr "Exclui a rede criada \"%s\" devido à falha na criação da sub-rede."
 msgid "Failed to delete network \"%s\""
 msgstr "Falha ao excluir rede \"%s\""
 
-#: dashboards/project/networks/ports/tables.py:32
+#: dashboards/project/networks/ports/tables.py:34
 msgid "Attached"
 msgstr "Anexado"
 
-#: dashboards/project/networks/ports/tables.py:34
+#: dashboards/project/networks/ports/tables.py:36
 msgid "Detached"
 msgstr "Desanexado"
 
-#: dashboards/project/networks/ports/tables.py:60
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:36
+#: dashboards/project/networks/ports/tables.py:62
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
 msgid "Attached Device"
 msgstr "Dispositivo Anexado"
 
@@ -9956,7 +10434,7 @@ msgid "Edit Attachments"
 msgstr "Editar Anexos"
 
 #: dashboards/project/volumes/volumes/tables.py:232
-#: dashboards/project/volumes/volumes/views.py:211
+#: dashboards/project/volumes/volumes/views.py:207
 msgid "Unable to retrieve attachment information."
 msgstr "Não foi possível obter informações do anexo."
 
@@ -9997,7 +10475,6 @@ msgstr "Não foi possível recuperar detalhes do volume."
 #: dashboards/project/volumes/volumes/views.py:98
 #: dashboards/project/volumes/volumes/views.py:141
 #: dashboards/project/volumes/volumes/views.py:190
-#: dashboards/project/volumes/volumes/views.py:202
 msgid "Unable to retrieve volume information."
 msgstr "Não foi possível recuperar informações do volume."
 
@@ -10982,7 +11459,7 @@ msgstr "Não foi possível obter informações de limite de volume."
 msgid "Unable to retrieve limit information."
 msgstr "Não foi possível recuperar informações de limite."
 
-#: usage/base.py:207
+#: usage/base.py:207 usage/views.py:53
 msgid "Unable to retrieve usage information."
 msgstr "Não foi possível obter informações de utilização."
 
