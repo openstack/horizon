@@ -62,7 +62,9 @@ class DataProcessingPanels(horizon.PanelGroup):
     slug = "data_processing"
     panels = ('data_processing.data_plugins',
               'data_processing.data_image_registry',
-              'data_processing.nodegroup_templates', )
+              'data_processing.nodegroup_templates',
+              'data_processing.cluster_templates',
+              'data_processing.clusters', )
 
 
 class Project(horizon.Dashboard):

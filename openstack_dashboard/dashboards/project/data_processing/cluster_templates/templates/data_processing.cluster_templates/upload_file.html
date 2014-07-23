@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Upload Template" %}{% endblock %}
+
+{% block page_header %}
+    {% include "horizon/common/_page_header.html" with title=_("Upload Template") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'project/data_processing.cluster_templates/_upload_file.html' %}
+{% endblock %}

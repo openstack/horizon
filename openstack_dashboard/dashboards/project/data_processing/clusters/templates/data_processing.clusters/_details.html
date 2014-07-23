@@ -1,0 +1,89 @@
+{% load i18n sizeformat %}
+{% load url from future %}
+<h3>{% trans "Cluster Overview" %}</h3>
+<div class="status row-fluid detail">
+    <dl>
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ cluster.name }}</dd>
+        <dt>{% trans "ID" %}</dt>
+        <dd>{{ cluster.id }}</dd>
+        <dt>{% trans "Description" %}</dt>
+        <dd>{{ cluster.description|default:"None" }}</dd>
+        <dt>{% trans "Status" %}</dt>
+        <dd>{{ cluster.status }}</dd>
+    </dl>
+
+    {% if cluster.error_description %}
+    <h4>{% trans "Error Details" %}</h4>
+    <p class="well">
+        {{ cluster.error_description }}
+    </p>
+    {% endif %}
+
+    <dl>
+        <dt>{% trans "Plugin" %}</dt>
+        <dd><a href="{% url 'horizon:project:data_processing.data_plugins:details' cluster.plugin_name %}">{{ cluster.plugin_name }}</a></dd>
+        <dt>{% trans "Hadoop Version" %}</dt>
+        <dd>{{ cluster.hadoop_version }}</dd>
+    </dl>
+    <dl>
+        <dt>{% trans "Template" %}</dt>
+        {% if cluster_template %}
+            <dd><a href="{% url 'horizon:project:data_processing.cluster_templates:details' cluster_template.id %}">{{ cluster_template.name }} </a></dd>
+        {% else %}
+            <dd>{% trans "Template not specified" %}</dd>
+        {% endif %}
+        <dt>{% trans "Base Image" %}</dt>
+        <dd>{{ base_image.name }}</dd>
+        {% if network %}
+        <dt>{% trans "Neutron Management Network" %}</dt>
+        <dd>{{ network }}</dd>
+        {% endif %}
+        <dt>{% trans "Keypair" %}</dt>
+        <dd>{{ cluster.user_keypair_id }}</dd>
+    </dl>
+    <dl>
+        <dt>{% trans "Anti-affinity enabled for" %}</dt>
+        {% if cluster.anti_affinity %}
+            <dd>
+                <ul>
+                {% for process in cluster.anti_affinity %}
+                    <li>{{ process }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+        {% else %}
+            <h6>{% trans "no processes" %}</h6>
+        {% endif %}
+    </dl>
+    <dl>
+    <dt>{% trans "Node Configurations" %}</dt>
+        {% if cluster.cluster_configs %}
+            <dd>
+                {% for service, service_conf in cluster.cluster_configs.items %}
+                    <h4>{{ service }}</h4>
+                    {% if service_conf %}
+                    <ul>
+                    {% for conf_name, conf_value in service_conf.items %}
+                        <li>{{ conf_name }}:&nbsp{{ conf_value }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% else %}
+                    <h6>{% trans "No configurations" %}</h6>
+                    {% endif %}
+                {% endfor %}
+            </dd>
+        {% else %}
+            <dd>{% trans "Cluster configurations are not specified" %}</dd>
+        {% endif %}
+    </dl>
+
+    <dl>
+        {% for info_key, info_val in cluster.info.items %}
+        <dt>{{ info_key }}</dt>
+            {% for key, val in info_val.items %}
+                <dd>{{ key }}:&nbsp{% autoescape off %}{{ val }}{% endautoescape %}</dd>
+            {% endfor %}
+        {% endfor %}
+    </dl>
+</div>

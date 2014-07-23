@@ -1,0 +1,155 @@
+<script>
+    var template = '<tr id_attr="$id"><td>' +
+                '<div class="input control-group" style="padding-right:15px;">' +
+                    '<input id="template_id_$id" value="$template_id" type="hidden" name="template_id_$id">' +
+                    '<input id="group_name_$id" value="$group_name" type="text" name="group_name_$id" class="input-medium">' +
+                '</div>' +
+            '</td>' +
+            '<td>' +
+                '<div class="input control-group"  style="padding-right:15px;"><input disabled value="$template_name" class="input-medium" /></div>' +
+            '</td>' +
+            '<td>' +
+                '<div class="input control-group btn-group input-append" style="float:left;padding-right:5px;">' +
+                    '<input id="count_$id" class="count-field" value="$node_count" type="text" max="4" maxlength="4" name="count_$id" size="4" style="width:50px">' +
+                    '<div class="btn dec-btn" data-count-id="count_$id"><i class="icon-minus"></i></div>' +
+                    '<div class="btn inc-btn" data-count-id="count_$id"><i class="icon-plus"></i></div>' +
+                '</div>' +
+                '<div class="input" style="float:left">' +
+
+            '</div>' +
+            '</td>' +
+            '<td>' +
+                '<div class="input control-group" style="float:left;padding-right:5px;">' +
+                    '<input type="button" class="btn btn-danger" id="delete_btn_$id" data-toggle="dropdown" onclick="delete_node_group(this)" value="Remove" style="margin-bottom: 10px"/>' +
+                '</div>' +
+            '</td>' +
+
+        '</tr>';
+
+     function mark_element_as_wrong(id){
+         $("#"+id).parent("div").addClass("error");
+     }
+
+    function get_next_id() {
+        var max = -1;
+        $("#node-templates tbody tr").each(function () {
+            max = Math.max(max, parseInt($(this).attr("id_attr")));
+        });
+        return max + 1;
+    }
+
+    function set_nodes_ids() {
+        var ids = [];
+        $("#node-templates tbody tr").each(function () {
+            ids.push(parseInt($(this).attr("id_attr")));
+        });
+        $("#forms_ids").val(JSON.stringify(ids));
+    }
+
+    function add_node(node_count, group_name, template_id, id, deletable) {
+        var template_name = $("select option[value='" + template_id + "']").html();
+        var tmp = template.
+                replace(/\$id/g, id).
+                replace(/\$group_name/g, group_name).
+                replace(/\$template_id/g, template_id).
+                replace(/\$node_count/g, node_count).
+                replace(/\$template_name/g, template_name);
+        $("#node-templates tbody").append(tmp);
+        if (!deletable) {
+            $("#delete_btn_" + id).remove();
+            $("#group_name_" + id).prop('readonly', true);
+        }
+        $("#node-templates").show();
+        set_nodes_ids();
+    }
+
+    function add_node_group_template(node_count) {
+        if ($("select option:selected").html() == "Select") {
+            return;
+        }
+        var template_id = $("#template_id option:selected").val();
+        var template_name = $("#template_id option:selected").html();
+        add_node(node_count, template_name, template_id, get_next_id(), true);
+        $(".count-field").change();
+    }
+    function delete_node_group(el) {
+        var tr = $(el).parents("tr")[0];
+        tr.parentNode.removeChild(tr);
+        var id = get_next_id();
+        if (id == 0) {
+            $("#node-templates").hide();
+        }
+        set_nodes_ids();
+    }
+    $("#template_id").change(function () {
+        if ($("select option:selected").html() == "Select") {
+            $("#add_group_button").addClass("disabled");
+        } else {
+            $("#add_group_button").removeClass("disabled");
+        }
+    });
+    $("#node-templates").hide();
+</script>
+<input type="hidden" value="[]" name="forms_ids" id="forms_ids">
+<div class="input">
+    <select id="template_id" name="template">
+        <option>Select</option>
+        {% for template in form.templates %}
+            <option value="{{ template.id }}">{{ template.name }}</option>
+        {% endfor %}
+    </select>
+    <a id="add_group_button" class="btn disabled btn-inline" onclick="add_node_group_template(1);">+</a>
+</div>
+<br/>
+<div id="node-templates">
+    <table>
+        <thead>
+        <tr>
+            <td><label style="padding-bottom:5px">Group Name</label></td>
+            <td><label style="padding-bottom:5px">Template&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+            <td><label style="padding-bottom:5px">Count</label></td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script>
+
+    {% for group in form.groups %}
+        add_node("{{ group.count }}", "{{ group.name }}", "{{ group.template_id }}", "{{ group.id }}", {{ group.deletable }});
+    {% endfor %}
+    {% for field_id in form.errors_fields %}
+        mark_element_as_wrong("{{ field_id }}");
+    {% endfor %}
+
+     var handlers_registred;
+     var lower_limit = 1;
+     $(function() {
+         if (!handlers_registred) {
+             handlers_registred = true;
+             $(".inc-btn").live("click", function(e) {
+                 var id = $(this).attr("data-count-id");
+                 $("#" + id).val(parseInt($("#" + id).val()) + 1);
+                 $(".count-field").change();
+             });
+            $(".dec-btn").live("click", function(e) {
+                var id = $(this).attr("data-count-id");
+                var val = parseInt($("#" + id).val());
+                if (val > lower_limit) {
+                    $("#" + id).val(val - 1);
+                }
+                $(".count-field").change();
+            });
+         }
+
+         $(".count-field").live("change", function() {
+             var val = $(this).val();
+             if (val > lower_limit) {
+                 $(this).parent("div").find(".dec-btn").removeClass("disabled");
+             } else {
+                 $(this).parent("div").find(".dec-btn").addClass("disabled");
+             }
+         }).change();
+     });
+</script>

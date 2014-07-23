@@ -1,0 +1,55 @@
+{% load i18n sizeformat %}
+{% load url from future %}
+<h3>{% trans "Node Groups" %}</h3>
+<div class="status row-fluid detail">
+    {% for node_group in template.node_groups %}
+        <dl class="well">
+            <h4>{% trans "Node Group" %}: {{ node_group.name }}</h4>
+            <dt>{% trans "Nodes Count" %}</dt>
+            <dd>{{ node_group.count }}</dd>
+
+            <dt>{% trans "Flavor" %}</dt>
+            <dd>{{ node_group.flavor_id|default:"Flavor is not specified" }}</dd>
+
+            <dt>{% trans "Template" %}</dt>
+            {% if node_group.node_group_template_id %}
+                <dd><a href="{% url 'horizon:project:data_processing.nodegroup_templates:details' node_group.node_group_template_id %}">{{ node_group.node_group_template.name }} </a></dd>
+            {% else %}
+                <dd>{% trans "Template not specified" %}</dd>
+            {% endif %}
+
+            <dt>{% trans "Node Processes" %}</dt>
+            {% if node_group.node_processes %}
+                <dd>
+                    <ul>
+                        {% for process in node_group.node_processes %}
+                            <li>{{ process }}</li>
+                        {% endfor %}
+                    </ul>
+                </dd>
+            {% else %}
+                <dd>{% trans "Node processes are not specified" %}</dd>
+            {% endif %}
+
+            <dt>{% trans "Node Configurations" %}</dt>
+            {% if node_group.node_configs %}
+                <dd>
+                    {% for service, service_conf in node_group.node_configs.items %}
+                        <h6>{{ service }}</h6>
+                        {% if service_conf %}
+                        <ul>
+                        {% for conf_name, conf_value in service_conf.items %}
+                            <li>{{ conf_name }}:&nbsp{{ conf_value }}</li>
+                        {% endfor %}
+                        </ul>
+                        {% else %}
+                        <h6>{% trans "No configurations" %}</h6>
+                        {% endif %}
+                    {% endfor %}
+                </dd>
+            {% else %}
+                <dd>{% trans "Node configurations are not specified" %}</dd>
+            {% endif %}
+        </dl>
+    {% endfor %}
+</div>

@@ -109,6 +109,10 @@ def nodegroup_template_get(request, ngt_id):
     return client(request).node_group_templates.get(ngt_id)
 
 
+def nodegroup_template_find(request, **kwargs):
+    return client(request).node_group_templates.find(**kwargs)
+
+
 def nodegroup_template_delete(request, ngt_id):
     client(request).node_group_templates.delete(ngt_id)
 
