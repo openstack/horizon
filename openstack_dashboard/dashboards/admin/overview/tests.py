@@ -183,7 +183,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'admin/overview/usage.csv')
         self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
-        hdr = 'Project Name,VCPUs,Ram (MB),Disk (GB),Usage (Hours)'
+        hdr = 'Project Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours)'
         self.assertContains(res, '%s\r\n' % hdr)
 
         if nova_stu_enabled:
