@@ -176,7 +176,7 @@ class AddDatabasesAction(workflows.Action):
     * TROVE_ADD_USER_PERMS = []
     * TROVE_ADD_DATABASE_PERMS = []
     """
-    databases = forms.CharField(label=_('Initial Database'),
+    databases = forms.CharField(label=_('Initial Databases'),
                                 required=False,
                                 help_text=_('Comma separated list of '
                                             'databases to create'))
@@ -186,7 +186,7 @@ class AddDatabasesAction(workflows.Action):
     password = forms.CharField(widget=forms.PasswordInput(),
                                label=_("Password"),
                                required=False)
-    host = forms.CharField(label=_("Host (optional)"),
+    host = forms.CharField(label=_("Allowed Host (optional)"),
                            required=False,
                            help_text=_("Host or IP that the user is allowed "
                                        "to connect through."))

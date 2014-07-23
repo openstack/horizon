@@ -1,19 +1,18 @@
 {% load i18n horizon humanize %}
 
-<p>{% blocktrans %}Create an initial database and/or add initial users.{% endblocktrans %}</p>
-
-<h4>{% trans "Create Initial Databases" %}</h4>
+<h4>{% trans "Initial Databases" %}</h4>
 <p>{% trans "Optionally provide a comma separated list of databases to create:" %}</p>
 <pre>database1, database2, database3</pre>
 
-<h4>{% trans "Create Initial Admin User" %}</h4>
+<h4>{% trans "Initial Admin User" %}</h4>
 <p>{% blocktrans %}Create an optional initial user.
    This user will have access to all databases you create.{% endblocktrans %}</p>
+
 <ul>
   <li><strong>{% trans "Username (required)" %}</strong></li>
   <li><strong>{% trans "Password (required)" %}</strong></li>
-  <li><strong>{% trans "Host (optional)" %}</strong>
-    <em>{% blocktrans %}Allow the user to connect from this host
+  <li><strong>{% trans "Allowed Host (optional)" %}</strong>
+    {% blocktrans %}Allow the user to connect from this host
     only. If not provided this user will be allowed to connect from anywhere.
-    {% endblocktrans %}</em></li>
+    {% endblocktrans %}</li>
 </ul>
