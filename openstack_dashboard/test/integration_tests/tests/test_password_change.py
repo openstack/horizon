@@ -21,7 +21,6 @@ class TestPasswordChange(helpers.TestCase):
         """Changes the password, verifies it was indeed changed and resets to
         default password.
         """
-
         settings_page = self.home_pg.go_to_settings_page()
         passwordchange_page = settings_page.go_to_change_password_page()
 

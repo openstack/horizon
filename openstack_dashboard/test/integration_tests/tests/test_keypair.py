@@ -29,7 +29,7 @@ class TestKeypair(helpers.TestCase):
         keypair_page.create_keypair(self.KEYPAIR_NAME)
         accesssecurity_page = self.home_pg.go_to_accesssecurity_page()
         keypair_page = accesssecurity_page.go_to_keypair_page()
-        self.assertTrue(keypair_page.get_keypair_status(self.KEYPAIR_NAME))
+        self.assertTrue(keypair_page.is_keypair_present(self.KEYPAIR_NAME))
 
         keypair_page.delete_keypair(self.KEYPAIR_NAME)
-        self.assertFalse(keypair_page.get_keypair_status(self.KEYPAIR_NAME))
+        self.assertFalse(keypair_page.is_keypair_present(self.KEYPAIR_NAME))

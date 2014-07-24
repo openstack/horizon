@@ -13,24 +13,28 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.pages import pageobject
+from openstack_dashboard.test.integration_tests.regions import forms
 
 
 class ChangePasswordPage(basepage.BasePage):
 
+        _password_form_locator = (by.By.CSS_SELECTOR,
+                                  'div#change_password_modal')
+
+        CHANGE_PASSWORD_FORM_FIELDS = ("current_password", "new_password",
+                                       "confirm_new_password")
+
         @property
-        def modal(self):
-            return ChangePasswordPage.ChangePasswordModal(self.driver,
-                                                          self.conf)
+        def password_form(self):
+            src_elem = self._get_element(*self._password_form_locator)
+            return forms.FormRegion(self.driver, self.conf, src_elem,
+                                    self.CHANGE_PASSWORD_FORM_FIELDS)
 
         def change_password(self, current, new):
-            self._fill_field_element(
-                current, self.modal.current_password)
-            self._fill_field_element(
-                new, self.modal.new_password)
-            self._fill_field_element(
-                new, self.modal.confirm_new_password)
-            self.modal.click_on_change_button()
+            self.password_form.current_password.text = current
+            self.password_form.new_password.text = new
+            self.password_form.confirm_new_password.text = new
+            self.password_form.submit.click()
 
         def reset_to_default_password(self, current):
             if self.topbar.user.text == self.conf.identity.admin_username:
@@ -39,32 +43,3 @@ class ChangePasswordPage(basepage.BasePage):
             else:
                 return self.change_password(current,
                                             self.conf.identity.password)
-
-        class ChangePasswordModal(pageobject.PageObject):
-            _current_password_locator = (by.By.CSS_SELECTOR,
-                                         'input#id_current_password')
-            _new_password_locator = (by.By.CSS_SELECTOR,
-                                     'input#id_new_password')
-            _confirm_new_password_locator = (by.By.CSS_SELECTOR,
-                                             'input#id_confirm_password')
-            _change_submit_button_locator = (by.By.CSS_SELECTOR,
-                                             'div.modal-footer button.btn')
-
-            @property
-            def current_password(self):
-                return self._get_element(*self._current_password_locator)
-
-            @property
-            def new_password(self):
-                return self._get_element(*self._new_password_locator)
-
-            @property
-            def confirm_new_password(self):
-                return self._get_element(*self._confirm_new_password_locator)
-
-            @property
-            def change_button(self):
-                return self._get_element(*self._change_submit_button_locator)
-
-            def click_on_change_button(self):
-                self.change_button.click()
