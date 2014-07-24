@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create Job" %}{% endblock %}
+
+{% block page_header %}
+    {% include "horizon/common/_page_header.html" with title=_("Create Job") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'horizon/common/_workflow.html' %}
+{% endblock %}

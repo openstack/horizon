@@ -1,0 +1,226 @@
+{% load i18n %}
+<script id="configs_template" type="text/template">
+    <tr id_attr="$id">
+        <div class="input control-group">
+            <td><input style="display: inline" field="key" list="properties" placeholder="Select property name"
+                       onkeyup="trySetValue(this)" onchange="trySetValue(this)" onclick="trySetValue(this)"
+                       value="$name"/></td>
+            <td><input style="display: inline; margin-left:10px; margin-right:10px" field="value" class="input-medium"
+                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                       value="$value"/></td>
+            <td><input style="display: inline; margin-top:-10px" type="button" class="btn btn-danger"
+                       onclick="delete_prop(this)" value="Remove"/></td>
+        </div>
+    </tr>
+</script>
+<script id="args_template" type="text/template">
+    <tr id_attr="$id">
+        <div class="input control-group">
+            <td><input style="display: inline" field="key"
+                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                       value="$name"/></td>
+            <td><input style="display: inline; margin-left:10px; margin-right:10px" field="value" class="input-medium"
+                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                       value="$value"/></td>
+            <td><input style="display: inline; margin-top:-10px" type="button" class="btn btn-danger"
+                       onclick="delete_prop(this)" value="Remove"/></td>
+        </div>
+    </tr>
+</script>
+<script id="args_array_template" type="text/template">
+    <tr id_attr="$id">
+        <div class="input control-group">
+            <td><input style="display: inline; margin-left:10px; margin-right:10px" field="value" class="input-medium"
+                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                       value="$value"/></td>
+            <td><input style="display: inline; margin-top:-10px" type="button" class="btn btn-danger"
+                       onclick="delete_prop(this)" value="Remove"/></td>
+        </div>
+    </tr>
+</script>
+<script id="table_template" type="text/template">
+    <table>
+        <thead>
+        <tr>
+            <td><label>Name</label></td>
+            <td><label style="margin-left: 10px">Value</label></td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="input">
+        <a class="btn btn-inline" onclick="add_prop('$target');">Add</a>
+    </div>
+</script>
+<script id="array_table_template" type="text/template">
+    <table>
+        <thead>
+        <tr>
+            <td><label style="margin-left: 10px">Value</label></td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="input">
+        <a class="btn btn-inline" onclick="add_prop('$target');">Add</a>
+    </div>
+</script>
+<script type="text/javascript">
+    function get_next_id(target) {
+        var max = -1;
+        $("#" + target + " tbody tr").each(function () {
+            max = Math.max(max, parseInt($(this).attr("id_attr")));
+        });
+        return max + 1;
+    }
+
+    function set_props() {
+        $(targets).each(function (index, target) {
+          if (target.match(/.*?array.*/) != null) {
+            var configs = [];
+            $("#" + target + " tbody tr").each(function (index) {
+                configs[index] = $(this).find("td input[field=value]").val();
+            });
+            $("#job_" + target).val(JSON.stringify(configs));
+          } else {
+            var configs = {};
+            $("#" + target + " tbody tr").each(function () {
+                var key = $(this).find("td input[field=key]").val();
+                configs[key] = $(this).find("td input[field=value]").val();
+            });
+            $("#job_" + target).val(JSON.stringify(configs));
+          }
+        });
+    }
+
+    function add_prop(target, name, value) {
+        var name = (typeof name === 'undefined') ? '' : name;
+        var value = (typeof value === 'undefined') ? '' : value;
+        $("#" + target + " table").show();
+        var id = get_next_id(target);
+        var tmpl_from = target == "params" ? "args" : target;
+        var template = $("#" + tmpl_from + "_template").text()
+                .replace(/\$id/g, id);
+        template = template.replace(/\$name/g, name);
+        template = template.replace(/\$value/g, value);
+        $("#" + target + " tbody").append(template);
+        set_props();
+        return id
+    }
+    function delete_prop(el) {
+        var tr = $(el).parents("tr")[0];
+        var target = $(tr).parent().parent().parent().attr("id");
+        tr.parentNode.removeChild(tr);
+        var id = get_next_id(target);
+        if (id == 0) {
+            $("#" + target + " table").hide();
+        }
+        set_props();
+    }
+
+    function trySetValue(el) {
+        var prop_id = $(el).parent().parent().attr("id_attr");
+        if (properties[$(el).val()] != "undefined") {
+            $("#configs").find("tbody tr[id_attr='" + prop_id + "']")
+                    .find("td input[field=value]").val(properties[$(el).val()])
+        }
+        set_props();
+    }
+
+    function get_targets(job_type) {
+        var res = ["configs"];
+        if ($.inArray(job_type, ["Hive", "Pig"]) != -1) {
+            res.push("params");
+        }
+        if ($.inArray(job_type, ["Java", "Pig"]) != -1) {
+          res.push("args_array");
+        }
+        return res;
+    }
+
+    function load_prior_configs() {
+      for(targ in targets) {
+        if ($("#id_job_" + targets[targ]).val()!= "") {
+          var configs = JSON.parse($("#id_job_" + targets[targ]).val());
+          for(conf in configs) {
+            add_prop(targets[targ], conf, configs[conf]);
+          }
+        }
+      }
+    }
+
+    function hide_unnecessary_fields() {
+      if (job_type == "Java") {
+        $("[name=job_input]").closest(".control-group").hide();
+        $("[name=job_output]").closest(".control-group").hide();
+      } else {
+        $("[name=java_opts]").closest(".control-group").hide();
+        $("[name=main_class]").closest(".control-group").hide();
+      }
+      if (job_type != "MapReduce.Streaming") {
+        $("[name=streaming_mapper]").closest(".control-group").hide();
+        $("[name=streaming_reducer]").closest(".control-group").hide();
+      }
+    }
+
+    properties = {};
+    $("label[for=id_property_name]").hide();
+    $("#id_property_name").hide().find("option")
+            .each(function () {
+                properties[$(this).text()] = $(this).val()
+            });
+    $.each(properties, function (key, value) {
+        $("#properties")
+                .append($("<option></option>")
+                        .attr("value", key)
+                        .text(value))
+    });
+    $("#job_cfg").children().hide();
+
+    var targets;
+    var job_type;
+
+    $.ajax({
+        url: "launch-job",
+        data: {"job_id": $("#id_job").val(),
+            "json": true },
+        success: function (data, textStatus, jqXHR) {
+            job_type = data["job_type"];
+            $("#job_type").val(job_type);
+            targets = get_targets(job_type);
+        },
+        complete: function (jqXHR, textStatus) {
+            $(targets).each(function (index, target) {
+              var template = target == "args_array" ? "#array_table_template" : "#table_template";
+              $("#" + target).show().append($(template).text()
+                        .replace(/\$target/g, target));
+            });
+            $("#job_cfg table").hide();
+            hide_unnecessary_fields();
+            load_prior_configs();
+        }
+    });
+</script>
+
+{% include "horizon/common/_form_fields.html" %}
+
+<input type="hidden" value="{}" name="job_configs" id="job_configs">
+<input type="hidden" value="[]" name="job_args_array" id="job_args_array">
+<input type="hidden" value="{}" name="job_params" id="job_params">
+<input type="hidden" value="" name="job_type" id="job_type">
+
+<datalist id="properties"></datalist>
+
+<div id="job_cfg">
+    <div id="configs">
+        <label>{% trans "Configuration" %}</label>
+    </div>
+    <div id="params">
+        <label>{% trans "Parameters" %}</label>
+    </div>
+    <div id="args_array">
+        <label>{% trans "Arguments" %}</label>
+    </div>
+</div>

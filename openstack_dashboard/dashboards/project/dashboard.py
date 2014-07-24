@@ -66,7 +66,9 @@ class DataProcessingPanels(horizon.PanelGroup):
               'data_processing.cluster_templates',
               'data_processing.clusters',
               'data_processing.data_sources',
-              'data_processing.job_binaries', )
+              'data_processing.job_binaries',
+              'data_processing.jobs',
+              'data_processing.job_executions', )
 
 
 class Project(horizon.Dashboard):

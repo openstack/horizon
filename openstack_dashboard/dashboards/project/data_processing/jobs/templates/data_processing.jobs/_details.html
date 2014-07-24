@@ -1,0 +1,28 @@
+{% load i18n sizeformat %}
+<h3>{% trans "Job" %}</h3>
+<div class="status row-fluid detail">
+    <dl>
+        <dt>{% trans "Name" %}</dt>
+        <dd>{{ job.name }}</dd>
+        <dt>{% trans "ID" %}</dt>
+        <dd>{{ job.id }}</dd>
+        <dt>{% trans "Description" %}</dt>
+        <dd>{{ job.description|default:"None" }}</dd>
+        <dt>{% trans "Mains" %}<dt>
+        {% for main in job.mains %}
+          <dd>{{ main.name }}</dd>
+        {% empty %}
+          <dd>{% trans "None" %}</dd>
+        {% endfor %}
+        <dt>{% trans "Libs" %}<dt>
+        {% for lib in job.libs %}
+          <dd>{{ lib.name }}</dd>
+        {% empty %}
+          <dd>{% trans "None" %}</dd>
+        {% endfor %}
+        <dt>{% trans "Tenant id" %}</dt>
+        <dd>{{ job.tenant_id }}</dd>
+        <dt>{% trans "Create time" %}</dt>
+        <dd>{{ job.created_at }}</dd>
+    </dl>
+</div>

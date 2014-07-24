@@ -16,6 +16,8 @@ from saharaclient.api import cluster_templates
 from saharaclient.api import clusters
 from saharaclient.api import data_sources
 from saharaclient.api import job_binaries
+from saharaclient.api import job_executions
+from saharaclient.api import jobs
 from saharaclient.api import node_group_templates
 from saharaclient.api import plugins
 
@@ -27,6 +29,8 @@ def data(TEST):
     TEST.clusters = utils.TestDataContainer()
     TEST.data_sources = utils.TestDataContainer()
     TEST.job_binaries = utils.TestDataContainer()
+    TEST.jobs = utils.TestDataContainer()
+    TEST.job_executions = utils.TestDataContainer()
 
     plugin1_dict = {
         "description": "vanilla plugin",
@@ -278,3 +282,128 @@ def data(TEST):
     job_binary1 = job_binaries.JobBinaries(
         job_binaries.JobBinariesManager(None), job_binary1_dict)
     TEST.job_binaries.add(job_binary1)
+
+    #Jobs
+    job1_dict = {
+        "created_at": "2014-06-05 19:23:59.637165",
+        "description": "",
+        "id": "a077b851-46be-4ad7-93c3-2d83894546ef",
+        "libs": [
+            {
+                "created_at": "2014-06-05 19:23:42.742057",
+                "description": "",
+                "id": "ab140807-59f8-4235-b4f2-e03daf946256",
+                "name": "udf.jar",
+                "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+                "updated_at": None,
+                "url": "internal-db://d186e2bb-df93-47eb-8c0e-ce21e7ecb78b"
+            }
+        ],
+        "mains": [
+            {
+                "created_at": "2014-06-05 18:15:15.581285",
+                "description": "",
+                "id": "3f3a07ac-7d6f-49e8-8669-40b25ee891b7",
+                "name": "example.pig",
+                "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+                "updated_at": None,
+                "url": "internal-db://80121dea-f8bd-4ad3-bcc7-096f4bfc722d"
+            }
+        ],
+        "name": "pigjob",
+        "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+        "type": "Pig",
+        "updated_at": None
+    }
+
+    job1 = jobs.Job(jobs.JobsManager(None), job1_dict)
+    TEST.jobs.add(job1)
+
+    #Job Executions
+    jobex1_dict = {
+        "cluster_id": "ec9a0d28-5cfb-4028-a0b5-40afe23f1533",
+        "created_at": "2014-06-05 20:03:06.195937",
+        "end_time": None,
+        "id": "4b6c1cbf-c713-49d3-8025-808a87c514a6",
+        "info": {
+            "acl": None,
+            "actions": [
+                {
+                    "consoleUrl": "-",
+                    "cred": "None",
+                    "data": None,
+                    "endTime": "Thu,05 Jun 2014 20:03:32 GMT",
+                    "errorCode": None,
+                    "errorMessage": None,
+                    "externalChildIDs": None,
+                    "externalId": "-",
+                    "externalStatus": "OK",
+                    "id": "0000000-140604200538581-oozie-hado-W@:start:",
+                    "name": ":start:",
+                    "retries": 0,
+                    "startTime": "Thu,05 Jun 2014 20:03:32 GMT",
+                    "stats": None,
+                    "status": "OK",
+                    "toString": "Action name[:start:] status[OK]",
+                    "trackerUri": "-",
+                    "transition": "job-node",
+                    "type": ":START:"
+                },
+                {
+                    "consoleUrl": "fake://console.url",
+                    "cred": "None",
+                    "data": None,
+                    "endTime": None,
+                    "errorCode": None,
+                    "errorMessage": None,
+                    "externalChildIDs": None,
+                    "externalId": "job_201406042004_0001",
+                    "externalStatus": "RUNNING",
+                    "id": "0000000-140604200538581-oozie-hado-W@job-node",
+                    "name": "job-node",
+                    "retries": 0,
+                    "startTime": "Thu,05 Jun 2014 20:03:33 GMT",
+                    "stats": None,
+                    "status": "RUNNING",
+                    "toString": "Action name[job-node] status[RUNNING]",
+                    "trackerUri": "cercluster-master-001:8021",
+                    "transition": None,
+                    "type": "pig"
+                }
+            ],
+            "appName": "job-wf",
+            "appPath": "hdfs://fakepath/workflow.xml",
+            "conf": "<configuration>fakeconfig</configuration>",
+            "consoleUrl": "fake://consoleURL",
+            "createdTime": "Thu,05 Jun 2014 20:03:32 GMT",
+            "endTime": None,
+            "externalId": None,
+            "group": None,
+            "id": "0000000-140604200538581-oozie-hado-W",
+            "lastModTime": "Thu,05 Jun 2014 20:03:35 GMT",
+            "parentId": None,
+            "run": 0,
+            "startTime": "Thu,05 Jun 2014 20:03:32 GMT",
+            "status": "RUNNING",
+            "toString": "Workflow ...status[RUNNING]",
+            "user": "hadoop"
+        },
+        "input_id": "85884883-3083-49eb-b442-71dd3734d02c",
+        "job_configs": {
+            "args": [],
+            "configs": {},
+            "params": {}
+        },
+        "job_id": "a077b851-46be-4ad7-93c3-2d83894546ef",
+        "oozie_job_id": "0000000-140604200538581-oozie-hado-W",
+        "output_id": "426fb01c-5c7e-472d-bba2-b1f0fe7e0ede",
+        "progress": None,
+        "return_code": None,
+        "start_time": "2014-06-05T16:03:32",
+        "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+        "updated_at": "2014-06-05 20:03:46.438248"
+    }
+
+    jobex1 = job_executions.JobExecution(
+        job_executions.JobExecutionsManager(None), jobex1_dict)
+    TEST.job_executions.add(jobex1)
