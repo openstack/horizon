@@ -44,8 +44,7 @@ NOT_FOUND = (
     cinderclient.NotFound,
     novaclient.NotFound,
     glanceclient.NotFound,
-    neutronclient.NetworkNotFoundClient,
-    neutronclient.PortNotFoundClient,
+    neutronclient.NotFound,
     heatclient.HTTPNotFound,
     troveclient.NotFound,
 )
@@ -63,15 +62,8 @@ RECOVERABLE = (
     novaclient.ClientException,
     novaclient.Forbidden,
     glanceclient.ClientException,
-    # NOTE(amotoki): Neutron exceptions other than the first one
-    # are recoverable in many cases (e.g., NetworkInUse is not
-    # raised once VMs which use the network are terminated).
     neutronclient.Forbidden,
     neutronclient.NeutronClientException,
-    neutronclient.NetworkInUseClient,
-    neutronclient.PortInUseClient,
-    neutronclient.AlreadyAttachedClient,
-    neutronclient.StateInvalidClient,
     swiftclient.ClientException,
     heatclient.HTTPForbidden,
     heatclient.HTTPException,
