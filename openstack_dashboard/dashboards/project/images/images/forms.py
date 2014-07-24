@@ -82,7 +82,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                             ' value defaults to 0'
                                             ' (no minimum).'),
                                     required=False)
-    minimum_ram = forms.IntegerField(label=_("Minimum Ram (MB)"),
+    minimum_ram = forms.IntegerField(label=_("Minimum RAM (MB)"),
                                     help_text=_('The minimum memory size'
                                             ' required to boot the'
                                             ' image. If unspecified, this'

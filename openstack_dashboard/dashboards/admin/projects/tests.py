@@ -1588,7 +1588,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'project/overview/usage.csv')
 
         self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
-        hdr = ('Instance Name,VCPUs,Ram (MB),Disk (GB),Usage (Hours),'
+        hdr = ('Instance Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours),'
                'Uptime(Seconds),State')
         self.assertContains(res, '%s\r\n' % hdr)
 
