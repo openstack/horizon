@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-23 00:10-0500\n"
-"PO-Revision-Date: 2014-07-23 06:00+0000\n"
+"PO-Revision-Date: 2014-07-23 06:30+0000\n"
 "Last-Translator: Malyadri Beegala <malyadri.beegala@gmail.com>\n"
 "Language-Team: Telugu (India) (http://www.transifex.com/projects/p/horizon/language/te_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "  సమాచారం అందుబాటు లో లేదు"
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
-msgstr "లోపము జరిగినది మరల  ప్రయత్నించండి"
+msgstr "లోపము జరిగినది.  దయచేసి మరల  ప్రయత్నించండి"
 
 #: static/horizon/js/horizon.firewalls.js:30
 #: static/horizon/js/horizon.instances.js:30
@@ -127,7 +127,7 @@ msgstr "ఇంటర్ఫేస్ ను చేర్చు"
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:356
 msgid "No items to display."
-msgstr ""
+msgstr "ప్రదర్శించుటకు ఎటువంటి  అంశము/అయిటము  లు లేవు"
 
 #: static/horizon/js/horizon.tables.js:52
 #: static/horizon/js/horizon.tables.js:129
@@ -137,16 +137,16 @@ msgstr "సవరించు పక్రియ లో లోపము జర�
 #: static/horizon/js/horizon.tables.js:183
 #, c-format
 msgid "You have selected %s. "
-msgstr ""
+msgstr "%s ను మీరు ఎంపిక చేసుకొన్నారు"
 
 #: static/horizon/js/horizon.tables.js:185
 #, c-format
 msgid "Confirm %s"
-msgstr " %s  ను ధ్రువీకరించు"
+msgstr " %s  ను ధ్రువీకరించు "
 
 #: static/horizon/js/horizon.tables.js:186
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr ""
+msgstr "మీ ఎంపిక ను ధ్రువీకరించు.  ఈ ఎంపిక మరల మార్చలేము"
 
 #: static/horizon/js/horizon.tables.js:343
 #, c-format
