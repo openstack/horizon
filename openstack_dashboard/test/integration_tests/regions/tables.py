@@ -14,6 +14,7 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
+from openstack_dashboard.test.integration_tests.regions import menus
 
 
 class RowRegion(baseregion.BaseRegion):
@@ -91,7 +92,9 @@ class ComplexActionRowRegion(BaseActionRowRegion):
         return self._get_element(*self._primary_action_locator)
 
     def _get_secondary_actions(self):
-        return self._get_elements(*self._secondary_actions_dropdown_locator)
+        src_elem = self._get_element(*self._secondary_actions_dropdown_locator)
+        dropdown = menus.DropDownMenuRegion(self.driver, self.conf, src_elem)
+        return dropdown.menu_items
 
     @property
     def primary_action(self):

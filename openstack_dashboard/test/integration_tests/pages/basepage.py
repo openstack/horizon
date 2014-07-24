@@ -12,9 +12,9 @@
 
 from selenium.webdriver.common import by
 
-from openstack_dashboard.test.integration_tests import basewebobject
 from openstack_dashboard.test.integration_tests.pages import pageobject
 from openstack_dashboard.test.integration_tests.regions import bars
+from openstack_dashboard.test.integration_tests.regions import menus
 from openstack_dashboard.test.integration_tests.regions import messages
 
 
@@ -38,7 +38,7 @@ class BasePage(pageobject.PageObject):
 
     @property
     def navaccordion(self):
-        return BasePage.NavigationAccordionRegion(self.driver, self.conf)
+        return menus.NavigationAccordionRegion(self.driver, self.conf)
 
     def error_message(self):
         src_elem = self._get_element(*self._error_msg_locator)
@@ -54,33 +54,8 @@ class BasePage(pageobject.PageObject):
         self.topbar.brand.click()
 
     def log_out(self):
-        self.topbar.user_dropdown_menu.click()
-        self.topbar.logout_link.click()
+        self.topbar.user_dropdown_menu.click_on_logout()
         return self.go_to_login_page()
 
     def go_to_help_page(self):
-        self.topbar.user_dropdown_menu.click()
-        self.topbar.help_link.click()
-
-    class NavigationAccordionRegion(basewebobject.BaseWebObject):
-        # TODO(sunlim): change Xpath to CSS
-        _project_bar_locator = (
-            by.By.XPATH,
-            ".//*[@id='main_content']//div[contains(text(),'Project')]")
-
-        _project_access_security_locator = (
-            by.By.CSS_SELECTOR, 'a[href*="/project/access_and_security/"]')
-
-        @property
-        def project_bar(self):
-            return self._get_element(*self._project_bar_locator)
-
-        def _click_on_project_bar(self):
-            self.project_bar.click()
-
-        @property
-        def access_security(self):
-            return self._get_element(*self._project_access_security_locator)
-
-        def _click_on_access_security(self):
-            self.access_security.click()
+        self.topbar.user_dropdown_menu.click_on_help()

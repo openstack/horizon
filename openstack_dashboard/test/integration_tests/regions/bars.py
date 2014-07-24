@@ -13,18 +13,12 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
+from openstack_dashboard.test.integration_tests.regions import menus
 
 
 class TopBarRegion(baseregion.BaseRegion):
     _user_dropdown_menu_locator = (by.By.CSS_SELECTOR,
-                                   'div#profile_editor_switcher'
-                                   ' > button')
-    _settings_link_locator = (by.By.CSS_SELECTOR,
-                              'a[href*="/settings/"]')
-    _help_link_locator = (by.By.CSS_SELECTOR,
-                          'ul#editor_list li:nth-of-type(2) > a')
-    _logout_link_locator = (by.By.CSS_SELECTOR,
-                            'a[href*="/auth/logout/"]')
+                                   'div#profile_editor_switcher')
     _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
 
     @property
@@ -36,24 +30,10 @@ class TopBarRegion(baseregion.BaseRegion):
         return self._get_element(*self._openstack_brand_locator)
 
     @property
-    def logout_link(self):
-        return self._get_element(*self._logout_link_locator)
-
-    @property
     def user_dropdown_menu(self):
-        return self._get_element(*self._user_dropdown_menu_locator)
-
-    @property
-    def settings_link(self):
-        return self._get_element(*self._settings_link_locator)
-
-    @property
-    def help_link(self):
-        return self._get_element(*self._help_link_locator)
-
-    @property
-    def is_logout_visible(self):
-        return self._is_element_visible(*self._logout_link_locator)
+        src_elem = self._get_element(*self._user_dropdown_menu_locator)
+        return menus.UserDropDownMenuRegion(self.driver,
+                                            self.conf, src_elem)
 
     @property
     def is_logged_in(self):
