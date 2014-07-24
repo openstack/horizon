@@ -15,6 +15,7 @@ from openstack_dashboard.test.test_data import utils
 from saharaclient.api import cluster_templates
 from saharaclient.api import clusters
 from saharaclient.api import data_sources
+from saharaclient.api import job_binaries
 from saharaclient.api import node_group_templates
 from saharaclient.api import plugins
 
@@ -25,6 +26,7 @@ def data(TEST):
     TEST.cluster_templates = utils.TestDataContainer()
     TEST.clusters = utils.TestDataContainer()
     TEST.data_sources = utils.TestDataContainer()
+    TEST.job_binaries = utils.TestDataContainer()
 
     plugin1_dict = {
         "description": "vanilla plugin",
@@ -261,3 +263,18 @@ def data(TEST):
         data_sources.DataSourceManager(None), data_source2_dict)
     TEST.data_sources.add(data_source1)
     TEST.data_sources.add(data_source2)
+
+    #Job Binaries
+    job_binary1_dict = {
+        "created_at": "2014-06-05 18:15:15.581285",
+        "description": "",
+        "id": "3f3a07ac-7d6f-49e8-8669-40b25ee891b7",
+        "name": "example.pig",
+        "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+        "updated_at": None,
+        "url": "internal-db://80121dea-f8bd-4ad3-bcc7-096f4bfc722d"
+    }
+
+    job_binary1 = job_binaries.JobBinaries(
+        job_binaries.JobBinariesManager(None), job_binary1_dict)
+    TEST.job_binaries.add(job_binary1)
