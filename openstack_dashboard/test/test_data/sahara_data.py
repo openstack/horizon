@@ -14,6 +14,7 @@ from openstack_dashboard.test.test_data import utils
 
 from saharaclient.api import cluster_templates
 from saharaclient.api import clusters
+from saharaclient.api import data_sources
 from saharaclient.api import node_group_templates
 from saharaclient.api import plugins
 
@@ -23,6 +24,7 @@ def data(TEST):
     TEST.nodegroup_templates = utils.TestDataContainer()
     TEST.cluster_templates = utils.TestDataContainer()
     TEST.clusters = utils.TestDataContainer()
+    TEST.data_sources = utils.TestDataContainer()
 
     plugin1_dict = {
         "description": "vanilla plugin",
@@ -229,3 +231,33 @@ def data(TEST):
     cluster1 = clusters.Cluster(
         clusters.ClusterManager(None), cluster1_dict)
     TEST.clusters.add(cluster1)
+
+    #Data Sources
+    data_source1_dict = {
+        "created_at": "2014-06-04 14:01:10.371562",
+        "description": "sample output",
+        "id": "426fb01c-5c7e-472d-bba2-b1f0fe7e0ede",
+        "name": "sampleOutput",
+        "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+        "type": "swift",
+        "updated_at": None,
+        "url": "swift://example.sahara/output"
+    }
+
+    data_source2_dict = {
+        "created_at": "2014-06-05 15:01:12.331361",
+        "description": "second sample output",
+        "id": "ab3413-adfb-bba2-123456785675",
+        "name": "sampleOutput2",
+        "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+        "type": "hdfs",
+        "updated_at": None,
+        "url": "hdfs://example.sahara/output"
+    }
+
+    data_source1 = data_sources.DataSources(
+        data_sources.DataSourceManager(None), data_source1_dict)
+    data_source2 = data_sources.DataSources(
+        data_sources.DataSourceManager(None), data_source2_dict)
+    TEST.data_sources.add(data_source1)
+    TEST.data_sources.add(data_source2)
