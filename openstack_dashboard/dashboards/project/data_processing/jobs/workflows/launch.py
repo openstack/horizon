@@ -61,8 +61,7 @@ class JobExecutionGeneralConfigAction(workflows.Action):
 
         if request.REQUEST.get("job_id", None) is None:
             self.fields["job"] = forms.ChoiceField(
-                label=_("Job"),
-                required=True)
+                label=_("Job"))
             self.fields["job"].choices = self.populate_job_choices(request)
         else:
             self.fields["job"] = forms.CharField(

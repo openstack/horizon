@@ -65,8 +65,7 @@ class GeneralConfigAction(workflows.Action):
         required=False,
         widget=forms.HiddenInput(attrs={"class": "hidden_to_delete_field"}))
 
-    cluster_name = forms.CharField(label=_("Cluster Name"),
-                                   required=True)
+    cluster_name = forms.CharField(label=_("Cluster Name"))
 
     description = forms.CharField(label=_("Description"),
                                   required=False,
@@ -75,8 +74,7 @@ class GeneralConfigAction(workflows.Action):
                                          initial=(None, "None"),
                                          required=False)
 
-    image = forms.ChoiceField(label=_("Base Image"),
-                              required=True)
+    image = forms.ChoiceField(label=_("Base Image"))
 
     keypair = forms.ChoiceField(
         label=_("Keypair"),
@@ -92,7 +90,6 @@ class GeneralConfigAction(workflows.Action):
         if saharaclient.base.is_service_enabled(request, 'network'):
             self.fields["neutron_management_network"] = forms.ChoiceField(
                 label=_("Neutron Management Network"),
-                required=True,
                 choices=self.populate_neutron_management_network_choices(
                     request, {})
             )

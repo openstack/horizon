@@ -52,7 +52,6 @@ class SelectPluginAction(workflows.Action):
 
         self.fields["plugin_name"] = forms.ChoiceField(
             label=_("Plugin name"),
-            required=True,
             choices=plugin_choices,
             widget=forms.Select(attrs={"class": "plugin_name_choice"}))
 
@@ -60,7 +59,6 @@ class SelectPluginAction(workflows.Action):
             field_name = plugin.name + "_version"
             choice_field = forms.ChoiceField(
                 label=_("Hadoop version"),
-                required=True,
                 choices=[(version, version) for version in plugin.versions],
                 widget=forms.Select(
                     attrs={"class": "plugin_version_choice "
@@ -97,8 +95,7 @@ class GeneralConfigAction(workflows.Action):
         required=False,
         widget=forms.HiddenInput(attrs={"class": "hidden_to_delete_field"}))
 
-    cluster_template_name = forms.CharField(label=_("Template Name"),
-                                            required=True)
+    cluster_template_name = forms.CharField(label=_("Template Name"))
 
     description = forms.CharField(label=_("Description"),
                                   required=False,

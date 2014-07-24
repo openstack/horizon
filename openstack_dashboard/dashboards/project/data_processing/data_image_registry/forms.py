@@ -57,8 +57,7 @@ class EditTagsForm(ImageForm):
 
 
 class RegisterImageForm(ImageForm):
-    image_id = forms.ChoiceField(label=_("Image"),
-                                 required=True)
+    image_id = forms.ChoiceField(label=_("Image"))
 
     def __init__(self, request, *args, **kwargs):
         super(RegisterImageForm, self).__init__(request, *args, **kwargs)
