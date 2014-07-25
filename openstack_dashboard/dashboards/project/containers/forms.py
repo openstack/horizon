@@ -48,7 +48,6 @@ class CreateContainer(forms.SelfHandlingForm):
                            label=_("Container Name"),
                            validators=[no_slash_validator])
     access = forms.ChoiceField(label=_("Container Access"),
-                               required=True,
                                choices=ACCESS_CHOICES)
 
     def handle(self, request, data):

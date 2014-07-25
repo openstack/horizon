@@ -165,8 +165,7 @@ class UpdateCell(tables.UpdateAction):
 
 class TenantsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(required=True,
-                                                    max_length=64),
+                         form_field=forms.CharField(max_length=64),
                          update_action=UpdateCell)
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),

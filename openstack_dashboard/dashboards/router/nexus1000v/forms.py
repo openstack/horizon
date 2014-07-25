@@ -47,8 +47,7 @@ class CreateNetworkProfile(forms.SelfHandlingForm):
     """Create Network Profile form."""
 
     name = forms.CharField(max_length=255,
-                           label=_("Name"),
-                           required=True)
+                           label=_("Name"))
     segment_type = forms.ChoiceField(label=_('Segment Type'),
                                      choices=[('vlan', _('VLAN')),
                                               ('overlay', _('Overlay')),
@@ -179,15 +178,14 @@ class UpdateNetworkProfile(forms.SelfHandlingForm):
     profile_id = forms.CharField(label=_("ID"),
                                  widget=forms.HiddenInput())
     name = forms.CharField(max_length=255,
-                           label=_("Name"), required=True)
+                           label=_("Name"))
     segment_type = forms.ChoiceField(label=_('Segment Type'),
                                      choices=[('vlan', 'VLAN'),
                                               ('vxlan', 'VXLAN')],
                                      widget=forms.Select
                                      (attrs={'class': 'switchable'}))
     segment_range = forms.CharField(max_length=255,
-                                    label=_("Segment Range"),
-                                    required=True)
+                                    label=_("Segment Range"))
     physical_network = forms.CharField(max_length=255,
                                        label=_("Physical Network"),
                                        required=False)

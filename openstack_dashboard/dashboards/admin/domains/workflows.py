@@ -30,8 +30,7 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateDomainInfoAction(workflows.Action):
-    name = forms.CharField(label=_("Name"),
-                           required=True)
+    name = forms.CharField(label=_("Name"))
     description = forms.CharField(widget=forms.widgets.Textarea(),
                                   label=_("Description"),
                                   required=False)

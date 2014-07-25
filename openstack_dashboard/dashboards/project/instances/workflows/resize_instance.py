@@ -38,7 +38,6 @@ class SetFlavorChoiceAction(workflows.Action):
                                      attrs={'readonly': 'readonly'}
                                  ))
     flavor = forms.ChoiceField(label=_("New Flavor"),
-                               required=True,
                                help_text=_("Choose the flavor to launch."))
 
     class Meta:

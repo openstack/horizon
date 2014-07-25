@@ -46,10 +46,10 @@ class RuleCIDRField(forms.IPField):
 
 class AddRouterRule(forms.SelfHandlingForm):
     source = RuleCIDRField(label=_("Source CIDR"),
-                           widget=forms.TextInput(), required=True)
+                           widget=forms.TextInput())
     destination = RuleCIDRField(label=_("Destination CIDR"),
-                                widget=forms.TextInput(), required=True)
-    action = forms.ChoiceField(label=_("Action"), required=True)
+                                widget=forms.TextInput())
+    action = forms.ChoiceField(label=_("Action"))
     nexthops = forms.MultiIPField(label=_("Optional: Next Hop "
                                           "Addresses (comma delimited)"),
                                   widget=forms.TextInput(), required=False)
