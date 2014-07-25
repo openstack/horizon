@@ -10,5 +10,5 @@ nosexcover
 openstack.nose_plugin>=0.7
 oslosphinx
 selenium
-sphinx>=1.1.2,<1.2
+sphinx>=1.1.2,<1.1.999
 testtools>=0.9.34
