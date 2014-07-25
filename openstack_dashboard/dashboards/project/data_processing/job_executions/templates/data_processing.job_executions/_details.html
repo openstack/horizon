@@ -16,6 +16,10 @@
         <dd>{{ job_execution.cluster_id }} ({{ object_names.cluster_name }})</dd>
         <dt>{% trans "Last Updated" %}</dt>
         <dd>{{ job_execution.updated_at }}</dd>
+        <dt>{% trans "Started" %}</dt>
+        <dd>{{ job_execution.start_time }}</dd>
+        <dt>{% trans "Ended" %}</dt>
+        <dd>{{ job_execution.end_time }}</dd>
         <dt>{% trans "Return Code" %}</dt>
         <dd>{{ job_execution.return_code }}</dd>
         <dt>{% trans "Oozie Job Id" %}</dt>
