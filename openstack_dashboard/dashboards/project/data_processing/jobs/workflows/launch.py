@@ -31,17 +31,20 @@ import openstack_dashboard.dashboards.project.data_processing. \
 
 LOG = logging.getLogger(__name__)
 
+DATA_SOURCE_CREATE_URL = ("horizon:project:data_processing.data_sources"
+                          ":create-data-source")
+
 
 class JobExecutionGeneralConfigAction(workflows.Action):
-    job_input = forms.ChoiceField(
+    job_input = forms.DynamicChoiceField(
         label=_("Input"),
         initial=(None, "None"),
-        widget=forms.Select(attrs={"class": "job_input_choice"}))
+        add_item_link=DATA_SOURCE_CREATE_URL)
 
-    job_output = forms.ChoiceField(
+    job_output = forms.DynamicChoiceField(
         label=_("Output"),
         initial=(None, "None"),
-        widget=forms.Select(attrs={"class": "job_output_choice"}))
+        add_item_link=DATA_SOURCE_CREATE_URL)
 
     def __init__(self, request, *args, **kwargs):
         super(JobExecutionGeneralConfigAction, self).__init__(request,
