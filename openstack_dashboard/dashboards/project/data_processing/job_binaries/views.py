@@ -85,7 +85,7 @@ class DownloadJobBinaryView(generic.View):
                               _('Unable to fetch job binary: %(exc)s'),
                               redirect=redirect)
 
-        response = http.HttpResponse(mimetype='application/binary')
+        response = http.HttpResponse(content_type='application/binary')
         response['Content-Disposition'] = \
             'attachment; filename=%s' % defaultfilters.slugify(jb.name)
         response.write(data)

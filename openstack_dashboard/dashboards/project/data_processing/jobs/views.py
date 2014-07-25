@@ -80,7 +80,7 @@ class LaunchJobView(workflows.WorkflowView):
                 job_id = request.REQUEST.get("job_id")
                 job_type = saharaclient.job_get(request, job_id).type
                 return http.HttpResponse(json.dumps({"job_type": job_type}),
-                                         mimetype='application/json')
+                                         content_type='application/json')
         return super(LaunchJobView, self).get(request, args, kwargs)
 
     def get_context_data(self, **kwargs):
