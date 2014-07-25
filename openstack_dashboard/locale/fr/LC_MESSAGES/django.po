@@ -5,6 +5,7 @@
 # Translators:
 # Adrien Cunin <adrien@adriencunin.fr>, 2014
 # Adrien Cunin <adrien@adriencunin.fr>, 2014
+# Andrew_Melim <nokostya.translation@gmail.com>, 2014
 # Cédric Soulas <soulascedric@gmail.com>, 2014
 # Cédric Soulas <soulascedric@gmail.com>, 2014
 # cloudwatt_l10n <l10n@cloudwatt.com>, 2014
@@ -22,8 +23,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-23 00:10-0500\n"
-"PO-Revision-Date: 2014-07-23 05:10+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2014-07-23 15:31+0000\n"
+"Last-Translator: François Bureau <francois.bureau@cloudwatt.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -239,7 +240,7 @@ msgstr "Nombre de suppressions de l'image"
 
 #: api/ceilometer.py:1100
 msgid "Image is downloaded"
-msgstr "L'Image est téléchargée"
+msgstr "L'image est téléchargée"
 
 #: api/ceilometer.py:1104
 msgid "Image is served out"
@@ -598,7 +599,7 @@ msgstr "Impossible d'obtenir les hôtes disponibles"
 #: dashboards/admin/aggregates/workflows.py:94
 #: dashboards/admin/aggregates/workflows.py:134
 msgid "Manage Hosts within Aggregate"
-msgstr "Gestion d'hotes dedans l'aggregate"
+msgstr "Gestion de l'agrégat d'hôtes"
 
 #: dashboards/admin/aggregates/workflows.py:139
 msgid ""
@@ -1083,18 +1084,18 @@ msgstr "Type d'instance"
 #: dashboards/admin/flavors/templates/flavors/create.html:3
 #: dashboards/admin/flavors/templates/flavors/create.html:6
 msgid "Create Flavor"
-msgstr "Créer un Type d'Instance"
+msgstr "Créer un type d'instance"
 
 #: dashboards/admin/flavors/tables.py:46
 #: dashboards/admin/flavors/workflows.py:262
 #: dashboards/admin/flavors/templates/flavors/update.html:3
 #: dashboards/admin/flavors/templates/flavors/update.html:6
 msgid "Edit Flavor"
-msgstr "Editer le Type d'Instance"
+msgstr "Editer le type d'instance"
 
 #: dashboards/admin/flavors/tables.py:53 dashboards/admin/volumes/tables.py:31
 msgid "View Extra Specs"
-msgstr "Voir les Spécifications Supplémentaires"
+msgstr "Voir les spécifications supplémentaires"
 
 #: dashboards/admin/flavors/tables.py:60
 msgid "Modify Access"
@@ -1114,7 +1115,7 @@ msgstr "%sGo"
 
 #: dashboards/admin/flavors/tables.py:103
 msgid "Flavor Name"
-msgstr "Nom du Type d'Instance"
+msgstr "Nom du type d'instance"
 
 #: dashboards/admin/flavors/tables.py:104
 #: dashboards/admin/flavors/workflows.py:46
@@ -1214,7 +1215,7 @@ msgstr "Publique"
 #: dashboards/admin/volumes/extras/tables.py:23
 #: dashboards/admin/volumes/extras/tables.py:58
 msgid "Extra Specs"
-msgstr "Spécifications Supplémentaires"
+msgstr "Spécifications supplémentaires"
 
 #: dashboards/admin/flavors/views.py:49
 msgid "Unable to retrieve flavor list."
@@ -1255,7 +1256,7 @@ msgstr "Disque d'échange Mo"
 #: dashboards/admin/flavors/workflows.py:58
 #: dashboards/admin/flavors/workflows.py:225
 msgid "Flavor Info"
-msgstr "Informations du Type d'Instance"
+msgstr "Informations du type d'instance"
 
 #: dashboards/admin/flavors/workflows.py:59
 msgid "From here you can create a new flavor to organize instance resources."
@@ -1295,11 +1296,11 @@ msgstr "Vous pouvez contrôler l'accès à ce type d’instance en déplaçant l
 
 #: dashboards/admin/flavors/workflows.py:160
 msgid "All Projects"
-msgstr "Tous les Projets"
+msgstr "Tous les projets"
 
 #: dashboards/admin/flavors/workflows.py:161
 msgid "Selected Projects"
-msgstr "Projets Sélectionnés"
+msgstr "Projets sélectionnés"
 
 #: dashboards/admin/flavors/workflows.py:162
 msgid "No projects found."
@@ -1358,7 +1359,7 @@ msgstr "Clés"
 #: dashboards/admin/volumes/extras/forms.py:23
 #: dashboards/admin/volumes/extras/tables.py:53
 msgid "Key"
-msgstr "Clef"
+msgstr "Clé"
 
 #: dashboards/admin/flavors/extras/forms.py:43
 msgid ""
@@ -1411,11 +1412,11 @@ msgstr "Impossible de modifier la spécification supplémentaire"
 
 #: dashboards/admin/flavors/extras/tables.py:24
 msgid "ExtraSpec"
-msgstr "Spécification Supplémentaire"
+msgstr "Spécification supplémentaire"
 
 #: dashboards/admin/flavors/extras/tables.py:25
 msgid "ExtraSpecs"
-msgstr "Spécifications Supplémentaires"
+msgstr "Spécifications supplémentaires"
 
 #: dashboards/admin/flavors/extras/tables.py:34
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:25
@@ -1446,16 +1447,16 @@ msgstr "Impossible de récupérer les détails de la spécification supplémenta
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:10
 #: dashboards/admin/flavors/templates/flavors/extras/create.html:4
 msgid "Create Flavor Extra Spec"
-msgstr "Créer une Spécification Supplémentaire pour le Type d'Instance"
+msgstr "Créer une spécification supplémentaire pour le type d'instance"
 
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:20
 msgid "Create a new \"extra spec\" key-value pair for a flavor."
-msgstr "Créer une nouvelle paire de clef-valeur \"Spécification Supplémentaire\" pour un type d'instance."
+msgstr "Créer une nouvelle paire de clé-valeur \"spécification supplémentaire\" pour un type d'instance."
 
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:10
 #: dashboards/admin/volumes/templates/volumes/extras/_edit.html:10
 msgid "Edit Extra Spec Value"
-msgstr "Modifier les valeurs d'une Spécification Supplémentaire"
+msgstr "Modifier les valeurs d'une spécification supplémentaire"
 
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:20
 #, python-format
@@ -1465,7 +1466,7 @@ msgstr "Mettre à jour la valeur \"extra spec\" pour &quot;%(key)s&quot;"
 #: dashboards/admin/flavors/templates/flavors/extras/_index.html:6
 #: dashboards/admin/flavors/templates/flavors/extras/index.html:4
 msgid "Flavor Extra Specs"
-msgstr "Spécifications Supplémentaires du Type d'Instance"
+msgstr "Spécifications supplémentaires du type d'instance"
 
 #: dashboards/admin/flavors/templates/flavors/extras/_index.html:13
 #: dashboards/admin/volumes/templates/volumes/extras/_index.html:13
@@ -1477,7 +1478,7 @@ msgstr "Fermer"
 
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:4
 msgid "Edit Flavor Extra Spec"
-msgstr "Editer la Spécification Supplémentaire du Type d'Instance"
+msgstr "Editer la spécification supplémentaire du type d'instance"
 
 #: dashboards/admin/groups/forms.py:46
 #, python-format
@@ -1561,7 +1562,7 @@ msgstr "Ajouter..."
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
 #: dashboards/project/databases/tables.py:219
 msgid "User Name"
-msgstr "Nom d'Utilisateur"
+msgstr "Nom d'utilisateur"
 
 #: dashboards/admin/groups/tables.py:161 dashboards/admin/users/forms.py:82
 #: dashboards/admin/users/forms.py:159 dashboards/admin/users/tables.py:131
@@ -1724,12 +1725,12 @@ msgstr "Instances"
 #: dashboards/project/instances/workflows/create_instance.py:80
 #: dashboards/project/overview/views.py:32 usage/tables.py:71
 msgid "Instance Name"
-msgstr "Nom de l'Instance"
+msgstr "Nom de l'instance"
 
 #: dashboards/admin/hypervisors/tables.py:73
 #: dashboards/project/images/snapshots/forms.py:30
 msgid "Instance ID"
-msgstr "ID de l'Instance"
+msgstr "ID de l'instance"
 
 #: dashboards/admin/hypervisors/tables.py:80
 msgid "Hypervisor Instances"
@@ -1803,7 +1804,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/instances/workflows/create_instance.py:105
 msgid "Image Name"
-msgstr "Nom de l'Image"
+msgstr "Nom de l'image"
 
 #: dashboards/admin/images/views.py:72
 msgid "Unable to retrieve image list."
@@ -1877,7 +1878,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/create.html:3
 #: dashboards/project/images/templates/images/images/create.html:6
 msgid "Create An Image"
-msgstr "Créer une Image"
+msgstr "Créer une image"
 
 #: dashboards/admin/images/templates/images/_create.html:18
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
@@ -1911,7 +1912,7 @@ msgstr "Description :"
 
 #: dashboards/admin/images/templates/images/_create.html:20
 msgid "Specify an image to upload to the Image Service."
-msgstr "Spécifier une image à téléverser vers le Service d'Image."
+msgstr "Spécifier une image à téléverser vers le Service d'image."
 
 #: dashboards/admin/images/templates/images/_create.html:23
 #: dashboards/project/images/templates/images/images/_create.html:23
@@ -1919,7 +1920,7 @@ msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
 "are supported (.zip and .tar.gz.)"
-msgstr "Actuellement, seules les images disponibles via une URL HTTP sont supportées. L'emplacement de l'image doit être accessible par le Service d'Images. Les images compressées sont acceptées (format .zip et .tar.gz)"
+msgstr "Actuellement, seules les images disponibles via une URL HTTP sont supportées. L'emplacement de l'image doit être accessible par le service d'images. Les images compressées sont acceptées (format .zip et .tar.gz)"
 
 #: dashboards/admin/images/templates/images/_create.html:26
 #: dashboards/project/images/templates/images/images/_create.html:27
@@ -1931,13 +1932,13 @@ msgstr "Merci de noter :"
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary."
 " URLs that redirect or serve error pages will result in unusable images."
-msgstr "Le champ Emplacement de l'Image DOIT être une URL valide et pointant directement vers le binaire de l'image. Si l'URL est une redirection ou renvoie une page d'erreur, cela résultera en une image inutilisable. "
+msgstr "Le champ d'emplacement de l'image DOIT être une URL valide et pointant directement vers le binaire de l'image. Si l'URL est une redirection ou renvoie une page d'erreur, cela résultera en une image inutilisable. "
 
 #: dashboards/admin/images/templates/images/_create.html:33
 #: dashboards/project/images/images/tables.py:77
 #: dashboards/project/images/templates/images/images/_create.html:38
 msgid "Create Image"
-msgstr "Créer une Image"
+msgstr "Créer une image"
 
 #: dashboards/admin/images/templates/images/_update.html:9
 #: dashboards/admin/images/templates/images/_update.html:24
@@ -1948,7 +1949,7 @@ msgstr "Créer une Image"
 #: dashboards/project/images/templates/images/images/update.html:3
 #: dashboards/project/images/templates/images/images/update.html:6
 msgid "Update Image"
-msgstr "Mettre à jour une Image"
+msgstr "Mettre à jour une image"
 
 #: dashboards/admin/images/templates/images/_update.html:19
 #: dashboards/project/images/templates/images/images/_update.html:18
@@ -2205,7 +2206,7 @@ msgstr "Règles de Groupe de Sécurité"
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:73
 msgid "Key Pairs"
-msgstr "Paires de Clefs"
+msgstr "Paires de clés"
 
 #: dashboards/admin/info/tables.py:205
 #: dashboards/admin/networks/ports/tables.py:89
@@ -2347,7 +2348,7 @@ msgstr "Instance"
 #: dashboards/admin/instances/tables.py:57
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:23
 msgid "Live Migrate Instance"
-msgstr "Migration Dynamique d'Instance"
+msgstr "Migration dynamique d'instance"
 
 #: dashboards/admin/instances/tables.py:86
 #: dashboards/admin/instances/tables.py:122
@@ -2449,7 +2450,7 @@ msgstr "Ici, vous pouvez migrer dynamiquement une instance vers un hôte spécif
 
 #: dashboards/admin/instances/templates/instances/index.html:6
 msgid "All Instances"
-msgstr "Toutes les Instances"
+msgstr "Toutes les instances"
 
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
@@ -2484,7 +2485,7 @@ msgstr "Rapport journalier"
 #: dashboards/admin/metering/views.py:148
 #: dashboards/admin/overview/views.py:33 usage/tables.py:44
 msgid "Project Name"
-msgstr "Nom de Projet"
+msgstr "Nom de projet"
 
 #: dashboards/admin/metering/views.py:149
 msgid "Time"
@@ -2592,7 +2593,7 @@ msgstr "Rapport d'utilisation"
 
 #: dashboards/admin/metering/templates/metering/report.html:7
 msgid "Daily Usage Report Per Project"
-msgstr "Rapport d'utilisation quotidienne par Projet"
+msgstr "Rapport d'utilisation quotidienne par projet"
 
 #: dashboards/admin/metering/templates/metering/report.html:12
 #: usage/tables.py:25
@@ -3197,12 +3198,12 @@ msgstr "Afficher l'utilisation"
 #: dashboards/admin/projects/workflows.py:344
 #: dashboards/admin/projects/workflows.py:345
 msgid "Create Project"
-msgstr "Créer un Projet"
+msgstr "Créer un projet"
 
 #: dashboards/admin/projects/tables.py:79
 #: dashboards/admin/projects/workflows.py:496
 msgid "Edit Project"
-msgstr "Editer le Projet"
+msgstr "Editer le projet"
 
 #: dashboards/admin/projects/tables.py:90
 msgid "Modify Quotas"
@@ -3229,7 +3230,7 @@ msgstr "Ce nom est déjà pris."
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
 msgid "Project ID"
-msgstr "ID du Projet"
+msgstr "ID du projet"
 
 #: dashboards/admin/projects/views.py:56
 #: dashboards/router/nexus1000v/views.py:44
@@ -3281,7 +3282,7 @@ msgstr "Nom de Domaine"
 #: dashboards/admin/projects/workflows.py:127
 #: dashboards/admin/projects/workflows.py:479
 msgid "Project Info"
-msgstr "Informations du Projet"
+msgstr "Informations du projet"
 
 #: dashboards/admin/projects/workflows.py:128
 msgid "From here you can create a new project to organize users."
@@ -3294,7 +3295,7 @@ msgstr "Impossible de récupérer la liste des utilisateurs. Veuillez réessayer
 #: dashboards/admin/projects/workflows.py:219
 #: dashboards/admin/projects/workflows.py:226
 msgid "Project Members"
-msgstr "Membres du Projet"
+msgstr "Membres du projet"
 
 #: dashboards/admin/projects/workflows.py:225
 msgid "All Users"
@@ -3316,7 +3317,7 @@ msgstr "Impossible de récupérer la liste des utilisateurs."
 #: dashboards/admin/projects/workflows.py:316
 #: dashboards/admin/projects/workflows.py:323
 msgid "Project Groups"
-msgstr "Groupes du Projet"
+msgstr "Groupes du projet"
 
 #: dashboards/admin/projects/workflows.py:346
 #, python-format
@@ -3395,11 +3396,11 @@ msgstr "Les informations et les membres du projet ont bien été modifiés, mais
 
 #: dashboards/admin/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
-msgstr "Aperçu de l'Utilisation du Projet"
+msgstr "Aperçu de l'utilisation du projet"
 
 #: dashboards/admin/projects/templates/projects/usage.html:6
 msgid "Project Usage"
-msgstr "Utilisation du Projet"
+msgstr "Utilisation du projet"
 
 #: dashboards/admin/roles/forms.py:25 dashboards/admin/roles/forms.py:38
 #: dashboards/admin/roles/tables.py:65
@@ -3597,7 +3598,7 @@ msgstr "Confirmer le mot de passe"
 
 #: dashboards/admin/users/forms.py:92 dashboards/admin/users/forms.py:171
 msgid "Primary Project"
-msgstr "Projet Primaire"
+msgstr "Projet primaire"
 
 #: dashboards/admin/users/forms.py:125
 #, python-format
@@ -3886,7 +3887,7 @@ msgstr "Impossible d'allouer une IP flottante."
 #: dashboards/project/access_and_security/floating_ips/tables.py:41
 #: dashboards/project/access_and_security/floating_ips/tables.py:56
 msgid "Allocate IP To Project"
-msgstr "Allouer une adresse IP au Projet"
+msgstr "Allouer une adresse IP au projet"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:54
 #: dashboards/project/access_and_security/keypairs/tables.py:56
@@ -3957,7 +3958,7 @@ msgstr "Sélectionner une adresse IP"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:73
 msgid "No floating IP addresses allocated"
-msgstr "Pas d'adresse IP flottante allouée"
+msgstr "Aucune adresse IP flottante alloué"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:96
 msgid "Select a port"
@@ -4029,7 +4030,7 @@ msgstr "Paire de clés"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:6
 msgid "Import Key Pair"
-msgstr "Importation de la paire de clés"
+msgstr "Importer une paire de clés"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:43
 #: dashboards/project/access_and_security/keypairs/tables.py:58
@@ -4038,7 +4039,7 @@ msgstr "Importation de la paire de clés"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:6
 msgid "Create Key Pair"
-msgstr "Création de la paire de clés"
+msgstr "Créer une paire de clés"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:66
 msgid "Fingerprint"
@@ -4326,7 +4327,7 @@ msgstr "Allouer une IP flottante depuis un pool d'IP."
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:21
 msgid "Project Quotas"
-msgstr "Quotas de Projet"
+msgstr "Quotas de projet"
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:42
 msgid "Allocate IP"
@@ -5280,7 +5281,7 @@ msgstr ""
 #: dashboards/project/instances/forms.py:61
 #: dashboards/project/instances/workflows/create_instance.py:359
 msgid "Select Image"
-msgstr "Sélectionner une Image "
+msgstr "Sélectionner une image "
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:75
 msgid "No images available."
@@ -5928,7 +5929,7 @@ msgstr "Erreur lors de la suppression de la base de données sur l'instance."
 #: dashboards/project/instances/workflows/create_instance.py:673
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
-msgstr "Lancer une Instance"
+msgstr "Lancer une instance"
 
 #: dashboards/project/databases/tables.py:116
 msgid "Resize Volume"
@@ -6013,7 +6014,7 @@ msgstr "Impossible de récupérer les détails pour l'instance %s de base de don
 #: dashboards/project/instances/templates/instances/_detail_overview.html:4
 #: dashboards/project/overview/templates/overview/usage.html:3
 msgid "Instance Overview"
-msgstr "Aperçu de l'Instance"
+msgstr "Aperçu de l'instance"
 
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:41
@@ -6181,7 +6182,7 @@ msgstr "Lancer la Base de Données"
 #: dashboards/project/instances/tables.py:259
 #: dashboards/project/instances/workflows/update_instance.py:133
 msgid "Edit Instance"
-msgstr "Editer l'Instance"
+msgstr "Editer l'instance"
 
 #: dashboards/project/databases/workflows/create_instance.py:32
 #: dashboards/project/instances/workflows/create_instance.py:84
@@ -6823,19 +6824,19 @@ msgstr "Impossible de récupérer les images."
 
 #: dashboards/project/images/images/forms.py:47
 msgid "Image Source"
-msgstr "Source de l'Image"
+msgstr "Source de l'image"
 
 #: dashboards/project/images/images/forms.py:49
 #: dashboards/project/images/images/forms.py:56
 #: dashboards/project/images/images/forms.py:62
 msgid "Image Location"
-msgstr "Emplacement de l'Image"
+msgstr "Emplacement de l'image"
 
 #: dashboards/project/images/images/forms.py:50
 #: dashboards/project/images/images/forms.py:64
 #: dashboards/project/images/images/forms.py:69
 msgid "Image File"
-msgstr "Fichier Image"
+msgstr "Fichier image"
 
 #: dashboards/project/images/images/forms.py:57
 msgid "An external (HTTP) URL to load the image from."
@@ -6970,7 +6971,7 @@ msgstr ""
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:3
 msgid "Image Overview"
-msgstr "Aperçu de l'Image"
+msgstr "Aperçu de l'image"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:18
 #: dashboards/project/images/templates/images/images/_detail_overview.html:29
@@ -7179,7 +7180,7 @@ msgstr "Voir le journal"
 #: dashboards/project/instances/tables.py:361
 #: dashboards/project/instances/workflows/resize_instance.py:91
 msgid "Resize Instance"
-msgstr "Redimensionner une Instance"
+msgstr "Redimensionner une instance"
 
 #: dashboards/project/instances/tables.py:388
 msgid "Confirm Resize/Migrate"
@@ -7200,7 +7201,7 @@ msgstr "Reconstruire l'instance"
 
 #: dashboards/project/instances/tables.py:449
 msgid "Retrieve Password"
-msgstr "Récupérer le Mot de passe"
+msgstr "Récupérer le mot de passe"
 
 #: dashboards/project/instances/tables.py:472
 #: dashboards/project/instances/tables.py:499
@@ -7537,7 +7538,7 @@ msgstr "Impossible de récupérer les types d'instance."
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
 #: dashboards/project/instances/templates/instances/decryptpassword.html:6
 msgid "Retrieve Instance Password"
-msgstr "Récupérer le Mot de passe de l'Instance"
+msgstr "Récupérer le mot de passe de l'instance"
 
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:21
 msgid ""
@@ -7563,7 +7564,7 @@ msgstr "Décrypter le Mot de passe"
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:4
 msgid "Instance Console"
-msgstr "Console de l'Instance"
+msgstr "Console de l'instance"
 
 #: dashboards/project/instances/templates/instances/_detail_console.html:6
 msgid ""
@@ -7676,7 +7677,7 @@ msgstr "Aucun volume attaché."
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:6
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:8
 msgid "Flavor Details"
-msgstr "Détails du Type d'Instance"
+msgstr "Détails du type d'instance"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
 msgid "Total Disk"
@@ -7688,11 +7689,11 @@ msgstr "Mo"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:19
 msgid "Project Limits"
-msgstr "Limites du Projet"
+msgstr "Limites du projet"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:21
 msgid "Number of Instances"
-msgstr "Nombre d'Instances"
+msgstr "Nombre d'instances"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:22
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:29
@@ -7778,11 +7779,11 @@ msgstr "Détails de l'instance:"
 
 #: dashboards/project/instances/workflows/create_instance.py:65
 msgid "Project & User"
-msgstr "Projet & Utilisateur"
+msgstr "Projet & utilisateur"
 
 #: dashboards/project/instances/workflows/create_instance.py:86
 msgid "Instance Count"
-msgstr "Nombre d'Instances"
+msgstr "Nombre d'instances"
 
 #: dashboards/project/instances/workflows/create_instance.py:89
 msgid "Number of instances to launch."
@@ -7798,7 +7799,7 @@ msgstr "Choisisse votre type de source de démarrage."
 
 #: dashboards/project/instances/workflows/create_instance.py:96
 msgid "Instance Snapshot"
-msgstr "Instantané d'Instance"
+msgstr "Instantané d'instance"
 
 #: dashboards/project/instances/workflows/create_instance.py:101
 #: dashboards/project/volumes/snapshots/tables.py:44
@@ -7940,7 +7941,7 @@ msgstr "%(name)s - %(size)s Go (%(label)s)"
 
 #: dashboards/project/instances/workflows/create_instance.py:373
 msgid "Select Instance Snapshot"
-msgstr "Sélectionner un Instantané d'Instance"
+msgstr "Sélectionner un Instantané d'instance"
 
 #: dashboards/project/instances/workflows/create_instance.py:375
 msgid "No snapshots available"
@@ -8048,11 +8049,11 @@ msgstr "Port non créé pour le profile-id (%s)."
 
 #: dashboards/project/instances/workflows/resize_instance.py:35
 msgid "Old Flavor"
-msgstr "Ancien Type d'Instance"
+msgstr "Ancien type d'instance"
 
 #: dashboards/project/instances/workflows/resize_instance.py:40
 msgid "New Flavor"
-msgstr "Nouveau Type d'Instance"
+msgstr "Nouveau type d'instance"
 
 #: dashboards/project/instances/workflows/resize_instance.py:42
 msgid "Choose the flavor to launch."
@@ -8068,7 +8069,7 @@ msgstr "Merci de choisir un type d'instance différent du précédent."
 
 #: dashboards/project/instances/workflows/resize_instance.py:64
 msgid "Select a New Flavor"
-msgstr "Sélectionner un nouveau Type d'Instance"
+msgstr "Sélectionner un nouveau type d'instance"
 
 #: dashboards/project/instances/workflows/resize_instance.py:66
 msgid "No flavors available"
@@ -8884,7 +8885,7 @@ msgstr "Vous pouvez mettre à jour les attributs du moniteur de santé ici:  éd
 msgid ""
 "You may update pool for current tenant here: edit name, description, load "
 "balancing method or admin state."
-msgstr "Vous pouvez mettre à jour le pool pour le tenant en cours ici : éditer le nom, la description, la méthode de loadbalancing ou l'état d'administration."
+msgstr "Vous pouvez mettre à jour le pool pour le projet en cours ici : éditer le nom, la description, la méthode de loadbalancing ou l'état d'administration."
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:18
 msgid ""
@@ -9051,7 +9052,7 @@ msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
-msgstr ""
+msgstr "Routes additionnelles annoncées à l'hôte. Chaque entrée est de la forme cidr_déstination,saut_suivant (e.x.: 192.168.200.0/24,10.56.1.254) et une entrée par ligne."
 
 #: dashboards/project/networks/workflows.py:191
 #: dashboards/project/networks/subnets/workflows.py:139
@@ -9220,7 +9221,7 @@ msgstr "Réseau fournisseur"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
 msgid "Network Type"
-msgstr "Type de Réseau"
+msgstr "Type de réseau"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:24
 #: dashboards/router/nexus1000v/forms.py:115
@@ -9239,7 +9240,7 @@ msgstr "Détail du réseau:"
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
 msgid "Port Overview"
-msgstr "Aperçu du  Port"
+msgstr "Aperçu du  port"
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
 msgid "Fixed IP"
@@ -9252,7 +9253,7 @@ msgstr "Adresse IP :"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:24
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
 msgid "Subnet ID"
-msgstr "ID du Sous-Réseau"
+msgstr "ID du sous-réseau"
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:30
 msgid "Mac Address"
@@ -9265,7 +9266,7 @@ msgstr "Détail du Port"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
-msgstr "Aperçu du Sous-Réseau"
+msgstr "Aperçu du sous-réseau"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
 msgid "IP version"
@@ -9322,7 +9323,7 @@ msgstr "Le routeur %s a été créé avec succès."
 
 #: dashboards/project/routers/forms.py:49
 msgid "Quota exceeded for resource router."
-msgstr "Quota dépassé pour la ressource routeur"
+msgstr "Quota dépassé pour le router de la ressource."
 
 #: dashboards/project/routers/forms.py:51
 #, python-format
@@ -10158,7 +10159,7 @@ msgstr "Gérer les attachements de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:14
 msgid "Attach To Instance"
-msgstr "Attacher à l'Instance"
+msgstr "Attacher à l'instance"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:23
 msgid "Attach Volume"
