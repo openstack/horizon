@@ -36,8 +36,7 @@ class UploadFileForm(forms.SelfHandlingForm,
         sahara = saharaclient.client(request)
         self._generate_plugin_version_fields(sahara)
 
-        self.fields['template_file'] = forms.FileField(label=_("Template"),
-                                                       required=True)
+        self.fields['template_file'] = forms.FileField(label=_("Template"))
 
     def handle(self, request, data):
         try:
