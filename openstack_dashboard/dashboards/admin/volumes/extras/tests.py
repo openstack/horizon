@@ -89,20 +89,25 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(resp,
                                 'admin/volumes/extras/create.html')
 
-    @test.create_stubs({api.cinder: ('volume_type_extra_set', ), })
+    @test.create_stubs({api.cinder: ('volume_type_extra_get',
+                                     'volume_type_extra_set',), })
     def test_extra_edit(self):
         vol_type = self.cinder_volume_types.first()
         key = 'foo'
         edit_url = reverse('horizon:admin:volumes:extras:edit',
-                             args=[vol_type.id, key])
+                           args=[vol_type.id, key])
         index_url = reverse('horizon:admin:volumes:extras:index',
                             args=[vol_type.id])
 
         data = {'value': u'v1'}
+        extras = {key: data['value']}
 
+        api.cinder.volume_type_extra_get(IsA(http.HttpRequest),
+                                         vol_type.id,
+                                         raw=True).AndReturn(extras)
         api.cinder.volume_type_extra_set(IsA(http.HttpRequest),
                                          vol_type.id,
-                                         {key: data['value']})
+                                         extras)
         self.mox.ReplayAll()
 
         resp = self.client.post(edit_url, data)
