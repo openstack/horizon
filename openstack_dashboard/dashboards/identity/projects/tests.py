@@ -749,6 +749,10 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         return [group for group in self.groups.list()
                 if group.project_id == project_id]
 
+    def _get_proj_role_assignment(self, project_id):
+        project_scope = {'project': {'id': project_id}}
+        return self.role_assignments.filter(scope=project_scope)
+
     @test.create_stubs({api.keystone: ('get_default_role',
                                        'roles_for_user',
                                        'tenant_get',
@@ -771,7 +775,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
         proj_users = self._get_proj_users(project.id)
-        role_assignments = self.role_assignments.list()
+        role_assignments = self._get_proj_role_assignment(project.id)
 
         api.keystone.tenant_get(IsA(http.HttpRequest),
                                 self.tenant.id, admin=True) \
@@ -868,7 +872,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         proj_groups = self._get_proj_groups(project.id)
         roles = self.roles.list()
-        role_assignments = self.role_assignments.list()
+        role_assignments = self._get_proj_role_assignment(project.id)
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest),
@@ -1235,7 +1239,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         groups = self._get_all_groups(domain_id)
         proj_groups = self._get_proj_groups(project.id)
         roles = self.roles.list()
-        role_assignments = self.role_assignments.list()
+        role_assignments = self._get_proj_role_assignment(project.id)
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,
@@ -1408,7 +1412,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
-        role_assignments = self.role_assignments.list()
+        role_assignments = self._get_proj_role_assignment(project.id)
 
         # get/init
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id,

@@ -20,3 +20,4 @@ DOMAINS_INDEX_VIEW_TEMPLATE = 'identity/domains/index.html'
 DOMAINS_CREATE_URL = 'horizon:identity:domains:create'
 DOMAINS_UPDATE_URL = 'horizon:identity:domains:update'
 DOMAIN_GROUP_MEMBER_SLUG = "update_group_members"
+DOMAIN_USER_MEMBER_SLUG = "update_user_members"

@@ -32,6 +32,22 @@ from openstack_dashboard.dashboards.identity.domains import constants
 LOG = logging.getLogger(__name__)
 
 
+class ViewUsersLink(tables.LinkAction):
+    name = "users"
+    verbose_name = _("Modify Users")
+    url = "horizon:identity:domains:update"
+    classes = ("ajax-modal",)
+    policy_rules = (("identity", "identity:list_users"),
+                    ("identity", "identity:list_roles"),
+                    ("identity", "identity:list_role_assignments"))
+
+    def get_link_url(self, domain):
+        step = 'update_user_members'
+        base_url = reverse(self.url, args=[domain.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
+
+
 class ViewGroupsLink(tables.LinkAction):
     name = "groups"
     verbose_name = _("Modify Groups")
@@ -173,7 +189,7 @@ class DomainsTable(tables.DataTable):
     class Meta:
         name = "domains"
         verbose_name = _("Domains")
-        row_actions = (SetDomainContext, ViewGroupsLink, EditDomainLink,
-                       DeleteDomainsAction)
+        row_actions = (SetDomainContext, ViewUsersLink, ViewGroupsLink,
+                       EditDomainLink, DeleteDomainsAction)
         table_actions = (DomainFilterAction, CreateDomainLink,
                          DeleteDomainsAction, UnsetDomainContext)
