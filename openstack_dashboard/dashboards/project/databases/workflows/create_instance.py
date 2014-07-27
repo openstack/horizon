@@ -118,7 +118,6 @@ class SetInstanceDetails(workflows.Step):
 
 class SetNetworkAction(workflows.Action):
     network = forms.MultipleChoiceField(label=_("Networks"),
-                                        required=True,
                                         widget=forms.CheckboxSelectMultiple(),
                                         error_messages={
                                             'required': _(

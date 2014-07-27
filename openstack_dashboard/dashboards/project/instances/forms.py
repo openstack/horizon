@@ -143,12 +143,10 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
                 self.fields['encrypted_password'].initial = result
                 self.fields['private_key_file'] = forms.FileField(
                     label=_('Private Key File'),
-                    widget=forms.FileInput(),
-                    required=True)
+                    widget=forms.FileInput())
                 self.fields['private_key'] = forms.CharField(
                     widget=forms.widgets.Textarea(),
-                    label=_("OR Copy/Paste your Private Key"),
-                    required=True)
+                    label=_("OR Copy/Paste your Private Key"))
                 _attrs = {'readonly': 'readonly'}
                 self.fields['decrypted_password'] = forms.CharField(
                     widget=forms.widgets.TextInput(_attrs),

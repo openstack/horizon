@@ -174,8 +174,7 @@ class SelectRulesStep(workflows.Step):
 
 class AddPolicyAction(workflows.Action):
     name = forms.CharField(max_length=80,
-                           label=_("Name"),
-                           required=True)
+                           label=_("Name"))
     description = forms.CharField(max_length=80,
                                   label=_("Description"),
                                   required=False)
@@ -237,8 +236,7 @@ class AddFirewallAction(workflows.Action):
     description = forms.CharField(max_length=80,
                                   label=_("Description"),
                                   required=False)
-    firewall_policy_id = forms.ChoiceField(label=_("Policy"),
-                                           required=True)
+    firewall_policy_id = forms.ChoiceField(label=_("Policy"))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False,
                                 required=False)

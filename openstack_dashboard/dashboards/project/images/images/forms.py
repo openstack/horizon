@@ -37,7 +37,7 @@ IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
 
 
 class CreateImageForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label=_("Name"), required=True)
+    name = forms.CharField(max_length="255", label=_("Name"))
     description = forms.CharField(widget=forms.widgets.Textarea(
         attrs={'class': 'modal-body-fixed-width'}),
         label=_("Description"),
@@ -69,7 +69,6 @@ class CreateImageForm(forms.SelfHandlingForm):
                                      'data-source-file': _('Image File')}),
                                  required=False)
     disk_format = forms.ChoiceField(label=_('Format'),
-                                    required=True,
                                     choices=[],
                                     widget=forms.Select(attrs={'class':
                                                                'switchable'}))

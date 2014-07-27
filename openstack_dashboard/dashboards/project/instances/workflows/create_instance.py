@@ -89,7 +89,6 @@ class SetInstanceDetailsAction(workflows.Action):
                                help_text=_("Number of instances to launch."))
 
     source_type = forms.ChoiceField(label=_("Instance Boot Source"),
-                                    required=True,
                                     help_text=_("Choose Your Boot Source "
                                                 "Type."))
 
@@ -461,7 +460,6 @@ class SetAccessControlsAction(workflows.Action):
         required=False,
         widget=forms.PasswordInput(render_value=False))
     groups = forms.MultipleChoiceField(label=_("Security Groups"),
-                                       required=True,
                                        initial=["default"],
                                        widget=forms.CheckboxSelectMultiple(),
                                        help_text=_("Launch instance in these "
@@ -553,7 +551,6 @@ class PostCreationStep(workflows.Step):
 
 class SetNetworkAction(workflows.Action):
     network = forms.MultipleChoiceField(label=_("Networks"),
-                                        required=True,
                                         widget=forms.CheckboxSelectMultiple(),
                                         error_messages={
                                             'required': _(
