@@ -55,7 +55,8 @@ class CreatePort(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Port")
     url = "horizon:admin:networks:addport"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_port"),)
 
     def get_link_url(self, datum=None):
@@ -67,7 +68,8 @@ class UpdatePort(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Port")
     url = "horizon:admin:networks:editport"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("network", "update_port"),)
 
     def get_policy_target(self, request, datum=None):

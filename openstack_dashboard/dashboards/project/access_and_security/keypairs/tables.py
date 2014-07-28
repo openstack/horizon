@@ -34,7 +34,8 @@ class ImportKeyPair(tables.LinkAction):
     name = "import"
     verbose_name = _("Import Key Pair")
     url = "horizon:project:access_and_security:keypairs:import"
-    classes = ("ajax-modal", "btn-upload")
+    classes = ("ajax-modal",)
+    icon = "upload"
     policy_rules = (("compute", "compute_extension:keypairs:create"),)
 
 
@@ -42,7 +43,8 @@ class CreateKeyPair(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Key Pair")
     url = "horizon:project:access_and_security:keypairs:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("compute", "compute_extension:keypairs:create"),)
 
     def allowed(self, request, keypair=None):

@@ -39,7 +39,8 @@ POLICY_CHECK = getattr(settings, "POLICY_CHECK_FUNCTION", lambda p, r: True)
 class AllocateIP(tables.LinkAction):
     name = "allocate"
     verbose_name = _("Allocate IP To Project")
-    classes = ("ajax-modal", "btn-allocate")
+    classes = ("ajax-modal",)
+    icon = "download-alt"
     url = "horizon:project:access_and_security:floating_ips:allocate"
 
     def single(self, data_table, request, *args):
@@ -72,7 +73,8 @@ class ReleaseIPs(tables.BatchAction):
     action_past = _("Released")
     data_type_singular = _("Floating IP")
     data_type_plural = _("Floating IPs")
-    classes = ('btn-danger', 'btn-release')
+    classes = ('btn-danger',)
+    icon = "arrow-up"
 
     def allowed(self, request, fip=None):
         if api.base.is_service_enabled(request, "network"):
@@ -91,7 +93,8 @@ class AssociateIP(tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate")
     url = "horizon:project:access_and_security:floating_ips:associate"
-    classes = ("ajax-modal", "btn-associate")
+    classes = ("ajax-modal",)
+    icon = "link"
 
     def allowed(self, request, fip):
         if api.base.is_service_enabled(request, "network"):

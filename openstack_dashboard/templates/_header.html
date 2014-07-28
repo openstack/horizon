@@ -8,7 +8,7 @@
     {% if num_of_tenants > 1 %}
       <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
     {% endif %}
-    <h3>{{ request.user.project_name }}</h3>
+    <div>{{ request.user.project_name }}</div>
     {% if num_of_tenants > 1 %}
       </a>
     {% endif %}
@@ -30,7 +30,7 @@
   {% if num_of_regions > 1 %}
     <div id="services_region_switcher" class="dropdown switcher_bar" tabindex="1">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#services_region_switcher">
-        <h3>{{ request.user.services_region }}</h3>
+        <div>{{ request.user.services_region }}</div>
       </a>
 
       <ul id="services_regions_list" class="dropdown-menu">

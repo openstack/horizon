@@ -54,7 +54,7 @@ horizon.modals.modal_spinner = function (text) {
   horizon.modals.spinner = $(template.render({text: text}));
   horizon.modals.spinner.appendTo("#modal_wrapper");
   horizon.modals.spinner.modal({backdrop: 'static'});
-  horizon.modals.spinner.spin(horizon.conf.spinner_options.modal);
+  horizon.modals.spinner.find(".modal-body").spin(horizon.conf.spinner_options.modal);
 };
 
 horizon.modals.init_wizard = function () {
@@ -69,11 +69,11 @@ horizon.modals.init_wizard = function () {
     }
 
     // Clear old errors.
-    $form.find('td.actions div.alert-error').remove();
-    $form.find('.control-group.error').each(function () {
+    $form.find('td.actions div.alert-danger').remove();
+    $form.find('.form-group.error').each(function () {
       var $group = $(this);
       $group.removeClass('error');
-      $group.find('span.help-inline.error').remove();
+      $group.find('span.help-block.error').remove();
     });
 
     // Send the data for validation.
@@ -103,7 +103,7 @@ horizon.modals.init_wizard = function () {
             // Add global errors.
             $.each(errors, function (index, error) {
               $fieldset.find('td.actions').prepend(
-                '<div class="alert alert-message alert-error">' +
+                '<div class="alert alert-message alert-danger">' +
                 error + '</div>');
             });
             $fieldset.find('input,  select, textarea').first().focus();
@@ -111,10 +111,10 @@ horizon.modals.init_wizard = function () {
           }
           // Add field errors.
           $field = $fieldset.find('[name="' + field + '"]');
-          $field.closest('.control-group').addClass('error');
+          $field.closest('.form-group').addClass('error');
           $.each(errors, function (index, error) {
             $field.before(
-              '<span class="help-inline error">' +
+              '<span class="help-block error">' +
               error + '</span>');
           });
           // Focus the first invalid field.
@@ -235,14 +235,14 @@ horizon.addInitFunction(function() {
           location.href = jqXHR.getResponseHeader("X-Horizon-Location");
         } else {
           $form.closest(".modal").modal("hide");
-          horizon.alert("error", gettext("There was an error submitting the form. Please try again."));
+          horizon.alert("danger", gettext("There was an error submitting the form. Please try again."));
         }
       }
     });
   });
 
   // Position modal so it's in-view even when scrolled down.
-  $(document).on('show', '.modal', function (evt) {
+  $(document).on('show.bs.modal', '.modal', function (evt) {
     // Filter out indirect triggers of "show" from (for example) tabs.
     if ($(evt.target).hasClass("modal")) {
       var scrollShift = $('body').scrollTop() || $('html').scrollTop(),
@@ -297,7 +297,7 @@ horizon.addInitFunction(function() {
         else {
           if (!horizon.ajax.get_messages(jqXHR)) {
             // Generic error handler. Really generic.
-            horizon.alert("error", gettext("An error occurred. Please try again later."));
+            horizon.alert("danger", gettext("An error occurred. Please try again later."));
           }
         }
       },
@@ -321,7 +321,7 @@ horizon.addInitFunction(function() {
   /* Manage the modal "stack" */
 
   // When a new modal is opened, hide any that are already in the stack.
-  $(document).on("show", ".modal", function () {
+  $(document).on("show.bs.modal", ".modal", function () {
     var container = $("#modal_wrapper"),
       modal_stack = container.find(".modal"),
       $this = $(this);
@@ -334,7 +334,7 @@ horizon.addInitFunction(function() {
   // Note: the modal should only be removed if it is the "top" of the stack of
   // modals, e.g. it's the one currently being interacted with and isn't just
   // temporarily being hidden.
-  $(document).on('hidden', '.modal', function () {
+  $(document).on('hidden.bs.modal', '.modal', function () {
     var $this = $(this),
       modal_stack = $("#modal_wrapper .modal");
     if ($this[0] === modal_stack.last()[0] || $this.hasClass("loading")) {

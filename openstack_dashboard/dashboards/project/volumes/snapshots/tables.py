@@ -62,7 +62,8 @@ class EditVolumeSnapshot(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Snapshot")
     url = "horizon:project:volumes:snapshots:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("volume", "volume:update_snapshot"),)
 
     def get_policy_target(self, request, datum=None):
@@ -81,7 +82,8 @@ class CreateVolumeFromSnapshot(tables.LinkAction):
     name = "create_from_snapshot"
     verbose_name = _("Create Volume")
     url = "horizon:project:volumes:volumes:create"
-    classes = ("ajax-modal", "btn-camera")
+    classes = ("ajax-modal",)
+    icon = "camera"
     policy_rules = (("volume", "volume:create"),)
 
     def get_link_url(self, datum):

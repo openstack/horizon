@@ -22,5 +22,5 @@
 
 {% block modal-footer %}
     <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
-    {% if hide %}<a href="{% url 'horizon:settings:user:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+    {% if hide %}<a href="{% url 'horizon:settings:user:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}

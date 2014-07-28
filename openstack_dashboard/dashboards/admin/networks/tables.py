@@ -54,7 +54,8 @@ class CreateNetwork(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Network")
     url = "horizon:admin:networks:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_network"),)
 
 
@@ -62,7 +63,8 @@ class EditNetwork(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Network")
     url = "horizon:admin:networks:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("network", "update_network"),)
 
     def get_policy_target(self, request, datum=None):

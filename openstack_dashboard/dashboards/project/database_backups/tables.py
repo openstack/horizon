@@ -36,14 +36,16 @@ class LaunchLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Backup")
     url = "horizon:project:database_backups:create"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal", "btn-launch")
+    icon = "cloud-upload"
 
 
 class RestoreLink(tables.LinkAction):
     name = "restore"
     verbose_name = _("Restore Backup")
     url = "horizon:project:databases:launch"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "cloud-upload"
 
     def allowed(self, request, backup=None):
         return backup.status == 'COMPLETED'
@@ -77,7 +79,8 @@ class DeleteBackup(tables.BatchAction):
     action_past = _("Scheduled deletion of %(data_type)s")
     data_type_singular = _("Backup")
     data_type_plural = _("Backups")
-    classes = ('btn-danger', 'btn-terminate')
+    classes = ("ajax-modal",)
+    icon = "remove"
 
     def action(self, request, obj_id):
         api.trove.backup_delete(request, obj_id)

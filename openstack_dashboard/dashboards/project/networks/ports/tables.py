@@ -40,7 +40,8 @@ class UpdatePort(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Port")
     url = "horizon:project:networks:editport"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("network", "update_port"),)
 
     def get_policy_target(self, request, datum=None):

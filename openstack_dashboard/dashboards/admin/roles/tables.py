@@ -23,7 +23,8 @@ class CreateRoleLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Role")
     url = "horizon:admin:roles:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("identity", "identity:create_role"),)
 
     def allowed(self, request, role):
@@ -34,7 +35,8 @@ class EditRoleLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:admin:roles:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("identity", "identity:update_role"),)
 
     def allowed(self, request, role):

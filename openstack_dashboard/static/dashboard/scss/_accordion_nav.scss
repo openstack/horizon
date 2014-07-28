@@ -18,10 +18,11 @@ $accordionBorderColor: #e5e5e5;
       padding: 10px 0 10px 0;
       line-height: 16px;
       margin-top: 0;
+      margin-bottom: 0;
       color: #6e6e6e;
       font-weight: bold;
       text-rendering: optimizelegibility;
-      max-width: 193px;
+      max-width: 217px;
       padding-right: 16px;
       cursor: pointer;
       div {
@@ -49,10 +50,11 @@ $accordionBorderColor: #e5e5e5;
     ul {
       list-style: none outside none;
       margin: 10px 0 0;
+      padding: 0;
       width: 222px; }
     li {
       a {
-        width: 185px;
+        width: 209px;
         padding: 10px;
         display: block;
         line-height: 18px;
@@ -70,6 +72,7 @@ $accordionBorderColor: #e5e5e5;
         margin-bottom: 8px; } } }
   dd {
     padding: 0;
+    margin-left: 9px;
     font-size: 12px; }
   dt {
     border-top: 1px solid #bbbbbb;
@@ -78,7 +81,7 @@ $accordionBorderColor: #e5e5e5;
     background-position: 96% center;
     background-image: url("/static/dashboard/img/right_droparrow.png");
     padding-right: 16px;
-    max-width: 217px;
+    max-width: 231px;
     cursor: pointer;
     div {
       color: #6e6e6e;

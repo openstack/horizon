@@ -28,14 +28,16 @@ class AddPoolLink(tables.LinkAction):
     name = "addpool"
     verbose_name = _("Add Pool")
     url = "horizon:project:loadbalancers:addpool"
-    classes = ("ajax-modal", "btn-create",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_pool"),)
 
 
 class AddVipLink(tables.LinkAction):
     name = "addvip"
     verbose_name = _("Add VIP")
-    classes = ("ajax-modal", "btn-create",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_vip"),)
 
     def get_link_url(self, pool):
@@ -53,7 +55,8 @@ class AddMemberLink(tables.LinkAction):
     name = "addmember"
     verbose_name = _("Add Member")
     url = "horizon:project:loadbalancers:addmember"
-    classes = ("ajax-modal", "btn-create",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_member"),)
 
 
@@ -61,7 +64,8 @@ class AddMonitorLink(tables.LinkAction):
     name = "addmonitor"
     verbose_name = _("Add Monitor")
     url = "horizon:project:loadbalancers:addmonitor"
-    classes = ("ajax-modal", "btn-create",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_health_monitor"),)
 
 
@@ -176,7 +180,8 @@ class AddPMAssociationLink(tables.LinkAction):
     name = "addassociation"
     verbose_name = _("Associate Monitor")
     url = "horizon:project:loadbalancers:addassociation"
-    classes = ("ajax-modal", "btn-create",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_pool_health_monitor"),)
 
     def allowed(self, request, datum=None):
@@ -197,7 +202,8 @@ class DeletePMAssociationLink(tables.LinkAction):
     name = "deleteassociation"
     verbose_name = _("Disassociate Monitor")
     url = "horizon:project:loadbalancers:deleteassociation"
-    classes = ("ajax-modal", "btn-delete", "btn-danger")
+    classes = ("ajax-modal", "btn-danger")
+    icon = "remove"
     policy_rules = (("network", "delete_pool_health_monitor"),)
 
     def allowed(self, request, datum=None):

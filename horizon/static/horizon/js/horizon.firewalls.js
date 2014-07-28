@@ -122,8 +122,8 @@ horizon.firewalls = {
       }
       updateForm();
     });
-    if ($("#ruleListId > div.control-group.error").length > 0) {
-      var errortext = $("#ruleListId > div.control-group.error").find("span.help-inline").text();
+    if ($("#ruleListId > div.form-group.error").length > 0) {
+      var errortext = $("#ruleListId > div.form-group.error").find("span.help-block").text();
       $("#selected_rule_h4").before($('<div class="dynamic-error">').html(errortext));
     }
     $(".rulelist").sortable({

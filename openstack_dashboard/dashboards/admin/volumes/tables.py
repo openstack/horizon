@@ -22,7 +22,8 @@ class CreateVolumeType(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Volume Type")
     url = "horizon:admin:volumes:create_type"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
 

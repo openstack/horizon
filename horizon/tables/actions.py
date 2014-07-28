@@ -36,7 +36,7 @@ from horizon.utils import html
 LOG = logging.getLogger(__name__)
 
 # For Bootstrap integration; can be overridden in settings.
-ACTION_CSS_CLASSES = ("btn", "btn-small")
+ACTION_CSS_CLASSES = ("btn", "btn-default", "btn-sm")
 STRING_SEPARATOR = "__"
 
 
@@ -147,7 +147,7 @@ class BaseAction(html.HTMLElement):
 
     def get_default_classes(self):
         """Returns a list of the default classes for the action. Defaults to
-        ``["btn", "btn-small"]``.
+        ``["btn", "btn-default", "btn-sm"]``.
         """
         return getattr(settings, "ACTION_CSS_CLASSES", ACTION_CSS_CLASSES)
 
@@ -263,6 +263,7 @@ class Action(BaseAction):
         self.verbose_name_plural = kwargs.get('verbose_name_plural',
             "%ss" % self.verbose_name)
         self.allowed_data_types = kwargs.get('allowed_data_types', [])
+        self.icon = kwargs.get('icon', None)
 
         if attrs:
             self.attrs.update(attrs)
@@ -347,6 +348,7 @@ class LinkAction(BaseAction):
         self.verbose_name = kwargs.get('verbose_name', self.name.title())
         self.url = kwargs.get('url', None)
         self.allowed_data_types = kwargs.get('allowed_data_types', [])
+        self.icon = kwargs.get('icon', None)
 
         if not kwargs.get('verbose_name', None):
             raise NotImplementedError('A LinkAction object must have a '
@@ -443,6 +445,7 @@ class FilterAction(BaseAction):
         self.filter_type = kwargs.get('filter_type', "query")
         self.needs_preloading = kwargs.get('needs_preloading', False)
         self.param_name = kwargs.get('param_name', 'q')
+        self.icon = "search"
 
     def get_param_name(self):
         """Returns the full query parameter name for this action.
@@ -451,11 +454,6 @@ class FilterAction(BaseAction):
         ``{{ table.name }}__{{ action.name }}__{{ action.param_name }}``.
         """
         return "__".join([self.table.name, self.name, self.param_name])
-
-    def get_default_classes(self):
-        classes = super(FilterAction, self).get_default_classes()
-        classes += ("btn-search",)
-        return classes
 
     def assign_type_string(self, table, data, type_string):
         for datum in data:
@@ -722,6 +720,7 @@ class DeleteAction(BatchAction):
         self.name = kwargs.get('name', self.name)
         self.action_present = kwargs.get('action_present', _("Delete"))
         self.action_past = kwargs.get('action_past', _("Deleted"))
+        self.icon = "remove"
 
     def action(self, request, obj_id):
         return self.delete(request, obj_id)
@@ -731,7 +730,7 @@ class DeleteAction(BatchAction):
 
     def get_default_classes(self):
         classes = super(DeleteAction, self).get_default_classes()
-        classes += ("btn-danger", "btn-delete")
+        classes += ("btn-danger",)
         return classes
 
 

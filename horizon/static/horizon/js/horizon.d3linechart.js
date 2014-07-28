@@ -127,11 +127,11 @@
   <form class="form-horizontal"
     id="linechart_general_form">
 
-    <div class="control-group">
-      <label for="meter" class="control-label">{% trans "Metric" %}:&nbsp;</label>
-      <div class="controls">
+    <div class="form-group">
+      <label for="meter" class="control-label col-sm-2">{% trans "Metric" %}:&nbsp;</label>
+      <div class="col-sm-10">
         <select data-line-chart-command="select_box_change"
-          name="meter" id="meter" class="span2 example">
+          name="meter" id="meter" class="col-sm-w form-control example">
           {% for meter in meters %}
             <option value="{{ meter }}" data-unit="{{ meter }}">
               {{ meter }}
@@ -149,11 +149,11 @@
   Example:
   <form class="form-horizontal"
     id="linechart_general_form">
-    <div class="control-group" id="date_from">
-      <label for="date_from" class="control-label">{% trans "From" %}:&nbsp;</label>
-      <div class="controls">
+    <div class="form-group" id="date_from">
+      <label for="date_from" class="control-label col-sm-2">{% trans "From" %}:&nbsp;</label>
+      <div class="col-sm-10">
         <input data-line-chart-command="date_picker_change"
-          type="text" id="date_from" name="date_from" class="span2 example"/>
+          type="text" id="date_from" name="date_from" class="form-control example"/>
       </div>
     </div>
   </form>

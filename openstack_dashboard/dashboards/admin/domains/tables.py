@@ -36,7 +36,8 @@ class ViewGroupsLink(tables.LinkAction):
     name = "groups"
     verbose_name = _("Modify Groups")
     url = "horizon:admin:domains:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
     def get_link_url(self, domain):
         step = 'update_group_members'
@@ -49,7 +50,8 @@ class CreateDomainLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Domain")
     url = constants.DOMAINS_CREATE_URL
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (('identity', 'identity:create_domain'),)
 
     def allowed(self, request, domain):
@@ -60,7 +62,8 @@ class EditDomainLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = constants.DOMAINS_UPDATE_URL
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (('identity', 'identity:update_domain'),)
 
     def allowed(self, request, domain):

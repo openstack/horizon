@@ -27,7 +27,8 @@ class CreateUserLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create User")
     url = "horizon:admin:users:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (('identity', 'identity:create_grant'),
                     ("identity", "identity:create_user"),
                     ("identity", "identity:list_roles"),
@@ -41,7 +42,8 @@ class EditUserLink(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:admin:users:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("identity", "identity:update_user"),
                     ("identity", "identity:list_projects"),)
 

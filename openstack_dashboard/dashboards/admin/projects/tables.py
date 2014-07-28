@@ -28,7 +28,8 @@ class ViewMembersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
     url = "horizon:admin:projects:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("identity", "identity:list_users"),
                     ("identity", "identity:list_roles"))
 
@@ -43,7 +44,8 @@ class ViewGroupsLink(tables.LinkAction):
     name = "groups"
     verbose_name = _("Modify Groups")
     url = "horizon:admin:projects:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
     def allowed(self, request, project):
         return keystone.VERSIONS.active >= 3
@@ -59,7 +61,7 @@ class UsageLink(tables.LinkAction):
     name = "usage"
     verbose_name = _("View Usage")
     url = "horizon:admin:projects:usage"
-    classes = ("btn-stats",)
+    icon = "stats"
     policy_rules = (("compute", "compute_extension:simple_tenant_usage:show"),)
 
 
@@ -78,7 +80,8 @@ class UpdateProject(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Project")
     url = "horizon:admin:projects:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (('identity', 'identity:update_project'),)
 
     def allowed(self, request, project):
@@ -89,7 +92,8 @@ class ModifyQuotas(tables.LinkAction):
     name = "quotas"
     verbose_name = _("Modify Quotas")
     url = "horizon:admin:projects:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (('compute', "compute_extension:quotas:update"),)
 
     def get_link_url(self, project):

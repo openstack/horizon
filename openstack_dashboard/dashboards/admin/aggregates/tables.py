@@ -33,21 +33,24 @@ class CreateAggregateAction(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Host Aggregate")
     url = constants.AGGREGATES_CREATE_URL
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class ManageHostsAction(tables.LinkAction):
     name = "manage"
     verbose_name = _("Manage Hosts")
     url = constants.AGGREGATES_MANAGE_HOSTS_URL
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class UpdateAggregateAction(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Host Aggregate")
     url = constants.AGGREGATES_UPDATE_URL
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
 
 class AggregateFilterAction(tables.FilterAction):

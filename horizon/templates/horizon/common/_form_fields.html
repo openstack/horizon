@@ -1,3 +1,5 @@
+{% load bootstrap_form_field %}
+
 {% for hidden in form.hidden_fields %}
   {{ hidden }}
 {% endfor %}
@@ -7,19 +9,19 @@
   </div>
 {% endif %}
 {% if form.non_field_errors %}
-  <div class="alert alert-message alert-error">
+  <div class="alert alert-message alert-danger">
     {{ form.non_field_errors }}
   </div>
 {% endif %}
 {% for field in form.visible_fields %}
-  <div class="control-group form-field clearfix{% if field.errors %} error{% endif %} {{ field.css_classes }}">
+  <!-- <div class="form-group form-field clearfix{% if field.errors %} has-error{% endif %} {{ field.css_classes }}">
     {{ field.label_tag }}
     {% if field.help_text %}
       <span class="help-icon"><i class="icon-question-sign"></i></span>
     {% endif %}
     {% if field.errors %}
       {% for error in field.errors %}
-        <span class="help-inline">{{ error }}</span>
+        <p class="help-block">{{ error }}</p>
       {% endfor %}
     {% endif %}
     {% comment %}
@@ -28,8 +30,8 @@
     Note: the spaces are necessary here.
     {% endcomment %}
     <span class="help-block">{% filter force_escape %} {{ field.help_text }} {% endfilter %} </span>
-    <div class="input">
-      {{ field }}
-    </div>
+    {{ field }}
   </div>
+ -->
+  {{ field|bootstrap_form_field }}
 {% endfor %}

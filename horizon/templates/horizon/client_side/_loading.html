@@ -4,7 +4,13 @@
 {% block id %}spinner-modal{% endblock %}
 
 {% block template %}{% spaceless %}{% jstemplate %}
-<div class="modal loading hide">
-  <p>[[text]]&hellip;</p>
+<div class="modal loading">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>[[text]]&hellip;</p>
+      </div>
+    </div>
+  </div>
 </div>
 {% endjstemplate %}{% endspaceless %}{% endblock %}

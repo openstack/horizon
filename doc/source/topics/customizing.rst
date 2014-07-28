@@ -15,7 +15,7 @@ The file ``local_settings.py`` can be found at the Horizon directory path of
 Changing the Logo
 =================
 
-There are currently two places where the OpenStack logo is pulled in 
+There are currently two places where the OpenStack logo is pulled in
 through ``horizon.less``. The first is shown at the login screen and the other
 on top of the menu bar::
 
@@ -52,7 +52,7 @@ This allows for common site-customization requirements such as:
 
 To specify the python module containing your modifications, add the key
 ``customization_module`` to your ``HORIZON_CONFIG`` dictionary in
-``local_settings.py``. The value should be a string containing the path to your 
+``local_settings.py``. The value should be a string containing the path to your
 module in dotted python path notation. Example::
 
     HORIZON_CONFIG = {
@@ -148,41 +148,16 @@ similar way, add the new column definition and then use the ``Meta``
 Button Icons
 ============
 
-Horizon provides hooks for customizing the look and feel of each class of
-button on the site. The following classes are used to identify each type of
-button:
+Horizon uses font icons (glyphicons) from Twitter Bootstrap to add icons to buttons.
+Please see http://bootstrapdocs.com/v3.1.1/docs/components/#glyphicons for instructions
+how to use icons in the code.
 
-* Generic Classes
-    * btn-search
-    * btn-delete
-    * btn-upload
-    * btn-download
-    * btn-create
-    * btn-edit
-    * btn-list
-    * btn-copy
-    * btn-camera
-    * btn-stats
-    * btn-enable
-    * btn-disable
+To add icon to Table Action, use icon property. Example:
 
-* Floating IP-specific Classes
-    * btn-allocate
-    * btn-release
-    * btn-associate
-    * btn-disassociate
-
-* Instance-specific Classes
-    * btn-launch
-    * btn-terminate
-    * btn-reboot
-    * btn-pause
-    * btn-suspend
-    * btn-console
-    * btn-log
-
-* Volume-specific classes
-    * btn-detach
+    class CreateSnapshot(tables.LinkAction):
+       name = "snapshot"
+       verbose_name = _("Create Snapshot")
+       icon = "camera"
 
 Additionally, the site-wide default button classes can be configured by
 setting ``ACTION_CSS_CLASSES`` to a tuple of the classes you wish to appear

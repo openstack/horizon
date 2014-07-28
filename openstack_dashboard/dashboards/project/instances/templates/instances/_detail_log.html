@@ -7,9 +7,9 @@
   <form id="tail_length" action="{% url 'horizon:project:instances:console' instance.id %}" class="form-inline pull-right">
     <label for="tail_length_select">{% trans "Log Length" %}</label>
     <input class="span1" type="text" name="length" value="35" />
-    <button class="btn btn-small btn-primary" type="submit">{% trans "Go" %}</button>
+    <button class="btn btn-default btn-sm btn-primary" type="submit">{% trans "Go" %}</button>
     {% url 'horizon:project:instances:console' instance.id as console_url %}
-    <a class="btn btn-small" target="_blank" href="{{ console_url }}">{% trans "View Full Log" %}</a>
+    <a class="btn btn-default btn-sm" target="_blank" href="{{ console_url }}">{% trans "View Full Log" %}</a>
   </form>
 </div>
 

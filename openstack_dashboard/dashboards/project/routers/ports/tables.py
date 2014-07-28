@@ -39,7 +39,8 @@ class AddInterface(tables.LinkAction):
     name = "create"
     verbose_name = _("Add Interface")
     url = "horizon:project:routers:addinterface"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "add_router_interface"),)
 
     def get_policy_target(self, request, datum=None):

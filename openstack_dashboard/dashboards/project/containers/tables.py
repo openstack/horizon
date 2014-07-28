@@ -54,7 +54,7 @@ class ViewContainer(tables.LinkAction):
 class MakePublicContainer(tables.Action):
     name = "make_public"
     verbose_name = _("Make Public")
-    classes = ("btn-edit", )
+    icon = "pencil"
 
     def allowed(self, request, container):
         # Container metadata have not been loaded
@@ -80,7 +80,7 @@ class MakePublicContainer(tables.Action):
 class MakePrivateContainer(tables.Action):
     name = "make_private"
     verbose_name = _("Make Private")
-    classes = ("btn-edit", )
+    icon = "pencil"
 
     def allowed(self, request, container):
         # Container metadata have not been loaded
@@ -136,14 +136,15 @@ class CreateContainer(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Container")
     url = "horizon:project:containers:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class ListObjects(tables.LinkAction):
     name = "list_objects"
     verbose_name = _("View Container")
     url = "horizon:project:containers:index"
-    classes = ("btn-list",)
+    icon = "list"
 
     def get_link_url(self, datum=None):
         container_name = http.urlquote(datum.name)
@@ -155,7 +156,8 @@ class CreatePseudoFolder(tables.LinkAction):
     name = "create_pseudo_folder"
     verbose_name = _("Create Pseudo-folder")
     url = "horizon:project:containers:create_pseudo_folder"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
     def get_link_url(self, datum=None):
         # Usable for both the container and object tables
@@ -183,7 +185,8 @@ class UploadObject(tables.LinkAction):
     name = "upload"
     verbose_name = _("Upload Object")
     url = "horizon:project:containers:object_upload"
-    classes = ("ajax-modal", "btn-upload")
+    classes = ("ajax-modal",)
+    icon = "upload"
 
     def get_link_url(self, datum=None):
         # Usable for both the container and object tables
@@ -305,7 +308,8 @@ class UpdateObject(tables.LinkAction):
     name = "update_object"
     verbose_name = _("Edit")
     url = "horizon:project:containers:object_update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     allowed_data_types = ("objects",)
 
     def get_link_url(self, obj):
@@ -341,7 +345,8 @@ class CopyObject(tables.LinkAction):
     name = "copy"
     verbose_name = _("Copy")
     url = "horizon:project:containers:object_copy"
-    classes = ("ajax-modal", "btn-copy")
+    classes = ("ajax-modal",)
+    icon = "circle-arrow-right"
     allowed_data_types = ("objects",)
 
     def get_link_url(self, obj):
@@ -354,7 +359,7 @@ class DownloadObject(tables.LinkAction):
     name = "download"
     verbose_name = _("Download")
     url = "horizon:project:containers:object_download"
-    classes = ("btn-download",)
+    icon = "download"
     allowed_data_types = ("objects",)
 
     def get_link_url(self, obj):

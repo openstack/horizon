@@ -54,7 +54,8 @@ class CreateSubnet(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Subnet")
     url = "horizon:admin:networks:addsubnet"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_subnet"),)
 
     def get_policy_target(self, request, datum=None):
@@ -73,7 +74,8 @@ class UpdateSubnet(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Subnet")
     url = "horizon:admin:networks:editsubnet"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
     policy_rules = (("network", "update_subnet"),)
 
     def get_policy_target(self, request, datum=None):

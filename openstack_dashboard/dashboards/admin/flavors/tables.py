@@ -38,28 +38,31 @@ class CreateFlavor(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Flavor")
     url = "horizon:admin:flavors:create"
-    classes = ("ajax-modal", "btn-create")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class UpdateFlavor(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Flavor")
     url = "horizon:admin:flavors:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
 
 class ViewFlavorExtras(tables.LinkAction):
     name = "extras"
     verbose_name = _("View Extra Specs")
     url = "horizon:admin:flavors:extras:index"
-    classes = ("btn-edit",)
-
+    icon = "pencil"
 
 class ModifyAccess(tables.LinkAction):
     name = "projects"
     verbose_name = _("Modify Access")
     url = "horizon:admin:flavors:update"
-    classes = ("ajax-modal", "btn-edit")
+    classes = ("ajax-modal",)
+    icon = "pencil"
+
 
     def get_link_url(self, flavor):
         step = 'update_flavor_access'
