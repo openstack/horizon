@@ -69,7 +69,8 @@ class CreateProject(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Project")
     url = "horizon:admin:projects:create"
-    classes = ("btn-launch", "ajax-modal",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (('identity', 'identity:create_project'),)
 
     def allowed(self, request, project):
