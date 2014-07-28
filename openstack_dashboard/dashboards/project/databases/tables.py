@@ -136,6 +136,7 @@ class UpdateRow(tables.Row):
             instance.full_flavor = api.trove.flavor_get(request, flavor_id)
         except Exception:
             pass
+        instance.host = get_host(instance)
         return instance
 
 
@@ -149,6 +150,14 @@ def get_datastore_version(instance):
     if hasattr(instance, "datastore"):
         return instance.datastore["version"]
     return _("Not available")
+
+
+def get_host(instance):
+    if hasattr(instance, "hostname"):
+        return instance.hostname
+    elif hasattr(instance, "ip") and instance.ip:
+        return instance.ip[0]
+    return _("Not Assigned")
 
 
 def get_size(instance):
@@ -189,7 +198,7 @@ class InstancesTable(tables.DataTable):
                               verbose_name=_("Datastore"))
     datastore_version = tables.Column(get_datastore_version,
                                       verbose_name=_("Datastore Version"))
-    host = tables.Column("host", verbose_name=_("Host"))
+    host = tables.Column(get_host, verbose_name=_("Host"))
     size = tables.Column(get_size,
                          verbose_name=_("Size"),
                          attrs={'data-type': 'size'})
