@@ -864,14 +864,6 @@ def is_quotas_extension_supported(request):
         return False
 
 
-def is_security_group_extension_supported(request):
-    return is_extension_supported(request, 'security-group')
-
-
-def is_agent_extension_supported(request):
-    return is_extension_supported(request, 'agent')
-
-
 # Using this mechanism till a better plugin/sub-plugin detection
 # mechanism is available.
 # When using specific plugins the profile_support can be

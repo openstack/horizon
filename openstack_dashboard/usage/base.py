@@ -143,7 +143,7 @@ class BaseUsage(object):
             neutron_quotas_supported = \
                 api.neutron.is_quotas_extension_supported(self.request)
             neutron_sg_used = \
-                api.neutron.is_security_group_extension_supported(self.request)
+                api.neutron.is_extension_supported(self.request, 'security-group')
             self._get_neutron_usage(self.limits, 'floatingip')
             if neutron_sg_used:
                 self._get_neutron_usage(self.limits, 'security_group')

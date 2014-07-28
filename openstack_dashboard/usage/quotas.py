@@ -172,7 +172,7 @@ def get_disabled_quotas(request):
         # Remove the nova network quotas
         disabled_quotas.extend(['floating_ips', 'fixed_ips'])
 
-        if neutron.is_security_group_extension_supported(request):
+        if neutron.is_extension_supported(request, 'security-group'):
             # If Neutron security group is supported, disable Nova quotas
             disabled_quotas.extend(['security_groups', 'security_group_rules'])
         else:

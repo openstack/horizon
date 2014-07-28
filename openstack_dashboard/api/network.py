@@ -34,7 +34,7 @@ class NetworkClient(object):
             self.floating_ips = nova.FloatingIpManager(request)
 
         if (neutron_enabled and
-                neutron.is_security_group_extension_supported(request)):
+                neutron.is_extension_supported(request, 'security-group')):
             self.secgroups = neutron.SecurityGroupManager(request)
         else:
             self.secgroups = nova.SecurityGroupManager(request)

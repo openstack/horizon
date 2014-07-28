@@ -90,7 +90,7 @@ class NetworkAgentsTab(tabs.TableTab):
     def allowed(self, request):
         try:
             return (base.is_service_enabled(request, 'network') and
-                    neutron.is_agent_extension_supported(request))
+                    neutron.is_extension_supported(request, 'agent'))
         except Exception:
             exceptions.handle(request, _('Unable to get network agents info.'))
             return False
