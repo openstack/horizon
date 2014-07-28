@@ -35,6 +35,8 @@ import logging
 
 LOG = logging.getLogger(__name__)
 
+KEYPAIR_IMPORT_URL = "horizon:project:access_and_security:keypairs:import"
+
 
 class SelectPluginAction(t_flows.SelectPluginAction):
     class Meta:
@@ -75,10 +77,11 @@ class GeneralConfigAction(workflows.Action):
 
     image = forms.ChoiceField(label=_("Base Image"))
 
-    keypair = forms.ChoiceField(
+    keypair = forms.DynamicChoiceField(
         label=_("Keypair"),
         required=False,
-        help_text=_("Which keypair to use for authentication."))
+        help_text=_("Which keypair to use for authentication."),
+        add_item_link=KEYPAIR_IMPORT_URL)
 
     def __init__(self, request, *args, **kwargs):
         super(GeneralConfigAction, self).__init__(request, *args, **kwargs)
