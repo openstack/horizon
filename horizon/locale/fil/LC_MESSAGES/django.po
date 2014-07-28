@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Jerome Gotangco <jgotangco@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:24-0500\n"
-"PO-Revision-Date: 2014-07-01 19:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-07-27 08:22-0500\n"
+"PO-Revision-Date: 2014-07-25 02:20+0000\n"
+"Last-Translator: Jerome Gotangco <jgotangco@gmail.com>\n"
 "Language-Team: Filipino (http://www.transifex.com/projects/p/horizon/language/fil/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,14 +89,14 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:665 tables/base.py:1438
+#: tables/actions.py:665 tables/base.py:1459
 msgid "N/A"
 msgstr "N/A"
 
 #: tables/actions.py:694
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Wala kang pahintulot sa %(action)s: %(objs)s"
 
 #: tables/actions.py:701
 #, python-format
@@ -117,31 +118,31 @@ msgstr "Naalis na"
 
 #: tables/actions.py:741
 msgid "Update"
-msgstr ""
+msgstr "I-update"
 
 #: tables/actions.py:742
 msgid "Updated"
-msgstr ""
+msgstr "Nai-update"
 
-#: tables/base.py:317
+#: tables/base.py:330
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Ang katangian %(attr)s ay hindi umiiral sa %(obj)s."
 
-#: tables/base.py:905
+#: tables/base.py:922
 msgid "No items to display."
 msgstr "Walang mga items na ipapakita."
 
-#: tables/base.py:1012
+#: tables/base.py:1029
 msgid "Actions"
 msgstr "Mga Aksyon"
 
-#: tables/base.py:1218
+#: tables/base.py:1235
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Walang tugma para sa id na \"%s\"."
 
-#: tables/base.py:1358
+#: tables/base.py:1375
 msgid "Please select a row before taking that action."
 msgstr "Mangyaring pumili ng isang hilera bago simulan ang aksiyon."
 
@@ -168,14 +169,14 @@ msgstr "Long In"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
-msgstr ""
+msgstr "Wala kang pahintulot upang ma-access ang pagkukunan:"
 
 #: templates/auth/_login.html:17
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr ""
+msgstr "Mag-login bilang ibang user o bumalik sa <a href=\"%(home_url)s\"> home page</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
@@ -205,16 +206,16 @@ msgstr "Buod"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pinapakita ang %(counter)s items"
+msgstr[1] "Pinapakita ang %(counter)s items"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr ""
+msgstr "&laquo;&nbsp;Nakaraan"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "More&nbsp;&raquo;"
-msgstr ""
+msgstr "Marami&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -222,7 +223,7 @@ msgstr "Dagdagan"
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
-msgstr ""
+msgstr "Magdagdag ng hilera"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -261,29 +262,29 @@ msgstr "Security Groups"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
-msgstr ""
+msgstr "Volumes"
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr ""
+msgstr "Volume Storage"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pinapakita ang %(nav_items)s item"
+msgstr[1] "Pinapakita ang %(nav_items)s item"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pinapakita ang %(content_items)s item"
+msgstr[1] "Pinapakita ang %(content_items)s items"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr ""
+msgstr "Buod ng Paggamit"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
@@ -320,11 +321,11 @@ msgstr "GB-Hours nitong panahon"
 
 #: templates/horizon/common/_workflow.html:38
 msgid "Back"
-msgstr ""
+msgstr "Balik"
 
 #: templates/horizon/common/_workflow.html:41
 msgid "Next"
-msgstr ""
+msgstr "Susunod"
 
 #: templates/horizon/common/_workflow.html:47
 msgid "Cancel"
@@ -342,41 +343,41 @@ msgstr "Walang Limitasyon"
 msgid "Available"
 msgstr "Magagamit"
 
-#: templatetags/sizeformat.py:43 templatetags/sizeformat.py:48
+#: templatetags/sizeformat.py:48 templatetags/sizeformat.py:53
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d Byte"
+msgstr[1] "%(size)d Bytes"
 
-#: templatetags/sizeformat.py:51
+#: templatetags/sizeformat.py:56
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:54
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:57
+#: templatetags/sizeformat.py:62
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:60
+#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:62
+#: templatetags/sizeformat.py:67
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
 #: utils/filters.py:49
 msgid "Never"
-msgstr ""
+msgstr "Hindi kailanman"
 
 #: utils/validators.py:23 utils/validators.py:47
 msgid "Not a valid port number"
