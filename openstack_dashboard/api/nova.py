@@ -506,7 +506,7 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   security_groups, block_device_mapping=None,
                   block_device_mapping_v2=None, nics=None,
                   availability_zone=None, instance_count=1, admin_pass=None,
-                  disk_config=None):
+                  disk_config=None, meta=None):
     return Server(novaclient(request).servers.create(
         name, image, flavor, userdata=user_data,
         security_groups=security_groups,
@@ -514,7 +514,7 @@ def server_create(request, name, image, flavor, key_name, user_data,
         block_device_mapping_v2=block_device_mapping_v2,
         nics=nics, availability_zone=availability_zone,
         min_count=instance_count, admin_pass=admin_pass,
-        disk_config=disk_config), request)
+        disk_config=disk_config, meta=meta), request)
 
 
 def server_delete(request, instance):
