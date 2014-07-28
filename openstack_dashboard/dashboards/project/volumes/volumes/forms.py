@@ -218,6 +218,23 @@ class CreateForm(forms.SelfHandlingForm):
             else:
                 del self.fields['volume_source_type']
 
+    def clean(self):
+        cleaned_data = super(CreateForm, self).clean()
+        source_type = self.cleaned_data.get('volume_source_type')
+        if (source_type == 'image_source' and
+                not cleaned_data.get('image_source')):
+            msg = _('Image source must be specified')
+            self._errors['image_source'] = self.error_class([msg])
+        elif (source_type == 'snapshot_source' and
+                not cleaned_data.get('snapshot_source')):
+            msg = _('Snapshot source must be specified')
+            self._errors['snapshot_source'] = self.error_class([msg])
+        elif (source_type == 'volume_source' and
+                not cleaned_data.get('volume_source')):
+            msg = _('Volume source must be specified')
+            self._errors['volume_source'] = self.error_class([msg])
+        return cleaned_data
+
     # Determine whether the extension for Cinder AZs is enabled
     def cinder_az_supported(self, request):
         try:
