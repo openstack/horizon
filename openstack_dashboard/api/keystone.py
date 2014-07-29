@@ -44,7 +44,8 @@ DEFAULT_ROLE = None
 class IdentityAPIVersionManager(base.APIVersionManager):
     def upgrade_v2_user(self, user):
         if getattr(user, "project_id", None) is None:
-            user.project_id = getattr(user, "tenantId", None)
+            user.project_id = getattr(user, "default_project_id",
+                                      getattr(user, "tenantId", None))
         return user
 
     def get_project_manager(self, *args, **kwargs):
