@@ -32,7 +32,8 @@ class ExtraSpecCreate(tables.LinkAction):
     name = "create"
     verbose_name = _("Create")
     url = "horizon:admin:volumes:extras:create"
-    classes = ("btn-create", "ajax-modal")
+    classes = ("ajax-modal")
+    icon = "plus"
 
     def get_link_url(self, extra_spec=None):
         return reverse(self.url, args=[self.table.kwargs['type_id']])
