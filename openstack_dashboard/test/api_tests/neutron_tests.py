@@ -14,6 +14,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import uuid
+
+from neutronclient.common import exceptions as neutron_exc
+
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -281,3 +285,33 @@ class NeutronApiTests(test.APITestCase):
             api.neutron.is_extension_supported(self.request, 'quotas'))
         self.assertFalse(
             api.neutron.is_extension_supported(self.request, 'doesntexist'))
+
+    def test_list_resources_with_long_filters(self):
+        # In this tests, port_list is called with id=[10 port ID]
+        # filter. It generates about 40*10 char length URI.
+        # Each port ID is converted to "id=<UUID>&" in URI and
+        # it means 40 chars (len(UUID)=36).
+        # If excess lenght is 220, it means 400-220=180 chars
+        # can be sent in the first request.
+        # As a result three API calls with 4, 4, 2 port ID
+        # are expected.
+
+        ports = [{'id': str(uuid.uuid4()),
+                  'name': 'port%s' % i,
+                  'admin_state_up': True}
+                 for i in range(10)]
+        port_ids = [port['id'] for port in ports]
+
+        neutronclient = self.stub_neutronclient()
+        uri_len_exc = neutron_exc.RequestURITooLong(excess=220)
+        neutronclient.list_ports(id=port_ids).AndRaise(uri_len_exc)
+        for i in range(0, 10, 4):
+            neutronclient.list_ports(id=port_ids[i:i + 4]) \
+                .AndReturn({'ports': ports[i:i + 4]})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.list_resources_with_long_filters(
+            api.neutron.port_list, 'id', port_ids,
+            request=self.request)
+        self.assertEqual(10, len(ret_val))
+        self.assertEqual(port_ids, [p.id for p in ret_val])
