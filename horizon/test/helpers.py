@@ -37,9 +37,10 @@ LOG = logging.getLogger(__name__)
 
 
 try:
-    from horizon.test.webdriver import WebDriver  # noqa
     from selenium.webdriver.support import ui as selenium_ui
     import xvfbwrapper  # Only needed when running the Selenium tests headless
+
+    from horizon.test.webdriver import WebDriver  # noqa
 except ImportError as e:
     # NOTE(saschpe): Several distribution can't ship selenium due to its
     # non-free license. So they have to patch it out of test-requirements.txt
@@ -170,7 +171,7 @@ class SeleniumTestCase(django_test.LiveServerTestCase):
         socket.setdefaulttimeout(60)
         if os.environ.get('WITH_SELENIUM', False):
             time.sleep(1)
-             # Start a virtual display server for running the tests headless.
+            # Start a virtual display server for running the tests headless.
             if os.environ.get('SELENIUM_HEADLESS', False):
                 cls.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
                 cls.vdisplay.start()

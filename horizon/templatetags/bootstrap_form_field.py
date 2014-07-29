@@ -1,9 +1,20 @@
-from django import forms
-from django.template import Context
-from django.template.loader import get_template
-from django import template
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
 
-register = template.Library()
+from django import forms
+from django import template as django_template
+
+register = django_template.Library()
+
 
 @register.filter
 def bootstrap_form_field(element):
@@ -12,8 +23,10 @@ def bootstrap_form_field(element):
 
 
 def add_input_classes(field):
-    if not is_checkbox(field) and not is_multiple_checkbox(field) and not is_radio(field) \
-        and not is_file(field):
+    if (not is_checkbox(field) and
+            not is_multiple_checkbox(field) and
+            not is_radio(field) and
+            not is_file(field)):
         field_classes = field.field.widget.attrs.get('class', '')
         field_classes += ' form-control'
         field.field.widget.attrs['class'] = field_classes
@@ -21,8 +34,10 @@ def add_input_classes(field):
 
 def render(element, markup_classes):
     add_input_classes(element)
-    template = get_template("horizon/common/_bootstrap_form_field.html")
-    context = Context({'field': element, 'classes': markup_classes})
+    template = django_template.loader.get_template(
+        "horizon/common/_bootstrap_form_field.html")
+    context = django_template.Context({'field': element,
+                                       'classes': markup_classes})
 
     return template.render(context)
 

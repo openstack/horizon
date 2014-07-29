@@ -22,9 +22,10 @@ import sys
 
 import django
 from django.utils import html_parser
-from horizon.test import patches
 import xstatic.main
 import xstatic.pkg.jquery
+
+from horizon.test import patches
 
 
 # Patch django.utils.html_parser.HTMLParser as a workaround for bug 1273943

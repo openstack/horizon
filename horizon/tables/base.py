@@ -323,7 +323,7 @@ class Column(html.HTMLElement):
                 self.transform in datum:
             data = datum.get(self.transform)
         else:
-        # Basic object lookups
+            # Basic object lookups
             try:
                 data = getattr(datum, self.transform)
             except AttributeError:
@@ -715,7 +715,7 @@ class Cell(html.HTMLElement):
 
         if self.column.status or \
                 self.column.name in self.column.table._meta.status_columns:
-            #returns the first matching status found
+            # returns the first matching status found
             data_status_lower = unicode(
                 self.column.get_raw_data(self.datum)).lower()
             for status_name, status_value in self.column.status_choices:
@@ -1289,8 +1289,8 @@ class DataTable(object):
         if not self.multi_select:
             return
         select_column = self.columns.values()[0]
-        #Try to find if the hidden class need to be
-        #removed or added based on visible flag.
+        # Try to find if the hidden class need to be
+        # removed or added based on visible flag.
         hidden_found = 'hidden' in select_column.classes
         if hidden_found and visible:
             select_column.classes.remove('hidden')

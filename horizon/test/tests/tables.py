@@ -147,7 +147,7 @@ class MyToggleAction(tables.BatchAction):
 
     def action(self, request, object_ids):
         if self.down:
-            #up it
+            # up it
             self.current_past_action = 1
 
 
@@ -1102,9 +1102,9 @@ class DataTableTests(test.TestCase):
 
     def test_table_column_can_be_selected(self):
         self.table = MyTableSelectable(self.request, TEST_DATA_6)
-        #non selectable row
+        # non selectable row
         row = self.table.get_rows()[0]
-        #selectable
+        # selectable
         row1 = self.table.get_rows()[1]
 
         id_col = self.table.columns['id']
@@ -1139,11 +1139,11 @@ class DataTableTests(test.TestCase):
                                   '<Cell: value, my_table__row__1>',
                                   '<Cell: status, my_table__row__1>',
                                   ])
-        #can_be_selected = False
+        # can_be_selected = False
         self.assertTrue(row.get_cells()[0].data == "")
-        #can_be_selected = True
+        # can_be_selected = True
         self.assertIn('checkbox', row1.get_cells()[0].data)
-        #status
+        # status
         cell_status = row.cells['status'].status
         self.assertEqual(row.cells['status'].get_status_class(cell_status),
                          'status_down')

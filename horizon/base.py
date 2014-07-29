@@ -552,7 +552,7 @@ class Workflow(object):
 try:
     from django.utils.functional import empty  # noqa
 except ImportError:
-    #Django 1.3 fallback
+    # Django 1.3 fallback
     empty = None
 
 
