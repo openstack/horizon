@@ -58,7 +58,7 @@ def data(TEST):
     TEST.ceilometer_users.add(users.User(None,
                                          ceilometer_user_dict2))
 
-    #tenants
+    # Tenants.
     tenant_dict = {'id': "1",
                    'name': 'test_tenant',
                    'description': "a test tenant.",

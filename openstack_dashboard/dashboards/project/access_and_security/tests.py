@@ -20,17 +20,14 @@ from copy import deepcopy  # noqa
 
 from django.core.urlresolvers import reverse
 from django import http
-
 from mox import IsA  # noqa
 
 from horizon.workflows import views
-
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.access_and_security import (
+    api_access)
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
-from openstack_dashboard.dashboards.project.access_and_security import (
-     api_access
-)
 
 
 class AccessAndSecurityTests(test.TestCase):
@@ -58,7 +55,6 @@ class AccessAndSecurityTests(test.TestCase):
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes()\
             .AndReturn(quota_data)
-
 
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').MultipleTimes().AndReturn(True)
@@ -102,7 +98,6 @@ class AccessAndSecurityTests(test.TestCase):
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes()\
             .AndReturn(quota_data)
-
 
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').MultipleTimes().AndReturn(True)

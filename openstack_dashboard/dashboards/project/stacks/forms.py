@@ -229,9 +229,7 @@ class ChangeTemplateForm(TemplateForm):
     stack_id = forms.CharField(label=_('Stack ID'),
         widget=forms.widgets.HiddenInput)
     stack_name = forms.CharField(label=_('Stack Name'),
-        widget=forms.TextInput(
-            attrs={'readonly': 'readonly'}
-        ))
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}))
 
 
 class CreateStackForm(forms.SelfHandlingForm):
@@ -358,9 +356,7 @@ class EditStackForm(CreateStackForm):
     stack_id = forms.CharField(label=_('Stack ID'),
         widget=forms.widgets.HiddenInput)
     stack_name = forms.CharField(label=_('Stack Name'),
-        widget=forms.TextInput(
-            attrs={'readonly': 'readonly'}
-        ))
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}))
 
     @sensitive_variables('password')
     def handle(self, request, data):

@@ -13,9 +13,9 @@
 #    under the License.
 
 from django.conf import settings
+
 from horizon import forms
 from horizon.utils import functions as utils
-
 from openstack_dashboard.dashboards.settings.user import forms as user_forms
 
 

@@ -837,7 +837,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                         api.cinder: ('tenant_quota_update',),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas')})
-
     def test_update_project_save(self, neutron=False):
         keystone_api_version = api.keystone.VERSIONS.active
 

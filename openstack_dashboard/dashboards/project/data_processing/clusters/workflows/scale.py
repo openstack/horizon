@@ -23,8 +23,8 @@ import openstack_dashboard.dashboards.project.data_processing. \
     cluster_templates.workflows.create as clt_create_flow
 import openstack_dashboard.dashboards.project.data_processing. \
     clusters.workflows.create as cl_create_flow
-import openstack_dashboard.dashboards.project.data_processing. \
-    utils.workflow_helpers as whelpers
+from openstack_dashboard.dashboards.project.data_processing.utils import (
+    workflow_helpers)
 
 from saharaclient.api import base as api_base
 
@@ -36,7 +36,7 @@ class NodeGroupsStep(clt_create_flow.ConfigureNodegroups):
 
 
 class ScaleCluster(cl_create_flow.ConfigureCluster,
-                   whelpers.StatusFormatMixin):
+                   workflow_helpers.StatusFormatMixin):
     slug = "scale_cluster"
     name = _("Scale Cluster")
     finalize_button_name = _("Scale")
@@ -54,7 +54,7 @@ class ScaleCluster(cl_create_flow.ConfigureCluster,
             plugin = cluster.plugin_name
             hadoop_version = cluster.hadoop_version
 
-            #init deletable nodegroups
+            # Initialize deletable node groups.
             deletable = dict()
             for group in cluster.node_groups:
                 deletable[group["name"]] = "false"
@@ -69,32 +69,29 @@ class ScaleCluster(cl_create_flow.ConfigureCluster,
             super(ScaleCluster, self).__init__(request, context_seed,
                                            entry_point, *args,
                                            **kwargs)
-
-            #init Node Groups
-
+            # Initialize node groups.
             for step in self.steps:
-                if isinstance(step, clt_create_flow.ConfigureNodegroups):
-                    ng_action = step.action
-                    template_ngs = cluster.node_groups
+                if not isinstance(step, clt_create_flow.ConfigureNodegroups):
+                    continue
+                ng_action = step.action
+                template_ngs = cluster.node_groups
 
-                    if 'forms_ids' not in request.POST:
-                        ng_action.groups = []
-                        for id in range(0, len(template_ngs), 1):
-                            group_name = "group_name_" + str(id)
-                            template_id = "template_id_" + str(id)
-                            count = "count_" + str(id)
-                            templ_ng = template_ngs[id]
-                            ng_action.groups.append(
-                                {"name": templ_ng["name"],
-                                 "template_id": templ_ng["node_group_template_id"],
-                                 "count": templ_ng["count"],
-                                 "id": id,
-                                 "deletable": "false"})
-
-                            whelpers.build_node_group_fields(ng_action,
-                                                             group_name,
-                                                             template_id,
-                                                             count)
+                if 'forms_ids' in request.POST:
+                    continue
+                ng_action.groups = []
+                for i, templ_ng in enumerate(template_ngs):
+                    group_name = "group_name_%d" % i
+                    template_id = "template_id_%d" % i
+                    count = "count_%d" % i
+                    ng_action.groups.append({
+                        "name": templ_ng["name"],
+                        "template_id": templ_ng["node_group_template_id"],
+                        "count": templ_ng["count"],
+                        "id": i,
+                        "deletable": "false",
+                    })
+                    workflow_helpers.build_node_group_fields(
+                        ng_action, group_name, template_id, count)
         except Exception:
             exceptions.handle(request,
                               _("Unable to fetch cluster to scale"))

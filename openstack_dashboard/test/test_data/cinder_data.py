@@ -39,31 +39,27 @@ def data(TEST):
     TEST.cinder_availability_zones = utils.TestDataContainer()
 
     # Services
-    service_1 = services.Service(services.ServiceManager(None),
-        {
-            "service": "cinder-scheduler",
-            "status": "enabled",
-            "binary": "cinder-scheduler",
-            "zone": "internal",
-            "state": "up",
-            "updated_at": "2013-07-08T05:21:00.000000",
-            "host": "devstack001",
-            "disabled_reason": None
-        }
-    )
+    service_1 = services.Service(services.ServiceManager(None), {
+        "service": "cinder-scheduler",
+        "status": "enabled",
+        "binary": "cinder-scheduler",
+        "zone": "internal",
+        "state": "up",
+        "updated_at": "2013-07-08T05:21:00.000000",
+        "host": "devstack001",
+        "disabled_reason": None
+    })
 
-    service_2 = services.Service(services.ServiceManager(None),
-        {
-            "service": "cinder-volume",
-            "status": "enabled",
-            "binary": "cinder-volume",
-            "zone": "nova",
-            "state": "up",
-            "updated_at": "2013-07-08T05:20:51.000000",
-            "host": "devstack001",
-            "disabled_reason": None
-        }
-    )
+    service_2 = services.Service(services.ServiceManager(None), {
+        "service": "cinder-volume",
+        "status": "enabled",
+        "binary": "cinder-volume",
+        "zone": "nova",
+        "state": "up",
+        "updated_at": "2013-07-08T05:20:51.000000",
+        "host": "devstack001",
+        "disabled_reason": None
+    })
     TEST.cinder_services.add(service_1)
     TEST.cinder_services.add(service_2)
 

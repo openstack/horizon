@@ -56,13 +56,13 @@ class ViewFlavorExtras(tables.LinkAction):
     url = "horizon:admin:flavors:extras:index"
     icon = "pencil"
 
+
 class ModifyAccess(tables.LinkAction):
     name = "projects"
     verbose_name = _("Modify Access")
     url = "horizon:admin:flavors:update"
     classes = ("ajax-modal",)
     icon = "pencil"
-
 
     def get_link_url(self, flavor):
         step = 'update_flavor_access'

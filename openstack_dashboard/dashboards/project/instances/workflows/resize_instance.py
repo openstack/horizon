@@ -21,9 +21,7 @@ from django.views.decorators.debug import sensitive_variables  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
-
 from openstack_dashboard import api
-
 from openstack_dashboard.dashboards.project.instances \
     import utils as instance_utils
 from openstack_dashboard.dashboards.project.instances.workflows \
@@ -32,11 +30,11 @@ from openstack_dashboard.dashboards.project.instances.workflows \
 
 class SetFlavorChoiceAction(workflows.Action):
     old_flavor_id = forms.CharField(required=False, widget=forms.HiddenInput())
-    old_flavor_name = forms.CharField(label=_("Old Flavor"),
-                                 required=False,
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}
-                                 ))
+    old_flavor_name = forms.CharField(
+        label=_("Old Flavor"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False,
+    )
     flavor = forms.ChoiceField(label=_("New Flavor"),
                                help_text=_("Choose the flavor to launch."))
 

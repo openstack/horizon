@@ -200,7 +200,7 @@ class ConfigureCluster(whelpers.StatusFormatMixin, workflows.Workflow):
 
     def handle(self, request, context):
         try:
-            #TODO(nkonovalov) Implement AJAX Node Groups
+            # TODO(nkonovalov) Implement AJAX Node Groups.
             node_groups = None
 
             plugin, hadoop_version = whelpers.\

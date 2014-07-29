@@ -34,7 +34,8 @@ class GeneralTab(tabs.Tab):
     def get_context_data(self, request):
         template_id = self.tab_group.kwargs['template_id']
         try:
-            template = saharaclient.nodegroup_template_get(request, template_id)
+            template = saharaclient.nodegroup_template_get(
+                request, template_id)
         except Exception:
             template = {}
             exceptions.handle(request,
@@ -57,7 +58,8 @@ class ConfigsTab(tabs.Tab):
     def get_context_data(self, request):
         template_id = self.tab_group.kwargs['template_id']
         try:
-            template = saharaclient.nodegroup_template_get(request, template_id)
+            template = saharaclient.nodegroup_template_get(
+                request, template_id)
         except Exception:
             template = {}
             exceptions.handle(request,

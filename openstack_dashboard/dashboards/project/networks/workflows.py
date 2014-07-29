@@ -14,16 +14,15 @@
 
 
 import logging
-import netaddr
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+import netaddr
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon import workflows
-
 from openstack_dashboard import api
 
 
@@ -377,7 +376,6 @@ class CreateNetwork(workflows.Workflow):
             redirect = self.get_failure_url()
             messages.info(request, msg)
             raise exceptions.Http302(redirect)
-            #return exceptions.RecoverableError
         except Exception:
             msg = _('Failed to delete network "%s"') % network.name
             LOG.info(msg)

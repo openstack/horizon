@@ -20,14 +20,12 @@ from __future__ import absolute_import
 
 import itertools
 import logging
-import thread
 
 from django.conf import settings
-
 import glanceclient as glance_client
+from six.moves import _thread as thread
 
 from horizon.utils import functions as utils
-
 from openstack_dashboard.api import base
 
 

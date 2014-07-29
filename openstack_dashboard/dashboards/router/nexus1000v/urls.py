@@ -18,13 +18,13 @@ from django.conf.urls import url  # noqa
 
 from openstack_dashboard.dashboards.router.nexus1000v import views
 
+
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    #Network Profile
+    # Network Profile
     url(r'^network_profile/create$', views.CreateNetworkProfileView.as_view(),
         name='create_network_profile'),
     url(r'^network_profile/(?P<profile_id>[^/]+)/update$',
         views.UpdateNetworkProfileView.as_view(),
         name='update_network_profile'),
-
 )

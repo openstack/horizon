@@ -130,7 +130,7 @@ class InstancesTable(tables.DataTable):
 
     class Meta:
         name = "cluster_instances"
-        #just ignoring the name
+        # Just ignoring the name.
         verbose_name = _(" ")
 
 

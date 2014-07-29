@@ -83,11 +83,11 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         api.nova.aggregate_details_list(IsA(http.HttpRequest)).AndReturn([])
 
         workflow_data = self._get_create_workflow_data(aggregate)
-        api.nova.aggregate_create(IsA(http.HttpRequest),
-                                  name=workflow_data['name'],
-                                  availability_zone=
-                                  workflow_data['availability_zone'])\
-            .AndReturn(aggregate)
+        api.nova.aggregate_create(
+            IsA(http.HttpRequest),
+            name=workflow_data['name'],
+            availability_zone=workflow_data['availability_zone'],
+        ).AndReturn(aggregate)
 
         self.mox.ReplayAll()
 
@@ -110,11 +110,11 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         api.nova.aggregate_details_list(IsA(http.HttpRequest)).AndReturn([])
 
         workflow_data = self._get_create_workflow_data(aggregate, hosts)
-        api.nova.aggregate_create(IsA(http.HttpRequest),
-                                  name=workflow_data['name'],
-                                  availability_zone=
-                                  workflow_data['availability_zone'])\
-            .AndReturn(aggregate)
+        api.nova.aggregate_create(
+            IsA(http.HttpRequest),
+            name=workflow_data['name'],
+            availability_zone=workflow_data['availability_zone'],
+        ).AndReturn(aggregate)
 
         compute_hosts = []
         for host in hosts:

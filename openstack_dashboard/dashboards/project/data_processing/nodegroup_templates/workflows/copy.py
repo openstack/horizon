@@ -76,7 +76,7 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
                 exceptions.handle(request,
                                   _("Unable to fetch plugin details."))
             for process in template.node_processes:
-                #need to know the service
+                # need to know the service
                 _service = None
                 for service, processes in plugin_node_processes.items():
                     if process in processes:

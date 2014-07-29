@@ -437,13 +437,13 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         self.mox.ReplayAll()
 
-        #run get test
+        # run get test
         url = reverse('horizon:admin:flavors:update', args=[flavor.id])
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, "admin/flavors/update.html")
 
-        #run post test
+        # run post test
         workflow_data = {'flavor_id': flavor.id,
                          'name': new_flavor.name,
                          'vcpus': new_flavor.vcpus,

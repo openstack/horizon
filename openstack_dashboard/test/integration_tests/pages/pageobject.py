@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-#TODO(dkorn): add handle_popup method
+# TODO(dkorn): add handle_popup method
 
 import selenium.common.exceptions as Exceptions
 import selenium.webdriver.support.ui as Support
@@ -19,7 +19,7 @@ import selenium.webdriver.support.ui as Support
 class PageObject(object):
     """Base class for page objects."""
     def __init__(self, driver, conf):
-        """Constructor"""
+        """Constructor."""
         self.driver = driver
         self.conf = conf
         self.login_url = self.conf.dashboard.login_url

@@ -19,16 +19,16 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-
 from openstack_dashboard import api
 
 
 class ResizeVolumeForm(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
-    orig_size = forms.IntegerField(label=_("Current Size (GB)"),
-                           widget=forms.TextInput(
-                               attrs={'readonly': 'readonly'}
-                           ), required=False)
+    orig_size = forms.IntegerField(
+        label=_("Current Size (GB)"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False,
+    )
     new_size = forms.IntegerField(label=_("New Size (GB)"))
 
     def clean(self):

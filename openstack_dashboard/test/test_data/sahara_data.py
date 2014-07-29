@@ -43,7 +43,7 @@ def data(TEST):
 
     TEST.plugins.add(plugin1)
 
-    #Nodegroup_Templates
+    # Nodegroup_Templates.
     ngt1_dict = {
         "created_at": "2014-06-04 14:01:03.701243",
         "description": None,
@@ -74,7 +74,7 @@ def data(TEST):
 
     TEST.nodegroup_templates.add(ngt1)
 
-    #Cluster_templates
+    # Cluster_templates.
     ct1_dict = {
         "anti_affinity": [],
         "cluster_configs": {},
@@ -135,7 +135,7 @@ def data(TEST):
         cluster_templates.ClusterTemplateManager(None), ct1_dict)
     TEST.cluster_templates.add(ct1)
 
-    #Clusters
+    # Clusters.
     cluster1_dict = {
         "anti_affinity": [],
         "cluster_configs": {},
@@ -238,7 +238,7 @@ def data(TEST):
         clusters.ClusterManager(None), cluster1_dict)
     TEST.clusters.add(cluster1)
 
-    #Data Sources
+    # Data Sources.
     data_source1_dict = {
         "created_at": "2014-06-04 14:01:10.371562",
         "description": "sample output",
@@ -268,7 +268,7 @@ def data(TEST):
     TEST.data_sources.add(data_source1)
     TEST.data_sources.add(data_source2)
 
-    #Job Binaries
+    # Job Binaries.
     job_binary1_dict = {
         "created_at": "2014-06-05 18:15:15.581285",
         "description": "",
@@ -283,7 +283,7 @@ def data(TEST):
         job_binaries.JobBinariesManager(None), job_binary1_dict)
     TEST.job_binaries.add(job_binary1)
 
-    #Jobs
+    # Jobs.
     job1_dict = {
         "created_at": "2014-06-05 19:23:59.637165",
         "description": "",
@@ -319,7 +319,7 @@ def data(TEST):
     job1 = jobs.Job(jobs.JobsManager(None), job1_dict)
     TEST.jobs.add(job1)
 
-    #Job Executions
+    # Job Executions.
     jobex1_dict = {
         "cluster_id": "ec9a0d28-5cfb-4028-a0b5-40afe23f1533",
         "created_at": "2014-06-05 20:03:06.195937",

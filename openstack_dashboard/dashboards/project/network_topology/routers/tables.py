@@ -13,15 +13,15 @@
 #    under the License.
 
 from django.utils.translation import ugettext_lazy as _
-from openstack_dashboard.dashboards.project.routers import\
-    tables as r_tables
+
+from openstack_dashboard.dashboards.project.routers import tables
 
 
-class DeleteRouter(r_tables.DeleteRouter):
+class DeleteRouter(tables.DeleteRouter):
     redirect_url = "horizon:project:network_topology:router"
 
 
-class RoutersTable(r_tables.RoutersTable):
+class RoutersTable(tables.RoutersTable):
     class Meta:
         name = "Routers"
         verbose_name = _("Routers")

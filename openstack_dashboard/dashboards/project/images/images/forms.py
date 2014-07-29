@@ -183,27 +183,32 @@ class CreateImageForm(forms.SelfHandlingForm):
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length="255", label=_("Name"))
-    description = forms.CharField(widget=forms.widgets.Textarea(),
-                                  label=_("Description"),
-                                  required=False)
-    kernel = forms.CharField(max_length="36", label=_("Kernel ID"),
-                             required=False,
-                             widget=forms.TextInput(
-                                 attrs={'readonly': 'readonly'}
-                             ))
-    ramdisk = forms.CharField(max_length="36", label=_("Ramdisk ID"),
-                              required=False,
-                              widget=forms.TextInput(
-                                  attrs={'readonly': 'readonly'}
-                              ))
-    architecture = forms.CharField(label=_("Architecture"), required=False,
-                                   widget=forms.TextInput(
-                                       attrs={'readonly': 'readonly'}
-                                   ))
-    disk_format = forms.CharField(label=_("Format"),
-                                  widget=forms.TextInput(
-                                      attrs={'readonly': 'readonly'}
-                                  ))
+    description = forms.CharField(
+        widget=forms.widgets.Textarea(),
+        label=_("Description"),
+        required=False,
+    )
+    kernel = forms.CharField(
+        max_length="36",
+        label=_("Kernel ID"),
+        required=False,
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+    )
+    ramdisk = forms.CharField(
+        max_length="36",
+        label=_("Ramdisk ID"),
+        required=False,
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+    )
+    architecture = forms.CharField(
+        label=_("Architecture"),
+        required=False,
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+    )
+    disk_format = forms.CharField(
+        label=_("Format"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+    )
     public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 

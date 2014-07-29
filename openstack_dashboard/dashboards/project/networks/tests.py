@@ -411,7 +411,8 @@ class NetworkTests(test.TestCase):
                                       'profile_list')})
     def test_network_create_post_with_subnet_network_exception(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
@@ -449,7 +450,8 @@ class NetworkTests(test.TestCase):
                                       'profile_list')})
     def test_network_create_post_with_subnet_subnet_exception(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
@@ -518,12 +520,14 @@ class NetworkTests(test.TestCase):
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_nw_create_post_w_subnet_no_cidr_w_profile(self):
-        self.test_network_create_post_with_subnet_nocidr(test_with_profile=True)
+        self.test_network_create_post_with_subnet_nocidr(
+            test_with_profile=True)
 
     @test.create_stubs({api.neutron: ('profile_list',)})
     def test_network_create_post_with_subnet_cidr_without_mask(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         network = self.networks.first()
         subnet = self.subnets.first()
         if test_with_profile:
@@ -554,7 +558,8 @@ class NetworkTests(test.TestCase):
     @test.create_stubs({api.neutron: ('profile_list',)})
     def test_network_create_post_with_subnet_cidr_inconsistent(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         network = self.networks.first()
         subnet = self.subnets.first()
         if test_with_profile:
@@ -587,7 +592,8 @@ class NetworkTests(test.TestCase):
     @test.create_stubs({api.neutron: ('profile_list',)})
     def test_network_create_post_with_subnet_gw_inconsistent(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         network = self.networks.first()
         subnet = self.subnets.first()
         if test_with_profile:

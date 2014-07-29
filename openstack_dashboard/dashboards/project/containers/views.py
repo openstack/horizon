@@ -20,18 +20,19 @@
 Views for managing Swift containers.
 """
 
+import os
+
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils.functional import cached_property  # noqa
 from django.utils import http as utils_http
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
+import django.views.generic
 
 from horizon import browsers
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
-
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
 from openstack_dashboard.dashboards.project.containers \
@@ -39,8 +40,6 @@ from openstack_dashboard.dashboards.project.containers \
 from openstack_dashboard.dashboards.project.containers \
     import forms as project_forms
 from openstack_dashboard.dashboards.project.containers import tables
-
-import os
 
 
 def for_url(container_name):
@@ -261,7 +260,8 @@ class CopyView(forms.ModalFormView):
         return context
 
 
-class ContainerDetailView(forms.ModalFormMixin, generic.TemplateView):
+class ContainerDetailView(forms.ModalFormMixin,
+                          django.views.generic.TemplateView):
     template_name = 'project/containers/container_detail.html'
 
     @memoized.memoized_method
@@ -283,7 +283,8 @@ class ContainerDetailView(forms.ModalFormMixin, generic.TemplateView):
         return context
 
 
-class ObjectDetailView(forms.ModalFormMixin, generic.TemplateView):
+class ObjectDetailView(forms.ModalFormMixin,
+                       django.views.generic.TemplateView):
     template_name = 'project/containers/object_detail.html'
 
     @memoized.memoized_method

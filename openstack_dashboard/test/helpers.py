@@ -19,6 +19,8 @@
 from functools import wraps  # noqa
 import os
 
+from ceilometerclient.v2 import client as ceilometer_client
+from cinderclient import client as cinder_client
 from django.conf import settings
 from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
 from django.contrib.messages.storage import default_storage  # noqa
@@ -28,30 +30,23 @@ from django import http
 from django.test.client import RequestFactory  # noqa
 from django.utils.importlib import import_module  # noqa
 from django.utils import unittest
-
-from ceilometerclient.v2 import client as ceilometer_client
-from cinderclient import client as cinder_client
 import glanceclient
 from heatclient import client as heat_client
+import httplib2
 from keystoneclient.v2_0 import client as keystone_client
+import mox
 from neutronclient.v2_0 import client as neutron_client
 from novaclient.v1_1 import client as nova_client
+from openstack_auth import user
+from openstack_auth import utils
 from saharaclient import client as sahara_client
 from swiftclient import client as swift_client
 from troveclient import client as trove_client
-
-
-import httplib2
-import mox
-
-from openstack_auth import user
-from openstack_auth import utils
 
 from horizon import base
 from horizon import conf
 from horizon import middleware
 from horizon.test import helpers as horizon_helpers
-
 from openstack_dashboard import api
 from openstack_dashboard import context_processors
 from openstack_dashboard.test.test_data import utils as test_utils
@@ -103,8 +98,9 @@ class RequestFactoryWithMessages(RequestFactory):
 @unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
                      "The SKIP_UNITTESTS env variable is set.")
 class TestCase(horizon_helpers.TestCase):
-    """Specialized base test case class for Horizon which gives access to
-    numerous additional features:
+    """Specialized base test case class for Horizon.
+
+    It gives access to numerous additional features:
 
       * A full suite of test data through various attached objects and
         managers (e.g. ``self.servers``, ``self.user``, etc.). See the
@@ -175,7 +171,9 @@ class TestCase(horizon_helpers.TestCase):
         utils.get_user = get_user
 
     def assertRedirectsNoFollow(self, response, expected_url):
-        """Asserts that the given response issued a 302 redirect without
+        """Check for redirect.
+
+        Asserts that the given response issued a 302 redirect without
         processing the view which is redirected to.
         """
         assert (response.status_code / 100 == 3), \
@@ -185,7 +183,9 @@ class TestCase(horizon_helpers.TestCase):
         self.assertEqual(response.status_code, 302)
 
     def assertNoFormErrors(self, response, context_name="form"):
-        """Asserts that the response either does not contain a form in its
+        """Checks for no form errors.
+
+        Asserts that the response either does not contain a form in its
         context, or that if it does, that form has no errors.
         """
         context = getattr(response, "context", {})
@@ -197,7 +197,9 @@ class TestCase(horizon_helpers.TestCase):
 
     def assertFormErrors(self, response, count=0, message=None,
                          context_name="form"):
-        """Asserts that the response does contain a form in its
+        """Check for form errors.
+
+        Asserts that the response does contain a form in its
         context, and that form has errors, if count were given,
         it must match the exact numbers of errors
         """
@@ -218,8 +220,9 @@ class TestCase(horizon_helpers.TestCase):
 
 
 class BaseAdminViewTests(TestCase):
-    """A ``TestCase`` subclass which sets an active user with the "admin" role
-    for testing admin-only views and functionality.
+    """Sets an active user with the "admin" role.
+
+    For testing admin-only views and functionality.
     """
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
@@ -239,17 +242,19 @@ class BaseAdminViewTests(TestCase):
 
 
 class APITestCase(TestCase):
-    """The ``APITestCase`` class is for use with tests which deal with the
-    underlying clients rather than stubbing out the
-    openstack_dashboard.api.* methods.
+    """Testing APIs.
+
+    For use with tests which deal with the underlying clients rather than
+    stubbing out the openstack_dashboard.api.* methods.
     """
     def setUp(self):
         super(APITestCase, self).setUp()
         utils.patch_middleware_get_user()
 
         def fake_keystoneclient(request, admin=False):
-            """Wrapper function which returns the stub keystoneclient. Only
-            necessary because the function takes too many arguments to
+            """Returns the stub keystoneclient.
+
+            Only necessary because the function takes too many arguments to
             conveniently be a lambda.
             """
             return self.stub_keystoneclient()
@@ -410,8 +415,10 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
 
 
 class SeleniumAdminTestCase(SeleniumTestCase):
-    """A ``TestCase`` subclass which sets an active user with the "admin" role
-    for testing admin-only views and functionality.
+    """Version of AdminTestCase for Selenium.
+
+    Sets an active user with the "admin" role for testing admin-only views and
+    functionality.
     """
     def setActiveUser(self, *args, **kwargs):
         if "roles" not in kwargs:
@@ -429,9 +436,11 @@ def my_custom_sort(flavor):
 
 
 class PluginTestCase(TestCase):
-    """The ``PluginTestCase`` class is for use with tests which deal with the
-    pluggable dashboard and panel configuration, it takes care of backing up
-    and restoring the Horizon configuration.
+    """Test case for testing plugin system of Horizon.
+
+    For use with tests which deal with the pluggable dashboard and panel
+    configuration, it takes care of backing up and restoring the Horizon
+    configuration.
     """
     def setUp(self):
         super(PluginTestCase, self).setUp()
@@ -469,7 +478,9 @@ class PluginTestCase(TestCase):
         self._reload_urls()
 
     def _reload_urls(self):
-        """Clears out the URL caches, reloads the root urls module, and
+        """CLeans up URLs.
+
+        Clears out the URL caches, reloads the root urls module, and
         re-triggers the autodiscovery mechanism for Horizon. Allows URLs
         to be re-calculated after registering new dashboards. Useful
         only for testing and should never be used on a live site.

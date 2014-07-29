@@ -83,7 +83,7 @@ class CreatePort(forms.SelfHandlingForm):
 
 
 class UpdatePort(project_forms.UpdatePort):
-    #tenant_id = forms.CharField(widget=forms.HiddenInput())
+    # tenant_id = forms.CharField(widget=forms.HiddenInput())
     device_id = forms.CharField(max_length=100, label=_("Device ID"),
                                 help_text=_("Device ID attached to the port"),
                                 required=False)

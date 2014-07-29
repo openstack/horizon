@@ -11,24 +11,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from horizon import forms
 import logging
 
 from django.utils.translation import ugettext_lazy as _
+from saharaclient.api import base as api_base
 
 from horizon import exceptions
+from horizon import forms
 from horizon import workflows
-
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 from openstack_dashboard.api import sahara as saharaclient
-
-import openstack_dashboard.dashboards.project.data_processing. \
-    utils.helpers as helpers
-import openstack_dashboard.dashboards.project.data_processing. \
-    utils.workflow_helpers as whelpers
-
-from saharaclient.api import base as api_base
+from openstack_dashboard.dashboards.project.data_processing.utils import (
+    helpers)
+from openstack_dashboard.dashboards.project.data_processing.utils import (
+    workflow_helpers)
 
 
 LOG = logging.getLogger(__name__)
@@ -74,8 +71,8 @@ class GeneralConfigAction(workflows.Action):
         sahara = saharaclient.client(request)
         hlps = helpers.Helpers(sahara)
 
-        plugin, hadoop_version = whelpers.\
-            get_plugin_and_hadoop_version(request)
+        plugin, hadoop_version = (
+            workflow_helpers.get_plugin_and_hadoop_version(request))
         process_choices = []
         try:
             version_details = saharaclient.plugin_get_version_details(request,
@@ -117,7 +114,7 @@ class GeneralConfigAction(workflows.Action):
         node_parameters = hlps.get_general_node_group_configs(plugin,
                                                               hadoop_version)
         for param in node_parameters:
-            self.fields[param.name] = whelpers.build_control(param)
+            self.fields[param.name] = workflow_helpers.build_control(param)
 
     def populate_flavor_choices(self, request, context):
         try:
@@ -132,8 +129,8 @@ class GeneralConfigAction(workflows.Action):
 
     def get_help_text(self):
         extra = dict()
-        plugin, hadoop_version = whelpers.\
-            get_plugin_and_hadoop_version(self.request)
+        plugin, hadoop_version = (
+            workflow_helpers.get_plugin_and_hadoop_version(self.request))
         extra["plugin_name"] = plugin
         extra["hadoop_version"] = hadoop_version
         return super(GeneralConfigAction, self).get_help_text(extra)
@@ -160,8 +157,8 @@ class GeneralConfig(workflows.Step):
         return context
 
 
-class ConfigureNodegroupTemplate(whelpers.ServiceParametersWorkflow,
-                                 whelpers.StatusFormatMixin):
+class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
+                                 workflow_helpers.StatusFormatMixin):
     slug = "configure_nodegroup_template"
     name = _("Create Node Group Template")
     finalize_button_name = _("Create")
@@ -174,8 +171,8 @@ class ConfigureNodegroupTemplate(whelpers.ServiceParametersWorkflow,
         sahara = saharaclient.client(request)
         hlps = helpers.Helpers(sahara)
 
-        plugin, hadoop_version = whelpers.\
-            get_plugin_and_hadoop_version(request)
+        plugin, hadoop_version = (
+            workflow_helpers.get_plugin_and_hadoop_version(request))
 
         general_parameters = hlps.get_general_node_group_configs(
             plugin,
@@ -224,11 +221,12 @@ class ConfigureNodegroupTemplate(whelpers.ServiceParametersWorkflow,
             for service_process in context["general_processes"]:
                 processes.append(str(service_process).split(":")[1])
 
-            configs_dict = whelpers.parse_configs_from_context(context,
-                                                               self.defaults)
+            configs_dict = (
+                workflow_helpers.parse_configs_from_context(
+                    context, self.defaults))
 
-            plugin, hadoop_version = whelpers.\
-                get_plugin_and_hadoop_version(request)
+            plugin, hadoop_version = (
+                workflow_helpers.get_plugin_and_hadoop_version(request))
 
             volumes_per_node = None
             volumes_size = None
@@ -258,7 +256,7 @@ class ConfigureNodegroupTemplate(whelpers.ServiceParametersWorkflow,
 
 
 class SelectPluginAction(workflows.Action,
-                         whelpers.PluginAndVersionMixin):
+                         workflow_helpers.PluginAndVersionMixin):
     hidden_create_field = forms.CharField(
         required=False,
         widget=forms.HiddenInput(attrs={"class": "hidden_create_field"}))

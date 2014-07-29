@@ -158,8 +158,7 @@ class CeilometerApiTests(test.APITestCase):
             self.assertIn(ret.name, names)
             names.remove(ret.name)
 
-    #TODO(lsmola)
-    #test resource aggregates
+    # TODO(lsmola) Test resource aggregates.
 
     @test.create_stubs({api.ceilometer.CeilometerUsage: ("get_user",
                                                          "get_tenant")})

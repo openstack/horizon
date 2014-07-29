@@ -14,10 +14,10 @@
 import json
 
 from django.utils.translation import ugettext_lazy as _
+
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
-
 from openstack_dashboard.api import glance
 from openstack_dashboard.api import sahara as saharaclient
 

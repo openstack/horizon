@@ -13,11 +13,14 @@
 #    under the License.
 
 from django.utils.translation import ugettext_lazy as _
-from openstack_dashboard.dashboards.project.instances import tables as i_tables
+
+from openstack_dashboard.dashboards.project.instances import tables
 
 
-class InstancesTable(i_tables.InstancesTable):
+class InstancesTable(tables.InstancesTable):
     class Meta:
         name = "instances"
         verbose_name = _("Instances")
-        row_actions = (i_tables.TerminateInstance,)
+        row_actions = (
+            tables.TerminateInstance,
+        )

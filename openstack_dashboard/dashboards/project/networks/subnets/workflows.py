@@ -95,8 +95,6 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
     # Thus now I use HiddenInput for the ip_version ChoiceField as a work
     # around.
     ip_version = forms.ChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
-                                   #widget=forms.Select(
-                                   #    attrs={'disabled': 'disabled'}),
                                    widget=forms.HiddenInput(),
                                    label=_("IP Version"))
 
@@ -174,10 +172,9 @@ class UpdateSubnet(network_workflows.CreateNetwork):
             elif data['gateway_ip']:
                 params['gateway_ip'] = data['gateway_ip']
 
-            #We should send gateway_ip only when it is changed,
-            #because updating gateway_ip is prohibited
-            #when the ip is used.
-            #see bug 1227268
+            # We should send gateway_ip only when it is changed, because
+            # updating gateway_ip is prohibited when the ip is used.
+            # See bug 1227268.
             subnet = api.neutron.subnet_get(request, subnet_id)
             if params['gateway_ip'] == subnet.gateway_ip:
                 del params['gateway_ip']

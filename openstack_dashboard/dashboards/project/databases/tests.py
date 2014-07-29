@@ -98,13 +98,16 @@ class DatabaseTests(test.TestCase):
     @test.create_stubs(
         {api.trove: ('instance_list', 'flavor_list')})
     def test_index_flavor_list_exception(self):
-        #Mocking instances
+        # Mocking instances.
         databases = common.Paginated(self.databases.list())
-        api.trove.instance_list(IsA(http.HttpRequest), marker=None)\
-            .AndReturn(databases)
-        #Mocking flavor list with raising an exception
-        api.trove.flavor_list(IsA(http.HttpRequest))\
-            .AndRaise(self.exceptions.trove)
+        api.trove.instance_list(
+            IsA(http.HttpRequest),
+            marker=None,
+        ).AndReturn(databases)
+        # Mocking flavor list with raising an exception.
+        api.trove.flavor_list(
+            IsA(http.HttpRequest),
+        ).AndRaise(self.exceptions.trove)
 
         self.mox.ReplayAll()
 
@@ -306,8 +309,9 @@ class DatabaseTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, url)
 
-    @test.create_stubs(
-        {api.trove: ('instance_get', 'instance_resize_volume' )})
+    @test.create_stubs({
+        api.trove: ('instance_get', 'instance_resize_volume'),
+    })
     def test_resize_volume(self):
         database = self.databases.first()
         database_id = database.id
@@ -333,8 +337,9 @@ class DatabaseTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs(
-        {api.trove: ('instance_get', 'instance_resize_volume' )})
+    @test.create_stubs({
+        api.trove: ('instance_get', 'instance_resize_volume'),
+    })
     def test_resize_volume_bad_value(self):
         database = self.databases.first()
         database_id = database.id
@@ -355,4 +360,3 @@ class DatabaseTests(test.TestCase):
         res = self.client.post(url, post)
         self.assertContains(res,
              "New size for volume must be greater than current size.")
-

@@ -217,6 +217,7 @@ def tenant_create(request, name, description=None, enabled=None,
 
 def get_default_domain(request):
     """Gets the default domain object to use when creating Identity object.
+
     Returns the domain context if is set, otherwise return the domain
     of the logon user.
     """
@@ -575,9 +576,7 @@ def remove_group_role(request, role, group, domain=None, project=None):
 
 
 def remove_group_roles(request, group, domain=None, project=None):
-    """Removes all roles from a group on a domain or project,
-    removing them from it.
-    """
+    """Removes all roles from a group on a domain or project."""
     client = keystoneclient(request, admin=True)
     roles = client.roles.list(group=group, domain=domain, project=project)
     for role in roles:
@@ -586,8 +585,9 @@ def remove_group_roles(request, group, domain=None, project=None):
 
 
 def get_default_role(request):
-    """Gets the default role object from Keystone and saves it as a global
-    since this is configured in settings and should not change from request
+    """Gets the default role object from Keystone and saves it as a global.
+
+    Since this is configured in settings and should not change from request
     to request. Supports lookup by name or id.
     """
     global DEFAULT_ROLE
