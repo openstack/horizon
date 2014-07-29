@@ -31,7 +31,8 @@ class CreateCluster(tables.LinkAction):
     name = "create"
     verbose_name = _("Launch Cluster")
     url = "horizon:project:data_processing.clusters:create-cluster"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class ScaleCluster(tables.LinkAction):
@@ -79,7 +80,8 @@ class ConfigureCluster(tables.LinkAction):
     name = "configure"
     verbose_name = _("Configure Cluster")
     url = "horizon:project:data_processing.clusters:configure-cluster"
-    classes = ("ajax-modal", "btn-create", "configure-cluster-btn")
+    classes = ("ajax-modal", "configure-cluster-btn")
+    icon = "plus"
     attrs = {"style": "display: none"}
 
 

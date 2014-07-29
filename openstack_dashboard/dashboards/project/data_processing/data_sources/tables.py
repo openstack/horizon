@@ -26,7 +26,8 @@ class CreateDataSource(tables.LinkAction):
     name = "create data source"
     verbose_name = _("Create Data Source")
     url = "horizon:project:data_processing.data_sources:create-data-source"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class DeleteDataSource(tables.BatchAction):

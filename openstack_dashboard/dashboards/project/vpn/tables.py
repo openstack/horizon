@@ -30,7 +30,8 @@ class AddIKEPolicyLink(tables.LinkAction):
     name = "addikepolicy"
     verbose_name = _("Add IKE Policy")
     url = "horizon:project:vpn:addikepolicy"
-    classes = ("ajax-modal", "btn-addikepolicy",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_ikepolicy"),)
 
 
@@ -38,7 +39,8 @@ class AddIPSecPolicyLink(tables.LinkAction):
     name = "addipsecpolicy"
     verbose_name = _("Add IPSec Policy")
     url = "horizon:project:vpn:addipsecpolicy"
-    classes = ("ajax-modal", "btn-addipsecpolicy",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_ipsecpolicy"),)
 
 
@@ -46,7 +48,8 @@ class AddVPNServiceLink(tables.LinkAction):
     name = "addvpnservice"
     verbose_name = _("Add VPN Service")
     url = "horizon:project:vpn:addvpnservice"
-    classes = ("ajax-modal", "btn-addvpnservice",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_vpnservice"),)
 
 
@@ -54,7 +57,8 @@ class AddIPSecSiteConnectionLink(tables.LinkAction):
     name = "addipsecsiteconnection"
     verbose_name = _("Add IPSec Site Connection")
     url = "horizon:project:vpn:addipsecsiteconnection"
-    classes = ("ajax-modal", "btn-addipsecsiteconnection",)
+    classes = ("ajax-modal",)
+    icon = "plus"
     policy_rules = (("network", "create_ipsec_site_connection"),)
 
 
