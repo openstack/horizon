@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-14 18:58-0500\n"
-"PO-Revision-Date: 2014-07-04 01:50+0000\n"
-"Last-Translator: Chun-Kil Kang <gilbird@gmail.com>\n"
+"POT-Creation-Date: 2014-07-28 22:25-0500\n"
+"PO-Revision-Date: 2014-07-28 22:20+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,58 +70,58 @@ msgstr "IP 주소 버전이 잘못되었습니다."
 msgid "Invalid subnet mask"
 msgstr "서브넷 mask가 잘못되었습니다."
 
-#: tables/actions.py:442
-#: templates/horizon/common/_data_table_table_actions.html:13
-#: templates/horizon/common/_data_table_table_actions.html:23
+#: tables/actions.py:444
+#: templates/horizon/common/_data_table_table_actions.html:16
+#: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:11
 #: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr "필터"
 
-#: tables/actions.py:633
+#: tables/actions.py:631
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:635
+#: tables/actions.py:633
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:665 tables/base.py:1459
+#: tables/actions.py:663 tables/base.py:1459
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:694
+#: tables/actions.py:692
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "당신은 %(action)s 이(가) 허용되지 않습니다. : %(objs)s"
 
-#: tables/actions.py:701
+#: tables/actions.py:699
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s를 할 수 없습니다.: %(objs)s"
 
-#: tables/actions.py:707
+#: tables/actions.py:705
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:723
+#: tables/actions.py:721
 msgid "Delete"
 msgstr "삭제"
 
-#: tables/actions.py:724
+#: tables/actions.py:722
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: tables/actions.py:741
+#: tables/actions.py:740
 msgid "Update"
 msgstr "업데이트"
 
-#: tables/actions.py:742
+#: tables/actions.py:741
 msgid "Updated"
 msgstr "업데이트됨"
 
@@ -290,42 +290,47 @@ msgstr "사용량을 조회할 기간을 선택하세요."
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
-msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
-msgstr "<span> %(start)s 에서 </span><span> %(end)s 까지 </span>"
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s\n"
+"    </div>\n"
+"    <div class=\"datepicker form-group\">\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:10
+#: templates/horizon/common/_usage_summary.html:15
 msgid "Submit"
 msgstr "제출"
 
-#: templates/horizon/common/_usage_summary.html:11
+#: templates/horizon/common/_usage_summary.html:16
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:19
 msgid "Active Instances"
 msgstr "동작 중인 인스턴스"
 
-#: templates/horizon/common/_usage_summary.html:17
+#: templates/horizon/common/_usage_summary.html:20
 msgid "Active RAM"
 msgstr "사용 중인 RAM"
 
-#: templates/horizon/common/_usage_summary.html:18
+#: templates/horizon/common/_usage_summary.html:21
 msgid "This Period's VCPU-Hours"
 msgstr "이번 달 VCPU 사용 시간"
 
-#: templates/horizon/common/_usage_summary.html:19
+#: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's GB-Hours"
 msgstr "GB-Hours 사용시간"
 
-#: templates/horizon/common/_workflow.html:38
+#: templates/horizon/common/_workflow.html:40
 msgid "Back"
 msgstr "뒤로"
 
-#: templates/horizon/common/_workflow.html:41
+#: templates/horizon/common/_workflow.html:43
 msgid "Next"
 msgstr "다음"
 
-#: templates/horizon/common/_workflow.html:47
+#: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "취소"
 
