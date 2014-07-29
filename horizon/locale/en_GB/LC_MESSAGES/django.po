@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-27 08:22-0500\n"
-"PO-Revision-Date: 2014-07-25 15:01+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"POT-Creation-Date: 2014-07-28 22:25-0500\n"
+"PO-Revision-Date: 2014-07-28 22:20+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,58 +69,58 @@ msgstr "Invalid version for IP address"
 msgid "Invalid subnet mask"
 msgstr "Invalid subnet mask"
 
-#: tables/actions.py:442
-#: templates/horizon/common/_data_table_table_actions.html:13
-#: templates/horizon/common/_data_table_table_actions.html:23
+#: tables/actions.py:444
+#: templates/horizon/common/_data_table_table_actions.html:16
+#: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:11
 #: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:633
+#: tables/actions.py:631
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:635
+#: tables/actions.py:633
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:665 tables/base.py:1459
+#: tables/actions.py:663 tables/base.py:1459
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:694
+#: tables/actions.py:692
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "You are not allowed to %(action)s: %(objs)s"
 
-#: tables/actions.py:701
+#: tables/actions.py:699
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Unable to %(action)s: %(objs)s"
 
-#: tables/actions.py:707
+#: tables/actions.py:705
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:723
+#: tables/actions.py:721
 msgid "Delete"
 msgstr "Delete"
 
-#: tables/actions.py:724
+#: tables/actions.py:722
 msgid "Deleted"
 msgstr "Deleted"
 
-#: tables/actions.py:741
+#: tables/actions.py:740
 msgid "Update"
 msgstr "Update"
 
-#: tables/actions.py:742
+#: tables/actions.py:741
 msgid "Updated"
 msgstr "Updated"
 
@@ -292,42 +292,47 @@ msgstr "Select a period of time to query its usage"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
-msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
-msgstr "<span>From: %(start)s </span><span>To: %(end)s </span>"
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s\n"
+"    </div>\n"
+"    <div class=\"datepicker form-group\">\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:10
+#: templates/horizon/common/_usage_summary.html:15
 msgid "Submit"
 msgstr "Submit"
 
-#: templates/horizon/common/_usage_summary.html:11
+#: templates/horizon/common/_usage_summary.html:16
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "The date should be in YYYY-mm-dd format."
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:19
 msgid "Active Instances"
 msgstr "Active Instances"
 
-#: templates/horizon/common/_usage_summary.html:17
+#: templates/horizon/common/_usage_summary.html:20
 msgid "Active RAM"
 msgstr "Active RAM"
 
-#: templates/horizon/common/_usage_summary.html:18
+#: templates/horizon/common/_usage_summary.html:21
 msgid "This Period's VCPU-Hours"
 msgstr "This Period's VCPU-Hours"
 
-#: templates/horizon/common/_usage_summary.html:19
+#: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's GB-Hours"
 msgstr "This Period's GB-Hours"
 
-#: templates/horizon/common/_workflow.html:38
+#: templates/horizon/common/_workflow.html:40
 msgid "Back"
 msgstr "Back"
 
-#: templates/horizon/common/_workflow.html:41
+#: templates/horizon/common/_workflow.html:43
 msgid "Next"
 msgstr "Next"
 
-#: templates/horizon/common/_workflow.html:47
+#: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Cancel"
 

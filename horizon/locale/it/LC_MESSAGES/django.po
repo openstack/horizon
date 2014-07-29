@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:24-0500\n"
-"PO-Revision-Date: 2014-07-01 19:12+0000\n"
+"POT-Creation-Date: 2014-07-28 22:25-0500\n"
+"PO-Revision-Date: 2014-07-28 22:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -68,80 +68,80 @@ msgstr "Versione dell'indirizzo IP non valida"
 msgid "Invalid subnet mask"
 msgstr "Maschera sottorete non valida."
 
-#: tables/actions.py:442
-#: templates/horizon/common/_data_table_table_actions.html:13
-#: templates/horizon/common/_data_table_table_actions.html:23
+#: tables/actions.py:444
+#: templates/horizon/common/_data_table_table_actions.html:16
+#: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:11
 #: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
 msgstr "Filtro"
 
-#: tables/actions.py:633
+#: tables/actions.py:631
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:635
+#: tables/actions.py:633
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:665 tables/base.py:1438
+#: tables/actions.py:663 tables/base.py:1459
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:694
+#: tables/actions.py:692
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Non si è autorizzati a %(action)s: %(objs)s"
 
-#: tables/actions.py:701
+#: tables/actions.py:699
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Impossibile %(action)s: %(objs)s"
 
-#: tables/actions.py:707
+#: tables/actions.py:705
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:723
+#: tables/actions.py:721
 msgid "Delete"
 msgstr "Elimina"
 
-#: tables/actions.py:724
+#: tables/actions.py:722
 msgid "Deleted"
 msgstr "Eliminato"
 
-#: tables/actions.py:741
+#: tables/actions.py:740
 msgid "Update"
 msgstr "Aggiorna"
 
-#: tables/actions.py:742
+#: tables/actions.py:741
 msgid "Updated"
 msgstr "Aggiornato"
 
-#: tables/base.py:317
+#: tables/base.py:330
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "L'attributo %(attr)s non esiste in %(obj)s"
 
-#: tables/base.py:905
+#: tables/base.py:922
 msgid "No items to display."
 msgstr "Nessun elemento da visualizzare"
 
-#: tables/base.py:1012
+#: tables/base.py:1029
 msgid "Actions"
 msgstr "Azioni"
 
-#: tables/base.py:1218
+#: tables/base.py:1235
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nessuna corrispondenza restituita per l'identificativo \"%s\""
 
-#: tables/base.py:1358
+#: tables/base.py:1375
 msgid "Please select a row before taking that action."
 msgstr "Per cortesia, selezionare una riga prima di eseguire tale azione."
 
@@ -291,42 +291,47 @@ msgstr "Seleziona un periodo temporale per esaminarne l'utilizzo"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
-msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
-msgstr "<span>Da: %(start)s </span><span>A: %(end)s </span>"
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s\n"
+"    </div>\n"
+"    <div class=\"datepicker form-group\">\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:10
+#: templates/horizon/common/_usage_summary.html:15
 msgid "Submit"
 msgstr "Invia"
 
-#: templates/horizon/common/_usage_summary.html:11
+#: templates/horizon/common/_usage_summary.html:16
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "La data deve essere nel formato YYYY-mm-dd."
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:19
 msgid "Active Instances"
 msgstr "Istanze attive"
 
-#: templates/horizon/common/_usage_summary.html:17
+#: templates/horizon/common/_usage_summary.html:20
 msgid "Active RAM"
 msgstr "RAM Attiva"
 
-#: templates/horizon/common/_usage_summary.html:18
+#: templates/horizon/common/_usage_summary.html:21
 msgid "This Period's VCPU-Hours"
 msgstr "VCPU/ora per questo periodo"
 
-#: templates/horizon/common/_usage_summary.html:19
+#: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's GB-Hours"
 msgstr "GB/ora per questo periodo"
 
-#: templates/horizon/common/_workflow.html:38
+#: templates/horizon/common/_workflow.html:40
 msgid "Back"
 msgstr "Indietro"
 
-#: templates/horizon/common/_workflow.html:41
+#: templates/horizon/common/_workflow.html:43
 msgid "Next"
 msgstr "Prossimo"
 
-#: templates/horizon/common/_workflow.html:47
+#: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -342,34 +347,34 @@ msgstr "Nessun Limite"
 msgid "Available"
 msgstr "Disponibile"
 
-#: templatetags/sizeformat.py:43 templatetags/sizeformat.py:48
+#: templatetags/sizeformat.py:48 templatetags/sizeformat.py:53
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] ""
 msgstr[1] "%(size)d Bytes"
 
-#: templatetags/sizeformat.py:51
+#: templatetags/sizeformat.py:56
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:54
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:57
+#: templatetags/sizeformat.py:62
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:60
+#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:62
+#: templatetags/sizeformat.py:67
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
