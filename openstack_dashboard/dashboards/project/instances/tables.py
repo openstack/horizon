@@ -235,7 +235,7 @@ class LaunchLink(tables.LinkAction):
                 - limits['totalCoresUsed']
             ram_available = limits['maxTotalRAMSize'] - limits['totalRAMUsed']
 
-            if instances_available >= 0 or cores_available <= 0 \
+            if instances_available <= 0 or cores_available <= 0 \
                     or ram_available <= 0:
                 if "disabled" not in self.classes:
                     self.classes = [c for c in self.classes] + ['disabled']

@@ -85,6 +85,7 @@ class InstanceTests(test.TestCase):
         instances = res.context['instances_table'].data
 
         self.assertItemsEqual(instances, self.servers.list())
+        self.assertNotContains(res, "Launch Instance (Quota exceeded)")
 
     @test.create_stubs({api.nova: ('server_list',
                                    'tenant_absolute_limits',)})
