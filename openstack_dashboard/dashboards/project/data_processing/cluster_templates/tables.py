@@ -43,7 +43,8 @@ class CreateCluster(tables.LinkAction):
     name = "create cluster"
     verbose_name = _("Launch Cluster")
     url = "horizon:project:data_processing.clusters:configure-cluster"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
     def get_link_url(self, datum):
         base_url = urlresolvers.reverse(self.url)
@@ -80,7 +81,8 @@ class CreateClusterTemplate(tables.LinkAction):
     verbose_name = _("Create Template")
     url = ("horizon:project:data_processing.cluster_templates:"
            "create-cluster-template")
-    classes = ("ajax-modal", "btn-create", "create-clustertemplate-btn")
+    classes = ("ajax-modal", "create-clustertemplate-btn")
+    icon = "plus"
 
 
 class ConfigureClusterTemplate(tables.LinkAction):
@@ -88,7 +90,8 @@ class ConfigureClusterTemplate(tables.LinkAction):
     verbose_name = _("Configure Cluster Template")
     url = ("horizon:project:data_processing.cluster_templates:"
            "configure-cluster-template")
-    classes = ("ajax-modal", "btn-create", "configure-clustertemplate-btn")
+    classes = ("ajax-modal", "configure-clustertemplate-btn")
+    icon = "plus"
     attrs = {"style": "display: none"}
 
 

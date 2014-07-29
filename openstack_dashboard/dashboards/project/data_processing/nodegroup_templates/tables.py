@@ -27,7 +27,8 @@ class CreateNodegroupTemplate(tables.LinkAction):
     verbose_name = _("Create Template")
     url = ("horizon:project:data_processing.nodegroup_templates:"
            "create-nodegroup-template")
-    classes = ("ajax-modal", "btn-create", "create-nodegrouptemplate-btn")
+    classes = ("ajax-modal", "create-nodegrouptemplate-btn")
+    icon = "plus"
 
 
 class ConfigureNodegroupTemplate(tables.LinkAction):
@@ -35,7 +36,8 @@ class ConfigureNodegroupTemplate(tables.LinkAction):
     verbose_name = _("Configure Template")
     url = ("horizon:project:data_processing.nodegroup_templates:"
            "configure-nodegroup-template")
-    classes = ("ajax-modal", "btn-create", "configure-nodegrouptemplate-btn")
+    classes = ("ajax-modal", "configure-nodegrouptemplate-btn")
+    icon = "plus"
     attrs = {"style": "display: none"}
 
 

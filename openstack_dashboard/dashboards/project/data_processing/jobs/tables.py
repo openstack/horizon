@@ -28,7 +28,8 @@ class CreateJob(tables.LinkAction):
     name = "create job"
     verbose_name = _("Create Job")
     url = "horizon:project:data_processing.jobs:create-job"
-    classes = ("btn-launch", "ajax-modal", "create_job_class")
+    classes = ("ajax-modal", "create_job_class")
+    icon = "plus"
 
 
 class DeleteJob(tables.BatchAction):

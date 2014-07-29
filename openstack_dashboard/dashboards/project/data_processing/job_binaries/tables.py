@@ -29,7 +29,8 @@ class CreateJobBinary(tables.LinkAction):
     name = "create job binary"
     verbose_name = _("Create Job Binary")
     url = "horizon:project:data_processing.job_binaries:create-job-binary"
-    classes = ("btn-launch", "ajax-modal")
+    classes = ("ajax-modal",)
+    icon = "plus"
 
 
 class DeleteJobBinary(tables.BatchAction):
@@ -59,7 +60,7 @@ class DownloadJobBinary(tables.LinkAction):
     name = "download job binary"
     verbose_name = _("Download Job Binary")
     url = "horizon:project:data_processing.job_binaries:download"
-    classes = ("btn-edit")
+    classes = ("btn-edit",)
 
 
 class JobBinariesTable(tables.DataTable):
