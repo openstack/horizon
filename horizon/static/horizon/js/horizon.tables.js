@@ -60,23 +60,13 @@ horizon.datatables = {
 
             if ($new_row.hasClass('status_unknown')) {
               var spinner_elm = $new_row.find("td.status_unknown:last");
-
-              if ($new_row.find('.btn-action-required').length > 0) {
-                spinner_elm.prepend(
-                  $("<div />")
-                    .addClass("action_required_img")
-                    .append(
-                      $("<img />")
-                        .attr("src", "/static/dashboard/img/action_required.png")));
-              } else {
-                // Replacing spin.js here with an animated gif to reduce CPU
-                spinner_elm.prepend(
-                  $("<div />")
-                    .addClass("loading_gif")
-                    .append(
-                      $("<img />")
-                        .attr("src", "/static/dashboard/img/loading.gif")));
-              }
+              var imagePath = $new_row.find('.btn-action-required').length > 0 ?
+                "/static/dashboard/img/action_required.png":
+                "/static/dashboard/img/loading.gif";
+              spinner_elm.prepend(
+                $("<div>")
+                  .addClass("loading_gif")
+                  .append($("<img>").attr("src", imagePath)));
             }
 
             // Only replace row if the html content has changed
