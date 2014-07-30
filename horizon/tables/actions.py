@@ -14,7 +14,7 @@
 
 from collections import defaultdict
 import logging
-import new
+import types
 
 from django.conf import settings
 from django.core import urlresolvers
@@ -293,12 +293,12 @@ class Action(BaseAction):
         if not has_single:
             def single(self, data_table, request, object_id):
                 return self.handle(data_table, request, [object_id])
-            self.single = new.instancemethod(single, self)
+            self.single = types.MethodType(single, self)
 
         if not has_multiple and self.handles_multiple:
             def multiple(self, data_table, request, object_ids):
                 return self.handle(data_table, request, object_ids)
-            self.multiple = new.instancemethod(multiple, self)
+            self.multiple = types.MethodType(multiple, self)
 
     def get_param_name(self):
         """Returns the full POST parameter name for this action.
@@ -669,7 +669,7 @@ class BatchAction(Action):
                 continue
             try:
                 self.action(request, datum_id)
-                #Call update to invoke changes if needed
+                # Call update to invoke changes if needed
                 self.update(request, datum)
                 action_success.append(datum_display)
                 self.success_ids.append(datum_id)

@@ -21,6 +21,7 @@ from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 from django.views.generic import TemplateView  # noqa
+
 from horizon.test.jasmine import jasmine
 
 urlpatterns = patterns('horizon.views',

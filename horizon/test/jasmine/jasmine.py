@@ -10,15 +10,16 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import django.shortcuts
-import django.views.defaults
 import inspect
 import sys
 
+import django.shortcuts
+import django.views.defaults
+
 
 def dispatcher(request, test_name):
-    #import is included in this non-standard location to avoid
-    #problems importing mox.  See bug/1288245
+    # import is included in this non-standard location to avoid
+    # problems importing mox.  See bug/1288245
     from horizon.test.jasmine import jasmine_tests as tests
     classes = inspect.getmembers(sys.modules[tests.__name__],
                                  inspect.isclass)

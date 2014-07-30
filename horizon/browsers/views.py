@@ -44,8 +44,10 @@ class ResourceBrowserView(MultiTableView):
     def get_tables(self):
         tables = super(ResourceBrowserView, self).get_tables()
         # Tells the navigation table what is selected.
-        navigation_table = tables[self.browser_class.navigation_table_class._meta.name]
-        navigation_item = self.kwargs.get(self.browser_class.navigation_kwarg_name)
+        navigation_table = tables[
+            self.browser_class.navigation_table_class._meta.name]
+        navigation_item = self.kwargs.get(
+            self.browser_class.navigation_kwarg_name)
         navigation_table.current_item_id = navigation_item
         return tables
 
