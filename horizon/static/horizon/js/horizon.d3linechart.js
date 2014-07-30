@@ -262,6 +262,7 @@ horizon.d3_line_chart = {
       self.settings.auto_size = true;
       self.settings.axes_x = true;
       self.settings.axes_y = true;
+      self.settings.axes_y_label = true;
       self.settings.interpolation = 'linear';
       // Static y axes values
       self.settings.yMin = undefined;
@@ -309,7 +310,7 @@ horizon.d3_line_chart = {
       var allowed_settings = ['renderer', 'auto_size', 'axes_x', 'axes_y',
         'interpolation', 'yMin', 'yMax', 'xMin', 'xMax', 'bar_chart_settings',
         'bar_chart_selector', 'composed_chart_selector',
-        'higlight_last_point'];
+        'higlight_last_point', 'axes_y_label'];
 
       jQuery.each(allowed_settings, function(index, setting_name) {
         if (settings[setting_name] !== undefined){
@@ -512,9 +513,14 @@ horizon.d3_line_chart = {
         axes_x.render();
       }
       if (self.settings.axes_y) {
-        var axes_y = new Rickshaw.Graph.Axis.Y({
+        var axes_y_settings = {
           graph: graph
-        });
+        };
+        if (!self.settings.axes_y_label){
+          // hiding label of Y axis if setting is set to false
+          axes_y_settings.tickFormat = (function (d) { return ''; });
+        }
+        var axes_y = new Rickshaw.Graph.Axis.Y(axes_y_settings);
         axes_y.render();
       }
 
