@@ -18,7 +18,7 @@ from django.core.urlresolvers import reverse_lazy
 from django import http
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
+import django.views
 
 from horizon import exceptions
 from horizon import forms
@@ -73,7 +73,7 @@ class JobBinaryDetailsView(tabs.TabView):
         pass
 
 
-class DownloadJobBinaryView(generic.View):
+class DownloadJobBinaryView(django.views.generic.View):
     def get(self, request, job_binary_id=None):
         try:
             jb = saharaclient.job_binary_get(request, job_binary_id)

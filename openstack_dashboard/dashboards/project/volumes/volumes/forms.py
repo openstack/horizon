@@ -490,14 +490,16 @@ class UpdateForm(forms.SelfHandlingForm):
 
 
 class ExtendForm(forms.SelfHandlingForm):
-    name = forms.CharField(label=_("Volume Name"),
-                           widget=forms.TextInput(
-                               attrs={'readonly': 'readonly'}
-                           ), required=False)
-    orig_size = forms.IntegerField(label=_("Current Size (GB)"),
-                           widget=forms.TextInput(
-                               attrs={'readonly': 'readonly'}
-                           ), required=False)
+    name = forms.CharField(
+        label=_("Volume Name"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False,
+    )
+    orig_size = forms.IntegerField(
+        label=_("Current Size (GB)"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False,
+    )
     new_size = forms.IntegerField(label=_("New Size (GB)"))
 
     def clean(self):

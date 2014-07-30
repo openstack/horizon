@@ -22,24 +22,22 @@ import uuid
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
-from django.test import utils as test_utils
+import django.test
 from django.utils.datastructures import SortedDict
 from django.utils import encoding
 from django.utils.http import urlencode
-
 from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa
 
 from horizon import exceptions
 from horizon.workflows import views
-
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.instances import console
 from openstack_dashboard.dashboards.project.instances import tables
 from openstack_dashboard.dashboards.project.instances import tabs
 from openstack_dashboard.dashboards.project.instances import workflows
-from openstack_dashboard.test import helpers as test
+from openstack_dashboard.test import helpers
 from openstack_dashboard.usage import quotas
 
 
@@ -48,16 +46,20 @@ SEC_GROUP_ROLE_PREFIX = \
     workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
 
 
-class InstanceTests(test.TestCase):
-    @test.create_stubs({api.nova: ('flavor_list',
-                                   'server_list',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+class InstanceTests(helpers.TestCase):
+    @helpers.create_stubs({
+        api.nova: (
+            'flavor_list',
+            'server_list',
+            'tenant_absolute_limits',
+            'extension_supported',
+        ),
+        api.glance: ('image_list_detailed',),
+        api.network: (
+            'floating_ip_simple_associate_supported',
+            'servers_update_addresses',
+        ),
+    })
     def test_index(self):
         servers = self.servers.list()
         api.nova.extension_supported('AdminActions',
@@ -87,7 +89,7 @@ class InstanceTests(test.TestCase):
         self.assertItemsEqual(instances, self.servers.list())
         self.assertNotContains(res, "Launch Instance (Quota exceeded)")
 
-    @test.create_stubs({api.nova: ('server_list',
+    @helpers.create_stubs({api.nova: ('server_list',
                                    'tenant_absolute_limits',)})
     def test_index_server_list_exception(self):
         search_opts = {'marker': None, 'paginate': True}
@@ -104,16 +106,13 @@ class InstanceTests(test.TestCase):
         self.assertEqual(len(res.context['instances_table'].data), 0)
         self.assertMessageCount(res, error=1)
 
-    @test.create_stubs({api.nova: ('flavor_list',
-                                   'server_list',
-                                   'flavor_get',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'flavor_get',
+                   'tenant_absolute_limits', 'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'servers_update_addresses',),
+    })
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -146,16 +145,13 @@ class InstanceTests(test.TestCase):
 
         self.assertItemsEqual(instances, self.servers.list())
 
-    @test.create_stubs({api.nova: ('flavor_list',
-                                   'server_list',
-                                   'flavor_get',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'flavor_get',
+                   'tenant_absolute_limits', 'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'servers_update_addresses',),
+    })
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
@@ -192,15 +188,13 @@ class InstanceTests(test.TestCase):
         self.assertMessageCount(res, error=len(servers))
         self.assertItemsEqual(instances, self.servers.list())
 
-    @test.create_stubs({api.nova: ('flavor_list',
-                                   'server_list',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
+                   'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'servers_update_addresses',),
+    })
     def test_index_with_instance_booted_from_volume(self):
         volume_server = self.servers.first()
         volume_server.image = ""
@@ -233,7 +227,7 @@ class InstanceTests(test.TestCase):
         self.assertEqual(len(instances), len(servers))
         self.assertContains(res, "(not found)")
 
-    @test.create_stubs({api.nova: ('server_list',
+    @helpers.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
                                    'server_delete',),
                         api.glance: ('image_list_detailed',),
@@ -257,7 +251,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_list',
+    @helpers.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
                                    'server_delete',),
                         api.glance: ('image_list_detailed',),
@@ -283,7 +277,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_pause',
+    @helpers.create_stubs({api.nova: ('server_pause',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -313,7 +307,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_pause',
+    @helpers.create_stubs({api.nova: ('server_pause',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -344,7 +338,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_unpause',
+    @helpers.create_stubs({api.nova: ('server_unpause',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -374,7 +368,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_unpause',
+    @helpers.create_stubs({api.nova: ('server_unpause',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -406,7 +400,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_reboot',
+    @helpers.create_stubs({api.nova: ('server_reboot',
                                    'server_list',
                                    'flavor_list',),
                         api.glance: ('image_list_detailed',),
@@ -432,7 +426,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_reboot',
+    @helpers.create_stubs({api.nova: ('server_reboot',
                                    'server_list',
                                    'flavor_list',),
                         api.glance: ('image_list_detailed',),
@@ -460,7 +454,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_reboot',
+    @helpers.create_stubs({api.nova: ('server_reboot',
                                    'server_list',
                                    'flavor_list',),
                         api.glance: ('image_list_detailed',),
@@ -487,7 +481,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_suspend',
+    @helpers.create_stubs({api.nova: ('server_suspend',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -517,7 +511,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_suspend',
+    @helpers.create_stubs({api.nova: ('server_suspend',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -548,7 +542,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_resume',
+    @helpers.create_stubs({api.nova: ('server_resume',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -579,7 +573,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_resume',
+    @helpers.create_stubs({api.nova: ('server_resume',
                                    'server_list',
                                    'flavor_list',
                                    'extension_supported',),
@@ -612,7 +606,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ("server_get",
+    @helpers.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
                                    "flavor_get"),
                         api.network: ("server_security_groups",
@@ -639,7 +633,7 @@ class InstanceTests(test.TestCase):
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
 
-    @test.create_stubs({api.nova: ("server_get",
+    @helpers.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
                                    "flavor_get"),
                         api.network: ("server_security_groups",
@@ -670,7 +664,7 @@ class InstanceTests(test.TestCase):
         self.assertEqual(res.context['instance'].volumes[1].device,
                          "/dev/hdk")
 
-    @test.create_stubs({api.nova: ("server_get",
+    @helpers.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
                                    "flavor_get"),
                         api.network: ("server_security_groups",
@@ -703,10 +697,10 @@ class InstanceTests(test.TestCase):
                             1)
         self.assertContains(res, "<dd>&lt;!--</dd>", 1)
         self.assertContains(res, "<dt>empty</dt>", 1)
-        #TODO(david-lyle): uncomment when fixed with Django 1.6
-        #self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
+        # TODO(david-lyle): uncomment when fixed with Django 1.6
+        # self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
 
-    @test.create_stubs({api.nova: ("server_get",
+    @helpers.create_stubs({api.nova: ("server_get",
                                    "instance_volumes_list",
                                    "flavor_get"),
                         api.network: ("server_security_groups",
@@ -742,7 +736,7 @@ class InstanceTests(test.TestCase):
         res = self.client.get(url)
         self.assertItemsEqual(res.context['instance'].fault, server.fault)
 
-    @test.create_stubs({api.nova: ('server_get',)})
+    @helpers.create_stubs({api.nova: ('server_get',)})
     def test_instance_details_exception(self):
         server = self.servers.first()
 
@@ -757,7 +751,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ("server_get",)})
+    @helpers.create_stubs({api.nova: ("server_get",)})
     def test_instance_details_unauthorized(self):
         server = self.servers.first()
 
@@ -771,7 +765,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_console_output',)})
+    @helpers.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = 'output'
@@ -792,7 +786,7 @@ class InstanceTests(test.TestCase):
         self.assertIsInstance(res, http.HttpResponse)
         self.assertContains(res, CONSOLE_OUTPUT)
 
-    @test.create_stubs({api.nova: ('server_console_output',)})
+    @helpers.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log_exception(self):
         server = self.servers.first()
 
@@ -934,7 +928,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_get',
+    @helpers.create_stubs({api.nova: ('server_get',
                                    'snapshot_create',
                                    'server_list',
                                    'flavor_list',
@@ -963,23 +957,23 @@ class InstanceTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirects(res, redir_url)
 
-    @test_utils.override_settings(OPENSTACK_ENABLE_PASSWORD_RETRIEVE=False)
+    @django.test.utils.override_settings(
+        OPENSTACK_ENABLE_PASSWORD_RETRIEVE=False)
     def test_instances_index_retrieve_password_action_disabled(self):
         self. _test_instances_index_retrieve_password_action()
 
-    @test_utils.override_settings(OPENSTACK_ENABLE_PASSWORD_RETRIEVE=True)
+    @django.test.utils.override_settings(
+        OPENSTACK_ENABLE_PASSWORD_RETRIEVE=True)
     def test_instances_index_retrieve_password_action_enabled(self):
         self._test_instances_index_retrieve_password_action()
 
-    @test.create_stubs({api.nova: ('flavor_list',
-                                   'server_list',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
+                   'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'servers_update_addresses',),
+    })
     def _test_instances_index_retrieve_password_action(self):
         servers = self.servers.list()
         api.nova.extension_supported('AdminActions',
@@ -1012,7 +1006,7 @@ class InstanceTests(test.TestCase):
             else:
                 self.assertNotContains(res, _action_id)
 
-    @test.create_stubs({api.nova: ('get_password',)})
+    @helpers.create_stubs({api.nova: ('get_password',)})
     def test_decrypt_instance_password(self):
         server = self.servers.first()
         enc_password = "azerty"
@@ -1025,7 +1019,7 @@ class InstanceTests(test.TestCase):
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'project/instances/decryptpassword.html')
 
-    @test.create_stubs({api.nova: ('get_password',)})
+    @helpers.create_stubs({api.nova: ('get_password',)})
     def test_decrypt_instance_get_exception(self):
         server = self.servers.first()
         keypair = self.keypairs.first()
@@ -1043,7 +1037,7 @@ class InstanceTests(test.TestCase):
         api.network: ('security_group_list',
                       'server_security_groups',)}
 
-    @test.create_stubs(instance_update_get_stubs)
+    @helpers.create_stubs(instance_update_get_stubs)
     def test_instance_update_get(self):
         server = self.servers.first()
 
@@ -1060,7 +1054,7 @@ class InstanceTests(test.TestCase):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @test.create_stubs(instance_update_get_stubs)
+    @helpers.create_stubs(instance_update_get_stubs)
     def test_instance_update_get_server_get_exception(self):
         server = self.servers.first()
 
@@ -1091,7 +1085,7 @@ class InstanceTests(test.TestCase):
                       'server_security_groups',
                       'server_update_security_groups')}
 
-    @test.create_stubs(instance_update_post_stubs)
+    @helpers.create_stubs(instance_update_post_stubs)
     def test_instance_update_post(self):
         server = self.servers.first()
         secgroups = self.security_groups.list()[:3]
@@ -1118,7 +1112,7 @@ class InstanceTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs(instance_update_post_stubs)
+    @helpers.create_stubs(instance_update_post_stubs)
     def test_instance_update_post_api_exception(self):
         server = self.servers.first()
 
@@ -1138,7 +1132,7 @@ class InstanceTests(test.TestCase):
         res = self._instance_update_post(server.id, server.name, [])
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs(instance_update_post_stubs)
+    @helpers.create_stubs(instance_update_post_stubs)
     def test_instance_update_post_secgroup_api_exception(self):
         server = self.servers.first()
 
@@ -1160,7 +1154,7 @@ class InstanceTests(test.TestCase):
         res = self._instance_update_post(server.id, server.name, [])
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('extension_supported',
+    @helpers.create_stubs({api.nova: ('extension_supported',
                                    'flavor_list',
                                    'keypair_list',
                                    'tenant_absolute_limits',
@@ -1259,7 +1253,7 @@ class InstanceTests(test.TestCase):
                 ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
                 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
             )
-        elif custom_flavor_sort == test.my_custom_sort:
+        elif custom_flavor_sort == helpers.my_custom_sort:
             sorted_flavors = (
                 ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
                 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
@@ -1303,7 +1297,7 @@ class InstanceTests(test.TestCase):
         else:
             self.assertNotContains(res, disk_config_field_label)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
         self.test_launch_instance_get(expect_password_fields=False)
@@ -1314,7 +1308,7 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get_no_disk_config_supported(self):
         self.test_launch_instance_get(disk_config=False)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         CREATE_INSTANCE_FLAVOR_SORT={
             'key': 'id',
             'reverse': True,
@@ -1322,7 +1316,7 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get_custom_flavor_sort_by_id(self):
         self.test_launch_instance_get(custom_flavor_sort='id')
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         CREATE_INSTANCE_FLAVOR_SORT={
             'key': 'name',
             'reverse': False,
@@ -1330,15 +1324,16 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get_custom_flavor_sort_by_name(self):
         self.test_launch_instance_get(custom_flavor_sort='name')
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         CREATE_INSTANCE_FLAVOR_SORT={
-            'key': test.my_custom_sort,
+            'key': helpers.my_custom_sort,
             'reverse': False,
         })
     def test_launch_instance_get_custom_flavor_sort_by_callable(self):
-        self.test_launch_instance_get(custom_flavor_sort=test.my_custom_sort)
+        self.test_launch_instance_get(
+            custom_flavor_sort=helpers.my_custom_sort)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         CREATE_INSTANCE_FLAVOR_SORT={
             'key': 'no_such_column',
             'reverse': False,
@@ -1349,12 +1344,12 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_get_with_only_one_network(self):
         self.test_launch_instance_get(only_one_network=True)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_get_with_profile(self):
         self.test_launch_instance_get(test_with_profile=True)
 
-    @test.create_stubs({api.nova: ('extension_supported',
+    @helpers.create_stubs({api.nova: ('extension_supported',
                                    'flavor_list',
                                    'keypair_list',
                                    'tenant_absolute_limits',
@@ -1438,12 +1433,12 @@ class InstanceTests(test.TestCase):
         for volume in bootable_volumes:
             self.assertTrue(volume in volume_sources_ids)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_get_bootable_volumes_with_profile(self):
         self.test_launch_instance_get_bootable_volumes(test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',
                                       'port_create',),
@@ -1564,12 +1559,12 @@ class InstanceTests(test.TestCase):
     def test_launch_instance_post_no_disk_config_supported(self):
         self.test_launch_instance_post(disk_config=False)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_post_with_profile(self):
         self.test_launch_instance_post(test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',
                                       'port_create',),
@@ -1684,12 +1679,12 @@ class InstanceTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_post_boot_from_volume_with_profile(self):
         self.test_launch_instance_post_boot_from_volume(test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',
                                       'port_create'),
@@ -1705,7 +1700,8 @@ class InstanceTests(test.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_no_images_available_boot_from_volume(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -1786,7 +1782,7 @@ class InstanceTests(test.TestCase):
 
         form_data = {'flavor': flavor.id,
                      'source_type': 'volume_id',
-                     #'image_id': '',
+                     # 'image_id': '',
                      'keypair': keypair.name,
                      'name': server.name,
                      'customization_script': customization_script,
@@ -1808,13 +1804,13 @@ class InstanceTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_lnch_inst_post_no_images_avail_boot_from_vol_with_profile(self):
         self.test_launch_instance_post_no_images_available_boot_from_volume(
             test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',),
                         api.nova: ('extension_supported',
@@ -1899,13 +1895,13 @@ class InstanceTests(test.TestCase):
         self.assertFormErrors(res, 1, "You must select an image.")
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_post_no_images_available_with_profile(self):
         self.test_launch_instance_post_no_images_available(
             test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',),
                         cinder: ('volume_list',
@@ -1967,12 +1963,12 @@ class InstanceTests(test.TestCase):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_flavorlist_error_with_profile(self):
         self.test_launch_flavorlist_error(test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',
                                       'port_create',),
@@ -2086,12 +2082,12 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_keystone_exception_with_profile(self):
         self.test_launch_form_keystone_exception(test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',),
                         api.nova: ('extension_supported',
@@ -2184,12 +2180,12 @@ class InstanceTests(test.TestCase):
 
         self.assertContains(res, "greater than or equal to 1")
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_count_error_with_profile(self):
         self.test_launch_form_instance_count_error(test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',),
                         api.nova: ('extension_supported',
@@ -2283,7 +2279,8 @@ class InstanceTests(test.TestCase):
 
     def test_launch_form_instance_requirement_error_disk(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         flavor = self.flavors.first()
         image = self.images.first()
         image.min_ram = flavor.ram
@@ -2293,7 +2290,8 @@ class InstanceTests(test.TestCase):
 
     def test_launch_form_instance_requirement_error_ram(
         self,
-        test_with_profile=False):
+        test_with_profile=False,
+    ):
         flavor = self.flavors.first()
         image = self.images.first()
         image.min_ram = flavor.ram + 1
@@ -2301,19 +2299,19 @@ class InstanceTests(test.TestCase):
         self._test_launch_form_instance_requirement_error(image, flavor,
                                                           test_with_profile)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_requirement_error_disk_with_profile(self):
         self.test_launch_form_instance_requirement_error_disk(
             test_with_profile=True)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_requirement_error_ram_with_profile(self):
         self.test_launch_form_instance_requirement_error_ram(
             test_with_profile=True)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
                                       'profile_list',),
                         api.nova: ('extension_supported',
@@ -2420,26 +2418,25 @@ class InstanceTests(test.TestCase):
         self._test_launch_form_instance_volume_size(image, 1.5, msg,
                                                     test_with_profile)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_volume_size_error_with_profile(self):
         self.test_launch_form_instance_volume_size_error(
             test_with_profile=True)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_non_int_volume_size_with_profile(self):
         self.test_launch_form_instance_non_int_volume_size(
             test_with_profile=True)
 
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
+                   'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'servers_update_addresses',),
+    })
     def test_launch_button_disabled_when_quota_exceeded(self):
         servers = self.servers.list()
         limits = self.limits['absolute']
@@ -2481,14 +2478,13 @@ class InstanceTests(test.TestCase):
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The launch button is not disabled")
 
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
+                   'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'servers_update_addresses',),
+    })
     def test_index_options_after_migrate(self):
         servers = self.servers.list()
         server = self.servers.first()
@@ -2515,7 +2511,7 @@ class InstanceTests(test.TestCase):
         self.assertContains(res, "instances__confirm")
         self.assertContains(res, "instances__revert")
 
-    @test.create_stubs({api.nova: ('extension_supported',
+    @helpers.create_stubs({api.nova: ('extension_supported',
                                    'flavor_list',
                                    'keypair_list',
                                    'availability_zone_list',
@@ -2582,12 +2578,12 @@ class InstanceTests(test.TestCase):
             html=True,
             msg_prefix="The default key pair was not selected.")
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_select_default_keypair_if_only_one_with_profile(self):
         self.test_select_default_keypair_if_only_one(test_with_profile=True)
 
-    @test.create_stubs({api.network: ('floating_ip_target_get_by_instance',
+    @helpers.create_stubs({api.network: ('floating_ip_target_get_by_instance',
                                       'tenant_floating_ip_allocate',
                                       'floating_ip_associate',
                                       'servers_update_addresses',),
@@ -2621,7 +2617,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('floating_ip_target_list_by_instance',
+    @helpers.create_stubs({api.network: ('floating_ip_target_list_by_instance',
                                       'tenant_floating_ip_list',
                                       'floating_ip_disassociate',
                                       'servers_update_addresses',),
@@ -2656,7 +2652,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_get',
+    @helpers.create_stubs({api.nova: ('server_get',
                                    'flavor_list',
                                    'tenant_absolute_limits',
                                    'extension_supported')})
@@ -2681,7 +2677,7 @@ class InstanceTests(test.TestCase):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @test.create_stubs({api.nova: ('server_get',
+    @helpers.create_stubs({api.nova: ('server_get',
                                    'flavor_list',)})
     def test_instance_resize_get_server_get_exception(self):
         server = self.servers.first()
@@ -2697,7 +2693,7 @@ class InstanceTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.nova: ('server_get',
+    @helpers.create_stubs({api.nova: ('server_get',
                                    'flavor_list',)})
     def test_instance_resize_get_flavor_list_exception(self):
         server = self.servers.first()
@@ -2728,7 +2724,7 @@ class InstanceTests(test.TestCase):
                    'flavor_list', 'flavor_get',
                    'extension_supported')}
 
-    @test.create_stubs(instance_resize_post_stubs)
+    @helpers.create_stubs(instance_resize_post_stubs)
     def test_instance_resize_post(self):
         server = self.servers.first()
         flavor = self.flavors.first()
@@ -2749,7 +2745,7 @@ class InstanceTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs(instance_resize_post_stubs)
+    @helpers.create_stubs(instance_resize_post_stubs)
     def test_instance_resize_post_api_exception(self):
         server = self.servers.first()
         flavor = self.flavors.first()
@@ -2770,7 +2766,7 @@ class InstanceTests(test.TestCase):
         res = self._instance_resize_post(server.id, flavor.id, 'AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.glance: ('image_list_detailed',),
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.nova: ('extension_supported',)})
     def test_rebuild_instance_get(self, expect_password_fields=True):
         server = self.servers.first()
@@ -2799,7 +2795,7 @@ class InstanceTests(test.TestCase):
         else:
             self.assertNotContains(res, password_field_label)
 
-    @test_utils.override_settings(
+    @django.test.utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_rebuild_instance_get_without_set_password(self):
         self.test_rebuild_instance_get(expect_password_fields=False)
@@ -2823,7 +2819,7 @@ class InstanceTests(test.TestCase):
                    'extension_supported'),
         api.glance: ('image_list_detailed',)}
 
-    @test.create_stubs(instance_rebuild_post_stubs)
+    @helpers.create_stubs(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_with_password(self):
         server = self.servers.first()
         image = self.images.first()
@@ -2855,7 +2851,7 @@ class InstanceTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs(instance_rebuild_post_stubs)
+    @helpers.create_stubs(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_with_password_equals_none(self):
         server = self.servers.first()
         image = self.images.first()
@@ -2886,7 +2882,7 @@ class InstanceTests(test.TestCase):
                                           disk_config='AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs(instance_rebuild_post_stubs)
+    @helpers.create_stubs(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_password_do_not_match(self):
         server = self.servers.first()
         image = self.images.first()
@@ -2913,7 +2909,7 @@ class InstanceTests(test.TestCase):
 
         self.assertContains(res, "Passwords do not match.")
 
-    @test.create_stubs(instance_rebuild_post_stubs)
+    @helpers.create_stubs(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_with_empty_string(self):
         server = self.servers.first()
         image = self.images.first()
@@ -2944,7 +2940,7 @@ class InstanceTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs(instance_rebuild_post_stubs)
+    @helpers.create_stubs(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_api_exception(self):
         server = self.servers.first()
         image = self.images.first()
@@ -2976,16 +2972,14 @@ class InstanceTests(test.TestCase):
                                           disk_config='AUTO')
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test_utils.override_settings(API_RESULT_PAGE_SIZE=2)
-    @test.create_stubs({api.nova: ('flavor_list',
-                                   'server_list',
-                                   'tenant_absolute_limits',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network:
-                            ('floating_ip_simple_associate_supported',
-                             'servers_update_addresses',),
-                        })
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
+                   'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'servers_update_addresses',),
+    })
     def test_index_form_action_with_pagination(self):
         """The form action on the next page should have marker
            object from the previous page last element.
@@ -3036,8 +3030,8 @@ class InstanceTests(test.TestCase):
         # ensure that marker object exists in form action
         self.assertContains(res, form_action, count=1)
 
-    @test_utils.override_settings(API_RESULT_PAGE_SIZE=2)
-    @test.create_stubs({api.nova: ('server_list',
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @helpers.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
                                    'server_delete',),
                         api.glance: ('image_list_detailed',),
@@ -3072,8 +3066,8 @@ class InstanceTests(test.TestCase):
         self.assertMessageCount(success=1)
 
 
-class InstanceAjaxTests(test.TestCase):
-    @test.create_stubs({api.nova: ("server_get",
+class InstanceAjaxTests(helpers.TestCase):
+    @helpers.create_stubs({api.nova: ("server_get",
                                    "flavor_get",
                                    "extension_supported"),
                         api.neutron: ("is_extension_supported",)})
@@ -3104,7 +3098,7 @@ class InstanceAjaxTests(test.TestCase):
                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertContains(res, server.name)
 
-    @test.create_stubs({api.nova: ("server_get",
+    @helpers.create_stubs({api.nova: ("server_get",
                                    "flavor_get",
                                    "extension_supported"),
                         api.neutron: ("is_extension_supported",)})
@@ -3157,11 +3151,11 @@ class InstanceAjaxTests(test.TestCase):
         self.assertTrue(messages[0][1].startswith('Failed'))
 
 
-class ConsoleManagerTests(test.TestCase):
+class ConsoleManagerTests(helpers.TestCase):
 
     def setup_consoles(self):
-        #need to refresh with mocks or will fail since mox do not detect
-        #the api_call() as mocked
+        # Need to refresh with mocks or will fail since mox do not detect
+        # the api_call() as mocked.
         console.CONSOLES = SortedDict([
             ('VNC', api.nova.server_vnc_console),
             ('SPICE', api.nova.server_spice_console),

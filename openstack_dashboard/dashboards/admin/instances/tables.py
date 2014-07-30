@@ -124,7 +124,7 @@ class AdminInstancesTable(tables.DataTable):
     # is an ID, and correlating that at production scale using our current
     # techniques isn't practical. It can be added back in when we have names
     # returned in a practical manner by the API.
-    #user = tables.Column("user_id", verbose_name=_("User"))
+    # user = tables.Column("user_id", verbose_name=_("User"))
     host = tables.Column("OS-EXT-SRV-ATTR:host",
                          verbose_name=_("Host"),
                          classes=('nowrap-col',))

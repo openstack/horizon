@@ -43,7 +43,7 @@ class IndexView(r_views.IndexView, n_views.IndexView):
             tenant_dict = self._get_tenant_list()
             ext_net_dict = self._list_external_networks()
             for r in routers:
-                 # Set tenant name
+                # Set tenant name
                 tenant = tenant_dict.get(r.tenant_id, None)
                 r.tenant_name = getattr(tenant, 'name', None)
                 # If name is empty use UUID as name

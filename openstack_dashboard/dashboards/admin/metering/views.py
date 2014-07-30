@@ -18,7 +18,7 @@ import json
 from django.http import HttpResponse   # noqa
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
+import django.views
 
 from horizon import exceptions
 from horizon import tables
@@ -39,7 +39,7 @@ class IndexView(tabs.TabbedTableView):
     template_name = 'admin/metering/index.html'
 
 
-class SamplesView(generic.TemplateView):
+class SamplesView(django.views.generic.TemplateView):
     template_name = "admin/metering/samples.csv"
 
     @staticmethod
@@ -130,7 +130,7 @@ class ReportView(tables.MultiTableView):
         return context
 
 
-class CsvReportView(generic.View):
+class CsvReportView(django.views.generic.View):
     def get(self, request, **response_kwargs):
         render_class = ReportCsvRenderer
         response_kwargs.setdefault("filename", "usage.csv")

@@ -51,31 +51,33 @@ DEFAULT_QUOTA_NAME = 'default'
 
 
 class VNCConsole(base.APIDictWrapper):
-    """Wrapper for the "console" dictionary returned by the
-    novaclient.servers.get_vnc_console method.
+    """Wrapper for the "console" dictionary.
+
+    Returned by the novaclient.servers.get_vnc_console method.
     """
     _attrs = ['url', 'type']
 
 
 class SPICEConsole(base.APIDictWrapper):
-    """Wrapper for the "console" dictionary returned by the
-    novaclient.servers.get_spice_console method.
+    """Wrapper for the "console" dictionary.
+
+    Returned by the novaclient.servers.get_spice_console method.
     """
     _attrs = ['url', 'type']
 
 
 class RDPConsole(base.APIDictWrapper):
-    """Wrapper for the "console" dictionary returned by the
-    novaclient.servers.get_rdp_console method.
+    """Wrapper for the "console" dictionary.
+
+    Returned by the novaclient.servers.get_rdp_console method.
     """
     _attrs = ['url', 'type']
 
 
 class Server(base.APIResourceWrapper):
-    """Simple wrapper around novaclient.server.Server
+    """Simple wrapper around novaclient.server.Server.
 
-       Preserves the request info so image name can later be retrieved
-
+    Preserves the request info so image name can later be retrieved.
     """
     _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
@@ -92,8 +94,9 @@ class Server(base.APIResourceWrapper):
     # TODO(gabriel): deprecate making a call to Glance as a fallback.
     @property
     def image_name(self):
-        import glanceclient.exc as glance_exceptions
-        from openstack_dashboard.api import glance
+        import glanceclient.exc as glance_exceptions  # noqa
+        from openstack_dashboard.api import glance  # noqa
+
         if not self.image:
             return "-"
         if hasattr(self.image, 'name'):
@@ -118,6 +121,7 @@ class Server(base.APIResourceWrapper):
 
 class NovaUsage(base.APIResourceWrapper):
     """Simple wrapper around contrib/simple_usage.py."""
+
     _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
              'total_local_gb_usage', 'total_memory_mb_usage',
              'total_vcpus_usage', 'total_hours']
@@ -159,9 +163,11 @@ class NovaUsage(base.APIResourceWrapper):
 
 
 class SecurityGroup(base.APIResourceWrapper):
-    """Wrapper around novaclient.security_groups.SecurityGroup which wraps its
-    rules in SecurityGroupRule objects and allows access to them.
+    """Wrapper around novaclient.security_groups.SecurityGroup.
+
+    Wraps its rules in SecurityGroupRule objects and allows access to them.
     """
+
     _attrs = ['id', 'name', 'description', 'tenant_id']
 
     @cached_property
@@ -175,6 +181,7 @@ class SecurityGroup(base.APIResourceWrapper):
 
 class SecurityGroupRule(base.APIResourceWrapper):
     """Wrapper for individual rules in a SecurityGroup."""
+
     _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range', 'group']
 
     def __unicode__(self):
@@ -759,8 +766,9 @@ def list_extensions(request):
 
 @memoized
 def extension_supported(extension_name, request):
-    """this method will determine if nova supports a given extension name.
-    example values for the extension_name include AdminActions, ConsoleOutput,
+    """Determine if nova supports a given extension name.
+
+    Example values for the extension_name include AdminActions, ConsoleOutput,
     etc.
     """
     extensions = list_extensions(request)

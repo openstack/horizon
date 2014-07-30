@@ -74,7 +74,7 @@ class EditNetwork(tables.LinkAction):
         return {"project_id": project_id}
 
 
-#def _get_subnets(network):
+# def _get_subnets(network):
 #    cidrs = [subnet.get('cidr') for subnet in network.subnets]
 #    return ','.join(cidrs)
 

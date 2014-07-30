@@ -13,7 +13,6 @@
 #    under the License.
 
 from datetime import datetime  # noqa
-import pytz
 import string
 
 from django.conf import settings
@@ -21,6 +20,7 @@ from django import shortcuts
 from django.utils import encoding
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
+import pytz
 
 from horizon import forms
 from horizon import messages

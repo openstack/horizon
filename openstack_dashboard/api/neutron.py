@@ -21,20 +21,20 @@ from __future__ import absolute_import
 
 import collections
 import logging
+
 import netaddr
 
 from django.conf import settings
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
+from neutronclient.v2_0 import client as neutron_client
 
 from horizon import messages
 from horizon.utils.memoized import memoized  # noqa
-
 from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
 from openstack_dashboard.api import nova
 
-from neutronclient.v2_0 import client as neutron_client
 
 LOG = logging.getLogger(__name__)
 
@@ -120,7 +120,7 @@ class Router(NeutronAPIDictWrapper):
     """Wrapper for neutron routers."""
 
     def __init__(self, apiresource):
-        #apiresource['admin_state'] = \
+        # apiresource['admin_state'] = \
         #    'UP' if apiresource['admin_state_up'] else 'DOWN'
         super(Router, self).__init__(apiresource)
 
@@ -463,6 +463,7 @@ def network_list(request, **params):
 
 def network_list_for_tenant(request, tenant_id, **params):
     """Return a network list available for the tenant.
+
     The list contains networks owned by the tenant and public networks.
     If requested_networks specified, it searches requested_networks only.
     """
@@ -497,6 +498,7 @@ def network_get(request, network_id, expand_subnet=True, **params):
 
 def network_create(request, **kwargs):
     """Create a subnet on a specified network.
+
     :param request: request context
     :param tenant_id: (optional) tenant id of the network created
     :param name: (optional) name of the network created
@@ -539,6 +541,7 @@ def subnet_get(request, subnet_id, **params):
 
 def subnet_create(request, network_id, cidr, ip_version, **kwargs):
     """Create a subnet on a specified network.
+
     :param request: request context
     :param network_id: network id a subnet is created on
     :param cidr: subnet IP address range
@@ -586,6 +589,7 @@ def port_get(request, port_id, **params):
 
 def port_create(request, network_id, **kwargs):
     """Create a port on a specified network.
+
     :param request: request context
     :param network_id: network id a subnet is created on
     :param device_id: (optional) device id attached to the port

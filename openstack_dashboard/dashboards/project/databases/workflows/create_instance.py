@@ -16,12 +16,13 @@ import logging
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
 from horizon import workflows
-
 from openstack_dashboard import api
+
 
 LOG = logging.getLogger(__name__)
 
@@ -35,7 +36,8 @@ class SetInstanceDetailsAction(workflows.Action):
                                 initial=1,
                                 help_text=_("Size of the volume in GB."))
     datastore = forms.ChoiceField(label=_("Datastore"),
-                                  help_text=_("Type and version of datastore."))
+                                  help_text=_(
+                                      "Type and version of datastore."))
 
     class Meta:
         name = _("Details")
@@ -87,7 +89,7 @@ class SetInstanceDetailsAction(workflows.Action):
                     if len(versions) >= 2:
                         set_initial = True
                     elif len(versions) == 1:
-                        num_datastores_with_one_version = num_datastores_with_one_version + 1
+                        num_datastores_with_one_version += 1
                         if num_datastores_with_one_version > 1:
                             set_initial = True
                 if len(versions) > 0:
@@ -227,7 +229,7 @@ class RestoreAction(workflows.Action):
         try:
             backups = api.trove.backup_list(request)
             choices = [(b.id, b.name) for b in backups
-                       if b.status == 'COMPLETED' ]
+                       if b.status == 'COMPLETED']
         except Exception:
             choices = []
 

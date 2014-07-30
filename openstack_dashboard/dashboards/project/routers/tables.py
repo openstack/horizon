@@ -17,12 +17,13 @@ import logging
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
+from neutronclient.common import exceptions as q_ext
 
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
-from neutronclient.common import exceptions as q_ext
 from openstack_dashboard import api
+
 
 LOG = logging.getLogger(__name__)
 

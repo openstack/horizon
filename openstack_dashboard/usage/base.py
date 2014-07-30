@@ -140,10 +140,11 @@ class BaseUsage(object):
         if not api.base.is_service_enabled(self.request, 'network'):
             return
         try:
-            neutron_quotas_supported = \
-                api.neutron.is_quotas_extension_supported(self.request)
-            neutron_sg_used = \
-                api.neutron.is_extension_supported(self.request, 'security-group')
+            neutron_quotas_supported = (
+                api.neutron.is_quotas_extension_supported(self.request))
+            neutron_sg_used = (
+                api.neutron.is_extension_supported(self.request,
+                                                   'security-group'))
             self._get_neutron_usage(self.limits, 'floatingip')
             if neutron_sg_used:
                 self._get_neutron_usage(self.limits, 'security_group')

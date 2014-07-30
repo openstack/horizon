@@ -20,12 +20,11 @@ from openstack_dashboard.api import fwaas
 from openstack_dashboard.api import lbaas
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import vpn
-
 from openstack_dashboard.test.test_data import utils
 
 
 def data(TEST):
-    # data returned by openstack_dashboard.api.neutron wrapper
+    # Data returned by openstack_dashboard.api.neutron wrapper.
     TEST.agents = utils.TestDataContainer()
     TEST.networks = utils.TestDataContainer()
     TEST.subnets = utils.TestDataContainer()
@@ -53,7 +52,7 @@ def data(TEST):
     TEST.fw_policies = utils.TestDataContainer()
     TEST.fw_rules = utils.TestDataContainer()
 
-    # data return by neutronclient
+    # Data return by neutronclient.
     TEST.api_agents = utils.TestDataContainer()
     TEST.api_networks = utils.TestDataContainer()
     TEST.api_subnets = utils.TestDataContainer()
@@ -79,8 +78,7 @@ def data(TEST):
     TEST.api_fw_policies = utils.TestDataContainer()
     TEST.api_fw_rules = utils.TestDataContainer()
 
-    #------------------------------------------------------------
-    # 1st network
+    # 1st network.
     network_dict = {'admin_state_up': True,
                     'id': '82288d84-e0a5-42ac-95be-e6af08727e42',
                     'name': 'net1',
@@ -111,7 +109,7 @@ def data(TEST):
     TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
 
-    # network profile for network when using the cisco n1k plugin
+    # Network profile for network when using the cisco n1k plugin.
     net_profile_dict = {'name': 'net_profile_test1',
                         'segment_type': 'vlan',
                         'physical_network': 'phys1',
@@ -123,7 +121,7 @@ def data(TEST):
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))
 
-    # policy profile for port when using the cisco n1k plugin
+    # Policy profile for port when using the cisco n1k plugin.
     policy_profile_dict = {'name': 'policy_profile_test1',
                            'id':
                            '00000000-9999-9999-9999-000000000000'}
@@ -131,7 +129,7 @@ def data(TEST):
     TEST.api_policy_profiles.add(policy_profile_dict)
     TEST.policy_profiles.add(neutron.Profile(policy_profile_dict))
 
-    # network profile binding
+    # Network profile binding.
     network_profile_binding_dict = {'profile_id':
                                     '00000000-1111-1111-1111-000000000000',
                                     'tenant_id': network_dict['tenant_id']}
@@ -140,7 +138,7 @@ def data(TEST):
     TEST.network_profile_binding.add(neutron.Profile(
         network_profile_binding_dict))
 
-    # policy profile binding
+    # Policy profile binding.
     policy_profile_binding_dict = {'profile_id':
                                    '00000000-9999-9999-9999-000000000000',
                                    'tenant_id': network_dict['tenant_id']}
@@ -149,7 +147,7 @@ def data(TEST):
     TEST.policy_profile_binding.add(neutron.Profile(
         policy_profile_binding_dict))
 
-    # ports on 1st network
+    # Ports on 1st network.
     port_dict = {'admin_state_up': True,
                  'device_id': 'af75c8e5-a1cc-4567-8d04-44fcd6922890',
                  'device_owner': 'network:dhcp',
@@ -179,8 +177,7 @@ def data(TEST):
     TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
 
-    #------------------------------------------------------------
-    # 2nd network
+    # 2nd network.
     network_dict = {'admin_state_up': True,
                     'id': '72c3ab6c-c80f-4341-9dc5-210fa31ac6c2',
                     'name': 'net2',
@@ -229,8 +226,7 @@ def data(TEST):
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
-    #------------------------------------------------------------
-    # external network
+    # External network.
     network_dict = {'admin_state_up': True,
                     'id': '9b466b94-213a-4cda-badf-72c102a874da',
                     'name': 'ext_net',
@@ -262,8 +258,7 @@ def data(TEST):
     TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
 
-    #------------------------------------------------------------
-    # Set up router data
+    # Set up router data.
     port_dict = {'admin_state_up': True,
                  'device_id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
                  'device_owner': 'network:router_gateway',
@@ -310,9 +305,8 @@ def data(TEST):
     TEST.api_routers.add(router_dict)
     TEST.routers_with_rules.add(neutron.Router(router_dict))
 
-    #------------------------------------------------------------
-    # floating IP
-    # unassociated
+    # Floating IP.
+    # Unassociated.
     fip_dict = {'tenant_id': '1',
                 'floating_ip_address': '172.16.88.227',
                 'floating_network_id': ext_net['id'],
@@ -323,7 +317,7 @@ def data(TEST):
     TEST.api_q_floating_ips.add(fip_dict)
     TEST.q_floating_ips.add(neutron.FloatingIp(fip_dict))
 
-    # associated (with compute port on 1st network)
+    # Associated (with compute port on 1st network).
     fip_dict = {'tenant_id': '1',
                 'floating_ip_address': '172.16.88.228',
                 'floating_network_id': ext_net['id'],
@@ -334,8 +328,7 @@ def data(TEST):
     TEST.api_q_floating_ips.add(fip_dict)
     TEST.q_floating_ips.add(neutron.FloatingIp(fip_dict))
 
-    #------------------------------------------------------------
-    # security group
+    # Security group.
 
     sec_group_1 = {'tenant_id': '1',
                    'description': 'default',
@@ -414,21 +407,20 @@ def data(TEST):
     groups = [sec_group_1, sec_group_2, sec_group_3]
     sg_name_dict = dict([(sg['id'], sg['name']) for sg in groups])
     for sg in groups:
-        # Neutron API
+        # Neutron API.
         TEST.api_q_secgroups.add(sg)
         for rule in sg['security_group_rules']:
             TEST.api_q_secgroup_rules.add(copy.copy(rule))
-        # OpenStack Dashboard internaly API
+        # OpenStack Dashboard internaly API.
         TEST.q_secgroups.add(
             neutron.SecurityGroup(copy.deepcopy(sg), sg_name_dict))
         for rule in sg['security_group_rules']:
             TEST.q_secgroup_rules.add(
                 neutron.SecurityGroupRule(copy.copy(rule), sg_name_dict))
 
-    #------------------------------------------------------------
-    # LBaaS
+    # LBaaS.
 
-    # 1st pool
+    # 1st pool.
     pool_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d49',
                  'tenant_id': '1',
                  'vip_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
@@ -445,7 +437,7 @@ def data(TEST):
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(lbaas.Pool(pool_dict))
 
-    # 2nd pool
+    # 2nd pool.
     pool_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d50',
                  'tenant_id': '1',
                  'vip_id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
@@ -461,7 +453,7 @@ def data(TEST):
     TEST.api_pools.add(pool_dict)
     TEST.pools.add(lbaas.Pool(pool_dict))
 
-    # 1st vip
+    # 1st vip.
     vip_dict = {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
                 'name': 'vip1',
                 'address': '10.0.0.100',
@@ -481,7 +473,7 @@ def data(TEST):
     TEST.api_vips.add(vip_dict)
     TEST.vips.add(lbaas.Vip(vip_dict))
 
-    # 2nd vip
+    # 2nd vip.
     vip_dict = {'id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
                 'name': 'vip2',
                 'address': '10.0.0.110',
@@ -501,7 +493,7 @@ def data(TEST):
     TEST.api_vips.add(vip_dict)
     TEST.vips.add(lbaas.Vip(vip_dict))
 
-    # 1st member
+    # 1st member.
     member_dict = {'id': '78a46e5e-eb1a-418a-88c7-0e3f5968b08',
                    'tenant_id': '1',
                    'pool_id': pool_dict['id'],
@@ -513,7 +505,7 @@ def data(TEST):
     TEST.api_members.add(member_dict)
     TEST.members.add(lbaas.Member(member_dict))
 
-    # 2nd member
+    # 2nd member.
     member_dict = {'id': '41ac1f8d-6d9c-49a4-a1bf-41955e651f91',
                   'tenant_id': '1',
                   'pool_id': pool_dict['id'],
@@ -525,7 +517,7 @@ def data(TEST):
     TEST.api_members.add(member_dict)
     TEST.members.add(lbaas.Member(member_dict))
 
-    # 1st monitor
+    # 1st monitor.
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
                     'type': 'http',
                     'delay': 10,
@@ -541,7 +533,7 @@ def data(TEST):
     TEST.api_monitors.add(monitor_dict)
     TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
 
-    # 2nd monitor
+    # 2nd monitor.
     monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff97',
                     'type': 'ping',
                     'delay': 10,
@@ -553,8 +545,7 @@ def data(TEST):
     TEST.api_monitors.add(monitor_dict)
     TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
 
-    #------------------------------------------------------------
-    # Quotas
+    # Quotas.
     quota_data = {'network': '10',
                   'subnet': '10',
                   'port': '50',
@@ -565,8 +556,7 @@ def data(TEST):
                   }
     TEST.neutron_quotas.add(base.QuotaSet(quota_data))
 
-    #------------------------------------------------------------
-    # Extensions
+    # Extensions.
     extension_1 = {"name": "security-group",
                    "alias": "security-group",
                    "description": "The security groups extension."}
@@ -576,8 +566,7 @@ def data(TEST):
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
 
-    #------------------------------------------------------------
-    # 1st agent
+    # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
                   "description": None,
                   "admin_state_up": True,
@@ -593,7 +582,7 @@ def data(TEST):
     TEST.api_agents.add(agent_dict)
     TEST.agents.add(neutron.Agent(agent_dict))
 
-    # 2nd agent
+    # 2nd agent.
     agent_dict = {"binary": "neutron-dhcp-agent",
                   "description": None,
                   "admin_state_up": True,
@@ -615,17 +604,15 @@ def data(TEST):
     TEST.api_agents.add(agent_dict)
     TEST.agents.add(neutron.Agent(agent_dict))
 
-    #------------------------------------------------------------
-    # Service providers
+    # Service providers.
     provider_1 = {"service_type": "LOADBALANCER",
                   "name": "haproxy",
                   "default": True}
     TEST.providers.add(provider_1)
 
-    #------------------------------------------------------------
-    # VPNaaS
+    # VPNaaS.
 
-    # 1st VPNService
+    # 1st VPNService.
     vpnservice_dict = {'id': '09a26949-6231-4f72-942a-0c8c0ddd4d61',
                        'tenant_id': '1',
                        'name': 'cloud_vpn1',
@@ -640,7 +627,7 @@ def data(TEST):
     TEST.api_vpnservices.add(vpnservice_dict)
     TEST.vpnservices.add(vpn.VPNService(vpnservice_dict))
 
-    # 2nd VPNService
+    # 2nd VPNService.
     vpnservice_dict = {'id': '09a26949-6231-4f72-942a-0c8c0ddd4d62',
                        'tenant_id': '1',
                        'name': 'cloud_vpn2',
@@ -892,11 +879,10 @@ def data(TEST):
     fw2._apidict['policy'] = policy1
     TEST.firewalls.add(fw1)
 
-    #------------------------------------------------------------
-    # Additional Cisco N1K profiles
+    # Additional Cisco N1K profiles.
 
-    # 2nd network profile for network when using the cisco n1k plugin
-    # Profile applied on 1st network
+    # 2nd network profile for network when using the cisco n1k plugin.
+    # Profile applied on 1st network.
     net_profile_dict = {'name': 'net_profile_test2',
                         'segment_type': 'overlay',
                         'sub_type': 'native_vxlan',
@@ -909,7 +895,7 @@ def data(TEST):
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))
 
-    # 2nd network profile binding
+    # 2nd network profile binding.
     network_profile_binding_dict = {'profile_id':
                                     '00000000-2222-2222-2222-000000000000',
                                     'tenant_id': '1'}

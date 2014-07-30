@@ -14,7 +14,6 @@ import os
 
 from horizon.test.settings import *  # noqa
 from horizon.utils import secret_key
-
 from openstack_dashboard import exceptions
 
 
@@ -109,7 +108,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_quotas': False,  # Enabled in specific tests only
     'enable_vpn': True,
     'profile_support': None,
-    #'profile_support': 'cisco'
+    # 'profile_support': 'cisco'
 }
 
 OPENSTACK_HYPERVISOR_FEATURES = {

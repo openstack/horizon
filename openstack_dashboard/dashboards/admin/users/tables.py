@@ -137,7 +137,7 @@ class UsersTable(tables.DataTable):
                                    defaultfilters.urlize)
                           )
     # Default tenant is not returned from Keystone currently.
-    #default_tenant = tables.Column('default_tenant',
+    # default_tenant = tables.Column('default_tenant',
     #                               verbose_name=_('Default Project'))
     id = tables.Column('id', verbose_name=_('User ID'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'),

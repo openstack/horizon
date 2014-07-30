@@ -13,7 +13,7 @@
 #    under the License.
 
 from django import shortcuts
-from django.views.decorators import vary
+import django.views.decorators.vary
 
 import horizon
 from horizon import base
@@ -35,7 +35,7 @@ def get_user_home(user):
     return dashboard.get_absolute_url()
 
 
-@vary.vary_on_cookie
+@django.views.decorators.vary.vary_on_cookie
 def splash(request):
     if request.user.is_authenticated():
         return shortcuts.redirect(horizon.get_user_home(request.user))

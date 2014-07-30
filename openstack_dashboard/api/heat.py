@@ -14,6 +14,7 @@ import logging
 
 from django.conf import settings
 from heatclient import client as heat_client
+
 from horizon.utils import functions as utils
 from openstack_dashboard.api import base
 
@@ -41,10 +42,10 @@ def heatclient(request, password=None):
         'ca_file': cacert,
         'username': request.user.username,
         'password': password
-        #'timeout': args.timeout,
-        #'ca_file': args.ca_file,
-        #'cert_file': args.cert_file,
-        #'key_file': args.key_file,
+        # 'timeout': args.timeout,
+        # 'ca_file': args.ca_file,
+        # 'cert_file': args.cert_file,
+        # 'key_file': args.key_file,
     }
     client = heat_client.Client(api_version, endpoint, **kwargs)
     client.format_parameters = format_parameters

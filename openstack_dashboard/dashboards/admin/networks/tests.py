@@ -308,8 +308,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_network_exception_with_profile(self):
-        self.test_network_create_post_network_exception(test_with_profile=
-                                                        True)
+        self.test_network_create_post_network_exception(
+            test_with_profile=True)
 
     @test.create_stubs({api.neutron: ('network_get',)})
     def test_network_update_get(self):

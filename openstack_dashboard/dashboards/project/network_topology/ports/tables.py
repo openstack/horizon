@@ -14,15 +14,15 @@
 
 
 from django.utils.translation import ugettext_lazy as _
-from openstack_dashboard.dashboards.project.routers.ports import\
-    tables as p_tables
+
+from openstack_dashboard.dashboards.project.routers.ports import tables
 
 
-class RemoveInterface(p_tables.RemoveInterface):
+class RemoveInterface(tables.RemoveInterface):
     failure_url = 'horizon:project:network_topology:router'
 
 
-class PortsTable(p_tables.PortsTable):
+class PortsTable(tables.PortsTable):
     class Meta:
         name = "interfaces"
         verbose_name = _("Interfaces")
