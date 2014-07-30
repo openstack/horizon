@@ -1,7 +1,7 @@
 {% load i18n sizeformat %}
 {% load url from future %}
 <h3>{% trans "Node Groups" %}</h3>
-<div class="status row-fluid detail">
+<div class="status row detail">
     {% for node_group in template.node_groups %}
         <dl class="well">
             <h4>{% trans "Node Group" %}: {{ node_group.name }}</h4>
@@ -21,7 +21,7 @@
             <dt>{% trans "Node Processes" %}</dt>
             {% if node_group.node_processes %}
                 <dd>
-                    <ul>
+                    <ul class="list-bullet">
                         {% for process in node_group.node_processes %}
                             <li>{{ process }}</li>
                         {% endfor %}

@@ -4,21 +4,21 @@
         horizon.modals.addModalInitFunction(function (modal) {
           hide_extra_fields();
           function hide_extra_fields() {
-            $("[name=job_binary_username]").closest(".control-group").hide();
-            $("[name=job_binary_password]").closest(".control-group").hide();
-            $("[name=job_binary_file]").closest(".control-group").hide();
-            $("[name=job_binary_url]").closest(".control-group").hide();
-            $("[name=job_binary_internal]").closest(".control-group").hide();
+            $("[name=job_binary_username]").closest(".form-group").hide();
+            $("[name=job_binary_password]").closest(".form-group").hide();
+            $("[name=job_binary_file]").closest(".form-group").hide();
+            $("[name=job_binary_url]").closest(".form-group").hide();
+            $("[name=job_binary_internal]").closest(".form-group").hide();
           }
           $("#id_job_binary_type").change(function() {
             var label = $("#id_job_binary_url_label");
-            var bin_file = $("[name=job_binary_file]").closest(".control-group");
-            var bin_choice = $("[name=job_binary_internal]").closest(".control-group");
-            var bin_url = $("[name=job_binary_url]").closest(".control-group");
-            var username = $("[name=job_binary_username]").closest(".control-group");
-            var password = $("[name=job_binary_password]").closest(".control-group");
-            var script_name = $("[name=job_binary_script_name]").closest(".control-group");
-            var script_text = $("[name=job_binary_script]").closest(".control-group");
+            var bin_file = $("[name=job_binary_file]").closest(".form-group");
+            var bin_choice = $("[name=job_binary_internal]").closest(".form-group");
+            var bin_url = $("[name=job_binary_url]").closest(".form-group");
+            var username = $("[name=job_binary_username]").closest(".form-group");
+            var password = $("[name=job_binary_password]").closest(".form-group");
+            var script_name = $("[name=job_binary_script_name]").closest(".form-group");
+            var script_text = $("[name=job_binary_script]").closest(".form-group");
             switch($(this).val()) {
               case "internal-db":
                 label.html("internal-db://");
@@ -45,11 +45,11 @@
           $("#id_job_binary_type").change();
 
           $("[name=job_binary_internal]").change(function() {
-            var bin_file = $("[name=job_binary_file]").closest(".control-group");
-            var bin_choice = $("[name=job_binary_internal]").closest(".control-group");
-            var bin_url = $("[name=job_binary_url]").closest(".control-group");
-            var script_name = $("[name=job_binary_script_name]").closest(".control-group");
-            var script_text = $("[name=job_binary_script]").closest(".control-group");
+            var bin_file = $("[name=job_binary_file]").closest(".form-group");
+            var bin_choice = $("[name=job_binary_internal]").closest(".form-group");
+            var bin_url = $("[name=job_binary_url]").closest(".form-group");
+            var script_name = $("[name=job_binary_script_name]").closest(".form-group");
+            var script_text = $("[name=job_binary_script]").closest(".form-group");
             switch($(this).val()) {
               case "%%%NEWSCRIPT%%%":
                 bin_file.hide();

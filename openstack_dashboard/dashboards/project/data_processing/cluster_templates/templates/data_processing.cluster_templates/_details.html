@@ -1,7 +1,7 @@
 {% load i18n sizeformat %}
 {% load url from future %}
 <h3>{% trans "Template Overview" %}</h3>
-<div class="status row-fluid detail">
+<div class="status row detail">
     <dl>
         <dt>{% trans "Name" %}</dt>
         <dd>{{ template.name }}</dd>
@@ -20,7 +20,7 @@
         <dt>{% trans "Anti-affinity enabled for" %}</dt>
         {% if template.anti_affinity %}
             <dd>
-                <ul>
+                <ul class="list-bullet">
                 {% for process in template.anti_affinity %}
                     <li>{{ process }}</li>
                 {% endfor %}

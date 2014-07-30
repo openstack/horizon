@@ -42,15 +42,15 @@
                         $(".configure-nodegrouptemplate-btn")[0].href = oldHref;
                         return false;
                     });
-                    $(".plugin_version_choice").closest(".control-group").hide();
+                    $(".plugin_version_choice").closest(".form-group").hide();
                 }
 
                 //display version for selected plugin
                 $(document).on('change', '.plugin_name_choice', switch_versions);
                 function switch_versions() {
-                    $(".plugin_version_choice").closest(".control-group").hide();
+                    $(".plugin_version_choice").closest(".form-group").hide();
                     var plugin = $(this);
-                    $("." + plugin.val() + "_version_choice").closest(".control-group").show();
+                    $("." + plugin.val() + "_version_choice").closest(".form-group").show();
                 }
 
                 $(".storage_field").change(switch_storage).change();
@@ -58,11 +58,11 @@
                 function switch_storage() {
                     var show = $(".storage_field").val() == "cinder_volume";
                     if (show) {
-                        $(".volume_per_node_field").closest(".control-group").show();
-                        $(".volume_size_field").closest(".control-group").show();
+                        $(".volume_per_node_field").closest(".form-group").show();
+                        $(".volume_size_field").closest(".form-group").show();
                     } else {
-                        $(".volume_per_node_field").closest(".control-group").hide();
-                        $(".volume_size_field").closest(".control-group").hide();
+                        $(".volume_per_node_field").closest(".form-group").hide();
+                        $(".volume_size_field").closest(".form-group").hide();
                     }
                 }
 

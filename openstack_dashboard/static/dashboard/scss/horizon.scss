@@ -73,6 +73,18 @@ ul {
   margin: 0;
 }
 
+// Disc-styled list. This list should be used to build bullet-items lists.
+.list-bullet {
+  list-style: disc;
+}
+
+/* Used to build compact node groups and tags tables */
+.small-padding {
+  padding-left: 0;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
 dt {
   font-weight: bold;
 }

@@ -29,8 +29,7 @@ class ImageForm(forms.SelfHandlingForm):
     description = forms.CharField(max_length=80,
                                   label=_("Description"),
                                   required=False,
-                                  widget=forms.Textarea(attrs={'cols': 80,
-                                                               'rows': 20}))
+                                  widget=forms.Textarea())
 
     def handle(self, request, data):
         try:

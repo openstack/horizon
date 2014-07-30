@@ -1,7 +1,7 @@
 {% load i18n sizeformat %}
 {% load url from future %}
 <h3>{% trans "Template Overview" %}</h3>
-<div class="status row-fluid detail">
+<div class="status row detail">
     <dl>
         <dt>{% trans "Name" %}</dt>
         <dd>{{ template.name }}</dd>
@@ -23,7 +23,7 @@
     <dl>
         <dt>{% trans "Node Processes" %}</dt>
         <dd>
-            <ul>
+            <ul class="list-bullet">
                 {% for process in template.node_processes %}
                     <li>{{ process }}</li>
                 {% endfor %}
