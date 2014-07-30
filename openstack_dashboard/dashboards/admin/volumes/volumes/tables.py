@@ -15,13 +15,13 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.volumes \
-    .volumes import tables as project_tables
+    .volumes import tables as volumes_tables
 
 
 class CreateVolumeType(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Volume Type")
-    url = "horizon:admin:volumes:create_type"
+    url = "horizon:admin:volumes:volumes:create_type"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("volume", "volume_extension:types_manage"),)
@@ -30,7 +30,7 @@ class CreateVolumeType(tables.LinkAction):
 class ViewVolumeTypeExtras(tables.LinkAction):
     name = "extras"
     verbose_name = _("View Extra Specs")
-    url = "horizon:admin:volumes:extras:index"
+    url = "horizon:admin:volumes:volumes:extras:index"
     classes = ("btn-edit",)
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
@@ -53,10 +53,10 @@ class VolumesFilterAction(tables.FilterAction):
                 if q in volume.name.lower()]
 
 
-class VolumesTable(project_tables.VolumesTable):
+class VolumesTable(volumes_tables.VolumesTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
-                         link="horizon:admin:volumes:detail")
+                         link="horizon:admin:volumes:volumes:detail")
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
 
@@ -64,9 +64,9 @@ class VolumesTable(project_tables.VolumesTable):
         name = "volumes"
         verbose_name = _("Volumes")
         status_columns = ["status"]
-        row_class = project_tables.UpdateRow
-        table_actions = (project_tables.DeleteVolume, VolumesFilterAction)
-        row_actions = (project_tables.DeleteVolume,)
+        row_class = volumes_tables.UpdateRow
+        table_actions = (volumes_tables.DeleteVolume, VolumesFilterAction)
+        row_actions = (volumes_tables.DeleteVolume,)
         columns = ('tenant', 'host', 'name', 'size', 'status', 'volume_type',
                    'attachments', 'bootable', 'encryption',)
 
