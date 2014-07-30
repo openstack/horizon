@@ -1,4 +1,4 @@
-@import "_variables";
+@import '_variables';
 
 .workflow {
   ul.nav-tabs {
@@ -30,18 +30,21 @@
         float: none;
         margin: 0;
       }
+
       .next {
         text-align: right;
       }
     }
+
     .nav-tabs.wizard-tabs {
-      border-bottom: none;
+      border-bottom: 0;
       background: $workflow-color-tab-trough-bg;
       padding: 0;
 
       li {
         margin-bottom: 0;
         position: relative;
+
         &:before {
           position: absolute;
           top: 0;
@@ -51,8 +54,9 @@
           border: $workflow-size-tab-arrow solid transparent;
           border-right: 0;
           border-left: $workflow-size-tab-arrow solid $workflow-color-tab-incomplete-bg;
-          content: "";
+          content: '';
         }
+
         &:after {
           position: absolute;
           top: -$workflow-size-tab-border;
@@ -62,14 +66,16 @@
           border: ($workflow-size-tab-arrow + $workflow-size-tab-border) solid transparent;
           border-right: 0;
           border-left: ($workflow-size-tab-arrow + $workflow-size-tab-border) solid $workflow-color-tab-border;
-          content: "";
+          content: '';
         }
+
         &.active:before,
         &.done:before {
           border-left: $workflow-size-tab-arrow solid $workflow-color-tab-complete-bg;
         }
+
         a {
-          border: none;
+          border: 0;
           border-radius: 0;
           background: $workflow-color-tab-incomplete-bg;
           color: $workflow-color-tab-link-inactive;
@@ -79,13 +85,16 @@
           position: relative;
           margin: 0;
         }
+
         &:first-child a {
           padding-left: $workflow-size-tab-padding;
         }
+
         &.active a {
           background: $workflow-color-tab-complete-bg;
           color: $workflow-color-tab-link-active;
         }
+
         &.done a {
           background: $workflow-color-tab-complete-bg;
         }
