@@ -24,8 +24,8 @@ from mox import IsA  # noqa
 
 from horizon.workflows import views
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.access_and_security import (
-    api_access)
+from openstack_dashboard.dashboards.project.access_and_security \
+    import api_access
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 

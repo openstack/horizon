@@ -25,8 +25,8 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.containers.forms \
-    import no_slash_validator
+from openstack_dashboard.dashboards.project.containers \
+    import forms as containers_forms
 
 
 class CreateBackupForm(forms.SelfHandlingForm):
@@ -34,10 +34,11 @@ class CreateBackupForm(forms.SelfHandlingForm):
     description = forms.CharField(widget=forms.Textarea,
                                   label=_("Description"),
                                   required=False)
-    container_name = forms.CharField(max_length="255",
-                                     label=_("Container Name"),
-                                     validators=[no_slash_validator],
-                                     required=False)
+    container_name = forms.CharField(
+        max_length="255",
+        label=_("Container Name"),
+        validators=[containers_forms.no_slash_validator],
+        required=False)
     volume_id = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):

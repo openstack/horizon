@@ -23,8 +23,8 @@ import openstack_dashboard.dashboards.project.data_processing. \
     cluster_templates.workflows.create as clt_create_flow
 import openstack_dashboard.dashboards.project.data_processing. \
     clusters.workflows.create as cl_create_flow
-from openstack_dashboard.dashboards.project.data_processing.utils import (
-    workflow_helpers)
+from openstack_dashboard.dashboards.project.data_processing.utils \
+    import workflow_helpers
 
 from saharaclient.api import base as api_base
 

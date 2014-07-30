@@ -22,10 +22,10 @@ from horizon import workflows
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 from openstack_dashboard.api import sahara as saharaclient
-from openstack_dashboard.dashboards.project.data_processing.utils import (
-    helpers)
-from openstack_dashboard.dashboards.project.data_processing.utils import (
-    workflow_helpers)
+from openstack_dashboard.dashboards.project.data_processing.utils \
+    import helpers
+from openstack_dashboard.dashboards.project.data_processing.utils \
+    import workflow_helpers
 
 
 LOG = logging.getLogger(__name__)
