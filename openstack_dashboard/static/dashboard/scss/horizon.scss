@@ -683,8 +683,6 @@ td.loading {
 
 td.inline_edit_available div.table_cell_wrapper .table_cell_action button.ajax-inline-edit {
   @include btn-icon-inline_edit(0, -72px, 2px, 4px);
-
-  padding: 10px 10px 10px 10px;
   position: relative;
   display: block;
   background: none;
@@ -765,8 +763,6 @@ div.table_cell_wrapper {
     }
     button.ajax-inline-edit {
       @include btn-icon-inline-actions(0, -72px, 2px, 4px);
-
-      padding: 10px 10px 10px 10px;
       position: relative;
       display: none;
       background: none;
@@ -780,7 +776,7 @@ div.table_cell_wrapper {
     margin: auto 0px 0px 0px;
     display: none;
     position: absolute;
-    top: -3px;
+    top: -10px;
     right: 0px;
     z-index: 99;
   }
