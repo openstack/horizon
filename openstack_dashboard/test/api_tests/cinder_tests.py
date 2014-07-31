@@ -22,12 +22,19 @@ from openstack_dashboard.test import helpers as test
 
 
 class CinderApiTests(test.APITestCase):
+
     def test_volume_list(self):
         search_opts = {'all_tenants': 1}
+        detailed = True
         volumes = self.cinder_volumes.list()
+        volume_transfers = self.cinder_volume_transfers.list()
         cinderclient = self.stub_cinderclient()
         cinderclient.volumes = self.mox.CreateMockAnything()
         cinderclient.volumes.list(search_opts=search_opts,).AndReturn(volumes)
+        cinderclient.transfers = self.mox.CreateMockAnything()
+        cinderclient.transfers.list(
+            detailed=detailed,
+            search_opts=search_opts,).AndReturn(volume_transfers)
         self.mox.ReplayAll()
 
         # No assertions are necessary. Verification is handled by mox.

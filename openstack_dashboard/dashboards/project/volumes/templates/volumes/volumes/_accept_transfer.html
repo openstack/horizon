@@ -1,0 +1,7 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Ownership of a volume can be transferred from one project to another.  Accepting a transfer requires obtaining the Transfer ID and Authorization Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</tt> command." %}</p>
+{% endblock %}

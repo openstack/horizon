@@ -20,6 +20,7 @@ Views for managing volumes.
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError  # noqa
+from django import http
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -518,6 +519,65 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _('Unable to create volume snapshot.'),
                               redirect=redirect)
+
+
+class CreateTransferForm(forms.SelfHandlingForm):
+    name = forms.CharField(max_length=255, label=_("Transfer Name"),
+                           required=False)
+
+    def handle(self, request, data):
+        try:
+            volume_id = self.initial['volume_id']
+            transfer = cinder.transfer_create(request, volume_id, data['name'])
+
+            if data['name']:
+                msg = _('Created volume transfer: "%s".') % data['name']
+            else:
+                msg = _('Created volume transfer.')
+            messages.success(request, msg)
+            response = http.HttpResponseRedirect(
+                reverse("horizon:project:volumes:volumes:show_transfer",
+                        args=(transfer.id, transfer.auth_key)))
+            return response
+        except Exception:
+            exceptions.handle(request, _('Unable to create volume transfer.'))
+
+
+class AcceptTransferForm(forms.SelfHandlingForm):
+    # These max lengths correspond to the sizes in cinder
+    transfer_id = forms.CharField(max_length=36, label=_("Transfer ID"))
+    auth_key = forms.CharField(max_length=16, label=_("Authorization Key"))
+
+    def handle(self, request, data):
+        try:
+            transfer = cinder.transfer_accept(request,
+                                              data['transfer_id'],
+                                              data['auth_key'])
+
+            msg = (_('Successfully accepted volume transfer: "%s"')
+                   % data['transfer_id'])
+            messages.success(request, msg)
+            return transfer
+        except Exception:
+            exceptions.handle(request, _('Unable to accept volume transfer.'))
+
+
+class ShowTransferForm(forms.SelfHandlingForm):
+    name = forms.CharField(
+        label=_("Transfer Name"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False)
+    id = forms.CharField(
+        label=_("Transfer ID"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False)
+    auth_key = forms.CharField(
+        label=_("Authorization Key"),
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False)
+
+    def handle(self, request, data):
+        pass
 
 
 class UpdateForm(forms.SelfHandlingForm):
