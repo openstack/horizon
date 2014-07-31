@@ -5,17 +5,23 @@
     <div class="{{ classes.single_value }}">
       <div class="checkbox">
         {% if field.auto_id %}
-          <label {% if field.field.required and form.required_css_class %}class="{{ form.required_css_class }}"{% endif %}>
-            {{ field }} <span>{{ field.label }}</span>
-          </label>
-          {% if field.help_text %}
-            <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="glyphicon glyphicon-question-sign"></span></span>
+          <label
+            {% if field.field.required and form.required_css_class %}
+            class="{{ form.required_css_class }}"
+            {% endif %}>
+            {{ field }}
+            <span>{{ field.label }}</span>
+            {% if field.help_text %}
+            <span class="help-icon" data-toggle="tooltip"
+              data-placement="top" title="{{ field.help_text|safe }}">
+              <span class="glyphicon glyphicon-question-sign"></span>
+            </span>
           {% endif %}
+          </label>
         {% endif %}
         {% for error in field.errors %}
           <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
         {% endfor %}
-
       </div>
     </div>
   {% elif field|is_radio %}
