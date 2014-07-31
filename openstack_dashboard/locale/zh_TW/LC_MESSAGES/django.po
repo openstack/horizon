@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Tom Fifield <tom@openstack.org>, 2014
-# zero00072 <zero00072@gmail.com>, 2014
-# zero00072 <zero00072@gmail.com>, 2014
+# Zhang Xiaowei <zero00072@gmail.com>, 2014
+# Zhang Xiaowei <zero00072@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-03 20:20+0000\n"
-"Last-Translator: zero00072 <zero00072@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openstack/language/zh_TW/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:22+0000\n"
+"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -437,7 +437,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "已成功更新聚合：「%s。」"
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "無法更新聚合。"
 
@@ -605,19 +605,19 @@ msgstr "已新增新的主機聚合「%s」。"
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "無法新增主機聚合「%s」。"
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "無法新增主機聚合。"
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "加入主機到聚合出錯。"
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "加入/移除主機到聚合中"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -629,13 +629,13 @@ msgstr "加入/移除主機到聚合中"
 msgid "Save"
 msgstr "儲存"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "已更新聚合。"
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "更新聚合出錯。"
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "加入或移除主機時出錯。"
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168

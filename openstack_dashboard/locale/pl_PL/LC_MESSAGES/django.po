@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-03 20:20+0000\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:23+0000\n"
 "Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openstack/language/pl_PL/)\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -435,7 +435,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Zaktualizowano agregat: „%s"
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "Nie można zaktualizować agregatu."
 
@@ -603,19 +603,19 @@ msgstr "Utworzono nowy agregat hostów „%s”."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "Nie można utworzyć agregatu hostów „%s”."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "Nie można utworzyć agregatu hostów."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "Błąd podczas dodawania hostów do agregatu."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Dodaj/usuń hosty z agregatu"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -627,13 +627,13 @@ msgstr "Dodaj/usuń hosty z agregatu"
 msgid "Save"
 msgstr "Zapisz"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "Zaktualizowano agregat."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "Nie można zaktualizować agregatu."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168
@@ -5843,7 +5843,7 @@ msgstr "Uruchomiono"
 #: dashboards/project/instances/tables.py:631
 #: dashboards/project/instances/tables.py:632
 msgid "Shut Off"
-msgstr "Wyłączono"
+msgstr "Wyłącz"
 
 #: dashboards/project/instances/tables.py:661
 #, python-format

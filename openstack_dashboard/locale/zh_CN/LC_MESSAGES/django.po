@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# daisy.ycguo <daisy.ycguo@gmail.com>, 2014
-# dragon889 <dragon889@163.com>, 2014
-# dragon889 <dragon889@163.com>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2014
+# LIU Yulong <dragon889@163.com>, 2014
+# LIU Yulong <dragon889@163.com>, 2014
 # Tom Fifield <tom@openstack.org>, 2014
-# yanheven <yanheven@gmail.com>, 2014
-# daisy.ycguo <daisy.ycguo@gmail.com>, 2014
-# yanheven <yanheven@gmail.com>, 2014
+# 颜海峰 <yanheven@gmail.com>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2014
+# 颜海峰 <yanheven@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-03 20:20+0000\n"
-"Last-Translator: dragon889 <dragon889@163.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openstack/language/zh_CN/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:22+0000\n"
+"Last-Translator: LIU Yulong <dragon889@163.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -441,7 +441,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "成功更新聚集：\"%s.\""
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "无法更新聚集。"
 
@@ -609,19 +609,19 @@ msgstr "已创建新的主机集合 \"%s\"."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "无法创建主机集合 \"%s\"."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "无法创建主机集合."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "向集合中添加主机出现错误."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "添加/删除集合中的主机"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -633,13 +633,13 @@ msgstr "添加/删除集合中的主机"
 msgid "Save"
 msgstr "保存"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "集合已更新."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "更新集合出现错误."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "增加或删除主机时错误"
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168
@@ -2028,7 +2028,7 @@ msgstr "选择要迁移的目的主机"
 
 #: dashboards/admin/instances/forms.py:36
 msgid "Disk Over Commit"
-msgstr "磁盘超售"
+msgstr "允许磁盘超量"
 
 #: dashboards/admin/instances/forms.py:38
 msgid "Block Migration"
@@ -2996,7 +2996,7 @@ msgstr "没有找到用户"
 
 #: dashboards/admin/projects/workflows.py:230
 msgid "No users."
-msgstr "meiyouyonghu"
+msgstr "没有用户"
 
 #: dashboards/admin/projects/workflows.py:238
 #: dashboards/admin/users/views.py:54
@@ -8404,7 +8404,7 @@ msgstr "无法获取云硬盘列表"
 
 #: dashboards/project/volumes/tabs.py:48
 msgid "Unable to retrieve volume/instance attachment information"
-msgstr "无法获取云硬盘/云主机附件信息"
+msgstr "无法获取云硬盘/云主机附加信息"
 
 #: dashboards/project/volumes/tabs.py:88
 #: dashboards/project/volumes/volumes/forms.py:190
@@ -8722,7 +8722,7 @@ msgstr "编辑挂载"
 #: dashboards/project/volumes/volumes/tables.py:185
 #: dashboards/project/volumes/volumes/views.py:210
 msgid "Unable to retrieve attachment information."
-msgstr "无法获取附件信息"
+msgstr "无法获取附加信息"
 
 #: dashboards/project/volumes/volumes/tables.py:203
 #, python-format

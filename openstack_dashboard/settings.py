@@ -177,6 +177,7 @@ SESSION_COOKIE_MAX_SIZE = 4093
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 LANGUAGES = (
+    ('cs', 'Czech'),
     ('de', 'German'),
     ('en', 'English'),
     ('en-au', 'Australian English'),

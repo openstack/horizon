@@ -3,104 +3,101 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zopanix <christophe.vandekerchove-ext@cloudwatt.com>, 2014
-# EVEILLARD <stephane.eveillard@gmail.com>, 2014
-# François Bureau <francois.bureau@cloudwatt.com>, 2014
-# cloudwatt_l10n <l10n@cloudwatt.com>, 2014
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-07 02:59-0500\n"
 "PO-Revision-Date: 2014-07-18 05:34+0000\n"
-"Last-Translator: François Bureau <francois.bureau@cloudwatt.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
 #: static/horizon/js/horizon.modals.js:280
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
-msgstr "Chargement..."
+msgstr "Načítání"
 
 #: static/horizon/js/horizon.d3linechart.js:385
 #: static/horizon/js/horizon.d3linechart.js:395
 msgid "No data available."
-msgstr "Pas de données disponibles."
+msgstr "Data nejsou dostupná."
 
 #: static/horizon/js/horizon.d3linechart.js:401
 #: static/horizon/js/horizon.modals.js:299
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
-msgstr "Une erreur s'est produite. Veuillez réessayer ultérieurement."
+msgstr "Vyskytla se chyba. Prosím zkuste to znovu později."
 
 #: static/horizon/js/horizon.firewalls.js:30
 #: static/horizon/js/horizon.instances.js:30
 msgid "There was a problem communicating with the server, please try again."
-msgstr "Problème de communication avec le serveur, veuillez réessayer."
+msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
 
 #: static/horizon/js/horizon.forms.js:117
 msgid "Filter"
-msgstr "Filtrer"
+msgstr "Filtr"
 
 #: static/horizon/js/horizon.instances.js:232
 msgid "Could not read the file"
-msgstr "Le fichier n'a pu être lu"
+msgstr "Soubor nelze přečíst"
 
 #: static/horizon/js/horizon.instances.js:238
 #: static/horizon/js/horizon.instances.js:265
 msgid "Could not decrypt the password"
-msgstr "Le mot de passe n'a pu être déchiffré"
+msgstr "Heslo nelze dešifrovat"
 
 #: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
-msgstr "Aucun rôle"
+msgstr "Žádné role"
 
 #: static/horizon/js/horizon.membership.js:222
 msgid "Roles"
-msgstr "Rôles"
+msgstr "Role"
 
 #: static/horizon/js/horizon.messages.js:11
 msgid "Danger: "
-msgstr "Danger :"
+msgstr "Nebezpečí:"
 
 #: static/horizon/js/horizon.messages.js:12
 msgid "Warning: "
-msgstr "Avertissement :"
+msgstr "Varování:"
 
 #: static/horizon/js/horizon.messages.js:13
 msgid "Notice: "
-msgstr "Notification :"
+msgstr "Oznámení:"
 
 #: static/horizon/js/horizon.messages.js:14
 msgid "Success: "
-msgstr "Succès :"
+msgstr "Úspěch:"
 
 #: static/horizon/js/horizon.messages.js:15
 msgid "Error: "
-msgstr "Erreur :"
+msgstr "Chyba:"
 
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Zrušit"
 
 #: static/horizon/js/horizon.modals.js:98
 #: static/horizon/js/horizon.tables.js:172
 msgid "Working"
-msgstr "Traitement en cours..."
+msgstr "Zpracovávání"
 
 #: static/horizon/js/horizon.modals.js:128
 msgid "There was an error submitting the form. Please try again."
-msgstr "Erreur lors de la soumission du formulaire. Veuillez réessayer. "
+msgstr "Při odesílání formuláře nastal problém. Zkuste to prosím znovu."
 
 #: static/horizon/js/horizon.networktopology.js:535
 msgid "STATUS"
-msgstr "STATUT"
+msgstr "STAV"
 
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "ID"
@@ -108,56 +105,57 @@ msgstr "ID"
 
 #: static/horizon/js/horizon.networktopology.js:537
 msgid "Interfaces"
-msgstr "Interfaces"
+msgstr "Rozhraní"
 
 #: static/horizon/js/horizon.networktopology.js:538
 msgid "Interface"
-msgstr "Interface"
+msgstr "Rozhraní"
 
 #: static/horizon/js/horizon.networktopology.js:539
 msgid "open console"
-msgstr "ouvrir la console"
+msgstr "otevřít konzoli"
 
 #: static/horizon/js/horizon.networktopology.js:540
 #, c-format
 msgid "view %s details"
-msgstr "Voir les détails de %s"
+msgstr "zobrazit podrobnosti %s"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:256
 msgid "No items to display."
-msgstr "Aucun élément à afficher."
+msgstr "Žádné položky k zobrazení."
 
 #: static/horizon/js/horizon.tables.js:50
 msgid "An error occurred while updating."
-msgstr "Une erreur s'est produite durant la mise à jour."
+msgstr "Při aktualizaci nastal problém."
 
 #: static/horizon/js/horizon.tables.js:155
 #, c-format
 msgid "You have selected %s. "
-msgstr "Vous avez sélectionné %s."
+msgstr "Vybrali jste %s."
 
 #: static/horizon/js/horizon.tables.js:157
 #, c-format
 msgid "Confirm %s"
-msgstr "Confirmez %s"
+msgstr "Potvrdit %s"
 
 #: static/horizon/js/horizon.tables.js:158
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr "Confirmez votre sélection. Cette action ne peut pas être annulée."
+msgstr "Potvrďte prosím váš výběr. Toto nelze vrátit."
 
 #: static/horizon/js/horizon.tables.js:243
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Affichage de %s élément"
-msgstr[1] "Affichage de %s éléments"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] "Zobrazování %s položek"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169
 msgid "Not authorized to do this operation."
-msgstr "Vous n'êtes pas autorisé à effectuer cette opération."
+msgstr "Nemáte oprávnění provést tuto operaci."
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
-msgstr "Les mots de passe ne correspondent pas."
+msgstr "Hesla se neshodují."

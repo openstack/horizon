@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Nenad Jovanovic <nenaddjovanovic@gmail.com>, 2014
+# nenaddjovanovic <nenaddjovanovic@gmail.com>, 2014
 # darioristic <office@darioristic.com>, 2014
-# Zoran Zivotic <zzivotic56@gmail.com>, 2014
+# zzivotic56 <zzivotic56@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-04 09:00+0000\n"
-"Last-Translator: Zoran Zivotic <zzivotic56@gmail.com>\n"
-"Language-Team: Serbian (http://www.transifex.com/projects/p/openstack/language/sr/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:23+0000\n"
+"Last-Translator: zzivotic56 <zzivotic56@gmail.com>\n"
+"Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -437,7 +437,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Uspešno ažuriran skup: \"%s.\""
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "Nije moguće ažurirati skup."
 
@@ -605,19 +605,19 @@ msgstr "Kreiran novi skup hostova \"%s\"."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "Nije moguće kreirati skup hostova \"%s\"."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "Nije moguće kreirati skup hostova."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "Greška pri dodavanju hosta u skup."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Dodaj/Izbaci host iz skupa"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -629,13 +629,13 @@ msgstr "Dodaj/Izbaci host iz skupa"
 msgid "Save"
 msgstr "Sačuvaj"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "Skup je ažuriran."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "Greška pri ažuriranju skupa."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "Greška pri dodavanju ili uklanjanju hostova."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168

@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Tom Fifield <tom@openstack.org>, 2014
-# daisy.ycguo <daisy.ycguo@gmail.com>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-03 20:20+0000\n"
-"Last-Translator: daisy.ycguo <daisy.ycguo@gmail.com>\n"
-"Language-Team: English (Australia) (http://www.transifex.com/projects/p/openstack/language/en_AU/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:23+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -436,7 +436,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Successfully updated aggregate: \"%s.\""
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "Unable to update the aggregate."
 
@@ -604,19 +604,19 @@ msgstr "Created new host aggregate \"%s\"."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "Unable to create host aggregate \"%s\"."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "Unable to create host aggregate."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "Error adding Hosts to the aggregate."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Add/Remove Hosts to Aggregate"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -628,13 +628,13 @@ msgstr "Add/Remove Hosts to Aggregate"
 msgid "Save"
 msgstr "Save"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "The Aggregate was updated."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "Error updating the aggregate."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "Error when adding or removing hosts."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168

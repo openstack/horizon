@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# FelipeCosta <felipecosta.fcb@gmail.com>, 2014
+# Felipe Costa Batista <felipecosta.fcb@gmail.com>, 2014
 # Guilherme Maluf Balzana <guimalufb@gmail.com>, 2014
 # Marcelo Dieder <marcelodieder@gmail.com>, 2014
-# Mauro Rodrigues <maurosmrodrigues@gmail.com>, 2014
+# maurosr <maurosmrodrigues@gmail.com>, 2014
 # rcsousa <ricardo.c.sousa@gmail.com>, 2014
 # Tom Fifield <tom@openstack.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-07 06:50+0000\n"
-"Last-Translator: Tom Fifield <tom@openstack.org>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/openstack/language/pt_BR/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:22+0000\n"
+"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -195,7 +195,7 @@ msgstr "Requisições de atualização para este IP flutuante"
 
 #: api/ceilometer.py:1065
 msgid "Image existence check"
-msgstr ""
+msgstr "Verificação de existência da Imagem"
 
 #: api/ceilometer.py:1069
 msgid "Uploaded image size"
@@ -440,7 +440,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Agregado atualizado com sucesso: \"%s\""
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "Não é possível atualizar agregado."
 
@@ -608,19 +608,19 @@ msgstr "Criado um novo host agregado \"%s\"."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "Não foi possível criar o agregado de host \"%s\"."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "Não foi possível criar o agregado de host."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "Erro ao adicionar Hosts para o agregado."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Adicionar/Remover Hosts do Agregado"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -632,13 +632,13 @@ msgstr "Adicionar/Remover Hosts do Agregado"
 msgid "Save"
 msgstr "Salvar"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "O Agregado foi atualizado."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "Erro ao atualizar o agregado."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "Erro ao errar ou adicionar hosts."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168
@@ -9469,11 +9469,11 @@ msgstr "Sub Tipo"
 
 #: dashboards/router/nexus1000v/forms.py:63
 msgid "Native VXLAN"
-msgstr ""
+msgstr "VXLAN Nativa"
 
 #: dashboards/router/nexus1000v/forms.py:64
 msgid "Enhanced VXLAN"
-msgstr ""
+msgstr "VXLAN aprimorada"
 
 #: dashboards/router/nexus1000v/forms.py:82
 #: dashboards/router/nexus1000v/forms.py:88
@@ -9580,7 +9580,7 @@ msgid ""
 "types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) "
 "which can be manually inputed as a text parameter for subtype. Available "
 "sub-type for Trunk is: VLAN."
-msgstr ""
+msgstr "Sub tipos estão disponíveis para os segmentos de Overlay e Trunk. Os Sub-tipos disponíveis para Overlay são: Native-VXLAN, Enhanced-VXLAN, ou \"Outros\" (por exemplo, GRE), que podem ser imputados manualmente, como um parâmetro de texto para o subtipo. O sub-tipo disponível para Trunk é: VLAN."
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
 msgid ""

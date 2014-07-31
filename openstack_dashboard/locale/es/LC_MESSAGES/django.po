@@ -4,18 +4,19 @@
 # 
 # Translators:
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2014
-# heleno.jimenez <heleno.jimenez@gmail.com>, 2014
-# mariantb <marian.tort@gmail.com>, 2014
-# toote, 2014
-# vkmc <vickymsee@gmail.com>, 2014
+# Guillermo Vitas Gil <gvitgo@gmail.com>, 2014
+# Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2014
+# Marian Tort <marian.tort@gmail.com>, 2014
+# Matías Bellone, 2014
+# Victoria Martínez de la Cruz <vickymsee@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-03 20:24+0000\n"
-"Last-Translator: mariantb <marian.tort@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/openstack/language/es/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:22+0000\n"
+"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,7 +86,7 @@ msgstr "Uso promedio del CPU"
 #: api/ceilometer.py:916
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
-msgstr "Número de VCPUs"
+msgstr "Número de VCPU"
 
 #: api/ceilometer.py:920
 msgid "Number of read requests"
@@ -439,7 +440,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Se ha actualizado correctamente el agregado: \"%s.\""
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "No ha sido posible actualizar el agregado."
 
@@ -607,19 +608,19 @@ msgstr "Crear nuevo agregado de hosts \"%s\"."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "No ha sido posible crear agregado de host \"%s\"."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "No ha sido posible crear el agregado de host."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "Error al añadir Hosts al agregado."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Añadir/Quitar Hosts a agregado"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -631,13 +632,13 @@ msgstr "Añadir/Quitar Hosts a agregado"
 msgid "Save"
 msgstr "Guardar"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "El agregado se ha actualizado."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "Error al actualizar el agregado."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "Error al añadir o eliminar servidores"
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168
@@ -842,7 +843,7 @@ msgstr "Dominio"
 #: dashboards/admin/domains/tables.py:84
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
-msgstr "Debe desactivar el dominio \"%s\" antes de borrarlo."
+msgstr "Debe desactivar el dominio \"%s\" antes de eliminarlo."
 
 #: dashboards/admin/domains/tables.py:114
 msgid "Set Domain Context"
@@ -1039,7 +1040,7 @@ msgstr "Nombre del sabor"
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/overview/views.py:34 usage/tables.py:33
 msgid "VCPUs"
-msgstr "VCPUs"
+msgstr "VCPU"
 
 #: dashboards/admin/flavors/tables.py:104
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
@@ -1931,7 +1932,7 @@ msgstr "RAM (MB)"
 #: dashboards/project/access_and_security/floating_ips/tables.py:66
 #: dashboards/project/access_and_security/floating_ips/tables.py:147
 msgid "Floating IPs"
-msgstr "IPs flotantes"
+msgstr "IP flotantes"
 
 #: dashboards/admin/info/tables.py:174
 #: dashboards/admin/projects/workflows.py:63

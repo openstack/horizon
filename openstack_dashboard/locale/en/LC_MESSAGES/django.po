@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-07 02:25-0500\n"
+"POT-Creation-Date: 2014-07-31 01:24-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -333,7 +333,7 @@ msgid "Admin"
 msgstr ""
 
 #: dashboards/admin/aggregates/forms.py:26
-#: dashboards/admin/aggregates/tables.py:95
+#: dashboards/admin/aggregates/tables.py:97
 #: dashboards/admin/aggregates/workflows.py:24
 #: dashboards/admin/domains/tables.py:166
 #: dashboards/admin/domains/workflows.py:35
@@ -440,7 +440,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/panel.py:21
 #: dashboards/admin/aggregates/tables.py:24
-#: dashboards/admin/aggregates/tables.py:109
+#: dashboards/admin/aggregates/tables.py:111
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
@@ -469,15 +469,15 @@ msgstr ""
 msgid "Edit Host Aggregate"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:89
+#: dashboards/admin/aggregates/tables.py:91
 msgid "Services Up"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:89
+#: dashboards/admin/aggregates/tables.py:91
 msgid "Services Down"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:97
+#: dashboards/admin/aggregates/tables.py:99
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:741
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
@@ -489,25 +489,25 @@ msgstr ""
 msgid "Availability Zone"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:99
-#: dashboards/admin/aggregates/tables.py:122
+#: dashboards/admin/aggregates/tables.py:101
+#: dashboards/admin/aggregates/tables.py:124
 msgid "Hosts"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:103
+#: dashboards/admin/aggregates/tables.py:105
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:53
 msgid "Metadata"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:120
+#: dashboards/admin/aggregates/tables.py:122
 msgid "Availability Zone Name"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:126
+#: dashboards/admin/aggregates/tables.py:128
 msgid "Available"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:135
+#: dashboards/admin/aggregates/tables.py:137
 msgid "Availability Zones"
 msgstr ""
 
@@ -862,23 +862,23 @@ msgstr ""
 
 #: dashboards/admin/domains/tables.py:169
 #: dashboards/admin/projects/workflows.py:103
-#: dashboards/admin/users/forms.py:76 dashboards/admin/users/forms.py:146
+#: dashboards/admin/users/forms.py:76 dashboards/admin/users/forms.py:152
 msgid "Domain ID"
 msgstr ""
 
 #: dashboards/admin/domains/tables.py:170
 #: dashboards/admin/domains/workflows.py:40
-#: dashboards/admin/groups/tables.py:166 dashboards/admin/info/tables.py:54
+#: dashboards/admin/groups/tables.py:167 dashboards/admin/info/tables.py:54
 #: dashboards/admin/info/tables.py:116 dashboards/admin/projects/tables.py:178
 #: dashboards/admin/projects/tables.py:180
 #: dashboards/admin/projects/workflows.py:114
 #: dashboards/admin/projects/workflows.py:475
-#: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:139
+#: dashboards/admin/users/tables.py:58 dashboards/admin/users/tables.py:141
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:160
 #: dashboards/project/firewalls/workflows.py:71
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Enabled"
 msgstr ""
 
@@ -1064,7 +1064,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/roles/forms.py:39
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
-#: dashboards/admin/users/forms.py:152
+#: dashboards/admin/users/forms.py:158
 #: dashboards/project/database_backups/templates/database_backups/details.html:22
 #: dashboards/project/database_backups/templates/database_backups/details.html:44
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
@@ -1412,16 +1412,16 @@ msgstr ""
 msgid "Removed"
 msgstr ""
 
-#: dashboards/admin/groups/tables.py:126 dashboards/admin/groups/tables.py:183
+#: dashboards/admin/groups/tables.py:126 dashboards/admin/groups/tables.py:184
 #: dashboards/admin/users/tables.py:59 dashboards/admin/users/tables.py:102
 #: dashboards/project/databases/tables.py:66
 #: dashboards/project/instances/workflows/create_instance.py:53
 msgid "User"
 msgstr ""
 
-#: dashboards/admin/groups/tables.py:127 dashboards/admin/groups/tables.py:184
+#: dashboards/admin/groups/tables.py:127 dashboards/admin/groups/tables.py:185
 #: dashboards/admin/users/panel.py:29 dashboards/admin/users/tables.py:60
-#: dashboards/admin/users/tables.py:103 dashboards/admin/users/tables.py:146
+#: dashboards/admin/users/tables.py:103 dashboards/admin/users/tables.py:148
 #: dashboards/admin/users/templates/users/index.html:3
 #: dashboards/admin/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:67
@@ -1434,25 +1434,25 @@ msgid "Add..."
 msgstr ""
 
 #: dashboards/admin/groups/tables.py:162 dashboards/admin/users/forms.py:82
-#: dashboards/admin/users/forms.py:153 dashboards/admin/users/tables.py:130
+#: dashboards/admin/users/forms.py:159 dashboards/admin/users/tables.py:130
 #: dashboards/project/databases/tables.py:178
 msgid "User Name"
 msgstr ""
 
 #: dashboards/admin/groups/tables.py:163 dashboards/admin/users/forms.py:84
-#: dashboards/admin/users/forms.py:155 dashboards/admin/users/tables.py:131
+#: dashboards/admin/users/forms.py:161 dashboards/admin/users/tables.py:131
 msgid "Email"
 msgstr ""
 
-#: dashboards/admin/groups/tables.py:165 dashboards/admin/users/tables.py:138
+#: dashboards/admin/groups/tables.py:166 dashboards/admin/users/tables.py:140
 msgid "User ID"
 msgstr ""
 
-#: dashboards/admin/groups/tables.py:175
+#: dashboards/admin/groups/tables.py:176
 msgid "Group Members"
 msgstr ""
 
-#: dashboards/admin/groups/tables.py:181
+#: dashboards/admin/groups/tables.py:182
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
 #: dashboards/project/firewalls/workflows.py:108
 #: dashboards/project/firewalls/workflows.py:216
@@ -1468,11 +1468,11 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: dashboards/admin/groups/tables.py:182
+#: dashboards/admin/groups/tables.py:183
 msgid "Added"
 msgstr ""
 
-#: dashboards/admin/groups/tables.py:213
+#: dashboards/admin/groups/tables.py:214
 msgid "Non-Members"
 msgstr ""
 
@@ -1823,8 +1823,8 @@ msgstr ""
 #: dashboards/project/routers/ports/tables.py:86
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:100
-#: dashboards/project/stacks/tables.py:131
-#: dashboards/project/stacks/tables.py:178
+#: dashboards/project/stacks/tables.py:136
+#: dashboards/project/stacks/tables.py:183
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
@@ -1852,7 +1852,7 @@ msgid "Compute Services"
 msgstr ""
 
 #: dashboards/admin/info/tables.py:118 dashboards/admin/users/tables.py:58
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Disabled"
 msgstr ""
 
@@ -2956,7 +2956,7 @@ msgid "From here you can set quotas (max limits) for the project."
 msgstr ""
 
 #: dashboards/admin/projects/workflows.py:106
-#: dashboards/admin/users/forms.py:79 dashboards/admin/users/forms.py:149
+#: dashboards/admin/users/forms.py:79 dashboards/admin/users/forms.py:155
 msgid "Domain Name"
 msgstr ""
 
@@ -3264,17 +3264,17 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
-#: dashboards/admin/users/forms.py:87 dashboards/admin/users/forms.py:158
+#: dashboards/admin/users/forms.py:87 dashboards/admin/users/forms.py:164
 #: dashboards/project/databases/workflows/create_instance.py:82
 #: dashboards/project/instances/forms.py:149
 msgid "Password"
 msgstr ""
 
-#: dashboards/admin/users/forms.py:92 dashboards/admin/users/forms.py:164
+#: dashboards/admin/users/forms.py:92 dashboards/admin/users/forms.py:170
 msgid "Confirm Password"
 msgstr ""
 
-#: dashboards/admin/users/forms.py:94 dashboards/admin/users/forms.py:167
+#: dashboards/admin/users/forms.py:94 dashboards/admin/users/forms.py:173
 msgid "Primary Project"
 msgstr ""
 
@@ -3283,19 +3283,19 @@ msgstr ""
 msgid "User \"%s\" was successfully created."
 msgstr ""
 
-#: dashboards/admin/users/forms.py:137
+#: dashboards/admin/users/forms.py:143
 msgid "Unable to add user to primary project."
 msgstr ""
 
-#: dashboards/admin/users/forms.py:141
+#: dashboards/admin/users/forms.py:147
 msgid "Unable to create user."
 msgstr ""
 
-#: dashboards/admin/users/forms.py:198
+#: dashboards/admin/users/forms.py:204
 msgid "User has been updated successfully."
 msgstr ""
 
-#: dashboards/admin/users/forms.py:201
+#: dashboards/admin/users/forms.py:207
 msgid "Unable to update the user."
 msgstr ""
 
@@ -4120,7 +4120,7 @@ msgstr ""
 
 #: dashboards/project/containers/forms.py:96
 #: dashboards/project/containers/templates/containers/_update.html:22
-#: dashboards/project/stacks/forms.py:81
+#: dashboards/project/stacks/forms.py:55
 msgid "File"
 msgstr ""
 
@@ -6675,7 +6675,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/forms.py:225
 #: dashboards/project/loadbalancers/workflows.py:424
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:61
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:60
 msgid "Timeout"
 msgstr ""
 
@@ -7130,7 +7130,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:448
 #: dashboards/project/loadbalancers/workflows.py:452
 #: dashboards/project/loadbalancers/workflows.py:453
-#: dashboards/project/stacks/forms.py:80
+#: dashboards/project/stacks/forms.py:54
 msgid "URL"
 msgstr ""
 
@@ -8020,7 +8020,7 @@ msgid ""
 "a gateway for external connectivity."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:76
+#: dashboards/project/stacks/forms.py:50
 #: dashboards/project/stacks/templates/stacks/_change_template.html:9
 #: dashboards/project/stacks/templates/stacks/_select_template.html:9
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
@@ -8028,182 +8028,168 @@ msgstr ""
 msgid "Select Template"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:77
+#: dashboards/project/stacks/forms.py:51
 msgid "From here you can select a template to launch a stack."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:82
+#: dashboards/project/stacks/forms.py:56
 msgid "Direct Input"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:84
+#: dashboards/project/stacks/forms.py:58
 msgid "Template Source"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:91 dashboards/project/stacks/forms.py:93
+#: dashboards/project/stacks/forms.py:65 dashboards/project/stacks/forms.py:67
 msgid "Template File"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:94
+#: dashboards/project/stacks/forms.py:68
 msgid "A local template to upload."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:101
-#: dashboards/project/stacks/forms.py:103
+#: dashboards/project/stacks/forms.py:75 dashboards/project/stacks/forms.py:77
 msgid "Template URL"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:104
+#: dashboards/project/stacks/forms.py:78
 msgid "An external (HTTP) URL to load the template from."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:111
-#: dashboards/project/stacks/forms.py:113
+#: dashboards/project/stacks/forms.py:85 dashboards/project/stacks/forms.py:87
 msgid "Template Data"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:114
+#: dashboards/project/stacks/forms.py:88
 msgid "The raw contents of the template."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:120
+#: dashboards/project/stacks/forms.py:94
 msgid "Environment Source"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:128
-#: dashboards/project/stacks/forms.py:130
+#: dashboards/project/stacks/forms.py:102
+#: dashboards/project/stacks/forms.py:104
 msgid "Environment File"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:131
+#: dashboards/project/stacks/forms.py:105
 msgid "A local environment to upload."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:138
-#: dashboards/project/stacks/forms.py:140
+#: dashboards/project/stacks/forms.py:112
+#: dashboards/project/stacks/forms.py:114
 msgid "Environment URL"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:141
+#: dashboards/project/stacks/forms.py:115
 msgid "An external (HTTP) URL to load the environment from."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:148
-#: dashboards/project/stacks/forms.py:150
+#: dashboards/project/stacks/forms.py:122
+#: dashboards/project/stacks/forms.py:124
 msgid "Environment Data"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:151
+#: dashboards/project/stacks/forms.py:125
 msgid "The raw contents of the environment file."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:163
+#: dashboards/project/stacks/forms.py:137
 msgid "template"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:165
+#: dashboards/project/stacks/forms.py:139
 msgid "environment"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:182
-msgid "An unknown problem occurred validating the template."
-msgstr ""
-
-#: dashboards/project/stacks/forms.py:221
+#: dashboards/project/stacks/forms.py:191
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:229
+#: dashboards/project/stacks/forms.py:199
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:236
+#: dashboards/project/stacks/forms.py:206
 msgid "You must specify a template via one of the available sources."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:262
+#: dashboards/project/stacks/forms.py:232
 msgid "Edit Template"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:263
+#: dashboards/project/stacks/forms.py:233
 msgid "From here you can select a new template to re-launch a stack."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:265
-#: dashboards/project/stacks/forms.py:405
+#: dashboards/project/stacks/forms.py:235
+#: dashboards/project/stacks/forms.py:374
 msgid "Stack ID"
 msgstr ""
 
+#: dashboards/project/stacks/forms.py:238
 #: dashboards/project/stacks/forms.py:268
-#: dashboards/project/stacks/forms.py:298
-#: dashboards/project/stacks/forms.py:408
+#: dashboards/project/stacks/forms.py:377
 #: dashboards/project/stacks/tables.py:88
 msgid "Stack Name"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:279
+#: dashboards/project/stacks/forms.py:249
 msgid "Create Stack"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:299
+#: dashboards/project/stacks/forms.py:269
 msgid "Name of the stack to create."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:301
+#: dashboards/project/stacks/forms.py:271
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:307
+#: dashboards/project/stacks/forms.py:277
 msgid "Creation Timeout (minutes)"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:308
+#: dashboards/project/stacks/forms.py:278
 msgid "Stack creation timeout in minutes."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:311
+#: dashboards/project/stacks/forms.py:281
 msgid "Rollback On Failure"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:312
+#: dashboards/project/stacks/forms.py:282
 msgid "Enable rollback on create/update failure."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:325
+#: dashboards/project/stacks/forms.py:295
 #, python-format
 msgid "Password for user \"%s\""
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:326
+#: dashboards/project/stacks/forms.py:296
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:393
+#: dashboards/project/stacks/forms.py:363
 msgid "Stack creation started."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:397
-msgid "Stack creation failed."
-msgstr ""
-
-#: dashboards/project/stacks/forms.py:403
+#: dashboards/project/stacks/forms.py:372
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:439
+#: dashboards/project/stacks/forms.py:408
 msgid "Stack update started."
-msgstr ""
-
-#: dashboards/project/stacks/forms.py:443
-msgid "Stack update failed."
 msgstr ""
 
 #: dashboards/project/stacks/panel.py:23
@@ -8229,39 +8215,39 @@ msgstr ""
 msgid "Stack"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:120
-#: dashboards/project/stacks/tables.py:165
+#: dashboards/project/stacks/tables.py:125
+#: dashboards/project/stacks/tables.py:170
 msgid "Stack Resource"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:123
-#: dashboards/project/stacks/tables.py:168
+#: dashboards/project/stacks/tables.py:128
+#: dashboards/project/stacks/tables.py:173
 msgid "Resource"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:126
+#: dashboards/project/stacks/tables.py:131
 msgid "Time Since Event"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:134
-#: dashboards/project/stacks/tables.py:183
+#: dashboards/project/stacks/tables.py:139
+#: dashboards/project/stacks/tables.py:188
 msgid "Status Reason"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:138
+#: dashboards/project/stacks/tables.py:143
 msgid "Stack Events"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:171
+#: dashboards/project/stacks/tables.py:176
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
 msgid "Stack Resource Type"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:173
+#: dashboards/project/stacks/tables.py:178
 msgid "Date Updated"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:196
+#: dashboards/project/stacks/tables.py:201
 msgid "Stack Resources"
 msgstr ""
 
@@ -8273,16 +8259,16 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: dashboards/project/stacks/tabs.py:85
+#: dashboards/project/stacks/tabs.py:88
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr ""
 
-#: dashboards/project/stacks/tabs.py:91
+#: dashboards/project/stacks/tabs.py:94
 msgid "Resources"
 msgstr ""
 
-#: dashboards/project/stacks/tabs.py:105
+#: dashboards/project/stacks/tabs.py:111
 #, python-format
 msgid "Unable to get resources for stack \"%s\"."
 msgstr ""
@@ -8334,19 +8320,19 @@ msgstr ""
 msgid "Outputs"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:47
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:46
 msgid "Stack Parameters"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:58
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:57
 msgid "Launch Parameters"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:61
 msgid "Minutes"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
 msgid "Rollback"
 msgstr ""
 

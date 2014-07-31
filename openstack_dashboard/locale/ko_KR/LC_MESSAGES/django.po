@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Darkcircle <darkcircle.0426@gmail.com>, 2014
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014
 # geomath5 <jaeki.hong@gmail.com>, 2014
 # geomath5 <jaeki.hong@gmail.com>, 2014
-# cottonspan <cottonspan@gmail.com>, 2014
-# Darkcircle <darkcircle.0426@gmail.com>, 2014
-# ujuc Gang <potopro@gmail.com>, 2014
+# Laura Oh <cottonspan@gmail.com>, 2014
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2014
+# Sungjin Kang <potopro@gmail.com>, 2014
 # Tom Fifield <tom@openstack.org>, 2014
-# ujuc Gang <potopro@gmail.com>, 2014
+# Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-03 20:20+0000\n"
-"Last-Translator: ujuc Gang <potopro@gmail.com>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openstack/language/ko_KR/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:22+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -442,7 +442,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "그룹 업데이트를 성공하였습니다: \"%s.\""
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "그룹을 업데이트할 수 없습니다."
 
@@ -610,19 +610,19 @@ msgstr "새로운 호스트 그룹 \"%s\" 생성."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "호스트 그룹 \"%s\"를 생성할 수 없습니다."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "호스트 그룹을 생성할 수 없습니다."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "그룹에 호스트 추가하는데 있어서 오류가 발생하였습니다."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "그룹에서 호스트 추가/삭제"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -634,13 +634,13 @@ msgstr "그룹에서 호스트 추가/삭제"
 msgid "Save"
 msgstr "저장"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "그룹을 업데이트 하였습니다."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "그룹 업데이트하는데 오류가 발생하였습니다."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니다."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168

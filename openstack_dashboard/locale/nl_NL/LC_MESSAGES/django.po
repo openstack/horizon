@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# FBteam <info@fairbanks.nl>, 2014
+# FB team <info@fairbanks.nl>, 2014
 # Tom Fifield <tom@openstack.org>, 2014
-# toMeloos <tom@server.biz>, 2014
+# Tom Verdaat <tom@server.biz>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 11:04-0500\n"
-"PO-Revision-Date: 2014-04-03 20:20+0000\n"
-"Last-Translator: toMeloos <tom@server.biz>\n"
-"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openstack/language/nl_NL/)\n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-30 14:23+0000\n"
+"Last-Translator: Tom Verdaat <tom@server.biz>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -437,7 +437,7 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Het aggregaat \"%s\" is met succes aangepast."
 
 #: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:215
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr "Niet in staat het aggregaat aan te passen."
 
@@ -605,19 +605,19 @@ msgstr "Nieuw gastheer aggregaat \"%s\" aangemaakt."
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "Niet in staat om de gastheeraggregaat \"%s\" te creëren."
 
-#: dashboards/admin/aggregates/workflows.py:195
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr "Niet in staat om het gastheeraggregaat te creëren."
 
-#: dashboards/admin/aggregates/workflows.py:204
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr "Fout bij het toevoegen van gastheren aan het aggregaat."
 
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Gastheer toevoegen aan of verwijderen uit aggregaat"
 
-#: dashboards/admin/aggregates/workflows.py:213
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/domains/workflows.py:201
 #: dashboards/admin/flavors/workflows.py:265
@@ -629,13 +629,13 @@ msgstr "Gastheer toevoegen aan of verwijderen uit aggregaat"
 msgid "Save"
 msgstr "Opslaan"
 
-#: dashboards/admin/aggregates/workflows.py:214
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr "Het aggregaat is aangepast."
 
-#: dashboards/admin/aggregates/workflows.py:235
-msgid "Error updating the aggregate."
-msgstr "Fout bij het aanpassen aggregaat."
+#: dashboards/admin/aggregates/workflows.py:232
+msgid "Error when adding or removing hosts."
+msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/domains/tables.py:168

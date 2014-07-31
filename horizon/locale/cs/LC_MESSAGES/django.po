@@ -1,60 +1,61 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-31 01:24-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2014-04-07 02:59-0500\n"
+"PO-Revision-Date: 2014-07-21 18:43+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: base.py:431
 msgid "Other"
-msgstr ""
+msgstr "Ostatní"
 
 #: decorators.py:55
 msgid "Please log in to continue."
-msgstr ""
+msgstr "K pokračování je nutno se přihlásit."
 
 #: decorators.py:87
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr ""
+msgstr "Nemá oprávnění k přístupu %s"
 
 #: exceptions.py:277
 #, python-format
 msgid "Unauthorized: %s"
-msgstr ""
+msgstr "Neoprávněné: %s"
 
 #: exceptions.py:280
 msgid "Unauthorized. Please try logging in again."
-msgstr ""
+msgstr "Neoprávněný přístup. Prosím zkuste se přihlásit znovu."
 
 #: middleware.py:111
 msgid "Session timed out."
-msgstr ""
+msgstr "Relace vypršela."
 
 #: browsers/base.py:90
 msgid "Navigation Item"
-msgstr ""
+msgstr "Položka navigace"
 
 #: browsers/views.py:43
 #, python-format
 msgid "Select a %s to browse."
-msgstr ""
+msgstr "Vyberte %s pro prohlížení."
 
 #: conf/default.py:41
 msgid "Password is not accepted"
-msgstr ""
+msgstr "Heslo není přijato"
 
 #: tables/actions.py:418
 #: templates/horizon/common/_data_table_table_actions.html:13
@@ -62,154 +63,156 @@ msgstr ""
 #: templates/horizon/common/_workflow_step_update_members.html:11
 #: templates/horizon/common/_workflow_step_update_members.html:17
 msgid "Filter"
-msgstr ""
+msgstr "Filtr"
 
 #: tables/actions.py:609
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
-msgstr ""
+msgstr "%(action)s %(data_type)s"
 
 #: tables/actions.py:611
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
-msgstr ""
+msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:641 tables/base.py:1410
+#: tables/actions.py:641 tables/base.py:1408
 msgid "N/A"
-msgstr ""
+msgstr "Nedostupné"
 
 #: tables/actions.py:670
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Nemáte oprávnění pro %(action)s: %(objs)s"
 
 #: tables/actions.py:677
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Nelze %(action)s: %(objs)s"
 
 #: tables/actions.py:683
 #, python-format
 msgid "%(action)s: %(objs)s"
-msgstr ""
+msgstr "%(action)s: %(objs)s"
 
 #: tables/actions.py:699
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 #: tables/actions.py:700
 msgid "Deleted"
-msgstr ""
+msgstr "Smazáno"
 
 #: tables/actions.py:717
 msgid "Update"
-msgstr ""
+msgstr "Aktualizovat"
 
 #: tables/actions.py:718
 msgid "Updated"
-msgstr ""
+msgstr "Aktualizováno"
 
 #: tables/base.py:318
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr ""
+msgstr "Vlastnost %(attr)s neexistuje v %(obj)s."
 
-#: tables/base.py:892
+#: tables/base.py:890
 msgid "No items to display."
-msgstr ""
+msgstr "Žádné položky k zobrazení."
 
-#: tables/base.py:998
+#: tables/base.py:996
 msgid "Actions"
-msgstr ""
+msgstr "Činnost"
 
-#: tables/base.py:1204
+#: tables/base.py:1202
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr ""
+msgstr "Nebyla nalezena shoda s id \"%s\"."
 
-#: tables/base.py:1330
+#: tables/base.py:1328
 msgid "Please select a row before taking that action."
-msgstr ""
+msgstr "Před provedením této činnosti prosím zvolte řádky."
 
 #: templates/_header.html:5
 #, python-format
 msgid "Logged in as: %(username)s"
-msgstr ""
+msgstr "Přihlášen jako: %(username)s"
 
 #: templates/_header.html:7
 msgid "Help"
-msgstr ""
+msgstr "Nápověda"
 
 #: templates/_header.html:9
 msgid "Sign Out"
-msgstr ""
+msgstr "Odhlásit"
 
 #: templates/splash.html:8 templates/auth/login.html:4
 msgid "Login"
-msgstr ""
+msgstr "Přihlášení"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
-msgstr ""
+msgstr "Přihlásit"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
-msgstr ""
+msgstr "Nemáte oprávnění k přístupu do zdroje:"
 
 #: templates/auth/_login.html:17
 #, python-format
 msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home "
+"page</a>"
+msgstr "Přihlaste se jako jiný uživatel nebo se vraťte na <a href=\"%(home_url)s\"> domovskou stránku</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
-msgstr ""
+msgstr "Přihlásit"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr ""
+msgstr "Informace:"
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr ""
+msgstr "Varování:"
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr ""
+msgstr "Úspěch:"
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr ""
+msgstr "Chyba:"
 
 #: templates/horizon/common/_data_table.html:54
 msgid "Summary"
-msgstr ""
+msgstr "Přehled"
 
 #: templates/horizon/common/_data_table.html:63
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Zobrazování %(counter)s položky"
+msgstr[1] "Zobrazování %(counter)s položek"
+msgstr[2] "Zobrazování %(counter)s položek"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
-msgstr ""
+msgstr "Více"
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
-msgstr ""
+msgstr "Přidat řádek"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr ""
+msgstr "Omezit souhrn"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
-msgstr ""
+msgstr "Instance"
 
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
@@ -220,201 +223,204 @@ msgstr ""
 #: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr ""
+msgstr "VCPU"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
-msgstr ""
+msgstr "Plovoucí IP adresy"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
-msgstr ""
+msgstr "Bezpečnostní skupiny"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
-msgstr ""
+msgstr "Svazky"
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr ""
+msgstr "Úložiště svazků"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Zobrazování %(nav_items)s položky"
+msgstr[1] "Zobrazování %(nav_items)s položek"
+msgstr[2] "Zobrazování %(nav_items)s položek"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Zobrazování %(content_items)s položky"
+msgstr[1] "Zobrazování %(content_items)s položek"
+msgstr[2] "Zobrazování %(content_items)s položek"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr ""
+msgstr "Souhrn využití"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
-msgstr ""
+msgstr "Vyberte časové období pro zobrazení využití"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
 msgid "<span>From: %(start)s </span><span>To: %(end)s </span>"
-msgstr ""
+msgstr "<span>Od: %(start)s </span><span>Do: %(end)s </span>"
 
 #: templates/horizon/common/_usage_summary.html:10
 msgid "Submit"
-msgstr ""
+msgstr "Odeslat"
 
 #: templates/horizon/common/_usage_summary.html:11
 msgid "The date should be in YYYY-mm-dd format."
-msgstr ""
+msgstr "Datum by mělo být ve formátu RRRR-mm-dd."
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "Active Instances"
-msgstr ""
+msgstr "Aktivní instance"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "Active RAM"
-msgstr ""
+msgstr "Aktivní RAM"
 
 #: templates/horizon/common/_usage_summary.html:18
 msgid "This Period's VCPU-Hours"
-msgstr ""
+msgstr "VCPU hodin za toto období"
 
 #: templates/horizon/common/_usage_summary.html:19
 msgid "This Period's GB-Hours"
-msgstr ""
+msgstr "GB hodin za toto období"
 
 #: templates/horizon/common/_workflow.html:38
 msgid "Back"
-msgstr ""
+msgstr "Zpět"
 
 #: templates/horizon/common/_workflow.html:41
 msgid "Next"
-msgstr ""
+msgstr "Další"
 
 #: templates/horizon/common/_workflow.html:47
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: templatetags/branding.py:36
 msgid "Horizon"
-msgstr ""
+msgstr "Horizon"
 
 #: templatetags/horizon.py:121 templatetags/horizon.py:131
 msgid "No Limit"
-msgstr ""
+msgstr "Bez limitu"
 
 #: templatetags/horizon.py:123 templatetags/horizon.py:125
 msgid "Available"
-msgstr ""
+msgstr "Dostupné"
 
 #: templatetags/sizeformat.py:45 templatetags/sizeformat.py:50
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d bajt"
+msgstr[1] "%(size)d bajty"
+msgstr[2] "%(size)d bajtů"
 
 #: templatetags/sizeformat.py:53
 #, python-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: templatetags/sizeformat.py:56
 #, python-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s MB"
 
 #: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s GB"
 
 #: templatetags/sizeformat.py:62
 #, python-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s TB"
 
 #: templatetags/sizeformat.py:64
 #, python-format
 msgid "%s PB"
-msgstr ""
+msgstr "%s PB"
 
 #: utils/fields.py:59
 msgid "Incorrect format for IP address"
-msgstr ""
+msgstr "Nesprávný formát IP adresy"
 
 #: utils/fields.py:60
 msgid "Invalid version for IP address"
-msgstr ""
+msgstr "Neplatná verze IP adresy"
 
 #: utils/fields.py:61
 msgid "Invalid subnet mask"
-msgstr ""
+msgstr "Neplatná maska podsítě"
 
 #: utils/filters.py:51
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: utils/validators.py:25 utils/validators.py:49
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Není platné číslo portu"
 
 #: utils/validators.py:30
 msgid "Not a valid IP protocol number"
-msgstr ""
+msgstr "Není platné číslo protokolu IP"
 
 #: utils/validators.py:44
 msgid "One colon allowed in port range"
-msgstr ""
+msgstr "V rozsahu portů povolena pouze jedna pomlčka"
 
 #: utils/validators.py:51
 msgid "Port number must be integer"
-msgstr ""
+msgstr "Číslo portu musí být celé číslo"
 
 #: workflows/base.py:72
 msgid "Processing..."
-msgstr ""
+msgstr "Zpracovávaní..."
 
 #: workflows/base.py:477
 msgid "All available"
-msgstr ""
+msgstr "Vše dostupné"
 
 #: workflows/base.py:478
 msgid "Members"
-msgstr ""
+msgstr "Členové"
 
 #: workflows/base.py:479
 msgid "None available."
-msgstr ""
+msgstr "Žádné dostupné."
 
 #: workflows/base.py:480
 msgid "No members."
-msgstr ""
+msgstr "Žádní členové."
 
 #: workflows/base.py:596
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: workflows/base.py:597
 #, python-format
 msgid "%s completed successfully."
-msgstr ""
+msgstr "%s úspěšně dokončeno"
 
 #: workflows/base.py:598
 #, python-format
 msgid "%s did not complete."
-msgstr ""
+msgstr "%s nedokončeno"
