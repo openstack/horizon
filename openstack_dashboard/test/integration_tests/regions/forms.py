@@ -90,6 +90,24 @@ class CheckBoxFormFieldRegion(BaseFormFieldRegion):
             self.element.click()
 
 
+class ProjectPageCheckBoxFormFieldRegion(BaseFormFieldRegion):
+    """Checkbox field for Project-page."""
+
+    _element_locator = (by.By.CSS_SELECTOR,
+                        'div > input[type=checkbox]')
+
+    def is_marked(self):
+        return self.element.is_selected()
+
+    def mark(self):
+        if not self.is_marked():
+            self.element.click()
+
+    def unmark(self):
+        if self.is_marked():
+            self.element.click()
+
+
 class ChooseFileFormFieldRegion(BaseFormFieldRegion):
     """Choose file field."""
 
