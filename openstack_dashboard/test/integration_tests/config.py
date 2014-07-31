@@ -47,6 +47,13 @@ IdentityGroup = [
     cfg.StrOpt('admin_home_project',
                default='admin',
                help="Project to keep all objects belonging to an admin user."),
+    cfg.StrOpt('default_keystone_role',
+               default='Member',
+               help="Name of default role every user gets in his new project"),
+    cfg.StrOpt('default_keystone_admin_role',
+               default='admin',
+               help="Name of the role that grants admin rights to a user in "
+                    "his project"),
 ]
 
 ImageGroup = [
