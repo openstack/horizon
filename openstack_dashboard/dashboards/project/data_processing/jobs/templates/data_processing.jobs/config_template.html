@@ -134,7 +134,7 @@
         if ($.inArray(job_type, ["Hive", "Pig"]) != -1) {
             res.push("params");
         }
-        if ($.inArray(job_type, ["Java", "Pig"]) != -1) {
+        if ($.inArray(job_type, ["Java", "Pig", "Spark"]) != -1) {
           res.push("args_array");
         }
         return res;
@@ -152,7 +152,7 @@
     }
 
     function hide_unnecessary_fields() {
-      if (job_type == "Java") {
+      if ($.inArray(job_type, ["Java", "Spark"]) != -1) {
         $("[name=job_input]").closest(".form-group").hide();
         $("[name=job_output]").closest(".form-group").hide();
       } else {
