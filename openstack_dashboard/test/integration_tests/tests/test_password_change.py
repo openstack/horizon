@@ -37,9 +37,6 @@ class TestPasswordChange(helpers.TestCase):
             passwordchange_page = settings_page.go_to_change_password_page()
         finally:
             passwordchange_page.reset_to_default_password(NEW_PASSWORD)
-
-    def tearDown(self):
-        self.login_pg.login()
-        self.assertTrue(self.home_pg.is_logged_in,
-                        "Failed to login with default password")
-        super(TestPasswordChange, self).tearDown()
+            self.login_pg.login()
+            self.assertTrue(self.home_pg.is_logged_in,
+                            "Failed to login with default password")
