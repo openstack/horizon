@@ -246,7 +246,7 @@ class AddRule(forms.SelfHandlingForm):
         backend = api.network.security_group_backend(self.request)
 
         rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', [])
-        common_rules = [(k, _(rules_dict[k]['name']))
+        common_rules = [(k, rules_dict[k]['name'])
                         for k in rules_dict
                         if rules_dict[k].get('backend', backend) == backend]
         common_rules.sort()

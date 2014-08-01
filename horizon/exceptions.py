@@ -158,7 +158,7 @@ class AlreadyExists(HorizonException):
     """
     def __init__(self, name, resource_type):
         self.attrs = {"name": name, "resource": resource_type}
-        self.msg = 'A %(resource)s with the name "%(name)s" already exists.'
+        self.msg = _('A %(resource)s with the name "%(name)s" already exists.')
 
     def __repr__(self):
         return self.msg % self.attrs
@@ -167,7 +167,7 @@ class AlreadyExists(HorizonException):
         return self.msg % self.attrs
 
     def __unicode__(self):
-        return _(self.msg) % self.attrs
+        return self.msg % self.attrs
 
 
 class NotAvailable(HorizonException):
