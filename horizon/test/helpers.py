@@ -189,6 +189,7 @@ class SeleniumTestCase(django_test.LiveServerTestCase):
 
     def setUp(self):
         socket.setdefaulttimeout(60)
+        self.selenium.implicitly_wait(30)
         self.ui = selenium_ui
         super(SeleniumTestCase, self).setUp()
 
