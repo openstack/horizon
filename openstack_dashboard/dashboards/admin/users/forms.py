@@ -32,6 +32,7 @@ from openstack_dashboard import api
 
 
 LOG = logging.getLogger(__name__)
+PROJECT_REQUIRED = api.keystone.VERSIONS.active < 3
 
 
 class BaseUserForm(forms.SelfHandlingForm):
@@ -90,8 +91,10 @@ class CreateUserForm(BaseUserForm):
         label=_("Confirm Password"),
         widget=forms.PasswordInput(render_value=False))
     project = forms.DynamicChoiceField(label=_("Primary Project"),
+                                       required=PROJECT_REQUIRED,
                                        add_item_link=ADD_PROJECT_URL)
-    role_id = forms.ChoiceField(label=_("Role"))
+    role_id = forms.ChoiceField(label=_("Role"),
+                                required=PROJECT_REQUIRED)
 
     def __init__(self, *args, **kwargs):
         roles = kwargs.pop('roles')
@@ -124,7 +127,7 @@ class CreateUserForm(BaseUserForm):
             messages.success(request,
                              _('User "%s" was successfully created.')
                              % data['name'])
-            if data['role_id']:
+            if data['project'] and data['role_id']:
                 roles = api.keystone.roles_for_user(request,
                                         new_user.id,
                                         data['project']) or []
@@ -168,7 +171,8 @@ class UpdateUserForm(BaseUserForm):
         label=_("Confirm Password"),
         widget=forms.PasswordInput(render_value=False),
         required=False)
-    project = forms.ChoiceField(label=_("Primary Project"))
+    project = forms.ChoiceField(label=_("Primary Project"),
+                                required=PROJECT_REQUIRED)
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateUserForm, self).__init__(request, *args, **kwargs)
