@@ -102,8 +102,8 @@ class UpdateRule(forms.SelfHandlingForm):
             messages.success(request, msg)
             return rule
         except Exception as e:
-            msg = _('Failed to update rule %(name)s: %(reason)s' %
-                    {'name': name_or_id, 'reason': e})
+            msg = (_('Failed to update rule %(name)s: %(reason)s') %
+                   {'name': name_or_id, 'reason': e})
             LOG.error(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

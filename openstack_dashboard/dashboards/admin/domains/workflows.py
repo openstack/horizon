@@ -283,8 +283,9 @@ class UpdateDomain(workflows.Workflow):
                     groups_added += 1
                 groups_to_modify -= groups_added
         except Exception:
-            exceptions.handle(request, _('Failed to modify %s domain groups.'
-                                         % groups_to_modify))
+            exceptions.handle(request,
+                              _('Failed to modify %s domain groups.')
+                              % groups_to_modify)
             return True
 
         return True

@@ -224,14 +224,14 @@ class SetInstanceDetailsAction(workflows.Action):
                     for iprop, fprop in props_mapping:
                         if getattr(image, iprop) > 0 and \
                                 getattr(image, iprop) > getattr(flavor, fprop):
-                            msg = _("The flavor '%(flavor)s' is too small for "
-                                    "requested image.\n"
-                                    "Minimum requirements: "
-                                    "%(min_ram)s MB of RAM and "
-                                    "%(min_disk)s GB of Root Disk." %
-                                    {'flavor': flavor.name,
-                                     'min_ram': image.min_ram,
-                                     'min_disk': image.min_disk})
+                            msg = (_("The flavor '%(flavor)s' is too small "
+                                     "for requested image.\n"
+                                     "Minimum requirements: "
+                                     "%(min_ram)s MB of RAM and "
+                                     "%(min_disk)s GB of Root Disk.") %
+                                   {'flavor': flavor.name,
+                                    'min_ram': image.min_ram,
+                                    'min_disk': image.min_disk})
                             self._errors['image_id'] = self.error_class([msg])
                             break  # Not necessary to continue the tests.
 
@@ -241,12 +241,12 @@ class SetInstanceDetailsAction(workflows.Action):
                         img_gigs = functions.bytes_to_gigabytes(image.size)
                         smallest_size = max(img_gigs, image.min_disk)
                         if volume_size < smallest_size:
-                            msg = _("The Volume size is too small for the"
-                                    " '%(image_name)s' image and has to be"
-                                    " greater than or equal to "
-                                    "'%(smallest_size)d' GB." %
-                                    {'image_name': image.name,
-                                     'smallest_size': smallest_size})
+                            msg = (_("The Volume size is too small for the"
+                                     " '%(image_name)s' image and has to be"
+                                     " greater than or equal to "
+                                     "'%(smallest_size)d' GB.") %
+                                   {'image_name': image.name,
+                                    'smallest_size': smallest_size})
                             self._errors['volume_size'] = self.error_class(
                                 [msg])
 

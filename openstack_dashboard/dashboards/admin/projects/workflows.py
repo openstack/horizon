@@ -435,9 +435,10 @@ class CreateProject(workflows.Workflow):
                         groups_added += 1
                     groups_to_add -= groups_added
             except Exception:
-                exceptions.handle(request, _('Failed to add %s project groups '
-                                             'and update project quotas.'
-                                             % groups_to_add))
+                exceptions.handle(request,
+                                  _('Failed to add %s project groups '
+                                    'and update project quotas.')
+                                  % groups_to_add)
 
         # Update the project quota.
         nova_data = dict(
@@ -696,10 +697,11 @@ class UpdateProject(workflows.Workflow):
                         groups_added += 1
                     groups_to_modify -= groups_added
             except Exception:
-                exceptions.handle(request, _('Failed to modify %s project '
-                                             'members, update project groups '
-                                             'and update project quotas.'
-                                             % groups_to_modify))
+                exceptions.handle(request,
+                                  _('Failed to modify %s project '
+                                    'members, update project groups '
+                                    'and update project quotas.')
+                                  % groups_to_modify)
                 return False
 
         # update the project quota

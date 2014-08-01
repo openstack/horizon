@@ -133,8 +133,8 @@ class CreateSubnetInfoAction(workflows.Action):
                 raise forms.ValidationError(msg)
             if (ip_version == 4 and subnet.prefixlen == 32) or \
                     (ip_version == 6 and subnet.prefixlen == 128):
-                msg = _("The subnet in the Network Address is too small (/%s)."
-                        % subnet.prefixlen)
+                msg = _("The subnet in the Network Address is "
+                        "too small (/%s).") % subnet.prefixlen
                 raise forms.ValidationError(msg)
         if not no_gateway and gateway_ip:
             if netaddr.IPAddress(gateway_ip).version is not ip_version:
@@ -194,18 +194,16 @@ class CreateSubnetDetailAction(workflows.Action):
         try:
             return netaddr.IPAddress(ip)
         except (netaddr.AddrFormatError, ValueError):
-            msg = _('%(field_name)s: Invalid IP address '
-                    '(value=%(ip)s)' % dict(
-                        field_name=field_name, ip=ip))
+            msg = (_('%(field_name)s: Invalid IP address (value=%(ip)s)')
+                   % {'field_name': field_name, 'ip': ip})
             raise forms.ValidationError(msg)
 
     def _convert_ip_network(self, network, field_name):
         try:
             return netaddr.IPNetwork(network)
         except (netaddr.AddrFormatError, ValueError):
-            msg = _('%(field_name)s: Invalid IP address '
-                    '(value=%(network)s)' % dict(
-                        field_name=field_name, network=network))
+            msg = (_('%(field_name)s: Invalid IP address (value=%(network)s)')
+                   % {'field_name': field_name, 'network': network})
             raise forms.ValidationError(msg)
 
     def _check_allocation_pools(self, allocation_pools):

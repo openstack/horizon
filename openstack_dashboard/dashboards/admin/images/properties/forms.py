@@ -55,15 +55,15 @@ class CreateProperty(forms.SelfHandlingForm):
             return True
         except exc.HTTPForbidden:
             msg = _('Unable to create image custom property. Property "%s" '
-                    'is read only.' % data['key'])
+                    'is read only.') % data['key']
             exceptions.handle(request, msg)
         except exc.HTTPConflict:
             msg = _('Unable to create image custom property. Property "%s" '
-                    'already exists.' % data['key'])
+                    'already exists.') % data['key']
             exceptions.handle(request, msg)
         except Exception:
             msg = _('Unable to create image custom '
-                    'property "%s".' % data['key'])
+                    'property "%s".') % data['key']
             exceptions.handle(request, msg)
 
 
@@ -81,9 +81,9 @@ class EditProperty(forms.SelfHandlingForm):
             return True
         except exc.HTTPForbidden:
             msg = _('Unable to edit image custom property. Property "%s" '
-                    'is read only.' % data['key'])
+                    'is read only.') % data['key']
             exceptions.handle(request, msg)
         except Exception:
             msg = _('Unable to edit image custom '
-                    'property "%s".' % data['key'])
+                    'property "%s".') % data['key']
             exceptions.handle(request, msg)
