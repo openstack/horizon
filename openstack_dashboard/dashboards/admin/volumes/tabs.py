@@ -22,6 +22,10 @@ from openstack_dashboard.api import keystone
 
 from openstack_dashboard.dashboards.admin.volumes.snapshots \
     import tables as snapshots_tables
+from openstack_dashboard.dashboards.admin.volumes.volume_types.qos_specs \
+    import tables as qos_tables
+from openstack_dashboard.dashboards.admin.volumes.volume_types \
+    import tables as volume_types_tables
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import tables as volumes_tables
 from openstack_dashboard.dashboards.project.volumes \
@@ -29,8 +33,7 @@ from openstack_dashboard.dashboards.project.volumes \
 
 
 class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
-    table_classes = (volumes_tables.VolumesTable,
-                     volumes_tables.VolumeTypesTable)
+    table_classes = (volumes_tables.VolumesTable,)
     name = _("Volumes")
     slug = "volumes_tab"
     template_name = "admin/volumes/volumes/volumes_tables.html"
@@ -57,6 +60,15 @@ class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
 
         return volumes
 
+
+class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
+    table_classes = (volume_types_tables.VolumeTypesTable,
+                     qos_tables.QosSpecsTable)
+    name = _("Volume Types")
+    slug = "volume_types_tab"
+    template_name = "admin/volumes/volume_types/volume_types_tables.html"
+    preload = False
+
     def get_volume_types_data(self):
         try:
             volume_types = cinder.volume_type_list(self.request)
@@ -65,6 +77,15 @@ class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
             exceptions.handle(self.request,
                               _("Unable to retrieve volume types"))
         return volume_types
+
+    def get_qos_specs_data(self):
+        try:
+            qos_specs = cinder.qos_spec_list(self.request)
+        except Exception:
+            qos_specs = []
+            exceptions.handle(self.request,
+                              _("Unable to retrieve QOS specs"))
+        return qos_specs
 
 
 class SnapshotTab(tabs.TableTab):
@@ -114,5 +135,5 @@ class SnapshotTab(tabs.TableTab):
 
 class VolumesGroupTabs(tabs.TabGroup):
     slug = "volumes_group_tabs"
-    tabs = (VolumeTab, SnapshotTab,)
+    tabs = (VolumeTab, VolumeTypesTab, SnapshotTab)
     sticky = True

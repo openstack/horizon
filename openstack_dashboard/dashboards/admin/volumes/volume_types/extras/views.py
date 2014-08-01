@@ -19,9 +19,9 @@ from horizon import tables
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.admin.volumes.volumes.extras \
+from openstack_dashboard.dashboards.admin.volumes.volume_types.extras \
     import forms as project_forms
-from openstack_dashboard.dashboards.admin.volumes.volumes.extras \
+from openstack_dashboard.dashboards.admin.volumes.volume_types.extras \
     import tables as project_tables
 
 
@@ -41,7 +41,7 @@ class ExtraSpecMixin(object):
 
 class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
     table_class = project_tables.ExtraSpecsTable
-    template_name = 'admin/volumes/volumes/extras/index.html'
+    template_name = 'admin/volumes/volume_types/extras/index.html'
 
     def get_data(self):
         try:
@@ -58,7 +58,7 @@ class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
 
 class CreateView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.CreateExtraSpec
-    template_name = 'admin/volumes/volumes/extras/create.html'
+    template_name = 'admin/volumes/volume_types/extras/create.html'
 
     def get_initial(self):
         return {'type_id': self.kwargs['type_id']}
@@ -69,8 +69,8 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
 
 class EditView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.EditExtraSpec
-    template_name = 'admin/volumes/volumes/extras/edit.html'
-    success_url = 'horizon:admin:volumes:volumes:extras:index'
+    template_name = 'admin/volumes/volume_types/extras/edit.html'
+    success_url = 'horizon:admin:volumes:volume_types:extras:index'
 
     def get_success_url(self):
         return reverse(self.success_url,

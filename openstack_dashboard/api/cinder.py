@@ -122,6 +122,14 @@ class VolTypeExtraSpec(object):
         self.value = val
 
 
+class QosSpec(object):
+    def __init__(self, spec_id, key, val):
+        self.spec_id = spec_id
+        self.id = key
+        self.key = key
+        self.value = val
+
+
 def cinderclient(request):
     api_version = VERSIONS.get_active_version()
 
@@ -391,6 +399,39 @@ def volume_type_extra_set(request, type_id, metadata):
 def volume_type_extra_delete(request, type_id, keys):
     vol_type = volume_type_get(request, type_id)
     return vol_type.unset_keys([keys])
+
+
+def qos_spec_list(request):
+    return cinderclient(request).qos_specs.list()
+
+
+def qos_spec_get(request, qos_spec_id):
+    return cinderclient(request).qos_specs.get(qos_spec_id)
+
+
+def qos_spec_delete(request, qos_spec_id):
+    return cinderclient(request).qos_specs.delete(qos_spec_id, force=True)
+
+
+def qos_spec_create(request, name, qos_spec_id):
+    return cinderclient(request).qos_specs.create(name, qos_spec_id)
+
+
+def qos_spec_get_keys(request, qos_spec_id, raw=False):
+    spec = cinderclient(request).qos_specs.get(qos_spec_id)
+    qos_specs = spec.specs
+    if raw:
+        return spec
+    return [QosSpec(qos_spec_id, key, value) for
+            key, value in qos_specs.items()]
+
+
+def qos_spec_set_keys(request, qos_spec_id, specs):
+    return cinderclient(request).qos_specs.set_keys(qos_spec_id, specs)
+
+
+def qos_spec_unset_keys(request, qos_spec_id, specs):
+    return cinderclient(request).qos_specs.unset_keys(qos_spec_id, specs)
 
 
 @memoized

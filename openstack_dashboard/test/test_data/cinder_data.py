@@ -18,6 +18,7 @@ from cinderclient.v1 import services
 from cinderclient.v1 import volume_snapshots as vol_snaps
 from cinderclient.v1 import volume_types
 from cinderclient.v1 import volumes
+from cinderclient.v2 import qos_specs
 from cinderclient.v2 import volume_backups as vol_backups
 from cinderclient.v2 import volume_snapshots as vol_snaps_v2
 from cinderclient.v2 import volumes as volumes_v2
@@ -33,6 +34,7 @@ def data(TEST):
     TEST.cinder_volumes = utils.TestDataContainer()
     TEST.cinder_volume_backups = utils.TestDataContainer()
     TEST.cinder_volume_types = utils.TestDataContainer()
+    TEST.cinder_qos_specs = utils.TestDataContainer()
     TEST.cinder_volume_snapshots = utils.TestDataContainer()
     TEST.cinder_quotas = utils.TestDataContainer()
     TEST.cinder_quota_usages = utils.TestDataContainer()
@@ -223,3 +225,17 @@ def data(TEST):
                            "maxTotalVolumeGigabytes": 1000,
                            "maxTotalVolumes": 10}}
     TEST.cinder_limits = limits
+
+    # QOS Specs
+    qos_spec1 = qos_specs.QoSSpecs(qos_specs.QoSSpecsManager(None),
+        {"id": "418db45d-6992-4674-b226-80aacad2073c",
+         "name": "high_iops",
+         "consumer": "back-end",
+         "specs": {"minIOPS": "1000", "maxIOPS": '100000'}})
+    qos_spec2 = qos_specs.QoSSpecs(qos_specs.QoSSpecsManager(None),
+        {"id": "6ed7035f-992e-4075-8ed6-6eff19b3192d",
+         "name": "high_bws",
+         "consumer": "back-end",
+         "specs": {"maxBWS": '5000'}})
+
+    TEST.cinder_qos_specs.add(qos_spec1, qos_spec2)

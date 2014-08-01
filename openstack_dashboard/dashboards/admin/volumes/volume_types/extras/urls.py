@@ -10,18 +10,14 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.admin.volumes.volumes \
+from openstack_dashboard.dashboards.admin.volumes.volume_types.extras \
     import views
 
-VIEWS_MOD = ('openstack_dashboard.dashboards.admin.volumes.volumes.views')
-
-urlpatterns = patterns(VIEWS_MOD,
-    url(r'^(?P<volume_id>[^/]+)/$', views.DetailView.as_view(),
-        name='detail'),
-    url(r'^(?P<volume_id>[^/]+)/update_status$',
-        views.UpdateStatusView.as_view(), name='update_status'),
+urlpatterns = patterns('',
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^create/$', views.CreateView.as_view(), name='create'),
+    url(r'^(?P<key>[^/]+)/edit/$', views.EditView.as_view(), name='edit')
 )
