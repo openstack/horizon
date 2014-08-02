@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:25-0500\n"
-"PO-Revision-Date: 2014-07-28 22:20+0000\n"
+"POT-Creation-Date: 2014-08-01 21:15-0500\n"
+"PO-Revision-Date: 2014-08-02 02:15+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -378,6 +378,10 @@ msgstr "%s TB"
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
+
+#: templatetags/sizeformat.py:76
+msgid "0 bytes"
+msgstr ""
 
 #: utils/filters.py:49
 msgid "Never"
