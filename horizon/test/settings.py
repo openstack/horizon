@@ -88,7 +88,7 @@ STATIC_URL = '/static/'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 ROOT_URLCONF = 'horizon.test.urls'
-TEMPLATE_DIRS = (os.path.join(ROOT_PATH, 'tests', 'templates'))
+TEMPLATE_DIRS = (os.path.join(ROOT_PATH, 'tests', 'templates'),)
 SITE_ID = 1
 SITE_BRANDING = 'Horizon'
 
