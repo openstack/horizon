@@ -84,7 +84,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     deferred until the horizon autodiscover is completed, configurations are
     applied in alphabetical order of files where it was imported.
     """
-    dashboards = list(horizon_config.get('dashboards', []))
+    enabled_dashboards = []
     exceptions = {}
     apps = []
     angular_modules = []
@@ -102,13 +102,19 @@ def update_dashboards(modules, horizon_config, installed_apps):
             config.get('UPDATE_HORIZON_CONFIG', {}))
         if config.get('DASHBOARD'):
             dashboard = key
-            if dashboard not in dashboards:
-                dashboards.append(dashboard)
+            enabled_dashboards.append(dashboard)
             if config.get('DEFAULT', False):
                 horizon_config['default_dashboard'] = dashboard
         elif config.get('PANEL') or config.get('PANEL_GROUP'):
             config.pop("__builtins__", None)
             panel_customization.append(config)
+    # Preserve the dashboard order specified in settings
+    config_dashboards = horizon_config.get('dashboards', [])
+    dashboards = ([d for d in config_dashboards
+                   if d in enabled_dashboards] +
+                  [d for d in enabled_dashboards
+                   if d not in config_dashboards])
+
     horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
     horizon_config['exceptions'].update(exceptions)
