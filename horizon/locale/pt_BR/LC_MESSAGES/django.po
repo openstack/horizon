@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Marcelo Dieder <marcelodieder@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-01 21:15-0500\n"
-"PO-Revision-Date: 2014-08-02 02:15+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-03 00:01-0500\n"
+"PO-Revision-Date: 2014-08-02 20:20+0000\n"
+"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,6 +30,11 @@ msgstr "Por favor faça login para continuar."
 #, python-format
 msgid "You are not authorized to access %s"
 msgstr "Você não está autorizado a acessar %s"
+
+#: exceptions.py:161
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "Um %(resource)s com o nome \"%(name)s\" já existe."
 
 #: exceptions.py:284
 #, python-format
@@ -205,16 +211,16 @@ msgstr "Resumo"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mostrando %(counter)s item"
+msgstr[1] "Mostrando %(counter)s itens"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr ""
+msgstr "&laquo;&nbsp;Prev"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "More&nbsp;&raquo;"
-msgstr ""
+msgstr "Mais&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
@@ -271,15 +277,15 @@ msgstr "Armazenamento de volume"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mostrando %(nav_items)s item"
+msgstr[1] "Mostrando %(nav_items)s itens"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mostrando %(content_items)s item"
+msgstr[1] "Mostrando %(content_items)s itens"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -297,7 +303,7 @@ msgid ""
 "    </div>\n"
 "    <div class=\"datepicker form-group\">\n"
 "      <label>To:</label>%(end)s"
-msgstr ""
+msgstr "\n<label>De:</label> %(start)s\n</div>\n<div class=\"datepicker form-group\">\n<label>Para:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:15
 msgid "Submit"
@@ -351,8 +357,8 @@ msgstr "Disponível"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d Byte"
+msgstr[1] "%(size)d Bytes"
 
 #: templatetags/sizeformat.py:56
 #, python-format
@@ -381,7 +387,7 @@ msgstr "%s PB"
 
 #: templatetags/sizeformat.py:76
 msgid "0 bytes"
-msgstr ""
+msgstr "0 bytes"
 
 #: utils/filters.py:49
 msgid "Never"
