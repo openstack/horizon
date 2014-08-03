@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-02 01:04-0500\n"
+"POT-Creation-Date: 2014-08-03 01:02-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,11 @@ msgstr ""
 #: decorators.py:85
 #, python-format
 msgid "You are not authorized to access %s"
+msgstr ""
+
+#: exceptions.py:161
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr ""
 
 #: exceptions.py:284
