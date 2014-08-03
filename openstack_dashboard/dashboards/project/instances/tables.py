@@ -76,7 +76,7 @@ class TerminateInstance(tables.BatchAction):
     action_past = _("Scheduled termination of %(data_type)s")
     data_type_singular = _("Instance")
     data_type_plural = _("Instances")
-    classes = ("ajax-modal", "btn-danger",)
+    classes = ("btn-danger",)
     icon = "off"
     policy_rules = (("compute", "compute:delete"),)
 
