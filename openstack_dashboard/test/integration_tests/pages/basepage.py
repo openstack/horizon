@@ -42,6 +42,10 @@ class BasePage(pageobject.PageObject):
         self.topbar.logout_link.click()
         return self.go_to_login_page()
 
+    def go_to_help_page(self):
+        self.topbar.user_dropdown_menu.click()
+        self.topbar.help_link.click()
+
     class TopBarRegion(pageobject.PageObject):
         _user_indicator_locator = (by.By.CSS_SELECTOR,
                                    '#profile_editor_switcher > '
