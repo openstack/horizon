@@ -22,8 +22,6 @@ from openstack_dashboard.api import keystone
 
 from openstack_dashboard.dashboards.admin.volumes.snapshots \
     import tables as snapshots_tables
-from openstack_dashboard.dashboards.admin.volumes.volume_types.qos_specs \
-    import tables as qos_tables
 from openstack_dashboard.dashboards.admin.volumes.volume_types \
     import tables as volume_types_tables
 from openstack_dashboard.dashboards.admin.volumes.volumes \
@@ -63,7 +61,7 @@ class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
 
 class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
     table_classes = (volume_types_tables.VolumeTypesTable,
-                     qos_tables.QosSpecsTable)
+                     volume_types_tables.QosSpecsTable)
     name = _("Volume Types")
     slug = "volume_types_tab"
     template_name = "admin/volumes/volume_types/volume_types_tables.html"
