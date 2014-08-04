@@ -483,10 +483,14 @@ class LoadBalancerTests(test.TestCase):
     def test_add_member_post_without_server_list(self):
         self._test_add_member_post(with_server_list=False)
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'member_create'),
+    def test_add_member_post_multiple_ports(self):
+        self._test_add_member_post(mult_ports=True)
+
+    @test.create_stubs({api.lbaas: ('pool_list', 'pool_get', 'member_create'),
                         api.neutron: ('port_list',),
                         api.nova: ('server_list',)})
-    def _test_add_member_post(self, with_weight=True, with_server_list=True):
+    def _test_add_member_post(self, with_weight=True, with_server_list=True,
+                              mult_ports=False):
         member = self.members.first()
         server1 = self.AttributeDict({'id':
                                       '12381d38-c3eb-4fee-9763-12de3338042e',
@@ -501,13 +505,28 @@ class LoadBalancerTests(test.TestCase):
             [[server1, server2], False])
 
         if with_server_list:
+            pool = self.pools.list()[1]
             port1 = self.AttributeDict(
-                {'fixed_ips': [{'ip_address': member.address}]})
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  device_id=server1.id).AndReturn([port1, ])
+                {'fixed_ips': [{'ip_address': member.address,
+                                'subnet_id':
+                                'e8abc972-eb0c-41f1-9edd-4bc6e3bcd8c9'}],
+                 'network_id': '82288d84-e0a5-42ac-95be-e6af08727e42'})
+
+            api.lbaas.pool_get(
+                IsA(http.HttpRequest), pool.id).AndReturn(pool)
+            if mult_ports:
+                port2 = self.AttributeDict(
+                    {'fixed_ips': [{'ip_address': '172.16.88.12',
+                                    'subnet_id':
+                                    '3f7c5d79-ee55-47b0-9213-8e669fb03009'}],
+                     'network_id': '72c3ab6c-c80f-4341-9dc5-210fa31ac6c2'})
+                api.neutron.port_list(IsA(http.HttpRequest),
+                    device_id=server1.id).AndReturn([port1, port2])
+            else:
+                api.neutron.port_list(IsA(http.HttpRequest),
+                    device_id=server1.id).AndReturn([port1, ])
 
         form_data = {'pool_id': member.pool_id,
-                     'address': member.address,
                      'protocol_port': member.protocol_port,
                      'members': [server1.id],
                      'admin_state_up': member.admin_state_up}
@@ -517,6 +536,7 @@ class LoadBalancerTests(test.TestCase):
             form_data['member_type'] = 'server_list'
         else:
             form_data['member_type'] = 'member_address'
+            form_data['address'] = member.address
         api.lbaas.member_create(IsA(http.HttpRequest),
                                 **form_data).AndReturn(member)
 
