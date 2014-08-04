@@ -106,12 +106,12 @@ class VolumeSnapshotsViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, VOLUME_SNAPSHOTS_TAB_URL)
 
     @test.create_stubs({api.nova: ('server_list',),
-                        api.cinder: ('volume_snapshot_list',
+                        api.cinder: ('tenant_absolute_limits',
+                                     'volume_snapshot_list',
                                      'volume_list',
                                      'volume_backup_supported',
                                      'volume_backup_list',
-                                     'volume_snapshot_delete'),
-                        quotas: ('tenant_quota_usages',)})
+                                     'volume_snapshot_delete')})
     def test_delete_volume_snapshot(self):
         vol_snapshots = self.cinder_volume_snapshots.list()
         volumes = self.cinder_volumes.list()
@@ -138,8 +138,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
             AndReturn(vol_backups)
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes(). \
-            AndReturn(self.quota_usages.first())
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes(). \
+            AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         formData = {'action':

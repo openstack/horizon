@@ -28,7 +28,6 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
-from openstack_dashboard.usage import quotas
 
 
 DELETABLE_STATES = ("available", "error", "error_extending")
@@ -99,9 +98,14 @@ class CreateVolume(tables.LinkAction):
         super(CreateVolume, self).__init__(attrs, **kwargs)
 
     def allowed(self, request, volume=None):
-        usages = quotas.tenant_quota_usages(request)
-        if usages['gigabytes']['available'] <= 0 or\
-           usages['volumes']['available'] <= 0:
+        limits = api.cinder.tenant_absolute_limits(request)
+
+        gb_available = (limits.get('maxTotalVolumeGigabytes', float("inf"))
+                        - limits.get('totalGigabytesUsed', 0))
+        volumes_available = (limits.get('maxTotalVolumes', float("inf"))
+                             - limits.get('totalVolumesUsed', 0))
+
+        if gb_available <= 0 or volumes_available <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
                 self.verbose_name = string_concat(self.verbose_name, ' ',

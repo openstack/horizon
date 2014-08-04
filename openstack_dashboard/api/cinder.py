@@ -353,6 +353,7 @@ def volume_type_extra_delete(request, type_id, keys):
     return vol_type.unset_keys([keys])
 
 
+@memoized
 def tenant_absolute_limits(request):
     limits = cinderclient(request).limits.get().absolute
     limits_dict = {}

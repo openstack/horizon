@@ -704,13 +704,13 @@ class VolumeViewTests(test.TestCase):
                           ' volumes.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
-    @test.create_stubs({cinder: ('volume_list',
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_list',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'volume_backup_list',
                                  'volume_delete',),
-                        api.nova: ('server_list',),
-                        quotas: ('tenant_quota_usages',)})
+                        api.nova: ('server_list',)})
     def test_delete_volume(self):
         volumes = self.cinder_volumes.list()
         volume = self.cinder_volumes.first()
@@ -735,8 +735,8 @@ class VolumeViewTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes().\
-            AndReturn(self.quota_usages.first())
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
+            AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
 
@@ -745,13 +745,13 @@ class VolumeViewTests(test.TestCase):
         self.assertIn("Scheduled deletion of Volume: Volume name",
                       [m.message for m in res.context['messages']])
 
-    @test.create_stubs({cinder: ('volume_list',
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_list',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'volume_backup_list',
                                  'volume_delete',),
-                        api.nova: ('server_list',),
-                        quotas: ('tenant_quota_usages',)})
+                        api.nova: ('server_list',)})
     def test_delete_volume_error_existing_snapshot(self):
         volume = self.cinder_volumes.first()
         volumes = self.cinder_volumes.list()
@@ -779,9 +779,8 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.cinder_volume_backups.list())
         cinder.volume_list(IsA(http.HttpRequest)).\
             AndReturn(volumes)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes().\
-                                   AndReturn(self.quota_usages.first())
-
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
+                                   AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         url = VOLUME_INDEX_URL
@@ -845,8 +844,7 @@ class VolumeViewTests(test.TestCase):
                                    widgets.HiddenInput))
 
     @test.create_stubs({cinder: ('volume_get',),
-                        api.nova: ('server_get', 'server_list',),
-                        quotas: ('tenant_quota_usages',)})
+                        api.nova: ('server_list',)})
     def test_edit_attachments_attached_volume(self):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
@@ -872,15 +870,15 @@ class VolumeViewTests(test.TestCase):
                          server.id)
         self.assertEqual(res.status_code, 200)
 
-    @test.create_stubs({cinder: ('volume_list',
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_list',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'volume_backup_list',),
-                        api.nova: ('server_list',),
-                        quotas: ('tenant_quota_usages',)})
+                        api.nova: ('server_list',)})
     def test_create_button_disabled_when_quota_exceeded(self):
-        quota_usages = self.quota_usages.first()
-        quota_usages['volumes']['available'] = 0
+        limits = self.cinder_limits['absolute']
+        limits['totalVolumesUsed'] = limits['maxTotalVolumes']
         volumes = self.cinder_volumes.list()
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
@@ -895,9 +893,8 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_backup_list(IsA(http.HttpRequest))\
               .AndReturn(self.cinder_volume_backups.list())
         cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest))\
-              .MultipleTimes().AndReturn(quota_usages)
-
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+              .MultipleTimes().AndReturn(limits)
         self.mox.ReplayAll()
 
         res = self.client.get(VOLUME_INDEX_URL)
@@ -1066,14 +1063,14 @@ class VolumeViewTests(test.TestCase):
         self._test_encryption(True)
 
     @test.create_stubs({cinder: ('volume_list', 'volume_snapshot_list',
-                                 'volume_backup_supported'),
-                        api.nova: ('server_list',),
-                        quotas: ('tenant_quota_usages',)})
+                                 'volume_backup_supported',
+                                 'tenant_absolute_limits'),
+                        api.nova: ('server_list',)})
     def _test_encryption(self, encryption):
         volumes = self.volumes.list()
         for volume in volumes:
             volume.encrypted = encryption
-        quota_usages = self.quota_usages.first()
+        limits = self.cinder_limits['absolute']
 
         cinder.volume_backup_supported(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(False)
@@ -1083,8 +1080,8 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
                 .AndReturn([self.servers.list(), False])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest))\
-              .MultipleTimes().AndReturn(quota_usages)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+              .MultipleTimes().AndReturn(limits)
 
         self.mox.ReplayAll()
 
