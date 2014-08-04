@@ -1,0 +1,90 @@
+# Copyright 2014 Kylincloud
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+#
+# @author: Yingjun Li <liyingjun1988@gmail.com>
+#
+
+import logging
+
+from django.core.urlresolvers import reverse
+from django.template import defaultfilters as filters
+from django.utils.translation import ugettext_lazy as _
+
+from horizon import exceptions
+from horizon import tables
+from horizon.utils import filters as utils_filters
+
+from openstack_dashboard import api
+
+
+LOG = logging.getLogger(__name__)
+
+
+class DeleteDHCPAgent(tables.DeleteAction):
+    data_type_singular = _("DHCP Agent")
+    data_type_plural = _("DHCP Agents")
+    policy_rules = (("network", "delete_agent"),)
+
+    def delete(self, request, obj_id):
+        network_id = self.table.kwargs['network_id']
+        try:
+            api.neutron.remove_network_from_dhcp_agent(request, obj_id,
+                                                       network_id)
+        except Exception as e:
+            msg = _('Failed to delete agent: %s') % e
+            LOG.info(msg)
+            redirect = reverse('horizon:admin:networks:detail',
+                               args=[network_id])
+            exceptions.handle(request, msg, redirect=redirect)
+
+
+class AddDHCPAgent(tables.LinkAction):
+    name = "add"
+    verbose_name = _("Add DHCP Agent")
+    url = "horizon:admin:networks:adddhcpagent"
+    classes = ("ajax-modal", "btn-create")
+    policy_rules = (("network", "update_agent"),)
+
+    def get_link_url(self, datum=None):
+        network_id = self.table.kwargs['network_id']
+        return reverse(self.url, args=(network_id,))
+
+
+def get_agent_status(agent):
+    if agent.admin_state_up:
+        return _('Enabled')
+    return _('Disabled')
+
+
+def get_agent_state(agent):
+    if agent.alive:
+        return _('Up')
+    return _('Down')
+
+
+class DHCPAgentsTable(tables.DataTable):
+    id = tables.Column('id', verbose_name=_('Id'), hidden=True)
+    host = tables.Column('host', verbose_name=_('Host'))
+    status = tables.Column(get_agent_status, verbose_name=_('Status'))
+    state = tables.Column(get_agent_state, verbose_name=_('Admin State'))
+    heartbeat_timestamp = tables.Column('heartbeat_timestamp',
+                                        verbose_name=_('Updated At'),
+                                        filters=(utils_filters.parse_isotime,
+                                                 filters.timesince))
+
+    class Meta:
+        name = "agents"
+        verbose_name = _("DHCP Agents")
+        table_actions = (AddDHCPAgent, DeleteDHCPAgent)
+        row_actions = (DeleteDHCPAgent,)
