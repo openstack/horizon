@@ -412,6 +412,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return True
 
 
+@memoized
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)

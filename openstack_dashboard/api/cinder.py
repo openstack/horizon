@@ -135,6 +135,7 @@ class QosSpec(object):
         self.value = val
 
 
+@memoized
 def cinderclient(request):
     api_version = VERSIONS.get_active_version()
 

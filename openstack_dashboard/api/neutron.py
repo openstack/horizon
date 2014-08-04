@@ -442,6 +442,7 @@ def get_ipver_str(ip_version):
     return IP_VERSION_DICT.get(ip_version, '')
 
 
+@memoized
 def neutronclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
