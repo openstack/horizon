@@ -488,29 +488,35 @@ by cinder.  Currently only the backup service is available.
 ``OPENSTACK_NEUTRON_NETWORK``
 -----------------------------
 
-.. versionadded:: 2013.2(Havana)
+.. versionadded:: 2013.1(Grizzly)
 
-Default: ``{'enable_lb': False}``
+Default::
+
+        {
+            'enable_lb': False,
+            'enable_quotas': False,
+            'enable_firewall': False,
+            'enable_vpn': False,
+            'profile_support': None,
+            'supported_provider_types': ["*"],
+            'segmentation_id_range': None
+        }
 
 A dictionary of settings which can be used to enable optional services provided
-by neutron and configure neutron specific features.  The following options are
+by Neutron and configure Neutron specific features.  The following options are
 available.
 
-.. enable_lb:
 
-``enable_lb``
--------------
+``enable_lb``:
 
-.. versionadded:: 2013.2(Havana)
+.. versionadded:: 2013.1(Grizzly)
 
 Default: ``False``
 
-Enable or disable the load balancer service.
+Enable or disable the load balancer panel. This option should be enabled only
+when your Neutron deployment supports LBaaS.
 
-.. supported_provider_types:
-
-``supported_provider_types``
-----------------------------
+``supported_provider_types``:
 
 .. versionadded:: 2014.2(Juno)
 
@@ -524,10 +530,7 @@ be available to choose from.
 
 Example: ``['local', 'flat', 'gre']``
 
-.. segmentation_id_range:
-
-``segmentation_id_range``
--------------------------
+``segmentation_id_range``:
 
 .. versionadded:: 2014.2(Juno)
 
@@ -542,6 +545,35 @@ and maximum value will be the default for the provider network type.
 
 Example: ``{'vlan': [1024, 2048], 'gre': [4094, 65536]}``
 
+``enable_quotas``:
+
+Default: ``False``
+
+Enable support for Neutron quotas feature. To make this feature work
+appropriately, you need to use Neutron plugins with quotas extension support
+and quota_driver should be DbQuotaDriver (default config).
+
+``enable_firewall``:
+
+Default: ``False``
+
+Enables the firewall panel. This option should be enabled when your Neutron
+deployment supports LBaaS.
+
+``enable_vpn``:
+
+Default: ``False``
+
+Enables the VPN panel. This option should be enabled when your Neutron
+deployment supports VPNaaS.
+
+``profile_support``:
+
+Default: ``None``
+
+This option specifies a type of network port profile support. Currently the
+available value is either ``None`` or ``"cisco"``. ``None`` means to disable
+port profile support. ``cisco`` can be used with Neutron Cisco plugins.
 
 ``OPENSTACK_SSL_CACERT``
 ------------------------
