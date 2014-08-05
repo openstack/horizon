@@ -15,6 +15,7 @@
 
 import logging
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 import netaddr
@@ -23,6 +24,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon import workflows
+
 from openstack_dashboard import api
 
 
@@ -116,6 +118,14 @@ class CreateSubnetInfoAction(workflows.Action):
                       'network, in which case "Network Address" must be '
                       'specified. If you wish to create a network WITHOUT a '
                       'subnet, uncheck the "Create Subnet" checkbox.')
+
+    def __init__(self, request, context, *args, **kwargs):
+        super(CreateSubnetInfoAction, self).__init__(request, context, *args,
+                                                     **kwargs)
+        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
+                       {}).get('enable_ipv6', True):
+            self.fields['ip_version'].widget = forms.HiddenInput()
+            self.fields['ip_version'].initial = 4
 
     def _check_subnet_data(self, cleaned_data, is_create=True):
         cidr = cleaned_data.get('cidr')

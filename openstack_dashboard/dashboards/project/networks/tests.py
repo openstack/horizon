@@ -333,27 +333,31 @@ class NetworkTests(test.TestCase):
                                       'subnet_create',
                                       'profile_list',)})
     def test_network_create_post_with_subnet(self,
-                                             test_with_profile=False):
+                                             test_with_profile=False,
+                                             test_with_ipv6=True):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
                   'admin_state_up': network.admin_state_up}
+        subnet_params = {'network_id': network.id,
+                         'name': subnet.name,
+                         'cidr': subnet.cidr,
+                         'ip_version': subnet.ip_version,
+                         'gateway_ip': subnet.gateway_ip,
+                         'enable_dhcp': subnet.enable_dhcp}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
+        if not test_with_ipv6:
+            subnet.ip_version = 4
+            subnet_params['ip_version'] = subnet.ip_version
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndReturn(network)
         api.neutron.subnet_create(IsA(http.HttpRequest),
-                                  network_id=network.id,
-                                  name=subnet.name,
-                                  cidr=subnet.cidr,
-                                  ip_version=subnet.ip_version,
-                                  gateway_ip=subnet.gateway_ip,
-                                  enable_dhcp=subnet.enable_dhcp)\
-            .AndReturn(subnet)
+                                  **subnet_params).AndReturn(subnet)
         self.mox.ReplayAll()
 
         form_data = {'net_name': network.name,
@@ -371,6 +375,10 @@ class NetworkTests(test.TestCase):
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_with_subnet_w_profile(self):
         self.test_network_create_post_with_subnet(test_with_profile=True)
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
+    def test_create_network_with_ipv6_disabled(self):
+        self.test_network_create_post_with_subnet(test_with_ipv6=False)
 
     @test.create_stubs({api.neutron: ('network_create',
                                       'profile_list',)})
