@@ -35,7 +35,7 @@ class GeneralTab(tabs.Tab):
                                                        data_source_id)
         except Exception:
             exceptions.handle(self.tab_group.request,
-                              _("Unable to retreive data source details"))
+                              _("Unable to retrieve data source details"))
             data_source = {}
 
         return {"data_source": data_source}
