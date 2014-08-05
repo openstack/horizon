@@ -46,17 +46,12 @@ class ChangeStackTemplate(tables.LinkAction):
         return urlresolvers.reverse(self.url, args=[stack.id])
 
 
-class DeleteStack(tables.BatchAction):
-    name = "delete"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
+class DeleteStack(tables.DeleteAction):
     data_type_singular = _("Stack")
     data_type_plural = _("Stacks")
-    classes = ("ajax-modal",)
-    icon = "remove"
     policy_rules = (("orchestration", "cloudformation:DeleteStack"),)
 
-    def action(self, request, stack_id):
+    def delete(self, request, stack_id):
         api.heat.stack_delete(request, stack_id)
 
     def allowed(self, request, stack):
