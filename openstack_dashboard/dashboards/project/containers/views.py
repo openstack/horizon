@@ -243,14 +243,21 @@ class CopyView(forms.ModalFormView):
         kwargs['containers'] = [(c.name, c.name) for c in containers[0]]
         return kwargs
 
+    @staticmethod
+    def get_copy_name(object_name):
+        filename, ext = os.path.splitext(object_name)
+        return "%s.copy%s" % (filename, ext)
+
     def get_initial(self):
         path = self.kwargs["subfolder_path"]
-        orig = "%s%s" % (path or '', self.kwargs["object_name"])
+        object_name = self.kwargs["object_name"]
+        orig = "%s%s" % (path or '', object_name)
+
         return {"new_container_name": self.kwargs["container_name"],
                 "orig_container_name": self.kwargs["container_name"],
                 "orig_object_name": orig,
                 "path": path,
-                "new_object_name": "%s copy" % self.kwargs["object_name"]}
+                "new_object_name": self.get_copy_name(object_name)}
 
     def get_context_data(self, **kwargs):
         context = super(CopyView, self).get_context_data(**kwargs)

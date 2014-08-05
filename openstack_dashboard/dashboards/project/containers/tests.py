@@ -372,6 +372,29 @@ class SwiftTests(test.TestCase):
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
+    @test.create_stubs({api.swift: ('swift_get_containers',
+                                    'swift_copy_object')})
+    def test_copy_get(self):
+        original_name = u"test.txt"
+        copy_name = u"test.copy.txt"
+        container = self.containers.first()
+        obj = self.objects.get(name=original_name)
+        ret = (self.containers.list(), False)
+        api.swift.swift_get_containers(IsA(http.HttpRequest)).AndReturn(ret)
+        self.mox.ReplayAll()
+        copy_url = reverse('horizon:project:containers:object_copy',
+                           args=[container.name, obj.name])
+        res = self.client.get(copy_url)
+        # The copy's name must appear in initial data
+        pattern = r'<input.* id="id_new_object_name".* value="%s" .*/>'
+        self.assertRegexpMatches(str(res), pattern % copy_name)
+
+    def test_get_copy_name(self):
+        self.assertEqual(views.CopyView.get_copy_name('test.txt'),
+                         'test.copy.txt')
+        self.assertEqual(views.CopyView.get_copy_name('test'),
+                         'test.copy')
+
     @test.create_stubs({api.swift: ('swift_upload_object',)})
     def test_update_with_file(self):
         container = self.containers.first()
