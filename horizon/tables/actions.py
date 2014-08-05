@@ -712,7 +712,33 @@ class BatchAction(Action):
 
 
 class DeleteAction(BatchAction):
-    """Doc missing."""
+    """A table action used to perform delete operations on table data.
+
+    .. attribute:: name
+
+        A short name or "slug" representing this action.
+        Defaults to 'delete'
+
+    .. attribute:: action_present
+
+        A string containing the transitive verb describing the delete action.
+        Defaults to 'Delete'
+
+    .. attribute:: action_past
+
+        A string set to the past tense of action_present.
+        Defaults to 'Deleted'
+
+    .. attribute:: data_type_singular
+
+        A string used to name the data to be deleted.
+
+    .. attribute:: data_type_plural
+
+        Optional. Plural of ``data_type_singular``.
+        Defaults to ``data_type_singular`` appended with an 's'.
+    """
+
     name = "delete"
 
     def __init__(self, **kwargs):
@@ -723,12 +749,26 @@ class DeleteAction(BatchAction):
         self.icon = "remove"
 
     def action(self, request, obj_id):
+        """Action entry point. Overrides base class' action method.
+
+        Accepts a single object id passing it over to the delete method
+        responsible for the object's destruction.
+        """
         return self.delete(request, obj_id)
 
     def delete(self, request, obj_id):
+        """Required. Deletes an object referenced by obj_id.
+
+        Override to provide delete functionality specific to your data.
+        """
         raise NotImplementedError("DeleteAction must define a delete method.")
 
     def get_default_classes(self):
+        """Appends ``btn-danger`` to the action's default css classes.
+
+        This method ensures the corresponding button is highlighted
+        as a trigger for a potentially dangerous action.
+        """
         classes = super(DeleteAction, self).get_default_classes()
         classes += ("btn-danger",)
         return classes
