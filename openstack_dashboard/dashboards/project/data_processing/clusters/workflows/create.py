@@ -46,13 +46,14 @@ class SelectPluginAction(t_flows.SelectPluginAction):
 
 
 class SelectPlugin(t_flows.SelectPlugin):
-    pass
+    action_class = SelectPluginAction
 
 
 class CreateCluster(t_flows.CreateClusterTemplate):
     slug = "create_cluster"
     name = _("Launch Cluster")
     success_url = "horizon:project:data_processing.cluster_templates:index"
+    default_steps = (SelectPlugin,)
 
 
 class GeneralConfigAction(workflows.Action):
