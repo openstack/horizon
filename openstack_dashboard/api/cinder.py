@@ -245,6 +245,15 @@ def volume_reset_state(request, volume_id, state):
     return cinderclient(request).volumes.reset_state(volume_id, state)
 
 
+def volume_upload_to_image(request, volume_id, force, image_name,
+                           container_format, disk_format):
+    return cinderclient(request).volumes.upload_to_image(volume_id,
+                                                         force,
+                                                         image_name,
+                                                         container_format,
+                                                         disk_format)
+
+
 def volume_snapshot_get(request, snapshot_id):
     snapshot = cinderclient(request).volume_snapshots.get(snapshot_id)
     return VolumeSnapshot(snapshot)

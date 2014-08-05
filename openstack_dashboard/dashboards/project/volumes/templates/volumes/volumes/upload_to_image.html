@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Upload Volume to Image" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Upload Volume to Image") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'project/volumes/volumes/_upload_to_image.html' %}
+{% endblock %}
