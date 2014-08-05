@@ -182,7 +182,8 @@ SESSION_TIMEOUT = 1800
 SESSION_COOKIE_MAX_SIZE = 4093
 
 # when doing upgrades, it may be wise to stick to PickleSerializer
-# TODO(mrunge): remove after Icehouse
+# NOTE(berendt): Check during the K-cycle if this variable can be removed.
+#                https://bugs.launchpad.net/horizon/+bug/1349463
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 LANGUAGES = (
