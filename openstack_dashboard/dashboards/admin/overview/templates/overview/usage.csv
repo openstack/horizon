@@ -1,6 +1,6 @@
 {% load i18n %}{% trans "Usage Report For Period" %}:,{{ usage.start|date:"b. d Y" }},{{ usage.end|date:"b. d Y" }}
 {% trans "Active Instances" %}:,{{ usage.summary.instances }}
-{% trans "CPU-HRs Used" %}:,{{ usage.summary.vcpu_hours|floatformat:2 }}
+{% trans "Total VCPU Usage (Hours)" %}:,{{ usage.summary.vcpu_hours|floatformat:2 }}
 {% trans "Total Active RAM (MB)" %}:,{{ usage.summary.memory_mb }}
-{% trans "Total Disk Size" %}:,{{ usage.summary.local_gb }}
-{% trans "Total Disk Usage" %}:,{{ usage.summary.disk_gb_hours|floatformat:2 }}
+{% trans "Total Disk Size (GB)" %}:,{{ usage.summary.local_gb }}
+{% trans "Total Disk Usage (Hours)" %}:,{{ usage.summary.disk_gb_hours|floatformat:2 }}

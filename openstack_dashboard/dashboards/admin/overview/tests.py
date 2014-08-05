@@ -111,7 +111,7 @@ class UsageViewTests(test.BaseAdminViewTests):
               <td class="sortable normal_column">%.2f</td>
             </tr>
             ''' % (usage_list[0].vcpus,
-                   usage_list[0].disk_gb_hours,
+                   sizeformat.diskgbformat(usage_list[0].disk_gb_hours),
                    sizeformat.mbformat(usage_list[0].memory_mb),
                    usage_list[0].vcpu_hours,
                    usage_list[0].total_local_gb_usage)
@@ -128,7 +128,7 @@ class UsageViewTests(test.BaseAdminViewTests):
               <td class="sortable normal_column">%.2f</td>
             </tr>
             ''' % (usage_list[1].vcpus,
-                   usage_list[1].disk_gb_hours,
+                   sizeformat.diskgbformat(usage_list[1].disk_gb_hours),
                    sizeformat.mbformat(usage_list[1].memory_mb),
                    usage_list[1].vcpu_hours,
                    usage_list[1].total_local_gb_usage)
