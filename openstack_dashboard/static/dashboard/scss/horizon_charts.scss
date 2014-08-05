@@ -29,12 +29,13 @@ $overview_chart_height: 81px;
 .overview_chart {
   width: 214px;
   height: $overview_chart_height;
-  padding: 8px 8px 8px 8px !important;
   .chart_container {
     width: 140px;
     min-width: 140px;
     .chart svg {
-      padding-right: 4px !important; } }
+      padding-right: 4px !important; }
+    .chart .detail .dot.active {
+      box-sizing: content-box; }}
   .bar_chart_container {
     width: 74px;
     min-width: 74px; }
