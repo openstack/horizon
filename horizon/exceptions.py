@@ -272,7 +272,8 @@ def handle(request, message=None, redirect=None, ignore=False,
     # If the message has a placeholder for the exception, fill it in
     elif message and "%(exc)s" in message:
         message = encoding.force_unicode(message) % {"exc": log_entry}
-    message = encoding.force_unicode(message)
+    if message:
+        message = encoding.force_unicode(message)
 
     if issubclass(exc_type, UNAUTHORIZED):
         if ignore:
