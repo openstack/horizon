@@ -142,6 +142,45 @@ horizon.forms.prevent_multiple_submission = function (el) {
   });
 };
 
+horizon.forms.add_password_fields_reveal_buttons = function (el) {
+  var _change_input_type = function ($input, type) {
+    /*
+     * In a perfect world, this function would just do:
+     *
+     *   $input.attr('type', type);
+     *
+     * however, Microsoft Internet Explorer exists and we have to support it.
+     */
+
+    var $new_input = $input.clone();
+
+    $new_input.attr('type', type);
+    $input.replaceWith($new_input);
+    return $new_input;
+  };
+
+
+  $(el).find('input[type="password"]').each(function (i, input) {
+    var $input = $(input);
+
+    $(
+      '<span class="password-reveal-button icon-eye-open"></span>'
+    ).insertAfter($input).click(function () {
+      var $icon = $(this);
+
+      if ($input.attr('type') === 'password') {
+        $icon.removeClass('icon-eye-open');
+        $icon.addClass('icon-eye-close');
+        $input = _change_input_type($input, 'text');
+      } else {
+        $icon.removeClass('icon-eye-close');
+        $icon.addClass('icon-eye-open');
+        $input = _change_input_type($input, 'password');
+      }
+    });
+  });
+};
+
 horizon.forms.init_examples = function (el) {
   var $el = $(el);
 
@@ -172,6 +211,10 @@ horizon.addInitFunction(function () {
   horizon.forms.handle_image_source();
   horizon.forms.handle_object_upload_source();
   horizon.forms.datepicker();
+
+  horizon.forms.add_password_fields_reveal_buttons($("body"));
+  horizon.modals.addModalInitFunction(
+    horizon.forms.add_password_fields_reveal_buttons);
 
   // Bind event handlers to confirm dangerous actions.
   $("body").on("click", "form button.btn-danger", function (evt) {
