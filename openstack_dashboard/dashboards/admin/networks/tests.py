@@ -241,17 +241,21 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertItemsEqual(subnets, [self.subnets.first()])
         self.assertEqual(len(ports), 0)
 
-    @test.create_stubs({api.neutron: ('profile_list',),
+    @test.create_stubs({api.neutron: ('profile_list',
+                                      'list_extensions',),
                         api.keystone: ('tenant_list',)})
     def test_network_create_get(self,
                                 test_with_profile=False):
         tenants = self.tenants.list()
+        extensions = self.api_extensions.list()
         api.keystone.tenant_list(IsA(
             http.HttpRequest)).AndReturn([tenants, False])
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:create')
@@ -264,26 +268,31 @@ class NetworkTests(test.BaseAdminViewTests):
         self.test_network_create_get(test_with_profile=True)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',),
+                                      'profile_list',
+                                      'list_extensions',),
                         api.keystone: ('tenant_list',)})
     def test_network_create_post(self,
                                  test_with_profile=False):
         tenants = self.tenants.list()
         tenant_id = self.tenants.first().id
         network = self.networks.first()
+        extensions = self.api_extensions.list()
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
         params = {'name': network.name,
                   'tenant_id': tenant_id,
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
-                  'shared': True}
+                  'shared': True,
+                  'provider:network_type': 'local'}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
         api.neutron.network_create(IsA(http.HttpRequest), **params)\
             .AndReturn(network)
         self.mox.ReplayAll()
@@ -292,7 +301,8 @@ class NetworkTests(test.BaseAdminViewTests):
                      'name': network.name,
                      'admin_state': network.admin_state_up,
                      'external': True,
-                     'shared': True}
+                     'shared': True,
+                     'network_type': 'local'}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
         url = reverse('horizon:admin:networks:create')
@@ -306,35 +316,41 @@ class NetworkTests(test.BaseAdminViewTests):
         self.test_network_create_post(test_with_profile=True)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',),
+                                      'profile_list',
+                                      'list_extensions',),
                         api.keystone: ('tenant_list',)})
     def test_network_create_post_network_exception(self,
                                                    test_with_profile=False):
         tenants = self.tenants.list()
         tenant_id = self.tenants.first().id
         network = self.networks.first()
-        api.keystone.tenant_list(IsA(http.HttpRequest))\
-            .AndReturn([tenants, False])
+        extensions = self.api_extensions.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
         params = {'name': network.name,
                   'tenant_id': tenant_id,
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
-                  'shared': False}
+                  'shared': False,
+                  'provider:network_type': 'local'}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
-        api.neutron.network_create(IsA(http.HttpRequest), **params)\
-            .AndRaise(self.exceptions.neutron)
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
+        api.neutron.network_create(IsA(http.HttpRequest),
+                                   **params).AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
         form_data = {'tenant_id': tenant_id,
                      'name': network.name,
                      'admin_state': network.admin_state_up,
                      'external': True,
-                     'shared': False}
+                     'shared': False,
+                     'network_type': 'local'}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
         url = reverse('horizon:admin:networks:create')
@@ -347,6 +363,131 @@ class NetworkTests(test.BaseAdminViewTests):
     def test_network_create_post_network_exception_with_profile(self):
         self.test_network_create_post_network_exception(
             test_with_profile=True)
+
+    @test.create_stubs({api.neutron: ('list_extensions',),
+                        api.keystone: ('tenant_list',)})
+    def test_network_create_vlan_segmentation_id_invalid(self):
+        tenants = self.tenants.list()
+        tenant_id = self.tenants.first().id
+        network = self.networks.first()
+        extensions = self.api_extensions.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
+        self.mox.ReplayAll()
+
+        form_data = {'tenant_id': tenant_id,
+                     'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
+                     'shared': False,
+                     'network_type': 'vlan',
+                     'physical_network': 'default',
+                     'segmentation_id': 4095}
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "1 through 4094")
+
+    @test.create_stubs({api.neutron: ('list_extensions',),
+                        api.keystone: ('tenant_list',)})
+    def test_network_create_gre_segmentation_id_invalid(self):
+        tenants = self.tenants.list()
+        tenant_id = self.tenants.first().id
+        network = self.networks.first()
+        extensions = self.api_extensions.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
+        self.mox.ReplayAll()
+
+        form_data = {'tenant_id': tenant_id,
+                     'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
+                     'shared': False,
+                     'network_type': 'gre',
+                     'physical_network': 'default',
+                     'segmentation_id': (2 ** 32) + 1}
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "0 through %s" % ((2 ** 32) - 1))
+
+    @test.create_stubs({api.neutron: ('list_extensions',),
+                        api.keystone: ('tenant_list',)})
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={
+        'segmentation_id_range': {'vxlan': [10, 20]}})
+    def test_network_create_vxlan_segmentation_id_custom(self):
+        tenants = self.tenants.list()
+        tenant_id = self.tenants.first().id
+        network = self.networks.first()
+        extensions = self.api_extensions.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
+        self.mox.ReplayAll()
+
+        form_data = {'tenant_id': tenant_id,
+                     'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
+                     'shared': False,
+                     'network_type': 'vxlan',
+                     'physical_network': 'default',
+                     'segmentation_id': 9}
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "10 through 20")
+
+    @test.create_stubs({api.neutron: ('list_extensions',),
+                        api.keystone: ('tenant_list',)})
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={
+        'supported_provider_types': []})
+    def test_network_create_no_provider_types(self):
+        tenants = self.tenants.list()
+        extensions = self.api_extensions.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'admin/networks/create.html')
+        self.assertContains(res, '<input type="hidden" name="network_type" '
+            'id="id_network_type" />', html=True)
+
+    @test.create_stubs({api.neutron: ('list_extensions',),
+                        api.keystone: ('tenant_list',)})
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={
+        'supported_provider_types': ['local', 'flat', 'gre']})
+    def test_network_create_unsupported_provider_types(self):
+        tenants = self.tenants.list()
+        extensions = self.api_extensions.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
+        api.neutron.list_extensions(
+            IsA(http.HttpRequest)).AndReturn(extensions)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'admin/networks/create.html')
+        network_type = res.context['form'].fields['network_type']
+        self.assertListEqual(list(network_type.choices), [('local', 'Local'),
+                                                          ('flat', 'Flat'),
+                                                          ('gre', 'GRE')])
 
     @test.create_stubs({api.neutron: ('network_get',)})
     def test_network_update_get(self):

@@ -187,6 +187,10 @@ OPENSTACK_NEUTRON_NETWORK = {
     # profile_support can be turned on if needed.
     'profile_support': None,
     #'profile_support': 'cisco',
+    # Set which provider network types are supported. Only the network types
+    # in this list will be available to choose from when creating a network.
+    # Network types include local, flat, vlan, gre, and vxlan.
+    'supported_provider_types': ['*'],
 }
 
 # The OPENSTACK_IMAGE_BACKEND settings can be used to customize features

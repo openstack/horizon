@@ -563,8 +563,12 @@ def data(TEST):
     extension_2 = {"name": "Quota management support",
                    "alias": "quotas",
                    "description": "Expose functions for quotas management"}
+    extension_3 = {"name": "Provider network",
+                   "alias": "provider",
+                   "description": "Provider network extension"}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
+    TEST.api_extensions.add(extension_3)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
