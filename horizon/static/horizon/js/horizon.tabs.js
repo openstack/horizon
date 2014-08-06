@@ -34,7 +34,6 @@ horizon.tabs.load_tab = function (evt) {
     });
   }
   $this.attr("data-loaded", "true");
-  evt.preventDefault();
 };
 
 horizon.addInitFunction(function () {
@@ -45,9 +44,9 @@ horizon.addInitFunction(function () {
     $(el).find(".js-tab-pane").addClass("tab-pane");
   });
 
-  $(document).on("show", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
+  $(document).on("show.bs.tab", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
 
-  $(document).on("shown", ".nav-tabs a[data-toggle='tab']", function (evt) {
+  $(document).on("shown.bs.tab", ".nav-tabs a[data-toggle='tab']", function (evt) {
     var $tab = $(evt.target),
       $content = $($(evt.target).attr('data-target'));
     $content.find("table.datatable").each(function () {
