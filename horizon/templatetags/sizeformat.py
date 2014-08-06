@@ -22,7 +22,8 @@ Template tags for displaying sizes
 
 from django import template
 from django.utils import formats
-from django.utils import translation
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 
 register = template.Library()
@@ -45,26 +46,26 @@ def filesizeformat(bytes, filesize_number_format):
     try:
         bytes = float(bytes)
     except (TypeError, ValueError, UnicodeDecodeError):
-        return translation.ungettext_lazy("%(size)d Byte",
+        return ungettext_lazy("%(size)d Byte",
                 "%(size)d Bytes", 0) % {'size': 0}
 
     if bytes < 1024:
         bytes = int(bytes)
-        return translation.ungettext_lazy("%(size)d Byte",
+        return ungettext_lazy("%(size)d Byte",
                 "%(size)d Bytes", bytes) % {'size': bytes}
     if bytes < 1024 * 1024:
-        return translation.ugettext_lazy("%s KB") % \
+        return _("%s KB") % \
             filesize_number_format(bytes / 1024)
     if bytes < 1024 * 1024 * 1024:
-        return translation.ugettext_lazy("%s MB") % \
+        return _("%s MB") % \
             filesize_number_format(bytes / (1024 * 1024))
     if bytes < 1024 * 1024 * 1024 * 1024:
-        return translation.ugettext_lazy("%s GB") % \
+        return _("%s GB") % \
             filesize_number_format(bytes / (1024 * 1024 * 1024))
     if bytes < 1024 * 1024 * 1024 * 1024 * 1024:
-        return translation.ugettext_lazy("%s TB") % \
+        return _("%s TB") % \
             filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024))
-    return translation.ugettext_lazy("%s PB") % \
+    return _("%s PB") % \
             filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024 * 1024))
 
 
@@ -73,7 +74,7 @@ def float_cast_filesizeformat(value, multiplier=1, format=int_format):
         value = float(value)
         value = filesizeformat(value * multiplier, format).replace(' ', '')
     except (TypeError, ValueError):
-        value = value or translation.ugettext_lazy('0 bytes')
+        value = value or _('0 bytes')
     return value
 
 
