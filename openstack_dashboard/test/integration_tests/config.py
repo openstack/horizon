@@ -48,6 +48,11 @@ IdentityGroup = [
                secret=True),
 ]
 
+AvailableServiceGroup = [
+    cfg.BoolOpt('sahara',
+                default=False),
+]
+
 
 def _get_config_files():
     conf_dir = os.path.join(
@@ -63,5 +68,6 @@ def get_config():
 
     cfg.CONF.register_opts(DashboardGroup, group="dashboard")
     cfg.CONF.register_opts(IdentityGroup, group="identity")
+    cfg.CONF.register_opts(AvailableServiceGroup, group="service_available")
 
     return cfg.CONF
