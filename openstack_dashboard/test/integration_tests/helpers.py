@@ -33,7 +33,8 @@ class BaseTestCase(testtools.TestCase):
             self.driver = webdriver.WebDriverWrapper()
             self.driver.maximize_window()
             self.conf = config.get_config()
-            self.driver.implicitly_wait(self.conf.dashboard.page_timeout)
+            self.driver.implicitly_wait(self.conf.selenium.implicit_wait)
+            self.driver.set_page_load_timeout(self.conf.selenium.page_timeout)
         else:
             msg = "The INTEGRATION_TESTS env variable is not set."
             raise self.skipException(msg)

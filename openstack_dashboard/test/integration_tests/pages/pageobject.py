@@ -15,6 +15,7 @@ from openstack_dashboard.test.integration_tests import basewebobject
 
 class PageObject(basewebobject.BaseWebObject):
     """Base class for page objects."""
+
     def __init__(self, driver, conf):
         """Constructor."""
         super(PageObject, self).__init__(driver, conf)

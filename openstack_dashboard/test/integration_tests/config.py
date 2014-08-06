@@ -25,9 +25,6 @@ DashboardGroup = [
     cfg.StrOpt('help_url',
                default='http://docs.openstack.org/',
                help="Dashboard help page url"),
-    cfg.IntOpt('page_timeout',
-               default=10,
-               help="Timeout in seconds"),
 ]
 
 IdentityGroup = [
@@ -50,7 +47,19 @@ IdentityGroup = [
 
 AvailableServiceGroup = [
     cfg.BoolOpt('sahara',
-                default=False),
+                default=False)
+]
+
+SeleniumGroup = [
+    cfg.IntOpt('implicit_wait',
+               default=10,
+               help="Implicit wait timeout in seconds"),
+    cfg.IntOpt('explicit_wait',
+               default=10,
+               help="Explicit wait timeout in seconds"),
+    cfg.IntOpt('page_timeout',
+               default=30,
+               help="Page load timeout in seconds"),
 ]
 
 
@@ -69,5 +78,6 @@ def get_config():
     cfg.CONF.register_opts(DashboardGroup, group="dashboard")
     cfg.CONF.register_opts(IdentityGroup, group="identity")
     cfg.CONF.register_opts(AvailableServiceGroup, group="service_available")
+    cfg.CONF.register_opts(SeleniumGroup, group="selenium")
 
     return cfg.CONF
