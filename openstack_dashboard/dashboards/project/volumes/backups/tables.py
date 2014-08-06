@@ -46,7 +46,7 @@ class BackupVolumeNameColumn(tables.Column):
 class DeleteBackup(tables.DeleteAction):
     data_type_singular = _("Volume Backup")
     data_type_plural = _("Volume Backups")
-    action_past = _("Scheduled deletion of")
+    action_past = _("Scheduled deletion of %(data_type)s")
     policy_rules = (("volume", "backup:delete"),)
 
     def delete(self, request, obj_id):
