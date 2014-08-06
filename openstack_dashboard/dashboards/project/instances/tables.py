@@ -36,6 +36,8 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security.floating_ips \
     import workflows
 from openstack_dashboard.dashboards.project.instances import tabs
+from openstack_dashboard.dashboards.project.instances.workflows \
+    import update_instance
 
 
 LOG = logging.getLogger(__name__)
@@ -275,7 +277,10 @@ class EditInstance(tables.LinkAction):
 
     def _get_link_url(self, project, step_slug):
         base_url = urlresolvers.reverse(self.url, args=[project.id])
-        param = urlencode({"step": step_slug})
+        next_url = self.table.get_full_url()
+        params = {"step": step_slug,
+                  update_instance.UpdateInstance.redirect_param_name: next_url}
+        param = urlencode(params)
         return "?".join([base_url, param])
 
     def allowed(self, request, instance):
