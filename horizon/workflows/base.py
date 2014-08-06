@@ -319,8 +319,8 @@ class Step(object):
                     self._handlers[key].append(possible_handler)
                     continue
                 elif not isinstance(possible_handler, basestring):
-                    return TypeError("Connection handlers must be either "
-                                     "callables or strings.")
+                    raise TypeError("Connection handlers must be either "
+                                    "callables or strings.")
                 bits = possible_handler.split(".")
                 if bits[0] == "self":
                     root = self

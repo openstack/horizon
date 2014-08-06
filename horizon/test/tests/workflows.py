@@ -163,6 +163,32 @@ class WorkflowsTests(test.TestCase):
         self.assertEqual(step_two._handlers["project_id"],
                          [local_callback_func, other_callback_func])
 
+    def test_step_invalid_connections_handlers_not_list_or_tuple(self):
+        class InvalidStepA(TestStepTwo):
+            connections = {'project_id': {}}
+
+        class InvalidStepB(TestStepTwo):
+            connections = {'project_id': ''}
+
+        with self.assertRaises(TypeError):
+            InvalidStepA(TestWorkflow(self.request))
+
+        with self.assertRaises(TypeError):
+            InvalidStepB(TestWorkflow(self.request))
+
+    def test_step_invalid_connection_handler_not_string_or_callable(self):
+        class InvalidStepA(TestStepTwo):
+            connections = {'project_id': (None,)}
+
+        class InvalidStepB(TestStepTwo):
+            connections = {'project_id': (0,)}
+
+        with self.assertRaises(TypeError):
+            InvalidStepA(TestWorkflow(self.request))
+
+        with self.assertRaises(TypeError):
+            InvalidStepB(TestWorkflow(self.request))
+
     def test_step_invalid_callback(self):
         # This should raise an exception
         class InvalidStep(TestStepTwo):
