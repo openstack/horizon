@@ -59,19 +59,27 @@ class CreateImageForm(forms.SelfHandlingForm):
                                 widget=forms.TextInput(attrs={
                                     'class': 'switched',
                                     'data-switch-on': 'source',
-                                    'data-source-url': _('Image Location')}),
+                                    'data-source-url': _('Image Location'),
+                                    'ng-model': 'copyFrom',
+                                    'ng-change':
+                                    'selectImageFormat(copyFrom)'}),
                                 required=False)
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=_("A local image to upload."),
                                  widget=forms.FileInput(attrs={
                                      'class': 'switched',
                                      'data-switch-on': 'source',
-                                     'data-source-file': _('Image File')}),
+                                     'data-source-file': _('Image File'),
+                                     'ng-model': 'imageFile',
+                                     'ng-change':
+                                     'selectImageFormat(imageFile.name)',
+                                     'image-file-on-change': None}),
                                  required=False)
     disk_format = forms.ChoiceField(label=_('Format'),
                                     choices=[],
-                                    widget=forms.Select(attrs={'class':
-                                                               'switchable'}))
+                                    widget=forms.Select(attrs={
+                                        'class': 'switchable',
+                                        'ng-model': 'diskFormat'}))
     architecture = forms.CharField(max_length="255", label=_("Architecture"),
                                    required=False)
     minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),
