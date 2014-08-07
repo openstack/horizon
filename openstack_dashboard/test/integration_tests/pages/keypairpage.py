@@ -34,19 +34,19 @@ class KeypairPage(basepage.BasePage):
 
     @property
     def keypair_create(self):
-        return self.get_element(*self._keypair_create_button_locator)
+        return self._get_element(*self._keypair_create_button_locator)
 
     @property
     def keypair_name_field(self):
-        return self.get_element(*self._keypair_name_field_locator)
+        return self._get_element(*self._keypair_name_field_locator)
 
     @property
     def keypair_submit_button(self):
-        return self.get_element(*self._keypair_submit_button_locator)
+        return self._get_element(*self._keypair_submit_button_locator)
 
     @property
     def keypair_delete_cnf_button(self):
-        return self.get_element(*self._keypair_delete_cnf_button_locator)
+        return self._get_element(*self._keypair_delete_cnf_button_locator)
 
     def _click_on_keypair_create(self):
         self.keypair_create.click()
@@ -60,7 +60,7 @@ class KeypairPage(basepage.BasePage):
     def get_keypair_status(self, keypair_name):
         keypair_locator = (by.By.CSS_SELECTOR,
                            '#keypairs__row__%s' % keypair_name)
-        keypair_status = self.is_element_present(*keypair_locator)
+        keypair_status = self._is_element_present(*keypair_locator)
         return keypair_status
 
     def create_keypair(self, keypair_name):

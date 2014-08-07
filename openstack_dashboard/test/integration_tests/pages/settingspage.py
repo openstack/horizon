@@ -44,20 +44,20 @@ class SettingsPage(basepage.BasePage):
 
     @property
     def change_password_tab(self):
-        return self.get_element(*self._change_password_tab_locator)
+        return self._get_element(*self._change_password_tab_locator)
 
     def change_language(self, lang=DEFAULT_LANGUAGE):
-        self.select_dropdown_by_value(lang,
-                                      self.modal.language_selection)
+        self._select_dropdown_by_value(lang,
+                                       self.modal.language_selection)
         self.modal.click_on_save_button()
 
     def change_timezone(self, timezone=DEFAULT_TIMEZONE):
-        self.select_dropdown_by_value(timezone,
-                                      self.modal.timezone_selection)
+        self._select_dropdown_by_value(timezone,
+                                       self.modal.timezone_selection)
         self.modal.click_on_save_button()
 
     def change_pagesize(self, size=DEFAULT_PAGESIZE):
-        self.fill_field_element(size, self.modal.pagesize)
+        self._fill_field_element(size, self.modal.pagesize)
         self.modal.click_on_save_button()
 
     def return_to_default_settings(self):
@@ -81,19 +81,19 @@ class SettingsPage(basepage.BasePage):
 
         @property
         def language_selection(self):
-            return self.get_element(*self._language_selection_locator)
+            return self._get_element(*self._language_selection_locator)
 
         @property
         def timezone_selection(self):
-            return self.get_element(*self._timezone_selection_locator)
+            return self._get_element(*self._timezone_selection_locator)
 
         @property
         def pagesize(self):
-            return self.get_element(*self._items_per_page_input_locator)
+            return self._get_element(*self._items_per_page_input_locator)
 
         @property
         def save_button(self):
-            return self.get_element(*self._save_submit_button_locator)
+            return self._get_element(*self._save_submit_button_locator)
 
         def click_on_save_button(self):
             self.save_button.click()

@@ -24,11 +24,11 @@ class ChangePasswordPage(basepage.BasePage):
                                                           self.conf)
 
         def change_password(self, current, new):
-            self.fill_field_element(
+            self._fill_field_element(
                 current, self.modal.current_password)
-            self.fill_field_element(
+            self._fill_field_element(
                 new, self.modal.new_password)
-            self.fill_field_element(
+            self._fill_field_element(
                 new, self.modal.confirm_new_password)
             self.modal.click_on_change_button()
 
@@ -52,19 +52,19 @@ class ChangePasswordPage(basepage.BasePage):
 
             @property
             def current_password(self):
-                return self.get_element(*self._current_password_locator)
+                return self._get_element(*self._current_password_locator)
 
             @property
             def new_password(self):
-                return self.get_element(*self._new_password_locator)
+                return self._get_element(*self._new_password_locator)
 
             @property
             def confirm_new_password(self):
-                return self.get_element(*self._confirm_new_password_locator)
+                return self._get_element(*self._confirm_new_password_locator)
 
             @property
             def change_button(self):
-                return self.get_element(*self._change_submit_button_locator)
+                return self._get_element(*self._change_submit_button_locator)
 
             def click_on_change_button(self):
                 self.change_button.click()
