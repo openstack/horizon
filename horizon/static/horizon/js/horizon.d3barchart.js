@@ -449,9 +449,11 @@ horizon.d3_bar_chart = {
           tooltip.style('visibility', 'visible');
         })
         .on('mousemove', function(d){
+          var eventX = event.offsetX || event.layerX;
+          var eventY = event.offsetY || event.layerY;
           tooltip
-            .style('top', (event.pageY - 10) + 'px')
-            .style('left',(event.pageX + 10) + 'px');
+            .style('top', (eventY - 10) + 'px')
+            .style('left',(eventX + 10) + 'px');
         })
         .on('mouseout', function(d){
           tooltip.style('visibility', 'hidden');
@@ -560,9 +562,11 @@ horizon.d3_bar_chart = {
           .style('stroke-dasharray', ('6, 2'))
           .on('mouseover', function(){tooltip.style('visibility', 'visible');})
           .on('mousemove', function(){
+            var eventX = event.offsetX || event.layerX;
+            var eventY = event.offsetY || event.layerY;
             tooltip
-              .style('top',(event.pageY-10)+'px')
-              .style('left',(event.pageX+10)+'px');
+              .style('top',(eventY - 10) + 'px')
+              .style('left',(eventX + 10) + 'px');
           })
           .on('mouseout', function(){tooltip.style('visibility', 'hidden');});
 
@@ -579,9 +583,11 @@ horizon.d3_bar_chart = {
           .style('stroke-width', 5)
           .on('mouseover', function(){tooltip.style('visibility', 'visible');})
           .on('mousemove', function(){
+            var eventX = event.offsetX || event.layerX;
+            var eventY = event.offsetY || event.layerY;
             tooltip
-              .style('top',(event.pageY-10)+'px')
-              .style('left',(event.pageX+10)+'px');
+              .style('top',(eventY - 10) + 'px')
+              .style('left',(eventX + 10) + 'px');
           })
           .on('mouseout', function(){tooltip.style('visibility', 'hidden');});
       }
@@ -612,9 +618,11 @@ horizon.d3_bar_chart = {
           tooltip_free.style('visibility', 'visible');
         })
         .on('mousemove', function(d){
+          var eventX = event.offsetX || event.layerX;
+          var eventY = event.offsetY || event.layerY;
           tooltip_free
-            .style('top',(event.pageY-10)+'px')
-            .style('left',(event.pageX+10)+'px');
+            .style('top',(eventY - 10) + 'px')
+            .style('left',(eventX + 10) + 'px');
         })
         .on('mouseout', function(d){tooltip_free.style('visibility', 'hidden');});
 
