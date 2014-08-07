@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-05 23:34-0500\n"
-"PO-Revision-Date: 2014-08-06 04:50+0000\n"
+"POT-Creation-Date: 2014-08-06 17:57-0500\n"
+"PO-Revision-Date: 2014-08-06 22:13+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -5689,7 +5689,7 @@ msgid "Data sources"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
-msgid "Unable to retreive data source details"
+msgid "Unable to retrieve data source details"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/views.py:45
@@ -6493,6 +6493,7 @@ msgstr "バックアップのダウンロード"
 #: dashboards/project/loadbalancers/tables.py:89
 #: dashboards/project/loadbalancers/tables.py:103
 #: dashboards/project/loadbalancers/tables.py:112
+#: dashboards/project/volumes/backups/tables.py:49
 #: dashboards/project/volumes/snapshots/tables.py:46
 #: dashboards/project/volumes/volumes/tables.py:61
 #: dashboards/project/vpn/tables.py:68 dashboards/project/vpn/tables.py:82
@@ -10643,21 +10644,21 @@ msgstr "情報源"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "スタック \"%s\" のリソースを取得できません。"
 
-#: dashboards/project/stacks/views.py:62
+#: dashboards/project/stacks/views.py:79
 msgid "Unable to retrieve stack list."
 msgstr "スタック一覧を取得できません。"
 
-#: dashboards/project/stacks/views.py:94
-#: dashboards/project/stacks/views.py:171
-#: dashboards/project/stacks/views.py:195
+#: dashboards/project/stacks/views.py:111
+#: dashboards/project/stacks/views.py:188
+#: dashboards/project/stacks/views.py:212
 msgid "Unable to retrieve stack."
 msgstr "スタックを取得できません。"
 
-#: dashboards/project/stacks/views.py:223
+#: dashboards/project/stacks/views.py:240
 msgid "Unable to retrieve resource."
 msgstr "リソースを取得できません。"
 
-#: dashboards/project/stacks/views.py:236
+#: dashboards/project/stacks/views.py:253
 msgid "Unable to retrieve metadata."
 msgstr "メタデータを取得できません。"
 
@@ -10812,10 +10813,6 @@ msgstr "バックアップをリストアできません。"
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup"
 msgstr "ボリュームのバックアップ"
-
-#: dashboards/project/volumes/backups/tables.py:49
-msgid "Scheduled deletion of"
-msgstr "削除予約しました"
 
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:132

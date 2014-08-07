@@ -6,12 +6,13 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2014
 # Guillermo Vitas Gil <gvitgo@gmail.com>, 2014
 # Marian Tort <marian.tort@gmail.com>, 2014
+# Milton Mazzarri <milmazz@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-05 23:34-0500\n"
-"PO-Revision-Date: 2014-08-06 04:50+0000\n"
+"POT-Creation-Date: 2014-08-06 17:57-0500\n"
+"PO-Revision-Date: 2014-08-06 22:13+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -5127,7 +5128,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 msgid "Hadoop version"
-msgstr ""
+msgstr "Versión de Hadoop"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:12
 msgid ""
@@ -5491,11 +5492,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:46
 msgid "Successfully updated image."
-msgstr ""
+msgstr "Imagen actualizada satisfactoriamente."
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:51
 msgid "Failed to update image."
-msgstr ""
+msgstr "Fallo al actualizar imagen."
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:72
 #: dashboards/project/instances/forms.py:38
@@ -5511,11 +5512,11 @@ msgstr "No hay imágenes disponibles."
 #: dashboards/project/data_processing/data_image_registry/forms.py:84
 #, python-format
 msgid "Unable to retrieve images with filter %s."
-msgstr ""
+msgstr "No fue posible obtener imágenes con el filtro %s."
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:111
 msgid "Unable to fetch available images."
-msgstr ""
+msgstr "No fue posible obtener las imágenes disponibles."
 
 #: dashboards/project/data_processing/data_image_registry/panel.py:22
 #: dashboards/project/data_processing/data_image_registry/tables.py:71
@@ -5525,14 +5526,14 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:29
 msgid "Edit Tags"
-msgstr ""
+msgstr "Editar etiquetas"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:43
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:6
 msgid "Register Image"
-msgstr ""
+msgstr "Registrar imagen"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:51
 msgid "Unregister"
@@ -5544,11 +5545,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:67
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetas"
 
 #: dashboards/project/data_processing/data_image_registry/views.py:47
 msgid "Unable to retrieve image list"
-msgstr ""
+msgstr "No fue posible obtener la lista de imágenes"
 
 #: dashboards/project/data_processing/data_image_registry/views.py:57
 #: dashboards/project/data_processing/data_image_registry/views.py:72
@@ -5557,13 +5558,13 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/views.py:98
 msgid "Unable to fetch the image details"
-msgstr ""
+msgstr "No fue posible obtener los detalles de la imagen"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:6
 msgid "Edit Image Tags"
-msgstr ""
+msgstr "Editar etiquetas de la imagen"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
@@ -5598,7 +5599,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:19
 msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
+msgstr "Etiquetas innecesarias pueden ser removidas al hacer clic en la cruz cerca del nombre de la etiqueta."
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:5
 msgid ""
@@ -5615,7 +5616,7 @@ msgstr "Añadir todo"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:37
 msgid "Add custom tag"
-msgstr ""
+msgstr "Añadir etiqueta personalizada"
 
 #: dashboards/project/data_processing/data_plugins/panel.py:22
 #: dashboards/project/data_processing/data_plugins/tables.py:43
@@ -5690,8 +5691,8 @@ msgid "Data sources"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
-msgid "Unable to retreive data source details"
-msgstr ""
+msgid "Unable to retrieve data source details"
+msgstr "No fue posible obtener detalles de la fuente de datos"
 
 #: dashboards/project/data_processing/data_sources/views.py:45
 #: dashboards/project/data_processing/jobs/workflows/launch.py:72
@@ -5775,7 +5776,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/forms.py:58
 msgid "Upload File"
-msgstr ""
+msgstr "Subir archivo"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:61
 msgid "Script name"
@@ -5871,11 +5872,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:17
 msgid "Choose an existing file"
-msgstr ""
+msgstr "Seleccione un archivo existente"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:18
 msgid "Upload a new file"
-msgstr ""
+msgstr "Subir un nuevo archivo"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:19
 msgid "Create a script to be uploaded dynamically"
@@ -5887,11 +5888,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:25
 msgid "Enter the URL for the file"
-msgstr ""
+msgstr "Ingrese la URL para el archivo"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:26
 msgid "Enter the username and password required to access that file"
-msgstr ""
+msgstr "Ingrese el nombre de usuario y contraseña requeridos para acceder al archivo"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:30
 msgid "You may also enter an optional description for your job binary."
@@ -6494,6 +6495,7 @@ msgstr "Descargar copia de seguridad"
 #: dashboards/project/loadbalancers/tables.py:89
 #: dashboards/project/loadbalancers/tables.py:103
 #: dashboards/project/loadbalancers/tables.py:112
+#: dashboards/project/volumes/backups/tables.py:49
 #: dashboards/project/volumes/snapshots/tables.py:46
 #: dashboards/project/volumes/volumes/tables.py:61
 #: dashboards/project/vpn/tables.py:68 dashboards/project/vpn/tables.py:82
@@ -6692,7 +6694,7 @@ msgstr "Error al crear la copia de seguridad de la base de datos."
 #: dashboards/project/databases/forms.py:28
 #: dashboards/project/volumes/volumes/forms.py:516
 msgid "Current Size (GB)"
-msgstr ""
+msgstr "Tamaño actual (GB)"
 
 #: dashboards/project/databases/forms.py:32
 #: dashboards/project/volumes/volumes/forms.py:520
@@ -10645,21 +10647,21 @@ msgstr "Recursos"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "No ha sido posible obtener recursos para la pila \"%s\"."
 
-#: dashboards/project/stacks/views.py:62
+#: dashboards/project/stacks/views.py:79
 msgid "Unable to retrieve stack list."
 msgstr "No ha sido posible obtener la lista de pilas."
 
-#: dashboards/project/stacks/views.py:94
-#: dashboards/project/stacks/views.py:171
-#: dashboards/project/stacks/views.py:195
+#: dashboards/project/stacks/views.py:111
+#: dashboards/project/stacks/views.py:188
+#: dashboards/project/stacks/views.py:212
 msgid "Unable to retrieve stack."
 msgstr "No ha sido posible obtener las pilas."
 
-#: dashboards/project/stacks/views.py:223
+#: dashboards/project/stacks/views.py:240
 msgid "Unable to retrieve resource."
 msgstr "No ha sido posible obtener el recurso."
 
-#: dashboards/project/stacks/views.py:236
+#: dashboards/project/stacks/views.py:253
 msgid "Unable to retrieve metadata."
 msgstr "No ha sido posible obtener los metadatos."
 
@@ -10814,10 +10816,6 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup"
 msgstr ""
-
-#: dashboards/project/volumes/backups/tables.py:49
-msgid "Scheduled deletion of"
-msgstr "Programado el borrado de"
 
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:132
