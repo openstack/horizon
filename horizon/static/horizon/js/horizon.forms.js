@@ -163,18 +163,19 @@ horizon.forms.add_password_fields_reveal_buttons = function (el) {
   $(el).find('input[type="password"]').each(function (i, input) {
     var $input = $(input);
 
-    $(
-      '<span class="password-reveal-button icon-eye-open"></span>'
+    $input.closest('.form-group').addClass("has-feedback");
+    $('<span>').addClass(
+      "form-control-feedback glyphicon glyphicon-eye-open"
     ).insertAfter($input).click(function () {
       var $icon = $(this);
 
       if ($input.attr('type') === 'password') {
-        $icon.removeClass('icon-eye-open');
-        $icon.addClass('icon-eye-close');
+        $icon.removeClass('glyphicon-eye-open');
+        $icon.addClass('glyphicon-eye-close');
         $input = _change_input_type($input, 'text');
       } else {
-        $icon.removeClass('icon-eye-close');
-        $icon.addClass('icon-eye-open');
+        $icon.removeClass('glyphicon-eye-close');
+        $icon.addClass('glyphicon-eye-open');
         $input = _change_input_type($input, 'password');
       }
     });

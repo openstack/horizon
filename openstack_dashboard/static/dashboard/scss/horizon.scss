@@ -221,7 +221,7 @@ h2 {
       width: 100%;
     }
     input {
-      width: 350px;
+      width: 100%;
     }
     select {
       width: 360px;
@@ -2290,16 +2290,3 @@ label.log-length {
 a.link-popover { cursor: default; }
 
 a:hover.link-popover { text-decoration: none; }
-
-/** Reveal button on the password fields. **/
-span.password-reveal-button {
-    display: inline-block;
-    position: relative;
-    top: -3px;
-    margin-left: -21px;
-
-    // Work around a bug in Bootstrap SCSS.
-    // https://github.com/twbs/bootstrap-sass/issues/105
-    // TODO(rdopieralski) Remove when fixed.
-    background-image: url(../../bootstrap/img/glyphicons-halflings.png);
-}
