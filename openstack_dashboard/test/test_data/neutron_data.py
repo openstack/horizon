@@ -429,7 +429,7 @@ def data(TEST):
                  'subnet_id': TEST.subnets.first().id,
                  'protocol': 'HTTP',
                  'lb_method': 'ROUND_ROBIN',
-                 'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff96'],
+                 'health_monitors': TEST.monitors.list(),
                  'members': ['78a46e5e-eb1a-418a-88c7-0e3f5968b08'],
                  'admin_state_up': True,
                  'status': 'ACTIVE',
@@ -446,7 +446,7 @@ def data(TEST):
                  'subnet_id': TEST.subnets.first().id,
                  'protocol': 'HTTPS',
                  'lb_method': 'ROUND_ROBIN',
-                 'health_monitors': ['d4a0500f-db2b-4cc4-afcf-ec026febff97'],
+                 'health_monitors': TEST.monitors.list()[0:1],
                  'members': [],
                  'status': 'PENDING_CREATE',
                  'admin_state_up': True}

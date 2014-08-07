@@ -644,8 +644,9 @@ class AddPMAssociationAction(workflows.Action):
             tenant_id = self.request.user.tenant_id
             monitors = api.lbaas.pool_health_monitor_list(request,
                                                           tenant_id=tenant_id)
+            pool_monitors_ids = [pm.id for pm in context['pool_monitors']]
             for m in monitors:
-                if m.id not in context['pool_monitors']:
+                if m.id not in pool_monitors_ids:
                     display_name = utils.get_monitor_display_name(m)
                     monitor_id_choices.append((m.id, display_name))
         except Exception:
@@ -705,8 +706,9 @@ class DeletePMAssociationAction(workflows.Action):
         monitor_id_choices = [('', _("Select a Monitor"))]
         try:
             monitors = api.lbaas.pool_health_monitor_list(request)
+            pool_monitors_ids = [pm.id for pm in context['pool_monitors']]
             for m in monitors:
-                if m.id in context['pool_monitors']:
+                if m.id in pool_monitors_ids:
                     display_name = utils.get_monitor_display_name(m)
                     monitor_id_choices.append((m.id, display_name))
         except Exception:

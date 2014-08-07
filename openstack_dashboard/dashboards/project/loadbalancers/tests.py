@@ -777,7 +777,7 @@ class LoadBalancerTests(test.TestCase):
     @test.create_stubs({api.lbaas: ('pool_get', 'pool_health_monitor_list',
                                     'pool_monitor_association_create')})
     def test_add_pool_monitor_association_post(self):
-        pool = self.pools.first()
+        pool = self.pools.list()[1]
         monitors = self.monitors.list()
         monitor = self.monitors.list()[1]
 
