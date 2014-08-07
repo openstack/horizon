@@ -81,17 +81,17 @@ horizon.instances = {
   generate_networklist_html: function() {
     var self = this;
     var updateForm = function() {
-      var lists = $("#networkListId div.input li").attr('data-index',100);
+      var lists = $("#networkListId li").attr('data-index',100);
       var active_networks = $("#selected_network > li").map(function(){
         return $(this).attr("name");
       });
-      $("#networkListId div.input input:checkbox").removeAttr('checked');
+      $("#networkListId input:checkbox").removeAttr('checked');
       active_networks.each(function(index, value){
-        $("#networkListId div.input input:checkbox[value=" + value + "]")
-          .attr('checked','checked')
+        $("#networkListId input:checkbox[value=" + value + "]")
+          .prop('checked', true)
           .parents("li").attr('data-index',index);
       });
-      $("#networkListId div.input ul").html(
+      $("#networkListId ul").html(
         lists.sort(function(a,b){
           if( $(a).data("index") < $(b).data("index")) { return -1; }
           if( $(a).data("index") > $(b).data("index")) { return 1; }
