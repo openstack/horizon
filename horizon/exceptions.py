@@ -20,6 +20,8 @@ import logging
 import os
 import sys
 
+import six
+
 from django.core.management import color_style  # noqa
 from django.http import HttpRequest  # noqa
 from django.utils import encoding
@@ -328,4 +330,5 @@ def handle(request, message=None, redirect=None, ignore=False,
     # If we've gotten here, time to wrap and/or raise our exception.
     if wrap:
         raise HandledException([exc_type, exc_value, exc_traceback])
-    raise exc_type, exc_value, exc_traceback
+
+    six.reraise(exc_type, exc_value, exc_traceback)

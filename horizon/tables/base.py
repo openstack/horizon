@@ -685,7 +685,8 @@ class Cell(html.HTMLElement):
         except Exception:
             data = None
             exc_info = sys.exc_info()
-            raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
+            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
+                              exc_info[2])
 
         if self.url:
             link_attrs = ' '.join(['%s="%s"' % (k, v) for (k, v) in
@@ -1660,6 +1661,7 @@ class DataTable(object):
             # re-raising as a TemplateSyntaxError makes them visible.
             LOG.exception("Error while rendering table rows.")
             exc_info = sys.exc_info()
-            raise template.TemplateSyntaxError, exc_info[1], exc_info[2]
+            raise six.reraise(template.TemplateSyntaxError, exc_info[1],
+                              exc_info[2])
 
         return rows

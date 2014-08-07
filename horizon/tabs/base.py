@@ -14,6 +14,8 @@
 
 import sys
 
+import six
+
 from django.template.loader import render_to_string
 from django.template import TemplateSyntaxError  # noqa
 from django.utils.datastructures import SortedDict
@@ -311,7 +313,7 @@ class Tab(html.HTMLElement):
             raise
         except Exception:
             exc_type, exc_value, exc_traceback = sys.exc_info()
-            raise TemplateSyntaxError, exc_value, exc_traceback
+            raise six.reraise(TemplateSyntaxError, exc_value, exc_traceback)
         return render_to_string(self.get_template_name(self.request), context)
 
     def get_id(self):
