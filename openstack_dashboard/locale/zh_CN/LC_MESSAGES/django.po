@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-05 23:34-0500\n"
-"PO-Revision-Date: 2014-08-06 04:34+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-06 17:57-0500\n"
+"PO-Revision-Date: 2014-08-07 05:40+0000\n"
+"Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -334,12 +334,12 @@ msgstr "无法为云主机%s获得当前安全组列表"
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
+msgstr "修改 %(num_groups_to_modify)d 实例安全组失败: %(err)s"
 
 #: api/nova.py:312
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr ""
+msgstr "修改 %d 实例安全组失败"
 
 #: api/swift.py:200 dashboards/project/containers/tables.py:115
 msgid "The container cannot be deleted since it's not empty."
@@ -1817,7 +1817,7 @@ msgstr "镜像"
 
 #: dashboards/admin/images/tables.py:45
 msgid "View Custom Properties"
-msgstr ""
+msgstr "查看自定义属性"
 
 #: dashboards/admin/images/tables.py:61
 #: dashboards/admin/instances/tables.py:135
@@ -1835,49 +1835,49 @@ msgstr "无法查询镜像列表。"
 #: dashboards/admin/images/properties/forms.py:53
 #, python-format
 msgid "Created custom property \"%s\"."
-msgstr ""
+msgstr "创建自定义属性\"%s\"."
 
 #: dashboards/admin/images/properties/forms.py:57
 #, python-format
 msgid "Unable to create image custom property. Property \"%s\" is read only."
-msgstr ""
+msgstr "无法创建镜像的自定义属性。属性 \"%s\" 是只读的。"
 
 #: dashboards/admin/images/properties/forms.py:61
 #, python-format
 msgid "Unable to create image custom property. Property \"%s\" already exists."
-msgstr ""
+msgstr "无法创建镜像的自定义属性。属性 \"%s\" 已经存在。"
 
 #: dashboards/admin/images/properties/forms.py:65
 #, python-format
 msgid "Unable to create image custom property \"%s\"."
-msgstr ""
+msgstr "无法创建镜像的自定义属性\"%s\"."
 
 #: dashboards/admin/images/properties/forms.py:79
 #, python-format
 msgid "Saved custom property \"%s\"."
-msgstr ""
+msgstr "保存自定义属性\"%s\"."
 
 #: dashboards/admin/images/properties/forms.py:83
 #, python-format
 msgid "Unable to edit image custom property. Property \"%s\" is read only."
-msgstr ""
+msgstr "无法编辑镜像的自定义属性。属性 \"%s\" 是只读的。"
 
 #: dashboards/admin/images/properties/forms.py:87
 #, python-format
 msgid "Unable to edit image custom property \"%s\"."
-msgstr ""
+msgstr "无法编辑镜像的自定义属性\"%s\"。"
 
 #: dashboards/admin/images/properties/tables.py:40
 msgid "Property"
-msgstr ""
+msgstr "属性"
 
 #: dashboards/admin/images/properties/tables.py:41
 msgid "Properties"
-msgstr ""
+msgstr "属性"
 
 #: dashboards/admin/images/properties/tables.py:55
 msgid "Create Property"
-msgstr ""
+msgstr "创建属性"
 
 #: dashboards/admin/images/properties/tables.py:86
 #: dashboards/project/images/templates/images/images/_detail_overview.html:62
@@ -1891,11 +1891,11 @@ msgstr "无法检索到镜像细节。"
 
 #: dashboards/admin/images/properties/views.py:61
 msgid "Unable to retrieve image custom properties list."
-msgstr ""
+msgstr "无法获取镜像的自定义属性列表。"
 
 #: dashboards/admin/images/properties/views.py:86
 msgid "Unable to retrieve image custom property."
-msgstr ""
+msgstr "无法获取镜像的自定义属性。"
 
 #: dashboards/admin/images/templates/images/_create.html:9
 #: dashboards/admin/images/templates/images/create.html:3
@@ -1985,19 +1985,19 @@ msgstr "在这儿您可以修改镜像的属性。"
 #: dashboards/admin/images/templates/images/properties/_create.html:10
 #: dashboards/admin/images/templates/images/properties/create.html:4
 msgid "Create Image Custom Property"
-msgstr ""
+msgstr "创建镜像的自定义属性"
 
 #: dashboards/admin/images/templates/images/properties/_create.html:20
 msgid "Create a new custom property for an image."
-msgstr ""
+msgstr "为一个镜像创建一个新的自定义属性。"
 
 #: dashboards/admin/images/templates/images/properties/_edit.html:10
 msgid "Edit Custom Property Value"
-msgstr ""
+msgstr "编辑自定义属性值"
 
 #: dashboards/admin/images/templates/images/properties/_edit.html:20
 msgid "Update the custom property value for"
-msgstr ""
+msgstr "更新自定义属性值"
 
 #: dashboards/admin/images/templates/images/properties/create.html:7
 #: dashboards/admin/images/templates/images/properties/edit.html:7
@@ -2012,19 +2012,19 @@ msgstr "镜像"
 
 #: dashboards/admin/images/templates/images/properties/edit.html:4
 msgid "Edit Image Custom Property"
-msgstr ""
+msgstr "编辑镜像的自定义属性"
 
 #: dashboards/admin/images/templates/images/properties/index.html:3
 msgid "Image Custom Properties"
-msgstr ""
+msgstr "镜像的自定义属性"
 
 #: dashboards/admin/images/templates/images/properties/index.html:6
 msgid "Image Custom Properties: "
-msgstr ""
+msgstr "镜像的自定义属性："
 
 #: dashboards/admin/images/templates/images/properties/index.html:6
 msgid "Image Custom Properties:"
-msgstr ""
+msgstr "镜像的自定义属性："
 
 #: dashboards/admin/info/panel.py:27
 #: dashboards/admin/info/templates/info/index.html:3
@@ -2292,7 +2292,7 @@ msgstr "无法获取Cinder服务列表"
 
 #: dashboards/admin/info/tabs.py:92
 msgid "Unable to get network agents info."
-msgstr ""
+msgstr "无法获取网络agents信息。"
 
 #: dashboards/admin/info/tabs.py:99
 msgid "Unable to get network agents list."
@@ -2704,11 +2704,11 @@ msgstr "所有资源的统计信息"
 
 #: dashboards/admin/networks/forms.py:29
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: dashboards/admin/networks/forms.py:29
 msgid "Flat"
-msgstr ""
+msgstr "Flat"
 
 #: dashboards/admin/networks/forms.py:44
 #: dashboards/project/networks/workflows.py:40
@@ -2721,11 +2721,11 @@ msgstr "网络配置概要"
 
 #: dashboards/admin/networks/forms.py:48
 msgid "Provider Network Type"
-msgstr ""
+msgstr "供应商网络类型"
 
 #: dashboards/admin/networks/forms.py:49
 msgid "The physical mechanism by which the virtual network is implemented."
-msgstr ""
+msgstr "物理机制的虚拟网络的实现。"
 
 #: dashboards/admin/networks/forms.py:57 dashboards/admin/networks/forms.py:64
 #: dashboards/admin/networks/forms.py:65
@@ -2740,7 +2740,7 @@ msgstr "物理网络"
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
-msgstr ""
+msgstr "物理网络上的虚拟网络的实现的名称。"
 
 #: dashboards/admin/networks/forms.py:68 dashboards/admin/networks/forms.py:72
 #: dashboards/admin/networks/forms.py:73 dashboards/admin/networks/forms.py:74
@@ -2934,7 +2934,7 @@ msgstr "子网已连接"
 #: dashboards/admin/networks/agents/tables.py:36
 #: dashboards/admin/networks/agents/tables.py:88
 msgid "DHCP Agents"
-msgstr ""
+msgstr "DHCP Agents"
 
 #: dashboards/admin/networks/views.py:57
 #: dashboards/project/images/templates/images/images/_detail_overview.html:18
@@ -2958,7 +2958,7 @@ msgstr "无法获取网络列表"
 #: dashboards/admin/networks/views.py:140
 #: dashboards/admin/networks/agents/forms.py:64
 msgid "Unable to list dhcp agents hosting network."
-msgstr ""
+msgstr "无法列出DHCP代理主机的网络"
 
 #: dashboards/admin/networks/views.py:115
 #: dashboards/project/networks/views.py:107
@@ -2980,24 +2980,24 @@ msgstr "无法获取网络\"%s\"的详情."
 
 #: dashboards/admin/networks/agents/forms.py:38
 msgid "New DHCP Agent"
-msgstr ""
+msgstr "新建DHCP Agent"
 
 #: dashboards/admin/networks/agents/forms.py:39
 msgid "Choose an DHCP Agent to attach to."
-msgstr ""
+msgstr "选择添加一个DHCP Agent。"
 
 #: dashboards/admin/networks/agents/forms.py:57
 msgid "Select a new agent"
-msgstr ""
+msgstr "选择一个新的agent"
 
 #: dashboards/admin/networks/agents/forms.py:59
 msgid "No other agents available."
-msgstr ""
+msgstr "没用可用的agents。"
 
 #: dashboards/admin/networks/agents/forms.py:76
 #, python-format
 msgid "Agent %s was successfully added."
-msgstr ""
+msgstr "Agent %s 已经成功添加。"
 
 #: dashboards/admin/networks/agents/forms.py:82
 #, python-format
@@ -3006,12 +3006,12 @@ msgstr ""
 
 #: dashboards/admin/networks/agents/tables.py:35
 msgid "DHCP Agent"
-msgstr ""
+msgstr "DHCP Agent"
 
 #: dashboards/admin/networks/agents/tables.py:45
 #, python-format
 msgid "Failed to delete agent: %s"
-msgstr ""
+msgstr "删除agent: %s 失败"
 
 #: dashboards/admin/networks/agents/tables.py:54
 #: dashboards/admin/networks/templates/networks/agents/_add.html:9
@@ -3019,7 +3019,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/agents/add.html:3
 #: dashboards/admin/networks/templates/networks/agents/add.html:6
 msgid "Add DHCP Agent"
-msgstr ""
+msgstr "增加DHCP Agent"
 
 #: dashboards/admin/networks/agents/tables.py:77
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:7
@@ -3038,7 +3038,7 @@ msgstr "无法获取网络"
 
 #: dashboards/admin/networks/agents/views.py:70
 msgid "Unable to retrieve agent list."
-msgstr ""
+msgstr "无法获取agent列表。"
 
 #: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
@@ -3072,7 +3072,7 @@ msgstr "连接到端口的设备所有人"
 #: dashboards/project/networks/ports/tables.py:68
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:37
 msgid "MAC Learning State"
-msgstr ""
+msgstr "MAC学习状态"
 
 #: dashboards/admin/networks/ports/forms.py:72
 #, python-format
@@ -3138,7 +3138,7 @@ msgstr "设备已连接"
 #: dashboards/admin/networks/ports/tables.py:98
 #: dashboards/project/networks/ports/forms.py:43
 msgid "Mac Learning State"
-msgstr ""
+msgstr "Mac学习状态"
 
 #: dashboards/admin/networks/ports/tabs.py:25
 #: dashboards/admin/overview/panel.py:27
@@ -3276,7 +3276,7 @@ msgstr "更新网络"
 
 #: dashboards/admin/networks/templates/networks/agents/_add.html:19
 msgid "From here you can add a DHCP agent for the network."
-msgstr ""
+msgstr "这里你可以位一个网络增加DHCP agent。"
 
 #: dashboards/admin/networks/templates/networks/ports/_create.html:19
 msgid ""
@@ -3344,7 +3344,7 @@ msgstr "运行的云主机"
 #: dashboards/admin/overview/templates/overview/usage.csv:3
 #: dashboards/project/overview/templates/overview/usage.csv:4
 msgid "Total VCPU Usage (Hours)"
-msgstr ""
+msgstr "VCPU总使用量 (Hours)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:4
 #: dashboards/project/overview/templates/overview/usage.csv:5
@@ -3354,12 +3354,12 @@ msgstr "运行内存总计(MB)"
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
 msgid "Total Disk Size (GB)"
-msgstr ""
+msgstr "磁盘总大小 (GB)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
 msgid "Total Disk Usage (Hours)"
-msgstr ""
+msgstr "磁盘总使用量 (Hours)"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -3907,11 +3907,11 @@ msgstr "卷详细信息:"
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/create.html:4
 msgid "Create Volume Type Extra Spec"
-msgstr ""
+msgstr "创建卷类型扩展规格"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:20
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr ""
+msgstr "为一个卷类型创建一个新的 key-value 形式的\"扩展规格属性\"。"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:20
 msgid "Update the \"extra spec\" value for"
@@ -3920,7 +3920,7 @@ msgstr "更新一个\"额外说明\"值"
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_index.html:6
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/index.html:4
 msgid "Volume Type Extra Specs"
-msgstr ""
+msgstr "卷扩展规格属性"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/create.html:7
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/edit.html:7
@@ -3931,7 +3931,7 @@ msgstr "云硬盘类型"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/edit.html:4
 msgid "Edit Volume Type Extra Spec"
-msgstr ""
+msgstr "编辑卷扩展规格"
 
 #: dashboards/admin/volumes/volumes/forms.py:36
 #, python-format
@@ -3949,23 +3949,23 @@ msgstr "云硬盘类型"
 
 #: dashboards/admin/volumes/volumes/extras/forms.py:37
 msgid "Unable to create volume type extra spec."
-msgstr ""
+msgstr "无法创建卷类型扩展规格"
 
 #: dashboards/admin/volumes/volumes/extras/forms.py:55
 msgid "Unable to edit volume type extra spec."
-msgstr ""
+msgstr "无法编辑卷类型扩展规格"
 
 #: dashboards/admin/volumes/volumes/extras/tables.py:22
 msgid "Extra Spec"
-msgstr ""
+msgstr "附加的规格"
 
 #: dashboards/admin/volumes/volumes/extras/views.py:36
 msgid "Unable to retrieve volume type details."
-msgstr ""
+msgstr "无法获取卷类型详细信息。"
 
 #: dashboards/admin/volumes/volumes/extras/views.py:89
 msgid "Unable to retrieve volume type extra spec details."
-msgstr ""
+msgstr "无法获取卷类型的附加规格详细信息。"
 
 #: dashboards/project/dashboard.py:22
 msgid "Compute"
@@ -3997,7 +3997,7 @@ msgstr "数据库"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:3
 msgid "Data Processing"
-msgstr ""
+msgstr "数据处理"
 
 #: dashboards/project/access_and_security/panel.py:24
 #: dashboards/project/instances/workflows/create_instance.py:469
@@ -4978,7 +4978,7 @@ msgstr "上传对象"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:31
 msgid "Cluster Template Name"
-msgstr ""
+msgstr "集群模板名称"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:39
 #: dashboards/project/data_processing/cluster_templates/tables.py:72
@@ -4987,23 +4987,23 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:58
 msgid "Template"
-msgstr ""
+msgstr "模板"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:57
 msgid "Unable to upload cluster template file"
-msgstr ""
+msgstr "无法上传集群模板文件。"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
 #: dashboards/project/data_processing/cluster_templates/tables.py:113
 msgid "Cluster Templates"
-msgstr ""
+msgstr "集群模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:37
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
-msgstr ""
+msgstr "上传模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:44
 #: dashboards/project/data_processing/clusters/tables.py:32
@@ -5017,16 +5017,16 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/workflows/create.py:54
 #: dashboards/project/data_processing/clusters/workflows/create.py:195
 msgid "Launch Cluster"
-msgstr ""
+msgstr "启动集群"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:60
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:46
 msgid "Copy Template"
-msgstr ""
+msgstr "复制模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:67
 msgid "Delete Template"
-msgstr ""
+msgstr "删除模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:70
 #: dashboards/project/data_processing/clusters/tables.py:50
@@ -5054,16 +5054,16 @@ msgstr "删除"
 #: dashboards/project/data_processing/cluster_templates/tables.py:73
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:59
 msgid "Templates"
-msgstr ""
+msgstr "模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:81
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:27
 msgid "Create Template"
-msgstr ""
+msgstr "创建模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:90
 msgid "Configure Cluster Template"
-msgstr ""
+msgstr "配置集群模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:103
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
@@ -5075,7 +5075,7 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
 msgid "Plugin"
-msgstr ""
+msgstr "插件"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:105
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
@@ -5084,7 +5084,7 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
 #: dashboards/project/data_processing/utils/workflow_helpers.py:161
 msgid "Hadoop Version"
-msgstr ""
+msgstr "Hadoop版本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:107
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
@@ -5093,7 +5093,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/tabs.py:85
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
 msgid "Node Groups"
-msgstr ""
+msgstr "节点组"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:31
 #: dashboards/project/data_processing/clusters/tabs.py:36
@@ -5103,31 +5103,31 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tabs.py:26
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:29
 msgid "General Info"
-msgstr ""
+msgstr "一般信息"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:43
 msgid "Unable to fetch cluster template details."
-msgstr ""
+msgstr "无法获取集群模板的详细信息。"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:68
 msgid "Unable to fetch node group details."
-msgstr ""
+msgstr "无法获取节点组的详细信息。"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:106
 #: dashboards/project/data_processing/clusters/views.py:97
 msgid "Unable to fetch cluster template."
-msgstr ""
+msgstr "无法获取集群模板。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:4
 msgid "This Cluster Template will be created for:"
-msgstr ""
+msgstr "这个集群模板将被创建给："
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:59
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 msgid "Hadoop version"
-msgstr ""
+msgstr "Hadoop版本"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:12
 msgid ""
@@ -5154,7 +5154,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
 msgid "Template Overview"
-msgstr ""
+msgstr "模板概要"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:20
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:46
@@ -5164,52 +5164,52 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:56
 msgid "no processes"
-msgstr ""
+msgstr "没有过程"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:34
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:60
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:42
 msgid "Node Configurations"
-msgstr ""
+msgstr "节点配置"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
 msgid "No configurations"
-msgstr ""
+msgstr "没有配置"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:51
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:77
 msgid "Cluster configurations are not specified"
-msgstr ""
+msgstr "集群配置没有被指定"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:7
 msgid "Node Group"
-msgstr ""
+msgstr "节点组"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
-msgstr ""
+msgstr "节点数量"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:18
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:34
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:26
 msgid "Template not specified"
-msgstr ""
+msgstr "没有指定模板"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:81
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
 msgid "Node Processes"
-msgstr ""
+msgstr "节点处理"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:31
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:39
 msgid "Node processes are not specified"
-msgstr ""
+msgstr "节点处理没有被指定"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:51
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:59
@@ -5218,7 +5218,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
 msgid "Upload"
-msgstr ""
+msgstr "上传"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
 msgid "Data Processing - Cluster Templates"
@@ -5231,12 +5231,12 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:79
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:221
 msgid "Create Cluster Template"
-msgstr ""
+msgstr "创建集群模板"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:6
 msgid "Cluster Template Details"
-msgstr ""
+msgstr "集群模板详情"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:30
 #, python-format
@@ -5249,12 +5249,12 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:48
 msgid "Unable to fetch plugin list."
-msgstr ""
+msgstr "无法获取插件列表。"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:52
 #: dashboards/project/data_processing/jobs/workflows/launch.py:351
 msgid "Plugin name"
-msgstr ""
+msgstr "插件名称"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:68
 msgid "Select plugin and hadoop version for cluster template"
@@ -5283,12 +5283,12 @@ msgstr "已创建"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:405
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:293
 msgid "Could not create"
-msgstr ""
+msgstr "不能创建"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:96
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:35
 msgid "Template Name"
-msgstr ""
+msgstr "模板名称"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:137
 #: dashboards/project/data_processing/data_plugins/tabs.py:26
@@ -5303,43 +5303,43 @@ msgstr "详情"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:223
 #, python-format
 msgid "Created Cluster Template %s"
-msgstr ""
+msgstr "创建集群模板 %s"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:301
 msgid "Cluster template creation failed"
-msgstr ""
+msgstr "集群模板创建失败"
 
 #: dashboards/project/data_processing/clusters/panel.py:22
 #: dashboards/project/data_processing/clusters/tables.py:53
 #: dashboards/project/data_processing/clusters/tables.py:106
 msgid "Clusters"
-msgstr ""
+msgstr "集群"
 
 #: dashboards/project/data_processing/clusters/tables.py:40
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:41
 msgid "Scale Cluster"
-msgstr ""
+msgstr "规模集群"
 
 #: dashboards/project/data_processing/clusters/tables.py:52
 #: dashboards/project/data_processing/jobs/workflows/launch.py:101
 msgid "Cluster"
-msgstr ""
+msgstr "集群"
 
 #: dashboards/project/data_processing/clusters/tables.py:71
 msgid "Unable to update row"
-msgstr ""
+msgstr "无法跟新行"
 
 #: dashboards/project/data_processing/clusters/tables.py:81
 #: dashboards/project/data_processing/clusters/workflows/create.py:177
 #: dashboards/project/data_processing/jobs/workflows/launch.py:309
 msgid "Configure Cluster"
-msgstr ""
+msgstr "设置集群"
 
 #: dashboards/project/data_processing/clusters/tables.py:102
 msgid "Instances Count"
-msgstr ""
+msgstr "实例数量"
 
 #: dashboards/project/data_processing/clusters/tabs.py:106
 msgid "Unable to get node group details."
@@ -5690,7 +5690,7 @@ msgid "Data sources"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
-msgid "Unable to retreive data source details"
+msgid "Unable to retrieve data source details"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/views.py:45
@@ -6494,6 +6494,7 @@ msgstr "下载备份"
 #: dashboards/project/loadbalancers/tables.py:89
 #: dashboards/project/loadbalancers/tables.py:103
 #: dashboards/project/loadbalancers/tables.py:112
+#: dashboards/project/volumes/backups/tables.py:49
 #: dashboards/project/volumes/snapshots/tables.py:46
 #: dashboards/project/volumes/volumes/tables.py:61
 #: dashboards/project/vpn/tables.py:68 dashboards/project/vpn/tables.py:82
@@ -9505,7 +9506,7 @@ msgstr "至少指定一个成员。"
 
 #: dashboards/project/loadbalancers/workflows.py:410
 msgid "Member IP address must be specified"
-msgstr ""
+msgstr "成员IP地址必须被指定"
 
 #: dashboards/project/loadbalancers/workflows.py:415
 msgid "Add New Member"
@@ -9526,11 +9527,11 @@ msgstr "添加(一个或多个)成员。"
 
 #: dashboards/project/loadbalancers/workflows.py:442
 msgid "Unable to add member(s)"
-msgstr ""
+msgstr "无法增加成员(多个成员)。"
 
 #: dashboards/project/loadbalancers/workflows.py:452
 msgid "Unable to retrieve the specified pool."
-msgstr ""
+msgstr "无法检索指定池。"
 
 #: dashboards/project/loadbalancers/workflows.py:501
 msgid "PING"
@@ -10099,7 +10100,7 @@ msgstr "DNS域名服务器"
 
 #: dashboards/project/overview/views.py:34
 msgid "Uptime (Seconds)"
-msgstr ""
+msgstr "正常运行时间(秒)"
 
 #: dashboards/project/routers/forms.py:34
 #: dashboards/project/routers/ports/forms.py:35
@@ -10644,21 +10645,21 @@ msgstr "资源"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "无法获取栈 \"%s\" 的资源。"
 
-#: dashboards/project/stacks/views.py:62
+#: dashboards/project/stacks/views.py:79
 msgid "Unable to retrieve stack list."
 msgstr "无法获取栈列表。"
 
-#: dashboards/project/stacks/views.py:94
-#: dashboards/project/stacks/views.py:171
-#: dashboards/project/stacks/views.py:195
+#: dashboards/project/stacks/views.py:111
+#: dashboards/project/stacks/views.py:188
+#: dashboards/project/stacks/views.py:212
 msgid "Unable to retrieve stack."
 msgstr "无法获取栈。"
 
-#: dashboards/project/stacks/views.py:223
+#: dashboards/project/stacks/views.py:240
 msgid "Unable to retrieve resource."
 msgstr "无法获取资源。"
 
-#: dashboards/project/stacks/views.py:236
+#: dashboards/project/stacks/views.py:253
 msgid "Unable to retrieve metadata."
 msgstr "无法获取元数据。"
 
@@ -10771,32 +10772,32 @@ msgstr "找不到云硬盘快照。"
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
 msgid "Volume Backups"
-msgstr ""
+msgstr "卷备份"
 
 #: dashboards/project/volumes/tabs.py:118
 msgid "Unable to retrieve volume backups."
-msgstr ""
+msgstr "无法获取卷备份。"
 
 #: dashboards/project/volumes/backups/forms.py:33
 msgid "Backup Name"
-msgstr ""
+msgstr "备份名称"
 
 #: dashboards/project/volumes/backups/forms.py:56
 #, python-format
 msgid "Creating volume backup \"%s\""
-msgstr ""
+msgstr "正在创建卷备份 \"%s\""
 
 #: dashboards/project/volumes/backups/forms.py:63
 msgid "Unable to create volume backup."
-msgstr ""
+msgstr "无法创建卷备份。"
 
 #: dashboards/project/volumes/backups/forms.py:79
 msgid "Unable to lookup volume or backup information."
-msgstr ""
+msgstr "无法查找卷或备份的信息。"
 
 #: dashboards/project/volumes/backups/forms.py:85
 msgid "Create a New Volume"
-msgstr ""
+msgstr "创建一个新卷"
 
 #: dashboards/project/volumes/backups/forms.py:102
 #, python-format
@@ -10807,16 +10808,12 @@ msgstr ""
 
 #: dashboards/project/volumes/backups/forms.py:108
 msgid "Unable to restore backup."
-msgstr ""
+msgstr "无法恢复备份。"
 
 #: dashboards/project/volumes/backups/tables.py:47
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup"
-msgstr ""
-
-#: dashboards/project/volumes/backups/tables.py:49
-msgid "Scheduled deletion of"
-msgstr "已计划删除"
+msgstr "卷备份"
 
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:132
@@ -10829,7 +10826,7 @@ msgstr "云硬盘名称"
 #: dashboards/project/volumes/backups/tabs.py:38
 #: dashboards/project/volumes/backups/views.py:61
 msgid "Unable to retrieve backup details."
-msgstr ""
+msgstr "无法获取卷备份详细信息。"
 
 #: dashboards/project/volumes/snapshots/forms.py:37
 #, python-format
@@ -10861,7 +10858,7 @@ msgstr "无法恢复云硬盘快照"
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
 msgid "Create Volume Backup"
-msgstr ""
+msgstr "创建一个卷备份"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid ""
@@ -10878,44 +10875,44 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:4
 msgid "Volume Backup Overview"
-msgstr ""
+msgstr "卷备份概要"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
 msgid "Restore Volume Backup"
-msgstr ""
+msgstr "恢复卷备份"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Select a volume to restore to."
-msgstr ""
+msgstr "选择一个卷用来恢复。"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:19
 msgid "Optionally, you may choose to create a new volume."
-msgstr ""
+msgstr "可供选择的，你可以选择创建一个新的卷。"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:24
 msgid "Restore Backup to Volume"
-msgstr ""
+msgstr "还原备份卷"
 
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
 msgid "Create a Volume Backup"
-msgstr ""
+msgstr "创建一个卷备份"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:3
 msgid "Volume Backup Details"
-msgstr ""
+msgstr "卷备份详情"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details: "
-msgstr ""
+msgstr "卷备份详情："
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details:"
-msgstr ""
+msgstr "卷备份详情："
 
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
 msgid "Restore a Volume Backup"
-msgstr ""
+msgstr "还原一个卷备份"
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
 msgid "Volume Snapshot Overview"
@@ -11011,15 +11008,15 @@ msgstr "云硬盘数量"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
 msgid "From here you can create a snapshot of a volume."
-msgstr ""
+msgstr "为一个卷创建一个快照"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:9
 msgid "Snapshot Limits"
-msgstr ""
+msgstr "快照限制"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:21
 msgid "Number of Snapshots"
-msgstr ""
+msgstr "快照数量"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
@@ -11116,15 +11113,15 @@ msgstr "没有源，空白云硬盘。"
 
 #: dashboards/project/volumes/volumes/forms.py:226
 msgid "Image source must be specified"
-msgstr ""
+msgstr "镜像源必须被指定"
 
 #: dashboards/project/volumes/volumes/forms.py:230
 msgid "Snapshot source must be specified"
-msgstr ""
+msgstr "快照源必须被指定"
 
 #: dashboards/project/volumes/volumes/forms.py:234
 msgid "Volume source must be specified"
-msgstr ""
+msgstr "卷的源必须被指定"
 
 #: dashboards/project/volumes/volumes/forms.py:243
 msgid "Unable to determine if availability zones extension is supported."
