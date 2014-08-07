@@ -6,10 +6,11 @@
   <form action="?" method="get" id="date_form" class="form-inline">
     <h3>{% trans "Select a period of time to query its usage" %}: </h3>
     <div class="datepicker form-group">
-      {% blocktrans with start=form.start end=form.end %}
-      <label>From:</label> {{ start }}
+      {% blocktrans with start=form.start %}
+      <label>From:</label> {{ start }}{% endblocktrans %}
     </div>
     <div class="datepicker form-group">
+      {% blocktrans with end=form.end %}
       <label>To:</label>{{ end }}{% endblocktrans %}
     </div>
     <button class="btn btn-primary" type="submit">{% trans "Submit" %}</button>
