@@ -568,9 +568,14 @@ def data(TEST):
     extension_3 = {"name": "Provider network",
                    "alias": "provider",
                    "description": "Provider network extension"}
+    extension_4 = {"name": "Distributed Virtual Router",
+                   "alias": "dvr",
+                   "description":
+                   "Enables configuration of Distributed Virtual Routers."}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
     TEST.api_extensions.add(extension_3)
+    TEST.api_extensions.add(extension_4)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",

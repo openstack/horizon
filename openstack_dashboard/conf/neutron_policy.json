@@ -145,6 +145,8 @@
     "add_router_interface": "rule:admin_or_owner",
     "remove_router_interface": "rule:admin_or_owner",
     "delete_router": "rule:admin_or_owner",
+    "get_router:distributed": "rule:admin_only",
+    "create_router:distributed": "rule:admin_only",
 
     "create_floatingip": "rule:regular_user",
     "update_floatingip": "rule:admin_or_owner",

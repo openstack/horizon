@@ -32,15 +32,28 @@ LOG = logging.getLogger(__name__)
 
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length="255", label=_("Router Name"))
+    mode = forms.ChoiceField(label=_("Router Type"))
     failure_url = 'horizon:project:routers:index'
 
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
+        self.dvr_enabled = api.neutron.get_dvr_permission(self.request,
+                                                          "create")
+        if self.dvr_enabled:
+            mode_choices = [('server_default', _('Use Server Default')),
+                            ('centralized', _('Centralized')),
+                            ('distributed', _('Distributed'))]
+            self.fields['mode'].choices = mode_choices
+        else:
+            self.fields['mode'].widget = forms.HiddenInput()
+            self.fields['mode'].required = False
 
     def handle(self, request, data):
         try:
-            router = api.neutron.router_create(request,
-                                               name=data['name'])
+            params = {'name': data['name']}
+            if (self.dvr_enabled and data['mode'] != 'server_default'):
+                params['distributed'] = (data['mode'] == 'distributed')
+            router = api.neutron.router_create(request, **params)
             message = _('Router %s was successfully created.') % data['name']
             messages.success(request, message)
             return router

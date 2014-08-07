@@ -12,7 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.test.utils import override_settings
+
 from openstack_dashboard import api
+from openstack_dashboard import policy
 from openstack_dashboard.test import helpers as test
 
 
@@ -279,3 +282,67 @@ class NeutronApiTests(test.APITestCase):
             api.neutron.is_extension_supported(self.request, 'quotas'))
         self.assertFalse(
             api.neutron.is_extension_supported(self.request, 'doesntexist'))
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
+                                                  True},
+                       POLICY_CHECK_FUNCTION=None)
+    def _test_get_dvr_permission_dvr_supported(self, dvr_enabled):
+        neutronclient = self.stub_neutronclient()
+        extensions = self.api_extensions.list()
+        if not dvr_enabled:
+            extensions = [ext for ext in extensions if ext['alias'] != 'dvr']
+        neutronclient.list_extensions() \
+            .AndReturn({'extensions': extensions})
+        self.mox.ReplayAll()
+        self.assertEqual(dvr_enabled,
+                         api.neutron.get_dvr_permission(self.request, 'get'))
+
+    def test_get_dvr_permission_dvr_supported(self):
+        self._test_get_dvr_permission_dvr_supported(dvr_enabled=True, )
+
+    def test_get_dvr_permission_dvr_not_supported(self):
+        self._test_get_dvr_permission_dvr_supported(dvr_enabled=False)
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
+                                                  True},
+                       POLICY_CHECK_FUNCTION=policy.check)
+    def _test_get_dvr_permission_with_policy_check(self, policy_check_allowed,
+                                                   operation):
+        self.mox.StubOutWithMock(policy, 'check')
+        if operation == "create":
+            role = (("network", "create_router:distributed"),)
+        elif operation == "get":
+            role = (("network", "get_router:distributed"),)
+        policy.check(role, self.request).AndReturn(policy_check_allowed)
+        if policy_check_allowed:
+            neutronclient = self.stub_neutronclient()
+            neutronclient.list_extensions() \
+                .AndReturn({'extensions': self.api_extensions.list()})
+        self.mox.ReplayAll()
+        self.assertEqual(policy_check_allowed,
+                         api.neutron.get_dvr_permission(self.request,
+                                                        operation))
+
+    def test_get_dvr_permission_with_policy_check_allowed(self):
+        self._test_get_dvr_permission_with_policy_check(True, "get")
+
+    def test_get_dvr_permission_with_policy_check_disallowed(self):
+        self._test_get_dvr_permission_with_policy_check(False, "get")
+
+    def test_get_dvr_permission_create_with_policy_check_allowed(self):
+        self._test_get_dvr_permission_with_policy_check(True, "create")
+
+    def test_get_dvr_permission_create_with_policy_check_disallowed(self):
+        self._test_get_dvr_permission_with_policy_check(False, "create")
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
+                                                  False})
+    def test_get_dvr_permission_dvr_disabled_by_config(self):
+        self.assertFalse(api.neutron.get_dvr_permission(self.request, 'get'))
+
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
+                                                  True})
+    def test_get_dvr_permission_dvr_unsupported_operation(self):
+        self.assertRaises(ValueError,
+                          api.neutron.get_dvr_permission,
+                          self.request, 'unSupported')
