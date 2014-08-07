@@ -100,6 +100,22 @@ class KeyPairViewTests(test.TestCase):
 
         self.assertTrue(res.has_header('content-disposition'))
 
+    @test.create_stubs({api.nova: ("keypair_create", "keypair_delete")})
+    def test_regenerate_keypair_get(self):
+        keypair = self.keypairs.first()
+        keypair.private_key = "secret"
+        optional_param = "regenerate"
+        api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name)
+        api.nova.keypair_create(IsA(http.HttpRequest),
+                                keypair.name).AndReturn(keypair)
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:access_and_security:keypairs:generate',
+                      kwargs={'keypair_name': keypair.name,
+                              'optional': optional_param})
+        res = self.client.get(url)
+
+        self.assertTrue(res.has_header('content-disposition'))
+
     @test.create_stubs({api.nova: ("keypair_import",)})
     def test_import_keypair(self):
         key1_name = "new_key_pair"

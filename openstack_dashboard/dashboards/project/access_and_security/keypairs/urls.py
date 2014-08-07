@@ -30,4 +30,6 @@ urlpatterns = patterns('',
             name='download'),
     url(r'^(?P<keypair_name>[^/]+)/generate/$', views.GenerateView.as_view(),
             name='generate'),
+    url(r'^(?P<keypair_name>[^/]+)/(?P<optional>[^/]+)/generate/$',
+            views.GenerateView.as_view(), name='generate'),
 )
