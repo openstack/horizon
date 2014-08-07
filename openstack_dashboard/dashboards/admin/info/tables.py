@@ -127,6 +127,10 @@ def get_metadata(aggregate):
             in aggregate.metadata.iteritems()]
 
 
+def safe_unordered_list(value):
+    return filters.unordered_list(value, autoescape=True)
+
+
 class AggregatesTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"))
@@ -135,11 +139,11 @@ class AggregatesTable(tables.DataTable):
     hosts = tables.Column(get_hosts,
                           verbose_name=_("Hosts"),
                           wrap_list=True,
-                          filters=(filters.unordered_list,))
+                          filters=(safe_unordered_list,))
     metadata = tables.Column(get_metadata,
                              verbose_name=_("Metadata"),
                              wrap_list=True,
-                             filters=(filters.unordered_list,))
+                             filters=(safe_unordered_list,))
 
     class Meta:
         name = "aggregates"
