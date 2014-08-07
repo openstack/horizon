@@ -1,6 +1,7 @@
 (function () {
   'use strict';
-  horizonApp.controller('ImageFormCtrl', ['$scope', function ($scope) {
+  angular.module('hz')
+  .controller('ImageFormCtrl', ['$scope', function ($scope) {
     $scope.selectImageFormat = function (path) {
       if (!path) { return; }
       var format = path.substr(path.lastIndexOf(".") + 1)
@@ -11,8 +12,8 @@
         $scope.diskFormat = "";
       }
     };
-  }]);
-  horizonApp.directive('imageFileOnChange', function () {
+  }])
+  .directive('imageFileOnChange', function () {
     return {
       require: 'ngModel',
       restrict: 'A',

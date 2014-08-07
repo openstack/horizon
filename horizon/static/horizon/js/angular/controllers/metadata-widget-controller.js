@@ -1,6 +1,7 @@
 (function () {
   'use strict';
-  horizonApp.controller('hzMetadataWidgetCtrl', ['$scope', '$window', '$filter', function ($scope, $window, $filter) {
+  angular.module('hz')
+    .controller('hzMetadataWidgetCtrl', ['$scope', '$window', '$filter', function ($scope, $window, $filter) {
 
     //// Item class ////
 

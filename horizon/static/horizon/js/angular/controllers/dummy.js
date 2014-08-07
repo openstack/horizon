@@ -1,6 +1,5 @@
-/*globals horizonApp*/
 (function () {
   'use strict';
-  horizonApp.
-    controller('DummyCtrl', function () {});
+  angular.module('hz')
+    .controller('DummyCtrl', function () {});
 }());
