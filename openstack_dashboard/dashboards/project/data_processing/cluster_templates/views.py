@@ -43,7 +43,13 @@ class ClusterTemplatesView(tables.DataTableView):
         'project/data_processing.cluster_templates/cluster_templates.html')
 
     def get_data(self):
-        cluster_templates = saharaclient.cluster_template_list(self.request)
+        try:
+            cluster_templates = saharaclient.cluster_template_list(
+                self.request)
+        except Exception:
+            cluster_templates = []
+            exceptions.handle(self.request,
+                              _("Unable to fetch cluster template list"))
         return cluster_templates
 
 
