@@ -1537,11 +1537,11 @@ label.log-length {
     /* Buttons */
   .btn-group {
     margin-left:0px;
-      padding: 2px 10px 0 0;
-      margin-bottom: 0px;
-      border: 1px solid $gray-light;
-      border-bottom: none;
-    }
+    padding: 3px 10px;
+    margin-bottom: 0px;
+    border: 1px solid $gray-light;
+    border-bottom: none;
+  }
   .btn-group .active {
     float: right;
   }
@@ -1558,63 +1558,47 @@ label.log-length {
   .members_title {
     color: $gray;
     font-weight: bold;
-    padding-left: 10px;
     float: left;
+    line-height: 30px;
     width: 160px;
   }
-  input {
-    background: url(../img/search.png) no-repeat 95px 5px;
-  }
-  input[type="text"]:disabled {
-    background: url(../img/search.png) no-repeat 95px 5px $gray-lighter;
+  input[type="text"]:disabled + span.glyphicon-search {
+    color: $gray-light;
   }
   .fake_table_header {
     background-color: $body-bg;
-    width: 306px;
-    height: 56px;
-    padding-top: 15px;
+    padding: 10px;
     border: 1px solid $table-border-color;
     border-bottom: none;
+    overflow: hidden;
   }
 
     /* 'Fake table' body */
   .fake_table {
-    margin-left: 5px;
-    width: 315px;
-    ul.no_results {
-      width: 318px;
+    > ul {
+      padding: 0;
+      &.no_results {
+        border: 1px solid $table-border-color;
+        padding: 10px;
+      }
     }
     ul.btn-group:hover {
         background-color: $border-color;
     }
   }
-  .left {
-    .fake_table_header {
-      width: 318px;
-    }
-  }
-  .right {
-    .fake_table_header {
-      width: 318px;
-      margin-left: -15px;
-    }
-    .fake_table ul.no_results {
-      margin-left: -20px;
-    }
-  }
 
   /* Member lists */
   .member {
-    padding: 10px;
     text-align: left;
+    line-height: 32px;
   }
-  .members {
-    margin-left: -20px;
-  }
+
   .members ul.btn-group,
   .available_members ul.btn-group {
-    width: 318px;
-    margin-left: -40px;
+    display: block;
+    &.nav-pills > li > a {
+      padding: 6px 11px;
+    }
   }
   .dark_stripe {
     background-color: $table-bg-odd;
@@ -1625,19 +1609,18 @@ label.log-length {
   .last_stripe {
     border-bottom: 1px solid $table-border-color;
   }
-
+  .has-feedback {
+    display: inline-block;
+    float: right;
+    margin-bottom: 0;
+  }
   /* List filtering */
   .filter {
-    width: 120px;
-    margin: -5px 13px 15px 0px;
-    float: right;
+    width: 130px;
   }
-  .no_results {
-    border: 1px solid $table-border-color;
-    padding: 10px;
-    opacity: 0.5;
+  .form-control-feedback {
+    top:0;
   }
-
   /* Role dropdown menus */
   .role_dropdown li {
     cursor: pointer;
@@ -1652,9 +1635,15 @@ label.log-length {
     @include box-shadow(none);
     z-index: 99999;
     i {
+      @extend .glyphicon;
+      &:before { content: "\e013"; }
       opacity: 0;
+      display: inline-block;
+      width: 14px;
+      font-size: 12px;
+      line-height: 14px;
+      vertical-align: text-top;
     }
-
     &:hover {
       background-color: #cdcdcd;
     }
