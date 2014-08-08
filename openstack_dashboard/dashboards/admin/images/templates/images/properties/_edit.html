@@ -17,7 +17,7 @@
 </div>
 <div class="right">
     <h3>{% trans "Description" %}:</h3>
-    <p>{% trans 'Update the custom property value for' %} &quot;{{ key }}&quot;</p>
+    <p>{% blocktrans with key=key %}Update the custom property value for &quot;{{ key }}&quot;{% endblocktrans %}</p>
 </div>
 {% endblock %}
 
