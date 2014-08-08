@@ -1,5 +1,5 @@
 // bootstrap overrides:
-$icon-font-path: "/static/bootstrap/fonts/bootstrap/";
+$icon-font-path: "../../bootstrap/fonts/bootstrap/";
 $font-size-base: 13px;
 $modal-md: 732px;
 
@@ -34,14 +34,14 @@ $modal-md: 732px;
 
 @font-face {
   font-family: 'anivers';
-  src: url('/static/dashboard/fonts/Anivers_Regular-webfont.eot');
-  src: url('/static/dashboard/fonts/Anivers_Regular-webfont.eot?iefix')
+  src: url('../fonts/Anivers_Regular-webfont.eot');
+  src: url('../fonts/Anivers_Regular-webfont.eot?iefix')
       format('eot'),
-    url('/static/dashboard/fonts/Anivers_Regular-webfont.woff')
+    url('../fonts/Anivers_Regular-webfont.woff')
       format('woff'),
-    url('/static/dashboard/fonts/Anivers_Regular-webfont.ttf')
+    url('../fonts/Anivers_Regular-webfont.ttf')
       format('truetype'),
-    url('/static/dashboard/fonts/Anivers_Regular-webfont.svg#webfont3JLVF59W')
+    url('../fonts/Anivers_Regular-webfont.svg#webfont3JLVF59W')
       format('svg');
   font-weight: normal;
   font-style: normal;
@@ -96,7 +96,7 @@ dt {
   margin-bottom: 0;
   margin-right: 10px;
   padding: 0;
-  background-image: url(/static/dashboard/img/drop_arrow.png);
+  background-image: url(../img/drop_arrow.png);
   background-color: $gray-lighter;
   background-repeat: no-repeat;
   border: 1px solid $gray-light;
@@ -144,7 +144,7 @@ dt {
   max-width: 200px;
   vertical-align: top;
   white-space: nowrap;
-  background-image: url(/static/dashboard/img/profile_drop.png);
+  background-image: url(../img/profile_drop.png);
   background-repeat: no-repeat;
   background-position: right center;
 }
@@ -185,7 +185,7 @@ h2 {
 /* Login Splash Page */
 
 #splash .login {
-  background: url(/static/dashboard/img/logo-splash.png) no-repeat center 35px;
+  background: url(../img/logo-splash.png) no-repeat center 35px;
   position: absolute;
   top: 80px;
   left: 50%;
@@ -258,7 +258,7 @@ h1.brand {
 }
 
 h1.brand a {
-  background: url(/static/dashboard/img/logo.png) top left no-repeat;
+  background: url(../img/logo.png) top left no-repeat;
   display: block;
   float: left;
   width: 216px;
@@ -297,7 +297,7 @@ a.current_item:hover h4 {
 .sidebar .switcher_bar a.dropdown-toggle {
   display: block;
   padding: 5px 0;
-  background-image: url(/static/dashboard/img/drop_arrow.png);
+  background-image: url(../img/drop_arrow.png);
   border: 1px solid #c0d9e4;
   background-color: #e9f5fa;
   background-repeat: no-repeat;
@@ -490,10 +490,10 @@ a.current_item:hover h4 {
   background-position: 98% center;
 }
 .table th.headerSortDown {
-  background-image: url(/static/dashboard/img/drop_arrow.png);
+  background-image: url(../img/drop_arrow.png);
 }
 .table th.headerSortUp {
-  background-image: url(/static/dashboard/img/up_arrow.png);
+  background-image: url(../img/up_arrow.png);
 }
 .table tr.summation td:first-child,
 .table tr.summation td:last-child {
@@ -659,7 +659,7 @@ td.loading {
 }
 
 @mixin btn-icon-inline_edit($x, $y, $top: 1px, $left: 5px,
-    $icons: "/static/bootstrap/img/glyphicons-halflings.png") {
+    $icons: "../../bootstrap/img/glyphicons-halflings.png") {
   padding: 9px 12px 9px 12px;
   position: relative;
   border-radius: 0px;
@@ -690,7 +690,7 @@ td.inline_edit_available div.table_cell_wrapper .table_cell_action button.ajax-i
 }
 
 @mixin status-icon($x, $y, $top: 1px, $left: 5px,
-    $icons: "/static/bootstrap/img/glyphicons-halflings.png") {
+    $icons: "../../bootstrap/img/glyphicons-halflings.png") {
   padding: 9px 12px 9px 12px;
   position: relative;
   border-radius: 0px;
@@ -782,7 +782,7 @@ div.table_cell_wrapper {
       z-index: 100;
     }
     .loading {
-      @include status-icon(0px, 0px, 0px, 0px, '/static/dashboard/img/spinner.gif');
+      @include status-icon(0px, 0px, 0px, 0px, '../img/spinner.gif');
       padding: 0;
       position:absolute;
       top: 0px;
@@ -1264,7 +1264,7 @@ tr.terminated {
   font-weight: bold;
   color: #555;
   cursor: pointer;
-  background-image: url(/static/dashboard/img/right_droparrow.png);
+  background-image: url(../img/right_droparrow.png);
   background-repeat: no-repeat;
   background-position: 130px center;
 }
@@ -1273,7 +1273,7 @@ tr.terminated {
   width: 334px;
   margin-bottom: 10px;
   border-bottom: solid 1px $border-color;
-  background-image: url(/static/dashboard/img/drop_arrow.png);
+  background-image: url(../img/drop_arrow.png);
 }
 
 .nav-tabs a {
@@ -1328,7 +1328,7 @@ form .form-group.required > label:after {
 }
 
 #region_selector li:first-child p{
-  background: #ededed url(/static/dashboard/img/drop_arrow.png) no-repeat 106px 9px !important;
+  background: #ededed url(../img/drop_arrow.png) no-repeat 106px 9px !important;
   display: block;
   border: 1px solid #e1e1e1;
   padding: 5px;
@@ -1560,10 +1560,10 @@ label.log-length {
     width: 160px;
   }
   input {
-    background: url(/static/dashboard/img/search.png) no-repeat 95px 5px;
+    background: url(../img/search.png) no-repeat 95px 5px;
   }
   input[type="text"]:disabled {
-    background: url(/static/dashboard/img/search.png) no-repeat 95px 5px $gray-lighter;
+    background: url(../img/search.png) no-repeat 95px 5px $gray-lighter;
   }
   .fake_table_header {
     background-color: $body-bg;
@@ -1724,7 +1724,7 @@ label.log-length {
     border-radius: 3px;
     cursor: move;
     padding-left: 23px;
-    background: $body-bg url(/static/dashboard/img/drag.png) no-repeat 11px 50%;
+    background: $body-bg url(../img/drag.png) no-repeat 11px 50%;
     em {
       font-size: 0.5em;
       line-height: 1em;
@@ -2140,7 +2140,7 @@ label.log-length {
     border-radius: 3px;
     cursor: move;
     padding-left: 23px;
-    background: $body-bg url(/static/dashboard/img/drag.png) no-repeat 11px 50%;
+    background: $body-bg url(../img/drag.png) no-repeat 11px 50%;
     em {
       font-size: 0.5em;
       line-height: 1em;
@@ -2238,11 +2238,11 @@ label.log-length {
   }
 
   &.tablesorter-headerAsc {
-    background-image: url(/static/dashboard/img/up_arrow.png);
+    background-image: url(../img/up_arrow.png);
   }
 
   &.tablesorter-headerDesc {
-    background-image: url(/static/dashboard/img/drop_arrow.png);
+    background-image: url(../img/drop_arrow.png);
   }
 }
 
@@ -2261,5 +2261,5 @@ span.password-reveal-button {
     // Work around a bug in Bootstrap SCSS.
     // https://github.com/twbs/bootstrap-sass/issues/105
     // TODO(rdopieralski) Remove when fixed.
-    background-image: url(/static/bootstrap/img/glyphicons-halflings.png);
+    background-image: url(../../bootstrap/img/glyphicons-halflings.png);
 }
