@@ -134,6 +134,30 @@ class DatabaseTests(test.TestCase):
         res = self.client.get(LAUNCH_URL)
         self.assertTemplateUsed(res, 'project/databases/launch.html')
 
+    @test.create_stubs({api.trove: ('flavor_list',)})
+    def test_launch_instance_exception_on_flavors(self):
+        trove_exception = self.exceptions.trove
+        api.trove.flavor_list(IsA(http.HttpRequest)).AndRaise(trove_exception)
+        self.mox.ReplayAll()
+
+        #######################################################################
+        # FIXME (woodm1979): I can't make the normal mechanisms work:
+        #     assertMessageCount or assertRedirectsNoFollow
+        # exceptions.handle is correctly raising a redirect which is causing
+        # the test to fail.
+
+        def handle_uncaught_redirect():
+            self.client.get(LAUNCH_URL)
+
+        from horizon import exceptions
+        self.assertRaises(exceptions.Http302, handle_uncaught_redirect)
+        #######################################################################
+
+        # FIXME (woodm1979): This SHOULD be the test mechanism.
+        # res = self.client.get(LAUNCH_URL)
+        # self.assertMessageCount(res, errors=1)
+        # self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @test.create_stubs({
         api.trove: ('flavor_list', 'backup_list', 'instance_create',
                     'datastore_list', 'datastore_version_list'),
@@ -183,7 +207,7 @@ class DatabaseTests(test.TestCase):
             'volume': '1',
             'flavor': 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
             'network': self.networks.first().id,
-            'datastore': 'mysql,5.5'
+            'datastore': 'mysql,5.5',
         }
 
         res = self.client.post(LAUNCH_URL, post)
@@ -239,7 +263,7 @@ class DatabaseTests(test.TestCase):
             'volume': '1',
             'flavor': 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
             'network': self.networks.first().id,
-            'datastore': 'mysql,5.5'
+            'datastore': 'mysql,5.5',
         }
 
         res = self.client.post(LAUNCH_URL, post)
@@ -323,15 +347,16 @@ class DatabaseTests(test.TestCase):
 
         # forms.py: ResizeVolumeForm.handle
         api.trove.instance_resize_volume(IsA(http.HttpRequest),
-                              database_id, IsA(int)).AndReturn(None)
+                                         database_id,
+                                         IsA(int)).AndReturn(None)
 
         self.mox.ReplayAll()
         url = reverse('horizon:project:databases:resize_volume',
-                              args=[database_id])
+                      args=[database_id])
         post = {
             'instance_id': database_id,
             'orig_size': database_size,
-            'new_size': database_size + 1
+            'new_size': database_size + 1,
         }
         res = self.client.post(url, post)
         self.assertNoFormErrors(res)
@@ -351,11 +376,11 @@ class DatabaseTests(test.TestCase):
 
         self.mox.ReplayAll()
         url = reverse('horizon:project:databases:resize_volume',
-                              args=[database_id])
+                      args=[database_id])
         post = {
             'instance_id': database_id,
             'orig_size': database_size,
-            'new_size': database_size
+            'new_size': database_size,
         }
         res = self.client.post(url, post)
         self.assertContains(res,
