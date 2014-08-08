@@ -12,7 +12,7 @@ Horizon Style Commandments
     django.core.urlresolvers.reverse_lazy,
     django.template.loader.render_to_string,
     django.utils.datastructures.SortedDict,
-    django.utils.encoding.force_unicode,
+    django.utils.encoding.force_text,
     django.utils.html.conditional_escape,
     django.utils.html.escape,
     django.utils.http.urlencode,

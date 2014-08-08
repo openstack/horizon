@@ -18,7 +18,7 @@ from django.forms import util
 from django.forms import widgets
 from django import template
 from django.template import defaultfilters
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
@@ -136,7 +136,7 @@ class JobBinaryCreateForm(forms.SelfHandlingForm):
             context = template.RequestContext(self.request, extra_context)
             text += tmpl.render(context)
         else:
-            text += defaultfilters.linebreaks(force_unicode(self.help_text))
+            text += defaultfilters.linebreaks(force_text(self.help_text))
         return defaultfilters.safe(text)
 
     class Meta:
