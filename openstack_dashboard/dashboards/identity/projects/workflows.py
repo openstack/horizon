@@ -98,7 +98,7 @@ class UpdateProjectQuotaAction(workflows.Action):
             if value is not None and value >= 0 and used > value:
                 bad_values.append(_('%(used)s %(key)s used') %
                                     {'used': used,
-                                     'key': key})
+                                     'key': quotas.QUOTA_NAMES.get(key, key)})
         if bad_values:
             value_str = ", ".join(bad_values)
             msg = (_('Quota value(s) cannot be less than the current usage '
