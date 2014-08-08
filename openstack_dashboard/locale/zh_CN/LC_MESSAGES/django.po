@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 17:57-0500\n"
-"PO-Revision-Date: 2014-08-07 05:40+0000\n"
-"Last-Translator: LIU Yulong <dragon889@163.com>\n"
+"POT-Creation-Date: 2014-08-07 05:09-0500\n"
+"PO-Revision-Date: 2014-08-07 16:11+0000\n"
+"Last-Translator: 颜海峰 <yanheven@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2816,7 +2816,7 @@ msgid ""
 "GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
 "%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
 "%(vxlan_max)s."
-msgstr ""
+msgstr "对于VLAN网络，VLAN VID是虚拟网络在物理网络上的实现。有效的VLAN VID范围是从%(vlan_min)s 到 %(vlan_max)s。对于GRE 或者VXLAN网络，GRE的隧道ID有效范围从%(gre_min)s 到 %(gre_max)s；而对于VXLAN网络，这个范围是从%(vxlan_min)s 到 %(vxlan_max)s"
 
 #: dashboards/admin/networks/forms.py:141
 #: dashboards/project/instances/workflows/create_instance.py:599
@@ -2844,17 +2844,17 @@ msgstr "创建网络 %s 失败"
 #: dashboards/admin/networks/forms.py:218
 #, python-format
 msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr ""
+msgstr "对于VLAN网络，有效的VLAN ID是从%(min)s 到 %(max)s。"
 
 #: dashboards/admin/networks/forms.py:221
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
+msgstr "对于GRE网络，有效的隧道ID是从 %(min)s 到 %(max)s。"
 
 #: dashboards/admin/networks/forms.py:224
 #, python-format
 msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
+msgstr "对于VXLAN网络，有效的隧道ID是从 %(min)s 到 %(max)s。"
 
 #: dashboards/admin/networks/forms.py:248
 #: dashboards/project/networks/forms.py:49
@@ -3002,7 +3002,7 @@ msgstr "Agent %s 已经成功添加。"
 #: dashboards/admin/networks/agents/forms.py:82
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
-msgstr ""
+msgstr "为网络%(network)s增加代理%(agent_name)s失败。"
 
 #: dashboards/admin/networks/agents/tables.py:35
 msgid "DHCP Agent"
@@ -3883,7 +3883,7 @@ msgid ""
 "      click the \"View Extra Specs\" button to set up extra specs key-value\n"
 "      pair(s) for that volume type.\n"
 "     "
-msgstr ""
+msgstr "\n卷类型标签可以在卷创建的时候指定。它通常映射到用来创建这些卷的存储后端驱动的集合。例如“性能”，\n“SSD”，“备份”，等。这个等同于\n<tt>cinder type-create</tt>命令。一旦卷类型被创建，\n点击“查看额外信息”按钮去设置\n卷类型的额外键值对(s)。"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -4888,7 +4888,7 @@ msgid ""
 "Make a new copy of an existing object to store in this or another container."
 " You may additionally specify the path within the selected container where "
 "the new copy should be stored."
-msgstr ""
+msgstr "创建一个存在的存储对象的拷贝存放在相同或者不同的容器中。你应该额外指定这个新拷贝在你选定容器中的存放路径"
 
 #: dashboards/project/containers/templates/containers/_create.html:18
 msgid ""
@@ -5133,23 +5133,23 @@ msgstr "Hadoop版本"
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Hadoop Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quotNode Groups&quot tab."
-msgstr ""
+msgstr "Cluster Template对象应该指定说明用来创建Hadoop集群的Node Group Templates。\n你可以通过在&quotNode Groups&quot 标签上增加Node Group Templates来增加Node Groups"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
 "You may set <b>cluster</b> scoped Hadoop configurations on corresponding "
 "tabs."
-msgstr ""
+msgstr "你可以在相应的标签上设置<b>集群</b>来限定Hadoop配置"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:19
 msgid ""
 "The Cluster Template object may specify a list of processes in anti-affinity group.\n"
 "    That means these processes may not be launched more than once on a single host."
-msgstr ""
+msgstr "Cluster Template对象可以指定一系列任务在anti-affinity组上。\n这样这些任务就不会在同一个物理主机上启动多个。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_create_general_help.html:3
 msgid "Select a plugin and Hadoop version for a new Cluster template."
-msgstr ""
+msgstr "为新的Cluster template选择一个插件和一个Hadoop版本"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
@@ -5159,7 +5159,7 @@ msgstr "模板概要"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:20
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:46
 msgid "Anti-affinity enabled for"
-msgstr ""
+msgstr "启用Anti-affinity属性"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:56
@@ -5214,7 +5214,7 @@ msgstr "节点处理没有被指定"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:51
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:59
 msgid "Node configurations are not specified"
-msgstr ""
+msgstr "没有指定结点配置"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
 msgid "Upload"
@@ -5222,7 +5222,7 @@ msgstr "上传"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
 msgid "Data Processing - Cluster Templates"
-msgstr ""
+msgstr "数据处理 - 集群模板"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:6
@@ -5241,11 +5241,11 @@ msgstr "集群模板详情"
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:30
 #, python-format
 msgid "Cluster Template copy %s created"
-msgstr ""
+msgstr "集群模板%s成功创建"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:80
 msgid "Unable to fetch template to copy."
-msgstr ""
+msgstr "获取模板失败"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:48
 msgid "Unable to fetch plugin list."
@@ -5258,7 +5258,7 @@ msgstr "插件名称"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:68
 msgid "Select plugin and hadoop version for cluster template"
-msgstr ""
+msgstr "为集群模板选择一个插件和一个Hadoop版本"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
@@ -5343,71 +5343,71 @@ msgstr "实例数量"
 
 #: dashboards/project/data_processing/clusters/tabs.py:106
 msgid "Unable to get node group details."
-msgstr ""
+msgstr "无法获取节点组详细信息。"
 
 #: dashboards/project/data_processing/clusters/tabs.py:126
 msgid "Internal IP"
-msgstr ""
+msgstr "内网IP"
 
 #: dashboards/project/data_processing/clusters/tabs.py:129
 msgid "Management IP"
-msgstr ""
+msgstr "管理网络IP"
 
 #: dashboards/project/data_processing/clusters/tabs.py:134
 msgid " "
-msgstr ""
+msgstr "？"
 
 #: dashboards/project/data_processing/clusters/tabs.py:163
 msgid "Unable to fetch instance details."
-msgstr ""
+msgstr "获取实例详情失败"
 
 #: dashboards/project/data_processing/clusters/views.py:47
 msgid "Unable to fetch cluster list"
-msgstr ""
+msgstr "无法获取集群列表"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:4
 msgid "This Cluster will be started with:"
-msgstr ""
+msgstr "这个集群将开始运行："
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:12
 msgid "Cluster can be launched using existing Cluster Templates."
-msgstr ""
+msgstr "集群可以通过已有的集群模板来创建"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:15
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
 "Hadoop Cluster."
-msgstr ""
+msgstr "集群对象应该指定用来创建Hadoop集群的实例的镜像"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:18
 msgid "User has to choose a keypair to have access to clusters instances."
-msgstr ""
+msgstr "用户必须选择密钥对去连接集群中的实例"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:21
 msgid " Done"
-msgstr ""
+msgstr "完成"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
 msgid "Select a plugin and Hadoop version for a new Cluster."
-msgstr ""
+msgstr "为新的集群选择一个插件和一个Hadoop版本"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:3
 msgid "Cluster Overview"
-msgstr ""
+msgstr "集群概要"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:17
 msgid "Error Details"
-msgstr ""
+msgstr "错误详情"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
 #: dashboards/project/data_processing/clusters/workflows/create.py:79
 msgid "Base Image"
-msgstr ""
+msgstr "基本镜像"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:39
 #: dashboards/project/data_processing/clusters/workflows/create.py:95
 msgid "Neutron Management Network"
-msgstr ""
+msgstr "Neutron管理网络"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:42
 #: dashboards/project/data_processing/clusters/workflows/create.py:82
@@ -5416,33 +5416,33 @@ msgstr "密钥对"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
-msgstr ""
+msgstr "集群实例"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
 msgid "Number of Nodes"
-msgstr ""
+msgstr "节点数量"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:6
 msgid "Data Processing - Clusters"
-msgstr ""
+msgstr "数据处理-集群"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:6
 msgid "Cluster Details"
-msgstr ""
+msgstr "集群详细信息"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:43
 #: dashboards/project/data_processing/jobs/workflows/launch.py:391
 msgid "Select plugin and hadoop version for cluster"
-msgstr ""
+msgstr "为集群选择插件和Hadoop版本"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:71
 msgid "Cluster Name"
-msgstr ""
+msgstr "集群名称"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:76
 msgid "Cluster Template"
-msgstr ""
+msgstr "集群模板"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:84
 msgid "Which keypair to use for authentication."
@@ -5450,52 +5450,52 @@ msgstr "认证使用哪个密钥对"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:125
 msgid "Unable to fetch image choices."
-msgstr ""
+msgstr "无法获取镜像选项"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:134
 msgid "Unable to fetch keypair choices."
-msgstr ""
+msgstr "无法获取密钥对选项"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:136
 msgid "No keypair"
-msgstr ""
+msgstr "没有密钥对"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:197
 #, python-format
 msgid "Created Cluster %s"
-msgstr ""
+msgstr "创建集群 %s"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:229
 msgid "Unable to create the cluster"
-msgstr ""
+msgstr "无法创建集群"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale"
-msgstr ""
+msgstr "规模"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:49
 msgid "Scaled cluster successfully started."
-msgstr ""
+msgstr "规模集群成功启动。"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:97
 msgid "Unable to fetch cluster to scale"
-msgstr ""
+msgstr "无法获取集群规模"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:152
 msgid "Unable to fetch cluster to scale."
-msgstr ""
+msgstr "无法获取集群规模"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:162
 msgid "Scale cluster operation failed"
-msgstr ""
+msgstr "规模集群操作失败"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:46
 msgid "Successfully updated image."
-msgstr ""
+msgstr "成功更新镜像"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:51
 msgid "Failed to update image."
-msgstr ""
+msgstr "更新镜像失败"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:72
 #: dashboards/project/instances/forms.py:38
@@ -5511,138 +5511,138 @@ msgstr "无可用镜像"
 #: dashboards/project/data_processing/data_image_registry/forms.py:84
 #, python-format
 msgid "Unable to retrieve images with filter %s."
-msgstr ""
+msgstr "无法根据过滤器 %s 获取镜像。"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:111
 msgid "Unable to fetch available images."
-msgstr ""
+msgstr "无法获取可用镜像。"
 
 #: dashboards/project/data_processing/data_image_registry/panel.py:22
 #: dashboards/project/data_processing/data_image_registry/tables.py:71
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:6
 msgid "Image Registry"
-msgstr ""
+msgstr "镜像注册"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:29
 msgid "Edit Tags"
-msgstr ""
+msgstr "编辑标签"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:43
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:6
 msgid "Register Image"
-msgstr ""
+msgstr "注册镜像"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:51
 msgid "Unregister"
-msgstr ""
+msgstr "取消注册"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:52
 msgid "Unregistered"
-msgstr ""
+msgstr "未注册"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:67
 msgid "Tags"
-msgstr ""
+msgstr "标签"
 
 #: dashboards/project/data_processing/data_image_registry/views.py:47
 msgid "Unable to retrieve image list"
-msgstr ""
+msgstr "无法获取镜像列表"
 
 #: dashboards/project/data_processing/data_image_registry/views.py:57
 #: dashboards/project/data_processing/data_image_registry/views.py:72
 msgid "Unable to process plugin tags"
-msgstr ""
+msgstr "无法处理插件标签"
 
 #: dashboards/project/data_processing/data_image_registry/views.py:98
 msgid "Unable to fetch the image details"
-msgstr ""
+msgstr "无法获取镜像详细信息"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:6
 msgid "Edit Image Tags"
-msgstr ""
+msgstr "编辑镜像标签"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:3
 msgid "Image Registry tool:"
-msgstr ""
+msgstr "镜像注册工具："
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:6
 msgid ""
 "Image Registry is used to provide additional information about images for "
 "Data Processing."
-msgstr ""
+msgstr "镜像注册表是用来为数据处理提供镜像的额外信息。"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:9
 msgid ""
 "Specified User Name will be used by Data Processing to apply configs and "
 "manage processes on instances."
-msgstr ""
+msgstr "数据处理过程中，用户名会被用来在实例上应用配置和管理这些处理任务。"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:12
 msgid ""
 "Tags are used for filtering images suitable for each plugin and each Data Processing version.\n"
 "        To add required tags, select a plugin and a Data Processing version and click &quot;Add all&quot; button."
-msgstr ""
+msgstr "标签是用来过滤镜像以适应不同的插件和不同的数据处理版本。\n要增加一个标签，选择一个插件和一个数据处理版本然后点击&quot;增加全部&quot; 按钮。"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:16
 msgid "You may also add any custom tag."
-msgstr ""
+msgstr "你还可以增加任意的自定义标签。"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:19
 msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
+msgstr "可以点击标签名字旁边的叉来删除没用的标签"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:5
 msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
-msgstr ""
+msgstr "指定数据处理版本必须的插件注册标签"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:20
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:31
 msgid "Add all"
-msgstr ""
+msgstr "全部增加"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:37
 msgid "Add custom tag"
-msgstr ""
+msgstr "添加自定义标签"
 
 #: dashboards/project/data_processing/data_plugins/panel.py:22
 #: dashboards/project/data_processing/data_plugins/tables.py:43
 msgid "Plugins"
-msgstr ""
+msgstr "插件"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:32
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
 msgid "Supported Versions"
-msgstr ""
+msgstr "支持的版本"
 
 #: dashboards/project/data_processing/data_plugins/tabs.py:39
 msgid "Unable to retrieve plugin."
-msgstr ""
+msgstr "无法获取插件。"
 
 #: dashboards/project/data_processing/data_plugins/views.py:40
 msgid "Unable to retrieve data processing plugins."
-msgstr ""
+msgstr "无法获取数据处理插件。"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
-msgstr ""
+msgstr "数据处理插件概要"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
 #: dashboards/project/database_backups/templates/database_backups/details.html:15
@@ -5661,17 +5661,17 @@ msgstr "信息"
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
 msgid "Data Processing Plugin Details"
-msgstr ""
+msgstr "数据处理插件详细信息"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:6
 msgid "Data Processing Plugins"
-msgstr ""
+msgstr "数据处理插件"
 
 #: dashboards/project/data_processing/data_sources/panel.py:22
 #: dashboards/project/data_processing/data_sources/tables.py:56
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/data_sources.html:6
 msgid "Data Sources"
-msgstr ""
+msgstr "数据源"
 
 #: dashboards/project/data_processing/data_sources/tables.py:27
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
@@ -5679,44 +5679,44 @@ msgstr ""
 #: dashboards/project/data_processing/data_sources/workflows/create.py:64
 #: dashboards/project/data_processing/data_sources/workflows/create.py:88
 msgid "Create Data Source"
-msgstr ""
+msgstr "创建数据源"
 
 #: dashboards/project/data_processing/data_sources/tables.py:37
 msgid "Data source"
-msgstr ""
+msgstr "数据源"
 
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Data sources"
-msgstr ""
+msgstr "数据源"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
-msgstr ""
+msgstr "不能顺利获取数据源详细信息"
 
 #: dashboards/project/data_processing/data_sources/views.py:45
 #: dashboards/project/data_processing/jobs/workflows/launch.py:72
 msgid "Unable to fetch data sources."
-msgstr ""
+msgstr "无法获取数据源。"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:4
 msgid "Create a Data Source with a specified name."
-msgstr ""
+msgstr "通过指定的名字创建数据源。"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:7
 msgid "Select the type of your Data Source."
-msgstr ""
+msgstr "选择你的数据源类型"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:10
 msgid "You may need to enter the username and password for your Data Source."
-msgstr ""
+msgstr "你要为你的数据源输入用户名和密码。"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:13
 msgid "You may also enter an optional description for your Data Source."
-msgstr ""
+msgstr "你还可以为你的数据源输入描述。"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:2
 msgid "Data Source Overview"
-msgstr ""
+msgstr "数据源概要"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
 #: dashboards/project/data_processing/data_sources/workflows/create.py:35
@@ -5732,58 +5732,58 @@ msgstr "url"
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:23
 msgid "Tenant id"
-msgstr ""
+msgstr "租户ID"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:17
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:15
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:25
 msgid "Create time"
-msgstr ""
+msgstr "创建时间"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:6
 msgid "Data Source Details"
-msgstr ""
+msgstr "数据源详细信息"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:31
 msgid "Data Source Type"
-msgstr ""
+msgstr "数据源类型"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:37
 msgid "Source username"
-msgstr ""
+msgstr "源用户名"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:41
 msgid "Source password"
-msgstr ""
+msgstr "源密码"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:90
 msgid "Data source created"
-msgstr ""
+msgstr "数据源已创建"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:91
 msgid "Could not create data source"
-msgstr ""
+msgstr "无法创建数据源"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:50
 msgid "Storage type"
-msgstr ""
+msgstr "存储类型"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:55
 msgid "Internal binary"
-msgstr ""
+msgstr "内部二进制"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:58
 msgid "Upload File"
-msgstr ""
+msgstr "上传文件"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:61
 msgid "Script name"
-msgstr ""
+msgstr "脚本名称"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:64
 msgid "Script text"
-msgstr ""
+msgstr "脚本文本"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:68
 msgid "Username"
@@ -5791,12 +5791,12 @@ msgstr "用户名"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:98
 msgid "Failed to get list of internal binaries."
-msgstr ""
+msgstr "获取Hadoop内部使用的二进制文件失败。"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/data_processing/job_binaries/forms.py:171
 msgid "Unable to create job binary"
-msgstr ""
+msgstr "无法创建任务二进制文件"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:143
 #: dashboards/project/data_processing/job_binaries/tables.py:30
@@ -5804,133 +5804,133 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:6
 msgid "Create Job Binary"
-msgstr ""
+msgstr "创建任务二进制文件"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:160
 msgid "Unable to upload job binary"
-msgstr ""
+msgstr "无法上传任务二进制文件"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:193
 msgid "Failed to fetch internal binary list"
-msgstr ""
+msgstr "获取内部二进制文件列表失败"
 
 #: dashboards/project/data_processing/job_binaries/panel.py:22
 #: dashboards/project/data_processing/job_binaries/tables.py:77
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/job_binaries.html:6
 msgid "Job Binaries"
-msgstr ""
+msgstr "任务二进制"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:40
 msgid "Job binary"
-msgstr ""
+msgstr "任务二进制"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:41
 msgid "Job binaries"
-msgstr ""
+msgstr "任务二进制"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:61
 msgid "Download Job Binary"
-msgstr ""
+msgstr "下载任务二进制文件"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:71
 msgid "Url"
-msgstr ""
+msgstr "Url"
 
 #: dashboards/project/data_processing/job_binaries/tabs.py:38
 msgid "Unable to fetch job binary."
-msgstr ""
+msgstr "无法获取任务二进制文件"
 
 #: dashboards/project/data_processing/job_binaries/views.py:51
 msgid "Unable to fetch job binary list."
-msgstr ""
+msgstr "无法获取任务二进制文件列表"
 
 #: dashboards/project/data_processing/job_binaries/views.py:85
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
-msgstr ""
+msgstr "无法获取任务二进制文件： %(exc)s"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:4
 msgid ""
 "<b>Important</b>:  The name that you give your job binary will be the name used in your job execution.\n"
 "  If your binary requires a particular name or extension (ie: \".jar\"), be sure to include it here."
-msgstr ""
+msgstr "<b>重要</b>: 你的任务二进制文件名就是你执行任务的名字。\n如果你的二进制文件需要一个特别名字或者拓展后缀(如：“.jar”),请确保在这里进来。"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:8
 msgid "Select the storage type for your job binary."
-msgstr ""
+msgstr "为你的任务二进制文件选择存储类型"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:10
 msgid "Data Processing internal database"
-msgstr ""
+msgstr "数据处理内部数据库"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:15
 msgid ""
 "For Data Processing internal job binaries, you may choose from the "
 "following:"
-msgstr ""
+msgstr "数据处理内部二进制文件，你可以选择："
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:17
 msgid "Choose an existing file"
-msgstr ""
+msgstr "选择一个现有的文件"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:18
 msgid "Upload a new file"
-msgstr ""
+msgstr "上传新文件"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:19
 msgid "Create a script to be uploaded dynamically"
-msgstr ""
+msgstr "创建一个可以动态上传的脚本。"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:23
 msgid "For Object Store job binaries, you must:"
-msgstr ""
+msgstr "对象存储二进制文件，你必须："
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:25
 msgid "Enter the URL for the file"
-msgstr ""
+msgstr "输入文件的URL"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:26
 msgid "Enter the username and password required to access that file"
-msgstr ""
+msgstr "输入获取文件的用户名和密码"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:30
 msgid "You may also enter an optional description for your job binary."
-msgstr ""
+msgstr "你还可以选择增加你的任务二进制文件描述。"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:2
 msgid "Job Binary Overview"
-msgstr ""
+msgstr "任务二进制文件概览"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:13
 msgid "Project id"
-msgstr ""
+msgstr "项目ID"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:18
 msgid "Download job binary"
-msgstr ""
+msgstr "下载任务二进制文件"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:6
 msgid "Job Binary Details"
-msgstr ""
+msgstr "任务二进制文件详情"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:108
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
 msgid "Job Executions"
-msgstr ""
+msgstr "任务执行"
 
 #: dashboards/project/data_processing/job_executions/tables.py:33
 msgid "Job execution"
-msgstr ""
+msgstr "任务执行"
 
 #: dashboards/project/data_processing/job_executions/tables.py:34
 msgid "Job executions"
-msgstr ""
+msgstr "任务执行"
 
 #: dashboards/project/data_processing/job_executions/tables.py:43
 msgid "Relaunch On Existing Cluster"
-msgstr ""
+msgstr "在现有的集群上重新启动"
 
 #: dashboards/project/data_processing/job_executions/tables.py:44
 #: dashboards/project/data_processing/job_executions/tables.py:62
@@ -5952,7 +5952,7 @@ msgstr "运行"
 #: dashboards/project/data_processing/jobs/tables.py:68
 #: dashboards/project/data_processing/jobs/tables.py:85
 msgid "Launched"
-msgstr ""
+msgstr "已启动"
 
 #: dashboards/project/data_processing/job_executions/tables.py:46
 #: dashboards/project/data_processing/job_executions/tables.py:64
@@ -5965,7 +5965,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:94
 #: dashboards/project/data_processing/jobs/workflows/launch.py:119
 msgid "Job"
-msgstr ""
+msgstr "任务"
 
 #: dashboards/project/data_processing/job_executions/tables.py:47
 #: dashboards/project/data_processing/job_executions/tables.py:65
@@ -5977,35 +5977,35 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:107
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
 msgid "Jobs"
-msgstr ""
+msgstr "任务"
 
 #: dashboards/project/data_processing/job_executions/tables.py:61
 msgid "Relaunch On New Cluster"
-msgstr ""
+msgstr "在新的集群的重新启动"
 
 #: dashboards/project/data_processing/job_executions/views.py:43
 msgid "Unable to fetch job executions."
-msgstr ""
+msgstr "无法获取任务执行列表。"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:2
 msgid "Job Execution Overview"
-msgstr ""
+msgstr "任务执行概览"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:9
 msgid "Job Id"
-msgstr ""
+msgstr "任务ID"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:11
 msgid "Input Id"
-msgstr ""
+msgstr "输入ID"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:13
 msgid "Output Id"
-msgstr ""
+msgstr "输出ID"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:15
 msgid "Cluster Id"
-msgstr ""
+msgstr "集群ID"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:17
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
@@ -6020,28 +6020,28 @@ msgstr "已开始"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:21
 msgid "Ended"
-msgstr ""
+msgstr "结束"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:23
 msgid "Return Code"
-msgstr ""
+msgstr "返回代码"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:25
 msgid "Oozie Job Id"
-msgstr ""
+msgstr "Oozie任务ID"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:29
 msgid "Tenant Id"
-msgstr ""
+msgstr "租户ID"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:31
 msgid "Job Configuration"
-msgstr ""
+msgstr "任务配置"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
 msgid "Job Execution Details"
-msgstr ""
+msgstr "任务执行详细信息"
 
 #: dashboards/project/data_processing/jobs/tables.py:29
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
@@ -6049,100 +6049,100 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/create.py:94
 #: dashboards/project/data_processing/jobs/workflows/create.py:117
 msgid "Create Job"
-msgstr ""
+msgstr "创建任务"
 
 #: dashboards/project/data_processing/jobs/tables.py:49
 msgid "Launch On Existing Cluster"
-msgstr ""
+msgstr "在已存在集群启动"
 
 #: dashboards/project/data_processing/jobs/tables.py:66
 #: dashboards/project/data_processing/jobs/tables.py:83
 msgid "Launch On New Cluster"
-msgstr ""
+msgstr "在新集群启动"
 
 #: dashboards/project/data_processing/jobs/views.py:48
 #: dashboards/project/data_processing/jobs/workflows/launch.py:86
 msgid "Unable to fetch jobs."
-msgstr ""
+msgstr "无法获取任务"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job with a specified name."
-msgstr ""
+msgstr "使用指定的名字来创建任务。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
-msgstr ""
+msgstr "请选择你的任务类型："
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
 msgid "Pig"
-msgstr ""
+msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
 msgid "Hive"
-msgstr ""
+msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
 msgid "MapReduce"
-msgstr ""
+msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
 msgid "Java Action"
-msgstr ""
+msgstr "Java动作"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:16
 msgid ""
 "Choose or create your main binary.  Additional libraries can be added from "
 "the \"Libs\" tab."
-msgstr ""
+msgstr "选择或创建你的主二进制文件。额外库可以通过“库”标签来添加。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:19
 msgid ""
 "For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are required to add one\n"
 "  or more \"libs\" for these jobs."
-msgstr ""
+msgstr "对于MapReduce 或者Java 响应任务，“main”不适用。你必须增加一个。\n或者为这个任务增加更多的“库”。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:23
 msgid "You may also enter an optional description for your job."
-msgstr ""
+msgstr "你可以选择性增加你的任务描述。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
 msgid "Add libraries to your job."
-msgstr ""
+msgstr "增加库文件到你的任务。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
 "your job.  This can be repeated for additional libraries."
-msgstr ""
+msgstr "从二进制文件列表点击“选择”来增加库文件到你的任务。这些二进制文件可以被重复使用"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:11
 msgid "Mains"
-msgstr ""
+msgstr "Mains"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:17
 #: dashboards/project/data_processing/jobs/workflows/create.py:48
 msgid "Libs"
-msgstr ""
+msgstr "Libs"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_configure_help.html:4
 msgid "Enter any custom configuration required for your job's execution."
-msgstr ""
+msgstr "输入你的任务执行需要的其他自定义配置"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
 msgid "Launch the given job on a cluster."
-msgstr ""
+msgstr "在一个集群上启动给定的任务"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
 msgid "Choose the cluster to use for the job execution."
-msgstr ""
+msgstr "选择执行任务的集群"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:10
 msgid "Choose the Input Data Source (n/a for Java jobs)."
-msgstr ""
+msgstr "选择输入数据源(Java任务不用)."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:13
 msgid "Choose the Output Data Source (n/a for Java jobs)."
-msgstr ""
+msgstr "选择输出数据源(Java任务不用)."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:218
 msgid "Configuration"
@@ -6150,16 +6150,16 @@ msgstr "配置"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:221
 msgid "Parameters"
-msgstr ""
+msgstr "参数"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:224
 msgid "Arguments"
-msgstr ""
+msgstr "Arguments"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
 msgid "Job Details"
-msgstr ""
+msgstr "任务详情"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:6
@@ -6167,193 +6167,193 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:402
 #: dashboards/project/data_processing/jobs/workflows/launch.py:412
 msgid "Launch Job"
-msgstr ""
+msgstr "启动任务"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:85
 msgid "Choose"
-msgstr ""
+msgstr "选择"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:97
 msgid "Chosen Libraries"
-msgstr ""
+msgstr "选中的库文件"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:31
 msgid "Choose libraries"
-msgstr ""
+msgstr "选择库文件"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:43
 #: dashboards/project/data_processing/jobs/workflows/create.py:81
 msgid "-- not selected --"
-msgstr ""
+msgstr "-- 未选择 --"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:57
 msgid "Job Type"
-msgstr ""
+msgstr "人物类型"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:59
 msgid "Choose a main binary"
-msgstr ""
+msgstr "选择main二进制文件"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:61
 msgid "Choose the binary which should be used in this Job."
-msgstr ""
+msgstr "选择任务使用的二进制文件。"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:119
 msgid "Job created"
-msgstr ""
+msgstr "任务已创建"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:120
 msgid "Could not create job"
-msgstr ""
+msgstr "无法创建任务"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:37
 msgid "Input"
-msgstr ""
+msgstr "输入"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:42
 msgid "Output"
-msgstr ""
+msgstr "输出"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:111
 msgid "Unable to fetch clusters."
-msgstr ""
+msgstr "无法获取集群"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:151
 msgid "Main Class"
-msgstr ""
+msgstr "主类"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:154
 msgid "Java Opts"
-msgstr ""
+msgstr "Java 选择"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:157
 msgid "Mapper"
-msgstr ""
+msgstr "Mapper"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:159
 msgid "Reducer"
-msgstr ""
+msgstr "Reducer"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:227
 msgid "Configure"
-msgstr ""
+msgstr "配置"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:305
 msgid "Persist cluster after job exit"
-msgstr ""
+msgstr "任务退出后保留集群"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:329
 #: dashboards/project/data_processing/jobs/workflows/launch.py:414
 msgid "Job launched"
-msgstr ""
+msgstr "任务已启动"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:330
 #: dashboards/project/data_processing/jobs/workflows/launch.py:415
 msgid "Could not launch job"
-msgstr ""
+msgstr "无法启动任务"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:356
 msgid "Job configs"
-msgstr ""
+msgstr "任务配置"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:360
 msgid "Job args"
-msgstr ""
+msgstr "任务参数"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:364
 msgid "Job params"
-msgstr ""
+msgstr "任务参数"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:370
 msgid "Job Execution Id"
-msgstr ""
+msgstr "任务执行ID"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:446
 msgid "Unable to create new cluster for job."
-msgstr ""
+msgstr "无法为任务创建信的集群"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:459
 msgid "Unable to launch job."
-msgstr ""
+msgstr "无法启动任务"
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:85
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
 msgid "Node Group Templates"
-msgstr ""
+msgstr "节点组模板"
 
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:36
 msgid "Configure Template"
-msgstr ""
+msgstr "配置模板"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:42
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:66
 msgid "Unable to fetch node group template."
-msgstr ""
+msgstr "无法获取节点组的模板"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:48
 msgid "Unable to fetch flavor for template."
-msgstr ""
+msgstr "无法获取模板的实例类型"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:53
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:2
 msgid "Service Configurations"
-msgstr ""
+msgstr "服务配置"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:48
 msgid "Unable to fetch node group template list."
-msgstr ""
+msgstr "无法获取结点组模板列表"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:103
 msgid "Unable to fetch template object."
-msgstr ""
+msgstr "无法获取模板对象。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:4
 msgid "This Node Group Template will be created for:"
-msgstr ""
+msgstr "这个结点群组模板创建来："
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:12
 msgid ""
 "The Node Group Template object should specify processes that will be "
 "launched on each instance. Also an OpenStack flavor is required to boot VMs."
-msgstr ""
+msgstr "结点群模板对象应该指定在每个实例上启动的任务。当然启动实例的配额类型还是需要滴。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:15
 msgid ""
 "Data Processing provides different storage location options. You may choose "
 "Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
+msgstr "数据处理提供了多种不同的存储路径选择。你可以选择临时磁盘或者绑定到实例的Cinder卷"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
 "When processes are selected, you may set <b>node</b> scoped Hadoop "
 "configurations on corresponding tabs."
-msgstr ""
+msgstr "当任务处理流程被选定，你可以在Hadoop相应的配置标签那设置 <b>结点</b>"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and Hadoop version for a new Node group template."
-msgstr ""
+msgstr "为一个新的结点群组模板选择一个新的插件和Hadoop版本。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:34
 msgid "HDFS placement"
-msgstr ""
+msgstr "HDFS位置"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
 msgid "Cinder volumes"
-msgstr ""
+msgstr "Cinder卷"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:51
 msgid "Volumes per node"
-msgstr ""
+msgstr "卷/节点"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:39
 msgid "Volumes size"
-msgstr ""
+msgstr "卷大小"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
 msgid "Ephemeral drive"
-msgstr ""
+msgstr "临时驱动"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
@@ -6362,56 +6362,56 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:163
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:290
 msgid "Create Node Group Template"
-msgstr ""
+msgstr "创建节点组模板"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:3
 msgid "Nodegroup Template Details"
-msgstr ""
+msgstr "节点组模板详细信息"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:6
 msgid "Node Group Template Details"
-msgstr ""
+msgstr "节点组模板详细信息"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:29
 #, python-format
 msgid "Node Group Template copy %s created"
-msgstr ""
+msgstr "节点组模板复制 %s 已创建"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:77
 msgid "Unable to fetch plugin details."
-msgstr ""
+msgstr "无法获取插件详情"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
 msgid "OpenStack Flavor"
-msgstr ""
+msgstr "OpenStack虚拟机类型"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:44
 msgid "Storage location"
-msgstr ""
+msgstr "存储位置"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:45
 msgid "Storage"
-msgstr ""
+msgstr "存储"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:58
 msgid "Volumes size (GB)"
-msgstr ""
+msgstr "卷大小 (GB)"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:87
 msgid "Unable to generate process choices."
-msgstr ""
+msgstr "无法生成处理选项。"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Floating IP pool"
-msgstr ""
+msgstr "浮动IP池"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:100
 msgid "Processes"
-msgstr ""
+msgstr "处理"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:102
 msgid "Processes to be launched in node group"
-msgstr ""
+msgstr "结点群组上启动的任务进程"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:127
 #: dashboards/project/instances/utils.py:31
@@ -6420,28 +6420,28 @@ msgstr "无法检索云主机类型。"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:139
 msgid "Configure Node Group Template"
-msgstr ""
+msgstr "配置结点群组模板"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:165
 #, python-format
 msgid "Created Node Group Template %s"
-msgstr ""
+msgstr "创建结点群组模板%s"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:271
 msgid "Select plugin and hadoop version"
-msgstr ""
+msgstr "选择插件和hadoop 版本"
 
 #: dashboards/project/data_processing/utils/anti_affinity.py:31
 msgid "Use anti-affinity groups for: "
-msgstr ""
+msgstr "使用anti-affinity组："
 
 #: dashboards/project/data_processing/utils/anti_affinity.py:33
 msgid "Use anti-affinity groups for processes"
-msgstr ""
+msgstr "为processes使用anti-affinity组"
 
 #: dashboards/project/data_processing/utils/anti_affinity.py:66
 msgid "Unable to populate anti-affinity processes."
-msgstr ""
+msgstr "无法填充anti-affinity processes."
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:152
@@ -6451,15 +6451,15 @@ msgstr "无法获取网络"
 
 #: dashboards/project/data_processing/utils/workflow_helpers.py:110
 msgid "Node group cluster"
-msgstr ""
+msgstr "节点组集群"
 
 #: dashboards/project/data_processing/utils/workflow_helpers.py:114
 msgid "Count"
-msgstr ""
+msgstr "计数"
 
 #: dashboards/project/data_processing/utils/workflow_helpers.py:154
 msgid "Plugin Name"
-msgstr ""
+msgstr "插件名称"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:81
@@ -6526,19 +6526,19 @@ msgstr "不可用"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/databases/workflows/create_instance.py:38
 msgid "Datastore"
-msgstr ""
+msgstr "数据存储"
 
 #: dashboards/project/database_backups/tables.py:140
 #: dashboards/project/database_backups/templates/database_backups/details.html:27
 #: dashboards/project/databases/tables.py:203
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
-msgstr ""
+msgstr "数据存储版本"
 
 #: dashboards/project/database_backups/tables.py:146
 #: dashboards/project/databases/tables.py:272
 msgid "Incremental"
-msgstr ""
+msgstr "增量"
 
 #: dashboards/project/database_backups/views.py:48
 msgid "Not Found"
@@ -6556,18 +6556,18 @@ msgstr "无法获取备份%s的详细信息"
 #: dashboards/project/database_backups/views.py:96
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
-msgstr ""
+msgstr "无法获取父备份 %s 的详细信息"
 
 #: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:3
 msgid "Specify the details for the database backup."
-msgstr ""
+msgstr "指定数据库备份详情。"
 
 #: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:4
 msgid ""
 "You can perform an incremental backup by specifying a parent backup. "
 "<strong>However,</strong> not all databases support incremental backups in "
 "which case this operation will result in an error."
-msgstr ""
+msgstr "你可以通过指定一个母版来进行增量备份。<strong>然而,</strong> 不是所有的数据库都支持增量备份，有些会导致备份出错。"
 
 #: dashboards/project/database_backups/templates/database_backups/backup.html:3
 #: dashboards/project/database_backups/templates/database_backups/backup.html:6
@@ -6577,11 +6577,11 @@ msgstr "备份数据库"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:3
 msgid "Backup Details"
-msgstr ""
+msgstr "备份详细信息"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:6
 msgid "Backup Details: "
-msgstr ""
+msgstr "备份详细信息："
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:12
 msgid "Backup Overview"
@@ -6624,12 +6624,12 @@ msgstr "备份存在时间"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:47
 msgid "Incremental Backup"
-msgstr ""
+msgstr "增量备份"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:50
 #: dashboards/project/database_backups/workflows/create_backup.py:38
 msgid "Parent Backup"
-msgstr ""
+msgstr "父备份"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:61
 msgid "Database Info"
@@ -6649,24 +6649,24 @@ msgstr "可选备份描述"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:40
 msgid "Optional parent backup"
-msgstr ""
+msgstr "可选的父备份"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:53
 msgid "Unable to list database instances to backup."
-msgstr ""
+msgstr "无法获取数据库实例来备份"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:65
 msgid "Unable to list database backups for parent."
-msgstr ""
+msgstr "无法获取用来做母版的数据库备份列表"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:69
 msgid "Select parent backup"
-msgstr ""
+msgstr "选择父备份"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:71
 #: dashboards/project/databases/workflows/create_instance.py:239
 msgid "No backups available"
-msgstr ""
+msgstr "没有可用的备份"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:84
 #, python-format
@@ -6702,17 +6702,17 @@ msgstr "新大小(GB)"
 
 #: dashboards/project/databases/forms.py:39
 msgid "New size for volume must be greater than current size."
-msgstr ""
+msgstr "卷的新容量必须大于现在的容量"
 
 #: dashboards/project/databases/forms.py:50
 #, python-format
 msgid "Resizing volume \"%s\""
-msgstr ""
+msgstr "正在调整卷 \"%s\" 的大小"
 
 #: dashboards/project/databases/forms.py:53
 #, python-format
 msgid "Unable to resize volume. %s"
-msgstr ""
+msgstr "无法调整卷  %s 的大小"
 
 #: dashboards/project/databases/tables.py:34
 #: dashboards/project/instances/tables.py:75
@@ -6763,7 +6763,7 @@ msgstr "启动云主机"
 
 #: dashboards/project/databases/tables.py:119
 msgid "Resize Volume"
-msgstr ""
+msgstr "调整卷大小"
 
 #: dashboards/project/databases/tables.py:163
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:13
@@ -6814,7 +6814,7 @@ msgstr "云硬盘大小"
 
 #: dashboards/project/databases/tables.py:232
 msgid "Allowed Host"
-msgstr ""
+msgstr "允许的主机"
 
 #: dashboards/project/databases/tables.py:237
 msgid "Database Instance Users"
@@ -6826,15 +6826,15 @@ msgstr "备份文件"
 
 #: dashboards/project/databases/tabs.py:63
 msgid "Unable to get user data."
-msgstr ""
+msgstr "无法获取用户数据。"
 
 #: dashboards/project/databases/tabs.py:90
 msgid "Unable to get databases data."
-msgstr ""
+msgstr "无法获取数据库数据。"
 
 #: dashboards/project/databases/tabs.py:115
 msgid "Unable to get database backup data."
-msgstr ""
+msgstr "无法获取数据库备份数据。"
 
 #: dashboards/project/databases/views.py:55
 msgid "Unable to retrieve database size information."
@@ -6893,17 +6893,17 @@ msgstr "连接举例"
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:21
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:22
 msgid "USERNAME"
-msgstr ""
+msgstr "用户名"
 
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:22
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:22
 msgid "PASSWORD"
-msgstr ""
+msgstr "密码"
 
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:22
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:22
 msgid "DATABASE"
-msgstr ""
+msgstr "数据库"
 
 #: dashboards/project/databases/templates/databases/_launch_details_help.html:3
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:5
@@ -6921,7 +6921,7 @@ msgstr "<strong>请注意：</strong> 云硬盘大小字段中指定的数字必
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:3
 #: dashboards/project/databases/workflows/create_instance.py:180
 msgid "Initial Databases"
-msgstr ""
+msgstr "初始数据库"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:4
 msgid "Optionally provide a comma separated list of databases to create:"
@@ -6949,7 +6949,7 @@ msgstr "密码(必填)"
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:14
 #: dashboards/project/databases/workflows/create_instance.py:190
 msgid "Allowed Host (optional)"
-msgstr ""
+msgstr "允许主机(可选)"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:15
 msgid ""
@@ -6965,7 +6965,7 @@ msgid ""
 "  clicking the button, or dragging and dropping. You can change the\n"
 "  NIC order by dragging and dropping as well.\n"
 "  "
-msgstr ""
+msgstr "\n通过点击按钮来把网络从“可用网络”移动到“选中网络”\n或者你可以通过拖放的方式。当然你也可以\n通过拖放来改变网卡顺序。"
 
 #: dashboards/project/databases/templates/databases/_launch_networks.html:8
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
@@ -6986,25 +6986,25 @@ msgstr "从前一个备份中创建该数据库"
 #: dashboards/project/databases/templates/databases/resize_volume.html:3
 #: dashboards/project/databases/templates/databases/resize_volume.html:6
 msgid "Resize Database Volume"
-msgstr ""
+msgstr "调整数据库卷大小"
 
 #: dashboards/project/databases/templates/databases/_resize_volume.html:18
 msgid "Specify the new volume size for the database instance."
-msgstr ""
+msgstr "指定数据库实例新的卷大小。"
 
 #: dashboards/project/databases/templates/databases/_resize_volume.html:19
 msgid ""
 "<strong>Please note:</strong> The new value must be greater than the "
 "existing volume size."
-msgstr ""
+msgstr "<strong>请记住:</strong>新卷容量必须大于现在的卷容量"
 
 #: dashboards/project/databases/templates/databases/detail.html:3
 msgid "Database Details"
-msgstr ""
+msgstr "数据库详细信息："
 
 #: dashboards/project/databases/templates/databases/detail.html:6
 msgid "Database Details: "
-msgstr ""
+msgstr "数据库详细信息："
 
 #: dashboards/project/databases/templates/databases/launch.html:6
 #: dashboards/project/databases/workflows/create_instance.py:263
@@ -7029,15 +7029,15 @@ msgstr "以GB计云硬盘大小"
 
 #: dashboards/project/databases/workflows/create_instance.py:40
 msgid "Type and version of datastore."
-msgstr ""
+msgstr "数据存储的类型和版本"
 
 #: dashboards/project/databases/workflows/create_instance.py:48
 msgid "You must select a datastore type and version."
-msgstr ""
+msgstr "必须选择数据存储类型和版本"
 
 #: dashboards/project/databases/workflows/create_instance.py:106
 msgid "Select datastore type and version"
-msgstr ""
+msgstr "选择数据存储类型和版本"
 
 #: dashboards/project/databases/workflows/create_instance.py:126
 #: dashboards/project/instances/workflows/create_instance.py:557
@@ -7094,7 +7094,7 @@ msgstr "从备份中恢复"
 
 #: dashboards/project/databases/workflows/create_instance.py:237
 msgid "Select backup"
-msgstr ""
+msgstr "选择备份"
 
 #: dashboards/project/databases/workflows/create_instance.py:252
 msgid "Unable to find backup!"
@@ -7696,7 +7696,7 @@ msgstr "为启动镜像设置的最小磁盘。如果不指定， 默认值为�
 
 #: dashboards/project/images/images/forms.py:84
 msgid "Minimum RAM (MB)"
-msgstr ""
+msgstr "最低内存(MB)"
 
 #: dashboards/project/images/images/forms.py:85
 msgid ""
@@ -9401,11 +9401,11 @@ msgstr "来自浮动IP的VIP地址"
 
 #: dashboards/project/loadbalancers/workflows.py:161
 msgid "VIP Subnet"
-msgstr ""
+msgstr "VIP子网"
 
 #: dashboards/project/loadbalancers/workflows.py:211
 msgid "Specify a free IP address from the selected subnet"
-msgstr ""
+msgstr "从选定的子网中指定一个可用的IP地址。"
 
 #: dashboards/project/loadbalancers/workflows.py:217
 msgid "No Session Persistence"
@@ -9449,16 +9449,16 @@ msgstr "只能指定一个地址。无法添加VIP \"%s\"。"
 
 #: dashboards/project/loadbalancers/workflows.py:318
 msgid "Member Source"
-msgstr ""
+msgstr "成员来源"
 
 #: dashboards/project/loadbalancers/workflows.py:319
 msgid "Select from active instances"
-msgstr ""
+msgstr "从可用实例选择"
 
 #: dashboards/project/loadbalancers/workflows.py:320
 #: dashboards/project/loadbalancers/workflows.py:337
 msgid "Specify member IP address"
-msgstr ""
+msgstr "指定成员的IP地址"
 
 #: dashboards/project/loadbalancers/workflows.py:327
 #: dashboards/project/loadbalancers/workflows.py:333
@@ -9472,7 +9472,7 @@ msgstr "从资源池选择成员"
 #: dashboards/project/loadbalancers/workflows.py:336
 #: dashboards/project/loadbalancers/workflows.py:342
 msgid "Member address"
-msgstr ""
+msgstr "成员地址"
 
 #: dashboards/project/loadbalancers/workflows.py:348
 msgid ""
@@ -10804,7 +10804,7 @@ msgstr "创建一个新卷"
 msgid ""
 "Successfully restored backup %(backup_name)s to volume with id: "
 "%(volume_id)s"
-msgstr ""
+msgstr "成功修复卷: %(volume_id)s 的备份%(backup_name)s "
 
 #: dashboards/project/volumes/backups/forms.py:108
 msgid "Unable to restore backup."
@@ -10864,14 +10864,14 @@ msgstr "创建一个卷备份"
 msgid ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
-msgstr ""
+msgstr "卷备份使用的是对象存储服务。你必须激活这个对象存储服务才能创建备份。"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:19
 msgid ""
 "If no container name is provided, a default container named volumebackups "
 "will be provisioned for you. Backups will be the same size as the volume "
 "they originate from."
-msgstr ""
+msgstr "如果不提供容器名字，默认会使用 volumebackups 来作为名字。备份会跟它们原来的卷大小一样。"
 
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:4
 msgid "Volume Backup Overview"

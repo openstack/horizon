@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 17:57-0500\n"
-"PO-Revision-Date: 2014-08-06 22:13+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-07 05:09-0500\n"
+"PO-Revision-Date: 2014-08-07 15:21+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2843,17 +2843,17 @@ msgstr "ネットワーク %s の作成に失敗しました"
 #: dashboards/admin/networks/forms.py:218
 #, python-format
 msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr ""
+msgstr "VLAN ネットワークでは、有効な VLAN ID は %(min)s から %(max)s までです。"
 
 #: dashboards/admin/networks/forms.py:221
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
+msgstr "GRE ネットワークでは、有効なトンネル ID は %(min)s から %(max)s までです。"
 
 #: dashboards/admin/networks/forms.py:224
 #, python-format
 msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
+msgstr "VXLAN ネットワークでは、有効なトンネル ID は %(min)s から %(max)s までです。"
 
 #: dashboards/admin/networks/forms.py:248
 #: dashboards/project/networks/forms.py:49
@@ -6074,15 +6074,15 @@ msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
 msgid "Pig"
-msgstr ""
+msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
 msgid "Hive"
-msgstr ""
+msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
 msgid "MapReduce"
-msgstr ""
+msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
 msgid "Java Action"
@@ -6394,7 +6394,7 @@ msgstr "ストレージ"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:58
 msgid "Volumes size (GB)"
-msgstr ""
+msgstr "ボリュームサイズ (GB)"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:87
 msgid "Unable to generate process choices."
