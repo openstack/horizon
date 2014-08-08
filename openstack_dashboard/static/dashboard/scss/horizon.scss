@@ -1580,8 +1580,9 @@ label.log-length {
 
   /* Header */
   .help_text {
-    margin-left: 15px;
+    margin-left: 5px;
     margin-bottom: 15px;
+    width: 650px;
   }
   .members_title {
     color: $gray;
@@ -1591,15 +1592,15 @@ label.log-length {
     width: 160px;
   }
   input {
-    background: url(/static/dashboard/img/search.png) no-repeat 105px 5px;
+    background: url(/static/dashboard/img/search.png) no-repeat 95px 5px;
   }
   input[type="text"]:disabled {
-    background: url(/static/dashboard/img/search.png) no-repeat 105px 5px $gray-lighter;
+    background: url(/static/dashboard/img/search.png) no-repeat 95px 5px $gray-lighter;
   }
   .fake_table_header {
     background-color: $body-bg;
     width: 306px;
-    height: 38px;
+    height: 56px;
     padding-top: 15px;
     border: 1px solid $table-border-color;
     border-bottom: none;
@@ -1610,7 +1611,7 @@ label.log-length {
     margin-left: 5px;
     width: 315px;
     ul.no_results {
-      width: 298px;
+      width: 318px;
     }
     ul.btn-group:hover {
         background-color: $border-color;
@@ -1641,7 +1642,8 @@ label.log-length {
   }
   .members ul.btn-group,
   .available_members ul.btn-group {
-    width: 308px;
+    width: 318px;
+    margin-left: -40px;
   }
   .dark_stripe {
     background-color: $table-bg-odd;
