@@ -94,7 +94,7 @@ class CreateDataSource(workflows.Workflow):
 
     def handle(self, request, context):
         try:
-            saharaclient.data_source_create(
+            self.object = saharaclient.data_source_create(
                 request,
                 context["general_data_source_name"],
                 context["general_data_source_description"],
