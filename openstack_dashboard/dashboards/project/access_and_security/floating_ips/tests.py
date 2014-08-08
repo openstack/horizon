@@ -19,7 +19,6 @@
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.test.utils import override_settings
 
 from mox import IsA  # noqa
 
@@ -190,7 +189,7 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
                                       'tenant_floating_ip_list'),
                         api.neutron: ('is_extension_supported',
                                       'tenant_quota_get')})
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed(self):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]

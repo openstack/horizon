@@ -14,7 +14,6 @@
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.test.utils import override_settings
 from django.utils.html import escape
 
 from horizon.workflows import views
@@ -291,7 +290,8 @@ class NetworkTests(test.TestCase):
                          '<CreateSubnetDetail: createsubnetdetailaction>']
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_get_with_profile(self):
         self.test_network_create_get(test_with_profile=True)
 
@@ -325,7 +325,8 @@ class NetworkTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_with_profile(self):
         self.test_network_create_post(test_with_profile=True)
 
@@ -372,11 +373,12 @@ class NetworkTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_with_subnet_w_profile(self):
         self.test_network_create_post_with_subnet(test_with_profile=True)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
     def test_create_network_with_ipv6_disabled(self):
         self.test_network_create_post_with_subnet(test_with_ipv6=False)
 
@@ -410,7 +412,8 @@ class NetworkTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_nw_exception_w_profile(self):
         self.test_network_create_post_network_exception(
             test_with_profile=True)
@@ -447,7 +450,8 @@ class NetworkTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_nw_create_post_w_subnet_nw_exception_w_profile(self):
         self.test_network_create_post_with_subnet_network_exception(
             test_with_profile=True)
@@ -496,7 +500,8 @@ class NetworkTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_nw_create_post_w_subnet_subnet_exception_w_profile(self):
         self.test_network_create_post_with_subnet_subnet_exception(
             test_with_profile=True)
@@ -526,7 +531,8 @@ class NetworkTests(test.TestCase):
         self.assertContains(res, escape('Specify "Network Address" or '
                                         'clear "Create Subnet" checkbox.'))
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_nw_create_post_w_subnet_no_cidr_w_profile(self):
         self.test_network_create_post_with_subnet_nocidr(
             test_with_profile=True)
@@ -558,7 +564,8 @@ class NetworkTests(test.TestCase):
         expected_msg = "The subnet in the Network Address is too small (/32)."
         self.assertContains(res, expected_msg)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_nw_create_post_w_subnet_cidr_without_mask_w_profile(self):
         self.test_network_create_post_with_subnet_cidr_without_mask(
             test_with_profile=True)
@@ -592,7 +599,8 @@ class NetworkTests(test.TestCase):
         expected_msg = 'Network Address and IP version are inconsistent.'
         self.assertContains(res, expected_msg)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_with_subnet_cidr_inconsistent_w_profile(self):
         self.test_network_create_post_with_subnet_cidr_inconsistent(
             test_with_profile=True)
@@ -625,7 +633,8 @@ class NetworkTests(test.TestCase):
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_with_subnet_gw_inconsistent_w_profile(self):
         self.test_network_create_post_with_subnet_gw_inconsistent(
             test_with_profile=True)

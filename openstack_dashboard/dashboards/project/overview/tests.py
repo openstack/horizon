@@ -20,7 +20,6 @@ import datetime
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.test.utils import override_settings
 from django.utils import timezone
 
 from mox import IsA  # noqa
@@ -273,15 +272,15 @@ class UsageViewTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/overview/usage.html')
         self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_usage_with_neutron(self):
         self._test_usage_with_neutron(neutron_sg_enabled=True)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_usage_with_neutron_nova_security_group(self):
         self._test_usage_with_neutron(neutron_sg_enabled=False)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_usage_with_neutron_floating_ip_disabled(self):
         self._test_usage_with_neutron(neutron_fip_enabled=False)
 
@@ -344,7 +343,7 @@ class UsageViewTests(test.TestCase):
             max_security_groups = res_limits['maxSecurityGroups']
             self.assertEqual(max_security_groups, max_sg_expected)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_usage_with_neutron_quotas_ext_error(self):
         self._test_usage_with_neutron_prepare()
         api.neutron.is_extension_supported(
@@ -353,7 +352,7 @@ class UsageViewTests(test.TestCase):
         self._test_usage_with_neutron_check(max_fip_expected=float("inf"),
                                             max_sg_expected=float("inf"))
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_usage_with_neutron_sg_ext_error(self):
         self._test_usage_with_neutron_prepare()
         api.neutron.is_extension_supported(

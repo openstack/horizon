@@ -14,11 +14,11 @@
 #
 # @author: Tatiana Mazur
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
+from openstack_dashboard.api import neutron
 from openstack_dashboard.dashboards.project import dashboard
 
 
@@ -27,6 +27,17 @@ class VPN(horizon.Panel):
     slug = 'vpn'
     permissions = ('openstack.services.network',)
 
+    def can_access(self, context):
+        request = context['request']
+        if not request.user.has_perms(self.permissions):
+            return False
+        if not neutron.is_service_enabled(request,
+                                          config_name='enable_vpn',
+                                          ext_name='vpnaas'):
+            return False
+        if not super(VPN, self).can_access(context):
+            return False
+        return True
 
-if getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {}).get('enable_vpn', False):
-    dashboard.Project.register(VPN)
+
+dashboard.Project.register(VPN)

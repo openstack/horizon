@@ -14,7 +14,6 @@
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.test.utils import override_settings
 
 from horizon.workflows import views
 
@@ -263,7 +262,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, 'admin/networks/create.html')
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_get_with_profile(self):
         self.test_network_create_get(test_with_profile=True)
 
@@ -311,7 +311,8 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_with_profile(self):
         self.test_network_create_post(test_with_profile=True)
 
@@ -359,7 +360,8 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_network_exception_with_profile(self):
         self.test_network_create_post_network_exception(
             test_with_profile=True)
@@ -420,8 +422,9 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('list_extensions',),
                         api.keystone: ('tenant_list',)})
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={
-        'segmentation_id_range': {'vxlan': [10, 20]}})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={
+            'segmentation_id_range': {'vxlan': [10, 20]}})
     def test_network_create_vxlan_segmentation_id_custom(self):
         tenants = self.tenants.list()
         tenant_id = self.tenants.first().id
@@ -449,8 +452,9 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('list_extensions',),
                         api.keystone: ('tenant_list',)})
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={
-        'supported_provider_types': []})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={
+            'supported_provider_types': []})
     def test_network_create_no_provider_types(self):
         tenants = self.tenants.list()
         extensions = self.api_extensions.list()
@@ -469,8 +473,9 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('list_extensions',),
                         api.keystone: ('tenant_list',)})
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={
-        'supported_provider_types': ['local', 'flat', 'gre']})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={
+            'supported_provider_types': ['local', 'flat', 'gre']})
     def test_network_create_unsupported_provider_types(self):
         tenants = self.tenants.list()
         extensions = self.api_extensions.list()

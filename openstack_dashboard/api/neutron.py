@@ -882,10 +882,21 @@ def is_extension_supported(request, extension_alias):
         return False
 
 
+def is_enabled_by_config(name, default=True):
+    network_config = (getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {}) or
+                      getattr(settings, 'OPENSTACK_QUANTUM_NETWORK', {}))
+    return network_config.get(name, default)
+
+
+@memoized
+def is_service_enabled(request, config_name, ext_name):
+    return (is_enabled_by_config(config_name) and
+            is_extension_supported(request, ext_name))
+
+
 @memoized
 def is_quotas_extension_supported(request):
-    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-    if (network_config.get('enable_quotas', False) and
+    if (is_enabled_by_config('enable_quotas', False) and
             is_extension_supported(request, 'quotas')):
         return True
     else:

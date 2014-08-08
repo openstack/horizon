@@ -105,10 +105,16 @@ OPENSTACK_CINDER_FEATURES = {
 
 OPENSTACK_NEUTRON_NETWORK = {
     'enable_router': True,
-    'enable_lb': True,
-    'enable_firewall': True,
     'enable_quotas': False,  # Enabled in specific tests only
-    'enable_vpn': True,
+    # Parameters below (enable_lb, enable_firewall, enable_vpn)
+    # control if these panels are displayed or not,
+    # i.e. they only affect the navigation menu.
+    # These panels are registered even if enable_XXX is False,
+    # so we don't need to set them to True in most unit tests
+    # to avoid stubbing neutron extension check calls.
+    'enable_lb': False,
+    'enable_firewall': False,
+    'enable_vpn': False,
     'profile_support': None,
     'enable_distributed_router': False,
     # 'profile_support': 'cisco'
