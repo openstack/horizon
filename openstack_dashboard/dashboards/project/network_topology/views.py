@@ -103,17 +103,25 @@ class NetworkTopologyView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(NetworkTopologyView, self).get_context_data(**kwargs)
+        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
 
         context['launch_instance_allowed'] = self._has_permission(
             (("compute", "compute:create"),))
         context['create_network_allowed'] = self._has_permission(
             (("network", "create_network"),))
-        context['create_router_allowed'] = self._has_permission(
-            (("network", "create_router"),))
+        context['create_router_allowed'] = (
+            network_config.get('enable_router', True) and
+            self._has_permission((("network", "create_router"),)))
         return context
 
 
 class JSONView(View):
+
+    @property
+    def is_router_enabled(self):
+        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        return network_config.get('enable_router', True)
+
     def add_resource_url(self, view, resources):
         tenant_id = self.request.user.tenant_id
         for resource in resources:
@@ -170,32 +178,35 @@ class JSONView(View):
                               networks)
 
         # Add public networks to the networks list
-        try:
-            neutron_public_networks = api.neutron.network_list(
-                request,
-                **{'router:external': True})
-        except Exception:
-            neutron_public_networks = []
-        my_network_ids = [net['id'] for net in networks]
-        for publicnet in neutron_public_networks:
-            if publicnet.id in my_network_ids:
-                continue
+        if self.is_router_enabled:
             try:
-                subnets = [{'cidr': subnet.cidr}
-                           for subnet in publicnet.subnets]
+                neutron_public_networks = api.neutron.network_list(
+                    request,
+                    **{'router:external': True})
             except Exception:
-                subnets = []
-            networks.append({
-                'name': publicnet.name,
-                'id': publicnet.id,
-                'subnets': subnets,
-                'router:external': publicnet['router:external']})
+                neutron_public_networks = []
+            my_network_ids = [net['id'] for net in networks]
+            for publicnet in neutron_public_networks:
+                if publicnet.id in my_network_ids:
+                    continue
+                try:
+                    subnets = [{'cidr': subnet.cidr}
+                               for subnet in publicnet.subnets]
+                except Exception:
+                    subnets = []
+                networks.append({
+                    'name': publicnet.name,
+                    'id': publicnet.id,
+                    'subnets': subnets,
+                    'router:external': publicnet['router:external']})
 
         return sorted(networks,
                       key=lambda x: x.get('router:external'),
                       reverse=True)
 
     def _get_routers(self, request):
+        if not self.is_router_enabled:
+            return []
         try:
             neutron_routers = api.neutron.router_list(
                 request,

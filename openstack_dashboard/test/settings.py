@@ -104,6 +104,7 @@ OPENSTACK_CINDER_FEATURES = {
 }
 
 OPENSTACK_NEUTRON_NETWORK = {
+    'enable_router': True,
     'enable_lb': True,
     'enable_firewall': True,
     'enable_quotas': False,  # Enabled in specific tests only

@@ -178,6 +178,7 @@ OPENSTACK_CINDER_FEATURES = {
 # services provided by neutron. Options currently available are load
 # balancer service, security groups, quotas, VPN service.
 OPENSTACK_NEUTRON_NETWORK = {
+    'enable_router': True,
     'enable_lb': False,
     'enable_firewall': False,
     'enable_quotas': True,
