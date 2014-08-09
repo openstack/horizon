@@ -57,6 +57,7 @@ class InstanceTests(helpers.TestCase):
         api.glance: ('image_list_detailed',),
         api.network: (
             'floating_ip_simple_associate_supported',
+            'floating_ip_supported',
             'servers_update_addresses',
         ),
     })
@@ -75,6 +76,8 @@ class InstanceTests(helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
@@ -111,6 +114,7 @@ class InstanceTests(helpers.TestCase):
                    'tenant_absolute_limits', 'extension_supported',),
         api.glance: ('image_list_detailed',),
         api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
                       'servers_update_addresses',),
     })
     def test_index_flavor_list_exception(self):
@@ -133,6 +137,8 @@ class InstanceTests(helpers.TestCase):
                 AndReturn(full_flavors[server.flavor["id"]])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
@@ -150,6 +156,7 @@ class InstanceTests(helpers.TestCase):
                    'tenant_absolute_limits', 'extension_supported',),
         api.glance: ('image_list_detailed',),
         api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
                       'servers_update_addresses',),
     })
     def test_index_flavor_get_exception(self):
@@ -175,6 +182,8 @@ class InstanceTests(helpers.TestCase):
                 AndRaise(self.exceptions.nova)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
@@ -193,6 +202,7 @@ class InstanceTests(helpers.TestCase):
                    'extension_supported',),
         api.glance: ('image_list_detailed',),
         api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
                       'servers_update_addresses',),
     })
     def test_index_with_instance_booted_from_volume(self):
@@ -215,6 +225,8 @@ class InstanceTests(helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
@@ -972,6 +984,7 @@ class InstanceTests(helpers.TestCase):
                    'extension_supported',),
         api.glance: ('image_list_detailed',),
         api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
                       'servers_update_addresses',),
     })
     def _test_instances_index_retrieve_password_action(self):
@@ -989,6 +1002,8 @@ class InstanceTests(helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
@@ -2559,6 +2574,7 @@ class InstanceTests(helpers.TestCase):
                    'extension_supported',),
         api.glance: ('image_list_detailed',),
         api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
                       'servers_update_addresses',),
     })
     def test_launch_button_disabled_when_quota_exceeded(self):
@@ -2579,6 +2595,8 @@ class InstanceTests(helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .MultipleTimes().AndReturn(limits)
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
@@ -2607,6 +2625,7 @@ class InstanceTests(helpers.TestCase):
                    'extension_supported',),
         api.glance: ('image_list_detailed',),
         api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
                       'servers_update_addresses',),
     })
     def test_index_options_after_migrate(self):
@@ -2626,6 +2645,8 @@ class InstanceTests(helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
@@ -3102,6 +3123,7 @@ class InstanceTests(helpers.TestCase):
                    'extension_supported',),
         api.glance: ('image_list_detailed',),
         api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
                       'servers_update_addresses',),
     })
     def test_index_form_action_with_pagination(self):
@@ -3132,6 +3154,8 @@ class InstanceTests(helpers.TestCase):
 
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.network.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 

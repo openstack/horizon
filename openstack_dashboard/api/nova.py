@@ -389,6 +389,9 @@ class FloatingIpManager(network_base.FloatingIpManager):
     def is_simple_associate_supported(self):
         return conf.HORIZON_CONFIG["simple_ip_management"]
 
+    def is_supported(self):
+        return True
+
 
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)

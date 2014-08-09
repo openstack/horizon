@@ -145,7 +145,8 @@ class BaseUsage(object):
             neutron_sg_used = (
                 api.neutron.is_extension_supported(self.request,
                                                    'security-group'))
-            self._get_neutron_usage(self.limits, 'floatingip')
+            if api.network.floating_ip_supported(self.request):
+                self._get_neutron_usage(self.limits, 'floatingip')
             if neutron_sg_used:
                 self._get_neutron_usage(self.limits, 'security_group')
             # Quotas are an optional extension in Neutron. If it isn't

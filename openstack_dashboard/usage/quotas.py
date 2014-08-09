@@ -200,7 +200,12 @@ def tenant_quota_usages(request):
         usages.add_quota(quota)
 
     # Get our usages.
-    floating_ips = network.tenant_floating_ip_list(request)
+    floating_ips = []
+    try:
+        if network.floating_ip_supported(request):
+            floating_ips = network.tenant_floating_ip_list(request)
+    except Exception:
+        pass
     flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
     instances, has_more = nova.server_list(request)
     # Fetch deleted flavors if necessary.

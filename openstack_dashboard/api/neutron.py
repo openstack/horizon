@@ -427,6 +427,10 @@ class FloatingIpManager(network_base.FloatingIpManager):
         # to enable simple association support.
         return False
 
+    def is_supported(self):
+        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        return network_config.get('enable_router', True)
+
 
 def get_ipver_str(ip_version):
     """Convert an ip version number to a human-friendly string."""
@@ -784,8 +788,11 @@ def servers_update_addresses(request, servers):
     try:
         ports = port_list(request,
                           device_id=[instance.id for instance in servers])
-        floating_ips = FloatingIpManager(request).list(
-            port_id=[port.id for port in ports])
+        fips = FloatingIpManager(request)
+        if fips.is_supported():
+            floating_ips = fips.list(port_id=[port.id for port in ports])
+        else:
+            floating_ips = []
         networks = network_list(request,
                                 id=[port.network_id for port in ports])
     except Exception:

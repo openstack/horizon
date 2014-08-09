@@ -88,6 +88,10 @@ def floating_ip_simple_associate_supported(request):
     return NetworkClient(request).floating_ips.is_simple_associate_supported()
 
 
+def floating_ip_supported(request):
+    return NetworkClient(request).floating_ips.is_supported()
+
+
 def security_group_list(request):
     return NetworkClient(request).secgroups.list()
 

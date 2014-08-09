@@ -122,6 +122,7 @@ class FloatingIpViewTests(test.TestCase):
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
+        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
         self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
@@ -129,6 +130,8 @@ class FloatingIpViewTests(test.TestCase):
 
         api.nova.server_list(IsA(http.HttpRequest)) \
                             .AndReturn([self.servers.list(), False])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                                     .AndReturn(self.floating_ips.list())
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
@@ -144,6 +147,7 @@ class FloatingIpViewTests(test.TestCase):
     def test_disassociate_post_with_exception(self):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
+        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
         self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
@@ -151,6 +155,8 @@ class FloatingIpViewTests(test.TestCase):
 
         api.nova.server_list(IsA(http.HttpRequest)) \
                         .AndReturn([self.servers.list(), False])
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
 
@@ -180,6 +186,7 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
                         api.cinder: ('tenant_quota_get', 'volume_list',
                                      'volume_snapshot_list',),
                         api.network: ('floating_ip_pools_list',
+                                      'floating_ip_supported',
                                       'tenant_floating_ip_list'),
                         api.neutron: ('is_extension_supported',
                                       'tenant_quota_get')})
@@ -206,6 +213,8 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
             .AndReturn(True)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(self.neutron_quotas.first())
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(self.floating_ips.list())
         api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
