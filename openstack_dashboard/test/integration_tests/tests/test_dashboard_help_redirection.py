@@ -19,13 +19,11 @@ class TestDashboardHelp(helpers.TestCase):
         """Verifies Help link redirects to the right URL."""
 
         self.home_pg.go_to_help_page()
-        for handle in self.driver.window_handles:
-            self.driver.switch_to_window(handle)
+        self.home_pg.switch_window()
 
         self.assertEqual(self.conf.dashboard.help_url,
                          self.driver.current_url,
                          "help link did not redirect to the right URL")
 
         self.driver.close()
-        for handle in self.driver.window_handles:
-            self.driver.switch_to_window(handle)
+        self.home_pg.switch_window()
