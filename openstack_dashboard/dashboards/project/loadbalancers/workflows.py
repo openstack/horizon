@@ -154,17 +154,13 @@ class AddVipAction(workflows.Action):
     description = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Description"))
-    floatip_address = forms.ChoiceField(
-        label=_("VIP Address from Floating IPs"),
-        widget=forms.Select(attrs={'disabled': 'disabled'}),
-        required=False)
     subnet_id = forms.ChoiceField(label=_("VIP Subnet"),
                                   initial="",
                                   required=False)
-    other_address = forms.IPField(required=False,
-                                   initial="",
-                                   version=forms.IPv4,
-                                   mask=False)
+    address = forms.IPField(label=_("Specify a free IP address "
+                                    "from the selected subnet"),
+                            version=forms.IPv4,
+                            mask=False)
     protocol_port = forms.IntegerField(
         label=_("Protocol Port"), min_value=1,
         help_text=_("Enter an integer value "
@@ -208,8 +204,6 @@ class AddVipAction(workflows.Action):
             for s in n['subnets']:
                 subnet_id_choices.append((s.id, s.cidr))
         self.fields['subnet_id'].choices = subnet_id_choices
-        self.fields['other_address'].label = _("Specify a free IP address "
-                                               "from the selected subnet")
         protocol_choices = [('', _("Select a Protocol"))]
         [protocol_choices.append((p, p)) for p in AVAILABLE_PROTOCOLS]
         self.fields['protocol'].choices = protocol_choices
@@ -219,9 +213,6 @@ class AddVipAction(workflows.Action):
             session_persistence_choices.append((mode.lower(), mode))
         self.fields[
             'session_persistence'].choices = session_persistence_choices
-
-        floatip_address_choices = [('', _("Currently Not Supported"))]
-        self.fields['floatip_address'].choices = floatip_address_choices
 
     def clean(self):
         cleaned_data = super(AddVipAction, self).clean()
@@ -249,8 +240,8 @@ class AddVipAction(workflows.Action):
 class AddVipStep(workflows.Step):
     action_class = AddVipAction
     depends_on = ("pool_id", "subnet")
-    contributes = ("name", "description", "floatip_address", "subnet_id",
-                   "other_address", "protocol_port", "protocol",
+    contributes = ("name", "description", "subnet_id",
+                   "address", "protocol_port", "protocol",
                    "session_persistence", "cookie_name",
                    "connection_limit", "admin_state_up")
 
@@ -283,16 +274,6 @@ class AddVip(workflows.Workflow):
                     'Unable to retrieve the specified pool. '
                     'Unable to add VIP "%s".')
                 return False
-
-        if context['other_address'] == '':
-            context['address'] = context['floatip_address']
-        else:
-            if not context['floatip_address'] == '':
-                self.failure_message = _('Only one address can be specified. '
-                                         'Unable to add VIP "%s".')
-                return False
-            else:
-                context['address'] = context['other_address']
 
         if context['session_persistence']:
             stype = context['session_persistence']
