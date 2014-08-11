@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 17:57-0500\n"
-"PO-Revision-Date: 2014-08-07 02:30+0000\n"
+"POT-Creation-Date: 2014-08-08 15:13-0500\n"
+"PO-Revision-Date: 2014-08-09 02:14+0000\n"
 "Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -32,17 +32,17 @@ msgstr "请登录先。"
 msgid "You are not authorized to access %s"
 msgstr "您无权访问 %s"
 
-#: exceptions.py:161
+#: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "已经存在一个资源%(resource)s名称为\"%(name)s\"。"
 
-#: exceptions.py:285
+#: exceptions.py:287
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "无权: %s"
 
-#: exceptions.py:288
+#: exceptions.py:290
 msgid "Unauthorized. Please try logging in again."
 msgstr "未授权。请尝试重新登录。"
 
@@ -95,7 +95,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663 tables/base.py:1459
+#: tables/actions.py:663 tables/base.py:1460
 msgid "N/A"
 msgstr "无"
 
@@ -114,19 +114,19 @@ msgstr "无法执行 %(action)s: %(objs)s"
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:721
+#: tables/actions.py:747
 msgid "Delete"
 msgstr "删除"
 
-#: tables/actions.py:722
+#: tables/actions.py:748
 msgid "Deleted"
 msgstr "删除"
 
-#: tables/actions.py:740
+#: tables/actions.py:780
 msgid "Update"
 msgstr "更新"
 
-#: tables/actions.py:741
+#: tables/actions.py:781
 msgid "Updated"
 msgstr "已更新"
 
@@ -135,20 +135,20 @@ msgstr "已更新"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 
-#: tables/base.py:922
+#: tables/base.py:923
 msgid "No items to display."
 msgstr "没有条目显示。"
 
-#: tables/base.py:1029
+#: tables/base.py:1030
 msgid "Actions"
 msgstr "动作"
 
-#: tables/base.py:1235
+#: tables/base.py:1236
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "id \"%s\" 没有匹配的返回顶"
 
-#: tables/base.py:1375
+#: tables/base.py:1376
 msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
 
@@ -297,33 +297,37 @@ msgstr "选择的一段时间来查询其用量"
 #, python-format
 msgid ""
 "\n"
-"      <label>From:</label> %(start)s\n"
-"    </div>\n"
-"    <div class=\"datepicker form-group\">\n"
-"      <label>To:</label>%(end)s"
-msgstr "\n<label>从:</label> %(start)s\n</div>\n<div class=\"datepicker form-group\">\n<label>到:</label>%(end)s"
+"      <label>From:</label> %(start)s"
+msgstr "\n<label>从:</label> %(start)s"
 
-#: templates/horizon/common/_usage_summary.html:15
+#: templates/horizon/common/_usage_summary.html:13
+#, python-format
+msgid ""
+"\n"
+"      <label>To:</label>%(end)s"
+msgstr "\n<label>到:</label>%(end)s"
+
+#: templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "提交"
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期采是YYYY-mm-dd格式。"
 
-#: templates/horizon/common/_usage_summary.html:19
+#: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
 msgstr "活跃的云主机"
 
-#: templates/horizon/common/_usage_summary.html:20
+#: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
 msgstr "活跃的内存"
 
-#: templates/horizon/common/_usage_summary.html:21
+#: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours"
 msgstr "这一时期的的VCPU-小时数"
 
-#: templates/horizon/common/_usage_summary.html:22
+#: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours"
 msgstr "这一时期的GB-小时数"
 
@@ -351,38 +355,38 @@ msgstr "无限制"
 msgid "Available"
 msgstr "可用配额"
 
-#: templatetags/sizeformat.py:48 templatetags/sizeformat.py:53
+#: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 字节"
 
-#: templatetags/sizeformat.py:56
+#: templatetags/sizeformat.py:57
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:59
+#: templatetags/sizeformat.py:60
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:62
+#: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:65
+#: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:67
+#: templatetags/sizeformat.py:68
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: templatetags/sizeformat.py:76
+#: templatetags/sizeformat.py:77
 msgid "0 bytes"
 msgstr "0 bytes"
 

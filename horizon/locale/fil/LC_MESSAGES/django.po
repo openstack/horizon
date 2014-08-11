@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-03 00:01-0500\n"
-"PO-Revision-Date: 2014-08-02 15:19+0000\n"
+"POT-Creation-Date: 2014-08-08 15:13-0500\n"
+"PO-Revision-Date: 2014-08-09 02:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Filipino (http://www.transifex.com/projects/p/horizon/language/fil/)\n"
 "MIME-Version: 1.0\n"
@@ -31,17 +31,17 @@ msgstr "Mangyaring mag-log in upang magpatuloy."
 msgid "You are not authorized to access %s"
 msgstr "Wala kang pahintulot upang ma-access ang %s"
 
-#: exceptions.py:161
+#: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr ""
 
-#: exceptions.py:284
+#: exceptions.py:287
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Di-awtorisado: %s"
 
-#: exceptions.py:287
+#: exceptions.py:290
 msgid "Unauthorized. Please try logging in again."
 msgstr "Di-awtorisado. Mangyaring subukang mag-log in muli."
 
@@ -94,7 +94,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663 tables/base.py:1459
+#: tables/actions.py:663 tables/base.py:1460
 msgid "N/A"
 msgstr "N/A"
 
@@ -113,19 +113,19 @@ msgstr "Hindi magawa ang %(action)s: %(objs)s"
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:721
+#: tables/actions.py:747
 msgid "Delete"
 msgstr "Alisin"
 
-#: tables/actions.py:722
+#: tables/actions.py:748
 msgid "Deleted"
 msgstr "Naalis na"
 
-#: tables/actions.py:740
+#: tables/actions.py:780
 msgid "Update"
 msgstr "I-update"
 
-#: tables/actions.py:741
+#: tables/actions.py:781
 msgid "Updated"
 msgstr "Nai-update"
 
@@ -134,20 +134,20 @@ msgstr "Nai-update"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Ang katangian %(attr)s ay hindi umiiral sa %(obj)s."
 
-#: tables/base.py:922
+#: tables/base.py:923
 msgid "No items to display."
 msgstr "Walang mga items na ipapakita."
 
-#: tables/base.py:1029
+#: tables/base.py:1030
 msgid "Actions"
 msgstr "Mga Aksyon"
 
-#: tables/base.py:1235
+#: tables/base.py:1236
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Walang tugma para sa id na \"%s\"."
 
-#: tables/base.py:1375
+#: tables/base.py:1376
 msgid "Please select a row before taking that action."
 msgstr "Mangyaring pumili ng isang hilera bago simulan ang aksiyon."
 
@@ -299,33 +299,37 @@ msgstr "Pumili ng isang tagal ng panahon para matanong ang paggamit"
 #, python-format
 msgid ""
 "\n"
-"      <label>From:</label> %(start)s\n"
-"    </div>\n"
-"    <div class=\"datepicker form-group\">\n"
-"      <label>To:</label>%(end)s"
-msgstr "\n<label>Mula:</label> %(start)s\n</div>\n<div class=\"datepicker form-group\">\n<label>Para:</able>%(end)s"
+"      <label>From:</label> %(start)s"
+msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:15
+#: templates/horizon/common/_usage_summary.html:13
+#, python-format
+msgid ""
+"\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "Submit"
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Ang petsa ay dapat nasa YYYY-mm-dd format."
 
-#: templates/horizon/common/_usage_summary.html:19
+#: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
 msgstr "Mga Aktibong Instances"
 
-#: templates/horizon/common/_usage_summary.html:20
+#: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
 msgstr "Aktibong RAM"
 
-#: templates/horizon/common/_usage_summary.html:21
+#: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours"
 msgstr "VCPU-Hours nitong panahon"
 
-#: templates/horizon/common/_usage_summary.html:22
+#: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours"
 msgstr "GB-Hours nitong panahon"
 
@@ -353,39 +357,39 @@ msgstr "Walang Limitasyon"
 msgid "Available"
 msgstr "Magagamit"
 
-#: templatetags/sizeformat.py:48 templatetags/sizeformat.py:53
+#: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Byte"
 msgstr[1] "%(size)d Bytes"
 
-#: templatetags/sizeformat.py:56
+#: templatetags/sizeformat.py:57
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:59
+#: templatetags/sizeformat.py:60
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:62
+#: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:65
+#: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:67
+#: templatetags/sizeformat.py:68
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: templatetags/sizeformat.py:76
+#: templatetags/sizeformat.py:77
 msgid "0 bytes"
 msgstr ""
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 17:57-0500\n"
-"PO-Revision-Date: 2014-08-06 22:13+0000\n"
+"POT-Creation-Date: 2014-08-08 15:13-0500\n"
+"PO-Revision-Date: 2014-08-09 02:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -421,7 +421,7 @@ msgstr "管理員"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images/images/forms.py:40
-#: dashboards/project/images/images/forms.py:185
+#: dashboards/project/images/images/forms.py:193
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -442,7 +442,7 @@ msgstr "管理員"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/tables.py:147
-#: dashboards/project/routers/ports/tables.py:95
+#: dashboards/project/routers/ports/tables.py:90
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/volumes/backups/tables.py:106
@@ -525,7 +525,7 @@ msgstr "伺服器已離線"
 
 #: dashboards/admin/aggregates/tables.py:104
 #: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/project/instances/tables.py:820
+#: dashboards/project/instances/tables.py:825
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:77
 #: dashboards/project/volumes/volumes/forms.py:76
@@ -753,7 +753,7 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:43
-#: dashboards/project/images/images/forms.py:188
+#: dashboards/project/images/images/forms.py:196
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
@@ -851,7 +851,7 @@ msgstr "您可以在此編輯聚合名稱及可用區域"
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:24
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:24
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:24
-#: dashboards/project/images/templates/images/images/_create.html:39
+#: dashboards/project/images/templates/images/images/_create.html:40
 #: dashboards/project/images/templates/images/images/_update.html:24
 #: dashboards/project/images/templates/images/snapshots/_create.html:25
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:34
@@ -1082,7 +1082,7 @@ msgstr "虛擬硬體樣板"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:14
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:14
 #: dashboards/project/databases/templates/databases/_detail_overview.html:26
-#: dashboards/project/databases/workflows/create_instance.py:32
+#: dashboards/project/databases/workflows/create_instance.py:33
 #: dashboards/project/instances/templates/instances/_detail_overview.html:46
 #: dashboards/project/instances/workflows/create_instance.py:83
 msgid "Flavor"
@@ -1217,8 +1217,8 @@ msgstr "識別號"
 #: dashboards/project/containers/forms.py:41
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:91
-#: dashboards/project/images/images/forms.py:212
+#: dashboards/project/images/images/forms.py:99
+#: dashboards/project/images/images/forms.py:220
 #: dashboards/project/images/images/tables.py:142
 #: dashboards/project/images/images/tables.py:222
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1445,7 +1445,7 @@ msgstr "額外規格"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:89
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:118
-#: dashboards/project/data_processing/jobs/workflows/launch.py:403
+#: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:164
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:291
 #: dashboards/project/networks/workflows.py:264
@@ -1687,7 +1687,7 @@ msgstr "主機名稱"
 #: dashboards/project/loadbalancers/workflows.py:500
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
-#: dashboards/project/routers/ports/tables.py:101
+#: dashboards/project/routers/ports/tables.py:96
 #: dashboards/project/volumes/volumes/forms.py:45
 #: dashboards/project/volumes/volumes/tables.py:317
 msgid "Type"
@@ -1727,13 +1727,13 @@ msgstr "儲存容量（總共）"
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:37
 #: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:78
-#: dashboards/project/instances/tables.py:102
-#: dashboards/project/instances/tables.py:138
-#: dashboards/project/instances/tables.py:179
-#: dashboards/project/instances/tables.py:623
-#: dashboards/project/instances/tables.py:644
-#: dashboards/project/instances/tables.py:839
+#: dashboards/project/instances/tables.py:80
+#: dashboards/project/instances/tables.py:104
+#: dashboards/project/instances/tables.py:140
+#: dashboards/project/instances/tables.py:181
+#: dashboards/project/instances/tables.py:628
+#: dashboards/project/instances/tables.py:649
+#: dashboards/project/instances/tables.py:844
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1741,7 +1741,7 @@ msgid "Instances"
 msgstr "執行實例"
 
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/instances/tables.py:803
+#: dashboards/project/instances/tables.py:808
 #: dashboards/project/instances/workflows/create_instance.py:80
 #: dashboards/project/overview/views.py:32 usage/tables.py:72
 msgid "Instance Name"
@@ -1820,7 +1820,7 @@ msgstr ""
 #: dashboards/admin/images/tables.py:61
 #: dashboards/admin/instances/tables.py:135
 #: dashboards/project/images/images/tables.py:212
-#: dashboards/project/instances/tables.py:805
+#: dashboards/project/instances/tables.py:810
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/instances/workflows/create_instance.py:104
 msgid "Image Name"
@@ -1898,7 +1898,7 @@ msgstr ""
 #: dashboards/admin/images/templates/images/_create.html:9
 #: dashboards/admin/images/templates/images/create.html:3
 #: dashboards/admin/images/templates/images/create.html:6
-#: dashboards/project/images/templates/images/images/_create.html:9
+#: dashboards/project/images/templates/images/images/_create.html:10
 #: dashboards/project/images/templates/images/images/create.html:3
 #: dashboards/project/images/templates/images/images/create.html:6
 msgid "Create An Image"
@@ -1914,7 +1914,7 @@ msgstr "新增一個映像檔"
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:17
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:17
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:17
-#: dashboards/project/images/templates/images/images/_create.html:18
+#: dashboards/project/images/templates/images/images/_create.html:19
 #: dashboards/project/images/templates/images/images/_update.html:17
 #: dashboards/project/images/templates/images/snapshots/_create.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:17
@@ -1939,7 +1939,7 @@ msgid "Specify an image to upload to the Image Service."
 msgstr "制定一個映像檔以供上傳到映像檔伺服器。"
 
 #: dashboards/admin/images/templates/images/_create.html:23
-#: dashboards/project/images/templates/images/images/_create.html:23
+#: dashboards/project/images/templates/images/images/_create.html:24
 msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
@@ -1947,12 +1947,12 @@ msgid ""
 msgstr "目前僅支援從 HTTP 網址得到映像檔。映像檔位置必須是映像檔伺服器上可訪問的。支援壓縮後的映像檔格式（.zip 以及 .tar.gz）。"
 
 #: dashboards/admin/images/templates/images/_create.html:26
-#: dashboards/project/images/templates/images/images/_create.html:27
+#: dashboards/project/images/templates/images/images/_create.html:28
 msgid "Please note: "
 msgstr "請留意："
 
 #: dashboards/admin/images/templates/images/_create.html:27
-#: dashboards/project/images/templates/images/images/_create.html:31
+#: dashboards/project/images/templates/images/images/_create.html:32
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary."
 " URLs that redirect or serve error pages will result in unusable images."
@@ -1960,7 +1960,7 @@ msgstr "映像檔的位置必須是一個正確且直接的映像檔網址。網
 
 #: dashboards/admin/images/templates/images/_create.html:33
 #: dashboards/project/images/images/tables.py:78
-#: dashboards/project/images/templates/images/images/_create.html:38
+#: dashboards/project/images/templates/images/images/_create.html:39
 msgid "Create Image"
 msgstr "新增映像檔"
 
@@ -1994,7 +1994,8 @@ msgid "Edit Custom Property Value"
 msgstr ""
 
 #: dashboards/admin/images/templates/images/properties/_edit.html:20
-msgid "Update the custom property value for"
+#, python-format
+msgid "Update the custom property value for &quot;%(key)s&quot;"
 msgstr ""
 
 #: dashboards/admin/images/templates/images/properties/create.html:7
@@ -2081,7 +2082,7 @@ msgstr "主機"
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:218
 #: dashboards/project/images/templates/images/images/_detail_overview.html:17
-#: dashboards/project/instances/tables.py:815
+#: dashboards/project/instances/tables.py:820
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:224
 #: dashboards/project/loadbalancers/tables.py:258
@@ -2093,7 +2094,7 @@ msgstr "主機"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/routers/tables.py:151
-#: dashboards/project/routers/ports/tables.py:99
+#: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:98
 #: dashboards/project/stacks/tables.py:135
@@ -2248,7 +2249,7 @@ msgstr "密鑰對"
 #: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
 #: dashboards/project/networks/ports/tables.py:62
-#: dashboards/project/routers/ports/tables.py:98
+#: dashboards/project/routers/ports/tables.py:93
 msgid "Fixed IPs"
 msgstr "固定 IP"
 
@@ -2369,12 +2370,12 @@ msgstr "已排程轉移（有待確認）給"
 #: dashboards/project/access_and_security/floating_ips/tables.py:161
 #: dashboards/project/access_and_security/floating_ips/workflows.py:34
 #: dashboards/project/databases/tables.py:36
-#: dashboards/project/instances/tables.py:77
-#: dashboards/project/instances/tables.py:101
-#: dashboards/project/instances/tables.py:137
-#: dashboards/project/instances/tables.py:178
-#: dashboards/project/instances/tables.py:622
-#: dashboards/project/instances/tables.py:643
+#: dashboards/project/instances/tables.py:79
+#: dashboards/project/instances/tables.py:103
+#: dashboards/project/instances/tables.py:139
+#: dashboards/project/instances/tables.py:180
+#: dashboards/project/instances/tables.py:627
+#: dashboards/project/instances/tables.py:648
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
 #: dashboards/project/volumes/volumes/tables.py:371
 msgid "Instance"
@@ -2407,7 +2408,7 @@ msgstr "專案"
 #: dashboards/project/access_and_security/floating_ips/tables.py:157
 #: dashboards/project/access_and_security/floating_ips/workflows.py:30
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/instances/tables.py:807
+#: dashboards/project/instances/tables.py:812
 #: dashboards/project/loadbalancers/tables.py:249
 msgid "IP Address"
 msgstr "IP 位址"
@@ -2419,7 +2420,7 @@ msgstr "IP 位址"
 #: dashboards/project/databases/tables.py:206
 #: dashboards/project/images/images/tables.py:232
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
-#: dashboards/project/instances/tables.py:810
+#: dashboards/project/instances/tables.py:815
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:34
@@ -2430,17 +2431,17 @@ msgid "Size"
 msgstr "規格"
 
 #: dashboards/admin/instances/tables.py:151
-#: dashboards/project/instances/tables.py:822
+#: dashboards/project/instances/tables.py:827
 msgid "Task"
 msgstr "任務"
 
 #: dashboards/admin/instances/tables.py:158
-#: dashboards/project/instances/tables.py:829
+#: dashboards/project/instances/tables.py:834
 msgid "Power State"
 msgstr "電源狀態"
 
 #: dashboards/admin/instances/tables.py:160
-#: dashboards/project/instances/tables.py:832
+#: dashboards/project/instances/tables.py:837
 #: dashboards/project/instances/templates/instances/_detail_overview.html:20
 #: usage/tables.py:75
 msgid "Uptime"
@@ -2769,7 +2770,7 @@ msgstr "分段識別號"
 #: dashboards/project/networks/ports/tables.py:66
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
-#: dashboards/project/routers/ports/tables.py:103
+#: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:257
 #: dashboards/project/vpn/workflows.py:33
 #: dashboards/project/vpn/workflows.py:416
@@ -2872,7 +2873,7 @@ msgstr "更新網路 %s 時失敗"
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/admin/projects/workflows.py:71
-#: dashboards/project/databases/workflows/create_instance.py:122
+#: dashboards/project/databases/workflows/create_instance.py:126
 #: dashboards/project/instances/workflows/create_instance.py:553
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
@@ -2937,7 +2938,7 @@ msgstr ""
 #: dashboards/admin/networks/views.py:57
 #: dashboards/project/images/templates/images/images/_detail_overview.html:18
 #: dashboards/project/images/templates/images/images/_detail_overview.html:29
-#: dashboards/project/instances/tables.py:584
+#: dashboards/project/instances/tables.py:589
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
@@ -3324,8 +3325,8 @@ msgstr "無法取回專案列表。"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:57
 #: dashboards/project/databases/tables.py:64
 #: dashboards/project/databases/tables.py:80
-#: dashboards/project/instances/tables.py:700
-#: dashboards/project/instances/tables.py:716
+#: dashboards/project/instances/tables.py:705
+#: dashboards/project/instances/tables.py:721
 msgid "Deleted"
 msgstr "已刪除"
 
@@ -3694,7 +3695,7 @@ msgstr "路由器規則"
 #: dashboards/project/network_topology/ports/tables.py:28
 #: dashboards/project/routers/tabs.py:27
 #: dashboards/project/routers/ports/tables.py:59
-#: dashboards/project/routers/ports/tables.py:110
+#: dashboards/project/routers/ports/tables.py:105
 msgid "Interfaces"
 msgstr "網路卡介面"
 
@@ -3776,9 +3777,9 @@ msgstr "密碼沒有符合。"
 
 #: dashboards/admin/users/forms.py:86 dashboards/admin/users/forms.py:165
 #: dashboards/project/data_processing/job_binaries/forms.py:71
-#: dashboards/project/databases/workflows/create_instance.py:188
+#: dashboards/project/databases/workflows/create_instance.py:192
 #: dashboards/project/instances/forms.py:153
-#: dashboards/project/instances/tables.py:711
+#: dashboards/project/instances/tables.py:716
 msgid "Password"
 msgstr "密碼"
 
@@ -4090,7 +4091,7 @@ msgstr "分配 IP 到專案"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:55
 #: dashboards/project/access_and_security/keypairs/tables.py:58
-#: dashboards/project/instances/tables.py:243
+#: dashboards/project/instances/tables.py:245
 #: dashboards/project/volumes/volumes/tables.py:112
 msgid "(Quota exceeded)"
 msgstr "（超出配額）"
@@ -4110,12 +4111,12 @@ msgstr "浮動 IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:94
 #: dashboards/project/access_and_security/floating_ips/workflows.py:125
-#: dashboards/project/loadbalancers/workflows.py:678
+#: dashboards/project/loadbalancers/workflows.py:679
 msgid "Associate"
 msgstr "聯結"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:116
-#: dashboards/project/loadbalancers/workflows.py:740
+#: dashboards/project/loadbalancers/workflows.py:742
 msgid "Disassociate"
 msgstr "取消聯結"
 
@@ -4125,7 +4126,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "已成功解除了浮動 IP 的聯結：%s"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:139
-#: dashboards/project/instances/tables.py:578
+#: dashboards/project/instances/tables.py:583
 msgid "Unable to disassociate floating IP."
 msgstr "無法解除浮動 IP 的連結。"
 
@@ -4218,7 +4219,7 @@ msgid "Unable to import key pair."
 msgstr "無法匯入密鑰對。"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:25
-#: dashboards/project/instances/tables.py:812
+#: dashboards/project/instances/tables.py:817
 #: dashboards/project/instances/workflows/create_instance.py:447
 msgid "Key Pair"
 msgstr "密鑰對"
@@ -5250,7 +5251,7 @@ msgid "Unable to fetch plugin list."
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:52
-#: dashboards/project/data_processing/jobs/workflows/launch.py:351
+#: dashboards/project/data_processing/jobs/workflows/launch.py:354
 msgid "Plugin name"
 msgstr ""
 
@@ -5260,7 +5261,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
-#: dashboards/project/data_processing/jobs/workflows/launch.py:404
+#: dashboards/project/data_processing/jobs/workflows/launch.py:407
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
 #: dashboards/project/database_backups/tables.py:141
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
@@ -5278,7 +5279,7 @@ msgid "Created"
 msgstr "已新增"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:405
+#: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:293
 msgid "Could not create"
 msgstr ""
@@ -5291,7 +5292,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:137
 #: dashboards/project/data_processing/data_plugins/tabs.py:26
 #: dashboards/project/database_backups/workflows/create_backup.py:43
-#: dashboards/project/databases/workflows/create_instance.py:43
+#: dashboards/project/databases/workflows/create_instance.py:44
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 #: dashboards/project/instances/workflows/create_instance.py:129
 #: dashboards/project/loadbalancers/tables.py:284
@@ -5321,7 +5322,7 @@ msgid "Scale Cluster"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/tables.py:52
-#: dashboards/project/data_processing/jobs/workflows/launch.py:101
+#: dashboards/project/data_processing/jobs/workflows/launch.py:104
 msgid "Cluster"
 msgstr ""
 
@@ -5331,7 +5332,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/tables.py:81
 #: dashboards/project/data_processing/clusters/workflows/create.py:177
-#: dashboards/project/data_processing/jobs/workflows/launch.py:309
+#: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr ""
 
@@ -5430,7 +5431,7 @@ msgid "Cluster Details"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:43
-#: dashboards/project/data_processing/jobs/workflows/launch.py:391
+#: dashboards/project/data_processing/jobs/workflows/launch.py:394
 msgid "Select plugin and hadoop version for cluster"
 msgstr ""
 
@@ -5692,7 +5693,7 @@ msgid "Unable to retrieve data source details"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/views.py:45
-#: dashboards/project/data_processing/jobs/workflows/launch.py:72
+#: dashboards/project/data_processing/jobs/workflows/launch.py:75
 msgid "Unable to fetch data sources."
 msgstr ""
 
@@ -5935,9 +5936,9 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:50
 #: dashboards/project/data_processing/jobs/tables.py:67
 #: dashboards/project/data_processing/jobs/tables.py:84
-#: dashboards/project/data_processing/jobs/workflows/launch.py:328
-#: dashboards/project/data_processing/jobs/workflows/launch.py:413
-#: dashboards/project/databases/workflows/create_instance.py:264
+#: dashboards/project/data_processing/jobs/workflows/launch.py:331
+#: dashboards/project/data_processing/jobs/workflows/launch.py:416
+#: dashboards/project/databases/workflows/create_instance.py:268
 #: dashboards/project/images/images/tables.py:34
 #: dashboards/project/instances/workflows/create_instance.py:671
 #: dashboards/project/stacks/templates/stacks/_create.html:24
@@ -5959,9 +5960,9 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:69
 #: dashboards/project/data_processing/jobs/tables.py:86
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:2
-#: dashboards/project/data_processing/jobs/workflows/launch.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:94
-#: dashboards/project/data_processing/jobs/workflows/launch.py:119
+#: dashboards/project/data_processing/jobs/workflows/launch.py:56
+#: dashboards/project/data_processing/jobs/workflows/launch.py:97
+#: dashboards/project/data_processing/jobs/workflows/launch.py:122
 msgid "Job"
 msgstr ""
 
@@ -6012,7 +6013,7 @@ msgid "Last Updated"
 msgstr "最近一次更新"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:19
-#: dashboards/project/instances/tables.py:621
+#: dashboards/project/instances/tables.py:626
 msgid "Started"
 msgstr "已開始"
 
@@ -6059,7 +6060,7 @@ msgid "Launch On New Cluster"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/views.py:48
-#: dashboards/project/data_processing/jobs/workflows/launch.py:86
+#: dashboards/project/data_processing/jobs/workflows/launch.py:89
 msgid "Unable to fetch jobs."
 msgstr ""
 
@@ -6161,9 +6162,9 @@ msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:6
-#: dashboards/project/data_processing/jobs/workflows/launch.py:327
-#: dashboards/project/data_processing/jobs/workflows/launch.py:402
-#: dashboards/project/data_processing/jobs/workflows/launch.py:412
+#: dashboards/project/data_processing/jobs/workflows/launch.py:330
+#: dashboards/project/data_processing/jobs/workflows/launch.py:405
+#: dashboards/project/data_processing/jobs/workflows/launch.py:415
 msgid "Launch Job"
 msgstr ""
 
@@ -6204,73 +6205,73 @@ msgstr ""
 msgid "Could not create job"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:37
+#: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:42
+#: dashboards/project/data_processing/jobs/workflows/launch.py:45
 msgid "Output"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:111
+#: dashboards/project/data_processing/jobs/workflows/launch.py:114
 msgid "Unable to fetch clusters."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:151
+#: dashboards/project/data_processing/jobs/workflows/launch.py:154
 msgid "Main Class"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:154
+#: dashboards/project/data_processing/jobs/workflows/launch.py:157
 msgid "Java Opts"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:157
+#: dashboards/project/data_processing/jobs/workflows/launch.py:160
 msgid "Mapper"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:159
+#: dashboards/project/data_processing/jobs/workflows/launch.py:162
 msgid "Reducer"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:227
+#: dashboards/project/data_processing/jobs/workflows/launch.py:230
 msgid "Configure"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:305
+#: dashboards/project/data_processing/jobs/workflows/launch.py:308
 msgid "Persist cluster after job exit"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:329
-#: dashboards/project/data_processing/jobs/workflows/launch.py:414
+#: dashboards/project/data_processing/jobs/workflows/launch.py:332
+#: dashboards/project/data_processing/jobs/workflows/launch.py:417
 msgid "Job launched"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:330
-#: dashboards/project/data_processing/jobs/workflows/launch.py:415
+#: dashboards/project/data_processing/jobs/workflows/launch.py:333
+#: dashboards/project/data_processing/jobs/workflows/launch.py:418
 msgid "Could not launch job"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:356
+#: dashboards/project/data_processing/jobs/workflows/launch.py:359
 msgid "Job configs"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:360
+#: dashboards/project/data_processing/jobs/workflows/launch.py:363
 msgid "Job args"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:364
+#: dashboards/project/data_processing/jobs/workflows/launch.py:367
 msgid "Job params"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:370
+#: dashboards/project/data_processing/jobs/workflows/launch.py:373
 msgid "Job Execution Id"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:446
+#: dashboards/project/data_processing/jobs/workflows/launch.py:449
 msgid "Unable to create new cluster for job."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:459
+#: dashboards/project/data_processing/jobs/workflows/launch.py:462
 msgid "Unable to launch job."
 msgstr ""
 
@@ -6442,7 +6443,7 @@ msgid "Unable to populate anti-affinity processes."
 msgstr ""
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
-#: dashboards/project/databases/workflows/create_instance.py:152
+#: dashboards/project/databases/workflows/create_instance.py:156
 #: dashboards/project/instances/workflows/create_instance.py:595
 msgid "Unable to retrieve networks."
 msgstr "無法取回網路。"
@@ -6503,7 +6504,7 @@ msgstr "已排程%(data_type)s的刪除"
 
 #: dashboards/project/database_backups/tables.py:80
 #: dashboards/project/database_backups/workflows/create_backup.py:83
-#: dashboards/project/databases/workflows/create_instance.py:219
+#: dashboards/project/databases/workflows/create_instance.py:223
 msgid "Backup"
 msgstr "備份"
 
@@ -6513,8 +6514,8 @@ msgstr "備份"
 #: dashboards/project/databases/tables.py:155
 #: dashboards/project/databases/tables.py:172
 #: dashboards/project/databases/tables.py:178
-#: dashboards/project/instances/tables.py:685
-#: dashboards/project/instances/tables.py:692
+#: dashboards/project/instances/tables.py:690
+#: dashboards/project/instances/tables.py:697
 msgid "Not available"
 msgstr "不可用"
 
@@ -6522,7 +6523,7 @@ msgstr "不可用"
 #: dashboards/project/database_backups/templates/database_backups/details.html:25
 #: dashboards/project/databases/tables.py:201
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
-#: dashboards/project/databases/workflows/create_instance.py:38
+#: dashboards/project/databases/workflows/create_instance.py:39
 msgid "Datastore"
 msgstr ""
 
@@ -6662,7 +6663,7 @@ msgid "Select parent backup"
 msgstr ""
 
 #: dashboards/project/database_backups/workflows/create_backup.py:71
-#: dashboards/project/databases/workflows/create_instance.py:239
+#: dashboards/project/databases/workflows/create_instance.py:243
 msgid "No backups available"
 msgstr ""
 
@@ -6672,14 +6673,14 @@ msgid "Scheduled backup \"%(name)s\"."
 msgstr "已排程備份「%(name)s」。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
-#: dashboards/project/databases/workflows/create_instance.py:266
+#: dashboards/project/databases/workflows/create_instance.py:270
 #: dashboards/project/instances/workflows/create_instance.py:673
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "無法發動名為「%(name)s」%(count)s 個。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
-#: dashboards/project/databases/workflows/create_instance.py:282
+#: dashboards/project/databases/workflows/create_instance.py:286
 #: dashboards/project/instances/workflows/create_instance.py:689
 msgid "instance"
 msgstr "執行實例"
@@ -6713,12 +6714,12 @@ msgid "Unable to resize volume. %s"
 msgstr ""
 
 #: dashboards/project/databases/tables.py:34
-#: dashboards/project/instances/tables.py:75
+#: dashboards/project/instances/tables.py:77
 msgid "Terminate"
 msgstr "終止"
 
 #: dashboards/project/databases/tables.py:35
-#: dashboards/project/instances/tables.py:76
+#: dashboards/project/instances/tables.py:78
 #, python-format
 msgid "Scheduled termination of %(data_type)s"
 msgstr "已排程%(data_type)s的終止"
@@ -6752,8 +6753,8 @@ msgstr "刪除執行實例上的資料庫出錯。"
 
 #: dashboards/project/databases/tables.py:95
 #: dashboards/project/databases/templates/databases/launch.html:3
-#: dashboards/project/instances/tables.py:217
-#: dashboards/project/instances/tables.py:245
+#: dashboards/project/instances/tables.py:219
+#: dashboards/project/instances/tables.py:247
 #: dashboards/project/instances/workflows/create_instance.py:670
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
@@ -6800,13 +6801,13 @@ msgstr "-"
 
 #: dashboards/project/databases/tables.py:199
 #: dashboards/project/databases/tables.py:246
-#: dashboards/project/databases/workflows/create_instance.py:31
+#: dashboards/project/databases/workflows/create_instance.py:32
 msgid "Database Name"
 msgstr "資料庫名稱"
 
 #: dashboards/project/databases/tables.py:209
 #: dashboards/project/databases/templates/databases/_detail_overview.html:31
-#: dashboards/project/databases/workflows/create_instance.py:34
+#: dashboards/project/databases/workflows/create_instance.py:35
 msgid "Volume Size"
 msgstr "儲存空間規格"
 
@@ -6917,7 +6918,7 @@ msgid ""
 msgstr "<strong>請留意：</strong>指定於儲存空間的容量值應該要大於 0，無論無何，有些設置不支援指定儲存空間容量。假如指定儲存空間容量導致一個說明為未啟用儲存空間支援的錯誤，輸入 0。"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:3
-#: dashboards/project/databases/workflows/create_instance.py:180
+#: dashboards/project/databases/workflows/create_instance.py:184
 msgid "Initial Databases"
 msgstr ""
 
@@ -6926,7 +6927,7 @@ msgid "Optionally provide a comma separated list of databases to create:"
 msgstr "選擇性地提供要新增的一組以逗號分隔的資料庫列表："
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:7
-#: dashboards/project/databases/workflows/create_instance.py:184
+#: dashboards/project/databases/workflows/create_instance.py:188
 msgid "Initial Admin User"
 msgstr "初始管理員使用者"
 
@@ -6945,7 +6946,7 @@ msgid "Password (required)"
 msgstr "密碼（必填）"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:14
-#: dashboards/project/databases/workflows/create_instance.py:190
+#: dashboards/project/databases/workflows/create_instance.py:194
 msgid "Allowed Host (optional)"
 msgstr ""
 
@@ -7005,100 +7006,104 @@ msgid "Database Details: "
 msgstr ""
 
 #: dashboards/project/databases/templates/databases/launch.html:6
-#: dashboards/project/databases/workflows/create_instance.py:263
+#: dashboards/project/databases/workflows/create_instance.py:267
 msgid "Launch Database"
 msgstr "發動資料庫"
 
 #: dashboards/project/databases/templates/databases/update.html:3
 #: dashboards/project/databases/templates/databases/update.html:6
-#: dashboards/project/instances/tables.py:261
+#: dashboards/project/instances/tables.py:263
 #: dashboards/project/instances/workflows/update_instance.py:132
 msgid "Edit Instance"
 msgstr "編輯執行實例"
 
-#: dashboards/project/databases/workflows/create_instance.py:33
+#: dashboards/project/databases/workflows/create_instance.py:34
 #: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Size of image to launch."
 msgstr "要發動的映像檔規格。"
 
-#: dashboards/project/databases/workflows/create_instance.py:37
+#: dashboards/project/databases/workflows/create_instance.py:38
 msgid "Size of the volume in GB."
 msgstr "儲存空間 GB 容量。"
 
-#: dashboards/project/databases/workflows/create_instance.py:40
+#: dashboards/project/databases/workflows/create_instance.py:41
 msgid "Type and version of datastore."
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:48
+#: dashboards/project/databases/workflows/create_instance.py:49
 msgid "You must select a datastore type and version."
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:106
+#: dashboards/project/databases/workflows/create_instance.py:61
+msgid "Unable to obtain flavors."
+msgstr ""
+
+#: dashboards/project/databases/workflows/create_instance.py:110
 msgid "Select datastore type and version"
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:126
+#: dashboards/project/databases/workflows/create_instance.py:130
 #: dashboards/project/instances/workflows/create_instance.py:557
 msgid "At least one network must be specified."
 msgstr "最少要指定一組網路。"
 
-#: dashboards/project/databases/workflows/create_instance.py:128
+#: dashboards/project/databases/workflows/create_instance.py:132
 #: dashboards/project/instances/workflows/create_instance.py:559
 msgid "Launch instance with these networks"
 msgstr "以這些網路發動執行實例"
 
-#: dashboards/project/databases/workflows/create_instance.py:138
-#: dashboards/project/instances/tables.py:726
+#: dashboards/project/databases/workflows/create_instance.py:142
+#: dashboards/project/instances/tables.py:731
 #: dashboards/project/instances/workflows/create_instance.py:581
 msgid "Networking"
 msgstr "網路連線"
 
-#: dashboards/project/databases/workflows/create_instance.py:140
+#: dashboards/project/databases/workflows/create_instance.py:144
 #: dashboards/project/instances/workflows/create_instance.py:583
 msgid "Select networks for your instance."
 msgstr "為您的執行實例選擇網路。"
 
-#: dashboards/project/databases/workflows/create_instance.py:182
+#: dashboards/project/databases/workflows/create_instance.py:186
 msgid "Comma separated list of databases to create"
 msgstr "要新增的以逗號分隔的資料庫列表"
 
-#: dashboards/project/databases/workflows/create_instance.py:186
+#: dashboards/project/databases/workflows/create_instance.py:190
 msgid "Initial admin user to add"
 msgstr "加入初始管理員使用者"
 
-#: dashboards/project/databases/workflows/create_instance.py:192
+#: dashboards/project/databases/workflows/create_instance.py:196
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "允許被連接的主機或 IP。"
 
-#: dashboards/project/databases/workflows/create_instance.py:196
+#: dashboards/project/databases/workflows/create_instance.py:200
 msgid "Initialize Databases"
 msgstr "初始化資料庫"
 
-#: dashboards/project/databases/workflows/create_instance.py:204
+#: dashboards/project/databases/workflows/create_instance.py:208
 msgid "You must specify a password if you create a user."
 msgstr "您必須在新增使用者時指定一組密碼。"
 
-#: dashboards/project/databases/workflows/create_instance.py:207
+#: dashboards/project/databases/workflows/create_instance.py:211
 msgid "You must specify at least one database if you create a user."
 msgstr "您必須在新增使用者時指定最少一個資料庫。"
 
-#: dashboards/project/databases/workflows/create_instance.py:221
+#: dashboards/project/databases/workflows/create_instance.py:225
 msgid "Select a backup to restore"
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:224
+#: dashboards/project/databases/workflows/create_instance.py:228
 msgid "Restore From Backup"
 msgstr "從備份恢復"
 
-#: dashboards/project/databases/workflows/create_instance.py:237
+#: dashboards/project/databases/workflows/create_instance.py:241
 msgid "Select backup"
 msgstr ""
 
-#: dashboards/project/databases/workflows/create_instance.py:252
+#: dashboards/project/databases/workflows/create_instance.py:256
 msgid "Unable to find backup!"
 msgstr "無法找到備份！"
 
-#: dashboards/project/databases/workflows/create_instance.py:265
+#: dashboards/project/databases/workflows/create_instance.py:269
 #: dashboards/project/instances/workflows/create_instance.py:672
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
@@ -7658,8 +7663,8 @@ msgid "Image Location"
 msgstr "映像檔位置"
 
 #: dashboards/project/images/images/forms.py:50
-#: dashboards/project/images/images/forms.py:64
-#: dashboards/project/images/images/forms.py:69
+#: dashboards/project/images/images/forms.py:67
+#: dashboards/project/images/images/forms.py:72
 msgid "Image File"
 msgstr "映像檔"
 
@@ -7667,79 +7672,79 @@ msgstr "映像檔"
 msgid "An external (HTTP) URL to load the image from."
 msgstr "一個可讀取映像檔的外部（HTTP）網址。"
 
-#: dashboards/project/images/images/forms.py:65
+#: dashboards/project/images/images/forms.py:68
 msgid "A local image to upload."
 msgstr "上傳一個本地的映像檔。"
 
-#: dashboards/project/images/images/forms.py:71
-#: dashboards/project/images/images/forms.py:209
+#: dashboards/project/images/images/forms.py:78
+#: dashboards/project/images/images/forms.py:217
 #: dashboards/project/images/images/tables.py:229
 msgid "Format"
 msgstr "格式"
 
-#: dashboards/project/images/images/forms.py:75
-#: dashboards/project/images/images/forms.py:204
+#: dashboards/project/images/images/forms.py:83
+#: dashboards/project/images/images/forms.py:212
 msgid "Architecture"
 msgstr "架構"
 
-#: dashboards/project/images/images/forms.py:77
+#: dashboards/project/images/images/forms.py:85
 msgid "Minimum Disk (GB)"
 msgstr "至少硬碟（GB）"
 
-#: dashboards/project/images/images/forms.py:78
+#: dashboards/project/images/images/forms.py:86
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
 msgstr "從這個映像檔開機至少需要多少硬碟容量。若沒有指定，這個值預設是 0（無最小值）。"
 
-#: dashboards/project/images/images/forms.py:84
+#: dashboards/project/images/images/forms.py:92
 msgid "Minimum RAM (MB)"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:85
+#: dashboards/project/images/images/forms.py:93
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "從這個映像檔開機至少需要多少記憶體容量。若沒有指定，這個值預設是 0（無最小值）。"
 
-#: dashboards/project/images/images/forms.py:92
-#: dashboards/project/images/images/forms.py:213
+#: dashboards/project/images/images/forms.py:100
+#: dashboards/project/images/images/forms.py:221
 #: dashboards/project/images/images/tables.py:226
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Protected"
 msgstr "保護"
 
-#: dashboards/project/images/images/forms.py:135
+#: dashboards/project/images/images/forms.py:143
 msgid "A image or external image location must be specified."
 msgstr "映像檔或外部映像檔位置必須指定。"
 
-#: dashboards/project/images/images/forms.py:138
+#: dashboards/project/images/images/forms.py:146
 msgid "Can not specify both image and external image location."
 msgstr "不能同時指定映像檔及外部映像檔位置。"
 
-#: dashboards/project/images/images/forms.py:176
+#: dashboards/project/images/images/forms.py:184
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "您的映像檔 %s 已經排入新增。"
 
-#: dashboards/project/images/images/forms.py:180
+#: dashboards/project/images/images/forms.py:188
 msgid "Unable to create new image."
 msgstr "無法新增新的映像檔。"
 
-#: dashboards/project/images/images/forms.py:193
+#: dashboards/project/images/images/forms.py:201
 msgid "Kernel ID"
 msgstr "核心識別號"
 
-#: dashboards/project/images/images/forms.py:199
+#: dashboards/project/images/images/forms.py:207
 msgid "Ramdisk ID"
 msgstr "Ramdisk 識別號"
 
-#: dashboards/project/images/images/forms.py:223
+#: dashboards/project/images/images/forms.py:231
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "無法更新映像檔「%s」。"
 
-#: dashboards/project/images/images/forms.py:248
+#: dashboards/project/images/images/forms.py:256
 msgid "Image was successfully updated."
 msgstr "已成功更新映像檔。"
 
@@ -7780,13 +7785,13 @@ msgstr "無法新增即時存檔。"
 msgid "Unable to retrieve instance."
 msgstr "無法取回執行實例。"
 
-#: dashboards/project/images/templates/images/images/_create.html:21
+#: dashboards/project/images/templates/images/images/_create.html:22
 msgid ""
 "Images can be provided via an HTTP URL or be uploaded from your local file "
 "system. Compressed image binaries are supported (.zip and .tar.gz.)"
 msgstr ""
 
-#: dashboards/project/images/templates/images/images/_create.html:29
+#: dashboards/project/images/templates/images/images/_create.html:30
 msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
 "valid and direct URL to the image binary; it must also be accessible to the "
@@ -7837,7 +7842,7 @@ msgstr "映像檔詳細資訊："
 #: dashboards/project/images/templates/images/snapshots/_create.html:9
 #: dashboards/project/images/templates/images/snapshots/_create.html:24
 #: dashboards/project/images/templates/images/snapshots/create.html:3
-#: dashboards/project/instances/tables.py:300
+#: dashboards/project/instances/tables.py:305
 #: dashboards/project/volumes/volumes/tables.py:167
 msgid "Create Snapshot"
 msgstr "新增即時存檔"
@@ -7930,81 +7935,81 @@ msgstr "或複製並貼上您的私人金鑰"
 msgid "Unable to retrieve instance password."
 msgstr "無法取回執行實例密碼。"
 
-#: dashboards/project/instances/tables.py:99
-#: dashboards/project/instances/tables.py:710
+#: dashboards/project/instances/tables.py:101
+#: dashboards/project/instances/tables.py:715
 msgid "Hard Reboot"
 msgstr "強制重開機"
 
-#: dashboards/project/instances/tables.py:100
+#: dashboards/project/instances/tables.py:102
 msgid "Hard Rebooted"
 msgstr "已強制重開機"
 
-#: dashboards/project/instances/tables.py:126
+#: dashboards/project/instances/tables.py:128
 msgid "Soft Reboot"
 msgstr "重開機"
 
-#: dashboards/project/instances/tables.py:127
+#: dashboards/project/instances/tables.py:129
 msgid "Soft Rebooted"
 msgstr "已重開機"
 
-#: dashboards/project/instances/tables.py:135
+#: dashboards/project/instances/tables.py:137
 msgid "Pause"
 msgstr "暫停"
 
-#: dashboards/project/instances/tables.py:135
-#: dashboards/project/instances/tables.py:176
+#: dashboards/project/instances/tables.py:137
+#: dashboards/project/instances/tables.py:178
 msgid "Resume"
 msgstr "恢復"
 
-#: dashboards/project/instances/tables.py:136
-#: dashboards/project/instances/tables.py:704
-#: dashboards/project/instances/tables.py:768
+#: dashboards/project/instances/tables.py:138
+#: dashboards/project/instances/tables.py:709
+#: dashboards/project/instances/tables.py:773
 msgid "Paused"
 msgstr "已暫停"
 
-#: dashboards/project/instances/tables.py:136
-#: dashboards/project/instances/tables.py:177
+#: dashboards/project/instances/tables.py:138
+#: dashboards/project/instances/tables.py:179
 msgid "Resumed"
 msgstr "已恢復"
 
-#: dashboards/project/instances/tables.py:176
+#: dashboards/project/instances/tables.py:178
 msgid "Suspend"
 msgstr "停止"
 
-#: dashboards/project/instances/tables.py:177
-#: dashboards/project/instances/tables.py:703
-#: dashboards/project/instances/tables.py:772
+#: dashboards/project/instances/tables.py:179
+#: dashboards/project/instances/tables.py:708
+#: dashboards/project/instances/tables.py:777
 msgid "Suspended"
 msgstr "已停止"
 
-#: dashboards/project/instances/tables.py:287
+#: dashboards/project/instances/tables.py:292
 msgid "Edit Security Groups"
 msgstr "編輯安全性群組"
 
-#: dashboards/project/instances/tables.py:319
+#: dashboards/project/instances/tables.py:324
 #: dashboards/project/instances/tabs.py:55
 msgid "Console"
 msgstr "主控臺"
 
-#: dashboards/project/instances/tables.py:342
+#: dashboards/project/instances/tables.py:347
 msgid "View Log"
 msgstr "檢視記錄"
 
-#: dashboards/project/instances/tables.py:365
+#: dashboards/project/instances/tables.py:370
 #: dashboards/project/instances/workflows/resize_instance.py:88
 msgid "Resize Instance"
 msgstr "更改執行實例規格"
 
-#: dashboards/project/instances/tables.py:392
+#: dashboards/project/instances/tables.py:397
 msgid "Confirm Resize/Migrate"
 msgstr "確認更改規格/轉移"
 
-#: dashboards/project/instances/tables.py:411
-#: dashboards/project/instances/tables.py:708
+#: dashboards/project/instances/tables.py:416
+#: dashboards/project/instances/tables.py:713
 msgid "Revert Resize/Migrate"
 msgstr "還原更改規格/轉移"
 
-#: dashboards/project/instances/tables.py:430
+#: dashboards/project/instances/tables.py:435
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
@@ -8012,288 +8017,288 @@ msgstr "還原更改規格/轉移"
 msgid "Rebuild Instance"
 msgstr "重建執行實例"
 
-#: dashboards/project/instances/tables.py:453
+#: dashboards/project/instances/tables.py:458
 msgid "Retrieve Password"
 msgstr "取回密碼"
 
-#: dashboards/project/instances/tables.py:476
-#: dashboards/project/instances/tables.py:504
+#: dashboards/project/instances/tables.py:481
+#: dashboards/project/instances/tables.py:509
 msgid "Associate Floating IP"
 msgstr "聯結浮動 IP"
 
-#: dashboards/project/instances/tables.py:529
+#: dashboards/project/instances/tables.py:534
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr "已成功聯結浮動 IP：%s"
 
-#: dashboards/project/instances/tables.py:533
+#: dashboards/project/instances/tables.py:538
 msgid "Unable to associate floating IP."
 msgstr "無法聯結浮動 IP。"
 
-#: dashboards/project/instances/tables.py:539
+#: dashboards/project/instances/tables.py:544
 msgid "Disassociate Floating IP"
 msgstr "解除浮動 IP 聯結"
 
-#: dashboards/project/instances/tables.py:572
+#: dashboards/project/instances/tables.py:577
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr "已成功解除浮動 IP 聯結：%s"
 
-#: dashboards/project/instances/tables.py:575
+#: dashboards/project/instances/tables.py:580
 msgid "No floating IPs to disassociate."
 msgstr "無浮動 IP 可以解除聯結。"
 
-#: dashboards/project/instances/tables.py:585
+#: dashboards/project/instances/tables.py:590
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "請稍後再試一次。[錯誤：%s]"
 
-#: dashboards/project/instances/tables.py:587
+#: dashboards/project/instances/tables.py:592
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
 msgstr "在所選的可用區域中，沒有足夠的容量給這個虛擬硬體樣板。請稍後再試一次或者選擇不同的可用區域。"
 
-#: dashboards/project/instances/tables.py:599
+#: dashboards/project/instances/tables.py:604
 #, python-format
 msgid "Failed to launch instance \"%s\""
 msgstr "發動執行實例「%s」時失敗"
 
-#: dashboards/project/instances/tables.py:620
+#: dashboards/project/instances/tables.py:625
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
 msgid "Start"
 msgstr "開始"
 
-#: dashboards/project/instances/tables.py:641
-#: dashboards/project/instances/tables.py:642
-#: dashboards/project/instances/tables.py:770
+#: dashboards/project/instances/tables.py:646
+#: dashboards/project/instances/tables.py:647
+#: dashboards/project/instances/tables.py:775
 msgid "Shut Off"
 msgstr "關閉"
 
-#: dashboards/project/instances/tables.py:676
+#: dashboards/project/instances/tables.py:681
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: dashboards/project/instances/tables.py:701
+#: dashboards/project/instances/tables.py:706
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:702
+#: dashboards/project/instances/tables.py:707
 msgid "Shutoff"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:705
+#: dashboards/project/instances/tables.py:710
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:706
+#: dashboards/project/instances/tables.py:711
 msgid "Resize/Migrate"
 msgstr "更改規格/轉移"
 
-#: dashboards/project/instances/tables.py:707
+#: dashboards/project/instances/tables.py:712
 msgid "Confirm or Revert Resize/Migrate"
 msgstr "確認或還原更改規格/轉移"
 
-#: dashboards/project/instances/tables.py:709
+#: dashboards/project/instances/tables.py:714
 msgid "Reboot"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:712
+#: dashboards/project/instances/tables.py:717
 msgid "Rebuild"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:713
-#: dashboards/project/instances/tables.py:753
+#: dashboards/project/instances/tables.py:718
+#: dashboards/project/instances/tables.py:758
 msgid "Migrating"
 msgstr "正在移轉"
 
-#: dashboards/project/instances/tables.py:714
+#: dashboards/project/instances/tables.py:719
 msgid "Build"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:715
+#: dashboards/project/instances/tables.py:720
 msgid "Rescue"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:717
+#: dashboards/project/instances/tables.py:722
 msgid "Soft Deleted"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:718
+#: dashboards/project/instances/tables.py:723
 msgid "Shelved"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:719
+#: dashboards/project/instances/tables.py:724
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:724
+#: dashboards/project/instances/tables.py:729
 msgid "Scheduling"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:725
+#: dashboards/project/instances/tables.py:730
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:727
+#: dashboards/project/instances/tables.py:732
 msgid "Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:728
+#: dashboards/project/instances/tables.py:733
 msgid "Snapshotting"
 msgstr "正在儲存即時存檔"
 
-#: dashboards/project/instances/tables.py:729
+#: dashboards/project/instances/tables.py:734
 msgid "Image Snapshot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:730
+#: dashboards/project/instances/tables.py:735
 msgid "Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:731
+#: dashboards/project/instances/tables.py:736
 msgid "Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:732
+#: dashboards/project/instances/tables.py:737
 msgid "Image Backup"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:733
+#: dashboards/project/instances/tables.py:738
 msgid "Updating Password"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:734
+#: dashboards/project/instances/tables.py:739
 msgid "Preparing Resize or Migrate"
 msgstr "正在準備更改規格或轉移"
 
-#: dashboards/project/instances/tables.py:735
+#: dashboards/project/instances/tables.py:740
 msgid "Resizing or Migrating"
 msgstr "正在更改規格或轉移"
 
-#: dashboards/project/instances/tables.py:736
+#: dashboards/project/instances/tables.py:741
 msgid "Resized or Migrated"
 msgstr "已更改規格或轉移"
 
-#: dashboards/project/instances/tables.py:737
+#: dashboards/project/instances/tables.py:742
 msgid "Finishing Resize or Migrate"
 msgstr "正在完成更改規格或轉移"
 
-#: dashboards/project/instances/tables.py:738
+#: dashboards/project/instances/tables.py:743
 msgid "Reverting Resize or Migrate"
 msgstr "正在還原更改規格或轉移"
 
-#: dashboards/project/instances/tables.py:739
+#: dashboards/project/instances/tables.py:744
 msgid "Confirming Resize or Migrate"
 msgstr "正在確認更改規格或轉移"
 
-#: dashboards/project/instances/tables.py:740
+#: dashboards/project/instances/tables.py:745
 msgid "Rebooting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:741
+#: dashboards/project/instances/tables.py:746
 msgid "Rebooting Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:742
+#: dashboards/project/instances/tables.py:747
 msgid "Pausing"
 msgstr "正在暫停"
 
-#: dashboards/project/instances/tables.py:743
-#: dashboards/project/instances/tables.py:745
+#: dashboards/project/instances/tables.py:748
+#: dashboards/project/instances/tables.py:750
 msgid "Resuming"
 msgstr "正在回復"
 
-#: dashboards/project/instances/tables.py:744
+#: dashboards/project/instances/tables.py:749
 msgid "Suspending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:746
+#: dashboards/project/instances/tables.py:751
 msgid "Powering Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:747
+#: dashboards/project/instances/tables.py:752
 msgid "Powering On"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:748
+#: dashboards/project/instances/tables.py:753
 msgid "Rescuing"
 msgstr "正在救援"
 
-#: dashboards/project/instances/tables.py:749
+#: dashboards/project/instances/tables.py:754
 msgid "Unrescuing"
 msgstr "正在取消救援"
 
-#: dashboards/project/instances/tables.py:750
+#: dashboards/project/instances/tables.py:755
 msgid "Rebuilding"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:751
+#: dashboards/project/instances/tables.py:756
 msgid "Rebuild Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:752
+#: dashboards/project/instances/tables.py:757
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:754
+#: dashboards/project/instances/tables.py:759
 msgid "Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:755
+#: dashboards/project/instances/tables.py:760
 msgid "Soft Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:756
+#: dashboards/project/instances/tables.py:761
 msgid "Restoring"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:757
+#: dashboards/project/instances/tables.py:762
 msgid "Shelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:758
+#: dashboards/project/instances/tables.py:763
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:759
+#: dashboards/project/instances/tables.py:764
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:760
+#: dashboards/project/instances/tables.py:765
 msgid "Shelving Offloading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:761
+#: dashboards/project/instances/tables.py:766
 msgid "Unshelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:765
+#: dashboards/project/instances/tables.py:770
 msgid "No State"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:766
+#: dashboards/project/instances/tables.py:771
 msgid "Running"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:767
+#: dashboards/project/instances/tables.py:772
 msgid "Blocked"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:769
+#: dashboards/project/instances/tables.py:774
 msgid "Shut Down"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:771
+#: dashboards/project/instances/tables.py:776
 msgid "Crashed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:773
+#: dashboards/project/instances/tables.py:778
 msgid "Failed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:774
+#: dashboards/project/instances/tables.py:779
 msgid "Building"
 msgstr ""
 
@@ -9120,7 +9125,7 @@ msgstr "倉庫"
 
 #: dashboards/project/loadbalancers/tables.py:104
 #: dashboards/project/loadbalancers/workflows.py:633
-#: dashboards/project/loadbalancers/workflows.py:695
+#: dashboards/project/loadbalancers/workflows.py:696
 msgid "Monitor"
 msgstr "監視器"
 
@@ -9170,7 +9175,7 @@ msgid "Edit Monitor"
 msgstr "編輯監視器"
 
 #: dashboards/project/loadbalancers/tables.py:181
-#: dashboards/project/loadbalancers/workflows.py:677
+#: dashboards/project/loadbalancers/workflows.py:678
 msgid "Associate Monitor"
 msgstr "聯結監視器"
 
@@ -9179,7 +9184,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "取回健康監視器時失敗。"
 
 #: dashboards/project/loadbalancers/tables.py:203
-#: dashboards/project/loadbalancers/workflows.py:739
+#: dashboards/project/loadbalancers/workflows.py:741
 msgid "Disassociate Monitor"
 msgstr "解除監視器聯結"
 
@@ -9613,48 +9618,48 @@ msgid "Select a monitor template for %s"
 msgstr "為 %s 選擇一個監視器樣板"
 
 #: dashboards/project/loadbalancers/workflows.py:642
-#: dashboards/project/loadbalancers/workflows.py:705
+#: dashboards/project/loadbalancers/workflows.py:706
 msgid "Select a Monitor"
 msgstr "選擇一個監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:653
-#: dashboards/project/loadbalancers/workflows.py:714
+#: dashboards/project/loadbalancers/workflows.py:654
+#: dashboards/project/loadbalancers/workflows.py:716
 msgid "Unable to retrieve monitors list."
 msgstr "無法取回監視器列表。"
 
-#: dashboards/project/loadbalancers/workflows.py:659
-#: dashboards/project/loadbalancers/workflows.py:720
+#: dashboards/project/loadbalancers/workflows.py:660
+#: dashboards/project/loadbalancers/workflows.py:722
 msgid "Association Details"
 msgstr "聯結的詳細資訊"
 
-#: dashboards/project/loadbalancers/workflows.py:661
+#: dashboards/project/loadbalancers/workflows.py:662
 msgid "Associate a health monitor with target pool."
 msgstr "以目標倉庫聯結一個健康監視器。"
 
-#: dashboards/project/loadbalancers/workflows.py:679
+#: dashboards/project/loadbalancers/workflows.py:680
 msgid "Associated monitor."
 msgstr "已聯結的監視器。"
 
-#: dashboards/project/loadbalancers/workflows.py:680
-#: dashboards/project/loadbalancers/workflows.py:690
+#: dashboards/project/loadbalancers/workflows.py:681
+#: dashboards/project/loadbalancers/workflows.py:691
 msgid "Unable to associate monitor."
 msgstr "無法聯結監視器。"
 
-#: dashboards/project/loadbalancers/workflows.py:702
+#: dashboards/project/loadbalancers/workflows.py:703
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "選擇一個 %s 的健康監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:722
+#: dashboards/project/loadbalancers/workflows.py:724
 msgid "Disassociate a health monitor from target pool. "
 msgstr "從目標倉庫解除健康監視器的聯結。"
 
-#: dashboards/project/loadbalancers/workflows.py:741
+#: dashboards/project/loadbalancers/workflows.py:743
 msgid "Disassociated monitor."
 msgstr "已解除監視器的聯結。"
 
-#: dashboards/project/loadbalancers/workflows.py:742
-#: dashboards/project/loadbalancers/workflows.py:752
+#: dashboards/project/loadbalancers/workflows.py:744
+#: dashboards/project/loadbalancers/workflows.py:754
 msgid "Unable to disassociate monitor."
 msgstr "無法解除監視器的聯結。"
 

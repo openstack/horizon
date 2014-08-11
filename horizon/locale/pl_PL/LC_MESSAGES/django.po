@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-03 00:01-0500\n"
-"PO-Revision-Date: 2014-08-02 15:19+0000\n"
+"POT-Creation-Date: 2014-08-08 15:13-0500\n"
+"PO-Revision-Date: 2014-08-09 02:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -30,17 +30,17 @@ msgstr "Należy się zalogować, aby można było kontynuować."
 msgid "You are not authorized to access %s"
 msgstr "Brak uprawnień dostępu do %s"
 
-#: exceptions.py:161
+#: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr ""
 
-#: exceptions.py:284
+#: exceptions.py:287
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Nieupoważniono: %s"
 
-#: exceptions.py:287
+#: exceptions.py:290
 msgid "Unauthorized. Please try logging in again."
 msgstr "Brak uprawnień. Proszę spróbować się wylogować i zalogować ponownie."
 
@@ -93,7 +93,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663 tables/base.py:1459
+#: tables/actions.py:663 tables/base.py:1460
 msgid "N/A"
 msgstr "n.d."
 
@@ -112,19 +112,19 @@ msgstr "Nie można %(action)s: %(objs)s"
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:721
+#: tables/actions.py:747
 msgid "Delete"
 msgstr "Usuń"
 
-#: tables/actions.py:722
+#: tables/actions.py:748
 msgid "Deleted"
 msgstr "Usunięto"
 
-#: tables/actions.py:740
+#: tables/actions.py:780
 msgid "Update"
 msgstr "Aktualizuj"
 
-#: tables/actions.py:741
+#: tables/actions.py:781
 msgid "Updated"
 msgstr "Zaktualizowany"
 
@@ -133,20 +133,20 @@ msgstr "Zaktualizowany"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Atrybut %(attr)s nie istnieje dla %(obj)s."
 
-#: tables/base.py:922
+#: tables/base.py:923
 msgid "No items to display."
 msgstr "Brak pozycji do wyświetlenia."
 
-#: tables/base.py:1029
+#: tables/base.py:1030
 msgid "Actions"
 msgstr "Czynności"
 
-#: tables/base.py:1235
+#: tables/base.py:1236
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nie znaleziono wyników dla identyfikatora „%s”."
 
-#: tables/base.py:1375
+#: tables/base.py:1376
 msgid "Please select a row before taking that action."
 msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
 
@@ -301,33 +301,37 @@ msgstr "Podaj okres, za który wyświetlić wykorzystanie"
 #, python-format
 msgid ""
 "\n"
-"      <label>From:</label> %(start)s\n"
-"    </div>\n"
-"    <div class=\"datepicker form-group\">\n"
+"      <label>From:</label> %(start)s"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:13
+#, python-format
+msgid ""
+"\n"
 "      <label>To:</label>%(end)s"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:15
+#: templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "Wyślij"
 
-#: templates/horizon/common/_usage_summary.html:16
+#: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Data powinna być podana w formacie YYYY-mm-dd."
 
-#: templates/horizon/common/_usage_summary.html:19
+#: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
 msgstr "Aktywne instancje"
 
-#: templates/horizon/common/_usage_summary.html:20
+#: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
 msgstr "Aktywny RAM"
 
-#: templates/horizon/common/_usage_summary.html:21
+#: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours"
 msgstr "VCPU-godziny w tym okresie"
 
-#: templates/horizon/common/_usage_summary.html:22
+#: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours"
 msgstr "GB-godziny w tym okresie"
 
@@ -355,7 +359,7 @@ msgstr "Bez ograniczeń"
 msgid "Available"
 msgstr "Dostępne"
 
-#: templatetags/sizeformat.py:48 templatetags/sizeformat.py:53
+#: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
@@ -363,32 +367,32 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: templatetags/sizeformat.py:56
+#: templatetags/sizeformat.py:57
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:59
+#: templatetags/sizeformat.py:60
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:62
+#: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:65
+#: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:67
+#: templatetags/sizeformat.py:68
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: templatetags/sizeformat.py:76
+#: templatetags/sizeformat.py:77
 msgid "0 bytes"
 msgstr ""
 
