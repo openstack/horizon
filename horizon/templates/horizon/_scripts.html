@@ -6,10 +6,10 @@
 
 {% comment %} Django's JavaScript i18n Implementation {% endcomment %}
 <script type="text/javascript" src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
-<script type="text/javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
 
 {% comment %} Compress jQuery, Angular, Plugins, Bootstrap, Hogan.js and Horizon-specific JS. {% endcomment %}
 {% compress js %}
+<script type="text/javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
 {% for file in HORIZON_CONFIG.js_files %}
     <script src='{{ STATIC_URL }}{{ file }}' type='text/javascript' charset='utf-8'></script>
 {% endfor %}
@@ -42,6 +42,9 @@
 <script src='{{ STATIC_URL }}horizon/js/horizon.instances.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.messages.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.modals.js' type='text/javascript' charset='utf-8'></script>
+<script type="text/javascript">
+  horizon.modals.MODAL_BACKDROP = "{% firstof HORIZON_CONFIG.modal_backdrop 'static' %}";
+</script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.quota.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.tables.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.tables_inline_edit.js' type='text/javascript' charset='utf-8'></script>

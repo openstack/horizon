@@ -33,9 +33,11 @@ horizon.modals.create = function (title, body, confirm, cancel) {
     cancel = gettext("Cancel");
   }
   var template = horizon.templates.compiled_templates["#modal_template"],
-    params = {title: title, body: body, confirm: confirm, cancel: cancel},
-    modal = $(template.render(params)).appendTo("#modal_wrapper");
-  return modal;
+    params = {
+      title: title, body: body, confirm: confirm, cancel: cancel,
+      modal_backdrop: horizon.modals.MODAL_BACKDROP
+    };
+  return $(template.render(params)).appendTo("#modal_wrapper");
 };
 
 horizon.modals.success = function (data, textStatus, jqXHR) {
