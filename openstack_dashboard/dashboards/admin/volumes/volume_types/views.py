@@ -29,3 +29,12 @@ class CreateVolumeTypeView(forms.ModalFormView):
 
     def get_success_url(self):
         return reverse(self.success_url)
+
+
+class CreateQosSpecView(forms.ModalFormView):
+    form_class = volumes_forms.CreateQosSpec
+    template_name = 'admin/volumes/volume_types/create_qos_spec.html'
+    success_url = 'horizon:admin:volumes:volume_types_tab'
+
+    def get_success_url(self):
+        return reverse(self.success_url)

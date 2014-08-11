@@ -45,10 +45,52 @@ class QosSpecsTests(test.BaseAdminViewTests):
             self.assertEqual(row.cells['value'].data,
                              specs.get(key))
 
+    @test.create_stubs({api.cinder: ('qos_spec_create',)})
+    def test_create_qos_spec(self):
+        formData = {'name': 'qos-spec-1'}
+        api.cinder.qos_spec_create(IsA(http.HttpRequest),
+                               formData['name'],
+                               {'consumer': 'back-end'}).\
+                               AndReturn(self.cinder_qos_specs.first())
+        self.mox.ReplayAll()
+
+        res = self.client.post(
+            reverse('horizon:admin:volumes:volume_types:create_qos_spec'),
+            formData)
+
+        redirect = reverse('horizon:admin:volumes:volume_types_tab')
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, redirect)
+        self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.cinder: ('volume_type_list',
+                                     'qos_spec_list',
+                                     'qos_spec_delete',)})
+    def test_delete_qos_spec(self):
+        qos_spec = self.cinder_qos_specs.first()
+        formData = {'action': 'qos_specs__delete__%s' % qos_spec.id}
+
+        api.cinder.volume_type_list(IsA(http.HttpRequest)).\
+                                    AndReturn(self.volume_types.list())
+        api.cinder.qos_spec_list(IsA(http.HttpRequest)).\
+                                 AndReturn(self.cinder_qos_specs.list())
+        api.cinder.qos_spec_delete(IsA(http.HttpRequest),
+                                  str(qos_spec.id))
+        self.mox.ReplayAll()
+
+        res = self.client.post(
+            reverse('horizon:admin:volumes:volume_types_tab'),
+            formData)
+
+        redirect = reverse('horizon:admin:volumes:volume_types_tab')
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, redirect)
+        self.assertMessageCount(success=1)
+
     @test.create_stubs({api.cinder: ('qos_spec_get',
                                      'qos_spec_get_keys',
                                      'qos_spec_set_keys',), })
-    def test_qos_spec_edit(self):
+    def test_spec_edit(self):
         qos_spec = self.cinder_qos_specs.first()
         key = 'minIOPS'
         edit_url = reverse('horizon:admin:volumes:volume_types:qos_specs:edit',

@@ -412,8 +412,8 @@ def qos_spec_delete(request, qos_spec_id):
     return cinderclient(request).qos_specs.delete(qos_spec_id, force=True)
 
 
-def qos_spec_create(request, name, qos_spec_id):
-    return cinderclient(request).qos_specs.create(name, qos_spec_id)
+def qos_spec_create(request, name, specs):
+    return cinderclient(request).qos_specs.create(name, specs)
 
 
 def qos_spec_get_keys(request, qos_spec_id, raw=False):

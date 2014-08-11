@@ -75,6 +75,24 @@ def render_spec_keys(qos_spec):
     return qos_spec_keys
 
 
+class CreateQosSpec(tables.LinkAction):
+    name = "create"
+    verbose_name = _("Create QOS Spec")
+    url = "horizon:admin:volumes:volume_types:create_qos_spec"
+    classes = ("ajax-modal",)
+    icon = "plus"
+    policy_rules = (("volume", "volume_extension:types_manage"),)
+
+
+class DeleteQosSpecs(tables.DeleteAction):
+    data_type_singular = _("QOS Spec")
+    data_type_plural = _("QOS Specs")
+    policy_rules = (("volume", "volume_extension:types_manage"),)
+
+    def delete(self, request, qos_spec_id):
+        cinder.qos_spec_delete(request, qos_spec_id)
+
+
 class QosSpecsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     consumer = tables.Column('consumer', verbose_name=_('Consumer'))
@@ -83,7 +101,14 @@ class QosSpecsTable(tables.DataTable):
                           wrap_list=True,
                           filters=(filters.unordered_list,))
 
+    def get_object_display(self, qos_specs):
+        return qos_specs.name
+
+    def get_object_id(self, qos_specs):
+        return qos_specs.id
+
     class Meta:
         name = "qos_specs"
         verbose_name = _("QOS Specs")
-        row_actions = (ManageQosSpec,)
+        table_actions = (CreateQosSpec, DeleteQosSpecs,)
+        row_actions = (ManageQosSpec, DeleteQosSpecs)

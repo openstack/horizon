@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Create Spec" %}{% endblock %}
+
+{% block page_header %}
+  <h2>{% trans "Spec" %}: {{qos_spec_name}} </h2>
+{% endblock page_header %}
+
+{% block main %}
+    {% include "admin/volumes/volume_types/qos_specs/_create.html" %}
+{% endblock %}

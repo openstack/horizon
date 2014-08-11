@@ -19,7 +19,31 @@ from horizon import messages
 from openstack_dashboard import api
 
 
-class EditQosSpec(forms.SelfHandlingForm):
+class CreateKeyValuePair(forms.SelfHandlingForm):
+    # this if for creating a spec key-value pair for an existing QOS Spec
+    key = forms.CharField(max_length=255, label=_("Key"))
+    value = forms.CharField(max_length=255, label=_("Value"))
+
+    def handle(self, request, data):
+        qos_spec_id = self.initial['qos_spec_id']
+        try:
+            # first retrieve current value of specs
+            specs = api.cinder.qos_spec_get(request, qos_spec_id)
+            # now add new key-value pair to list of specs
+            specs.specs[data['key']] = data['value']
+            api.cinder.qos_spec_set_keys(request,
+                                         qos_spec_id,
+                                         specs.specs)
+            msg = _('Created spec "%s".') % data['key']
+            messages.success(request, msg)
+            return True
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to create spec."))
+            return False
+
+
+class EditKeyValuePair(forms.SelfHandlingForm):
     value = forms.CharField(max_length=255, label=_("Value"))
 
     # update the backend with the new qos spec value
