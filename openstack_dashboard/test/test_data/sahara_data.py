@@ -24,6 +24,7 @@ from saharaclient.api import plugins
 
 def data(TEST):
     TEST.plugins = utils.TestDataContainer()
+    TEST.plugins_configs = utils.TestDataContainer()
     TEST.nodegroup_templates = utils.TestDataContainer()
     TEST.cluster_templates = utils.TestDataContainer()
     TEST.clusters = utils.TestDataContainer()
@@ -42,6 +43,58 @@ def data(TEST):
     plugin1 = plugins.Plugin(plugins.PluginManager(None), plugin1_dict)
 
     TEST.plugins.add(plugin1)
+
+    plugin_config1_dict = {
+        "node_processes": {
+            "HDFS": [
+                "namenode",
+                "datanode",
+                "secondarynamenode"
+            ],
+            "MapReduce": [
+                "tasktracker",
+                "jobtracker"
+            ]
+        },
+        "description": "This plugin provides an ability to launch vanilla "
+                       "Apache Hadoop cluster without any management "
+                       "consoles.",
+        "versions": [
+            "1.2.1"
+        ],
+        "required_image_tags": [
+            "vanilla",
+            "1.2.1"
+        ],
+        "configs": [
+            {
+                "default_value": "/tmp/hadoop-${user.name}",
+                "name": "hadoop.tmp.dir",
+                "priority": 2,
+                "config_type": "string",
+                "applicable_target": "HDFS",
+                "is_optional": True,
+                "scope": "node",
+                "description": "A base for other temporary directories."
+            },
+            {
+                "default_value": True,
+                "name": "hadoop.native.lib",
+                "priority": 2,
+                "config_type": "bool",
+                "applicable_target": "HDFS",
+                "is_optional": True,
+                "scope": "node",
+                "description": "Should native hadoop libraries, if present, "
+                               "be used."
+            },
+        ],
+        "title": "Vanilla Apache Hadoop",
+        "name": "vanilla"
+    }
+
+    TEST.plugins_configs.add(plugins.Plugin(plugins.PluginManager(None),
+                                            plugin_config1_dict))
 
     # Nodegroup_Templates.
     ngt1_dict = {

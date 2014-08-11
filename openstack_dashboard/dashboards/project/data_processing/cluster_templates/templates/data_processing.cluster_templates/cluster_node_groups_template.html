@@ -20,6 +20,7 @@
                 '</td>' +
                 '<td class="col-sm-2 small-padding">' +
                     '<input type="button" class="btn btn-danger" id="delete_btn_$id" data-toggle="dropdown" onclick="delete_node_group(this)" value="Remove" />' +
+                    '<input type="text" id="serialized_$id" name="serialized_$id" value="$serialized" style="display:None;">' +
                 '</td>' +
             '</tr>';
 
@@ -46,13 +47,14 @@
         $("#forms_ids").val(JSON.stringify(ids));
     }
 
-    function add_node(node_count, group_name, template_id, id, deletable) {
+    function add_node(node_count, group_name, template_id, id, deletable, serialized) {
         var template_name = $("select option[value='" + template_id + "']").html();
         var tmp = template.
                 replace(/\$id/g, id).
                 replace(/\$group_name/g, group_name).
                 replace(/\$template_id/g, template_id).
                 replace(/\$node_count/g, node_count).
+                replace(/\$serialized/g, serialized).
                 replace(/\$template_name/g, template_name);
         $("#groups_table").find("tr:last").after(tmp);
         if (!deletable) {
@@ -69,7 +71,7 @@
         }
         var template_id = $("#template_id option:selected").val();
         var template_name = $("#template_id option:selected").html();
-        add_node(node_count, template_name, template_id, get_next_id(), true);
+        add_node(node_count, template_name, template_id, get_next_id(), true, null);
         $(".count-field").change();
     }
     function delete_node_group(el) {
@@ -119,7 +121,7 @@
 <script>
 
     {% for group in form.groups %}
-        add_node("{{ group.count }}", "{{ group.name }}", "{{ group.template_id }}", "{{ group.id }}", {{ group.deletable }});
+        add_node("{{ group.count }}", "{{ group.name }}", "{{ group.template_id }}", "{{ group.id }}", {{ group.deletable }}, "{{ group.serialized }}");
     {% endfor %}
     {% for field_id in form.errors_fields %}
         mark_element_as_wrong("{{ field_id }}");

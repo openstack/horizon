@@ -52,3 +52,31 @@ class DataProcessingClusterTemplateTests(test.TestCase):
         self.assertTemplateUsed(res,
                                 'project/data_processing.cluster_templates/'
                                 'details.html')
+
+    @test.create_stubs({api.sahara: ('cluster_template_get',
+                                     'plugin_get_version_details',
+                                     'nodegroup_template_find')})
+    def test_copy(self):
+        ct = self.cluster_templates.first()
+        ngts = self.nodegroup_templates.list()
+        configs = self.plugins_configs.first()
+        api.sahara.cluster_template_get(IsA(http.HttpRequest),
+                                        ct.id) \
+            .AndReturn(ct)
+        api.sahara.plugin_get_version_details(IsA(http.HttpRequest),
+                                              ct.plugin_name,
+                                              ct.hadoop_version) \
+            .MultipleTimes().AndReturn(configs)
+        api.sahara.nodegroup_template_find(IsA(http.HttpRequest),
+                                           plugin_name=ct.plugin_name,
+                                           hadoop_version=ct.hadoop_version) \
+            .MultipleTimes().AndReturn(ngts)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:data_processing.cluster_templates:copy',
+                      args=[ct.id])
+        res = self.client.get(url)
+        workflow = res.context['workflow']
+        step = workflow.get_step("generalconfigaction")
+        self.assertEqual(step.action['cluster_template_name'].field.initial,
+                         ct.name + "-copy")
