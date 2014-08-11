@@ -60,6 +60,32 @@ class CinderApiTests(test.APITestCase):
 
         api.cinder.volume_snapshot_list(self.request, search_opts=search_opts)
 
+    def test_volume_type_list_with_qos_associations(self):
+        volume_types = self.cinder_volume_types.list()
+        # Due to test data limitations, we can only run this test using
+        # one qos spec, which is associated with one volume type.
+        # If we use multiple qos specs, the test data will always
+        # return the same associated volume type, which is invalid
+        # and prevented by the UI.
+        qos_specs_full = self.cinder_qos_specs.list()
+        qos_specs_only_one = [qos_specs_full[0]]
+        associations = self.cinder_qos_spec_associations.list()
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volume_types = self.mox.CreateMockAnything()
+        cinderclient.volume_types.list().AndReturn(volume_types)
+        cinderclient.qos_specs = self.mox.CreateMockAnything()
+        cinderclient.qos_specs.list().AndReturn(qos_specs_only_one)
+        cinderclient.qos_specs.get_associations = self.mox.CreateMockAnything()
+        cinderclient.qos_specs.get_associations(qos_specs_only_one[0].id).\
+            AndReturn(associations)
+        self.mox.ReplayAll()
+
+        assoc_vol_types = \
+            api.cinder.volume_type_list_with_qos_associations(self.request)
+        associate_spec = assoc_vol_types[0].associated_qos_spec
+        self.assertTrue(associate_spec, qos_specs_only_one[0].name)
+
 
 class CinderApiVersionTests(test.TestCase):
 

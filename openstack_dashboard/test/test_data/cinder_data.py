@@ -35,6 +35,7 @@ def data(TEST):
     TEST.cinder_volume_backups = utils.TestDataContainer()
     TEST.cinder_volume_types = utils.TestDataContainer()
     TEST.cinder_qos_specs = utils.TestDataContainer()
+    TEST.cinder_qos_spec_associations = utils.TestDataContainer()
     TEST.cinder_volume_snapshots = utils.TestDataContainer()
     TEST.cinder_quotas = utils.TestDataContainer()
     TEST.cinder_quota_usages = utils.TestDataContainer()
@@ -239,3 +240,5 @@ def data(TEST):
          "specs": {"maxBWS": '5000'}})
 
     TEST.cinder_qos_specs.add(qos_spec1, qos_spec2)
+    vol_type1.associated_qos_spec = qos_spec1.name
+    TEST.cinder_qos_spec_associations.add(vol_type1)

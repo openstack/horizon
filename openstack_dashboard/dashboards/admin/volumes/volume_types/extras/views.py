@@ -64,7 +64,8 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
         return {'type_id': self.kwargs['type_id']}
 
     def get_success_url(self):
-        return "/admin/volumes/%s/extras/" % (self.kwargs['type_id'])
+        return ("/admin/volumes/volume_types/%s/extras/" %
+                (self.kwargs['type_id']))
 
 
 class EditView(ExtraSpecMixin, forms.ModalFormView):

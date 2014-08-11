@@ -69,11 +69,13 @@ class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
 
     def get_volume_types_data(self):
         try:
-            volume_types = cinder.volume_type_list(self.request)
+            volume_types = \
+                cinder.volume_type_list_with_qos_associations(self.request)
         except Exception:
             volume_types = []
             exceptions.handle(self.request,
                               _("Unable to retrieve volume types"))
+
         return volume_types
 
     def get_qos_specs_data(self):

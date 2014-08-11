@@ -1,0 +1,36 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:volumes:volume_types:manage_qos_spec_association' type_id %}{% endblock %}
+
+{% block modal_id %}associate_qos_spec_modal{% endblock %}
+{% block modal-header %}{% trans "Associate QOS Spec with Volume Type"%}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans %}
+    Add, modify or remove the QOS Spec associated with this volume type.
+    <br>
+    <br>
+    "None" indicates that no QOS Spec is currently associated. Conversely, setting
+    the QOS Spec to "None" will remove the current association.
+    <br>
+    <br>
+    This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt>
+    commands.
+    {% endblocktrans %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Associate" %}" />
+  <a href="{% url 'horizon:admin:volumes:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

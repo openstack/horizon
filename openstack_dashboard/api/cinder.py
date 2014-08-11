@@ -40,6 +40,12 @@ LOG = logging.getLogger(__name__)
 VOLUME_STATE_AVAILABLE = "available"
 DEFAULT_QUOTA_NAME = 'default'
 
+# Available consumer choices associated with QOS Specs
+CONSUMER_CHOICES = (
+    ('back-end', _('back-end')),
+    ('front-end', _('front-end')),
+    ('both', _('both')),
+)
 
 VERSIONS = base.APIVersionManager("volume", preferred_version=1)
 
@@ -363,6 +369,28 @@ def default_quota_get(request, tenant_id):
     return base.QuotaSet(cinderclient(request).quotas.defaults(tenant_id))
 
 
+def volume_type_list_with_qos_associations(request):
+    vol_types = volume_type_list(request)
+    vol_types_dict = {}
+
+    # initialize and build a dictionary for lookup access below
+    for vol_type in vol_types:
+        vol_type.associated_qos_spec = ""
+        vol_types_dict[vol_type.id] = vol_type
+
+    # get all currently defined qos specs
+    qos_specs = qos_spec_list(request)
+    for qos_spec in qos_specs:
+        # get all volume types this qos spec is associated with
+        assoc_vol_types = qos_spec_get_associations(request, qos_spec.id)
+        for assoc_vol_type in assoc_vol_types:
+            # update volume type to hold this association info
+            vol_type = vol_types_dict[assoc_vol_type.id]
+            vol_type.associated_qos_spec = qos_spec.name
+
+    return vol_types
+
+
 def volume_type_list(request):
     return cinderclient(request).volume_types.list()
 
@@ -431,6 +459,18 @@ def qos_spec_set_keys(request, qos_spec_id, specs):
 
 def qos_spec_unset_keys(request, qos_spec_id, specs):
     return cinderclient(request).qos_specs.unset_keys(qos_spec_id, specs)
+
+
+def qos_spec_associate(request, qos_specs, vol_type_id):
+    return cinderclient(request).qos_specs.associate(qos_specs, vol_type_id)
+
+
+def qos_spec_disassociate(request, qos_specs, vol_type_id):
+    return cinderclient(request).qos_specs.disassociate(qos_specs, vol_type_id)
+
+
+def qos_spec_get_associations(request, qos_spec_id):
+    return cinderclient(request).qos_specs.get_associations(qos_spec_id)
 
 
 @memoized

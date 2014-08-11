@@ -28,13 +28,12 @@ class VolumeTests(test.BaseAdminViewTests):
                         keystone: ('tenant_list',)})
     def test_index(self):
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).\
-            AndReturn(self.cinder_volumes.list())
+            'all_tenants': True}).AndReturn(self.cinder_volumes.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}) \
-            .AndReturn([self.servers.list(), False])
+                             'all_tenants': True}) \
+                       .AndReturn([self.servers.list(), False])
         keystone.tenant_list(IsA(http.HttpRequest)) \
-            .AndReturn([self.tenants.list(), False])
+                .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:volumes:index'))
@@ -61,10 +60,11 @@ class VolumeTests(test.BaseAdminViewTests):
             formData)
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({cinder: ('volume_type_list',
+    @test.create_stubs({cinder: ('volume_type_list_with_qos_associations',
                                  'qos_spec_list',)})
     def test_volume_types_tab(self):
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
+        cinder.volume_type_list_with_qos_associations(
+            IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_qos_specs.list())
