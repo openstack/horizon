@@ -11,9 +11,14 @@
 # under the License.
 
 from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import forms
+from horizon.utils import memoized
 
+from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import forms as volumes_forms
 from openstack_dashboard.dashboards.project.volumes.volumes \
@@ -31,3 +36,30 @@ class CreateVolumeTypeView(forms.ModalFormView):
 
     def get_success_url(self):
         return reverse(self.success_url)
+
+
+class UpdateStatusView(forms.ModalFormView):
+    form_class = volumes_forms.UpdateStatus
+    template_name = 'admin/volumes/volumes/update_status.html'
+    success_url = reverse_lazy('horizon:admin:volumes:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateStatusView, self).get_context_data(**kwargs)
+        context["volume_id"] = self.kwargs['volume_id']
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            volume_id = self.kwargs['volume_id']
+            volume = cinder.volume_get(self.request, volume_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume details.'),
+                              redirect=self.success_url)
+        return volume
+
+    def get_initial(self):
+        volume = self.get_data()
+        return {'volume_id': self.kwargs["volume_id"],
+                'status': volume.status}

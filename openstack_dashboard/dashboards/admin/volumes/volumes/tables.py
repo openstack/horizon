@@ -53,6 +53,16 @@ class VolumesFilterAction(tables.FilterAction):
                 if q in volume.name.lower()]
 
 
+class UpdateVolumeStatusAction(tables.LinkAction):
+    name = "update_status"
+    verbose_name = _("Update Volume Status")
+    url = "horizon:admin:volumes:volumes:update_status"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("volume",
+        "volume_extension:volume_admin_actions:reset_status"),)
+
+
 class VolumesTable(volumes_tables.VolumesTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -66,7 +76,7 @@ class VolumesTable(volumes_tables.VolumesTable):
         status_columns = ["status"]
         row_class = volumes_tables.UpdateRow
         table_actions = (volumes_tables.DeleteVolume, VolumesFilterAction)
-        row_actions = (volumes_tables.DeleteVolume,)
+        row_actions = (volumes_tables.DeleteVolume, UpdateVolumeStatusAction)
         columns = ('tenant', 'host', 'name', 'size', 'status', 'volume_type',
                    'attachments', 'bootable', 'encryption',)
 

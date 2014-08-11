@@ -40,3 +40,45 @@ class CreateVolumeType(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _('Unable to create volume type.'))
             return False
+
+
+class UpdateStatus(forms.SelfHandlingForm):
+    status = forms.ChoiceField(label=_("Status"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(forms.SelfHandlingForm, self).__init__(request, *args, **kwargs)
+
+        # This set of states was culled from cinder's admin_actions.py
+        self.fields['status'].choices = (
+            ('attaching', _('Attaching')),
+            ('available', _('Available')),
+            ('creating', _('Creating')),
+            ('deleting', _('Deleting')),
+            ('detaching', _('Detaching')),
+            ('error', _('Error')),
+            ('error_deleting', _('Error Deleting')),
+            ('in-use', _('In Use')),
+        )
+
+    def handle(self, request, data):
+        # Obtain the localized status for including in the message
+        for choice in self.fields['status'].choices:
+            if choice[0] == data['status']:
+                new_status = choice[1]
+                break
+        else:
+            new_status = data['status']
+
+        try:
+            cinder.volume_reset_state(request,
+                                      self.initial['volume_id'],
+                                      data['status'])
+            messages.success(request,
+                             _('Successfully updated volume status to "%s".') %
+                             new_status)
+            return True
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to update volume status to "%s".') %
+                             new_status)
+            return False

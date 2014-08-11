@@ -92,3 +92,21 @@ class VolumeTests(test.BaseAdminViewTests):
         redirect = reverse('horizon:admin:volumes:volumes_tab')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, redirect)
+
+    @test.create_stubs({cinder: ('volume_reset_state',
+                                 'volume_get')})
+    def test_update_volume_status(self):
+        volume = self.volumes.first()
+        formData = {'status': 'error'}
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_reset_state(IsA(http.HttpRequest),
+                                  volume.id,
+                                  formData['status'])
+        self.mox.ReplayAll()
+
+        res = self.client.post(
+            reverse('horizon:admin:volumes:volumes:update_status',
+                args=(volume.id,)),
+            formData)
+        self.assertNoFormErrors(res)

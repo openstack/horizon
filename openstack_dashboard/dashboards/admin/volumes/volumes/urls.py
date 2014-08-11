@@ -26,6 +26,8 @@ urlpatterns = patterns(VIEWS_MOD,
         name='create_type'),
     url(r'^(?P<volume_id>[^/]+)/$', views.DetailView.as_view(),
         name='detail'),
+    url(r'^(?P<volume_id>[^/]+)/update_status$',
+        views.UpdateStatusView.as_view(), name='update_status'),
     url(r'^(?P<type_id>[^/]+)/extras/',
         include(extras_urls, namespace='extras')),
 )
