@@ -61,8 +61,9 @@ horizon.datatables = {
             if ($new_row.hasClass('status_unknown')) {
               var spinner_elm = $new_row.find("td.status_unknown:last");
               var imagePath = $new_row.find('.btn-action-required').length > 0 ?
-                "/static/dashboard/img/action_required.png":
-                "/static/dashboard/img/loading.gif";
+                "dashboard/img/action_required.png":
+                "dashboard/img/loading.gif";
+              imagePath = STATIC_URL + imagePath;
               spinner_elm.prepend(
                 $("<div>")
                   .addClass("loading_gif")

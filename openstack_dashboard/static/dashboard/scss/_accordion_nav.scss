@@ -14,7 +14,7 @@ $accordionBorderColor: #e5e5e5;
       background-color: #f0f0f0;
       background-repeat: no-repeat;
       background-position: 96% center;
-      background-image: url("/static/dashboard/img/right_droparrow.png");
+      background-image: url("../img/right_droparrow.png");
       padding: 10px 0 10px 0;
       line-height: 16px;
       margin-top: 0;
@@ -37,7 +37,7 @@ $accordionBorderColor: #e5e5e5;
         max-width: 177px; } }
     h4.active {
       border-bottom: 1px solid #bbbbbb;
-      background-image: url("/static/dashboard/img/drop_arrow.png"); }
+      background-image: url("../img/drop_arrow.png"); }
     a {
       color: #6e6e6e;
       font-size: 16px;
@@ -79,7 +79,7 @@ $accordionBorderColor: #e5e5e5;
     background-color: $accordionBorderColor;
     background-repeat: no-repeat;
     background-position: 96% center;
-    background-image: url("/static/dashboard/img/right_droparrow.png");
+    background-image: url("../img/right_droparrow.png");
     padding-right: 16px;
     max-width: 231px;
     cursor: pointer;
@@ -94,7 +94,7 @@ $accordionBorderColor: #e5e5e5;
       text-overflow: ellipsis;
       max-width: 201px; } }
   dt.active {
-    background-image: url("/static/dashboard/img/drop_arrow.png"); }
+    background-image: url("../img/drop_arrow.png"); }
   dt:first-child {
     border-top: 0; }
   dt a {
