@@ -39,14 +39,17 @@ class HTMLElement(object):
         """
         final_attrs = copy.copy(self.get_default_attrs())
         final_attrs.update(self.attrs)
-        # Handle css class concatenation
+        final_attrs['class'] = self.get_final_css()
+        return final_attrs
+
+    def get_final_css(self):
+        """Returns a final css class concatenated string."""
         default = " ".join(self.get_default_classes())
         defined = self.attrs.get('class', '')
         additional = " ".join(getattr(self, "classes", []))
         non_empty = [test for test in (defined, default, additional) if test]
         final_classes = " ".join(non_empty).strip()
-        final_attrs['class'] = final_classes
-        return final_attrs
+        return final_classes
 
     @property
     def attr_string(self):
