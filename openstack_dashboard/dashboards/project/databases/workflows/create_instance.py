@@ -29,7 +29,7 @@ LOG = logging.getLogger(__name__)
 
 
 class SetInstanceDetailsAction(workflows.Action):
-    name = forms.CharField(max_length=80, label=_("Database Name"))
+    name = forms.CharField(max_length=80, label=_("Instance Name"))
     flavor = forms.ChoiceField(label=_("Flavor"),
                                help_text=_("Size of image to launch."))
     volume = forms.IntegerField(label=_("Volume Size"),
@@ -263,8 +263,8 @@ class RestoreBackup(workflows.Step):
 
 
 class LaunchInstance(workflows.Workflow):
-    slug = "launch_database"
-    name = _("Launch Database")
+    slug = "launch_instance"
+    name = _("Launch Instance")
     finalize_button_name = _("Launch")
     success_message = _('Launched %(count)s named "%(name)s".')
     failure_message = _('Unable to launch %(count)s named "%(name)s".')
