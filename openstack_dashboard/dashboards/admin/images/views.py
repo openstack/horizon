@@ -16,6 +16,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -28,6 +30,8 @@ from openstack_dashboard.dashboards.project.images.images import views
 from openstack_dashboard.dashboards.admin.images import forms
 from openstack_dashboard.dashboards.admin.images \
     import tables as project_tables
+
+LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
@@ -42,8 +46,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         images = []
-        filters = {'is_public': None}
-
+        filters = self.get_filters()
         prev_marker = self.request.GET.get(
             project_tables.AdminImagesTable._meta.prev_pagination_param, None)
 
@@ -72,6 +75,28 @@ class IndexView(tables.DataTableView):
             msg = _('Unable to retrieve image list.')
             exceptions.handle(self.request, msg)
         return images
+
+    def get_filters(self):
+        filters = {'is_public': None}
+        filter_field = self.table.get_filter_field()
+        filter_string = self.table.get_filter_string()
+        filter_action = self.table._meta._filter_action
+        if filter_field and filter_string and (
+                filter_action.is_api_filter(filter_field)):
+            if filter_field in ['size_min', 'size_max']:
+                invalid_msg = ('API query is not valid and is ignored: %s=%s'
+                               % (filter_field, filter_string))
+                try:
+                    filter_string = long(float(filter_string) * (1024 ** 2))
+                    if filter_string >= 0:
+                        filters[filter_field] = filter_string
+                    else:
+                        LOG.warning(invalid_msg)
+                except ValueError:
+                    LOG.warning(invalid_msg)
+            else:
+                filters[filter_field] = filter_string
+        return filters
 
 
 class CreateView(views.CreateView):

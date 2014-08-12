@@ -14,6 +14,7 @@
 
 from collections import defaultdict
 
+from django import shortcuts
 from django.views import generic
 
 from horizon.templatetags.horizon import has_permissions  # noqa
@@ -180,6 +181,7 @@ class DataTableView(MultiTableView):
 
     def _get_data_dict(self):
         if not self._data:
+            self.update_server_filter_action()
             self._data = {self.table_class._meta.name: self.get_data()}
         return self._data
 
@@ -211,6 +213,63 @@ class DataTableView(MultiTableView):
         if hasattr(self, "table"):
             context[self.context_object_name] = self.table
         return context
+
+    def post(self, request, *args, **kwargs):
+        # If the server side table filter changed then go back to the first
+        # page of data. Otherwise GET and POST handling are the same.
+        if self.handle_server_filter(request):
+            return shortcuts.redirect(self.get_table().get_absolute_url())
+        return self.get(request, *args, **kwargs)
+
+    def get_server_filter_info(self, request):
+        filter_action = self.get_table()._meta._filter_action
+        if filter_action is None or filter_action.filter_type != 'server':
+            return None
+        param_name = filter_action.get_param_name()
+        filter_string = request.POST.get(param_name)
+        filter_string_session = request.session.get(param_name)
+        changed = (filter_string is not None and
+                   filter_string != filter_string_session)
+        if filter_string is None and filter_string_session is not None:
+            filter_string = filter_string_session
+        filter_field_param = param_name + '_field'
+        filter_field = request.POST.get(filter_field_param)
+        filter_field_session = request.session.get(filter_field_param)
+        if filter_field is None and filter_field_session is not None:
+            filter_field = filter_field_session
+        filter_info = {
+            'action': filter_action,
+            'value_param': param_name,
+            'value': filter_string,
+            'field_param': filter_field_param,
+            'field': filter_field,
+            'changed': changed
+        }
+        return filter_info
+
+    def handle_server_filter(self, request):
+        """Update the table server filter information in the session and
+        determine if the filter has been changed.
+        """
+        filter_info = self.get_server_filter_info(request)
+        if filter_info is None:
+            return False
+        request.session[filter_info['value_param']] = filter_info['value']
+        if filter_info['field_param']:
+            request.session[filter_info['field_param']] = filter_info['field']
+        return filter_info['changed']
+
+    def update_server_filter_action(self):
+        """Update the table server side filter action based on the current
+        filter. The filter info may be stored in the session and this will
+        restore it.
+        """
+        filter_info = self.get_server_filter_info(self.request)
+        if filter_info is not None:
+            action = filter_info['action']
+            setattr(action, 'filter_string', filter_info['value'])
+            if filter_info['field_param']:
+                setattr(action, 'filter_field', filter_info['field'])
 
 
 class MixedDataTableView(DataTableView):

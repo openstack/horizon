@@ -57,12 +57,12 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         marker = self.request.GET.get(
             project_tables.InstancesTable._meta.pagination_param, None)
+        search_opts = self.get_filters({'marker': marker, 'paginate': True})
         # Gather our instances
         try:
             instances, self._more = api.nova.server_list(
                 self.request,
-                search_opts={'marker': marker,
-                             'paginate': True})
+                search_opts=search_opts)
         except Exception:
             self._more = False
             instances = []
@@ -119,6 +119,15 @@ class IndexView(tables.DataTableView):
                     msg = _('Unable to retrieve instance size information.')
                     exceptions.handle(self.request, msg)
         return instances
+
+    def get_filters(self, filters):
+        filter_field = self.table.get_filter_field()
+        filter_action = self.table._meta._filter_action
+        if filter_action.is_api_filter(filter_field):
+            filter_string = self.table.get_filter_string()
+            if filter_field and filter_string:
+                filters[filter_field] = filter_string
+        return filters
 
 
 class LaunchInstanceView(workflows.WorkflowView):

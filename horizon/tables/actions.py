@@ -421,7 +421,20 @@ class FilterAction(BaseAction):
 
     .. attribute: filter_type
 
-        A string representing the type of this filter. Default: ``"query"``.
+        A string representing the type of this filter. If this is set to
+        ``"server"`` then ``filter_choices`` must also be provided.
+        Default: ``"query"``.
+
+    .. attribute: filter_choices
+
+        Required for server type filters. A tuple of tuples representing the
+        filter options. Tuple composition should evaluate to (string, string,
+        boolean), representing the filter parameter, display value, and whether
+        or not it should be applied to the API request as an API query
+        attribute. API type filters do not need to be accounted for in the
+        filter method since the API will do the filtering. However, server
+        type filters in general will need to be performed in the filter method.
+        By default this attribute is not provided.
 
     .. attribute: needs_preloading
 
@@ -443,9 +456,15 @@ class FilterAction(BaseAction):
         self.name = kwargs.get('name', self.name)
         self.verbose_name = kwargs.get('verbose_name', _("Filter"))
         self.filter_type = kwargs.get('filter_type', "query")
+        self.filter_choices = kwargs.get('filter_choices')
         self.needs_preloading = kwargs.get('needs_preloading', False)
         self.param_name = kwargs.get('param_name', 'q')
         self.icon = "search"
+
+        if self.filter_type == 'server' and self.filter_choices is None:
+            raise NotImplementedError('A FilterAction object with the '
+                'filter_type attribute set to "server" must also have a '
+                'filter_choices attribute.')
 
     def get_param_name(self):
         """Returns the full query parameter name for this action.
@@ -485,6 +504,17 @@ class FilterAction(BaseAction):
         """
         raise NotImplementedError("The filter method has not been "
                                   "implemented by %s." % self.__class__)
+
+    def is_api_filter(self, filter_field):
+        """Determine if the given filter field should be used as an
+        API filter.
+        """
+        if self.filter_type == 'server':
+            for choice in self.filter_choices:
+                if (choice[0] == filter_field and len(choice) > 2 and
+                        choice[2] is True):
+                    return True
+        return False
 
 
 class FixedFilterAction(FilterAction):

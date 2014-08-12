@@ -641,6 +641,9 @@ table form {
   input[type="text"] {
     padding-right: 26px;
   }
+  select {
+    width: auto;
+  }
 }
 
 td.no-transition {
