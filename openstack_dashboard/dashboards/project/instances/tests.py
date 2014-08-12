@@ -623,7 +623,7 @@ class InstanceTests(helpers.TestCase):
         api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
                 .AndReturn(self.flavors.first())
         api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
-                .AndReturn(self.security_groups.first())
+                .AndReturn(self.security_groups.list())
 
         self.mox.ReplayAll()
 
@@ -650,7 +650,7 @@ class InstanceTests(helpers.TestCase):
         api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
                 .AndReturn(self.flavors.first())
         api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
-                .AndReturn(self.security_groups.first())
+                .AndReturn(self.security_groups.list())
 
         self.mox.ReplayAll()
 
