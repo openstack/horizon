@@ -273,6 +273,15 @@ def get_volume_type(volume):
     return volume.volume_type if volume.volume_type != "None" else None
 
 
+def get_encrypted_value(volume):
+    if not hasattr(volume, 'encrypted') or volume.encrypted is None:
+        return "-"
+    elif volume.encrypted is False:
+        return _("No")
+    else:
+        return _("Yes")
+
+
 class VolumesTableBase(tables.DataTable):
     STATUS_CHOICES = (
         ("in-use", True),
@@ -323,10 +332,8 @@ class VolumesTable(VolumesTableBase):
     bootable = tables.Column('is_bootable',
                          verbose_name=_("Bootable"),
                          filters=(filters.yesno, filters.capfirst))
-    encryption = tables.Column("encrypted",
-                               verbose_name=_("Encrypted"),
-                               empty_value="-",
-                               filters=(filters.yesno, filters.capfirst))
+    encryption = tables.Column(get_encrypted_value,
+                               verbose_name=_("Encrypted"))
 
     class Meta:
         name = "volumes"
