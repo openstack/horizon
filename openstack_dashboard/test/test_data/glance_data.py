@@ -56,6 +56,7 @@ def data(TEST):
     # Images
     image_dict = {'id': '007e7d55-fe1e-4c5c-bf08-44b4a4964822',
                   'name': 'public_image',
+                  'disk_format': u'qcow2',
                   'status': "active",
                   'size': 20 * 1024 ** 3,
                   'min_disk': 0,

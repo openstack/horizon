@@ -68,6 +68,65 @@ class CreateImageFormTests(test.TestCase):
         self.assertNotIn('file', source_type_dict)
 
 
+class UpdateImageFormTests(test.TestCase):
+    def test_is_format_field_editable(self):
+        form = forms.UpdateImageForm({})
+        disk_format = form.fields['disk_format']
+        self.assertFalse(disk_format.widget.attrs.get('readonly', False))
+
+    @test.create_stubs({api.glance: ('image_get',)})
+    def test_image_update(self):
+        image = self.images.first()
+        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
+           .AndReturn(image)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:images:images:update',
+                      args=[image.id])
+        res = self.client.get(url)
+        self.assertNoFormErrors(res)
+        self.assertEqual(res.context['image'].disk_format,
+                         image.disk_format)
+
+    @test.create_stubs({api.glance: ('image_update', 'image_get')})
+    def test_image_update_post(self):
+        image = self.images.first()
+        data = {
+            'name': u'Ubuntu 11.10',
+            'image_id': str(image.id),
+            'description': u'Login with admin/admin',
+            'source_type': u'url',
+            'copy_from': u'http://cloud-images.ubuntu.com/releases/'
+                         u'oneiric/release/ubuntu-11.10-server-cloudimg'
+                         u'-amd64-disk1.img',
+            'disk_format': u'qcow2',
+            'architecture': u'x86-64',
+            'minimum_disk': 15,
+            'minimum_ram': 512,
+            'is_public': False,
+            'protected': False,
+            'method': 'UpdateImageForm'}
+        api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
+           .AndReturn(image)
+        api.glance.image_update(IsA(http.HttpRequest),
+                                image.id,
+                                is_public=data['is_public'],
+                                protected=data['protected'],
+                                disk_format=data['disk_format'],
+                                container_format="bare",
+                                name=data['name'],
+                                properties={'description': data['description'],
+                                            'architecture':
+                                            data['architecture']},
+                                purge_props=False).AndReturn(image)
+        self.mox.ReplayAll()
+        url = reverse('horizon:project:images:images:update',
+                      args=[image.id])
+        res = self.client.post(url, data)
+        self.assertNoFormErrors(res)
+        self.assertEqual(res.status_code, 302)
+
+
 class ImageViewTests(test.TestCase):
     def test_image_create_get(self):
         url = reverse('horizon:project:images:images:create')

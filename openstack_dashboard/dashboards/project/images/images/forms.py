@@ -213,15 +213,17 @@ class UpdateImageForm(forms.SelfHandlingForm):
         required=False,
         widget=forms.TextInput(attrs={'readonly': 'readonly'}),
     )
-    disk_format = forms.CharField(
+    disk_format = forms.ChoiceField(
         label=_("Format"),
-        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
     )
     public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateImageForm, self).__init__(request, *args, **kwargs)
+        self.fields['disk_format'].choices = [(value, name) for value,
+                                              name in IMAGE_FORMAT_CHOICES
+                                              if value]
         if not policy.check((("image", "publicize_image"),), request):
             self.fields['public'].widget = forms.CheckboxInput(
                 attrs={'readonly': 'readonly'})
