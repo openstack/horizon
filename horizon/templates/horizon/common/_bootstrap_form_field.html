@@ -54,7 +54,7 @@
       {% endif %}
     {% endif %}
 
-    <div class="{{ classes.value }} {% if field|is_multiple_checkbox %}multiple-checkbox{% endif %}">
+    <div class="{{ classes.value }} {{ field|wrapper_classes }}">
       {{ field }}
 
       {% for error in field.errors %}
