@@ -182,12 +182,28 @@ horizon.addInitFunction(function() {
   // AJAX form submissions from modals. Makes validation happen in-modal.
   $(document).on('submit', '.modal form', function (evt) {
     var $form = $(this),
+      form = this,
       $button = $form.find(".modal-footer .btn-primary"),
       update_field_id = $form.attr("data-add-to-field"),
-      headers = {};
-    if ($form.attr("enctype") === "multipart/form-data") {
-      // AJAX-upload for files is not currently supported.
-      return;
+      headers = {},
+      modalFileUpload = $form.attr("enctype") === "multipart/form-data",
+      formData, ajaxOpts, featureFileList, featureFormData;
+
+    if (modalFileUpload) {
+      featureFileList = $("<input type='file'/>").get(0).files !== undefined;
+      featureFormData = window.FormData !== undefined;
+
+      if (!featureFileList || !featureFormData) {
+        // Test whether browser supports HTML5 FileList and FormData interfaces,
+        // which make XHR file upload possible. If not, it doesn't
+        // support setting custom headers in AJAX requests either, so
+        // modal forms won't work in them (namely, IE9).
+        return;
+      } else {
+        formData = new window.FormData(form);
+      }
+    } else {
+      formData = $form.serialize();
     }
     evt.preventDefault();
 
@@ -198,11 +214,11 @@ horizon.addInitFunction(function() {
       headers["X-Horizon-Add-To-Field"] = update_field_id;
     }
 
-    $.ajax({
+    ajaxOpts = {
       type: "POST",
       url: $form.attr('action'),
       headers: headers,
-      data: $form.serialize(),
+      data: formData,
       beforeSend: function () {
         $("#modal_wrapper .modal").last().modal("hide");
         horizon.modals.modal_spinner(gettext("Working"));
@@ -238,7 +254,13 @@ horizon.addInitFunction(function() {
           horizon.alert("danger", gettext("There was an error submitting the form. Please try again."));
         }
       }
-    });
+    };
+
+    if (modalFileUpload) {
+      ajaxOpts.contentType = false;  // tell jQuery not to process the data
+      ajaxOpts.processData = false;  // tell jQuery not to set contentType
+    }
+    $.ajax(ajaxOpts);
   });
 
   // Position modal so it's in-view even when scrolled down.
