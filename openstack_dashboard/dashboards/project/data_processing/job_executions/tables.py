@@ -13,7 +13,7 @@
 
 import logging
 
-from django.core import urlresolvers
+from django.core.urlresolvers import reverse
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 
@@ -49,8 +49,7 @@ class ReLaunchJobExistingCluster(j_t.ChoosePlugin):
     classes = ('ajax-modal', 'btn-launch')
 
     def get_link_url(self, datum):
-        base_url = urlresolvers.reverse(self.url)
-
+        base_url = reverse(self.url)
         params = http.urlencode({'job_id': datum.job_id,
                                  'job_execution_id': datum.id})
         return "?".join([base_url, params])
@@ -76,6 +75,16 @@ class UpdateRow(tables.Row):
         return job_execution
 
 
+def get_job_link(job_execution):
+    return reverse("horizon:project:data_processing.jobs:details",
+                   args=(http.urlquote(job_execution.job_id),))
+
+
+def get_cluster_link(job_execution):
+    return reverse("horizon:project:data_processing.clusters:details",
+                   args=(http.urlquote(job_execution.cluster_id),))
+
+
 class JobExecutionsTable(tables.DataTable):
     class StatusColumn(tables.Column):
         def get_raw_data(self, datum):
@@ -92,11 +101,18 @@ class JobExecutionsTable(tables.DataTable):
         verbose_name=_("ID"),
         display_choices=(("id", "ID"), ("name", "Name")),
         link=("horizon:project:data_processing.job_executions:details"))
-
+    job_name = tables.Column(
+        "job_name",
+        verbose_name=_("Job"),
+        link=get_job_link)
+    cluster_name = tables.Column(
+        "cluster_name",
+        verbose_name=_("Cluster"),
+        link=get_cluster_link)
     status = StatusColumn("info",
-                          status=True,
-                          status_choices=STATUS_CHOICES,
-                          verbose_name=_("Status"))
+        status=True,
+        status_choices=STATUS_CHOICES,
+        verbose_name=_("Status"))
 
     def get_object_display(self, datum):
         return datum.id

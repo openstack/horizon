@@ -286,7 +286,13 @@ def job_execution_create(request, job_id, cluster_id,
 
 
 def job_execution_list(request):
-    return client(request).job_executions.list()
+    jex_list = client(request).job_executions.list()
+    job_dict = dict((j.id, j) for j in job_list(request))
+    cluster_dict = dict((c.id, c) for c in cluster_list(request))
+    for jex in jex_list:
+        setattr(jex, 'job_name', job_dict.get(jex.job_id).name)
+        setattr(jex, 'cluster_name', cluster_dict.get(jex.cluster_id).name)
+    return jex_list
 
 
 def job_execution_get(request, jex_id):
