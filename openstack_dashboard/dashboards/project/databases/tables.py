@@ -52,7 +52,7 @@ class RestartInstance(tables.BatchAction):
 
     def allowed(self, request, instance=None):
         return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF'))
+                 or instance.status == 'SHUTDOWN'))
 
     def action(self, request, obj_id):
         api.trove.instance_restart(request, obj_id)
@@ -122,7 +122,7 @@ class ResizeVolume(tables.LinkAction):
 
     def allowed(self, request, instance=None):
         return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF'))
+                 or instance.status == 'SHUTDOWN'))
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
@@ -188,11 +188,16 @@ def get_databases(user):
 
 class InstancesTable(tables.DataTable):
     STATUS_CHOICES = (
-        ("active", True),
-        ("shutoff", True),
-        ("suspended", True),
-        ("paused", True),
-        ("error", False),
+        ("ACTIVE", True),
+        ("BLOCKED", True),
+        ("BUILD", True),
+        ("FAILED", False),
+        ("REBOOT", None),
+        ("RESIZE", None),
+        ("BACKUP", None),
+        ("SHUTDOWN", False),
+        ("ERROR", False),
+        ("RESTART_REQUIRED", None),
     )
     name = tables.Column("name",
                          link=("horizon:project:databases:detail"),
