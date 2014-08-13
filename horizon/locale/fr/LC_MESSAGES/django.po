@@ -5,6 +5,7 @@
 # Translators:
 # Claire Delcourt <cldelcou@gmail.com>, 2014
 # cloudwatt_l10n <l10n@cloudwatt.com>, 2014
+# Orizhial <contact@prunier.es>, 2014
 # EVEILLARD <stephane.eveillard@gmail.com>, 2014
 # Kamel_CW <yamani.kamel@gmail.com>, 2014
 # Léo Carré <carre.leo+transifex@gmail.com>, 2014
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 15:13-0500\n"
-"PO-Revision-Date: 2014-08-09 02:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-12 22:17-0500\n"
+"PO-Revision-Date: 2014-08-12 14:11+0000\n"
+"Last-Translator: Orizhial <contact@prunier.es>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +81,7 @@ msgstr "Version d'adresse IP invalide"
 msgid "Invalid subnet mask"
 msgstr "Masque de sous-réseau invalide"
 
-#: tables/actions.py:444
+#: tables/actions.py:457
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:11
@@ -88,50 +89,50 @@ msgstr "Masque de sous-réseau invalide"
 msgid "Filter"
 msgstr "Filtrer"
 
-#: tables/actions.py:631
+#: tables/actions.py:661
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:633
+#: tables/actions.py:663
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663 tables/base.py:1460
+#: tables/actions.py:693 tables/base.py:1478
 msgid "N/A"
 msgstr "N/D"
 
-#: tables/actions.py:692
+#: tables/actions.py:722
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Vous n'êtes pas autorisé à %(action)s : %(objs)s"
 
-#: tables/actions.py:699
+#: tables/actions.py:729
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Impossible de %(action)s : %(objs)s"
 
-#: tables/actions.py:705
+#: tables/actions.py:735
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s : %(objs)s"
 
-#: tables/actions.py:747
+#: tables/actions.py:777
 msgid "Delete"
 msgstr "Supprimer"
 
-#: tables/actions.py:748
+#: tables/actions.py:778
 msgid "Deleted"
 msgstr "Supprimé"
 
-#: tables/actions.py:780
+#: tables/actions.py:810
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: tables/actions.py:781
+#: tables/actions.py:811
 msgid "Updated"
 msgstr "Mis à jour"
 
@@ -148,12 +149,12 @@ msgstr "Aucun élément à afficher."
 msgid "Actions"
 msgstr "Actions"
 
-#: tables/base.py:1236
+#: tables/base.py:1254
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Aucun résultat retourné pour l'id \"%s\"."
 
-#: tables/base.py:1376
+#: tables/base.py:1394
 msgid "Please select a row before taking that action."
 msgstr "Merci de sélectionner une ligne avant de faire cette action."
 
@@ -306,14 +307,14 @@ msgstr "Sélectionner une période pour en visualiser l'utilisation"
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr ""
+msgstr "\n<label>De:</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr ""
+msgstr "\n<label>à:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
