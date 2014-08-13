@@ -52,13 +52,10 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertMessageCount(error=0, warning=0)
         self.assertRedirectsNoFollow(res, VOLUME_BACKUPS_TAB_URL)
 
-    @test.create_stubs({api.nova: ('server_list',),
-                        api.cinder: ('volume_snapshot_list',
-                                     'volume_list',
+    @test.create_stubs({api.cinder: ('volume_list',
                                      'volume_backup_supported',
                                      'volume_backup_list',
-                                     'volume_backup_delete',
-                                     'tenant_absolute_limits')})
+                                     'volume_backup_delete')})
     def test_delete_volume_backup(self):
         vol_backups = self.cinder_volume_backups.list()
         volumes = self.cinder_volumes.list()
@@ -72,20 +69,10 @@ class VolumeBackupsViewTests(test.TestCase):
             AndReturn(volumes)
         api.cinder.volume_backup_delete(IsA(http.HttpRequest), backup.id)
 
-        api.cinder.volume_list(IsA(http.HttpRequest), search_opts=None). \
-            AndReturn(volumes)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None). \
-            AndReturn([self.servers.list(), False])
-        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
-            AndReturn([])
-        api.cinder.volume_list(IsA(http.HttpRequest)). \
-            AndReturn(volumes)
         api.cinder.volume_backup_list(IsA(http.HttpRequest)). \
             AndReturn(vol_backups)
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
-              .MultipleTimes().AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         formData = {'action':
