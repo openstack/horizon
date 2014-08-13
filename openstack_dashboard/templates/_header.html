@@ -1,48 +1,27 @@
 {% load branding i18n %}
 {% load url from future %}
+{% load context_selection %}
+
 <h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
 
 <div class="context-box">
-  {% with num_of_tenants=authorized_tenants|length %}
-    <div id="tenant_switcher" class="dropdown switcher_bar {% if num_of_tenants == 1 %} hide_image {% endif %}" tabindex="1">
-    {% if num_of_tenants > 1 %}
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#tenant_switcher">
-    {% endif %}
-    <div>{{ request.user.project_name }}</div>
-    {% if num_of_tenants > 1 %}
-      </a>
-    {% endif %}
-
-    {% if num_of_tenants > 1 %}
-      <ul id="tenant_list" class="dropdown-menu">
-        <li class='divider'></li>
-        {% for tenant in authorized_tenants %}
-          {% if tenant.enabled and tenant.id != request.user.tenant_id %}
-            <li><a href="{% url 'switch_tenants' tenant.id %}?next={{ request.horizon.dashboard.get_absolute_url }}">{{ tenant.name }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endwith %}
-  </div>
-
-  {% with num_of_regions=request.user.available_services_regions|length %}
-  {% if num_of_regions > 1 %}
-    <div id="services_region_switcher" class="dropdown switcher_bar" tabindex="1">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#services_region_switcher">
-        <div>{{ request.user.services_region }}</div>
-      </a>
-
-      <ul id="services_regions_list" class="dropdown-menu">
-        <li class='divider'></li>
-        {% for region in request.user.available_services_regions %}
-          <li><a href="{% url 'switch_services_region' region %}?next={{ request.horizon.panel.get_absolute_url }}">{{ region }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-  {% endwith %}
-</div>
+  <div class="dropdown context-selection">
+    <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+        {% show_overview %}
+    </button>
+    <div class="dropdown-menu">
+      <div class="context-lists">
+        {% show_domain_list %}
+        {% show_project_list %}
+        {% show_region_list %}
+      </div>
+      <div class="footer disabled">
+        <span class="glyphicon glyphicon-cog"></span>
+        {% trans "Filter selections" %}
+      </div>
+    </div><!-- end of dropdown-menu -->
+  </div><!-- end of context-selection -->
+</div><!-- end of context-box -->
 
 <div id="user_info" class="pull-right">
   <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>

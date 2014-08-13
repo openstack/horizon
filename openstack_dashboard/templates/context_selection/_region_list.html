@@ -1,0 +1,18 @@
+{% load i18n %}
+{% if multi_region %}
+{% with panel_url=request.horizon.panel.get_absolute_url %}
+<ul>
+  <li class="dropdown-header">{% trans "Regions:" %}</li>
+  {% for region in regions %}
+  <li>
+    <a href="{% url 'switch_services_region' region %}?next={{ panel_url }}">
+      {{ region }}
+      {% if region == region_name %}
+      <span class="glyphicon glyphicon-ok"></span>
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endwith %}
+{% endif %}

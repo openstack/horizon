@@ -1,0 +1,13 @@
+<span class="glyphicon glyphicon-list-alt"></span>
+  <span class="context-overview">
+    {% if domain_supported %}
+    <span>{{ domain_name }}</span>
+    <em>&middot;</em>
+    {% endif %}
+    <span>{{ project_name }}</span>
+    {% if multi_region %}
+    <em>&middot;</em>
+    <span>{{ region_name }}</span>
+    {% endif %}
+  </span>
+<span class="caret"></span>
