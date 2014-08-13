@@ -229,11 +229,12 @@ def volume_snapshot_get(request, snapshot_id):
     return VolumeSnapshot(snapshot)
 
 
-def volume_snapshot_list(request):
+def volume_snapshot_list(request, search_opts=None):
     c_client = cinderclient(request)
     if c_client is None:
         return []
-    return [VolumeSnapshot(s) for s in c_client.volume_snapshots.list()]
+    return [VolumeSnapshot(s) for s in c_client.volume_snapshots.list(
+        search_opts=search_opts)]
 
 
 def volume_snapshot_create(request, volume_id, name,
@@ -257,6 +258,11 @@ def volume_snapshot_update(request, snapshot_id, name, description):
     snapshot_data = _replace_v2_parameters(snapshot_data)
     return cinderclient(request).volume_snapshots.update(snapshot_id,
                                                          **snapshot_data)
+
+
+def volume_snapshot_reset_state(request, snapshot_id, state):
+    return cinderclient(request).volume_snapshots.reset_state(
+        snapshot_id, state)
 
 
 @memoized
