@@ -53,7 +53,7 @@ horizon.instances = {
     $(this.get_network_element("")).each(function () {
       var $this = $(this);
       var $input = $this.children("input");
-      var name = horizon.escape_html($this.text().replace(/^\s+/, ""));
+      var name = horizon.string.escapeHtml($this.text().replace(/^\s+/, ""));
       var network_property = {
         "name": name,
         "id": $input.attr("id"),
