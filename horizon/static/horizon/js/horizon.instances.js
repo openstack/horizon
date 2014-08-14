@@ -200,19 +200,34 @@ horizon.addInitFunction(function () {
     $(modal).find("#id_source_type").change();
   });
 
+  /*
+   Update the device size value to reflect minimum allowed
+   for selected image and flavor
+   */
+  function update_device_size() {
+    var volume_size = horizon.Quota.getSelectedFlavor().disk;
+    var image = horizon.Quota.getSelectedImage();
 
-  // Handle field toggles for the Launch Instance volume type field
-  function update_image_id_fields (field) {
-    var $this = $(field),
-      volume_opt = $this.val();
-    var $option = $this.find("option:selected");
-    var $form = $this.closest('form');
-    var $volSize = $form.find('input#id_volume_size');
-    $volSize.val($option.data("volume_size"));
+    if(image !== undefined) {
+      if(image.min_disk > volume_size) {
+        volume_size = image.min_disk;
+      }
+    }
+
+    // Make sure the new value is >= the minimum allowed (1GB)
+    if(volume_size < 1) {
+      volume_size = 1;
+    }
+
+    $("#id_volume_size").val(volume_size);
   }
 
+  $(document).on('change', '.workflow #id_flavor', function (evt) {
+    update_device_size();
+  });
+
   $(document).on('change', '.workflow #id_image_id', function (evt) {
-    update_image_id_fields(this);
+    update_device_size();
   });
 
   horizon.instances.decrypt_password = function(encrypted_password, private_key) {
