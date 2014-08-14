@@ -20,7 +20,6 @@
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import messages
 from horizon import tabs
 
 from openstack_dashboard.api import keystone
@@ -90,7 +89,7 @@ class FloatingIPsTab(tabs.TableTab):
             floating_ip_pools = network.floating_ip_pools_list(self.request)
         except Exception:
             floating_ip_pools = []
-            messages.warning(self.request,
+            exceptions.handle(self.request,
                              _('Unable to retrieve floating IP pools.'))
         pool_dict = dict([(obj.id, obj.name) for obj in floating_ip_pools])
 
