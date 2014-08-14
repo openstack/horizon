@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 15:13-0500\n"
-"PO-Revision-Date: 2014-08-09 02:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-13 03:25-0500\n"
+"PO-Revision-Date: 2014-08-13 10:01+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "Sie sind nicht berechtigt für den Zugriff auf %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr ""
+msgstr "Eine %(resource)s mit dem Namen \"%(name)s\" existiert bereits."
 
 #: exceptions.py:287
 #, python-format
@@ -75,7 +75,7 @@ msgstr "Ungültige Version der IP-Adresse"
 msgid "Invalid subnet mask"
 msgstr "Ungültige Subnetzmaske"
 
-#: tables/actions.py:444
+#: tables/actions.py:457
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:11
@@ -83,50 +83,50 @@ msgstr "Ungültige Subnetzmaske"
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:631
+#: tables/actions.py:661
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:633
+#: tables/actions.py:663
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663 tables/base.py:1460
+#: tables/actions.py:693 tables/base.py:1478
 msgid "N/A"
 msgstr "Nicht verfügbar"
 
-#: tables/actions.py:692
+#: tables/actions.py:722
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Sie haben keine Berechtigung für %(action)s: %(objs)s"
 
-#: tables/actions.py:699
+#: tables/actions.py:729
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Außerstande zu %(action)s: %(objs)s"
 
-#: tables/actions.py:705
+#: tables/actions.py:735
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:747
+#: tables/actions.py:777
 msgid "Delete"
 msgstr "Löschen"
 
-#: tables/actions.py:748
+#: tables/actions.py:778
 msgid "Deleted"
 msgstr "Gelöscht"
 
-#: tables/actions.py:780
+#: tables/actions.py:810
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: tables/actions.py:781
+#: tables/actions.py:811
 msgid "Updated"
 msgstr "Aktualisiert"
 
@@ -143,12 +143,12 @@ msgstr "Kein Eintrag zum anzeigen."
 msgid "Actions"
 msgstr "Aktionen"
 
-#: tables/base.py:1236
+#: tables/base.py:1254
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Keine Übereinstimmung für die ID \"%s\"."
 
-#: tables/base.py:1376
+#: tables/base.py:1394
 msgid "Please select a row before taking that action."
 msgstr "Bitte wählen Sie vor dem Ausführen dieser Aktion eine Zeile aus."
 
@@ -301,14 +301,14 @@ msgstr "Wählen Sie einen Zeitbereich um die Verwendung abzufragen"
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr ""
+msgstr "\n      <label>Von:</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr ""
+msgstr "\n      <label>Bis:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
@@ -392,7 +392,7 @@ msgstr "%s TB"
 
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
-msgstr ""
+msgstr "0 Bytes"
 
 #: utils/filters.py:49
 msgid "Never"

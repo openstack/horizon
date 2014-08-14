@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-12 22:17-0500\n"
-"PO-Revision-Date: 2014-08-13 03:17+0000\n"
+"POT-Creation-Date: 2014-08-13 03:25-0500\n"
+"PO-Revision-Date: 2014-08-13 06:12+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -376,6 +376,8 @@ msgstr "관리자"
 #: dashboards/admin/routers/tables.py:57
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
+#: dashboards/admin/volumes/snapshots/tables.py:58
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/tables.py:68
 #: dashboards/admin/volumes/volumes/tables.py:86
@@ -551,6 +553,7 @@ msgid "Availability Zone Name"
 msgstr "가용성 존 이름"
 
 #: dashboards/admin/aggregates/tables.py:133
+#: dashboards/admin/volumes/snapshots/forms.py:24
 #: dashboards/admin/volumes/volumes/forms.py:54
 msgid "Available"
 msgstr "사용 가능"
@@ -707,6 +710,7 @@ msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니�
 #: dashboards/admin/roles/templates/roles/_update.html:17
 #: dashboards/admin/users/templates/users/_create.html:17
 #: dashboards/admin/users/templates/users/_update.html:17
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:18
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:19
@@ -827,6 +831,7 @@ msgstr "여기에서 합계 이름과 가용성 존을 편집할 수 있습니�
 #: dashboards/admin/roles/templates/roles/_update.html:24
 #: dashboards/admin/users/templates/users/_create.html:34
 #: dashboards/admin/users/templates/users/_update.html:34
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:34
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:26
@@ -1172,6 +1177,7 @@ msgstr "Swap 디스크"
 #: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/users/forms.py:159
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
@@ -1940,6 +1946,7 @@ msgstr "이미지 생성"
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
 #: dashboards/admin/networks/templates/networks/_update.html:17
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
@@ -2081,6 +2088,7 @@ msgstr "서비스"
 #: dashboards/admin/info/tables.py:112 dashboards/admin/info/tables.py:164
 #: dashboards/admin/instances/tables.py:131
 #: dashboards/admin/networks/agents/tables.py:78
+#: dashboards/admin/volumes/snapshots/tables.py:63
 #: dashboards/admin/volumes/volumes/tables.py:70
 #: dashboards/project/databases/tables.py:204
 #: dashboards/project/databases/templates/databases/_detail_overview.html:48
@@ -2101,6 +2109,8 @@ msgstr "호스트"
 #: dashboards/admin/routers/tables.py:61
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
+#: dashboards/admin/volumes/snapshots/forms.py:33
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:46
 #: dashboards/project/data_processing/clusters/tables.py:98
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
@@ -2210,7 +2220,7 @@ msgstr "첨부한 파일"
 
 #: dashboards/admin/info/tables.py:204
 #: dashboards/admin/projects/workflows.py:53
-#: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:29
+#: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:34
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
 #: dashboards/admin/volumes/volumes/tables.py:75
@@ -2226,6 +2236,8 @@ msgstr "볼륨"
 
 #: dashboards/admin/info/tables.py:205
 #: dashboards/admin/projects/workflows.py:54
+#: dashboards/admin/volumes/tabs.py:71
+#: dashboards/admin/volumes/snapshots/tables.py:68
 #: dashboards/project/volumes/tabs.py:75
 #: dashboards/project/volumes/snapshots/tables.py:45
 #: dashboards/project/volumes/snapshots/tables.py:137
@@ -2428,6 +2440,7 @@ msgstr "실시간 마이그레이트 인스턴스 "
 #: dashboards/admin/networks/tables.py:83
 #: dashboards/admin/projects/tables.py:108
 #: dashboards/admin/routers/tables.py:55
+#: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:71
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:136
@@ -2471,6 +2484,7 @@ msgid "IP Address"
 msgstr "IP 주소"
 
 #: dashboards/admin/instances/tables.py:142
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
 #: dashboards/project/containers/tables.py:426
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
@@ -3199,6 +3213,7 @@ msgstr ""
 #: dashboards/admin/networks/ports/tabs.py:25
 #: dashboards/admin/overview/panel.py:27
 #: dashboards/admin/overview/templates/overview/usage.html:6
+#: dashboards/admin/volumes/snapshots/tabs.py:23
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:26
@@ -3913,13 +3928,163 @@ msgid ""
 "From here you can edit the user's details, including their default project."
 msgstr "여기서 기본 프로젝트를 포함하여 사용자에 대한 세부 정보를 편집할 수 있습니다."
 
-#: dashboards/admin/volumes/tabs.py:43
+#: dashboards/admin/volumes/tabs.py:48 dashboards/admin/volumes/tabs.py:94
+#: dashboards/admin/volumes/snapshots/tables.py:51
 msgid "Unable to retrieve volume project information."
 msgstr "볼륨 프로젝트 정보를 찾을 수 없습니다."
 
-#: dashboards/admin/volumes/tabs.py:60
+#: dashboards/admin/volumes/tabs.py:65
 msgid "Unable to retrieve volume types"
 msgstr "볼륨 타입을 찾을 수 없습니다."
+
+#: dashboards/admin/volumes/tabs.py:86 dashboards/project/volumes/tabs.py:88
+#: dashboards/project/volumes/volumes/forms.py:187
+msgid "Unable to retrieve volume snapshots."
+msgstr "볼륨 스냅샷을 찾을 수 없습니다."
+
+#: dashboards/admin/volumes/snapshots/forms.py:25
+#: dashboards/admin/volumes/volumes/forms.py:55
+msgid "Creating"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:26
+#: dashboards/admin/volumes/volumes/forms.py:56
+#: dashboards/project/instances/tables.py:759
+msgid "Deleting"
+msgstr "삭제 중"
+
+#: dashboards/admin/volumes/snapshots/forms.py:27
+#: dashboards/admin/volumes/volumes/forms.py:58
+#: dashboards/project/instances/tables.py:710
+msgid "Error"
+msgstr "에러"
+
+#: dashboards/admin/volumes/snapshots/forms.py:28
+msgid "Error_Deleting"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:43
+#, python-format
+msgid "Successfully updated volume snapshot status: \"%s\"."
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:48
+msgid "Unable to update volume snapshot status."
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/tables.py:29
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:28
+#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
+msgid "Update Status"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/tables.py:61
+#: dashboards/project/volumes/backups/tables.py:120
+#: dashboards/project/volumes/snapshots/tables.py:132
+#: dashboards/project/volumes/volumes/forms.py:41
+#: dashboards/project/volumes/volumes/forms.py:489
+#: dashboards/project/volumes/volumes/forms.py:511
+msgid "Volume Name"
+msgstr "볼륨 이름"
+
+#: dashboards/admin/volumes/snapshots/views.py:44
+#: dashboards/project/volumes/snapshots/views.py:42
+msgid "Unable to retrieve volume snapshot."
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:4
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
+msgid "Volume Snapshot Overview"
+msgstr "볼륨 스냅샷 개요"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
+#: dashboards/project/database_backups/templates/database_backups/details.html:15
+#: dashboards/project/databases/templates/databases/_detail_overview.html:6
+#: dashboards/project/images/templates/images/images/_detail_overview.html:6
+#: dashboards/project/instances/templates/instances/_detail_overview.html:7
+#: dashboards/project/instances/workflows/update_instance.py:119
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:7
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
+msgid "Info"
+msgstr "정보"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
+#: dashboards/project/instances/templates/instances/_detail_overview.html:138
+#: dashboards/project/instances/workflows/create_instance.py:98
+#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
+#: dashboards/project/volumes/volumes/forms.py:205
+#: dashboards/project/volumes/volumes/tables.py:59
+#: dashboards/project/volumes/volumes/tables.py:352
+msgid "Volume"
+msgstr "볼륨"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
+#: dashboards/project/databases/templates/databases/_detail_overview.html:23
+#: dashboards/project/images/templates/images/images/_detail_overview.html:41
+#: dashboards/project/instances/templates/instances/_detail_overview.html:43
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
+msgid "Specs"
+msgstr "스펙"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
+#: dashboards/project/database_backups/templates/database_backups/details.html:35
+#: dashboards/project/instances/templates/instances/_detail_overview.html:53
+#: dashboards/project/instances/templates/instances/_detail_overview.html:56
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
+#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
+#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:11
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:10
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:11
+msgid "GB"
+msgstr "GB"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
+#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
+#: dashboards/project/database_backups/tables.py:141
+#: dashboards/project/database_backups/templates/database_backups/details.html:36
+#: dashboards/project/databases/tables.py:266
+#: dashboards/project/databases/templates/databases/_detail_overview.html:34
+#: dashboards/project/images/templates/images/images/_detail_overview.html:25
+#: dashboards/project/instances/templates/instances/_detail_overview.html:18
+#: dashboards/project/instances/templates/instances/_detail_overview.html:36
+#: dashboards/project/stacks/tables.py:89
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
+msgid "Created"
+msgstr "생성"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:9
+#: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:3
+#: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:6
+msgid "Update Volume Snapshot Status"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:19
+msgid ""
+"\n"
+"    The status of a volume snapshot is normally managed automatically.  In some circumstances\n"
+"    an administrator may need to explicitly update the status value. This is equivalent to\n"
+"    the <tt>cinder snapshot-reset-state</tt> command.\n"
+"    "
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:33
@@ -3955,10 +4120,6 @@ msgid ""
 "    administrator may need to explicitly update the status value.  This is equivalent to\n"
 "    the <tt>cinder reset-state</tt> command.\n"
 "    "
-msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
-msgid "Update Status"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/create_volume_type.html:6
@@ -4022,24 +4183,10 @@ msgstr "불륨 타입을 생성할 수 없습니다."
 msgid "Attaching"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:55
-msgid "Creating"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/forms.py:56
-#: dashboards/project/instances/tables.py:759
-msgid "Deleting"
-msgstr "삭제 중"
-
 #: dashboards/admin/volumes/volumes/forms.py:57
 #: dashboards/project/volumes/volumes/tables.py:351
 msgid "Detaching"
 msgstr "연결 해제중"
-
-#: dashboards/admin/volumes/volumes/forms.py:58
-#: dashboards/project/instances/tables.py:710
-msgid "Error"
-msgstr "에러"
 
 #: dashboards/admin/volumes/volumes/forms.py:59
 msgid "Error Deleting"
@@ -4064,7 +4211,7 @@ msgstr ""
 msgid "Volume Types"
 msgstr "볼륨 타입"
 
-#: dashboards/admin/volumes/volumes/views.py:58
+#: dashboards/admin/volumes/volumes/views.py:61
 #: dashboards/project/volumes/volumes/views.py:62
 msgid "Unable to retrieve volume details."
 msgstr "볼륨 세부 정보를 찾을 수 없습니다."
@@ -5385,25 +5532,6 @@ msgstr "플러그인 이름"
 msgid "Select plugin and hadoop version for cluster template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
-#: dashboards/project/database_backups/tables.py:141
-#: dashboards/project/database_backups/templates/database_backups/details.html:36
-#: dashboards/project/databases/tables.py:266
-#: dashboards/project/databases/templates/databases/_detail_overview.html:34
-#: dashboards/project/images/templates/images/images/_detail_overview.html:25
-#: dashboards/project/instances/templates/instances/_detail_overview.html:18
-#: dashboards/project/instances/templates/instances/_detail_overview.html:36
-#: dashboards/project/stacks/tables.py:89
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
-msgid "Created"
-msgstr "생성"
-
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:293
@@ -5768,20 +5896,6 @@ msgstr "데이터 프로세싱 플러그인을 불러올 수 없습니다."
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
 msgstr "데이터 프로세싱 플러그인 개요"
-
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
-#: dashboards/project/database_backups/templates/database_backups/details.html:15
-#: dashboards/project/databases/templates/databases/_detail_overview.html:6
-#: dashboards/project/images/templates/images/images/_detail_overview.html:6
-#: dashboards/project/instances/templates/instances/_detail_overview.html:7
-#: dashboards/project/instances/workflows/update_instance.py:119
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:7
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
-msgid "Info"
-msgstr "정보"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
@@ -6720,22 +6834,6 @@ msgstr "백업 파일 위치"
 msgid "Initial Volume Size"
 msgstr "초기 볼륨 크기"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:35
-#: dashboards/project/instances/templates/instances/_detail_overview.html:53
-#: dashboards/project/instances/templates/instances/_detail_overview.html:56
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
-#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:11
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:11
-msgid "GB"
-msgstr "GB"
-
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
@@ -6970,15 +7068,6 @@ msgstr "인스턴스 데이터베이스에 대한 세부 정보를 찾을 수 �
 #: dashboards/project/overview/templates/overview/usage.html:3
 msgid "Instance Overview"
 msgstr "인스턴스 개요"
-
-#: dashboards/project/databases/templates/databases/_detail_overview.html:23
-#: dashboards/project/images/templates/images/images/_detail_overview.html:41
-#: dashboards/project/instances/templates/instances/_detail_overview.html:43
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
-msgid "Specs"
-msgstr "스펙"
 
 #: dashboards/project/databases/templates/databases/_detail_overview.html:44
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:6
@@ -8582,17 +8671,6 @@ msgstr "연결된 곳"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:43
 msgid "on"
 msgstr "켜짐"
-
-#: dashboards/project/instances/templates/instances/_detail_overview.html:138
-#: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:336
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:205
-#: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:352
-msgid "Volume"
-msgstr "볼륨"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:139
 msgid "No volumes attached."
@@ -10855,11 +10933,6 @@ msgstr "볼륨 목록을 찾을 수 없습니다."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "볼륨/인스턴스 연결 정보를 찾을 수 없습니다."
 
-#: dashboards/project/volumes/tabs.py:88
-#: dashboards/project/volumes/volumes/forms.py:187
-msgid "Unable to retrieve volume snapshots."
-msgstr "볼륨 스냅샷을 찾을 수 없습니다."
-
 #: dashboards/project/volumes/tabs.py:102
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
@@ -10907,14 +10980,6 @@ msgstr "백업을 복구할 수 없습니다."
 msgid "Volume Backup"
 msgstr "볼륨 백업"
 
-#: dashboards/project/volumes/backups/tables.py:120
-#: dashboards/project/volumes/snapshots/tables.py:132
-#: dashboards/project/volumes/volumes/forms.py:41
-#: dashboards/project/volumes/volumes/forms.py:489
-#: dashboards/project/volumes/volumes/forms.py:511
-msgid "Volume Name"
-msgstr "볼륨 이름"
-
 #: dashboards/project/volumes/backups/tabs.py:38
 #: dashboards/project/volumes/backups/views.py:61
 msgid "Unable to retrieve backup details."
@@ -10941,10 +11006,6 @@ msgstr "스냅샷 수정"
 #: dashboards/project/volumes/snapshots/views.py:77
 msgid "Unable to retrieve snapshot details."
 msgstr "스냅샷 세부 정보를 찾을 수 없습니다."
-
-#: dashboards/project/volumes/snapshots/views.py:42
-msgid "Unable to retrieve volume snapshot."
-msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
@@ -11005,10 +11066,6 @@ msgstr "볼륨 백업 상세 정보:"
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
 msgid "Restore a Volume Backup"
 msgstr "볼륨 백업 복구"
-
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
-msgid "Volume Snapshot Overview"
-msgstr "볼륨 스냅샷 개요"
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:19
 msgid "From here you can modify the name and description of a snapshot."
@@ -11334,7 +11391,7 @@ msgid "Edit Attachments"
 msgstr "연결 편집"
 
 #: dashboards/project/volumes/volumes/tables.py:241
-#: dashboards/project/volumes/volumes/views.py:207
+#: dashboards/project/volumes/volumes/views.py:210
 msgid "Unable to retrieve attachment information."
 msgstr "연결 설정 정보를 찾을 수 없습니다."
 
@@ -11372,19 +11429,19 @@ msgstr "장치"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "인스턴스 %(instance_name)s 에서 볼륨 %(volume_name)s"
 
-#: dashboards/project/volumes/volumes/views.py:98
-#: dashboards/project/volumes/volumes/views.py:141
-#: dashboards/project/volumes/volumes/views.py:190
+#: dashboards/project/volumes/volumes/views.py:101
+#: dashboards/project/volumes/volumes/views.py:144
+#: dashboards/project/volumes/volumes/views.py:193
 msgid "Unable to retrieve volume information."
 msgstr "볼륨 정보를 찾을 수 없습니다."
 
-#: dashboards/project/volumes/volumes/views.py:132
+#: dashboards/project/volumes/volumes/views.py:135
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "이 볼륨은 지금 인스턴스에 연결되어 있습니다. 때때로, 연결된 볼륨에서 스냅샷을 만들게되면 스냅샷이 손상될 수 있습니다."
 
-#: dashboards/project/volumes/volumes/views.py:159
+#: dashboards/project/volumes/volumes/views.py:162
 msgid "Unable to retrieve volume."
 msgstr "볼륨을 찾을 수 없습니다."
 

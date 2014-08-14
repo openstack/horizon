@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-12 22:17-0500\n"
-"PO-Revision-Date: 2014-08-13 03:17+0000\n"
+"POT-Creation-Date: 2014-08-13 03:25-0500\n"
+"PO-Revision-Date: 2014-08-13 06:12+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -375,6 +375,8 @@ msgstr "Beheerder"
 #: dashboards/admin/routers/tables.py:57
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
+#: dashboards/admin/volumes/snapshots/tables.py:58
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/tables.py:68
 #: dashboards/admin/volumes/volumes/tables.py:86
@@ -550,6 +552,7 @@ msgid "Availability Zone Name"
 msgstr "Beschikbaarheid Zone Naam"
 
 #: dashboards/admin/aggregates/tables.py:133
+#: dashboards/admin/volumes/snapshots/forms.py:24
 #: dashboards/admin/volumes/volumes/forms.py:54
 msgid "Available"
 msgstr "Beschikbaar"
@@ -706,6 +709,7 @@ msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 #: dashboards/admin/roles/templates/roles/_update.html:17
 #: dashboards/admin/users/templates/users/_create.html:17
 #: dashboards/admin/users/templates/users/_update.html:17
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:18
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:19
@@ -826,6 +830,7 @@ msgstr "Vanuit hier kunnen de aggregaat naam en de beschikbaarheidszone worden a
 #: dashboards/admin/roles/templates/roles/_update.html:24
 #: dashboards/admin/users/templates/users/_create.html:34
 #: dashboards/admin/users/templates/users/_update.html:34
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:34
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:26
@@ -1171,6 +1176,7 @@ msgstr "Wisselgeheugenschijf"
 #: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/users/forms.py:159
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
@@ -1939,6 +1945,7 @@ msgstr "Creëer een afbeelding"
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
 #: dashboards/admin/networks/templates/networks/_update.html:17
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
@@ -2080,6 +2087,7 @@ msgstr "Dienst"
 #: dashboards/admin/info/tables.py:112 dashboards/admin/info/tables.py:164
 #: dashboards/admin/instances/tables.py:131
 #: dashboards/admin/networks/agents/tables.py:78
+#: dashboards/admin/volumes/snapshots/tables.py:63
 #: dashboards/admin/volumes/volumes/tables.py:70
 #: dashboards/project/databases/tables.py:204
 #: dashboards/project/databases/templates/databases/_detail_overview.html:48
@@ -2100,6 +2108,8 @@ msgstr "Gastheer"
 #: dashboards/admin/routers/tables.py:61
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
+#: dashboards/admin/volumes/snapshots/forms.py:33
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:46
 #: dashboards/project/data_processing/clusters/tables.py:98
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
@@ -2209,7 +2219,7 @@ msgstr "Geïnjecteerde bestanden"
 
 #: dashboards/admin/info/tables.py:204
 #: dashboards/admin/projects/workflows.py:53
-#: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:29
+#: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:34
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
 #: dashboards/admin/volumes/volumes/tables.py:75
@@ -2225,6 +2235,8 @@ msgstr "Volumen"
 
 #: dashboards/admin/info/tables.py:205
 #: dashboards/admin/projects/workflows.py:54
+#: dashboards/admin/volumes/tabs.py:71
+#: dashboards/admin/volumes/snapshots/tables.py:68
 #: dashboards/project/volumes/tabs.py:75
 #: dashboards/project/volumes/snapshots/tables.py:45
 #: dashboards/project/volumes/snapshots/tables.py:137
@@ -2427,6 +2439,7 @@ msgstr "Live exemplaar verplaatsen"
 #: dashboards/admin/networks/tables.py:83
 #: dashboards/admin/projects/tables.py:108
 #: dashboards/admin/routers/tables.py:55
+#: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:71
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:136
@@ -2470,6 +2483,7 @@ msgid "IP Address"
 msgstr "IP adres"
 
 #: dashboards/admin/instances/tables.py:142
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
 #: dashboards/project/containers/tables.py:426
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
@@ -3198,6 +3212,7 @@ msgstr ""
 #: dashboards/admin/networks/ports/tabs.py:25
 #: dashboards/admin/overview/panel.py:27
 #: dashboards/admin/overview/templates/overview/usage.html:6
+#: dashboards/admin/volumes/snapshots/tabs.py:23
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:26
@@ -3912,13 +3927,163 @@ msgid ""
 "From here you can edit the user's details, including their default project."
 msgstr "Vanuit hier kunt u de gebruikersgegevens bewerken, inclusief diens standaard project."
 
-#: dashboards/admin/volumes/tabs.py:43
+#: dashboards/admin/volumes/tabs.py:48 dashboards/admin/volumes/tabs.py:94
+#: dashboards/admin/volumes/snapshots/tables.py:51
 msgid "Unable to retrieve volume project information."
 msgstr "Niet in staat om de projectinformatie voor het volume op te halen."
 
-#: dashboards/admin/volumes/tabs.py:60
+#: dashboards/admin/volumes/tabs.py:65
 msgid "Unable to retrieve volume types"
 msgstr "Niet in staat om de volumetypen op te halen."
+
+#: dashboards/admin/volumes/tabs.py:86 dashboards/project/volumes/tabs.py:88
+#: dashboards/project/volumes/volumes/forms.py:187
+msgid "Unable to retrieve volume snapshots."
+msgstr "Niet in staat om de momentopnamen van het volume op te halen."
+
+#: dashboards/admin/volumes/snapshots/forms.py:25
+#: dashboards/admin/volumes/volumes/forms.py:55
+msgid "Creating"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:26
+#: dashboards/admin/volumes/volumes/forms.py:56
+#: dashboards/project/instances/tables.py:759
+msgid "Deleting"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:27
+#: dashboards/admin/volumes/volumes/forms.py:58
+#: dashboards/project/instances/tables.py:710
+msgid "Error"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:28
+msgid "Error_Deleting"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:43
+#, python-format
+msgid "Successfully updated volume snapshot status: \"%s\"."
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:48
+msgid "Unable to update volume snapshot status."
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/tables.py:29
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:28
+#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
+msgid "Update Status"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/tables.py:61
+#: dashboards/project/volumes/backups/tables.py:120
+#: dashboards/project/volumes/snapshots/tables.py:132
+#: dashboards/project/volumes/volumes/forms.py:41
+#: dashboards/project/volumes/volumes/forms.py:489
+#: dashboards/project/volumes/volumes/forms.py:511
+msgid "Volume Name"
+msgstr "Volumenaam"
+
+#: dashboards/admin/volumes/snapshots/views.py:44
+#: dashboards/project/volumes/snapshots/views.py:42
+msgid "Unable to retrieve volume snapshot."
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:4
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
+msgid "Volume Snapshot Overview"
+msgstr "Volume Opname Overzicht"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
+#: dashboards/project/database_backups/templates/database_backups/details.html:15
+#: dashboards/project/databases/templates/databases/_detail_overview.html:6
+#: dashboards/project/images/templates/images/images/_detail_overview.html:6
+#: dashboards/project/instances/templates/instances/_detail_overview.html:7
+#: dashboards/project/instances/workflows/update_instance.py:119
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:7
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
+msgid "Info"
+msgstr "Informatie"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
+#: dashboards/project/instances/templates/instances/_detail_overview.html:138
+#: dashboards/project/instances/workflows/create_instance.py:98
+#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
+#: dashboards/project/volumes/volumes/forms.py:205
+#: dashboards/project/volumes/volumes/tables.py:59
+#: dashboards/project/volumes/volumes/tables.py:352
+msgid "Volume"
+msgstr "Volume"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
+#: dashboards/project/databases/templates/databases/_detail_overview.html:23
+#: dashboards/project/images/templates/images/images/_detail_overview.html:41
+#: dashboards/project/instances/templates/instances/_detail_overview.html:43
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
+msgid "Specs"
+msgstr "Specificatie"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
+#: dashboards/project/database_backups/templates/database_backups/details.html:35
+#: dashboards/project/instances/templates/instances/_detail_overview.html:53
+#: dashboards/project/instances/templates/instances/_detail_overview.html:56
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
+#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
+#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:11
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:10
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:11
+msgid "GB"
+msgstr "GB"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
+#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
+#: dashboards/project/database_backups/tables.py:141
+#: dashboards/project/database_backups/templates/database_backups/details.html:36
+#: dashboards/project/databases/tables.py:266
+#: dashboards/project/databases/templates/databases/_detail_overview.html:34
+#: dashboards/project/images/templates/images/images/_detail_overview.html:25
+#: dashboards/project/instances/templates/instances/_detail_overview.html:18
+#: dashboards/project/instances/templates/instances/_detail_overview.html:36
+#: dashboards/project/stacks/tables.py:89
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
+msgid "Created"
+msgstr "Gecreëerd"
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:9
+#: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:3
+#: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:6
+msgid "Update Volume Snapshot Status"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:19
+msgid ""
+"\n"
+"    The status of a volume snapshot is normally managed automatically.  In some circumstances\n"
+"    an administrator may need to explicitly update the status value. This is equivalent to\n"
+"    the <tt>cinder snapshot-reset-state</tt> command.\n"
+"    "
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:33
@@ -3954,10 +4119,6 @@ msgid ""
 "    administrator may need to explicitly update the status value.  This is equivalent to\n"
 "    the <tt>cinder reset-state</tt> command.\n"
 "    "
-msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
-msgid "Update Status"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/create_volume_type.html:6
@@ -4021,24 +4182,10 @@ msgstr "Niet in staat om het volumetype te creëren."
 msgid "Attaching"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:55
-msgid "Creating"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/forms.py:56
-#: dashboards/project/instances/tables.py:759
-msgid "Deleting"
-msgstr ""
-
 #: dashboards/admin/volumes/volumes/forms.py:57
 #: dashboards/project/volumes/volumes/tables.py:351
 msgid "Detaching"
 msgstr "Aan het afkoppelen"
-
-#: dashboards/admin/volumes/volumes/forms.py:58
-#: dashboards/project/instances/tables.py:710
-msgid "Error"
-msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:59
 msgid "Error Deleting"
@@ -4063,7 +4210,7 @@ msgstr ""
 msgid "Volume Types"
 msgstr "Volumetypen"
 
-#: dashboards/admin/volumes/volumes/views.py:58
+#: dashboards/admin/volumes/volumes/views.py:61
 #: dashboards/project/volumes/volumes/views.py:62
 msgid "Unable to retrieve volume details."
 msgstr "Niet in staat om de volumedetails op te halen."
@@ -5384,25 +5531,6 @@ msgstr ""
 msgid "Select plugin and hadoop version for cluster template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
-#: dashboards/project/database_backups/tables.py:141
-#: dashboards/project/database_backups/templates/database_backups/details.html:36
-#: dashboards/project/databases/tables.py:266
-#: dashboards/project/databases/templates/databases/_detail_overview.html:34
-#: dashboards/project/images/templates/images/images/_detail_overview.html:25
-#: dashboards/project/instances/templates/instances/_detail_overview.html:18
-#: dashboards/project/instances/templates/instances/_detail_overview.html:36
-#: dashboards/project/stacks/tables.py:89
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
-msgid "Created"
-msgstr "Gecreëerd"
-
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:293
@@ -5767,20 +5895,6 @@ msgstr ""
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
 msgstr ""
-
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
-#: dashboards/project/database_backups/templates/database_backups/details.html:15
-#: dashboards/project/databases/templates/databases/_detail_overview.html:6
-#: dashboards/project/images/templates/images/images/_detail_overview.html:6
-#: dashboards/project/instances/templates/instances/_detail_overview.html:7
-#: dashboards/project/instances/workflows/update_instance.py:119
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:7
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
-msgid "Info"
-msgstr "Informatie"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
@@ -6719,22 +6833,6 @@ msgstr "Archiefbestandslocatie"
 msgid "Initial Volume Size"
 msgstr "Initiele volumegrootte"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:35
-#: dashboards/project/instances/templates/instances/_detail_overview.html:53
-#: dashboards/project/instances/templates/instances/_detail_overview.html:56
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
-#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:11
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:11
-msgid "GB"
-msgstr "GB"
-
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
@@ -6969,15 +7067,6 @@ msgstr "Niet in staat om de details op te halen voor database exemplaar: %s"
 #: dashboards/project/overview/templates/overview/usage.html:3
 msgid "Instance Overview"
 msgstr "Exemplaaroverzicht"
-
-#: dashboards/project/databases/templates/databases/_detail_overview.html:23
-#: dashboards/project/images/templates/images/images/_detail_overview.html:41
-#: dashboards/project/instances/templates/instances/_detail_overview.html:43
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
-msgid "Specs"
-msgstr "Specificatie"
 
 #: dashboards/project/databases/templates/databases/_detail_overview.html:44
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:6
@@ -8581,17 +8670,6 @@ msgstr "Aangekoppeld aan"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:43
 msgid "on"
 msgstr "aan"
-
-#: dashboards/project/instances/templates/instances/_detail_overview.html:138
-#: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:336
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:205
-#: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:352
-msgid "Volume"
-msgstr "Volume"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:139
 msgid "No volumes attached."
@@ -10855,11 +10933,6 @@ msgstr "Niet in staat om de volumelijst op te halen."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Niet in staat om de volume/exemplaar koppelingsinformatie op te halen."
 
-#: dashboards/project/volumes/tabs.py:88
-#: dashboards/project/volumes/volumes/forms.py:187
-msgid "Unable to retrieve volume snapshots."
-msgstr "Niet in staat om de momentopnamen van het volume op te halen."
-
 #: dashboards/project/volumes/tabs.py:102
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
@@ -10907,14 +10980,6 @@ msgstr ""
 msgid "Volume Backup"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:120
-#: dashboards/project/volumes/snapshots/tables.py:132
-#: dashboards/project/volumes/volumes/forms.py:41
-#: dashboards/project/volumes/volumes/forms.py:489
-#: dashboards/project/volumes/volumes/forms.py:511
-msgid "Volume Name"
-msgstr "Volumenaam"
-
 #: dashboards/project/volumes/backups/tabs.py:38
 #: dashboards/project/volumes/backups/views.py:61
 msgid "Unable to retrieve backup details."
@@ -10941,10 +11006,6 @@ msgstr ""
 #: dashboards/project/volumes/snapshots/views.py:77
 msgid "Unable to retrieve snapshot details."
 msgstr "Niet in staat om de details van de momentopname op te halen."
-
-#: dashboards/project/volumes/snapshots/views.py:42
-msgid "Unable to retrieve volume snapshot."
-msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
@@ -11005,10 +11066,6 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
 msgid "Restore a Volume Backup"
 msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
-msgid "Volume Snapshot Overview"
-msgstr "Volume Opname Overzicht"
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:19
 msgid "From here you can modify the name and description of a snapshot."
@@ -11334,7 +11391,7 @@ msgid "Edit Attachments"
 msgstr "Aankoppelingen bewerken"
 
 #: dashboards/project/volumes/volumes/tables.py:241
-#: dashboards/project/volumes/volumes/views.py:207
+#: dashboards/project/volumes/volumes/views.py:210
 msgid "Unable to retrieve attachment information."
 msgstr "Niet in staat om de aankoppelingsinformatie op te halen."
 
@@ -11372,19 +11429,19 @@ msgstr "Apparaat"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:98
-#: dashboards/project/volumes/volumes/views.py:141
-#: dashboards/project/volumes/volumes/views.py:190
+#: dashboards/project/volumes/volumes/views.py:101
+#: dashboards/project/volumes/volumes/views.py:144
+#: dashboards/project/volumes/volumes/views.py:193
 msgid "Unable to retrieve volume information."
 msgstr "Niet in staat om de volumeinformatie op te halen."
 
-#: dashboards/project/volumes/volumes/views.py:132
+#: dashboards/project/volumes/volumes/views.py:135
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "Het volume is op dit moment gekoppeld aan een exemplaar. In bepaalde gevallen kan het maken van een momentopname van een gekoppeld volume resulteren in een gecorrumpeerde momentopname."
 
-#: dashboards/project/volumes/volumes/views.py:159
+#: dashboards/project/volumes/volumes/views.py:162
 msgid "Unable to retrieve volume."
 msgstr "Niet in staat om de volume op te halen."
 
