@@ -6,7 +6,7 @@
 # PBR should always appear first
 pbr>=0.6,!=0.7,<1.0
 # Horizon Core Requirements
-Django>=1.4,<1.7
+Django>=1.4.2,<1.7
 django_compressor>=1.4
 django_openstack_auth>=1.1.6
 django-pyscss>=1.0.2  # BSD License (2 clause)
