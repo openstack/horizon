@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.test.integration_tests.pages import accesssecuritypage
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.pages import settingspage
 
@@ -23,3 +24,12 @@ class ProjectPage(basepage.BasePage):
         self.topbar.user_dropdown_menu.click()
         self.topbar.settings_link.click()
         return settingspage.SettingsPage(self.driver, self.conf)
+
+    def go_to_accesssecurity_page(self):
+        access_security_locator_flag = self.is_element_visible(
+            self.navaccordion._project_access_security_locator)
+        if not access_security_locator_flag:
+            self.navaccordion.project_bar.click()
+        self.navaccordion.access_security.click()
+        return accesssecuritypage.AccessSecurityPage(
+            self.driver, self.conf)
