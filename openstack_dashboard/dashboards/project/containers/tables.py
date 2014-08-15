@@ -111,10 +111,8 @@ class DeleteContainer(tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             api.swift.swift_delete_container(request, obj_id)
-        except exceptions.Conflict:
-            messages.error(request, _("The container cannot be deleted since "
-                                      "it's not empty."))
-            raise exceptions.Http302(self.success_url)
+        except exceptions.Conflict as exc:
+            exceptions.handle(request, exc, redirect=self.success_url)
         except Exception:
             exceptions.handle(request,
                               _('Unable to delete container.'),
