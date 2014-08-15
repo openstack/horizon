@@ -14,7 +14,7 @@
 import logging
 
 from django.core import urlresolvers
-from django import template
+from django.template import defaultfilters as filters
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 
@@ -23,13 +23,6 @@ from horizon import tables
 from openstack_dashboard.api import sahara as saharaclient
 
 LOG = logging.getLogger(__name__)
-
-
-def render_node_groups(cluster_template):
-    template_name = (
-        'project/data_processing.cluster_templates/_nodegroups_list.html')
-    context = {"node_groups": cluster_template.node_groups}
-    return template.loader.render_to_string(template_name, context)
 
 
 class UploadFile(tables.LinkAction):
@@ -95,6 +88,12 @@ class ConfigureClusterTemplate(tables.LinkAction):
     attrs = {"style": "display: none"}
 
 
+def render_node_groups(cluster_template):
+    node_groups = [node_group['name'] + ': ' + str(node_group['count'])
+                   for node_group in cluster_template.node_groups]
+    return node_groups
+
+
 class ClusterTemplatesTable(tables.DataTable):
     name = tables.Column("name",
         verbose_name=_("Name"),
@@ -104,7 +103,9 @@ class ClusterTemplatesTable(tables.DataTable):
     hadoop_version = tables.Column("hadoop_version",
                                    verbose_name=_("Hadoop Version"))
     node_groups = tables.Column(render_node_groups,
-                                verbose_name=_("Node Groups"))
+                                verbose_name=_("Node Groups"),
+                                wrap_list=True,
+                                filters=(filters.unordered_list,))
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 
