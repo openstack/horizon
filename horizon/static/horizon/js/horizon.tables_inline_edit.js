@@ -263,13 +263,5 @@ horizon.addInitFunction(function() {
   $('table').on('mouseleave', '.inline_edit_available', function (evt) {
     $(this).find(".table_cell_action").fadeOut(200);
   });
-
-  $('table').on('mouseenter', '.table_cell_action', function (evt) {
-    $(this).addClass("hovered");
-  });
-
-  $('table').on('mouseleave', '.table_cell_action', function (evt) {
-    $(this).removeClass("hovered");
-  });
 });
 
