@@ -62,6 +62,7 @@ class VolumeTab(tabs.TableTab, VolumeTableMixIn):
     name = _("Volumes")
     slug = "volumes_tab"
     template_name = ("horizon/common/_detail_table.html")
+    preload = False
 
     def get_volumes_data(self):
         volumes = self._get_volumes()
@@ -75,6 +76,7 @@ class SnapshotTab(tabs.TableTab):
     name = _("Volume Snapshots")
     slug = "snapshots_tab"
     template_name = ("horizon/common/_detail_table.html")
+    preload = False
 
     def get_volume_snapshots_data(self):
         if api.base.is_service_enabled(self.request, 'volume'):
@@ -102,6 +104,7 @@ class BackupsTab(tabs.TableTab, VolumeTableMixIn):
     name = _("Volume Backups")
     slug = "backups_tab"
     template_name = ("horizon/common/_detail_table.html")
+    preload = False
 
     def allowed(self, request):
         return api.cinder.volume_backup_supported(self.request)

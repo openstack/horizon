@@ -105,17 +105,13 @@ class VolumeSnapshotsViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, VOLUME_SNAPSHOTS_TAB_URL)
 
-    @test.create_stubs({api.nova: ('server_list',),
-                        api.cinder: ('tenant_absolute_limits',
-                                     'volume_snapshot_list',
+    @test.create_stubs({api.cinder: ('volume_snapshot_list',
                                      'volume_list',
                                      'volume_backup_supported',
-                                     'volume_backup_list',
                                      'volume_snapshot_delete')})
     def test_delete_volume_snapshot(self):
         vol_snapshots = self.cinder_volume_snapshots.list()
         volumes = self.cinder_volumes.list()
-        vol_backups = self.cinder_volume_backups.list()
         snapshot = self.cinder_volume_snapshots.first()
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
@@ -126,25 +122,15 @@ class VolumeSnapshotsViewTests(test.TestCase):
             AndReturn(volumes)
 
         api.cinder.volume_snapshot_delete(IsA(http.HttpRequest), snapshot.id)
-        api.cinder.volume_list(IsA(http.HttpRequest), search_opts=None). \
-            AndReturn(volumes)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None). \
-            AndReturn([self.servers.list(), False])
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
             AndReturn([])
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
-        api.cinder.volume_backup_list(IsA(http.HttpRequest)). \
-            AndReturn(vol_backups)
-        api.cinder.volume_list(IsA(http.HttpRequest)). \
-            AndReturn(volumes)
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes(). \
-            AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         formData = {'action':
                     'volume_snapshots__delete__%s' % snapshot.id}
-        res = self.client.post(INDEX_URL, formData, follow=True)
+        res = self.client.post(VOLUME_SNAPSHOTS_TAB_URL, formData, follow=True)
 
         self.assertIn("Scheduled deletion of Volume Snapshot: test snapshot",
                       [m.message for m in res.context['messages']])

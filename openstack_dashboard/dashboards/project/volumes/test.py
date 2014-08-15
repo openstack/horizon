@@ -22,6 +22,8 @@ from openstack_dashboard.test import helpers as test
 
 
 INDEX_URL = reverse('horizon:project:volumes:index')
+VOLUME_SNAPSHOTS_TAB_URL = reverse('horizon:project:volumes:snapshots_tab')
+VOLUME_BACKUPS_TAB_URL = reverse('horizon:project:volumes:backups_tab')
 
 
 class VolumeAndSnapshotsTests(test.TestCase):
@@ -58,7 +60,17 @@ class VolumeAndSnapshotsTests(test.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'project/volumes/index.html')
 
-    def test_index_back_supported(self):
+        # Explicitly load the other tabs. If this doesn't work the test
+        # will fail due to "Expected methods never called."
+        res = self.client.get(VOLUME_SNAPSHOTS_TAB_URL)
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res, 'project/volumes/index.html')
+
+        if backup_supported:
+            res = self.client.get(VOLUME_BACKUPS_TAB_URL)
+            self.assertTemplateUsed(res, 'project/volumes/index.html')
+
+    def test_index_backup_supported(self):
         self._test_index(backup_supported=True)
 
     def test_index_backup_not_supported(self):
