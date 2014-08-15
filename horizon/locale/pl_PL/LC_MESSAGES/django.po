@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 15:13-0500\n"
-"PO-Revision-Date: 2014-08-09 02:14+0000\n"
+"POT-Creation-Date: 2014-08-15 00:10-0500\n"
+"PO-Revision-Date: 2014-08-15 05:10+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Błędna wersja adresu IP"
 msgid "Invalid subnet mask"
 msgstr "Błędna maska podsieci"
 
-#: tables/actions.py:444
+#: tables/actions.py:457
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:11
@@ -81,50 +81,50 @@ msgstr "Błędna maska podsieci"
 msgid "Filter"
 msgstr "Filtr"
 
-#: tables/actions.py:631
+#: tables/actions.py:661
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:633
+#: tables/actions.py:663
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663 tables/base.py:1460
+#: tables/actions.py:693 tables/base.py:1478
 msgid "N/A"
 msgstr "n.d."
 
-#: tables/actions.py:692
+#: tables/actions.py:722
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Brak uprawnień do %(action)s: %(objs)s"
 
-#: tables/actions.py:699
+#: tables/actions.py:729
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Nie można %(action)s: %(objs)s"
 
-#: tables/actions.py:705
+#: tables/actions.py:735
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:747
+#: tables/actions.py:777
 msgid "Delete"
 msgstr "Usuń"
 
-#: tables/actions.py:748
+#: tables/actions.py:778
 msgid "Deleted"
 msgstr "Usunięto"
 
-#: tables/actions.py:780
+#: tables/actions.py:810
 msgid "Update"
 msgstr "Aktualizuj"
 
-#: tables/actions.py:781
+#: tables/actions.py:811
 msgid "Updated"
 msgstr "Zaktualizowany"
 
@@ -141,12 +141,12 @@ msgstr "Brak pozycji do wyświetlenia."
 msgid "Actions"
 msgstr "Czynności"
 
-#: tables/base.py:1236
+#: tables/base.py:1254
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nie znaleziono wyników dla identyfikatora „%s”."
 
-#: tables/base.py:1376
+#: tables/base.py:1394
 msgid "Please select a row before taking that action."
 msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
 
@@ -219,7 +219,7 @@ msgid "&laquo;&nbsp;Prev"
 msgstr ""
 
 #: templates/horizon/common/_data_table.html:71
-msgid "More&nbsp;&raquo;"
+msgid "Next&nbsp;&raquo;"
 msgstr ""
 
 #: templates/horizon/common/_data_table_row_actions.html:10
