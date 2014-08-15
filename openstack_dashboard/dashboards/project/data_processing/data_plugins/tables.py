@@ -13,7 +13,7 @@
 
 import logging
 
-from django import template
+from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -21,19 +21,15 @@ from horizon import tables
 LOG = logging.getLogger(__name__)
 
 
-def render_versions(plugin):
-    template_name = 'project/data_processing.data_plugins/_versions_list.html'
-    context = {"plugin": plugin}
-    return template.loader.render_to_string(template_name, context)
-
-
 class PluginsTable(tables.DataTable):
     title = tables.Column("title",
         verbose_name=_("Title"),
         link=("horizon:project:data_processing.data_plugins:details"))
 
-    versions = tables.Column(render_versions,
-                             verbose_name=_("Supported Versions"))
+    versions = tables.Column("versions",
+                             verbose_name=_("Supported Versions"),
+                             wrap_list=True,
+                             filters=(filters.unordered_list,))
 
     description = tables.Column("description",
                                 verbose_name=_("Description"))
