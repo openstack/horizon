@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-12 22:17-0500\n"
-"PO-Revision-Date: 2014-08-12 14:11+0000\n"
-"Last-Translator: Orizhial <contact@prunier.es>\n"
+"POT-Creation-Date: 2014-08-15 00:10-0500\n"
+"PO-Revision-Date: 2014-08-15 05:10+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,8 +226,8 @@ msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Aperçu"
 
 #: templates/horizon/common/_data_table.html:71
-msgid "More&nbsp;&raquo;"
-msgstr "Plus&nbsp;&raquo;"
+msgid "Next&nbsp;&raquo;"
+msgstr ""
 
 #: templates/horizon/common/_data_table_row_actions.html:10
 msgid "More"
