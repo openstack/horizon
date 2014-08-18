@@ -1,0 +1,37 @@
+{% if SSL %}
+# Set "NameVirtualHost {{ NAMEDHOST }}:443" in your httpd.conf file if it's not already done.
+<VirtualHost {{ NAMEDHOST }}:443>
+    SSLEngine on
+    SSLCertificateFile {{ SSLCERT }}
+    SSLCertificateKeyFile  {{ SSLKEY }}
+{% if CACERT %}    SSLCACertificateFile {{ CACERT }}{% endif %}
+{% else %}
+<VirtualHost {{ NAMEDHOST }}:80>
+{% endif %}
+    ServerAdmin {{ ADMIN }}
+    ServerName  {{ VHOSTNAME }}
+
+    DocumentRoot {{ PROJECT_ROOT }}/
+
+    LogLevel warn
+    ErrorLog {{ LOGDIR }}/{{ PROJECT_NAME }}-error.log
+    CustomLog {{ LOGDIR }}/{{ PROJECT_NAME }}-access.log combined
+
+    WSGIScriptReloading On
+    WSGIDaemonProcess {{ PROJECT_NAME }}_website
+    WSGIProcessGroup {{ PROJECT_NAME }}_website
+    WSGIApplicationGroup {{ PROJECT_NAME }}_website
+    WSGIPassAuthorization On
+
+    WSGIScriptAlias / {{ WSGI_FILE }}
+
+    <Location "/">
+        Order Allow,Deny
+        Allow from all
+    </Location>
+
+    Alias /static {{ STATIC_PATH }}
+    <Location "/static">
+        SetHandler None
+    </Location>
+</Virtualhost>
