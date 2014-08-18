@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 03:25-0500\n"
-"PO-Revision-Date: 2014-08-13 06:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-15 01:58-0500\n"
+"PO-Revision-Date: 2014-08-17 21:10+0000\n"
+"Last-Translator: Milton Mazzarri <milmazz@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -342,7 +342,7 @@ msgstr ""
 msgid "Failed to modify %d instance security groups"
 msgstr ""
 
-#: api/swift.py:200 dashboards/project/containers/tables.py:115
+#: api/swift.py:200
 msgid "The container cannot be deleted since it's not empty."
 msgstr "No se puede eliminar el contenedor porque no está vacío."
 
@@ -929,7 +929,7 @@ msgstr "Crear dominio"
 #: dashboards/admin/images/properties/tables.py:66
 #: dashboards/admin/roles/tables.py:36 dashboards/admin/users/tables.py:43
 #: dashboards/admin/volumes/volumes/extras/tables.py:44
-#: dashboards/project/containers/tables.py:309
+#: dashboards/project/containers/tables.py:307
 #: dashboards/project/images/images/tables.py:87
 msgid "Edit"
 msgstr "Editar"
@@ -1838,7 +1838,7 @@ msgstr ""
 
 #: dashboards/admin/images/tables.py:60
 msgid "Image Name ="
-msgstr ""
+msgstr "Nombre de imagen ="
 
 #: dashboards/admin/images/tables.py:61
 #: dashboards/admin/instances/tables.py:95
@@ -1848,15 +1848,15 @@ msgstr ""
 
 #: dashboards/admin/images/tables.py:62
 msgid "Format ="
-msgstr ""
+msgstr "Formato ="
 
 #: dashboards/admin/images/tables.py:63
 msgid "Min. Size (MB)"
-msgstr ""
+msgstr "Tamaño min. (MB)"
 
 #: dashboards/admin/images/tables.py:64
 msgid "Max. Size (MB)"
-msgstr ""
+msgstr "Tamaño máx. (MB)"
 
 #: dashboards/admin/images/tables.py:70
 #: dashboards/admin/instances/tables.py:137
@@ -2461,16 +2461,16 @@ msgstr ""
 
 #: dashboards/admin/instances/tables.py:93
 msgid "IPv4 Address ="
-msgstr ""
+msgstr "Dirección IPv4 ="
 
 #: dashboards/admin/instances/tables.py:94
 msgid "IPv6 Address ="
-msgstr ""
+msgstr "Dirección IPv6 ="
 
 #: dashboards/admin/instances/tables.py:96
 #: dashboards/project/instances/tables.py:787
 msgid "Image ID ="
-msgstr ""
+msgstr "ID de imagen ="
 
 #: dashboards/admin/instances/tables.py:97
 #: dashboards/project/instances/tables.py:788
@@ -2488,7 +2488,7 @@ msgstr "Dirección IP"
 
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:426
+#: dashboards/project/containers/tables.py:424
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:206
@@ -3007,7 +3007,7 @@ msgstr "Subredes asociadas"
 #: dashboards/admin/networks/agents/tables.py:36
 #: dashboards/admin/networks/agents/tables.py:88
 msgid "DHCP Agents"
-msgstr ""
+msgstr "Agentes DHCP"
 
 #: dashboards/admin/networks/views.py:57
 #: dashboards/project/images/templates/images/images/_detail_overview.html:18
@@ -3053,7 +3053,7 @@ msgstr "No ha sido posible obtener los detalles de la red \"%s\"."
 
 #: dashboards/admin/networks/agents/forms.py:38
 msgid "New DHCP Agent"
-msgstr ""
+msgstr "Nuevo agente DHCP"
 
 #: dashboards/admin/networks/agents/forms.py:39
 msgid "Choose an DHCP Agent to attach to."
@@ -3079,7 +3079,7 @@ msgstr ""
 
 #: dashboards/admin/networks/agents/tables.py:35
 msgid "DHCP Agent"
-msgstr ""
+msgstr "Agente DHCP"
 
 #: dashboards/admin/networks/agents/tables.py:45
 #, python-format
@@ -3092,7 +3092,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/agents/add.html:3
 #: dashboards/admin/networks/templates/networks/agents/add.html:6
 msgid "Add DHCP Agent"
-msgstr ""
+msgstr "Añadir agente DHCP"
 
 #: dashboards/admin/networks/agents/tables.py:77
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:7
@@ -3111,7 +3111,7 @@ msgstr "No ha sido posible obtener la red."
 
 #: dashboards/admin/networks/agents/views.py:70
 msgid "Unable to retrieve agent list."
-msgstr ""
+msgstr "No pude obtener la lista de agentes."
 
 #: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
@@ -3428,12 +3428,12 @@ msgstr "RAM activa total (MB)"
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
 msgid "Total Disk Size (GB)"
-msgstr ""
+msgstr "Tamaño total del disco (GB)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
 msgid "Total Disk Usage (Hours)"
-msgstr ""
+msgstr "Total de uso del disco (Horas)"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -4087,7 +4087,7 @@ msgid ""
 "    an administrator may need to explicitly update the status value. This is equivalent to\n"
 "    the <tt>cinder snapshot-reset-state</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\nEl estado del respaldo de un volumen normalmente es manejado de manera automática. En\nalgunas circunstancias un administrador puede actualizar explícitamente el valor del\nestado. Esto es equivalente al comando <tt>cinder snapshot-reset-state</tt>."
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:33
@@ -4123,7 +4123,7 @@ msgid ""
 "    administrator may need to explicitly update the status value.  This is equivalent to\n"
 "    the <tt>cinder reset-state</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\nEl estado de un volumen normalmente es manejado de manera automática. En\nalgunas circunstancias un administrador puede actualizar explícitamente el valor del\nestado. Esto es equivalente al comando <tt>cinder reset-state</tt>."
 
 #: dashboards/admin/volumes/templates/volumes/volumes/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -4929,7 +4929,7 @@ msgid "Private"
 msgstr "Privada"
 
 #: dashboards/project/containers/forms.py:48
-#: dashboards/project/containers/tables.py:255
+#: dashboards/project/containers/tables.py:253
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
@@ -4959,7 +4959,7 @@ msgid "File"
 msgstr "Fichero"
 
 #: dashboards/project/containers/forms.py:87
-#: dashboards/project/containers/tables.py:423
+#: dashboards/project/containers/tables.py:421
 msgid "Object Name"
 msgstr "Nombre del objeto"
 
@@ -5015,14 +5015,14 @@ msgstr "No ha sido posible copiar el objeto."
 
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
-#: dashboards/project/containers/tables.py:266
+#: dashboards/project/containers/tables.py:264
 #: dashboards/project/containers/templates/containers/index.html:5
 #: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr "Contenedores"
 
 #: dashboards/project/containers/tables.py:44
-#: dashboards/project/containers/tables.py:296
+#: dashboards/project/containers/tables.py:294
 msgid "View Details"
 msgstr "Ver detalles"
 
@@ -5047,11 +5047,11 @@ msgstr "Hacer privado"
 msgid "Successfully updated container access to private."
 msgstr "Se ha modificado correctamente a acceso privado el contenedor."
 
-#: dashboards/project/containers/tables.py:120
+#: dashboards/project/containers/tables.py:118
 msgid "Unable to delete container."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:137
+#: dashboards/project/containers/tables.py:135
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -5059,50 +5059,50 @@ msgstr ""
 msgid "Create Container"
 msgstr "Crear contenedor"
 
-#: dashboards/project/containers/tables.py:145
+#: dashboards/project/containers/tables.py:143
 msgid "View Container"
 msgstr "Ver contenedor"
 
-#: dashboards/project/containers/tables.py:157
+#: dashboards/project/containers/tables.py:155
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:6
 msgid "Create Pseudo-folder"
 msgstr "Crear pseudo-carpeta"
 
-#: dashboards/project/containers/tables.py:186
+#: dashboards/project/containers/tables.py:184
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "Cargar objeto"
 
-#: dashboards/project/containers/tables.py:257
+#: dashboards/project/containers/tables.py:255
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
 msgstr "Detalle de contenedor"
 
-#: dashboards/project/containers/tables.py:323
+#: dashboards/project/containers/tables.py:321
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
 msgid "Object"
 msgstr "Objeto"
 
-#: dashboards/project/containers/tables.py:324
-#: dashboards/project/containers/tables.py:430
+#: dashboards/project/containers/tables.py:322
+#: dashboards/project/containers/tables.py:428
 msgid "Objects"
 msgstr "Objetos"
 
-#: dashboards/project/containers/tables.py:346
+#: dashboards/project/containers/tables.py:344
 msgid "Copy"
 msgstr "Copiar"
 
-#: dashboards/project/containers/tables.py:360
+#: dashboards/project/containers/tables.py:358
 #: dashboards/project/databases/tables.py:268
 msgid "Download"
 msgstr "Descargar"
 
-#: dashboards/project/containers/tables.py:408
+#: dashboards/project/containers/tables.py:406
 msgid "pseudo-folder"
 msgstr "pseudo-carpeta"
 
@@ -5439,57 +5439,57 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:56
 msgid "no processes"
-msgstr ""
+msgstr "sin procesos"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:34
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:60
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:42
 msgid "Node Configurations"
-msgstr ""
+msgstr "Configuraciones del nodo"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
 msgid "No configurations"
-msgstr ""
+msgstr "Sin configuraciones"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:51
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:77
 msgid "Cluster configurations are not specified"
-msgstr ""
+msgstr "Configuraciones del cluster no han sido especificadas"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:7
 msgid "Node Group"
-msgstr ""
+msgstr "Grupo del nodo"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
-msgstr ""
+msgstr "Conteo de nodos"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:18
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:34
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:26
 msgid "Template not specified"
-msgstr ""
+msgstr "Plantilla no especificada"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:81
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
 msgid "Node Processes"
-msgstr ""
+msgstr "Procesos del nodo"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:31
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:39
 msgid "Node processes are not specified"
-msgstr ""
+msgstr "Procesos del nodo no han sido especificados"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:51
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:59
 msgid "Node configurations are not specified"
-msgstr ""
+msgstr "Configuraciones del nodo no han sido especificadas"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
 msgid "Upload"
@@ -5653,7 +5653,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:17
 msgid "Error Details"
-msgstr ""
+msgstr "Detalles del error"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
 #: dashboards/project/data_processing/clusters/workflows/create.py:79
@@ -5694,11 +5694,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:71
 msgid "Cluster Name"
-msgstr ""
+msgstr "Nombre del cluster"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:76
 msgid "Cluster Template"
-msgstr ""
+msgstr "Plantilla del cluster"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:84
 msgid "Which keypair to use for authentication."
@@ -5719,7 +5719,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/workflows/create.py:197
 #, python-format
 msgid "Created Cluster %s"
-msgstr ""
+msgstr "Creado cluster %s"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:229
 msgid "Unable to create the cluster"
@@ -10966,7 +10966,7 @@ msgstr ""
 
 #: dashboards/project/volumes/backups/forms.py:85
 msgid "Create a New Volume"
-msgstr ""
+msgstr "Crear un nuevo volumen"
 
 #: dashboards/project/volumes/backups/forms.py:102
 #, python-format
@@ -10977,7 +10977,7 @@ msgstr ""
 
 #: dashboards/project/volumes/backups/forms.py:108
 msgid "Unable to restore backup."
-msgstr ""
+msgstr "No pude restaurar el respaldo."
 
 #: dashboards/project/volumes/backups/tables.py:47
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
@@ -10987,7 +10987,7 @@ msgstr ""
 #: dashboards/project/volumes/backups/tabs.py:38
 #: dashboards/project/volumes/backups/views.py:61
 msgid "Unable to retrieve backup details."
-msgstr ""
+msgstr "No pude obtener los detalles del respaldo."
 
 #: dashboards/project/volumes/snapshots/forms.py:37
 #, python-format
@@ -11015,7 +11015,7 @@ msgstr "No ha sido posible obtener las instantáneas."
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
 msgid "Create Volume Backup"
-msgstr ""
+msgstr "Crear un volumen de respaldo"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid ""
@@ -11045,7 +11045,7 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:19
 msgid "Optionally, you may choose to create a new volume."
-msgstr ""
+msgstr "Opcionalmente, puede seleccionar crear un nuevo volumen."
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:24
 msgid "Restore Backup to Volume"
@@ -11053,19 +11053,19 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
 msgid "Create a Volume Backup"
-msgstr ""
+msgstr "Crear un volumen de respaldo"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:3
 msgid "Volume Backup Details"
-msgstr ""
+msgstr "Detalles del respaldo del volumen"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details: "
-msgstr ""
+msgstr "Detalles del respaldo del volumen:"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details:"
-msgstr ""
+msgstr "Detalles del respaldo del volumen:"
 
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
 msgid "Restore a Volume Backup"
@@ -11370,12 +11370,12 @@ msgstr "No ha sido posible modificar el volumen."
 
 #: dashboards/project/volumes/volumes/forms.py:527
 msgid "New size must be greater than current size."
-msgstr ""
+msgstr "Nuevo tamaño debe ser mayor al actual."
 
 #: dashboards/project/volumes/volumes/forms.py:538
 #, python-format
 msgid "Extending volume: \"%s\""
-msgstr ""
+msgstr "Extendiendo volumen: \"%s\""
 
 #: dashboards/project/volumes/volumes/forms.py:544
 msgid "Unable to extend volume."
@@ -11406,11 +11406,11 @@ msgstr "Asociado a %(instance)s en %(dev)s"
 
 #: dashboards/project/volumes/volumes/tables.py:280
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: dashboards/project/volumes/volumes/tables.py:282
 msgid "Yes"
-msgstr ""
+msgstr "Sí"
 
 #: dashboards/project/volumes/volumes/tables.py:333
 msgid "Bootable"
