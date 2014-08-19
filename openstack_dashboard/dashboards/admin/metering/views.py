@@ -15,6 +15,7 @@ from datetime import timedelta  # noqa
 
 import json
 
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse   # noqa
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
@@ -125,8 +126,7 @@ class ReportView(tables.MultiTableView):
 
     def get_context_data(self, **kwargs):
         context = {'tables': self.get_tables().values()}
-        url = self.request.get_full_path().replace('/report', '/report/csv')
-        context['csv_url'] = url
+        context['csv_url'] = reverse('horizon:admin:metering:csvreport')
         return context
 
 
