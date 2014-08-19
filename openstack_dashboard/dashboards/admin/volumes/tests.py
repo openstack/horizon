@@ -25,8 +25,7 @@ from openstack_dashboard.test import helpers as test
 class VolumeTests(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list',
-                                 'volume_type_list',
-                                 'volume_snapshot_list'),
+                                 'volume_type_list',),
                         keystone: ('tenant_list',)})
     def test_index(self):
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
@@ -36,15 +35,6 @@ class VolumeTests(test.BaseAdminViewTests):
                        .AndReturn([self.servers.list(), False])
         cinder.volume_type_list(IsA(http.HttpRequest)).\
                                AndReturn(self.volume_types.list())
-        keystone.tenant_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.tenants.list(), False])
-
-        cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).\
-            AndReturn(self.cinder_volume_snapshots.list())
-        cinder.volume_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).\
-            AndReturn(self.cinder_volumes.list())
         keystone.tenant_list(IsA(http.HttpRequest)). \
             AndReturn([self.tenants.list(), False])
 
@@ -123,21 +113,9 @@ class VolumeTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list',
-                                 'volume_type_list',
                                  'volume_snapshot_list',),
                         keystone: ('tenant_list',)})
     def test_snapshot_tab(self):
-        cinder.volume_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).\
-            AndReturn(self.cinder_volumes.list())
-        api.nova.server_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).\
-            AndReturn([self.servers.list(), False])
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
-        keystone.tenant_list(IsA(http.HttpRequest)). \
-            AndReturn([self.tenants.list(), False])
-
         cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
             'all_tenants': True}). \
             AndReturn(self.cinder_volume_snapshots.list())
