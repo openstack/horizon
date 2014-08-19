@@ -83,6 +83,7 @@ class CreateImageForm(forms.SelfHandlingForm):
     architecture = forms.CharField(max_length="255", label=_("Architecture"),
                                    required=False)
     minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),
+                                    min_value=0,
                                     help_text=_('The minimum disk size'
                                             ' required to boot the'
                                             ' image. If unspecified, this'
@@ -90,6 +91,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                             ' (no minimum).'),
                                     required=False)
     minimum_ram = forms.IntegerField(label=_("Minimum RAM (MB)"),
+                                    min_value=0,
                                     help_text=_('The minimum memory size'
                                             ' required to boot the'
                                             ' image. If unspecified, this'
