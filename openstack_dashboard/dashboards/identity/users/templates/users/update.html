@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Update User" %}{% endblock %}
+
+{% block page_header %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "horizon/common/_page_header.html" with title=_("Update User") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'identity/users/_update.html' %}
+{% endblock %}

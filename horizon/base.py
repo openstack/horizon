@@ -61,6 +61,8 @@ class NotRegistered(Exception):
 
 
 class HorizonComponent(object):
+    policy_rules = None
+
     def __init__(self):
         super(HorizonComponent, self).__init__()
         if not self.slug:
@@ -87,6 +89,29 @@ class HorizonComponent(object):
             else:
                 urlpatterns = patterns('')
         return urlpatterns
+
+    def can_access(self, context):
+        """Checks to see that the user has role based access to this component.
+
+        This method should be overridden to return the result of
+        any policy checks required for the user to access this component
+        when more complex checks are required.
+        """
+        return self._can_access(context['request'])
+
+    def _can_access(self, request):
+        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+
+        # this check is an OR check rather than an AND check that is the
+        # default in the policy engine, so calling each rule individually
+        if policy_check and self.policy_rules:
+            for rule in self.policy_rules:
+                if policy_check((rule,), request):
+                    return True
+            return False
+
+        # default to allowed
+        return True
 
 
 class Registry(object):
@@ -542,6 +567,30 @@ class Dashboard(Registry, HorizonComponent):
             if key in loaders.panel_template_dirs:
                 del loaders.panel_template_dirs[key]
         return success
+
+    def can_access(self, context):
+        """Checks for role based access for this dashboard.
+
+        Checks for access to any panels in the dashboard and of the the
+        dashboard itself.
+
+        This method should be overridden to return the result of
+        any policy checks required for the user to access this dashboard
+        when more complex checks are required.
+        """
+
+        # if the dashboard has policy rules, honor those above individual
+        # panels
+        if not self._can_access(context['request']):
+            return False
+
+        # check if access is allowed to a single panel,
+        # the default for each panel is True
+        for panel in self.get_panels():
+            if panel.can_access(context):
+                return True
+
+        return False
 
 
 class Workflow(object):

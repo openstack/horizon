@@ -53,6 +53,19 @@ class AdminPanel(horizon.Panel):
     urls = 'horizon.test.test_dashboards.cats.kittens.urls'
 
 
+class RbacNoAccessPanel(horizon.Panel):
+    name = "RBAC Panel No"
+    slug = "rbac_panel_no"
+
+    def _can_access(self, request):
+        return False
+
+
+class RbacYesAccessPanel(horizon.Panel):
+    name = "RBAC Panel Yes"
+    slug = "rbac_panel_yes"
+
+
 class BaseHorizonTests(test.TestCase):
 
     def setUp(self):
@@ -439,3 +452,67 @@ class CustomPermissionsTests(BaseHorizonTests):
                                follow=False,
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(resp.status_code, 200)
+
+
+class RbacHorizonTests(test.TestCase):
+
+    def setUp(self):
+        super(RbacHorizonTests, self).setUp()
+        # Adjust our horizon config and register our custom dashboards/panels.
+        self.old_default_dash = settings.HORIZON_CONFIG['default_dashboard']
+        settings.HORIZON_CONFIG['default_dashboard'] = 'cats'
+        self.old_dashboards = settings.HORIZON_CONFIG['dashboards']
+        settings.HORIZON_CONFIG['dashboards'] = ('cats', 'dogs')
+        base.Horizon.register(Cats)
+        base.Horizon.register(Dogs)
+        Cats.register(RbacNoAccessPanel)
+        Cats.default_panel = 'rbac_panel_no'
+        Dogs.register(RbacYesAccessPanel)
+        Dogs.default_panel = 'rbac_panel_yes'
+        # Trigger discovery, registration, and URLconf generation if it
+        # hasn't happened yet.
+        base.Horizon._urls()
+        # Store our original dashboards
+        self._discovered_dashboards = base.Horizon._registry.keys()
+        # Gather up and store our original panels for each dashboard
+        self._discovered_panels = {}
+        for dash in self._discovered_dashboards:
+            panels = base.Horizon._registry[dash]._registry.keys()
+            self._discovered_panels[dash] = panels
+
+    def tearDown(self):
+        super(RbacHorizonTests, self).tearDown()
+        # Restore our settings
+        settings.HORIZON_CONFIG['default_dashboard'] = self.old_default_dash
+        settings.HORIZON_CONFIG['dashboards'] = self.old_dashboards
+        # Destroy our singleton and re-create it.
+        base.HorizonSite._instance = None
+        del base.Horizon
+        base.Horizon = base.HorizonSite()
+        # Reload the convenience references to Horizon stored in __init__
+        reload(import_module("horizon"))
+        # Re-register our original dashboards and panels.
+        # This is necessary because autodiscovery only works on the first
+        # import, and calling reload introduces innumerable additional
+        # problems. Manual re-registration is the only good way for testing.
+        self._discovered_dashboards.remove(Cats)
+        self._discovered_dashboards.remove(Dogs)
+        for dash in self._discovered_dashboards:
+            base.Horizon.register(dash)
+            for panel in self._discovered_panels[dash]:
+                dash.register(panel)
+
+    def test_rbac_panels(self):
+        context = {'request': None}
+        cats = horizon.get_dashboard("cats")
+        self.assertEqual(cats._registered_with, base.Horizon)
+        self.assertQuerysetEqual(cats.get_panels(),
+                                 ['<Panel: rbac_panel_no>'])
+        self.assertFalse(cats.can_access(context))
+
+        dogs = horizon.get_dashboard("dogs")
+        self.assertEqual(dogs._registered_with, base.Horizon)
+        self.assertQuerysetEqual(dogs.get_panels(),
+                                 ['<Panel: rbac_panel_yes>'])
+
+        self.assertTrue(dogs.can_access(context))

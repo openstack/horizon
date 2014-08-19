@@ -1,3 +1,7 @@
+# Copyright 2012 United States Government as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+# All Rights Reserved.
+#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -16,21 +20,14 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-
-class SystemPanels(horizon.PanelGroup):
-    slug = "admin"
-    name = _("System")
-    panels = ('overview', 'metering', 'hypervisors', 'aggregates',
-              'instances', 'volumes', 'flavors', 'images',
-              'networks', 'routers', 'info')
+from openstack_dashboard.dashboards.identity import dashboard
 
 
-class Admin(horizon.Dashboard):
-    name = _("Admin")
-    slug = "admin"
-    panels = (SystemPanels,)
-    default_panel = 'overview'
-    permissions = ('openstack.roles.admin',)
+class Tenants(horizon.Panel):
+    name = _("Projects")
+    slug = 'projects'
+    policy_rules = (("identity", "identity:list_projects"),
+                    ("identity", "identity:list_user_projects"))
 
 
-horizon.register(Admin)
+dashboard.Identity.register(Tenants)

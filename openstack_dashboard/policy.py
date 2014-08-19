@@ -110,6 +110,9 @@ def check(actions, request, target={}):
     # same for user_id
     if target.get('user_id') is None:
         target['user_id'] = user.id
+    # same for domain_id
+    if target.get('domain_id') is None:
+        target['domain_id'] = user.domain_id
 
     credentials = _user_to_credentials(request, user)
 

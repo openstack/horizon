@@ -252,8 +252,9 @@ def tenant_delete(request, project):
     return manager.delete(project)
 
 
-def tenant_list(request, paginate=False, marker=None, domain=None, user=None):
-    manager = VERSIONS.get_project_manager(request, admin=True)
+def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
+                admin=True):
+    manager = VERSIONS.get_project_manager(request, admin=admin)
     page_size = utils.get_page_size(request)
 
     limit = None
