@@ -7,7 +7,7 @@
         <dt>{% trans "ID" %}</dt>
         <dd>{{ job.id }}</dd>
         <dt>{% trans "Description" %}</dt>
-        <dd>{{ job.description|default:"None" }}</dd>
+        <dd>{{ job.description|default:_("None") }}</dd>
         <dt>{% trans "Mains" %}<dt>
         {% for main in job.mains %}
           <dd>{{ main.name }}</dd>

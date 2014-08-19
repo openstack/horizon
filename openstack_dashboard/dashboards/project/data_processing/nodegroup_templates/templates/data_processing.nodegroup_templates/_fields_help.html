@@ -1,7 +1,8 @@
+{% load i18n %}
 <div class="field-filter">
-    <input type="text" class="field-filter" placeholder="Filter" style="background:no-repeat scroll 195px 5px transparent url('/static/dashboard/img/search.png');"/><br>
-    <a class="full-config-show" onclick="show_not_important_fields(this);">Show full configuration</a>
-    <a class="full-config-hide" onclick="hide_not_important_fields(this);">Hide full configuration</a>
+    <input type="text" class="field-filter" placeholder="{% trans "Filter" %}" style="background:no-repeat scroll 195px 5px transparent url('/static/dashboard/img/search.png');"/><br>
+    <a class="full-config-show" onclick="show_not_important_fields(this);">{% trans "Show full configuration" %}</a>
+    <a class="full-config-hide" onclick="hide_not_important_fields(this);">{% trans "Hide full configuration" %}</a>
 </div>
 
 <script type="text/javascript">

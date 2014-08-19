@@ -13,7 +13,7 @@
         <dt>{% trans "Tenant id" %}</dt>
         <dd>{{ data_source.tenant_id }}</dd>
         <dt>{% trans "Description" %}</dt>
-        <dd>{{ data_source.description|default:"None" }}</dd>
+        <dd>{{ data_source.description|default:_("None") }}</dd>
         <dt>{% trans "Create time" %}</dt>
         <dd>{{ data_source.created_at }}</dd>
     </dl>

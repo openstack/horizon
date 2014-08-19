@@ -1,12 +1,13 @@
 {% load i18n %}
 <script type="text/javascript">
+    var remove_btn_label = '{% trans "Remove" %}';
     var template = '<tr id_attr="$id">' +
             '<td>' +
             '<div class="input form-group"  style="padding-right:15px;"><input disabled value="$lib_name" class="form-control" /></div>' +
             '</td>' +
             '<td>' +
             '<div class="input form-group" style="float:left;padding-right:5px;">' +
-            '<input type="button" class="btn btn-danger" id="delete_btn_$id" data-toggle="dropdown" onclick="delete_lib(this)" value="Remove" />' +
+            '<input type="button" class="btn btn-danger" id="delete_btn_$id" data-toggle="dropdown" onclick="delete_lib(this)" value="' + remove_btn_label +'" />' +
             '</div>' +
             '</td>' +
             '<td>' +

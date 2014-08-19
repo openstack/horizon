@@ -4,7 +4,7 @@
         horizon.modals.addModalInitFunction(function (modal) {
           $("#id_data_source_type").change(function() {
             var username = $("#id_data_source_credential_user").closest(".form-group");
-            var password = $("#id_data_source_credential_pass").closest(".form-group")
+            var password = $("#id_data_source_credential_pass").closest(".form-group");
             switch($(this).val()) {
               case "hdfs":
                 username.hide();

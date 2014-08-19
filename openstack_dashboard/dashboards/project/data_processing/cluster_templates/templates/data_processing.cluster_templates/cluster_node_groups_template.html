@@ -1,3 +1,4 @@
+{% load i18n %}
 <script>
     var template =
             '<tr class="row data-template-row" id_attr="$id" style="padding:5px">' +
@@ -89,7 +90,7 @@
     $("#node-templates").hide();
 </script>
 <input type="hidden" value="[]" name="forms_ids" id="forms_ids">
-<label for="template_id">Select a Node Group Template to add:</label>
+<label for="template_id">{% trans "Select a Node Group Template to add" %}:</label>
 <span class="row">
     <span class="input-group col-sm-4">
         <select id="template_id" name="template" class="form-control">
