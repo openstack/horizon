@@ -100,7 +100,7 @@ class VolumeBackupsViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res,
-                            "<h2>Volume Backup Details: %s</h2>" %
+                            "<h1>Volume Backup Details: %s</h1>" %
                             backup.name,
                             1, 200)
         self.assertContains(res, "<dd>%s</dd>" % backup.name, 1, 200)
@@ -141,7 +141,7 @@ class VolumeBackupsViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res,
-                            "<h2>Volume Backup Details: %s</h2>" %
+                            "<h1>Volume Backup Details: %s</h1>" %
                             backup.name,
                             1, 200)
         self.assertContains(res, "<dd>%s</dd>" % backup.name, 1, 200)
