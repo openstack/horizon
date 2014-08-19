@@ -752,14 +752,6 @@ div.table_cell_wrapper {
     z-index: 99;
   }
 
-  .table_cell_action.hovered {
-    background-image: -webkit-linear-gradient(top, +body-bg, +gray-lighter);
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    border: 1px solid $gray-light;
-    border-bottom-color: darken($gray-light, 10%);
-    border-radius: 4px;
-  }
-
   .inline-edit-error {
     .error {
       @include status-icon(-144px, -120px, 0px, 0px);
