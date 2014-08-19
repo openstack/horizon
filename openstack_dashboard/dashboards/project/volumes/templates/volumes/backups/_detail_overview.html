@@ -17,13 +17,14 @@
     {% endif %}
     <dt>{% trans "Status" %}</dt>
     <dd>{{ backup.status|capfirst }}</dd>
+    {% if volume %}
     <dt>{% trans "Volume" %}</dt>
     <dd>
       <a href="{% url 'horizon:project:volumes:volumes:detail' backup.volume_id %}">
         {{ volume.name }}
       </a>
     </dd>
-
+    {% endif %}
   </dl>
 </div>
 

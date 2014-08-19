@@ -29,7 +29,10 @@ class BackupOverviewTab(tabs.Tab):
     def get_context_data(self, request):
         try:
             backup = self.tab_group.kwargs['backup']
-            volume = cinder.volume_get(request, backup.volume_id)
+            try:
+                volume = cinder.volume_get(request, backup.volume_id)
+            except Exception:
+                volume = None
             return {'backup': backup,
                     'volume': volume}
         except Exception:
