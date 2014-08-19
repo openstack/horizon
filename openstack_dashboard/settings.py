@@ -27,6 +27,7 @@ import xstatic.pkg.angular
 import xstatic.pkg.angular_cookies
 import xstatic.pkg.angular_mock
 import xstatic.pkg.d3
+import xstatic.pkg.font_awesome
 import xstatic.pkg.hogan
 import xstatic.pkg.jasmine
 import xstatic.pkg.jquery
@@ -159,6 +160,8 @@ STATICFILES_DIRS = (
         xstatic.main.XStatic(xstatic.pkg.d3).base_dir),
     ('horizon/lib',
         xstatic.main.XStatic(xstatic.pkg.hogan).base_dir),
+    ('horizon/lib/font-awesome',
+        xstatic.main.XStatic(xstatic.pkg.font_awesome).base_dir),
     ('horizon/lib/jasmine-1.3.1',
         xstatic.main.XStatic(xstatic.pkg.jasmine).base_dir),
     ('horizon/lib/jquery',
