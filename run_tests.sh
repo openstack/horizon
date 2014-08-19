@@ -25,6 +25,9 @@ function usage {
   echo "  --makemessages           Create/Update English translation files."
   echo "  --compilemessages        Compile all translation files."
   echo "  -p, --pep8               Just run pep8"
+  echo "  -8, --pep8-changed [<basecommit>]"
+  echo "                           Just run PEP8 and HACKING compliance check"
+  echo "                           on files changed since HEAD~1 (or <basecommit>)"
   echo "  -P, --no-pep8            Don't run pep8 by default"
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
@@ -65,6 +68,7 @@ command_wrapper=""
 destroy=0
 force=0
 just_pep8=0
+just_pep8_changed=0
 no_pep8=0
 just_pylint=0
 just_docs=0
@@ -100,6 +104,7 @@ function process_option {
     -V|--virtual-env) always_venv=1; never_venv=0;;
     -N|--no-virtual-env) always_venv=0; never_venv=1;;
     -p|--pep8) just_pep8=1;;
+    -8|--pep8-changed) just_pep8_changed=1;;
     -P|--no-pep8) no_pep8=1;;
     -y|--pylint) just_pylint=1;;
     -j|--jshint) just_jshint=1;;
@@ -154,8 +159,7 @@ function run_jshint {
   jshint horizon/static/horizon/tests
 }
 
-function run_pep8 {
-  echo "Running flake8 ..."
+function warn_on_flake8_without_venv {
   set +o errexit
   ${command_wrapper} python -c "import hacking" 2>/dev/null
   no_hacking=$?
@@ -165,7 +169,26 @@ function run_pep8 {
       echo "OpenStack hacking is not installed on your host. Its detection will be missed." >&2
       echo "Please install or use virtual env if you need OpenStack hacking detection." >&2
   fi
+}
+
+function run_pep8 {
+  echo "Running flake8 ..."
+  warn_on_flake8_without_venv
   DJANGO_SETTINGS_MODULE=openstack_dashboard.test.settings ${command_wrapper} flake8
+}
+
+function run_pep8_changed {
+    # NOTE(gilliard) We want use flake8 to check the entirety of every file that has
+    # a change in it. Unfortunately the --filenames argument to flake8 only accepts
+    # file *names* and there are no files named (eg) "nova/compute/manager.py".  The
+    # --diff argument behaves surprisingly as well, because although you feed it a
+    # diff, it actually checks the file on disk anyway.
+    local base_commit=${testargs:-HEAD~1}
+    files=$(git diff --name-only $base_commit | tr '\n' ' ')
+    echo "Running flake8 on ${files}"
+    warn_on_flake8_without_venv
+    diff -u --from-file /dev/null ${files} | DJANGO_SETTINGS_MODULE=openstack_dashboard.test.settings ${command_wrapper} flake8 --diff
+    exit
 }
 
 function run_sphinx {
@@ -492,6 +515,11 @@ fi
 # PEP8
 if [ $just_pep8 -eq 1 ]; then
     run_pep8
+    exit $?
+fi
+
+if [ $just_pep8_changed -eq 1 ]; then
+    run_pep8_changed
     exit $?
 fi
 
