@@ -43,6 +43,7 @@ from openstack_dashboard.dashboards.project.instances.workflows \
     import resize_instance
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
+from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -77,7 +78,7 @@ def is_deleting(instance):
     return task_state.lower() == "deleting"
 
 
-class TerminateInstance(tables.BatchAction):
+class TerminateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "terminate"
     classes = ("btn-danger",)
     icon = "off"
@@ -99,12 +100,6 @@ class TerminateInstance(tables.BatchAction):
             count
         )
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
-
     def allowed(self, request, instance=None):
         """Allow terminate action if instance not currently being deleted."""
         return not is_deleting(instance)
@@ -113,7 +108,7 @@ class TerminateInstance(tables.BatchAction):
         api.nova.server_delete(request, obj_id)
 
 
-class RebootInstance(tables.BatchAction):
+class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "reboot"
     classes = ('btn-danger', 'btn-reboot')
     policy_rules = (("compute", "compute:reboot"),)
@@ -133,12 +128,6 @@ class RebootInstance(tables.BatchAction):
             u"Hard Rebooted Instances",
             count
         )
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance=None):
         if instance is not None:
@@ -353,19 +342,13 @@ class LaunchLink(tables.LinkAction):
         return HttpResponse(self.render())
 
 
-class EditInstance(tables.LinkAction):
+class EditInstance(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Instance")
     url = "horizon:project:instances:update"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("compute", "compute:update"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def get_link_url(self, project):
         return self._get_link_url(project, 'instance_info')
@@ -395,7 +378,7 @@ class EditInstanceSecurityGroups(EditInstance):
                 request.user.tenant_id == instance.tenant_id)
 
 
-class CreateSnapshot(tables.LinkAction):
+class CreateSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     name = "snapshot"
     verbose_name = _("Create Snapshot")
     url = "horizon:project:images:snapshots:create"
@@ -403,29 +386,17 @@ class CreateSnapshot(tables.LinkAction):
     icon = "camera"
     policy_rules = (("compute", "compute:snapshot"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
-
     def allowed(self, request, instance=None):
         return instance.status in SNAPSHOT_READY_STATES \
             and not is_deleting(instance)
 
 
-class ConsoleLink(tables.LinkAction):
+class ConsoleLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "console"
     verbose_name = _("Console")
     url = "horizon:project:instances:detail"
     classes = ("btn-console",)
     policy_rules = (("compute", "compute_extension:consoles"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance=None):
         # We check if ConsoleLink is allowed only if settings.CONSOLE_TYPE is
@@ -440,18 +411,12 @@ class ConsoleLink(tables.LinkAction):
         return "?".join([base_url, tab_query_string])
 
 
-class LogLink(tables.LinkAction):
+class LogLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "log"
     verbose_name = _("View Log")
     url = "horizon:project:instances:detail"
     classes = ("btn-log",)
     policy_rules = (("compute", "compute_extension:console_output"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance=None):
         return instance.status in ACTIVE_STATES and not is_deleting(instance)
@@ -463,18 +428,12 @@ class LogLink(tables.LinkAction):
         return "?".join([base_url, tab_query_string])
 
 
-class ResizeLink(tables.LinkAction):
+class ResizeLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "resize"
     verbose_name = _("Resize Instance")
     url = "horizon:project:instances:resize"
     classes = ("ajax-modal", "btn-resize")
     policy_rules = (("compute", "compute:resize"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def get_link_url(self, project):
         return self._get_link_url(project, 'flavor_choice')
@@ -493,17 +452,11 @@ class ResizeLink(tables.LinkAction):
                 and not is_deleting(instance))
 
 
-class ConfirmResize(tables.Action):
+class ConfirmResize(policy.PolicyTargetMixin, tables.Action):
     name = "confirm"
     verbose_name = _("Confirm Resize/Migrate")
     classes = ("btn-confirm", "btn-action-required")
     policy_rules = (("compute", "compute:confirm_resize"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
@@ -512,17 +465,11 @@ class ConfirmResize(tables.Action):
         api.nova.server_confirm_resize(request, instance)
 
 
-class RevertResize(tables.Action):
+class RevertResize(policy.PolicyTargetMixin, tables.Action):
     name = "revert"
     verbose_name = _("Revert Resize/Migrate")
     classes = ("btn-revert", "btn-action-required")
     policy_rules = (("compute", "compute:revert_resize"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return instance.status == 'VERIFY_RESIZE'
@@ -531,18 +478,12 @@ class RevertResize(tables.Action):
         api.nova.server_revert_resize(request, instance)
 
 
-class RebuildInstance(tables.LinkAction):
+class RebuildInstance(policy.PolicyTargetMixin, tables.LinkAction):
     name = "rebuild"
     verbose_name = _("Rebuild Instance")
     classes = ("btn-rebuild", "ajax-modal")
     url = "horizon:project:instances:rebuild"
     policy_rules = (("compute", "compute:rebuild"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return ((instance.status in ACTIVE_STATES
@@ -577,19 +518,13 @@ class DecryptInstancePassword(tables.LinkAction):
                                                     keypair_name])
 
 
-class AssociateIP(tables.LinkAction):
+class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate Floating IP")
     url = "horizon:project:access_and_security:floating_ips:associate"
     classes = ("ajax-modal",)
     icon = "link"
     policy_rules = (("compute", "network:associate_floating_ip"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         if not api.network.floating_ip_supported(request):
@@ -607,17 +542,11 @@ class AssociateIP(tables.LinkAction):
         return "?".join([base_url, params])
 
 
-class SimpleAssociateIP(tables.Action):
+class SimpleAssociateIP(policy.PolicyTargetMixin, tables.Action):
     name = "associate-simple"
     verbose_name = _("Associate Floating IP")
     icon = "link"
     policy_rules = (("compute", "network:associate_floating_ip"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         if not api.network.floating_ip_simple_associate_supported(request):
@@ -642,17 +571,11 @@ class SimpleAssociateIP(tables.Action):
         return shortcuts.redirect("horizon:project:instances:index")
 
 
-class SimpleDisassociateIP(tables.Action):
+class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
     name = "disassociate"
     verbose_name = _("Disassociate Floating IP")
     classes = ("btn-danger", "btn-disassociate",)
     policy_rules = (("compute", "network:disassociate_floating_ip"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         if not api.network.floating_ip_supported(request):
@@ -725,7 +648,7 @@ class UpdateRow(tables.Row):
         return instance
 
 
-class StartInstance(tables.BatchAction):
+class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "start"
     policy_rules = (("compute", "compute:start"),)
 
@@ -745,12 +668,6 @@ class StartInstance(tables.BatchAction):
             count
         )
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
-
     def allowed(self, request, instance):
         return instance.status in ("SHUTDOWN", "SHUTOFF", "CRASHED")
 
@@ -758,7 +675,7 @@ class StartInstance(tables.BatchAction):
         api.nova.server_start(request, obj_id)
 
 
-class StopInstance(tables.BatchAction):
+class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "stop"
     classes = ('btn-danger',)
     policy_rules = (("compute", "compute:stop"),)
@@ -780,12 +697,6 @@ class StopInstance(tables.BatchAction):
             u"Shut Off Instances",
             count
         )
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return ((get_power_state(instance)

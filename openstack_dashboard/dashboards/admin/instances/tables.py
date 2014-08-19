@@ -22,13 +22,14 @@ from horizon.utils import filters
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances \
     import tables as project_tables
+from openstack_dashboard import policy
 
 
 class AdminEditInstance(project_tables.EditInstance):
     url = "horizon:admin:instances:update"
 
 
-class MigrateInstance(tables.BatchAction):
+class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
     action_present = _("Migrate")
     action_past = _("Scheduled migration (pending confirmation) of")
@@ -36,12 +37,6 @@ class MigrateInstance(tables.BatchAction):
     data_type_plural = _("Instances")
     classes = ("btn-migrate", "btn-danger")
     policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES
@@ -52,19 +47,14 @@ class MigrateInstance(tables.BatchAction):
         api.nova.server_migrate(request, obj_id)
 
 
-class LiveMigrateInstance(tables.LinkAction):
+class LiveMigrateInstance(policy.PolicyTargetMixin,
+                          tables.LinkAction):
     name = "live_migrate"
     verbose_name = _("Live Migrate Instance")
     url = "horizon:admin:instances:live_migrate"
     classes = ("ajax-modal", "btn-migrate", "btn-danger")
     policy_rules = (
         ("compute", "compute_extension:admin_actions:migrateLive"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES)

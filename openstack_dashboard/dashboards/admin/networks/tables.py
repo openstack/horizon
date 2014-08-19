@@ -25,12 +25,12 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks \
     import tables as project_tables
-
+from openstack_dashboard import policy
 
 LOG = logging.getLogger(__name__)
 
 
-class DeleteNetwork(tables.DeleteAction):
+class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -48,12 +48,6 @@ class DeleteNetwork(tables.DeleteAction):
         )
 
     policy_rules = (("network", "delete_network"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         try:
@@ -74,19 +68,13 @@ class CreateNetwork(tables.LinkAction):
     policy_rules = (("network", "create_network"),)
 
 
-class EditNetwork(tables.LinkAction):
+class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Network")
     url = "horizon:admin:networks:update"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("network", "update_network"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
 
 # def _get_subnets(network):
