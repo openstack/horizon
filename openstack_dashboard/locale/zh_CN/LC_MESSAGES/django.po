@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 03:25-0500\n"
-"PO-Revision-Date: 2014-08-13 06:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-15 01:58-0500\n"
+"PO-Revision-Date: 2014-08-19 03:42+0000\n"
+"Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,7 +341,7 @@ msgstr "修改 %(num_groups_to_modify)d 实例安全组失败: %(err)s"
 msgid "Failed to modify %d instance security groups"
 msgstr "修改 %d 实例安全组失败"
 
-#: api/swift.py:200 dashboards/project/containers/tables.py:115
+#: api/swift.py:200
 msgid "The container cannot be deleted since it's not empty."
 msgstr "由于此容器非空，因此不能被删除。"
 
@@ -928,7 +928,7 @@ msgstr "创建域"
 #: dashboards/admin/images/properties/tables.py:66
 #: dashboards/admin/roles/tables.py:36 dashboards/admin/users/tables.py:43
 #: dashboards/admin/volumes/volumes/extras/tables.py:44
-#: dashboards/project/containers/tables.py:309
+#: dashboards/project/containers/tables.py:307
 #: dashboards/project/images/images/tables.py:87
 msgid "Edit"
 msgstr "编辑"
@@ -1837,25 +1837,25 @@ msgstr "查看自定义属性"
 
 #: dashboards/admin/images/tables.py:60
 msgid "Image Name ="
-msgstr ""
+msgstr "镜像名称 ="
 
 #: dashboards/admin/images/tables.py:61
 #: dashboards/admin/instances/tables.py:95
 #: dashboards/project/instances/tables.py:786
 msgid "Status ="
-msgstr ""
+msgstr "状态 ="
 
 #: dashboards/admin/images/tables.py:62
 msgid "Format ="
-msgstr ""
+msgstr "格式 ="
 
 #: dashboards/admin/images/tables.py:63
 msgid "Min. Size (MB)"
-msgstr ""
+msgstr "容量最小值 (MB)"
 
 #: dashboards/admin/images/tables.py:64
 msgid "Max. Size (MB)"
-msgstr ""
+msgstr "容量最大值 (MB)"
 
 #: dashboards/admin/images/tables.py:70
 #: dashboards/admin/instances/tables.py:137
@@ -2456,25 +2456,25 @@ msgstr "项目"
 
 #: dashboards/admin/instances/tables.py:91
 msgid "Host ="
-msgstr ""
+msgstr "主机 ="
 
 #: dashboards/admin/instances/tables.py:93
 msgid "IPv4 Address ="
-msgstr ""
+msgstr "IPv4 地址 ="
 
 #: dashboards/admin/instances/tables.py:94
 msgid "IPv6 Address ="
-msgstr ""
+msgstr "IPv6 地址 ="
 
 #: dashboards/admin/instances/tables.py:96
 #: dashboards/project/instances/tables.py:787
 msgid "Image ID ="
-msgstr ""
+msgstr "镜像ID ="
 
 #: dashboards/admin/instances/tables.py:97
 #: dashboards/project/instances/tables.py:788
 msgid "Flavor ID ="
-msgstr ""
+msgstr "实例类型ID ="
 
 #: dashboards/admin/instances/tables.py:139
 #: dashboards/project/access_and_security/floating_ips/tables.py:157
@@ -2487,7 +2487,7 @@ msgstr "IP 地址"
 
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:426
+#: dashboards/project/containers/tables.py:424
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:206
@@ -3947,7 +3947,7 @@ msgstr "找不到云硬盘快照。"
 #: dashboards/admin/volumes/snapshots/forms.py:25
 #: dashboards/admin/volumes/volumes/forms.py:55
 msgid "Creating"
-msgstr ""
+msgstr "创建中"
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
 #: dashboards/admin/volumes/volumes/forms.py:56
@@ -3963,22 +3963,22 @@ msgstr "错误"
 
 #: dashboards/admin/volumes/snapshots/forms.py:28
 msgid "Error_Deleting"
-msgstr ""
+msgstr "删除错误"
 
 #: dashboards/admin/volumes/snapshots/forms.py:43
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
-msgstr ""
+msgstr "更新卷快照状态成功：\"%s\"."
 
 #: dashboards/admin/volumes/snapshots/forms.py:48
 msgid "Unable to update volume snapshot status."
-msgstr ""
+msgstr "不能更新卷快照状态。"
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:28
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
 msgid "Update Status"
-msgstr ""
+msgstr "更新状态"
 
 #: dashboards/admin/volumes/snapshots/tables.py:61
 #: dashboards/project/volumes/backups/tables.py:120
@@ -4077,7 +4077,7 @@ msgstr "已创建"
 #: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:3
 #: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:6
 msgid "Update Volume Snapshot Status"
-msgstr ""
+msgstr "更新卷快照状态"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:19
 msgid ""
@@ -4086,7 +4086,7 @@ msgid ""
 "    an administrator may need to explicitly update the status value. This is equivalent to\n"
 "    the <tt>cinder snapshot-reset-state</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\n卷快照状态通常是自动管理的。在某些特定的环境下，\n管理员需要更新卷快照状态。这相当于\n的如下命令<tt>cinder snapshot-reset-state</tt> 的操作。"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:33
@@ -4113,7 +4113,7 @@ msgstr "\n卷类型标签可以在卷创建的时候指定。它通常映射到�
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:6
 #: dashboards/admin/volumes/volumes/tables.py:58
 msgid "Update Volume Status"
-msgstr ""
+msgstr "更新卷快照状态"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:19
 msgid ""
@@ -4122,7 +4122,7 @@ msgid ""
 "    administrator may need to explicitly update the status value.  This is equivalent to\n"
 "    the <tt>cinder reset-state</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\n卷状态通常是自动管理的。 在某些特定的环境下，\n管理员需要更新卷状态。这相当于\n的如下命令<tt>cinder snapshot-reset-state</tt> 的操作。"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -4183,7 +4183,7 @@ msgstr "无法创建云硬盘类型"
 
 #: dashboards/admin/volumes/volumes/forms.py:53
 msgid "Attaching"
-msgstr ""
+msgstr "挂载中"
 
 #: dashboards/admin/volumes/volumes/forms.py:57
 #: dashboards/project/volumes/volumes/tables.py:351
@@ -4192,7 +4192,7 @@ msgstr "断开zhong"
 
 #: dashboards/admin/volumes/volumes/forms.py:59
 msgid "Error Deleting"
-msgstr ""
+msgstr "删除错误"
 
 #: dashboards/admin/volumes/volumes/forms.py:60
 msgid "In Use"
@@ -4201,12 +4201,12 @@ msgstr "正在使用"
 #: dashboards/admin/volumes/volumes/forms.py:77
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
-msgstr ""
+msgstr "成功更新卷状态为\"%s\"."
 
 #: dashboards/admin/volumes/volumes/forms.py:82
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
-msgstr ""
+msgstr "无法更新卷状状态为\"%s\"."
 
 #: dashboards/admin/volumes/volumes/tables.py:40
 #: dashboards/admin/volumes/volumes/tables.py:96
@@ -4928,7 +4928,7 @@ msgid "Private"
 msgstr "私有"
 
 #: dashboards/project/containers/forms.py:48
-#: dashboards/project/containers/tables.py:255
+#: dashboards/project/containers/tables.py:253
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
@@ -4958,7 +4958,7 @@ msgid "File"
 msgstr "文件"
 
 #: dashboards/project/containers/forms.py:87
-#: dashboards/project/containers/tables.py:423
+#: dashboards/project/containers/tables.py:421
 msgid "Object Name"
 msgstr "对象名称"
 
@@ -5014,14 +5014,14 @@ msgstr "无法拷贝对象。"
 
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
-#: dashboards/project/containers/tables.py:266
+#: dashboards/project/containers/tables.py:264
 #: dashboards/project/containers/templates/containers/index.html:5
 #: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr "容器"
 
 #: dashboards/project/containers/tables.py:44
-#: dashboards/project/containers/tables.py:296
+#: dashboards/project/containers/tables.py:294
 msgid "View Details"
 msgstr "查看详情"
 
@@ -5046,11 +5046,11 @@ msgstr "私有化"
 msgid "Successfully updated container access to private."
 msgstr "成功更新容器为私有访问类型"
 
-#: dashboards/project/containers/tables.py:120
+#: dashboards/project/containers/tables.py:118
 msgid "Unable to delete container."
 msgstr "无法删除容器"
 
-#: dashboards/project/containers/tables.py:137
+#: dashboards/project/containers/tables.py:135
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -5058,50 +5058,50 @@ msgstr "无法删除容器"
 msgid "Create Container"
 msgstr "创建容器"
 
-#: dashboards/project/containers/tables.py:145
+#: dashboards/project/containers/tables.py:143
 msgid "View Container"
 msgstr "查看容器"
 
-#: dashboards/project/containers/tables.py:157
+#: dashboards/project/containers/tables.py:155
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:6
 msgid "Create Pseudo-folder"
 msgstr "创建虚拟文件夹"
 
-#: dashboards/project/containers/tables.py:186
+#: dashboards/project/containers/tables.py:184
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "上传对象"
 
-#: dashboards/project/containers/tables.py:257
+#: dashboards/project/containers/tables.py:255
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
 msgstr "容器详情"
 
-#: dashboards/project/containers/tables.py:323
+#: dashboards/project/containers/tables.py:321
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
 msgid "Object"
 msgstr "对象"
 
-#: dashboards/project/containers/tables.py:324
-#: dashboards/project/containers/tables.py:430
+#: dashboards/project/containers/tables.py:322
+#: dashboards/project/containers/tables.py:428
 msgid "Objects"
 msgstr "对象"
 
-#: dashboards/project/containers/tables.py:346
+#: dashboards/project/containers/tables.py:344
 msgid "Copy"
 msgstr "复制"
 
-#: dashboards/project/containers/tables.py:360
+#: dashboards/project/containers/tables.py:358
 #: dashboards/project/databases/tables.py:268
 msgid "Download"
 msgstr "下载"
 
-#: dashboards/project/containers/tables.py:408
+#: dashboards/project/containers/tables.py:406
 msgid "pseudo-folder"
 msgstr "虚拟文件夹"
 
@@ -5385,7 +5385,7 @@ msgstr "无法获取节点组的详细信息。"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:52
 msgid "Unable to fetch cluster template list"
-msgstr ""
+msgstr "无法获取集群模板列表"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:112
 #: dashboards/project/data_processing/clusters/views.py:97
@@ -11404,11 +11404,11 @@ msgstr "在设备%(dev)s上连接到%(instance)s"
 
 #: dashboards/project/volumes/volumes/tables.py:280
 msgid "No"
-msgstr ""
+msgstr "不"
 
 #: dashboards/project/volumes/volumes/tables.py:282
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: dashboards/project/volumes/volumes/tables.py:333
 msgid "Bootable"
