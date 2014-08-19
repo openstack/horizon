@@ -160,12 +160,6 @@
 
  */
 
-
-/**
- * TODO(lsmola) this is for representation of percentage charts. Need to be extended
- * so it can be used e.g. for setting fixed x axis as requested here:
- * https://bugs.launchpad.net/horizon/+bug/1243716
- */
 Rickshaw.namespace('Rickshaw.Graph.Renderer.StaticAxes');
 Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create( Rickshaw.Graph.Renderer.Line, {
   name: 'StaticAxes',
@@ -179,9 +173,19 @@ Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create( Rickshaw.Graph.Rende
   },
   domain: function($super) {
     var ret = $super();
+    var xMin, xMax;
     // If y axis wants to have static range, not based on data
     if (this.yMin !== undefined && this.yMax !== undefined){
       ret.y = [this.yMin, this.yMax];
+    }
+    // If x axis wants to have static range, not based on data
+    if (this.xMin !== undefined && this.xMax !== undefined){
+      xMin = d3.time.format('%Y-%m-%dT%H:%M:%S').parse(this.xMin);
+      xMin = xMin.getTime() / 1000;
+      xMax = d3.time.format('%Y-%m-%dT%H:%M:%S').parse(this.xMax);
+      xMax = xMax.getTime() / 1000;
+
+      ret.x = [xMin, xMax];
     }
     return ret;
   }
@@ -262,6 +266,9 @@ horizon.d3_line_chart = {
       // Static y axes values
       self.settings.yMin = undefined;
       self.settings.yMax = undefined;
+      // Static x axes values
+      self.settings.xMin = undefined;
+      self.settings.xMax = undefined;
       // Show last point as dot
       self.settings.higlight_last_point = false;
 
@@ -300,7 +307,7 @@ horizon.d3_line_chart = {
       var self = this;
 
       var allowed_settings = ['renderer', 'auto_size', 'axes_x', 'axes_y',
-        'interpolation', 'yMin', 'yMax', 'bar_chart_settings',
+        'interpolation', 'yMin', 'yMax', 'xMin', 'xMax', 'bar_chart_settings',
         'bar_chart_selector', 'composed_chart_selector',
         'higlight_last_point'];
 
@@ -430,6 +437,16 @@ horizon.d3_line_chart = {
         renderer = Rickshaw.Graph.Renderer.StaticAxes;
       }
 
+      // clean the old graph the messy way
+      // TODO(lsmola) clena when the Rickshaw issue is gone
+      // https://github.com/shutterstock/rickshaw/issues/432
+      self.jquery_element.empty();
+
+      var $newGraph = self.jquery_element.clone();
+      self.jquery_element.replaceWith($newGraph);
+      self.jquery_element = $newGraph;
+      self.html_element = self.jquery_element[0];
+
       // instantiate our graph!
       var graph = new Rickshaw.Graph({
         element: self.html_element,
@@ -439,6 +456,8 @@ horizon.d3_line_chart = {
         series: self.series,
         yMin: self.settings.yMin,
         yMax: self.settings.yMax,
+        xMin: self.settings.xMin,
+        xMax: self.settings.xMax,
         interpolation: self.settings.interpolation
       });
 
