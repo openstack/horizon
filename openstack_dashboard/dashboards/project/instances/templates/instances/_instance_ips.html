@@ -1,10 +1,19 @@
-{% for ip_group, addresses in instance.addresses.items %}
-    {% if instance.addresses.items|length > 1 %}
+{% load i18n %}
+{% for ip_group, ips in ip_groups.items %}
+    {% if ip_groups.keys|length > 1 %}
     <h4>{{ ip_group }}</h4>
     {% endif %}
     <ul>
-    {% for address in addresses %}
-      <li>{{ address.addr }}</li>
+    {% for address in ips.non_floating %}
+        <li>{{ address.addr }}</li>
     {% endfor %}
     </ul>
+    {% if ips.floating|length > 0 %}
+        <h5>{% trans 'Floating IPs:' %}</h5>
+        <ul>
+        {% for address in ips.floating %}
+             <li>{{ address.addr }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 {% endfor %}
