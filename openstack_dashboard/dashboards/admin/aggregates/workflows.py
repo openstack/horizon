@@ -25,8 +25,7 @@ class SetAggregateInfoAction(workflows.Action):
                            max_length=255)
 
     availability_zone = forms.CharField(label=_("Availability Zone"),
-                                        max_length=255,
-                                        required=False)
+                                        max_length=255)
 
     class Meta:
         name = _("Host Aggregate Info")

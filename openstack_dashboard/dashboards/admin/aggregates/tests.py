@@ -75,28 +75,42 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
     @test.create_stubs({api.nova: ('host_list', 'aggregate_details_list',
                                    'aggregate_create'), })
-    def test_create_aggregate(self):
-
-        aggregate = self.aggregates.first()
-
+    def _test_generic_create_aggregate(self, workflow_data, aggregate,
+                                       error_count=0,
+                                       expected_error_message=None):
         api.nova.host_list(IsA(http.HttpRequest)).AndReturn(self.hosts.list())
         api.nova.aggregate_details_list(IsA(http.HttpRequest)).AndReturn([])
-
-        workflow_data = self._get_create_workflow_data(aggregate)
-        api.nova.aggregate_create(
-            IsA(http.HttpRequest),
-            name=workflow_data['name'],
-            availability_zone=workflow_data['availability_zone'],
-        ).AndReturn(aggregate)
+        if not expected_error_message:
+            api.nova.aggregate_create(
+                IsA(http.HttpRequest),
+                name=workflow_data['name'],
+                availability_zone=workflow_data['availability_zone'],
+            ).AndReturn(aggregate)
 
         self.mox.ReplayAll()
 
         url = reverse(constants.AGGREGATES_CREATE_URL)
         res = self.client.post(url, workflow_data)
 
-        self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res,
-                                     reverse(constants.AGGREGATES_INDEX_URL))
+        if not expected_error_message:
+            self.assertNoFormErrors(res)
+            self.assertRedirectsNoFollow(res,
+                    reverse(constants.AGGREGATES_INDEX_URL))
+        else:
+            self.assertFormErrors(res, error_count, expected_error_message)
+
+    def test_create_aggregate(self):
+        aggregate = self.aggregates.first()
+        workflow_data = self._get_create_workflow_data(aggregate)
+        self._test_generic_create_aggregate(workflow_data, aggregate)
+
+    def test_create_aggregate_fails_missing_fields(self):
+        aggregate = self.aggregates.first()
+        workflow_data = self._get_create_workflow_data(aggregate)
+        workflow_data['name'] = ''
+        workflow_data['availability_zone'] = ''
+        self._test_generic_create_aggregate(workflow_data, aggregate, 2,
+                                            u'This field is required')
 
     @test.create_stubs({api.nova: ('host_list',
                                    'aggregate_details_list',
@@ -213,7 +227,7 @@ class AggregatesViewTests(test.BaseAdminViewTests):
         aggregate = self.aggregates.first()
         form_data = {'id': aggregate.id}
 
-        self._test_generic_update_aggregate(form_data, aggregate, 1,
+        self._test_generic_update_aggregate(form_data, aggregate, 2,
                                             u'This field is required')
 
 
