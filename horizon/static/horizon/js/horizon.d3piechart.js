@@ -34,6 +34,7 @@ function create_vis(chart) {
     .attr("class", "chart")
     .attr("width", WIDTH)
     .attr("height", HEIGHT)
+    .attr("viewBox", "0 0 " + WIDTH + " " + HEIGHT )
     .append("g")
     .attr("transform",
       "translate(" + (WIDTH / 2) + "," + (HEIGHT / 2) + ")");
