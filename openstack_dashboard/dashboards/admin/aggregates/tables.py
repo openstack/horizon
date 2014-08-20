@@ -98,6 +98,10 @@ def get_zone_hosts(zone):
     return host_details
 
 
+def safe_unordered_list(value):
+    return filters.unordered_list(value, autoescape=True)
+
+
 class HostAggregatesTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     availability_zone = tables.Column('availability_zone',
@@ -105,11 +109,11 @@ class HostAggregatesTable(tables.DataTable):
     hosts = tables.Column(get_aggregate_hosts,
                           verbose_name=_("Hosts"),
                           wrap_list=True,
-                          filters=(filters.unordered_list,))
+                          filters=(safe_unordered_list,))
     metadata = tables.Column(get_metadata,
                              verbose_name=_("Metadata"),
                              wrap_list=True,
-                             filters=(filters.unordered_list,))
+                             filters=(safe_unordered_list,))
 
     class Meta:
         name = "host_aggregates"
@@ -128,7 +132,7 @@ class AvailabilityZonesTable(tables.DataTable):
     hosts = tables.Column(get_zone_hosts,
                           verbose_name=_('Hosts'),
                           wrap_list=True,
-                          filters=(filters.unordered_list,))
+                          filters=(safe_unordered_list,))
     available = tables.Column(get_available,
                               verbose_name=_('Available'),
                               status=True,
