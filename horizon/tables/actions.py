@@ -349,6 +349,7 @@ class LinkAction(BaseAction):
         self.url = kwargs.get('url', None)
         self.allowed_data_types = kwargs.get('allowed_data_types', [])
         self.icon = kwargs.get('icon', None)
+        self.kwargs = kwargs
 
         if not kwargs.get('verbose_name', None):
             raise NotImplementedError('A LinkAction object must have a '
