@@ -10,10 +10,10 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from django import template
 
 import logging
 
+from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -62,13 +62,6 @@ class DeleteTemplate(tables.BatchAction):
         saharaclient.nodegroup_template_delete(request, template_id)
 
 
-def render_processes(nodegroup_template):
-    template_name = (
-        'project/data_processing.nodegroup_templates/_processes_list.html')
-    context = {"processes": nodegroup_template.node_processes}
-    return template.loader.render_to_string(template_name, context)
-
-
 class NodegroupTemplatesTable(tables.DataTable):
     name = tables.Column("name",
         verbose_name=_("Name"),
@@ -77,8 +70,10 @@ class NodegroupTemplatesTable(tables.DataTable):
                                 verbose_name=_("Plugin"))
     hadoop_version = tables.Column("hadoop_version",
                                    verbose_name=_("Hadoop Version"))
-    node_processes = tables.Column(render_processes,
-                                   verbose_name=_("Node Processes"))
+    node_processes = tables.Column("node_processes",
+                                   verbose_name=_("Node Processes"),
+                                   wrap_list=True,
+                                   filters=(filters.unordered_list,))
 
     class Meta:
         name = "nodegroup_templates"
