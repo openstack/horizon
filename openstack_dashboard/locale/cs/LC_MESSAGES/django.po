@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 03:25-0500\n"
-"PO-Revision-Date: 2014-08-13 06:12+0000\n"
+"POT-Creation-Date: 2014-08-20 00:55-0500\n"
+"PO-Revision-Date: 2014-08-20 05:56+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -281,16 +281,16 @@ msgstr "Neznámá instance"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (podpůrná vrstva %(backend)s)"
 
-#: api/keystone.py:322
+#: api/keystone.py:323
 msgid "Identity service does not allow editing user data."
 msgstr "Služba identity nepovoluje úpravu dat uživatele."
 
-#: api/keystone.py:348
+#: api/keystone.py:349
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Uživatel %s nemá pro tento projekt určenu roli."
 
-#: api/keystone.py:360 api/keystone.py:376
+#: api/keystone.py:361 api/keystone.py:377
 #: dashboards/settings/password/forms.py:61
 msgid "Password changed. Please log in again to continue."
 msgstr "Heslo bylo změněno. Por pokračovaní se prosím znovu přihlaste."
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Failed to modify %d instance security groups"
 msgstr ""
 
-#: api/swift.py:200 dashboards/project/containers/tables.py:115
+#: api/swift.py:200
 msgid "The container cannot be deleted since it's not empty."
 msgstr "Kontejner nelze smazat protože není prázdný."
 
@@ -347,22 +347,14 @@ msgstr "Kontejner nelze smazat protože není prázdný."
 msgid "System"
 msgstr "Systém"
 
-#: dashboards/admin/dashboard.py:30
-msgid "Identity"
-msgstr "Identity"
-
-#: dashboards/admin/dashboard.py:35
+#: dashboards/admin/dashboard.py:29
 msgid "Admin"
 msgstr "Správce"
 
 #: dashboards/admin/aggregates/forms.py:26
 #: dashboards/admin/aggregates/tables.py:102
 #: dashboards/admin/aggregates/workflows.py:24
-#: dashboards/admin/domains/tables.py:167
-#: dashboards/admin/domains/workflows.py:33
-#: dashboards/admin/flavors/workflows.py:35
-#: dashboards/admin/groups/forms.py:30 dashboards/admin/groups/forms.py:55
-#: dashboards/admin/groups/tables.py:100 dashboards/admin/info/tables.py:57
+#: dashboards/admin/flavors/workflows.py:35 dashboards/admin/info/tables.py:57
 #: dashboards/admin/info/tables.py:87 dashboards/admin/info/tables.py:111
 #: dashboards/admin/info/tables.py:163 dashboards/admin/instances/tables.py:92
 #: dashboards/admin/instances/tables.py:135
@@ -371,8 +363,6 @@ msgstr "Správce"
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/ports/tables.py:88
 #: dashboards/admin/networks/subnets/tables.py:93
-#: dashboards/admin/projects/tables.py:172
-#: dashboards/admin/projects/workflows.py:107
 #: dashboards/admin/routers/tables.py:57
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
@@ -381,6 +371,13 @@ msgstr "Správce"
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/tables.py:68
 #: dashboards/admin/volumes/volumes/tables.py:86
+#: dashboards/identity/domains/tables.py:167
+#: dashboards/identity/domains/workflows.py:33
+#: dashboards/identity/groups/forms.py:30
+#: dashboards/identity/groups/forms.py:55
+#: dashboards/identity/groups/tables.py:100
+#: dashboards/identity/projects/tables.py:178
+#: dashboards/identity/projects/workflows.py:107
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:124
@@ -408,7 +405,7 @@ msgstr "Správce"
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:64
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:265
+#: dashboards/project/databases/tables.py:270
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
@@ -472,17 +469,26 @@ msgstr "Správce"
 msgid "Name"
 msgstr "Jméno"
 
-#: dashboards/admin/aggregates/forms.py:27
-msgid "Availability zones"
-msgstr "Zóny dostupnosti"
+#: dashboards/admin/aggregates/forms.py:28
+#: dashboards/admin/aggregates/tables.py:104
+#: dashboards/admin/aggregates/workflows.py:27
+#: dashboards/project/instances/tables.py:824
+#: dashboards/project/instances/templates/instances/_detail_overview.html:16
+#: dashboards/project/instances/workflows/create_instance.py:77
+#: dashboards/project/volumes/volumes/forms.py:76
+#: dashboards/project/volumes/volumes/forms.py:81
+#: dashboards/project/volumes/volumes/forms.py:82
+#: dashboards/project/volumes/volumes/tables.py:331
+msgid "Availability Zone"
+msgstr "Zóna dostupnosti"
 
-#: dashboards/admin/aggregates/forms.py:42
+#: dashboards/admin/aggregates/forms.py:43
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Agregát úspěšně aktualizován: \"%s.\""
 
-#: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/forms.py:48
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "Unable to update the aggregate."
 msgstr "Nelze aktualizovat agregát."
 
@@ -499,8 +505,8 @@ msgid "Host Aggregate"
 msgstr "Agregát hostitele"
 
 #: dashboards/admin/aggregates/tables.py:34
+#: dashboards/admin/aggregates/workflows.py:176
 #: dashboards/admin/aggregates/workflows.py:177
-#: dashboards/admin/aggregates/workflows.py:178
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
 #: dashboards/admin/aggregates/templates/aggregates/create.html:6
 msgid "Create Host Aggregate"
@@ -524,18 +530,6 @@ msgstr "Služby v provozu"
 #: dashboards/admin/aggregates/tables.py:96
 msgid "Services Down"
 msgstr "Služby mimo provoz"
-
-#: dashboards/admin/aggregates/tables.py:104
-#: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/project/instances/tables.py:824
-#: dashboards/project/instances/templates/instances/_detail_overview.html:16
-#: dashboards/project/instances/workflows/create_instance.py:77
-#: dashboards/project/volumes/volumes/forms.py:76
-#: dashboards/project/volumes/volumes/forms.py:81
-#: dashboards/project/volumes/volumes/forms.py:82
-#: dashboards/project/volumes/volumes/tables.py:331
-msgid "Availability Zone"
-msgstr "Zóna dostupnosti"
 
 #: dashboards/admin/aggregates/tables.py:106
 #: dashboards/admin/aggregates/tables.py:129
@@ -574,128 +568,122 @@ msgstr "Nelze získat seznam zón dostupnosti."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nelze získat seznam agregátů k aktualizaci"
 
-#: dashboards/admin/aggregates/workflows.py:32
+#: dashboards/admin/aggregates/workflows.py:31
 msgid "Host Aggregate Info"
 msgstr "Informace agregátu hostitele"
 
-#: dashboards/admin/aggregates/workflows.py:33
+#: dashboards/admin/aggregates/workflows.py:32
 msgid "From here you can create a new host aggregate to organize instances."
 msgstr "Odsud můžete vytvořit nový agregát hostitele pro organizaci instancí."
 
-#: dashboards/admin/aggregates/workflows.py:44
+#: dashboards/admin/aggregates/workflows.py:43
 msgid "Unable to get host aggregate list"
 msgstr "Nelze získat seznam agregátů hostitele."
 
-#: dashboards/admin/aggregates/workflows.py:51
+#: dashboards/admin/aggregates/workflows.py:50
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Název \"%s\" již je používán jiným agregátem hostitele."
 
-#: dashboards/admin/aggregates/workflows.py:69
-#: dashboards/admin/aggregates/workflows.py:103
+#: dashboards/admin/aggregates/workflows.py:68
+#: dashboards/admin/aggregates/workflows.py:102
 msgid "Unable to get the available hosts"
 msgstr "Nelze získat dostupné hostitele"
 
-#: dashboards/admin/aggregates/workflows.py:94
-#: dashboards/admin/aggregates/workflows.py:134
+#: dashboards/admin/aggregates/workflows.py:93
+#: dashboards/admin/aggregates/workflows.py:133
 msgid "Manage Hosts within Aggregate"
 msgstr "Správa hostitelů uvnitř agregátu"
 
-#: dashboards/admin/aggregates/workflows.py:139
+#: dashboards/admin/aggregates/workflows.py:138
 msgid ""
 "You can add hosts to this aggregate. One host can be added to one or more "
 "aggregate. You can also add the hosts later by editing the aggregate."
 msgstr "Do tohoto agregátu můžete přidat hostitele. Jeden hostitel může být přidán do jednoho nebo více agregátů. Hostitele můžete také přidat později pomocí úpravy agregátu."
 
-#: dashboards/admin/aggregates/workflows.py:142
+#: dashboards/admin/aggregates/workflows.py:141
 msgid "All available hosts"
 msgstr "Všichni dostupní hostitelé"
 
-#: dashboards/admin/aggregates/workflows.py:143
+#: dashboards/admin/aggregates/workflows.py:142
 msgid "Selected hosts"
 msgstr "Vybraní hostitelé"
 
-#: dashboards/admin/aggregates/workflows.py:144
+#: dashboards/admin/aggregates/workflows.py:143
 msgid "No hosts found."
 msgstr "Žádní hostitelé nenalezeni."
 
-#: dashboards/admin/aggregates/workflows.py:145
+#: dashboards/admin/aggregates/workflows.py:144
 msgid "No host selected."
 msgstr "Nezvolen hostitel."
 
-#: dashboards/admin/aggregates/workflows.py:158
+#: dashboards/admin/aggregates/workflows.py:157
 msgid "You can add hosts to this aggregate, as well as remove hosts from it."
 msgstr "Do tohoto agregátu můžete přidat hostitele, nebo je z něj odebrat."
 
-#: dashboards/admin/aggregates/workflows.py:160
+#: dashboards/admin/aggregates/workflows.py:159
 msgid "All Available Hosts"
 msgstr "Všichni dostupní hostitelé"
 
-#: dashboards/admin/aggregates/workflows.py:161
+#: dashboards/admin/aggregates/workflows.py:160
 msgid "Selected Hosts"
 msgstr "Vybraní hostitelé"
 
-#: dashboards/admin/aggregates/workflows.py:162
+#: dashboards/admin/aggregates/workflows.py:161
 msgid "No Hosts found."
 msgstr "Žádní hostitelé nenalezeni."
 
-#: dashboards/admin/aggregates/workflows.py:163
+#: dashboards/admin/aggregates/workflows.py:162
 msgid "No Host selected."
 msgstr "Nezvolen hostitel."
 
-#: dashboards/admin/aggregates/workflows.py:179
+#: dashboards/admin/aggregates/workflows.py:178
 #, python-format
 msgid "Created new host aggregate \"%s\"."
 msgstr "Vytvořen nový agregát hostitele \"%s\"."
 
-#: dashboards/admin/aggregates/workflows.py:180
+#: dashboards/admin/aggregates/workflows.py:179
 #, python-format
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "Nelze vytvořit agregát hostitele \"%s\"."
 
-#: dashboards/admin/aggregates/workflows.py:192
+#: dashboards/admin/aggregates/workflows.py:191
 msgid "Unable to create host aggregate."
 msgstr "Nelze vytvořit agregát hostitele."
 
-#: dashboards/admin/aggregates/workflows.py:201
+#: dashboards/admin/aggregates/workflows.py:200
 msgid "Error adding Hosts to the aggregate."
 msgstr "Chyba při přidávání hostitelů do agregátu."
 
-#: dashboards/admin/aggregates/workflows.py:209
+#: dashboards/admin/aggregates/workflows.py:208
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Přidat/odstranit hostitele z agregátu"
 
-#: dashboards/admin/aggregates/workflows.py:210
+#: dashboards/admin/aggregates/workflows.py:209
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
-#: dashboards/admin/domains/workflows.py:198
 #: dashboards/admin/flavors/workflows.py:263
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:25
 #: dashboards/admin/images/templates/images/properties/_edit.html:25
-#: dashboards/admin/projects/workflows.py:493
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:25
+#: dashboards/identity/domains/workflows.py:198
+#: dashboards/identity/projects/workflows.py:493
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:148
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Save"
 msgstr "Uložit"
 
-#: dashboards/admin/aggregates/workflows.py:211
+#: dashboards/admin/aggregates/workflows.py:210
 msgid "The Aggregate was updated."
 msgstr "Agregát byl aktualizován."
 
-#: dashboards/admin/aggregates/workflows.py:232
+#: dashboards/admin/aggregates/workflows.py:231
 msgid "Error when adding or removing hosts."
 msgstr "Chyba při přidávání nebo odstraňování hostitelů."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
-#: dashboards/admin/domains/tables.py:169
-#: dashboards/admin/domains/workflows.py:35
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:19
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:19
-#: dashboards/admin/groups/forms.py:32 dashboards/admin/groups/forms.py:57
-#: dashboards/admin/groups/tables.py:102
-#: dashboards/admin/groups/templates/groups/_create.html:17
-#: dashboards/admin/groups/templates/groups/_update.html:17
 #: dashboards/admin/images/templates/images/_update.html:18
 #: dashboards/admin/images/templates/images/properties/_create.html:19
 #: dashboards/admin/images/templates/images/properties/_edit.html:19
@@ -704,16 +692,23 @@ msgstr "Chyba při přidávání nebo odstraňování hostitelů."
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/agents/_add.html:18
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
-#: dashboards/admin/projects/tables.py:176
-#: dashboards/admin/projects/workflows.py:110
-#: dashboards/admin/roles/templates/roles/_create.html:17
-#: dashboards/admin/roles/templates/roles/_update.html:17
-#: dashboards/admin/users/templates/users/_create.html:17
-#: dashboards/admin/users/templates/users/_update.html:17
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:18
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:19
+#: dashboards/identity/domains/tables.py:169
+#: dashboards/identity/domains/workflows.py:35
+#: dashboards/identity/groups/forms.py:32
+#: dashboards/identity/groups/forms.py:57
+#: dashboards/identity/groups/tables.py:102
+#: dashboards/identity/groups/templates/groups/_create.html:17
+#: dashboards/identity/groups/templates/groups/_update.html:17
+#: dashboards/identity/projects/tables.py:182
+#: dashboards/identity/projects/workflows.py:110
+#: dashboards/identity/roles/templates/roles/_create.html:17
+#: dashboards/identity/roles/templates/roles/_update.html:17
+#: dashboards/identity/users/templates/users/_create.html:17
+#: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:71
 #: dashboards/project/access_and_security/security_groups/tables.py:125
@@ -733,7 +728,7 @@ msgstr "Chyba při přidávání nebo odstraňování hostitelů."
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
 #: dashboards/project/data_processing/clusters/workflows/create.py:73
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
-#: dashboards/project/data_processing/data_plugins/tables.py:39
+#: dashboards/project/data_processing/data_plugins/tables.py:35
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/data_processing/data_sources/tables.py:52
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:15
@@ -814,9 +809,6 @@ msgstr "Zde můžete upravit název a zónu dostupnosti agregátu"
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:25
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:26
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:26
-#: dashboards/admin/groups/templates/groups/_add_non_member.html:8
-#: dashboards/admin/groups/templates/groups/_create.html:24
-#: dashboards/admin/groups/templates/groups/_update.html:24
 #: dashboards/admin/images/templates/images/_create.html:34
 #: dashboards/admin/images/templates/images/_update.html:25
 #: dashboards/admin/images/templates/images/properties/_create.html:26
@@ -827,15 +819,18 @@ msgstr "Zde můžete upravit název a zónu dostupnosti agregátu"
 #: dashboards/admin/networks/templates/networks/agents/_add.html:25
 #: dashboards/admin/networks/templates/networks/ports/_create.html:25
 #: dashboards/admin/networks/templates/networks/ports/_update.html:29
-#: dashboards/admin/roles/templates/roles/_create.html:24
-#: dashboards/admin/roles/templates/roles/_update.html:24
-#: dashboards/admin/users/templates/users/_create.html:34
-#: dashboards/admin/users/templates/users/_update.html:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:34
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:26
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:26
+#: dashboards/identity/groups/templates/groups/_add_non_member.html:8
+#: dashboards/identity/groups/templates/groups/_create.html:24
+#: dashboards/identity/groups/templates/groups/_update.html:24
+#: dashboards/identity/roles/templates/roles/_create.html:24
+#: dashboards/identity/roles/templates/roles/_update.html:24
+#: dashboards/identity/users/templates/users/_create.html:34
+#: dashboards/identity/users/templates/users/_update.html:34
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:25
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:30
@@ -903,177 +898,6 @@ msgstr "Zrušit"
 msgid "Manage Hosts Aggregate"
 msgstr "Správa agregátů hostitele"
 
-#: dashboards/admin/domains/panel.py:24 dashboards/admin/domains/tables.py:76
-#: dashboards/admin/domains/tables.py:175
-#: dashboards/admin/domains/templates/domains/index.html:3
-#: dashboards/admin/domains/templates/domains/index.html:6
-msgid "Domains"
-msgstr "Domény"
-
-#: dashboards/admin/domains/tables.py:37
-#: dashboards/admin/projects/tables.py:45
-msgid "Modify Groups"
-msgstr "Změnit skupiny"
-
-#: dashboards/admin/domains/tables.py:51
-#: dashboards/admin/domains/workflows.py:154
-#: dashboards/admin/domains/workflows.py:155
-msgid "Create Domain"
-msgstr "Vytvořit doménu"
-
-#: dashboards/admin/domains/tables.py:63
-#: dashboards/admin/flavors/extras/tables.py:45
-#: dashboards/admin/images/properties/tables.py:66
-#: dashboards/admin/roles/tables.py:36 dashboards/admin/users/tables.py:43
-#: dashboards/admin/volumes/volumes/extras/tables.py:44
-#: dashboards/project/containers/tables.py:309
-#: dashboards/project/images/images/tables.py:87
-msgid "Edit"
-msgstr "Upravit"
-
-#: dashboards/admin/domains/tables.py:75
-msgid "Domain"
-msgstr "Doména"
-
-#: dashboards/admin/domains/tables.py:85
-#, python-format
-msgid "Domain \"%s\" must be disabled before it can be deleted."
-msgstr "Doména \"%s\" musí být před smazáním zakázána."
-
-#: dashboards/admin/domains/tables.py:115
-msgid "Set Domain Context"
-msgstr "Nastavit kontext domény"
-
-#: dashboards/admin/domains/tables.py:140
-#, python-format
-msgid "Domain Context updated to Domain %s."
-msgstr "Kontext domény aktualizován na Doména %s."
-
-#: dashboards/admin/domains/tables.py:144
-msgid "Unable to set Domain Context."
-msgstr "Nelze nastavit kontext domény."
-
-#: dashboards/admin/domains/tables.py:149
-msgid "Clear Domain Context"
-msgstr "Vyčistit kontext domény"
-
-#: dashboards/admin/domains/tables.py:163
-msgid "Domain Context cleared."
-msgstr "Kontext domény vyčištěn."
-
-#: dashboards/admin/domains/tables.py:170
-#: dashboards/admin/projects/workflows.py:101
-#: dashboards/admin/users/forms.py:75 dashboards/admin/users/forms.py:153
-msgid "Domain ID"
-msgstr "ID domény"
-
-#: dashboards/admin/domains/tables.py:171
-#: dashboards/admin/domains/workflows.py:37
-#: dashboards/admin/groups/tables.py:168 dashboards/admin/info/tables.py:26
-#: dashboards/admin/info/tables.py:149
-#: dashboards/admin/networks/agents/tables.py:66
-#: dashboards/admin/projects/tables.py:182
-#: dashboards/admin/projects/tables.py:184
-#: dashboards/admin/projects/workflows.py:112
-#: dashboards/admin/projects/workflows.py:472
-#: dashboards/admin/users/tables.py:60 dashboards/admin/users/tables.py:143
-#: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/tables.py:222
-#: dashboards/project/firewalls/workflows.py:69
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
-msgid "Enabled"
-msgstr "Povoleno"
-
-#: dashboards/admin/domains/views.py:47
-msgid "Unable to retrieve domain list."
-msgstr "Nelze získat seznam domén."
-
-#: dashboards/admin/domains/views.py:72
-msgid "Unable to retrieve domain details."
-msgstr "Nelze získat podrobnosti domény. "
-
-#: dashboards/admin/domains/workflows.py:42
-#: dashboards/admin/domains/workflows.py:182
-msgid "Domain Info"
-msgstr "Informace o doméně"
-
-#: dashboards/admin/domains/workflows.py:44
-msgid ""
-"From here you can create a new domain to organize projects, groups and "
-"users."
-msgstr "Zde můžete vytvořit novou doménu k uspořádání projektů, skupin a uživatelů."
-
-#: dashboards/admin/domains/workflows.py:61
-#: dashboards/admin/projects/workflows.py:245
-msgid "Unable to retrieve group list. Please try again later."
-msgstr "Nelze získat seznam skupin. Zkuste to prosím později."
-
-#: dashboards/admin/domains/workflows.py:73
-#: dashboards/admin/projects/workflows.py:161
-#: dashboards/admin/projects/workflows.py:259
-#, python-format
-msgid "Could not find default role \"%s\" in Keystone"
-msgstr "Nelze najít výchozí roli \"%s\" v Keystone"
-
-#: dashboards/admin/domains/workflows.py:126
-#: dashboards/admin/domains/workflows.py:133
-msgid "Domain Groups"
-msgstr "Doménové skupiny"
-
-#: dashboards/admin/domains/workflows.py:132
-#: dashboards/admin/projects/workflows.py:317
-msgid "All Groups"
-msgstr "Všechny skupiny"
-
-#: dashboards/admin/domains/workflows.py:134
-#: dashboards/admin/projects/workflows.py:319
-msgid "No groups found."
-msgstr "Žádné skupiny nenalezeny."
-
-#: dashboards/admin/domains/workflows.py:135
-#: dashboards/admin/projects/workflows.py:320
-msgid "No groups."
-msgstr "Žádné skupiny."
-
-#: dashboards/admin/domains/workflows.py:143
-#: dashboards/admin/projects/workflows.py:328
-msgid "Unable to retrieve role list."
-msgstr "Nelze získat seznam rolí."
-
-#: dashboards/admin/domains/workflows.py:156
-#, python-format
-msgid "Created new domain \"%s\"."
-msgstr "Vytvořena nová doména \"%s\"."
-
-#: dashboards/admin/domains/workflows.py:157
-#, python-format
-msgid "Unable to create domain \"%s\"."
-msgstr "Nelze vytvořit doménu \"%s\"."
-
-#: dashboards/admin/domains/workflows.py:184
-msgid "From here you can edit the domain details."
-msgstr "Zde můžete upravit podrobnosti domény."
-
-#: dashboards/admin/domains/workflows.py:197
-msgid "Edit Domain"
-msgstr "Upravit doménu"
-
-#: dashboards/admin/domains/workflows.py:199
-#, python-format
-msgid "Modified domain \"%s\"."
-msgstr "Doména \"%s\" změněna."
-
-#: dashboards/admin/domains/workflows.py:200
-#, python-format
-msgid "Unable to modify domain \"%s\"."
-msgstr "Nelze změnit doménu \"%s\"."
-
-#: dashboards/admin/domains/workflows.py:287
-#, python-format
-msgid "Failed to modify %s domain groups."
-msgstr "Nelze změnit doménové skupiny %s"
-
 #: dashboards/admin/flavors/panel.py:27 dashboards/admin/flavors/tables.py:31
 #: dashboards/admin/flavors/tables.py:133
 #: dashboards/admin/flavors/templates/flavors/index.html:3
@@ -1138,7 +962,7 @@ msgstr "Název konfigurace"
 #: dashboards/admin/flavors/tables.py:107
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/info/tables.py:201 dashboards/admin/overview/views.py:33
-#: dashboards/admin/projects/workflows.py:47
+#: dashboards/identity/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:4
@@ -1174,10 +998,10 @@ msgstr "Swap disk"
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/forms.py:232
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
-#: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
-#: dashboards/admin/users/forms.py:159
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
+#: dashboards/identity/roles/forms.py:37
+#: dashboards/identity/users/forms.py:159
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
@@ -1226,7 +1050,7 @@ msgstr "ID"
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
 #: dashboards/project/images/images/forms.py:99
-#: dashboards/project/images/images/forms.py:220
+#: dashboards/project/images/images/forms.py:219
 #: dashboards/project/images/images/tables.py:142
 #: dashboards/project/images/images/tables.py:222
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1461,6 +1285,17 @@ msgstr "Dodatečné specifikace"
 msgid "Create"
 msgstr "Vytvořit"
 
+#: dashboards/admin/flavors/extras/tables.py:45
+#: dashboards/admin/images/properties/tables.py:66
+#: dashboards/admin/volumes/volumes/extras/tables.py:44
+#: dashboards/identity/domains/tables.py:63
+#: dashboards/identity/roles/tables.py:36
+#: dashboards/identity/users/tables.py:43
+#: dashboards/project/containers/tables.py:307
+#: dashboards/project/images/images/tables.py:87
+msgid "Edit"
+msgstr "Upravit"
+
 #: dashboards/admin/flavors/extras/views.py:61
 #: dashboards/admin/volumes/volumes/extras/views.py:55
 msgid "Unable to retrieve extra spec list."
@@ -1505,175 +1340,6 @@ msgstr "Zavřít"
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:4
 msgid "Edit Flavor Extra Spec"
 msgstr "Upravit dodatečnou specifikaci konfigurace"
-
-#: dashboards/admin/groups/forms.py:45
-#, python-format
-msgid "Group \"%s\" was successfully created."
-msgstr "Skupina \"%s\" byla úspěšně vytvořena."
-
-#: dashboards/admin/groups/forms.py:48
-msgid "Unable to create group."
-msgstr "Nelze vytvořit skupinu."
-
-#: dashboards/admin/groups/forms.py:69
-msgid "Group has been updated successfully."
-msgstr "Skupina byla úspěšně aktualizována."
-
-#: dashboards/admin/groups/forms.py:71
-msgid "Unable to update the group."
-msgstr "Nelze aktualizovat skupinu."
-
-#: dashboards/admin/groups/panel.py:24 dashboards/admin/groups/tables.py:63
-#: dashboards/admin/groups/tables.py:107
-#: dashboards/admin/groups/templates/groups/index.html:3
-#: dashboards/admin/groups/templates/groups/index.html:6
-msgid "Groups"
-msgstr "Skupiny"
-
-#: dashboards/admin/groups/tables.py:38
-#: dashboards/admin/groups/templates/groups/_create.html:8
-#: dashboards/admin/groups/templates/groups/_create.html:23
-#: dashboards/admin/groups/templates/groups/create.html:3
-#: dashboards/admin/groups/templates/groups/create.html:6
-msgid "Create Group"
-msgstr "Vytvořit skupinu"
-
-#: dashboards/admin/groups/tables.py:50
-msgid "Edit Group"
-msgstr "Upravit skupinu"
-
-#: dashboards/admin/groups/tables.py:62
-msgid "Group"
-msgstr "Skupina"
-
-#: dashboards/admin/groups/tables.py:76 dashboards/admin/projects/tables.py:29
-msgid "Modify Users"
-msgstr "Změnit uživatele"
-
-#: dashboards/admin/groups/tables.py:103
-msgid "Group ID"
-msgstr "ID skupiny"
-
-#: dashboards/admin/groups/tables.py:124
-msgid "Remove"
-msgstr "Odstranit"
-
-#: dashboards/admin/groups/tables.py:125
-msgid "Removed"
-msgstr "Odstraněno"
-
-#: dashboards/admin/groups/tables.py:126 dashboards/admin/groups/tables.py:185
-#: dashboards/admin/users/tables.py:61 dashboards/admin/users/tables.py:104
-#: dashboards/project/databases/tables.py:65
-#: dashboards/project/instances/workflows/create_instance.py:51
-msgid "User"
-msgstr "Uživatel"
-
-#: dashboards/admin/groups/tables.py:127 dashboards/admin/groups/tables.py:186
-#: dashboards/admin/users/panel.py:27 dashboards/admin/users/tables.py:62
-#: dashboards/admin/users/tables.py:105 dashboards/admin/users/tables.py:150
-#: dashboards/admin/users/templates/users/index.html:3
-#: dashboards/admin/users/templates/users/index.html:6
-#: dashboards/project/databases/tables.py:66
-#: dashboards/project/databases/tables.py:237
-#: dashboards/project/databases/tabs.py:47
-msgid "Users"
-msgstr "Uživatelé"
-
-#: dashboards/admin/groups/tables.py:148
-msgid "Add..."
-msgstr "Přidat..."
-
-#: dashboards/admin/groups/tables.py:163 dashboards/admin/users/forms.py:81
-#: dashboards/admin/users/forms.py:160 dashboards/admin/users/tables.py:132
-#: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:231
-msgid "User Name"
-msgstr "Uživatelské jméno"
-
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/users/forms.py:83
-#: dashboards/admin/users/forms.py:162 dashboards/admin/users/tables.py:133
-msgid "Email"
-msgstr "E-mail"
-
-#: dashboards/admin/groups/tables.py:167 dashboards/admin/users/tables.py:142
-msgid "User ID"
-msgstr "ID uživatele"
-
-#: dashboards/admin/groups/tables.py:177
-msgid "Group Members"
-msgstr "Členové skupiny"
-
-#: dashboards/admin/groups/tables.py:183
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
-#: dashboards/project/firewalls/workflows.py:106
-#: dashboards/project/firewalls/workflows.py:213
-#: dashboards/project/firewalls/workflows.py:290
-#: dashboards/project/loadbalancers/workflows.py:134
-#: dashboards/project/loadbalancers/workflows.py:256
-#: dashboards/project/loadbalancers/workflows.py:421
-#: dashboards/project/loadbalancers/workflows.py:597
-#: dashboards/project/vpn/workflows.py:92
-#: dashboards/project/vpn/workflows.py:191
-#: dashboards/project/vpn/workflows.py:288
-#: dashboards/project/vpn/workflows.py:470
-msgid "Add"
-msgstr "Přidat"
-
-#: dashboards/admin/groups/tables.py:184
-msgid "Added"
-msgstr "Přidáno"
-
-#: dashboards/admin/groups/tables.py:215
-msgid "Non-Members"
-msgstr "Nečlenové"
-
-#: dashboards/admin/groups/views.py:45
-msgid "Unable to retrieve group list."
-msgstr "Nelze získat seznam skupin."
-
-#: dashboards/admin/groups/views.py:68
-msgid "Unable to update group."
-msgstr "Nelze aktualizovat skupinu."
-
-#: dashboards/admin/groups/views.py:119
-msgid "Unable to retrieve group users."
-msgstr "Nelze získat uživatele skupiny."
-
-#: dashboards/admin/groups/views.py:140
-msgid "Unable to retrieve users."
-msgstr "Nelze získat uživatele."
-
-#: dashboards/admin/groups/templates/groups/_add_non_member.html:5
-msgid "Add Group Assignment"
-msgstr "Přidat přidělení skupiny"
-
-#: dashboards/admin/groups/templates/groups/_create.html:18
-msgid "From here you can create a new group to organize users and roles."
-msgstr "Zde můžete vytvořit novou skupinu k uspořádání uživatelů a rolí."
-
-#: dashboards/admin/groups/templates/groups/_update.html:8
-#: dashboards/admin/groups/templates/groups/_update.html:23
-#: dashboards/admin/groups/templates/groups/update.html:3
-#: dashboards/admin/groups/templates/groups/update.html:6
-msgid "Update Group"
-msgstr "Aktualizovat skupinu"
-
-#: dashboards/admin/groups/templates/groups/_update.html:18
-msgid "From here you can edit the group's details."
-msgstr "Zde můžete upravit podrobnosti skupiny."
-
-#: dashboards/admin/groups/templates/groups/add_non_member.html:3
-msgid "Add User to Group"
-msgstr "Přidat uživatele do skupiny."
-
-#: dashboards/admin/groups/templates/groups/manage.html:3
-msgid "Group Management"
-msgstr "Správa skupiny"
-
-#: dashboards/admin/groups/templates/groups/manage.html:6
-msgid "Group Management: "
-msgstr "Správy skupiny:"
 
 #: dashboards/admin/hypervisors/panel.py:22
 #: dashboards/admin/hypervisors/tables.py:64
@@ -1731,12 +1397,12 @@ msgstr "Kapacita (Celkem)"
 #: dashboards/admin/instances/tables.py:36
 #: dashboards/admin/instances/tables.py:169
 #: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/admin/projects/workflows.py:48
+#: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:138
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:37
 #: dashboards/project/databases/tables.py:50
-#: dashboards/project/databases/tables.py:220
+#: dashboards/project/databases/tables.py:225
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
@@ -1754,7 +1420,7 @@ msgid "Instances"
 msgstr "Instance"
 
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/databases/tables.py:199
+#: dashboards/project/databases/tables.py:204
 #: dashboards/project/databases/workflows/create_instance.py:32
 #: dashboards/project/instances/tables.py:785
 #: dashboards/project/instances/tables.py:807
@@ -2071,9 +1737,28 @@ msgstr ""
 msgid "System Info"
 msgstr "Informace o systému"
 
+#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:149
+#: dashboards/admin/networks/agents/tables.py:66
+#: dashboards/identity/domains/tables.py:171
+#: dashboards/identity/domains/workflows.py:37
+#: dashboards/identity/groups/tables.py:168
+#: dashboards/identity/projects/tables.py:188
+#: dashboards/identity/projects/tables.py:190
+#: dashboards/identity/projects/workflows.py:112
+#: dashboards/identity/projects/workflows.py:472
+#: dashboards/identity/users/tables.py:60
+#: dashboards/identity/users/tables.py:143
+#: dashboards/project/firewalls/forms.py:69
+#: dashboards/project/firewalls/tables.py:222
+#: dashboards/project/firewalls/workflows.py:69
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
+msgid "Enabled"
+msgstr "Povoleno"
+
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:151
 #: dashboards/admin/networks/agents/tables.py:67
-#: dashboards/admin/users/tables.py:60
+#: dashboards/identity/users/tables.py:60
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Disabled"
 msgstr "Zakázáno"
@@ -2090,7 +1775,7 @@ msgstr "Služba"
 #: dashboards/admin/networks/agents/tables.py:78
 #: dashboards/admin/volumes/snapshots/tables.py:63
 #: dashboards/admin/volumes/volumes/tables.py:70
-#: dashboards/project/databases/tables.py:204
+#: dashboards/project/databases/tables.py:209
 #: dashboards/project/databases/templates/databases/_detail_overview.html:48
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:10
@@ -2119,8 +1804,8 @@ msgstr "Hostitel"
 #: dashboards/project/database_backups/tables.py:152
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
 #: dashboards/project/database_backups/templates/database_backups/details.html:71
-#: dashboards/project/databases/tables.py:214
-#: dashboards/project/databases/tables.py:278
+#: dashboards/project/databases/tables.py:219
+#: dashboards/project/databases/tables.py:283
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:259
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -2200,7 +1885,7 @@ msgid "Network Agents"
 msgstr "Síťoví agenti"
 
 #: dashboards/admin/info/tables.py:198
-#: dashboards/admin/projects/workflows.py:44
+#: dashboards/identity/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "Bajty obsahu vloženého souboru"
 
@@ -2209,21 +1894,21 @@ msgid "Length of Injected File Path"
 msgstr "Délka vložené cesty souboru"
 
 #: dashboards/admin/info/tables.py:200
-#: dashboards/admin/projects/workflows.py:46
+#: dashboards/identity/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "Položky popisných dat"
 
 #: dashboards/admin/info/tables.py:203
-#: dashboards/admin/projects/workflows.py:50
+#: dashboards/identity/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "Vložené soubory"
 
-#: dashboards/admin/info/tables.py:204
-#: dashboards/admin/projects/workflows.py:53
-#: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:34
+#: dashboards/admin/info/tables.py:204 dashboards/admin/volumes/panel.py:21
+#: dashboards/admin/volumes/tabs.py:34
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
 #: dashboards/admin/volumes/volumes/tables.py:75
+#: dashboards/identity/projects/workflows.py:53
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:62
 #: dashboards/project/volumes/templates/volumes/index.html:3
@@ -2234,57 +1919,56 @@ msgstr "Vložené soubory"
 msgid "Volumes"
 msgstr "Svazky"
 
-#: dashboards/admin/info/tables.py:205
-#: dashboards/admin/projects/workflows.py:54
-#: dashboards/admin/volumes/tabs.py:71
+#: dashboards/admin/info/tables.py:205 dashboards/admin/volumes/tabs.py:72
 #: dashboards/admin/volumes/snapshots/tables.py:68
-#: dashboards/project/volumes/tabs.py:75
+#: dashboards/identity/projects/workflows.py:54
+#: dashboards/project/volumes/tabs.py:76
 #: dashboards/project/volumes/snapshots/tables.py:45
 #: dashboards/project/volumes/snapshots/tables.py:137
 msgid "Volume Snapshots"
 msgstr "Snímky svazku"
 
 #: dashboards/admin/info/tables.py:206
-#: dashboards/admin/projects/workflows.py:56
+#: dashboards/identity/projects/workflows.py:56
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Celková velikost Svazků a Snímků (GB)"
 
 #: dashboards/admin/info/tables.py:207 dashboards/admin/overview/views.py:33
-#: dashboards/admin/projects/workflows.py:57
+#: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/overview/views.py:32
 msgid "RAM (MB)"
 msgstr "RAM (MB)"
 
 #: dashboards/admin/info/tables.py:208
-#: dashboards/admin/projects/workflows.py:58
-#: dashboards/admin/projects/workflows.py:70
-#: dashboards/project/access_and_security/tabs.py:76
+#: dashboards/identity/projects/workflows.py:58
+#: dashboards/identity/projects/workflows.py:70
+#: dashboards/project/access_and_security/tabs.py:75
 #: dashboards/project/access_and_security/floating_ips/tables.py:75
 #: dashboards/project/access_and_security/floating_ips/tables.py:175
 msgid "Floating IPs"
 msgstr "Plovoucí IP adresy"
 
 #: dashboards/admin/info/tables.py:209
-#: dashboards/admin/projects/workflows.py:61
-#: dashboards/admin/projects/workflows.py:67
-#: dashboards/project/access_and_security/tabs.py:42
+#: dashboards/identity/projects/workflows.py:61
+#: dashboards/identity/projects/workflows.py:67
+#: dashboards/project/access_and_security/tabs.py:41
 #: dashboards/project/access_and_security/security_groups/tables.py:31
 #: dashboards/project/access_and_security/security_groups/tables.py:132
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:462
+#: dashboards/project/instances/workflows/create_instance.py:463
 #: dashboards/project/instances/workflows/update_instance.py:80
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
 
 #: dashboards/admin/info/tables.py:210
-#: dashboards/admin/projects/workflows.py:63
-#: dashboards/admin/projects/workflows.py:69
+#: dashboards/identity/projects/workflows.py:63
+#: dashboards/identity/projects/workflows.py:69
 #: dashboards/project/access_and_security/security_groups/tables.py:247
 msgid "Security Group Rules"
 msgstr "Pravidla bezpečnostní skupiny"
 
 #: dashboards/admin/info/tables.py:211
-#: dashboards/project/access_and_security/tabs.py:59
+#: dashboards/project/access_and_security/tabs.py:58
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:75
 msgid "Key Pairs"
@@ -2292,8 +1976,8 @@ msgstr "Klíčové páry"
 
 #: dashboards/admin/info/tables.py:212
 #: dashboards/admin/networks/ports/tables.py:91
-#: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
+#: dashboards/identity/projects/workflows.py:59
 #: dashboards/project/networks/ports/tables.py:62
 #: dashboards/project/routers/ports/tables.py:93
 msgid "Fixed IPs"
@@ -2438,10 +2122,10 @@ msgstr "Přesunout instanci za běhu"
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:39
 #: dashboards/admin/networks/tables.py:83
-#: dashboards/admin/projects/tables.py:108
 #: dashboards/admin/routers/tables.py:55
 #: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:71
+#: dashboards/identity/projects/tables.py:112
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:136
 #: dashboards/project/instances/workflows/create_instance.py:50
@@ -2485,10 +2169,10 @@ msgstr "IP adresa"
 
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:426
+#: dashboards/project/containers/tables.py:424
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:206
+#: dashboards/project/databases/tables.py:211
 #: dashboards/project/images/images/tables.py:232
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:814
@@ -2519,7 +2203,7 @@ msgid "Uptime"
 msgstr "Doba provozu"
 
 #: dashboards/admin/instances/views.py:84
-#: dashboards/project/access_and_security/tabs.py:102
+#: dashboards/project/access_and_security/tabs.py:101
 #: dashboards/project/access_and_security/floating_ips/workflows.py:84
 msgid "Unable to retrieve instance list."
 msgstr "Nelze získat seznam instancí."
@@ -2874,7 +2558,7 @@ msgstr "Sdíleno"
 msgid "External Network"
 msgstr "Vnější síť"
 
-#: dashboards/admin/networks/forms.py:89 dashboards/admin/users/forms.py:58
+#: dashboards/admin/networks/forms.py:89 dashboards/identity/users/forms.py:58
 msgid "Select a project"
 msgstr "Vybrat projekt"
 
@@ -2889,13 +2573,13 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:141
-#: dashboards/project/instances/workflows/create_instance.py:599
+#: dashboards/project/instances/workflows/create_instance.py:600
 #: dashboards/project/networks/workflows.py:54
 msgid "Select a profile"
 msgstr "Vyberte profil"
 
 #: dashboards/admin/networks/forms.py:151
-#: dashboards/project/instances/workflows/create_instance.py:609
+#: dashboards/project/instances/workflows/create_instance.py:610
 #: dashboards/project/networks/workflows.py:64
 #: dashboards/router/nexus1000v/views.py:55
 msgid "Network Profiles could not be retrieved."
@@ -2943,9 +2627,9 @@ msgstr "Aktualizace sítě %s selhala"
 #: dashboards/admin/networks/tables.py:98
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
-#: dashboards/admin/projects/workflows.py:71
+#: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:126
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:554
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
 #: dashboards/project/networks/tables.py:129
@@ -3176,7 +2860,7 @@ msgstr "Port"
 
 #: dashboards/admin/networks/ports/tables.py:33
 #: dashboards/admin/networks/ports/tables.py:102
-#: dashboards/admin/projects/workflows.py:72
+#: dashboards/identity/projects/workflows.py:72
 #: dashboards/project/networks/ports/tables.py:75
 msgid "Ports"
 msgstr "Porty"
@@ -3254,7 +2938,7 @@ msgstr "Podsíť"
 
 #: dashboards/admin/networks/subnets/tables.py:32
 #: dashboards/admin/networks/subnets/tables.py:116
-#: dashboards/admin/projects/workflows.py:74
+#: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/networks/subnets/tables.py:45
 #: dashboards/project/networks/subnets/tables.py:127
 msgid "Subnets"
@@ -3383,7 +3067,8 @@ msgstr "Disk (GB)"
 msgid "Usage (Hours)"
 msgstr "Využití (Hodiny)"
 
-#: dashboards/admin/overview/views.py:65 dashboards/admin/projects/views.py:86
+#: dashboards/admin/overview/views.py:65
+#: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
 msgstr "Nelze získaz seznam projektu."
 
@@ -3440,82 +3125,10 @@ msgstr "Přehled využití"
 msgid "Monitoring"
 msgstr "Sledování"
 
-#: dashboards/admin/projects/panel.py:27
-#: dashboards/admin/projects/tables.py:109
-#: dashboards/admin/projects/tables.py:190
-#: dashboards/admin/projects/templates/projects/index.html:3
-#: dashboards/admin/projects/templates/projects/index.html:6
-#: templates/403.html:25 templates/404.html:24
-msgid "Projects"
-msgstr "Projekty"
-
-#: dashboards/admin/projects/tables.py:62
-msgid "View Usage"
-msgstr "Zobrazit využití"
-
-#: dashboards/admin/projects/tables.py:70
-#: dashboards/admin/projects/workflows.py:339
-#: dashboards/admin/projects/workflows.py:340
-msgid "Create Project"
-msgstr "Vytvořit projekt"
-
-#: dashboards/admin/projects/tables.py:82
-#: dashboards/admin/projects/workflows.py:492
-msgid "Edit Project"
-msgstr "Upravit projekt"
-
-#: dashboards/admin/projects/tables.py:94
-msgid "Modify Quotas"
-msgstr "Změnit kvóty"
-
-#: dashboards/admin/projects/tables.py:163
-msgid "This name is already taken."
-msgstr "Název již je používán."
-
-#: dashboards/admin/projects/tables.py:181
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
-#: dashboards/project/networks/templates/networks/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/project/overview/templates/overview/usage.csv:2
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
-msgid "Project ID"
-msgstr "ID projektu"
-
-#: dashboards/admin/projects/views.py:56
-#: dashboards/router/nexus1000v/views.py:44
-msgid "Unable to retrieve project information."
-msgstr "Nelze získat informace o projektu."
-
-#: dashboards/admin/projects/views.py:129
-msgid "Unable to retrieve default Neutron quota values."
-msgstr "Nelze získat výchozí hodnoty kvót Neutron."
-
-#: dashboards/admin/projects/views.py:137
-msgid "Unable to retrieve default quota values."
-msgstr "Nelze získat výchozí hodnoty kvóty."
-
-#: dashboards/admin/projects/views.py:167 dashboards/admin/users/views.py:94
-msgid "Unable to retrieve project domain."
-msgstr "Nelze získat doménu projektu."
-
-#: dashboards/admin/projects/views.py:181
-msgid "Unable to retrieve project details."
-msgstr "Nelze získat podrobnostiprojektu."
-
-#: dashboards/admin/projects/workflows.py:73
 #: dashboards/admin/routers/panel.py:23 dashboards/admin/routers/tables.py:71
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
+#: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:23
 #: dashboards/project/routers/tables.py:33
@@ -3524,205 +3137,6 @@ msgstr "Nelze získat podrobnostiprojektu."
 #: dashboards/project/routers/templates/routers/index.html:6
 msgid "Routers"
 msgstr "Routery"
-
-#: dashboards/admin/projects/workflows.py:87
-msgid "Quota"
-msgstr "Kvóta"
-
-#: dashboards/admin/projects/workflows.py:89
-msgid "From here you can set quotas (max limits) for the project."
-msgstr "Zde můžete nastavit kvóty (max. limity) pro projekt."
-
-#: dashboards/admin/projects/workflows.py:104
-#: dashboards/admin/users/forms.py:78 dashboards/admin/users/forms.py:156
-msgid "Domain Name"
-msgstr "Název domény"
-
-#: dashboards/admin/projects/workflows.py:127
-#: dashboards/admin/projects/workflows.py:475
-msgid "Project Info"
-msgstr "Informace o projektu"
-
-#: dashboards/admin/projects/workflows.py:128
-msgid "From here you can create a new project to organize users."
-msgstr "Odsud můžete vytvořit nový projekt pro organizaci uživatelů."
-
-#: dashboards/admin/projects/workflows.py:147
-msgid "Unable to retrieve user list. Please try again later."
-msgstr "Nelze získat seznam uživatelů. Zkuste to prosím později."
-
-#: dashboards/admin/projects/workflows.py:214
-#: dashboards/admin/projects/workflows.py:221
-msgid "Project Members"
-msgstr "Členové projektu"
-
-#: dashboards/admin/projects/workflows.py:220
-msgid "All Users"
-msgstr "Všichni uživatelé"
-
-#: dashboards/admin/projects/workflows.py:222
-msgid "No users found."
-msgstr "Žádní uživatelé nenalezeni."
-
-#: dashboards/admin/projects/workflows.py:223
-msgid "No users."
-msgstr "Žádní uživatelé."
-
-#: dashboards/admin/projects/workflows.py:231
-#: dashboards/admin/users/views.py:52
-msgid "Unable to retrieve user list."
-msgstr "Nelze získat seznam uživatelů."
-
-#: dashboards/admin/projects/workflows.py:311
-#: dashboards/admin/projects/workflows.py:318
-msgid "Project Groups"
-msgstr "Skupiny projektu"
-
-#: dashboards/admin/projects/workflows.py:341
-#, python-format
-msgid "Created new project \"%s\"."
-msgstr "Vytvořen nový projekt \"%s\"."
-
-#: dashboards/admin/projects/workflows.py:342
-#, python-format
-msgid "Unable to create project \"%s\"."
-msgstr "Nelze vytvořit projekt \"%s\"."
-
-#: dashboards/admin/projects/workflows.py:404
-msgid ", add project groups"
-msgstr ", přidat skupiny projektu"
-
-#: dashboards/admin/projects/workflows.py:407
-#, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr "Nelze přidat %(users_to_add)s členů projektů%(group_msg)s a nastavit kvóty projektu."
-
-#: dashboards/admin/projects/workflows.py:439
-#, python-format
-msgid "Failed to add %s project groups and update project quotas."
-msgstr "Nelze přidat %s skupin projektu a aktualizovat kvóty projektu."
-
-#: dashboards/admin/projects/workflows.py:467
-msgid "Unable to set project quotas."
-msgstr "Nelze nastavit kvótu projektu."
-
-#: dashboards/admin/projects/workflows.py:477
-msgid "From here you can edit the project details."
-msgstr "Zde můžete upravit podrobnosti projektu. "
-
-#: dashboards/admin/projects/workflows.py:494
-#, python-format
-msgid "Modified project \"%s\"."
-msgstr "Projekt \"%s\" změněn."
-
-#: dashboards/admin/projects/workflows.py:495
-#, python-format
-msgid "Unable to modify project \"%s\"."
-msgstr "Nelze změnit projekt \"%s\"."
-
-#: dashboards/admin/projects/workflows.py:590
-msgid ""
-"You cannot revoke your administrative privileges from the project you are "
-"currently logged into. Please switch to another project with administrative "
-"privileges or remove the administrative role manually via the CLI."
-msgstr "Nemůžete si odstranit svá správcovská oprávnění v projektu, do kterého jste nyní přihlášeni. Prosím přejděte do jiného projektu se stejnými oprávněními, nebo odstraňte roli správce ručně pomocí příkazového řádku."
-
-#: dashboards/admin/projects/workflows.py:625
-msgid ", update project groups"
-msgstr ", aktualizovat skupiny projektu"
-
-#: dashboards/admin/projects/workflows.py:628
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
-" project quotas."
-msgstr "Nelze změnit %(users_to_modify)s členů projektu%(group_msg)s a aktualizovat kvóty projektu,"
-
-#: dashboards/admin/projects/workflows.py:701
-#, python-format
-msgid ""
-"Failed to modify %s project members, update project groups and update "
-"project quotas."
-msgstr "Nelze změnit %s členů projektu, aktualizovat skupiny projektu a kvóty projektu."
-
-#: dashboards/admin/projects/workflows.py:734
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr "Informace o projektu a členové změněni, ale nebylo možné změnit kvóty projektu."
-
-#: dashboards/admin/projects/templates/projects/usage.html:3
-msgid "Project Usage Overview"
-msgstr "Přehled využití projektu"
-
-#: dashboards/admin/projects/templates/projects/usage.html:6
-msgid "Project Usage"
-msgstr "Využití projektu"
-
-#: dashboards/admin/roles/forms.py:25 dashboards/admin/roles/forms.py:38
-#: dashboards/admin/roles/tables.py:67
-msgid "Role Name"
-msgstr "Název role"
-
-#: dashboards/admin/roles/forms.py:30
-msgid "Role created successfully."
-msgstr "Role úspěšně vytvořena."
-
-#: dashboards/admin/roles/forms.py:33
-msgid "Unable to create role."
-msgstr "Nelze vytvořit roli."
-
-#: dashboards/admin/roles/forms.py:43
-msgid "Role updated successfully."
-msgstr "Role úspěšně aktualizována."
-
-#: dashboards/admin/roles/forms.py:46 dashboards/admin/roles/views.py:58
-msgid "Unable to update role."
-msgstr "Nelze aktualizovat roli."
-
-#: dashboards/admin/roles/panel.py:24 dashboards/admin/roles/tables.py:48
-#: dashboards/admin/roles/tables.py:72
-#: dashboards/admin/roles/templates/roles/index.html:3
-#: dashboards/admin/roles/templates/roles/index.html:6
-msgid "Roles"
-msgstr "Role"
-
-#: dashboards/admin/roles/tables.py:24
-#: dashboards/admin/roles/templates/roles/_create.html:8
-#: dashboards/admin/roles/templates/roles/_create.html:23
-#: dashboards/admin/roles/templates/roles/create.html:3
-#: dashboards/admin/roles/templates/roles/create.html:7
-msgid "Create Role"
-msgstr "Vytvořit roli"
-
-#: dashboards/admin/roles/tables.py:47 dashboards/admin/users/forms.py:96
-msgid "Role"
-msgstr "Role"
-
-#: dashboards/admin/roles/tables.py:68
-msgid "Role ID"
-msgstr "ID role"
-
-#: dashboards/admin/roles/views.py:42
-msgid "Unable to retrieve roles list."
-msgstr "Nelze získat seznam rolí."
-
-#: dashboards/admin/roles/templates/roles/_create.html:18
-msgid "From here you can create a new role."
-msgstr "Zde můžete vytvořit novou roli."
-
-#: dashboards/admin/roles/templates/roles/_update.html:8
-#: dashboards/admin/roles/templates/roles/_update.html:23
-#: dashboards/admin/roles/templates/roles/update.html:3
-#: dashboards/admin/roles/templates/roles/update.html:7
-msgid "Update Role"
-msgstr "Aktualizovat roli"
-
-#: dashboards/admin/roles/templates/roles/_update.html:18
-msgid "From here you can edit the role's details."
-msgstr "Zde můžete upravit podrobnosti role."
 
 #: dashboards/admin/routers/views.py:41 dashboards/project/routers/views.py:49
 msgid "Unable to retrieve router list."
@@ -3817,6 +3231,25 @@ msgstr "Přehled routeru"
 msgid "None"
 msgstr "Žádný"
 
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
+#: dashboards/identity/projects/tables.py:187
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
+#: dashboards/project/networks/templates/networks/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
+#: dashboards/project/overview/templates/overview/usage.csv:2
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
+msgid "Project ID"
+msgstr "ID projektu"
+
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
 msgid "External Gateway Information"
@@ -3837,107 +3270,16 @@ msgstr "Podrobnosti routeru"
 msgid "Router Detail"
 msgstr "Podorbnosti routeru"
 
-#: dashboards/admin/users/forms.py:56
-msgid "No available projects"
-msgstr "Žádné dostupné projekty"
-
-#: dashboards/admin/users/forms.py:66 dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:511
-#: dashboards/settings/password/forms.py:46
-msgid "Passwords do not match."
-msgstr "Hesla se neshodují."
-
-#: dashboards/admin/users/forms.py:86 dashboards/admin/users/forms.py:165
-#: dashboards/project/data_processing/job_binaries/forms.py:71
-#: dashboards/project/databases/workflows/create_instance.py:192
-#: dashboards/project/instances/forms.py:153
-#: dashboards/project/instances/tables.py:716
-msgid "Password"
-msgstr "Heslo"
-
-#: dashboards/admin/users/forms.py:91 dashboards/admin/users/forms.py:171
-msgid "Confirm Password"
-msgstr "Potvrdit heslo"
-
-#: dashboards/admin/users/forms.py:93 dashboards/admin/users/forms.py:174
-msgid "Primary Project"
-msgstr "Hlavní projekt"
-
-#: dashboards/admin/users/forms.py:128
-#, python-format
-msgid "User \"%s\" was successfully created."
-msgstr "Uživatel \"%s\" byl úspěšně vytvořen."
-
-#: dashboards/admin/users/forms.py:144
-msgid "Unable to add user to primary project."
-msgstr "Nelze přidat roli do hlavního projektu."
-
-#: dashboards/admin/users/forms.py:148
-msgid "Unable to create user."
-msgstr "Nelze vytvořit uživatele."
-
-#: dashboards/admin/users/forms.py:206
-msgid "User has been updated successfully."
-msgstr "Uživatel byl úspěšně aktualizován."
-
-#: dashboards/admin/users/forms.py:209
-msgid "Unable to update the user."
-msgstr "Nelze aktualizovat uživatele."
-
-#: dashboards/admin/users/tables.py:28
-#: dashboards/admin/users/templates/users/_create.html:8
-#: dashboards/admin/users/templates/users/_create.html:33
-#: dashboards/admin/users/templates/users/create.html:3
-#: dashboards/admin/users/templates/users/create.html:7
-msgid "Create User"
-msgstr "Vytvořit uživatele"
-
-#: dashboards/admin/users/tables.py:59
-msgid "Enable"
-msgstr "Povolit"
-
-#: dashboards/admin/users/tables.py:59
-msgid "Disable"
-msgstr "Zakázat"
-
-#: dashboards/admin/users/tables.py:92
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "Nemůžete zakázat uživatele pod kterým jste zrovna přihlášeni."
-
-#: dashboards/admin/users/views.py:74
-msgid "Unable to update user."
-msgstr "Nelze aktualizovat uživatele."
-
-#: dashboards/admin/users/views.py:120
-msgid "Unable to retrieve user roles."
-msgstr "Nelze získat uživatelské role."
-
-#: dashboards/admin/users/templates/users/_create.html:18
-msgid "From here you can create a new user and assign them to a project."
-msgstr "Zde můžete vytvořit nového uživatele a přidělit ho do projektu."
-
-#: dashboards/admin/users/templates/users/_update.html:8
-#: dashboards/admin/users/templates/users/_update.html:33
-#: dashboards/admin/users/templates/users/update.html:3
-#: dashboards/admin/users/templates/users/update.html:7
-msgid "Update User"
-msgstr "Aktualizovat uživatele"
-
-#: dashboards/admin/users/templates/users/_update.html:18
-msgid ""
-"From here you can edit the user's details, including their default project."
-msgstr "Zde můžete upravit údaje uživatelů, včetně jejich výchozích projektů. "
-
-#: dashboards/admin/volumes/tabs.py:48 dashboards/admin/volumes/tabs.py:94
+#: dashboards/admin/volumes/tabs.py:49 dashboards/admin/volumes/tabs.py:96
 #: dashboards/admin/volumes/snapshots/tables.py:51
 msgid "Unable to retrieve volume project information."
 msgstr "Nelze získat informace o svazku projektu."
 
-#: dashboards/admin/volumes/tabs.py:65
+#: dashboards/admin/volumes/tabs.py:66
 msgid "Unable to retrieve volume types"
 msgstr "Nelze získat typy svazků"
 
-#: dashboards/admin/volumes/tabs.py:86 dashboards/project/volumes/tabs.py:88
+#: dashboards/admin/volumes/tabs.py:88 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:187
 msgid "Unable to retrieve volume snapshots."
 msgstr "Nelze získat svazky snímků."
@@ -4015,7 +3357,7 @@ msgstr "Informace"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/instances/workflows/create_instance.py:337
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
@@ -4058,7 +3400,7 @@ msgstr "GB"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
 #: dashboards/project/database_backups/tables.py:141
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
-#: dashboards/project/databases/tables.py:266
+#: dashboards/project/databases/tables.py:271
 #: dashboards/project/databases/templates/databases/_detail_overview.html:34
 #: dashboards/project/images/templates/images/images/_detail_overview.html:25
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
@@ -4236,6 +3578,716 @@ msgstr ""
 msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
 
+#: dashboards/identity/dashboard.py:22
+msgid "Identity"
+msgstr "Identity"
+
+#: dashboards/identity/domains/panel.py:24
+#: dashboards/identity/domains/tables.py:76
+#: dashboards/identity/domains/tables.py:175
+#: dashboards/identity/domains/templates/domains/index.html:3
+#: dashboards/identity/domains/templates/domains/index.html:6
+msgid "Domains"
+msgstr "Domény"
+
+#: dashboards/identity/domains/tables.py:37
+#: dashboards/identity/projects/tables.py:45
+msgid "Modify Groups"
+msgstr "Změnit skupiny"
+
+#: dashboards/identity/domains/tables.py:51
+#: dashboards/identity/domains/workflows.py:154
+#: dashboards/identity/domains/workflows.py:155
+msgid "Create Domain"
+msgstr "Vytvořit doménu"
+
+#: dashboards/identity/domains/tables.py:75
+msgid "Domain"
+msgstr "Doména"
+
+#: dashboards/identity/domains/tables.py:85
+#, python-format
+msgid "Domain \"%s\" must be disabled before it can be deleted."
+msgstr "Doména \"%s\" musí být před smazáním zakázána."
+
+#: dashboards/identity/domains/tables.py:115
+msgid "Set Domain Context"
+msgstr "Nastavit kontext domény"
+
+#: dashboards/identity/domains/tables.py:140
+#, python-format
+msgid "Domain Context updated to Domain %s."
+msgstr "Kontext domény aktualizován na Doména %s."
+
+#: dashboards/identity/domains/tables.py:144
+msgid "Unable to set Domain Context."
+msgstr "Nelze nastavit kontext domény."
+
+#: dashboards/identity/domains/tables.py:149
+msgid "Clear Domain Context"
+msgstr "Vyčistit kontext domény"
+
+#: dashboards/identity/domains/tables.py:163
+msgid "Domain Context cleared."
+msgstr "Kontext domény vyčištěn."
+
+#: dashboards/identity/domains/tables.py:170
+#: dashboards/identity/projects/workflows.py:101
+#: dashboards/identity/users/forms.py:75
+#: dashboards/identity/users/forms.py:153
+msgid "Domain ID"
+msgstr "ID domény"
+
+#: dashboards/identity/domains/views.py:51
+msgid "Unable to retrieve domain list."
+msgstr "Nelze získat seznam domén."
+
+#: dashboards/identity/domains/views.py:60
+msgid "Unable to retrieve domain information."
+msgstr ""
+
+#: dashboards/identity/domains/views.py:62
+msgid "Insufficient privilege level to view domain information."
+msgstr ""
+
+#: dashboards/identity/domains/views.py:88
+msgid "Unable to retrieve domain details."
+msgstr "Nelze získat podrobnosti domény. "
+
+#: dashboards/identity/domains/workflows.py:42
+#: dashboards/identity/domains/workflows.py:182
+msgid "Domain Info"
+msgstr "Informace o doméně"
+
+#: dashboards/identity/domains/workflows.py:44
+msgid ""
+"From here you can create a new domain to organize projects, groups and "
+"users."
+msgstr "Zde můžete vytvořit novou doménu k uspořádání projektů, skupin a uživatelů."
+
+#: dashboards/identity/domains/workflows.py:61
+#: dashboards/identity/projects/workflows.py:245
+msgid "Unable to retrieve group list. Please try again later."
+msgstr "Nelze získat seznam skupin. Zkuste to prosím později."
+
+#: dashboards/identity/domains/workflows.py:73
+#: dashboards/identity/projects/workflows.py:161
+#: dashboards/identity/projects/workflows.py:259
+#, python-format
+msgid "Could not find default role \"%s\" in Keystone"
+msgstr "Nelze najít výchozí roli \"%s\" v Keystone"
+
+#: dashboards/identity/domains/workflows.py:126
+#: dashboards/identity/domains/workflows.py:133
+msgid "Domain Groups"
+msgstr "Doménové skupiny"
+
+#: dashboards/identity/domains/workflows.py:132
+#: dashboards/identity/projects/workflows.py:317
+msgid "All Groups"
+msgstr "Všechny skupiny"
+
+#: dashboards/identity/domains/workflows.py:134
+#: dashboards/identity/projects/workflows.py:319
+msgid "No groups found."
+msgstr "Žádné skupiny nenalezeny."
+
+#: dashboards/identity/domains/workflows.py:135
+#: dashboards/identity/projects/workflows.py:320
+msgid "No groups."
+msgstr "Žádné skupiny."
+
+#: dashboards/identity/domains/workflows.py:143
+#: dashboards/identity/projects/workflows.py:328
+msgid "Unable to retrieve role list."
+msgstr "Nelze získat seznam rolí."
+
+#: dashboards/identity/domains/workflows.py:156
+#, python-format
+msgid "Created new domain \"%s\"."
+msgstr "Vytvořena nová doména \"%s\"."
+
+#: dashboards/identity/domains/workflows.py:157
+#, python-format
+msgid "Unable to create domain \"%s\"."
+msgstr "Nelze vytvořit doménu \"%s\"."
+
+#: dashboards/identity/domains/workflows.py:184
+msgid "From here you can edit the domain details."
+msgstr "Zde můžete upravit podrobnosti domény."
+
+#: dashboards/identity/domains/workflows.py:197
+msgid "Edit Domain"
+msgstr "Upravit doménu"
+
+#: dashboards/identity/domains/workflows.py:199
+#, python-format
+msgid "Modified domain \"%s\"."
+msgstr "Doména \"%s\" změněna."
+
+#: dashboards/identity/domains/workflows.py:200
+#, python-format
+msgid "Unable to modify domain \"%s\"."
+msgstr "Nelze změnit doménu \"%s\"."
+
+#: dashboards/identity/domains/workflows.py:287
+#, python-format
+msgid "Failed to modify %s domain groups."
+msgstr "Nelze změnit doménové skupiny %s"
+
+#: dashboards/identity/groups/forms.py:45
+#, python-format
+msgid "Group \"%s\" was successfully created."
+msgstr "Skupina \"%s\" byla úspěšně vytvořena."
+
+#: dashboards/identity/groups/forms.py:48
+msgid "Unable to create group."
+msgstr "Nelze vytvořit skupinu."
+
+#: dashboards/identity/groups/forms.py:69
+msgid "Group has been updated successfully."
+msgstr "Skupina byla úspěšně aktualizována."
+
+#: dashboards/identity/groups/forms.py:71
+msgid "Unable to update the group."
+msgstr "Nelze aktualizovat skupinu."
+
+#: dashboards/identity/groups/panel.py:24
+#: dashboards/identity/groups/tables.py:63
+#: dashboards/identity/groups/tables.py:107
+#: dashboards/identity/groups/templates/groups/index.html:3
+#: dashboards/identity/groups/templates/groups/index.html:6
+msgid "Groups"
+msgstr "Skupiny"
+
+#: dashboards/identity/groups/tables.py:38
+#: dashboards/identity/groups/templates/groups/_create.html:8
+#: dashboards/identity/groups/templates/groups/_create.html:23
+#: dashboards/identity/groups/templates/groups/create.html:3
+#: dashboards/identity/groups/templates/groups/create.html:6
+msgid "Create Group"
+msgstr "Vytvořit skupinu"
+
+#: dashboards/identity/groups/tables.py:50
+msgid "Edit Group"
+msgstr "Upravit skupinu"
+
+#: dashboards/identity/groups/tables.py:62
+msgid "Group"
+msgstr "Skupina"
+
+#: dashboards/identity/groups/tables.py:76
+#: dashboards/identity/projects/tables.py:29
+msgid "Modify Users"
+msgstr "Změnit uživatele"
+
+#: dashboards/identity/groups/tables.py:103
+msgid "Group ID"
+msgstr "ID skupiny"
+
+#: dashboards/identity/groups/tables.py:124
+msgid "Remove"
+msgstr "Odstranit"
+
+#: dashboards/identity/groups/tables.py:125
+msgid "Removed"
+msgstr "Odstraněno"
+
+#: dashboards/identity/groups/tables.py:126
+#: dashboards/identity/groups/tables.py:185
+#: dashboards/identity/users/tables.py:61
+#: dashboards/identity/users/tables.py:104
+#: dashboards/project/databases/tables.py:65
+#: dashboards/project/instances/workflows/create_instance.py:51
+msgid "User"
+msgstr "Uživatel"
+
+#: dashboards/identity/groups/tables.py:127
+#: dashboards/identity/groups/tables.py:186
+#: dashboards/identity/users/panel.py:27
+#: dashboards/identity/users/tables.py:62
+#: dashboards/identity/users/tables.py:105
+#: dashboards/identity/users/tables.py:150
+#: dashboards/identity/users/templates/users/index.html:3
+#: dashboards/identity/users/templates/users/index.html:6
+#: dashboards/project/databases/tables.py:66
+#: dashboards/project/databases/tables.py:242
+#: dashboards/project/databases/tabs.py:47
+msgid "Users"
+msgstr "Uživatelé"
+
+#: dashboards/identity/groups/tables.py:148
+msgid "Add..."
+msgstr "Přidat..."
+
+#: dashboards/identity/groups/tables.py:163
+#: dashboards/identity/users/forms.py:81
+#: dashboards/identity/users/forms.py:160
+#: dashboards/identity/users/tables.py:132
+#: dashboards/project/data_processing/data_image_registry/forms.py:28
+#: dashboards/project/databases/tables.py:236
+msgid "User Name"
+msgstr "Uživatelské jméno"
+
+#: dashboards/identity/groups/tables.py:164
+#: dashboards/identity/users/forms.py:83
+#: dashboards/identity/users/forms.py:162
+#: dashboards/identity/users/tables.py:133
+msgid "Email"
+msgstr "E-mail"
+
+#: dashboards/identity/groups/tables.py:167
+#: dashboards/identity/users/tables.py:142
+msgid "User ID"
+msgstr "ID uživatele"
+
+#: dashboards/identity/groups/tables.py:177
+msgid "Group Members"
+msgstr "Členové skupiny"
+
+#: dashboards/identity/groups/tables.py:183
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
+#: dashboards/project/firewalls/workflows.py:106
+#: dashboards/project/firewalls/workflows.py:213
+#: dashboards/project/firewalls/workflows.py:290
+#: dashboards/project/loadbalancers/workflows.py:134
+#: dashboards/project/loadbalancers/workflows.py:256
+#: dashboards/project/loadbalancers/workflows.py:421
+#: dashboards/project/loadbalancers/workflows.py:597
+#: dashboards/project/vpn/workflows.py:92
+#: dashboards/project/vpn/workflows.py:191
+#: dashboards/project/vpn/workflows.py:288
+#: dashboards/project/vpn/workflows.py:470
+msgid "Add"
+msgstr "Přidat"
+
+#: dashboards/identity/groups/tables.py:184
+msgid "Added"
+msgstr "Přidáno"
+
+#: dashboards/identity/groups/tables.py:215
+msgid "Non-Members"
+msgstr "Nečlenové"
+
+#: dashboards/identity/groups/views.py:49
+msgid "Unable to retrieve group list."
+msgstr "Nelze získat seznam skupin."
+
+#: dashboards/identity/groups/views.py:51
+msgid "Insufficient privilege level to view group information."
+msgstr ""
+
+#: dashboards/identity/groups/views.py:75
+msgid "Unable to update group."
+msgstr "Nelze aktualizovat skupinu."
+
+#: dashboards/identity/groups/views.py:126
+msgid "Unable to retrieve group users."
+msgstr "Nelze získat uživatele skupiny."
+
+#: dashboards/identity/groups/views.py:147
+msgid "Unable to retrieve users."
+msgstr "Nelze získat uživatele."
+
+#: dashboards/identity/groups/templates/groups/_add_non_member.html:5
+msgid "Add Group Assignment"
+msgstr "Přidat přidělení skupiny"
+
+#: dashboards/identity/groups/templates/groups/_create.html:18
+msgid "From here you can create a new group to organize users and roles."
+msgstr "Zde můžete vytvořit novou skupinu k uspořádání uživatelů a rolí."
+
+#: dashboards/identity/groups/templates/groups/_update.html:8
+#: dashboards/identity/groups/templates/groups/_update.html:23
+#: dashboards/identity/groups/templates/groups/update.html:3
+#: dashboards/identity/groups/templates/groups/update.html:6
+msgid "Update Group"
+msgstr "Aktualizovat skupinu"
+
+#: dashboards/identity/groups/templates/groups/_update.html:18
+msgid "From here you can edit the group's details."
+msgstr "Zde můžete upravit podrobnosti skupiny."
+
+#: dashboards/identity/groups/templates/groups/add_non_member.html:3
+msgid "Add User to Group"
+msgstr "Přidat uživatele do skupiny."
+
+#: dashboards/identity/groups/templates/groups/manage.html:3
+msgid "Group Management"
+msgstr "Správa skupiny"
+
+#: dashboards/identity/groups/templates/groups/manage.html:6
+msgid "Group Management: "
+msgstr "Správy skupiny:"
+
+#: dashboards/identity/projects/panel.py:27
+#: dashboards/identity/projects/tables.py:113
+#: dashboards/identity/projects/tables.py:196
+#: dashboards/identity/projects/templates/projects/index.html:3
+#: dashboards/identity/projects/templates/projects/index.html:6
+#: templates/403.html:25 templates/404.html:24
+msgid "Projects"
+msgstr "Projekty"
+
+#: dashboards/identity/projects/tables.py:63
+msgid "View Usage"
+msgstr "Zobrazit využití"
+
+#: dashboards/identity/projects/tables.py:74
+#: dashboards/identity/projects/workflows.py:339
+#: dashboards/identity/projects/workflows.py:340
+msgid "Create Project"
+msgstr "Vytvořit projekt"
+
+#: dashboards/identity/projects/tables.py:86
+#: dashboards/identity/projects/workflows.py:492
+msgid "Edit Project"
+msgstr "Upravit projekt"
+
+#: dashboards/identity/projects/tables.py:98
+msgid "Modify Quotas"
+msgstr "Změnit kvóty"
+
+#: dashboards/identity/projects/tables.py:169
+msgid "This name is already taken."
+msgstr "Název již je používán."
+
+#: dashboards/identity/projects/views.py:58
+#: dashboards/identity/projects/views.py:103
+#: dashboards/router/nexus1000v/views.py:44
+msgid "Unable to retrieve project information."
+msgstr "Nelze získat informace o projektu."
+
+#: dashboards/identity/projects/views.py:107
+msgid "Insufficient privilege level to view project information."
+msgstr ""
+
+#: dashboards/identity/projects/views.py:151
+msgid "Unable to retrieve default Neutron quota values."
+msgstr "Nelze získat výchozí hodnoty kvót Neutron."
+
+#: dashboards/identity/projects/views.py:159
+msgid "Unable to retrieve default quota values."
+msgstr "Nelze získat výchozí hodnoty kvóty."
+
+#: dashboards/identity/projects/views.py:189
+#: dashboards/identity/users/views.py:110
+msgid "Unable to retrieve project domain."
+msgstr "Nelze získat doménu projektu."
+
+#: dashboards/identity/projects/views.py:203
+msgid "Unable to retrieve project details."
+msgstr "Nelze získat podrobnostiprojektu."
+
+#: dashboards/identity/projects/workflows.py:87
+msgid "Quota"
+msgstr "Kvóta"
+
+#: dashboards/identity/projects/workflows.py:89
+msgid "From here you can set quotas (max limits) for the project."
+msgstr "Zde můžete nastavit kvóty (max. limity) pro projekt."
+
+#: dashboards/identity/projects/workflows.py:104
+#: dashboards/identity/users/forms.py:78
+#: dashboards/identity/users/forms.py:156
+msgid "Domain Name"
+msgstr "Název domény"
+
+#: dashboards/identity/projects/workflows.py:127
+#: dashboards/identity/projects/workflows.py:475
+msgid "Project Info"
+msgstr "Informace o projektu"
+
+#: dashboards/identity/projects/workflows.py:128
+msgid "From here you can create a new project to organize users."
+msgstr "Odsud můžete vytvořit nový projekt pro organizaci uživatelů."
+
+#: dashboards/identity/projects/workflows.py:147
+msgid "Unable to retrieve user list. Please try again later."
+msgstr "Nelze získat seznam uživatelů. Zkuste to prosím později."
+
+#: dashboards/identity/projects/workflows.py:214
+#: dashboards/identity/projects/workflows.py:221
+msgid "Project Members"
+msgstr "Členové projektu"
+
+#: dashboards/identity/projects/workflows.py:220
+msgid "All Users"
+msgstr "Všichni uživatelé"
+
+#: dashboards/identity/projects/workflows.py:222
+msgid "No users found."
+msgstr "Žádní uživatelé nenalezeni."
+
+#: dashboards/identity/projects/workflows.py:223
+msgid "No users."
+msgstr "Žádní uživatelé."
+
+#: dashboards/identity/projects/workflows.py:231
+#: dashboards/identity/users/views.py:56
+msgid "Unable to retrieve user list."
+msgstr "Nelze získat seznam uživatelů."
+
+#: dashboards/identity/projects/workflows.py:311
+#: dashboards/identity/projects/workflows.py:318
+msgid "Project Groups"
+msgstr "Skupiny projektu"
+
+#: dashboards/identity/projects/workflows.py:341
+#, python-format
+msgid "Created new project \"%s\"."
+msgstr "Vytvořen nový projekt \"%s\"."
+
+#: dashboards/identity/projects/workflows.py:342
+#, python-format
+msgid "Unable to create project \"%s\"."
+msgstr "Nelze vytvořit projekt \"%s\"."
+
+#: dashboards/identity/projects/workflows.py:404
+msgid ", add project groups"
+msgstr ", přidat skupiny projektu"
+
+#: dashboards/identity/projects/workflows.py:407
+#, python-format
+msgid ""
+"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
+"quotas."
+msgstr "Nelze přidat %(users_to_add)s členů projektů%(group_msg)s a nastavit kvóty projektu."
+
+#: dashboards/identity/projects/workflows.py:439
+#, python-format
+msgid "Failed to add %s project groups and update project quotas."
+msgstr "Nelze přidat %s skupin projektu a aktualizovat kvóty projektu."
+
+#: dashboards/identity/projects/workflows.py:467
+msgid "Unable to set project quotas."
+msgstr "Nelze nastavit kvótu projektu."
+
+#: dashboards/identity/projects/workflows.py:477
+msgid "From here you can edit the project details."
+msgstr "Zde můžete upravit podrobnosti projektu. "
+
+#: dashboards/identity/projects/workflows.py:494
+#, python-format
+msgid "Modified project \"%s\"."
+msgstr "Projekt \"%s\" změněn."
+
+#: dashboards/identity/projects/workflows.py:495
+#, python-format
+msgid "Unable to modify project \"%s\"."
+msgstr "Nelze změnit projekt \"%s\"."
+
+#: dashboards/identity/projects/workflows.py:590
+msgid ""
+"You cannot revoke your administrative privileges from the project you are "
+"currently logged into. Please switch to another project with administrative "
+"privileges or remove the administrative role manually via the CLI."
+msgstr "Nemůžete si odstranit svá správcovská oprávnění v projektu, do kterého jste nyní přihlášeni. Prosím přejděte do jiného projektu se stejnými oprávněními, nebo odstraňte roli správce ručně pomocí příkazového řádku."
+
+#: dashboards/identity/projects/workflows.py:625
+msgid ", update project groups"
+msgstr ", aktualizovat skupiny projektu"
+
+#: dashboards/identity/projects/workflows.py:628
+#, python-format
+msgid ""
+"Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
+" project quotas."
+msgstr "Nelze změnit %(users_to_modify)s členů projektu%(group_msg)s a aktualizovat kvóty projektu,"
+
+#: dashboards/identity/projects/workflows.py:701
+#, python-format
+msgid ""
+"Failed to modify %s project members, update project groups and update "
+"project quotas."
+msgstr "Nelze změnit %s členů projektu, aktualizovat skupiny projektu a kvóty projektu."
+
+#: dashboards/identity/projects/workflows.py:734
+msgid ""
+"Modified project information and members, but unable to modify project "
+"quotas."
+msgstr "Informace o projektu a členové změněni, ale nebylo možné změnit kvóty projektu."
+
+#: dashboards/identity/projects/templates/projects/usage.html:3
+msgid "Project Usage Overview"
+msgstr "Přehled využití projektu"
+
+#: dashboards/identity/projects/templates/projects/usage.html:6
+msgid "Project Usage"
+msgstr "Využití projektu"
+
+#: dashboards/identity/roles/forms.py:25 dashboards/identity/roles/forms.py:38
+#: dashboards/identity/roles/tables.py:67
+msgid "Role Name"
+msgstr "Název role"
+
+#: dashboards/identity/roles/forms.py:30
+msgid "Role created successfully."
+msgstr "Role úspěšně vytvořena."
+
+#: dashboards/identity/roles/forms.py:33
+msgid "Unable to create role."
+msgstr "Nelze vytvořit roli."
+
+#: dashboards/identity/roles/forms.py:43
+msgid "Role updated successfully."
+msgstr "Role úspěšně aktualizována."
+
+#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:65
+msgid "Unable to update role."
+msgstr "Nelze aktualizovat roli."
+
+#: dashboards/identity/roles/panel.py:24
+#: dashboards/identity/roles/tables.py:48
+#: dashboards/identity/roles/tables.py:72
+#: dashboards/identity/roles/templates/roles/index.html:3
+#: dashboards/identity/roles/templates/roles/index.html:6
+msgid "Roles"
+msgstr "Role"
+
+#: dashboards/identity/roles/tables.py:24
+#: dashboards/identity/roles/templates/roles/_create.html:8
+#: dashboards/identity/roles/templates/roles/_create.html:23
+#: dashboards/identity/roles/templates/roles/create.html:3
+#: dashboards/identity/roles/templates/roles/create.html:7
+msgid "Create Role"
+msgstr "Vytvořit roli"
+
+#: dashboards/identity/roles/tables.py:47
+#: dashboards/identity/users/forms.py:96
+msgid "Role"
+msgstr "Role"
+
+#: dashboards/identity/roles/tables.py:68
+msgid "Role ID"
+msgstr "ID role"
+
+#: dashboards/identity/roles/views.py:46
+msgid "Unable to retrieve roles list."
+msgstr "Nelze získat seznam rolí."
+
+#: dashboards/identity/roles/views.py:48
+msgid "Insufficient privilege level to view role information."
+msgstr ""
+
+#: dashboards/identity/roles/templates/roles/_create.html:18
+msgid "From here you can create a new role."
+msgstr "Zde můžete vytvořit novou roli."
+
+#: dashboards/identity/roles/templates/roles/_update.html:8
+#: dashboards/identity/roles/templates/roles/_update.html:23
+#: dashboards/identity/roles/templates/roles/update.html:3
+#: dashboards/identity/roles/templates/roles/update.html:7
+msgid "Update Role"
+msgstr "Aktualizovat roli"
+
+#: dashboards/identity/roles/templates/roles/_update.html:18
+msgid "From here you can edit the role's details."
+msgstr "Zde můžete upravit podrobnosti role."
+
+#: dashboards/identity/users/forms.py:56
+msgid "No available projects"
+msgstr "Žádné dostupné projekty"
+
+#: dashboards/identity/users/forms.py:66
+#: dashboards/project/instances/forms.py:89
+#: dashboards/project/instances/workflows/create_instance.py:512
+#: dashboards/settings/password/forms.py:46
+msgid "Passwords do not match."
+msgstr "Hesla se neshodují."
+
+#: dashboards/identity/users/forms.py:86
+#: dashboards/identity/users/forms.py:165
+#: dashboards/project/data_processing/job_binaries/forms.py:71
+#: dashboards/project/databases/workflows/create_instance.py:192
+#: dashboards/project/instances/forms.py:153
+#: dashboards/project/instances/tables.py:716
+msgid "Password"
+msgstr "Heslo"
+
+#: dashboards/identity/users/forms.py:91
+#: dashboards/identity/users/forms.py:171
+msgid "Confirm Password"
+msgstr "Potvrdit heslo"
+
+#: dashboards/identity/users/forms.py:93
+#: dashboards/identity/users/forms.py:174
+msgid "Primary Project"
+msgstr "Hlavní projekt"
+
+#: dashboards/identity/users/forms.py:128
+#, python-format
+msgid "User \"%s\" was successfully created."
+msgstr "Uživatel \"%s\" byl úspěšně vytvořen."
+
+#: dashboards/identity/users/forms.py:144
+msgid "Unable to add user to primary project."
+msgstr "Nelze přidat roli do hlavního projektu."
+
+#: dashboards/identity/users/forms.py:148
+msgid "Unable to create user."
+msgstr "Nelze vytvořit uživatele."
+
+#: dashboards/identity/users/forms.py:206
+msgid "User has been updated successfully."
+msgstr "Uživatel byl úspěšně aktualizován."
+
+#: dashboards/identity/users/forms.py:209
+msgid "Unable to update the user."
+msgstr "Nelze aktualizovat uživatele."
+
+#: dashboards/identity/users/tables.py:28
+#: dashboards/identity/users/templates/users/_create.html:8
+#: dashboards/identity/users/templates/users/_create.html:33
+#: dashboards/identity/users/templates/users/create.html:3
+#: dashboards/identity/users/templates/users/create.html:7
+msgid "Create User"
+msgstr "Vytvořit uživatele"
+
+#: dashboards/identity/users/tables.py:59
+msgid "Enable"
+msgstr "Povolit"
+
+#: dashboards/identity/users/tables.py:59
+msgid "Disable"
+msgstr "Zakázat"
+
+#: dashboards/identity/users/tables.py:92
+msgid "You cannot disable the user you are currently logged in as."
+msgstr "Nemůžete zakázat uživatele pod kterým jste zrovna přihlášeni."
+
+#: dashboards/identity/users/views.py:65
+msgid "Unable to retrieve user information."
+msgstr ""
+
+#: dashboards/identity/users/views.py:67
+msgid "Insufficient privilege level to view user information."
+msgstr ""
+
+#: dashboards/identity/users/views.py:90
+msgid "Unable to update user."
+msgstr "Nelze aktualizovat uživatele."
+
+#: dashboards/identity/users/views.py:136
+msgid "Unable to retrieve user roles."
+msgstr "Nelze získat uživatelské role."
+
+#: dashboards/identity/users/templates/users/_create.html:18
+msgid "From here you can create a new user and assign them to a project."
+msgstr "Zde můžete vytvořit nového uživatele a přidělit ho do projektu."
+
+#: dashboards/identity/users/templates/users/_update.html:8
+#: dashboards/identity/users/templates/users/_update.html:33
+#: dashboards/identity/users/templates/users/update.html:3
+#: dashboards/identity/users/templates/users/update.html:7
+msgid "Update User"
+msgstr "Aktualizovat uživatele"
+
+#: dashboards/identity/users/templates/users/_update.html:18
+msgid ""
+"From here you can edit the user's details, including their default project."
+msgstr "Zde můžete upravit údaje uživatelů, včetně jejich výchozích projektů. "
+
 #: dashboards/project/dashboard.py:22
 msgid "Compute"
 msgstr "Compute"
@@ -4268,32 +4320,32 @@ msgid "Data Processing"
 msgstr ""
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:469
+#: dashboards/project/instances/workflows/create_instance.py:470
 msgid "Access & Security"
 msgstr "Přístup a zabezpečení"
 
-#: dashboards/project/access_and_security/tabs.py:53
+#: dashboards/project/access_and_security/tabs.py:52
 #: dashboards/project/access_and_security/security_groups/views.py:120
 #: usage/base.py:109
 msgid "Unable to retrieve security groups."
 msgstr "Nelze získat bezpečnostní skupiny."
 
-#: dashboards/project/access_and_security/tabs.py:70
+#: dashboards/project/access_and_security/tabs.py:69
 msgid "Unable to retrieve key pair list."
 msgstr "Nelze získat seznam párů klíče."
 
-#: dashboards/project/access_and_security/tabs.py:87
+#: dashboards/project/access_and_security/tabs.py:86
 #: dashboards/project/access_and_security/floating_ips/workflows.py:67
 #: usage/base.py:104
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Nelze získat plovoucí IP adresy."
 
-#: dashboards/project/access_and_security/tabs.py:94
+#: dashboards/project/access_and_security/tabs.py:93
 #: dashboards/project/access_and_security/floating_ips/views.py:66
 msgid "Unable to retrieve floating IP pools."
 msgstr "Nelze získat zásoby plovoucích IP."
 
-#: dashboards/project/access_and_security/tabs.py:115
+#: dashboards/project/access_and_security/tabs.py:114
 msgid "API Access"
 msgstr "Přístup k API"
 
@@ -4489,7 +4541,7 @@ msgstr "Nelze importovat pár klíčů."
 
 #: dashboards/project/access_and_security/keypairs/tables.py:25
 #: dashboards/project/instances/tables.py:816
-#: dashboards/project/instances/workflows/create_instance.py:447
+#: dashboards/project/instances/workflows/create_instance.py:448
 msgid "Key Pair"
 msgstr "Pár klíčů"
 
@@ -4926,7 +4978,7 @@ msgid "Private"
 msgstr "Soukromé"
 
 #: dashboards/project/containers/forms.py:48
-#: dashboards/project/containers/tables.py:255
+#: dashboards/project/containers/tables.py:253
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
@@ -4956,7 +5008,7 @@ msgid "File"
 msgstr "Soubor"
 
 #: dashboards/project/containers/forms.py:87
-#: dashboards/project/containers/tables.py:423
+#: dashboards/project/containers/tables.py:421
 msgid "Object Name"
 msgstr "Název objektu"
 
@@ -5012,14 +5064,14 @@ msgstr "Nelze zkopírovat objekt."
 
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
-#: dashboards/project/containers/tables.py:266
+#: dashboards/project/containers/tables.py:264
 #: dashboards/project/containers/templates/containers/index.html:5
 #: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr "Kontejnery"
 
 #: dashboards/project/containers/tables.py:44
-#: dashboards/project/containers/tables.py:296
+#: dashboards/project/containers/tables.py:294
 msgid "View Details"
 msgstr "Zobrazit podrobnosti"
 
@@ -5044,11 +5096,11 @@ msgstr "Utajit"
 msgid "Successfully updated container access to private."
 msgstr "Přístup ke kontejneru úspěšně změněn na utajený."
 
-#: dashboards/project/containers/tables.py:120
+#: dashboards/project/containers/tables.py:118
 msgid "Unable to delete container."
 msgstr "Nelze smazat kontejner."
 
-#: dashboards/project/containers/tables.py:137
+#: dashboards/project/containers/tables.py:135
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -5056,50 +5108,50 @@ msgstr "Nelze smazat kontejner."
 msgid "Create Container"
 msgstr "Vytvořit kontejner"
 
-#: dashboards/project/containers/tables.py:145
+#: dashboards/project/containers/tables.py:143
 msgid "View Container"
 msgstr "Zobrazit kontejner"
 
-#: dashboards/project/containers/tables.py:157
+#: dashboards/project/containers/tables.py:155
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:6
 msgid "Create Pseudo-folder"
 msgstr "Vytvořit pseudo složku"
 
-#: dashboards/project/containers/tables.py:186
+#: dashboards/project/containers/tables.py:184
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "Nahrát objekt"
 
-#: dashboards/project/containers/tables.py:257
+#: dashboards/project/containers/tables.py:255
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
 msgstr "Podrobnosti kontejneru"
 
-#: dashboards/project/containers/tables.py:323
+#: dashboards/project/containers/tables.py:321
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
 msgid "Object"
 msgstr "Objekt"
 
-#: dashboards/project/containers/tables.py:324
-#: dashboards/project/containers/tables.py:430
+#: dashboards/project/containers/tables.py:322
+#: dashboards/project/containers/tables.py:428
 msgid "Objects"
 msgstr "Objekty"
 
-#: dashboards/project/containers/tables.py:346
+#: dashboards/project/containers/tables.py:344
 msgid "Copy"
 msgstr "Kopírovat"
 
-#: dashboards/project/containers/tables.py:360
-#: dashboards/project/databases/tables.py:268
+#: dashboards/project/containers/tables.py:358
+#: dashboards/project/databases/tables.py:273
 msgid "Download"
 msgstr "Stáhnout"
 
-#: dashboards/project/containers/tables.py:408
+#: dashboards/project/containers/tables.py:406
 msgid "pseudo-folder"
 msgstr "psuedo složka"
 
@@ -5548,7 +5600,7 @@ msgstr ""
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:44
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:129
+#: dashboards/project/instances/workflows/create_instance.py:130
 #: dashboards/project/loadbalancers/tables.py:344
 msgid "Details"
 msgstr "Podrobnosti"
@@ -5753,7 +5805,7 @@ msgstr ""
 #: dashboards/project/data_processing/data_image_registry/forms.py:72
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:358
+#: dashboards/project/instances/workflows/create_instance.py:359
 msgid "Select Image"
 msgstr "Vyberte obraz"
 
@@ -5871,16 +5923,16 @@ msgid "Add custom tag"
 msgstr ""
 
 #: dashboards/project/data_processing/data_plugins/panel.py:22
-#: dashboards/project/data_processing/data_plugins/tables.py:43
+#: dashboards/project/data_processing/data_plugins/tables.py:39
 msgid "Plugins"
 msgstr "Zásuvné moduly"
 
-#: dashboards/project/data_processing/data_plugins/tables.py:32
+#: dashboards/project/data_processing/data_plugins/tables.py:26
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
 msgid "Title"
 msgstr "Název"
 
-#: dashboards/project/data_processing/data_plugins/tables.py:36
+#: dashboards/project/data_processing/data_plugins/tables.py:30
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
 msgid "Supported Versions"
 msgstr ""
@@ -6180,7 +6232,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:268
 #: dashboards/project/images/images/tables.py:34
-#: dashboards/project/instances/workflows/create_instance.py:671
+#: dashboards/project/instances/workflows/create_instance.py:672
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Spustit"
@@ -6684,7 +6736,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:156
-#: dashboards/project/instances/workflows/create_instance.py:595
+#: dashboards/project/instances/workflows/create_instance.py:596
 msgid "Unable to retrieve networks."
 msgstr "Nelze získat sítě."
 
@@ -6704,7 +6756,7 @@ msgstr ""
 #: dashboards/project/database_backups/tables.py:81
 #: dashboards/project/database_backups/tables.py:158
 #: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:284
+#: dashboards/project/databases/tables.py:289
 #: dashboards/project/databases/tabs.py:104
 msgid "Backups"
 msgstr "Zálohy"
@@ -6761,7 +6813,7 @@ msgstr "Není dostupné"
 
 #: dashboards/project/database_backups/tables.py:138
 #: dashboards/project/database_backups/templates/database_backups/details.html:25
-#: dashboards/project/databases/tables.py:201
+#: dashboards/project/databases/tables.py:206
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/databases/workflows/create_instance.py:39
 msgid "Datastore"
@@ -6769,13 +6821,13 @@ msgstr ""
 
 #: dashboards/project/database_backups/tables.py:140
 #: dashboards/project/database_backups/templates/database_backups/details.html:27
-#: dashboards/project/databases/tables.py:203
+#: dashboards/project/databases/tables.py:208
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
 msgstr ""
 
 #: dashboards/project/database_backups/tables.py:146
-#: dashboards/project/databases/tables.py:272
+#: dashboards/project/databases/tables.py:277
 msgid "Incremental"
 msgstr ""
 
@@ -6898,14 +6950,14 @@ msgstr "Naplánována záloha \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:270
-#: dashboards/project/instances/workflows/create_instance.py:673
+#: dashboards/project/instances/workflows/create_instance.py:674
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nelze spustit %(count)s pojmenovaných \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:286
-#: dashboards/project/instances/workflows/create_instance.py:689
+#: dashboards/project/instances/workflows/create_instance.py:690
 msgid "instance"
 msgstr "instance"
 
@@ -6961,8 +7013,8 @@ msgid "Error deleting database user."
 msgstr "Chyba při mazání uživatele databáze."
 
 #: dashboards/project/databases/tables.py:82
-#: dashboards/project/databases/tables.py:233
-#: dashboards/project/databases/tables.py:250
+#: dashboards/project/databases/tables.py:238
+#: dashboards/project/databases/tables.py:255
 #: dashboards/project/databases/tabs.py:77
 msgid "Databases"
 msgstr "Databáze"
@@ -6976,7 +7028,7 @@ msgstr "Chyba při mazání databáze v instanci."
 #: dashboards/project/databases/workflows/create_instance.py:267
 #: dashboards/project/instances/tables.py:219
 #: dashboards/project/instances/tables.py:247
-#: dashboards/project/instances/workflows/create_instance.py:670
+#: dashboards/project/instances/workflows/create_instance.py:671
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Spustit instanci"
@@ -7020,21 +7072,21 @@ msgstr "%(name)s | %(RAM)s RAM"
 msgid "-"
 msgstr "-"
 
-#: dashboards/project/databases/tables.py:209
+#: dashboards/project/databases/tables.py:214
 #: dashboards/project/databases/templates/databases/_detail_overview.html:31
 #: dashboards/project/databases/workflows/create_instance.py:35
 msgid "Volume Size"
 msgstr "Velikost svazku"
 
-#: dashboards/project/databases/tables.py:232
+#: dashboards/project/databases/tables.py:237
 msgid "Allowed Host"
 msgstr ""
 
-#: dashboards/project/databases/tables.py:246
+#: dashboards/project/databases/tables.py:251
 msgid "Database Name"
 msgstr "Název databáze"
 
-#: dashboards/project/databases/tables.py:270
+#: dashboards/project/databases/tables.py:275
 msgid "Backup File"
 msgstr "Zálohovat soubor"
 
@@ -7250,23 +7302,23 @@ msgid "Select datastore type and version"
 msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:130
-#: dashboards/project/instances/workflows/create_instance.py:557
+#: dashboards/project/instances/workflows/create_instance.py:558
 msgid "At least one network must be specified."
 msgstr "Musí být zadána alespoň jedna síť."
 
 #: dashboards/project/databases/workflows/create_instance.py:132
-#: dashboards/project/instances/workflows/create_instance.py:559
+#: dashboards/project/instances/workflows/create_instance.py:560
 msgid "Launch instance with these networks"
 msgstr "Spustit instanci s těmito sítěmi"
 
 #: dashboards/project/databases/workflows/create_instance.py:142
 #: dashboards/project/instances/tables.py:731
-#: dashboards/project/instances/workflows/create_instance.py:581
+#: dashboards/project/instances/workflows/create_instance.py:582
 msgid "Networking"
 msgstr "Síťování"
 
 #: dashboards/project/databases/workflows/create_instance.py:144
-#: dashboards/project/instances/workflows/create_instance.py:583
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid "Select networks for your instance."
 msgstr "Vyberte sítě pro vaší instanci."
 
@@ -7311,7 +7363,7 @@ msgid "Unable to find backup!"
 msgstr "Nelze najít zálohu!"
 
 #: dashboards/project/databases/workflows/create_instance.py:269
-#: dashboards/project/instances/workflows/create_instance.py:672
+#: dashboards/project/instances/workflows/create_instance.py:673
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Spuštěno %(count)s pojmenovaných \"%(name)s\"."
@@ -7915,7 +7967,7 @@ msgid ""
 msgstr "Minimální velikost paměti, jež je vyžadována pro zavedení obrazu. Pokud není zadána, je výchozí hodnota 0 (žádné minimum)."
 
 #: dashboards/project/images/images/forms.py:100
-#: dashboards/project/images/images/forms.py:221
+#: dashboards/project/images/images/forms.py:220
 #: dashboards/project/images/images/tables.py:226
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Protected"
@@ -7946,12 +7998,12 @@ msgstr "ID kernelu"
 msgid "Ramdisk ID"
 msgstr "ID ramdisku"
 
-#: dashboards/project/images/images/forms.py:231
+#: dashboards/project/images/images/forms.py:233
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Nelze aktualizovat obraz \"%s\"."
 
-#: dashboards/project/images/images/forms.py:256
+#: dashboards/project/images/images/forms.py:258
 msgid "Image was successfully updated."
 msgstr "Obraz byl úspěšně aktualizován."
 
@@ -8080,28 +8132,28 @@ msgid "Confirm Rebuild Password"
 msgstr "Potvrdit znovu sestavení hesla"
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:640
+#: dashboards/project/instances/workflows/create_instance.py:641
 msgid "Disk Partition"
 msgstr "Oddíl disku"
 
 #: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:360
+#: dashboards/project/instances/workflows/create_instance.py:361
 msgid "No images available"
 msgstr "Žádné obrazy nejsou dostupné"
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:650
+#: dashboards/project/instances/workflows/create_instance.py:651
 msgid "Automatic"
 msgstr "Automaticky"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:651
+#: dashboards/project/instances/workflows/create_instance.py:652
 msgid "Manual"
 msgstr "Ručně"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:153
-#: dashboards/project/instances/workflows/create_instance.py:654
+#: dashboards/project/instances/workflows/create_instance.py:154
+#: dashboards/project/instances/workflows/create_instance.py:655
 msgid "Unable to retrieve extensions information."
 msgstr "Nelze získat informace o rozšířeních."
 
@@ -8804,52 +8856,52 @@ msgstr "Snímek svazku"
 msgid "Device size (GB)"
 msgstr "Velikost zařízení (GB)"
 
-#: dashboards/project/instances/workflows/create_instance.py:113
+#: dashboards/project/instances/workflows/create_instance.py:114
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Velikost svazku v gigabajtech (celočíselná hodnota)."
 
-#: dashboards/project/instances/workflows/create_instance.py:116
+#: dashboards/project/instances/workflows/create_instance.py:117
 #: dashboards/project/volumes/volumes/forms.py:383
 msgid "Device Name"
 msgstr "Název zařízení"
 
-#: dashboards/project/instances/workflows/create_instance.py:119
+#: dashboards/project/instances/workflows/create_instance.py:120
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr "Bod připojení svazku svazek (např. 'vda' připojené na '/dev/vda')."
 
-#: dashboards/project/instances/workflows/create_instance.py:122
+#: dashboards/project/instances/workflows/create_instance.py:123
 msgid "Delete on Terminate"
 msgstr "Odstranit při ukončení"
 
-#: dashboards/project/instances/workflows/create_instance.py:125
+#: dashboards/project/instances/workflows/create_instance.py:126
 msgid "Delete volume on instance terminate"
 msgstr "Odstranit svazek při ukončení instance"
 
-#: dashboards/project/instances/workflows/create_instance.py:140
+#: dashboards/project/instances/workflows/create_instance.py:141
 msgid "Select source"
 msgstr "Vyberte zdroj"
 
-#: dashboards/project/instances/workflows/create_instance.py:141
+#: dashboards/project/instances/workflows/create_instance.py:142
 msgid "Boot from image"
 msgstr "Zavést z obrazu"
 
-#: dashboards/project/instances/workflows/create_instance.py:142
+#: dashboards/project/instances/workflows/create_instance.py:143
 msgid "Boot from snapshot"
 msgstr "Zavést ze snímku"
 
-#: dashboards/project/instances/workflows/create_instance.py:145
+#: dashboards/project/instances/workflows/create_instance.py:146
 msgid "Boot from volume"
 msgstr "Zavést ze svazku"
 
-#: dashboards/project/instances/workflows/create_instance.py:151
+#: dashboards/project/instances/workflows/create_instance.py:152
 msgid "Boot from image (creates a new volume)"
 msgstr "Zavést z obrazu (vytvoří nový svazek)"
 
-#: dashboards/project/instances/workflows/create_instance.py:157
+#: dashboards/project/instances/workflows/create_instance.py:158
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "Zavést ze snímku svazku (vytvoří nový svazek)"
 
-#: dashboards/project/instances/workflows/create_instance.py:168
+#: dashboards/project/instances/workflows/create_instance.py:169
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -8861,183 +8913,183 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] "Požadovaných %(req)i instancí nelze spustit, protože z vaší kvóty Vám zbývá pouze %(avail)i."
 
-#: dashboards/project/instances/workflows/create_instance.py:187
+#: dashboards/project/instances/workflows/create_instance.py:188
 msgid "You must set volume size"
 msgstr "Musíte nastavit velikost svazku"
 
-#: dashboards/project/instances/workflows/create_instance.py:190
-#: dashboards/project/instances/workflows/create_instance.py:275
+#: dashboards/project/instances/workflows/create_instance.py:191
+#: dashboards/project/instances/workflows/create_instance.py:276
 msgid "You must set device name"
 msgstr "Musíte nastavit název svazku"
 
-#: dashboards/project/instances/workflows/create_instance.py:193
+#: dashboards/project/instances/workflows/create_instance.py:194
 msgid "You must select an image."
 msgstr "Musíte zvolit obraz."
 
-#: dashboards/project/instances/workflows/create_instance.py:227
+#: dashboards/project/instances/workflows/create_instance.py:228
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "Konfigurace '%(flavor)s' je pro požadovaný obraz příliš malá.\nMinimální požadavky: %(min_ram)s MB RAM a %(min_disk)s GB na kořenovém disku."
 
-#: dashboards/project/instances/workflows/create_instance.py:244
+#: dashboards/project/instances/workflows/create_instance.py:245
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "Velikost svazku je pro obraz '%(image_name)s' příliš malá a musí být větší nebo rovna '%(smallest_size)d' GB."
 
-#: dashboards/project/instances/workflows/create_instance.py:255
-#: dashboards/project/instances/workflows/create_instance.py:272
+#: dashboards/project/instances/workflows/create_instance.py:256
+#: dashboards/project/instances/workflows/create_instance.py:273
 msgid "You must select a snapshot."
 msgstr "Musíte zvolit snímek."
 
-#: dashboards/project/instances/workflows/create_instance.py:260
+#: dashboards/project/instances/workflows/create_instance.py:261
 msgid "You must select a volume."
 msgstr "Musíte zvolit svazek."
 
-#: dashboards/project/instances/workflows/create_instance.py:266
+#: dashboards/project/instances/workflows/create_instance.py:267
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "Spouštění více instancí je podporováno pouze obrazy a snímky instancí."
 
-#: dashboards/project/instances/workflows/create_instance.py:292
+#: dashboards/project/instances/workflows/create_instance.py:293
 #: dashboards/project/volumes/volumes/forms.py:257
 msgid "Unable to retrieve availability zones."
 msgstr "Nelze získat zóny dostupnosti."
 
-#: dashboards/project/instances/workflows/create_instance.py:298
+#: dashboards/project/instances/workflows/create_instance.py:299
 #: dashboards/project/volumes/volumes/forms.py:260
 msgid "No availability zones found"
 msgstr "Žádné zóny dostupnosti nenalezeny"
 
-#: dashboards/project/instances/workflows/create_instance.py:300
+#: dashboards/project/instances/workflows/create_instance.py:301
 #: dashboards/project/volumes/volumes/forms.py:262
 msgid "Any Availability Zone"
 msgstr "Všechny zóny dostupnosti"
 
-#: dashboards/project/instances/workflows/create_instance.py:323
+#: dashboards/project/instances/workflows/create_instance.py:324
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:229
 msgid "Unable to retrieve quota information."
 msgstr "Nelze získat informace o kvótě."
 
-#: dashboards/project/instances/workflows/create_instance.py:333
+#: dashboards/project/instances/workflows/create_instance.py:334
 #: dashboards/project/volumes/volumes/forms.py:180
 msgid "Snapshot"
 msgstr "Snímek"
 
-#: dashboards/project/instances/workflows/create_instance.py:338
+#: dashboards/project/instances/workflows/create_instance.py:339
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:372
+#: dashboards/project/instances/workflows/create_instance.py:373
 msgid "Select Instance Snapshot"
 msgstr "Vyberte snímek instance"
 
-#: dashboards/project/instances/workflows/create_instance.py:374
+#: dashboards/project/instances/workflows/create_instance.py:375
 msgid "No snapshots available"
 msgstr "Žádné snímky nejsou dostupné"
 
-#: dashboards/project/instances/workflows/create_instance.py:386
+#: dashboards/project/instances/workflows/create_instance.py:387
 #: dashboards/project/volumes/volumes/forms.py:275
 msgid "Unable to retrieve list of volumes."
 msgstr "Nelze získat seznam svazků."
 
-#: dashboards/project/instances/workflows/create_instance.py:388
+#: dashboards/project/instances/workflows/create_instance.py:389
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "Vyberte svazek"
 
-#: dashboards/project/instances/workflows/create_instance.py:390
+#: dashboards/project/instances/workflows/create_instance.py:391
 msgid "No volumes available"
 msgstr "Žádné svazky nejsou dostupné"
 
-#: dashboards/project/instances/workflows/create_instance.py:401
+#: dashboards/project/instances/workflows/create_instance.py:402
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Nelze získat seznam snímků svazku."
 
-#: dashboards/project/instances/workflows/create_instance.py:404
+#: dashboards/project/instances/workflows/create_instance.py:405
 msgid "Select Volume Snapshot"
 msgstr "Vyberte snímek svazku"
 
-#: dashboards/project/instances/workflows/create_instance.py:406
+#: dashboards/project/instances/workflows/create_instance.py:407
 msgid "No volume snapshots available"
 msgstr "Žádné snímky svazků nejsou dostupné"
 
-#: dashboards/project/instances/workflows/create_instance.py:449
+#: dashboards/project/instances/workflows/create_instance.py:450
 msgid "Which key pair to use for authentication."
 msgstr "Který pár klíčů má být použit pro ověření."
 
-#: dashboards/project/instances/workflows/create_instance.py:453
+#: dashboards/project/instances/workflows/create_instance.py:454
 msgid "Admin Pass"
 msgstr "Heslo správce"
 
-#: dashboards/project/instances/workflows/create_instance.py:459
+#: dashboards/project/instances/workflows/create_instance.py:460
 msgid "Confirm Admin Pass"
 msgstr "Potvrdit heslo správce"
 
-#: dashboards/project/instances/workflows/create_instance.py:465
+#: dashboards/project/instances/workflows/create_instance.py:466
 msgid "Launch instance in these security groups."
 msgstr "Spustit instanci v těchto bezpečnostních skupinách."
 
-#: dashboards/project/instances/workflows/create_instance.py:470
+#: dashboards/project/instances/workflows/create_instance.py:471
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "Kontrolujte přístup do vaší instance pomocí páru klíče, bezpečnostních skupin a dalších mechanismů."
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:487
 msgid "Unable to retrieve key pairs."
 msgstr "Nelze získat seznam párů klíče."
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:491
 msgid "Select a key pair"
 msgstr "Vyberte pár klíče."
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:493
 msgid "No key pairs available"
 msgstr "Žádné dostupné páry klíče"
 
-#: dashboards/project/instances/workflows/create_instance.py:501
+#: dashboards/project/instances/workflows/create_instance.py:502
 msgid "Unable to retrieve list of security groups"
 msgstr "Nelze získat seznam bezpečnostních skupin"
 
-#: dashboards/project/instances/workflows/create_instance.py:533
+#: dashboards/project/instances/workflows/create_instance.py:534
 msgid "Customization Script"
 msgstr "Skript přizpůsobení"
 
-#: dashboards/project/instances/workflows/create_instance.py:535
+#: dashboards/project/instances/workflows/create_instance.py:536
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Skript nebo sada příkazů, která bude provedena po sestavení instance (max. 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:542
+#: dashboards/project/instances/workflows/create_instance.py:543
 msgid "Post-Creation"
 msgstr "Po vytvoření"
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:566
 msgid "Policy Profiles"
 msgstr "Profily zásad"
 
-#: dashboards/project/instances/workflows/create_instance.py:568
+#: dashboards/project/instances/workflows/create_instance.py:569
 msgid "Launch instance with this policy profile"
 msgstr "Spustit instanci s tímto profilem zásad"
 
-#: dashboards/project/instances/workflows/create_instance.py:658
+#: dashboards/project/instances/workflows/create_instance.py:659
 msgid "Advanced Options"
 msgstr "Pokročilé možnosti"
 
-#: dashboards/project/instances/workflows/create_instance.py:686
+#: dashboards/project/instances/workflows/create_instance.py:687
 #, python-format
 msgid "%s instances"
 msgstr "%s instancí"
 
-#: dashboards/project/instances/workflows/create_instance.py:744
+#: dashboards/project/instances/workflows/create_instance.py:745
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Port nevytvořen pro id profilu (%s)"
@@ -10935,13 +10987,13 @@ msgstr "Nelze získat seznam svazků."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Nelze získat informace o připojení svazku/instance."
 
-#: dashboards/project/volumes/tabs.py:102
+#: dashboards/project/volumes/tabs.py:104
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
 msgid "Volume Backups"
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:118
+#: dashboards/project/volumes/tabs.py:121
 msgid "Unable to retrieve volume backups."
 msgstr ""
 

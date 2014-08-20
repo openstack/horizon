@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-15 00:10-0500\n"
-"PO-Revision-Date: 2014-08-15 05:10+0000\n"
+"POT-Creation-Date: 2014-08-20 00:55-0500\n"
+"PO-Revision-Date: 2014-08-19 13:32+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:429
+#: base.py:454
 msgid "Other"
 msgstr "다른"
 
@@ -78,8 +78,8 @@ msgstr "서브넷 mask가 잘못되었습니다."
 #: tables/actions.py:457
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
-#: templates/horizon/common/_workflow_step_update_members.html:11
-#: templates/horizon/common/_workflow_step_update_members.html:17
+#: templates/horizon/common/_workflow_step_update_members.html:12
+#: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
 msgstr "필터"
 
@@ -222,10 +222,6 @@ msgstr "&laquo;&nbsp;이전"
 msgid "Next&nbsp;&raquo;"
 msgstr ""
 
-#: templates/horizon/common/_data_table_row_actions.html:10
-msgid "More"
-msgstr "More"
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "열 추가"
@@ -347,11 +343,11 @@ msgstr "취소"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:119 templatetags/horizon.py:129
+#: templatetags/horizon.py:126 templatetags/horizon.py:136
 msgid "No Limit"
 msgstr "제한 없음"
 
-#: templatetags/horizon.py:121 templatetags/horizon.py:123
+#: templatetags/horizon.py:128 templatetags/horizon.py:130
 msgid "Available"
 msgstr "사용 가능"
 

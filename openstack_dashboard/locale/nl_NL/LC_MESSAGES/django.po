@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 03:25-0500\n"
-"PO-Revision-Date: 2014-08-13 06:12+0000\n"
+"POT-Creation-Date: 2014-08-20 00:55-0500\n"
+"PO-Revision-Date: 2014-08-20 05:56+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -280,16 +280,16 @@ msgstr "Onbekend Exemplaar"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s achterkant)"
 
-#: api/keystone.py:322
+#: api/keystone.py:323
 msgid "Identity service does not allow editing user data."
 msgstr "Identiteitsdienst staat het bewerken van gebruikersgegevens niet toe."
 
-#: api/keystone.py:348
+#: api/keystone.py:349
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Gebruiker %s kent geen gedefinieerde rol foor dat project."
 
-#: api/keystone.py:360 api/keystone.py:376
+#: api/keystone.py:361 api/keystone.py:377
 #: dashboards/settings/password/forms.py:61
 msgid "Password changed. Please log in again to continue."
 msgstr "Wachtwoord gewijzigd. Meldt u zich opnieuw aan om door te gaan."
@@ -338,7 +338,7 @@ msgstr ""
 msgid "Failed to modify %d instance security groups"
 msgstr ""
 
-#: api/swift.py:200 dashboards/project/containers/tables.py:115
+#: api/swift.py:200
 msgid "The container cannot be deleted since it's not empty."
 msgstr "De houder kan niet verwijderd worden omdat deze niet leeg is."
 
@@ -346,22 +346,14 @@ msgstr "De houder kan niet verwijderd worden omdat deze niet leeg is."
 msgid "System"
 msgstr ""
 
-#: dashboards/admin/dashboard.py:30
-msgid "Identity"
-msgstr ""
-
-#: dashboards/admin/dashboard.py:35
+#: dashboards/admin/dashboard.py:29
 msgid "Admin"
 msgstr "Beheerder"
 
 #: dashboards/admin/aggregates/forms.py:26
 #: dashboards/admin/aggregates/tables.py:102
 #: dashboards/admin/aggregates/workflows.py:24
-#: dashboards/admin/domains/tables.py:167
-#: dashboards/admin/domains/workflows.py:33
-#: dashboards/admin/flavors/workflows.py:35
-#: dashboards/admin/groups/forms.py:30 dashboards/admin/groups/forms.py:55
-#: dashboards/admin/groups/tables.py:100 dashboards/admin/info/tables.py:57
+#: dashboards/admin/flavors/workflows.py:35 dashboards/admin/info/tables.py:57
 #: dashboards/admin/info/tables.py:87 dashboards/admin/info/tables.py:111
 #: dashboards/admin/info/tables.py:163 dashboards/admin/instances/tables.py:92
 #: dashboards/admin/instances/tables.py:135
@@ -370,8 +362,6 @@ msgstr "Beheerder"
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/ports/tables.py:88
 #: dashboards/admin/networks/subnets/tables.py:93
-#: dashboards/admin/projects/tables.py:172
-#: dashboards/admin/projects/workflows.py:107
 #: dashboards/admin/routers/tables.py:57
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
@@ -380,6 +370,13 @@ msgstr "Beheerder"
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/tables.py:68
 #: dashboards/admin/volumes/volumes/tables.py:86
+#: dashboards/identity/domains/tables.py:167
+#: dashboards/identity/domains/workflows.py:33
+#: dashboards/identity/groups/forms.py:30
+#: dashboards/identity/groups/forms.py:55
+#: dashboards/identity/groups/tables.py:100
+#: dashboards/identity/projects/tables.py:178
+#: dashboards/identity/projects/workflows.py:107
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:124
@@ -407,7 +404,7 @@ msgstr "Beheerder"
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:64
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:265
+#: dashboards/project/databases/tables.py:270
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:35
 #: dashboards/project/firewalls/forms.py:113
@@ -471,17 +468,26 @@ msgstr "Beheerder"
 msgid "Name"
 msgstr "Naam"
 
-#: dashboards/admin/aggregates/forms.py:27
-msgid "Availability zones"
-msgstr "Beschikbaarheid zones"
+#: dashboards/admin/aggregates/forms.py:28
+#: dashboards/admin/aggregates/tables.py:104
+#: dashboards/admin/aggregates/workflows.py:27
+#: dashboards/project/instances/tables.py:824
+#: dashboards/project/instances/templates/instances/_detail_overview.html:16
+#: dashboards/project/instances/workflows/create_instance.py:77
+#: dashboards/project/volumes/volumes/forms.py:76
+#: dashboards/project/volumes/volumes/forms.py:81
+#: dashboards/project/volumes/volumes/forms.py:82
+#: dashboards/project/volumes/volumes/tables.py:331
+msgid "Availability Zone"
+msgstr "Beschikbaarheidszone"
 
-#: dashboards/admin/aggregates/forms.py:42
+#: dashboards/admin/aggregates/forms.py:43
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Het aggregaat \"%s\" is met succes aangepast."
 
-#: dashboards/admin/aggregates/forms.py:47
-#: dashboards/admin/aggregates/workflows.py:212
+#: dashboards/admin/aggregates/forms.py:48
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "Unable to update the aggregate."
 msgstr "Niet in staat het aggregaat aan te passen."
 
@@ -498,8 +504,8 @@ msgid "Host Aggregate"
 msgstr "Gasteheer aggregaat"
 
 #: dashboards/admin/aggregates/tables.py:34
+#: dashboards/admin/aggregates/workflows.py:176
 #: dashboards/admin/aggregates/workflows.py:177
-#: dashboards/admin/aggregates/workflows.py:178
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
 #: dashboards/admin/aggregates/templates/aggregates/create.html:6
 msgid "Create Host Aggregate"
@@ -523,18 +529,6 @@ msgstr "Actieve diensten"
 #: dashboards/admin/aggregates/tables.py:96
 msgid "Services Down"
 msgstr "Inactieve diensten"
-
-#: dashboards/admin/aggregates/tables.py:104
-#: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/project/instances/tables.py:824
-#: dashboards/project/instances/templates/instances/_detail_overview.html:16
-#: dashboards/project/instances/workflows/create_instance.py:77
-#: dashboards/project/volumes/volumes/forms.py:76
-#: dashboards/project/volumes/volumes/forms.py:81
-#: dashboards/project/volumes/volumes/forms.py:82
-#: dashboards/project/volumes/volumes/tables.py:331
-msgid "Availability Zone"
-msgstr "Beschikbaarheidszone"
 
 #: dashboards/admin/aggregates/tables.py:106
 #: dashboards/admin/aggregates/tables.py:129
@@ -573,128 +567,122 @@ msgstr "Niet in staat de beschikbare zone list op te halen."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Niet in staat het te wijzigen aggregaat aan te passen."
 
-#: dashboards/admin/aggregates/workflows.py:32
+#: dashboards/admin/aggregates/workflows.py:31
 msgid "Host Aggregate Info"
 msgstr "Gastheer Aggregaat Informatie"
 
-#: dashboards/admin/aggregates/workflows.py:33
+#: dashboards/admin/aggregates/workflows.py:32
 msgid "From here you can create a new host aggregate to organize instances."
 msgstr "Vanuit hier kan een nieuw gastheer aggregaat worden aangemaakt op exemplaren te organiseren."
 
-#: dashboards/admin/aggregates/workflows.py:44
+#: dashboards/admin/aggregates/workflows.py:43
 msgid "Unable to get host aggregate list"
 msgstr "De gastheer aggergaat lijst kan niet worden opgehaald"
 
-#: dashboards/admin/aggregates/workflows.py:51
+#: dashboards/admin/aggregates/workflows.py:50
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "De naam \"%s\" al al en gebruik door een ander gastheer aggregaat."
 
-#: dashboards/admin/aggregates/workflows.py:69
-#: dashboards/admin/aggregates/workflows.py:103
+#: dashboards/admin/aggregates/workflows.py:68
+#: dashboards/admin/aggregates/workflows.py:102
 msgid "Unable to get the available hosts"
 msgstr "De lijst met beschikbare gastheren konden niet worden opgehaald"
 
-#: dashboards/admin/aggregates/workflows.py:94
-#: dashboards/admin/aggregates/workflows.py:134
+#: dashboards/admin/aggregates/workflows.py:93
+#: dashboards/admin/aggregates/workflows.py:133
 msgid "Manage Hosts within Aggregate"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:139
+#: dashboards/admin/aggregates/workflows.py:138
 msgid ""
 "You can add hosts to this aggregate. One host can be added to one or more "
 "aggregate. You can also add the hosts later by editing the aggregate."
 msgstr "Gastheren kunnen worden toegevoegd aan dit aggregaat. Een gastheer kan worden toegevoegd aan één of meerdere aggregaten. De gastheren kunnen ook later worden toegevoegd door het aggregaat aan te passen."
 
-#: dashboards/admin/aggregates/workflows.py:142
+#: dashboards/admin/aggregates/workflows.py:141
 msgid "All available hosts"
 msgstr "Alle beschikbare hosts"
 
-#: dashboards/admin/aggregates/workflows.py:143
+#: dashboards/admin/aggregates/workflows.py:142
 msgid "Selected hosts"
 msgstr "Geselecteerde gastheren"
 
-#: dashboards/admin/aggregates/workflows.py:144
+#: dashboards/admin/aggregates/workflows.py:143
 msgid "No hosts found."
 msgstr "Geen hosts gevonden"
 
-#: dashboards/admin/aggregates/workflows.py:145
+#: dashboards/admin/aggregates/workflows.py:144
 msgid "No host selected."
 msgstr "Geen host geselecteerd"
 
-#: dashboards/admin/aggregates/workflows.py:158
+#: dashboards/admin/aggregates/workflows.py:157
 msgid "You can add hosts to this aggregate, as well as remove hosts from it."
 msgstr "Gastheren kunnen worden toegevoegd aan of worden verwijderd uit dit aggregaat."
 
-#: dashboards/admin/aggregates/workflows.py:160
+#: dashboards/admin/aggregates/workflows.py:159
 msgid "All Available Hosts"
 msgstr "Alle beschikbare Hosts"
 
-#: dashboards/admin/aggregates/workflows.py:161
+#: dashboards/admin/aggregates/workflows.py:160
 msgid "Selected Hosts"
 msgstr "Geselecteerde Hosts"
 
-#: dashboards/admin/aggregates/workflows.py:162
+#: dashboards/admin/aggregates/workflows.py:161
 msgid "No Hosts found."
 msgstr "Geen Hosts gevonden"
 
-#: dashboards/admin/aggregates/workflows.py:163
+#: dashboards/admin/aggregates/workflows.py:162
 msgid "No Host selected."
 msgstr "Geen Host geselecteerd"
 
-#: dashboards/admin/aggregates/workflows.py:179
+#: dashboards/admin/aggregates/workflows.py:178
 #, python-format
 msgid "Created new host aggregate \"%s\"."
 msgstr "Nieuw gastheer aggregaat \"%s\" aangemaakt."
 
-#: dashboards/admin/aggregates/workflows.py:180
+#: dashboards/admin/aggregates/workflows.py:179
 #, python-format
 msgid "Unable to create host aggregate \"%s\"."
 msgstr "Het aanmaken van het nieuwe gastheer aggregaat \"%s\" is mislukt."
 
-#: dashboards/admin/aggregates/workflows.py:192
+#: dashboards/admin/aggregates/workflows.py:191
 msgid "Unable to create host aggregate."
 msgstr "Het gastheer aggregaat kon niet worden aangemaakt."
 
-#: dashboards/admin/aggregates/workflows.py:201
+#: dashboards/admin/aggregates/workflows.py:200
 msgid "Error adding Hosts to the aggregate."
 msgstr "Fout tijdens het toevoegen van gastheren aan het aggegaat."
 
-#: dashboards/admin/aggregates/workflows.py:209
+#: dashboards/admin/aggregates/workflows.py:208
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Toevoegen/Verwijderen van Gastheer aan Aggregaat"
 
-#: dashboards/admin/aggregates/workflows.py:210
+#: dashboards/admin/aggregates/workflows.py:209
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
-#: dashboards/admin/domains/workflows.py:198
 #: dashboards/admin/flavors/workflows.py:263
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:25
 #: dashboards/admin/images/templates/images/properties/_edit.html:25
-#: dashboards/admin/projects/workflows.py:493
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:25
+#: dashboards/identity/domains/workflows.py:198
+#: dashboards/identity/projects/workflows.py:493
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:148
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Save"
 msgstr "Opslaan"
 
-#: dashboards/admin/aggregates/workflows.py:211
+#: dashboards/admin/aggregates/workflows.py:210
 msgid "The Aggregate was updated."
 msgstr "Het Aggregaat is aangepast."
 
-#: dashboards/admin/aggregates/workflows.py:232
+#: dashboards/admin/aggregates/workflows.py:231
 msgid "Error when adding or removing hosts."
 msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
-#: dashboards/admin/domains/tables.py:169
-#: dashboards/admin/domains/workflows.py:35
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:19
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:19
-#: dashboards/admin/groups/forms.py:32 dashboards/admin/groups/forms.py:57
-#: dashboards/admin/groups/tables.py:102
-#: dashboards/admin/groups/templates/groups/_create.html:17
-#: dashboards/admin/groups/templates/groups/_update.html:17
 #: dashboards/admin/images/templates/images/_update.html:18
 #: dashboards/admin/images/templates/images/properties/_create.html:19
 #: dashboards/admin/images/templates/images/properties/_edit.html:19
@@ -703,16 +691,23 @@ msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/agents/_add.html:18
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
-#: dashboards/admin/projects/tables.py:176
-#: dashboards/admin/projects/workflows.py:110
-#: dashboards/admin/roles/templates/roles/_create.html:17
-#: dashboards/admin/roles/templates/roles/_update.html:17
-#: dashboards/admin/users/templates/users/_create.html:17
-#: dashboards/admin/users/templates/users/_update.html:17
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:18
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:19
+#: dashboards/identity/domains/tables.py:169
+#: dashboards/identity/domains/workflows.py:35
+#: dashboards/identity/groups/forms.py:32
+#: dashboards/identity/groups/forms.py:57
+#: dashboards/identity/groups/tables.py:102
+#: dashboards/identity/groups/templates/groups/_create.html:17
+#: dashboards/identity/groups/templates/groups/_update.html:17
+#: dashboards/identity/projects/tables.py:182
+#: dashboards/identity/projects/workflows.py:110
+#: dashboards/identity/roles/templates/roles/_create.html:17
+#: dashboards/identity/roles/templates/roles/_update.html:17
+#: dashboards/identity/users/templates/users/_create.html:17
+#: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:71
 #: dashboards/project/access_and_security/security_groups/tables.py:125
@@ -732,7 +727,7 @@ msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
 #: dashboards/project/data_processing/clusters/workflows/create.py:73
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
-#: dashboards/project/data_processing/data_plugins/tables.py:39
+#: dashboards/project/data_processing/data_plugins/tables.py:35
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/data_processing/data_sources/tables.py:52
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:15
@@ -813,9 +808,6 @@ msgstr "Vanuit hier kunnen de aggregaat naam en de beschikbaarheidszone worden a
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:25
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:26
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:26
-#: dashboards/admin/groups/templates/groups/_add_non_member.html:8
-#: dashboards/admin/groups/templates/groups/_create.html:24
-#: dashboards/admin/groups/templates/groups/_update.html:24
 #: dashboards/admin/images/templates/images/_create.html:34
 #: dashboards/admin/images/templates/images/_update.html:25
 #: dashboards/admin/images/templates/images/properties/_create.html:26
@@ -826,15 +818,18 @@ msgstr "Vanuit hier kunnen de aggregaat naam en de beschikbaarheidszone worden a
 #: dashboards/admin/networks/templates/networks/agents/_add.html:25
 #: dashboards/admin/networks/templates/networks/ports/_create.html:25
 #: dashboards/admin/networks/templates/networks/ports/_update.html:29
-#: dashboards/admin/roles/templates/roles/_create.html:24
-#: dashboards/admin/roles/templates/roles/_update.html:24
-#: dashboards/admin/users/templates/users/_create.html:34
-#: dashboards/admin/users/templates/users/_update.html:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:34
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:26
 #: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:26
+#: dashboards/identity/groups/templates/groups/_add_non_member.html:8
+#: dashboards/identity/groups/templates/groups/_create.html:24
+#: dashboards/identity/groups/templates/groups/_update.html:24
+#: dashboards/identity/roles/templates/roles/_create.html:24
+#: dashboards/identity/roles/templates/roles/_update.html:24
+#: dashboards/identity/users/templates/users/_create.html:34
+#: dashboards/identity/users/templates/users/_update.html:34
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:25
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:30
@@ -902,177 +897,6 @@ msgstr "Annuleren"
 msgid "Manage Hosts Aggregate"
 msgstr "Beheer Gastheer Aggregaat"
 
-#: dashboards/admin/domains/panel.py:24 dashboards/admin/domains/tables.py:76
-#: dashboards/admin/domains/tables.py:175
-#: dashboards/admin/domains/templates/domains/index.html:3
-#: dashboards/admin/domains/templates/domains/index.html:6
-msgid "Domains"
-msgstr "Domeinen"
-
-#: dashboards/admin/domains/tables.py:37
-#: dashboards/admin/projects/tables.py:45
-msgid "Modify Groups"
-msgstr "Groepen aanpassen"
-
-#: dashboards/admin/domains/tables.py:51
-#: dashboards/admin/domains/workflows.py:154
-#: dashboards/admin/domains/workflows.py:155
-msgid "Create Domain"
-msgstr "Creëer domein"
-
-#: dashboards/admin/domains/tables.py:63
-#: dashboards/admin/flavors/extras/tables.py:45
-#: dashboards/admin/images/properties/tables.py:66
-#: dashboards/admin/roles/tables.py:36 dashboards/admin/users/tables.py:43
-#: dashboards/admin/volumes/volumes/extras/tables.py:44
-#: dashboards/project/containers/tables.py:309
-#: dashboards/project/images/images/tables.py:87
-msgid "Edit"
-msgstr "Bewerken"
-
-#: dashboards/admin/domains/tables.py:75
-msgid "Domain"
-msgstr "Domein"
-
-#: dashboards/admin/domains/tables.py:85
-#, python-format
-msgid "Domain \"%s\" must be disabled before it can be deleted."
-msgstr "Domein \"%s\" moet eerst buiten gebruik gesteld worden voordat het verwijderd kan worden."
-
-#: dashboards/admin/domains/tables.py:115
-msgid "Set Domain Context"
-msgstr "Stel domeincontext in"
-
-#: dashboards/admin/domains/tables.py:140
-#, python-format
-msgid "Domain Context updated to Domain %s."
-msgstr "Domeincontext bijgewerkt naar Domein %s."
-
-#: dashboards/admin/domains/tables.py:144
-msgid "Unable to set Domain Context."
-msgstr "Niet in staat om de domeincontext in te stellen."
-
-#: dashboards/admin/domains/tables.py:149
-msgid "Clear Domain Context"
-msgstr "Domeincontext wissen"
-
-#: dashboards/admin/domains/tables.py:163
-msgid "Domain Context cleared."
-msgstr "Domeincontext gewist."
-
-#: dashboards/admin/domains/tables.py:170
-#: dashboards/admin/projects/workflows.py:101
-#: dashboards/admin/users/forms.py:75 dashboards/admin/users/forms.py:153
-msgid "Domain ID"
-msgstr "Domein ID"
-
-#: dashboards/admin/domains/tables.py:171
-#: dashboards/admin/domains/workflows.py:37
-#: dashboards/admin/groups/tables.py:168 dashboards/admin/info/tables.py:26
-#: dashboards/admin/info/tables.py:149
-#: dashboards/admin/networks/agents/tables.py:66
-#: dashboards/admin/projects/tables.py:182
-#: dashboards/admin/projects/tables.py:184
-#: dashboards/admin/projects/workflows.py:112
-#: dashboards/admin/projects/workflows.py:472
-#: dashboards/admin/users/tables.py:60 dashboards/admin/users/tables.py:143
-#: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/tables.py:222
-#: dashboards/project/firewalls/workflows.py:69
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
-msgid "Enabled"
-msgstr "Geactiveerd"
-
-#: dashboards/admin/domains/views.py:47
-msgid "Unable to retrieve domain list."
-msgstr "Niet in staat om de domeinlijst op te halen."
-
-#: dashboards/admin/domains/views.py:72
-msgid "Unable to retrieve domain details."
-msgstr "Niet in staat om de domeindetails op te halen."
-
-#: dashboards/admin/domains/workflows.py:42
-#: dashboards/admin/domains/workflows.py:182
-msgid "Domain Info"
-msgstr "Domeininformatie"
-
-#: dashboards/admin/domains/workflows.py:44
-msgid ""
-"From here you can create a new domain to organize projects, groups and "
-"users."
-msgstr "Vanuit hier kunt u een nieuw domein creëren om projecten, groepen en gebruikers te organiseren."
-
-#: dashboards/admin/domains/workflows.py:61
-#: dashboards/admin/projects/workflows.py:245
-msgid "Unable to retrieve group list. Please try again later."
-msgstr "Niet in staat om de groepslijst op te halen. Probeert u het later nog eens."
-
-#: dashboards/admin/domains/workflows.py:73
-#: dashboards/admin/projects/workflows.py:161
-#: dashboards/admin/projects/workflows.py:259
-#, python-format
-msgid "Could not find default role \"%s\" in Keystone"
-msgstr "Kon de standaardrol \"%s\" niet vinden in Keystone"
-
-#: dashboards/admin/domains/workflows.py:126
-#: dashboards/admin/domains/workflows.py:133
-msgid "Domain Groups"
-msgstr "Domeingroepen"
-
-#: dashboards/admin/domains/workflows.py:132
-#: dashboards/admin/projects/workflows.py:317
-msgid "All Groups"
-msgstr "Alle groepen"
-
-#: dashboards/admin/domains/workflows.py:134
-#: dashboards/admin/projects/workflows.py:319
-msgid "No groups found."
-msgstr "Geen groepen gevonden."
-
-#: dashboards/admin/domains/workflows.py:135
-#: dashboards/admin/projects/workflows.py:320
-msgid "No groups."
-msgstr "Geen groepen"
-
-#: dashboards/admin/domains/workflows.py:143
-#: dashboards/admin/projects/workflows.py:328
-msgid "Unable to retrieve role list."
-msgstr "Niet in staat om de rollenlijst op te halen."
-
-#: dashboards/admin/domains/workflows.py:156
-#, python-format
-msgid "Created new domain \"%s\"."
-msgstr "Nieuw domein \"%s\" gecreëerd."
-
-#: dashboards/admin/domains/workflows.py:157
-#, python-format
-msgid "Unable to create domain \"%s\"."
-msgstr "Niet in staat om domein \"%s\" te creëren."
-
-#: dashboards/admin/domains/workflows.py:184
-msgid "From here you can edit the domain details."
-msgstr "Vanuit hier kunt u de domeindetails bewerken."
-
-#: dashboards/admin/domains/workflows.py:197
-msgid "Edit Domain"
-msgstr "Domein bewerken"
-
-#: dashboards/admin/domains/workflows.py:199
-#, python-format
-msgid "Modified domain \"%s\"."
-msgstr "Bewerk domein \"%s\"."
-
-#: dashboards/admin/domains/workflows.py:200
-#, python-format
-msgid "Unable to modify domain \"%s\"."
-msgstr "Niet in staat om domein \"%s\" te bewerken."
-
-#: dashboards/admin/domains/workflows.py:287
-#, python-format
-msgid "Failed to modify %s domain groups."
-msgstr "Aanpassen van %s domeingroepen mislukt."
-
 #: dashboards/admin/flavors/panel.py:27 dashboards/admin/flavors/tables.py:31
 #: dashboards/admin/flavors/tables.py:133
 #: dashboards/admin/flavors/templates/flavors/index.html:3
@@ -1137,7 +961,7 @@ msgstr "Smaaknaam"
 #: dashboards/admin/flavors/tables.py:107
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/info/tables.py:201 dashboards/admin/overview/views.py:33
-#: dashboards/admin/projects/workflows.py:47
+#: dashboards/identity/projects/workflows.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:4
@@ -1173,10 +997,10 @@ msgstr "Wisselgeheugenschijf"
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/forms.py:232
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
-#: dashboards/admin/roles/forms.py:37
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
-#: dashboards/admin/users/forms.py:159
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
+#: dashboards/identity/roles/forms.py:37
+#: dashboards/identity/users/forms.py:159
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
@@ -1225,7 +1049,7 @@ msgstr "ID"
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
 #: dashboards/project/images/images/forms.py:99
-#: dashboards/project/images/images/forms.py:220
+#: dashboards/project/images/images/forms.py:219
 #: dashboards/project/images/images/tables.py:142
 #: dashboards/project/images/images/tables.py:222
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1460,6 +1284,17 @@ msgstr "ExtraSpecificaties"
 msgid "Create"
 msgstr "Creëren"
 
+#: dashboards/admin/flavors/extras/tables.py:45
+#: dashboards/admin/images/properties/tables.py:66
+#: dashboards/admin/volumes/volumes/extras/tables.py:44
+#: dashboards/identity/domains/tables.py:63
+#: dashboards/identity/roles/tables.py:36
+#: dashboards/identity/users/tables.py:43
+#: dashboards/project/containers/tables.py:307
+#: dashboards/project/images/images/tables.py:87
+msgid "Edit"
+msgstr "Bewerken"
+
 #: dashboards/admin/flavors/extras/views.py:61
 #: dashboards/admin/volumes/volumes/extras/views.py:55
 msgid "Unable to retrieve extra spec list."
@@ -1504,175 +1339,6 @@ msgstr "Sluiten"
 #: dashboards/admin/flavors/templates/flavors/extras/edit.html:4
 msgid "Edit Flavor Extra Spec"
 msgstr "Bewerk smaak extra specificatie"
-
-#: dashboards/admin/groups/forms.py:45
-#, python-format
-msgid "Group \"%s\" was successfully created."
-msgstr "Groep \"%s\" was succesvol gecreëerd."
-
-#: dashboards/admin/groups/forms.py:48
-msgid "Unable to create group."
-msgstr "Niet in staat om de groep te creëren."
-
-#: dashboards/admin/groups/forms.py:69
-msgid "Group has been updated successfully."
-msgstr "Groep was succesvol bijgewerkt."
-
-#: dashboards/admin/groups/forms.py:71
-msgid "Unable to update the group."
-msgstr "Niet in staat om de groep bij te werken."
-
-#: dashboards/admin/groups/panel.py:24 dashboards/admin/groups/tables.py:63
-#: dashboards/admin/groups/tables.py:107
-#: dashboards/admin/groups/templates/groups/index.html:3
-#: dashboards/admin/groups/templates/groups/index.html:6
-msgid "Groups"
-msgstr "Groepen"
-
-#: dashboards/admin/groups/tables.py:38
-#: dashboards/admin/groups/templates/groups/_create.html:8
-#: dashboards/admin/groups/templates/groups/_create.html:23
-#: dashboards/admin/groups/templates/groups/create.html:3
-#: dashboards/admin/groups/templates/groups/create.html:6
-msgid "Create Group"
-msgstr "Creëer groep"
-
-#: dashboards/admin/groups/tables.py:50
-msgid "Edit Group"
-msgstr "Groep bewerken"
-
-#: dashboards/admin/groups/tables.py:62
-msgid "Group"
-msgstr "Groep"
-
-#: dashboards/admin/groups/tables.py:76 dashboards/admin/projects/tables.py:29
-msgid "Modify Users"
-msgstr "Gebruikers aanpassen"
-
-#: dashboards/admin/groups/tables.py:103
-msgid "Group ID"
-msgstr "Groep ID"
-
-#: dashboards/admin/groups/tables.py:124
-msgid "Remove"
-msgstr "Verwijderen"
-
-#: dashboards/admin/groups/tables.py:125
-msgid "Removed"
-msgstr "Verwijderd"
-
-#: dashboards/admin/groups/tables.py:126 dashboards/admin/groups/tables.py:185
-#: dashboards/admin/users/tables.py:61 dashboards/admin/users/tables.py:104
-#: dashboards/project/databases/tables.py:65
-#: dashboards/project/instances/workflows/create_instance.py:51
-msgid "User"
-msgstr "Gebruiker"
-
-#: dashboards/admin/groups/tables.py:127 dashboards/admin/groups/tables.py:186
-#: dashboards/admin/users/panel.py:27 dashboards/admin/users/tables.py:62
-#: dashboards/admin/users/tables.py:105 dashboards/admin/users/tables.py:150
-#: dashboards/admin/users/templates/users/index.html:3
-#: dashboards/admin/users/templates/users/index.html:6
-#: dashboards/project/databases/tables.py:66
-#: dashboards/project/databases/tables.py:237
-#: dashboards/project/databases/tabs.py:47
-msgid "Users"
-msgstr "Gebruikers"
-
-#: dashboards/admin/groups/tables.py:148
-msgid "Add..."
-msgstr "Toevoegen..."
-
-#: dashboards/admin/groups/tables.py:163 dashboards/admin/users/forms.py:81
-#: dashboards/admin/users/forms.py:160 dashboards/admin/users/tables.py:132
-#: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:231
-msgid "User Name"
-msgstr "Gebruikersnaam"
-
-#: dashboards/admin/groups/tables.py:164 dashboards/admin/users/forms.py:83
-#: dashboards/admin/users/forms.py:162 dashboards/admin/users/tables.py:133
-msgid "Email"
-msgstr "E-mail"
-
-#: dashboards/admin/groups/tables.py:167 dashboards/admin/users/tables.py:142
-msgid "User ID"
-msgstr "Gebruiker ID"
-
-#: dashboards/admin/groups/tables.py:177
-msgid "Group Members"
-msgstr "Groepsleden"
-
-#: dashboards/admin/groups/tables.py:183
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
-#: dashboards/project/firewalls/workflows.py:106
-#: dashboards/project/firewalls/workflows.py:213
-#: dashboards/project/firewalls/workflows.py:290
-#: dashboards/project/loadbalancers/workflows.py:134
-#: dashboards/project/loadbalancers/workflows.py:256
-#: dashboards/project/loadbalancers/workflows.py:421
-#: dashboards/project/loadbalancers/workflows.py:597
-#: dashboards/project/vpn/workflows.py:92
-#: dashboards/project/vpn/workflows.py:191
-#: dashboards/project/vpn/workflows.py:288
-#: dashboards/project/vpn/workflows.py:470
-msgid "Add"
-msgstr "Toevoegen"
-
-#: dashboards/admin/groups/tables.py:184
-msgid "Added"
-msgstr "Toegevoegd"
-
-#: dashboards/admin/groups/tables.py:215
-msgid "Non-Members"
-msgstr "Niet-leden"
-
-#: dashboards/admin/groups/views.py:45
-msgid "Unable to retrieve group list."
-msgstr "Niet in staat om de groepslijst op te halen."
-
-#: dashboards/admin/groups/views.py:68
-msgid "Unable to update group."
-msgstr "Niet in staat om de groep bij te werken."
-
-#: dashboards/admin/groups/views.py:119
-msgid "Unable to retrieve group users."
-msgstr "Niet in staat om de gebruikers van de groep op te halen."
-
-#: dashboards/admin/groups/views.py:140
-msgid "Unable to retrieve users."
-msgstr "Niet in staat om de gebruikers op te halen."
-
-#: dashboards/admin/groups/templates/groups/_add_non_member.html:5
-msgid "Add Group Assignment"
-msgstr "Groepstoewijzing toevoegen"
-
-#: dashboards/admin/groups/templates/groups/_create.html:18
-msgid "From here you can create a new group to organize users and roles."
-msgstr "Vanuit hier kunt u een nieuwe groep creeren om gebruikers en rollen te organiseren."
-
-#: dashboards/admin/groups/templates/groups/_update.html:8
-#: dashboards/admin/groups/templates/groups/_update.html:23
-#: dashboards/admin/groups/templates/groups/update.html:3
-#: dashboards/admin/groups/templates/groups/update.html:6
-msgid "Update Group"
-msgstr "Groep bijwerken"
-
-#: dashboards/admin/groups/templates/groups/_update.html:18
-msgid "From here you can edit the group's details."
-msgstr "Vanuit hier kunt u de groepsgegevens bewerken."
-
-#: dashboards/admin/groups/templates/groups/add_non_member.html:3
-msgid "Add User to Group"
-msgstr "Gebruiker toevoegen aan groep"
-
-#: dashboards/admin/groups/templates/groups/manage.html:3
-msgid "Group Management"
-msgstr "Groepsbeheer"
-
-#: dashboards/admin/groups/templates/groups/manage.html:6
-msgid "Group Management: "
-msgstr "Groepsbeheer:"
 
 #: dashboards/admin/hypervisors/panel.py:22
 #: dashboards/admin/hypervisors/tables.py:64
@@ -1730,12 +1396,12 @@ msgstr "Opslag (totaal)"
 #: dashboards/admin/instances/tables.py:36
 #: dashboards/admin/instances/tables.py:169
 #: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/admin/projects/workflows.py:48
+#: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:138
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:37
 #: dashboards/project/databases/tables.py:50
-#: dashboards/project/databases/tables.py:220
+#: dashboards/project/databases/tables.py:225
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
@@ -1753,7 +1419,7 @@ msgid "Instances"
 msgstr "Exemplaren"
 
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/databases/tables.py:199
+#: dashboards/project/databases/tables.py:204
 #: dashboards/project/databases/workflows/create_instance.py:32
 #: dashboards/project/instances/tables.py:785
 #: dashboards/project/instances/tables.py:807
@@ -2070,9 +1736,28 @@ msgstr ""
 msgid "System Info"
 msgstr "Systeeminformatie"
 
+#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:149
+#: dashboards/admin/networks/agents/tables.py:66
+#: dashboards/identity/domains/tables.py:171
+#: dashboards/identity/domains/workflows.py:37
+#: dashboards/identity/groups/tables.py:168
+#: dashboards/identity/projects/tables.py:188
+#: dashboards/identity/projects/tables.py:190
+#: dashboards/identity/projects/workflows.py:112
+#: dashboards/identity/projects/workflows.py:472
+#: dashboards/identity/users/tables.py:60
+#: dashboards/identity/users/tables.py:143
+#: dashboards/project/firewalls/forms.py:69
+#: dashboards/project/firewalls/tables.py:222
+#: dashboards/project/firewalls/workflows.py:69
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
+msgid "Enabled"
+msgstr "Geactiveerd"
+
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:151
 #: dashboards/admin/networks/agents/tables.py:67
-#: dashboards/admin/users/tables.py:60
+#: dashboards/identity/users/tables.py:60
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Disabled"
 msgstr "Gedeactiveerd"
@@ -2089,7 +1774,7 @@ msgstr "Dienst"
 #: dashboards/admin/networks/agents/tables.py:78
 #: dashboards/admin/volumes/snapshots/tables.py:63
 #: dashboards/admin/volumes/volumes/tables.py:70
-#: dashboards/project/databases/tables.py:204
+#: dashboards/project/databases/tables.py:209
 #: dashboards/project/databases/templates/databases/_detail_overview.html:48
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:10
@@ -2118,8 +1803,8 @@ msgstr "Gastheer"
 #: dashboards/project/database_backups/tables.py:152
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
 #: dashboards/project/database_backups/templates/database_backups/details.html:71
-#: dashboards/project/databases/tables.py:214
-#: dashboards/project/databases/tables.py:278
+#: dashboards/project/databases/tables.py:219
+#: dashboards/project/databases/tables.py:283
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:259
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -2199,7 +1884,7 @@ msgid "Network Agents"
 msgstr "Netwerkagenten"
 
 #: dashboards/admin/info/tables.py:198
-#: dashboards/admin/projects/workflows.py:44
+#: dashboards/identity/projects/workflows.py:44
 msgid "Injected File Content Bytes"
 msgstr "Geïnjecteerde bestandsinhoud in Bytes"
 
@@ -2208,21 +1893,21 @@ msgid "Length of Injected File Path"
 msgstr ""
 
 #: dashboards/admin/info/tables.py:200
-#: dashboards/admin/projects/workflows.py:46
+#: dashboards/identity/projects/workflows.py:46
 msgid "Metadata Items"
 msgstr "Metadata artikelen"
 
 #: dashboards/admin/info/tables.py:203
-#: dashboards/admin/projects/workflows.py:50
+#: dashboards/identity/projects/workflows.py:50
 msgid "Injected Files"
 msgstr "Geïnjecteerde bestanden"
 
-#: dashboards/admin/info/tables.py:204
-#: dashboards/admin/projects/workflows.py:53
-#: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:34
+#: dashboards/admin/info/tables.py:204 dashboards/admin/volumes/panel.py:21
+#: dashboards/admin/volumes/tabs.py:34
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
 #: dashboards/admin/volumes/volumes/tables.py:75
+#: dashboards/identity/projects/workflows.py:53
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:62
 #: dashboards/project/volumes/templates/volumes/index.html:3
@@ -2233,57 +1918,56 @@ msgstr "Geïnjecteerde bestanden"
 msgid "Volumes"
 msgstr "Volumen"
 
-#: dashboards/admin/info/tables.py:205
-#: dashboards/admin/projects/workflows.py:54
-#: dashboards/admin/volumes/tabs.py:71
+#: dashboards/admin/info/tables.py:205 dashboards/admin/volumes/tabs.py:72
 #: dashboards/admin/volumes/snapshots/tables.py:68
-#: dashboards/project/volumes/tabs.py:75
+#: dashboards/identity/projects/workflows.py:54
+#: dashboards/project/volumes/tabs.py:76
 #: dashboards/project/volumes/snapshots/tables.py:45
 #: dashboards/project/volumes/snapshots/tables.py:137
 msgid "Volume Snapshots"
 msgstr "Volume momentopnames"
 
 #: dashboards/admin/info/tables.py:206
-#: dashboards/admin/projects/workflows.py:56
+#: dashboards/identity/projects/workflows.py:56
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Grootte van de Volumes en Snapshots (GB)"
 
 #: dashboards/admin/info/tables.py:207 dashboards/admin/overview/views.py:33
-#: dashboards/admin/projects/workflows.py:57
+#: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/overview/views.py:32
 msgid "RAM (MB)"
 msgstr "Werkgeheugen (MB)"
 
 #: dashboards/admin/info/tables.py:208
-#: dashboards/admin/projects/workflows.py:58
-#: dashboards/admin/projects/workflows.py:70
-#: dashboards/project/access_and_security/tabs.py:76
+#: dashboards/identity/projects/workflows.py:58
+#: dashboards/identity/projects/workflows.py:70
+#: dashboards/project/access_and_security/tabs.py:75
 #: dashboards/project/access_and_security/floating_ips/tables.py:75
 #: dashboards/project/access_and_security/floating_ips/tables.py:175
 msgid "Floating IPs"
 msgstr "Vlottende IPs"
 
 #: dashboards/admin/info/tables.py:209
-#: dashboards/admin/projects/workflows.py:61
-#: dashboards/admin/projects/workflows.py:67
-#: dashboards/project/access_and_security/tabs.py:42
+#: dashboards/identity/projects/workflows.py:61
+#: dashboards/identity/projects/workflows.py:67
+#: dashboards/project/access_and_security/tabs.py:41
 #: dashboards/project/access_and_security/security_groups/tables.py:31
 #: dashboards/project/access_and_security/security_groups/tables.py:132
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:462
+#: dashboards/project/instances/workflows/create_instance.py:463
 #: dashboards/project/instances/workflows/update_instance.py:80
 msgid "Security Groups"
 msgstr "Beveiligingsgroepen"
 
 #: dashboards/admin/info/tables.py:210
-#: dashboards/admin/projects/workflows.py:63
-#: dashboards/admin/projects/workflows.py:69
+#: dashboards/identity/projects/workflows.py:63
+#: dashboards/identity/projects/workflows.py:69
 #: dashboards/project/access_and_security/security_groups/tables.py:247
 msgid "Security Group Rules"
 msgstr "Beveiligingsgroepsregels"
 
 #: dashboards/admin/info/tables.py:211
-#: dashboards/project/access_and_security/tabs.py:59
+#: dashboards/project/access_and_security/tabs.py:58
 #: dashboards/project/access_and_security/keypairs/tables.py:26
 #: dashboards/project/access_and_security/keypairs/tables.py:75
 msgid "Key Pairs"
@@ -2291,8 +1975,8 @@ msgstr "Sleutelparen"
 
 #: dashboards/admin/info/tables.py:212
 #: dashboards/admin/networks/ports/tables.py:91
-#: dashboards/admin/projects/workflows.py:59
 #: dashboards/admin/routers/ports/tables.py:29
+#: dashboards/identity/projects/workflows.py:59
 #: dashboards/project/networks/ports/tables.py:62
 #: dashboards/project/routers/ports/tables.py:93
 msgid "Fixed IPs"
@@ -2437,10 +2121,10 @@ msgstr "Live exemplaar verplaatsen"
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:39
 #: dashboards/admin/networks/tables.py:83
-#: dashboards/admin/projects/tables.py:108
 #: dashboards/admin/routers/tables.py:55
 #: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:71
+#: dashboards/identity/projects/tables.py:112
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:136
 #: dashboards/project/instances/workflows/create_instance.py:50
@@ -2484,10 +2168,10 @@ msgstr "IP adres"
 
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:426
+#: dashboards/project/containers/tables.py:424
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:206
+#: dashboards/project/databases/tables.py:211
 #: dashboards/project/images/images/tables.py:232
 #: dashboards/project/images/templates/images/images/_detail_overview.html:44
 #: dashboards/project/instances/tables.py:814
@@ -2518,7 +2202,7 @@ msgid "Uptime"
 msgstr "Draaitijd"
 
 #: dashboards/admin/instances/views.py:84
-#: dashboards/project/access_and_security/tabs.py:102
+#: dashboards/project/access_and_security/tabs.py:101
 #: dashboards/project/access_and_security/floating_ips/workflows.py:84
 msgid "Unable to retrieve instance list."
 msgstr "Niet in staat om de exemplarenlijst op te halen."
@@ -2873,7 +2557,7 @@ msgstr "Gedeeld"
 msgid "External Network"
 msgstr "Extern netwerk"
 
-#: dashboards/admin/networks/forms.py:89 dashboards/admin/users/forms.py:58
+#: dashboards/admin/networks/forms.py:89 dashboards/identity/users/forms.py:58
 msgid "Select a project"
 msgstr "Selecteer een project"
 
@@ -2888,13 +2572,13 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:141
-#: dashboards/project/instances/workflows/create_instance.py:599
+#: dashboards/project/instances/workflows/create_instance.py:600
 #: dashboards/project/networks/workflows.py:54
 msgid "Select a profile"
 msgstr "Selecteer een profiel"
 
 #: dashboards/admin/networks/forms.py:151
-#: dashboards/project/instances/workflows/create_instance.py:609
+#: dashboards/project/instances/workflows/create_instance.py:610
 #: dashboards/project/networks/workflows.py:64
 #: dashboards/router/nexus1000v/views.py:55
 msgid "Network Profiles could not be retrieved."
@@ -2942,9 +2626,9 @@ msgstr "Bijwerken van netwerk %s is mislukt"
 #: dashboards/admin/networks/tables.py:98
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
-#: dashboards/admin/projects/workflows.py:71
+#: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:126
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:554
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:42
 #: dashboards/project/networks/tables.py:129
@@ -3175,7 +2859,7 @@ msgstr "Poort"
 
 #: dashboards/admin/networks/ports/tables.py:33
 #: dashboards/admin/networks/ports/tables.py:102
-#: dashboards/admin/projects/workflows.py:72
+#: dashboards/identity/projects/workflows.py:72
 #: dashboards/project/networks/ports/tables.py:75
 msgid "Ports"
 msgstr "Poorten"
@@ -3253,7 +2937,7 @@ msgstr "Subnet"
 
 #: dashboards/admin/networks/subnets/tables.py:32
 #: dashboards/admin/networks/subnets/tables.py:116
-#: dashboards/admin/projects/workflows.py:74
+#: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/networks/subnets/tables.py:45
 #: dashboards/project/networks/subnets/tables.py:127
 msgid "Subnets"
@@ -3382,7 +3066,8 @@ msgstr "Schijf (GB)"
 msgid "Usage (Hours)"
 msgstr "Verbruik (uren)"
 
-#: dashboards/admin/overview/views.py:65 dashboards/admin/projects/views.py:86
+#: dashboards/admin/overview/views.py:65
+#: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
 msgstr "Niet in staat om de projectlijst op te halen."
 
@@ -3439,82 +3124,10 @@ msgstr "Verbruiks overzicht"
 msgid "Monitoring"
 msgstr "Bewaking"
 
-#: dashboards/admin/projects/panel.py:27
-#: dashboards/admin/projects/tables.py:109
-#: dashboards/admin/projects/tables.py:190
-#: dashboards/admin/projects/templates/projects/index.html:3
-#: dashboards/admin/projects/templates/projects/index.html:6
-#: templates/403.html:25 templates/404.html:24
-msgid "Projects"
-msgstr "Projecten"
-
-#: dashboards/admin/projects/tables.py:62
-msgid "View Usage"
-msgstr "Bekijk verbruik"
-
-#: dashboards/admin/projects/tables.py:70
-#: dashboards/admin/projects/workflows.py:339
-#: dashboards/admin/projects/workflows.py:340
-msgid "Create Project"
-msgstr "Creëer project"
-
-#: dashboards/admin/projects/tables.py:82
-#: dashboards/admin/projects/workflows.py:492
-msgid "Edit Project"
-msgstr "Project bewerken"
-
-#: dashboards/admin/projects/tables.py:94
-msgid "Modify Quotas"
-msgstr "Quota's aanpassen"
-
-#: dashboards/admin/projects/tables.py:163
-msgid "This name is already taken."
-msgstr "Deze naam is al in gebruik."
-
-#: dashboards/admin/projects/tables.py:181
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
-#: dashboards/project/networks/templates/networks/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/project/overview/templates/overview/usage.csv:2
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
-msgid "Project ID"
-msgstr "Project ID"
-
-#: dashboards/admin/projects/views.py:56
-#: dashboards/router/nexus1000v/views.py:44
-msgid "Unable to retrieve project information."
-msgstr "Niet in staat om de projectinformatie op te halen."
-
-#: dashboards/admin/projects/views.py:129
-msgid "Unable to retrieve default Neutron quota values."
-msgstr "Niet in staat om de standaard Neutron quotumwaarden op te halen."
-
-#: dashboards/admin/projects/views.py:137
-msgid "Unable to retrieve default quota values."
-msgstr "Niet in staat om de standaard quotawaarden op te halen."
-
-#: dashboards/admin/projects/views.py:167 dashboards/admin/users/views.py:94
-msgid "Unable to retrieve project domain."
-msgstr "Niet in staat om het projectdomein op te halen."
-
-#: dashboards/admin/projects/views.py:181
-msgid "Unable to retrieve project details."
-msgstr "Niet in staat om de projectdetails op te halen."
-
-#: dashboards/admin/projects/workflows.py:73
 #: dashboards/admin/routers/panel.py:23 dashboards/admin/routers/tables.py:71
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
+#: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:23
 #: dashboards/project/routers/tables.py:33
@@ -3523,205 +3136,6 @@ msgstr "Niet in staat om de projectdetails op te halen."
 #: dashboards/project/routers/templates/routers/index.html:6
 msgid "Routers"
 msgstr "Routers"
-
-#: dashboards/admin/projects/workflows.py:87
-msgid "Quota"
-msgstr "Quotum"
-
-#: dashboards/admin/projects/workflows.py:89
-msgid "From here you can set quotas (max limits) for the project."
-msgstr "Vanuit hier kunt u quota's (maximum limieten) instellen voor het project."
-
-#: dashboards/admin/projects/workflows.py:104
-#: dashboards/admin/users/forms.py:78 dashboards/admin/users/forms.py:156
-msgid "Domain Name"
-msgstr "Domeinnaam"
-
-#: dashboards/admin/projects/workflows.py:127
-#: dashboards/admin/projects/workflows.py:475
-msgid "Project Info"
-msgstr "Projectinformatie"
-
-#: dashboards/admin/projects/workflows.py:128
-msgid "From here you can create a new project to organize users."
-msgstr "Vanuit hier kunt u een nieuw project creeren om gebruikers te organiseren."
-
-#: dashboards/admin/projects/workflows.py:147
-msgid "Unable to retrieve user list. Please try again later."
-msgstr "Niet in staat om de gebruikerslijst op te halen. Probeert u het later nog eens."
-
-#: dashboards/admin/projects/workflows.py:214
-#: dashboards/admin/projects/workflows.py:221
-msgid "Project Members"
-msgstr "Projectleden"
-
-#: dashboards/admin/projects/workflows.py:220
-msgid "All Users"
-msgstr "Alle gebruikers"
-
-#: dashboards/admin/projects/workflows.py:222
-msgid "No users found."
-msgstr "Geen gebruikers gevonden."
-
-#: dashboards/admin/projects/workflows.py:223
-msgid "No users."
-msgstr "Geen gebruikers."
-
-#: dashboards/admin/projects/workflows.py:231
-#: dashboards/admin/users/views.py:52
-msgid "Unable to retrieve user list."
-msgstr "Niet in staat om de gebruikerslijst op te halen."
-
-#: dashboards/admin/projects/workflows.py:311
-#: dashboards/admin/projects/workflows.py:318
-msgid "Project Groups"
-msgstr "Projectgroepen"
-
-#: dashboards/admin/projects/workflows.py:341
-#, python-format
-msgid "Created new project \"%s\"."
-msgstr "Nieuw project \"%s\" gecreëerd."
-
-#: dashboards/admin/projects/workflows.py:342
-#, python-format
-msgid "Unable to create project \"%s\"."
-msgstr "Niet in staat om het project \"%s\" te creëren."
-
-#: dashboards/admin/projects/workflows.py:404
-msgid ", add project groups"
-msgstr ", projectgroepen toevoegen"
-
-#: dashboards/admin/projects/workflows.py:407
-#, python-format
-msgid ""
-"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
-"quotas."
-msgstr "Het toevoegen van %(users_to_add)s projectleden %(group_msg)s en instellen van projectquota's is mislukt."
-
-#: dashboards/admin/projects/workflows.py:439
-#, python-format
-msgid "Failed to add %s project groups and update project quotas."
-msgstr "Het toevoegen van %s projectgroepen en bijwerken van projectquota's is mislukt."
-
-#: dashboards/admin/projects/workflows.py:467
-msgid "Unable to set project quotas."
-msgstr "Niet in staat om de projectquota's in te stellen."
-
-#: dashboards/admin/projects/workflows.py:477
-msgid "From here you can edit the project details."
-msgstr "Vanuit hier kunt u de projectdetails bewerken."
-
-#: dashboards/admin/projects/workflows.py:494
-#, python-format
-msgid "Modified project \"%s\"."
-msgstr "Project \"%s\" is aangepast."
-
-#: dashboards/admin/projects/workflows.py:495
-#, python-format
-msgid "Unable to modify project \"%s\"."
-msgstr "Niet in staat om het project \"%s\" aan te passen."
-
-#: dashboards/admin/projects/workflows.py:590
-msgid ""
-"You cannot revoke your administrative privileges from the project you are "
-"currently logged into. Please switch to another project with administrative "
-"privileges or remove the administrative role manually via the CLI."
-msgstr "U kunt uw beheerrechten niet intrekken van een project waarin u op dit moment bent aangemeld. Wisselt u alstublieft naar een ander project met beheerrechten of verwijder de beheerrol via de CLI."
-
-#: dashboards/admin/projects/workflows.py:625
-msgid ", update project groups"
-msgstr ", projectgroepen bijwerken"
-
-#: dashboards/admin/projects/workflows.py:628
-#, python-format
-msgid ""
-"Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
-" project quotas."
-msgstr "Het aanpassen van %(users_to_modify)s projectleden %(group_msg)s en bijwerken van projectquota's is mislukt."
-
-#: dashboards/admin/projects/workflows.py:701
-#, python-format
-msgid ""
-"Failed to modify %s project members, update project groups and update "
-"project quotas."
-msgstr "Het aanpassen van %s projectleden, bijwerken van projectgroepen en bijwerken van projectquota's is mislukt."
-
-#: dashboards/admin/projects/workflows.py:734
-msgid ""
-"Modified project information and members, but unable to modify project "
-"quotas."
-msgstr "Projectinformatie en leden zijn aangepast, maar het is niet gelukt om de projectquota's aan te passen."
-
-#: dashboards/admin/projects/templates/projects/usage.html:3
-msgid "Project Usage Overview"
-msgstr "Projectverbruik overzicht"
-
-#: dashboards/admin/projects/templates/projects/usage.html:6
-msgid "Project Usage"
-msgstr "Projectverbruik"
-
-#: dashboards/admin/roles/forms.py:25 dashboards/admin/roles/forms.py:38
-#: dashboards/admin/roles/tables.py:67
-msgid "Role Name"
-msgstr "Rolnaam"
-
-#: dashboards/admin/roles/forms.py:30
-msgid "Role created successfully."
-msgstr "Rol is succesvol gecreeerd."
-
-#: dashboards/admin/roles/forms.py:33
-msgid "Unable to create role."
-msgstr "Niet in staat om de rol te creëren."
-
-#: dashboards/admin/roles/forms.py:43
-msgid "Role updated successfully."
-msgstr "Rol is succesvol bijgewerkt."
-
-#: dashboards/admin/roles/forms.py:46 dashboards/admin/roles/views.py:58
-msgid "Unable to update role."
-msgstr "Niet in staat om de rol bij te werken."
-
-#: dashboards/admin/roles/panel.py:24 dashboards/admin/roles/tables.py:48
-#: dashboards/admin/roles/tables.py:72
-#: dashboards/admin/roles/templates/roles/index.html:3
-#: dashboards/admin/roles/templates/roles/index.html:6
-msgid "Roles"
-msgstr "Rollen"
-
-#: dashboards/admin/roles/tables.py:24
-#: dashboards/admin/roles/templates/roles/_create.html:8
-#: dashboards/admin/roles/templates/roles/_create.html:23
-#: dashboards/admin/roles/templates/roles/create.html:3
-#: dashboards/admin/roles/templates/roles/create.html:7
-msgid "Create Role"
-msgstr "Creëer rol"
-
-#: dashboards/admin/roles/tables.py:47 dashboards/admin/users/forms.py:96
-msgid "Role"
-msgstr "Rol"
-
-#: dashboards/admin/roles/tables.py:68
-msgid "Role ID"
-msgstr "Rol ID"
-
-#: dashboards/admin/roles/views.py:42
-msgid "Unable to retrieve roles list."
-msgstr "Niet in staat om de rollenlijst op te halen."
-
-#: dashboards/admin/roles/templates/roles/_create.html:18
-msgid "From here you can create a new role."
-msgstr "Vanuit hier kunt u een nieuwe rol creeren."
-
-#: dashboards/admin/roles/templates/roles/_update.html:8
-#: dashboards/admin/roles/templates/roles/_update.html:23
-#: dashboards/admin/roles/templates/roles/update.html:3
-#: dashboards/admin/roles/templates/roles/update.html:7
-msgid "Update Role"
-msgstr "Rol bijwerken"
-
-#: dashboards/admin/roles/templates/roles/_update.html:18
-msgid "From here you can edit the role's details."
-msgstr "Vanuit hier kunt u de roldetails bewerken."
 
 #: dashboards/admin/routers/views.py:41 dashboards/project/routers/views.py:49
 msgid "Unable to retrieve router list."
@@ -3816,6 +3230,25 @@ msgstr "Routeroverzicht"
 msgid "None"
 msgstr "Geen"
 
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
+#: dashboards/identity/projects/tables.py:187
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
+#: dashboards/project/networks/templates/networks/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
+#: dashboards/project/overview/templates/overview/usage.csv:2
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
+msgid "Project ID"
+msgstr "Project ID"
+
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
 msgid "External Gateway Information"
@@ -3836,107 +3269,16 @@ msgstr "Routerdetails"
 msgid "Router Detail"
 msgstr "Routerdetail"
 
-#: dashboards/admin/users/forms.py:56
-msgid "No available projects"
-msgstr "Geen projecten beschikbaar"
-
-#: dashboards/admin/users/forms.py:66 dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:511
-#: dashboards/settings/password/forms.py:46
-msgid "Passwords do not match."
-msgstr "Wachtwoorden komen niet overeen."
-
-#: dashboards/admin/users/forms.py:86 dashboards/admin/users/forms.py:165
-#: dashboards/project/data_processing/job_binaries/forms.py:71
-#: dashboards/project/databases/workflows/create_instance.py:192
-#: dashboards/project/instances/forms.py:153
-#: dashboards/project/instances/tables.py:716
-msgid "Password"
-msgstr "Wachtwoord"
-
-#: dashboards/admin/users/forms.py:91 dashboards/admin/users/forms.py:171
-msgid "Confirm Password"
-msgstr "Bevestig wachtwoord"
-
-#: dashboards/admin/users/forms.py:93 dashboards/admin/users/forms.py:174
-msgid "Primary Project"
-msgstr "Primair project"
-
-#: dashboards/admin/users/forms.py:128
-#, python-format
-msgid "User \"%s\" was successfully created."
-msgstr "Gebruiker \"%s\" was succesvol gecreeerd."
-
-#: dashboards/admin/users/forms.py:144
-msgid "Unable to add user to primary project."
-msgstr "Niet in staat om de gebruiker toe te voegen aan het primaire project."
-
-#: dashboards/admin/users/forms.py:148
-msgid "Unable to create user."
-msgstr "Niet in staat om de gebruiker te creëren."
-
-#: dashboards/admin/users/forms.py:206
-msgid "User has been updated successfully."
-msgstr "Gebruiker is succesvol bijgewerkt."
-
-#: dashboards/admin/users/forms.py:209
-msgid "Unable to update the user."
-msgstr "Niet in staat om de gebruiker bij te werken."
-
-#: dashboards/admin/users/tables.py:28
-#: dashboards/admin/users/templates/users/_create.html:8
-#: dashboards/admin/users/templates/users/_create.html:33
-#: dashboards/admin/users/templates/users/create.html:3
-#: dashboards/admin/users/templates/users/create.html:7
-msgid "Create User"
-msgstr "Creëer gebruiker"
-
-#: dashboards/admin/users/tables.py:59
-msgid "Enable"
-msgstr "Activeren"
-
-#: dashboards/admin/users/tables.py:59
-msgid "Disable"
-msgstr "Deactiveren"
-
-#: dashboards/admin/users/tables.py:92
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "U kunt de gebruiker waarmee u op dit moment bent aangemeld niet onklaar maken."
-
-#: dashboards/admin/users/views.py:74
-msgid "Unable to update user."
-msgstr "Niet in staat om de gebruiker bij te werken."
-
-#: dashboards/admin/users/views.py:120
-msgid "Unable to retrieve user roles."
-msgstr "Niet in staat om de gebruikersrollen op te halen."
-
-#: dashboards/admin/users/templates/users/_create.html:18
-msgid "From here you can create a new user and assign them to a project."
-msgstr "Vanuit hier kunt u een nieuwe gebruiker creeren en deze toewijzen aan een project."
-
-#: dashboards/admin/users/templates/users/_update.html:8
-#: dashboards/admin/users/templates/users/_update.html:33
-#: dashboards/admin/users/templates/users/update.html:3
-#: dashboards/admin/users/templates/users/update.html:7
-msgid "Update User"
-msgstr "Gebruiker bijwerken"
-
-#: dashboards/admin/users/templates/users/_update.html:18
-msgid ""
-"From here you can edit the user's details, including their default project."
-msgstr "Vanuit hier kunt u de gebruikersgegevens bewerken, inclusief diens standaard project."
-
-#: dashboards/admin/volumes/tabs.py:48 dashboards/admin/volumes/tabs.py:94
+#: dashboards/admin/volumes/tabs.py:49 dashboards/admin/volumes/tabs.py:96
 #: dashboards/admin/volumes/snapshots/tables.py:51
 msgid "Unable to retrieve volume project information."
 msgstr "Niet in staat om de projectinformatie voor het volume op te halen."
 
-#: dashboards/admin/volumes/tabs.py:65
+#: dashboards/admin/volumes/tabs.py:66
 msgid "Unable to retrieve volume types"
 msgstr "Niet in staat om de volumetypen op te halen."
 
-#: dashboards/admin/volumes/tabs.py:86 dashboards/project/volumes/tabs.py:88
+#: dashboards/admin/volumes/tabs.py:88 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:187
 msgid "Unable to retrieve volume snapshots."
 msgstr "Niet in staat om de momentopnamen van het volume op te halen."
@@ -4014,7 +3356,7 @@ msgstr "Informatie"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/instances/workflows/create_instance.py:337
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
@@ -4057,7 +3399,7 @@ msgstr "GB"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:292
 #: dashboards/project/database_backups/tables.py:141
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
-#: dashboards/project/databases/tables.py:266
+#: dashboards/project/databases/tables.py:271
 #: dashboards/project/databases/templates/databases/_detail_overview.html:34
 #: dashboards/project/images/templates/images/images/_detail_overview.html:25
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
@@ -4235,6 +3577,716 @@ msgstr ""
 msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
 
+#: dashboards/identity/dashboard.py:22
+msgid "Identity"
+msgstr ""
+
+#: dashboards/identity/domains/panel.py:24
+#: dashboards/identity/domains/tables.py:76
+#: dashboards/identity/domains/tables.py:175
+#: dashboards/identity/domains/templates/domains/index.html:3
+#: dashboards/identity/domains/templates/domains/index.html:6
+msgid "Domains"
+msgstr "Domeinen"
+
+#: dashboards/identity/domains/tables.py:37
+#: dashboards/identity/projects/tables.py:45
+msgid "Modify Groups"
+msgstr "Groepen aanpassen"
+
+#: dashboards/identity/domains/tables.py:51
+#: dashboards/identity/domains/workflows.py:154
+#: dashboards/identity/domains/workflows.py:155
+msgid "Create Domain"
+msgstr "Creëer domein"
+
+#: dashboards/identity/domains/tables.py:75
+msgid "Domain"
+msgstr "Domein"
+
+#: dashboards/identity/domains/tables.py:85
+#, python-format
+msgid "Domain \"%s\" must be disabled before it can be deleted."
+msgstr "Domein \"%s\" moet eerst buiten gebruik gesteld worden voordat het verwijderd kan worden."
+
+#: dashboards/identity/domains/tables.py:115
+msgid "Set Domain Context"
+msgstr "Stel domeincontext in"
+
+#: dashboards/identity/domains/tables.py:140
+#, python-format
+msgid "Domain Context updated to Domain %s."
+msgstr "Domeincontext bijgewerkt naar Domein %s."
+
+#: dashboards/identity/domains/tables.py:144
+msgid "Unable to set Domain Context."
+msgstr "Niet in staat om de domeincontext in te stellen."
+
+#: dashboards/identity/domains/tables.py:149
+msgid "Clear Domain Context"
+msgstr "Domeincontext wissen"
+
+#: dashboards/identity/domains/tables.py:163
+msgid "Domain Context cleared."
+msgstr "Domeincontext gewist."
+
+#: dashboards/identity/domains/tables.py:170
+#: dashboards/identity/projects/workflows.py:101
+#: dashboards/identity/users/forms.py:75
+#: dashboards/identity/users/forms.py:153
+msgid "Domain ID"
+msgstr "Domein ID"
+
+#: dashboards/identity/domains/views.py:51
+msgid "Unable to retrieve domain list."
+msgstr "Niet in staat om de domeinlijst op te halen."
+
+#: dashboards/identity/domains/views.py:60
+msgid "Unable to retrieve domain information."
+msgstr ""
+
+#: dashboards/identity/domains/views.py:62
+msgid "Insufficient privilege level to view domain information."
+msgstr ""
+
+#: dashboards/identity/domains/views.py:88
+msgid "Unable to retrieve domain details."
+msgstr "Niet in staat om de domeindetails op te halen."
+
+#: dashboards/identity/domains/workflows.py:42
+#: dashboards/identity/domains/workflows.py:182
+msgid "Domain Info"
+msgstr "Domeininformatie"
+
+#: dashboards/identity/domains/workflows.py:44
+msgid ""
+"From here you can create a new domain to organize projects, groups and "
+"users."
+msgstr "Vanuit hier kunt u een nieuw domein creëren om projecten, groepen en gebruikers te organiseren."
+
+#: dashboards/identity/domains/workflows.py:61
+#: dashboards/identity/projects/workflows.py:245
+msgid "Unable to retrieve group list. Please try again later."
+msgstr "Niet in staat om de groepslijst op te halen. Probeert u het later nog eens."
+
+#: dashboards/identity/domains/workflows.py:73
+#: dashboards/identity/projects/workflows.py:161
+#: dashboards/identity/projects/workflows.py:259
+#, python-format
+msgid "Could not find default role \"%s\" in Keystone"
+msgstr "Kon de standaardrol \"%s\" niet vinden in Keystone"
+
+#: dashboards/identity/domains/workflows.py:126
+#: dashboards/identity/domains/workflows.py:133
+msgid "Domain Groups"
+msgstr "Domeingroepen"
+
+#: dashboards/identity/domains/workflows.py:132
+#: dashboards/identity/projects/workflows.py:317
+msgid "All Groups"
+msgstr "Alle groepen"
+
+#: dashboards/identity/domains/workflows.py:134
+#: dashboards/identity/projects/workflows.py:319
+msgid "No groups found."
+msgstr "Geen groepen gevonden."
+
+#: dashboards/identity/domains/workflows.py:135
+#: dashboards/identity/projects/workflows.py:320
+msgid "No groups."
+msgstr "Geen groepen"
+
+#: dashboards/identity/domains/workflows.py:143
+#: dashboards/identity/projects/workflows.py:328
+msgid "Unable to retrieve role list."
+msgstr "Niet in staat om de rollenlijst op te halen."
+
+#: dashboards/identity/domains/workflows.py:156
+#, python-format
+msgid "Created new domain \"%s\"."
+msgstr "Nieuw domein \"%s\" gecreëerd."
+
+#: dashboards/identity/domains/workflows.py:157
+#, python-format
+msgid "Unable to create domain \"%s\"."
+msgstr "Niet in staat om domein \"%s\" te creëren."
+
+#: dashboards/identity/domains/workflows.py:184
+msgid "From here you can edit the domain details."
+msgstr "Vanuit hier kunt u de domeindetails bewerken."
+
+#: dashboards/identity/domains/workflows.py:197
+msgid "Edit Domain"
+msgstr "Domein bewerken"
+
+#: dashboards/identity/domains/workflows.py:199
+#, python-format
+msgid "Modified domain \"%s\"."
+msgstr "Bewerk domein \"%s\"."
+
+#: dashboards/identity/domains/workflows.py:200
+#, python-format
+msgid "Unable to modify domain \"%s\"."
+msgstr "Niet in staat om domein \"%s\" te bewerken."
+
+#: dashboards/identity/domains/workflows.py:287
+#, python-format
+msgid "Failed to modify %s domain groups."
+msgstr "Aanpassen van %s domeingroepen mislukt."
+
+#: dashboards/identity/groups/forms.py:45
+#, python-format
+msgid "Group \"%s\" was successfully created."
+msgstr "Groep \"%s\" was succesvol gecreëerd."
+
+#: dashboards/identity/groups/forms.py:48
+msgid "Unable to create group."
+msgstr "Niet in staat om de groep te creëren."
+
+#: dashboards/identity/groups/forms.py:69
+msgid "Group has been updated successfully."
+msgstr "Groep was succesvol bijgewerkt."
+
+#: dashboards/identity/groups/forms.py:71
+msgid "Unable to update the group."
+msgstr "Niet in staat om de groep bij te werken."
+
+#: dashboards/identity/groups/panel.py:24
+#: dashboards/identity/groups/tables.py:63
+#: dashboards/identity/groups/tables.py:107
+#: dashboards/identity/groups/templates/groups/index.html:3
+#: dashboards/identity/groups/templates/groups/index.html:6
+msgid "Groups"
+msgstr "Groepen"
+
+#: dashboards/identity/groups/tables.py:38
+#: dashboards/identity/groups/templates/groups/_create.html:8
+#: dashboards/identity/groups/templates/groups/_create.html:23
+#: dashboards/identity/groups/templates/groups/create.html:3
+#: dashboards/identity/groups/templates/groups/create.html:6
+msgid "Create Group"
+msgstr "Creëer groep"
+
+#: dashboards/identity/groups/tables.py:50
+msgid "Edit Group"
+msgstr "Groep bewerken"
+
+#: dashboards/identity/groups/tables.py:62
+msgid "Group"
+msgstr "Groep"
+
+#: dashboards/identity/groups/tables.py:76
+#: dashboards/identity/projects/tables.py:29
+msgid "Modify Users"
+msgstr "Gebruikers aanpassen"
+
+#: dashboards/identity/groups/tables.py:103
+msgid "Group ID"
+msgstr "Groep ID"
+
+#: dashboards/identity/groups/tables.py:124
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: dashboards/identity/groups/tables.py:125
+msgid "Removed"
+msgstr "Verwijderd"
+
+#: dashboards/identity/groups/tables.py:126
+#: dashboards/identity/groups/tables.py:185
+#: dashboards/identity/users/tables.py:61
+#: dashboards/identity/users/tables.py:104
+#: dashboards/project/databases/tables.py:65
+#: dashboards/project/instances/workflows/create_instance.py:51
+msgid "User"
+msgstr "Gebruiker"
+
+#: dashboards/identity/groups/tables.py:127
+#: dashboards/identity/groups/tables.py:186
+#: dashboards/identity/users/panel.py:27
+#: dashboards/identity/users/tables.py:62
+#: dashboards/identity/users/tables.py:105
+#: dashboards/identity/users/tables.py:150
+#: dashboards/identity/users/templates/users/index.html:3
+#: dashboards/identity/users/templates/users/index.html:6
+#: dashboards/project/databases/tables.py:66
+#: dashboards/project/databases/tables.py:242
+#: dashboards/project/databases/tabs.py:47
+msgid "Users"
+msgstr "Gebruikers"
+
+#: dashboards/identity/groups/tables.py:148
+msgid "Add..."
+msgstr "Toevoegen..."
+
+#: dashboards/identity/groups/tables.py:163
+#: dashboards/identity/users/forms.py:81
+#: dashboards/identity/users/forms.py:160
+#: dashboards/identity/users/tables.py:132
+#: dashboards/project/data_processing/data_image_registry/forms.py:28
+#: dashboards/project/databases/tables.py:236
+msgid "User Name"
+msgstr "Gebruikersnaam"
+
+#: dashboards/identity/groups/tables.py:164
+#: dashboards/identity/users/forms.py:83
+#: dashboards/identity/users/forms.py:162
+#: dashboards/identity/users/tables.py:133
+msgid "Email"
+msgstr "E-mail"
+
+#: dashboards/identity/groups/tables.py:167
+#: dashboards/identity/users/tables.py:142
+msgid "User ID"
+msgstr "Gebruiker ID"
+
+#: dashboards/identity/groups/tables.py:177
+msgid "Group Members"
+msgstr "Groepsleden"
+
+#: dashboards/identity/groups/tables.py:183
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
+#: dashboards/project/firewalls/workflows.py:106
+#: dashboards/project/firewalls/workflows.py:213
+#: dashboards/project/firewalls/workflows.py:290
+#: dashboards/project/loadbalancers/workflows.py:134
+#: dashboards/project/loadbalancers/workflows.py:256
+#: dashboards/project/loadbalancers/workflows.py:421
+#: dashboards/project/loadbalancers/workflows.py:597
+#: dashboards/project/vpn/workflows.py:92
+#: dashboards/project/vpn/workflows.py:191
+#: dashboards/project/vpn/workflows.py:288
+#: dashboards/project/vpn/workflows.py:470
+msgid "Add"
+msgstr "Toevoegen"
+
+#: dashboards/identity/groups/tables.py:184
+msgid "Added"
+msgstr "Toegevoegd"
+
+#: dashboards/identity/groups/tables.py:215
+msgid "Non-Members"
+msgstr "Niet-leden"
+
+#: dashboards/identity/groups/views.py:49
+msgid "Unable to retrieve group list."
+msgstr "Niet in staat om de groepslijst op te halen."
+
+#: dashboards/identity/groups/views.py:51
+msgid "Insufficient privilege level to view group information."
+msgstr ""
+
+#: dashboards/identity/groups/views.py:75
+msgid "Unable to update group."
+msgstr "Niet in staat om de groep bij te werken."
+
+#: dashboards/identity/groups/views.py:126
+msgid "Unable to retrieve group users."
+msgstr "Niet in staat om de gebruikers van de groep op te halen."
+
+#: dashboards/identity/groups/views.py:147
+msgid "Unable to retrieve users."
+msgstr "Niet in staat om de gebruikers op te halen."
+
+#: dashboards/identity/groups/templates/groups/_add_non_member.html:5
+msgid "Add Group Assignment"
+msgstr "Groepstoewijzing toevoegen"
+
+#: dashboards/identity/groups/templates/groups/_create.html:18
+msgid "From here you can create a new group to organize users and roles."
+msgstr "Vanuit hier kunt u een nieuwe groep creeren om gebruikers en rollen te organiseren."
+
+#: dashboards/identity/groups/templates/groups/_update.html:8
+#: dashboards/identity/groups/templates/groups/_update.html:23
+#: dashboards/identity/groups/templates/groups/update.html:3
+#: dashboards/identity/groups/templates/groups/update.html:6
+msgid "Update Group"
+msgstr "Groep bijwerken"
+
+#: dashboards/identity/groups/templates/groups/_update.html:18
+msgid "From here you can edit the group's details."
+msgstr "Vanuit hier kunt u de groepsgegevens bewerken."
+
+#: dashboards/identity/groups/templates/groups/add_non_member.html:3
+msgid "Add User to Group"
+msgstr "Gebruiker toevoegen aan groep"
+
+#: dashboards/identity/groups/templates/groups/manage.html:3
+msgid "Group Management"
+msgstr "Groepsbeheer"
+
+#: dashboards/identity/groups/templates/groups/manage.html:6
+msgid "Group Management: "
+msgstr "Groepsbeheer:"
+
+#: dashboards/identity/projects/panel.py:27
+#: dashboards/identity/projects/tables.py:113
+#: dashboards/identity/projects/tables.py:196
+#: dashboards/identity/projects/templates/projects/index.html:3
+#: dashboards/identity/projects/templates/projects/index.html:6
+#: templates/403.html:25 templates/404.html:24
+msgid "Projects"
+msgstr "Projecten"
+
+#: dashboards/identity/projects/tables.py:63
+msgid "View Usage"
+msgstr "Bekijk verbruik"
+
+#: dashboards/identity/projects/tables.py:74
+#: dashboards/identity/projects/workflows.py:339
+#: dashboards/identity/projects/workflows.py:340
+msgid "Create Project"
+msgstr "Creëer project"
+
+#: dashboards/identity/projects/tables.py:86
+#: dashboards/identity/projects/workflows.py:492
+msgid "Edit Project"
+msgstr "Project bewerken"
+
+#: dashboards/identity/projects/tables.py:98
+msgid "Modify Quotas"
+msgstr "Quota's aanpassen"
+
+#: dashboards/identity/projects/tables.py:169
+msgid "This name is already taken."
+msgstr "Deze naam is al in gebruik."
+
+#: dashboards/identity/projects/views.py:58
+#: dashboards/identity/projects/views.py:103
+#: dashboards/router/nexus1000v/views.py:44
+msgid "Unable to retrieve project information."
+msgstr "Niet in staat om de projectinformatie op te halen."
+
+#: dashboards/identity/projects/views.py:107
+msgid "Insufficient privilege level to view project information."
+msgstr ""
+
+#: dashboards/identity/projects/views.py:151
+msgid "Unable to retrieve default Neutron quota values."
+msgstr "Niet in staat om de standaard Neutron quotumwaarden op te halen."
+
+#: dashboards/identity/projects/views.py:159
+msgid "Unable to retrieve default quota values."
+msgstr "Niet in staat om de standaard quotawaarden op te halen."
+
+#: dashboards/identity/projects/views.py:189
+#: dashboards/identity/users/views.py:110
+msgid "Unable to retrieve project domain."
+msgstr "Niet in staat om het projectdomein op te halen."
+
+#: dashboards/identity/projects/views.py:203
+msgid "Unable to retrieve project details."
+msgstr "Niet in staat om de projectdetails op te halen."
+
+#: dashboards/identity/projects/workflows.py:87
+msgid "Quota"
+msgstr "Quotum"
+
+#: dashboards/identity/projects/workflows.py:89
+msgid "From here you can set quotas (max limits) for the project."
+msgstr "Vanuit hier kunt u quota's (maximum limieten) instellen voor het project."
+
+#: dashboards/identity/projects/workflows.py:104
+#: dashboards/identity/users/forms.py:78
+#: dashboards/identity/users/forms.py:156
+msgid "Domain Name"
+msgstr "Domeinnaam"
+
+#: dashboards/identity/projects/workflows.py:127
+#: dashboards/identity/projects/workflows.py:475
+msgid "Project Info"
+msgstr "Projectinformatie"
+
+#: dashboards/identity/projects/workflows.py:128
+msgid "From here you can create a new project to organize users."
+msgstr "Vanuit hier kunt u een nieuw project creeren om gebruikers te organiseren."
+
+#: dashboards/identity/projects/workflows.py:147
+msgid "Unable to retrieve user list. Please try again later."
+msgstr "Niet in staat om de gebruikerslijst op te halen. Probeert u het later nog eens."
+
+#: dashboards/identity/projects/workflows.py:214
+#: dashboards/identity/projects/workflows.py:221
+msgid "Project Members"
+msgstr "Projectleden"
+
+#: dashboards/identity/projects/workflows.py:220
+msgid "All Users"
+msgstr "Alle gebruikers"
+
+#: dashboards/identity/projects/workflows.py:222
+msgid "No users found."
+msgstr "Geen gebruikers gevonden."
+
+#: dashboards/identity/projects/workflows.py:223
+msgid "No users."
+msgstr "Geen gebruikers."
+
+#: dashboards/identity/projects/workflows.py:231
+#: dashboards/identity/users/views.py:56
+msgid "Unable to retrieve user list."
+msgstr "Niet in staat om de gebruikerslijst op te halen."
+
+#: dashboards/identity/projects/workflows.py:311
+#: dashboards/identity/projects/workflows.py:318
+msgid "Project Groups"
+msgstr "Projectgroepen"
+
+#: dashboards/identity/projects/workflows.py:341
+#, python-format
+msgid "Created new project \"%s\"."
+msgstr "Nieuw project \"%s\" gecreëerd."
+
+#: dashboards/identity/projects/workflows.py:342
+#, python-format
+msgid "Unable to create project \"%s\"."
+msgstr "Niet in staat om het project \"%s\" te creëren."
+
+#: dashboards/identity/projects/workflows.py:404
+msgid ", add project groups"
+msgstr ", projectgroepen toevoegen"
+
+#: dashboards/identity/projects/workflows.py:407
+#, python-format
+msgid ""
+"Failed to add %(users_to_add)s project members%(group_msg)s and set project "
+"quotas."
+msgstr "Het toevoegen van %(users_to_add)s projectleden %(group_msg)s en instellen van projectquota's is mislukt."
+
+#: dashboards/identity/projects/workflows.py:439
+#, python-format
+msgid "Failed to add %s project groups and update project quotas."
+msgstr "Het toevoegen van %s projectgroepen en bijwerken van projectquota's is mislukt."
+
+#: dashboards/identity/projects/workflows.py:467
+msgid "Unable to set project quotas."
+msgstr "Niet in staat om de projectquota's in te stellen."
+
+#: dashboards/identity/projects/workflows.py:477
+msgid "From here you can edit the project details."
+msgstr "Vanuit hier kunt u de projectdetails bewerken."
+
+#: dashboards/identity/projects/workflows.py:494
+#, python-format
+msgid "Modified project \"%s\"."
+msgstr "Project \"%s\" is aangepast."
+
+#: dashboards/identity/projects/workflows.py:495
+#, python-format
+msgid "Unable to modify project \"%s\"."
+msgstr "Niet in staat om het project \"%s\" aan te passen."
+
+#: dashboards/identity/projects/workflows.py:590
+msgid ""
+"You cannot revoke your administrative privileges from the project you are "
+"currently logged into. Please switch to another project with administrative "
+"privileges or remove the administrative role manually via the CLI."
+msgstr "U kunt uw beheerrechten niet intrekken van een project waarin u op dit moment bent aangemeld. Wisselt u alstublieft naar een ander project met beheerrechten of verwijder de beheerrol via de CLI."
+
+#: dashboards/identity/projects/workflows.py:625
+msgid ", update project groups"
+msgstr ", projectgroepen bijwerken"
+
+#: dashboards/identity/projects/workflows.py:628
+#, python-format
+msgid ""
+"Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
+" project quotas."
+msgstr "Het aanpassen van %(users_to_modify)s projectleden %(group_msg)s en bijwerken van projectquota's is mislukt."
+
+#: dashboards/identity/projects/workflows.py:701
+#, python-format
+msgid ""
+"Failed to modify %s project members, update project groups and update "
+"project quotas."
+msgstr "Het aanpassen van %s projectleden, bijwerken van projectgroepen en bijwerken van projectquota's is mislukt."
+
+#: dashboards/identity/projects/workflows.py:734
+msgid ""
+"Modified project information and members, but unable to modify project "
+"quotas."
+msgstr "Projectinformatie en leden zijn aangepast, maar het is niet gelukt om de projectquota's aan te passen."
+
+#: dashboards/identity/projects/templates/projects/usage.html:3
+msgid "Project Usage Overview"
+msgstr "Projectverbruik overzicht"
+
+#: dashboards/identity/projects/templates/projects/usage.html:6
+msgid "Project Usage"
+msgstr "Projectverbruik"
+
+#: dashboards/identity/roles/forms.py:25 dashboards/identity/roles/forms.py:38
+#: dashboards/identity/roles/tables.py:67
+msgid "Role Name"
+msgstr "Rolnaam"
+
+#: dashboards/identity/roles/forms.py:30
+msgid "Role created successfully."
+msgstr "Rol is succesvol gecreeerd."
+
+#: dashboards/identity/roles/forms.py:33
+msgid "Unable to create role."
+msgstr "Niet in staat om de rol te creëren."
+
+#: dashboards/identity/roles/forms.py:43
+msgid "Role updated successfully."
+msgstr "Rol is succesvol bijgewerkt."
+
+#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:65
+msgid "Unable to update role."
+msgstr "Niet in staat om de rol bij te werken."
+
+#: dashboards/identity/roles/panel.py:24
+#: dashboards/identity/roles/tables.py:48
+#: dashboards/identity/roles/tables.py:72
+#: dashboards/identity/roles/templates/roles/index.html:3
+#: dashboards/identity/roles/templates/roles/index.html:6
+msgid "Roles"
+msgstr "Rollen"
+
+#: dashboards/identity/roles/tables.py:24
+#: dashboards/identity/roles/templates/roles/_create.html:8
+#: dashboards/identity/roles/templates/roles/_create.html:23
+#: dashboards/identity/roles/templates/roles/create.html:3
+#: dashboards/identity/roles/templates/roles/create.html:7
+msgid "Create Role"
+msgstr "Creëer rol"
+
+#: dashboards/identity/roles/tables.py:47
+#: dashboards/identity/users/forms.py:96
+msgid "Role"
+msgstr "Rol"
+
+#: dashboards/identity/roles/tables.py:68
+msgid "Role ID"
+msgstr "Rol ID"
+
+#: dashboards/identity/roles/views.py:46
+msgid "Unable to retrieve roles list."
+msgstr "Niet in staat om de rollenlijst op te halen."
+
+#: dashboards/identity/roles/views.py:48
+msgid "Insufficient privilege level to view role information."
+msgstr ""
+
+#: dashboards/identity/roles/templates/roles/_create.html:18
+msgid "From here you can create a new role."
+msgstr "Vanuit hier kunt u een nieuwe rol creeren."
+
+#: dashboards/identity/roles/templates/roles/_update.html:8
+#: dashboards/identity/roles/templates/roles/_update.html:23
+#: dashboards/identity/roles/templates/roles/update.html:3
+#: dashboards/identity/roles/templates/roles/update.html:7
+msgid "Update Role"
+msgstr "Rol bijwerken"
+
+#: dashboards/identity/roles/templates/roles/_update.html:18
+msgid "From here you can edit the role's details."
+msgstr "Vanuit hier kunt u de roldetails bewerken."
+
+#: dashboards/identity/users/forms.py:56
+msgid "No available projects"
+msgstr "Geen projecten beschikbaar"
+
+#: dashboards/identity/users/forms.py:66
+#: dashboards/project/instances/forms.py:89
+#: dashboards/project/instances/workflows/create_instance.py:512
+#: dashboards/settings/password/forms.py:46
+msgid "Passwords do not match."
+msgstr "Wachtwoorden komen niet overeen."
+
+#: dashboards/identity/users/forms.py:86
+#: dashboards/identity/users/forms.py:165
+#: dashboards/project/data_processing/job_binaries/forms.py:71
+#: dashboards/project/databases/workflows/create_instance.py:192
+#: dashboards/project/instances/forms.py:153
+#: dashboards/project/instances/tables.py:716
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: dashboards/identity/users/forms.py:91
+#: dashboards/identity/users/forms.py:171
+msgid "Confirm Password"
+msgstr "Bevestig wachtwoord"
+
+#: dashboards/identity/users/forms.py:93
+#: dashboards/identity/users/forms.py:174
+msgid "Primary Project"
+msgstr "Primair project"
+
+#: dashboards/identity/users/forms.py:128
+#, python-format
+msgid "User \"%s\" was successfully created."
+msgstr "Gebruiker \"%s\" was succesvol gecreeerd."
+
+#: dashboards/identity/users/forms.py:144
+msgid "Unable to add user to primary project."
+msgstr "Niet in staat om de gebruiker toe te voegen aan het primaire project."
+
+#: dashboards/identity/users/forms.py:148
+msgid "Unable to create user."
+msgstr "Niet in staat om de gebruiker te creëren."
+
+#: dashboards/identity/users/forms.py:206
+msgid "User has been updated successfully."
+msgstr "Gebruiker is succesvol bijgewerkt."
+
+#: dashboards/identity/users/forms.py:209
+msgid "Unable to update the user."
+msgstr "Niet in staat om de gebruiker bij te werken."
+
+#: dashboards/identity/users/tables.py:28
+#: dashboards/identity/users/templates/users/_create.html:8
+#: dashboards/identity/users/templates/users/_create.html:33
+#: dashboards/identity/users/templates/users/create.html:3
+#: dashboards/identity/users/templates/users/create.html:7
+msgid "Create User"
+msgstr "Creëer gebruiker"
+
+#: dashboards/identity/users/tables.py:59
+msgid "Enable"
+msgstr "Activeren"
+
+#: dashboards/identity/users/tables.py:59
+msgid "Disable"
+msgstr "Deactiveren"
+
+#: dashboards/identity/users/tables.py:92
+msgid "You cannot disable the user you are currently logged in as."
+msgstr "U kunt de gebruiker waarmee u op dit moment bent aangemeld niet onklaar maken."
+
+#: dashboards/identity/users/views.py:65
+msgid "Unable to retrieve user information."
+msgstr ""
+
+#: dashboards/identity/users/views.py:67
+msgid "Insufficient privilege level to view user information."
+msgstr ""
+
+#: dashboards/identity/users/views.py:90
+msgid "Unable to update user."
+msgstr "Niet in staat om de gebruiker bij te werken."
+
+#: dashboards/identity/users/views.py:136
+msgid "Unable to retrieve user roles."
+msgstr "Niet in staat om de gebruikersrollen op te halen."
+
+#: dashboards/identity/users/templates/users/_create.html:18
+msgid "From here you can create a new user and assign them to a project."
+msgstr "Vanuit hier kunt u een nieuwe gebruiker creeren en deze toewijzen aan een project."
+
+#: dashboards/identity/users/templates/users/_update.html:8
+#: dashboards/identity/users/templates/users/_update.html:33
+#: dashboards/identity/users/templates/users/update.html:3
+#: dashboards/identity/users/templates/users/update.html:7
+msgid "Update User"
+msgstr "Gebruiker bijwerken"
+
+#: dashboards/identity/users/templates/users/_update.html:18
+msgid ""
+"From here you can edit the user's details, including their default project."
+msgstr "Vanuit hier kunt u de gebruikersgegevens bewerken, inclusief diens standaard project."
+
 #: dashboards/project/dashboard.py:22
 msgid "Compute"
 msgstr "Compute"
@@ -4267,32 +4319,32 @@ msgid "Data Processing"
 msgstr ""
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:469
+#: dashboards/project/instances/workflows/create_instance.py:470
 msgid "Access & Security"
 msgstr "Toegang & Beveiliging"
 
-#: dashboards/project/access_and_security/tabs.py:53
+#: dashboards/project/access_and_security/tabs.py:52
 #: dashboards/project/access_and_security/security_groups/views.py:120
 #: usage/base.py:109
 msgid "Unable to retrieve security groups."
 msgstr "Niet in staat om de beveiligingsgroepen op te halen."
 
-#: dashboards/project/access_and_security/tabs.py:70
+#: dashboards/project/access_and_security/tabs.py:69
 msgid "Unable to retrieve key pair list."
 msgstr "Het sleutelpaar kon niet worden opgehaald."
 
-#: dashboards/project/access_and_security/tabs.py:87
+#: dashboards/project/access_and_security/tabs.py:86
 #: dashboards/project/access_and_security/floating_ips/workflows.py:67
 #: usage/base.py:104
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Niet in staat om de vlottende IP adressen op te halen."
 
-#: dashboards/project/access_and_security/tabs.py:94
+#: dashboards/project/access_and_security/tabs.py:93
 #: dashboards/project/access_and_security/floating_ips/views.py:66
 msgid "Unable to retrieve floating IP pools."
 msgstr "Niet in staat om de vlottende IP poules op te halen."
 
-#: dashboards/project/access_and_security/tabs.py:115
+#: dashboards/project/access_and_security/tabs.py:114
 msgid "API Access"
 msgstr "API toegang"
 
@@ -4488,7 +4540,7 @@ msgstr "Het sleutlpaar kon niet worden geïmporteerd."
 
 #: dashboards/project/access_and_security/keypairs/tables.py:25
 #: dashboards/project/instances/tables.py:816
-#: dashboards/project/instances/workflows/create_instance.py:447
+#: dashboards/project/instances/workflows/create_instance.py:448
 msgid "Key Pair"
 msgstr "Sleutelpaar"
 
@@ -4925,7 +4977,7 @@ msgid "Private"
 msgstr "Privaat"
 
 #: dashboards/project/containers/forms.py:48
-#: dashboards/project/containers/tables.py:255
+#: dashboards/project/containers/tables.py:253
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
@@ -4955,7 +5007,7 @@ msgid "File"
 msgstr "Bestand"
 
 #: dashboards/project/containers/forms.py:87
-#: dashboards/project/containers/tables.py:423
+#: dashboards/project/containers/tables.py:421
 msgid "Object Name"
 msgstr "Objectnaam"
 
@@ -5011,14 +5063,14 @@ msgstr "Niet in staat om het object te kopieren."
 
 #: dashboards/project/containers/panel.py:27
 #: dashboards/project/containers/tables.py:108
-#: dashboards/project/containers/tables.py:266
+#: dashboards/project/containers/tables.py:264
 #: dashboards/project/containers/templates/containers/index.html:5
 #: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr "Houders"
 
 #: dashboards/project/containers/tables.py:44
-#: dashboards/project/containers/tables.py:296
+#: dashboards/project/containers/tables.py:294
 msgid "View Details"
 msgstr "Bekijk details"
 
@@ -5043,11 +5095,11 @@ msgstr "Maak privé"
 msgid "Successfully updated container access to private."
 msgstr "De toegang tot houder is op 'prive' gezet."
 
-#: dashboards/project/containers/tables.py:120
+#: dashboards/project/containers/tables.py:118
 msgid "Unable to delete container."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:137
+#: dashboards/project/containers/tables.py:135
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -5055,50 +5107,50 @@ msgstr ""
 msgid "Create Container"
 msgstr "Creëer houder"
 
-#: dashboards/project/containers/tables.py:145
+#: dashboards/project/containers/tables.py:143
 msgid "View Container"
 msgstr "Bekijk houder"
 
-#: dashboards/project/containers/tables.py:157
+#: dashboards/project/containers/tables.py:155
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:6
 msgid "Create Pseudo-folder"
 msgstr "Maak Pseudo map"
 
-#: dashboards/project/containers/tables.py:186
+#: dashboards/project/containers/tables.py:184
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "Object uploaden"
 
-#: dashboards/project/containers/tables.py:257
+#: dashboards/project/containers/tables.py:255
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
 msgstr "Houderdetails"
 
-#: dashboards/project/containers/tables.py:323
+#: dashboards/project/containers/tables.py:321
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
 msgid "Object"
 msgstr "Object"
 
-#: dashboards/project/containers/tables.py:324
-#: dashboards/project/containers/tables.py:430
+#: dashboards/project/containers/tables.py:322
+#: dashboards/project/containers/tables.py:428
 msgid "Objects"
 msgstr "Objecten"
 
-#: dashboards/project/containers/tables.py:346
+#: dashboards/project/containers/tables.py:344
 msgid "Copy"
 msgstr "Kopieer"
 
-#: dashboards/project/containers/tables.py:360
-#: dashboards/project/databases/tables.py:268
+#: dashboards/project/containers/tables.py:358
+#: dashboards/project/databases/tables.py:273
 msgid "Download"
 msgstr "Download"
 
-#: dashboards/project/containers/tables.py:408
+#: dashboards/project/containers/tables.py:406
 msgid "pseudo-folder"
 msgstr "Pseudo-map"
 
@@ -5547,7 +5599,7 @@ msgstr ""
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:44
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:129
+#: dashboards/project/instances/workflows/create_instance.py:130
 #: dashboards/project/loadbalancers/tables.py:344
 msgid "Details"
 msgstr "Details"
@@ -5752,7 +5804,7 @@ msgstr ""
 #: dashboards/project/data_processing/data_image_registry/forms.py:72
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:358
+#: dashboards/project/instances/workflows/create_instance.py:359
 msgid "Select Image"
 msgstr "Selecteer afbeelding"
 
@@ -5870,16 +5922,16 @@ msgid "Add custom tag"
 msgstr ""
 
 #: dashboards/project/data_processing/data_plugins/panel.py:22
-#: dashboards/project/data_processing/data_plugins/tables.py:43
+#: dashboards/project/data_processing/data_plugins/tables.py:39
 msgid "Plugins"
 msgstr ""
 
-#: dashboards/project/data_processing/data_plugins/tables.py:32
+#: dashboards/project/data_processing/data_plugins/tables.py:26
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
 msgid "Title"
 msgstr ""
 
-#: dashboards/project/data_processing/data_plugins/tables.py:36
+#: dashboards/project/data_processing/data_plugins/tables.py:30
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
 msgid "Supported Versions"
 msgstr ""
@@ -6179,7 +6231,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:268
 #: dashboards/project/images/images/tables.py:34
-#: dashboards/project/instances/workflows/create_instance.py:671
+#: dashboards/project/instances/workflows/create_instance.py:672
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Starten"
@@ -6683,7 +6735,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:156
-#: dashboards/project/instances/workflows/create_instance.py:595
+#: dashboards/project/instances/workflows/create_instance.py:596
 msgid "Unable to retrieve networks."
 msgstr "Niet in staat om de netwerken op te halen."
 
@@ -6703,7 +6755,7 @@ msgstr ""
 #: dashboards/project/database_backups/tables.py:81
 #: dashboards/project/database_backups/tables.py:158
 #: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:284
+#: dashboards/project/databases/tables.py:289
 #: dashboards/project/databases/tabs.py:104
 msgid "Backups"
 msgstr "Archieven"
@@ -6760,7 +6812,7 @@ msgstr "Niet beschikbaar"
 
 #: dashboards/project/database_backups/tables.py:138
 #: dashboards/project/database_backups/templates/database_backups/details.html:25
-#: dashboards/project/databases/tables.py:201
+#: dashboards/project/databases/tables.py:206
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/databases/workflows/create_instance.py:39
 msgid "Datastore"
@@ -6768,13 +6820,13 @@ msgstr ""
 
 #: dashboards/project/database_backups/tables.py:140
 #: dashboards/project/database_backups/templates/database_backups/details.html:27
-#: dashboards/project/databases/tables.py:203
+#: dashboards/project/databases/tables.py:208
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
 msgstr ""
 
 #: dashboards/project/database_backups/tables.py:146
-#: dashboards/project/databases/tables.py:272
+#: dashboards/project/databases/tables.py:277
 msgid "Incremental"
 msgstr ""
 
@@ -6897,14 +6949,14 @@ msgstr "Gepland archief \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:270
-#: dashboards/project/instances/workflows/create_instance.py:673
+#: dashboards/project/instances/workflows/create_instance.py:674
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Niet in staat om %(count)s te starten genaamd \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:286
-#: dashboards/project/instances/workflows/create_instance.py:689
+#: dashboards/project/instances/workflows/create_instance.py:690
 msgid "instance"
 msgstr "Exemplaar"
 
@@ -6960,8 +7012,8 @@ msgid "Error deleting database user."
 msgstr "Fout bij het verwijderen van database gebruiker."
 
 #: dashboards/project/databases/tables.py:82
-#: dashboards/project/databases/tables.py:233
-#: dashboards/project/databases/tables.py:250
+#: dashboards/project/databases/tables.py:238
+#: dashboards/project/databases/tables.py:255
 #: dashboards/project/databases/tabs.py:77
 msgid "Databases"
 msgstr "Databases"
@@ -6975,7 +7027,7 @@ msgstr "Fout bij het verwijderen van de database op exemplaar."
 #: dashboards/project/databases/workflows/create_instance.py:267
 #: dashboards/project/instances/tables.py:219
 #: dashboards/project/instances/tables.py:247
-#: dashboards/project/instances/workflows/create_instance.py:670
+#: dashboards/project/instances/workflows/create_instance.py:671
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Start exemplaar"
@@ -7019,21 +7071,21 @@ msgstr "%(name)s | %(RAM)s Werkgeheugen"
 msgid "-"
 msgstr "-"
 
-#: dashboards/project/databases/tables.py:209
+#: dashboards/project/databases/tables.py:214
 #: dashboards/project/databases/templates/databases/_detail_overview.html:31
 #: dashboards/project/databases/workflows/create_instance.py:35
 msgid "Volume Size"
 msgstr "Volumegrootte"
 
-#: dashboards/project/databases/tables.py:232
+#: dashboards/project/databases/tables.py:237
 msgid "Allowed Host"
 msgstr ""
 
-#: dashboards/project/databases/tables.py:246
+#: dashboards/project/databases/tables.py:251
 msgid "Database Name"
 msgstr "Databasenaam"
 
-#: dashboards/project/databases/tables.py:270
+#: dashboards/project/databases/tables.py:275
 msgid "Backup File"
 msgstr "Archiefbestand"
 
@@ -7249,23 +7301,23 @@ msgid "Select datastore type and version"
 msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:130
-#: dashboards/project/instances/workflows/create_instance.py:557
+#: dashboards/project/instances/workflows/create_instance.py:558
 msgid "At least one network must be specified."
 msgstr "Minimaal één netwerk dient te worden gespecificeerd."
 
 #: dashboards/project/databases/workflows/create_instance.py:132
-#: dashboards/project/instances/workflows/create_instance.py:559
+#: dashboards/project/instances/workflows/create_instance.py:560
 msgid "Launch instance with these networks"
 msgstr "Start exemplaar met deze netwerken"
 
 #: dashboards/project/databases/workflows/create_instance.py:142
 #: dashboards/project/instances/tables.py:731
-#: dashboards/project/instances/workflows/create_instance.py:581
+#: dashboards/project/instances/workflows/create_instance.py:582
 msgid "Networking"
 msgstr "Netwerken"
 
 #: dashboards/project/databases/workflows/create_instance.py:144
-#: dashboards/project/instances/workflows/create_instance.py:583
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid "Select networks for your instance."
 msgstr "Selecteer netwerken voor uw exemplaar."
 
@@ -7310,7 +7362,7 @@ msgid "Unable to find backup!"
 msgstr "Niet in staat om het archief te vinden!"
 
 #: dashboards/project/databases/workflows/create_instance.py:269
-#: dashboards/project/instances/workflows/create_instance.py:672
+#: dashboards/project/instances/workflows/create_instance.py:673
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Gestart %(count)s genoemd \"%(name)s\"."
@@ -7914,7 +7966,7 @@ msgid ""
 msgstr "De minimum geheugengrootte benodigd om de afbeelding te starten. Indien ongespecificeerd staat deze waarde standaard op 0 (geen minimum)."
 
 #: dashboards/project/images/images/forms.py:100
-#: dashboards/project/images/images/forms.py:221
+#: dashboards/project/images/images/forms.py:220
 #: dashboards/project/images/images/tables.py:226
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Protected"
@@ -7945,12 +7997,12 @@ msgstr "Kernel ID"
 msgid "Ramdisk ID"
 msgstr "Geheugenschijf ID"
 
-#: dashboards/project/images/images/forms.py:231
+#: dashboards/project/images/images/forms.py:233
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Niet in staat om de afbeelding \"%s\" bij te werken."
 
-#: dashboards/project/images/images/forms.py:256
+#: dashboards/project/images/images/forms.py:258
 msgid "Image was successfully updated."
 msgstr "Afbeelding is succesvol bijgewerkt."
 
@@ -8079,28 +8131,28 @@ msgid "Confirm Rebuild Password"
 msgstr "Bevestig herbouw wachtwoord"
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:640
+#: dashboards/project/instances/workflows/create_instance.py:641
 msgid "Disk Partition"
 msgstr "Disk partitie"
 
 #: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:360
+#: dashboards/project/instances/workflows/create_instance.py:361
 msgid "No images available"
 msgstr "Geen afbeeldingen beschikbaar"
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:650
+#: dashboards/project/instances/workflows/create_instance.py:651
 msgid "Automatic"
 msgstr "Automatisch"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:651
+#: dashboards/project/instances/workflows/create_instance.py:652
 msgid "Manual"
 msgstr "Handmatig"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:153
-#: dashboards/project/instances/workflows/create_instance.py:654
+#: dashboards/project/instances/workflows/create_instance.py:154
+#: dashboards/project/instances/workflows/create_instance.py:655
 msgid "Unable to retrieve extensions information."
 msgstr "Niet in staat om de uitbreidingsinformatie op te halen."
 
@@ -8803,52 +8855,52 @@ msgstr "Volume momentopname"
 msgid "Device size (GB)"
 msgstr "Apparaatgrootte (GB)"
 
-#: dashboards/project/instances/workflows/create_instance.py:113
+#: dashboards/project/instances/workflows/create_instance.py:114
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Volumegrootte in Gigabytes (geheel getal)"
 
-#: dashboards/project/instances/workflows/create_instance.py:116
+#: dashboards/project/instances/workflows/create_instance.py:117
 #: dashboards/project/volumes/volumes/forms.py:383
 msgid "Device Name"
 msgstr "Apparaatnaam"
 
-#: dashboards/project/instances/workflows/create_instance.py:119
+#: dashboards/project/instances/workflows/create_instance.py:120
 msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
 msgstr "Volume koppelpunt (bv. 'vda' koppelt aan '/dev/vda')."
 
-#: dashboards/project/instances/workflows/create_instance.py:122
+#: dashboards/project/instances/workflows/create_instance.py:123
 msgid "Delete on Terminate"
 msgstr "Verwijderen bij beeindiging"
 
-#: dashboards/project/instances/workflows/create_instance.py:125
+#: dashboards/project/instances/workflows/create_instance.py:126
 msgid "Delete volume on instance terminate"
 msgstr "Verwijder volume bij beeindiging exemplaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:140
+#: dashboards/project/instances/workflows/create_instance.py:141
 msgid "Select source"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:141
+#: dashboards/project/instances/workflows/create_instance.py:142
 msgid "Boot from image"
 msgstr "Opstarten vanaf afbeelding"
 
-#: dashboards/project/instances/workflows/create_instance.py:142
+#: dashboards/project/instances/workflows/create_instance.py:143
 msgid "Boot from snapshot"
 msgstr "Opstarten vanaf momentopname"
 
-#: dashboards/project/instances/workflows/create_instance.py:145
+#: dashboards/project/instances/workflows/create_instance.py:146
 msgid "Boot from volume"
 msgstr "Opstarten vanaf volume"
 
-#: dashboards/project/instances/workflows/create_instance.py:151
+#: dashboards/project/instances/workflows/create_instance.py:152
 msgid "Boot from image (creates a new volume)"
 msgstr "Start van afbeelding (maakt een nieuw volume aan)"
 
-#: dashboards/project/instances/workflows/create_instance.py:157
+#: dashboards/project/instances/workflows/create_instance.py:158
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "Start van volume momentopname (creëert een nieuw volume)"
 
-#: dashboards/project/instances/workflows/create_instance.py:168
+#: dashboards/project/instances/workflows/create_instance.py:169
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -8859,183 +8911,183 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] "De opgevraagde %(req)i exemplaren kunnen niet worden gestart omdat slechts %(avail)i van uw quotum beschikbaar is."
 
-#: dashboards/project/instances/workflows/create_instance.py:187
+#: dashboards/project/instances/workflows/create_instance.py:188
 msgid "You must set volume size"
 msgstr "U moet een volumegrootte instellen"
 
-#: dashboards/project/instances/workflows/create_instance.py:190
-#: dashboards/project/instances/workflows/create_instance.py:275
+#: dashboards/project/instances/workflows/create_instance.py:191
+#: dashboards/project/instances/workflows/create_instance.py:276
 msgid "You must set device name"
 msgstr "U moet een apparaatnaam instellen"
 
-#: dashboards/project/instances/workflows/create_instance.py:193
+#: dashboards/project/instances/workflows/create_instance.py:194
 msgid "You must select an image."
 msgstr "U moet een afbeelding selecteren."
 
-#: dashboards/project/instances/workflows/create_instance.py:227
+#: dashboards/project/instances/workflows/create_instance.py:228
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "De smaak '%(flavor)s' is te klen voor de opgevraagde afbeelding.\nMinimale vereisten: %(min_ram)s MB aan RAM en %(min_disk)s GB voor de Root Disk."
 
-#: dashboards/project/instances/workflows/create_instance.py:244
+#: dashboards/project/instances/workflows/create_instance.py:245
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "De Volume grootte is te klein voor de '%(image_name)s' afbeelding en minimaal '%(smallest_size)d' GB groot zijn."
 
-#: dashboards/project/instances/workflows/create_instance.py:255
-#: dashboards/project/instances/workflows/create_instance.py:272
+#: dashboards/project/instances/workflows/create_instance.py:256
+#: dashboards/project/instances/workflows/create_instance.py:273
 msgid "You must select a snapshot."
 msgstr "U moet een momentopname selecteren."
 
-#: dashboards/project/instances/workflows/create_instance.py:260
+#: dashboards/project/instances/workflows/create_instance.py:261
 msgid "You must select a volume."
 msgstr "U moet een volume selecteren."
 
-#: dashboards/project/instances/workflows/create_instance.py:266
+#: dashboards/project/instances/workflows/create_instance.py:267
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "Het starten van meerdere exemplaren wordt alleen ondersteund voor afbeeldingen en momentopnamen."
 
-#: dashboards/project/instances/workflows/create_instance.py:292
+#: dashboards/project/instances/workflows/create_instance.py:293
 #: dashboards/project/volumes/volumes/forms.py:257
 msgid "Unable to retrieve availability zones."
 msgstr "Niet in staat om de beschikbaarheidszones op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:298
+#: dashboards/project/instances/workflows/create_instance.py:299
 #: dashboards/project/volumes/volumes/forms.py:260
 msgid "No availability zones found"
 msgstr "Geen beschikbaarheidszones gevonden"
 
-#: dashboards/project/instances/workflows/create_instance.py:300
+#: dashboards/project/instances/workflows/create_instance.py:301
 #: dashboards/project/volumes/volumes/forms.py:262
 msgid "Any Availability Zone"
 msgstr "Elke beschikbaarheidszone"
 
-#: dashboards/project/instances/workflows/create_instance.py:323
+#: dashboards/project/instances/workflows/create_instance.py:324
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:229
 msgid "Unable to retrieve quota information."
 msgstr "Niet in staat om de quotainformatie op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:333
+#: dashboards/project/instances/workflows/create_instance.py:334
 #: dashboards/project/volumes/volumes/forms.py:180
 msgid "Snapshot"
 msgstr "Momentopname"
 
-#: dashboards/project/instances/workflows/create_instance.py:338
+#: dashboards/project/instances/workflows/create_instance.py:339
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:372
+#: dashboards/project/instances/workflows/create_instance.py:373
 msgid "Select Instance Snapshot"
 msgstr "Selecteer een exemplaar momentopname"
 
-#: dashboards/project/instances/workflows/create_instance.py:374
+#: dashboards/project/instances/workflows/create_instance.py:375
 msgid "No snapshots available"
 msgstr "Geen snapshots beschikbaar."
 
-#: dashboards/project/instances/workflows/create_instance.py:386
+#: dashboards/project/instances/workflows/create_instance.py:387
 #: dashboards/project/volumes/volumes/forms.py:275
 msgid "Unable to retrieve list of volumes."
 msgstr "Niet in staat om de volumelijst op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:388
+#: dashboards/project/instances/workflows/create_instance.py:389
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "Selecteer volume"
 
-#: dashboards/project/instances/workflows/create_instance.py:390
+#: dashboards/project/instances/workflows/create_instance.py:391
 msgid "No volumes available"
 msgstr "Geen volume beschikbaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:401
+#: dashboards/project/instances/workflows/create_instance.py:402
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Niet in staat om de lijst met volume momentopnamen op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:404
+#: dashboards/project/instances/workflows/create_instance.py:405
 msgid "Select Volume Snapshot"
 msgstr "Selecteer volume momentopname"
 
-#: dashboards/project/instances/workflows/create_instance.py:406
+#: dashboards/project/instances/workflows/create_instance.py:407
 msgid "No volume snapshots available"
 msgstr "Geen volume momentopnamen beschikbaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:449
+#: dashboards/project/instances/workflows/create_instance.py:450
 msgid "Which key pair to use for authentication."
 msgstr "Welk sleutelpaar gebruiken voor aanmelding."
 
-#: dashboards/project/instances/workflows/create_instance.py:453
+#: dashboards/project/instances/workflows/create_instance.py:454
 msgid "Admin Pass"
 msgstr "Beheerwachtwoord"
 
-#: dashboards/project/instances/workflows/create_instance.py:459
+#: dashboards/project/instances/workflows/create_instance.py:460
 msgid "Confirm Admin Pass"
 msgstr "Bevestig beheerwachtwoord"
 
-#: dashboards/project/instances/workflows/create_instance.py:465
+#: dashboards/project/instances/workflows/create_instance.py:466
 msgid "Launch instance in these security groups."
 msgstr "Start exemplaar in deze beveiligingsgroep."
 
-#: dashboards/project/instances/workflows/create_instance.py:470
+#: dashboards/project/instances/workflows/create_instance.py:471
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "Controleer toegang tot uw exemplaar middels sleutelparen, beveiligingsgroepen en overige mechanismen."
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:487
 msgid "Unable to retrieve key pairs."
 msgstr "De sleutelparen konden niet worden opgehaald."
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:491
 msgid "Select a key pair"
 msgstr "Selecteer een sleutelpaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:493
 msgid "No key pairs available"
 msgstr "Geen sleutelparen beschikbaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:501
+#: dashboards/project/instances/workflows/create_instance.py:502
 msgid "Unable to retrieve list of security groups"
 msgstr "Niet in staat om de beveiligingsgroepenlijst op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:533
+#: dashboards/project/instances/workflows/create_instance.py:534
 msgid "Customization Script"
 msgstr "Maatwerkscript"
 
-#: dashboards/project/instances/workflows/create_instance.py:535
+#: dashboards/project/instances/workflows/create_instance.py:536
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Een script of set commando's dat uitgevoerd wordt nadat het exemplaar is gebouwd (maximaal 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:542
+#: dashboards/project/instances/workflows/create_instance.py:543
 msgid "Post-Creation"
 msgstr "Post-creatie"
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:566
 msgid "Policy Profiles"
 msgstr "Beleidsprofielen"
 
-#: dashboards/project/instances/workflows/create_instance.py:568
+#: dashboards/project/instances/workflows/create_instance.py:569
 msgid "Launch instance with this policy profile"
 msgstr "Start exemplaar met dit beleidsprofiel"
 
-#: dashboards/project/instances/workflows/create_instance.py:658
+#: dashboards/project/instances/workflows/create_instance.py:659
 msgid "Advanced Options"
 msgstr "Geavanceerde Opties"
 
-#: dashboards/project/instances/workflows/create_instance.py:686
+#: dashboards/project/instances/workflows/create_instance.py:687
 #, python-format
 msgid "%s instances"
 msgstr "%s exemplaren"
 
-#: dashboards/project/instances/workflows/create_instance.py:744
+#: dashboards/project/instances/workflows/create_instance.py:745
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Poort niet gecreëerd voor profiel-id (%s)."
@@ -10933,13 +10985,13 @@ msgstr "Niet in staat om de volumelijst op te halen."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Niet in staat om de volume/exemplaar koppelingsinformatie op te halen."
 
-#: dashboards/project/volumes/tabs.py:102
+#: dashboards/project/volumes/tabs.py:104
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
 msgid "Volume Backups"
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:118
+#: dashboards/project/volumes/tabs.py:121
 msgid "Unable to retrieve volume backups."
 msgstr ""
 
