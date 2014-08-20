@@ -1256,11 +1256,26 @@ tr.terminated {
 
 #main_content .nav-tabs {
   margin-bottom: 0;
+  border-bottom: 0;
+  border-top: 1px solid $border-color;
+  > li {
+    margin-top: -1px;
+    > a {
+      margin-right: 0;
+    }
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        border-top-color: transparent;
+        border-bottom: 1px solid $border-color;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 #main_content .tab-content {
-  border: 1px solid #ddd;
-  border-top: 0 none;
   padding: 10px;
 }
 
