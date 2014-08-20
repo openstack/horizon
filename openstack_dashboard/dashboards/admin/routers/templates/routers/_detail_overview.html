@@ -3,7 +3,7 @@
 <h3>{% blocktrans with router_name=router.name %}Router Overview: {{ router_name }}{% endblocktrans %}</h3>
 
 <div class="info detail">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ router.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
@@ -15,19 +15,18 @@
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ router.admin_state|default:_("Unknown") }}</dd>
     {% if dvr_supported %}
-    <dt>{% trans "Distributed" %}</dt>
-    <dd>{{ router.distributed|yesno|capfirst }}</dd>
+      <dt>{% trans "Distributed" %}</dt>
+      <dd>{{ router.distributed|yesno|capfirst }}</dd>
     {% endif %}
     {% if ha_supported %}
-    <dt>{% trans "High Availability Mode" %}</dt>
-    <dd>{{ router.ha|yesno|capfirst }}</dd>
+      <dt>{% trans "High Availability Mode" %}</dt>
+      <dd>{{ router.ha|yesno|capfirst }}</dd>
     {% endif %}
     {% if router.external_gateway_info %}
-    <dt>{% trans "External Gateway Information" %}</dt>
-    <dd>
-      {% blocktrans with router_gw_info_network=router.external_gateway_info.network %}Connected External Network: {{ router_gw_info_network }}{% endblocktrans %}
-    </dd>
+      <dt>{% trans "External Gateway Information" %}</dt>
+      <dd>
+        {% blocktrans with router_gw_info_network=router.external_gateway_info.network %}Connected External Network: {{ router_gw_info_network }}{% endblocktrans %}
+      </dd>
     {% endif %}
   </dl>
 </div>
-

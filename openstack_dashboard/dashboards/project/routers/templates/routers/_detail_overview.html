@@ -5,7 +5,7 @@
 </h3>
 
 <div class="info detail">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ router.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
@@ -15,12 +15,12 @@
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ router.admin_state|default:_("Unknown") }}</dd>
     {% if dvr_supported %}
-    <dt>{% trans "Distributed" %}</dt>
-    <dd>{{ router.distributed|yesno|capfirst }}</dd>
+      <dt>{% trans "Distributed" %}</dt>
+      <dd>{{ router.distributed|yesno|capfirst }}</dd>
     {% endif %}
     {% if ha_supported %}
-    <dt>{% trans "High Availability Mode" %}</dt>
-    <dd>{{ router.ha|yesno|capfirst }}</dd>
+      <dt>{% trans "High Availability Mode" %}</dt>
+      <dd>{{ router.ha|yesno|capfirst }}</dd>
     {% endif %}
     {% if router.external_gateway_info %}
     <dt>{% trans "External Gateway Information" %}</dt>
