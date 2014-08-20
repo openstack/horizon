@@ -207,7 +207,7 @@ class Step(object):
 
     A ``Step`` class has the following attributes:
 
-    .. attribute:: action
+    .. attribute:: action_class
 
         The :class:`~horizon.workflows.Action` class which this step wraps.
 
@@ -293,7 +293,7 @@ class Step(object):
 
         cls = self.__class__.__name__
         if not (self.action_class and issubclass(self.action_class, Action)):
-            raise AttributeError("You must specify an action for %s." % cls)
+            raise AttributeError("action_class not specified for %s." % cls)
 
         self.slug = self.action_class.slug
         self.name = self.action_class.name
