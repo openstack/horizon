@@ -172,12 +172,15 @@ class HorizonMiddleware(object):
                             request, redirect_response, self.logout_reason)
                 else:
                     redirect_response = http.HttpResponse()
+                # Use a set while checking if we want a cookie's attributes
+                # copied
+                cookie_keys = set(('max_age', 'expires', 'path', 'domain',
+                                   'secure', 'httponly', 'logout_reason'))
                 # Copy cookies from HttpResponseRedirect towards HttpResponse
                 for cookie_name, cookie in six.iteritems(response.cookies):
                     cookie_kwargs = dict((
                         (key, value) for key, value in six.iteritems(cookie)
-                        if key in ('max_age', 'expires', 'path', 'domain',
-                            'secure', 'httponly', 'logout_reason') and value
+                        if key in cookie_keys and value
                     ))
                     redirect_response.set_cookie(
                         cookie_name, cookie.value, **cookie_kwargs)
