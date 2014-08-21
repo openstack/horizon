@@ -174,7 +174,7 @@ class CreateSubnetDetailAction(workflows.Action):
     enable_dhcp = forms.BooleanField(label=_("Enable DHCP"),
                                      initial=True, required=False)
     allocation_pools = forms.CharField(
-        widget=forms.Textarea(),
+        widget=forms.Textarea(attrs={'rows': 4}),
         label=_("Allocation Pools"),
         help_text=_("IP address allocation pools. Each entry is: "
                     "start_ip_address,end_ip_address "
@@ -182,13 +182,13 @@ class CreateSubnetDetailAction(workflows.Action):
                     "and one entry per line."),
         required=False)
     dns_nameservers = forms.CharField(
-        widget=forms.widgets.Textarea(),
+        widget=forms.widgets.Textarea(attrs={'rows': 4}),
         label=_("DNS Name Servers"),
         help_text=_("IP address list of DNS name servers for this subnet. "
                     "One entry per line."),
         required=False)
     host_routes = forms.CharField(
-        widget=forms.widgets.Textarea(),
+        widget=forms.widgets.Textarea(attrs={'rows': 4}),
         label=_("Host Routes"),
         help_text=_("Additional routes announced to the hosts. "
                     "Each entry is: destination_cidr,nexthop "
