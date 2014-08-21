@@ -6,8 +6,8 @@
   {% include "horizon/common/_page_header.html" with title=_("Volume Backup Details: ")|add:backup.name|default:_("Volume Backup Details:") %}
 {% endblock page_header %}
 {% block main %}
-<div class="row-fluid">
-  <div class="span12">
+<div class="row">
+  <div class="col-sm-12">
   {{ tab_group.render }}
   </div>
 </div>
