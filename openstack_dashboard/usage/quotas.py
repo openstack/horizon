@@ -167,18 +167,48 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     # TODO(jpichon): There is no API to get the default system quotas
     # in Neutron (cf. LP#1204956), so for now handle tenant quotas here.
     # This should be handled in _get_quota_data() eventually.
-    if disabled_quotas and 'floating_ips' in disabled_quotas:
+    if not disabled_quotas:
+        return qs
+
+    # Check if neutron is enabled by looking for network and router
+    if 'network' and 'router' not in disabled_quotas:
+        tenant_id = tenant_id or request.user.tenant_id
+        neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
+    if 'floating_ips' in disabled_quotas:
         # Neutron with quota extension disabled
         if 'floatingip' in disabled_quotas:
             qs.add(base.QuotaSet({'floating_ips': -1}))
         # Neutron with quota extension enabled
         else:
-            tenant_id = tenant_id or request.user.tenant_id
-            neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
             # Rename floatingip to floating_ips since that's how it's
             # expected in some places (e.g. Security & Access' Floating IPs)
             fips_quota = neutron_quotas.get('floatingip').limit
             qs.add(base.QuotaSet({'floating_ips': fips_quota}))
+    if 'security_groups' in disabled_quotas:
+        if 'security_group' in disabled_quotas:
+            qs.add(base.QuotaSet({'security_groups': -1}))
+        # Neutron with quota extension enabled
+        else:
+            # Rename security_group to security_groups since that's how it's
+            # expected in some places (e.g. Security & Access' Security Groups)
+            sec_quota = neutron_quotas.get('security_group').limit
+            qs.add(base.QuotaSet({'security_groups': sec_quota}))
+    if 'network' in disabled_quotas:
+        for item in qs.items:
+            if item.name == 'networks':
+                qs.items.remove(item)
+                break
+    else:
+        net_quota = neutron_quotas.get('network').limit
+        qs.add(base.QuotaSet({'networks': net_quota}))
+    if 'router' in disabled_quotas:
+        for item in qs.items:
+            if item.name == 'routers':
+                qs.items.remove(item)
+                break
+    else:
+        router_quota = neutron_quotas.get('router').limit
+        qs.add(base.QuotaSet({'routers': router_quota}))
 
     return qs
 
@@ -246,6 +276,21 @@ def tenant_quota_usages(request):
 
     usages.tally('instances', len(instances))
     usages.tally('floating_ips', len(floating_ips))
+
+    if 'security_group' not in disabled_quotas:
+        security_groups = []
+        security_groups = network.security_group_list(request)
+        usages.tally('security_groups', len(security_groups))
+
+    if 'network' not in disabled_quotas:
+        networks = []
+        networks = neutron.network_list(request, shared=False)
+        usages.tally('networks', len(networks))
+
+    if 'router' not in disabled_quotas:
+        routers = []
+        routers = neutron.router_list(request)
+        usages.tally('routers', len(routers))
 
     if 'volumes' not in disabled_quotas:
         volumes = cinder.volume_list(request)

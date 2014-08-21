@@ -23,6 +23,8 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
+
 
 LOG = logging.getLogger(__name__)
 
@@ -69,6 +71,18 @@ class CreateNetwork(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_network"),)
+
+    def allowed(self, request, datum=None):
+        usages = quotas.tenant_quota_usages(request)
+        if usages['networks']['available'] <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ["disabled"]
+                self.verbose_name = _("Create Network (Quota exceeded)")
+        else:
+            self.verbose_name = _("Create Network")
+            self.classes = [c for c in self.classes if c != "disabled"]
+
+        return True
 
 
 class EditNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,

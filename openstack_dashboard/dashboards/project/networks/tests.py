@@ -21,10 +21,10 @@ from horizon.workflows import views
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.test import helpers as test
-
+from openstack_dashboard.dashboards.project.networks import tables
 from openstack_dashboard.dashboards.project.networks import workflows
-
+from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 INDEX_URL = reverse('horizon:project:networks:index')
 
@@ -95,8 +95,11 @@ def _str_host_routes(host_routes):
 
 class NetworkTests(test.TestCase):
 
-    @test.create_stubs({api.neutron: ('network_list',)})
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_index(self):
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = 5
         api.neutron.network_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
@@ -104,21 +107,29 @@ class NetworkTests(test.TestCase):
         api.neutron.network_list(
             IsA(http.HttpRequest),
             shared=True).AndReturn([])
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-
         self.assertTemplateUsed(res, 'project/networks/index.html')
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
 
-    @test.create_stubs({api.neutron: ('network_list',)})
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_index_network_list_exception(self):
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = 5
         api.neutron.network_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
-            shared=False).AndRaise(self.exceptions.neutron)
+            shared=False).MultipleTimes().AndRaise(self.exceptions.neutron)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -1741,3 +1752,44 @@ class NetworkPortTests(test.TestCase):
         redir_url = reverse('horizon:project:networks:detail',
                             args=[port.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
+
+
+class NetworkViewTests(test.TestCase):
+
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_button_disabled_when_quota_exceeded(self):
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = 0
+
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            shared=False).AndReturn(self.networks.list())
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn([])
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'project/networks/index.html')
+
+        networks = res.context['networks_table'].data
+        self.assertItemsEqual(networks, self.networks.list())
+
+        create_link = tables.CreateNetwork()
+        url = create_link.get_link_url()
+        classes = list(create_link.get_default_classes())\
+                        + list(create_link.classes)
+        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+                                 "Quota exceeded")
+        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
+            "id='networks__action_create'>" \
+            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            % (url, link_name, " ".join(classes), link_name)
+        self.assertContains(res, expected_string, html=True,
+                            msg_prefix="The create button is not disabled")
