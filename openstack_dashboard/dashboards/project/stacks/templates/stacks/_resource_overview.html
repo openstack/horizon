@@ -12,9 +12,13 @@
   <dl>
     <dt>{% trans "Resource ID" %}</dt>
     <dd>
+      {% if resource_url %}
       <a href="{{ resource_url }}">
           {{ resource.physical_resource_id }}
       </a>
+      {% else %}
+      {{ resource.physical_resource_id }}
+      {% endif %}
     </dd>
   </dl>
   <dl>
