@@ -1,7 +1,7 @@
 {% load i18n %}
 <script id="configs_template" type="text/template">
     <tr id_attr="$id">
-        <div class="input control-group">
+        <div class="input form-group">
             <td><input style="display: inline" field="key" list="properties" placeholder="Select property name"
                        onkeyup="trySetValue(this)" onchange="trySetValue(this)" onclick="trySetValue(this)"
                        value="$name"/></td>
@@ -15,7 +15,7 @@
 </script>
 <script id="args_template" type="text/template">
     <tr id_attr="$id">
-        <div class="input control-group">
+        <div class="input form-group">
             <td><input style="display: inline" field="key"
                        onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
                        value="$name"/></td>
@@ -29,7 +29,7 @@
 </script>
 <script id="args_array_template" type="text/template">
     <tr id_attr="$id">
-        <div class="input control-group">
+        <div class="input form-group">
             <td><input style="display: inline; margin-left:10px; margin-right:10px" field="value" class="input-medium"
                        onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
                        value="$value"/></td>
@@ -50,7 +50,7 @@
         </tbody>
     </table>
     <div class="input">
-        <a class="btn btn-inline" onclick="add_prop('$target');">Add</a>
+        <a class="btn btn-default btn-inline" onclick="add_prop('$target');">Add</a>
     </div>
 </script>
 <script id="array_table_template" type="text/template">
@@ -64,7 +64,7 @@
         </tbody>
     </table>
     <div class="input">
-        <a class="btn btn-inline" onclick="add_prop('$target');">Add</a>
+        <a class="btn btn-default btn-inline" onclick="add_prop('$target');">Add</a>
     </div>
 </script>
 <script type="text/javascript">
@@ -153,15 +153,15 @@
 
     function hide_unnecessary_fields() {
       if (job_type == "Java") {
-        $("[name=job_input]").closest(".control-group").hide();
-        $("[name=job_output]").closest(".control-group").hide();
+        $("[name=job_input]").closest(".form-group").hide();
+        $("[name=job_output]").closest(".form-group").hide();
       } else {
-        $("[name=java_opts]").closest(".control-group").hide();
-        $("[name=main_class]").closest(".control-group").hide();
+        $("[name=java_opts]").closest(".form-group").hide();
+        $("[name=main_class]").closest(".form-group").hide();
       }
       if (job_type != "MapReduce.Streaming") {
-        $("[name=streaming_mapper]").closest(".control-group").hide();
-        $("[name=streaming_reducer]").closest(".control-group").hide();
+        $("[name=streaming_mapper]").closest(".form-group").hide();
+        $("[name=streaming_reducer]").closest(".form-group").hide();
       }
     }
 

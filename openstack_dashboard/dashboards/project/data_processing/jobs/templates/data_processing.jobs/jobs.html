@@ -34,8 +34,8 @@
 
                 function hide_extra_fields() {
                     for(i=2; i <= $("[name=extra_locations]").val(); i++) {
-                      $("[name=job_main_" + i + "]").closest(".control-group").hide();
-                      $("[name=job_lib_" + i + "]").closest(".control-group").hide();
+                      $("[name=job_main_" + i + "]").closest(".form-group").hide();
+                      $("[name=job_lib_" + i + "]").closest(".form-group").hide();
                     }
                 }
 
@@ -66,15 +66,15 @@
                             $(".create_job_class")[0].href = oldHref;
                             return false;
                     });
-                    $(".plugin_version_choice").closest(".control-group").hide();
+                    $(".plugin_version_choice").closest(".form-group").hide();
                 }
 
                 //display version for selected plugin
                 $(document).on('change', '.plugin_name_choice', switch_versions);
                 function switch_versions() {
-                    $(".plugin_version_choice").closest(".control-group").hide();
+                    $(".plugin_version_choice").closest(".form-group").hide();
                     var plugin = $(this);
-                    $("." + plugin.val() + "_version_choice").closest(".control-group").show();
+                    $("." + plugin.val() + "_version_choice").closest(".form-group").show();
                 }
                 $(".plugin_name_choice").change();
 
@@ -82,9 +82,9 @@
                 function switch_job_type() {
                   job_type = $("#id_job_type").val();
                   if ($.inArray(job_type, ["MapReduce", "Java"]) != -1) {
-                    $("#id_main_binary").closest(".control-group").hide();
+                    $("#id_main_binary").closest(".form-group").hide();
                   } else {
-                    $("#id_main_binary").closest(".control-group").show();
+                    $("#id_main_binary").closest(".form-group").show();
                   }
                 }
                 $("#id_job_type").change();
@@ -94,8 +94,8 @@
         addExtraBinary = function (where_from) {
           var loc_type = where_from.previousSibling.name.contains("main") ? "main" : "lib";
           for(i=2; i <= $("[name=extra_locations]").val(); i++) {
-            if (!$("[name=job_" + loc_type + "_" + i + "]").closest(".control-group").is(":visible")) {
-                $("[name=job_" + loc_type + "_" + i + "]").closest(".control-group").show();
+            if (!$("[name=job_" + loc_type + "_" + i + "]").closest(".form-group").is(":visible")) {
+                $("[name=job_" + loc_type + "_" + i + "]").closest(".form-group").show();
                 break;
             }
           }

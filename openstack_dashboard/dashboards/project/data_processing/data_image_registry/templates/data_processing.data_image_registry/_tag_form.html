@@ -3,38 +3,42 @@
 <div style="clear: both;"></div>
 <div id="plugin_populate_section">
     <h5>{% trans "Register tags required for the Plugin with specified Data Processing Version" %}</h5>
-    <br>
-    <table style="margin-bottom: 4px">
-        <tr>
-            <td style="width: 200px">
-                <label for="plugin_select">{% trans "Plugin" %}</label>
-                <select id="plugin_select" class="plugin-choice" style="width: 100%">
-                    {% for plugin, version_dict in plugins.items %}
-                        <option value="{{ plugin }}">{{ plugin }}</option>
+    <span class="row">
+        <span class="col-sm-4 small-padding"><b>{% trans "Plugin" %}</b></span>
+        <span class="col-sm-3 small-padding"><b>{% trans "Version" %}</b></span>
+    </span>
+    <span class="row">
+        <span class="col-sm-4 small-padding">
+            <select id="plugin_select" class="plugin-choice form-control">
+                {% for plugin, version_dict in plugins.items %}
+                    <option value="{{ plugin }}">{{ plugin }}</option>
+                {% endfor %}
+            </select>
+        </span>
+        <span class="col-sm-3 small-padding">
+            {% for plugin, version_dict in plugins.items %}
+            <div id="version_group_{{ plugin }}" class="data_processing-version-choice" >
+                <select id="data_processing_version_{{ plugin }}" class="form-control">
+                    {% for version, tags in version_dict.items %}
+                        <option value="{{ version }}">{{ version }}</option>
                     {% endfor %}
                 </select>
-            </td>
-            <td style="width: 200px">
-                {% for plugin, version_dict in plugins.items %}
-                <div id="version_group_{{ plugin }}" class="data_processing-version-choice" >
-                    <label for="data_processing_version_{{ plugin }}">{% trans "Version" %}</label>
-                    <select id="data_processing_version_{{ plugin }}" style="width: 100%">
-                        {% for version, tags in version_dict.items %}
-                            <option value="{{ version }}">{{ version }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                {% endfor %}
-            </td>
-        </tr>
-    </table>
-    <input type="button" id="add_all_btn" class="btn btn-small" value="{% trans "Add all" %}" />
-</div>
+            </div>
+            {% endfor %}
+        </span>
+        <span class="col-sm-4 small-padding">
+            <input type="button" id="add_all_btn" class="btn btn-default" value="{% trans "Add plugin tags" %}" />
+        </span>
+    </span>
+    <span class="row">
+        <span class="col-sm-7 small-padding">
+            <input type="text" class="tag-input form-control" id="_sahara_image_tag"/>
+        </span>
+        <span class="col-sm-3 small-padding">
+            <button type="button" id="add_tag_btn" class="btn btn-default btn-small btn-create btn-inline" onclick="add_tag_to_image()">{% trans "Add custom tag" %}</button>
+        </span>
+    </span>
 
-<hr />
-<div style="margin-top: 5px;">
-    <input type="text" class="tag-input" id="_sahara_image_tag" data-original-title="" onclick=""/>
-    <a href="#" id="add_tag_btn" class="btn btn-small btn-create btn-inline" onclick="add_tag_to_image()">{% trans "Add custom tag" %}</a>
 </div>
 
 <script type="text/javascript">
@@ -53,7 +57,7 @@
                 add_tag_to_image(tag);
             });
         })
-    })
+    });
 
    $("#_sahara_image_tag").keypress(function (event) {
         if (event.keyCode == 13) {
