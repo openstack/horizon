@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 00:55-0500\n"
-"PO-Revision-Date: 2014-08-20 05:56+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-20 10:22-0500\n"
+"PO-Revision-Date: 2014-08-20 08:41+0000\n"
+"Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -354,7 +354,7 @@ msgid "Admin"
 msgstr "管理员"
 
 #: dashboards/admin/aggregates/forms.py:26
-#: dashboards/admin/aggregates/tables.py:102
+#: dashboards/admin/aggregates/tables.py:106
 #: dashboards/admin/aggregates/workflows.py:24
 #: dashboards/admin/flavors/workflows.py:35 dashboards/admin/info/tables.py:57
 #: dashboards/admin/info/tables.py:87 dashboards/admin/info/tables.py:111
@@ -384,7 +384,7 @@ msgstr "管理员"
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:124
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
-#: dashboards/project/data_processing/cluster_templates/tables.py:100
+#: dashboards/project/data_processing/cluster_templates/tables.py:99
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:95
 #: dashboards/project/data_processing/clusters/tabs.py:123
@@ -400,7 +400,7 @@ msgstr "管理员"
 #: dashboards/project/data_processing/jobs/tables.py:100
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:5
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:74
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:67
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:106
 #: dashboards/project/database_backups/tables.py:136
@@ -422,7 +422,7 @@ msgstr "管理员"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images/images/forms.py:40
-#: dashboards/project/images/images/forms.py:193
+#: dashboards/project/images/images/forms.py:195
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -472,7 +472,7 @@ msgid "Name"
 msgstr "名称"
 
 #: dashboards/admin/aggregates/forms.py:28
-#: dashboards/admin/aggregates/tables.py:104
+#: dashboards/admin/aggregates/tables.py:108
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:824
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
@@ -496,7 +496,7 @@ msgstr "无法更新聚集。"
 
 #: dashboards/admin/aggregates/panel.py:21
 #: dashboards/admin/aggregates/tables.py:26
-#: dashboards/admin/aggregates/tables.py:116
+#: dashboards/admin/aggregates/tables.py:120
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
@@ -533,28 +533,28 @@ msgstr "服务已运行"
 msgid "Services Down"
 msgstr "服务停止"
 
-#: dashboards/admin/aggregates/tables.py:106
-#: dashboards/admin/aggregates/tables.py:129
+#: dashboards/admin/aggregates/tables.py:110
+#: dashboards/admin/aggregates/tables.py:133
 msgid "Hosts"
 msgstr "主机"
 
-#: dashboards/admin/aggregates/tables.py:110
+#: dashboards/admin/aggregates/tables.py:114
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:43
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "元数据"
 
-#: dashboards/admin/aggregates/tables.py:127
+#: dashboards/admin/aggregates/tables.py:131
 msgid "Availability Zone Name"
 msgstr "可用域名称"
 
-#: dashboards/admin/aggregates/tables.py:133
+#: dashboards/admin/aggregates/tables.py:137
 #: dashboards/admin/volumes/snapshots/forms.py:24
 #: dashboards/admin/volumes/volumes/forms.py:54
 msgid "Available"
 msgstr "可用配额"
 
-#: dashboards/admin/aggregates/tables.py:142
+#: dashboards/admin/aggregates/tables.py:146
 msgid "Availability Zones"
 msgstr "可用域"
 
@@ -724,7 +724,7 @@ msgstr "增加或删除主机时错误"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
-#: dashboards/project/data_processing/cluster_templates/tables.py:109
+#: dashboards/project/data_processing/cluster_templates/tables.py:110
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:98
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
@@ -755,7 +755,7 @@ msgstr "增加或删除主机时错误"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:43
-#: dashboards/project/images/images/forms.py:196
+#: dashboards/project/images/images/forms.py:198
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
@@ -1051,8 +1051,8 @@ msgstr "ID"
 #: dashboards/project/containers/forms.py:41
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:99
-#: dashboards/project/images/images/forms.py:219
+#: dashboards/project/images/images/forms.py:101
+#: dashboards/project/images/images/forms.py:221
 #: dashboards/project/images/images/tables.py:142
 #: dashboards/project/images/images/tables.py:222
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -3075,7 +3075,7 @@ msgid "Unable to retrieve project list."
 msgstr "无法获取项目列表。"
 
 #: dashboards/admin/overview/views.py:73
-#: dashboards/project/data_processing/cluster_templates/tables.py:71
+#: dashboards/project/data_processing/cluster_templates/tables.py:64
 #: dashboards/project/data_processing/clusters/tables.py:51
 #: dashboards/project/data_processing/data_sources/tables.py:36
 #: dashboards/project/data_processing/job_binaries/tables.py:39
@@ -3646,11 +3646,11 @@ msgstr "无法获取域列表。"
 
 #: dashboards/identity/domains/views.py:60
 msgid "Unable to retrieve domain information."
-msgstr ""
+msgstr "无法获取域信息。"
 
 #: dashboards/identity/domains/views.py:62
 msgid "Insufficient privilege level to view domain information."
-msgstr ""
+msgstr "查看域信息权限不足。"
 
 #: dashboards/identity/domains/views.py:88
 msgid "Unable to retrieve domain details."
@@ -3877,7 +3877,7 @@ msgstr "无法获取组列表。"
 
 #: dashboards/identity/groups/views.py:51
 msgid "Insufficient privilege level to view group information."
-msgstr ""
+msgstr "查看组信息权限不足。"
 
 #: dashboards/identity/groups/views.py:75
 msgid "Unable to update group."
@@ -3962,7 +3962,7 @@ msgstr "无法获取项目信息。"
 
 #: dashboards/identity/projects/views.py:107
 msgid "Insufficient privilege level to view project information."
-msgstr ""
+msgstr "查看项目信息权限不足。"
 
 #: dashboards/identity/projects/views.py:151
 msgid "Unable to retrieve default Neutron quota values."
@@ -4170,7 +4170,7 @@ msgstr "无法获取角色列表。"
 
 #: dashboards/identity/roles/views.py:48
 msgid "Insufficient privilege level to view role information."
-msgstr ""
+msgstr "查看角色信息权限不足。"
 
 #: dashboards/identity/roles/templates/roles/_create.html:18
 msgid "From here you can create a new role."
@@ -4260,11 +4260,11 @@ msgstr "您不能禁用您当前登录的用户。"
 
 #: dashboards/identity/users/views.py:65
 msgid "Unable to retrieve user information."
-msgstr ""
+msgstr "无法获取用户信息。"
 
 #: dashboards/identity/users/views.py:67
 msgid "Insufficient privilege level to view user information."
-msgstr ""
+msgstr "查看用户信息权限不足。"
 
 #: dashboards/identity/users/views.py:90
 msgid "Unable to update user."
@@ -5303,7 +5303,7 @@ msgid "Cluster Template Name"
 msgstr "集群模板名称"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:39
-#: dashboards/project/data_processing/cluster_templates/tables.py:72
+#: dashboards/project/data_processing/cluster_templates/tables.py:65
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
@@ -5316,18 +5316,18 @@ msgid "Unable to upload cluster template file"
 msgstr "无法上传集群模板文件。"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
-#: dashboards/project/data_processing/cluster_templates/tables.py:113
+#: dashboards/project/data_processing/cluster_templates/tables.py:114
 msgid "Cluster Templates"
 msgstr "集群模板"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:37
+#: dashboards/project/data_processing/cluster_templates/tables.py:30
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
 msgstr "上传模板"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:44
+#: dashboards/project/data_processing/cluster_templates/tables.py:37
 #: dashboards/project/data_processing/clusters/tables.py:32
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
@@ -5341,16 +5341,16 @@ msgstr "上传模板"
 msgid "Launch Cluster"
 msgstr "启动集群"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:60
+#: dashboards/project/data_processing/cluster_templates/tables.py:53
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:46
 msgid "Copy Template"
 msgstr "复制模板"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:67
+#: dashboards/project/data_processing/cluster_templates/tables.py:60
 msgid "Delete Template"
 msgstr "删除模板"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:70
+#: dashboards/project/data_processing/cluster_templates/tables.py:63
 #: dashboards/project/data_processing/clusters/tables.py:50
 #: dashboards/project/data_processing/data_sources/tables.py:35
 #: dashboards/project/data_processing/job_binaries/tables.py:38
@@ -5373,42 +5373,42 @@ msgstr "删除模板"
 msgid "Delete"
 msgstr "删除"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:73
+#: dashboards/project/data_processing/cluster_templates/tables.py:66
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:59
 msgid "Templates"
 msgstr "模板"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:81
+#: dashboards/project/data_processing/cluster_templates/tables.py:74
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:27
 msgid "Create Template"
 msgstr "创建模板"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:90
+#: dashboards/project/data_processing/cluster_templates/tables.py:83
 msgid "Configure Cluster Template"
 msgstr "配置集群模板"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:103
+#: dashboards/project/data_processing/cluster_templates/tables.py:102
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:77
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:70
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
 msgid "Plugin"
 msgstr "插件"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:105
+#: dashboards/project/data_processing/cluster_templates/tables.py:104
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
 #: dashboards/project/data_processing/utils/workflow_helpers.py:161
 msgid "Hadoop Version"
 msgstr "Hadoop版本"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:107
+#: dashboards/project/data_processing/cluster_templates/tables.py:106
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:203
@@ -5527,7 +5527,7 @@ msgstr "没有指定模板"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:81
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:74
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
 msgid "Node Processes"
 msgstr "节点处理"
@@ -6570,7 +6570,7 @@ msgid "Unable to launch job."
 msgstr "无法启动任务"
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:85
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
 msgid "Node Group Templates"
 msgstr "节点组模板"
@@ -7938,13 +7938,13 @@ msgid "A local image to upload."
 msgstr "一个待上传的本地镜像。"
 
 #: dashboards/project/images/images/forms.py:78
-#: dashboards/project/images/images/forms.py:217
+#: dashboards/project/images/images/forms.py:219
 #: dashboards/project/images/images/tables.py:229
 msgid "Format"
 msgstr "镜像格式"
 
 #: dashboards/project/images/images/forms.py:83
-#: dashboards/project/images/images/forms.py:212
+#: dashboards/project/images/images/forms.py:214
 msgid "Architecture"
 msgstr "构架"
 
@@ -7952,60 +7952,60 @@ msgstr "构架"
 msgid "Minimum Disk (GB)"
 msgstr "最小磁盘（GB）"
 
-#: dashboards/project/images/images/forms.py:86
+#: dashboards/project/images/images/forms.py:87
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
 msgstr "为启动镜像设置的最小磁盘。如果不指定， 默认值为零 (没有限制)。"
 
-#: dashboards/project/images/images/forms.py:92
+#: dashboards/project/images/images/forms.py:93
 msgid "Minimum RAM (MB)"
 msgstr "最低内存(MB)"
 
-#: dashboards/project/images/images/forms.py:93
+#: dashboards/project/images/images/forms.py:95
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "启动镜像的最低磁盘容量要求。如果不指定， 默认值为0 (没有限制)。"
 
-#: dashboards/project/images/images/forms.py:100
-#: dashboards/project/images/images/forms.py:220
+#: dashboards/project/images/images/forms.py:102
+#: dashboards/project/images/images/forms.py:222
 #: dashboards/project/images/images/tables.py:226
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Protected"
 msgstr "受保护的"
 
-#: dashboards/project/images/images/forms.py:143
+#: dashboards/project/images/images/forms.py:145
 msgid "A image or external image location must be specified."
 msgstr "必须给定镜像或者外部镜像的位置"
 
-#: dashboards/project/images/images/forms.py:146
+#: dashboards/project/images/images/forms.py:148
 msgid "Can not specify both image and external image location."
 msgstr "无法指定镜像和外部镜像的位置"
 
-#: dashboards/project/images/images/forms.py:184
+#: dashboards/project/images/images/forms.py:186
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "镜像%s创建排队中"
 
-#: dashboards/project/images/images/forms.py:188
+#: dashboards/project/images/images/forms.py:190
 msgid "Unable to create new image."
 msgstr "无法创建新镜像"
 
-#: dashboards/project/images/images/forms.py:201
+#: dashboards/project/images/images/forms.py:203
 msgid "Kernel ID"
 msgstr "内核ID"
 
-#: dashboards/project/images/images/forms.py:207
+#: dashboards/project/images/images/forms.py:209
 msgid "Ramdisk ID"
 msgstr "内存盘ID"
 
-#: dashboards/project/images/images/forms.py:233
+#: dashboards/project/images/images/forms.py:235
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "更新镜像 \"%s\"失败。"
 
-#: dashboards/project/images/images/forms.py:258
+#: dashboards/project/images/images/forms.py:260
 msgid "Image was successfully updated."
 msgstr "镜像更新成功。"
 
