@@ -80,6 +80,7 @@ horizon.forms = {
       if (typeof($obj_name.val()) === 'undefined' || $(this).attr("filename").localeCompare($obj_name.val()) === 0) {
         $obj_name.val($filename);
         $(this).attr("filename", $filename);
+        $obj_name.trigger('input');
       }
     });
   },
