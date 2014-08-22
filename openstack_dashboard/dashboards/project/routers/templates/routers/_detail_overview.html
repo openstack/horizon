@@ -10,6 +10,8 @@
     <dd>{{ router.id|default:_("None") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ router.status|default:_("Unknown") }}</dd>
+    <dt>{% trans "Admin State" %}</dt>
+    <dd>{{ router.admin_state|default:_("Unknown") }}</dd>
     {% if dvr_supported %}
     <dt>{% trans "Distributed" %}</dt>
     <dd>{{ router.distributed|yesno|capfirst }}</dd>

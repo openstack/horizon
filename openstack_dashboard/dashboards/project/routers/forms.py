@@ -19,6 +19,7 @@ Views for managing Neutron Routers.
 import logging
 
 from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -66,3 +67,48 @@ class CreateForm(forms.SelfHandlingForm):
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
             return False
+
+
+class UpdateForm(forms.SelfHandlingForm):
+    name = forms.CharField(label=_("Name"), required=False)
+    admin_state = forms.BooleanField(label=_("Admin State"), required=False)
+    router_id = forms.CharField(label=_("ID"),
+                                widget=forms.HiddenInput())
+    mode = forms.ChoiceField(label=_("Router Type"))
+
+    redirect_url = reverse_lazy('horizon:project:routers:index')
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateForm, self).__init__(request, *args, **kwargs)
+        self.dvr_allowed = api.neutron.get_dvr_permission(self.request,
+                                                          "update")
+        if not self.dvr_allowed:
+            del self.fields['mode']
+        elif kwargs.get('initial', {}).get('mode') == 'distributed':
+            # Neutron supports only changing from centralized to
+            # distributed now.
+            mode_choices = [('distributed', _('Distributed'))]
+            self.fields['mode'].widget = forms.TextInput(attrs={'readonly':
+                                                                'readonly'})
+            self.fields['mode'].choices = mode_choices
+        else:
+            mode_choices = [('centralized', _('Centralized')),
+                            ('distributed', _('Distributed'))]
+            self.fields['mode'].choices = mode_choices
+
+    def handle(self, request, data):
+        try:
+            params = {'admin_state_up': data['admin_state'],
+                      'name': data['name']}
+            if self.dvr_allowed:
+                params['distributed'] = (data['mode'] == 'distributed')
+            router = api.neutron.router_update(request, data['router_id'],
+                                               **params)
+            msg = _('Router %s was successfully updated.') % data['name']
+            LOG.debug(msg)
+            messages.success(request, msg)
+            return router
+        except Exception:
+            msg = _('Failed to update router %s') % data['name']
+            LOG.info(msg)
+            exceptions.handle(request, msg, redirect=self.redirect_url)

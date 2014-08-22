@@ -69,6 +69,21 @@ class CreateRouter(tables.LinkAction):
     policy_rules = (("network", "create_router"),)
 
 
+class EditRouter(tables.LinkAction):
+    name = "update"
+    verbose_name = _("Edit Router")
+    url = "horizon:project:routers:update"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("network", "update_router"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, 'tenant_id', None)
+        return {"project_id": project_id}
+
+
 class SetGateway(tables.LinkAction):
     name = "setgateway"
     verbose_name = _("Set Gateway")
@@ -174,4 +189,4 @@ class RoutersTable(tables.DataTable):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (CreateRouter, DeleteRouter)
-        row_actions = (SetGateway, ClearGateway, DeleteRouter)
+        row_actions = (SetGateway, ClearGateway, EditRouter, DeleteRouter)

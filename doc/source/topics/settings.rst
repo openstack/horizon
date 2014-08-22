@@ -493,6 +493,7 @@ by cinder.  Currently only the backup service is available.
 Default::
 
         {
+            'enable_distributed_router': False,
             'enable_lb': False,
             'enable_quotas': False,
             'enable_firewall': False,
@@ -506,6 +507,19 @@ A dictionary of settings which can be used to enable optional services provided
 by Neutron and configure Neutron specific features.  The following options are
 available.
 
+
+``enable_distributed_router``:
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``False``
+
+Enable or disable Neutron distributed virtual router (DVR) feature in
+the Router panel. For the DVR feature to be enabled, this option needs
+to be set to True and your Neutron deployment must support DVR. Even
+when your Neutron plugin (like ML2 plugin) supports DVR feature, DVR
+feature depends on l3-agent configuration, so deployers should set this
+option appropriately depending on your deployment.
 
 ``enable_lb``:
 

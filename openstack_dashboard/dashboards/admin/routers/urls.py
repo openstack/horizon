@@ -18,9 +18,15 @@ from django.conf.urls import url  # noqa
 from openstack_dashboard.dashboards.admin.routers import views
 
 
+ROUTER_URL = r'^(?P<router_id>[^/]+)/%s'
+
+
 urlpatterns = patterns('horizon.dashboards.admin.routers.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<router_id>[^/]+)/$',
+    url(ROUTER_URL % '$',
         views.DetailView.as_view(),
         name='detail'),
+    url(ROUTER_URL % 'update',
+        views.UpdateView.as_view(),
+        name='update'),
 )

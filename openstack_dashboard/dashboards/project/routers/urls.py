@@ -22,19 +22,25 @@ from openstack_dashboard.dashboards.project.routers.ports \
 from openstack_dashboard.dashboards.project.routers import views
 
 
+ROUTER_URL = r'^(?P<router_id>[^/]+)/%s'
+
+
 urlpatterns = patterns('horizon.dashboards.project.routers.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(r'^(?P<router_id>[^/]+)/$',
+    url(ROUTER_URL % '$',
         views.DetailView.as_view(),
         name='detail'),
-    url(r'^(?P<router_id>[^/]+)/addinterface',
+    url(ROUTER_URL % 'update',
+        views.UpdateView.as_view(),
+        name='update'),
+    url(ROUTER_URL % 'addinterface',
         port_views.AddInterfaceView.as_view(),
         name='addinterface'),
-    url(r'^(?P<router_id>[^/]+)/addrouterrule',
+    url(ROUTER_URL % 'addrouterrule',
         rr_views.AddRouterRuleView.as_view(),
         name='addrouterrule'),
-    url(r'^(?P<router_id>[^/]+)/setgateway',
+    url(ROUTER_URL % 'setgateway',
         port_views.SetGatewayView.as_view(),
         name='setgateway'),
 )

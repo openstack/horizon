@@ -136,3 +136,34 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateForm
     template_name = 'project/routers/create.html'
     success_url = reverse_lazy("horizon:project:routers:index")
+
+
+class UpdateView(forms.ModalFormView):
+    form_class = project_forms.UpdateForm
+    template_name = 'project/routers/update.html'
+    success_url = reverse_lazy("horizon:project:routers:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateView, self).get_context_data(**kwargs)
+        context["router_id"] = self.kwargs['router_id']
+        return context
+
+    def _get_object(self, *args, **kwargs):
+        router_id = self.kwargs['router_id']
+        try:
+            return api.neutron.router_get(self.request, router_id)
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve router details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_initial(self):
+        router = self._get_object()
+        initial = {'router_id': router['id'],
+                   'tenant_id': router['tenant_id'],
+                   'name': router['name'],
+                   'admin_state': router['admin_state_up']}
+        if hasattr(router, 'distributed'):
+            initial['mode'] = ('distributed' if router.distributed
+                               else 'centralized')
+        return initial
