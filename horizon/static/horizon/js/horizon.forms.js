@@ -5,7 +5,7 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      if ($volName.val() == "") {
+      if ($volName.val() === "") {
         $volName.val($option.data("name"));
       }
       var $volSize = $form.find('input#id_size');
@@ -22,7 +22,7 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      if ($volName.val() == "") {
+      if ($volName.val() === "") {
         $volName.val($option.data("name"));
       }
       var $volSize = $form.find('input#id_size');
@@ -39,7 +39,7 @@ horizon.forms = {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
-      if ($volName.val() == "") {
+      if ($volName.val() === "") {
         $volName.val($option.data("name"));
       }
       var $volSize = $form.find('input#id_size');
@@ -64,7 +64,7 @@ horizon.forms = {
    */
   handle_object_upload_source: function() {
     $("div.table_wrapper, #modal_wrapper").on("change", "input#id_object_file", function(evt) {
-      if (typeof($(this).attr("filename")) == 'undefined') {
+      if (typeof($(this).attr("filename")) === 'undefined') {
         $(this).attr("filename", "");
       }
       var $form = $(this).closest("form");
@@ -77,7 +77,7 @@ horizon.forms = {
         $filename = $filename.substring(1);
       }
 
-      if (typeof($obj_name.val()) == 'undefined' || $(this).attr("filename").localeCompare($obj_name.val()) == 0) {
+      if (typeof($obj_name.val()) === 'undefined' || $(this).attr("filename").localeCompare($obj_name.val()) === 0) {
         $obj_name.val($filename);
         $(this).attr("filename", $filename);
       }

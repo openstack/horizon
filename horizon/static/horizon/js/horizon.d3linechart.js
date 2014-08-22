@@ -419,7 +419,7 @@ horizon.d3_line_chart = {
      */
     self.render = function(){
       var self = this;
-      var last_point = undefined, last_point_color = undefined;
+      var last_point, last_point_color;
 
       $.map(self.series, function (serie) {
         serie.color = last_point_color = self.color(serie.name);
