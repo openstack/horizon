@@ -850,6 +850,7 @@ div.table_cell_wrapper {
 .table-striped.datatable tbody {
   tr.odd td {
     background-color: $table-bg-odd;
+    background-clip: padding-box;
   }
   tr.even td {
     background-color: inherit;
@@ -858,6 +859,7 @@ div.table_cell_wrapper {
   tr.even:hover td,
   tr:hover th {
     background-color: $table-bg-hover;
+    background-clip: padding-box;
   }
 }
 
