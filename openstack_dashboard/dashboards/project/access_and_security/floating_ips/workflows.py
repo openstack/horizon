@@ -15,6 +15,8 @@
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
+from neutronclient.common import exceptions as neutron_exc
+
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
@@ -59,10 +61,12 @@ class AssociateIPAction(workflows.Action):
 
     def populate_ip_id_choices(self, request, context):
         ips = []
+        redirect = reverse('horizon:project:access_and_security:index')
         try:
             ips = api.network.tenant_floating_ip_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            exceptions.handle(self.request, redirect=redirect)
         except Exception:
-            redirect = reverse('horizon:project:access_and_security:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve floating IP addresses.'),
                               redirect=redirect)
