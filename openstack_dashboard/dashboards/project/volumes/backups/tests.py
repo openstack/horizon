@@ -106,6 +106,7 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertContains(res, "<dd>%s</dd>" % backup.name, 1, 200)
         self.assertContains(res, "<dd>%s</dd>" % backup.id, 1, 200)
         self.assertContains(res, "<dd>Available</dd>", 1, 200)
+        self.assertContains(res, "<dt>Volume</dt>", 1, 200)
 
     @test.create_stubs({api.cinder: ('volume_backup_get',)})
     def test_volume_backup_detail_get_with_exception(self):
@@ -125,8 +126,8 @@ class VolumeBackupsViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.cinder: ('volume_backup_get', 'volume_get')})
-    def test_volume_backup_detail_with_volume_get_exception(self):
-        # Test to verify redirect if get volume fails
+    def test_volume_backup_detail_with_missing_volume(self):
+        # Test to check page still loads even if volume is deleted
         backup = self.cinder_volume_backups.first()
 
         api.cinder.volume_backup_get(IsA(http.HttpRequest), backup.id). \
@@ -139,9 +140,14 @@ class VolumeBackupsViewTests(test.TestCase):
                       args=[backup.id])
         res = self.client.get(url)
 
-        self.assertNoFormErrors(res)
-        self.assertMessageCount(error=1)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertContains(res,
+                            "<h2>Volume Backup Details: %s</h2>" %
+                            backup.name,
+                            1, 200)
+        self.assertContains(res, "<dd>%s</dd>" % backup.name, 1, 200)
+        self.assertContains(res, "<dd>%s</dd>" % backup.id, 1, 200)
+        self.assertContains(res, "<dd>Available</dd>", 1, 200)
+        self.assertContains(res, "<dt>Volume</dt>", 0, 200)
 
     @test.create_stubs({api.cinder: ('volume_list',
                                      'volume_backup_restore',)})
