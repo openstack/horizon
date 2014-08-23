@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Rajesh Ranjan <rranjan@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 00:55-0500\n"
-"PO-Revision-Date: 2014-08-20 05:56+0000\n"
+"POT-Creation-Date: 2014-08-22 21:10-0500\n"
+"PO-Revision-Date: 2014-08-21 16:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -17,55 +18,55 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings.py:86
+#: settings.py:99
 msgid "Select format"
-msgstr ""
+msgstr "प्रारूप चुनें"
 
-#: settings.py:87
+#: settings.py:100
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - अमेज़न कर्नेल बिंब"
 
-#: settings.py:88
+#: settings.py:101
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - अमेज़न सिस्टम बिंब"
 
-#: settings.py:89
+#: settings.py:102
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - अमेज़न रैमडिस्क बिंब"
 
-#: settings.py:90
+#: settings.py:103
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - ऑप्टिकल डिस्क बिंब"
 
-#: settings.py:91
+#: settings.py:104
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU एमुलेटर"
 
-#: settings.py:92
+#: settings.py:105
 msgid "Raw"
 msgstr "कच्चा"
 
-#: settings.py:93
+#: settings.py:106
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:94
+#: settings.py:107
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:95
+#: settings.py:108
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:232
+#: settings.py:272
 msgid "All TCP"
-msgstr ""
+msgstr "सभी TCP"
 
-#: settings.py:238
+#: settings.py:278
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:244
+#: settings.py:284
 msgid "All ICMP"
 msgstr ""
 
@@ -351,7 +352,7 @@ msgid "Admin"
 msgstr "प्रशासक"
 
 #: dashboards/admin/aggregates/forms.py:26
-#: dashboards/admin/aggregates/tables.py:102
+#: dashboards/admin/aggregates/tables.py:106
 #: dashboards/admin/aggregates/workflows.py:24
 #: dashboards/admin/flavors/workflows.py:35 dashboards/admin/info/tables.py:57
 #: dashboards/admin/info/tables.py:87 dashboards/admin/info/tables.py:111
@@ -381,7 +382,7 @@ msgstr "प्रशासक"
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:124
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
-#: dashboards/project/data_processing/cluster_templates/tables.py:100
+#: dashboards/project/data_processing/cluster_templates/tables.py:99
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:95
 #: dashboards/project/data_processing/clusters/tabs.py:123
@@ -397,7 +398,7 @@ msgstr "प्रशासक"
 #: dashboards/project/data_processing/jobs/tables.py:100
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:5
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:74
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:67
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:106
 #: dashboards/project/database_backups/tables.py:136
@@ -419,7 +420,7 @@ msgstr "प्रशासक"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images/images/forms.py:40
-#: dashboards/project/images/images/forms.py:193
+#: dashboards/project/images/images/forms.py:195
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -469,7 +470,7 @@ msgid "Name"
 msgstr "नाम"
 
 #: dashboards/admin/aggregates/forms.py:28
-#: dashboards/admin/aggregates/tables.py:104
+#: dashboards/admin/aggregates/tables.py:108
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:824
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
@@ -493,7 +494,7 @@ msgstr "सकल अपडेट करने में असमर्थ."
 
 #: dashboards/admin/aggregates/panel.py:21
 #: dashboards/admin/aggregates/tables.py:26
-#: dashboards/admin/aggregates/tables.py:116
+#: dashboards/admin/aggregates/tables.py:120
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
@@ -530,28 +531,28 @@ msgstr "सेवाएँ अप"
 msgid "Services Down"
 msgstr "सेवाएँ डाउन"
 
-#: dashboards/admin/aggregates/tables.py:106
-#: dashboards/admin/aggregates/tables.py:129
+#: dashboards/admin/aggregates/tables.py:110
+#: dashboards/admin/aggregates/tables.py:133
 msgid "Hosts"
 msgstr "होस्ट"
 
-#: dashboards/admin/aggregates/tables.py:110
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:43
+#: dashboards/admin/aggregates/tables.py:114
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:44
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "मेटाडाटा"
 
-#: dashboards/admin/aggregates/tables.py:127
+#: dashboards/admin/aggregates/tables.py:131
 msgid "Availability Zone Name"
 msgstr "उपलब्धता क्षेत्र नाम"
 
-#: dashboards/admin/aggregates/tables.py:133
+#: dashboards/admin/aggregates/tables.py:137
 #: dashboards/admin/volumes/snapshots/forms.py:24
 #: dashboards/admin/volumes/volumes/forms.py:54
 msgid "Available"
 msgstr "उपलब्ध"
 
-#: dashboards/admin/aggregates/tables.py:142
+#: dashboards/admin/aggregates/tables.py:146
 msgid "Availability Zones"
 msgstr "उपलब्धता क्षेत्र"
 
@@ -721,7 +722,7 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
-#: dashboards/project/data_processing/cluster_templates/tables.py:109
+#: dashboards/project/data_processing/cluster_templates/tables.py:110
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:98
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
@@ -752,7 +753,7 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:43
-#: dashboards/project/images/images/forms.py:196
+#: dashboards/project/images/images/forms.py:198
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
@@ -1048,8 +1049,8 @@ msgstr "आईडी"
 #: dashboards/project/containers/forms.py:41
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:99
-#: dashboards/project/images/images/forms.py:219
+#: dashboards/project/images/images/forms.py:101
+#: dashboards/project/images/images/forms.py:221
 #: dashboards/project/images/images/tables.py:142
 #: dashboards/project/images/images/tables.py:222
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1279,7 +1280,7 @@ msgstr "अतिरिक्त विनिर्देश"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:164
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:291
-#: dashboards/project/networks/workflows.py:264
+#: dashboards/project/networks/workflows.py:274
 #: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create"
 msgstr "बनाएँ"
@@ -1705,7 +1706,7 @@ msgstr ""
 
 #: dashboards/admin/images/templates/images/properties/create.html:7
 #: dashboards/admin/images/templates/images/properties/edit.html:7
-#: dashboards/project/data_processing/data_image_registry/forms.py:60
+#: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:53
 #: dashboards/project/data_processing/data_image_registry/tables.py:63
 #: dashboards/project/images/images/tables.py:59
@@ -2177,7 +2178,7 @@ msgstr "IP पता"
 #: dashboards/project/instances/tables.py:814
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:34
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
 #: dashboards/project/volumes/volumes/tables.py:300
@@ -2464,7 +2465,7 @@ msgid "Flat"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:44
-#: dashboards/project/networks/workflows.py:40
+#: dashboards/project/networks/workflows.py:42
 #: dashboards/router/nexus1000v/tables.py:38
 #: dashboards/router/nexus1000v/tables.py:61
 #: dashboards/router/nexus1000v/tables.py:76
@@ -2519,7 +2520,7 @@ msgstr "विभाजन आईडी"
 #: dashboards/project/loadbalancers/workflows.py:543
 #: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/tables.py:125
-#: dashboards/project/networks/workflows.py:43
+#: dashboards/project/networks/workflows.py:45
 #: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:66
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
@@ -2573,13 +2574,13 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:141
 #: dashboards/project/instances/workflows/create_instance.py:600
-#: dashboards/project/networks/workflows.py:54
+#: dashboards/project/networks/workflows.py:56
 msgid "Select a profile"
 msgstr "एक प्रोफाइल चुनें"
 
 #: dashboards/admin/networks/forms.py:151
 #: dashboards/project/instances/workflows/create_instance.py:610
-#: dashboards/project/networks/workflows.py:64
+#: dashboards/project/networks/workflows.py:66
 #: dashboards/router/nexus1000v/views.py:55
 msgid "Network Profiles could not be retrieved."
 msgstr "नेटवर्क प्रोफाइल प्राप्त नहीं किया जा सकता है."
@@ -2639,7 +2640,7 @@ msgstr "संजाल"
 
 #: dashboards/admin/networks/tables.py:33 dashboards/project/dashboard.py:32
 #: dashboards/project/networks/tables.py:41
-#: dashboards/project/networks/workflows.py:71
+#: dashboards/project/networks/workflows.py:73
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
@@ -2658,7 +2659,7 @@ msgstr "%s संजाल को मिटा पाने में विफ�
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:72
-#: dashboards/project/networks/workflows.py:263
+#: dashboards/project/networks/workflows.py:273
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2674,7 +2675,7 @@ msgstr "संजाल संपादित करें"
 #: dashboards/admin/networks/tables.py:84
 #: dashboards/admin/networks/agents/forms.py:35
 #: dashboards/admin/networks/ports/forms.py:33
-#: dashboards/project/networks/workflows.py:34
+#: dashboards/project/networks/workflows.py:36
 msgid "Network Name"
 msgstr "संजाल नाम"
 
@@ -2923,7 +2924,7 @@ msgstr "पोर्ट विवरण को पुनः प्राप्�
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:114
+#: dashboards/project/networks/workflows.py:116
 #: dashboards/project/networks/subnets/tables.py:44
 #: dashboards/project/networks/subnets/workflows.py:37
 #: dashboards/project/networks/subnets/workflows.py:116
@@ -2950,7 +2951,7 @@ msgid "Failed to delete subnet %s"
 msgstr "%s सबनेट हटाने में विफल"
 
 #: dashboards/admin/networks/subnets/tables.py:55
-#: dashboards/project/networks/workflows.py:83
+#: dashboards/project/networks/workflows.py:85
 #: dashboards/project/networks/subnets/tables.py:68
 #: dashboards/project/networks/subnets/workflows.py:55
 msgid "Create Subnet"
@@ -2971,14 +2972,14 @@ msgid "CIDR"
 msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:96
-#: dashboards/project/networks/workflows.py:96
+#: dashboards/project/networks/workflows.py:98
 #: dashboards/project/networks/subnets/tables.py:109
 #: dashboards/project/networks/subnets/workflows.py:99
 msgid "IP Version"
 msgstr "IP संस्करण"
 
 #: dashboards/admin/networks/subnets/tables.py:97
-#: dashboards/project/networks/workflows.py:98
+#: dashboards/project/networks/workflows.py:100
 #: dashboards/project/networks/subnets/tables.py:110
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "Gateway IP"
@@ -3072,7 +3073,7 @@ msgid "Unable to retrieve project list."
 msgstr "परियोजना सूची को प्राप्त करने में असमर्थ."
 
 #: dashboards/admin/overview/views.py:73
-#: dashboards/project/data_processing/cluster_templates/tables.py:71
+#: dashboards/project/data_processing/cluster_templates/tables.py:64
 #: dashboards/project/data_processing/clusters/tables.py:51
 #: dashboards/project/data_processing/data_sources/tables.py:36
 #: dashboards/project/data_processing/job_binaries/tables.py:39
@@ -3357,7 +3358,7 @@ msgstr "सूचना"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
 #: dashboards/project/instances/workflows/create_instance.py:337
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:21
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:59
@@ -3369,7 +3370,7 @@ msgstr "आयतन"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:41
 #: dashboards/project/instances/templates/instances/_detail_overview.html:43
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:32
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
 msgid "Specs"
@@ -3382,7 +3383,7 @@ msgstr "विशिष्टताएं"
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
@@ -3406,7 +3407,7 @@ msgstr "GB"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
 #: dashboards/project/stacks/tables.py:89
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
 msgid "Created"
@@ -5300,7 +5301,7 @@ msgid "Cluster Template Name"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:39
-#: dashboards/project/data_processing/cluster_templates/tables.py:72
+#: dashboards/project/data_processing/cluster_templates/tables.py:65
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
@@ -5313,18 +5314,18 @@ msgid "Unable to upload cluster template file"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
-#: dashboards/project/data_processing/cluster_templates/tables.py:113
+#: dashboards/project/data_processing/cluster_templates/tables.py:114
 msgid "Cluster Templates"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:37
+#: dashboards/project/data_processing/cluster_templates/tables.py:30
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:44
+#: dashboards/project/data_processing/cluster_templates/tables.py:37
 #: dashboards/project/data_processing/clusters/tables.py:32
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
@@ -5338,16 +5339,16 @@ msgstr ""
 msgid "Launch Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:60
+#: dashboards/project/data_processing/cluster_templates/tables.py:53
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:46
 msgid "Copy Template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:67
+#: dashboards/project/data_processing/cluster_templates/tables.py:60
 msgid "Delete Template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:70
+#: dashboards/project/data_processing/cluster_templates/tables.py:63
 #: dashboards/project/data_processing/clusters/tables.py:50
 #: dashboards/project/data_processing/data_sources/tables.py:35
 #: dashboards/project/data_processing/job_binaries/tables.py:38
@@ -5370,42 +5371,42 @@ msgstr ""
 msgid "Delete"
 msgstr "मिटाएँ"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:73
+#: dashboards/project/data_processing/cluster_templates/tables.py:66
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:59
 msgid "Templates"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:81
+#: dashboards/project/data_processing/cluster_templates/tables.py:74
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:27
 msgid "Create Template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:90
+#: dashboards/project/data_processing/cluster_templates/tables.py:83
 msgid "Configure Cluster Template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:103
+#: dashboards/project/data_processing/cluster_templates/tables.py:102
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:77
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:70
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
 msgid "Plugin"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:105
+#: dashboards/project/data_processing/cluster_templates/tables.py:104
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
 #: dashboards/project/data_processing/utils/workflow_helpers.py:161
 msgid "Hadoop Version"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:107
+#: dashboards/project/data_processing/cluster_templates/tables.py:106
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:203
@@ -5524,7 +5525,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:81
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:74
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
 msgid "Node Processes"
 msgstr ""
@@ -5793,31 +5794,31 @@ msgstr ""
 msgid "Scale cluster operation failed"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:46
+#: dashboards/project/data_processing/data_image_registry/forms.py:45
 msgid "Successfully updated image."
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:51
+#: dashboards/project/data_processing/data_image_registry/forms.py:50
 msgid "Failed to update image."
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:72
+#: dashboards/project/data_processing/data_image_registry/forms.py:71
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
 #: dashboards/project/instances/workflows/create_instance.py:359
 msgid "Select Image"
 msgstr "बिंब चुनें"
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:74
+#: dashboards/project/data_processing/data_image_registry/forms.py:73
 msgid "No images available."
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:84
+#: dashboards/project/data_processing/data_image_registry/forms.py:83
 #, python-format
 msgid "Unable to retrieve images with filter %s."
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:111
+#: dashboards/project/data_processing/data_image_registry/forms.py:110
 msgid "Unable to fetch available images."
 msgstr ""
 
@@ -5909,15 +5910,15 @@ msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:20
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
 msgid "Version"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:31
-msgid "Add all"
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:30
+msgid "Add plugin tags"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:37
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:38
 msgid "Add custom tag"
 msgstr ""
 
@@ -6567,7 +6568,7 @@ msgid "Unable to launch job."
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:85
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
 msgid "Node Group Templates"
 msgstr ""
@@ -7935,13 +7936,13 @@ msgid "A local image to upload."
 msgstr "अपलोड करने के लिए स्थानीय बिंब।"
 
 #: dashboards/project/images/images/forms.py:78
-#: dashboards/project/images/images/forms.py:217
+#: dashboards/project/images/images/forms.py:219
 #: dashboards/project/images/images/tables.py:229
 msgid "Format"
 msgstr "प्रारूप"
 
 #: dashboards/project/images/images/forms.py:83
-#: dashboards/project/images/images/forms.py:212
+#: dashboards/project/images/images/forms.py:214
 msgid "Architecture"
 msgstr "आर्किटेक्चर"
 
@@ -7949,60 +7950,60 @@ msgstr "आर्किटेक्चर"
 msgid "Minimum Disk (GB)"
 msgstr "न्यूनतम डिस्क (जीबी)"
 
-#: dashboards/project/images/images/forms.py:86
+#: dashboards/project/images/images/forms.py:87
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
 msgstr "बिंब बूट करने के लिए आवश्यक न्यूनतम डिस्क आकार. 0 को अनिर्दिष्ट, तो यह मान चूक (कोई न्यूनतम)."
 
-#: dashboards/project/images/images/forms.py:92
+#: dashboards/project/images/images/forms.py:93
 msgid "Minimum RAM (MB)"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:93
+#: dashboards/project/images/images/forms.py:95
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "बिंब बूट करने के लिए आवश्यक न्यूनतम स्मृति आकार. 0 को अनिर्दिष्ट, तो यह मान चूक (कोई न्यूनतम)."
 
-#: dashboards/project/images/images/forms.py:100
-#: dashboards/project/images/images/forms.py:220
+#: dashboards/project/images/images/forms.py:102
+#: dashboards/project/images/images/forms.py:222
 #: dashboards/project/images/images/tables.py:226
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Protected"
 msgstr "सुरक्षित"
 
-#: dashboards/project/images/images/forms.py:143
+#: dashboards/project/images/images/forms.py:145
 msgid "A image or external image location must be specified."
 msgstr "बिंब या बाहरी बिंब स्थान निर्दिष्ट किया जाना चाहिए."
 
-#: dashboards/project/images/images/forms.py:146
+#: dashboards/project/images/images/forms.py:148
 msgid "Can not specify both image and external image location."
 msgstr "बिंब और बिंब छवि स्थान दोनों निर्दिष्ट नहीं कर सकते."
 
-#: dashboards/project/images/images/forms.py:184
+#: dashboards/project/images/images/forms.py:186
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "आपकी बिंब %s के निर्माण के लिए कतारबद्ध किया गया है."
 
-#: dashboards/project/images/images/forms.py:188
+#: dashboards/project/images/images/forms.py:190
 msgid "Unable to create new image."
 msgstr "नई बिंब बनाने में असमर्थ."
 
-#: dashboards/project/images/images/forms.py:201
+#: dashboards/project/images/images/forms.py:203
 msgid "Kernel ID"
 msgstr "कर्नेल आईडी"
 
-#: dashboards/project/images/images/forms.py:207
+#: dashboards/project/images/images/forms.py:209
 msgid "Ramdisk ID"
 msgstr "रैमडिस्क आईडी"
 
-#: dashboards/project/images/images/forms.py:233
+#: dashboards/project/images/images/forms.py:235
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "बिंब को अद्यतन करने में असमर्थ \"%s\"."
 
-#: dashboards/project/images/images/forms.py:258
+#: dashboards/project/images/images/forms.py:260
 msgid "Image was successfully updated."
 msgstr "बिंब सफलतापूर्वक अद्यतन किया गया था."
 
@@ -9987,28 +9988,28 @@ msgstr "सबनेट जोड़ें"
 msgid "Unable to retrieve network details."
 msgstr "नेटवर्क जानकारी प्राप्त करने में असमर्थ."
 
-#: dashboards/project/networks/workflows.py:72
+#: dashboards/project/networks/workflows.py:74
 msgid ""
 "From here you can create a new network.\n"
 "In addition a subnet associated with the network can be created in the next panel."
 msgstr "यहाँ से आप एक नए संजाल बना सकते हैं.\nइसके अलावा संजाल के साथ जुड़े एक सबनेट अगले पैनल में बनाया जा सकता है."
 
-#: dashboards/project/networks/workflows.py:86
+#: dashboards/project/networks/workflows.py:88
 msgid "Subnet Name"
 msgstr "सबनेट नाम"
 
-#: dashboards/project/networks/workflows.py:88
+#: dashboards/project/networks/workflows.py:90
 #: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/subnets/workflows.py:80
 msgid "Network Address"
 msgstr "संजाल पता"
 
-#: dashboards/project/networks/workflows.py:91
+#: dashboards/project/networks/workflows.py:93
 #: dashboards/project/networks/subnets/workflows.py:85
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "सीआईडीआर प्रारूप में संजाल पते (जैसे 192.168.0.0/24)"
 
-#: dashboards/project/networks/workflows.py:101
+#: dashboards/project/networks/workflows.py:103
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
@@ -10016,148 +10017,148 @@ msgid ""
 "Gateway' below."
 msgstr "गेटवे (जैसे 192.168.0.254) के आईपी पते डिफ़ॉल्ट मूल्य (192.168.0.0/24 के लिए जैसे 192.168.0.1) संजाल पते का पहला आईपी है. आप डिफ़ॉल्ट का उपयोग करें, तो खाली छोड़ दें. आप कोई प्रवेश द्वार का उपयोग करना चाहते हैं, तो 'अक्षम गेटवे' नीचे की जाँच करें."
 
-#: dashboards/project/networks/workflows.py:110
+#: dashboards/project/networks/workflows.py:112
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid "Disable Gateway"
 msgstr "गेटवे अक्षम"
 
-#: dashboards/project/networks/workflows.py:115
+#: dashboards/project/networks/workflows.py:117
 msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "आप मामले \"नेटवर्क पता\" निर्दिष्ट किया जाना चाहिए जिसमें नए संजाल के साथ जुड़े एक सबनेट बना सकते हैं. आप एक सबनेट के बिना एक नेटवर्क बनाने के लिए चाहते हैं, \"सबनेट बनाएँ\" चेकबॉक्स अचयनित."
 
-#: dashboards/project/networks/workflows.py:126
+#: dashboards/project/networks/workflows.py:136
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "\"नेटवर्क पता\" या स्पष्ट \"सबनेट बनाएँ\" चेकबॉक्स निर्दिष्ट करें."
 
-#: dashboards/project/networks/workflows.py:132
+#: dashboards/project/networks/workflows.py:142
 msgid "Network Address and IP version are inconsistent."
 msgstr "संजाल पता और आईपी संस्करण असंगत हैं."
 
-#: dashboards/project/networks/workflows.py:136
+#: dashboards/project/networks/workflows.py:146
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "संजाल पता में सबनेट (/% s) बहुत छोटा है."
 
-#: dashboards/project/networks/workflows.py:141
+#: dashboards/project/networks/workflows.py:151
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "गेटवे आईपी और आईपी संस्करण असंगत हैं."
 
-#: dashboards/project/networks/workflows.py:144
+#: dashboards/project/networks/workflows.py:154
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "प्रवेश द्वार के आईपी पता निर्दिष्ट या \"अक्षम गेटवे\" की जाँच करें."
 
-#: dashboards/project/networks/workflows.py:164
+#: dashboards/project/networks/workflows.py:174
 msgid "Enable DHCP"
 msgstr " DHCP सक्रिय करें"
 
-#: dashboards/project/networks/workflows.py:168
+#: dashboards/project/networks/workflows.py:178
 msgid "Allocation Pools"
 msgstr "आवंटन पूल"
 
-#: dashboards/project/networks/workflows.py:169
+#: dashboards/project/networks/workflows.py:179
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:176
+#: dashboards/project/networks/workflows.py:186
 msgid "DNS Name Servers"
 msgstr "DNS नाम सर्वर"
 
-#: dashboards/project/networks/workflows.py:177
+#: dashboards/project/networks/workflows.py:187
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "आईपी ​​पता इस सबनेट के लिए DNS नाम सर्वर की सूची. प्रति पंक्ति एक प्रविष्टि."
 
-#: dashboards/project/networks/workflows.py:182
+#: dashboards/project/networks/workflows.py:192
 msgid "Host Routes"
 msgstr "होस्ट रूट"
 
-#: dashboards/project/networks/workflows.py:183
+#: dashboards/project/networks/workflows.py:193
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:190
+#: dashboards/project/networks/workflows.py:200
 #: dashboards/project/networks/subnets/workflows.py:137
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "सबनेट विस्तार"
 
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:201
 #: dashboards/project/networks/subnets/workflows.py:138
 msgid "You can specify additional attributes for the subnet."
 msgstr "आप सबनेट के लिए अतिरिक्त विशेषताओं को निर्दिष्ट कर सकते हैं."
 
-#: dashboards/project/networks/workflows.py:197
+#: dashboards/project/networks/workflows.py:207
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Iअमान्य आईपी पता (मान=%(ip)s)"
 
-#: dashboards/project/networks/workflows.py:205
+#: dashboards/project/networks/workflows.py:215
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: अमान्य आईपी पता (मान=%(network)s)"
 
-#: dashboards/project/networks/workflows.py:216
+#: dashboards/project/networks/workflows.py:226
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "आरंभ और अंत पते निर्दिष्ट किया जाना चाहिए (मान=%s)"
 
-#: dashboards/project/networks/workflows.py:222
+#: dashboards/project/networks/workflows.py:232
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "प्रारंभ पता अंत पते से बड़ा है(मान=%s)"
 
-#: dashboards/project/networks/workflows.py:240
+#: dashboards/project/networks/workflows.py:250
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "होस्ट मार्गों प्रारूप त्रुटि: गंतव्य सीआईडीआर और nexthop निर्दिष्ट किया जाना चाहिए (मान=%s)"
 
-#: dashboards/project/networks/workflows.py:265
+#: dashboards/project/networks/workflows.py:275
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "बनाई गई संजाल \"%s\"."
 
-#: dashboards/project/networks/workflows.py:266
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "संजाल बनाने में असमर्थ \"%s\"."
 
-#: dashboards/project/networks/workflows.py:291
+#: dashboards/project/networks/workflows.py:301
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "नेटवर्क \"%s\" को सफलतापूर्वक बनाया गया"
 
-#: dashboards/project/networks/workflows.py:295
+#: dashboards/project/networks/workflows.py:305
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "संजाल बनाने में विफल \"%(network)s\": %(reason)s"
 
-#: dashboards/project/networks/workflows.py:351
+#: dashboards/project/networks/workflows.py:361
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "सबनेट \"%s\" सफलतापूर्वक बनाया गया था."
 
-#: dashboards/project/networks/workflows.py:355
+#: dashboards/project/networks/workflows.py:365
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "%(sub)s\" सबनेट बनाने में विफल \"%(net)s\" संजाल के लिए :  %(reason)s"
 
-#: dashboards/project/networks/workflows.py:371
+#: dashboards/project/networks/workflows.py:381
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "\"%s\" बनाया संजाल हटाएं सबनेट निर्माण की विफलता की वजह से"
 
-#: dashboards/project/networks/workflows.py:378
+#: dashboards/project/networks/workflows.py:388
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "\"%s\" संजाल को मिटा पाने में विफल"
@@ -11032,7 +11033,7 @@ msgstr ""
 msgid "Volume Backup"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tabs.py:38
+#: dashboards/project/volumes/backups/tabs.py:41
 #: dashboards/project/volumes/backups/views.py:61
 msgid "Unable to retrieve backup details."
 msgstr ""
