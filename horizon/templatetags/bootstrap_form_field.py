@@ -60,3 +60,18 @@ def is_radio(field):
 @register.filter
 def is_file(field):
     return isinstance(field.field.widget, forms.FileInput)
+
+
+@register.filter
+def is_dynamic_select(field):
+    return hasattr(field.field.widget, 'add_item_link')
+
+
+@register.filter
+def wrapper_classes(field):
+    classes = []
+    if is_multiple_checkbox(field):
+        classes.append('multiple-checkbox')
+    if is_dynamic_select(field):
+        classes.append('dynamic-select')
+    return ' '.join(classes)
