@@ -229,6 +229,7 @@ class DataTableView(MultiTableView):
         filter_string = request.POST.get(param_name)
         filter_string_session = request.session.get(param_name)
         changed = (filter_string is not None and
+                   filter_string_session is not None and
                    filter_string != filter_string_session)
         if filter_string is None and filter_string_session is not None:
             filter_string = filter_string_session
