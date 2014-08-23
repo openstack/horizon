@@ -5,8 +5,17 @@
 
 {% block template %}
 {% jstemplate %}
+<div class="portTableHeader">
+  <div class="title">[[interfaces_label]]</div>
+  <div class="action">
+    <a class="add-interface btn btn-default btn-xs ajax-modal [[type]]" href="[[add_interface_url]]">
+      <span class="fa fa-plus"></span>
+      [[add_interface_label]]
+    </a>
+  </div>
+</div>
 <table class="detailInfoTable">
-  <caption>[[interfaces_label]]</caption>
+  <caption></caption>
   <tbody>
     [[#port]]
     <tr>

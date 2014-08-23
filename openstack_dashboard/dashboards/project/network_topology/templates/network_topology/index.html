@@ -18,11 +18,18 @@
 {% include "project/network_topology/client_side/_balloon_port.html" %}
 
 <div class="topologyNavi">
-  <div class="toggleView btn-group" data-toggle="buttons-radio">
-    <button type="button" class="btn small" data-value="small"><i class="fa fa-th"></i>{% trans "Small" %}</button>
-    <button type="button" class="btn normal" data-value="normal"><i class="fa fa-th-large"></i>{% trans "Normal" %}</button>
+  <div class="toggleView btn-group" data-toggle="buttons">
+    <label class="btn btn-default" data-value="small">
+      <input type="radio" name="options" id="option1" checked>
+      <span class="fa fa-th"></span>
+      {% trans "Small" %}
+    </label>
+    <label class="btn btn-default" data-value="normal">
+      <input type="radio" name="options" id="option2">
+      <span class="fa fa-th-large"></span>
+      {% trans "Normal" %}
+    </label>
   </div>
-
   <div class="launchButtons">
   {% if launch_instance_allowed %}
   <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal {% if instance_quota_exceeded %}disabled{% endif %}"><span class="fa fa-cloud-upload"></span> {% if instance_quota_exceeded %}{% trans "Launch Instance (Quota exceeded)"%}{% else %}{% trans "Launch Instance"%}{% endif %}</a>
