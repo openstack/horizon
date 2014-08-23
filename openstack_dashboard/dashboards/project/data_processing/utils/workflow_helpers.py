@@ -26,6 +26,7 @@ class Parameter(object):
         self.initial_value = self.default_value
         self.param_type = config['config_type']
         self.priority = int(config.get('priority', 2))
+        self.choices = config.get('config_values', None)
 
 
 def build_control(parameter):
@@ -58,7 +59,7 @@ def build_control(parameter):
 
     elif parameter.param_type == "dropdown":
         return forms.ChoiceField(
-            widget=forms.CheckboxInput(attrs=attrs),
+            widget=forms.Select(attrs=attrs),
             label=parameter.name,
             required=parameter.required,
             choices=parameter.choices,
