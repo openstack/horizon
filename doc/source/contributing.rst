@@ -173,6 +173,36 @@ Style guidelines for CSS are currently quite minimal. Do your best to make the
 code readable and well-organized. Two spaces are preferred for indentation
 so as to match both the JavaScript and HTML files.
 
+
+JavaScript and CSS libraries
+----------------------------
+
+We do not bundle the third-party code within Horizon's source tree anymore, any
+code that is still there is just left over and will be cleaned up and packaged
+properly eventually. What we do instead, is packaging the required files as
+XStatic Python packages and adding them as dependencies to Horizon. In
+particular, when you need to add a new third-party JavaScript or CSS library to
+Horizon, follow those steps:
+
+ 1. Check if the library is already packaged as Xstatic on PyPi, by searching
+    for the library name. If it already is, go to step 5. If it is, but not in
+    the right version, contact the original packager.
+ 2. Package the library as an Xstatic package by following the instructions in
+    Xstatic documentation_.
+ 3. Register and upload your library to PyPi. Add "openstackci" user as an
+    owner of that package. Don't forget to tag your release in the repository.
+ 4. Create a new repository on StackForge_. Use "xstatic-core" and
+    "xstatic-ptl" groups for the ACLs.
+ 5. Add the package to global-requirements_. Make sure to mention the license.
+ 6. Add the package to Horizon's ``requirements.txt`` file, to its
+    ``settings.py``, and to the ``_scripts.html`` or ``_stylesheets.html``
+    templates. Make sure to keep the order alphabetic.
+
+.. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
+.. _StackForge: http://ci.openstack.org/stackforge.html#add-a-project-to-stackforge
+.. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
+
+
 HTML
 ----
 
