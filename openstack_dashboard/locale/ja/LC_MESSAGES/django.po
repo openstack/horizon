@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 00:55-0500\n"
-"PO-Revision-Date: 2014-08-20 05:56+0000\n"
+"POT-Creation-Date: 2014-08-22 21:10-0500\n"
+"PO-Revision-Date: 2014-08-21 16:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -19,55 +19,55 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:86
+#: settings.py:99
 msgid "Select format"
 msgstr ""
 
-#: settings.py:87
+#: settings.py:100
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネル・イメージ"
 
-#: settings.py:88
+#: settings.py:101
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon マシン・イメージ"
 
-#: settings.py:89
+#: settings.py:102
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon ラムディスク・イメージ"
 
-#: settings.py:90
+#: settings.py:103
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光学ディスク・イメージ"
 
-#: settings.py:91
+#: settings.py:104
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
 
-#: settings.py:92
+#: settings.py:105
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:93
+#: settings.py:106
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:94
+#: settings.py:107
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:95
+#: settings.py:108
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:232
+#: settings.py:272
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:238
+#: settings.py:278
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:244
+#: settings.py:284
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -353,7 +353,7 @@ msgid "Admin"
 msgstr "管理"
 
 #: dashboards/admin/aggregates/forms.py:26
-#: dashboards/admin/aggregates/tables.py:102
+#: dashboards/admin/aggregates/tables.py:106
 #: dashboards/admin/aggregates/workflows.py:24
 #: dashboards/admin/flavors/workflows.py:35 dashboards/admin/info/tables.py:57
 #: dashboards/admin/info/tables.py:87 dashboards/admin/info/tables.py:111
@@ -383,7 +383,7 @@ msgstr "管理"
 #: dashboards/project/access_and_security/security_groups/forms.py:64
 #: dashboards/project/access_and_security/security_groups/tables.py:124
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
-#: dashboards/project/data_processing/cluster_templates/tables.py:100
+#: dashboards/project/data_processing/cluster_templates/tables.py:99
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:95
 #: dashboards/project/data_processing/clusters/tabs.py:123
@@ -399,7 +399,7 @@ msgstr "管理"
 #: dashboards/project/data_processing/jobs/tables.py:100
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:5
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:74
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:67
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:106
 #: dashboards/project/database_backups/tables.py:136
@@ -421,7 +421,7 @@ msgstr "管理"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images/images/forms.py:40
-#: dashboards/project/images/images/forms.py:193
+#: dashboards/project/images/images/forms.py:195
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -471,7 +471,7 @@ msgid "Name"
 msgstr "名前"
 
 #: dashboards/admin/aggregates/forms.py:28
-#: dashboards/admin/aggregates/tables.py:104
+#: dashboards/admin/aggregates/tables.py:108
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/project/instances/tables.py:824
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
@@ -495,7 +495,7 @@ msgstr "アグリゲートの更新に失敗しました。"
 
 #: dashboards/admin/aggregates/panel.py:21
 #: dashboards/admin/aggregates/tables.py:26
-#: dashboards/admin/aggregates/tables.py:116
+#: dashboards/admin/aggregates/tables.py:120
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
@@ -532,28 +532,28 @@ msgstr "サービス稼働中"
 msgid "Services Down"
 msgstr "サービスダウン"
 
-#: dashboards/admin/aggregates/tables.py:106
-#: dashboards/admin/aggregates/tables.py:129
+#: dashboards/admin/aggregates/tables.py:110
+#: dashboards/admin/aggregates/tables.py:133
 msgid "Hosts"
 msgstr "ホスト"
 
-#: dashboards/admin/aggregates/tables.py:110
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:43
+#: dashboards/admin/aggregates/tables.py:114
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:44
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "メタデータ"
 
-#: dashboards/admin/aggregates/tables.py:127
+#: dashboards/admin/aggregates/tables.py:131
 msgid "Availability Zone Name"
 msgstr "アベイラビリティゾーン名"
 
-#: dashboards/admin/aggregates/tables.py:133
+#: dashboards/admin/aggregates/tables.py:137
 #: dashboards/admin/volumes/snapshots/forms.py:24
 #: dashboards/admin/volumes/volumes/forms.py:54
 msgid "Available"
 msgstr "利用可能"
 
-#: dashboards/admin/aggregates/tables.py:142
+#: dashboards/admin/aggregates/tables.py:146
 msgid "Availability Zones"
 msgstr "アベイラビリティゾーン"
 
@@ -723,7 +723,7 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:19
-#: dashboards/project/data_processing/cluster_templates/tables.py:109
+#: dashboards/project/data_processing/cluster_templates/tables.py:110
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:98
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
@@ -754,7 +754,7 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:43
-#: dashboards/project/images/images/forms.py:196
+#: dashboards/project/images/images/forms.py:198
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
@@ -1050,8 +1050,8 @@ msgstr "ID"
 #: dashboards/project/containers/forms.py:41
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:99
-#: dashboards/project/images/images/forms.py:219
+#: dashboards/project/images/images/forms.py:101
+#: dashboards/project/images/images/forms.py:221
 #: dashboards/project/images/images/tables.py:142
 #: dashboards/project/images/images/tables.py:222
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1281,7 +1281,7 @@ msgstr "追加スペック"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:164
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:291
-#: dashboards/project/networks/workflows.py:264
+#: dashboards/project/networks/workflows.py:274
 #: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create"
 msgstr "作成"
@@ -1707,7 +1707,7 @@ msgstr ""
 
 #: dashboards/admin/images/templates/images/properties/create.html:7
 #: dashboards/admin/images/templates/images/properties/edit.html:7
-#: dashboards/project/data_processing/data_image_registry/forms.py:60
+#: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:53
 #: dashboards/project/data_processing/data_image_registry/tables.py:63
 #: dashboards/project/images/images/tables.py:59
@@ -2179,7 +2179,7 @@ msgstr "IP アドレス"
 #: dashboards/project/instances/tables.py:814
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:34
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
 #: dashboards/project/volumes/volumes/tables.py:300
@@ -2466,7 +2466,7 @@ msgid "Flat"
 msgstr "Flat"
 
 #: dashboards/admin/networks/forms.py:44
-#: dashboards/project/networks/workflows.py:40
+#: dashboards/project/networks/workflows.py:42
 #: dashboards/router/nexus1000v/tables.py:38
 #: dashboards/router/nexus1000v/tables.py:61
 #: dashboards/router/nexus1000v/tables.py:76
@@ -2521,7 +2521,7 @@ msgstr "セグメント ID"
 #: dashboards/project/loadbalancers/workflows.py:543
 #: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/tables.py:125
-#: dashboards/project/networks/workflows.py:43
+#: dashboards/project/networks/workflows.py:45
 #: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:66
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
@@ -2575,13 +2575,13 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:141
 #: dashboards/project/instances/workflows/create_instance.py:600
-#: dashboards/project/networks/workflows.py:54
+#: dashboards/project/networks/workflows.py:56
 msgid "Select a profile"
 msgstr "プロファイルを選択してください"
 
 #: dashboards/admin/networks/forms.py:151
 #: dashboards/project/instances/workflows/create_instance.py:610
-#: dashboards/project/networks/workflows.py:64
+#: dashboards/project/networks/workflows.py:66
 #: dashboards/router/nexus1000v/views.py:55
 msgid "Network Profiles could not be retrieved."
 msgstr "ネットワークプロファイルを取得できません。"
@@ -2641,7 +2641,7 @@ msgstr "ネットワーク"
 
 #: dashboards/admin/networks/tables.py:33 dashboards/project/dashboard.py:32
 #: dashboards/project/networks/tables.py:41
-#: dashboards/project/networks/workflows.py:71
+#: dashboards/project/networks/workflows.py:73
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
@@ -2660,7 +2660,7 @@ msgstr "ネットワーク %s の削除に失敗しました"
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:72
-#: dashboards/project/networks/workflows.py:263
+#: dashboards/project/networks/workflows.py:273
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2676,7 +2676,7 @@ msgstr "ネットワークの編集"
 #: dashboards/admin/networks/tables.py:84
 #: dashboards/admin/networks/agents/forms.py:35
 #: dashboards/admin/networks/ports/forms.py:33
-#: dashboards/project/networks/workflows.py:34
+#: dashboards/project/networks/workflows.py:36
 msgid "Network Name"
 msgstr "ネットワーク名"
 
@@ -2925,7 +2925,7 @@ msgstr "ポートの詳細を取得できません。"
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:114
+#: dashboards/project/networks/workflows.py:116
 #: dashboards/project/networks/subnets/tables.py:44
 #: dashboards/project/networks/subnets/workflows.py:37
 #: dashboards/project/networks/subnets/workflows.py:116
@@ -2952,7 +2952,7 @@ msgid "Failed to delete subnet %s"
 msgstr "サブネット %s の削除に失敗しました"
 
 #: dashboards/admin/networks/subnets/tables.py:55
-#: dashboards/project/networks/workflows.py:83
+#: dashboards/project/networks/workflows.py:85
 #: dashboards/project/networks/subnets/tables.py:68
 #: dashboards/project/networks/subnets/workflows.py:55
 msgid "Create Subnet"
@@ -2973,14 +2973,14 @@ msgid "CIDR"
 msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:96
-#: dashboards/project/networks/workflows.py:96
+#: dashboards/project/networks/workflows.py:98
 #: dashboards/project/networks/subnets/tables.py:109
 #: dashboards/project/networks/subnets/workflows.py:99
 msgid "IP Version"
 msgstr "IP バージョン"
 
 #: dashboards/admin/networks/subnets/tables.py:97
-#: dashboards/project/networks/workflows.py:98
+#: dashboards/project/networks/workflows.py:100
 #: dashboards/project/networks/subnets/tables.py:110
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "Gateway IP"
@@ -3074,7 +3074,7 @@ msgid "Unable to retrieve project list."
 msgstr "プロジェクト一覧を取得できません。"
 
 #: dashboards/admin/overview/views.py:73
-#: dashboards/project/data_processing/cluster_templates/tables.py:71
+#: dashboards/project/data_processing/cluster_templates/tables.py:64
 #: dashboards/project/data_processing/clusters/tables.py:51
 #: dashboards/project/data_processing/data_sources/tables.py:36
 #: dashboards/project/data_processing/job_binaries/tables.py:39
@@ -3359,7 +3359,7 @@ msgstr "情報"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
 #: dashboards/project/instances/workflows/create_instance.py:337
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:21
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:205
 #: dashboards/project/volumes/volumes/tables.py:59
@@ -3371,7 +3371,7 @@ msgstr "ボリューム"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:41
 #: dashboards/project/instances/templates/instances/_detail_overview.html:43
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:32
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
 msgid "Specs"
@@ -3384,7 +3384,7 @@ msgstr "スペック"
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
@@ -3408,7 +3408,7 @@ msgstr "GB"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
 #: dashboards/project/stacks/tables.py:89
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
 msgid "Created"
@@ -5302,7 +5302,7 @@ msgid "Cluster Template Name"
 msgstr "クラスターテンプレート名"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:39
-#: dashboards/project/data_processing/cluster_templates/tables.py:72
+#: dashboards/project/data_processing/cluster_templates/tables.py:65
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
@@ -5315,18 +5315,18 @@ msgid "Unable to upload cluster template file"
 msgstr "クラスターテンプレートファイルをアップロードできませんでした"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
-#: dashboards/project/data_processing/cluster_templates/tables.py:113
+#: dashboards/project/data_processing/cluster_templates/tables.py:114
 msgid "Cluster Templates"
 msgstr "クラスターテンプレート"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:37
+#: dashboards/project/data_processing/cluster_templates/tables.py:30
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
 msgstr "テンプレートのアップロード"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:44
+#: dashboards/project/data_processing/cluster_templates/tables.py:37
 #: dashboards/project/data_processing/clusters/tables.py:32
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
@@ -5340,16 +5340,16 @@ msgstr "テンプレートのアップロード"
 msgid "Launch Cluster"
 msgstr "クラスターの起動"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:60
+#: dashboards/project/data_processing/cluster_templates/tables.py:53
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:46
 msgid "Copy Template"
 msgstr "テンプレートのコピー"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:67
+#: dashboards/project/data_processing/cluster_templates/tables.py:60
 msgid "Delete Template"
 msgstr "テンプレートの削除"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:70
+#: dashboards/project/data_processing/cluster_templates/tables.py:63
 #: dashboards/project/data_processing/clusters/tables.py:50
 #: dashboards/project/data_processing/data_sources/tables.py:35
 #: dashboards/project/data_processing/job_binaries/tables.py:38
@@ -5372,42 +5372,42 @@ msgstr "テンプレートの削除"
 msgid "Delete"
 msgstr "削除"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:73
+#: dashboards/project/data_processing/cluster_templates/tables.py:66
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:59
 msgid "Templates"
 msgstr "テンプレート"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:81
+#: dashboards/project/data_processing/cluster_templates/tables.py:74
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:27
 msgid "Create Template"
 msgstr "テンプレートの作成"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:90
+#: dashboards/project/data_processing/cluster_templates/tables.py:83
 msgid "Configure Cluster Template"
 msgstr "クラスターテンプレートの設定"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:103
+#: dashboards/project/data_processing/cluster_templates/tables.py:102
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:10
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:77
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:70
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
 msgid "Plugin"
 msgstr "プラグイン"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:105
+#: dashboards/project/data_processing/cluster_templates/tables.py:104
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
 #: dashboards/project/data_processing/utils/workflow_helpers.py:161
 msgid "Hadoop Version"
 msgstr "Hadoop バージョン"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:107
+#: dashboards/project/data_processing/cluster_templates/tables.py:106
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:203
@@ -5526,7 +5526,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:81
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:74
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
 msgid "Node Processes"
 msgstr ""
@@ -5795,31 +5795,31 @@ msgstr ""
 msgid "Scale cluster operation failed"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:46
+#: dashboards/project/data_processing/data_image_registry/forms.py:45
 msgid "Successfully updated image."
 msgstr "イメージを正常にアップロードしました。"
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:51
+#: dashboards/project/data_processing/data_image_registry/forms.py:50
 msgid "Failed to update image."
 msgstr "イメージのアップロードに失敗しました。"
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:72
+#: dashboards/project/data_processing/data_image_registry/forms.py:71
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
 #: dashboards/project/instances/workflows/create_instance.py:359
 msgid "Select Image"
 msgstr "イメージの選択"
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:74
+#: dashboards/project/data_processing/data_image_registry/forms.py:73
 msgid "No images available."
 msgstr "利用可能なイメージがありません。"
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:84
+#: dashboards/project/data_processing/data_image_registry/forms.py:83
 #, python-format
 msgid "Unable to retrieve images with filter %s."
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:111
+#: dashboards/project/data_processing/data_image_registry/forms.py:110
 msgid "Unable to fetch available images."
 msgstr "利用可能なイメージ一覧を取得できません。"
 
@@ -5911,15 +5911,15 @@ msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:20
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
 msgid "Version"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:31
-msgid "Add all"
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:30
+msgid "Add plugin tags"
 msgstr ""
 
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:37
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:38
 msgid "Add custom tag"
 msgstr ""
 
@@ -6569,7 +6569,7 @@ msgid "Unable to launch job."
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:85
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
 msgid "Node Group Templates"
 msgstr ""
@@ -7937,13 +7937,13 @@ msgid "A local image to upload."
 msgstr "手元にあるアップロードするイメージ"
 
 #: dashboards/project/images/images/forms.py:78
-#: dashboards/project/images/images/forms.py:217
+#: dashboards/project/images/images/forms.py:219
 #: dashboards/project/images/images/tables.py:229
 msgid "Format"
 msgstr "形式"
 
 #: dashboards/project/images/images/forms.py:83
-#: dashboards/project/images/images/forms.py:212
+#: dashboards/project/images/images/forms.py:214
 msgid "Architecture"
 msgstr "アーキテクチャー"
 
@@ -7951,60 +7951,60 @@ msgstr "アーキテクチャー"
 msgid "Minimum Disk (GB)"
 msgstr "最小ディスク (GB)"
 
-#: dashboards/project/images/images/forms.py:86
+#: dashboards/project/images/images/forms.py:87
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
 msgstr "イメージを起動するために必要となる最小ディスク容量。指定がなければ、この値の初期値は 0 (最小値なし) です。"
 
-#: dashboards/project/images/images/forms.py:92
+#: dashboards/project/images/images/forms.py:93
 msgid "Minimum RAM (MB)"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:93
+#: dashboards/project/images/images/forms.py:95
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "イメージを起動するために必要となる最小メモリ容量。指定がなければ、この値の初期値は 0 (最小値なし) です。"
 
-#: dashboards/project/images/images/forms.py:100
-#: dashboards/project/images/images/forms.py:220
+#: dashboards/project/images/images/forms.py:102
+#: dashboards/project/images/images/forms.py:222
 #: dashboards/project/images/images/tables.py:226
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Protected"
 msgstr "保護"
 
-#: dashboards/project/images/images/forms.py:143
+#: dashboards/project/images/images/forms.py:145
 msgid "A image or external image location must be specified."
 msgstr "イメージまたは外部のイメージの位置を指定する必要があります。"
 
-#: dashboards/project/images/images/forms.py:146
+#: dashboards/project/images/images/forms.py:148
 msgid "Can not specify both image and external image location."
 msgstr "イメージと外部イメージを同時に指定できません。"
 
-#: dashboards/project/images/images/forms.py:184
+#: dashboards/project/images/images/forms.py:186
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "イメージ %s が作成用のキューに追加されました。"
 
-#: dashboards/project/images/images/forms.py:188
+#: dashboards/project/images/images/forms.py:190
 msgid "Unable to create new image."
 msgstr "新しいイメージを作成できません。"
 
-#: dashboards/project/images/images/forms.py:201
+#: dashboards/project/images/images/forms.py:203
 msgid "Kernel ID"
 msgstr "カーネル ID"
 
-#: dashboards/project/images/images/forms.py:207
+#: dashboards/project/images/images/forms.py:209
 msgid "Ramdisk ID"
 msgstr "RAM ディスク ID"
 
-#: dashboards/project/images/images/forms.py:233
+#: dashboards/project/images/images/forms.py:235
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "イメージ \"%s\" を更新できません。"
 
-#: dashboards/project/images/images/forms.py:258
+#: dashboards/project/images/images/forms.py:260
 msgid "Image was successfully updated."
 msgstr "イメージが正常に更新されました。"
 
@@ -9988,28 +9988,28 @@ msgstr "サブネットの追加"
 msgid "Unable to retrieve network details."
 msgstr "ネットワークの詳細を取得できません。"
 
-#: dashboards/project/networks/workflows.py:72
+#: dashboards/project/networks/workflows.py:74
 msgid ""
 "From here you can create a new network.\n"
 "In addition a subnet associated with the network can be created in the next panel."
 msgstr "新しいネットワークを作成できます。\n合わせて、このネットワークに割り当てるサブネットを次のパネルで作成できます。"
 
-#: dashboards/project/networks/workflows.py:86
+#: dashboards/project/networks/workflows.py:88
 msgid "Subnet Name"
 msgstr "サブネット名"
 
-#: dashboards/project/networks/workflows.py:88
+#: dashboards/project/networks/workflows.py:90
 #: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/subnets/workflows.py:80
 msgid "Network Address"
 msgstr "ネットワークアドレス"
 
-#: dashboards/project/networks/workflows.py:91
+#: dashboards/project/networks/workflows.py:93
 #: dashboards/project/networks/subnets/workflows.py:85
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "CIDR 形式のネットワークアドレス (例: 192.168.0.0/24)"
 
-#: dashboards/project/networks/workflows.py:101
+#: dashboards/project/networks/workflows.py:103
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use "
@@ -10017,148 +10017,148 @@ msgid ""
 "Gateway' below."
 msgstr "ゲートウェイの IP アドレス (例: 192.168.0.254)。初期値はネットワークアドレスの最初の IP です (例: 192.168.0.0/24 の場合 192.168.0.1)。初期値を使用したければ、空白のままにしておきます。ゲートウェイを使用する必要がなければ、下の「ゲートウェイなし」をチェックします。"
 
-#: dashboards/project/networks/workflows.py:110
+#: dashboards/project/networks/workflows.py:112
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid "Disable Gateway"
 msgstr "ゲートウェイなし"
 
-#: dashboards/project/networks/workflows.py:115
+#: dashboards/project/networks/workflows.py:117
 msgid ""
 "You can create a subnet associated with the new network, in which case "
 "\"Network Address\" must be specified. If you wish to create a network "
 "WITHOUT a subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "新しいネットワークに割り当てるサブネットを作成できます。この場合、「ネットワークアドレス」を指定する必要があります。サブネットなしでネットワークを作成したい場合は、「サブネットの作成」のチェックを外してください。"
 
-#: dashboards/project/networks/workflows.py:126
+#: dashboards/project/networks/workflows.py:136
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "「ネットワークアドレス」を指定するか、「サブネットの作成」チェックを外してください。"
 
-#: dashboards/project/networks/workflows.py:132
+#: dashboards/project/networks/workflows.py:142
 msgid "Network Address and IP version are inconsistent."
 msgstr "ネットワークアドレスと IP バージョンが一致していません。"
 
-#: dashboards/project/networks/workflows.py:136
+#: dashboards/project/networks/workflows.py:146
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "ネットワークアドレスにおけるサブネットが小さすぎます (/%s)。"
 
-#: dashboards/project/networks/workflows.py:141
+#: dashboards/project/networks/workflows.py:151
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "ゲートウェイの IP アドレスと IP バージョンが一致していません。"
 
-#: dashboards/project/networks/workflows.py:144
+#: dashboards/project/networks/workflows.py:154
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "ゲートウェイの IP アドレスを指定するか、「ゲートウェイなし」をチェックしてください。"
 
-#: dashboards/project/networks/workflows.py:164
+#: dashboards/project/networks/workflows.py:174
 msgid "Enable DHCP"
 msgstr "DHCP 有効"
 
-#: dashboards/project/networks/workflows.py:168
+#: dashboards/project/networks/workflows.py:178
 msgid "Allocation Pools"
 msgstr "IP アドレス割り当てプール"
 
-#: dashboards/project/networks/workflows.py:169
+#: dashboards/project/networks/workflows.py:179
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:176
+#: dashboards/project/networks/workflows.py:186
 msgid "DNS Name Servers"
 msgstr "DNS サーバー"
 
-#: dashboards/project/networks/workflows.py:177
+#: dashboards/project/networks/workflows.py:187
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "このサブネット向けの DNS サーバーの IP アドレス一覧。 1 行につき 1 項目。"
 
-#: dashboards/project/networks/workflows.py:182
+#: dashboards/project/networks/workflows.py:192
 msgid "Host Routes"
 msgstr "追加のルート設定"
 
-#: dashboards/project/networks/workflows.py:183
+#: dashboards/project/networks/workflows.py:193
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:190
+#: dashboards/project/networks/workflows.py:200
 #: dashboards/project/networks/subnets/workflows.py:137
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "サブネットの詳細"
 
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:201
 #: dashboards/project/networks/subnets/workflows.py:138
 msgid "You can specify additional attributes for the subnet."
 msgstr "サブネットの追加属性を指定することができます。"
 
-#: dashboards/project/networks/workflows.py:197
+#: dashboards/project/networks/workflows.py:207
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: 無効な IP アドレス (値=%(ip)s)"
 
-#: dashboards/project/networks/workflows.py:205
+#: dashboards/project/networks/workflows.py:215
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: 無効な IP アドレス (値=%(network)s)"
 
-#: dashboards/project/networks/workflows.py:216
+#: dashboards/project/networks/workflows.py:226
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "開始アドレスと終了アドレスを指定する必要があります (値=%s)"
 
-#: dashboards/project/networks/workflows.py:222
+#: dashboards/project/networks/workflows.py:232
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "開始アドレスが終了アドレスより大きい (値=%s)"
 
-#: dashboards/project/networks/workflows.py:240
+#: dashboards/project/networks/workflows.py:250
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "追加のルート設定の形式エラー: 宛先 CIDR およびネクストホップを指定する必要があります (値=%s)"
 
-#: dashboards/project/networks/workflows.py:265
+#: dashboards/project/networks/workflows.py:275
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "ネットワーク \"%s\" を作成しました。"
 
-#: dashboards/project/networks/workflows.py:266
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "ネットワーク \"%s\" の作成に失敗しました。"
 
-#: dashboards/project/networks/workflows.py:291
+#: dashboards/project/networks/workflows.py:301
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "ネットワーク \"%s\" が正常に作成されました。"
 
-#: dashboards/project/networks/workflows.py:295
+#: dashboards/project/networks/workflows.py:305
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "ネットワーク \"%(network)s\" の作成に失敗しました: %(reason)s"
 
-#: dashboards/project/networks/workflows.py:351
+#: dashboards/project/networks/workflows.py:361
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "サブネット \"%s\" が正常に作成されました。"
 
-#: dashboards/project/networks/workflows.py:355
+#: dashboards/project/networks/workflows.py:365
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "ネットワーク \"%(net)s\" のサブネット \"%(sub)s\" の作成に失敗しました:  %(reason)s"
 
-#: dashboards/project/networks/workflows.py:371
+#: dashboards/project/networks/workflows.py:381
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "サブネット作成に失敗したため、作成したネットワーク \"%s\" を削除しました。"
 
-#: dashboards/project/networks/workflows.py:378
+#: dashboards/project/networks/workflows.py:388
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "ネットワーク \"%s\" の削除に失敗しました"
@@ -11033,7 +11033,7 @@ msgstr "バックアップをリストアできません。"
 msgid "Volume Backup"
 msgstr "ボリュームのバックアップ"
 
-#: dashboards/project/volumes/backups/tabs.py:38
+#: dashboards/project/volumes/backups/tabs.py:41
 #: dashboards/project/volumes/backups/views.py:61
 msgid "Unable to retrieve backup details."
 msgstr "バックアップの詳細を取得できません。"
