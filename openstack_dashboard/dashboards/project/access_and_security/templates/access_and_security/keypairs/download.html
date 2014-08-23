@@ -17,6 +17,8 @@
     </a>
   </div>
   <script type="text/javascript" charset="utf-8">
-    document.location = '{% url 'horizon:project:access_and_security:keypairs:generate' keypair_name %}';
+    $(document).ready(function() {
+      document.location = '{% url 'horizon:project:access_and_security:keypairs:generate' keypair_name %}';
+    });
   </script>
 {% endblock %}
