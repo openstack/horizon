@@ -12,5 +12,5 @@ openstack.nose_plugin>=0.7
 nosehtmloutput>=0.0.3
 selenium
 # Docs Requirements
-sphinx>=1.1.2,!=1.2.0,<1.3
+sphinx>=1.1.2,<1.1.999
 oslo.sphinx
