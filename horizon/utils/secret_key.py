@@ -13,7 +13,6 @@
 #    under the License.
 
 
-from __future__ import with_statement  # Python 2.5 compliance
 import os
 import random
 import string
