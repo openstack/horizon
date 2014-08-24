@@ -8,7 +8,7 @@
         <dt>{% trans "ID" %}</dt>
         <dd>{{ template.id }}</dd>
         <dt>{% trans "Description" %}</dt>
-        <dd>{{ template.description|default:"None" }}</dd>
+        <dd>{{ template.description|default:_("None") }}</dd>
     </dl>
     <dl>
         <dt>{% trans "Flavor" %}</dt>

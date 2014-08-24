@@ -8,7 +8,7 @@
         <dt>{% trans "ID" %}</dt>
         <dd>{{ cluster.id }}</dd>
         <dt>{% trans "Description" %}</dt>
-        <dd>{{ cluster.description|default:"None" }}</dd>
+        <dd>{{ cluster.description|default:_("None") }}</dd>
         <dt>{% trans "Status" %}</dt>
         <dd>{{ cluster.status }}</dd>
     </dl>

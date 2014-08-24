@@ -12,7 +12,7 @@
             <dd>{{ node_group.count }}</dd>
 
             <dt>{% trans "Flavor" %}</dt>
-            <dd>{{ node_group.flavor_name|default:"Flavor is not specified" }}</dd>
+            <dd>{{ node_group.flavor_name|default:_("Flavor is not specified") }}</dd>
 
             {% if node_group.floating_ip_pool %}
             <dt>{% trans "Floating IP Pool" %}</dt>
