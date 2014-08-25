@@ -45,7 +45,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
+                                             all_tenants=True)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         self.mox.ReplayAll()
 
@@ -68,7 +69,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
+                                             all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
@@ -103,7 +105,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
+                                             all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
@@ -181,7 +184,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
+                                             all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)).\
@@ -211,7 +215,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
                                 .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
+                                             all_tenants=True)
         api.nova.flavor_list(IsA(http.HttpRequest)).\
                              AndReturn(self.flavors.list())
         self.mox.ReplayAll()

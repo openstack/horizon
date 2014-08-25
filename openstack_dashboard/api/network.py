@@ -139,7 +139,7 @@ def security_group_backend(request):
     return NetworkClient(request).secgroups.backend
 
 
-def servers_update_addresses(request, servers):
+def servers_update_addresses(request, servers, all_tenants=False):
     """Retrieve servers networking information from Neutron if enabled.
 
        Should be used when up to date networking information is required,
@@ -148,4 +148,4 @@ def servers_update_addresses(request, servers):
     """
     neutron_enabled = base.is_service_enabled(request, 'network')
     if neutron_enabled:
-        neutron.servers_update_addresses(request, servers)
+        neutron.servers_update_addresses(request, servers, all_tenants)
