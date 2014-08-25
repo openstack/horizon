@@ -13,11 +13,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.core.urlresolvers import reverse
 from django import http
 
 from mox import IsA  # noqa
 
+from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -136,27 +139,29 @@ class DatabaseTests(test.TestCase):
 
     @test.create_stubs({api.trove: ('flavor_list',)})
     def test_launch_instance_exception_on_flavors(self):
-        trove_exception = self.exceptions.trove
+        trove_exception = self.exceptions.nova
         api.trove.flavor_list(IsA(http.HttpRequest)).AndRaise(trove_exception)
         self.mox.ReplayAll()
 
-        #######################################################################
-        # FIXME (woodm1979): I can't make the normal mechanisms work:
-        #     assertMessageCount or assertRedirectsNoFollow
-        # exceptions.handle is correctly raising a redirect which is causing
-        # the test to fail.
+        toSuppress = ["openstack_dashboard.dashboards.project.databases."
+                           "workflows.create_instance",
+                      "horizon.workflows.base"]
 
-        def handle_uncaught_redirect():
-            self.client.get(LAUNCH_URL)
+        # Suppress expected log messages in the test output
+        loggers = []
+        for cls in toSuppress:
+            logger = logging.getLogger(cls)
+            loggers.append((logger, logger.getEffectiveLevel()))
+            logger.setLevel(logging.CRITICAL)
 
-        from horizon import exceptions
-        self.assertRaises(exceptions.Http302, handle_uncaught_redirect)
-        #######################################################################
+        try:
+            with self.assertRaises(exceptions.Http302):
+                self.client.get(LAUNCH_URL)
 
-        # FIXME (woodm1979): This SHOULD be the test mechanism.
-        # res = self.client.get(LAUNCH_URL)
-        # self.assertMessageCount(res, errors=1)
-        # self.assertRedirectsNoFollow(res, INDEX_URL)
+        finally:
+            # Restore the previous log levels
+            for (log, level) in loggers:
+                log.setLevel(level)
 
     @test.create_stubs({
         api.trove: ('flavor_list', 'backup_list', 'instance_create',
