@@ -181,6 +181,20 @@ def data(TEST):
     TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
 
+    port_dict = {'admin_state_up': True,
+                 'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
+                 'device_owner': 'network:router_interface',
+                 'fixed_ips': [{'ip_address': '10.0.0.1',
+                                'subnet_id': subnet_dict['id']}],
+                 'id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
+                 'mac_address': 'fa:16:3e:9c:d5:7f',
+                 'name': '',
+                 'network_id': network_dict['id'],
+                 'status': 'ACTIVE',
+                 'tenant_id': network_dict['tenant_id']}
+    TEST.api_ports.add(port_dict)
+    TEST.ports.add(neutron.Port(port_dict))
+
     # 2nd network.
     network_dict = {'admin_state_up': True,
                     'id': '72c3ab6c-c80f-4341-9dc5-210fa31ac6c2',

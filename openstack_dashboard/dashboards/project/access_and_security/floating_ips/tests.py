@@ -19,6 +19,7 @@
 
 from django.core.urlresolvers import reverse
 from django import http
+from django.utils.http import urlencode
 
 from mox import IsA  # noqa
 
@@ -33,13 +34,13 @@ NAMESPACE = "horizon:project:access_and_security:floating_ips"
 
 
 class FloatingIpViewTests(test.TestCase):
+    @test.create_stubs({api.network: ('floating_ip_target_list',
+                                      'tenant_floating_ip_list',)})
     def test_associate(self):
-        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.servers.list())
+            .AndReturn(self.servers.list())
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         url = reverse('%s:associate' % NAMESPACE)
@@ -50,12 +51,35 @@ class FloatingIpViewTests(test.TestCase):
         # Verify that our "associated" floating IP isn't in the choices list.
         self.assertTrue(self.floating_ips.first() not in choices)
 
+    @test.create_stubs({api.network: ('floating_ip_target_list',
+                                      'floating_ip_target_get_by_instance',
+                                      'tenant_floating_ip_list',)})
+    def test_associate_with_instance_id(self):
+        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.servers.list())
+        api.network.floating_ip_target_get_by_instance(
+            IsA(http.HttpRequest), 'TEST-ID', self.servers.list()) \
+            .AndReturn('TEST-ID')
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.floating_ips.list())
+        self.mox.ReplayAll()
+
+        base_url = reverse('%s:associate' % NAMESPACE)
+        params = urlencode({'instance_id': 'TEST-ID'})
+        url = '?'.join([base_url, params])
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        workflow = res.context['workflow']
+        choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
+        # Verify that our "associated" floating IP isn't in the choices list.
+        self.assertTrue(self.floating_ips.first() not in choices)
+
+    @test.create_stubs({api.network: ('floating_ip_associate',
+                                      'floating_ip_target_list',
+                                      'tenant_floating_ip_list',)})
     def test_associate_post(self):
         floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.network, 'floating_ip_associate')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
@@ -72,12 +96,12 @@ class FloatingIpViewTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.network: ('floating_ip_associate',
+                                      'floating_ip_target_list',
+                                      'tenant_floating_ip_list',)})
     def test_associate_post_with_redirect(self):
         floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.network, 'floating_ip_associate')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
@@ -95,12 +119,12 @@ class FloatingIpViewTests(test.TestCase):
         res = self.client.post("%s?next=%s" % (url, next), form_data)
         self.assertRedirectsNoFollow(res, next)
 
+    @test.create_stubs({api.network: ('floating_ip_associate',
+                                      'floating_ip_target_list',
+                                      'tenant_floating_ip_list',)})
     def test_associate_post_with_exception(self):
         floating_ip = self.floating_ips.list()[1]
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.network, 'floating_ip_associate')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
@@ -118,14 +142,14 @@ class FloatingIpViewTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.nova: ('server_list',),
+                        api.network: ('floating_ip_disassociate',
+                                      'floating_ip_supported',
+                                      'tenant_floating_ip_get',
+                                      'tenant_floating_ip_list',)})
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest)) \
                             .AndReturn([self.servers.list(), False])
@@ -143,14 +167,14 @@ class FloatingIpViewTests(test.TestCase):
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.nova: ('server_list',),
+                        api.network: ('floating_ip_disassociate',
+                                      'floating_ip_supported',
+                                      'tenant_floating_ip_get',
+                                      'tenant_floating_ip_list',)})
     def test_disassociate_post_with_exception(self):
         floating_ip = self.floating_ips.first()
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_get')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_disassociate')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
 
         api.nova.server_list(IsA(http.HttpRequest)) \
                         .AndReturn([self.servers.list(), False])
