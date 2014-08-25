@@ -4,6 +4,7 @@ $font-size-base: 13px;
 $modal-md: 732px;
 
 @import "/bootstrap/scss/bootstrap";
+@import "/horizon/lib/bootstrap_datepicker/datepicker.css";
 @import "_variables";
 @import "_accordion_nav";
 
