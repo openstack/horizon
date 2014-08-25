@@ -57,7 +57,8 @@ class LbaasApiTests(test.APITestCase):
                         'admin_state_up': vip1['admin_state_up']
                         }
 
-        neutronclient.create_vip({'vip': vipform_data}).AndReturn(vipform_data)
+        neutronclient.create_vip({'vip': vipform_data}).AndReturn(
+            {'vip': vipform_data})
         self.mox.ReplayAll()
 
         form_data = dict(vipform_data)
@@ -196,9 +197,9 @@ class LbaasApiTests(test.APITestCase):
         api.neutron.subnet_get(self.request, subnet.id).AndReturn(subnet)
         neutronclient.show_vip(pool.vip_id).AndReturn(vip_dict)
         neutronclient.list_members(pool_id=pool.id).AndReturn(
-            {'members': self.members.list()})
+            {'members': self.api_members.list()})
         neutronclient.list_health_monitors(id=pool.health_monitors).AndReturn(
-            {'health_monitors': [self.monitors.first()]})
+            {'health_monitors': [self.api_monitors.first()]})
         self.mox.ReplayAll()
 
         ret_val = api.lbaas.pool_get(self.request, pool.id)
