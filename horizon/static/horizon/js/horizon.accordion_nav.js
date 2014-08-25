@@ -51,7 +51,7 @@ horizon.addInitFunction(function() {
         // collapse the inactive panel groups
         activeDashPanel.closest('div').find("h4").addClass("active");
         allPanelGroupBodies.each(function(index, value) {
-          var activePanels = value.find('li > a.active');
+          var activePanels = $(value).find('li > a.active');
           if(activePanels.length === 0) {
             $(this).slideUp();
           }
