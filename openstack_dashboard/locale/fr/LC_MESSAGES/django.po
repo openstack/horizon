@@ -7,6 +7,7 @@
 # Adrien Cunin <adrien@adriencunin.fr>, 2014
 # AChrist, 2014
 # Andrew_Melim <nokostya.translation@gmail.com>, 2014
+# Bruno seznec <Brunoconsult@gmail.com>, 2014
 # Cédric Soulas <soulascedric@gmail.com>, 2014
 # Cédric Soulas <soulascedric@gmail.com>, 2014
 # c.loba <cl@green-it-addict.fr>, 2014
@@ -28,9 +29,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 21:10-0500\n"
-"PO-Revision-Date: 2014-08-22 16:12+0000\n"
-"Last-Translator: c.loba <cl@green-it-addict.fr>\n"
+"POT-Creation-Date: 2014-08-24 09:46-0500\n"
+"PO-Revision-Date: 2014-08-25 01:40+0000\n"
+"Last-Translator: Bruno seznec <Brunoconsult@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -420,7 +421,7 @@ msgstr "Admin"
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:67
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
-#: dashboards/project/data_processing/utils/workflow_helpers.py:106
+#: dashboards/project/data_processing/utils/workflow_helpers.py:107
 #: dashboards/project/database_backups/tables.py:136
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:64
@@ -3211,9 +3212,14 @@ msgid "Router Overview"
 msgstr "Aperçu du Routeur"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
+#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:16
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:12
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:15
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:21
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:11
 #: dashboards/project/images/templates/images/images/_detail_overview.html:10
 #: dashboards/project/images/templates/images/images/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:47
@@ -3806,6 +3812,7 @@ msgid "Group ID"
 msgstr "ID du Groupe"
 
 #: dashboards/identity/groups/tables.py:124
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:3
 msgid "Remove"
 msgstr "Supprimer"
 
@@ -5422,7 +5429,7 @@ msgstr "Composant enfichable"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
-#: dashboards/project/data_processing/utils/workflow_helpers.py:161
+#: dashboards/project/data_processing/utils/workflow_helpers.py:162
 msgid "Hadoop Version"
 msgstr "Version Hadoop"
 
@@ -5521,6 +5528,7 @@ msgstr "Configurations des noeuds"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
 msgid "No configurations"
 msgstr "Pas de configuration"
 
@@ -5536,6 +5544,11 @@ msgstr "Group de noeud"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
 msgstr "Compteur de noeuds"
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:12
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:15
+msgid "Flavor is not specified"
+msgstr "Le Type d'instance n'est pas précisé"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:18
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:34
@@ -5564,9 +5577,17 @@ msgstr "Les configurations du noeud ne sont pas spécifiées"
 msgid "Upload"
 msgstr "Mettre en ligne"
 
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_node_groups_template.html:93
+msgid "Select a Node Group Template to add"
+msgstr "Sélectionner un modèle de Groupe de Nœuds à ajouter"
+
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
 msgid "Data Processing - Cluster Templates"
 msgstr "Traitement des données - Modèles de cluster"
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:22
+msgid "Add Node Group"
+msgstr "Ajouter un Groupe de Nœud"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:6
@@ -5645,7 +5666,7 @@ msgstr "Clusters"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:41
 msgid "Scale Cluster"
-msgstr ""
+msgstr "Echelonner le Cluster"
 
 #: dashboards/project/data_processing/clusters/tables.py:52
 #: dashboards/project/data_processing/jobs/workflows/launch.py:104
@@ -5796,27 +5817,27 @@ msgstr "Impossible de créer le cluster"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale"
-msgstr ""
+msgstr "Echelonner"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:49
 msgid "Scaled cluster successfully started."
-msgstr ""
+msgstr "Cluster échelonné démarré avec succès"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:97
 msgid "Unable to fetch cluster to scale"
-msgstr ""
+msgstr "Impossible de récupérer le cluster à échelonner"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:152
 msgid "Unable to fetch cluster to scale."
-msgstr ""
+msgstr "Impossible de récupérer le cluster à échelonner"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:162
 msgid "Scale cluster operation failed"
-msgstr ""
+msgstr "L'opération de mise à l'échelle du cluster a échouée"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:45
 msgid "Successfully updated image."
-msgstr ""
+msgstr "Image mise à jour avec succès"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:50
 msgid "Failed to update image."
@@ -5846,11 +5867,11 @@ msgstr "Echec de la récupération des images disponibles."
 #: dashboards/project/data_processing/data_image_registry/tables.py:71
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:6
 msgid "Image Registry"
-msgstr ""
+msgstr "Registre Image"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:29
 msgid "Edit Tags"
-msgstr ""
+msgstr "Modifier les Etiquettes"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:43
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
@@ -5878,7 +5899,7 @@ msgstr "impossible de retrouver la liste d'images"
 #: dashboards/project/data_processing/data_image_registry/views.py:57
 #: dashboards/project/data_processing/data_image_registry/views.py:72
 msgid "Unable to process plugin tags"
-msgstr ""
+msgstr "Impossible de traiter les étiquettes de plugin"
 
 #: dashboards/project/data_processing/data_image_registry/views.py:98
 msgid "Unable to fetch the image details"
@@ -5897,38 +5918,38 @@ msgstr "Fait"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:3
 msgid "Image Registry tool:"
-msgstr ""
+msgstr "outil de Registre des Images"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:6
 msgid ""
 "Image Registry is used to provide additional information about images for "
 "Data Processing."
-msgstr ""
+msgstr "Le Registre des Images est utilisé pour fournir des informations supplémentaires sur les images dédiés au Traitement des Données"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:9
 msgid ""
 "Specified User Name will be used by Data Processing to apply configs and "
 "manage processes on instances."
-msgstr ""
+msgstr "Le Nom d'Utilisateur Spécifié sera utilisé par le Traitement de Données afin d'appliquer les configurations et administrer les processus sur les instances."
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:12
 msgid ""
 "Tags are used for filtering images suitable for each plugin and each Data Processing version.\n"
 "        To add required tags, select a plugin and a Data Processing version and click &quot;Add all&quot; button."
-msgstr ""
+msgstr "Les Étiquettes sont utilisées pour filtrer les images adaptées pour chaque plugin et chaque version de Traitement de Données.\nPour ajouter les Étiquettes requises, sélectionnez un plugin et une version de Traitement de Données et cliquez sur le bouton  & quot; Ajouter tous & quot; ."
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:16
 msgid "You may also add any custom tag."
-msgstr ""
+msgstr "Vous pouvez aussi ajouter une étiquette personnalisée."
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:19
 msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
+msgstr "Les étiquettes non-obligatoires peuvent être supprimée en cliquant sur le crois à côté du nom de l'étiquette"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:5
 msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
-msgstr ""
+msgstr "Enregistrer les étiquettes demandées pour le Plugin avec la Version spécifiée de Traitement de Données"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
 msgid "Version"
@@ -5936,7 +5957,7 @@ msgstr "Version"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:30
 msgid "Add plugin tags"
-msgstr ""
+msgstr "Ajouter les étiquettes du plugin"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:38
 msgid "Add custom tag"
@@ -5963,7 +5984,7 @@ msgstr "Impossible de retrouver le plugin"
 
 #: dashboards/project/data_processing/data_plugins/views.py:40
 msgid "Unable to retrieve data processing plugins."
-msgstr ""
+msgstr "Impossible de récupérer les plugins de traitement des données"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
@@ -6019,11 +6040,11 @@ msgstr "Sélectionner le type de source de données."
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:10
 msgid "You may need to enter the username and password for your Data Source."
-msgstr ""
+msgstr "Vous devez peut-être entrer le nom d'utilisateur et le mot de passe pour votre Source de Donnée."
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:13
 msgid "You may also enter an optional description for your Data Source."
-msgstr ""
+msgstr "Vous pouvez aussi fournir une description optionnelle pour votre Source de Donnée."
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:2
 msgid "Data Source Overview"
@@ -6043,7 +6064,7 @@ msgstr "URL"
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:23
 msgid "Tenant id"
-msgstr ""
+msgstr "Id du Projet"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:17
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:15
@@ -6082,7 +6103,7 @@ msgstr "Type de stockage"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:55
 msgid "Internal binary"
-msgstr ""
+msgstr "binaire Interne"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:58
 msgid "Upload File"
@@ -6102,12 +6123,12 @@ msgstr "Nom d'utilisateur"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:98
 msgid "Failed to get list of internal binaries."
-msgstr ""
+msgstr "Impossible d'obtenir la liste des fichiers binaires internes."
 
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/data_processing/job_binaries/forms.py:171
 msgid "Unable to create job binary"
-msgstr ""
+msgstr "Impossible de créer la tâche binaire"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:143
 #: dashboards/project/data_processing/job_binaries/tables.py:30
@@ -6115,33 +6136,33 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:6
 msgid "Create Job Binary"
-msgstr ""
+msgstr "Créer un Binaire de Tâche"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:160
 msgid "Unable to upload job binary"
-msgstr ""
+msgstr "Impossible de transférer la tâche binaire"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:193
 msgid "Failed to fetch internal binary list"
-msgstr ""
+msgstr "Échec de la récupération de la liste binaire interne"
 
 #: dashboards/project/data_processing/job_binaries/panel.py:22
 #: dashboards/project/data_processing/job_binaries/tables.py:77
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/job_binaries.html:6
 msgid "Job Binaries"
-msgstr ""
+msgstr "Binaires de Tâche"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:40
 msgid "Job binary"
-msgstr ""
+msgstr "Binaire de Tâche"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:41
 msgid "Job binaries"
-msgstr ""
+msgstr "binaires de Tâche"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:61
 msgid "Download Job Binary"
-msgstr ""
+msgstr "Télécharger le Binaire de Tâche"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:71
 msgid "Url"
@@ -6149,16 +6170,16 @@ msgstr "Url"
 
 #: dashboards/project/data_processing/job_binaries/tabs.py:38
 msgid "Unable to fetch job binary."
-msgstr ""
+msgstr "Impossible d'obtenir le binaire de tâche"
 
 #: dashboards/project/data_processing/job_binaries/views.py:51
 msgid "Unable to fetch job binary list."
-msgstr ""
+msgstr "Impossible d'obtenir la liste des binaires de tâche"
 
 #: dashboards/project/data_processing/job_binaries/views.py:85
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
-msgstr ""
+msgstr "Impossible d'obtenir le binaire de tâche : %(exc)s"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:4
 msgid ""
@@ -6168,17 +6189,17 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:8
 msgid "Select the storage type for your job binary."
-msgstr ""
+msgstr "Sélectionner le type de stockage pour votre tâche binaire."
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:10
 msgid "Data Processing internal database"
-msgstr ""
+msgstr "Base de donnée interne du Traitement des Données"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:15
 msgid ""
 "For Data Processing internal job binaries, you may choose from the "
 "following:"
-msgstr ""
+msgstr "Pour les binaires de Traitement de Donnée internes, vous pouvez choisir parmi les suivants:"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:17
 msgid "Choose an existing file"
@@ -6194,7 +6215,7 @@ msgstr "Créer un script qui sera téléverser dynamiquement"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:23
 msgid "For Object Store job binaries, you must:"
-msgstr ""
+msgstr "Pour les binaires de tâche Magasin d'Objets, vous devez:"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:25
 msgid "Enter the URL for the file"
@@ -6206,11 +6227,11 @@ msgstr "Entrer le nom de l'utilisateur et son mot de passe requis pour accéder 
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:30
 msgid "You may also enter an optional description for your job binary."
-msgstr ""
+msgstr "Vous pouvez aussi donner une description optionnelle pour votre binaire de tâche."
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:2
 msgid "Job Binary Overview"
-msgstr ""
+msgstr "Vue d'ensemble du Binaire de Tâche"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:13
 msgid "Project id"
@@ -6218,12 +6239,12 @@ msgstr "ID du projet"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:18
 msgid "Download job binary"
-msgstr ""
+msgstr "Télécharger le binaire de tâche"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:6
 msgid "Job Binary Details"
-msgstr ""
+msgstr "Détails du Binaire de Tâche"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:108
@@ -6343,7 +6364,7 @@ msgstr "ID de la tâche Oozie"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:29
 msgid "Tenant Id"
-msgstr ""
+msgstr "id Projet"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:31
 msgid "Job Configuration"
@@ -6386,15 +6407,15 @@ msgstr "Sélectionner le type de votre tâche:"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
 msgid "Pig"
-msgstr ""
+msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
 msgid "Hive"
-msgstr ""
+msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
 msgid "MapReduce"
-msgstr ""
+msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
 msgid "Java Action"
@@ -6404,7 +6425,7 @@ msgstr "Action Java"
 msgid ""
 "Choose or create your main binary.  Additional libraries can be added from "
 "the \"Libs\" tab."
-msgstr ""
+msgstr "Choisissez ou créez votre binaire principal. Les bibliothèques additionnelles peuvent être ajoutées à partir de l'onglet \"Libs\"."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:19
 msgid ""
@@ -6424,16 +6445,16 @@ msgstr "Ajouter des bibliothèques à votre tâche."
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
 "your job.  This can be repeated for additional libraries."
-msgstr ""
+msgstr "Choisissez dans la liste des binaires et cliquez sur \"choisir\"  pour ajouter la bibliothèque à votre tâche. Ceci peut être répété pour des bibliothèques additionnelles."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:11
 msgid "Mains"
-msgstr ""
+msgstr "Mains"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:17
 #: dashboards/project/data_processing/jobs/workflows/create.py:48
 msgid "Libs"
-msgstr ""
+msgstr "Libs"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_configure_help.html:4
 msgid "Enter any custom configuration required for your job's execution."
@@ -6480,11 +6501,11 @@ msgstr "Détails de la tâche"
 msgid "Launch Job"
 msgstr "Lancer la tâche"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:85
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
 msgstr "Choisir"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:97
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:98
 msgid "Chosen Libraries"
 msgstr "Bibliothèques choisies"
 
@@ -6503,11 +6524,11 @@ msgstr "Type de tâche"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:59
 msgid "Choose a main binary"
-msgstr ""
+msgstr "Choisissez le binaire principal"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:61
 msgid "Choose the binary which should be used in this Job."
-msgstr ""
+msgstr "Choisissez le binaire qui pourra être utilisé pour cette Tâche."
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:119
 msgid "Job created"
@@ -6535,15 +6556,15 @@ msgstr "Classe principale"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:157
 msgid "Java Opts"
-msgstr ""
+msgstr "Java Opts"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:160
 msgid "Mapper"
-msgstr ""
+msgstr "Mapper"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:162
 msgid "Reducer"
-msgstr ""
+msgstr "Reducer"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:230
 msgid "Configure"
@@ -6551,7 +6572,7 @@ msgstr "Configurer"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:308
 msgid "Persist cluster after job exit"
-msgstr ""
+msgstr "Sauvegarder le cluster après la fin de la tâche"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:332
 #: dashboards/project/data_processing/jobs/workflows/launch.py:417
@@ -6581,7 +6602,7 @@ msgstr "ID d'exécution de la tâche"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:449
 msgid "Unable to create new cluster for job."
-msgstr ""
+msgstr "Impossible de créer le nouveau cluster pour la tâche"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:462
 msgid "Unable to launch job."
@@ -6604,7 +6625,7 @@ msgstr "Impossible de contacter le modèle de groupe de noeud."
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:48
 msgid "Unable to fetch flavor for template."
-msgstr ""
+msgstr "Impossible de récupérer le type d’instance pour le modèle."
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:53
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:2
@@ -6627,19 +6648,19 @@ msgstr "Ce modèle de groupe de noeud sera créé pour:"
 msgid ""
 "The Node Group Template object should specify processes that will be "
 "launched on each instance. Also an OpenStack flavor is required to boot VMs."
-msgstr ""
+msgstr "L'objet modèle de Groupe de Nœud  devrait préciser les processus qui seront lancés sur chaque instance. Par ailleurs, un type d'instance OpenStack est requis pour démarrer les machines virtuelles."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:15
 msgid ""
 "Data Processing provides different storage location options. You may choose "
 "Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
+msgstr "Le Traitement des Données propose différentes options d'emplacement de stockage. Vous pouvez choisir un Disque Éphémère ou un Volume Cinder à attacher aux instances."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
 "When processes are selected, you may set <b>node</b> scoped Hadoop "
 "configurations on corresponding tabs."
-msgstr ""
+msgstr "Quand les processus sont sélectionnés, vous pouvez régler les <b>noeuds</b>dédiés aux configurations Hadoop sur les onglets correspondants."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and Hadoop version for a new Node group template."
@@ -6665,6 +6686,18 @@ msgstr "Taille des volumes"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
 msgid "Ephemeral drive"
 msgstr "Disque éphémère"
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
+msgid "Filter"
+msgstr "Filtrer"
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:4
+msgid "Show full configuration"
+msgstr "Afficher la configuration complète"
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:5
+msgid "Hide full configuration"
+msgstr "Cacher la configuration complète"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
@@ -6694,7 +6727,7 @@ msgstr "Impossible de charger les détails du composant."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
 msgid "OpenStack Flavor"
-msgstr ""
+msgstr "Type d'Instance OpenStack"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:44
 msgid "Storage location"
@@ -6710,7 +6743,7 @@ msgstr "Taille des volumes (Go)"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:87
 msgid "Unable to generate process choices."
-msgstr ""
+msgstr "Impossible de générer des choix de processus."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Floating IP pool"
@@ -6736,7 +6769,7 @@ msgstr "Configurer le modèle de groupe de noeud"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:165
 #, python-format
 msgid "Created Node Group Template %s"
-msgstr ""
+msgstr "Le Modèle %s de Groupe de Nœud est créé"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:271
 msgid "Select plugin and hadoop version"
@@ -6748,11 +6781,11 @@ msgstr "Utiliser les groupes d'anti-affinité pour:"
 
 #: dashboards/project/data_processing/utils/anti_affinity.py:33
 msgid "Use anti-affinity groups for processes"
-msgstr ""
+msgstr "Utiliser les groupes d'anti-affinité pour les processus"
 
 #: dashboards/project/data_processing/utils/anti_affinity.py:66
 msgid "Unable to populate anti-affinity processes."
-msgstr ""
+msgstr "Impossible de peupler les processus d'anti-affinité."
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:156
@@ -6760,15 +6793,15 @@ msgstr ""
 msgid "Unable to retrieve networks."
 msgstr "Impossible de récupérer les réseaux."
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:110
+#: dashboards/project/data_processing/utils/workflow_helpers.py:111
 msgid "Node group cluster"
-msgstr ""
+msgstr "Groupe de nœud pour le cluster"
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:114
+#: dashboards/project/data_processing/utils/workflow_helpers.py:115
 msgid "Count"
 msgstr "Compteur"
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:154
+#: dashboards/project/data_processing/utils/workflow_helpers.py:155
 msgid "Plugin Name"
 msgstr "Nom du composant"
 
@@ -7263,7 +7296,7 @@ msgstr "Créer cette base de données à partir d'une précédente sauvegarde."
 #: dashboards/project/databases/templates/databases/resize_volume.html:3
 #: dashboards/project/databases/templates/databases/resize_volume.html:6
 msgid "Resize Database Volume"
-msgstr ""
+msgstr "Redimensionner la Base de Données Volume"
 
 #: dashboards/project/databases/templates/databases/_resize_volume.html:18
 msgid "Specify the new volume size for the database instance."
@@ -7315,7 +7348,7 @@ msgstr "Vous devez sélectionne un type et une version de datastore."
 
 #: dashboards/project/databases/workflows/create_instance.py:61
 msgid "Unable to obtain flavors."
-msgstr ""
+msgstr "Impossible d'obtenir les types d'instances."
 
 #: dashboards/project/databases/workflows/create_instance.py:110
 msgid "Select datastore type and version"
@@ -8068,7 +8101,7 @@ msgstr "Impossible de récupérer l'instance."
 msgid ""
 "Images can be provided via an HTTP URL or be uploaded from your local file "
 "system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
+msgstr "Les images peut être fournies via une URL HTTP ou être téléchargées à partir de votre système de fichiers local. Les images binaires compressés sont supportées (.zip et .tar.gz.)"
 
 #: dashboards/project/images/templates/images/images/_create.html:30
 msgid ""
@@ -8137,11 +8170,11 @@ msgstr "Créer un instantané"
 #: dashboards/project/instances/console.py:41
 #, python-format
 msgid "Console type \"%s\" not supported."
-msgstr ""
+msgstr "Le type de Console \"%s\" n'est pas supporté."
 
 #: dashboards/project/instances/console.py:66
 msgid "No available console found."
-msgstr ""
+msgstr "Aucune console disponible trouvée."
 
 #: dashboards/project/instances/forms.py:42
 msgid "Rebuild Password"
@@ -8365,7 +8398,7 @@ msgstr "Active"
 
 #: dashboards/project/instances/tables.py:707
 msgid "Shutoff"
-msgstr ""
+msgstr "Extinction"
 
 #: dashboards/project/instances/tables.py:711
 msgid "Resize/Migrate"
@@ -8402,15 +8435,15 @@ msgstr "Supprimé à chaud"
 
 #: dashboards/project/instances/tables.py:723
 msgid "Shelved"
-msgstr ""
+msgstr "En attente"
 
 #: dashboards/project/instances/tables.py:724
 msgid "Shelved Offloaded"
-msgstr ""
+msgstr "En attente déchargé"
 
 #: dashboards/project/instances/tables.py:729
 msgid "Scheduling"
-msgstr ""
+msgstr "Programmation"
 
 #: dashboards/project/instances/tables.py:730
 msgid "Block Device Mapping"
@@ -9692,16 +9725,16 @@ msgstr "Impossible de récupérer le pool spécifié. Impossible d'ajouter la VI
 
 #: dashboards/project/loadbalancers/workflows.py:299
 msgid "Member Source"
-msgstr ""
+msgstr "Membre Source"
 
 #: dashboards/project/loadbalancers/workflows.py:300
 msgid "Select from active instances"
-msgstr ""
+msgstr "Sélectionner à partir des instances actives"
 
 #: dashboards/project/loadbalancers/workflows.py:301
 #: dashboards/project/loadbalancers/workflows.py:318
 msgid "Specify member IP address"
-msgstr ""
+msgstr "Spécifier les adresses IP du membre"
 
 #: dashboards/project/loadbalancers/workflows.py:308
 #: dashboards/project/loadbalancers/workflows.py:314
@@ -9715,7 +9748,7 @@ msgstr "Sélectionner les membres pour ce pool"
 #: dashboards/project/loadbalancers/workflows.py:317
 #: dashboards/project/loadbalancers/workflows.py:323
 msgid "Member address"
-msgstr ""
+msgstr "adresse du Membre"
 
 #: dashboards/project/loadbalancers/workflows.py:329
 msgid ""
@@ -9749,7 +9782,7 @@ msgstr "Un membre au moins doit être spécifié"
 
 #: dashboards/project/loadbalancers/workflows.py:391
 msgid "Member IP address must be specified"
-msgstr ""
+msgstr "L'adresse IP du Membre doit être précisée"
 
 #: dashboards/project/loadbalancers/workflows.py:396
 msgid "Add New Member"
@@ -9770,11 +9803,11 @@ msgstr "Membre(s) ajouté(s)."
 
 #: dashboards/project/loadbalancers/workflows.py:423
 msgid "Unable to add member(s)"
-msgstr ""
+msgstr "Impossible d'ajouter un(des) membre(s)"
 
 #: dashboards/project/loadbalancers/workflows.py:433
 msgid "Unable to retrieve the specified pool."
-msgstr ""
+msgstr "Impossible de retirer le pool spécifié."
 
 #: dashboards/project/loadbalancers/workflows.py:482
 msgid "PING"
@@ -11010,53 +11043,53 @@ msgstr "Impossible de récupérer les informations d'attachement du volume/insta
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
 msgid "Volume Backups"
-msgstr ""
+msgstr "Sauvegardes de Volume"
 
 #: dashboards/project/volumes/tabs.py:121
 msgid "Unable to retrieve volume backups."
-msgstr ""
+msgstr "Impossible de récupérer les sauvegardes de volume."
 
 #: dashboards/project/volumes/backups/forms.py:33
 msgid "Backup Name"
-msgstr ""
+msgstr "Nom de la sauvegarde"
 
 #: dashboards/project/volumes/backups/forms.py:56
 #, python-format
 msgid "Creating volume backup \"%s\""
-msgstr ""
+msgstr "Création du volume pour la sauvegarde \"%s\""
 
 #: dashboards/project/volumes/backups/forms.py:63
 msgid "Unable to create volume backup."
-msgstr ""
+msgstr "Impossible de créer le volume de sauvegarde."
 
 #: dashboards/project/volumes/backups/forms.py:79
 msgid "Unable to lookup volume or backup information."
-msgstr ""
+msgstr "Impossible de rechercher les informations de volume ou de sauvegarde."
 
 #: dashboards/project/volumes/backups/forms.py:85
 msgid "Create a New Volume"
-msgstr ""
+msgstr "Créer un nouveau volume"
 
 #: dashboards/project/volumes/backups/forms.py:102
 #, python-format
 msgid ""
 "Successfully restored backup %(backup_name)s to volume with id: "
 "%(volume_id)s"
-msgstr ""
+msgstr "Restauration effectuée avec succès %(backup_name)s sur le volume ayant l'ID: %(volume_id)s"
 
 #: dashboards/project/volumes/backups/forms.py:108
 msgid "Unable to restore backup."
-msgstr ""
+msgstr "Impossible de restaurer cette sauvegarde."
 
 #: dashboards/project/volumes/backups/tables.py:47
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup"
-msgstr ""
+msgstr "Volume de sauvegarde"
 
 #: dashboards/project/volumes/backups/tabs.py:41
 #: dashboards/project/volumes/backups/views.py:61
 msgid "Unable to retrieve backup details."
-msgstr ""
+msgstr "Impossible de retrouver les détails de la sauvegarde."
 
 #: dashboards/project/volumes/snapshots/forms.py:37
 #, python-format
@@ -11084,7 +11117,7 @@ msgstr "Impossible de récupérer les détails de l'instantané."
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
 msgid "Create Volume Backup"
-msgstr ""
+msgstr "Créer un volume de sauvegarde"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid ""
@@ -11101,44 +11134,44 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:4
 msgid "Volume Backup Overview"
-msgstr ""
+msgstr "Aperçu du volume de sauvegarde"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
 msgid "Restore Volume Backup"
-msgstr ""
+msgstr "Restaurer le volume de sauvegarde"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Select a volume to restore to."
-msgstr ""
+msgstr "Sélectionner le volume à restaurer."
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:19
 msgid "Optionally, you may choose to create a new volume."
-msgstr ""
+msgstr "Optionnel, vous pouvez choisir de créer un nouveau volume."
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:24
 msgid "Restore Backup to Volume"
-msgstr ""
+msgstr "Restaurer la sauvegarde sur le volume"
 
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
 msgid "Create a Volume Backup"
-msgstr ""
+msgstr "Créer un volume de sauvegarde"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:3
 msgid "Volume Backup Details"
-msgstr ""
+msgstr "Détails du volume de sauvegarde"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details: "
-msgstr ""
+msgstr "Détails du volume de sauvegarde:"
 
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:6
 msgid "Volume Backup Details:"
-msgstr ""
+msgstr "Détails du volume de sauvegarde:"
 
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
 msgid "Restore a Volume Backup"
-msgstr ""
+msgstr "Restaurer un volume de sauvegarde"
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:19
 msgid "From here you can modify the name and description of a snapshot."
@@ -11230,15 +11263,15 @@ msgstr "Nombre de Volumes"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
 msgid "From here you can create a snapshot of a volume."
-msgstr ""
+msgstr "De cet emplacement, vous pouvez créer un cliché instantané d'un volume."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:9
 msgid "Snapshot Limits"
-msgstr ""
+msgstr "Limites du cliché instantané"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:21
 msgid "Number of Snapshots"
-msgstr ""
+msgstr "Nombre de clichés instantanés"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
@@ -11335,15 +11368,15 @@ msgstr "Aucune source, volume vide"
 
 #: dashboards/project/volumes/volumes/forms.py:226
 msgid "Image source must be specified"
-msgstr ""
+msgstr "L'image source doit être spécifié"
 
 #: dashboards/project/volumes/volumes/forms.py:230
 msgid "Snapshot source must be specified"
-msgstr ""
+msgstr "La source du cliché instantané doit être spécifiée"
 
 #: dashboards/project/volumes/volumes/forms.py:234
 msgid "Volume source must be specified"
-msgstr ""
+msgstr "Le volume source doit être spécifié"
 
 #: dashboards/project/volumes/volumes/forms.py:243
 msgid "Unable to determine if availability zones extension is supported."
@@ -11444,7 +11477,7 @@ msgstr "La nouvelle taille doit être supérieure à la taille courante."
 #: dashboards/project/volumes/volumes/forms.py:538
 #, python-format
 msgid "Extending volume: \"%s\""
-msgstr ""
+msgstr "Volume étendu: \"%s\""
 
 #: dashboards/project/volumes/volumes/forms.py:544
 msgid "Unable to extend volume."
@@ -11452,7 +11485,7 @@ msgstr "Impossible d'étendre le volume."
 
 #: dashboards/project/volumes/volumes/tables.py:38
 msgid "Launch as Instance"
-msgstr ""
+msgstr "Lancer en tant qu'instance"
 
 #: dashboards/project/volumes/volumes/tables.py:76
 #, python-format
@@ -11483,7 +11516,7 @@ msgstr "Oui"
 
 #: dashboards/project/volumes/volumes/tables.py:333
 msgid "Bootable"
-msgstr ""
+msgstr "Bootable"
 
 #: dashboards/project/volumes/volumes/tables.py:336
 msgid "Encrypted"
@@ -11500,7 +11533,7 @@ msgstr "Périphérique"
 #: dashboards/project/volumes/volumes/tables.py:389
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
-msgstr ""
+msgstr "Volume %(volume_name)s sur l'instance %(instance_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:101
 #: dashboards/project/volumes/volumes/views.py:144
