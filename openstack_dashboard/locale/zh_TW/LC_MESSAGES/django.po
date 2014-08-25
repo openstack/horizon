@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 21:10-0500\n"
-"PO-Revision-Date: 2014-08-21 16:28+0000\n"
+"POT-Creation-Date: 2014-08-24 09:46-0500\n"
+"PO-Revision-Date: 2014-08-24 11:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -400,7 +400,7 @@ msgstr "管理員"
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:67
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
-#: dashboards/project/data_processing/utils/workflow_helpers.py:106
+#: dashboards/project/data_processing/utils/workflow_helpers.py:107
 #: dashboards/project/database_backups/tables.py:136
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:64
@@ -3191,9 +3191,14 @@ msgid "Router Overview"
 msgstr "路由器概觀"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
+#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:16
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:12
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:15
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:21
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:11
 #: dashboards/project/images/templates/images/images/_detail_overview.html:10
 #: dashboards/project/images/templates/images/images/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:47
@@ -3786,6 +3791,7 @@ msgid "Group ID"
 msgstr "群組識別號"
 
 #: dashboards/identity/groups/tables.py:124
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:3
 msgid "Remove"
 msgstr "移除"
 
@@ -5402,7 +5408,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:20
-#: dashboards/project/data_processing/utils/workflow_helpers.py:161
+#: dashboards/project/data_processing/utils/workflow_helpers.py:162
 msgid "Hadoop Version"
 msgstr ""
 
@@ -5501,6 +5507,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
 msgid "No configurations"
 msgstr ""
 
@@ -5515,6 +5522,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:12
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:15
+msgid "Flavor is not specified"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:18
@@ -5544,8 +5556,16 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_node_groups_template.html:93
+msgid "Select a Node Group Template to add"
+msgstr ""
+
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
 msgid "Data Processing - Cluster Templates"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:22
+msgid "Add Node Group"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
@@ -6460,11 +6480,11 @@ msgstr ""
 msgid "Launch Job"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:85
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:97
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:98
 msgid "Chosen Libraries"
 msgstr ""
 
@@ -6646,6 +6666,18 @@ msgstr ""
 msgid "Ephemeral drive"
 msgstr ""
 
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
+msgid "Filter"
+msgstr "篩選"
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:4
+msgid "Show full configuration"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:5
+msgid "Hide full configuration"
+msgstr ""
+
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
@@ -6740,15 +6772,15 @@ msgstr ""
 msgid "Unable to retrieve networks."
 msgstr "無法取回網路。"
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:110
+#: dashboards/project/data_processing/utils/workflow_helpers.py:111
 msgid "Node group cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:114
+#: dashboards/project/data_processing/utils/workflow_helpers.py:115
 msgid "Count"
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:154
+#: dashboards/project/data_processing/utils/workflow_helpers.py:155
 msgid "Plugin Name"
 msgstr ""
 
