@@ -23,6 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
@@ -80,8 +81,13 @@ class IndexView(tables.DataTableView):
             if ext_net_id in ext_net_dict:
                 gateway_info['network'] = ext_net_dict[ext_net_id]
             else:
-                msg = _('External network "%s" not found.') % (ext_net_id)
-                exceptions.handle(self.request, msg)
+                msg_params = {'ext_net_id': ext_net_id, 'router_id': router.id}
+                msg = _('External network "%(ext_net_id)s" expected but not '
+                        'found for router "%(router_id)s".') % msg_params
+                messages.error(self.request, msg)
+                # gateway_info['network'] is just the network name, so putting
+                # in a smallish error message in the table is reasonable.
+                gateway_info['network'] = _('%s (Not Found)') % ext_net_id
 
 
 class DetailView(tabs.TabbedTableView):
@@ -97,7 +103,7 @@ class DetailView(tabs.TabbedTableView):
             router.set_id_as_name_if_empty(length=0)
         except Exception:
             msg = _('Unable to retrieve details for router "%s".') \
-                % (router_id)
+                % router_id
             exceptions.handle(self.request, msg, redirect=self.failure_url)
         if router.external_gateway_info:
             ext_net_id = router.external_gateway_info['network_id']
@@ -108,7 +114,7 @@ class DetailView(tabs.TabbedTableView):
                 router.external_gateway_info['network'] = ext_net.name
             except Exception:
                 msg = _('Unable to retrieve an external network "%s".') \
-                    % (ext_net_id)
+                    % ext_net_id
                 exceptions.handle(self.request, msg)
                 router.external_gateway_info['network'] = ext_net_id
         return router

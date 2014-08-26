@@ -59,3 +59,21 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
+
+    @test.create_stubs({api.neutron: ('router_list', 'network_list')})
+    def test_set_external_network_empty(self):
+        router = self.routers.first()
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            search_opts=None).AndReturn([router])
+        self._mock_external_network_list(alter_ids=True)
+        self.mox.ReplayAll()
+
+        res = self.client.get(self.INDEX_URL)
+
+        table_data = res.context['table'].data
+        self.assertEqual(len(table_data), 1)
+        self.assertIn('(Not Found)',
+                      table_data[0]['external_gateway_info']['network'])
+        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertMessageCount(res, error=2)
