@@ -44,7 +44,7 @@ class GeneralConfigAction(workflows.Action):
 
     storage = forms.ChoiceField(
         label=_("Storage location"),
-        help_text=_("Storage"),
+        help_text=_("Choose a storage location"),
         choices=[("ephemeral_drive", "Ephemeral Drive"),
                  ("cinder_volume", "Cinder Volume")],
         widget=forms.Select(attrs={"class": "storage_field"}))
