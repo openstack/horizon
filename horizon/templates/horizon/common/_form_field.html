@@ -55,7 +55,20 @@
     {% endif %}
 
     <div class="{{ classes.value }} {{ field|wrapper_classes }}">
-      {{ field|add_bootstrap_class }}
+      {% with add_item_link=field|add_item_url %}
+      {% if add_item_link %}
+        <div class='input-group'>
+          {{ field|add_bootstrap_class }}
+          <span class="input-group-btn">
+            <a href="{{ add_item_link }}" data-add-to-field="{{ field.auto_id }}" class='btn btn-default ajax-add ajax-modal'>
+              <span class="glyphicon glyphicon-plus"></span>
+            </a>
+          </span>
+        </div>
+      {% else %}
+        {{ field|add_bootstrap_class }}
+      {% endif %}
+      {% endwith %}
       {% for error in field.errors %}
         <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
       {% endfor %}
