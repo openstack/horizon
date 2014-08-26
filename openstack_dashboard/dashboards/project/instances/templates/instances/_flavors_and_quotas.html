@@ -21,7 +21,7 @@
     <strong>{% trans "Number of Instances" %}</strong>
     {% blocktrans with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|quotainf|intcomma %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
   </div>
-  <div id="quota_instances" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalInstances }}" data-quota-used="{{ usages.totalInstancesUsed }}">
+  <div id="{{ resize_instance|yesno:"quota_resize_instance,quota_instances" }}" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalInstances }}" data-quota-used="{{ usages.totalInstancesUsed }}">
   </div>
 
   <div class="quota_title clearfix">
