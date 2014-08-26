@@ -88,20 +88,19 @@ horizon.forms = {
   datepicker: function() {
     var startDate = $('input#id_start').datepicker()
       .on('changeDate', function(ev) {
-        if (ev.date.valueOf() > endDate.date.valueOf()) {
-          var newDate = new Date(ev.date);
+        if (ev.dates[0].valueOf() > endDate.dates[0].valueOf()) {
+          var newDate = new Date(ev.dates[0]);
           newDate.setDate(newDate.getDate() + 1);
-          endDate.setValue(newDate);
+          endDate.setDate(newDate);
           $('input#id_end')[0].focus();
         }
         startDate.hide();
+        endDate.setStartDate(ev.dates[0]);
         endDate.update();
       }).data('datepicker');
 
     var endDate = $('input#id_end').datepicker({
-      onRender: function(date) {
-        return date.valueOf() < startDate.date.valueOf() ? 'disabled' : '';
-      }
+      startDate: startDate ? startDate.dates[0] : null
     }).on('changeDate', function(ev) {
         endDate.hide();
       }).data('datepicker');
