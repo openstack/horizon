@@ -5,11 +5,17 @@
 <script src="{{ STATIC_URL }}horizon/lib/angular/angular.js" type="text/javascript" charset="utf-8"></script>
 
 <script src='{{ STATIC_URL }}horizon/js/horizon.js' type='text/javascript' charset='utf-8'></script>
+{% endcompress %}
+
 <script type='text/javascript' charset='utf-8'>
     /* Load angular modules extensions list before we include angular/horizon.js */
     var angularModuleExtension = {{ HORIZON_CONFIG.angular_modules|default:"[]"|safe }};
 </script>
+
+{% compress js %}
 <script src='{{ STATIC_URL }}horizon/js/angular/horizon.js' type='text/javascript' charset='utf-8'></script>
+{% endcompress %}
+
 <script type='text/javascript' charset='utf-8'>
 /* Storage for backend configuration variables which the frontend
  * should be aware of.
@@ -30,4 +36,3 @@ horizonApp
 }]);
 
 </script>
-{% endcompress %}
