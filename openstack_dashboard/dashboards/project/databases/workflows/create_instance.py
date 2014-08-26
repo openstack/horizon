@@ -24,6 +24,9 @@ from horizon.utils import memoized
 from horizon import workflows
 from openstack_dashboard import api
 
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instance_utils
+
 
 LOG = logging.getLogger(__name__)
 
@@ -62,8 +65,10 @@ class SetInstanceDetailsAction(workflows.Action):
                               redirect=redirect)
 
     def populate_flavor_choices(self, request, context):
-        flavor_list = [(f.id, "%s" % f.name) for f in self.flavors(request)]
-        return sorted(flavor_list)
+        flavors = self.flavors(request)
+        if flavors:
+            return instance_utils.sort_flavor_list(request, flavors)
+        return []
 
     @memoized.memoized_method
     def datastores(self, request):
