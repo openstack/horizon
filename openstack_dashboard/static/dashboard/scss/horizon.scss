@@ -1090,20 +1090,25 @@ td.select {
 
 /* Actions dropdown */
 
-td.actions_column {
+.actions_column {
   white-space: nowrap;
   padding: 10px;
   position: relative;
   width: 200px;
 }
 
-td.actions_column .btn-group {
+form.actions_column {
+  width: auto;
+  font-family: $font-family-base;
+}
+
+.actions_column .btn-group {
   display: inline-block;
 }
 
-td.actions_column .row_actions a,
-td.actions_column .row_actions input,
-td.actions_column .row_actions button,
+.actions_column .row_actions a,
+.actions_column .row_actions input,
+.actions_column .row_actions button,
 div.table_actions_menu .dropdown-menu a,
 div.table_actions_menu .dropdown-menu input,
 div.table_actions_menu .dropdown-menu button {
@@ -1118,11 +1123,11 @@ div.table_actions_menu .dropdown-menu button {
   @include box-shadow(none);
 }
 
-td.actions_column .row_actions .hide {
+.actions_column .row_actions .hide {
   display: none;
 }
 
-td.actions_column .btn-action-required {
+.actions_column .btn-action-required {
   font-weight: bold;
 }
 
@@ -1156,8 +1161,8 @@ td.actions_column .btn-action-required {
   background: none;
 }
 
-td.actions_column .dropdown-menu a:hover,
-td.actions_column .dropdown-menu button:hover,
+.actions_column .dropdown-menu a:hover,
+.actions_column .dropdown-menu button:hover,
 div.table_actions_menu .dropdown-menu a:hover,
 div.table_actions_menu .dropdown-menu button:hover {
   background-color: $gray-lighter;
@@ -1172,30 +1177,30 @@ div.table_actions_menu .dropdown-menu button:hover {
 
 /* Overrides for single-action rows (no dropdown) */
 
-tr td.actions_column ul.row_actions.single,
-tr:hover td.actions_column ul.row_actions.single,
-td.actions_column ul.row_actions.single,
-td.actions_column ul.row_actions.single:hover {
+tr .actions_column ul.row_actions.single,
+tr:hover .actions_column ul.row_actions.single,
+.actions_column ul.row_actions.single,
+.actions_column ul.row_actions.single:hover {
   border: none;
 }
 
-td.actions_column ul.row_actions.single li.action {
+.actions_column ul.row_actions.single li.action {
   display: block;
 }
 
-td.actions_column ul.row_actions.single li.action:hover {
+.actions_column ul.row_actions.single li.action:hover {
   background-color: transparent;
 }
 
-td.actions_column ul.row_actions.single a,
-td.actions_column ul.row_actions.single input,
-td.actions_column ul.row_actions.single button {
+.actions_column ul.row_actions.single a,
+.actions_column ul.row_actions.single input,
+.actions_column ul.row_actions.single button {
   color: $brand-info;
 }
 
-td.actions_column ul.row_actions.single a:hover,
-td.actions_column ul.row_actions.single input:hover,
-td.actions_column ul.row_actions.single button:hover {
+.actions_column ul.row_actions.single a:hover,
+.actions_column ul.row_actions.single input:hover,
+.actions_column ul.row_actions.single button:hover {
   color: $text-color;
 }
 

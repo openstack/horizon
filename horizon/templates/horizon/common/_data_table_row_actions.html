@@ -2,7 +2,7 @@
 
 {% spaceless %} {# This makes sure whitespace doesn't affect positioning for dropdown. #}
 {% if row_actions|length > 1 %}
-<div class="btn-group">
+<div class="btn-group {% if pull_right %}pull-right{% endif %}">
     {% for action in row_actions %}
         {% if forloop.first %}
           {% include "horizon/common/_data_table_row_action.html" %}
