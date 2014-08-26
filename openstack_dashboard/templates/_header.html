@@ -4,12 +4,12 @@
 
 <h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
 
-<div class="context-box">
+<div class="switcher_bar">
   <div class="dropdown context-selection">
-    <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+    <button class="btn btn-default btn-topnav dropdown-toggle" data-toggle="dropdown">
         {% show_overview %}
     </button>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu topbar-dropdown-menu">
       <div class="context-lists">
         {% show_domain_list %}
         {% show_project_list %}
@@ -25,19 +25,36 @@
 
 <div id="user_info" class="pull-right">
   <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
-      <div>{{ request.user.username }}</div>
-    </a>
-    <ul id="editor_list" class="dropdown-menu">
-      <li class='divider'></li>
-      <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
+    <button class="btn btn-default btn-topnav dropdown-toggle" data-toggle="dropdown">
+      <span class="glyphicon glyphicon-user"></span>
+      {{ request.user.username }}
+      <span class="caret"></span>
+    </button>
+    <ul id="editor_list" class="dropdown-menu topbar-dropdown-menu pull-right">
+      <li>
+        <a href="{% url 'horizon:settings:user:index' %}">
+          <span class="glyphicon glyphicon-cog"></span>
+          {% trans "Settings" %}
+        </a>
+      </li>
       {% if HORIZON_CONFIG.help_url %}
-        <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
+        <li>
+          <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">
+            <span class="glyphicon glyphicon-question-sign"></span>
+            {% trans "Help" %}
+          </a>
+        </li>
       {% endif %}
+      <li class="divider"></li>
+      <li>
+        <a href="{% url 'logout' %}">
+          <span class="glyphicon glyphicon-log-out"></span>
+          {% trans "Sign Out" %}
+        </a>
+      </li>
     </ul>
   </div>
 
-  <a href="{% url 'logout' %}">{% trans "Sign Out" %}</a>
   {% include "horizon/common/_region_selector.html" %}
 </div>
 
