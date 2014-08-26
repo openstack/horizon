@@ -294,6 +294,7 @@ class CreateStackForm(forms.SelfHandlingForm):
             # no parameter groups, so no way to determine order
             params_in_order = params.items()
         for param_key, param in params_in_order:
+            field = None
             field_key = self.param_prefix + param_key
             field_args = {
                 'initial': param.get('Default', None),
@@ -310,7 +311,7 @@ class CreateStackForm(forms.SelfHandlingForm):
                 field_args['choices'] = choices
                 field = forms.ChoiceField(**field_args)
 
-            elif param_type in ('CommaDelimitedList', 'String'):
+            elif param_type in ('CommaDelimitedList', 'String', 'Json'):
                 if 'MinLength' in param:
                     field_args['min_length'] = int(param['MinLength'])
                     field_args['required'] = param.get('MinLength', 0) > 0
@@ -327,7 +328,14 @@ class CreateStackForm(forms.SelfHandlingForm):
                     field_args['max_value'] = int(param['MaxValue'])
                 field = forms.IntegerField(**field_args)
 
-            self.fields[field_key] = field
+            # heat-api currently returns the boolean type in lowercase
+            # (see https://bugs.launchpad.net/heat/+bug/1361448)
+            # so for better compatibility both are checked here
+            elif param_type in ('Boolean', 'boolean'):
+                field = forms.BooleanField(**field_args)
+
+            if field:
+                self.fields[field_key] = field
 
     @sensitive_variables('password')
     def handle(self, request, data):
