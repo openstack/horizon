@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-24 09:46-0500\n"
-"PO-Revision-Date: 2014-08-24 11:21+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-08-25 02:54-0500\n"
+"PO-Revision-Date: 2014-08-25 16:11+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -562,7 +562,7 @@ msgstr "호스트 합계 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/aggregates/views.py:59
 msgid "Unable to retrieve availability zone list."
-msgstr "가용성 존 목록을 검색할 수 없습니다."
+msgstr "가용성 존 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/aggregates/views.py:92
 msgid "Unable to retrieve the aggregate to be updated"
@@ -1497,21 +1497,21 @@ msgstr "이미지"
 
 #: dashboards/admin/images/tables.py:45
 msgid "View Custom Properties"
-msgstr ""
+msgstr "사용자 정의 속성 보기"
 
 #: dashboards/admin/images/tables.py:60
 msgid "Image Name ="
-msgstr ""
+msgstr "이미지 이름 ="
 
 #: dashboards/admin/images/tables.py:61
 #: dashboards/admin/instances/tables.py:95
 #: dashboards/project/instances/tables.py:786
 msgid "Status ="
-msgstr ""
+msgstr "상태 ="
 
 #: dashboards/admin/images/tables.py:62
 msgid "Format ="
-msgstr ""
+msgstr "포멧 ="
 
 #: dashboards/admin/images/tables.py:63
 msgid "Min. Size (MB)"
@@ -1542,44 +1542,44 @@ msgstr "사용자 프로퍼티 \"%s\" 생성했습니다."
 #: dashboards/admin/images/properties/forms.py:57
 #, python-format
 msgid "Unable to create image custom property. Property \"%s\" is read only."
-msgstr ""
+msgstr "이미지 사용자 정의 속성을 생성할 수 없습니다. 속성 \"%s\"는 읽기 전용입니다."
 
 #: dashboards/admin/images/properties/forms.py:61
 #, python-format
 msgid "Unable to create image custom property. Property \"%s\" already exists."
-msgstr ""
+msgstr "이미지 사용자 정의 속성을 생성할 수 없습니다. 속성 \"%s\"이 이미 존재합니다."
 
 #: dashboards/admin/images/properties/forms.py:65
 #, python-format
 msgid "Unable to create image custom property \"%s\"."
-msgstr ""
+msgstr "이미지 사용자 정의 속성 \"%s\"를 생성할 수 없습니다."
 
 #: dashboards/admin/images/properties/forms.py:79
 #, python-format
 msgid "Saved custom property \"%s\"."
-msgstr ""
+msgstr "사용자 정의 속성 \"%s\"를 저장했습니다."
 
 #: dashboards/admin/images/properties/forms.py:83
 #, python-format
 msgid "Unable to edit image custom property. Property \"%s\" is read only."
-msgstr ""
+msgstr "이미지 사용자 정의 속성을 수정할 수 없습니다. 속성 \"%s\"는 읽기 전용입니다."
 
 #: dashboards/admin/images/properties/forms.py:87
 #, python-format
 msgid "Unable to edit image custom property \"%s\"."
-msgstr ""
+msgstr "이미지 사용자 속성 \"%s\"를 수정할 수 없습니다."
 
 #: dashboards/admin/images/properties/tables.py:40
 msgid "Property"
-msgstr ""
+msgstr "속성"
 
 #: dashboards/admin/images/properties/tables.py:41
 msgid "Properties"
-msgstr ""
+msgstr "속성"
 
 #: dashboards/admin/images/properties/tables.py:55
 msgid "Create Property"
-msgstr ""
+msgstr "속성 생성"
 
 #: dashboards/admin/images/properties/tables.py:86
 #: dashboards/project/images/templates/images/images/_detail_overview.html:62
@@ -1593,11 +1593,11 @@ msgstr "이미지 세부 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/images/properties/views.py:61
 msgid "Unable to retrieve image custom properties list."
-msgstr ""
+msgstr "이미지 사용자 정의 속성 목록을 검색할 수 없습니다."
 
 #: dashboards/admin/images/properties/views.py:86
 msgid "Unable to retrieve image custom property."
-msgstr ""
+msgstr "이미지 사용자 정의 속성을 검색할 수 없습니다."
 
 #: dashboards/admin/images/templates/images/_create.html:9
 #: dashboards/admin/images/templates/images/create.html:3
@@ -1689,20 +1689,20 @@ msgstr "여기서 이미지의 다양한 속성을 수정할 수 있습니다."
 #: dashboards/admin/images/templates/images/properties/_create.html:10
 #: dashboards/admin/images/templates/images/properties/create.html:4
 msgid "Create Image Custom Property"
-msgstr ""
+msgstr "이미지 사용자 정의 속성 생성"
 
 #: dashboards/admin/images/templates/images/properties/_create.html:20
 msgid "Create a new custom property for an image."
-msgstr ""
+msgstr "이미지에대한 새로운 사용자 정의 속성을 생성했합니다."
 
 #: dashboards/admin/images/templates/images/properties/_edit.html:10
 msgid "Edit Custom Property Value"
-msgstr ""
+msgstr "사용자 정의 속성값 수정"
 
 #: dashboards/admin/images/templates/images/properties/_edit.html:20
 #, python-format
 msgid "Update the custom property value for &quot;%(key)s&quot;"
-msgstr ""
+msgstr "&quot;%(key)s&quot;에대한 사용자 정의 속성 값을 업데이트했습니다."
 
 #: dashboards/admin/images/templates/images/properties/create.html:7
 #: dashboards/admin/images/templates/images/properties/edit.html:7
@@ -1717,19 +1717,19 @@ msgstr "이미지"
 
 #: dashboards/admin/images/templates/images/properties/edit.html:4
 msgid "Edit Image Custom Property"
-msgstr ""
+msgstr "이지 사용자 정의 속성 편집"
 
 #: dashboards/admin/images/templates/images/properties/index.html:3
 msgid "Image Custom Properties"
-msgstr ""
+msgstr "이미지 사용자 정의 속성"
 
 #: dashboards/admin/images/templates/images/properties/index.html:6
 msgid "Image Custom Properties: "
-msgstr ""
+msgstr "이미지 사용자 정의 속성:"
 
 #: dashboards/admin/images/templates/images/properties/index.html:6
 msgid "Image Custom Properties:"
-msgstr ""
+msgstr "이미지 사용자 정의 속성:"
 
 #: dashboards/admin/info/panel.py:27
 #: dashboards/admin/info/templates/info/index.html:3
@@ -2021,7 +2021,7 @@ msgstr "Cinder 서비스 목록을 가져올 수 없습니다."
 
 #: dashboards/admin/info/tabs.py:92
 msgid "Unable to get network agents info."
-msgstr ""
+msgstr "네트워크 에이전트 정보를 가져올 수 없습니다."
 
 #: dashboards/admin/info/tabs.py:99
 msgid "Unable to get network agents list."
@@ -2033,11 +2033,11 @@ msgstr "기본 Quotas"
 
 #: dashboards/admin/info/tabs.py:119
 msgid "Unable to get quota info."
-msgstr "Quota 정보를 얻을 수 있습니다."
+msgstr "Quota 정보를 가져올 수 없습니다."
 
 #: dashboards/admin/info/views.py:39
 msgid "Unable to retrieve version information."
-msgstr ""
+msgstr "버전 정보를 검색할 수 없습니다."
 
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 msgid "Reason"
@@ -2048,7 +2048,7 @@ msgstr ""
 msgid ""
 "Version: %(version_info)s\n"
 "      "
-msgstr ""
+msgstr "버전: %(version_info)s"
 
 #: dashboards/admin/instances/forms.py:27
 msgid "Current Host"
@@ -2138,25 +2138,25 @@ msgstr "프로젝트"
 
 #: dashboards/admin/instances/tables.py:91
 msgid "Host ="
-msgstr ""
+msgstr "호스트 ="
 
 #: dashboards/admin/instances/tables.py:93
 msgid "IPv4 Address ="
-msgstr ""
+msgstr "IPv4 주소 ="
 
 #: dashboards/admin/instances/tables.py:94
 msgid "IPv6 Address ="
-msgstr ""
+msgstr "IPv6 주소 ="
 
 #: dashboards/admin/instances/tables.py:96
 #: dashboards/project/instances/tables.py:787
 msgid "Image ID ="
-msgstr ""
+msgstr "이미지 ID ="
 
 #: dashboards/admin/instances/tables.py:97
 #: dashboards/project/instances/tables.py:788
 msgid "Flavor ID ="
-msgstr ""
+msgstr "Flavor ID ="
 
 #: dashboards/admin/instances/tables.py:139
 #: dashboards/project/access_and_security/floating_ips/tables.py:157
@@ -2458,7 +2458,7 @@ msgstr "모든 리소스에 대한 통계치"
 
 #: dashboards/admin/networks/forms.py:29
 msgid "Local"
-msgstr ""
+msgstr "로컬"
 
 #: dashboards/admin/networks/forms.py:29
 msgid "Flat"
@@ -2475,11 +2475,11 @@ msgstr "네트워크 프로필"
 
 #: dashboards/admin/networks/forms.py:48
 msgid "Provider Network Type"
-msgstr ""
+msgstr "Provider 네트워크 타입"
 
 #: dashboards/admin/networks/forms.py:49
 msgid "The physical mechanism by which the virtual network is implemented."
-msgstr ""
+msgstr "가상 네트워크를 이용하는 물리적 메커니즘을 구현합니다."
 
 #: dashboards/admin/networks/forms.py:57 dashboards/admin/networks/forms.py:64
 #: dashboards/admin/networks/forms.py:65
@@ -2688,7 +2688,7 @@ msgstr "관련 서브넷"
 #: dashboards/admin/networks/agents/tables.py:36
 #: dashboards/admin/networks/agents/tables.py:88
 msgid "DHCP Agents"
-msgstr ""
+msgstr "DHCP 에이전트"
 
 #: dashboards/admin/networks/views.py:57
 #: dashboards/project/images/templates/images/images/_detail_overview.html:18
@@ -2734,7 +2734,7 @@ msgstr "네트워크 \"%s\"의 세부 정보를 찾을 수 없습니다."
 
 #: dashboards/admin/networks/agents/forms.py:38
 msgid "New DHCP Agent"
-msgstr ""
+msgstr "새로운 DHCP 에이전트"
 
 #: dashboards/admin/networks/agents/forms.py:39
 msgid "Choose an DHCP Agent to attach to."
@@ -4323,7 +4323,7 @@ msgstr "데이터베이스"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:3
 msgid "Data Processing"
-msgstr "데이터 프로세싱"
+msgstr "데이터 처리"
 
 #: dashboards/project/access_and_security/panel.py:24
 #: dashboards/project/instances/workflows/create_instance.py:470
@@ -5484,7 +5484,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
 msgid "Template Overview"
-msgstr ""
+msgstr "템플릿 개요"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:20
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:46
@@ -5562,7 +5562,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
 msgid "Data Processing - Cluster Templates"
-msgstr ""
+msgstr "테이터 처리 - 클러스터 템플릿"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:22
 msgid "Add Node Group"
@@ -5680,7 +5680,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/tabs.py:134
 msgid " "
-msgstr ""
+msgstr " "
 
 #: dashboards/project/data_processing/clusters/tabs.py:163
 msgid "Unable to fetch instance details."
@@ -5710,29 +5710,29 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:21
 msgid " Done"
-msgstr ""
+msgstr "완료"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
 msgid "Select a plugin and Hadoop version for a new Cluster."
-msgstr ""
+msgstr "새로운 클러스터에대한 하둡 버전과 플러그인을 선택하십시오."
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:3
 msgid "Cluster Overview"
-msgstr ""
+msgstr "클러스터 개요"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:17
 msgid "Error Details"
-msgstr ""
+msgstr "에러 상세 정보"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
 #: dashboards/project/data_processing/clusters/workflows/create.py:79
 msgid "Base Image"
-msgstr ""
+msgstr "기본 이미지"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:39
 #: dashboards/project/data_processing/clusters/workflows/create.py:95
 msgid "Neutron Management Network"
-msgstr ""
+msgstr "Neutron 관리 네트워크"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:42
 #: dashboards/project/data_processing/clusters/workflows/create.py:82
@@ -5741,15 +5741,15 @@ msgstr "키패어"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
-msgstr ""
+msgstr "클러스터 인스턴스"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
 msgid "Number of Nodes"
-msgstr ""
+msgstr "노드 수"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:6
 msgid "Data Processing - Clusters"
-msgstr ""
+msgstr "데이터 처리 - 클러스터"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:6
@@ -5963,20 +5963,20 @@ msgstr "플러그인을 찾을 수 없습니다."
 
 #: dashboards/project/data_processing/data_plugins/views.py:40
 msgid "Unable to retrieve data processing plugins."
-msgstr "데이터 프로세싱 플러그인을 불러올 수 없습니다."
+msgstr "데이터 처리 플러그인을 불러올 수 없습니다."
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
-msgstr "데이터 프로세싱 플러그인 개요"
+msgstr "데이터 처리 플러그인 개요"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
 msgid "Data Processing Plugin Details"
-msgstr "데이터 프로세싱 플러그인 상세 정보"
+msgstr "데이터 처리 플러그인 상세 정보"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:6
 msgid "Data Processing Plugins"
-msgstr "데이터 프로세싱 플러그인"
+msgstr "데이터 처리 플러그인"
 
 #: dashboards/project/data_processing/data_sources/panel.py:22
 #: dashboards/project/data_processing/data_sources/tables.py:56
@@ -6172,7 +6172,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:10
 msgid "Data Processing internal database"
-msgstr ""
+msgstr "데이터 처리 내부 데이터베이스"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:15
 msgid ""

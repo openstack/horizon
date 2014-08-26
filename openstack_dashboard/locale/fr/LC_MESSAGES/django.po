@@ -17,6 +17,7 @@
 # CyrilB <cyril.belotti@laposte.net>, 2014
 # EVEILLARD <stephane.eveillard@gmail.com>, 2014
 # François Bureau, 2014
+# Frédéric <frosmont@free.fr>, 2014
 # Kamel_CW <yamani.kamel@gmail.com>, 2014
 # Léo Carré <carre.leo+transifex@gmail.com>, 2014
 # Andrew_Melim <nokostya.translation@gmail.com>, 2014
@@ -29,9 +30,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-24 09:46-0500\n"
-"PO-Revision-Date: 2014-08-25 01:40+0000\n"
-"Last-Translator: Bruno seznec <Brunoconsult@gmail.com>\n"
+"POT-Creation-Date: 2014-08-25 02:54-0500\n"
+"PO-Revision-Date: 2014-08-25 13:11+0000\n"
+"Last-Translator: Léo Carré <carre.leo+transifex@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5701,7 +5702,7 @@ msgstr "IP de management"
 
 #: dashboards/project/data_processing/clusters/tabs.py:134
 msgid " "
-msgstr ""
+msgstr " "
 
 #: dashboards/project/data_processing/clusters/tabs.py:163
 msgid "Unable to fetch instance details."
@@ -6185,7 +6186,7 @@ msgstr "Impossible d'obtenir le binaire de tâche : %(exc)s"
 msgid ""
 "<b>Important</b>:  The name that you give your job binary will be the name used in your job execution.\n"
 "  If your binary requires a particular name or extension (ie: \".jar\"), be sure to include it here."
-msgstr ""
+msgstr "<b>Important</b> : Le nom que vous donnez à votre tâche binaire sera le nom utilisé dans l'exécution de votre t.âche\nSi votre binaire nécessite un nom particulier ou une extension (ie: \".jar\"), assurez-vous de l'inclure ici."
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:8
 msgid "Select the storage type for your job binary."
@@ -6431,7 +6432,7 @@ msgstr "Choisissez ou créez votre binaire principal. Les bibliothèques additio
 msgid ""
 "For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are required to add one\n"
 "  or more \"libs\" for these jobs."
-msgstr ""
+msgstr "Pour MapReduce ou les tâches Action Java, les \"mains\" ne sont pas applicables. Vous devez en ajouter un\nou plusieurs \"libs\" pour ces tâches."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:23
 msgid "You may also enter an optional description for your job."
@@ -7275,7 +7276,7 @@ msgid ""
 "  clicking the button, or dragging and dropping. You can change the\n"
 "  NIC order by dragging and dropping as well.\n"
 "  "
-msgstr ""
+msgstr "\nDéplacer les réseaux depuis \"Réseaux disponibles\" à \"Sélectionner réseaux\" en \ncliquant sur le bouton, ou en faisant un glisser-déposer. Vous pouvez changer l'ordre\ndes NIC en faisant également un glisser-déposer."
 
 #: dashboards/project/databases/templates/databases/_launch_networks.html:8
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
@@ -8109,7 +8110,7 @@ msgid ""
 "valid and direct URL to the image binary; it must also be accessible to the "
 "Image Service. URLs that redirect or serve error pages will result in "
 "unusable images."
-msgstr ""
+msgstr "Si vous sélectionnez une image via une URL HTTP, le champ contenant la Location de l'Image DOIT être valide et diriger vers le binaire de l'image; il doit également être accessible au Service Image. Les URLs qui redirigent ou renvoie des pages d'erreur auront un résultat d'images inutilisables."
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:3
 msgid "Image Overview"
@@ -8451,7 +8452,7 @@ msgstr "Le mappage d'unité par bloc"
 
 #: dashboards/project/instances/tables.py:732
 msgid "Spawning"
-msgstr ""
+msgstr "Génération"
 
 #: dashboards/project/instances/tables.py:733
 msgid "Snapshotting"
@@ -8548,11 +8549,11 @@ msgstr "Reconstruction de mappage d'unité par bloc"
 
 #: dashboards/project/instances/tables.py:757
 msgid "Rebuild Spawning"
-msgstr ""
+msgstr "Génération d'une Reconstruction"
 
 #: dashboards/project/instances/tables.py:760
 msgid "Soft Deleting"
-msgstr ""
+msgstr "Suppression logicielle"
 
 #: dashboards/project/instances/tables.py:761
 msgid "Restoring"
@@ -8560,23 +8561,23 @@ msgstr "Restoration en cours"
 
 #: dashboards/project/instances/tables.py:762
 msgid "Shelving"
-msgstr ""
+msgstr "Mise en suspension"
 
 #: dashboards/project/instances/tables.py:763
 msgid "Shelving Image Pending Upload"
-msgstr ""
+msgstr "Mise en suspension de l'image en attente de téléversement"
 
 #: dashboards/project/instances/tables.py:764
 msgid "Shelving Image Uploading"
-msgstr ""
+msgstr "Mise en suspension du téléversement de l'image"
 
 #: dashboards/project/instances/tables.py:765
 msgid "Shelving Offloading"
-msgstr ""
+msgstr "En attente de déchargement"
 
 #: dashboards/project/instances/tables.py:766
 msgid "Unshelving"
-msgstr ""
+msgstr "Réveil"
 
 #: dashboards/project/instances/tables.py:770
 msgid "No State"
@@ -8588,7 +8589,7 @@ msgstr "En cours"
 
 #: dashboards/project/instances/tables.py:772
 msgid "Blocked"
-msgstr ""
+msgstr "Verrouillé"
 
 #: dashboards/project/instances/tables.py:774
 msgid "Shut Down"
@@ -8856,7 +8857,7 @@ msgstr "Le tableau ci-dessous montre les ressources liées aux quotas et utilis�
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
 "or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
+msgstr "Choisir un réseau parmi les réseaux disponibles pour sélectionner des réseaux par le bouton pousser ou glisser et déplacer, vous pouvez aussi changer l'ordre de NIC par glisser et déplacer. "
 
 #: dashboards/project/instances/templates/instances/_launch_volumes_help.html:3
 msgid ""
@@ -9686,11 +9687,11 @@ msgstr "Impossible d'ajouter le pool \"%s\"."
 
 #: dashboards/project/loadbalancers/workflows.py:157
 msgid "VIP Subnet"
-msgstr ""
+msgstr "Sous réseau VIP"
 
 #: dashboards/project/loadbalancers/workflows.py:160
 msgid "Specify a free IP address from the selected subnet"
-msgstr ""
+msgstr "Spécifier une adresse IP libre depuis le sous réseau sélectionné."
 
 #: dashboards/project/loadbalancers/workflows.py:211
 msgid "No Session Persistence"
@@ -9754,13 +9755,13 @@ msgstr "adresse du Membre"
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be modified later. Weight must be in the range 1 to 256."
-msgstr ""
+msgstr "Par relative des demandes servies par ce membre du pool comparées aux autres.\nLe même poids sera appliqué à tout les membres sélectionnés et peut être modifié plus tard. Le poids doit être compris entre 1 et 256."
 
 #: dashboards/project/loadbalancers/workflows.py:336
 msgid ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
 "all the selected members and can be modified later."
-msgstr ""
+msgstr "Entrer une valeur entière comprise entre 1 et 65535. Le même port sera utilisé pour tous les membres sélectionnés et pourra être modifié plus tard."
 
 #: dashboards/project/loadbalancers/workflows.py:347
 msgid "Select a Pool"
@@ -9795,7 +9796,7 @@ msgid ""
 "Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight for the selected member(s). Specify the port number the selected member(s) operate(s) on; e.g., 80. \n"
 "\n"
 "There can only be one port associated with each instance."
-msgstr ""
+msgstr "Ajouter membre(s) au pool sélectionné.\n\nChoisir un ou plusieurs instances listées à ajouter au pool en tant que membre(s). Assigner un poids au(x) membre(s) sélectionné(s). Spécifier le numéro de port que le(s) membre(s) sélectionné(s) utilise(nt); ex : 80\n\nIl ne peut y avoir qu'un seul port associé à chaque instance."
 
 #: dashboards/project/loadbalancers/workflows.py:422
 msgid "Added member(s)."
@@ -10376,7 +10377,7 @@ msgstr "Serveur de noms de domaine (DNS)"
 
 #: dashboards/project/overview/views.py:34
 msgid "Uptime (Seconds)"
-msgstr ""
+msgstr "Durée de fonctionnement (Secondes)"
 
 #: dashboards/project/routers/forms.py:34
 #: dashboards/project/routers/ports/forms.py:35
@@ -11123,14 +11124,14 @@ msgstr "Créer un volume de sauvegarde"
 msgid ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
-msgstr ""
+msgstr "Les volumes de sauvegarde sont stockés en utilisant le service Object Storage. Vous devez avoir ce service activé afin de créer une sauvegarde."
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:19
 msgid ""
 "If no container name is provided, a default container named volumebackups "
 "will be provisioned for you. Backups will be the same size as the volume "
 "they originate from."
-msgstr ""
+msgstr "Si aucun nom de conteneur n'est fourni, un nom par défaut nommé volumebackups vous sera provisionné. Les sauvegardes auront la même taille que le volume dont ils sont originaires."
 
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:4
 msgid "Volume Backup Overview"
@@ -11311,7 +11312,7 @@ msgstr "Utiliser un volume comme source."
 
 #: dashboards/project/volumes/volumes/forms.py:87
 msgid "No volume type"
-msgstr ""
+msgstr "Pas de type de volume"
 
 #: dashboards/project/volumes/volumes/forms.py:106
 #, python-format
