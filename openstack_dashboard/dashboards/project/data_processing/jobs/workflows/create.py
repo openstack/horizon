@@ -67,10 +67,11 @@ class GeneralConfigAction(workflows.Action):
                                       widget=forms.Textarea)
 
     def populate_job_type_choices(self, request, context):
-        choices = [("Pig", "Pig"), ("Hive", "Hive"),
-                   ("MapReduce", "MapReduce"),
-                   ("MapReduce.Streaming", "Streaming MapReduce"),
-                   ("Java", "Java Action")]
+        choices = [("Pig", _("Pig")), ("Hive", _("Hive")),
+                   ("Spark", _("Spark")),
+                   ("MapReduce", _("MapReduce")),
+                   ("MapReduce.Streaming", _("Streaming MapReduce")),
+                   ("Java", _("Java Action"))]
         return choices
 
     def populate_main_binary_choices(self, request, context):
