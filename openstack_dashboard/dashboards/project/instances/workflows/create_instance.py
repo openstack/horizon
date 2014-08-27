@@ -178,6 +178,42 @@ class SetInstanceDetailsAction(workflows.Action):
             params = {'req': count,
                       'avail': available_count}
             raise forms.ValidationError(error_message % params)
+        try:
+            flavor_id = cleaned_data.get('flavor')
+            # We want to retrieve details for a given flavor,
+            # however flavor_list uses a memoized decorator
+            # so it is used instead of flavor_get to reduce the number
+            # of API calls.
+            flavors = instance_utils.flavor_list(self.request)
+            flavor = [x for x in flavors if x.id == flavor_id][0]
+        except IndexError:
+            flavor = None
+
+        count_error = []
+        # Validate cores and ram.
+        available_cores = usages['cores']['available']
+        if flavor and available_cores < count * flavor.vcpus:
+            count_error.append(_("Cores(Available: %(avail)s, "
+                                 "Requested: %(req)s)")
+                    % {'avail': available_cores,
+                       'req': count * flavor.vcpus})
+
+        available_ram = usages['ram']['available']
+        if flavor and available_ram < count * flavor.ram:
+            count_error.append(_("RAM(Available: %(avail)s, "
+                                 "Requested: %(req)s)")
+                    % {'avail': available_ram,
+                       'req': count * flavor.ram})
+
+        if count_error:
+            value_str = ", ".join(count_error)
+            msg = (_('The requested instance cannot be launched. '
+                     'The following requested resource(s) exceed '
+                     'quota(s): %s.') % value_str)
+            if count == 1:
+                self._errors['flavor'] = self.error_class([msg])
+            else:
+                self._errors['count'] = self.error_class([msg])
 
         # Validate our instance source.
         source_type = self.data.get('source_type', None)
@@ -208,17 +244,6 @@ class SetInstanceDetailsAction(workflows.Action):
                     image = [x for x in images if x.id == image_id][0]
                 except IndexError:
                     image = None
-
-                try:
-                    flavor_id = cleaned_data.get('flavor')
-                    # We want to retrieve details for a given flavor,
-                    # however flavor_list uses a memoized decorator
-                    # so it is used instead of flavor_get to reduce the number
-                    # of API calls.
-                    flavors = instance_utils.flavor_list(self.request)
-                    flavor = [x for x in flavors if x.id == flavor_id][0]
-                except IndexError:
-                    flavor = None
 
                 if image and flavor:
                     props_mapping = (("min_ram", "ram"), ("min_disk", "disk"))
