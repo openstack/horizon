@@ -216,6 +216,27 @@ class EditVolume(tables.LinkAction):
         return volume.status in ("available", "in-use")
 
 
+class RetypeVolume(tables.LinkAction):
+    name = "retype"
+    verbose_name = _("Change Volume Type")
+    url = "horizon:project:volumes:volumes:retype"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("volume", "volume:retype"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, "os-vol-tenant-attr:tenant_id", None)
+
+        return {"project_id": project_id}
+
+    def allowed(self, request, volume=None):
+        retype_supported = cinder.retype_supported()
+
+        return volume.status in ("available", "in-use") and retype_supported
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -342,7 +363,8 @@ class VolumesTable(VolumesTableBase):
         row_class = UpdateRow
         table_actions = (CreateVolume, DeleteVolume, VolumesFilterAction)
         row_actions = (EditVolume, ExtendVolume, LaunchVolume, EditAttachments,
-                       CreateSnapshot, CreateBackup, DeleteVolume)
+                       CreateSnapshot, CreateBackup, RetypeVolume,
+                       DeleteVolume)
 
 
 class DetachVolume(tables.BatchAction):

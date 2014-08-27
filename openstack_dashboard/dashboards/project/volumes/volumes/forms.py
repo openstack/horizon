@@ -543,3 +543,69 @@ class ExtendForm(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _('Unable to extend volume.'),
                               redirect=redirect)
+
+
+class RetypeForm(forms.SelfHandlingForm):
+    name = forms.CharField(label=_('Volume Name'),
+                           widget=forms.TextInput(
+                               attrs={'readonly': 'readonly'}))
+    volume_type = forms.ChoiceField(label=_('Type'),
+                                    required=True)
+    MIGRATION_POLICY_CHOICES = [('never', _('Never')),
+                                ('on-demand', _('On Demand'))]
+    migration_policy = forms.ChoiceField(label=_('Migration Policy'),
+                                         widget=forms.Select(),
+                                         choices=(MIGRATION_POLICY_CHOICES),
+                                         initial='never',
+                                         required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(RetypeForm, self).__init__(request, *args, **kwargs)
+
+        try:
+            volume_types = cinder.volume_type_list(request)
+            self.fields['volume_type'].choices = [(t.name, t.name)
+                                                   for t in volume_types]
+            self.fields['volume_type'].initial = self.initial['volume_type']
+
+        except Exception:
+            redirect_url = reverse("horizon:project:volumes:index")
+            error_message = _('Unable to retrieve the volume type list.')
+            exceptions.handle(request, error_message, redirect=redirect_url)
+
+    def clean_volume_type(self):
+        cleaned_volume_type = self.cleaned_data['volume_type']
+        origin_type = self.initial['volume_type']
+
+        if cleaned_volume_type == origin_type:
+            error_message = _(
+                'New volume type must be different from '
+                'the original volume type "%s".') % cleaned_volume_type
+            raise ValidationError(error_message)
+
+        return cleaned_volume_type
+
+    def handle(self, request, data):
+        volume_id = self.initial['id']
+
+        try:
+            cinder.volume_retype(request,
+                                 volume_id,
+                                 data['volume_type'],
+                                 data['migration_policy'])
+
+            message = _(
+                'Successfully sent the request to change the volume '
+                'type to "%(vtype)s" for volume: "%(name)s"')
+            params = {'name': data['name'],
+                      'vtype': data['volume_type']}
+            messages.info(request, message % params)
+
+            return True
+        except Exception:
+            error_message = _(
+                'Unable to change the volume type for volume: "%s"') \
+                % data['name']
+            exceptions.handle(request, error_message)
+
+            return False

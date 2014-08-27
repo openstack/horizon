@@ -165,3 +165,18 @@ class CinderApiVersionTests(test.TestCase):
         self.assertIn('description', ret_data.keys())
         self.assertNotIn('display_name', ret_data.keys())
         self.assertNotIn('display_description', ret_data.keys())
+
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 1})
+    def test_version_get_1(self):
+        version = api.cinder.version_get()
+        self.assertEqual(version, 1)
+
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
+    def test_version_get_2(self):
+        version = api.cinder.version_get()
+        self.assertEqual(version, 2)
+
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 1})
+    def test_retype_not_supported(self):
+        retype_supported = api.cinder.retype_supported()
+        self.assertFalse(retype_supported)
