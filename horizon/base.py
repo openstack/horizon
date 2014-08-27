@@ -889,10 +889,11 @@ class Site(Registry, HorizonComponent):
                 except ImportError:
                     LOG.warning("Could not load panel: %s", mod_path)
                     return
-
                 panel = getattr(mod, panel_cls)
                 dashboard_cls.register(panel)
                 if panel_group:
+                    dashboard_cls.get_panel_group(panel_group).__class__.\
+                        panels.append(panel.slug)
                     dashboard_cls.get_panel_group(panel_group).\
                         panels.append(panel.slug)
                 else:
@@ -923,7 +924,8 @@ class Site(Registry, HorizonComponent):
             panel_group = type(panel_group_slug,
                                (PanelGroup, ),
                                {'slug': panel_group_slug,
-                                'name': panel_group_name},)
+                                'name': panel_group_name,
+                                'panels': []},)
             # Add the panel group to dashboard
             panels = list(dashboard_cls.panels)
             panels.append(panel_group)
