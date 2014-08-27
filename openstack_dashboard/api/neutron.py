@@ -34,6 +34,7 @@ from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
 from openstack_dashboard.api import nova
+from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -898,3 +899,31 @@ def is_port_profiles_supported():
     profile_support = network_config.get('profile_support', None)
     if str(profile_support).lower() == 'cisco':
         return True
+
+
+def get_dvr_permission(request, operation):
+    """Check if "distributed" field can be displayed.
+
+    :param request: Request Object
+    :param operation: Operation type. The valid value is "get" or "create"
+    """
+    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+    if not network_config.get('enable_distributed_router', False):
+        return False
+    policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+    if operation not in ("get", "create"):
+        raise ValueError(_("The 'operation' parameter for get_dvr_permission "
+                           "is invalid. It should be 'get' or 'create'."))
+    role = (("network", "%s_router:distributed" % operation),)
+    if policy_check:
+        has_permission = policy.check(role, request)
+    else:
+        has_permission = True
+    if not has_permission:
+        return False
+    try:
+        return is_extension_supported(request, 'dvr')
+    except Exception:
+        msg = _('Failed to check Neutron "dvr" extension is not supported')
+        LOG.info(msg)
+        return False

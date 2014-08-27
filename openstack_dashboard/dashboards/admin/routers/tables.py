@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -51,20 +50,11 @@ class UpdateRow(tables.Row):
         return router
 
 
-class RoutersTable(tables.DataTable):
+class RoutersTable(r_tables.RoutersTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:admin:routers:detail")
-    status = tables.Column("status",
-                           filters=(title,),
-                           verbose_name=_("Status"),
-                           status=True)
-    ext_net = tables.Column(r_tables.get_external_network,
-                            verbose_name=_("External Network"))
-
-    def get_object_display(self, obj):
-        return obj.name
 
     class Meta:
         name = "Routers"
@@ -73,3 +63,4 @@ class RoutersTable(tables.DataTable):
         row_class = UpdateRow
         table_actions = (DeleteRouter,)
         row_actions = (DeleteRouter,)
+        Columns = ('tenant', 'name', 'status', 'distributed', 'ext_net')

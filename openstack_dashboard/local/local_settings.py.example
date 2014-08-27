@@ -183,6 +183,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_quotas': True,
     'enable_vpn': False,
     'enable_ipv6': True,
+    'enable_distributed_router': True,
     # The profile_support option is used to detect if an external router can be
     # configured via the dashboard. When using specific plugins the
     # profile_support can be turned on if needed.

@@ -109,6 +109,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_quotas': False,  # Enabled in specific tests only
     'enable_vpn': True,
     'profile_support': None,
+    'enable_distributed_router': False,
     # 'profile_support': 'cisco'
 }
 
