@@ -799,6 +799,13 @@ class DataTableOptions(object):
         :class:`~horizon.tables.Action` class. These actions will handle tasks
         such as bulk deletion, etc. for multiple objects at once.
 
+    .. attribute:: table_actions_menu
+
+        A list of action classes similar to ``table_actions`` except these
+        will be displayed in a menu instead of as individual buttons. Actions
+        from this list will take precedence over actions from the
+        ``table_actions`` list.
+
     .. attribute:: row_actions
 
         A list similar to ``table_actions`` except tailored to appear for
@@ -909,6 +916,7 @@ class DataTableOptions(object):
         self.status_columns = getattr(options, 'status_columns', [])
         self.table_actions = getattr(options, 'table_actions', [])
         self.row_actions = getattr(options, 'row_actions', [])
+        self.table_actions_menu = getattr(options, 'table_actions_menu', [])
         self.cell_class = getattr(options, 'cell_class', Cell)
         self.row_class = getattr(options, 'row_class', Row)
         self.column_class = getattr(options, 'column_class', Column)
@@ -1037,7 +1045,8 @@ class DataTableMetaclass(type):
         # Gather and register actions for later access since we only want
         # to instantiate them once.
         # (list() call gives deterministic sort order, which sets don't have.)
-        actions = list(set(opts.row_actions) | set(opts.table_actions))
+        actions = list(set(opts.row_actions) | set(opts.table_actions) |
+                       set(opts.table_actions_menu))
         actions.sort(key=attrgetter('name'))
         actions_dict = SortedDict([(action.name, action())
                                    for action in actions])
@@ -1277,8 +1286,12 @@ class DataTable(object):
 
     def get_table_actions(self):
         """Returns a list of the action instances for this table."""
-        bound_actions = [self.base_actions[action.name] for
-                         action in self._meta.table_actions]
+        button_actions = [self.base_actions[action.name] for action in
+                          self._meta.table_actions if
+                          action not in self._meta.table_actions_menu]
+        menu_actions = [self.base_actions[action.name] for
+                        action in self._meta.table_actions_menu]
+        bound_actions = button_actions + menu_actions
         return [action for action in bound_actions if
                 self._filter_action(action, self.request)]
 
@@ -1321,10 +1334,17 @@ class DataTable(object):
         template_path = self._meta.table_actions_template
         table_actions_template = template.loader.get_template(template_path)
         bound_actions = self.get_table_actions()
-        extra_context = {"table_actions": bound_actions}
-        if self._meta.filter and \
-           self._filter_action(self._meta._filter_action, self.request):
+        extra_context = {"table_actions": bound_actions,
+                         "table_actions_buttons": [],
+                         "table_actions_menu": []}
+        if self._meta.filter and (
+                self._filter_action(self._meta._filter_action, self.request)):
             extra_context["filter"] = self._meta._filter_action
+        for action in bound_actions:
+            if action.__class__ in self._meta.table_actions_menu:
+                extra_context['table_actions_menu'].append(action)
+            elif action != extra_context.get('filter'):
+                extra_context['table_actions_buttons'].append(action)
         context = template.RequestContext(self.request, extra_context)
         self.set_multiselect_column_visibility(len(bound_actions) > 0)
         return table_actions_template.render(context)

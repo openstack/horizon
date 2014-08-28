@@ -658,6 +658,23 @@ table form {
   }
 }
 
+.table_actions .table_actions_menu {
+  display: inline-block;
+  position: relative;
+  margin-left: 5px;
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    a, button {
+      margin-left: 0px;
+      padding-left: 22px;
+      .glyphicon {
+        margin-left: -14px;
+      }
+    }
+  }
+}
+
 td.no-transition {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -1103,7 +1120,10 @@ td.actions_column .btn-group {
 
 td.actions_column .row_actions a,
 td.actions_column .row_actions input,
-td.actions_column .row_actions button {
+td.actions_column .row_actions button,
+div.table_actions_menu .dropdown-menu a,
+div.table_actions_menu .dropdown-menu input,
+div.table_actions_menu .dropdown-menu button {
   background: none;
   float: none;
   display: block;
@@ -1154,7 +1174,9 @@ td.actions_column .btn-action-required {
 }
 
 td.actions_column .dropdown-menu a:hover,
-td.actions_column .dropdown-menu button:hover {
+td.actions_column .dropdown-menu button:hover,
+div.table_actions_menu .dropdown-menu a:hover,
+div.table_actions_menu .dropdown-menu button:hover {
   background-color: $gray-lighter;
 }
 .dropdown-menu .btn.btn-danger {

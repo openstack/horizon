@@ -28,10 +28,27 @@
     {% endif %}
 {% endblock table_filter %}
 {% block table_actions %}
-    {% for action in table_actions %}
-        {% if action != filter %}
-            {%  include "horizon/common/_data_table_table_action.html" %}
+  {% for action in table_actions_buttons %}
+    {%  include "horizon/common/_data_table_table_action.html" %}
+  {% endfor %}
+  {% if table_actions_menu|length > 0 %}
+    <div class="btn-group table_actions_menu">
+      <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" href="#">
+        {% if table_actions_buttons|length > 0 %}
+          {% trans "More Actions" %}
+        {% else %}
+          {% trans "Actions" %}
         {% endif %}
-    {% endfor %}
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu clearfix">
+      {% for action in table_actions_menu %}
+        <li class="clearfix">
+          {% include "horizon/common/_data_table_table_action.html" %}
+        </li>
+      {% endfor %}
+      </ul>
     </div>
+  {% endif %}
 {% endblock table_actions %}
+</div>

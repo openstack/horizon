@@ -189,7 +189,8 @@ horizon.datatables.confirm = function (action) {
   closest_table_id = $(action).closest("table").attr("id");
   // Check if data-display attribute is available
   if ($("#"+closest_table_id+" tr[data-display]").length > 0) {
-    if($(action).closest("div").hasClass("table_actions")) {
+    var actions_div = $(action).closest("div");
+    if(actions_div.hasClass("table_actions") || actions_div.hasClass("table_actions_menu")) {
       // One or more checkboxes selected
       $("#"+closest_table_id+" tr[data-display]").has(".table-row-multi-select:checkbox:checked").each(function() {
         name_array.push(" \"" + $(this).attr("data-display") + "\"");
