@@ -39,10 +39,10 @@ class CreateDomainInfoAction(workflows.Action):
                                  initial=True)
 
     class Meta:
-        name = _("Domain Info")
+        name = _("Domain Information")
         slug = "create_domain"
-        help_text = _("From here you can create a new domain to organize "
-                      "projects, groups and users.")
+        help_text = _("Domains provide separation between users and "
+                      "infrastructure used by different organizations.")
 
 
 class CreateDomainInfo(workflows.Step):
@@ -179,9 +179,12 @@ class CreateDomain(workflows.Workflow):
 class UpdateDomainInfoAction(CreateDomainInfoAction):
 
     class Meta:
-        name = _("Domain Info")
+        name = _("Domain Information")
         slug = 'update_domain'
-        help_text = _("From here you can edit the domain details.")
+        help_text = _("Domains provide separation between users and "
+                      "infrastructure used by different organizations. "
+                      "Edit the domain details to add or remove "
+                      "groups in the domain.")
 
 
 class UpdateDomainInfo(workflows.Step):

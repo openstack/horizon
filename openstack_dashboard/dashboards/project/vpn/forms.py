@@ -90,7 +90,7 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
     lifetime_value = forms.IntegerField(
         min_value=60,
         label=_("Lifetime value for IKE keys"),
-        help_text=_("Equal to or more than 60"))
+        help_text=_("Equal to or greater than 60"))
     pfs = forms.ChoiceField(
         label=_("Perfect Forward Secrecy"),
         choices=[('group2', _('group2')),
@@ -161,7 +161,7 @@ class UpdateIPSecPolicy(forms.SelfHandlingForm):
     lifetime_value = forms.IntegerField(
         min_value=60,
         label=_("Lifetime value"),
-        help_text=_("Equal to or more than 60"))
+        help_text=_("Equal to or greater than 60"))
     pfs = forms.ChoiceField(
         label=_("Perfect Forward Secrecy"),
         choices=[('group2', _('group2')),
@@ -233,8 +233,9 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
     mtu = forms.IntegerField(
         min_value=68,
         label=_("Maximum Transmission Unit size for the connection"),
-        help_text=_("Equal to or more than 68 if the local subnet is IPv4. "
-                    "Equal to or more than 1280 if the local subnet is IPv6."))
+        help_text=_("Equal to or greater than 68 if the local subnet is IPv4. "
+                    "Equal to or greater than 1280 if the local subnet "
+                    "is IPv6."))
     dpd_action = forms.ChoiceField(
         label=_("Dead peer detection actions"),
         choices=[('hold', _('hold')),

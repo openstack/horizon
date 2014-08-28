@@ -86,8 +86,7 @@ class UpdateProjectQuotaAction(workflows.Action):
     class Meta:
         name = _("Quota")
         slug = 'update_quotas'
-        help_text = _("From here you can set quotas "
-                      "(max limits) for the project.")
+        help_text = _("Set maximum quotas for the project.")
 
 
 class UpdateProjectQuota(workflows.Step):
@@ -124,9 +123,8 @@ class CreateProjectInfoAction(workflows.Action):
             self.fields["domain_name"].widget = readonlyInput
 
     class Meta:
-        name = _("Project Info")
-        help_text = _("From here you can create a new "
-                      "project to organize users.")
+        name = _("Project Information")
+        help_text = _("Create a project to organize users.")
 
 
 class CreateProjectInfo(workflows.Step):
@@ -472,9 +470,9 @@ class UpdateProjectInfoAction(CreateProjectInfoAction):
     enabled = forms.BooleanField(required=False, label=_("Enabled"))
 
     class Meta:
-        name = _("Project Info")
+        name = _("Project Information")
         slug = 'update_info'
-        help_text = _("From here you can edit the project details.")
+        help_text = _("Edit the project details.")
 
 
 class UpdateProjectInfo(workflows.Step):

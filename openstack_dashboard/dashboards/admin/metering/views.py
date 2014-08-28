@@ -208,8 +208,8 @@ def _calc_date_args(date_from, date_to, date_options):
             else:
                 date_to = datetime.now()
         except Exception:
-            raise ValueError("The dates haven't been "
-                             "recognized")
+            raise ValueError("The dates are not "
+                             "recognized.")
     else:
         try:
             date_from = datetime.now() - timedelta(days=int(date_options))

@@ -229,11 +229,10 @@ class AddVipAction(workflows.Action):
         name = _("Specify VIP")
         permissions = ('openstack.services.network',)
         help_text = _("Create a VIP for this pool. "
-                      "Assign a name and description for the VIP. "
-                      "Specify an IP address and port for the VIP. "
+                      "Assign a name, description, IP address, port, "
+                      "and maximum connections allowed for the VIP. "
                       "Choose the protocol and session persistence "
-                      "method for the VIP."
-                      "Specify the max connections allowed. "
+                      "method for the VIP. "
                       "Admin State is UP (checked) by default.")
 
 
@@ -398,10 +397,9 @@ class AddMemberAction(workflows.Action):
         help_text = _("Add member(s) to the selected pool.\n\n"
                       "Choose one or more listed instances to be "
                       "added to the pool as member(s). "
-                      "Assign a numeric weight for the selected member(s). "
-                      "Specify the port number the selected member(s) "
-                      "operate(s) on; e.g., 80. \n\n"
-                      "There can only be one port associated with "
+                      "Assign a numeric weight and port number for the "
+                      "selected member(s) to operate(s) on; e.g., 80. \n\n"
+                      "Only one port can be associated with "
                       "each instance.")
 
 

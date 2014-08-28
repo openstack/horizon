@@ -49,8 +49,8 @@ class SetFlavorChoiceAction(workflows.Action):
         flavor = cleaned_data.get('flavor', None)
 
         if flavor is None or flavor == cleaned_data['old_flavor_id']:
-            raise forms.ValidationError(_('Please  choose a new flavor that '
-                                          'can not be same as the old one.'))
+            raise forms.ValidationError(_('Please choose a new flavor that '
+                                          'is not the same as the old one.'))
         return cleaned_data
 
     def populate_flavor_choices(self, request, context):
