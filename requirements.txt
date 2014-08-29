@@ -18,7 +18,7 @@ kombu>=2.4.8
 # for SECURE_KEY generation
 lockfile>=0.8
 netaddr>=0.7.6
-pyscss>=1.2.0  # MIT License
+pyScss>=1.2.0  # MIT License
 python-ceilometerclient>=1.0.6
 python-cinderclient>=1.0.7
 python-glanceclient>=0.13.1
