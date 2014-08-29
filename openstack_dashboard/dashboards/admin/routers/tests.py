@@ -60,12 +60,15 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
 
-    @test.create_stubs({api.neutron: ('router_list', 'network_list')})
+    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+                        api.keystone: ('tenant_list',)})
     def test_set_external_network_empty(self):
         router = self.routers.first()
         api.neutron.router_list(
             IsA(http.HttpRequest),
             search_opts=None).AndReturn([router])
+        api.keystone.tenant_list(IsA(http.HttpRequest))\
+             .AndReturn([self.tenants.list(), False])
         self._mock_external_network_list(alter_ids=True)
         self.mox.ReplayAll()
 
@@ -76,4 +79,4 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertIn('(Not Found)',
                       table_data[0]['external_gateway_info']['network'])
         self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
-        self.assertMessageCount(res, error=2)
+        self.assertMessageCount(res, error=1)
