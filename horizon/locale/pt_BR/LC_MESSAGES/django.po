@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Lucas Ribeiro <lucasribeiro1990@gmail.com>, 2014
 # Marcelo Dieder <marcelodieder@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 00:55-0500\n"
-"PO-Revision-Date: 2014-08-19 13:32+0000\n"
+"POT-Creation-Date: 2014-08-28 15:08-0500\n"
+"PO-Revision-Date: 2014-08-28 14:43+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +75,7 @@ msgstr "Versão inválida para o endereço IP"
 msgid "Invalid subnet mask"
 msgstr "Máscara de sub-rede inválida"
 
-#: tables/actions.py:457
+#: tables/actions.py:458
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:12
@@ -82,50 +83,50 @@ msgstr "Máscara de sub-rede inválida"
 msgid "Filter"
 msgstr "Filtro"
 
-#: tables/actions.py:661
+#: tables/actions.py:662
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663
+#: tables/actions.py:664
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:693 tables/base.py:1478
+#: tables/actions.py:694 tables/base.py:1498
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:722
+#: tables/actions.py:723
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Você não possui permissão para %(action)s: %(objs)s"
 
-#: tables/actions.py:729
+#: tables/actions.py:730
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Não foi possível %(action)s: %(objs)s"
 
-#: tables/actions.py:735
+#: tables/actions.py:736
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:777
+#: tables/actions.py:778
 msgid "Delete"
 msgstr "Excluir"
 
-#: tables/actions.py:778
+#: tables/actions.py:779
 msgid "Deleted"
 msgstr "Excluído"
 
-#: tables/actions.py:810
+#: tables/actions.py:811
 msgid "Update"
 msgstr "Atualizar"
 
-#: tables/actions.py:811
+#: tables/actions.py:812
 msgid "Updated"
 msgstr "Atualizado"
 
@@ -134,20 +135,21 @@ msgstr "Atualizado"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "O Atributo %(attr)s não existe em %(obj)s."
 
-#: tables/base.py:923
+#: tables/base.py:931
 msgid "No items to display."
 msgstr "Sem ítens para exibir."
 
-#: tables/base.py:1030
+#: tables/base.py:1038
+#: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Ações"
 
-#: tables/base.py:1254
+#: tables/base.py:1263
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Não foi encontrada correspondência para o ID \"%s\"."
 
-#: tables/base.py:1394
+#: tables/base.py:1414
 msgid "Please select a row before taking that action."
 msgstr "Por favor selecione uma linha antes de realizar esta ação."
 
@@ -220,6 +222,10 @@ msgstr "&laquo;&nbsp;Prev"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
+msgstr "Next&nbsp;&raquo;"
+
+#: templates/horizon/common/_data_table_table_actions.html:38
+msgid "More Actions"
 msgstr ""
 
 #: templates/horizon/common/_formset_table.html:35
@@ -296,14 +302,14 @@ msgstr "Selecione um período para consultar sua utilização"
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr ""
+msgstr "\n      <label>De:</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr ""
+msgstr "\n      <label>Para:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "Submit"

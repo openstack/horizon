@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 00:55-0500\n"
-"PO-Revision-Date: 2014-08-19 13:32+0000\n"
+"POT-Creation-Date: 2014-08-28 15:08-0500\n"
+"PO-Revision-Date: 2014-08-28 14:43+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Versione dell'indirizzo IP non valida"
 msgid "Invalid subnet mask"
 msgstr "Maschera sottorete non valida."
 
-#: tables/actions.py:457
+#: tables/actions.py:458
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:12
@@ -81,50 +81,50 @@ msgstr "Maschera sottorete non valida."
 msgid "Filter"
 msgstr "Filtro"
 
-#: tables/actions.py:661
+#: tables/actions.py:662
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:663
+#: tables/actions.py:664
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:693 tables/base.py:1478
+#: tables/actions.py:694 tables/base.py:1498
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:722
+#: tables/actions.py:723
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Non si è autorizzati a %(action)s: %(objs)s"
 
-#: tables/actions.py:729
+#: tables/actions.py:730
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Impossibile %(action)s: %(objs)s"
 
-#: tables/actions.py:735
+#: tables/actions.py:736
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:777
+#: tables/actions.py:778
 msgid "Delete"
 msgstr "Elimina"
 
-#: tables/actions.py:778
+#: tables/actions.py:779
 msgid "Deleted"
 msgstr "Eliminato"
 
-#: tables/actions.py:810
+#: tables/actions.py:811
 msgid "Update"
 msgstr "Aggiorna"
 
-#: tables/actions.py:811
+#: tables/actions.py:812
 msgid "Updated"
 msgstr "Aggiornato"
 
@@ -133,20 +133,21 @@ msgstr "Aggiornato"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "L'attributo %(attr)s non esiste in %(obj)s"
 
-#: tables/base.py:923
+#: tables/base.py:931
 msgid "No items to display."
 msgstr "Nessun elemento da visualizzare"
 
-#: tables/base.py:1030
+#: tables/base.py:1038
+#: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Azioni"
 
-#: tables/base.py:1254
+#: tables/base.py:1263
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nessuna corrispondenza restituita per l'identificativo \"%s\""
 
-#: tables/base.py:1394
+#: tables/base.py:1414
 msgid "Please select a row before taking that action."
 msgstr "Per cortesia, selezionare una riga prima di eseguire tale azione."
 
@@ -219,6 +220,10 @@ msgstr ""
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
+msgstr ""
+
+#: templates/horizon/common/_data_table_table_actions.html:38
+msgid "More Actions"
 msgstr ""
 
 #: templates/horizon/common/_formset_table.html:35
