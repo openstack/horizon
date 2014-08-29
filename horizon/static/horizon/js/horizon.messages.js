@@ -4,16 +4,24 @@ horizon.alert = function (type, message, extra_tags) {
   if (typeof(extra_tags) !== "undefined" && $.inArray('safe', extra_tags.split(' ')) !== -1) {
     safe = true;
   }
+
+  var type_display = {
+    'danger': gettext("Danger: "),
+    'warning': gettext("Warning: "),
+    'info': gettext("Notice: "),
+    'success': gettext("Success: "),
+    'error': gettext("Error: ")
+  }[type];
+
+  // the "error" type needs to be rewritten as "danger" for correct styling
+  if (type === 'error') {
+    type = 'danger';
+  }
+
   var template = horizon.templates.compiled_templates["#alert_message_template"],
     params = {
       "type": type,
-      "type_display": {
-        'danger': gettext("Danger: "),
-        'warning': gettext("Warning: "),
-        'info': gettext("Notice: "),
-        'success': gettext("Success: "),
-        'error': gettext("Error: ")
-      }[type],
+      "type_display": type_display,
       "message": message,
       "safe": safe
     };
