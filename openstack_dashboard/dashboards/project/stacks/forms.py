@@ -381,7 +381,7 @@ class CreateStackForm(forms.SelfHandlingForm):
 
         try:
             api.heat.stack_create(self.request, **fields)
-            messages.success(request, _("Stack creation started."))
+            messages.info(request, _("Stack creation started."))
             return True
         except Exception:
             exceptions.handle(request)
@@ -430,7 +430,7 @@ class EditStackForm(CreateStackForm):
 
         try:
             api.heat.stack_update(self.request, stack_id=stack_id, **fields)
-            messages.success(request, _("Stack update started."))
+            messages.info(request, _("Stack update started."))
             return True
         except Exception:
             exceptions.handle(request)

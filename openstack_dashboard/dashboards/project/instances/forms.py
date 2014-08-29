@@ -107,7 +107,7 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         try:
             api.nova.server_rebuild(request, instance, image, password,
                                     disk_config)
-            messages.success(request, _('Rebuilding instance %s.') % instance)
+            messages.info(request, _('Rebuilding instance %s.') % instance)
         except Exception:
             redirect = reverse('horizon:project:instances:index')
             exceptions.handle(request, _("Unable to rebuild instance."),

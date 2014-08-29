@@ -869,7 +869,8 @@ class LaunchInstance(workflows.Workflow):
     slug = "launch_instance"
     name = _("Launch Instance")
     finalize_button_name = _("Launch")
-    success_message = _('Launched %(count)s named "%(name)s".')
+    success_message = _('Request for launching %(count)s named "%(name)s" '
+                        'has been submitted.')
     failure_message = _('Unable to launch %(count)s named "%(name)s".')
     success_url = "horizon:project:instances:index"
     multipart = True

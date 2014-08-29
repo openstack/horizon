@@ -54,7 +54,7 @@ class CreateBackupForm(forms.SelfHandlingForm):
                                                      data['description'])
 
             message = _('Creating volume backup "%s"') % data['name']
-            messages.success(request, message)
+            messages.info(request, message)
             return backup
 
         except Exception:
@@ -98,10 +98,11 @@ class RestoreBackupForm(forms.SelfHandlingForm):
             # Needed for cases when a new volume is created.
             volume_id = restore.volume_id
 
-            message = _('Successfully restored backup %(backup_name)s '
-                        'to volume with id: %(volume_id)s')
-            messages.success(request, message % {'backup_name': backup_name,
-                                                 'volume_id': volume_id})
+            message = _('Request for restoring backup %(backup_name)s '
+                        'to volume with id: %(volume_id)s '
+                        'has been submitted.')
+            messages.info(request, message % {'backup_name': backup_name,
+                                              'volume_id': volume_id})
             return restore
         except Exception:
             msg = _('Unable to restore backup.')

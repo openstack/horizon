@@ -30,7 +30,7 @@ class TestImagesBasic(helpers.TestCase):
                                      image_file=local_file)
         else:
             images_page.create_image(IMAGE_NAME)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(images_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(images_page.is_image_present(IMAGE_NAME))
         self.assertTrue(images_page.is_image_active(IMAGE_NAME))
