@@ -20,12 +20,14 @@ from horizon import exceptions
 from horizon import forms
 from horizon import workflows
 from openstack_dashboard.api import network
-from openstack_dashboard.api import nova
 from openstack_dashboard.api import sahara as saharaclient
+
 from openstack_dashboard.dashboards.project.data_processing.utils \
     import helpers
 from openstack_dashboard.dashboards.project.data_processing.utils \
     import workflow_helpers
+from openstack_dashboard.dashboards.project.instances \
+    import utils as nova_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -117,15 +119,10 @@ class GeneralConfigAction(workflows.Action):
             self.fields[param.name] = workflow_helpers.build_control(param)
 
     def populate_flavor_choices(self, request, context):
-        try:
-            flavors = nova.flavor_list(request)
-            flavor_list = [(flavor.id, "%s" % flavor.name)
-                           for flavor in flavors]
-        except Exception:
-            flavor_list = []
-            exceptions.handle(request,
-                              _('Unable to retrieve instance flavors.'))
-        return sorted(flavor_list)
+        flavors = nova_utils.flavor_list(request)
+        if flavors:
+            return nova_utils.sort_flavor_list(request, flavors)
+        return []
 
     def get_help_text(self):
         extra = dict()
