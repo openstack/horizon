@@ -258,6 +258,70 @@ def data(TEST):
     TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
 
+    # 1st v6 network.
+    network_dict = {'admin_state_up': True,
+                    'id': '96688ea1-ffa5-78ec-22ca-33aaabfaf775',
+                    'name': 'v6_net1',
+                    'status': 'ACTIVE',
+                    'subnets': ['88ddd443-4377-ab1f-87dd-4bc4a662dbb6'],
+                    'tenant_id': '1',
+                    'router:external': False,
+                    'shared': False}
+    subnet_dict = {'allocation_pools': [{'end': 'ff09::ff',
+                                         'start': 'ff09::02'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': 'ff09::/64',
+                   'enable_dhcp': True,
+                   'gateway_ip': 'ff09::1',
+                   'id': network_dict['subnets'][0],
+                   'ip_version': 6,
+                   'name': 'v6_subnet1',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id'],
+                   'ipv6_modes': 'none/none'}
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
+    # 2nd v6 network - slaac.
+    network_dict = {'admin_state_up': True,
+                    'id': 'c62e4bb3-296a-4cd1-8f6b-aaa7a0092326',
+                    'name': 'v6_net2',
+                    'status': 'ACTIVE',
+                    'subnets': ['5d736a21-0036-4779-8f8b-eed5f98077ec'],
+                    'tenant_id': '1',
+                    'router:external': False,
+                    'shared': False}
+    subnet_dict = {'allocation_pools': [{'end': 'ff09::ff',
+                                         'start': 'ff09::02'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': 'ff09::/64',
+                   'enable_dhcp': True,
+                   'gateway_ip': 'ff09::1',
+                   'id': network_dict['subnets'][0],
+                   'ip_version': 6,
+                   'name': 'v6_subnet2',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id'],
+                   'ipv6_modes': 'slaac/slaac'}
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
     # Set up router data.
     port_dict = {'admin_state_up': True,
                  'device_id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
@@ -267,7 +331,7 @@ def data(TEST):
                  'id': '44ec6726-4bdc-48c5-94d4-df8d1fbf613b',
                  'mac_address': 'fa:16:3e:9c:d5:7e',
                  'name': '',
-                 'network_id': network_dict['id'],
+                 'network_id': TEST.networks.get(name="ext_net")['id'],
                  'status': 'ACTIVE',
                  'tenant_id': '1'}
     TEST.api_ports.add(port_dict)

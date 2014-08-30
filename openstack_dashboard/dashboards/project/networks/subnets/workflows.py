@@ -132,6 +132,19 @@ class UpdateSubnetDetailAction(network_workflows.CreateSubnetDetailAction):
     allocation_pools = forms.CharField(widget=forms.HiddenInput(),
                                        required=False)
 
+    def __init__(self, request, context, *args, **kwargs):
+        super(UpdateSubnetDetailAction, self).__init__(request, context,
+                                                       *args, **kwargs)
+        # TODO(amotoki): Due to Neutron bug 1362966, we cannot pass "None"
+        # to Neutron. It means we cannot set IPv6 two modes to
+        # "No option selected".
+        # Until bug 1362966 is fixed, we disable this field.
+        # if context['ip_version'] != 6:
+        #     self.fields['ipv6_modes'].widget = forms.HiddenInput()
+        #     self.fields['ipv6_modes'].required = False
+        self.fields['ipv6_modes'].widget = forms.HiddenInput()
+        self.fields['ipv6_modes'].required = False
+
     class Meta:
         name = _("Subnet Detail")
         help_text = _('Specify additional attributes for the subnet.')
