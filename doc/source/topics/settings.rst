@@ -493,6 +493,7 @@ by cinder.  Currently only the backup service is available.
 Default::
 
         {
+            'enable_router': True,
             'enable_distributed_router': False,
             'enable_lb': False,
             'enable_quotas': False,
@@ -507,6 +508,16 @@ A dictionary of settings which can be used to enable optional services provided
 by Neutron and configure Neutron specific features.  The following options are
 available.
 
+``enable_router``:
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``True``
+
+Enable (True) or disable (False) the router panel. If your neutron
+has no support for Layer-3 router features, or you do no not wish to
+provide the Layer-3 features through the Dashboard, this should be set to
+``False``.
 
 ``enable_distributed_router``:
 
