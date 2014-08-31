@@ -18,6 +18,9 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
+from openstack_dashboard.dashboards.project.instances \
+    import audit_tables as a_tables
+
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances import console
 
@@ -69,7 +72,26 @@ class ConsoleTab(tabs.Tab):
         return {'console_url': console_url, 'instance_id': instance.id}
 
 
+class AuditTab(tabs.TableTab):
+    name = _("Action Log")
+    slug = "audit"
+    table_classes = (a_tables.AuditTable,)
+    template_name = "project/instances/_detail_audit.html"
+    preload = False
+
+    def get_audit_data(self):
+        actions = []
+        try:
+            actions = api.nova.instance_action_list(
+                self.request, self.tab_group.kwargs['instance_id'])
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve instance action list.'))
+
+        return sorted(actions, reverse=True, key=lambda y: y.start_time)
+
+
 class InstanceDetailTabs(tabs.TabGroup):
     slug = "instance_details"
-    tabs = (OverviewTab, LogTab, ConsoleTab)
+    tabs = (OverviewTab, LogTab, ConsoleTab, AuditTab)
     sticky = True
