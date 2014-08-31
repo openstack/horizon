@@ -121,8 +121,8 @@ class Router(NeutronAPIDictWrapper):
     """Wrapper for neutron routers."""
 
     def __init__(self, apiresource):
-        # apiresource['admin_state'] = \
-        #    'UP' if apiresource['admin_state_up'] else 'DOWN'
+        apiresource['admin_state'] = \
+            'UP' if apiresource['admin_state_up'] else 'DOWN'
         super(Router, self).__init__(apiresource)
 
 
@@ -911,9 +911,11 @@ def get_dvr_permission(request, operation):
     if not network_config.get('enable_distributed_router', False):
         return False
     policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
-    if operation not in ("get", "create"):
+    allowed_operations = ("get", "create", "update")
+    if operation not in allowed_operations:
         raise ValueError(_("The 'operation' parameter for get_dvr_permission "
-                           "is invalid. It should be 'get' or 'create'."))
+                           "is invalid. It should be one of %s")
+                         % ' '.join(allowed_operations))
     role = (("network", "%s_router:distributed" % operation),)
     if policy_check:
         has_permission = policy.check(role, request)

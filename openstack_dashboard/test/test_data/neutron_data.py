@@ -276,6 +276,8 @@ def data(TEST):
     router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
                    'name': 'router1',
                    'status': 'ACTIVE',
+                   'admin_state_up': True,
+                   'distributed': True,
                    'external_gateway_info':
                        {'network_id': ext_net['id']},
                    'tenant_id': '1'}
@@ -284,6 +286,8 @@ def data(TEST):
     router_dict = {'id': '10e3dc42-1ce1-4d48-87cf-7fc333055d6c',
                    'name': 'router2',
                    'status': 'ACTIVE',
+                   'admin_state_up': False,
+                   'distributed': False,
                    'external_gateway_info': None,
                    'tenant_id': '1'}
     TEST.api_routers.add(router_dict)
@@ -291,6 +295,8 @@ def data(TEST):
     router_dict = {'id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
                    'name': 'rulerouter',
                    'status': 'ACTIVE',
+                   'admin_state_up': True,
+                   'distributed': False,
                    'external_gateway_info':
                        {'network_id': ext_net['id']},
                    'tenant_id': '1',

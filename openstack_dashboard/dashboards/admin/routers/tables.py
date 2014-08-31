@@ -42,6 +42,10 @@ class DeleteRouter(r_tables.DeleteRouter):
         return True
 
 
+class EditRouter(r_tables.EditRouter):
+    url = "horizon:admin:routers:update"
+
+
 class UpdateRow(tables.Row):
     ajax = True
 
@@ -62,5 +66,5 @@ class RoutersTable(r_tables.RoutersTable):
         status_columns = ["status"]
         row_class = UpdateRow
         table_actions = (DeleteRouter,)
-        row_actions = (DeleteRouter,)
+        row_actions = (EditRouter, DeleteRouter,)
         Columns = ('tenant', 'name', 'status', 'distributed', 'ext_net')
