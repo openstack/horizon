@@ -131,6 +131,11 @@ class FloatingIpManager(object):
         """Returns True if the default floating IP pool is enabled."""
         pass
 
+    @abc.abstractmethod
+    def is_supported(self):
+        """Returns True if floating IP feature is supported."""
+        pass
+
 
 @six.add_metaclass(abc.ABCMeta)
 class SecurityGroupManager(object):

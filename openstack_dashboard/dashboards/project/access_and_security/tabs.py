@@ -108,6 +108,9 @@ class FloatingIPsTab(tabs.TableTab):
 
         return floating_ips
 
+    def allowed(self, request):
+        return network.floating_ip_supported(request)
+
 
 class APIAccessTab(tabs.TableTab):
     table_classes = (EndpointsTable,)

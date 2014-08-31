@@ -514,10 +514,11 @@ available.
 
 Default: ``True``
 
-Enable (True) or disable (False) the router panel. If your neutron
-has no support for Layer-3 router features, or you do no not wish to
-provide the Layer-3 features through the Dashboard, this should be set to
-``False``.
+Enable (True) or disable (False) the panels and menus related
+to router and Floating IP features. This option only affects
+when Neutron is enabled. If your neutron has no support for
+Layer-3 features, or you do no not wish to provide the Layer-3
+features through the Dashboard, this should be set to ``False``.
 
 ``enable_distributed_router``:
 

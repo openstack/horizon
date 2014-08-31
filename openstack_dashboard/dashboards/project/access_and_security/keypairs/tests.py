@@ -34,9 +34,13 @@ class KeyPairViewTests(test.TestCase):
     def test_delete_keypair(self):
         keypair = self.keypairs.first()
 
+        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
 
+        # floating_ip_supported is called in Floating IP tab allowed().
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
         api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name)
@@ -48,9 +52,13 @@ class KeyPairViewTests(test.TestCase):
 
     def test_delete_keypair_exception(self):
         keypair = self.keypairs.first()
+        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
         self.mox.StubOutWithMock(api.nova, 'keypair_list')
         self.mox.StubOutWithMock(api.nova, 'keypair_delete')
 
+        # floating_ip_supported is called in Floating IP tab allowed().
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.keypairs.list())
         api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name) \

@@ -491,6 +491,8 @@ class AssociateIP(tables.LinkAction):
         return {"project_id": project_id}
 
     def allowed(self, request, instance):
+        if not api.network.floating_ip_supported(request):
+            return False
         if api.network.floating_ip_simple_associate_supported(request):
             return False
         return not is_deleting(instance)
@@ -552,6 +554,8 @@ class SimpleDisassociateIP(tables.Action):
         return {"project_id": project_id}
 
     def allowed(self, request, instance):
+        if not api.network.floating_ip_supported(request):
+            return False
         if not conf.HORIZON_CONFIG["simple_ip_management"]:
             return False
         return not is_deleting(instance)

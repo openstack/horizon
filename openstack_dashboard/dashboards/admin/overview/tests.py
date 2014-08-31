@@ -37,12 +37,13 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 class UsageViewTests(test.BaseAdminViewTests):
 
-    def _stub_nova_api_calls(self, nova_stu_enabled):
+    def _stub_api_calls(self, nova_stu_enabled):
         self.mox.StubOutWithMock(api.nova, 'usage_list')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         self.mox.StubOutWithMock(api.nova, 'extension_supported')
         self.mox.StubOutWithMock(api.keystone, 'tenant_list')
         self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
+        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
         self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
         self.mox.StubOutWithMock(api.network, 'security_group_list')
         self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
@@ -61,7 +62,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         self._test_usage(tenant_deleted=True)
 
     def _test_usage(self, nova_stu_enabled=True, tenant_deleted=False):
-        self._stub_nova_api_calls(nova_stu_enabled)
+        self._stub_api_calls(nova_stu_enabled)
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
@@ -87,6 +88,8 @@ class UsageViewTests(test.BaseAdminViewTests):
             .AndReturn(self.limits['absolute'])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                            .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
@@ -150,7 +153,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         self._test_usage_csv(nova_stu_enabled=False)
 
     def _test_usage_csv(self, nova_stu_enabled=True):
-        self._stub_nova_api_calls(nova_stu_enabled)
+        self._stub_api_calls(nova_stu_enabled)
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
@@ -171,6 +174,8 @@ class UsageViewTests(test.BaseAdminViewTests):
             .AndReturn(self.limits['absolute'])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                            .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
