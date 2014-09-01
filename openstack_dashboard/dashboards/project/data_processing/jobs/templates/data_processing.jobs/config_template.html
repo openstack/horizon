@@ -1,76 +1,78 @@
 {% load i18n %}
 <script id="configs_template" type="text/template">
-    <tr id_attr="$id">
-        <div class="input form-group">
-            <td><input style="display: inline" field="key" list="properties" placeholder="Select property name"
-                       onkeyup="trySetValue(this)" onchange="trySetValue(this)" onclick="trySetValue(this)"
-                       value="$name"/></td>
-            <td><input style="display: inline; margin-left:10px; margin-right:10px" field="value" class="input-medium"
-                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
-                       value="$value"/></td>
-            <td><input style="display: inline; margin-top:-10px" type="button" class="btn btn-danger"
-                       onclick="delete_prop(this)" value="Remove"/></td>
-        </div>
+    <tr id_attr="$id" class="row data-row">
+        <td class="col-sm-5 small-padding">
+            <input type="text" class="form-control" field="key" list="properties" placeholder="{% trans "Select property name" %}"
+                   onkeyup="trySetValue(this)" onchange="trySetValue(this)" onclick="trySetValue(this)"
+                   value="$name" />
+        </td>
+        <td class="col-sm-5 small-padding">
+            <input type="text" class="form-control" field="value"
+                   onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                   value="$value" />
+        </td>
+        <td class="col-sm-2 small-padding">
+            <input type="button" class="btn btn-danger"
+                   onclick="delete_prop(this)" value="{%  trans "Remove" %}" />
+        </td>
     </tr>
 </script>
 <script id="args_template" type="text/template">
-    <tr id_attr="$id">
-        <div class="input form-group">
-            <td><input style="display: inline" field="key"
-                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
-                       value="$name"/></td>
-            <td><input style="display: inline; margin-left:10px; margin-right:10px" field="value" class="input-medium"
-                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
-                       value="$value"/></td>
-            <td><input style="display: inline; margin-top:-10px" type="button" class="btn btn-danger"
-                       onclick="delete_prop(this)" value="Remove"/></td>
-        </div>
+    <tr id_attr="$id" class="row data-row">
+        <td class="col-sm-5 small-padding">
+            <input type="text" class="form-control" field="key"
+                   onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                   value="$name" />
+        </td>
+        <td class="col-sm-5 small-padding">
+            <input type="text" class="form-control" field="value"
+                   onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                   value="$value" />
+        </td>
+        <td class="col-sm-2 small-padding">
+            <input type="button" class="btn btn-danger"
+                   onclick="delete_prop(this)" value="{%  trans "Remove" %}" />
+        </td>
     </tr>
 </script>
 <script id="args_array_template" type="text/template">
-    <tr id_attr="$id">
-        <div class="input form-group">
-            <td><input style="display: inline; margin-left:10px; margin-right:10px" field="value" class="input-medium"
-                       onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
-                       value="$value"/></td>
-            <td><input style="display: inline; margin-top:-10px" type="button" class="btn btn-danger"
-                       onclick="delete_prop(this)" value="Remove"/></td>
-        </div>
+    <tr id_attr="$id" class="row data-row">
+        <td class="col-sm-10 small-padding">
+            <input type="text" class="form-control" field="value"
+                   onkeyup="set_props()" onchange="set_props()" onclick="set_props()"
+                   value="$value" />
+        </td>
+        <td class="col-sm-2 small-padding">
+            <input type="button" class="btn btn-danger"
+                   onclick="delete_prop(this)" value="{%  trans "Remove" %}" />
+        </td>
     </tr>
 </script>
 <script id="table_template" type="text/template">
     <table>
-        <thead>
-        <tr>
-            <td><label>Name</label></td>
-            <td><label style="margin-left: 10px">Value</label></td>
+        <tr class="row">
+            <td class="col-sm-5 small-padding"><label>{% trans "Name" %}</label></td>
+            <td class="col-sm-5 small-padding"><label>{% trans "Value" %}</label></td>
         </tr>
-        </thead>
-        <tbody>
-        </tbody>
     </table>
     <div class="input">
-        <a class="btn btn-default btn-inline" onclick="add_prop('$target');">Add</a>
+        <a class="btn btn-default btn-inline" onclick="add_prop('$target');">{% trans "Add" %}</a>
     </div>
 </script>
 <script id="array_table_template" type="text/template">
     <table>
-        <thead>
-        <tr>
-            <td><label style="margin-left: 10px">Value</label></td>
+        <tr class="row">
+            <th class="col-sm-10 small-padding"><label>{% trans "Value" %}</label></th>
         </tr>
-        </thead>
-        <tbody>
-        </tbody>
     </table>
     <div class="input">
-        <a class="btn btn-default btn-inline" onclick="add_prop('$target');">Add</a>
+        <a class="btn btn-default btn-inline" onclick="add_prop('$target');">{% trans "Add" %}</a>
     </div>
 </script>
 <script type="text/javascript">
     function get_next_id(target) {
         var max = -1;
-        $("#" + target + " tbody tr").each(function () {
+        $("#" + target + " tr.data-row").each(function () {
             max = Math.max(max, parseInt($(this).attr("id_attr")));
         });
         return max + 1;
@@ -80,13 +82,13 @@
         $(targets).each(function (index, target) {
           if (target.match(/.*?array.*/) != null) {
             var configs = [];
-            $("#" + target + " tbody tr").each(function (index) {
+            $("#" + target + " tr.data-row").each(function (index) {
                 configs[index] = $(this).find("td input[field=value]").val();
             });
             $("#job_" + target).val(JSON.stringify(configs));
           } else {
             var configs = {};
-            $("#" + target + " tbody tr").each(function () {
+            $("#" + target + " tr.data-row").each(function () {
                 var key = $(this).find("td input[field=key]").val();
                 configs[key] = $(this).find("td input[field=value]").val();
             });
@@ -105,14 +107,14 @@
                 .replace(/\$id/g, id);
         template = template.replace(/\$name/g, name);
         template = template.replace(/\$value/g, value);
-        $("#" + target + " tbody").append(template);
+        $("#" + target + " tr").last().after(template);
         set_props();
         return id
     }
     function delete_prop(el) {
-        var tr = $(el).parents("tr")[0];
-        var target = $(tr).parent().parent().parent().attr("id");
-        tr.parentNode.removeChild(tr);
+        var tr = $(el).closest("tr");
+        var target = $(tr).closest("div").attr("id");
+        tr.remove();
         var id = get_next_id(target);
         if (id == 0) {
             $("#" + target + " table").hide();
@@ -121,9 +123,9 @@
     }
 
     function trySetValue(el) {
-        var prop_id = $(el).parent().parent().attr("id_attr");
+        var prop_id = $(el).parent().attr("id_attr");
         if (properties[$(el).val()] != "undefined") {
-            $("#configs").find("tbody tr[id_attr='" + prop_id + "']")
+            $("#configs").find("tr[id_attr='" + prop_id + "']")
                     .find("td input[field=value]").val(properties[$(el).val()])
         }
         set_props();
