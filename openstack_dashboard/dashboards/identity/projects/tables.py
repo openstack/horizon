@@ -24,7 +24,7 @@ from openstack_dashboard import api
 from openstack_dashboard import policy
 
 
-class ViewMembersLink(tables.LinkAction):
+class UpdateMembersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
     url = "horizon:identity:projects:update"
@@ -40,7 +40,7 @@ class ViewMembersLink(tables.LinkAction):
         return "?".join([base_url, param])
 
 
-class ViewGroupsLink(tables.LinkAction):
+class UpdateGroupsLink(tables.LinkAction):
     name = "groups"
     verbose_name = _("Modify Groups")
     url = "horizon:identity:projects:update"
@@ -195,7 +195,7 @@ class TenantsTable(tables.DataTable):
         name = "tenants"
         verbose_name = _("Projects")
         row_class = UpdateRow
-        row_actions = (ViewMembersLink, ViewGroupsLink, UpdateProject,
+        row_actions = (UpdateMembersLink, UpdateGroupsLink, UpdateProject,
                        UsageLink, ModifyQuotas, DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateProject,
                          DeleteTenantsAction)
