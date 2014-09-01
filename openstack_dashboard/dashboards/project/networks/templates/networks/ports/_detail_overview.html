@@ -19,12 +19,12 @@
     <dt>{% trans "Fixed IP" %}</dt>
     <dd>
       {% if port.fixed_ips.items|length > 1 %}
-      {% for ip in port.fixed_ips %}
-      <b>{% trans "IP address:" %}</b> {{ ip.ip_address }},
-      <b>{% trans "Subnet ID" %}</b> {{ ip.subnet_id }}<br>
-      {% endfor %}
+        {% for ip in port.fixed_ips %}
+          <b>{% trans "IP address:" %}</b> {{ ip.ip_address }},
+          <b>{% trans "Subnet ID" %}</b> {{ ip.subnet_id }}<br>
+        {% endfor %}
       {% else %}
-      "None"
+        {% trans "None" %}
       {% endif %}
     </dd>
     <dt>{% trans "Mac Address" %}</dt>
@@ -34,15 +34,15 @@
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ port.admin_state|default:_("None") }}</dd>
     {% if port.mac_state %}
-    <dt>{% trans "MAC Learning State" %}</dt>
-    <dd>{{ port.mac_state }}</dd>
+      <dt>{% trans "MAC Learning State" %}</dt>
+      <dd>{{ port.mac_state }}</dd>
     {% endif %}
     <dt>{% trans "Attached Device" %}</dt>
     {% if port.device_id|length > 1 or port.device_owner %}
-    <dd><b>{% trans "Device Owner" %}</b>: {{ port.device_owner|default:_("None") }}</dd>
-    <dd><b>{% trans "Device ID" %}</b>: {{ port.device_id|default:"-" }}</dd>
+      <dd><b>{% trans "Device Owner" %}</b>: {{ port.device_owner|default:_("None") }}</dd>
+      <dd><b>{% trans "Device ID" %}</b>: {{ port.device_id|default:"-" }}</dd>
     {% else %}
-    <dd>No attached device</dd>
+      <dd>{% trans "No attached device" %}</dd>
     {% endif %}
   </dl>
 </div>
