@@ -31,6 +31,7 @@ from openstack_dashboard.dashboards.identity.domains import workflows
 DOMAINS_INDEX_URL = reverse(constants.DOMAINS_INDEX_URL)
 DOMAIN_CREATE_URL = reverse(constants.DOMAINS_CREATE_URL)
 DOMAIN_UPDATE_URL = reverse(constants.DOMAINS_UPDATE_URL, args=[1])
+USER_ROLE_PREFIX = constants.DOMAIN_USER_MEMBER_SLUG + "_role_"
 GROUP_ROLE_PREFIX = constants.DOMAIN_GROUP_MEMBER_SLUG + "_role_"
 
 
@@ -177,6 +178,14 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         domain_info = self._get_domain_info(domain)
         return domain_info
 
+    def _get_all_users(self, domain_id=None):
+        if not domain_id:
+            users = self.users.list()
+        else:
+            users = [user for user in self.users.list()
+                     if user.domain_id == domain_id]
+        return users
+
     def _get_all_groups(self, domain_id):
         if not domain_id:
             groups = self.groups.list()
@@ -189,22 +198,35 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         # all domain groups have role assignments
         return self._get_all_groups(domain_id)
 
+    def _get_domain_role_assignment(self, domain_id):
+        domain_scope = {'domain': {'id': domain_id}}
+        return self.role_assignments.filter(scope=domain_scope)
+
     @test.create_stubs({api.keystone: ('domain_get',
                                        'get_default_role',
                                        'role_list',
+                                       'user_list',
+                                       'role_assignments_list',
                                        'group_list',
                                        'roles_for_group')})
     def test_update_domain_get(self):
         default_role = self.roles.first()
         domain = self.domains.get(id="1")
+        users = self._get_all_users(domain.id)
         groups = self._get_all_groups(domain.id)
         roles = self.roles.list()
+        role_assignments = self._get_domain_role_assignment(domain.id)
 
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(default_role)
         api.keystone.role_list(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(roles)
+        api.keystone.user_list(IsA(http.HttpRequest), domain=domain.id) \
+            .AndReturn(users)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           domain=domain.id) \
+            .AndReturn(role_assignments)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(groups)
 
@@ -230,12 +252,18 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
                          domain.description)
         self.assertQuerysetEqual(workflow.steps,
                             ['<UpdateDomainInfo: update_domain>',
+                             '<UpdateDomainUsers: update_user_members>',
                              '<UpdateDomainGroups: update_group_members>'])
 
     @test.create_stubs({api.keystone: ('domain_get',
                                        'domain_update',
                                        'get_default_role',
                                        'role_list',
+                                       'user_list',
+                                       'role_assignments_list',
+                                       'roles_for_user',
+                                       'add_domain_user_role',
+                                       'remove_domain_user_role',
                                        'group_list',
                                        'roles_for_group',
                                        'remove_group_role',
@@ -244,15 +272,22 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         default_role = self.roles.first()
         domain = self.domains.get(id="1")
         test_description = 'updated description'
+        users = self._get_all_users(domain.id)
         groups = self._get_all_groups(domain.id)
         domain_groups = self._get_domain_groups(domain.id)
         roles = self.roles.list()
+        role_assignments = self._get_domain_role_assignment(domain.id)
 
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(default_role)
         api.keystone.role_list(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(roles)
+        api.keystone.user_list(IsA(http.HttpRequest), domain=domain.id) \
+            .AndReturn(users)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           domain=domain.id) \
+            .AndReturn(role_assignments)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(groups)
 
@@ -265,7 +300,9 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         workflow_data = self._get_workflow_data(domain)
         # update some fields
         workflow_data['description'] = test_description
-
+        # User assignment form data
+        workflow_data[USER_ROLE_PREFIX + "1"] = ['3']  # admin role
+        workflow_data[USER_ROLE_PREFIX + "2"] = ['2']  # member role
         # Group assignment form data
         workflow_data[GROUP_ROLE_PREFIX + "1"] = ['3']  # admin role
         workflow_data[GROUP_ROLE_PREFIX + "2"] = ['2']  # member role
@@ -276,6 +313,49 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
                                    domain_id=domain.id,
                                    enabled=domain.enabled,
                                    name=domain.name).AndReturn(None)
+
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               domain=domain.id).AndReturn(users)
+
+        # admin user - try to remove all roles on current domain, warning
+        api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
+                                    domain=domain.id) \
+                           .AndReturn(roles)
+
+        # member user 1 - has role 1, will remove it
+        api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
+                                    domain=domain.id) \
+                           .AndReturn((roles[0],))
+        # remove role 1
+        api.keystone.remove_domain_user_role(IsA(http.HttpRequest),
+                                             domain=domain.id,
+                                             user='2',
+                                             role='1')
+        # add role 2
+        api.keystone.add_domain_user_role(IsA(http.HttpRequest),
+                                          domain=domain.id,
+                                          user='2',
+                                          role='2')
+
+        # member user 3 - has role 2
+        api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
+                                    domain=domain.id) \
+                           .AndReturn((roles[1],))
+        # remove role 2
+        api.keystone.remove_domain_user_role(IsA(http.HttpRequest),
+                                             domain=domain.id,
+                                             user='3',
+                                             role='2')
+        # add role 1
+        api.keystone.add_domain_user_role(IsA(http.HttpRequest),
+                                          domain=domain.id,
+                                          user='3',
+                                          role='1')
+
+        # member user 5 - do nothing
+        api.keystone.roles_for_user(IsA(http.HttpRequest), '5',
+                                    domain=domain.id) \
+                           .AndReturn([])
 
         # Group assignments
         api.keystone.group_list(IsA(http.HttpRequest),
@@ -349,20 +429,29 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
                                        'domain_update',
                                        'get_default_role',
                                        'role_list',
+                                       'user_list',
+                                       'role_assignments_list',
                                        'group_list',
                                        'roles_for_group')})
     def test_update_domain_post_error(self):
         default_role = self.roles.first()
         domain = self.domains.get(id="1")
         test_description = 'updated description'
+        users = self._get_all_users(domain.id)
         groups = self._get_all_groups(domain.id)
         roles = self.roles.list()
+        role_assignments = self._get_domain_role_assignment(domain.id)
 
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(default_role)
         api.keystone.role_list(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(roles)
+        api.keystone.user_list(IsA(http.HttpRequest), domain=domain.id) \
+            .AndReturn(users)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           domain=domain.id) \
+            .AndReturn(role_assignments)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(groups)
 
@@ -376,6 +465,9 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         # update some fields
         workflow_data['description'] = test_description
 
+        # User assignment form data
+        workflow_data[USER_ROLE_PREFIX + "1"] = ['3']  # admin role
+        workflow_data[USER_ROLE_PREFIX + "2"] = ['2']  # member role
         # Group assignment form data
         workflow_data[GROUP_ROLE_PREFIX + "1"] = ['3']  # admin role
         workflow_data[GROUP_ROLE_PREFIX + "2"] = ['2']  # member role

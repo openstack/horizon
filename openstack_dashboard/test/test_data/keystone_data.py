@@ -249,27 +249,51 @@ def data(TEST):
     role_assignments_dict = {'user': {'id': '1'},
                              'role': {'id': '1'},
                              'scope': {'project': {'id': '1'}}}
-    role_assignment1 = role_assignments.RoleAssignment(
+    proj_role_assignment1 = role_assignments.RoleAssignment(
         role_assignments.RoleAssignmentManager, role_assignments_dict)
     role_assignments_dict = {'user': {'id': '2'},
                              'role': {'id': '2'},
                              'scope': {'project': {'id': '1'}}}
-    role_assignment2 = role_assignments.RoleAssignment(
+    proj_role_assignment2 = role_assignments.RoleAssignment(
         role_assignments.RoleAssignmentManager, role_assignments_dict)
     role_assignments_dict = {'group': {'id': '1'},
                              'role': {'id': '2'},
                              'scope': {'project': {'id': '1'}}}
-    role_assignment3 = role_assignments.RoleAssignment(
+    proj_role_assignment3 = role_assignments.RoleAssignment(
         role_assignments.RoleAssignmentManager, role_assignments_dict)
     role_assignments_dict = {'user': {'id': '3'},
                              'role': {'id': '2'},
                              'scope': {'project': {'id': '1'}}}
-    role_assignment4 = role_assignments.RoleAssignment(
+    proj_role_assignment4 = role_assignments.RoleAssignment(
         role_assignments.RoleAssignmentManager, role_assignments_dict)
-    TEST.role_assignments.add(role_assignment1,
-                              role_assignment2,
-                              role_assignment3,
-                              role_assignment4)
+    role_assignments_dict = {'user': {'id': '1'},
+                             'role': {'id': '1'},
+                             'scope': {'domain': {'id': '1'}}}
+    domain_role_assignment1 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    role_assignments_dict = {'user': {'id': '2'},
+                             'role': {'id': '2'},
+                             'scope': {'domain': {'id': '1'}}}
+    domain_role_assignment2 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    role_assignments_dict = {'group': {'id': '1'},
+                             'role': {'id': '2'},
+                             'scope': {'domain': {'id': '1'}}}
+    domain_role_assignment3 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    role_assignments_dict = {'user': {'id': '3'},
+                             'role': {'id': '2'},
+                             'scope': {'domain': {'id': '1'}}}
+    domain_role_assignment4 = role_assignments.RoleAssignment(
+        role_assignments.RoleAssignmentManager, role_assignments_dict)
+    TEST.role_assignments.add(proj_role_assignment1,
+                              proj_role_assignment2,
+                              proj_role_assignment3,
+                              proj_role_assignment4,
+                              domain_role_assignment1,
+                              domain_role_assignment2,
+                              domain_role_assignment3,
+                              domain_role_assignment4)
 
     tenant_dict = {'id': "1",
                    'name': 'test_tenant',

@@ -20,6 +20,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -53,15 +54,111 @@ class CreateDomainInfo(workflows.Step):
                    "enabled")
 
 
+class UpdateDomainUsersAction(workflows.MembershipAction):
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateDomainUsersAction, self).__init__(request,
+                                                      *args,
+                                                      **kwargs)
+        domain_id = self.initial.get("domain_id", '')
+
+        # Get the default role
+        try:
+            default_role = api.keystone.get_default_role(self.request)
+            # Default role is necessary to add members to a domain
+            if default_role is None:
+                default = getattr(settings,
+                                  "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                msg = _('Could not find default role "%s" in Keystone') % \
+                        default
+                raise exceptions.NotFound(msg)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to find default role.'),
+                              redirect=reverse(constants.DOMAINS_INDEX_URL))
+        default_role_name = self.get_default_role_field_name()
+        self.fields[default_role_name] = forms.CharField(required=False)
+        self.fields[default_role_name].initial = default_role.id
+
+        # Get list of available users
+        all_users = []
+        try:
+            all_users = api.keystone.user_list(request,
+                                               domain=domain_id)
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve user list.'))
+        users_list = [(user.id, user.name) for user in all_users]
+
+        # Get list of roles
+        role_list = []
+        try:
+            role_list = api.keystone.role_list(request)
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve role list.'),
+                              redirect=reverse(constants.DOMAINS_INDEX_URL))
+        for role in role_list:
+            field_name = self.get_member_field_name(role.id)
+            label = role.name
+            self.fields[field_name] = forms.MultipleChoiceField(required=False,
+                                                                label=label)
+            self.fields[field_name].choices = users_list
+            self.fields[field_name].initial = []
+
+        # Figure out users & roles
+        if domain_id:
+            try:
+                users_roles = api.keystone.get_domain_users_roles(request,
+                                                                  domain_id)
+            except Exception:
+                exceptions.handle(request,
+                                  _('Unable to retrieve user domain role '
+                                    'assignments.'),
+                                  redirect=reverse(
+                                      constants.DOMAINS_INDEX_URL))
+
+            for user_id in users_roles:
+                roles_ids = users_roles[user_id]
+                for role_id in roles_ids:
+                    field_name = self.get_member_field_name(role_id)
+                    self.fields[field_name].initial.append(user_id)
+
+    class Meta:
+        name = _("Domain Members")
+        slug = constants.DOMAIN_USER_MEMBER_SLUG
+
+
+class UpdateDomainUsers(workflows.UpdateMembersStep):
+    action_class = UpdateDomainUsersAction
+    available_list_title = _("All Users")
+    members_list_title = _("Domain Members")
+    no_available_text = _("No users found.")
+    no_members_text = _("No users.")
+
+    def contribute(self, data, context):
+        context = super(UpdateDomainUsers, self).contribute(data, context)
+        if data:
+            try:
+                roles = api.keystone.role_list(self.workflow.request)
+            except Exception:
+                exceptions.handle(self.workflow.request,
+                                  _('Unable to retrieve role list.'),
+                                  redirect=reverse(
+                                      constants.DOMAINS_INDEX_URL))
+
+            post = self.workflow.request.POST
+            for role in roles:
+                field = self.get_member_field_name(role.id)
+                context[field] = post.getlist(field)
+        return context
+
+
 class UpdateDomainGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
         super(UpdateDomainGroupsAction, self).__init__(request,
                                                        *args,
                                                        **kwargs)
         err_msg = _('Unable to retrieve group list. Please try again later.')
-        domain_id = ''
-        if 'domain_id' in args[0]:
-            domain_id = args[0]['domain_id']
+        domain_id = self.initial.get("domain_id", '')
 
         # Get the default role
         try:
@@ -135,6 +232,7 @@ class UpdateDomainGroups(workflows.UpdateMembersStep):
     no_members_text = _("No groups.")
 
     def contribute(self, data, context):
+        context = super(UpdateDomainGroups, self).contribute(data, context)
         if data:
             try:
                 roles = api.keystone.role_list(self.workflow.request)
@@ -203,25 +301,109 @@ class UpdateDomain(workflows.Workflow):
     failure_message = _('Unable to modify domain "%s".')
     success_url = constants.DOMAINS_INDEX_URL
     default_steps = (UpdateDomainInfo,
+                     UpdateDomainUsers,
                      UpdateDomainGroups)
 
     def format_status_message(self, message):
         return message % self.context.get('name', 'unknown domain')
 
-    def handle(self, request, data):
-        domain_id = data.pop('domain_id')
-
+    def _update_domain_members(self, request, domain_id, data):
+        # update domain members
+        users_to_modify = 0
+        # Project-user member step
+        member_step = self.get_step(constants.DOMAIN_USER_MEMBER_SLUG)
         try:
-            LOG.info('Updating domain with name "%s"' % data['name'])
-            api.keystone.domain_update(request,
-                                       domain_id=domain_id,
-                                       name=data['name'],
-                                       description=data['description'],
-                                       enabled=data['enabled'])
+            # Get our role options
+            available_roles = api.keystone.role_list(request)
+            # Get the users currently associated with this project so we
+            # can diff against it.
+            domain_members = api.keystone.user_list(request,
+                                                     domain=domain_id)
+            users_to_modify = len(domain_members)
+
+            for user in domain_members:
+                # Check if there have been any changes in the roles of
+                # Existing project members.
+                current_roles = api.keystone.roles_for_user(self.request,
+                                                            user.id,
+                                                            domain=domain_id)
+                current_role_ids = [role.id for role in current_roles]
+
+                for role in available_roles:
+                    field_name = member_step.get_member_field_name(role.id)
+                    # Check if the user is in the list of users with this role.
+                    if user.id in data[field_name]:
+                        # Add it if necessary
+                        if role.id not in current_role_ids:
+                            # user role has changed
+                            api.keystone.add_domain_user_role(
+                                request,
+                                domain=domain_id,
+                                user=user.id,
+                                role=role.id)
+                        else:
+                            # User role is unchanged, so remove it from the
+                            # remaining roles list to avoid removing it later.
+                            index = current_role_ids.index(role.id)
+                            current_role_ids.pop(index)
+
+                # Prevent admins from doing stupid things to themselves.
+                is_current_user = user.id == request.user.id
+                # TODO(lcheng) When Horizon moves to Domain scoped token for
+                # invoking identity operation, replace this with:
+                # domain_id == request.user.domain_id
+                is_current_domain = True
+
+                admin_roles = [role for role in current_roles
+                               if role.name.lower() == 'admin']
+                if len(admin_roles):
+                    removing_admin = any([role.id in current_role_ids
+                                          for role in admin_roles])
+                else:
+                    removing_admin = False
+                if is_current_user and is_current_domain and removing_admin:
+                    # Cannot remove "admin" role on current(admin) domain
+                    msg = _('You cannot revoke your administrative privileges '
+                            'from the domain you are currently logged into. '
+                            'Please switch to another domain with '
+                            'administrative privileges or remove the '
+                            'administrative role manually via the CLI.')
+                    messages.warning(request, msg)
+
+                # Otherwise go through and revoke any removed roles.
+                else:
+                    for id_to_delete in current_role_ids:
+                        api.keystone.remove_domain_user_role(
+                            request,
+                            domain=domain_id,
+                            user=user.id,
+                            role=id_to_delete)
+                users_to_modify -= 1
+
+            # Grant new roles on the project.
+            for role in available_roles:
+                field_name = member_step.get_member_field_name(role.id)
+                # Count how many users may be added for exception handling.
+                users_to_modify += len(data[field_name])
+            for role in available_roles:
+                users_added = 0
+                field_name = member_step.get_member_field_name(role.id)
+                for user_id in data[field_name]:
+                    if not filter(lambda x: user_id == x.id, domain_members):
+                        api.keystone.add_tenant_user_role(request,
+                                                          project=domain_id,
+                                                          user=user_id,
+                                                          role=role.id)
+                    users_added += 1
+                users_to_modify -= users_added
+            return True
         except Exception:
-            exceptions.handle(request, ignore=True)
+            exceptions.handle(request, _('Failed to modify %s project '
+                                         'members and update domain groups.')
+                                       % users_to_modify)
             return False
 
+    def _update_domain_groups(self, request, domain_id, data):
         # update domain groups
         groups_to_modify = 0
         member_step = self.get_step(constants.DOMAIN_GROUP_MEMBER_SLUG)
@@ -285,10 +467,31 @@ class UpdateDomain(workflows.Workflow):
                                                     domain=domain_id)
                     groups_added += 1
                 groups_to_modify -= groups_added
+            return True
         except Exception:
             exceptions.handle(request,
                               _('Failed to modify %s domain groups.')
                               % groups_to_modify)
-            return True
+            return False
+
+    def handle(self, request, data):
+        domain_id = data.pop('domain_id')
+
+        try:
+            LOG.info('Updating domain with name "%s"' % data['name'])
+            api.keystone.domain_update(request,
+                                       domain_id=domain_id,
+                                       name=data['name'],
+                                       description=data['description'],
+                                       enabled=data['enabled'])
+        except Exception:
+            exceptions.handle(request, ignore=True)
+            return False
+
+        if not self._update_domain_members(request, domain_id, data):
+            return False
+
+        if not self._update_domain_groups(request, domain_id, data):
+            return False
 
         return True
