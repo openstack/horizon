@@ -1005,6 +1005,47 @@ class VolumeViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
+    @test.create_stubs({cinder: ('volume_upload_to_image',
+                                 'volume_get')})
+    def test_upload_to_image(self):
+        volume = self.cinder_volumes.get(name='v2_volume')
+        loaded_resp = {'container_format': 'bare',
+                       'disk_format': 'raw',
+                       'id': '741fe2ac-aa2f-4cec-82a9-4994896b43fb',
+                       'image_id': '2faa080b-dd56-4bf0-8f0a-0d4627d8f306',
+                       'image_name': 'test',
+                       'size': '2',
+                       'status': 'uploading'}
+
+        form_data = {'id': volume.id,
+                     'name': volume.name,
+                     'image_name': 'testimage',
+                     'force': True,
+                     'container_format': 'bare',
+                     'disk_format': 'raw'}
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+
+        cinder.volume_upload_to_image(
+            IsA(http.HttpRequest),
+            form_data['id'],
+            form_data['force'],
+            form_data['image_name'],
+            form_data['container_format'],
+            form_data['disk_format']).AndReturn(loaded_resp)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:volumes:upload_to_image',
+                      args=[volume.id])
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(info=1)
+
+        redirect_url = VOLUME_INDEX_URL
+        self.assertRedirectsNoFollow(res, redirect_url)
+
     @test.create_stubs({cinder: ('volume_get',
                                  'volume_extend')})
     def test_extend_volume(self):

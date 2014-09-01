@@ -198,6 +198,29 @@ class CreateBackup(tables.LinkAction):
                 volume.status == "available")
 
 
+class UploadToImage(tables.LinkAction):
+    name = "upload_to_image"
+    verbose_name = _("Upload to Image")
+    url = "horizon:project:volumes:volumes:upload_to_image"
+    classes = ("ajax-modal",)
+    icon = "cloud-upload"
+    policy_rules = (("volume", "volume:upload_to_image"),)
+
+    def get_policy_target(self, request, datum=None):
+        project_id = None
+        if datum:
+            project_id = getattr(datum, "os-vol-tenant-attr:tenant_id", None)
+
+        return {"project_id": project_id}
+
+    def allowed(self, request, volume=None):
+        has_image_service_perm = \
+            request.user.has_perm('openstack.services.image')
+
+        return volume.status in ("available", "in-use") and \
+               has_image_service_perm
+
+
 class EditVolume(tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Volume")
@@ -364,7 +387,7 @@ class VolumesTable(VolumesTableBase):
         table_actions = (CreateVolume, DeleteVolume, VolumesFilterAction)
         row_actions = (EditVolume, ExtendVolume, LaunchVolume, EditAttachments,
                        CreateSnapshot, CreateBackup, RetypeVolume,
-                       DeleteVolume)
+                       UploadToImage, DeleteVolume)
 
 
 class DetachVolume(tables.BatchAction):
