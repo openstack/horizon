@@ -18,6 +18,18 @@
                 <dd>{% trans "Template not specified" %}</dd>
             {% endif %}
 
+            <dt>{% trans "Auto Security Group" %}</dt>
+            <dd>{{ node_group.auto_security_group|yesno }}</dd>
+
+            <dt>{% trans "Security Groups" %}</dt>
+            <dd>
+                <ul class="list-bullet">
+                    {% for group in node_group.security_groups %}
+                        <li>{{ group }}</li>
+                    {% endfor %}
+                </ul>
+            </dd>
+
             <dt>{% trans "Node Processes" %}</dt>
             {% if node_group.node_processes %}
                 <dd>
