@@ -23,6 +23,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard.openstack.common import strutils
 
 LOG = logging.getLogger(__name__)
 
@@ -296,6 +297,7 @@ class CreateStackForm(forms.SelfHandlingForm):
             }
 
             param_type = param.get('Type', None)
+            hidden = strutils.bool_from_string(param.get('NoEcho', 'false'))
 
             if 'AllowedValues' in param:
                 choices = map(lambda x: (x, x), param['AllowedValues'])
@@ -308,6 +310,8 @@ class CreateStackForm(forms.SelfHandlingForm):
                     field_args['required'] = param.get('MinLength', 0) > 0
                 if 'MaxLength' in param:
                     field_args['max_length'] = int(param['MaxLength'])
+                if hidden:
+                    field_args['widget'] = forms.PasswordInput()
                 field = forms.CharField(**field_args)
 
             elif param_type == 'Number':
