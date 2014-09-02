@@ -54,7 +54,7 @@ class PropertyCreate(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Property")
     url = "horizon:admin:images:properties:create"
-    classes = ("ajax-modal")
+    classes = ("ajax-modal",)
     icon = "plus"
 
     def get_link_url(self, custom_property=None):
