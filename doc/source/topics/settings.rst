@@ -494,10 +494,10 @@ Default::
         {
             'enable_router': True,
             'enable_distributed_router': False,
-            'enable_lb': False,
+            'enable_lb': True,
             'enable_quotas': False,
-            'enable_firewall': False,
-            'enable_vpn': False,
+            'enable_firewall': True,
+            'enable_vpn': True,
             'profile_support': None,
             'supported_provider_types': ["*"],
             'segmentation_id_range': None
@@ -536,10 +536,20 @@ option appropriately depending on your deployment.
 
 .. versionadded:: 2013.1(Grizzly)
 
-Default: ``False``
+(Deprecated)
 
-Enable or disable the load balancer panel. This option should be enabled only
-when your Neutron deployment supports LBaaS.
+Default: ``True``
+
+Enables the load balancer panel. load balancer panel will be enabled
+when this option is True and your Neutron deployment supports
+LBaaS. If you want to disable load balancer panel even when your
+Neutron supports LBaaS, set it to False.
+
+This option is now marked as "deprecated" and will be removed in
+Kilo or later release. The load balancer panel is now enabled only
+when LBaaS feature is available in Neutron and this option is no
+longer needed. We suggest not to use this option to disable the
+load balancer panel from now on.
 
 ``supported_provider_types``:
 
@@ -580,17 +590,36 @@ and quota_driver should be DbQuotaDriver (default config).
 
 ``enable_firewall``:
 
-Default: ``False``
+(Deprecated)
 
-Enables the firewall panel. This option should be enabled when your Neutron
-deployment supports LBaaS.
+Default: ``True``
+
+Enables the firewall panel. firewall panel will be enabled when this
+option is True and your Neutron deployment supports FWaaS. If you want
+to disable firewall panel even when your Neutron supports FWaaS, set
+it to False.
+
+This option is now marked as "deprecated" and will be removed in
+Kilo or later release. The firewall panel is now enabled only
+when FWaaS feature is available in Neutron and this option is no
+longer needed. We suggest not to use this option to disable the
+firewall panel from now on.
 
 ``enable_vpn``:
 
-Default: ``False``
+(Deprecated)
 
-Enables the VPN panel. This option should be enabled when your Neutron
-deployment supports VPNaaS.
+Default: ``True``
+
+Enables the VPN panel. VPN panel will be enabled when this option is True
+and your Neutron deployment supports VPNaaS. If you want to disable
+VPN panel even when your Neutron supports VPNaaS, set it to False.
+
+This option is now marked as "deprecated" and will be removed in
+Kilo or later release. The VPN panel is now enabled only
+when VPNaaS feature is available in Neutron and this option is no
+longer needed. We suggest not to use this option to disable the
+VPN panel from now on.
 
 ``profile_support``:
 

@@ -10,11 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
+from openstack_dashboard.api import neutron
 from openstack_dashboard.dashboards.project import dashboard
 
 
@@ -23,8 +23,17 @@ class Firewall(horizon.Panel):
     slug = "firewalls"
     permissions = ('openstack.services.network',)
 
+    def can_access(self, context):
+        request = context['request']
+        if not request.user.has_perms(self.permissions):
+            return False
+        if not neutron.is_service_enabled(request,
+                                          config_name='enable_firewall',
+                                          ext_name='fwaas'):
+            return False
+        if not super(Firewall, self).can_access(context):
+            return False
+        return True
 
-if getattr(settings,
-           'OPENSTACK_NEUTRON_NETWORK',
-           {}).get('enable_firewall', False):
-    dashboard.Project.register(Firewall)
+
+dashboard.Project.register(Firewall)

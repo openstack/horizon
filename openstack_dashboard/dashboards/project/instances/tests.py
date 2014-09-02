@@ -1382,7 +1382,7 @@ class InstanceTests(helpers.TestCase):
     def test_launch_instance_get_with_only_one_network(self):
         self.test_launch_instance_get(only_one_network=True)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_get_with_profile(self):
         self.test_launch_instance_get(test_with_profile=True)
@@ -1471,7 +1471,7 @@ class InstanceTests(helpers.TestCase):
         for volume in bootable_volumes:
             self.assertTrue(volume in volume_sources_ids)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_get_bootable_volumes_with_profile(self):
         self.test_launch_instance_get_bootable_volumes(test_with_profile=True)
@@ -1597,7 +1597,7 @@ class InstanceTests(helpers.TestCase):
     def test_launch_instance_post_no_disk_config_supported(self):
         self.test_launch_instance_post(disk_config=False)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_post_with_profile(self):
         self.test_launch_instance_post(test_with_profile=True)
@@ -1719,7 +1719,7 @@ class InstanceTests(helpers.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_post_boot_from_volume_with_profile(self):
         self.test_launch_instance_post_boot_from_volume(test_with_profile=True)
@@ -1846,7 +1846,7 @@ class InstanceTests(helpers.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_lnch_inst_post_no_images_avail_boot_from_vol_with_profile(self):
         self.test_launch_instance_post_no_images_available_boot_from_volume(
@@ -1939,7 +1939,7 @@ class InstanceTests(helpers.TestCase):
         self.assertFormErrors(res, 1, "You must select an image.")
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_post_no_images_available_with_profile(self):
         self.test_launch_instance_post_no_images_available(
@@ -2007,7 +2007,7 @@ class InstanceTests(helpers.TestCase):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_flavorlist_error_with_profile(self):
         self.test_launch_flavorlist_error(test_with_profile=True)
@@ -2126,7 +2126,7 @@ class InstanceTests(helpers.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_keystone_exception_with_profile(self):
         self.test_launch_form_keystone_exception(test_with_profile=True)
@@ -2341,7 +2341,7 @@ class InstanceTests(helpers.TestCase):
     def test_launch_form_ram_cores_count_error(self):
         self._test_launch_form_count_error('both', 1, test_with_profile=False)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_count_error_with_profile(self):
         self.test_launch_form_instance_count_error(test_with_profile=True)
@@ -2460,13 +2460,13 @@ class InstanceTests(helpers.TestCase):
         self._test_launch_form_instance_requirement_error(image, flavor,
                                                           test_with_profile)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_requirement_error_disk_with_profile(self):
         self.test_launch_form_instance_requirement_error_disk(
             test_with_profile=True)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_requirement_error_ram_with_profile(self):
         self.test_launch_form_instance_requirement_error_ram(
@@ -2580,13 +2580,13 @@ class InstanceTests(helpers.TestCase):
         self._test_launch_form_instance_volume_size(image, 1.5, msg,
                                                     test_with_profile)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_volume_size_error_with_profile(self):
         self.test_launch_form_instance_volume_size_error(
             test_with_profile=True)
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_instance_non_int_volume_size_with_profile(self):
         self.test_launch_form_instance_non_int_volume_size(
@@ -2746,7 +2746,7 @@ class InstanceTests(helpers.TestCase):
             html=True,
             msg_prefix="The default key pair was not selected.")
 
-    @django.test.utils.override_settings(
+    @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_select_default_keypair_if_only_one_with_profile(self):
         self.test_select_default_keypair_if_only_one(test_with_profile=True)

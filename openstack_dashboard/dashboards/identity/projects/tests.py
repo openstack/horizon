@@ -20,7 +20,6 @@ import os
 import django
 from django.core.urlresolvers import reverse
 from django import http
-from django.test.utils import override_settings
 from django.utils import timezone
 from django.utils import unittest
 
@@ -233,7 +232,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                         api.neutron: ('is_extension_supported',
                                       'tenant_quota_get'),
                         quotas: ('get_default_quota_data',)})
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_add_project_get_with_neutron(self):
         quota = self.quotas.first()
         neutron_quotas = self.neutron_quotas.first()
@@ -380,7 +379,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'tenant_quota_update')})
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_add_project_post_with_neutron(self):
         quota_data = self.neutron_quotas.first()
         neutron_updated_quota = dict([(key, quota_data.get(key).limit)
@@ -1139,7 +1138,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'tenant_quota_get',
                                       'tenant_quota_update')})
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_update_project_save_with_neutron(self):
         quota_data = self.neutron_quotas.first()
         neutron_updated_quota = dict([(key, quota_data.get(key).limit)
