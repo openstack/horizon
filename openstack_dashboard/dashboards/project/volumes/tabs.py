@@ -30,10 +30,21 @@ from openstack_dashboard.dashboards.project.volumes.volumes \
 
 
 class VolumeTableMixIn(object):
+    _has_more_data = False
+    _has_prev_data = False
+
     def _get_volumes(self, search_opts=None):
         try:
-            return api.cinder.volume_list(self.request,
-                                          search_opts=search_opts)
+            marker, sort_dir = self._get_marker()
+            volumes, self._has_more_data, self._has_prev_data = \
+                api.cinder.volume_list_paged(self.request, marker=marker,
+                                             search_opts=search_opts,
+                                             sort_dir=sort_dir, paginate=True)
+
+            if sort_dir == "asc":
+                volumes.reverse()
+
+            return volumes
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve volume list.'))
@@ -78,6 +89,18 @@ class VolumeTableMixIn(object):
                 server_id = att.get('server_id', None)
                 att['instance'] = instances.get(server_id, None)
 
+    def _get_marker(self):
+        prev_marker = self.request.GET.get(
+            volume_tables.VolumesTable._meta.prev_pagination_param, None)
+        if prev_marker:
+            return prev_marker, "asc"
+        else:
+            marker = self.request.GET.get(
+                volume_tables.VolumesTable._meta.pagination_param, None)
+            if marker:
+                return marker, "desc"
+            return None, "desc"
+
 
 class VolumeTab(tabs.TableTab, VolumeTableMixIn):
     table_classes = (volume_tables.VolumesTable,)
@@ -93,6 +116,12 @@ class VolumeTab(tabs.TableTab, VolumeTableMixIn):
         self._set_volume_attributes(
             volumes, instances, volume_ids_with_snapshots)
         return volumes
+
+    def has_prev_data(self, table):
+        return self._has_prev_data
+
+    def has_more_data(self, table):
+        return self._has_more_data
 
 
 class SnapshotTab(tabs.TableTab):

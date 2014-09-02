@@ -22,6 +22,9 @@ from openstack_dashboard.api.rest import utils as rest_utils
 from openstack_dashboard.api.rest import urls
 
 
+CLIENT_KEYWORDS = {'marker', 'sort_dir', 'paginate'}
+
+
 @urls.register
 class Volumes(generic.View):
     """API for cinder volumes.
@@ -33,26 +36,43 @@ class Volumes(generic.View):
         """Get a detailed list of volumes associated with the current user's
         project.
 
+        Example GET:
+        http://localhost/api/cinder/volumes?paginate=true&sort_dir=asc  #flake8: noqa
+
         If invoked as an admin, you may set the GET parameter "all_projects"
-        to 'true'.
+        to 'true' to return details for all projects.
 
         The following get parameters may be passed in the GET
 
-        :param search_opts: include options such as name, status, bootable
+        :param search_opts: includes options such as name, status, bootable
+        :param paginate: If true will perform pagination based on settings.
+        :param marker: Specifies the namespace of the last-seen image.
+             The typical pattern of limit and marker is to make an
+             initial limited request and then to use the last
+             namespace from the response as the marker parameter
+             in a subsequent limited request. With paginate, limit
+             is automatically set.
+        :param sort_dir: The sort direction ('asc' or 'desc').
 
         The listing result is an object with property "items".
         """
-        # TODO(clu_): when v2 pagination stuff in Cinder API merges
-        # (https://review.openstack.org/#/c/118450), handle here accordingly
 
         if request.GET.get('all_projects') == 'true':
-            result = api.cinder.volume_list(request, {'all_tenants': 1})
-        else:
-            result = api.cinder.volume_list(
+            result, has_more, has_prev = api.cinder.volume_list_paged(
                 request,
-                search_opts=rest_utils.parse_filters_kwargs(request)[0]
+                {'all_tenants': 1}
             )
-        return {'items': [u.to_dict() for u in result]}
+        else:
+            search_opts, kwargs = rest_utils.parse_filters_kwargs(request, CLIENT_KEYWORDS)
+            result, has_more, has_prev = api.cinder.volume_list_paged(
+                request,
+                search_opts=search_opts, **kwargs
+            )
+        return {
+            'items': [u.to_dict() for u in result],
+            'has_more_data': has_more,
+            'has_prev_data': has_prev
+        }
 
     @rest_utils.ajax(data_required=True)
     def post(self, request):

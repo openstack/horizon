@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.test.utils import override_settings
 import six
 
@@ -37,8 +38,182 @@ class CinderApiTests(test.APITestCase):
             search_opts=search_opts,).AndReturn(volume_transfers)
         self.mox.ReplayAll()
 
-        # No assertions are necessary. Verification is handled by mox.
-        api.cinder.volume_list(self.request, search_opts=search_opts)
+        api_volumes = api.cinder.volume_list(self.request,
+                                             search_opts=search_opts)
+        self.assertEqual(len(volumes), len(api_volumes))
+
+    def test_volume_list_paged(self):
+        search_opts = {'all_tenants': 1}
+        detailed = True
+        volumes = self.cinder_volumes.list()
+        volume_transfers = self.cinder_volume_transfers.list()
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volumes = self.mox.CreateMockAnything()
+        cinderclient.volumes.list(search_opts=search_opts,).AndReturn(volumes)
+        cinderclient.transfers = self.mox.CreateMockAnything()
+        cinderclient.transfers.list(
+            detailed=detailed,
+            search_opts=search_opts,).AndReturn(volume_transfers)
+        self.mox.ReplayAll()
+
+        api_volumes, has_more, has_prev = api.cinder.volume_list_paged(
+            self.request, search_opts=search_opts)
+        self.assertEqual(len(volumes), len(api_volumes))
+        self.assertFalse(has_more)
+        self.assertFalse(has_prev)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
+    def test_volume_list_paginate_first_page(self):
+        api.cinder.VERSIONS._active = None
+        page_size = settings.API_RESULT_PAGE_SIZE
+        volumes = self.cinder_volumes.list()
+        volume_transfers = self.cinder_volume_transfers.list()
+
+        search_opts = {'all_tenants': 1}
+        mox_volumes = volumes[:page_size + 1]
+        expected_volumes = mox_volumes[:-1]
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volumes = self.mox.CreateMockAnything()
+        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
+                                  sort='created_at:desc', marker=None).\
+            AndReturn(mox_volumes)
+        cinderclient.transfers = self.mox.CreateMockAnything()
+        cinderclient.transfers.list(
+            detailed=True,
+            search_opts=search_opts,).AndReturn(volume_transfers)
+        self.mox.ReplayAll()
+
+        api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
+            self.request, search_opts=search_opts, paginate=True)
+        self.assertEqual(len(expected_volumes), len(api_volumes))
+        self.assertTrue(more_data)
+        self.assertFalse(prev_data)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
+    def test_volume_list_paginate_second_page(self):
+        api.cinder.VERSIONS._active = None
+        page_size = settings.API_RESULT_PAGE_SIZE
+        volumes = self.cinder_volumes.list()
+        volume_transfers = self.cinder_volume_transfers.list()
+
+        search_opts = {'all_tenants': 1}
+        mox_volumes = volumes[page_size:page_size * 2 + 1]
+        expected_volumes = mox_volumes[:-1]
+        marker = expected_volumes[0].id
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volumes = self.mox.CreateMockAnything()
+        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
+                                  sort='created_at:desc', marker=marker).\
+            AndReturn(mox_volumes)
+        cinderclient.transfers = self.mox.CreateMockAnything()
+        cinderclient.transfers.list(
+            detailed=True,
+            search_opts=search_opts,).AndReturn(volume_transfers)
+        self.mox.ReplayAll()
+
+        api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
+            self.request, search_opts=search_opts, marker=marker,
+            paginate=True)
+        self.assertEqual(len(expected_volumes), len(api_volumes))
+        self.assertTrue(more_data)
+        self.assertTrue(prev_data)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
+    def test_volume_list_paginate_last_page(self):
+        api.cinder.VERSIONS._active = None
+        page_size = settings.API_RESULT_PAGE_SIZE
+        volumes = self.cinder_volumes.list()
+        volume_transfers = self.cinder_volume_transfers.list()
+
+        search_opts = {'all_tenants': 1}
+        mox_volumes = volumes[-1 * page_size:]
+        expected_volumes = mox_volumes
+        marker = expected_volumes[0].id
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volumes = self.mox.CreateMockAnything()
+        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
+                                  sort='created_at:desc', marker=marker).\
+            AndReturn(mox_volumes)
+        cinderclient.transfers = self.mox.CreateMockAnything()
+        cinderclient.transfers.list(
+            detailed=True,
+            search_opts=search_opts,).AndReturn(volume_transfers)
+        self.mox.ReplayAll()
+
+        api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
+            self.request, search_opts=search_opts, marker=marker,
+            paginate=True)
+        self.assertEqual(len(expected_volumes), len(api_volumes))
+        self.assertFalse(more_data)
+        self.assertTrue(prev_data)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
+    def test_volume_list_paginate_back_from_some_page(self):
+        api.cinder.VERSIONS._active = None
+        page_size = settings.API_RESULT_PAGE_SIZE
+        volumes = self.cinder_volumes.list()
+        volume_transfers = self.cinder_volume_transfers.list()
+
+        search_opts = {'all_tenants': 1}
+        mox_volumes = volumes[page_size:page_size * 2 + 1]
+        expected_volumes = mox_volumes[:-1]
+        marker = expected_volumes[0].id
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volumes = self.mox.CreateMockAnything()
+        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
+                                  sort='created_at:asc', marker=marker).\
+            AndReturn(mox_volumes)
+        cinderclient.transfers = self.mox.CreateMockAnything()
+        cinderclient.transfers.list(
+            detailed=True,
+            search_opts=search_opts,).AndReturn(volume_transfers)
+        self.mox.ReplayAll()
+
+        api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
+            self.request, search_opts=search_opts, sort_dir="asc",
+            marker=marker, paginate=True)
+        self.assertEqual(len(expected_volumes), len(api_volumes))
+        self.assertTrue(more_data)
+        self.assertTrue(prev_data)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    @override_settings(OPENSTACK_API_VERSIONS={'volume': 2})
+    def test_volume_list_paginate_back_to_first_page(self):
+        api.cinder.VERSIONS._active = None
+        page_size = settings.API_RESULT_PAGE_SIZE
+        volumes = self.cinder_volumes.list()
+        volume_transfers = self.cinder_volume_transfers.list()
+
+        search_opts = {'all_tenants': 1}
+        mox_volumes = volumes[:page_size]
+        expected_volumes = mox_volumes
+        marker = expected_volumes[0].id
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volumes = self.mox.CreateMockAnything()
+        cinderclient.volumes.list(search_opts=search_opts, limit=page_size + 1,
+                                  sort='created_at:asc', marker=marker).\
+            AndReturn(mox_volumes)
+        cinderclient.transfers = self.mox.CreateMockAnything()
+        cinderclient.transfers.list(
+            detailed=True,
+            search_opts=search_opts,).AndReturn(volume_transfers)
+        self.mox.ReplayAll()
+
+        api_volumes, more_data, prev_data = api.cinder.volume_list_paged(
+            self.request, search_opts=search_opts, sort_dir="asc",
+            marker=marker, paginate=True)
+        self.assertEqual(len(expected_volumes), len(api_volumes))
+        self.assertTrue(more_data)
+        self.assertFalse(prev_data)
 
     def test_volume_snapshot_list(self):
         search_opts = {'all_tenants': 1}
