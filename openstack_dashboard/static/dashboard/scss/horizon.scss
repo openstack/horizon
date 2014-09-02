@@ -1033,6 +1033,11 @@ form .form-group > div.dynamic-select {
   margin: 0;
 }
 
+// Fixes issue with bootstrap positioning of modal container
+.modal {
+  top: 0 !important;
+}
+
 .modal-footer input {
   width: auto;
 }
