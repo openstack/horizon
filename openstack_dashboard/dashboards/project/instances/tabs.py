@@ -71,6 +71,11 @@ class ConsoleTab(tabs.Tab):
 
         return {'console_url': console_url, 'instance_id': instance.id}
 
+    def allowed(self, request):
+        # The ConsoleTab is available if settings.CONSOLE_TYPE is not set at
+        # all, or if it's set to any value other than None or False.
+        return bool(getattr(settings, 'CONSOLE_TYPE', True))
+
 
 class AuditTab(tabs.TableTab):
     name = _("Action Log")

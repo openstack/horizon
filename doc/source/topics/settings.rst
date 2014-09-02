@@ -667,6 +667,17 @@ This setting notifies the Data Processing (Sahara) system whether or not
 automatic IP allocation is enabled.  You would want to set this to True
 if you were running Nova Networking with auto_assign_floating_ip = True.
 
+``CONSOLE_TYPE``
+-------------------------------------
+
+Default:  ``"AUTO"``
+
+This settings specifies the type of in-browser VNC console used to access the
+VMs.
+Valid values are  ``"AUTO"``(default), ``"VNC"``, ``"SPICE"``, ``"RDP"`` and
+``None``(this latest value is available in version 2014.2(Juno) to allow
+deactivating the in-browser console).
+
 
 Django Settings (Partial)
 =========================
@@ -971,3 +982,4 @@ following content::
     PANEL_GROUP = 'plugin_panel_group'
     PANEL_GROUP_NAME = 'Plugin Panel Group'
     PANEL_GROUP_DASHBOARD = 'admin'
+

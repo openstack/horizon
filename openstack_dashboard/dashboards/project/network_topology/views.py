@@ -112,6 +112,8 @@ class NetworkTopologyView(TemplateView):
         context['create_router_allowed'] = (
             network_config.get('enable_router', True) and
             self._has_permission((("network", "create_router"),)))
+        context['console_type'] = getattr(
+            settings, 'CONSOLE_TYPE', 'AUTO')
         return context
 
 
