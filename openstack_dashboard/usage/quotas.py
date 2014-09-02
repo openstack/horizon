@@ -58,6 +58,31 @@ NEUTRON_QUOTA_FIELDS = ("network",
 
 QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS + NEUTRON_QUOTA_FIELDS
 
+QUOTA_NAMES = {
+    "metadata_items": _('Metadata Items'),
+    "cores": _('VCPUs'),
+    "instances": _('Instances'),
+    "injected_files": _('Injected Files'),
+    "injected_file_content_bytes": _('Injected File Content Bytes'),
+    "ram": _('RAM (MB)'),
+    "floating_ips": _('Floating IPs'),
+    "fixed_ips": _('Fixed IPs'),
+    "security_groups": _('Security Groups'),
+    "security_group_rules": _('Security Group Rules'),
+    "key_pairs": _('Key Pairs'),
+    "injected_file_path_bytes": _('Injected File Path Bytes'),
+    "volumes": _('Volumes'),
+    "snapshots": _('Volume Snapshots'),
+    "gigabytes": _('Total Size of Volumes and Snapshots (GB)'),
+    "network": _("Networks"),
+    "subnet": _("Subnets"),
+    "port": _("Ports"),
+    "router": _("Routers"),
+    "floatingip": _('Floating IPs'),
+    "security_group": _("Security Groups"),
+    "security_group_rule": _("Security Group Rules")
+}
+
 
 class QuotaUsage(dict):
     """Tracks quota limit, used, and available for a given set of quotas."""

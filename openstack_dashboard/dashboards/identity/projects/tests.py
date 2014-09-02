@@ -548,7 +548,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         url = reverse('horizon:identity:projects:create')
         res = self.client.post(url, workflow_data)
         msg = 'Quota value(s) cannot be less than the current usage ' \
-              'value(s): 5 instances used.'
+              'value(s): 5 Instances used.'
         self.assertContains(res, msg)
 
     @test.create_stubs({api.keystone: ('tenant_create',
