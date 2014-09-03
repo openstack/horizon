@@ -39,7 +39,7 @@
         var ids = [];
         $(".data-template-row").each(function () {
             var id = parseInt($(this).attr("id_attr"));
-            if (!!id) {
+            if (!isNaN(id)) {
                 ids.push(id);
             }
         });
@@ -54,7 +54,7 @@
                 replace(/\$template_id/g, template_id).
                 replace(/\$node_count/g, node_count).
                 replace(/\$template_name/g, template_name);
-        $("#header_row").after(tmp);
+        $("#groups_table").find("tr:last").after(tmp);
         if (!deletable) {
             $("#delete_btn_" + id).remove();
             $("#group_name_" + id).prop('readonly', true);
@@ -108,7 +108,7 @@
 </span>
 <br/>
 <div id="node-templates">
-    <table>
+    <table id="groups_table">
         <tr id="header_row" class="row">
             <th class="col-sm-4 small-padding"><label>Group Name</label></th>
             <th class="col-sm-3 small-padding"><label>Template</label></th>
