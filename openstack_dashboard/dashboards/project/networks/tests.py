@@ -1609,6 +1609,9 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:networks:ports:detail',

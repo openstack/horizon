@@ -23,6 +23,8 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.volumes.backups \
     import forms as backup_forms
 from openstack_dashboard.dashboards.project.volumes.backups \
+    import tables as backup_tables
+from openstack_dashboard.dashboards.project.volumes.backups \
     import tabs as backup_tabs
 
 
@@ -46,7 +48,12 @@ class BackupDetailView(tabs.TabView):
 
     def get_context_data(self, **kwargs):
         context = super(BackupDetailView, self).get_context_data(**kwargs)
-        context["backup"] = self.get_data()
+        backup = self.get_data()
+        table = backup_tables.BackupsTable(self.request)
+        context["backup"] = backup
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(backup)
+
         return context
 
     @memoized.memoized_method
@@ -56,15 +63,18 @@ class BackupDetailView(tabs.TabView):
             backup = api.cinder.volume_backup_get(self.request,
                                                   backup_id)
         except Exception:
-            redirect = reverse('horizon:project:volumes:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve backup details.'),
-                              redirect=redirect)
+                              redirect=self.get_redirect_url())
         return backup
 
     def get_tabs(self, request, *args, **kwargs):
         backup = self.get_data()
         return self.tab_group_class(request, backup=backup, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse('horizon:project:volumes:index')
 
 
 class RestoreBackupView(forms.ModalFormView):

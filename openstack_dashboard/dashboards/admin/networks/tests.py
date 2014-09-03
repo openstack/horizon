@@ -103,6 +103,8 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn(mac_learning)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                 'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                'dhcp_agent_scheduler').AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -186,6 +188,8 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn(mac_learning)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                 'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                'dhcp_agent_scheduler').AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -228,6 +232,12 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -942,6 +952,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(self.ports.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)

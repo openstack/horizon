@@ -253,7 +253,11 @@ class DetailView(tabs.TabView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["instance"] = self.get_data()
+        instance = self.get_data()
+        context["instance"] = instance
+        table = project_tables.InstancesTable(self.request)
+        context["url"] = reverse(self.redirect_url)
+        context["actions"] = table.render_row_actions(instance)
         return context
 
     @memoized.memoized_method

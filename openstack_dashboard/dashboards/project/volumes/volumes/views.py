@@ -44,12 +44,12 @@ class DetailView(tabs.TabView):
     template_name = 'project/volumes/volumes/detail.html'
 
     def get_context_data(self, **kwargs):
-        datum = self.get_data()
-        table = project_tables.VolumesTable(self.request)
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["volume"] = datum
+        volume = self.get_data()
+        table = project_tables.VolumesTable(self.request)
+        context["volume"] = volume
         context["url"] = self.get_redirect_url()
-        context["actions"] = table.render_row_actions(datum)
+        context["actions"] = table.render_row_actions(volume)
         return context
 
     @memoized.memoized_method

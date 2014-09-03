@@ -96,7 +96,6 @@ class UpdateView(forms.ModalFormView):
 class DetailView(tables.MultiTableView):
     table_classes = (subnet_tables.SubnetsTable, port_tables.PortsTable)
     template_name = 'project/networks/detail.html'
-    failure_url = reverse_lazy('horizon:project:networks:index')
 
     def get_subnets_data(self):
         try:
@@ -132,10 +131,19 @@ class DetailView(tables.MultiTableView):
         except Exception:
             msg = _('Unable to retrieve details for network "%s".') \
                 % (network_id)
-            exceptions.handle(self.request, msg, redirect=self.failure_url)
+            exceptions.handle(self.request, msg,
+                              redirect=self.get_redirect_url())
         return network
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["network"] = self._get_data()
+        network = self._get_data()
+        context["network"] = network
+        table = project_tables.NetworksTable(self.request)
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(network)
         return context
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy('horizon:project:networks:index')

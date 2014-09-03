@@ -197,7 +197,11 @@ class DetailView(tabs.TabView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["stack"] = self.get_data(self.request, **kwargs)
+        stack = self.get_data(self.request, **kwargs)
+        table = project_tables.StacksTable(self.request)
+        context["stack"] = stack
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(stack)
         return context
 
     @memoized.memoized_method
@@ -210,12 +214,15 @@ class DetailView(tabs.TabView):
             return stack
         except Exception:
             msg = _("Unable to retrieve stack.")
-            redirect = reverse('horizon:project:stacks:index')
-            exceptions.handle(request, msg, redirect=redirect)
+            exceptions.handle(request, msg, redirect=self.get_redirect_url())
 
     def get_tabs(self, request, **kwargs):
         stack = self.get_data(request, **kwargs)
         return self.tab_group_class(request, stack=stack, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse('horizon:project:stacks:index')
 
 
 class ResourceView(tabs.TabView):
