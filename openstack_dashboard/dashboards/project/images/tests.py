@@ -333,7 +333,7 @@ class SeleniumTests(test.SeleniumTestCase):
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
         self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extention is *.iso")
+                        "ISO should be selected when the extension is *.iso")
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_modal_create_image_from_file(self):
@@ -358,7 +358,7 @@ class SeleniumTests(test.SeleniumTestCase):
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
         self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extention is *.iso")
+                        "ISO should be selected when the extension is *.iso")
 
     def test_create_image_from_url(self):
         driver = self.selenium
@@ -374,7 +374,7 @@ class SeleniumTests(test.SeleniumTestCase):
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
         self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extention is *.iso")
+                        "ISO should be selected when the extension is *.iso")
 
     def test_create_image_from_file(self):
         driver = self.selenium
@@ -389,4 +389,4 @@ class SeleniumTests(test.SeleniumTestCase):
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
         self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extention is *.iso")
+                        "ISO should be selected when the extension is *.iso")
