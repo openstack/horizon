@@ -17,7 +17,7 @@ kombu>=2.4.8
 # Horizon Utility Requirements
 # for SECURE_KEY generation
 lockfile>=0.8
-netaddr>=0.7.6
+netaddr>=0.7.12
 pyscss>=1.2.0  # MIT License
 python-ceilometerclient>=1.0.6
 python-cinderclient>=1.0.7
