@@ -234,7 +234,7 @@ class ValidatorsTests(test.TestCase):
 class SecretKeyTests(test.TestCase):
     def test_generate_secret_key(self):
         key = secret_key.generate_key(32)
-        self.assertEqual(len(key), 32)
+        self.assertEqual(32, len(key))
         self.assertNotEqual(key, secret_key.generate_key(32))
 
     def test_generate_or_read_key_from_file(self):
@@ -242,10 +242,10 @@ class SecretKeyTests(test.TestCase):
         key = secret_key.generate_or_read_from_file(key_file)
 
         # Consecutive reads should come from the already existing file:
-        self.assertEqual(key, secret_key.generate_or_read_from_file(key_file))
+        self.assertEqual(secret_key.generate_or_read_from_file(key_file), key)
 
         # Key file only be read/writable by user:
-        self.assertEqual(oct(os.stat(key_file).st_mode & 0o777), "0600")
+        self.assertEqual("0600", oct(os.stat(key_file).st_mode & 0o777))
         os.chmod(key_file, 0o777)
         self.assertRaises(secret_key.FilePermissionError,
                           secret_key.generate_or_read_from_file, key_file)
@@ -255,32 +255,32 @@ class SecretKeyTests(test.TestCase):
 class FiltersTests(test.TestCase):
     def test_replace_underscore_filter(self):
         res = filters.replace_underscores("__under_score__")
-        self.assertEqual(res, "  under score  ")
+        self.assertEqual("  under score  ", res)
 
     def test_parse_isotime_filter(self):
         c = django.template.Context({'time': ''})
         t = django.template.Template('{{time|parse_isotime}}')
         output = u""
 
-        self.assertEqual(t.render(c), output)
+        self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': 'error'})
         t = django.template.Template('{{time|parse_isotime}}')
         output = u""
 
-        self.assertEqual(t.render(c), output)
+        self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': 'error'})
         t = django.template.Template('{{time|parse_isotime:"test"}}')
         output = u"test"
 
-        self.assertEqual(t.render(c), output)
+        self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': '2007-03-04T21:08:12'})
         t = django.template.Template('{{time|parse_isotime:"test"}}')
         output = u"March 4, 2007, 3:08 p.m."
 
-        self.assertEqual(t.render(c), output)
+        self.assertEqual(output, t.render(c))
 
         adate = '2007-01-25T12:00:00Z'
         result = filters.parse_isotime(adate)
@@ -294,41 +294,41 @@ class TimeSinceNeverFilterTests(test.TestCase):
     def test_timesince_or_never_returns_default_for_empty_string(self):
         c = django.template.Context({'time': ''})
         t = django.template.Template('{{time|timesince_or_never}}')
-        self.assertEqual(t.render(c), self.default)
+        self.assertEqual(self.default, t.render(c))
 
     def test_timesince_or_never_returns_default_for_none(self):
         c = django.template.Context({'time': None})
         t = django.template.Template('{{time|timesince_or_never}}')
-        self.assertEqual(t.render(c), self.default)
+        self.assertEqual(self.default, t.render(c))
 
     def test_timesince_or_never_returns_default_for_gibberish(self):
         c = django.template.Context({'time': django.template.Context()})
         t = django.template.Template('{{time|timesince_or_never}}')
-        self.assertEqual(t.render(c), self.default)
+        self.assertEqual(self.default, t.render(c))
 
     def test_timesince_or_never_returns_with_custom_default(self):
         custom = "Hello world"
         c = django.template.Context({'date': ''})
         t = django.template.Template('{{date|timesince_or_never:"%s"}}'
                                      % custom)
-        self.assertEqual(t.render(c), custom)
+        self.assertEqual(custom, t.render(c))
 
     def test_timesince_or_never_returns_with_custom_empty_string_default(self):
         c = django.template.Context({'date': ''})
         t = django.template.Template('{{date|timesince_or_never:""}}')
-        self.assertEqual(t.render(c), "")
+        self.assertEqual("", t.render(c))
 
     def test_timesince_or_never_returns_same_output_as_django_date(self):
         d = datetime.date(year=2014, month=3, day=7)
         c = django.template.Context({'date': d})
         t = django.template.Template('{{date|timesince_or_never}}')
-        self.assertEqual(t.render(c), defaultfilters.timesince(d))
+        self.assertEqual(defaultfilters.timesince(d), t.render(c))
 
     def test_timesince_or_never_returns_same_output_as_django_datetime(self):
         now = datetime.datetime.now()
         c = django.template.Context({'date': now})
         t = django.template.Template('{{date|timesince_or_never}}')
-        self.assertEqual(t.render(c), defaultfilters.timesince(now))
+        self.assertEqual(defaultfilters.timesince(now), t.render(c))
 
 
 class MemoizedTests(test.TestCase):
@@ -346,12 +346,12 @@ class MemoizedTests(test.TestCase):
 
         for x in range(0, 5):
             non_cached_calls(1)
-        self.assertEqual(len(values_list), 5)
+        self.assertEqual(5, len(values_list))
 
         values_list = []
         for x in range(0, 5):
             cache_calls(1)
-        self.assertEqual(len(values_list), 1)
+        self.assertEqual(1, len(values_list))
 
 
 class GetPageSizeTests(test.TestCase):

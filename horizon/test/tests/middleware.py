@@ -46,8 +46,8 @@ class MiddlewareTests(test.TestCase):
         request.session['last_activity'] = int(time.time()) - (timeout + 10)
         mw = middleware.HorizonMiddleware()
         resp = mw.process_request(request)
-        self.assertEqual(resp.status_code, 302)
-        self.assertEqual(resp.get('Location'), response_url)
+        self.assertEqual(302, resp.status_code)
+        self.assertEqual(response_url, resp.get('Location'))
 
     def test_process_response_redirect_on_ajax_request(self):
         url = settings.LOGIN_URL
@@ -63,5 +63,5 @@ class MiddlewareTests(test.TestCase):
         response.client = self.client
 
         resp = mw.process_response(request, response)
-        self.assertEqual(resp.status_code, 200)
-        self.assertEqual(resp['X-Horizon-Location'], url)
+        self.assertEqual(200, resp.status_code)
+        self.assertEqual(url, resp['X-Horizon-Location'])

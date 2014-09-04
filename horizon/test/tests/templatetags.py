@@ -63,7 +63,7 @@ class TemplateTagTests(test.TestCase):
 
         rendered_str = self.render_template(tag_require='sizeformat',
                                             template_text=text)
-        self.assertEqual(rendered_str, expected)
+        self.assertEqual(expected, rendered_str)
 
     def test_size_format_filters_with_string(self):
         size_str = ('"test"|diskgbformat', '"limit"|mb_float_format',
@@ -76,7 +76,7 @@ class TemplateTagTests(test.TestCase):
 
         rendered_str = self.render_template(tag_require='sizeformat',
                                             template_text=text)
-        self.assertEqual(rendered_str, expected)
+        self.assertEqual(expected, rendered_str)
 
     def test_truncate_filter(self):
         ctx_string = {'val1': 'he',
@@ -90,7 +90,7 @@ class TemplateTagTests(test.TestCase):
         rendered_str = self.render_template(tag_require='truncate_filter',
                                             template_text=text,
                                             context={'test': ctx_string})
-        self.assertEqual(rendered_str, expected)
+        self.assertEqual(expected, rendered_str)
 
     def test_quota_filter(self):
         ctx_string = {'val1': 100,
@@ -105,4 +105,4 @@ class TemplateTagTests(test.TestCase):
         rendered_str = self.render_template(tag_require='horizon',
                                             template_text=text,
                                             context={'test': ctx_string})
-        self.assertEqual(rendered_str, expected)
+        self.assertEqual(expected, rendered_str)

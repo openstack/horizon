@@ -179,7 +179,7 @@ class NeutronApiTests(test.APITestCase):
 
         ret_val = api.neutron.port_create(self.request, **params)
         self.assertIsInstance(ret_val, api.neutron.Port)
-        self.assertEqual(ret_val.id, api.neutron.Port(port_data).id)
+        self.assertEqual(api.neutron.Port(port_data).id, ret_val.id)
 
     def test_port_update(self):
         port_data = self.api_ports.first()
@@ -194,7 +194,7 @@ class NeutronApiTests(test.APITestCase):
 
         ret_val = api.neutron.port_update(self.request, port_id, **params)
         self.assertIsInstance(ret_val, api.neutron.Port)
-        self.assertEqual(ret_val.id, api.neutron.Port(port_data).id)
+        self.assertEqual(api.neutron.Port(port_data).id, ret_val.id)
 
     def test_port_delete(self):
         port_id = self.api_ports.first()['id']

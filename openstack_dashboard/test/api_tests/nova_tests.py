@@ -35,7 +35,7 @@ class ServerWrapperTests(test.TestCase):
 
     def test_get_base_attribute(self):
         server = api.nova.Server(self.servers.first(), self.request)
-        self.assertEqual(server.id, self.servers.first().id)
+        self.assertEqual(self.servers.first().id, server.id)
 
     def test_image_name(self):
         image = self.images.first()
@@ -45,7 +45,7 @@ class ServerWrapperTests(test.TestCase):
         self.mox.ReplayAll()
 
         server = api.nova.Server(self.servers.first(), self.request)
-        self.assertEqual(server.image_name, image.name)
+        self.assertEqual(image.name, server.image_name)
 
 
 class ComputeApiTests(test.APITestCase):
@@ -230,4 +230,4 @@ class ComputeApiTests(test.APITestCase):
         expected_results = {"maxTotalCores": float("inf"),
                             "maxTotalInstances": 10}
         for key in expected_results.keys():
-            self.assertEqual(ret_val[key], expected_results[key])
+            self.assertEqual(expected_results[key], ret_val[key])
