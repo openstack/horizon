@@ -315,6 +315,60 @@ class StackTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.heat: ('template_validate',)})
+    def test_launch_stack_with_hidden_parameters(self):
+        template = {
+            'data': ('heat_template_version: 2013-05-23\n'
+                     'parameters:\n'
+                     '  public_string:\n'
+                     '    type: string\n'
+                     '  secret_string:\n'
+                     '    type: string\n'
+                     '    hidden: true\n'),
+            'validate': {
+                'Description': 'No description',
+                'Parameters': {
+                    'public_string': {
+                        'Label': 'public_string',
+                        'Description': '',
+                        'Type': 'String',
+                        'NoEcho': 'false'
+                    },
+                    'secret_string': {
+                        'Label': 'secret_string',
+                        'Description': '',
+                        'Type': 'String',
+                        'NoEcho': 'true'
+                    }
+                }
+            }
+        }
+        api.heat.template_validate(IsA(http.HttpRequest),
+                                   template=template['data']) \
+           .AndReturn(template['validate'])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:stacks:select_template')
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'project/stacks/select_template.html')
+
+        form_data = {'template_source': 'raw',
+                     'template_data': template['data'],
+                     'method': forms.TemplateForm.__name__}
+        res = self.client.post(url, form_data)
+        self.assertTemplateUsed(res, 'project/stacks/create.html')
+
+        # ensure the fields were rendered correctly
+        self.assertContains(res, '<input class=" form-control" '
+                                        'id="id___param_public_string" '
+                                        'name="__param_public_string" '
+                                        'type="text" />', html=True)
+        self.assertContains(res, '<input class=" form-control" '
+                                        'id="id___param_secret_string" '
+                                        'name="__param_secret_string" '
+                                        'type="password" />', html=True)
+
     @test.create_stubs({api.heat: ('stack_update', 'stack_get',
                                     'template_get', 'template_validate')})
     def test_edit_stack_template(self):
