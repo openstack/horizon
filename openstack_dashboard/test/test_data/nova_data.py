@@ -679,8 +679,20 @@ def data(TEST):
         "host": "devstack001",
         "disabled_reason": None,
     })
+
+    service_3 = services.Service(services.ServiceManager(None), {
+        "status": "enabled",
+        "binary": "nova-compute",
+        "zone": "nova",
+        "state": "down",
+        "updated_at": "2013-07-08T04:20:51.000000",
+        "host": "devstack002",
+        "disabled_reason": None,
+    })
+
     TEST.services.add(service_1)
     TEST.services.add(service_2)
+    TEST.services.add(service_3)
 
     # Aggregates
     aggregate_1 = aggregates.Aggregate(aggregates.AggregateManager(None), {

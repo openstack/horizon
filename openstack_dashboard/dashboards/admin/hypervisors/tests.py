@@ -21,18 +21,39 @@ from openstack_dashboard.test import helpers as test
 
 
 class HypervisorViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('hypervisor_list',
-                                   'hypervisor_stats')})
+    @test.create_stubs({api.nova: ('extension_supported',
+                                   'hypervisor_list',
+                                   'hypervisor_stats',
+                                   'service_list')})
     def test_index(self):
         hypervisors = self.hypervisors.list()
+        services = self.services.list()
         stats = self.hypervisors.stats
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.hypervisor_list(IsA(http.HttpRequest)).AndReturn(hypervisors)
         api.nova.hypervisor_stats(IsA(http.HttpRequest)).AndReturn(stats)
+        api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:admin:hypervisors:index'))
         self.assertTemplateUsed(res, 'admin/hypervisors/index.html')
-        self.assertItemsEqual(res.context['table'].data, hypervisors)
+
+        hypervisors_tab = res.context['tab_group'].get_tab('hypervisor')
+        self.assertItemsEqual(hypervisors_tab._tables['hypervisors'].data,
+                                 hypervisors)
+
+        host_tab = res.context['tab_group'].get_tab('compute_host')
+        host_table = host_tab._tables['compute_host']
+        compute_services = [service for service in services
+                            if service.binary == 'nova-compute']
+        self.assertItemsEqual(host_table.data, compute_services)
+        actions_host_up = host_table.get_row_actions(host_table.data[0])
+        self.assertEqual(0, len(actions_host_up))
+        actions_host_down = host_table.get_row_actions(host_table.data[1])
+        self.assertEqual(1, len(actions_host_down))
+        self.assertEqual('evacuate', actions_host_down[0].name)
 
 
 class HypervisorDetailViewTest(test.BaseAdminViewTests):

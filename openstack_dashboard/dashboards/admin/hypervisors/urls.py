@@ -12,9 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
+from openstack_dashboard.dashboards.admin.hypervisors.compute \
+    import urls as compute_urls
 from openstack_dashboard.dashboards.admin.hypervisors import views
 
 
@@ -23,5 +26,6 @@ urlpatterns = patterns(
     url(r'^(?P<hypervisor>[^/]+)/$',
         views.AdminDetailView.as_view(),
         name='detail'),
-    url(r'^$', views.AdminIndexView.as_view(), name='index')
+    url(r'^$', views.AdminIndexView.as_view(), name='index'),
+    url(r'', include(compute_urls, namespace='compute')),
 )

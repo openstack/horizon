@@ -120,6 +120,24 @@ class Server(base.APIResourceWrapper):
         return getattr(self, 'OS-EXT-AZ:availability_zone', "")
 
 
+class Hypervisor(base.APIDictWrapper):
+    """Simple wrapper around novaclient.hypervisors.Hypervisor."""
+
+    _attrs = ['manager', '_loaded', '_info', 'hypervisor_hostname', 'id',
+              'servers']
+
+    @property
+    def servers(self):
+        # if hypervisor doesn't have servers, the attribute is not present
+        servers = []
+        try:
+            servers = self._apidict.servers
+        except Exception:
+            pass
+
+        return servers
+
+
 class NovaUsage(base.APIResourceWrapper):
     """Simple wrapper around contrib/simple_usage.py."""
 
@@ -707,6 +725,32 @@ def hypervisor_search(request, query, servers=True):
     return novaclient(request).hypervisors.search(query, servers)
 
 
+def evacuate_host(request, host, target=None, on_shared_storage=False):
+    # TODO(jmolle) This should be change for nova atomic api host_evacuate
+    hypervisors = novaclient(request).hypervisors.search(host, True)
+    response = []
+    err_code = None
+    for hypervisor in hypervisors:
+        hyper = Hypervisor(hypervisor)
+        # if hypervisor doesn't have servers, the attribute is not present
+        for server in hyper.servers:
+            try:
+                novaclient(request).servers.evacuate(server['uuid'],
+                                                     target,
+                                                     on_shared_storage)
+            except nova_exceptions.ClientException as err:
+                err_code = err.code
+                msg = _("Name: %(name)s ID: %(uuid)s")
+                msg = msg % {'name': server['name'], 'uuid': server['uuid']}
+                response.append(msg)
+
+    if err_code:
+        msg = _('Failed to evacuate instances: %s') % ', '.join(response)
+        raise nova_exceptions.ClientException(err_code, msg)
+
+    return True
+
+
 def tenant_absolute_limits(request, reserved=False):
     limits = novaclient(request).limits.get(reserved=reserved).absolute
     limits_dict = {}
@@ -723,8 +767,8 @@ def availability_zone_list(request, detailed=False):
     return novaclient(request).availability_zones.list(detailed=detailed)
 
 
-def service_list(request):
-    return novaclient(request).services.list()
+def service_list(request, binary=None):
+    return novaclient(request).services.list(binary=binary)
 
 
 def aggregate_details_list(request):

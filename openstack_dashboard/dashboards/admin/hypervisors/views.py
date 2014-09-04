@@ -16,14 +16,18 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables
+from horizon import tabs
 from horizon.utils import functions as utils
+
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.hypervisors \
     import tables as project_tables
+from openstack_dashboard.dashboards.admin.hypervisors \
+    import tabs as project_tabs
 
 
-class AdminIndexView(tables.DataTableView):
-    table_class = project_tables.AdminHypervisorsTable
+class AdminIndexView(tabs.TabbedTableView):
+    tab_group_class = project_tabs.HypervisorHostTabs
     template_name = 'admin/hypervisors/index.html'
 
     def get_data(self):
