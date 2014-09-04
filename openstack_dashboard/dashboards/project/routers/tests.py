@@ -133,10 +133,14 @@ class RouterActionTests(test.TestCase):
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_dvr_permission',)})
+                                      'get_feature_permission',)})
     def test_router_create_post(self):
         router = self.routers.first()
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "create")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "create")\
+            .AndReturn(False)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "l3-ha", "create")\
             .AndReturn(False)
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
             .AndReturn(router)
@@ -150,17 +154,22 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_dvr_permission',)})
+                                      'get_feature_permission',)})
     def test_router_create_post_mode_server_default(self):
         router = self.routers.first()
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "create")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "create")\
+            .AndReturn(True)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                       "l3-ha", "create")\
             .AndReturn(True)
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
             .AndReturn(router)
 
         self.mox.ReplayAll()
         form_data = {'name': router.name,
-                     'mode': 'server_default'}
+                     'mode': 'server_default',
+                     'ha': 'server_default'}
         url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
         res = self.client.post(url, form_data)
 
@@ -168,19 +177,25 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_dvr_permission',)})
-    def test_dvr_router_create_post(self):
+                                      'get_feature_permission',)})
+    def test_dvr_ha_router_create_post(self):
         router = self.routers.first()
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "create")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "create")\
+            .MultipleTimes().AndReturn(True)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                       "l3-ha", "create")\
             .MultipleTimes().AndReturn(True)
         param = {'name': router.name,
-               'distributed': True}
+                 'distributed': True,
+                 'ha': True}
         api.neutron.router_create(IsA(http.HttpRequest), **param)\
             .AndReturn(router)
 
         self.mox.ReplayAll()
         form_data = {'name': router.name,
-                     'mode': 'distributed'}
+                     'mode': 'distributed',
+                     'ha': 'enabled'}
         url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
         res = self.client.post(url, form_data)
 
@@ -188,11 +203,15 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_dvr_permission',)})
+                                      'get_feature_permission',)})
     def test_router_create_post_exception_error_case_409(self):
         router = self.routers.first()
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "create")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "create")\
             .MultipleTimes().AndReturn(False)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                       "l3-ha", "create")\
+            .AndReturn(False)
         self.exceptions.neutron.status_code = 409
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
             .AndRaise(self.exceptions.neutron)
@@ -206,10 +225,14 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_dvr_permission',)})
+                                      'get_feature_permission',)})
     def test_router_create_post_exception_error_case_non_409(self):
         router = self.routers.first()
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "create")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "create")\
+            .MultipleTimes().AndReturn(False)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                       "l3-ha", "create")\
             .MultipleTimes().AndReturn(False)
         self.exceptions.neutron.status_code = 999
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
@@ -224,15 +247,20 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_get',
-                                      'get_dvr_permission')})
+                                      'get_feature_permission')})
     def _test_router_update_get(self, dvr_enabled=False,
-                                current_dvr=False):
+                                current_dvr=False,
+                                ha_enabled=False):
         router = [r for r in self.routers.list()
                   if r.distributed == current_dvr][0]
         api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndReturn(router)
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "update")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "update")\
             .AndReturn(dvr_enabled)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                       "l3-ha", "update")\
+            .AndReturn(ha_enabled)
         self.mox.ReplayAll()
 
         url = reverse('horizon:%s:routers:update' % self.DASHBOARD,
@@ -276,10 +304,14 @@ class RouterActionTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('router_get',
                                       'router_update',
-                                      'get_dvr_permission')})
-    def test_router_update_post_dvr_disabled(self):
+                                      'get_feature_permission')})
+    def test_router_update_post_dvr_ha_disabled(self):
         router = self.routers.first()
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "update")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "update")\
+            .AndReturn(False)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                       "l3-ha", "update")\
             .AndReturn(False)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,
@@ -300,15 +332,20 @@ class RouterActionTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('router_get',
                                       'router_update',
-                                      'get_dvr_permission')})
-    def test_router_update_post_dvr_enabled(self):
+                                      'get_feature_permission')})
+    def test_router_update_post_dvr_ha_enabled(self):
         router = self.routers.first()
-        api.neutron.get_dvr_permission(IsA(http.HttpRequest), "update")\
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                           "dvr", "update")\
+            .AndReturn(True)
+        api.neutron.get_feature_permission(IsA(http.HttpRequest),
+                                       "l3-ha", "update")\
             .AndReturn(True)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,
                                   admin_state_up=router.admin_state_up,
-                                  distributed=True)\
+                                  distributed=True,
+                                  ha=True)\
             .AndReturn(router)
         api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndReturn(router)
@@ -317,7 +354,8 @@ class RouterActionTests(test.TestCase):
         form_data = {'router_id': router.id,
                      'name': router.name,
                      'admin_state': router.admin_state_up,
-                     'mode': 'distributed'}
+                     'mode': 'distributed',
+                     'ha': True}
         url = reverse('horizon:%s:routers:update' % self.DASHBOARD,
                       args=[router.id])
         res = self.client.post(url, form_data)

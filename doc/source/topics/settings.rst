@@ -474,6 +474,7 @@ Default::
         {
             'enable_router': True,
             'enable_distributed_router': False,
+            'enable_ha_router': False,
             'enable_lb': True,
             'enable_quotas': False,
             'enable_firewall': True,
@@ -510,6 +511,19 @@ the Router panel. For the DVR feature to be enabled, this option needs
 to be set to True and your Neutron deployment must support DVR. Even
 when your Neutron plugin (like ML2 plugin) supports DVR feature, DVR
 feature depends on l3-agent configuration, so deployers should set this
+option appropriately depending on your deployment.
+
+``enable_ha_router``:
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``False``
+
+Enable or disable HA (High Availability) mode in Neutron virtual router
+in the Router panel. For the HA router mode to be enabled, this option needs
+to be set to True and your Neutron deployment must support HA router mode.
+Even when your Neutron plugin (like ML2 plugin) supports HA router mode,
+the feature depends on l3-agent configuration, so deployers should set this
 option appropriately depending on your deployment.
 
 ``enable_lb``:
