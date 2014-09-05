@@ -18,6 +18,7 @@ from django.conf import settings
 
 from openstack_dashboard import api
 from openstack_dashboard.api.base import Quota
+from openstack_dashboard.api.cinder import VolTypeExtraSpec
 from openstack_dashboard.api.rest import cinder
 from openstack_dashboard.test import helpers as test
 
@@ -99,6 +100,33 @@ class CinderRestTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual(response.content.decode("utf-8"), mock_post_response)
 
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_get_metadata(self, cc):
+        request = self.mock_rest_request(**{'GET': {}})
+        cc.volume_get.return_value = mock.Mock(
+            **{'to_dict.return_value': {'id': 'one',
+                                        'metadata': {'foo': 'bar'}}})
+        response = cinder.VolumeMetadata().get(request, '1')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'foo': 'bar'})
+        cc.volume_get.assert_called_once_with(request, '1')
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_update_metadata(self, cc):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, '
+                 '"removed": ["c", "d"]}'
+        )
+        response = cinder.VolumeMetadata().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(b'', response.content)
+        cc.volume_set_metadata.assert_called_once_with(
+            request, '1', {'a': '1', 'b': '2'}
+        )
+        cc.volume_delete_metadata.assert_called_once_with(
+            request, '1', ['c', 'd']
+        )
+
     #
     # Volume Types
     #
@@ -138,6 +166,35 @@ class CinderRestTestCase(test.TestCase):
         cc.volume_type_default.assert_called_once_with(request)
         cc.VolumeType.assert_called_once_with({'name': 'one'})
 
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_type_get_metadata(self, cc):
+        request = self.mock_rest_request(**{'GET': {}})
+        cc.volume_type_extra_get = mock.Mock()
+
+        cc.volume_type_extra_get.return_value = \
+            [VolTypeExtraSpec(1, 'foo', 'bar')]
+        # cc.volume_type_extra_get.side_effect = [{'foo': 'bar'}]
+        response = cinder.VolumeTypeMetadata().get(request, '1')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'foo': 'bar'})
+        cc.volume_type_extra_get.assert_called_once_with(request, '1')
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_type_update_metadata(self, cc):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, '
+                 '"removed": ["c", "d"]}'
+        )
+        response = cinder.VolumeTypeMetadata().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(b'', response.content)
+        cc.volume_type_extra_set.assert_called_once_with(
+            request, '1', {'a': '1', 'b': '2'}
+        )
+        cc.volume_type_extra_delete.assert_called_once_with(
+            request, '1', ['c', 'd']
+        )
+
     #
     # Volume Snapshots
     #
@@ -169,6 +226,33 @@ class CinderRestTestCase(test.TestCase):
                          {"items": [{"id": "one"}, {"id": "two"}]})
         cc.volume_snapshot_list.assert_called_once_with(request,
                                                         search_opts=filters)
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_snapshot_get_metadata(self, cc):
+        request = self.mock_rest_request(**{'GET': {}})
+        cc.volume_snapshot_get.return_value = mock.Mock(
+            **{'to_dict.return_value': {'id': 'one',
+                                        'metadata': {'foo': 'bar'}}})
+        response = cinder.VolumeSnapshotMetadata().get(request, '1')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'foo': 'bar'})
+        cc.volume_snapshot_get.assert_called_once_with(request, '1')
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_snapshot_update_metadata(self, cc):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, '
+                 '"removed": ["c", "d"]}'
+        )
+        response = cinder.VolumeSnapshotMetadata().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(b'', response.content)
+        cc.volume_snapshot_set_metadata.assert_called_once_with(
+            request, '1', {'a': '1', 'b': '2'}
+        )
+        cc.volume_snapshot_delete_metadata.assert_called_once_with(
+            request, '1', ['c', 'd']
+        )
 
     #
     # Extensions

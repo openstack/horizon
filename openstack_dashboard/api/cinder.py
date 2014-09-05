@@ -355,6 +355,14 @@ def volume_update(request, volume_id, name, description):
                                                 **vol_data)
 
 
+def volume_set_metadata(request, volume_id, metadata):
+    return cinderclient(request).volumes.set_metadata(volume_id, metadata)
+
+
+def volume_delete_metadata(request, volume_id, keys):
+    return cinderclient(request).volumes.delete_metadata(volume_id, keys)
+
+
 def volume_reset_state(request, volume_id, state):
     return cinderclient(request).volumes.reset_state(volume_id, state)
 
@@ -443,6 +451,16 @@ def volume_snapshot_update(request, snapshot_id, name, description):
     snapshot_data = _replace_v2_parameters(snapshot_data)
     return cinderclient(request).volume_snapshots.update(snapshot_id,
                                                          **snapshot_data)
+
+
+def volume_snapshot_set_metadata(request, snapshot_id, metadata):
+    return cinderclient(request).volume_snapshots.set_metadata(
+        snapshot_id, metadata)
+
+
+def volume_snapshot_delete_metadata(request, snapshot_id, keys):
+    return cinderclient(request).volume_snapshots.delete_metadata(
+        snapshot_id, keys)
 
 
 def volume_snapshot_reset_state(request, snapshot_id, state):
@@ -792,7 +810,7 @@ def volume_type_extra_set(request, type_id, metadata):
 
 def volume_type_extra_delete(request, type_id, keys):
     vol_type = volume_type_get(request, type_id)
-    return vol_type.unset_keys([keys])
+    return vol_type.unset_keys(keys)
 
 
 def qos_spec_list(request):

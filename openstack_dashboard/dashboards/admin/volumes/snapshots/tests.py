@@ -19,7 +19,7 @@ from openstack_dashboard.test import helpers as test
 
 from openstack_dashboard.dashboards.admin.volumes.snapshots import forms
 
-INDEX_URL = reverse('horizon:admin:volumes:index')
+INDEX_URL = 'horizon:admin:volumes:index'
 
 
 class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
@@ -79,7 +79,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=1)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res, reverse(INDEX_URL))
 
     @test.create_stubs({cinder: ('volume_snapshot_get',
                                  'volume_get')})
@@ -101,7 +101,7 @@ class VolumeSnapshotsViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=1)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res, reverse(INDEX_URL))
 
     def test_get_snapshot_status_choices_without_current(self):
         current_status = {'status': 'available'}

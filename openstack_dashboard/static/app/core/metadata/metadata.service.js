@@ -22,7 +22,8 @@
 
   metadataService.$inject = [
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.openstack-service-api.glance'
+    'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.openstack-service-api.cinder'
   ];
 
   /**
@@ -32,7 +33,7 @@
    *
    * Unified acquisition and modification of metadata.
    */
-  function metadataService(nova, glance) {
+  function metadataService(nova, glance, cinder) {
     var service = {
       getMetadata: getMetadata,
       editMetadata: editMetadata,
@@ -52,7 +53,10 @@
         aggregate: nova.getAggregateExtraSpecs,
         flavor: nova.getFlavorExtraSpecs,
         image: glance.getImageProps,
-        instance: nova.getInstanceMetadata
+        instance: nova.getInstanceMetadata,
+        volume: cinder.getVolumeMetadata,
+        volume_snapshot: cinder.getVolumeSnapshotMetadata,
+        volume_type: cinder.getVolumeTypeMetadata
       }[resource](id);
     }
 
@@ -69,7 +73,10 @@
         aggregate: nova.editAggregateExtraSpecs,
         flavor: nova.editFlavorExtraSpecs,
         image: glance.editImageProps,
-        instance: nova.editInstanceMetadata
+        instance: nova.editInstanceMetadata,
+        volume: cinder.editVolumeMetadata,
+        volume_snapshot: cinder.editVolumeSnapshotMetadata,
+        volume_type: cinder.editVolumeTypeMetadata
       }[resource](id, updated, removed);
     }
 
@@ -86,7 +93,10 @@
           aggregate: 'OS::Nova::Aggregate',
           flavor: 'OS::Nova::Flavor',
           image: 'OS::Glance::Image',
-          instance: 'OS::Nova::Server'
+          instance: 'OS::Nova::Server',
+          volume: 'OS::Cinder::Volume',
+          volume_snapshot: 'OS::Cinder::Snapshot',
+          volume_type: 'OS:Cinder::VolumeType'
         }[resource]
       };
       if (propertiesTarget) {

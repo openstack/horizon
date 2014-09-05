@@ -195,6 +195,23 @@ class UpdateRow(tables.Row):
         return volume_type
 
 
+class UpdateMetadata(tables.LinkAction):
+    name = "update_metadata"
+    verbose_name = _("Update Metadata")
+    ajax = False
+    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
+
+    def __init__(self, **kwargs):
+        kwargs['preempt'] = True
+        super(UpdateMetadata, self).__init__(**kwargs)
+
+    def get_link_url(self, datum):
+        obj_id = self.table.get_object_id(datum)
+        self.attrs['ng-click'] = (
+            "modal.openMetadataModal('volume_type', '%s', true)" % obj_id)
+        return "javascript:void(0);"
+
+
 class VolumeTypesTable(tables.DataTable):
     name = tables.WrappingColumn("name", verbose_name=_("Name"),
                                  form_field=forms.CharField(max_length=64))
@@ -233,7 +250,8 @@ class VolumeTypesTable(tables.DataTable):
                        EditVolumeType,
                        UpdateVolumeTypeEncryption,
                        DeleteVolumeTypeEncryption,
-                       DeleteVolumeType,)
+                       DeleteVolumeType,
+                       UpdateMetadata)
         row_class = UpdateRow
 
 

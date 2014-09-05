@@ -31,10 +31,17 @@
                   editImageProps: function() {},
                   getNamespaces: function() {}};
 
+    var cinder = {getVolumeMetadata:function() {},
+                  getVolumeSnapshotMetadata:function() {},
+                  getVolumeTypeMetadata:function() {},
+                  editVolumeMetadata: function() {},
+                  editVolumeSnapshotMetadata: function() {}};
+
     beforeEach(function() {
       module(function($provide) {
         $provide.value('horizon.app.core.openstack-service-api.nova', nova);
         $provide.value('horizon.app.core.openstack-service-api.glance', glance);
+        $provide.value('horizon.app.core.openstack-service-api.cinder', cinder);
       });
     });
 
@@ -97,6 +104,18 @@
       expect(glance.editImageProps).toHaveBeenCalledWith('1', 'updated', ['removed']);
     });
 
+    it('should edit volume metadata', function() {
+      spyOn(cinder, 'editVolumeMetadata');
+      metadataService.editMetadata('volume', '1', 'updated', ['removed']);
+      expect(cinder.editVolumeMetadata).toHaveBeenCalledWith('1', 'updated', ['removed']);
+    });
+
+    it('should edit volume snapshot metadata', function() {
+      spyOn(cinder, 'editVolumeSnapshotMetadata');
+      metadataService.editMetadata('volume_snapshot', '1', 'updated', ['removed']);
+      expect(cinder.editVolumeSnapshotMetadata).toHaveBeenCalledWith('1', 'updated', ['removed']);
+    });
+
     it('should get image namespace', function() {
       spyOn(glance, 'getNamespaces');
       metadataService.getNamespaces('image');
@@ -108,6 +127,13 @@
       var expected = 'instance metadata';
       spyOn(nova, 'getInstanceMetadata').and.returnValue(expected);
       var actual = metadataService.getMetadata('instance', '1');
+      expect(actual).toBe(expected);
+    });
+
+    it('should get volume metadata', function() {
+      var expected = 'volume metadata';
+      spyOn(cinder, 'getVolumeMetadata').and.returnValue(expected);
+      var actual = metadataService.getMetadata('volume', '1');
       expect(actual).toBe(expected);
     });
 

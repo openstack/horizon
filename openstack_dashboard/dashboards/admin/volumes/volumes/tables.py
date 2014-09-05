@@ -111,6 +111,7 @@ class VolumesTable(volumes_tables.VolumesTable):
         row_actions = (volumes_tables.DeleteVolume,
                        UpdateVolumeStatusAction,
                        UnmanageVolumeAction,
-                       MigrateVolume)
+                       MigrateVolume,
+                       volumes_tables.UpdateMetadata)
         columns = ('tenant', 'host', 'name', 'size', 'status', 'volume_type',
                    'attachments', 'bootable', 'encryption',)

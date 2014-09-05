@@ -63,6 +63,13 @@
         testInput: [1]
       },
       {
+        func: 'getVolumeMetadata',
+        method: 'get',
+        path: '/api/cinder/volumes/1/metadata',
+        error: 'Unable to retrieve the volume metadata.',
+        testInput: [1]
+      },
+      {
         func: 'getVolumeTypes',
         method: 'get',
         path: '/api/cinder/volumetypes/',
@@ -74,6 +81,13 @@
         method: 'get',
         path: '/api/cinder/volumetypes/1',
         error: 'Unable to retrieve the volume type.',
+        testInput: [1]
+      },
+      {
+        func: 'getVolumeTypeMetadata',
+        method: 'get',
+        path: '/api/cinder/volumetypes/1/metadata',
+        error: 'Unable to retrieve the volume type metadata.',
         testInput: [1]
       },
       {
@@ -111,6 +125,13 @@
         data: { params: 'config' },
         error: 'Unable to retrieve the volume snapshots.',
         testInput: [ 'config' ]
+      },
+      {
+        func: 'getVolumeSnapshotMetadata',
+        method: 'get',
+        path: '/api/cinder/volumesnapshots/1/metadata',
+        error: 'Unable to retrieve the snapshot metadata.',
+        testInput: [1]
       },
       {
         func: 'createVolume',
@@ -165,6 +186,42 @@
         data: {'volumes': 42},
         error: 'Unable to update project quota data.',
         testInput: [{'volumes': 42}, 42]
+      },
+      { func: 'editVolumeMetadata',
+        method: 'patch',
+        path: '/api/cinder/volumes/42/metadata',
+        data: {
+          "updated": {a: '1', b: '2'},
+          "removed": ['c', 'd']
+        },
+        error: "Unable to edit volume metadata.",
+        testInput: [
+          42, {a: '1', b: '2'}, ['c', 'd']
+        ]
+      },
+      { func: 'editVolumeSnapshotMetadata',
+        method: 'patch',
+        path: '/api/cinder/volumesnapshots/42/metadata',
+        data: {
+          "updated": {a: '1', b: '2'},
+          "removed": ['c', 'd']
+        },
+        error: "Unable to edit snapshot metadata.",
+        testInput: [
+          42, {a: '1', b: '2'}, ['c', 'd']
+        ]
+      },
+      { func: 'editVolumeTypeMetadata',
+        method: 'patch',
+        path: '/api/cinder/volumetypes/42/metadata',
+        data: {
+          "updated": {a: '1', b: '2'},
+          "removed": ['c', 'd']
+        },
+        error: "Unable to edit volume type metadata.",
+        testInput: [
+          42, {a: '1', b: '2'}, ['c', 'd']
+        ]
       }
     ];
 
