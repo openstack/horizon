@@ -34,28 +34,18 @@ class GeneralConfigAction(workflows.Action):
 
     data_source_url = forms.CharField(label=_("URL"))
 
-    data_source_credential_user = forms.CharField(label=_("Source username"))
+    data_source_credential_user = forms.CharField(label=_("Source username"),
+                                                  required=False)
 
     data_source_credential_pass = forms.CharField(
         widget=forms.PasswordInput(attrs={'autocomplete': 'off'}),
-        label=_("Source password"))
+        label=_("Source password"),
+        required=False)
 
     data_source_description = forms.CharField(
         label=_("Description"),
         required=False,
         widget=forms.Textarea)
-
-    def clean(self):
-        cleaned_data = super(workflows.Action, self).clean()
-        ds_type = cleaned_data.get("data_source_type", "")
-
-        if ds_type == "hdfs":
-            if "data_source_credential_user" in self._errors:
-                del self._errors["data_source_credential_user"]
-            if "data_source_credential_pass" in self._errors:
-                del self._errors["data_source_credential_pass"]
-
-        return cleaned_data
 
     def __init__(self, request, *args, **kwargs):
         super(GeneralConfigAction, self).__init__(request, *args, **kwargs)
