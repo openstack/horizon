@@ -82,7 +82,7 @@
 
         var tags = get_current_tags();
         if ($.inArray(tag, tags) == -1) {
-          var span = ' <span class="label label-warning" style="float: left;display: block; margin: 2px;">$tag <i class="glyphicon glyphicon-remove" onclick="remove_tag(this);"></i></span>'.replace("$tag", tag)
+          var span = ' <span class="label label-warning" style="float: left;display: block; margin: 2px;">$tag <i class="fa fa-close" onclick="remove_tag(this);"></i></span>'.replace("$tag", tag)
           $("#image_tags_list").append(span);
           update_image_tags();
         }

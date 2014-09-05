@@ -27,7 +27,7 @@
                 <input class="form-control input-sm"
                        type="text" placeholder="{% trans "Filter" %}"
                        ng-model="treeFilter"/>
-                <span class="glyphicon glyphicon-search form-control-feedback">
+                <span class="fa fa-search form-control-feedback">
                 </span>
               </div>
             </div>
@@ -45,7 +45,7 @@
                   <a class="btn btn-primary"
                      ng-click="onCustomItemAdd($event)"
                      ng-disabled="!customItem.valid">
-                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="fa fa-plus"></span>
                   </a>
                 </span>
               </div>
@@ -67,15 +67,15 @@
               <div class="clearfix">
                 <div class="pull-left">
                   <span title="{$ item.label $}" ng-class="{leaf: item.leaf}">
-                    <span class="glyphicon" ng-show="!item.leaf"
-                          ng-class="item.expanded ? 'glyphicon-chevron-down' : 'glyphicon-chevron-right'"></span>
+                    <span class="fa" ng-show="!item.leaf"
+                          ng-class="item.expanded ? 'fa-chevron-down' : 'fa-chevron-right'"></span>
                     {$ item.label $}
                   </span>
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-primary btn-xs"
                      ng-click="onItemAdd($event, item)">
-                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="fa fa-plus"></span>
                   </a>
                 </div>
               </div>
@@ -97,7 +97,7 @@
                 <input class="form-control input-sm"
                        type="text" placeholder="{% trans "Filter" %}"
                        ng-model="listFilter"/>
-              <span class="glyphicon glyphicon-search form-control-feedback">
+              <span class="fa fa-search form-control-feedback">
               </span>
               </div>
             </div>
@@ -180,7 +180,7 @@
                 <div class="input-group-btn">
                   <a class="btn btn-default"
                      ng-click="onItemDelete($event, item)">
-                    <span class="glyphicon glyphicon-minus"></span>
+                    <span class="fa fa-minus"></span>
                   </a>
                 </div>
               </div>

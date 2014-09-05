@@ -15,7 +15,7 @@
           {% csrf_token %}
           <input type="hidden" name="router_id" value="{{ router.id }}"/>
           <button class="btn btn-sm btn-danger"
-                  type="submit" href="#" name="action" value="routerrules__resetrules"><span class="glyphicon glyphicon-remove"> {% trans "Reset to Default" %}</button>
+                  type="submit" href="#" name="action" value="routerrules__resetrules"><span class="fa fa-close"> {% trans "Reset to Default" %}</button>
           </form>
        </div>
      </th>
@@ -86,7 +86,7 @@
               {% endif %}
            </center>
            {% else %}
-                <center><a type="button" class="btn btn-default btn-xs" href="#modal_{{ dest.subnetid|add:row.source.subnetid }}" data-toggle="modal"><span class="glyphicon glyphicon-exclamation-sign"></span> Conflict</a></center>
+                <center><a type="button" class="btn btn-default btn-xs" href="#modal_{{ dest.subnetid|add:row.source.subnetid }}" data-toggle="modal"><span class="fa fa-exclamation-circle"></span> Conflict</a></center>
                <div class="modal hide" id="modal_{{ dest.subnetid|add:row.source.subnetid }}">
                  <div class="modal-header">
                    <a class="close" data-dismiss="modal">&times;</a>

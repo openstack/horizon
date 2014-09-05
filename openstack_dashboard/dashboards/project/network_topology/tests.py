@@ -180,7 +180,7 @@ class NetworkTopologyCreateTests(test.TestCase):
         link_name = "Create Network (Quota exceeded)"
         expected_string = "<a href='%s' class='%s disabled' "\
             "id='networks__action_create'>" \
-            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            "<span class='fa fa-plus'></span>%s</a>" \
             % (url, classes, link_name)
 
         self._test_new_button_disabled_when_quota_exceeded(
@@ -193,7 +193,7 @@ class NetworkTopologyCreateTests(test.TestCase):
         link_name = "Create Router (Quota exceeded)"
         expected_string = "<a href='%s' class='%s disabled' "\
             "id='Routers__action_create'>" \
-            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            "<span class='fa fa-plus'></span>%s</a>" \
             % (url, classes, link_name)
 
         self._test_new_button_disabled_when_quota_exceeded(
@@ -206,7 +206,7 @@ class NetworkTopologyCreateTests(test.TestCase):
         link_name = "Launch Instance (Quota exceeded)"
         expected_string = "<a href='%s' class='%s disabled' "\
             "id='instances__action_launch'>" \
-            "<span class='glyphicon glyphicon-cloud-upload'></span>%s</a>" \
+            "<span class='fa fa-cloud-upload'></span>%s</a>" \
             % (url, classes, link_name)
 
         self._test_new_button_disabled_when_quota_exceeded(

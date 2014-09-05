@@ -552,7 +552,7 @@ table form {
     a, button {
       margin-left: 0px;
       padding-left: 22px;
-      .glyphicon {
+      .fa {
         margin-left: -14px;
       }
     }
@@ -1449,7 +1449,7 @@ label.log-length {
     line-height: 30px;
     width: 160px;
   }
-  input[type="text"]:disabled + span.glyphicon-search {
+  input[type="text"]:disabled + span.search-icon {
     color: $gray-light;
   }
   .fake_table_header {
@@ -2113,6 +2113,10 @@ a.link-popover { cursor: default; }
 
 a:hover.link-popover { text-decoration: none; }
 
+/* Fix for password fields reveal icon */
+.form-group span.form-control-feedback.fa {
+    line-height: 32px;
+}
 .has-feedback .form-control-feedback {
   top: 0;
 }

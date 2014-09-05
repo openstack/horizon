@@ -42,7 +42,7 @@ class AllocateIP(tables.LinkAction):
     name = "allocate"
     verbose_name = _("Allocate IP To Project")
     classes = ("ajax-modal",)
-    icon = "download-alt"
+    icon = "download"
     url = "horizon:project:access_and_security:floating_ips:allocate"
 
     def single(self, data_table, request, *args):

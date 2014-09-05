@@ -155,17 +155,17 @@ horizon.forms.add_password_fields_reveal_buttons = function (el) {
 
     $input.closest('div').addClass("has-feedback");
     $('<span>').addClass(
-      "form-control-feedback glyphicon glyphicon-eye-open"
+      "form-control-feedback fa fa-eye password-icon"
     ).insertAfter($input).click(function () {
       var $icon = $(this);
 
       if ($input.attr('type') === 'password') {
-        $icon.removeClass('glyphicon-eye-open');
-        $icon.addClass('glyphicon-eye-close');
+        $icon.removeClass('fa-eye');
+        $icon.addClass('fa-eye-slash');
         $input = _change_input_type($input, 'text');
       } else {
-        $icon.removeClass('glyphicon-eye-close');
-        $icon.addClass('glyphicon-eye-open');
+        $icon.removeClass('fa-eye-slash');
+        $icon.addClass('fa-eye');
         $input = _change_input_type($input, 'password');
       }
     });

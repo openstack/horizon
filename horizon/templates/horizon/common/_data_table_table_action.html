@@ -1,11 +1,11 @@
 {% if action.method != "GET" %}
   <button {{ action.attr_string|safe }} name="action" value="{{ action.get_param_name }}" type="submit">
-    {% if action.icon != None %}<span class="glyphicon glyphicon-{{ action.icon }}"></span> {% endif %}
+    {% if action.icon != None %}<span class="fa fa-{{ action.icon }}"></span> {% endif %}
     {% if action.handles_multiple %}{{ action.verbose_name_plural }}{% else %}{{ action.verbose_name }}{% endif %}
   </button>
 {% else %}
   <a href='{{ action.get_link_url }}' title='{{ action.verbose_name }}' {{ action.attr_string|safe }}>
-    {% if action.icon != None %}<span class="glyphicon glyphicon-{{ action.icon }}"></span> {% endif %}
+    {% if action.icon != None %}<span class="fa fa-{{ action.icon }}"></span> {% endif %}
     {{ action.verbose_name }}
   </a>
 {% endif %}

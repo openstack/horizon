@@ -834,7 +834,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='Routers__action_create'>" \
-            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            "<span class='fa fa-plus'></span>%s</a>" \
             % (url, link_name, " ".join(classes), link_name)
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The create button is not disabled")

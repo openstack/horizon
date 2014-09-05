@@ -1025,7 +1025,7 @@ class VolumeViewTests(test.TestCase):
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='volumes__action_create'  data-update-url=" \
             "'/project/volumes/?action=create&amp;table=volumes'> "\
-            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            "<span class='fa fa-plus'></span>%s</a>" \
             % (url, link_name, " ".join(classes), link_name)
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The create button is not disabled")

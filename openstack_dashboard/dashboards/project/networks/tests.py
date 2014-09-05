@@ -1835,7 +1835,7 @@ class NetworkViewTests(test.TestCase):
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='networks__action_create'>" \
-            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            "<span class='fa fa-plus'></span>%s</a>" \
             % (url, link_name, " ".join(classes), link_name)
 
         self._test_create_button_disabled_when_quota_exceeded(expected_string,
@@ -1905,7 +1905,7 @@ class NetworkViewTests(test.TestCase):
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='subnets__action_create'>" \
-            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            "<span class='fa fa-plus'></span>%s</a>" \
             % (url, link_name, " ".join(classes), link_name)
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The create button is not disabled")

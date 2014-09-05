@@ -3065,7 +3065,7 @@ class InstanceTests(helpers.TestCase):
             data-update-url=
             "/project/instances/?action=launch&amp;table=instances"
             id="instances__action_launch">
-            <span class="glyphicon glyphicon-cloud-upload"></span>%s</a>
+            <span class="fa fa-cloud-upload"></span>%s</a>
             ''' % (url, link_name, " ".join(classes), link_name), res._charset)
 
         self.assertContains(res, expected_string, html=True,
