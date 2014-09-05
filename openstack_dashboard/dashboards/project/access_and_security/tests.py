@@ -34,35 +34,46 @@ class AccessAndSecurityTests(test.TestCase):
     def setUp(self):
         super(AccessAndSecurityTests, self).setUp()
 
-    def test_index(self):
+    @test.create_stubs({api.network: ('floating_ip_supported',
+                                      'tenant_floating_ip_list',
+                                      'security_group_list',),
+                        api.nova: ('keypair_list',
+                                   'server_list',),
+                        api.base: ('is_service_enabled',),
+                        quotas: ('tenant_quota_usages',)})
+    def _test_index(self, ec2_enabled):
         keypairs = self.keypairs.list()
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
         quota_data = self.quota_usages.first()
-        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'security_group_list')
-        self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
-        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
 
-        api.nova.server_list(IsA(http.HttpRequest)) \
-                    .AndReturn([self.servers.list(), False])
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(keypairs)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.nova.server_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn([self.servers.list(), False])
+        api.nova.keypair_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(keypairs)
+        api.network.floating_ip_supported(
+            IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.network.tenant_floating_ip_list(
+            IsA(http.HttpRequest)) \
             .AndReturn(floating_ips)
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.network.security_group_list(
+            IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes()\
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
 
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').MultipleTimes().AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'ec2').MultipleTimes().AndReturn(True)
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest),
+            'network').MultipleTimes() \
+            .AndReturn(True)
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest),
+            'ec2').MultipleTimes() \
+            .AndReturn(ec2_enabled)
 
         self.mox.ReplayAll()
 
@@ -75,57 +86,25 @@ class AccessAndSecurityTests(test.TestCase):
                               sec_groups)
         self.assertItemsEqual(res.context['floating_ips_table'].data,
                               floating_ips)
-        self.assertTrue(any(map(
-            lambda x: isinstance(x, api_access.tables.DownloadEC2),
-            res.context['endpoints_table'].get_table_actions()
-        )))
+        if ec2_enabled:
+            self.assertTrue(any(map(
+                lambda x: isinstance(x, api_access.tables.DownloadEC2),
+                res.context['endpoints_table'].get_table_actions()
+            )))
+        else:
+            self.assertFalse(any(map(
+                lambda x: isinstance(x, api_access.tables.DownloadEC2),
+                res.context['endpoints_table'].get_table_actions()
+            )))
+
+    def test_index(self):
+        self._test_index(ec2_enabled=True)
 
     def test_index_with_ec2_disabled(self):
-        keypairs = self.keypairs.list()
-        sec_groups = self.security_groups.list()
-        floating_ips = self.floating_ips.list()
-        quota_data = self.quota_usages.first()
-        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'security_group_list')
-        self.mox.StubOutWithMock(api.nova, 'keypair_list')
-        self.mox.StubOutWithMock(api.nova, 'server_list')
-        self.mox.StubOutWithMock(quotas, 'tenant_quota_usages')
-        self.mox.StubOutWithMock(api.base, 'is_service_enabled')
+        self._test_index(ec2_enabled=False)
 
-        api.nova.server_list(IsA(http.HttpRequest)) \
-                    .AndReturn([self.servers.list(), False])
-        api.nova.keypair_list(IsA(http.HttpRequest)).AndReturn(keypairs)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(floating_ips)
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(sec_groups)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes()\
-            .AndReturn(quota_data)
-
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'network').MultipleTimes().AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
-                                    'ec2').MultipleTimes().AndReturn(False)
-
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:access_and_security:index')
-        res = self.client.get(url)
-
-        self.assertTemplateUsed(res, 'project/access_and_security/index.html')
-        self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
-        self.assertItemsEqual(res.context['security_groups_table'].data,
-                              sec_groups)
-        self.assertItemsEqual(res.context['floating_ips_table'].data,
-                              floating_ips)
-        self.assertFalse(any(map(
-            lambda x: isinstance(x, api_access.tables.DownloadEC2),
-            res.context['endpoints_table'].get_table_actions()
-        )))
-
+    @test.create_stubs({api.network: ('floating_ip_target_list',
+                                      'tenant_floating_ip_list',)})
     def test_association(self):
         servers = [api.nova.Server(s, self.request)
                    for s in self.servers.list()]
@@ -139,22 +118,21 @@ class AccessAndSecurityTests(test.TestCase):
 
         targets = [api.nova.FloatingIpTarget(s) for s in servers]
 
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_target_list')
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.floating_ips.list())
-        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
-                .AndReturn(targets)
+        api.network.tenant_floating_ip_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(self.floating_ips.list())
+        api.network.floating_ip_target_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(targets)
+
         self.mox.ReplayAll()
 
         res = self.client.get(reverse("horizon:project:access_and_security:"
                                       "floating_ips:associate"))
-        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-        self.assertContains(res,
-                            '<option value="1">server_1 (1)</option>')
-        self.assertContains(res,
-                            '<option value="101">server_1 (101)</option>')
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        self.assertContains(res, '<option value="1">server_1 (1)</option>')
+        self.assertContains(res, '<option value="101">server_1 (101)</option>')
         self.assertContains(res, '<option value="2">server_2 (2)</option>')
 
 
