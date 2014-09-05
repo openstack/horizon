@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:admin:volumes:volumes:create_type' %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:volumes:volume_types:create_type' %}{% endblock %}
 
 {% block modal_id %}create_volume_type_modal{% endblock %}
 {% block modal-header %}{% trans "Create Volume Type" %}{% endblock %}
@@ -31,5 +31,5 @@
 
 {% block modal-footer %}
   <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Volume Type" %}" />
-  <a href="{% url 'horizon:admin:volumes:volumes_tab' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:admin:volumes:volume_types_tab' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

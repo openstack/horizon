@@ -13,35 +13,8 @@
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
-from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.volumes \
     .volumes import tables as volumes_tables
-
-
-class CreateVolumeType(tables.LinkAction):
-    name = "create"
-    verbose_name = _("Create Volume Type")
-    url = "horizon:admin:volumes:volumes:create_type"
-    classes = ("ajax-modal",)
-    icon = "plus"
-    policy_rules = (("volume", "volume_extension:types_manage"),)
-
-
-class ViewVolumeTypeExtras(tables.LinkAction):
-    name = "extras"
-    verbose_name = _("View Extra Specs")
-    url = "horizon:admin:volumes:volumes:extras:index"
-    classes = ("btn-edit",)
-    policy_rules = (("volume", "volume_extension:types_manage"),)
-
-
-class DeleteVolumeType(tables.DeleteAction):
-    data_type_singular = _("Volume Type")
-    data_type_plural = _("Volume Types")
-    policy_rules = (("volume", "volume_extension:types_manage"),)
-
-    def delete(self, request, obj_id):
-        cinder.volume_type_delete(request, obj_id)
 
 
 class VolumesFilterAction(tables.FilterAction):
@@ -79,20 +52,3 @@ class VolumesTable(volumes_tables.VolumesTable):
         row_actions = (volumes_tables.DeleteVolume, UpdateVolumeStatusAction)
         columns = ('tenant', 'host', 'name', 'size', 'status', 'volume_type',
                    'attachments', 'bootable', 'encryption',)
-
-
-class VolumeTypesTable(tables.DataTable):
-    name = tables.Column("name",
-                         verbose_name=_("Name"))
-
-    def get_object_display(self, vol_type):
-        return vol_type.name
-
-    def get_object_id(self, vol_type):
-        return str(vol_type.id)
-
-    class Meta:
-        name = "volume_types"
-        verbose_name = _("Volume Types")
-        table_actions = (CreateVolumeType, DeleteVolumeType,)
-        row_actions = (ViewVolumeTypeExtras, DeleteVolumeType,)
