@@ -32,7 +32,7 @@ from openstack_dashboard.dashboards.identity.domains import constants
 LOG = logging.getLogger(__name__)
 
 
-class ViewUsersLink(tables.LinkAction):
+class UpdateUsersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
     url = "horizon:identity:domains:update"
@@ -48,7 +48,7 @@ class ViewUsersLink(tables.LinkAction):
         return "?".join([base_url, param])
 
 
-class ViewGroupsLink(tables.LinkAction):
+class UpdateGroupsLink(tables.LinkAction):
     name = "groups"
     verbose_name = _("Modify Groups")
     url = "horizon:identity:domains:update"
@@ -189,7 +189,7 @@ class DomainsTable(tables.DataTable):
     class Meta:
         name = "domains"
         verbose_name = _("Domains")
-        row_actions = (SetDomainContext, ViewUsersLink, ViewGroupsLink,
+        row_actions = (SetDomainContext, UpdateUsersLink, UpdateGroupsLink,
                        EditDomainLink, DeleteDomainsAction)
         table_actions = (DomainFilterAction, CreateDomainLink,
                          DeleteDomainsAction, UnsetDomainContext)
