@@ -110,7 +110,8 @@ class RegisterImageForm(ImageForm):
                               _("Unable to fetch available images."))
 
         for image in images:
-            if (image.id not in image_ids and
+            if (image not in final_images and
+                    image.id not in image_ids and
                     image.container_format not in ('aki', 'ari')):
                 final_images.append(image)
         return final_images
