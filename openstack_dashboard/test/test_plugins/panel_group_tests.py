@@ -28,6 +28,11 @@ PANEL_GROUP_SLUG = 'plugin_panel_group'
 HORIZON_CONFIG = copy.deepcopy(settings.HORIZON_CONFIG)
 INSTALLED_APPS = list(settings.INSTALLED_APPS)
 
+# NOTE: Ensure dashboards and default_dashboard are not included in
+# HORIZON_CONFIG to ensure warning messages from update_dashboards below.
+HORIZON_CONFIG.pop('dashboards', None)
+HORIZON_CONFIG.pop('default_dashboard', None)
+
 util_settings.update_dashboards([
     openstack_dashboard.test.test_plugins.panel_group_config,
 ], HORIZON_CONFIG, INSTALLED_APPS)
