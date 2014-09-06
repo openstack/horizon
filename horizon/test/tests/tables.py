@@ -68,6 +68,7 @@ TEST_DATA_5 = (
 TEST_DATA_6 = (
     FakeObject('1', 'object_1', 'DELETED', 'down'),
     FakeObject('2', 'object_2', 'CREATED', 'up'),
+    FakeObject('3', 'object_3', 'STANDBY', 'standby'),
 )
 
 TEST_DATA_7 = (
@@ -205,6 +206,10 @@ def get_link(obj):
 
 
 class MyTable(tables.DataTable):
+    tooltip_dict = {'up': {'title': 'service is up and running',
+                           'style': 'color:green;cursor:pointer'},
+                    'down': {'title': 'service is not available',
+                           'style': 'color:red;cursor:pointer'}}
     id = tables.Column('id', hidden=True, sortable=False)
     name = tables.Column(get_name,
                          verbose_name="Verbose Name",
@@ -221,7 +226,8 @@ class MyTable(tables.DataTable):
                           link_classes=('link-modal',),
                           link_attrs={'data-type': 'modal dialog',
                                       'data-tip': 'click for dialog'})
-    status = tables.Column('status', link=get_link)
+    status = tables.Column('status', link=get_link,
+                            cell_attributes_getter=tooltip_dict.get)
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
 
@@ -1159,6 +1165,7 @@ class DataTableTests(test.TestCase):
         row = self.table.get_rows()[0]
         # selectable
         row1 = self.table.get_rows()[1]
+        row2 = self.table.get_rows()[2]
 
         id_col = self.table.columns['id']
         name_col = self.table.columns['name']
@@ -1200,6 +1207,28 @@ class DataTableTests(test.TestCase):
         cell_status = row.cells['status'].status
         self.assertEqual('status_down',
                          row.cells['status'].get_status_class(cell_status))
+
+        self.assertEqual(row.cells['status'].data, 'down')
+        self.assertEqual(row.cells['status'].attrs,
+                          {'title': 'service is not available',
+                          'style': 'color:red;cursor:pointer'})
+        self.assertEqual(row1.cells['status'].data, 'up')
+        self.assertEqual(row1.cells['status'].attrs,
+                          {'title': 'service is up and running',
+                           'style': 'color:green;cursor:pointer'})
+        self.assertEqual(row2.cells['status'].data, 'standby')
+        self.assertEqual(row2.cells['status'].attrs, {})
+
+        status_rendered = row.cells['status'].render()
+        resp = http.HttpResponse(status_rendered)
+        self.assertContains(resp, 'style="color:red;cursor:pointer"', 1)
+        self.assertContains(resp, 'title="service is not available"', 1)
+
+        status_rendered = row1.cells['status'].render()
+        resp = http.HttpResponse(status_rendered)
+        self.assertContains(resp, 'style="color:green;cursor:pointer"', 1)
+        self.assertContains(resp, 'title="service is up and running"', 1)
+
         # status_choices
         id_col.status = True
         id_col.status_choices = (('1', False), ('2', True))
