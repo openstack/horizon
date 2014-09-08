@@ -4,7 +4,6 @@
 <h3>{% trans "Subnet Overview" %}</h3>
 
 <div class="info row detail">
-  <h4>{% trans "Subnet" %}</h4>
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Name" %}</dt>
@@ -25,10 +24,20 @@
       {% trans " - End" %} {{ pool.end   }}<br>
       {% endfor %}
     </dd>
-    <dt>{% trans "DHCP Enable" %}<dt>
-    <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
     <dt>{% trans "Gateway IP" %}</dt>
     <dd>{{ subnet.gateway_ip|default:"-" }}</dd>
+    <dt>{% trans "DHCP Enable" %}<dt>
+    <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
+    {% if subnet.ip_version == 6 %}
+      <dt>{% trans "IPv6 Address Configuration Mode" %}<dt>
+      {% if subnet.ipv6_modes_desc %}
+      <dd>{{ subnet.ipv6_modes_desc }}</dd>
+      {% else %}
+      <dd>{% blocktrans with ra_mode=subnet.ipv6_ra_mode addr_mode=subnet.ipv6_address_mode %}
+        Other IPv6 modes: ipv6_ra_mode={{ ra_mode }}, ipv6_address_mode={{ addr_mode }}
+        {% endblocktrans %}</dd>
+      {% endif %}
+    {% endif %}
     <dt>{% trans "Additional routes" %}</dt>
     <dd>
       {% for route in subnet.host_routes %}

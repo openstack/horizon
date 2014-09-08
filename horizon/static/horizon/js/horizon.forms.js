@@ -232,7 +232,7 @@ horizon.addInitFunction(function () {
         visible = $switchable.is(':visible'),
         val = $switchable.val();
 
-      $fieldset.find('.switched[data-switch-on*="' + slug + '"]').each(function(index, input){
+      function handle_switched_field(index, input){
         var $input = $(input),
           data = $input.data(slug + "-" + val);
 
@@ -242,7 +242,10 @@ horizon.addInitFunction(function () {
           $('label[for=' + $input.attr('id') + ']').html(data);
           $input.closest('.form-group').show();
         }
-      });
+      }
+
+      $fieldset.find('.switched[data-switch-on*="' + slug + '"]').each(handle_switched_field);
+      $fieldset.siblings().find('.switched[data-switch-on*="' + slug + '"]').each(handle_switched_field);
     });
   });
 

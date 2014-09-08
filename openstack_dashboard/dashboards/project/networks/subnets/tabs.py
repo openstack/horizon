@@ -19,6 +19,7 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.networks.subnets import utils
 
 
 class OverviewTab(tabs.Tab):
@@ -34,6 +35,10 @@ class OverviewTab(tabs.Tab):
             redirect = reverse('horizon:project:networks:index')
             msg = _('Unable to retrieve subnet details.')
             exceptions.handle(request, msg, redirect=redirect)
+        if subnet.ip_version == 6:
+            ipv6_modes = utils.get_ipv6_modes_menu_from_attrs(
+                subnet.ipv6_ra_mode, subnet.ipv6_address_mode)
+            subnet.ipv6_modes_desc = utils.IPV6_MODE_MAP.get(ipv6_modes)
         return {'subnet': subnet}
 
 

@@ -48,6 +48,8 @@ def form_data_subnet(subnet,
     data['no_gateway'] = (gateway_ip is None)
 
     data['enable_dhcp'] = get_value(enable_dhcp, subnet.enable_dhcp)
+    if data['ip_version'] == 6:
+        data['ipv6_modes'] = subnet.ipv6_modes
 
     pools = get_value(allocation_pools, subnet.allocation_pools)
     data['allocation_pools'] = _str_allocation_pools(pools)
@@ -1210,6 +1212,66 @@ class NetworkSubnetTests(test.TestCase):
         self.assertContains(res,
                             'host_routes: Invalid IP address '
                             '(value=%s)' % host_routes.split(',')[1])
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_create',)})
+    def test_v6subnet_create_post(self):
+        network = self.networks.get(name="v6_net1")
+        subnet = self.subnets.get(name="v6_subnet1")
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id)\
+            .AndReturn(network)
+        api.neutron.subnet_create(IsA(http.HttpRequest),
+                                  network_id=network.id,
+                                  name=subnet.name,
+                                  cidr=subnet.cidr,
+                                  ip_version=subnet.ip_version,
+                                  gateway_ip=subnet.gateway_ip,
+                                  enable_dhcp=subnet.enable_dhcp,
+                                  allocation_pools=subnet.allocation_pools)\
+            .AndReturn(subnet)
+        self.mox.ReplayAll()
+
+        form_data = form_data_subnet(subnet)
+        url = reverse('horizon:project:networks:addsubnet',
+                      args=[subnet.network_id])
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        redir_url = reverse('horizon:project:networks:detail',
+                            args=[subnet.network_id])
+        self.assertRedirectsNoFollow(res, redir_url)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_create',)})
+    def test_v6subnet_create_post_with_slaac_attributes(self):
+        network = self.networks.get(name="v6_net2")
+        subnet = self.subnets.get(name="v6_subnet2")
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id)\
+            .AndReturn(network)
+        api.neutron.subnet_create(IsA(http.HttpRequest),
+                                  network_id=network.id,
+                                  name=subnet.name,
+                                  cidr=subnet.cidr,
+                                  ip_version=subnet.ip_version,
+                                  gateway_ip=subnet.gateway_ip,
+                                  enable_dhcp=subnet.enable_dhcp,
+                                  allocation_pools=subnet.allocation_pools,
+                                  ipv6_address_mode='slaac',
+                                  ipv6_ra_mode='slaac')\
+            .AndReturn(subnet)
+        self.mox.ReplayAll()
+
+        form_data = form_data_subnet(subnet)
+        url = reverse('horizon:project:networks:addsubnet',
+                      args=[subnet.network_id])
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        redir_url = reverse('horizon:project:networks:detail',
+                            args=[subnet.network_id])
+        self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('subnet_update',
                                       'subnet_get',)})
