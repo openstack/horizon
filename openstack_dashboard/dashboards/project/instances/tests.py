@@ -1209,6 +1209,7 @@ class InstanceTests(helpers.TestCase):
                                  custom_flavor_sort=None,
                                  only_one_network=False,
                                  disk_config=True,
+                                 config_drive=True,
                                  test_with_profile=False):
         image = self.images.first()
 
@@ -1245,6 +1246,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(disk_config)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(config_drive)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
                 .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1335,6 +1338,12 @@ class InstanceTests(helpers.TestCase):
         else:
             self.assertNotContains(res, disk_config_field_label)
 
+        config_drive_field_label = 'Configuration Drive'
+        if config_drive:
+            self.assertContains(res, config_drive_field_label)
+        else:
+            self.assertNotContains(res, config_drive_field_label)
+
     @django.test.utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
@@ -1345,6 +1354,9 @@ class InstanceTests(helpers.TestCase):
 
     def test_launch_instance_get_no_disk_config_supported(self):
         self.test_launch_instance_get(disk_config=False)
+
+    def test_launch_instance_get_no_config_drive_supported(self):
+        self.test_launch_instance_get(config_drive=False)
 
     @django.test.utils.override_settings(
         CREATE_INSTANCE_FLAVOR_SORT={
@@ -1402,6 +1414,7 @@ class InstanceTests(helpers.TestCase):
                                  block_device_mapping_v2=True,
                                  only_one_network=False,
                                  disk_config=True,
+                                 config_drive=True,
                                  test_with_profile=False):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
@@ -1437,6 +1450,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(disk_config)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(config_drive)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
                 .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1491,6 +1506,7 @@ class InstanceTests(helpers.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post(self,
                                   disk_config=True,
+                                  config_drive=True,
                                   test_with_profile=False):
         flavor = self.flavors.first()
         image = self.images.first()
@@ -1543,6 +1559,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(disk_config)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(config_drive)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn([])
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1550,6 +1568,10 @@ class InstanceTests(helpers.TestCase):
             disk_config_value = u'AUTO'
         else:
             disk_config_value = None
+        if config_drive:
+            config_drive_value = True
+        else:
+            config_drive_value = None
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                image.id,
@@ -1563,7 +1585,8 @@ class InstanceTests(helpers.TestCase):
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
                                admin_pass=u'',
-                               disk_config=disk_config_value)
+                               disk_config=disk_config_value,
+                               config_drive=config_drive_value)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1586,6 +1609,8 @@ class InstanceTests(helpers.TestCase):
                      'count': 1}
         if disk_config:
             form_data['disk_config'] = 'AUTO'
+        if config_drive:
+            form_data['config_drive'] = True
         if test_with_profile:
             form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
@@ -1596,6 +1621,9 @@ class InstanceTests(helpers.TestCase):
 
     def test_launch_instance_post_no_disk_config_supported(self):
         self.test_launch_instance_post(disk_config=False)
+
+    def test_launch_instance_post_no_config_drive_supported(self):
+        self.test_launch_instance_post(config_drive=False)
 
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
@@ -1673,6 +1701,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1689,7 +1719,8 @@ class InstanceTests(helpers.TestCase):
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
                                admin_pass=u'',
-                               disk_config=u'AUTO')
+                               disk_config=u'AUTO',
+                               config_drive=True)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
 
@@ -1710,7 +1741,8 @@ class InstanceTests(helpers.TestCase):
                      'device_name': device_name,
                      'network': self.networks.first().id,
                      'count': 1,
-                     'disk_config': 'AUTO'}
+                     'disk_config': 'AUTO',
+                     'config_drive': True}
         if test_with_profile:
             form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
@@ -1799,6 +1831,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1818,7 +1852,8 @@ class InstanceTests(helpers.TestCase):
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
                                admin_pass=u'',
-                               disk_config='MANUAL')
+                               disk_config='MANUAL',
+                               config_drive=True)
 
         self.mox.ReplayAll()
 
@@ -1837,7 +1872,8 @@ class InstanceTests(helpers.TestCase):
                      'volume_id': volume_choice,
                      'device_name': device_name,
                      'count': 1,
-                     'disk_config': 'MANUAL'}
+                     'disk_config': 'MANUAL',
+                     'config_drive': True}
         if test_with_profile:
             form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
@@ -1905,6 +1941,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
@@ -1987,6 +2025,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
            .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -2078,6 +2118,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
@@ -2092,7 +2134,8 @@ class InstanceTests(helpers.TestCase):
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
                                admin_pass='password',
-                               disk_config='AUTO') \
+                               disk_config='AUTO',
+                               config_drive=False) \
                       .AndRaise(self.exceptions.keystone)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
                 .AndReturn(quota_usages)
@@ -2118,7 +2161,8 @@ class InstanceTests(helpers.TestCase):
                      'count': 1,
                      'admin_pass': 'password',
                      'confirm_admin_pass': 'password',
-                     'disk_config': 'AUTO'}
+                     'disk_config': 'AUTO',
+                     'config_drive': False}
         if test_with_profile:
             form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
@@ -2190,6 +2234,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2288,6 +2334,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2403,6 +2451,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2529,6 +2579,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2725,6 +2777,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
                 .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                IsA(http.HttpRequest)).AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.flavors.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -2844,6 +2898,9 @@ class InstanceTests(helpers.TestCase):
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
+
+        config_drive_field_label = 'Configuration Drive'
+        self.assertNotContains(res, config_drive_field_label)
 
     @helpers.create_stubs({api.nova: ('server_get',
                                    'flavor_list',)})
