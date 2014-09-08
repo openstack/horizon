@@ -29,7 +29,7 @@ LOG = logging.getLogger(__name__)
 
 
 def get_tenant_choices(request):
-    tenant_choices = [('', _("Select a tenant"))]
+    tenant_choices = [('', _("Select a project"))]
     tenants = []
     try:
         tenants, has_more = api.keystone.tenant_list(request)

@@ -261,7 +261,7 @@ def query_data(request,
         except Exception:
             tenants = []
             exceptions.handle(request,
-                              _('Unable to retrieve tenant list.'))
+                              _('Unable to retrieve project list.'))
         queries = {}
         for tenant in tenants:
             tenant_query = [{
