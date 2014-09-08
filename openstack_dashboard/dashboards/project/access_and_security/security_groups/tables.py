@@ -15,6 +15,7 @@
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -27,8 +28,22 @@ POLICY_CHECK = getattr(settings, "POLICY_CHECK_FUNCTION",
 
 
 class DeleteGroup(tables.DeleteAction):
-    data_type_singular = _("Security Group")
-    data_type_plural = _("Security Groups")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete security group",
+            u"Delete security groups",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Security group deleted",
+            u"Security groups deleted",
+            count
+        )
 
     def get_policy_target(self, request, datum=None):
         project_id = None

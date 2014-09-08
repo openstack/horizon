@@ -21,6 +21,7 @@ from django import shortcuts
 from django.utils.http import urlencode
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import messages
@@ -69,12 +70,24 @@ class AllocateIP(tables.LinkAction):
 
 class ReleaseIPs(tables.BatchAction):
     name = "release"
-    action_present = _("Release")
-    action_past = _("Released")
-    data_type_singular = _("Floating IP")
-    data_type_plural = _("Floating IPs")
     classes = ('btn-danger',)
     icon = "arrow-up"
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Release floating IP",
+            u"Release floating IPs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Floating IP released",
+            u"Floating IPs released",
+            count
+        )
 
     def allowed(self, request, fip=None):
         if api.base.is_service_enabled(request, "network"):

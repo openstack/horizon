@@ -869,8 +869,10 @@ class DeleteAction(BatchAction):
     def __init__(self, **kwargs):
         super(DeleteAction, self).__init__(**kwargs)
         self.name = kwargs.get('name', self.name)
-        self.action_present = kwargs.get('action_present', _("Delete"))
-        self.action_past = kwargs.get('action_past', _("Deleted"))
+        if not hasattr(self, "action_present"):
+            self.action_present = kwargs.get('action_present', _("Delete"))
+        if not hasattr(self, "action_past"):
+            self.action_past = kwargs.get('action_past', _("Deleted"))
         self.icon = "remove"
 
     def action(self, request, obj_id):
