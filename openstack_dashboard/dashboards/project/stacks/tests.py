@@ -360,11 +360,11 @@ class StackTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/stacks/create.html')
 
         # ensure the fields were rendered correctly
-        self.assertContains(res, '<input class=" form-control" '
+        self.assertContains(res, '<input class="form-control" '
                                         'id="id___param_public_string" '
                                         'name="__param_public_string" '
                                         'type="text" />', html=True)
-        self.assertContains(res, '<input class=" form-control" '
+        self.assertContains(res, '<input class="form-control" '
                                         'id="id___param_secret_string" '
                                         'name="__param_secret_string" '
                                         'type="password" />', html=True)

@@ -269,7 +269,7 @@ class RouterActionTests(test.TestCase):
         self.assertContains(res, 'Router Type')
         self.assertContains(
             res,
-            '<input class=" form-control" id="id_mode" name="mode" '
+            '<input class="form-control" id="id_mode" name="mode" '
             'readonly="readonly" type="text" value="distributed" />',
             html=True)
         self.assertNotContains(res, 'centralized')

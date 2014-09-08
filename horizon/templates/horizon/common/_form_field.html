@@ -1,4 +1,4 @@
-{% load bootstrap_form_field %}
+{% load form_helpers %}
 
 <div class="form-group{% if field.errors %} has-error{% endif %} {{ field.css_classes }}">
   {% if field|is_checkbox %}
@@ -55,8 +55,7 @@
     {% endif %}
 
     <div class="{{ classes.value }} {{ field|wrapper_classes }}">
-      {{ field }}
-
+      {{ field|add_bootstrap_class }}
       {% for error in field.errors %}
         <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
       {% endfor %}

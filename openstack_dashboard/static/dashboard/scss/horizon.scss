@@ -1340,7 +1340,8 @@ tr.terminated {
 }
 
 .nav-tabs li.required a:after,
-form .form-group.required > label:after {
+form .form-group.required > label:after,
+form .form-field.required > label:after {
   content: "*";
   font-weight: bold;
   line-height: 0;

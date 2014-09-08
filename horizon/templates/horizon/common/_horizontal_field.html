@@ -1,0 +1,20 @@
+{% load form_helpers %}
+
+<div class="form-group{% if field.errors %} has-error{% endif %} {{ field.css_classes }}">
+  <label class="control-label col-sm-3 {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.id_for_label }}">{{ field.label }}</label>
+  <div class="col-sm-9 {{ classes.value }} {{ field|wrapper_classes }}">
+    {{ field|add_bootstrap_class }}
+    {% for error in field.errors %}
+      <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
+    {% empty %}
+      {% comment %}
+      Escape help_text a second time here, to avoid an XSS issue in bootstrap.js.
+      This can most likely be removed once we upgrade bootstrap.js past 2.0.2.
+      Note: the spaces are necessary here.
+      {% endcomment %}
+      {% if field.help_text %}
+        <span class="help-block">{% filter force_escape %} {{ field.help_text }} {% endfilter %} </span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
