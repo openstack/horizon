@@ -2,13 +2,6 @@
 
 set -o errexit
 
-# ---------------UPDATE ME-------------------------------#
-# Increment me any time the environment should be rebuilt.
-# This includes dependency changes, directory renames, etc.
-# Simple integer sequence: 1, 2, 3...
-environment_version=47
-#--------------------------------------------------------#
-
 function usage {
   echo "Usage: $0 [OPTION]..."
   echo "Run Horizon's test suite(s)"
@@ -60,6 +53,7 @@ function usage {
 #
 root=`pwd -P`
 venv=$root/.venv
+venv_env_version=$venv/environments
 with_venv=tools/with_venv.sh
 included_dirs="openstack_dashboard horizon"
 
@@ -221,21 +215,20 @@ function destroy_venv {
   echo "Removing virtualenv..."
   rm -rf $venv
   echo "Virtualenv removed."
-  rm -f .environment_version
-  echo "Environment cleaned."
 }
 
 function environment_check {
   echo "Checking environment."
-  if [ -f .environment_version ]; then
-    ENV_VERS=`cat .environment_version`
-    if [ $ENV_VERS -eq $environment_version ]; then
-      if [ -e ${venv} ]; then
-        # If the environment exists and is up-to-date then set our variables
-        command_wrapper="${root}/${with_venv}"
-        echo "Environment is up to date."
-        return 0
-      fi
+  if [ -f $venv_env_version ]; then
+    set +o errexit
+    cat requirements.txt test-requirements.txt | cmp $venv_env_version - > /dev/null
+    local env_check_result=$?
+    set -o errexit
+    if [ $env_check_result -eq 0 ]; then
+      # If the environment exists and is up-to-date then set our variables
+      command_wrapper="${root}/${with_venv}"
+      echo "Environment is up to date."
+      return 0
     fi
   fi
 
@@ -284,7 +277,6 @@ function backup_environment {
     fi
     mkdir -p /tmp/.horizon_environment/$JOB_NAME
     cp -r $venv /tmp/.horizon_environment/$JOB_NAME/
-    cp .environment_version /tmp/.horizon_environment/$JOB_NAME/
     # Remove the backup now that we've completed successfully
     rm -rf /tmp/.horizon_environment/$JOB_NAME.old
     echo "Backup completed"
@@ -300,7 +292,6 @@ function restore_environment {
     fi
 
     cp -r /tmp/.horizon_environment/$JOB_NAME/.venv ./ || true
-    cp -r /tmp/.horizon_environment/$JOB_NAME/.environment_version ./ || true
 
     echo "Environment restored successfully."
   fi
@@ -320,7 +311,7 @@ function install_venv {
   # Make sure it worked and record the environment version
   sanity_check
   chmod -R 754 $venv
-  echo $environment_version > .environment_version
+  cat requirements.txt test-requirements.txt > $venv_env_version
 }
 
 function run_tests {

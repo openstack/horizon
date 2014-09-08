@@ -253,9 +253,9 @@ The environment backup is stored in ``/tmp/.horizon_environment/``.
 Environment Versioning
 ======================
 
-Horizon keeps track of changes to the environment by incrementing an
-``environment_version`` integer at the top of ``run_tests.sh``.
-
-If you do anything which changes the environment (adding new dependencies
-or renaming directories are both great examples) be sure to increment the
-``environment_version`` counter as well.
+Horizon keeps track of changes to the environment by comparing the
+current requirements files (``requirements.txt`` and
+``test-requirements.txt``) and the files last time the virtual
+environment was created or updated. If there is any difference,
+the virtual environment will be update automatically when you run
+``run_tests.sh``.
