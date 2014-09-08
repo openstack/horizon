@@ -20,8 +20,8 @@ from horizon import messages
 
 
 class CreateExtraSpec(forms.SelfHandlingForm):
-    key = forms.CharField(max_length="255", label=_("Key"))
-    value = forms.CharField(max_length="255", label=_("Value"))
+    key = forms.CharField(max_length=255, label=_("Key"))
+    value = forms.CharField(max_length=255, label=_("Value"))
 
     def handle(self, request, data):
         type_id = self.initial['type_id']
@@ -38,7 +38,7 @@ class CreateExtraSpec(forms.SelfHandlingForm):
 
 
 class EditExtraSpec(forms.SelfHandlingForm):
-    value = forms.CharField(max_length="255", label=_("Value"))
+    value = forms.CharField(max_length=255, label=_("Value"))
 
     def handle(self, request, data):
         key = self.initial['key']

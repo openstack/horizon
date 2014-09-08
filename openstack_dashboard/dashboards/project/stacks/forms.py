@@ -250,7 +250,7 @@ class CreateStackForm(forms.SelfHandlingForm):
     parameters = forms.CharField(
         widget=forms.widgets.HiddenInput)
     stack_name = forms.RegexField(
-        max_length='255',
+        max_length=255,
         label=_('Stack Name'),
         help_text=_('Name of the stack to create.'),
         regex=r"^[a-zA-Z][a-zA-Z0-9_.-]*$",

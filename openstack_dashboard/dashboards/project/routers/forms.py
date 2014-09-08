@@ -32,7 +32,7 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label=_("Router Name"))
+    name = forms.CharField(max_length=255, label=_("Router Name"))
     mode = forms.ChoiceField(label=_("Router Type"))
     failure_url = 'horizon:project:routers:index'
 

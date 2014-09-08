@@ -43,7 +43,7 @@ DEFAULT_CONTAINER_FORMAT = 'bare'
 
 
 class CreateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label=_("Volume Name"))
+    name = forms.CharField(max_length=255, label=_("Volume Name"))
     description = forms.CharField(widget=forms.Textarea(
         attrs={'class': 'modal-body-fixed-width'}),
         label=_("Description"), required=False)
@@ -462,7 +462,7 @@ class AttachForm(forms.SelfHandlingForm):
 
 
 class CreateSnapshotForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label=_("Snapshot Name"))
+    name = forms.CharField(max_length=255, label=_("Snapshot Name"))
     description = forms.CharField(widget=forms.Textarea,
             label=_("Description"), required=False)
 
@@ -500,7 +500,7 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
 
 class UpdateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length="255", label=_("Volume Name"))
+    name = forms.CharField(max_length=255, label=_("Volume Name"))
     description = forms.CharField(widget=forms.Textarea,
             label=_("Description"), required=False)
 
@@ -524,7 +524,7 @@ class UploadToImageForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_('Volume Name'),
                            widget=forms.TextInput(
                                attrs={'readonly': 'readonly'}))
-    image_name = forms.CharField(max_length="255", label=_('Image Name'))
+    image_name = forms.CharField(max_length=255, label=_('Image Name'))
     disk_format = forms.ChoiceField(label=_('Disk Format'),
                                     widget=forms.Select(),
                                     required=False)

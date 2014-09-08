@@ -30,7 +30,7 @@ class CreateSnapshot(forms.SelfHandlingForm):
     instance_id = forms.CharField(label=_("Instance ID"),
                                   widget=forms.HiddenInput(),
                                   required=False)
-    name = forms.CharField(max_length="255", label=_("Snapshot Name"))
+    name = forms.CharField(max_length=255, label=_("Snapshot Name"))
 
     def handle(self, request, data):
         try:
