@@ -878,6 +878,36 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.status_code, 200)
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_get',)})
+    def test_create_snapshot_button_disabled_when_quota_exceeded(self):
+        limits = {'maxTotalSnapshots': 1}
+        limits['totalSnapshotsUsed'] = limits['maxTotalSnapshots']
+        volume = self.cinder_volumes.first()
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn(limits)
+        self.mox.ReplayAll()
+
+        create_link = tables.CreateSnapshot()
+        url = reverse(create_link.get_link_url(), args=[volume.id])
+        res_url = VOLUME_INDEX_URL + \
+                "?action=row_update&table=volumes&obj_id=" + volume.id
+
+        res = self.client.get(res_url, {},
+                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+
+        classes = list(create_link.get_default_classes())\
+                    + list(create_link.classes)
+        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+                                 "Quota exceeded")
+        expected_string = "<a href='%s' class=\"%s disabled\" "\
+            "id=\"volumes__row_%s__action_snapshots\">%s</a>" \
+            % (url, " ".join(classes), volume.id, link_name)
+
+        self.assertContains(res, expected_string, html=True,
+                msg_prefix="The create snapshot button is not disabled")
+
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_list',
                                  'volume_backup_supported',),
                         api.nova: ('server_list',)})
@@ -947,12 +977,16 @@ class VolumeViewTests(test.TestCase):
 
         self.assertNoMessages()
 
-    @test.create_stubs({cinder: ('volume_get',)})
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_get',)})
     def test_get_data(self):
         volume = self.cinder_volumes.get(name='v2_volume')
         volume._apiresource.name = ""
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
 

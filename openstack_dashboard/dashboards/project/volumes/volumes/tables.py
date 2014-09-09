@@ -177,6 +177,19 @@ class CreateSnapshot(tables.LinkAction):
         return {"project_id": project_id}
 
     def allowed(self, request, volume=None):
+        try:
+            limits = api.cinder.tenant_absolute_limits(request)
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve tenant limits.'))
+            limits = {}
+
+        snapshots_available = (limits.get('maxTotalSnapshots', float("inf"))
+                             - limits.get('totalSnapshotsUsed', 0))
+
+        if snapshots_available <= 0 and "disabled" not in self.classes:
+            self.classes = [c for c in self.classes] + ['disabled']
+            self.verbose_name = string_concat(self.verbose_name, ' ',
+                                                  _("(Quota exceeded)"))
         return volume.status in ("available", "in-use")
 
 
