@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependency changes, directory renames, etc.
 # Simple integer sequence: 1, 2, 3...
-environment_version=44
+environment_version=45
 #--------------------------------------------------------#
 
 function usage {
