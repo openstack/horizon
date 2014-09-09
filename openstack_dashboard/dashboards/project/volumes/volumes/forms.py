@@ -520,8 +520,7 @@ class UploadToImageForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_('Volume Name'),
                            widget=forms.TextInput(
                                attrs={'readonly': 'readonly'}))
-    image_name = forms.CharField(max_length="255", label=_('Image Name'),
-                                 required=True)
+    image_name = forms.CharField(max_length="255", label=_('Image Name'))
     disk_format = forms.ChoiceField(label=_('Disk Format'),
                                     widget=forms.Select(),
                                     required=False)
@@ -617,8 +616,7 @@ class RetypeForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_('Volume Name'),
                            widget=forms.TextInput(
                                attrs={'readonly': 'readonly'}))
-    volume_type = forms.ChoiceField(label=_('Type'),
-                                    required=True)
+    volume_type = forms.ChoiceField(label=_('Type'))
     MIGRATION_POLICY_CHOICES = [('never', _('Never')),
                                 ('on-demand', _('On Demand'))]
     migration_policy = forms.ChoiceField(label=_('Migration Policy'),
