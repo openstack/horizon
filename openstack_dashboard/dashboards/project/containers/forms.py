@@ -19,6 +19,7 @@
 from django.core.urlresolvers import reverse
 from django.core import validators
 from django.utils.encoding import force_text
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -185,7 +186,9 @@ class CreatePseudoFolder(forms.SelfHandlingForm):
 class CopyObject(forms.SelfHandlingForm):
     new_container_name = forms.ChoiceField(label=_("Destination container"),
                                            validators=[no_slash_validator])
-    path = forms.CharField(max_length=255, required=False)
+    path = forms.CharField(
+        label=pgettext_lazy("Swift pseudo folder path", u"Path"),
+        max_length=255, required=False)
     new_object_name = forms.CharField(max_length=255,
                                       label=_("Destination object name"),
                                       validators=[no_slash_validator])

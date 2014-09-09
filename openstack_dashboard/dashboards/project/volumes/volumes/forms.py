@@ -21,6 +21,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError  # noqa
 from django.template.defaultfilters import filesizeformat  # noqa
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -528,9 +529,11 @@ class UploadToImageForm(forms.SelfHandlingForm):
     disk_format = forms.ChoiceField(label=_('Disk Format'),
                                     widget=forms.Select(),
                                     required=False)
-    force = forms.BooleanField(label=_("Force"),
-                               widget=forms.CheckboxInput(),
-                               required=False)
+    force = forms.BooleanField(
+        label=pgettext_lazy("Force upload volume in in-use status to image",
+                            u"Force"),
+        widget=forms.CheckboxInput(),
+        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(UploadToImageForm, self).__init__(request, *args, **kwargs)

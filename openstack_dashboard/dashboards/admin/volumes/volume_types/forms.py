@@ -22,7 +22,7 @@ from openstack_dashboard.api import cinder
 
 class ManageQosSpecAssociation(forms.SelfHandlingForm):
     qos_spec_choice = forms.ChoiceField(
-        label=_("Associated QOS Spec"),
+        label=_("QOS Spec to be associated"),
         help_text=_("Choose associated QOS Spec."))
 
     def __init__(self, request, *args, **kwargs):
