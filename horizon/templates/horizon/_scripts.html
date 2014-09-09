@@ -1,5 +1,8 @@
 {% load compress %}
 {% load url from future %}
+{% load datepicker_locale from horizon %}
+
+{% datepicker_locale as DATEPICKER_LOCALE %}
 
 {% comment %} Django's JavaScript i18n Implementation {% endcomment %}
 <script type="text/javascript" src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
@@ -29,6 +32,9 @@
 
 <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
 <script src='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/bootstrap-datepicker.js' type='text/javascript' charset='utf-8'></script>
+{% ifnotequal DATEPICKER_LOCALE 'en' %}
+<script src='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/locales/bootstrap-datepicker.{{ DATEPICKER_LOCALE }}.js' type='text/javascript' charset='utf-8'></script>
+{% endifnotequal %}
 
 <script src="{{ STATIC_URL }}horizon/lib/hogan.js" type="text/javascript" charset='utf-8'></script>
 

@@ -86,7 +86,7 @@ horizon.forms = {
   },
 
   datepicker: function() {
-    var startDate = $('input#id_start').datepicker()
+    var startDate = $('input#id_start').datepicker({ language: horizon.datepickerLocale })
       .on('changeDate', function(ev) {
         if (ev.dates[0].valueOf() > endDate.dates[0].valueOf()) {
           var newDate = new Date(ev.dates[0]);
@@ -100,6 +100,7 @@ horizon.forms = {
       }).data('datepicker');
 
     var endDate = $('input#id_end').datepicker({
+      language: horizon.datepickerLocale,
       startDate: startDate ? startDate.dates[0] : null
     }).on('changeDate', function(ev) {
         endDate.hide();
