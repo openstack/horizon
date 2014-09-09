@@ -22,11 +22,11 @@ def add_bootstrap_class(field):
 
     This is so that Bootstrap styles it properly.
     """
-    if not isinstance(field, (
-        django.forms.CheckboxInput,
-        django.forms.CheckboxSelectMultiple,
-        django.forms.RadioSelect,
-        django.forms.FileInput,
+    if not isinstance(field.field.widget, (
+        django.forms.widgets.CheckboxInput,
+        django.forms.widgets.CheckboxSelectMultiple,
+        django.forms.widgets.RadioSelect,
+        django.forms.widgets.FileInput,
         str,
     )):
         field_classes = set(field.field.widget.attrs.get('class', '').split())
