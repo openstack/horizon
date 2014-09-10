@@ -77,7 +77,7 @@ horizon.forms = {
         $filename = $filename.substring(1);
       }
 
-      if (typeof($obj_name.val()) === 'undefined' || $(this).attr("filename").localeCompare($obj_name.val()) === 0) {
+      if (typeof($obj_name.val()) === 'undefined' || $obj_name.val().length < 1 || $(this).attr("filename").localeCompare($obj_name.val()) === 0) {
         $obj_name.val($filename);
         $(this).attr("filename", $filename);
         $obj_name.trigger('input');
