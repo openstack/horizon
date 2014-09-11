@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-05 01:03-0500\n"
+"POT-Creation-Date: 2014-09-11 01:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Power consumption"
 msgstr ""
 
-#: api/cinder.py:197
+#: api/cinder.py:205
 msgid "Unknown instance"
 msgstr ""
 
@@ -388,9 +388,10 @@ msgstr ""
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/snapshots/tables.py:58
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
+#: dashboards/admin/volumes/volume_types/tables.py:47
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:26
 #: dashboards/admin/volumes/volumes/forms.py:29
-#: dashboards/admin/volumes/volumes/tables.py:68
-#: dashboards/admin/volumes/volumes/tables.py:86
+#: dashboards/admin/volumes/volumes/tables.py:41
 #: dashboards/identity/domains/tables.py:183
 #: dashboards/identity/domains/workflows.py:34
 #: dashboards/identity/groups/forms.py:30
@@ -459,7 +460,7 @@ msgstr ""
 #: dashboards/project/networks/subnets/tables.py:106
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/forms.py:73
 #: dashboards/project/routers/tables.py:162
 #: dashboards/project/routers/ports/tables.py:90
@@ -470,8 +471,8 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:338
-#: dashboards/project/volumes/volumes/tables.py:367
+#: dashboards/project/volumes/volumes/tables.py:351
+#: dashboards/project/volumes/volumes/tables.py:380
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:64
 #: dashboards/project/vpn/forms.py:135 dashboards/project/vpn/forms.py:206
 #: dashboards/project/vpn/tables.py:183 dashboards/project/vpn/tables.py:213
@@ -499,7 +500,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:86
 #: dashboards/project/volumes/volumes/forms.py:87
-#: dashboards/project/volumes/volumes/tables.py:375
+#: dashboards/project/volumes/volumes/tables.py:388
 msgid "Availability Zone"
 msgstr ""
 
@@ -689,11 +690,11 @@ msgstr ""
 #: dashboards/admin/flavors/workflows.py:264
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:25
 #: dashboards/admin/images/templates/images/properties/_edit.html:25
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:25
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/identity/domains/workflows.py:299
 #: dashboards/identity/projects/workflows.py:510
 #: dashboards/project/instances/workflows/update_instance.py:133
-#: dashboards/project/networks/subnets/workflows.py:147
+#: dashboards/project/networks/subnets/workflows.py:160
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Save"
 msgstr ""
@@ -718,9 +719,9 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/agents/_add.html:18
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
-#: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:18
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:19
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:18
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:19
 #: dashboards/identity/domains/tables.py:185
 #: dashboards/identity/domains/workflows.py:36
 #: dashboards/identity/groups/forms.py:32
@@ -812,7 +813,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:49
 #: dashboards/project/volumes/volumes/forms.py:463
 #: dashboards/project/volumes/volumes/forms.py:501
-#: dashboards/project/volumes/volumes/tables.py:341
+#: dashboards/project/volumes/volumes/tables.py:354
 #: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:69
 #: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
 #: dashboards/project/vpn/tables.py:215 dashboards/project/vpn/workflows.py:30
@@ -849,10 +850,10 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_update.html:29
 #: dashboards/admin/routers/templates/routers/_update.html:24
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
-#: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:34
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:34
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:26
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:26
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:26
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:26
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
 #: dashboards/identity/groups/templates/groups/_create.html:24
 #: dashboards/identity/groups/templates/groups/_update.html:24
@@ -967,7 +968,7 @@ msgid "Edit Flavor"
 msgstr ""
 
 #: dashboards/admin/flavors/tables.py:55
-#: dashboards/admin/volumes/volumes/tables.py:32
+#: dashboards/admin/volumes/volume_types/tables.py:30
 msgid "View Extra Specs"
 msgstr ""
 
@@ -982,7 +983,7 @@ msgstr ""
 
 #: dashboards/admin/flavors/tables.py:94 dashboards/admin/flavors/tables.py:98
 #: dashboards/project/volumes/backups/tables.py:95
-#: dashboards/project/volumes/volumes/tables.py:272
+#: dashboards/project/volumes/volumes/tables.py:285
 #, python-format
 msgid "%sGB"
 msgstr ""
@@ -1062,7 +1063,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/ports/_update.html:13
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/project/routers/forms.py:75
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
@@ -1093,8 +1094,8 @@ msgstr ""
 
 #: dashboards/admin/flavors/tables.py:126
 #: dashboards/admin/flavors/extras/tables.py:61
-#: dashboards/admin/volumes/volumes/extras/tables.py:23
-#: dashboards/admin/volumes/volumes/extras/tables.py:59
+#: dashboards/admin/volumes/volume_types/extras/tables.py:23
+#: dashboards/admin/volumes/volume_types/extras/tables.py:59
 msgid "Extra Specs"
 msgstr ""
 
@@ -1239,8 +1240,8 @@ msgstr ""
 #: dashboards/admin/flavors/extras/tables.py:56
 #: dashboards/admin/images/properties/forms.py:45
 #: dashboards/admin/images/properties/tables.py:81
-#: dashboards/admin/volumes/volumes/extras/forms.py:23
-#: dashboards/admin/volumes/volumes/extras/tables.py:54
+#: dashboards/admin/volumes/volume_types/extras/forms.py:23
+#: dashboards/admin/volumes/volume_types/extras/tables.py:54
 msgid "Key"
 msgstr ""
 
@@ -1257,9 +1258,9 @@ msgstr ""
 #: dashboards/admin/images/properties/forms.py:72
 #: dashboards/admin/images/properties/tables.py:82
 #: dashboards/admin/metering/templates/metering/stats.html:89
-#: dashboards/admin/volumes/volumes/extras/forms.py:24
-#: dashboards/admin/volumes/volumes/extras/forms.py:41
-#: dashboards/admin/volumes/volumes/extras/tables.py:55
+#: dashboards/admin/volumes/volume_types/extras/forms.py:24
+#: dashboards/admin/volumes/volume_types/extras/forms.py:41
+#: dashboards/admin/volumes/volume_types/extras/tables.py:55
 msgid "Value"
 msgstr ""
 
@@ -1274,7 +1275,7 @@ msgid "This field is required."
 msgstr ""
 
 #: dashboards/admin/flavors/extras/forms.py:75
-#: dashboards/admin/volumes/volumes/extras/forms.py:32
+#: dashboards/admin/volumes/volume_types/extras/forms.py:32
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr ""
@@ -1284,7 +1285,7 @@ msgid "Unable to create flavor extra spec."
 msgstr ""
 
 #: dashboards/admin/flavors/extras/forms.py:94
-#: dashboards/admin/volumes/volumes/extras/forms.py:50
+#: dashboards/admin/volumes/volume_types/extras/forms.py:50
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr ""
@@ -1304,8 +1305,8 @@ msgstr ""
 #: dashboards/admin/flavors/extras/tables.py:34
 #: dashboards/admin/flavors/templates/flavors/extras/_create.html:25
 #: dashboards/admin/images/templates/images/properties/_create.html:25
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:25
-#: dashboards/admin/volumes/volumes/extras/tables.py:33
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:25
+#: dashboards/admin/volumes/volume_types/extras/tables.py:33
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:222
@@ -1316,14 +1317,14 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:161
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:288
-#: dashboards/project/networks/workflows.py:274
+#: dashboards/project/networks/workflows.py:301
 #: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create"
 msgstr ""
 
 #: dashboards/admin/flavors/extras/tables.py:45
 #: dashboards/admin/images/properties/tables.py:66
-#: dashboards/admin/volumes/volumes/extras/tables.py:44
+#: dashboards/admin/volumes/volume_types/extras/tables.py:44
 #: dashboards/identity/domains/tables.py:79
 #: dashboards/identity/roles/tables.py:36
 #: dashboards/identity/users/tables.py:43
@@ -1333,7 +1334,7 @@ msgid "Edit"
 msgstr ""
 
 #: dashboards/admin/flavors/extras/views.py:61
-#: dashboards/admin/volumes/volumes/extras/views.py:55
+#: dashboards/admin/volumes/volume_types/extras/views.py:55
 msgid "Unable to retrieve extra spec list."
 msgstr ""
 
@@ -1351,7 +1352,7 @@ msgid "Create a new \"extra spec\" key-value pair for a flavor."
 msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/extras/_edit.html:10
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:10
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:10
 msgid "Edit Extra Spec Value"
 msgstr ""
 
@@ -1366,7 +1367,7 @@ msgid "Flavor Extra Specs"
 msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/extras/_index.html:13
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_index.html:13
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:13
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:103
@@ -1400,8 +1401,8 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
 #: dashboards/project/routers/ports/tables.py:96
 #: dashboards/project/volumes/volumes/forms.py:50
-#: dashboards/project/volumes/volumes/forms.py:620
-#: dashboards/project/volumes/volumes/tables.py:370
+#: dashboards/project/volumes/volumes/forms.py:619
+#: dashboards/project/volumes/volumes/tables.py:383
 msgid "Type"
 msgstr ""
 
@@ -1537,7 +1538,7 @@ msgstr ""
 #: dashboards/admin/instances/tables.py:131
 #: dashboards/admin/networks/agents/tables.py:78
 #: dashboards/admin/volumes/snapshots/tables.py:63
-#: dashboards/admin/volumes/volumes/tables.py:70
+#: dashboards/admin/volumes/volumes/tables.py:43
 #: dashboards/project/databases/tables.py:209
 #: dashboards/project/databases/templates/databases/_detail_overview.html:48
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
@@ -1620,7 +1621,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:348
+#: dashboards/project/volumes/volumes/tables.py:361
 #: dashboards/project/vpn/tables.py:193 dashboards/project/vpn/tables.py:220
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -2031,22 +2032,22 @@ msgid "Injected Files"
 msgstr ""
 
 #: dashboards/admin/info/tables.py:204 dashboards/admin/volumes/panel.py:21
-#: dashboards/admin/volumes/tabs.py:34
+#: dashboards/admin/volumes/tabs.py:37
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
-#: dashboards/admin/volumes/volumes/tables.py:75
+#: dashboards/admin/volumes/volumes/tables.py:48
 #: dashboards/identity/projects/workflows.py:53
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:62
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
 #: dashboards/project/volumes/volumes/tables.py:60
-#: dashboards/project/volumes/volumes/tables.py:384
-#: dashboards/project/volumes/volumes/tables.py:398 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:397
+#: dashboards/project/volumes/volumes/tables.py:411 usage/quotas.py:74
 msgid "Volumes"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:205 dashboards/admin/volumes/tabs.py:72
+#: dashboards/admin/info/tables.py:205 dashboards/admin/volumes/tabs.py:93
 #: dashboards/admin/volumes/snapshots/tables.py:68
 #: dashboards/identity/projects/workflows.py:54
 #: dashboards/project/volumes/tabs.py:76
@@ -2232,7 +2233,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:639
 #: dashboards/project/instances/tables.py:660
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:423
+#: dashboards/project/volumes/volumes/tables.py:436
 msgid "Instance"
 msgstr ""
 
@@ -2248,7 +2249,7 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:83
 #: dashboards/admin/routers/tables.py:58
 #: dashboards/admin/volumes/snapshots/tables.py:64
-#: dashboards/admin/volumes/volumes/tables.py:71
+#: dashboards/admin/volumes/volumes/tables.py:44
 #: dashboards/identity/projects/tables.py:112
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:136
@@ -2305,7 +2306,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:344
+#: dashboards/project/volumes/volumes/tables.py:357
 msgid "Size"
 msgstr ""
 
@@ -2589,7 +2590,7 @@ msgid "Flat"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:44
-#: dashboards/project/networks/workflows.py:42
+#: dashboards/project/networks/workflows.py:43
 #: dashboards/router/nexus1000v/tables.py:38
 #: dashboards/router/nexus1000v/tables.py:61
 #: dashboards/router/nexus1000v/tables.py:76
@@ -2645,7 +2646,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:541
 #: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/tables.py:125
-#: dashboards/project/networks/workflows.py:45
+#: dashboards/project/networks/workflows.py:46
 #: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:66
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
@@ -2700,13 +2701,13 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:141
 #: dashboards/project/instances/workflows/create_instance.py:625
-#: dashboards/project/networks/workflows.py:56
+#: dashboards/project/networks/workflows.py:57
 msgid "Select a profile"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:151
 #: dashboards/project/instances/workflows/create_instance.py:635
-#: dashboards/project/networks/workflows.py:66
+#: dashboards/project/networks/workflows.py:67
 #: dashboards/router/nexus1000v/views.py:55
 msgid "Network Profiles could not be retrieved."
 msgstr ""
@@ -2767,7 +2768,7 @@ msgstr ""
 
 #: dashboards/admin/networks/tables.py:33 dashboards/project/dashboard.py:32
 #: dashboards/project/networks/tables.py:41
-#: dashboards/project/networks/workflows.py:73
+#: dashboards/project/networks/workflows.py:74
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
@@ -2786,7 +2787,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:72
-#: dashboards/project/networks/workflows.py:273
+#: dashboards/project/networks/workflows.py:300
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2802,7 +2803,7 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:84
 #: dashboards/admin/networks/agents/forms.py:35
 #: dashboards/admin/networks/ports/forms.py:33
-#: dashboards/project/networks/workflows.py:36
+#: dashboards/project/networks/workflows.py:37
 msgid "Network Name"
 msgstr ""
 
@@ -2911,7 +2912,7 @@ msgstr ""
 
 #: dashboards/admin/networks/agents/views.py:59
 #: dashboards/admin/networks/ports/views.py:48
-#: dashboards/project/networks/subnets/views.py:46
+#: dashboards/project/networks/subnets/views.py:47
 msgid "Unable to retrieve network."
 msgstr ""
 
@@ -2921,7 +2922,7 @@ msgstr ""
 
 #: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:14
 msgid "Network ID"
 msgstr ""
 
@@ -3027,7 +3028,7 @@ msgstr ""
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:29
 #: dashboards/project/networks/ports/tabs.py:25
-#: dashboards/project/networks/subnets/tabs.py:25
+#: dashboards/project/networks/subnets/tabs.py:26
 #: dashboards/project/overview/panel.py:27
 #: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
@@ -3049,11 +3050,10 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:116
+#: dashboards/project/networks/workflows.py:122
 #: dashboards/project/networks/subnets/tables.py:44
 #: dashboards/project/networks/subnets/workflows.py:37
 #: dashboards/project/networks/subnets/workflows.py:115
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:44
@@ -3076,7 +3076,7 @@ msgid "Failed to delete subnet %s"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:55
-#: dashboards/project/networks/workflows.py:85
+#: dashboards/project/networks/workflows.py:86
 #: dashboards/project/networks/subnets/tables.py:68
 #: dashboards/project/networks/subnets/workflows.py:55
 msgid "Create Subnet"
@@ -3084,7 +3084,7 @@ msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:75
 #: dashboards/project/networks/subnets/tables.py:88
-#: dashboards/project/networks/subnets/workflows.py:146
+#: dashboards/project/networks/subnets/workflows.py:159
 msgid "Edit Subnet"
 msgstr ""
 
@@ -3092,21 +3092,21 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:192
 #: dashboards/project/access_and_security/security_groups/forms.py:204
 #: dashboards/project/access_and_security/security_groups/forms.py:214
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 msgid "CIDR"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:96
-#: dashboards/project/networks/workflows.py:98
+#: dashboards/project/networks/workflows.py:103
 #: dashboards/project/networks/subnets/tables.py:109
 #: dashboards/project/networks/subnets/workflows.py:99
 msgid "IP Version"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:97
-#: dashboards/project/networks/workflows.py:100
+#: dashboards/project/networks/workflows.py:105
 #: dashboards/project/networks/subnets/tables.py:110
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
 msgstr ""
 
@@ -3346,12 +3346,12 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:38
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:46
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:47
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:55
 #: dashboards/project/routers/templates/routers/_detail_overview.html:3
 #: dashboards/project/routers/templates/routers/_detail_overview.html:8
 #: dashboards/project/routers/templates/routers/_detail_overview.html:10
@@ -3432,16 +3432,26 @@ msgstr ""
 msgid "Update Router"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:49 dashboards/admin/volumes/tabs.py:96
+#: dashboards/admin/volumes/tabs.py:52 dashboards/admin/volumes/tabs.py:117
 #: dashboards/admin/volumes/snapshots/tables.py:51
 msgid "Unable to retrieve volume project information."
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:66
+#: dashboards/admin/volumes/tabs.py:67
+#: dashboards/admin/volumes/volume_types/tables.py:38
+#: dashboards/admin/volumes/volume_types/tables.py:57
+msgid "Volume Types"
+msgstr ""
+
+#: dashboards/admin/volumes/tabs.py:78
 msgid "Unable to retrieve volume types"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:88 dashboards/project/volumes/tabs.py:90
+#: dashboards/admin/volumes/tabs.py:87
+msgid "Unable to retrieve QOS specs"
+msgstr ""
+
+#: dashboards/admin/volumes/tabs.py:109 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:192
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
@@ -3488,8 +3498,8 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:46
 #: dashboards/project/volumes/volumes/forms.py:499
 #: dashboards/project/volumes/volumes/forms.py:520
-#: dashboards/project/volumes/volumes/forms.py:579
-#: dashboards/project/volumes/volumes/forms.py:617
+#: dashboards/project/volumes/volumes/forms.py:578
+#: dashboards/project/volumes/volumes/forms.py:616
 msgid "Volume Name"
 msgstr ""
 
@@ -3526,11 +3536,12 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:210
 #: dashboards/project/volumes/volumes/tables.py:59
-#: dashboards/project/volumes/volumes/tables.py:397
+#: dashboards/project/volumes/volumes/tables.py:410
 msgid "Volume"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:29
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:41
 #: dashboards/project/instances/templates/instances/_detail_overview.html:43
@@ -3594,14 +3605,14 @@ msgid ""
 "    "
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:9
-#: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:33
-#: dashboards/admin/volumes/templates/volumes/volumes/create_volume_type.html:3
-#: dashboards/admin/volumes/volumes/tables.py:23
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:9
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:33
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
+#: dashboards/admin/volumes/volume_types/tables.py:21
 msgid "Create Volume Type"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/_create_volume_type.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:19
 msgid ""
 "\n"
 "      Volume type is a type or label that can be selected at volume "
@@ -3618,10 +3629,44 @@ msgid ""
 "     "
 msgstr ""
 
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:6
+msgid "Create a Volume Type"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
+msgid "Create Volume Type Extra Spec"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:20
+msgid "Create a new \"extra spec\" key-value pair for a volume type."
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:20
+#, python-format
+msgid "Update the \"extra spec\" value for \"%(key)s\""
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:6
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:4
+msgid "Volume Type Extra Specs"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:7
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:7
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:7
+#: dashboards/admin/volumes/volume_types/tables.py:37
+msgid "Volume Type"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:4
+msgid "Edit Volume Type Extra Spec"
+msgstr ""
+
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:6
-#: dashboards/admin/volumes/volumes/tables.py:58
+#: dashboards/admin/volumes/volumes/tables.py:31
 msgid "Update Volume Status"
 msgstr ""
 
@@ -3634,10 +3679,6 @@ msgid ""
 "equivalent to\n"
 "    the <tt>cinder reset-state</tt> command.\n"
 "    "
-msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volumes/create_volume_type.html:6
-msgid "Create a Volume Type"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/detail.html:3
@@ -3655,33 +3696,32 @@ msgstr ""
 msgid "Volume Details:"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:10
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/create.html:4
-msgid "Create Volume Type Extra Spec"
+#: dashboards/admin/volumes/volume_types/extras/forms.py:37
+msgid "Unable to create volume type extra spec."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_create.html:20
-msgid "Create a new \"extra spec\" key-value pair for a volume type."
+#: dashboards/admin/volumes/volume_types/extras/forms.py:55
+msgid "Unable to edit volume type extra spec."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_edit.html:20
-msgid "Update the \"extra spec\" value for"
+#: dashboards/admin/volumes/volume_types/extras/tables.py:22
+msgid "Extra Spec"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/_index.html:6
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/index.html:4
-msgid "Volume Type Extra Specs"
+#: dashboards/admin/volumes/volume_types/extras/views.py:36
+msgid "Unable to retrieve volume type details."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/create.html:7
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/edit.html:7
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/index.html:7
-#: dashboards/admin/volumes/volumes/tables.py:39
-msgid "Volume Type"
+#: dashboards/admin/volumes/volume_types/extras/views.py:89
+msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/extras/edit.html:4
-msgid "Edit Volume Type Extra Spec"
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:27
+msgid "Consumer"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:35
+msgid "QOS Specs"
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:36
@@ -3698,7 +3738,7 @@ msgid "Attaching"
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:57
-#: dashboards/project/volumes/volumes/tables.py:396
+#: dashboards/project/volumes/volumes/tables.py:409
 msgid "Detaching"
 msgstr ""
 
@@ -3720,34 +3760,9 @@ msgstr ""
 msgid "Unable to update volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/tables.py:40
-#: dashboards/admin/volumes/volumes/tables.py:96
-msgid "Volume Types"
-msgstr ""
-
 #: dashboards/admin/volumes/volumes/views.py:61
 #: dashboards/project/volumes/volumes/views.py:62
 msgid "Unable to retrieve volume details."
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/extras/forms.py:37
-msgid "Unable to create volume type extra spec."
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/extras/forms.py:55
-msgid "Unable to edit volume type extra spec."
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/extras/tables.py:22
-msgid "Extra Spec"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/extras/views.py:36
-msgid "Unable to retrieve volume type details."
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/extras/views.py:89
-msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
 
 #: dashboards/identity/dashboard.py:22
@@ -4639,6 +4654,7 @@ msgstr ""
 #: dashboards/project/access_and_security/keypairs/tables.py:58
 #: dashboards/project/instances/tables.py:247
 #: dashboards/project/volumes/volumes/tables.py:112
+#: dashboards/project/volumes/volumes/tables.py:192
 msgid "(Quota exceeded)"
 msgstr ""
 
@@ -7039,7 +7055,7 @@ msgstr ""
 
 #: dashboards/project/database_backups/tables.py:37
 #: dashboards/project/databases/tables.py:103
-#: dashboards/project/volumes/volumes/tables.py:185
+#: dashboards/project/volumes/volumes/tables.py:198
 msgid "Create Backup"
 msgstr ""
 
@@ -7242,12 +7258,12 @@ msgid "Error creating database backup."
 msgstr ""
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:584
+#: dashboards/project/volumes/volumes/forms.py:583
 msgid "Current Size (GB)"
 msgstr ""
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:588
+#: dashboards/project/volumes/volumes/forms.py:587
 msgid "New Size (GB)"
 msgstr ""
 
@@ -8354,7 +8370,7 @@ msgid "Container Format"
 msgstr ""
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:48
-#: dashboards/project/volumes/volumes/forms.py:525
+#: dashboards/project/volumes/volumes/forms.py:524
 msgid "Disk Format"
 msgstr ""
 
@@ -8621,7 +8637,7 @@ msgid "Failed to launch instance \"%s\""
 msgstr ""
 
 #: dashboards/project/instances/tables.py:637
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
 msgid "Start"
 msgstr ""
 
@@ -9019,7 +9035,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
-#: dashboards/project/volumes/volumes/tables.py:373
+#: dashboards/project/volumes/volumes/tables.py:386
 msgid "Attached To"
 msgstr ""
 
@@ -10314,177 +10330,195 @@ msgstr ""
 msgid "Unable to retrieve network details."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:74
+#: dashboards/project/networks/workflows.py:75
 msgid ""
 "Create a new network. In addition a subnet associated with the network can "
 "be created in the next panel."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:88
+#: dashboards/project/networks/workflows.py:89
 msgid "Subnet Name"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:90
+#: dashboards/project/networks/workflows.py:91
 #: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/subnets/workflows.py:80
 msgid "Network Address"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:93
-#: dashboards/project/networks/subnets/workflows.py:85
-msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
+#: dashboards/project/networks/workflows.py:94
+msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:103
+#: dashboards/project/networks/workflows.py:108
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
-"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24). If you use the "
-"default, leave blank. If you do not want to use a gateway, check 'Disable "
-"Gateway' below."
+"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
+"2001:DB8::/48). If you use the default, leave blank. If you do not want to "
+"use a gateway, check 'Disable Gateway' below."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:112
+#: dashboards/project/networks/workflows.py:118
 #: dashboards/project/networks/subnets/workflows.py:111
 msgid "Disable Gateway"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:117
+#: dashboards/project/networks/workflows.py:123
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:136
+#: dashboards/project/networks/workflows.py:142
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:142
+#: dashboards/project/networks/workflows.py:148
 msgid "Network Address and IP version are inconsistent."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:146
+#: dashboards/project/networks/workflows.py:152
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:151
+#: dashboards/project/networks/workflows.py:157
 msgid "Gateway IP and IP version are inconsistent."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:154
+#: dashboards/project/networks/workflows.py:160
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:174
+#: dashboards/project/networks/workflows.py:180
 msgid "Enable DHCP"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:178
+#: dashboards/project/networks/workflows.py:183
+#: dashboards/project/networks/workflows.py:187
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
+msgid "IPv6 Address Configuration Mode"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:191
+msgid ""
+"It specifies how IPv6 address and additional information are configured. We "
+"can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
+"specify no option. 'No option selected' means addresses are configured "
+"manually or configured by non-OpenStack system."
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:199
 msgid "Allocation Pools"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:179
+#: dashboards/project/networks/workflows.py:200
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:186
+#: dashboards/project/networks/workflows.py:207
 msgid "DNS Name Servers"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:187
+#: dashboards/project/networks/workflows.py:208
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:192
+#: dashboards/project/networks/workflows.py:213
 msgid "Host Routes"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:193
+#: dashboards/project/networks/workflows.py:214
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:200
-#: dashboards/project/networks/subnets/workflows.py:136
+#: dashboards/project/networks/workflows.py:221
+#: dashboards/project/networks/subnets/workflows.py:149
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:201
-#: dashboards/project/networks/subnets/workflows.py:137
+#: dashboards/project/networks/workflows.py:222
+#: dashboards/project/networks/subnets/workflows.py:150
 msgid "Specify additional attributes for the subnet."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:207
+#: dashboards/project/networks/workflows.py:225
+#, python-format
+msgid "%s (Default)"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:234
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:215
+#: dashboards/project/networks/workflows.py:242
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:226
+#: dashboards/project/networks/workflows.py:253
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:232
+#: dashboards/project/networks/workflows.py:259
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:250
+#: dashboards/project/networks/workflows.py:277
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:275
+#: dashboards/project/networks/workflows.py:302
 #, python-format
 msgid "Created network \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:276
+#: dashboards/project/networks/workflows.py:303
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:301
+#: dashboards/project/networks/workflows.py:328
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:305
+#: dashboards/project/networks/workflows.py:332
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:361
+#: dashboards/project/networks/workflows.py:395
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:365
+#: dashboards/project/networks/workflows.py:399
 #, python-format
 msgid ""
 "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:381
+#: dashboards/project/networks/workflows.py:415
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:388
+#: dashboards/project/networks/workflows.py:422
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr ""
@@ -10506,11 +10540,29 @@ msgstr ""
 msgid "Unable to retrieve port details"
 msgstr ""
 
-#: dashboards/project/networks/subnets/tabs.py:35
+#: dashboards/project/networks/subnets/tabs.py:36
 msgid "Unable to retrieve subnet details."
 msgstr ""
 
-#: dashboards/project/networks/subnets/views.py:65
+#: dashboards/project/networks/subnets/utils.py:20
+msgid "No options specified"
+msgstr ""
+
+#: dashboards/project/networks/subnets/utils.py:22
+msgid "SLAAC: Address discovered from Openstack Router"
+msgstr ""
+
+#: dashboards/project/networks/subnets/utils.py:24
+msgid "DHCPv6 stateful: Address discovered from Openstack DHCP"
+msgstr ""
+
+#: dashboards/project/networks/subnets/utils.py:26
+msgid ""
+"DHCPv6 stateless: Address discovered from Openstack Router and info from "
+"Openstack DHCP"
+msgstr ""
+
+#: dashboards/project/networks/subnets/views.py:66
 msgid "Unable to retrieve subnet details"
 msgstr ""
 
@@ -10530,6 +10582,10 @@ msgstr ""
 msgid "Unable to create subnet \"%s\"."
 msgstr ""
 
+#: dashboards/project/networks/subnets/workflows.py:85
+msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
+msgstr ""
+
 #: dashboards/project/networks/subnets/workflows.py:102
 msgid "Gateway IP (optional)"
 msgstr ""
@@ -10547,22 +10603,22 @@ msgid ""
 "available at \"Subnet Detail\" tab."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:148
+#: dashboards/project/networks/subnets/workflows.py:161
 #, python-format
 msgid "Updated subnet \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:149
+#: dashboards/project/networks/subnets/workflows.py:162
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:184
+#: dashboards/project/networks/subnets/workflows.py:197
 #, python-format
 msgid "Subnet \"%s\" was successfully updated."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:188
+#: dashboards/project/networks/subnets/workflows.py:201
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr ""
@@ -10617,37 +10673,46 @@ msgstr ""
 msgid "Subnet Overview"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
 msgid "IP version"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:21
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
 msgid "IP allocation pool"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
 msgid " - End"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 msgid "DHCP Enable"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:36
+#, python-format
+msgid ""
+"\n"
+"        Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
+"%(addr_mode)s\n"
+"        "
+msgstr ""
+
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:41
 msgid "Additional routes"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:35
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:44
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:24
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:99
 msgid "Destination"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:36
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
 msgid " : Next hop"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:41
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:50
 msgid "DNS name server"
 msgstr ""
 
@@ -11526,7 +11591,7 @@ msgid "Volume Overview"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:444
+#: dashboards/project/volumes/volumes/tables.py:457
 msgid "Attachments"
 msgstr ""
 
@@ -11573,15 +11638,14 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
-#: dashboards/project/volumes/volumes/tables.py:244
+#: dashboards/project/volumes/volumes/tables.py:257
 msgid "Change Volume Type"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:19
 msgid ""
 "\n"
-"        From here you can change the volume type of a volume after its "
-"creation.\n"
+"        Change the volume type of a volume after its creation.\n"
 "        This is equivalent to the <tt>cinder retype</tt> command.\n"
 "       "
 msgstr ""
@@ -11623,7 +11687,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:226
+#: dashboards/project/volumes/volumes/tables.py:239
 msgid "Edit Volume"
 msgstr ""
 
@@ -11640,8 +11704,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:19
 msgid ""
 "\n"
-"        From here you can upload the volume to the Image Service as an "
-"image.\n"
+"        Upload the volume to the Image Service as an image.\n"
 "        This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
 "       "
 msgstr ""
@@ -11851,63 +11914,63 @@ msgstr ""
 msgid "Unable to update volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:528
+#: dashboards/project/volumes/volumes/forms.py:527
 msgid "Force"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:563
+#: dashboards/project/volumes/volumes/forms.py:562
 #, python-format
 msgid ""
 "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:570
+#: dashboards/project/volumes/volumes/forms.py:569
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:595
+#: dashboards/project/volumes/volumes/forms.py:594
 msgid "New size must be greater than current size."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:606
+#: dashboards/project/volumes/volumes/forms.py:605
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:612
+#: dashboards/project/volumes/volumes/forms.py:611
 msgid "Unable to extend volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:622
+#: dashboards/project/volumes/volumes/forms.py:620
 msgid "Never"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:623
+#: dashboards/project/volumes/volumes/forms.py:621
 msgid "On Demand"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:624
+#: dashboards/project/volumes/volumes/forms.py:622
 msgid "Migration Policy"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:641
+#: dashboards/project/volumes/volumes/forms.py:639
 msgid "Unable to retrieve the volume type list."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:650
+#: dashboards/project/volumes/volumes/forms.py:648
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:666
+#: dashboards/project/volumes/volumes/forms.py:664
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
 "volume: \"%(name)s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:675
+#: dashboards/project/volumes/volumes/forms.py:673
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr ""
@@ -11925,45 +11988,49 @@ msgstr ""
 msgid "Edit Attachments"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:203
+#: dashboards/project/volumes/volumes/tables.py:183
+msgid "Unable to retrieve tenant limits."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:216
 msgid "Upload to Image"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:285
+#: dashboards/project/volumes/volumes/tables.py:298
 #: dashboards/project/volumes/volumes/views.py:244
 msgid "Unable to retrieve attachment information."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:303
+#: dashboards/project/volumes/volumes/tables.py:316
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:324
+#: dashboards/project/volumes/volumes/tables.py:337
 msgid "No"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:326
+#: dashboards/project/volumes/volumes/tables.py:339
 msgid "Yes"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:377
+#: dashboards/project/volumes/volumes/tables.py:390
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:380
+#: dashboards/project/volumes/volumes/tables.py:393
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:395
+#: dashboards/project/volumes/volumes/tables.py:408
 msgid "Detach"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:425
+#: dashboards/project/volumes/volumes/tables.py:438
 msgid "Device"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:434
+#: dashboards/project/volumes/volumes/tables.py:447
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
