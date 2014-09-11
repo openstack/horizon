@@ -40,11 +40,12 @@ class AdminEditImage(project_tables.EditImage):
         return True
 
 
-class ViewCustomProperties(tables.LinkAction):
-    name = "properties"
-    verbose_name = _("View Custom Properties")
-    url = "horizon:admin:images:properties:index"
-    classes = ("btn-edit",)
+class UpdateMetadata(tables.LinkAction):
+    url = "horizon:admin:images:update_metadata"
+    name = "update_metadata"
+    verbose_name = _("Update Metadata")
+    classes = ("ajax-modal",)
+    icon = "pencil"
 
 
 class UpdateRow(tables.Row):
@@ -76,4 +77,4 @@ class AdminImagesTable(project_tables.ImagesTable):
         verbose_name = _("Images")
         table_actions = (AdminCreateImage, AdminDeleteImage,
                          AdminImageFilterAction)
-        row_actions = (AdminEditImage, ViewCustomProperties, AdminDeleteImage)
+        row_actions = (AdminEditImage, UpdateMetadata, AdminDeleteImage)

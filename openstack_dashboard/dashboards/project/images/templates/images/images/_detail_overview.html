@@ -14,6 +14,8 @@
     {% endif %}
     <dt>{% trans "ID" %}</dt>
     <dd>{{ image.id|default:_("None") }}</dd>
+    <dt>{% trans "Owner" %}</dt>
+    <dd>{{ image.owner }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ image.status|default:_("Unknown")|title }}</dd>
     <dt>{% trans "Public" %}</dt>

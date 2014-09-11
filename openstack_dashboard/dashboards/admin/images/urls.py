@@ -16,22 +16,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.admin.images.properties \
-    import urls as properties_urls
 from openstack_dashboard.dashboards.admin.images import views
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.admin.images.views',
-    url(r'^images/$', views.IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<image_id>[^/]+)/update/$',
         views.UpdateView.as_view(), name='update'),
+    url(r'^(?P<id>[^/]+)/update_metadata/$',
+        views.UpdateMetadataView.as_view(), name='update_metadata'),
     url(r'^(?P<image_id>[^/]+)/detail/$',
-        views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<id>[^/]+)/properties/',
-        include(properties_urls, namespace='properties')),
+        views.DetailView.as_view(), name='detail')
 )

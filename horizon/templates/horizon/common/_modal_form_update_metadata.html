@@ -1,0 +1,243 @@
+{% extends "horizon/common/_modal_form.html" %}
+
+{% load i18n %}
+
+{% block form_name %}metadataForm{% endblock %}
+{% block form_validation %}novalidate{% endblock %}
+{% block ng_controller %}hzMetadataWidgetCtrl{% endblock %}
+
+{% block modal-body %}
+  <div class="capabilities">
+    <div class="row">
+      <p class="col-md-12">{% blocktrans %}
+        You can specify metadata by adding items from the left column to
+        the right column. You may select the metadata added to glance
+        dictionary or you can use the "Other" option using a key of
+        your choice.
+      {% endblocktrans %}
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default" ng-form="treeForm">
+          <div class="panel-heading">
+            <div class="form-inline">
+              <div class="form-group has-feedback">
+                <strong>{% trans "Available Metadata" %}</strong>
+                <input class="form-control input-sm"
+                       type="text" placeholder="Filter"
+                       ng-model="treeFilter"/>
+                <span class="glyphicon glyphicon-search form-control-feedback">
+                </span>
+              </div>
+            </div>
+          </div>
+          <ul class="list-group" ng-cloak>
+            <li class="list-group-item">
+              <div class="input-group input-group-sm">
+                <span class="input-group-addon">Other</span>
+                <input class="form-control" type="text" name="customItem"
+                       ng-model="customItem.value"
+                       ng-model-options="{updateOn: 'default focus blur', debounce: {default: 500, focus: 0, blur: 0}}"
+                       ng-focus="customItem.focused=true"
+                       ng-blur="customItem.focused=false"/>
+                <span class="input-group-btn">
+                  <a class="btn btn-primary"
+                     ng-click="onCustomItemAdd($event)"
+                     ng-disabled="!customItem.valid">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </a>
+                </span>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-danger"
+                ng-show="!customItem.valid && customItem.focused && treeForm.customItem.$dirty">
+              <span ng-show="customItem.found.length > 0">
+                {% trans "Duplicate keys are not allowed" %}
+              </span>
+              <span ng-hide="customItem.found.length > 0">
+                {% trans "Invalid key name" %}
+              </span>
+            </li>
+
+            <li ng-repeat="item in available = (flatTree | filter: {$: treeFilter, visible: true, added: false})"
+                ng-class="'level-' + item.level + (selected===item?' active':'')"
+                ng-class-odd="'dark-stripe'"
+                ng-class-even="'light-stripe'"
+                class="list-group-item"
+                ng-click="onItemClick($event, item)"
+                ng-show="item.visible">
+              <div class="clearfix">
+                <div class="pull-left">
+                  <span title="{$ item.label $}" ng-class="{leaf: item.leaf}">
+                    <span class="glyphicon" ng-show="!item.leaf"
+                          ng-class="item.expanded ? 'glyphicon-chevron-down' : 'glyphicon-chevron-right'"></span>
+                    {$ item.label $}
+                  </span>
+                </div>
+                <div class="pull-right">
+                  <a class="btn btn-primary btn-xs"
+                     ng-click="onItemAdd($event, item)">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item disabled"
+                ng-show="available.length == 0">
+              {% trans "No existing metadata" %}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="form-inline">
+              <div class="form-group has-feedback">
+                <strong>{% trans "Existing Metadata" %}</strong>
+                <input class="form-control input-sm"
+                       type="text" placeholder="Filter"
+                       ng-model="listFilter"/>
+              <span class="glyphicon glyphicon-search form-control-feedback">
+              </span>
+              </div>
+            </div>
+          </div>
+          <ul class="list-group" ng-cloak>
+            <li ng-repeat="item in existing = (flatTree | filter:{$:listFilter, added:true, leaf:'!!'} | orderBy:'leaf.name')"
+                ng-class="{'active': selected===item}"
+                ng-class-odd="'dark-stripe'"
+                ng-class-even="'light-stripe'"
+                class="list-group-item"
+                ng-click="onItemClick($event, item)"
+                ng-form="itemForm"
+                ng-mouseenter="mouseOverItem = true"
+                ng-mouseleave="mouseOverItem = false">
+              <div class="input-group input-group-sm" name="value-input"
+                   ng-switch on="item.leaf.type"
+                   ng-class="{'has-error' : itemForm.property.$invalid && itemForm.property.$dirty}">
+                <span class="input-group-addon"
+                      title="{$ item.leaf.name $}">
+                    {$ item.leaf.name $}
+                </span>
+                <input ng-switch-when="string"
+                       ng-if="!item.leaf.enum"
+                       name="property"
+                       type="text"
+                       class="form-control"
+                       ng-required=true
+                       ng-model="item.leaf.value"
+                       ng-pattern="/{$ item.leaf.pattern $}/"
+                       ng-minlength="{$ item.leaf.minLength $}"
+                       ng-maxlength="{$ item.leaf.maxLength $}"
+                       tooltip="{$ item.description $}"/>
+                <select ng-switch-when="string"
+                        ng-if="item.leaf.enum"
+                        name="property"
+                        class="form-control"
+                        ng-required=true
+                        ng-model="item.leaf.value"
+                        tooltip="{$ item.description $}"
+                        ng-options="item for item in item.leaf.enum">
+                </select>
+                <select ng-switch-when="array"
+                        name="property"
+                        class="form-control"
+                        ng-required=true
+                        ng-model="item.leaf.value"
+                        tooltip="{$ item.description $}"
+                        ng-options="item for item in item.leaf.items.enum">
+                </select>
+                <input ng-switch-when="integer"
+                       name="property"
+                       type="number"
+                       class="form-control"
+                       ng-required=true
+                       ng-model="item.leaf.value"
+                       ng-pattern="/^-?\d+$/"
+                       min="{$ item.leaf.minimum $}"
+                       max="{$ item.leaf.maximum $}"
+                       tooltip="{$ item.description $}"
+                       step="1"/>
+                <input ng-switch-when="number"
+                       name="property"
+                       type="number"
+                       class="form-control"
+                       ng-required=true
+                       ng-model="item.leaf.value"
+                       min="{$ item.leaf.minimum $}"
+                       max="{$ item.leaf.maximum $}"
+                       tooltip="{$ item.description $}"/>
+                <div class="input-group-addon" style="width: 40%;"
+                     ng-switch-when="boolean">
+                  <input name="property"
+                         type="checkbox"
+                         ng-model="item.leaf.value"
+                         ng-true-value="true"
+                         ng-false-value="false"
+                         ng-init="item.leaf.value = item.leaf.value ? item.leaf.value : 'false'"
+                         tooltip="{$ item.description $}"/>
+                </div>
+                <div class="input-group-btn">
+                  <a class="btn btn-default"
+                     ng-click="onItemDelete($event, item)">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="label label-info" ng-show="mouseOverItem">
+                {$ item.path().join(' &rsaquo; ') $}
+              </div>
+              <div class="label label-danger"
+                   ng-if="itemForm.$invalid && itemForm.property.$dirty">
+                {$ formatErrorMessage(item, itemForm.property.$error) $}
+              </div>
+            </li>
+            <li class="list-group-item disabled"
+                ng-show="existing.length == 0">
+              {% trans "No existing metadata" %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="well">
+      <span ng-show="selected">
+        <p>
+          <strong>{$ selected.label $}</strong>
+          <span ng-show="selected.leaf">(<em>{$ selected.leaf.name $}</em>)</span>
+        </p>
+        <p>{$ selected.description $}</p>
+      </span>
+      <span ng-hide="selected">
+        <p>{% blocktrans %}
+          You can specify resource metadata by moving items from the left
+          column to the right column. In the left columns there are metadata
+          definitions from the Glance Metadata Catalog. Use the "Other" option
+          to add metadata with the key of your choice.
+        {% endblocktrans %}
+        </p>
+      </span>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var existing_metadata = {{existing_metadata|safe}};
+    var available_metadata = {{available_metadata|safe}};
+  </script>
+{% endblock %}
+
+
+{% block modal-footer %}
+  <div>
+    <input class="btn btn-primary pull-right"
+           ng-disabled="metadataForm.$invalid"
+           ng-click="saveMetadata()" type="submit"
+           value="{% trans "Save" %}"/>
+    <a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+    <input type="hidden" name="metadata" ng-value="metadata"
+           ng-model="metadata">
+  </div>
+{% endblock %}
