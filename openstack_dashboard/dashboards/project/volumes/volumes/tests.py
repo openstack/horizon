@@ -571,13 +571,11 @@ class VolumeViewTests(test.TestCase):
                         api.glance: ('image_get',
                                      'image_list_detailed'),
                         quotas: ('tenant_limit_usages',)})
-    def test_create_volume_from_image_under_image_min_disk_size(self):
+    def _test_create_volume_from_image_under_image_min_disk_size(self, image):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
                        'gigabytesUsed': 20,
                        'volumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
-        image = self.images.get(name="protected_images")
-        image.min_disk = 30
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
                     'method': u'CreateForm',
@@ -606,6 +604,17 @@ class VolumeViewTests(test.TestCase):
         self.assertFormError(res, 'form', None,
                              "The volume size cannot be less than the "
                              "image minimum disk size (30GB)")
+
+    def test_create_volume_from_image_under_image_min_disk_size(self):
+        image = self.images.get(name="protected_images")
+        image.min_disk = 30
+        self._test_create_volume_from_image_under_image_min_disk_size(image)
+
+    def test_create_volume_from_image_under_image_property_min_disk_size(self):
+        image = self.images.get(name="protected_images")
+        image.min_disk = 0
+        image.properties['min_disk'] = 30
+        self._test_create_volume_from_image_under_image_min_disk_size(image)
 
     @test.create_stubs({cinder: ('volume_snapshot_list',
                                  'volume_type_list',
