@@ -370,7 +370,7 @@ class SelectHadoopPluginAction(t_flows.SelectPluginAction):
         job_ex_id = request.REQUEST.get("job_execution_id")
         if job_ex_id is not None:
             self.fields["job_execution_id"] = forms.ChoiceField(
-                label=_("Job Execution Id"),
+                label=_("Job Execution ID"),
                 initial=request.REQUEST.get("job_execution_id"),
                 widget=forms.HiddenInput(
                     attrs={"class": "hidden_create_field"}))
