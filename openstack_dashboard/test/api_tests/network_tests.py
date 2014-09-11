@@ -558,6 +558,31 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
                 dev_id = assoc_port['device_id'] if exp['port_id'] else None
                 self.assertEqual(dev_id, ret.instance_id)
 
+    def test_floating_ip_list_all_tenants(self):
+        fips = self.api_q_floating_ips.list()
+        self.qclient.list_floatingips().AndReturn({'floatingips': fips})
+        self.qclient.list_ports().AndReturn({'ports': self.api_ports.list()})
+        self.mox.ReplayAll()
+
+        # all_tenants option for floating IP list is api.neutron specific,
+        # so we call api.neutron.FloatingIpManager directly and
+        # actually we don't need NetworkClient in this test.
+        # setUp() in the base class sets up mox to expect
+        # api.base.is_service_enabled() is called and we need to call
+        # NetworkClient even if we don't use it so that mox.VerifyAll
+        # doesn't complain it.
+        api.network.NetworkClient(self.request)
+        fip_manager = api.neutron.FloatingIpManager(self.request)
+        rets = fip_manager.list(all_tenants=True)
+        assoc_port = self.api_ports.list()[1]
+        self.assertEqual(len(fips), len(rets))
+        for ret, exp in zip(rets, fips):
+            for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
+                self.assertEqual(getattr(ret, attr), exp[attr])
+            if exp['port_id']:
+                dev_id = assoc_port['device_id'] if exp['port_id'] else None
+                self.assertEqual(ret.instance_id, dev_id)
+
     def test_floating_ip_get_associated(self):
         fip = self.api_q_floating_ips.list()[1]
         assoc_port = self.api_ports.list()[1]

@@ -84,7 +84,8 @@ class AdminIndexView(tables.DataTableView):
                               _('Unable to retrieve instance list.'))
         if instances:
             try:
-                api.network.servers_update_addresses(self.request, instances)
+                api.network.servers_update_addresses(self.request, instances,
+                                                     all_tenants=True)
             except Exception:
                 exceptions.handle(
                     self.request,

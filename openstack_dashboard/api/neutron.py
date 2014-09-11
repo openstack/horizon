@@ -329,16 +329,21 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return [FloatingIpPool(pool) for pool
                 in self.client.list_networks(**search_opts).get('networks')]
 
-    def list(self, **search_opts):
-        tenant_id = self.request.user.tenant_id
-        # In Neutron, list_floatingips returns Floating IPs from all tenants
-        # when the API is called with admin role, so we need to filter them
-        # with tenant_id.
-        fips = self.client.list_floatingips(tenant_id=tenant_id, **search_opts)
+    def list(self, all_tenants=False, **search_opts):
+        if not all_tenants:
+            tenant_id = self.request.user.tenant_id
+            # In Neutron, list_floatingips returns Floating IPs from
+            # all tenants when the API is called with admin role, so
+            # we need to filter them with tenant_id.
+            search_opts['tenant_id'] = tenant_id
+            port_search_opts = {'tenant_id': tenant_id}
+        else:
+            port_search_opts = {}
+        fips = self.client.list_floatingips(**search_opts)
         fips = fips.get('floatingips')
         # Get port list to add instance_id to floating IP list
         # instance_id is stored in device_id attribute
-        ports = port_list(self.request, tenant_id=tenant_id)
+        ports = port_list(self.request, **port_search_opts)
         device_id_dict = SortedDict([(p['id'], p['device_id']) for p in ports])
         for fip in fips:
             if fip['port_id']:
@@ -777,7 +782,7 @@ def provider_list(request):
     return providers['service_providers']
 
 
-def servers_update_addresses(request, servers):
+def servers_update_addresses(request, servers, all_tenants=False):
     """Retrieve servers networking information from Neutron if enabled.
 
        Should be used when up to date networking information is required,
@@ -790,7 +795,8 @@ def servers_update_addresses(request, servers):
                           device_id=[instance.id for instance in servers])
         fips = FloatingIpManager(request)
         if fips.is_supported():
-            floating_ips = fips.list(port_id=[port.id for port in ports])
+            floating_ips = fips.list(all_tenants=all_tenants,
+                                     port_id=[port.id for port in ports])
         else:
             floating_ips = []
         networks = network_list(request,
