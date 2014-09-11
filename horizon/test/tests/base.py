@@ -57,7 +57,7 @@ class RbacNoAccessPanel(horizon.Panel):
     name = "RBAC Panel No"
     slug = "rbac_panel_no"
 
-    def _can_access(self, request):
+    def allowed(self, context):
         return False
 
 
@@ -508,7 +508,7 @@ class RbacHorizonTests(test.TestCase):
                 dash.register(panel)
 
     def test_rbac_panels(self):
-        context = {'request': None}
+        context = {'request': self.request}
         cats = horizon.get_dashboard("cats")
         self.assertEqual(cats._registered_with, base.Horizon)
         self.assertQuerysetEqual(cats.get_panels(),

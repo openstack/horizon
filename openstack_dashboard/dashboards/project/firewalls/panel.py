@@ -23,7 +23,7 @@ class Firewall(horizon.Panel):
     slug = "firewalls"
     permissions = ('openstack.services.network',)
 
-    def can_access(self, context):
+    def allowed(self, context):
         request = context['request']
         if not request.user.has_perms(self.permissions):
             return False
@@ -31,7 +31,7 @@ class Firewall(horizon.Panel):
                                           config_name='enable_firewall',
                                           ext_name='fwaas'):
             return False
-        if not super(Firewall, self).can_access(context):
+        if not super(Firewall, self).allowed(context):
             return False
         return True
 

@@ -27,7 +27,7 @@ class VPN(horizon.Panel):
     slug = 'vpn'
     permissions = ('openstack.services.network',)
 
-    def can_access(self, context):
+    def allowed(self, context):
         request = context['request']
         if not request.user.has_perms(self.permissions):
             return False
@@ -35,7 +35,7 @@ class VPN(horizon.Panel):
                                           config_name='enable_vpn',
                                           ext_name='vpnaas'):
             return False
-        if not super(VPN, self).can_access(context):
+        if not super(VPN, self).allowed(context):
             return False
         return True
 
