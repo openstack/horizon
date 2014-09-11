@@ -117,7 +117,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
 
     horizon_config['panel_customization'] = panel_customization
     horizon_config['dashboards'] = tuple(dashboards)
-    horizon_config['exceptions'].update(exceptions)
+    horizon_config.setdefault('exceptions', {}).update(exceptions)
     horizon_config.update(update_horizon_config)
     horizon_config.setdefault('angular_modules', []).extend(angular_modules)
     horizon_config.setdefault('js_files', []).extend(js_files)
