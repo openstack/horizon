@@ -795,6 +795,10 @@ def aggregate_update(request, aggregate_id, values):
     return novaclient(request).aggregates.update(aggregate_id, values)
 
 
+def aggregate_set_metadata(request, aggregate_id, metadata):
+    return novaclient(request).aggregates.set_metadata(aggregate_id, metadata)
+
+
 def host_list(request):
     return novaclient(request).hosts.list()
 
