@@ -68,7 +68,7 @@ class AvailabilityZoneFilterAction(tables.FilterAction):
         q = filter_string.lower()
 
         def comp(availabilityZone):
-            return q in availabilityZone.name.lower()
+            return q in availabilityZone.zoneName.lower()
 
         return filter(comp, availability_zones)
 
@@ -144,5 +144,5 @@ class AvailabilityZonesTable(tables.DataTable):
     class Meta:
         name = "availability_zones"
         verbose_name = _("Availability Zones")
-        table_actions = (AggregateFilterAction,)
+        table_actions = (AvailabilityZoneFilterAction,)
         multi_select = False
