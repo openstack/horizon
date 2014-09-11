@@ -982,8 +982,10 @@ class DataTableOptions(object):
         self.template = getattr(options,
                                 'template',
                                 'horizon/common/_data_table.html')
-        self.row_actions_template = \
-            'horizon/common/_data_table_row_actions.html'
+        self.row_actions_dropdown_template = ('horizon/common/_data_table_'
+                                              'row_actions_dropdown.html')
+        self.row_actions_row_template = ('horizon/common/_data_table_'
+                                         'row_actions_row.html')
         self.table_actions_template = \
             'horizon/common/_data_table_table_actions.html'
         self.context_var_name = unicode(getattr(options,
@@ -1388,11 +1390,16 @@ class DataTable(object):
         self.set_multiselect_column_visibility(len(bound_actions) > 0)
         return table_actions_template.render(context)
 
-    def render_row_actions(self, datum, pull_right=True):
+    def render_row_actions(self, datum, pull_right=True, row=False):
         """Renders the actions specified in ``Meta.row_actions`` using the
-        current row data.
+        current row data. If `row` is True, the actions are rendered in a row
+        of buttons. Otherwise they are rendered in a dropdown box.
         """
-        template_path = self._meta.row_actions_template
+        if row:
+            template_path = self._meta.row_actions_row_template
+        else:
+            template_path = self._meta.row_actions_dropdown_template
+
         row_actions_template = template.loader.get_template(template_path)
         bound_actions = self.get_row_actions(datum)
         extra_context = {"row_actions": bound_actions,
