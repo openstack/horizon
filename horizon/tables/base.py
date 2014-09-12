@@ -908,10 +908,16 @@ class DataTableOptions(object):
         The class which should be used for handling the columns of this table.
         Optional. Default: :class:`~horizon.tables.Column`.
 
+    .. attribute:: css_classes
+
+        A custom CSS class or classes to add to the ``<table>`` tag of the
+        rendered table, for when the particular table requires special styling.
+        Default: ``""``.
+
     .. attribute:: mixed_data_type
 
         A toggle to indicate if the table accepts two or more types of data.
-        Optional. Default: :``False``
+        Optional. Default: ``False``
 
     .. attribute:: data_types
 
@@ -947,6 +953,7 @@ class DataTableOptions(object):
         self.cell_class = getattr(options, 'cell_class', Cell)
         self.row_class = getattr(options, 'row_class', Row)
         self.column_class = getattr(options, 'column_class', Column)
+        self.css_classes = getattr(options, 'css_classes', '')
         self.prev_pagination_param = getattr(options,
                                              'prev_pagination_param',
                                              'prev_marker')
@@ -1730,3 +1737,7 @@ class DataTable(object):
                               exc_info[2])
 
         return rows
+
+    def css_classes(self):
+        """Returns the additional CSS class to be added to <table> tag."""
+        return self._meta.css_classes
