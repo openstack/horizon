@@ -29,15 +29,22 @@ SERVICE_STATUS_DISPLAY_CHOICES = (
 
 
 class ServiceFilterAction(tables.FilterAction):
+    filter_field = 'type'
+
     def filter(self, table, services, filter_string):
         q = filter_string.lower()
 
         def comp(service):
-            if q in service.type.lower():
+            attr = getattr(service, self.filter_field, '')
+            if attr is not None and q in attr.lower():
                 return True
             return False
 
         return filter(comp, services)
+
+
+class SubServiceFilterAction(ServiceFilterAction):
+    filter_field = 'binary'
 
 
 def get_stats(service):
@@ -103,7 +110,7 @@ class NovaServicesTable(tables.DataTable):
     class Meta:
         name = "nova_services"
         verbose_name = _("Compute Services")
-        table_actions = (ServiceFilterAction,)
+        table_actions = (SubServiceFilterAction,)
         multi_select = False
 
 
@@ -128,7 +135,7 @@ class CinderServicesTable(tables.DataTable):
     class Meta:
         name = "cinder_services"
         verbose_name = _("Block Storage Services")
-        table_actions = (ServiceFilterAction,)
+        table_actions = (SubServiceFilterAction,)
         multi_select = False
 
 
