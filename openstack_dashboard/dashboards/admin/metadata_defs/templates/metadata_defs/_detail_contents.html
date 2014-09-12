@@ -1,0 +1,9 @@
+{% load i18n %}
+
+<div class="clearfix">
+  <h3 class="pull-left">{{ namespace_name|default:_("Undefined") }}</h3>
+</div>
+
+<pre class="data">
+  {{ namespace_contents }}
+</pre>

@@ -1,0 +1,172 @@
+#    (c) Copyright 2014 Hewlett-Packard Development Company, L.P.
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
+from django.template import defaultfilters as filters
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
+
+from horizon import exceptions
+from horizon import forms
+from horizon import tables
+
+from openstack_dashboard.api import glance
+from openstack_dashboard.dashboards.admin.metadata_defs \
+    import constants
+
+
+class ImportNamespace(tables.LinkAction):
+    name = "import"
+    verbose_name = _("Import Namespace")
+    url = constants.METADATA_CREATE_URL
+    classes = ("ajax-modal",)
+    icon = "plus"
+    policy_rules = (("image", "add_metadef_namespace"),)
+
+
+class DeleteNamespace(tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Namespace",
+            u"Delete Namespaces",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Namespace",
+            u"Deleted Namespaces",
+            count
+        )
+
+    policy_rules = (("image", "delete_metadef_namespace"),)
+
+    def allowed(self, request, namespace=None):
+        # Protected namespaces can not be deleted.
+        if namespace and namespace.protected:
+            return False
+        # Return True to allow table-level bulk delete action to appear.
+        return True
+
+    def delete(self, request, obj_id):
+        glance.metadefs_namespace_delete(request, obj_id)
+
+
+class ManageResourceTypeAssociations(tables.LinkAction):
+    name = "manage_resource_types"
+    verbose_name = _("Update Associations")
+    url = constants.METADATA_MANAGE_RESOURCES_URL
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("image", "list_metadef_resource_types"),
+                    ("image", "add_metadef_resource_type_association"))
+
+    def allowed(self, request, namespace=None):
+        # Protected namespace can not be updated
+        if namespace and namespace.protected:
+            return False
+        # Return True to allow table-level bulk delete action to appear.
+        return True
+
+
+class AdminMetadataFilterAction(tables.FilterAction):
+    pass
+
+
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, namespace_name):
+        return glance.metadefs_namespace_get(request,
+                                             namespace_name,
+                                             wrap=True)
+
+
+class UpdateCell(tables.UpdateAction):
+    policy_rules = (("image", "modify_metadef_namespace"),)
+
+    def update_cell(self, request, datum, namespace_name,
+                    cell_name, new_cell_value):
+        # inline update namespace info
+        try:
+            namespace_obj = datum
+            # updating changed value by new value
+            if cell_name == 'public':
+                cell_name = 'visibility'
+                if new_cell_value:
+                    new_cell_value = 'public'
+                else:
+                    new_cell_value = 'private'
+            setattr(namespace_obj, cell_name, new_cell_value)
+            properties = {cell_name: new_cell_value}
+            glance.metadefs_namespace_update(
+                request,
+                namespace_name,
+                **properties)
+        except Exception:
+            exceptions.handle(request, ignore=True)
+            return False
+        return True
+
+
+class AdminNamespacesTable(tables.DataTable):
+    display_name = tables.Column(
+        "display_name",
+        link=constants.METADATA_DETAIL_URL,
+        verbose_name=_("Name"),
+        form_field=forms.CharField(max_length=80))
+    description = tables.Column(
+        lambda obj: getattr(obj, 'description', None),
+        verbose_name=_('Description'),
+        form_field=forms.CharField(widget=forms.Textarea(), required=False),
+        truncate=200)
+    resource_type_names = tables.Column(
+        "resource_type_names",
+        verbose_name=_("Resource Types"),
+        wrap_list=True,
+        filters=(filters.unordered_list,))
+    public = tables.Column(
+        "public",
+        verbose_name=_("Public"),
+        empty_value=False,
+        form_field=forms.BooleanField(required=False),
+        filters=(filters.yesno, filters.capfirst),
+        update_action=UpdateCell)
+    protected = tables.Column(
+        "protected",
+        verbose_name=_("Protected"),
+        empty_value=False,
+        form_field=forms.BooleanField(required=False),
+        filters=(filters.yesno, filters.capfirst),
+        update_action=UpdateCell)
+
+    def get_object_id(self, datum):
+        return datum.namespace
+
+    def get_object_display(self, datum):
+        if hasattr(datum, 'display_name'):
+            return datum.display_name
+        return None
+
+    class Meta:
+        name = "namespaces"
+        verbose_name = _("Namespaces")
+        row_class = UpdateRow
+        table_actions = (AdminMetadataFilterAction,
+                         ImportNamespace,
+                         DeleteNamespace,)
+        row_actions = (ManageResourceTypeAssociations,
+                       DeleteNamespace,)
+        pagination_param = "namespace_marker"

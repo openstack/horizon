@@ -1450,6 +1450,24 @@ label.log-length {
     opacity: 0.5;
   }
 
+  li.scope input{
+      background: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 120px;
+      margin-left: 10px;
+  }
+
+  li.select_resource {
+    margin-left: 5px;
+    margin-top: 15px;
+  }
+
+  li.display_name {
+    width: 130px;
+    margin: 15px 7px 15px 10px;
+  }
+
   /* Member lists */
   .members, .available_members {
     padding: 0;
@@ -1530,6 +1548,28 @@ label.log-length {
   float: right;
   margin-top: 10px;
   margin-right: 15px;
+}
+
+.resource-types  {
+  .membership {
+    li .scope {
+      background: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    li .select_resource {
+      margin-left: 5px;
+      margin-top: 15px;
+    }
+
+    li .display_name {
+      width: 130px;
+      margin-left: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
 }
 
 /* Fixes overflow on dropdowns in modal */

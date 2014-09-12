@@ -1,0 +1,84 @@
+{% extends "horizon/common/_modal_form.html" %}
+
+{% load i18n %}
+
+{% block ng_controller %}hzNamespaceResourceTypeFormController{% endblock %}
+{% block form_name %}manageResourceTypesForm{% endblock %}
+{% block form_validation %}novalidate{% endblock %}
+
+{% block modal-body %}
+  <div class="resource-types membership">
+    <div class="left">
+      <div>
+        <div class="header">
+          <div class="fake_table fake_table_header">
+            <span class="members_title">{% trans "Available Types" %}</span>
+            <div class="form-group has-feedback">
+              <input id="resource_type_filter"
+                   class="filter form-control input-sm" type="text"
+                   placeholder="{% trans "Filter" %}"
+                   name="resource_type_filter" ng-model="searchResource"
+                   ng-change="filter_changed()"/>
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+             </div>
+          </div>
+        </div>
+
+        <div class="fake_table fake_update_members_table">
+          <div class="available_members available_update_members">
+            <ul ng-repeat="resource_type in resource_types  | filter:searchResource"
+                class="nav nav-pills btn-group {$$last ? ' last_stripe': ''$}"
+                ng-class-odd="'dark_stripe'"
+                ng-class-even="'light_stripe'"
+                style="margin-left: 0px;">
+              <li class="select_resource">
+                <input type="checkbox" ng-model="resource_type.selected"/>
+              </li>
+              <li class="display_name">
+                <span>
+                  {$ resource_type.name $}
+                </span>
+              </li>
+              <li class="scope">
+                <input type="text"
+                       class="form-control input-sm"
+                       placeholder="Prefix"
+                       ng-show="resource_type.selected"
+                       ng-model="resource_type.prefix"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="right">
+      <h3>{% trans "Description" %}:</h3>
+
+      <p>{% trans "Namespaces can be associated to different resource types. This makes the properties in the namespace visible in the 'Update Metadata' action for that type of resource." %}</p>
+
+      <p>{% trans "Additionally, some resource types may require a prefix to be used when applying the metadata. In certain cases, the prefix may differ between the resource type (for example, flavor vs image)." %}</p>
+
+      <p>{% trans "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU Topology namespace so that the properties will be prefixed with 'hw:' when applied to flavors." %}</p>
+
+      <p>{% trans "Do not use a colon ':' with OS::Glance::Images. This resource type does not support the use of colons." %}</p>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    var resource_types = {{resource_types|safe}};
+  </script>
+{% endblock %}
+
+
+{% block modal-footer %}
+  <div>
+    <input class="btn btn-primary pull-right" type="submit"
+           ng:click="saveResourceTypes()" value="{% trans "Save" %}"/>
+    <a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+    <input type="hidden" name="resource_types" ng-value="resource_types"
+           ng-model="resource_types">
+  </div>
+{% endblock %}

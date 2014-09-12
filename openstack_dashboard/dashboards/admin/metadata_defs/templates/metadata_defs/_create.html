@@ -1,0 +1,37 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}create_metadata_form{% endblock %}
+{% block form_action %}{% url 'horizon:admin:metadata_defs:create' %}{% endblock %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+
+{% block modal-header %}{% trans "Import Namespace" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <h3>{% trans "Description:" %}</h3>
+  <p>
+    {% trans "Specify a metadata definition namespace to import." %}
+  </p>
+  <p>
+    {% trans "Only definitions in raw JSON format are supported." %}
+  </p>
+  <p>
+    {% trans "Administrator Note: Use the following CLI command to import the default definitions into Glance: " %}
+  </p>
+  <p>
+    glance-manage db_load_metadefs
+  </p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Import Namespace" %}" />
+  <a href="{% url 'horizon:admin:metadata_defs:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
