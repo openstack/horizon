@@ -81,6 +81,6 @@ def show_region_list(context):
     context = {'multi_region':
                     len(request.user.available_services_regions) > 1,
                'region_name': request.user.services_region,
-               'regions': request.user.available_services_regions,
+               'regions': sorted(request.user.available_services_regions),
                'request': request}
     return context
