@@ -151,10 +151,10 @@ class LiveMigrateView(forms.ModalFormView):
     @memoized.memoized_method
     def get_hosts(self, *args, **kwargs):
         try:
-            return api.nova.hypervisor_list(self.request)
+            return api.nova.host_list(self.request)
         except Exception:
             redirect = reverse("horizon:admin:instances:index")
-            msg = _('Unable to retrieve hypervisor information.')
+            msg = _('Unable to retrieve host information.')
             exceptions.handle(self.request, msg, redirect=redirect)
 
     @memoized.memoized_method
