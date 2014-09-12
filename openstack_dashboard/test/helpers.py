@@ -37,6 +37,7 @@ import glanceclient
 from heatclient import client as heat_client
 import httplib2
 from keystoneclient.v2_0 import client as keystone_client
+import mock
 import mox
 from neutronclient.v2_0 import client as neutron_client
 from novaclient.v1_1 import client as nova_client
@@ -149,6 +150,12 @@ class TestCase(horizon_helpers.TestCase):
         self.request.session['token'] = self.token.id
         middleware.HorizonMiddleware().process_request(self.request)
         AuthenticationMiddleware().process_request(self.request)
+        self.patchers = {}
+        self.patchers['aggregates'] = mock.patch(
+            'openstack_dashboard.dashboards.admin'
+            '.aggregates.panel.Aggregates.can_access',
+            mock.Mock(return_value=True))
+        self.patchers['aggregates'].start()
         os.environ["HORIZON_TEST_RUN"] = "True"
 
     def tearDown(self):
@@ -156,6 +163,7 @@ class TestCase(horizon_helpers.TestCase):
         httplib2.Http._conn_request = self._real_conn_request
         context_processors.openstack = self._real_context_processor
         utils.get_user = self._real_get_user
+        mock.patch.stopall()
         self.mox.VerifyAll()
         del os.environ["HORIZON_TEST_RUN"]
 
@@ -396,11 +404,18 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
                            tenant_id=self.tenant.id,
                            service_catalog=self.service_catalog,
                            authorized_tenants=self.tenants.list())
+        self.patchers = {}
+        self.patchers['aggregates'] = mock.patch(
+            'openstack_dashboard.dashboards.admin'
+            '.aggregates.panel.Aggregates.can_access',
+            mock.Mock(return_value=True))
+        self.patchers['aggregates'].start()
         os.environ["HORIZON_TEST_RUN"] = "True"
 
     def tearDown(self):
         self.mox.UnsetStubs()
         utils.get_user = self._real_get_user
+        mock.patch.stopall()
         self.mox.VerifyAll()
         del os.environ["HORIZON_TEST_RUN"]
 
