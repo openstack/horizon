@@ -82,7 +82,7 @@ def horizon_main_nav(context):
     current_dashboard = context['request'].horizon.get('dashboard', None)
     dashboards = []
     for dash in Horizon.get_dashboards():
-        if dash.can_access(context['request']):
+        if dash.can_access(context):
             if callable(dash.nav) and dash.nav(context):
                 dashboards.append(dash)
             elif dash.nav:
