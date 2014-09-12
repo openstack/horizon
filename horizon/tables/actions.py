@@ -15,6 +15,7 @@
 from collections import defaultdict
 import logging
 import types
+import warnings
 
 from django.conf import settings
 from django.core import urlresolvers
@@ -25,6 +26,7 @@ from django.utils.functional import Promise  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 import six
 
 from horizon import exceptions
@@ -573,7 +575,13 @@ class BatchAction(Action):
 
        An internal name for this action.
 
-    .. attribute:: action_present
+    .. method:: action_present
+
+       Method accepting an integer/long parameter and returning the display
+       forms of the name properly pluralised (depending on the integer) and
+       translated in a string or tuple/list.
+
+    .. attribute:: action_present (PendingDeprecation)
 
        String or tuple/list. The display forms of the name.
        Should be a transitive verb, capitalized and translated. ("Delete",
@@ -588,7 +596,17 @@ class BatchAction(Action):
        By passing a complete action name you allow translators to control
        the order of words as they want.
 
-    .. attribute:: action_past
+       NOTE: action_present attribute is bad for translations and should be
+       avoided. Please use the action_present method instead.
+       This form is kept for legacy.
+
+    .. method:: action_past
+
+       Method accepting an integer/long parameter and returning the display
+       forms of the name properly pluralised (depending on the integer) and
+       translated in a string or tuple/list.
+
+    .. attribute:: action_past (PendingDeprecation)
 
        String or tuple/list. The past tense of action_present. ("Deleted",
        "Rotated", etc.) If tuple or list - then
@@ -597,14 +615,20 @@ class BatchAction(Action):
 
     .. attribute:: data_type_singular
 
-       A display name for the type of data that receives the
-       action. ("Key Pair", "Floating IP", etc.)
+       Optional display name (if the data_type method is not defined) for the
+       type of data that receives the action. ("Key Pair", "Floating IP", etc.)
 
     .. attribute:: data_type_plural
 
-       Optional plural word for the type of data being acted
-       on. Defaults to appending 's'. Relying on the default is bad
-       for translations and should not be done.
+       Optional plural word (if the data_type method is not defined) for the
+       type of data being acted on. Defaults to appending 's'. Relying on the
+       default is bad for translations and should not be done, so it's absence
+       will raise a DeprecationWarning. It is currently kept as optional for
+       legacy code.
+
+       NOTE: data_type_singular and data_type_plural attributes are bad for
+       translations and should be avoided. Please use the action_present and
+       action_past methods. This form is kept for legacy.
 
     .. attribute:: success_url
 
@@ -614,18 +638,56 @@ class BatchAction(Action):
 
     def __init__(self, **kwargs):
         super(BatchAction, self).__init__(**kwargs)
+
+        action_present_method = False
+        if hasattr(self, 'action_present'):
+            if callable(self.action_present):
+                action_present_method = True
+            else:
+                warnings.warn(PendingDeprecationWarning(
+                    'The %s BatchAction class must have an action_present '
+                    'method instead of attribute.' % self.__class__.__name__
+                ))
+
+        action_past_method = False
+        if hasattr(self, 'action_past'):
+            if callable(self.action_past):
+                action_past_method = True
+            else:
+                warnings.warn(PendingDeprecationWarning(
+                    'The %s BatchAction class must have an action_past '
+                    'method instead of attribute.' % self.__class__.__name__
+                ))
+
+        action_methods = action_present_method and action_past_method
+        has_action_method = action_present_method or action_past_method
+
+        if has_action_method and not action_methods:
+            raise NotImplementedError(
+                'The %s BatchAction class must have both action_past and'
+                'action_present methods.' % self.__class__.__name__
+            )
+
+        if not action_methods:
+            if not kwargs.get('data_type_singular'):
+                raise NotImplementedError(
+                    'The %s BatchAction class must have a data_type_singular '
+                    'attribute when action_past and action_present attributes '
+                    'are used.' % self.__class__.__name__
+                )
+            self.data_type_singular = kwargs.get('data_type_singular')
+            self.data_type_plural = kwargs.get('data_type_plural',
+                                               self.data_type_singular + 's')
+
+        # TODO(ygbo): get rid of self.use_action_method once action_present and
+        # action_past are changed to methods handling plurals.
+        self.use_action_method = action_methods
+
         self.success_url = kwargs.get('success_url', None)
-        self.data_type_singular = kwargs.get('data_type_singular', None)
-        self.data_type_plural = kwargs.get('data_type_plural',
-            self.data_type_singular + 's')
         # If setting a default name, don't initialize it too early
         self.verbose_name = kwargs.get('verbose_name', self._get_action_name)
         self.verbose_name_plural = kwargs.get('verbose_name_plural',
             lambda: self._get_action_name('plural'))
-
-        if not kwargs.get('data_type_singular', None):
-            raise NotImplementedError('A batchAction object must have a '
-                                      'data_type_singular attribute.')
 
         self.current_present_action = 0
         self.current_past_action = 0
@@ -642,18 +704,50 @@ class BatchAction(Action):
     def _get_action_name(self, items=None, past=False):
         """Builds combinations like 'Delete Object' and 'Deleted
         Objects' based on the number of items and `past` flag.
+
+        :param items:
+
+            A list or tuple of items (or container with a __len__ method) to
+            count the number of concerned items for which this method is
+            called.
+            When this method is called for a single item (by the BatchAction
+            itself), this parameter can be omitted and the number of items
+            will be considered as "one".
+            If we want to evaluate to "zero" this parameter must not be omitted
+            (and should be an empty container).
+
+        :param past:
+
+            Boolean flag indicating if the action took place in the past.
+            By default a present action is considered.
         """
         action_type = "past" if past else "present"
+        if items is None:
+            # Called without items parameter (by a single instance.)
+            count = 1
+        else:
+            count = len(items)
+
+        # TODO(ygbo): get rid of self.use_action_method once action_present and
+        # action_past are changed to methods handling plurals.
         action_attr = getattr(self, "action_%s" % action_type)
+        if self.use_action_method:
+            action_attr = action_attr(count)
         if isinstance(action_attr, (basestring, Promise)):
             action = action_attr
         else:
             toggle_selection = getattr(self, "current_%s_action" % action_type)
             action = action_attr[toggle_selection]
-        if items is None or len(items) == 1:
-            data_type = self.data_type_singular
-        else:
-            data_type = self.data_type_plural
+
+        if self.use_action_method:
+            return action
+        # TODO(ygbo): get rid of all this bellow once action_present and
+        # action_past are changed to methods handling plurals.
+        data_type = ungettext_lazy(
+            self.data_type_singular,
+            self.data_type_plural,
+            count
+        )
         if '%(data_type)s' in action:
             # If full action string is specified, use action as format string.
             msgstr = action
