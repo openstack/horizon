@@ -35,8 +35,8 @@ class QosSpecMixin(object):
         # the parameter kwargs contains form layout information,
         # not key data that is needed here.
         if 'key' in self.kwargs:
+            # needed for edit function
             context['key'] = self.kwargs['key']
-            qos_spec_id = context['key']
         if 'qos_spec_id' in self.kwargs:
             context['qos_spec_id'] = self.kwargs['qos_spec_id']
             qos_spec_id = context['qos_spec_id']
@@ -65,8 +65,23 @@ class IndexView(QosSpecMixin, forms.ModalFormMixin, tables.DataTableView):
         return qos_list
 
 
-class EditView(QosSpecMixin, forms.ModalFormView):
-    form_class = project_forms.EditQosSpec
+class CreateKeyValuePairView(QosSpecMixin, forms.ModalFormView):
+    # this for creating a spec key-value pair for an existing QOS Spec
+    form_class = project_forms.CreateKeyValuePair
+    template_name = 'admin/volumes/volume_types/qos_specs/create.html'
+    success_url = 'horizon:admin:volumes:volume_types:qos_specs:index'
+
+    def get_initial(self):
+        qos_spec_id = self.kwargs['qos_spec_id']
+        return {'qos_spec_id': qos_spec_id}
+
+    def get_success_url(self):
+        return reverse(self.success_url,
+                       args=(self.kwargs['qos_spec_id'],))
+
+
+class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
+    form_class = project_forms.EditKeyValuePair
     template_name = 'admin/volumes/volume_types/qos_specs/edit.html'
     success_url = 'horizon:admin:volumes:volume_types:qos_specs:index'
 

@@ -26,6 +26,8 @@ VIEWS_MOD = ('openstack_dashboard.dashboards.admin.volumes.volume_types.views')
 urlpatterns = patterns('VIEWS_MOD',
     url(r'^create_type$', views.CreateVolumeTypeView.as_view(),
             name='create_type'),
+    url(r'^create_qos_spec$', views.CreateQosSpecView.as_view(),
+            name='create_qos_spec'),
     url(r'^(?P<type_id>[^/]+)/extras/',
             include(extras_urls, namespace='extras')),
     url(r'^qos_specs/',
