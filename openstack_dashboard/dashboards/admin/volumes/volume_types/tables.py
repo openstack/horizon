@@ -10,9 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+
 from openstack_dashboard.api import cinder
 
 
@@ -57,3 +59,31 @@ class VolumeTypesTable(tables.DataTable):
         verbose_name = _("Volume Types")
         table_actions = (CreateVolumeType, DeleteVolumeType,)
         row_actions = (ViewVolumeTypeExtras, DeleteVolumeType,)
+
+
+# QOS Specs section of panel
+class ManageQosSpec(tables.LinkAction):
+    name = "qos_spec"
+    verbose_name = _("Manage Specs")
+    url = "horizon:admin:volumes:volume_types:qos_specs:index"
+    icon = "pencil"
+
+
+def render_spec_keys(qos_spec):
+    qos_spec_keys = ["%s=%s" % (key, value)
+                     for key, value in qos_spec.specs.items()]
+    return qos_spec_keys
+
+
+class QosSpecsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Name'))
+    consumer = tables.Column('consumer', verbose_name=_('Consumer'))
+    specs = tables.Column(render_spec_keys,
+                          verbose_name=_('Specs'),
+                          wrap_list=True,
+                          filters=(filters.unordered_list,))
+
+    class Meta:
+        name = "qos_specs"
+        verbose_name = _("QOS Specs")
+        row_actions = (ManageQosSpec,)

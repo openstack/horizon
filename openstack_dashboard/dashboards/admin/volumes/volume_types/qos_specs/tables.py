@@ -10,26 +10,34 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.template import defaultfilters as filters
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 
 
-def render_spec_keys(qos_spec):
-    qos_spec_keys = ["%s=%s" % (key, value)
-                     for key, value in qos_spec.specs.items()]
-    return qos_spec_keys
+class SpecEdit(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit")
+    url = "horizon:admin:volumes:volume_types:qos_specs:edit"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+
+    def get_link_url(self, qos_spec):
+        return reverse(self.url, args=[qos_spec.id, qos_spec.key])
 
 
-class QosSpecsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
-    consumer = tables.Column('consumer', verbose_name=_('Consumer'))
-    specs = tables.Column(render_spec_keys,
-                          verbose_name=_('Specs'),
-                          wrap_list=True,
-                          filters=(filters.unordered_list,))
+class SpecsTable(tables.DataTable):
+    key = tables.Column('key', verbose_name=_('Key'))
+    value = tables.Column('value', verbose_name=_('Value'))
 
     class Meta:
-        name = "qos_specs"
-        verbose_name = _("QOS Specs")
+        name = "specs"
+        verbose_name = _("Key-Value Pairs")
+        row_actions = (SpecEdit,)
+
+    def get_object_id(self, datum):
+        return datum.key
+
+    def get_object_display(self, datum):
+        return datum.key

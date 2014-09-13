@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}qos_spec_edit_form{% endblock %}
+{% block form_action %}{% url 'horizon:admin:volumes:volume_types:qos_specs:edit' qos_spec_id key %}{% endblock %}
+
+
+{% block modal_id %}qos_spec_edit_modal{% endblock %}
+{% block modal-header %}{% trans "Edit Spec Value: " %} {{ key }}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description" %}:</h3>
+    <p>{% blocktrans with key=key %}Update the spec value for "{{ key }}"{% endblocktrans %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save" %}" />
+  <a href="{% url 'horizon:admin:volumes:volume_types:qos_specs:index' qos_spec_id %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
