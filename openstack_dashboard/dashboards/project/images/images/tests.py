@@ -115,6 +115,8 @@ class UpdateImageFormTests(test.TestCase):
                                 disk_format=data['disk_format'],
                                 container_format="bare",
                                 name=data['name'],
+                                min_ram=data['minimum_ram'],
+                                min_disk=data['minimum_disk'],
                                 properties={'description': data['description'],
                                             'architecture':
                                             data['architecture']},

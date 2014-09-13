@@ -218,6 +218,22 @@ class UpdateImageForm(forms.SelfHandlingForm):
     disk_format = forms.ChoiceField(
         label=_("Format"),
     )
+    minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),
+                                      min_value=0,
+                                      help_text=_('The minimum disk size'
+                                                  ' required to boot the'
+                                                  ' image. If unspecified,'
+                                                  ' this value defaults to'
+                                                  ' 0 (no minimum).'),
+                                      required=False)
+    minimum_ram = forms.IntegerField(label=_("Minimum RAM (MB)"),
+                                     min_value=0,
+                                     help_text=_('The minimum memory size'
+                                                 ' required to boot the'
+                                                 ' image. If unspecified,'
+                                                 ' this value defaults to'
+                                                 ' 0 (no minimum).'),
+                                     required=False)
     public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
@@ -244,6 +260,8 @@ class UpdateImageForm(forms.SelfHandlingForm):
                 'disk_format': data['disk_format'],
                 'container_format': container_format,
                 'name': data['name'],
+                'min_ram': (data['minimum_ram'] or 0),
+                'min_disk': (data['minimum_disk'] or 0),
                 'properties': {'description': data['description']}}
         if data['kernel']:
             meta['properties']['kernel_id'] = data['kernel']

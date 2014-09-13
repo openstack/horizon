@@ -308,7 +308,7 @@ Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', '
 Default: ``[]``
 
 A list of image custom property keys that should not be displayed in the
-Image Custom Properties table.
+Update Metadata tree.
 
 This setting can be used in the case where a separate panel is used for
 managing a custom property or if a certain custom property should never be

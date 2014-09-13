@@ -72,6 +72,8 @@ class UpdateView(forms.ModalFormView):
                 'ramdisk': properties.get('ramdisk_id', ''),
                 'architecture': properties.get('architecture', ''),
                 'disk_format': getattr(image, 'disk_format', None),
+                'minimum_ram': getattr(image, 'min_ram', None),
+                'minimum_disk': getattr(image, 'min_disk', None),
                 'public': getattr(image, 'is_public', None),
                 'protected': getattr(image, 'protected', None)}
 

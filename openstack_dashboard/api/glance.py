@@ -18,8 +18,11 @@
 
 from __future__ import absolute_import
 
+import collections
 import itertools
+import json
 import logging
+
 
 from django.conf import settings
 import glanceclient as glance_client
@@ -30,14 +33,6 @@ from openstack_dashboard.api import base
 
 
 LOG = logging.getLogger(__name__)
-
-
-class ImageCustomProperty(object):
-    def __init__(self, image_id, key, val):
-        self.image_id = image_id
-        self.id = key
-        self.key = key
-        self.value = val
 
 
 def glanceclient(request, version='1'):
@@ -62,26 +57,6 @@ def image_get(request, image_id):
     if not hasattr(image, 'name'):
         image.name = None
     return image
-
-
-def image_get_properties(request, image_id, reserved=True):
-    """List all custom properties of an image."""
-    image = glanceclient(request, '2').images.get(image_id)
-    reserved_props = getattr(settings, 'IMAGE_RESERVED_CUSTOM_PROPERTIES', [])
-    properties_list = []
-    for key in image.keys():
-        if reserved or key not in reserved_props:
-            prop = ImageCustomProperty(image_id, key, image.get(key))
-            properties_list.append(prop)
-    return properties_list
-
-
-def image_get_property(request, image_id, key, reserved=True):
-    """Get a custom property of an image."""
-    for prop in image_get_properties(request, image_id, reserved):
-        if prop.key == key:
-            return prop
-    return None
 
 
 def image_list_detailed(request, marker=None, sort_dir='desc',
@@ -149,11 +124,107 @@ def image_create(request, **kwargs):
     return image
 
 
-def image_update_properties(request, image_id, **kwargs):
+def image_update_properties(request, image_id, remove_props=None, **kwargs):
     """Add or update a custom property of an image."""
-    return glanceclient(request, '2').images.update(image_id, None, **kwargs)
+    return glanceclient(request, '2').images.update(image_id,
+                                                    remove_props,
+                                                    **kwargs)
 
 
 def image_delete_properties(request, image_id, keys):
     """Delete custom properties for an image."""
     return glanceclient(request, '2').images.update(image_id, keys)
+
+
+class BaseGlanceMetadefAPIResourceWrapper(base.APIResourceWrapper):
+
+    @property
+    def description(self):
+        return (getattr(self._apiresource, 'description', None) or
+                getattr(self._apiresource, 'display_name', None))
+
+    def as_json(self, indent=4):
+        result = collections.OrderedDict()
+        for attr in self._attrs:
+            if hasattr(self, attr):
+                result[attr] = getattr(self, attr)
+        return json.dumps(result, indent=indent)
+
+
+class Namespace(BaseGlanceMetadefAPIResourceWrapper):
+
+    _attrs = ['namespace', 'display_name', 'description',
+              'resource_type_associations', 'visibility', 'protected',
+              'created_at', 'updated_at', 'properties', 'objects']
+
+    @property
+    def resource_type_associations(self):
+        result = [resource_type['name'] for resource_type in
+                    getattr(self._apiresource, 'resource_type_associations')]
+        return result
+
+    @property
+    def public(self):
+        if getattr(self._apiresource, 'visibility') == 'public':
+            return True
+        else:
+            return False
+
+
+def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
+    namespace = glanceclient(request, '2').\
+        metadefs_namespace.get(namespace, resource_type=resource_type)
+    # There were problems with using the wrapper class in
+    # in nested json serialization. So sometimes, it is not desirable
+    # to wrap.
+    if wrap:
+        return Namespace(namespace)
+    else:
+        return namespace
+
+
+def metadefs_namespace_list(request,
+                            filters={},
+                            sort_dir='desc',
+                            sort_key='created_at',
+                            marker=None,
+                            paginate=False):
+    limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+    page_size = utils.get_page_size(request)
+
+    if paginate:
+        request_size = page_size + 1
+    else:
+        request_size = limit
+
+    kwargs = {'filters': filters}
+    if marker:
+        kwargs['marker'] = marker
+    kwargs['sort_dir'] = sort_dir
+    kwargs['sort_key'] = sort_key
+
+    namespaces_iter = glanceclient(request, '2').metadefs_namespace.list(
+        page_size=request_size, limit=limit, **kwargs)
+
+    has_prev_data = False
+    has_more_data = False
+    if paginate:
+        namespaces = list(itertools.islice(namespaces_iter, request_size))
+        # first and middle page condition
+        if len(namespaces) > page_size:
+            namespaces.pop(-1)
+            has_more_data = True
+            # middle page condition
+            if marker is not None:
+                has_prev_data = True
+        # first page condition when reached via prev back
+        elif sort_dir == 'asc' and marker is not None:
+            has_more_data = True
+        # last page condition
+        elif marker is not None:
+            has_prev_data = True
+    else:
+        namespaces = list(namespaces_iter)
+
+    namespaces = [Namespace(namespace) for namespace in namespaces]
+    return namespaces, has_more_data, has_prev_data

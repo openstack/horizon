@@ -15,6 +15,13 @@
 
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/angular/angular.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/angular/angular-mock.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/angular/angular-cookies.js"></script>
+
+  <script type='text/javascript' charset='utf-8'>
+    /* Load angular modules extensions list before we include angular/horizon.js */
+    var angularModuleExtension = {{ HORIZON_CONFIG.angular_modules|default:"[]"|safe }};
+  </script>
+
   {% for source in sources %}
     <script type="application/javascript" src="{{ STATIC_URL }}{{ source }}"></script>
   {% endfor %}

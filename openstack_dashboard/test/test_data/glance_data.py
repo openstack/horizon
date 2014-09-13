@@ -17,9 +17,24 @@ from glanceclient.v1 import images
 from openstack_dashboard.test.test_data import utils
 
 
+class Namespace(dict):
+    def __repr__(self):
+        return "<Namespace %s>" % self._info
+
+    def __init__(self, info):
+        super(Namespace, self).__init__()
+        self.__dict__.update(info)
+        self.update(info)
+        self._info = info
+
+    def as_json(self, indent=4):
+        return self.__dict__
+
+
 def data(TEST):
     TEST.images = utils.TestDataContainer()
     TEST.snapshots = utils.TestDataContainer()
+    TEST.metadata_defs = utils.TestDataContainer()
 
     # Snapshots
     snapshot_dict = {'name': u'snapshot',
@@ -190,3 +205,107 @@ def data(TEST):
                     shared_image1, official_image1, multi_prop_image)
 
     TEST.empty_name_image = no_name_image
+
+    metadef_dict = {
+        'namespace': 'namespace_1',
+        'display_name': 'Namespace 1',
+        'description': 'Mock desc 1',
+        'resource_type_associations': [
+            {
+                'created_at': '2014-08-21T08:39:43Z',
+                'prefix': 'mock',
+                'name': 'mock name'
+            }
+        ],
+        'visibility': 'public',
+        'protected': True,
+        'created_at': '2014-08-21T08:39:43Z',
+        'properties': {
+            'cpu_mock:mock': {
+                'default': '1',
+                'type': 'integer',
+                'description': 'Number of mocks.',
+                'title': 'mocks'
+            }
+        }
+    }
+    metadef = Namespace(metadef_dict)
+    TEST.metadata_defs.add(metadef)
+
+    metadef_dict = {
+        'namespace': 'namespace_2',
+        'display_name': 'Namespace 2',
+        'description': 'Mock desc 2',
+        'resource_type_associations': [
+            {
+                'created_at': '2014-08-21T08:39:43Z',
+                'prefix': 'mock',
+                'name': 'mock name'
+            }
+        ],
+        'visibility': 'private',
+        'protected': False,
+        'created_at': '2014-08-21T08:39:43Z',
+        'properties': {
+            'hdd_mock:mock': {
+                'default': '2',
+                'type': 'integer',
+                'description': 'Number of mocks.',
+                'title': 'mocks'
+            }
+        }
+    }
+    metadef = Namespace(metadef_dict)
+    TEST.metadata_defs.add(metadef)
+
+    metadef_dict = {
+        'namespace': 'namespace_3',
+        'display_name': 'Namespace 3',
+        'description': 'Mock desc 3',
+        'resource_type_associations': [
+            {
+                'created_at': '2014-08-21T08:39:43Z',
+                'prefix': 'mock',
+                'name': 'mock name'
+            }
+        ],
+        'visibility': 'public',
+        'protected': False,
+        'created_at': '2014-08-21T08:39:43Z',
+        'properties': {
+            'gpu_mock:mock': {
+                'default': '2',
+                'type': 'integer',
+                'description': 'Number of mocks.',
+                'title': 'mocks'
+            }
+        }
+    }
+    metadef = Namespace(metadef_dict)
+    TEST.metadata_defs.add(metadef)
+
+    metadef_dict = {
+        'namespace': 'namespace_4',
+        'display_name': 'Namespace 4',
+        'description': 'Mock desc 4',
+        'resource_type_associations': [
+            {
+                'created_at': '2014-08-21T08:39:43Z',
+                'prefix': 'mock',
+                'name': 'mock name'
+            }
+        ],
+        'visibility': 'public',
+        'protected': True,
+        'created_at': '2014-08-21T08:39:43Z',
+        'properties': {
+            'ram_mock:mock': {
+                'default': '2',
+                'type': 'integer',
+                'description': 'Number of mocks.',
+                'title': 'mocks'
+            }
+        }
+    }
+    metadef = Namespace(metadef_dict)
+    TEST.metadata_defs.add(metadef)
