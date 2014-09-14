@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-29 01:04-0500\n"
+"POT-Creation-Date: 2014-09-14 01:02-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Invalid subnet mask"
 msgstr ""
 
-#: tables/actions.py:458
+#: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:12
@@ -81,73 +81,73 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:662
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:664
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:694 tables/base.py:1498
+#: tables/actions.py:788 tables/base.py:1532
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:723
+#: tables/actions.py:817
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:730
+#: tables/actions.py:824
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:736
+#: tables/actions.py:830
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:778
+#: tables/actions.py:873
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:779
+#: tables/actions.py:875
 msgid "Deleted"
 msgstr ""
 
-#: tables/actions.py:811
+#: tables/actions.py:907
 msgid "Update"
 msgstr ""
 
-#: tables/actions.py:812
+#: tables/actions.py:908
 msgid "Updated"
 msgstr ""
 
-#: tables/base.py:330
+#: tables/base.py:354
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:931
+#: tables/base.py:965
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1038
+#: tables/base.py:1072
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1263
+#: tables/base.py:1297
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1414
+#: tables/base.py:1448
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -272,6 +272,59 @@ msgstr ""
 msgid "Volume Storage"
 msgstr ""
 
+#: templates/horizon/common/_modal_form_update_metadata.html:12
+msgid ""
+"\n"
+"        You can specify metadata by adding items from the left column to\n"
+"        the right column. You may select the metadata added to glance\n"
+"        dictionary or you can use the \"Other\" option using a key of\n"
+"        your choice.\n"
+"      "
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:26
+msgid "Available Metadata"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:56
+msgid "Duplicate keys are not allowed"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:59
+msgid "Invalid key name"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:88
+#: templates/horizon/common/_modal_form_update_metadata.html:200
+msgid "No existing metadata"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:99
+msgid "Existing Metadata"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:216
+msgid ""
+"\n"
+"          You can specify resource metadata by moving items from the left\n"
+"          column to the right column. In the left columns there are "
+"metadata\n"
+"          definitions from the Glance Metadata Catalog. Use the \"Other\" "
+"option\n"
+"          to add metadata with the key of your choice.\n"
+"        "
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: workflows/base.py:594
+msgid "Save"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr ""
+
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -338,10 +391,6 @@ msgstr ""
 
 #: templates/horizon/common/_workflow.html:43
 msgid "Next"
-msgstr ""
-
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
 msgstr ""
 
 #: templatetags/branding.py:34
@@ -430,10 +479,6 @@ msgstr ""
 
 #: workflows/base.py:478
 msgid "No members."
-msgstr ""
-
-#: workflows/base.py:594
-msgid "Save"
 msgstr ""
 
 #: workflows/base.py:595
