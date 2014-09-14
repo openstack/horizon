@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 15:08-0500\n"
-"PO-Revision-Date: 2014-08-28 14:43+0000\n"
+"POT-Creation-Date: 2014-09-13 12:34-0500\n"
+"PO-Revision-Date: 2014-09-14 00:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/horizon/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Neveljavna različica IP-naslova"
 msgid "Invalid subnet mask"
 msgstr "Neveljavna maska podomrežja"
 
-#: tables/actions.py:458
+#: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
 #: templates/horizon/common/_workflow_step_update_members.html:12
@@ -81,73 +81,73 @@ msgstr "Neveljavna maska podomrežja"
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:662
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:664
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:694 tables/base.py:1498
+#: tables/actions.py:788 tables/base.py:1532
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:723
+#: tables/actions.py:817
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Za to akcijo nimate ustreznih pravic:  %(action)s: %(objs)s"
 
-#: tables/actions.py:730
+#: tables/actions.py:824
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Operacije ni mogoče izvršiti: %(action)s: %(objs)s"
 
-#: tables/actions.py:736
+#: tables/actions.py:830
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:778
+#: tables/actions.py:873
 msgid "Delete"
 msgstr "Izbriši"
 
-#: tables/actions.py:779
+#: tables/actions.py:875
 msgid "Deleted"
 msgstr "Izbrisano"
 
-#: tables/actions.py:811
+#: tables/actions.py:907
 msgid "Update"
 msgstr "Posodobi"
 
-#: tables/actions.py:812
+#: tables/actions.py:908
 msgid "Updated"
 msgstr "Posodobljeno"
 
-#: tables/base.py:330
+#: tables/base.py:354
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Atribut  %(attr)s za %(obj)s ne obstaja."
 
-#: tables/base.py:931
+#: tables/base.py:965
 msgid "No items to display."
 msgstr "Ni zadetkov"
 
-#: tables/base.py:1038
+#: tables/base.py:1072
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Operacije"
 
-#: tables/base.py:1263
+#: tables/base.py:1297
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Za iskanje id-ja \"%s\" ni zadetkov"
 
-#: tables/base.py:1414
+#: tables/base.py:1448
 msgid "Please select a row before taking that action."
 msgstr "Izberite vrstico preden izberte opravilo."
 
@@ -275,6 +275,57 @@ msgstr "Nosilci"
 msgid "Volume Storage"
 msgstr "Diskovni prostor nosilca"
 
+#: templates/horizon/common/_modal_form_update_metadata.html:12
+msgid ""
+"\n"
+"        You can specify metadata by adding items from the left column to\n"
+"        the right column. You may select the metadata added to glance\n"
+"        dictionary or you can use the \"Other\" option using a key of\n"
+"        your choice.\n"
+"      "
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:26
+msgid "Available Metadata"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:56
+msgid "Duplicate keys are not allowed"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:59
+msgid "Invalid key name"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:88
+#: templates/horizon/common/_modal_form_update_metadata.html:200
+msgid "No existing metadata"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:99
+msgid "Existing Metadata"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:216
+msgid ""
+"\n"
+"          You can specify resource metadata by moving items from the left\n"
+"          column to the right column. In the left columns there are metadata\n"
+"          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
+"          to add metadata with the key of your choice.\n"
+"        "
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: workflows/base.py:594
+msgid "Save"
+msgstr "Shrani"
+
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "Prekliči"
+
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -346,10 +397,6 @@ msgstr "Nazaj"
 #: templates/horizon/common/_workflow.html:43
 msgid "Next"
 msgstr "Naprej"
-
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "Prekliči"
 
 #: templatetags/branding.py:34
 msgid "Horizon"
@@ -440,10 +487,6 @@ msgstr "Noben na voljo."
 #: workflows/base.py:478
 msgid "No members."
 msgstr "Ni članov."
-
-#: workflows/base.py:594
-msgid "Save"
-msgstr "Shrani"
 
 #: workflows/base.py:595
 #, python-format
