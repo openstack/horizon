@@ -66,7 +66,7 @@ class FormMixinTests(test.TestCase):
 
 class TestForm(forms.SelfHandlingForm):
 
-    name = forms.CharField(max_length="255")
+    name = forms.CharField(max_length=255)
 
     def handle(self, request, data):
         return True

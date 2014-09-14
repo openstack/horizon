@@ -37,7 +37,7 @@ KEYPAIR_ERROR_MESSAGES = {'invalid': _('Key pair name may '
 
 
 class CreateKeypair(forms.SelfHandlingForm):
-    name = forms.RegexField(max_length="255",
+    name = forms.RegexField(max_length=255,
                            label=_("Key Pair Name"),
                            regex=KEYPAIR_NAME_REGEX,
                            error_messages=KEYPAIR_ERROR_MESSAGES)
@@ -47,7 +47,7 @@ class CreateKeypair(forms.SelfHandlingForm):
 
 
 class ImportKeypair(forms.SelfHandlingForm):
-    name = forms.RegexField(max_length="255",
+    name = forms.RegexField(max_length=255,
                            label=_("Key Pair Name"),
                            regex=KEYPAIR_NAME_REGEX,
                            error_messages=KEYPAIR_ERROR_MESSAGES)

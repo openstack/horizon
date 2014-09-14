@@ -53,7 +53,7 @@ class CreateNetwork(forms.SelfHandlingForm):
             'data-slug': 'network_type'
         }))
     physical_network = forms.CharField(
-        max_length="255",
+        max_length=255,
         label=_("Physical Network"),
         help_text=_("The name of the physical network over which the "
                     "virtual network is implemented."),

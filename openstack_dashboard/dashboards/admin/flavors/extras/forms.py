@@ -36,7 +36,7 @@ class CreateExtraSpec(forms.SelfHandlingForm):
                                  'class': 'switchable',
                                  'data-slug': 'keys'}))
     key = forms.RegexField(
-        max_length="255",
+        max_length=255,
         label=_("Key"),
         required=False,
         regex=_extraspec_name_regex,
@@ -47,7 +47,7 @@ class CreateExtraSpec(forms.SelfHandlingForm):
             'class': 'switched',
             'data-switch-on': 'keys',
             'data-keys-custom': _('Key')}))
-    value = forms.CharField(max_length="255", label=_("Value"))
+    value = forms.CharField(max_length=255, label=_("Value"))
     flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
     def __init__(self, *args, **kwargs):
@@ -82,7 +82,7 @@ class CreateExtraSpec(forms.SelfHandlingForm):
 
 class EditExtraSpec(forms.SelfHandlingForm):
     key = forms.CharField(widget=forms.widgets.HiddenInput)
-    value = forms.CharField(max_length="255", label=_("Value"))
+    value = forms.CharField(max_length=255, label=_("Value"))
     flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
     def handle(self, request, data):
