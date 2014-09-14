@@ -461,6 +461,29 @@ def remove_group_user(request, group_id, user_id):
     return manager.remove_from_group(group=group_id, user=user_id)
 
 
+def get_project_groups_roles(request, project):
+    """Gets the groups roles in a given project.
+
+    :param request: the request entity containing the login user information
+    :param project: the project to filter the groups roles. It accepts both
+                    project object resource or project ID
+
+    :returns group_roles: a dictionary mapping the groups and their roles in
+                          given project
+
+    """
+    groups_roles = collections.defaultdict(list)
+    project_role_assignments = role_assignments_list(request,
+                                                     project=project)
+    for role_assignment in project_role_assignments:
+        if not hasattr(role_assignment, 'group'):
+            continue
+        group_id = role_assignment.group['id']
+        role_id = role_assignment.role['id']
+        groups_roles[group_id].append(role_id)
+    return groups_roles
+
+
 def role_assignments_list(request, project=None, user=None, role=None,
                           group=None, domain=None, effective=False):
     if VERSIONS.active < 3:

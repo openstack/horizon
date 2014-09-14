@@ -312,18 +312,19 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
 
         # Figure out groups & roles
         if project_id:
-            for group in all_groups:
-                try:
-                    roles = api.keystone.roles_for_group(self.request,
-                                                         group=group.id,
-                                                         project=project_id)
-                except Exception:
-                    exceptions.handle(request,
-                                      err_msg,
-                                      redirect=reverse(INDEX_URL))
-                for role in roles:
-                    field_name = self.get_member_field_name(role.id)
-                    self.fields[field_name].initial.append(group.id)
+            try:
+                groups_roles = api.keystone.get_project_groups_roles(
+                    request, project_id)
+            except Exception:
+                exceptions.handle(request,
+                                  err_msg,
+                                  redirect=reverse(INDEX_URL))
+
+            for group_id in groups_roles:
+                roles_ids = groups_roles[group_id]
+                for role_id in roles_ids:
+                    field_name = self.get_member_field_name(role_id)
+                    self.fields[field_name].initial.append(group_id)
 
     class Meta:
         name = _("Project Groups")
