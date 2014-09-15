@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
-"PO-Revision-Date: 2014-09-14 05:27+0000\n"
+"POT-Creation-Date: 2014-09-14 05:14-0500\n"
+"PO-Revision-Date: 2014-09-14 13:55+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -3530,7 +3530,7 @@ msgid ""
 "      <tt>cinder qos-create</tt> command. Once the QOS Spec gets created,\n"
 "      click the \"Manage\" button to manage the key-value specs for the QOS Spec.\n"
 "     "
-msgstr ""
+msgstr "\nQoS スペックをボリューム種別に関連付けることができます。\nボリュームオーナーが指定された QoS 機能をマップするのに使用されます。\n<tt>cinder qos-create</tt> と同じです。 QoS スペックの作成後に、\nQoS スペックのキーと値のペアを管理するには「管理」ボタンをクリックしてください。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:33
@@ -8372,7 +8372,7 @@ msgstr "イメージの概要"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:17
 msgid "Owner"
-msgstr ""
+msgstr "オーナー"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:25
 msgid "Checksum"

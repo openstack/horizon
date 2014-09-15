@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
-"PO-Revision-Date: 2014-09-13 22:18+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-09-14 05:14-0500\n"
+"PO-Revision-Date: 2014-09-14 13:55+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -282,28 +282,28 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr ""
+msgstr "\n左の列から右の列にアイテムを移動して、メタデータを指定できます。Glance に登録されているメタデータを選択するか、\"Other\" オプションで任意のキーを指定します。\n\n      "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr ""
+msgstr "利用可能なメタデータ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "重複するキーは使用できません"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr ""
+msgstr "無効なキー名"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
 msgid "No existing metadata"
-msgstr ""
+msgstr "選択済みのメタデータはありません"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr ""
+msgstr "選択済みのメタデータ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -313,7 +313,7 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr ""
+msgstr "\n左の列から右の列にアイテムを移動して、リソースのメタデータを指定できます。左の列には、Glance のメタデータカタログに登録されているメタデータの定義が表示されています。任意のキーのメタデータを追加するには、\"Other\" オプションを使ってください。\n\n      "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
