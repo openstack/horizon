@@ -436,6 +436,7 @@ def my_custom_sort(flavor):
         'm1.secret': 0,
         'm1.tiny': 1,
         'm1.massive': 2,
+        'm1.metadata': 3,
     }
     return sort_order[flavor.name]
 

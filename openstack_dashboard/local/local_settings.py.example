@@ -507,22 +507,19 @@ SECURITY_GROUP_RULES = {
     },
 }
 
-FLAVOR_EXTRA_KEYS = {
-    'flavor_keys': [
-        ('quota:disk_read_bytes_sec', _('Quota: Read bytes')),
-        ('quota:disk_write_bytes_sec', _('Quota: Write bytes')),
-        ('quota:cpu_quota', _('Quota: CPU')),
-        ('quota:cpu_period', _('Quota: CPU period')),
-        ('quota:vif_inbound_average', _('Quota: Inbound average')),
-        ('quota:vif_outbound_average', _('Quota: Outbound average')),
-        ('hw:cpu_sockets', _('Quota: CPU sockets')),
-        ('hw:cpu_cores', _('Quota: CPU cores')),
-        ('hw:cpu_threads', _('Quota: CPU threads')),
-        ('hw:cpu_max_sockets', _('Quota: Max CPU sockets')),
-        ('hw:cpu_max_cores', _('Quota: Max CPU cores')),
-        ('hw:cpu_max_threads', _('Quota: Max CPU threads')),
-    ]
-}
+# Deprecation Notice:
+#
+# The setting FLAVOR_EXTRA_KEYS has been deprecated.
+# Please load extra spec metadata into the Glance Metadata Definition Catalog.
+#
+# The sample quota definitions can be found in:
+# <glance_source>/etc/metadefs/compute-quota.json
+#
+# The metadata definition catalog supports CLI and API:
+#  $glance --os-image-api-version 2 help md-namespace-import
+#  $glance-manage db_load_metadefs <directory_with_definition_files>
+#
+# See Metadata Definitions on: http://docs.openstack.org/developer/glance/
 
 # Indicate to the Sahara data processing service whether or not
 # automatic floating IP allocation is in effect.  If it is not

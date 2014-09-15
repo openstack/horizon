@@ -16,18 +16,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import include  # noqa
 from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
-from openstack_dashboard.dashboards.admin.flavors.extras \
-    import urls as extras_urls
 from openstack_dashboard.dashboards.admin.flavors import views
 
 
 urlpatterns = patterns('openstack_dashboard.dashboards.admin.flavors.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
+    url(r'^(?P<id>[^/]+)/update_metadata/$',
+        views.UpdateMetadataView.as_view(), name='update_metadata'),
     url(r'^(?P<id>[^/]+)/update/$', views.UpdateView.as_view(), name='update'),
-    url(r'^(?P<id>[^/]+)/extras/', include(extras_urls, namespace='extras')),
 )

@@ -50,10 +50,11 @@ class UpdateFlavor(tables.LinkAction):
     icon = "pencil"
 
 
-class ViewFlavorExtras(tables.LinkAction):
-    name = "extras"
-    verbose_name = _("View Extra Specs")
-    url = "horizon:admin:flavors:extras:index"
+class UpdateMetadata(tables.LinkAction):
+    url = "horizon:admin:flavors:update_metadata"
+    name = "update_metadata"
+    verbose_name = _("Update Metadata")
+    classes = ("ajax-modal",)
     icon = "pencil"
 
 
@@ -124,7 +125,8 @@ class FlavorsTable(tables.DataTable):
                            filters=(filters.yesno, filters.capfirst))
     extra_specs = tables.Column(get_extra_specs,
                                 verbose_name=_("Extra Specs"),
-                                link=("horizon:admin:flavors:extras:index"),
+                                link="horizon:admin:flavors:update_metadata",
+                                link_classes=("ajax-modal",),
                                 empty_value=False,
                                 filters=(filters.yesno, filters.capfirst))
 
@@ -134,5 +136,5 @@ class FlavorsTable(tables.DataTable):
         table_actions = (FlavorFilterAction, CreateFlavor, DeleteFlavor)
         row_actions = (UpdateFlavor,
                        ModifyAccess,
-                       ViewFlavorExtras,
+                       UpdateMetadata,
                        DeleteFlavor)

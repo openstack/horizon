@@ -41,6 +41,17 @@ from openstack_dashboard.usage import quotas as usage_quotas
 from openstack_dashboard.test.test_data import utils
 
 
+class FlavorExtraSpecs(dict):
+    def __repr__(self):
+        return "<FlavorExtraSpecs %s>" % self._info
+
+    def __init__(self, info):
+        super(FlavorExtraSpecs, self).__init__()
+        self.__dict__.update(info)
+        self.update(info)
+        self._info = info
+
+
 SERVER_DATA = """
 {
     "server": {
@@ -271,7 +282,19 @@ def data(TEST):
                                'extra_specs': {},
                                'os-flavor-access:is_public': False,
                                'OS-FLV-EXT-DATA:ephemeral': 2048})
-    TEST.flavors.add(flavor_1, flavor_2, flavor_3)
+    flavor_4 = flavors.Flavor(flavors.FlavorManager(None),
+                              {'id': "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+                               'name': 'm1.metadata',
+                               'vcpus': 1000,
+                               'disk': 1024,
+                               'ram': 10000,
+                               'swap': 0,
+                               'extra_specs': FlavorExtraSpecs(
+                                   {'key': 'key_mock',
+                                    'value': 'value_mock'}),
+                               'os-flavor-access:is_public': False,
+                               'OS-FLV-EXT-DATA:ephemeral': 2048})
+    TEST.flavors.add(flavor_1, flavor_2, flavor_3, flavor_4)
 
     flavor_access_manager = flavor_access.FlavorAccessManager(None)
     flavor_access_1 = flavor_access.FlavorAccess(flavor_access_manager,

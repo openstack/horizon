@@ -1281,6 +1281,7 @@ class InstanceTests(helpers.TestCase):
         if custom_flavor_sort == 'id':
             # Reverse sorted by id
             sorted_flavors = (
+                ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'm1.metadata'),
                 ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
                 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
                 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
@@ -1288,6 +1289,7 @@ class InstanceTests(helpers.TestCase):
         elif custom_flavor_sort == 'name':
             sorted_flavors = (
                 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
+                ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'm1.metadata'),
                 ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
                 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
             )
@@ -1296,6 +1298,7 @@ class InstanceTests(helpers.TestCase):
                 ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
                 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
                 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
+                ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'm1.metadata'),
             )
         else:
             # Default - sorted by RAM
@@ -1303,6 +1306,7 @@ class InstanceTests(helpers.TestCase):
                 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'm1.tiny'),
                 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'm1.massive'),
                 ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'm1.secret'),
+                ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'm1.metadata'),
             )
 
         select_options = '\n'.join([

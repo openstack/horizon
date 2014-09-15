@@ -263,26 +263,6 @@ This example sorts flavors by vcpus in descending order::
          'reverse': True,
     }
 
-``FLAVOR_EXTRA_KEYS``
----------------------
-
-.. versionadded:: 2014.1(Icehouse)
-
-Default::
-
-    {
-        'flavor_keys': [
-            ('quota:disk_read_bytes_sec', _('Quota: Read bytes')),
-            ('quota:disk_write_bytes_sec', _('Quota: Write bytes')),
-            ('quota:cpu_quota', _('Quota: CPU')),
-            ('quota:cpu_period', _('Quota: CPU period')),
-            ('quota:vif_inbound_average', _('Quota: Inbound average')),
-            ('quota:vif_outbound_average', _('Quota: Outbound average'))
-        ]
-    }
-
-Used to customize flavor extra specs keys
-
 ``IMAGES_LIST_FILTER_TENANTS``
 ------------------------------
 

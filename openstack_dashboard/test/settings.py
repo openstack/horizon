@@ -200,16 +200,5 @@ POLICY_FILES = {
     'compute': 'nova_policy.json'
 }
 
-FLAVOR_EXTRA_KEYS = {
-    'flavor_keys': [
-        ('quota:disk_read_bytes_sec', 'Quota: Read bytes'),
-        ('quota:disk_write_bytes_sec', 'Quota: Write bytes'),
-        ('quota:cpu_quota', 'Quota: CPU'),
-        ('quota:cpu_period', 'Quota: CPU period'),
-        ('quota:vif_inbound_average', 'Quota: Inbound average'),
-        ('quota:vif_outbound_average', 'Quota: Outbound average'),
-    ]
-}
-
 # The openstack_auth.user.Token object isn't JSON-serializable ATM
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
