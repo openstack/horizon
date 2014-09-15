@@ -282,13 +282,11 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
                         api.neutron: ('is_extension_supported',
                                       'tenant_quota_get',
                                       'network_list',
-                                      'router_list'),
+                                      'router_list',
+                                      'subnet_list'),
                         api.base: ('is_service_enabled',)})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed(self):
-        quota_data = self.quota_usages.first()
-        quota_data['floating_ips']['quota'] = 50
-
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
 
@@ -310,6 +308,8 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
             .AndReturn(self.neutron_quotas.first())
         api.neutron.router_list(IsA(http.HttpRequest)) \
             .AndReturn(self.routers.list())
+        api.neutron.subnet_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.subnets.list())
         api.neutron.network_list(IsA(http.HttpRequest), shared=False) \
             .AndReturn(self.networks.list())
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
