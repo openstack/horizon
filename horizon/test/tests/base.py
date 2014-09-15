@@ -491,6 +491,11 @@ class RbacHorizonTests(test.TestCase):
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
         reload(import_module("horizon"))
+
+        # Reset Cats and Dogs default_panel to default values
+        Cats.default_panel = 'kittens'
+        Dogs.default_panel = 'puppies'
+
         # Re-register our original dashboards and panels.
         # This is necessary because autodiscovery only works on the first
         # import, and calling reload introduces innumerable additional

@@ -24,6 +24,10 @@ from django.template import Template  # noqa
 from django.utils.text import normalize_newlines  # noqa
 
 from horizon.test import helpers as test
+from horizon.test.test_dashboards.cats.dashboard import Cats  # noqa
+from horizon.test.test_dashboards.cats.kittens.panel import Kittens  # noqa
+from horizon.test.test_dashboards.dogs.dashboard import Dogs  # noqa
+from horizon.test.test_dashboards.dogs.puppies.panel import Puppies  # noqa
 
 
 def single_line(text):
@@ -106,3 +110,21 @@ class TemplateTagTests(test.TestCase):
                                             template_text=text,
                                             context={'test': ctx_string})
         self.assertEqual(expected, rendered_str)
+
+    def test_horizon_main_nav(self):
+        text = "{% horizon_main_nav %}"
+        expected = """
+                <div class='clearfix'>
+                    <ul class=\"nav nav-tabs\">
+                        <li>
+                            <a href=\"/cats/\" tabindex='1'>Cats</a>
+                        </li>
+                        <li>
+                            <a href=\"/dogs/\" tabindex='1'>Dogs</a>
+                        </li>
+                    </ul></div>"""
+
+        rendered_str = self.render_template(tag_require='horizon',
+                                            template_text=text,
+                                            context={'request': self.request})
+        self.assertEqual(single_line(rendered_str), single_line(expected))
