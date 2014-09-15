@@ -124,6 +124,8 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
             for attr in ['id', 'ip', 'pool', 'fixed_ip', 'instance_id']:
                 self.assertEqual(getattr(e, attr), getattr(r, attr))
             self.assertEqual(e.instance_id, r.port_id)
+            exp_instance_type = 'compute' if e.instance_id else None
+            self.assertEqual(exp_instance_type, r.instance_type)
 
     def test_floating_ip_get(self):
         fip = self.api_floating_ips.first()
@@ -136,10 +138,13 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'instance_id']:
             self.assertEqual(getattr(fip, attr), getattr(ret, attr))
         self.assertEqual(fip.instance_id, ret.port_id)
+        self.assertEqual(fip.instance_id, ret.instance_id)
+        self.assertEqual('compute', ret.instance_type)
 
     def test_floating_ip_allocate(self):
         pool_name = 'fip_pool'
-        fip = self.api_floating_ips.first()
+        fip = [fip for fip in self.api_floating_ips.list()
+               if not fip.instance_id][0]
         novaclient = self.stub_novaclient()
         novaclient.floating_ips = self.mox.CreateMockAnything()
         novaclient.floating_ips.create(pool=pool_name).AndReturn(fip)
@@ -148,7 +153,8 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
         ret = api.network.tenant_floating_ip_allocate(self.request, pool_name)
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'instance_id']:
             self.assertEqual(getattr(fip, attr), getattr(ret, attr))
-        self.assertEqual(fip.instance_id, ret.port_id)
+        self.assertIsNone(ret.port_id)
+        self.assertIsNone(ret.instance_type)
 
     def test_floating_ip_release(self):
         fip = self.api_floating_ips.first()
@@ -557,6 +563,10 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
             if exp['port_id']:
                 dev_id = assoc_port['device_id'] if exp['port_id'] else None
                 self.assertEqual(dev_id, ret.instance_id)
+                self.assertEqual('compute', ret.instance_type)
+            else:
+                self.assertIsNone(ret.instance_id)
+                self.assertIsNone(ret.instance_type)
 
     def test_floating_ip_list_all_tenants(self):
         fips = self.api_q_floating_ips.list()
@@ -581,11 +591,14 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
                 self.assertEqual(getattr(ret, attr), exp[attr])
             if exp['port_id']:
                 dev_id = assoc_port['device_id'] if exp['port_id'] else None
-                self.assertEqual(ret.instance_id, dev_id)
+                self.assertEqual(dev_id, ret.instance_id)
+                self.assertEqual('compute', ret.instance_type)
+            else:
+                self.assertIsNone(ret.instance_id)
+                self.assertIsNone(ret.instance_type)
 
-    def test_floating_ip_get_associated(self):
+    def _test_floating_ip_get_associated(self, assoc_port, exp_instance_type):
         fip = self.api_q_floating_ips.list()[1]
-        assoc_port = self.api_ports.list()[1]
         self.qclient.show_floatingip(fip['id']).AndReturn({'floatingip': fip})
         self.qclient.show_port(assoc_port['id']) \
             .AndReturn({'port': assoc_port})
@@ -595,6 +608,18 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
             self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertEqual(assoc_port['device_id'], ret.instance_id)
+        self.assertEqual(exp_instance_type, ret.instance_type)
+
+    def test_floating_ip_get_associated(self):
+        assoc_port = self.api_ports.list()[1]
+        self._test_floating_ip_get_associated(assoc_port, 'compute')
+
+    def test_floating_ip_get_associated_with_loadbalancer_vip(self):
+        assoc_port = copy.deepcopy(self.api_ports.list()[1])
+        assoc_port['device_owner'] = 'neutron:LOADBALANCER'
+        assoc_port['device_id'] = str(uuid.uuid4())
+        assoc_port['name'] = 'vip-' + str(uuid.uuid4())
+        self._test_floating_ip_get_associated(assoc_port, 'loadbalancer')
 
     def test_floating_ip_get_unassociated(self):
         fip = self.api_q_floating_ips.list()[0]
@@ -605,6 +630,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
             self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
+        self.assertIsNone(ret.instance_type)
 
     def test_floating_ip_allocate(self):
         ext_nets = [n for n in self.api_networks.list()
@@ -621,6 +647,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         for attr in ['id', 'ip', 'pool', 'fixed_ip', 'port_id']:
             self.assertEqual(fip[attr], getattr(ret, attr))
         self.assertIsNone(ret.instance_id)
+        self.assertIsNone(ret.instance_type)
 
     def test_floating_ip_release(self):
         fip = self.api_q_floating_ips.first()
