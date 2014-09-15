@@ -90,7 +90,7 @@ class AdminInstanceFilterAction(tables.FilterAction):
     # session property used for persisting the filter.
     name = "filter_admin_instances"
     filter_type = "server"
-    filter_choices = (('project', _("Project"), False),
+    filter_choices = (('project', _("Project"), True),
                       ('host', _("Host ="), True),
                       ('name', _("Name"), True),
                       ('ip', _("IPv4 Address ="), True),
@@ -98,16 +98,6 @@ class AdminInstanceFilterAction(tables.FilterAction):
                       ('status', _("Status ="), True),
                       ('image', _("Image ID ="), True),
                       ('flavor', _("Flavor ID ="), True))
-
-    def filter(self, table, instances, filter_string):
-        """Server side search.
-        When filtering is supported in the api, then we will handle in view
-        """
-        filter_field = table.get_filter_field()
-        if filter_field == 'project' and filter_string:
-            return [inst for inst in instances
-                    if inst.tenant_name == filter_string]
-        return instances
 
 
 class AdminInstancesTable(tables.DataTable):
