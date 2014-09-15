@@ -5,7 +5,7 @@
   min-width: 1000px;
   background-color: $rbrowser-header-background-color;
   border: $rbrowser-data-table-border-width solid $rbrowser-data-table-border-color;
-  @include border-radius(4px);
+  border-radius: 4px;
 
   .tfoot {
     clear: both;
