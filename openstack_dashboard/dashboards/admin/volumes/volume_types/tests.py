@@ -39,7 +39,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list',
-                                 'volume_type_list',
+                                 'volume_type_list_with_qos_associations',
                                  'qos_spec_list',
                                  'volume_type_delete',),
                         keystone: ('tenant_list',)})
@@ -47,8 +47,9 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         volume_type = self.volume_types.first()
         formData = {'action': 'volume_types__delete__%s' % volume_type.id}
 
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+        cinder.volume_type_list_with_qos_associations(
+            IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest)).\
                              AndReturn(self.cinder_qos_specs.list())
         cinder.volume_type_delete(IsA(http.HttpRequest),

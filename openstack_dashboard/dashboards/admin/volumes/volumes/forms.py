@@ -86,12 +86,14 @@ class UpdateStatus(forms.SelfHandlingForm):
 
 class CreateQosSpec(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
+    consumer = forms.ChoiceField(label=_("Consumer"),
+                                 choices=cinder.CONSUMER_CHOICES)
 
     def handle(self, request, data):
         try:
             qos_spec = cinder.qos_spec_create(request,
                                               data['name'],
-                                              {'consumer': 'back-end'})
+                                              {'consumer': data['consumer']})
             messages.success(request, _('Successfully created QOS Spec: %s')
                                       % data['name'])
             return qos_spec

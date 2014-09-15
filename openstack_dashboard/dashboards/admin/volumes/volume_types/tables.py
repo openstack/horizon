@@ -35,6 +35,15 @@ class ViewVolumeTypeExtras(tables.LinkAction):
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
 
+class ManageQosSpecAssociation(tables.LinkAction):
+    name = "associate"
+    verbose_name = _("Manage QOS Spec Association")
+    url = "horizon:admin:volumes:volume_types:manage_qos_spec_association"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("volume", "volume_extension:types_manage"),)
+
+
 class DeleteVolumeType(tables.DeleteAction):
     data_type_singular = _("Volume Type")
     data_type_plural = _("Volume Types")
@@ -45,8 +54,9 @@ class DeleteVolumeType(tables.DeleteAction):
 
 
 class VolumeTypesTable(tables.DataTable):
-    name = tables.Column("name",
-                         verbose_name=_("Name"))
+    name = tables.Column("name", verbose_name=_("Name"))
+    assoc_qos_spec = tables.Column("associated_qos_spec",
+                                   verbose_name=_("Associated QOS Spec"))
 
     def get_object_display(self, vol_type):
         return vol_type.name
@@ -58,7 +68,9 @@ class VolumeTypesTable(tables.DataTable):
         name = "volume_types"
         verbose_name = _("Volume Types")
         table_actions = (CreateVolumeType, DeleteVolumeType,)
-        row_actions = (ViewVolumeTypeExtras, DeleteVolumeType,)
+        row_actions = (ViewVolumeTypeExtras,
+                       ManageQosSpecAssociation,
+                       DeleteVolumeType,)
 
 
 # QOS Specs section of panel
@@ -67,6 +79,7 @@ class ManageQosSpec(tables.LinkAction):
     verbose_name = _("Manage Specs")
     url = "horizon:admin:volumes:volume_types:qos_specs:index"
     icon = "pencil"
+    policy_rules = (("volume", "volume_extension:types_manage"),)
 
 
 def render_spec_keys(qos_spec):
@@ -93,6 +106,15 @@ class DeleteQosSpecs(tables.DeleteAction):
         cinder.qos_spec_delete(request, qos_spec_id)
 
 
+class EditConsumer(tables.LinkAction):
+    name = "edit_consumer"
+    verbose_name = _("Edit Consumer")
+    url = "horizon:admin:volumes:volume_types:edit_qos_spec_consumer"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("volume", "volume_extension:types_manage"),)
+
+
 class QosSpecsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     consumer = tables.Column('consumer', verbose_name=_('Consumer'))
@@ -111,4 +133,4 @@ class QosSpecsTable(tables.DataTable):
         name = "qos_specs"
         verbose_name = _("QOS Specs")
         table_actions = (CreateQosSpec, DeleteQosSpecs,)
-        row_actions = (ManageQosSpec, DeleteQosSpecs)
+        row_actions = (ManageQosSpec, EditConsumer, DeleteQosSpecs)

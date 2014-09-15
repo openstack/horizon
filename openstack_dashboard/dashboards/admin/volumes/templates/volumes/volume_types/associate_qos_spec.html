@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Associate QOS Spec" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Associate QOS Spec with Volume Type") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'admin/volumes/volume_types/qos_specs/_associate_qos_spec.html' %}
+{% endblock %}
