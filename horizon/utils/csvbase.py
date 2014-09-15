@@ -94,8 +94,8 @@ class BaseCsvResponse(CsvDataMixin, HttpResponse):
         self.out.close()
 
     def get_row_data(self):
-        raise NotImplementedError("You must define a get_row_data method on %s"
-                                  % self.__class__.__name__)
+        return []
+
 
 if VERSION >= (1, 5, 0):
 
@@ -140,5 +140,4 @@ if VERSION >= (1, 5, 0):
                 yield self.buffer()
 
         def get_row_data(self):
-            raise NotImplementedError("You must define a get_row_data method "
-                                      "on %s" % self.__class__.__name__)
+            return []

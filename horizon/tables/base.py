@@ -616,8 +616,7 @@ class Row(html.HTMLElement):
         """Fetches the updated data for the row based on the object id
         passed in. Must be implemented by a subclass to allow AJAX updating.
         """
-        raise NotImplementedError("You must define a get_data method on %s"
-                                  % self.__class__.__name__)
+        return {}
 
 
 class Cell(html.HTMLElement):

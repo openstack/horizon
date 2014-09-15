@@ -505,8 +505,7 @@ class FilterAction(BaseAction):
         This method must be overridden by subclasses and return
         the filtered data.
         """
-        raise NotImplementedError("The filter method has not been "
-                                  "implemented by %s." % self.__class__)
+        return data
 
     def is_api_filter(self, filter_field):
         """Determine if the given filter field should be used as an
@@ -552,9 +551,7 @@ class FixedFilterAction(FilterAction):
         * ``value``: Value returned when the button is clicked. This value is
           passed to ``filter()`` as ``filter_string``.
         """
-        raise NotImplementedError("The get_fixed_buttons method has "
-                                  "not been implemented by %s." %
-                                  self.__class__)
+        return []
 
     def categorize(self, table, images):
         """Override to separate images into categories.
@@ -562,8 +559,7 @@ class FixedFilterAction(FilterAction):
         Return a dict with a key for the value of each fixed button,
         and a value that is a list of images in that category.
         """
-        raise NotImplementedError("The categorize method has not been "
-                                  "implemented by %s." % self.__class__)
+        return {}
 
 
 class BatchAction(Action):
@@ -764,8 +760,6 @@ class BatchAction(Action):
 
         Return values are discarded, errors raised are caught and logged.
         """
-        raise NotImplementedError('action() must be defined for %s'
-                                  % self.__class__.__name__)
 
     def update(self, request, datum):
         """Switches the action verbose name, if needed."""
@@ -888,7 +882,6 @@ class DeleteAction(BatchAction):
 
         Override to provide delete functionality specific to your data.
         """
-        raise NotImplementedError("DeleteAction must define a delete method.")
 
     def get_default_classes(self):
         """Appends ``btn-danger`` to the action's default css classes.
@@ -917,8 +910,6 @@ class UpdateAction(object):
         This method must implements saving logic of the inline edited table
         cell.
         """
-        raise NotImplementedError(
-            "UpdateAction must define a update_cell method.")
 
     def allowed(self, request, datum, cell):
         """Determine whether updating is allowed for the current request.

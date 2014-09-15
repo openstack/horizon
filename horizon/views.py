@@ -38,8 +38,7 @@ class APIView(generic.TemplateView):
         """This method should handle any necessary API calls, update the
         context object, and return the context object at the end.
         """
-        raise NotImplementedError("You must define a get_data method "
-                                   "on %s" % self.__class__.__name__)
+        return context
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)

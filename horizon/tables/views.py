@@ -186,8 +186,7 @@ class DataTableView(MultiTableView):
         return self._data
 
     def get_data(self):
-        raise NotImplementedError('You must define a "get_data" method on %s.'
-                                  % self.__class__.__name__)
+        return []
 
     def get_tables(self):
         if not self._tables:

@@ -355,12 +355,11 @@ class Tab(html.HTMLElement):
                                  % self.__class__.__name__)
         return self.template_name
 
-    def get_context_data(self, request):
+    def get_context_data(self, request, **kwargs):
         """This method should return a dictionary of context data used to
         render the tab. Required.
         """
-        raise NotImplementedError("%s needs to define a get_context_data "
-                                  "method." % self.__class__.__name__)
+        return kwargs
 
     def enabled(self, request):
         """Determines whether or not the tab should be accessible
@@ -447,14 +446,14 @@ class TableTab(Tab):
             # Mark our data as loaded so we don't run the loaders again.
             self._table_data_loaded = True
 
-    def get_context_data(self, request):
+    def get_context_data(self, request, **kwargs):
         """Adds a ``{{ table_name }}_table`` item to the context for each table
         in the :attr:`~horizon.tabs.TableTab.table_classes` attribute.
 
         If only one table class is provided, a shortcut ``table`` context
         variable is also added containing the single table.
         """
-        context = {}
+        context = super(TableTab, self).get_context_data(request, **kwargs)
         # If the data hasn't been manually loaded before now,
         # make certain it's loaded before setting the context.
         self.load_table_data()
