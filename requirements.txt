@@ -38,6 +38,7 @@ xstatic>=1.0.0  # MIT License
 xstatic-angular>=1.2.1.1  # MIT License
 xstatic-angular-cookies>=1.2.1.1  # MIT License
 xstatic-angular-mock>=1.2.1.1  # MIT License
+xstatic-bootstrap-datepicker>=1.3.1.0  # Apache 2.0 License
 xstatic-d3>=3.1.6.2  # BSD License (3 clause)
 xstatic-hogan>=2.0.0.2  # Apache 2.0 License
 xstatic-font-awesome>=4.1.0  # SIL OFL 1.1 License, MIT License
