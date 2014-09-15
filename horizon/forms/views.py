@@ -16,6 +16,7 @@ import json
 import os
 
 from django import http
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from horizon import exceptions
@@ -59,7 +60,37 @@ class ModalFormView(ModalFormMixin, generic.FormView):
     See Django's documentation on the `FormView <https://docs.djangoproject.com
     /en/dev/ref/class-based-views/generic-editing/#formview>`_ class for
     more details.
+
+    .. attribute: submit_label (optional)
+
+        The label for the submit button. This label defaults to ``Submit``.
+        This button should only be visible if the action_url is defined.
+        Clicking on this button will post to the action_url.
+
+    .. attribute: cancel_label (optional)
+
+        The label for the cancel button. This label defaults to ``Cancel``.
+        Clicking on this button will redirect user to the cancel_url.
+
+    .. attribute: cancel_url (optional)
+
+        The url for a cancel action. This url defaults to the success_url
+        if ommitted. Note that the cancel_url redirect is nullified when
+        shown in a modal dialog.
     """
+    submit_label = _("Submit")
+    cancel_label = _("Cancel")
+    cancel_url = None
+
+    def get_context_data(self, **kwargs):
+        context = super(ModalFormView, self).get_context_data(**kwargs)
+        context['submit_label'] = self.submit_label
+        context['cancel_label'] = self.cancel_label
+        context['cancel_url'] = self.get_cancel_url()
+        return context
+
+    def get_cancel_url(self):
+        return self.cancel_url or self.success_url
 
     def get_object_id(self, obj):
         """For dynamic insertion of resources created in modals, this method
