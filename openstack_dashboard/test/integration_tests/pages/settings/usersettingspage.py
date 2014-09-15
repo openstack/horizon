@@ -18,7 +18,7 @@ from openstack_dashboard.test.integration_tests.pages.settings import \
 from openstack_dashboard.test.integration_tests.regions import forms
 
 
-class SettingsPage(basepage.BasePage):
+class UsersettingsPage(basepage.BaseNavigationPage):
     DEFAULT_LANGUAGE = "en"
     DEFAULT_TIMEZONE = "UTC"
     DEFAULT_PAGESIZE = "20"
@@ -35,7 +35,7 @@ class SettingsPage(basepage.BasePage):
                                     'a[href*="/settings/password/"]')
 
     def __init__(self, driver, conf):
-        super(SettingsPage, self).__init__(driver, conf)
+        super(UsersettingsPage, self).__init__(driver, conf)
         self._page_title = "User Settings"
 
     @property

@@ -20,7 +20,7 @@ from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
-class KeypairPage(basepage.BasePage):
+class KeypairsPage(basepage.BaseNavigationPage):
 
     _key_pairs_table_locator = (by.By.CSS_SELECTOR, 'table#keypairs')
 
@@ -32,7 +32,7 @@ class KeypairPage(basepage.BasePage):
     CREATE_KEY_PAIR_FORM_FIELDS = ('name',)
 
     def __init__(self, driver, conf):
-        super(KeypairPage, self).__init__(driver, conf)
+        super(KeypairsPage, self).__init__(driver, conf)
         self._page_title = "Access & Security"
 
     def _get_row_with_keypair_name(self, name):

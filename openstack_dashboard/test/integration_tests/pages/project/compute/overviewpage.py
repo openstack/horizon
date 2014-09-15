@@ -12,15 +12,11 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.pages.project.compute.\
-    access_and_security import accesssecuritypage
-from openstack_dashboard.test.integration_tests.pages.settings import \
-    settingspage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
-class OverviewPage(basepage.BasePage):
+class OverviewPage(basepage.BaseNavigationPage):
     _usage_table_locator = (by.By.CSS_SELECTOR, 'table#project_usage')
     _date_form_locator = (by.By.CSS_SELECTOR, 'form#date_form')
 
@@ -29,19 +25,6 @@ class OverviewPage(basepage.BasePage):
     def __init__(self, driver, conf):
         super(OverviewPage, self).__init__(driver, conf)
         self._page_title = 'Instance Overview'
-
-    def go_to_settings_page(self):
-        self.topbar.user_dropdown_menu.click_on_settings()
-        return settingspage.SettingsPage(self.driver, self.conf)
-
-    def go_to_accesssecurity_page(self):
-        access_security_locator_flag = self._is_element_visible(
-            *self.navaccordion._project_access_security_locator)
-        if not access_security_locator_flag:
-            self.navaccordion.project_bar.click()
-        self.navaccordion.access_security.click()
-        return accesssecuritypage.AccessSecurityPage(
-            self.driver, self.conf)
 
     @property
     def usage_table(self):
