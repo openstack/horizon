@@ -16,6 +16,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -28,8 +29,22 @@ LOG = logging.getLogger(__name__)
 
 
 class DeleteSubnet(tables.DeleteAction):
-    data_type_singular = _("Subnet")
-    data_type_plural = _("Subnets")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Subnet",
+            u"Delete Subnets",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Subnet",
+            u"Deleted Subnets",
+            count
+        )
+
     policy_rules = (("network", "delete_subnet"),)
 
     def get_policy_target(self, request, datum=None):

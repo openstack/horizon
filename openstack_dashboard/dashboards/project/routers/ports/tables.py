@@ -16,6 +16,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -55,8 +56,22 @@ class AddInterface(tables.LinkAction):
 
 
 class RemoveInterface(tables.DeleteAction):
-    data_type_singular = _("Interface")
-    data_type_plural = _("Interfaces")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Interface",
+            u"Delete Interfaces",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Interface",
+            u"Deleted Interfaces",
+            count
+        )
+
     failure_url = 'horizon:project:routers:detail'
     policy_rules = (("network", "remove_router_interface"),)
 
