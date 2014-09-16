@@ -109,6 +109,7 @@ th {
     > td,
     > th {
       background-color: $table-bg-accent;
+      background-clip: padding-box;
     }
   }
 }
@@ -123,6 +124,7 @@ th {
     > td,
     > th {
       background-color: $table-bg-hover;
+      background-clip: padding-box;
     }
   }
 }
