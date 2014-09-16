@@ -10,12 +10,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import json
+
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -92,6 +95,59 @@ class UpdateView(forms.ModalFormView):
                 msg = _('Unable to retrieve the aggregate to be updated')
                 exceptions.handle(self.request, msg)
         return self._object
+
+
+class UpdateMetadataView(forms.ModalFormView):
+    template_name = constants.AGGREGATES_UPDATE_METADATA_TEMPLATE
+    form_class = aggregate_forms.UpdateMetadataForm
+    success_url = reverse_lazy(constants.AGGREGATES_INDEX_URL)
+
+    def get_initial(self):
+        aggregate = self.get_object()
+        return {'id': self.kwargs["id"], 'metadata': aggregate.metadata}
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateMetadataView, self).get_context_data(**kwargs)
+
+        aggregate = self.get_object()
+        try:
+            context['existing_metadata'] = json.dumps(aggregate.metadata)
+        except Exception:
+            msg = _('Unable to retrieve aggregate metadata.')
+            exceptions.handle(self.request, msg)
+
+        resource_type = 'OS::Nova::Aggregate'
+        metadata = {}
+        try:
+            # metadefs_namespace_list() returns a tuple with list as 1st elem
+            metadata["namespaces"] = [
+                api.glance.metadefs_namespace_get(self.request, x.namespace,
+                                                  resource_type)
+                for x in api.glance.metadefs_namespace_list(
+                    self.request,
+                    filters={"resource_types": [resource_type]}
+                )[0]
+            ]
+
+            context['available_metadata'] = json.dumps(metadata)
+        except Exception:
+            msg = _('Unable to retrieve available metadata for aggregate.')
+            exceptions.handle(self.request, msg)
+
+        context['id'] = self.kwargs['id']
+        return context
+
+    @memoized.memoized_method
+    def get_object(self):
+        aggregate_id = self.kwargs['id']
+        try:
+            aggregate = api.nova.aggregate_get(self.request, aggregate_id)
+        except Exception:
+            msg = _('Unable to retrieve the aggregate to be '
+                    'updated.')
+            exceptions.handle(self.request, msg)
+        else:
+            return aggregate
 
 
 class ManageHostsView(workflows.WorkflowView):

@@ -45,6 +45,14 @@ class ManageHostsAction(tables.LinkAction):
     icon = "plus"
 
 
+class UpdateMetadataAction(tables.LinkAction):
+    name = "update-metadata"
+    verbose_name = _("Update Metadata")
+    url = constants.AGGREGATES_UPDATE_METADATA_URL
+    classes = ("ajax-modal",)
+    icon = "pencil"
+
+
 class UpdateAggregateAction(tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Host Aggregate")
@@ -123,6 +131,7 @@ class HostAggregatesTable(tables.DataTable):
                          DeleteAggregateAction)
         row_actions = (UpdateAggregateAction,
                        ManageHostsAction,
+                       UpdateMetadataAction,
                        DeleteAggregateAction)
 
 
