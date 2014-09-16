@@ -1090,16 +1090,22 @@ class VolumeViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_get',
-                                 'volume_extend')})
+                                 'volume_extend'),
+                        quotas: ('tenant_limit_usages',)})
     def test_extend_volume(self):
         volume = self.cinder_volumes.first()
+        usage_limit = {'maxTotalVolumeGigabytes': 100,
+                       'gigabytesUsed': 20,
+                       'volumesUsed': len(self.volumes.list()),
+                       'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,
-                    'new_size': 100}
+                    'new_size': 120}
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).\
-                          AndReturn(self.cinder_volumes.first())
-
+            AndReturn(self.cinder_volumes.first())
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+            AndReturn(usage_limit)
         cinder.volume_extend(IsA(http.HttpRequest),
                              volume.id,
                              formData['new_size']).AndReturn(volume)
@@ -1291,3 +1297,31 @@ class VolumeViewTests(test.TestCase):
 
         for row in rows:
             self.assertEqual(row.cells['encryption'].data, column_value)
+
+    @test.create_stubs({cinder: ('volume_get',),
+                        quotas: ('tenant_limit_usages',)})
+    def test_extend_volume_with_size_out_of_quota(self):
+        volume = self.volumes.first()
+        usage_limit = {'maxTotalVolumeGigabytes': 100,
+                       'gigabytesUsed': 20,
+                       'volumesUsed': len(self.volumes.list()),
+                       'maxTotalVolumes': 6}
+        formData = {'name': u'A Volume I Am Making',
+                    'orig_size': volume.size,
+                    'new_size': 1000}
+
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+            AndReturn(usage_limit)
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).\
+            AndReturn(self.volumes.first())
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+            AndReturn(usage_limit)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:volumes:extend',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+        self.assertFormError(res, "form", "new_size",
+                             "Volume cannot be extended to 1000GB as you only "
+                             "have 80GB of your quota available.")

@@ -593,10 +593,20 @@ class ExtendForm(forms.SelfHandlingForm):
     def clean(self):
         cleaned_data = super(ExtendForm, self).clean()
         new_size = cleaned_data.get('new_size')
-        if new_size <= self.initial['orig_size']:
+        orig_size = self.initial['orig_size']
+        if new_size <= orig_size:
             raise ValidationError(
                 _("New size must be greater than current size."))
 
+        usages = quotas.tenant_limit_usages(self.request)
+        availableGB = usages['maxTotalVolumeGigabytes'] - \
+            usages['gigabytesUsed']
+        if availableGB < (new_size - orig_size):
+            message = _('Volume cannot be extended to %(req)iGB as '
+                        'you only have %(avail)iGB of your quota '
+                        'available.')
+            params = {'req': new_size, 'avail': availableGB}
+            self._errors["new_size"] = self.error_class([message % params])
         return cleaned_data
 
     def handle(self, request, data):
