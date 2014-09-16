@@ -37,6 +37,7 @@ $overview_chart_height: 81px;
     .chart .detail .dot.active {
       box-sizing: content-box; }}
   .bar_chart_container {
+    position: relative;
     width: 74px;
     min-width: 74px; }
   .bar_chart_container, .chart_container {
