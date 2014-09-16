@@ -19,6 +19,7 @@ from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils.memoized import memoized  # noqa
@@ -56,8 +57,22 @@ class LaunchImage(tables.LinkAction):
 
 
 class DeleteImage(tables.DeleteAction):
-    data_type_singular = _("Image")
-    data_type_plural = _("Images")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Image",
+            u"Delete Images",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Image",
+            u"Deleted Images",
+            count
+        )
+
     policy_rules = (("image", "delete_image"),)
 
     def allowed(self, request, image=None):
