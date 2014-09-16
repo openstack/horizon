@@ -1,5 +1,5 @@
 {% load i18n %}
-<a href="#" id="flavor_details_{{ id }}" class="link-popover" rel="popover" data-content="
+<a href="#" id="flavor_details_{{ id }}" class="link-popover" rel="popover" tabindex="0" data-trigger="focus" data-content="
 <table class='table table-bordered'>
   <tr><th>{% trans 'VCPUs' %}</th><td>{{ vcpus }}</td></tr>
   <tr><th>{% trans 'RAM' %}</th><td>{{ size_ram }}</td></tr>
