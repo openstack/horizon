@@ -437,12 +437,14 @@ class Column(html.HTMLElement):
         data = filter(lambda datum: datum is not None, data)
 
         if len(data):
-            summation = summation_function(data)
-            for filter_func in self.filters:
-                summation = filter_func(summation)
-            return summation
-        else:
-            return None
+            try:
+                summation = summation_function(data)
+                for filter_func in self.filters:
+                    summation = filter_func(summation)
+                return summation
+            except TypeError:
+                pass
+        return None
 
 
 class Row(html.HTMLElement):

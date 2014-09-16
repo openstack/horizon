@@ -1116,6 +1116,15 @@ class DataTableTests(test.TestCase):
         self.assertNotContains(res, '<td>3.0</td>')
         self.assertNotContains(res, '<td>6</td>')
 
+        # Even if "average" summation method is specified,
+        # we have summation fields but no value is provoded
+        # if the provided data cannot be summed.
+        table = MyTable(self.request, TEST_DATA)
+        res = http.HttpResponse(table.render())
+        self.assertContains(res, '<tr class="summation"')
+        self.assertNotContains(res, '<td>3.0</td>')
+        self.assertNotContains(res, '<td>6</td>')
+
     def test_table_action_attributes(self):
         table = MyTable(self.request, TEST_DATA)
         self.assertTrue(table.has_actions)
