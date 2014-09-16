@@ -23,7 +23,7 @@ from openstack_dashboard.api import cinder
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Snapshot Name"))
-    description = forms.CharField(widget=forms.Textarea,
+    description = forms.CharField(max_length=255, widget=forms.Textarea,
             label=_("Description"), required=False)
 
     def handle(self, request, data):
