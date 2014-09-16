@@ -25,7 +25,7 @@ STATUS_CHOICES = (
     ('creating', _('Creating')),
     ('deleting', _('Deleting')),
     ('error', _('Error')),
-    ('error_deleting', _('Error_Deleting')),
+    ('error_deleting', _('Error Deleting')),
 )
 
 
