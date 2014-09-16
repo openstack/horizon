@@ -14,8 +14,8 @@
 #
 # @author: KC Wang, Big Switch Networks
 
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.firewalls import views
 

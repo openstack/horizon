@@ -1,5 +1,5 @@
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 
 from horizon.test.test_dashboards.cats.kittens.views import IndexView  # noqa
 

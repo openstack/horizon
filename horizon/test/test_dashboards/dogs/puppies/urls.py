@@ -1,5 +1,5 @@
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 
 from horizon.test.test_dashboards.dogs.puppies.views import IndexView  # noqa
 from horizon.test.test_dashboards.dogs.puppies.views import TwoTabsView  # noqa

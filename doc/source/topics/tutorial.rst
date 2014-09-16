@@ -396,8 +396,8 @@ URLs
 ----
 The auto-generated ``urls.py`` file is like::
 
-    from django.conf.urls import patterns  # noqa
-    from django.conf.urls import url  # noqa
+    from django.conf.urls import patterns
+    from django.conf.urls import url
 
     from .views import IndexView
 
@@ -428,8 +428,8 @@ Notice that ``mypanel_tabs`` is the ``slug`` attribute defined in the
 
 The completed ``urls.py`` file should look like the following::
 
-    from django.conf.urls import patterns  # noqa
-    from django.conf.urls import url  # noqa
+    from django.conf.urls import patterns
+    from django.conf.urls import url
 
     from openstack_dashboard.dashboards.mydashboard.mypanel import views
 

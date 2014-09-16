@@ -28,8 +28,8 @@ import os
 
 from django.conf import settings
 from django.conf.urls import include  # noqa
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict

@@ -11,8 +11,8 @@
 # under the License.
 
 from django.conf.urls import include  # noqa
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.volumes.volume_types.extras \
     import urls as extras_urls
