@@ -2,21 +2,18 @@
 {% load i18n sizeformat %}
 
 {% block connection_info %}
-    <div class="addresses row-fluid detail">
+    <div class="addresses row detail">
     <h4>{% trans "Connection Info" %}</h4>
     <hr class="header_rule">
     <dl>
         {% with instance.host as host %}
             <dt>{% trans "Host" %}</dt>
-            <dd>
             {% if not host %}
-                {% trans "Not Assigned" %}
-            </dd>
+                <dd>{% trans "Not Assigned" %}</dd>
             {% else %}
-                {{ host }}
-            </dd>
-            <dt>{% trans "Connection Examples" %}</dt>
-            <dd>http://{{ host }}:8091</dd>
+                <dd>{{ host }}</dd>
+                <dt>{% trans "Connection Examples" %}</dt>
+                <dd>http://{{ host }}:8091</dd>
             {% endif %} <!-- ends else block -->
         {% endwith %}
     </dl>

@@ -36,8 +36,8 @@ class LaunchLink(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Backup")
     url = "horizon:project:database_backups:create"
-    classes = ("ajax-modal", "btn-launch")
-    icon = "cloud-upload"
+    classes = ("ajax-modal", "btn-create")
+    icon = "camera"
 
 
 class RestoreLink(tables.LinkAction):
@@ -59,7 +59,7 @@ class DownloadBackup(tables.LinkAction):
     name = "download"
     verbose_name = _("Download Backup")
     url = 'horizon:project:containers:object_download'
-    classes = ("btn-launch",)
+    classes = ("btn-download",)
 
     def get_link_url(self, datum):
         ref = datum.locationRef.split('/')
@@ -73,16 +73,11 @@ class DownloadBackup(tables.LinkAction):
         return datum.status == 'COMPLETED'
 
 
-class DeleteBackup(tables.BatchAction):
-    name = "delete"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
+class DeleteBackup(tables.DeleteAction):
     data_type_singular = _("Backup")
     data_type_plural = _("Backups")
-    classes = ("ajax-modal",)
-    icon = "remove"
 
-    def action(self, request, obj_id):
+    def delete(self, request, obj_id):
         api.trove.backup_delete(request, obj_id)
 
 
