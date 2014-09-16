@@ -37,6 +37,7 @@ class PasswordForm(forms.SelfHandlingForm):
                validators.password_validator_msg()})
     confirm_password = forms.CharField(label=_("Confirm new password"),
                             widget=forms.PasswordInput(render_value=False))
+    no_autocomplete = True
 
     def clean(self):
         '''Check to make sure password fields match.'''
