@@ -609,6 +609,10 @@ class BatchAction(Action):
        setting self.current_past_action = n will set the current active item
        from the list(action_past[n])
 
+       NOTE: action_past attribute is bad for translations and should be
+       avoided. Please use the action_past method instead.
+       This form is kept for legacy.
+
     .. attribute:: data_type_singular
 
        Optional display name (if the data_type method is not defined) for the
@@ -838,24 +842,51 @@ class DeleteAction(BatchAction):
         A short name or "slug" representing this action.
         Defaults to 'delete'
 
-    .. attribute:: action_present
+    .. method:: action_present
+
+        Method accepting an integer/long parameter and returning the display
+        forms of the name properly pluralised (depending on the integer) and
+        translated in a string or tuple/list.
+
+    .. attribute:: action_present (PendingDeprecation)
 
         A string containing the transitive verb describing the delete action.
         Defaults to 'Delete'
 
-    .. attribute:: action_past
+        NOTE: action_present attribute is bad for translations and should be
+        avoided. Please use the action_present method instead.
+        This form is kept for legacy.
+
+    .. method:: action_past
+
+        Method accepting an integer/long parameter and returning the display
+        forms of the name properly pluralised (depending on the integer) and
+        translated in a string or tuple/list.
+
+    .. attribute:: action_past (PendingDeprecation)
 
         A string set to the past tense of action_present.
         Defaults to 'Deleted'
 
-    .. attribute:: data_type_singular
+        NOTE: action_past attribute is bad for translations and should be
+        avoided. Please use the action_past method instead.
+        This form is kept for legacy.
+
+    .. attribute:: data_type_singular (PendingDeprecation)
 
         A string used to name the data to be deleted.
 
-    .. attribute:: data_type_plural
+    .. attribute:: data_type_plural (PendingDeprecation)
 
         Optional. Plural of ``data_type_singular``.
-        Defaults to ``data_type_singular`` appended with an 's'.
+        Defaults to ``data_type_singular`` appended with an 's'.  Relying on
+        the default is bad for translations and should not be done, so it's
+        absence will raise a DeprecationWarning. It is currently kept as
+        optional for legacy code.
+
+        NOTE: data_type_singular and data_type_plural attributes are bad for
+        translations and should be avoided. Please use the action_present and
+        action_past methods. This form is kept for legacy.
     """
 
     name = "delete"
