@@ -1140,14 +1140,18 @@ class VolumeViewTests(test.TestCase):
                              "current size.")
 
     @test.create_stubs({cinder: ('volume_get',
-                                 'retype_supported'),
+                                 'retype_supported',
+                                 'tenant_absolute_limits'),
                         api.nova: ('server_get',)})
     def test_retype_volume_not_supported_no_action_item(self):
         volume = self.cinder_volumes.get(name='my_volume')
+        limits = self.cinder_limits['absolute']
         server = self.servers.first()
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         cinder.retype_supported().AndReturn(False)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .MultipleTimes('limits').AndReturn(limits)
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
 
         self.mox.ReplayAll()
@@ -1163,12 +1167,16 @@ class VolumeViewTests(test.TestCase):
         self.assertNotContains(res, 'retype')
 
     @test.create_stubs({cinder: ('volume_get',
-                                 'retype_supported')})
+                                 'retype_supported',
+                                 'tenant_absolute_limits')})
     def test_retype_volume_supported_action_item(self):
         volume = self.cinder_volumes.get(name='v2_volume')
+        limits = self.cinder_limits['absolute']
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         cinder.retype_supported().AndReturn(True)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .MultipleTimes('limits').AndReturn(limits)
 
         self.mox.ReplayAll()
 
