@@ -5,13 +5,14 @@
 # Translators:
 # LIU Yulong <dragon889@163.com>, 2014
 # Tom Fifield <tom@openstack.org>, 2014
+# Tony Fu <tfu@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
-"PO-Revision-Date: 2014-09-14 00:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-09-16 09:35-0500\n"
+"PO-Revision-Date: 2014-09-17 01:20+0000\n"
+"Last-Translator: Tony Fu <tfu@redhat.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr "其它"
 
 #: decorators.py:53
 msgid "Please log in to continue."
-msgstr "请登录先。"
+msgstr "请先登录。"
 
 #: decorators.py:85
 #, python-format
@@ -83,50 +84,50 @@ msgstr "无效的子网掩码"
 msgid "Filter"
 msgstr "筛选"
 
-#: tables/actions.py:756
+#: tables/actions.py:752
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:758
+#: tables/actions.py:754
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:782 tables/base.py:1533
 msgid "N/A"
 msgstr "无"
 
-#: tables/actions.py:817
+#: tables/actions.py:811
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "不被允许 %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:818
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "无法执行 %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:824
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:873
+#: tables/actions.py:867
 msgid "Delete"
 msgstr "删除"
 
-#: tables/actions.py:875
+#: tables/actions.py:869
 msgid "Deleted"
 msgstr "删除"
 
-#: tables/actions.py:907
+#: tables/actions.py:900
 msgid "Update"
 msgstr "更新"
 
-#: tables/actions.py:908
+#: tables/actions.py:901
 msgid "Updated"
 msgstr "已更新"
 
@@ -135,21 +136,21 @@ msgstr "已更新"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 
-#: tables/base.py:965
+#: tables/base.py:966
 msgid "No items to display."
 msgstr "没有条目显示。"
 
-#: tables/base.py:1072
+#: tables/base.py:1073
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "动作"
 
-#: tables/base.py:1297
+#: tables/base.py:1298
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "id \"%s\" 没有匹配的返回顶"
 
-#: tables/base.py:1448
+#: tables/base.py:1449
 msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
 
