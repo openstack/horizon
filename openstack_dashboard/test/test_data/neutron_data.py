@@ -879,7 +879,7 @@ def data(TEST):
                   'tenant_id': '1',
                   'name': 'rule3',
                   'description': 'rule3 description',
-                  'protocol': 'icmp',
+                  'protocol': None,
                   'action': 'allow',
                   'source_ip_address': '1.2.3.0/24',
                   'source_port': '80',
