@@ -196,7 +196,7 @@ class TenantsTable(tables.DataTable):
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 form_field=forms.CharField(
-                                    widget=forms.Textarea(),
+                                    widget=forms.Textarea(attrs={'rows': 4}),
                                     required=False),
                                 update_action=UpdateCell)
     id = tables.Column('id', verbose_name=_('Project ID'))

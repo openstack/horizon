@@ -46,7 +46,7 @@ DEFAULT_CONTAINER_FORMAT = 'bare'
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Volume Name"))
     description = forms.CharField(max_length=255, widget=forms.Textarea(
-        attrs={'class': 'modal-body-fixed-width'}),
+        attrs={'class': 'modal-body-fixed-width', 'rows': 4}),
         label=_("Description"), required=False)
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
                                            required=False,
@@ -470,8 +470,8 @@ class AttachForm(forms.SelfHandlingForm):
 
 class CreateSnapshotForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Snapshot Name"))
-    description = forms.CharField(max_length=255, widget=forms.Textarea,
-            label=_("Description"), required=False)
+    description = forms.CharField(max_length=255, widget=forms.Textarea(
+        attrs={'rows': 4}), label=_("Description"), required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateSnapshotForm, self).__init__(request, *args, **kwargs)
@@ -508,8 +508,8 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Volume Name"))
-    description = forms.CharField(max_length=255, widget=forms.Textarea,
-            label=_("Description"), required=False)
+    description = forms.CharField(max_length=255, widget=forms.Textarea(
+        attrs={'rows': 4}), label=_("Description"), required=False)
 
     def handle(self, request, data):
         volume_id = self.initial['volume_id']

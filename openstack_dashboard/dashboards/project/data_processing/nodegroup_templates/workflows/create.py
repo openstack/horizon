@@ -38,7 +38,7 @@ class GeneralConfigAction(workflows.Action):
 
     description = forms.CharField(label=_("Description"),
                                   required=False,
-                                  widget=forms.Textarea)
+                                  widget=forms.Textarea(attrs={'rows': 4}))
 
     flavor = forms.ChoiceField(label=_("OpenStack Flavor"))
 

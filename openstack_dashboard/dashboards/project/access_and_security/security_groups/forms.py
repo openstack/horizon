@@ -41,7 +41,9 @@ class CreateGroup(forms.SelfHandlingForm):
                                'invalid': _("The string may only contain"
                                             " ASCII characters and numbers.")},
                            validators=[validators.validate_slug])
-    description = forms.CharField(label=_("Description"))
+    description = forms.CharField(label=_("Description"),
+                                  required=False,
+                                  widget=forms.Textarea(attrs={'rows': 4}))
 
     def handle(self, request, data):
         try:
@@ -68,7 +70,9 @@ class UpdateGroup(forms.SelfHandlingForm):
                                'invalid': _("The string may only contain"
                                             " ASCII characters and numbers.")},
                            validators=[validators.validate_slug])
-    description = forms.CharField(label=_("Description"))
+    description = forms.CharField(label=_("Description"),
+                                  required=False,
+                                  widget=forms.Textarea(attrs={'rows': 4}))
 
     def handle(self, request, data):
         try:

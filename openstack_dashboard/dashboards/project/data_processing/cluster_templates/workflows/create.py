@@ -98,7 +98,7 @@ class GeneralConfigAction(workflows.Action):
 
     description = forms.CharField(label=_("Description"),
                                   required=False,
-                                  widget=forms.Textarea)
+                                  widget=forms.Textarea(attrs={'rows': 4}))
 
     anti_affinity = aa.anti_affinity_field()
 

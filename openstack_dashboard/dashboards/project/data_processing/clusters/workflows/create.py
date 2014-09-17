@@ -72,7 +72,7 @@ class GeneralConfigAction(workflows.Action):
 
     description = forms.CharField(label=_("Description"),
                                   required=False,
-                                  widget=forms.Textarea)
+                                  widget=forms.Textarea(attrs={'rows': 4}))
     cluster_template = forms.ChoiceField(label=_("Cluster Template"),
                                          initial=(None, "None"))
 
