@@ -32,16 +32,16 @@ class DeleteGroup(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete security group",
-            u"Delete security groups",
+            u"Delete Security Group",
+            u"Delete Security Groups",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Security group deleted",
-            u"Security groups deleted",
+            u"Deleted Security Group",
+            u"Deleted Security Groups",
             count
         )
 
