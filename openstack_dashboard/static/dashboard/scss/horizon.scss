@@ -1050,7 +1050,8 @@ form .form-group > div.dynamic-select {
 .modal-footer a.close {
   margin-top: 0;
   margin-right: 5px;
-  font-size: 12px;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
   color: #666;
   font-weight: normal;
   filter: alpha(opacity=100);
