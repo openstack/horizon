@@ -71,7 +71,9 @@ class CreateForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     router_id = forms.CharField(label=_("ID"),
                                 widget=forms.HiddenInput())
     mode = forms.ChoiceField(label=_("Router Type"))
@@ -98,7 +100,7 @@ class UpdateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            params = {'admin_state_up': data['admin_state'],
+            params = {'admin_state_up': (data['admin_state'] == 'True'),
                       'name': data['name']}
             if self.dvr_allowed:
                 params['distributed'] = (data['mode'] == 'distributed')

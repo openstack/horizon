@@ -37,7 +37,9 @@ class UpdatePool(forms.SelfHandlingForm):
     description = forms.CharField(required=False,
                                   max_length=80, label=_("Description"))
     lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 
@@ -50,6 +52,7 @@ class UpdatePool(forms.SelfHandlingForm):
         self.fields['lb_method'].choices = lb_method_choices
 
     def handle(self, request, context):
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             data = {'pool': {'name': context['name'],
                              'description': context['description'],
@@ -89,7 +92,9 @@ class UpdateVip(forms.SelfHandlingForm):
         min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
                     "for the VIP or '-1' if the limit is not set"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 
@@ -129,6 +134,7 @@ class UpdateVip(forms.SelfHandlingForm):
         return cleaned_data
 
     def handle(self, request, context):
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         if context['session_persistence']:
             stype = context['session_persistence']
             if stype == 'APP_COOKIE':
@@ -169,7 +175,9 @@ class UpdateMember(forms.SelfHandlingForm):
     weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
                                 help_text=_("Relative part of requests this "
                                 "pool member serves compared to others"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 
@@ -191,6 +199,7 @@ class UpdateMember(forms.SelfHandlingForm):
         self.fields['pool_id'].choices = pool_id_choices
 
     def handle(self, request, context):
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             data = {'member': {'pool_id': context['pool_id'],
                                'weight': context['weight'],
@@ -228,7 +237,9 @@ class UpdateMonitor(forms.SelfHandlingForm):
         label=_("Max Retries (1~10)"),
         help_text=_("Number of permissible failures before changing "
                     "the status of member to inactive"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 
@@ -236,6 +247,7 @@ class UpdateMonitor(forms.SelfHandlingForm):
         super(UpdateMonitor, self).__init__(request, *args, **kwargs)
 
     def handle(self, request, context):
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             data = {'health_monitor': {
                     'delay': context['delay'],

@@ -73,8 +73,9 @@ class CreateNetwork(forms.SelfHandlingForm):
             'data-network_type-gre': _('Segmentation ID'),
             'data-network_type-vxlan': _('Segmentation ID')
         }))
-    admin_state = forms.BooleanField(label=_("Admin State"),
-                                     initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
     external = forms.BooleanField(label=_("External Network"),
@@ -164,7 +165,7 @@ class CreateNetwork(forms.SelfHandlingForm):
         try:
             params = {'name': data['name'],
                       'tenant_id': data['tenant_id'],
-                      'admin_state_up': data['admin_state'],
+                      'admin_state_up': (data['admin_state'] == 'True'),
                       'shared': data['shared'],
                       'router:external': data['external']}
             if api.neutron.is_port_profiles_supported():
@@ -232,7 +233,9 @@ class UpdateNetwork(forms.SelfHandlingForm):
     network_id = forms.CharField(label=_("ID"),
                                  widget=forms.TextInput(
                                      attrs={'readonly': 'readonly'}))
-    admin_state = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     external = forms.BooleanField(label=_("External Network"), required=False)
     failure_url = 'horizon:admin:networks:index'
@@ -240,7 +243,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             params = {'name': data['name'],
-                      'admin_state_up': data['admin_state'],
+                      'admin_state_up': (data['admin_state'] == 'True'),
                       'shared': data['shared'],
                       'router:external': data['external']}
             network = api.neutron.network_update(request, data['network_id'],
