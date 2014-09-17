@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
-"PO-Revision-Date: 2014-09-13 23:49+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-09-16 09:35-0500\n"
+"PO-Revision-Date: 2014-09-16 09:42+0000\n"
+"Last-Translator: Frédéric <frosmont@free.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,50 +92,50 @@ msgstr "Masque de sous-réseau invalide"
 msgid "Filter"
 msgstr "Filtrer"
 
-#: tables/actions.py:756
+#: tables/actions.py:752
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:758
+#: tables/actions.py:754
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:782 tables/base.py:1533
 msgid "N/A"
 msgstr "N/D"
 
-#: tables/actions.py:817
+#: tables/actions.py:811
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Vous n'êtes pas autorisé à %(action)s : %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:818
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Impossible de %(action)s : %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:824
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s : %(objs)s"
 
-#: tables/actions.py:873
+#: tables/actions.py:867
 msgid "Delete"
 msgstr "Supprimer"
 
-#: tables/actions.py:875
+#: tables/actions.py:869
 msgid "Deleted"
 msgstr "Supprimé"
 
-#: tables/actions.py:907
+#: tables/actions.py:900
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: tables/actions.py:908
+#: tables/actions.py:901
 msgid "Updated"
 msgstr "Mis à jour"
 
@@ -144,21 +144,21 @@ msgstr "Mis à jour"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "L'attribut %(attr)s n'existe pas sur %(obj)s."
 
-#: tables/base.py:965
+#: tables/base.py:966
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
 
-#: tables/base.py:1072
+#: tables/base.py:1073
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Actions"
 
-#: tables/base.py:1297
+#: tables/base.py:1298
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Aucun résultat retourné pour l'id \"%s\"."
 
-#: tables/base.py:1448
+#: tables/base.py:1449
 msgid "Please select a row before taking that action."
 msgstr "Merci de sélectionner une ligne avant de faire cette action."
 
@@ -292,28 +292,28 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr ""
+msgstr "\nVous pouvez spécifier des métadonnées en ajoutant des items depuis la colonne de gauche dans\nla colonne droite. Vous pouvez sélectionner les métadonnées ajoutées au dictionnaire\nglance ou vous pouvez utiliser une option \"Autre\" en utilisant une clé de\nvotre choix."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr ""
+msgstr "Métadonnée Disponible"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Les clés dupliquées ne sont pas autorisées"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr ""
+msgstr "Nom de clé invalide"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
 msgid "No existing metadata"
-msgstr ""
+msgstr "Pas de métadonnée existante"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Métadonnée existante"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -323,7 +323,7 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr ""
+msgstr "\nVous pouvez spécifier les ressources de métadonnées en bougeant les items de la colonne\nde gauche à la colonne de droite. Dans les colonnes de gauche il y a les définitions\ndes métadonnées depuis le Catalogue de Métadonnées Glance. Utiliser l'option \"Autre\" pour ajouter des métadonnées avec la clé de votre choix."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
