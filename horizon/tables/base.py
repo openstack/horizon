@@ -24,6 +24,7 @@ from django.core import urlresolvers
 from django import forms
 from django.http import HttpResponse  # noqa
 from django import template
+from django.template.defaultfilters import slugify  # noqa
 from django.template.defaultfilters import truncatechars  # noqa
 from django.template.loader import render_to_string
 from django.utils.datastructures import SortedDict
@@ -1191,6 +1192,9 @@ class DataTable(object):
                                                             self.data,
                                                             filter_string)
         return self._filtered_data
+
+    def slugify_name(self):
+        return str(slugify(self._meta.name))
 
     def get_filter_string(self):
         """Get the filter string value. For 'server' type filters this is
