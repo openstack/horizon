@@ -1,4 +1,5 @@
 {% load i18n sizeformat %}
+{% load url from future %}
 <h3>{% trans "Job" %}</h3>
 <div class="status row detail">
     <dl>
@@ -10,18 +11,16 @@
         <dd>{{ job.description|default:_("None") }}</dd>
         <dt>{% trans "Mains" %}<dt>
         {% for main in job.mains %}
-          <dd>{{ main.name }}</dd>
+          <dd><a href="{% url 'horizon:project:data_processing.job_binaries:details' main.id  %}">{{ main.name }}</a></dd>
         {% empty %}
           <dd>{% trans "None" %}</dd>
         {% endfor %}
         <dt>{% trans "Libs" %}<dt>
         {% for lib in job.libs %}
-          <dd>{{ lib.name }}</dd>
+          <dd><a href="{% url 'horizon:project:data_processing.job_binaries:details' lib.id  %}">{{ lib.name }}</a></dd>
         {% empty %}
           <dd>{% trans "None" %}</dd>
         {% endfor %}
-        <dt>{% trans "Project ID" %}</dt>
-        <dd>{{ job.tenant_id }}</dd>
         <dt>{% trans "Create time" %}</dt>
         <dd>{{ job.created_at }}</dd>
     </dl>

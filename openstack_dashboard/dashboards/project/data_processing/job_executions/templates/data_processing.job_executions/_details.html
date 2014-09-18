@@ -1,4 +1,5 @@
 {% load i18n sizeformat %}
+{% load url from future %}
 <h3>{% trans "Job Execution Overview" %}</h3>
 <div class="status row detail">
     <dl>
@@ -6,14 +7,14 @@
         <dd>{{ job_execution.info.status }}</dd>
         <dt>{% trans "ID" %}</dt>
         <dd>{{ job_execution.id }}</dd>
-        <dt>{% trans "Job ID" %}</dt>
-        <dd>{{ job_execution.job_id }} ({{ object_names.job_name }})</dd>
-        <dt>{% trans "Input ID" %}</dt>
-        <dd>{{ job_execution.input_id }} ({{ object_names.input_name }})</dd>
-        <dt>{% trans "Output ID" %}</dt>
-        <dd>{{ job_execution.output_id }} ({{ object_names.output_name }})</dd>
-        <dt>{% trans "Cluster ID" %}</dt>
-        <dd>{{ job_execution.cluster_id }} ({{ object_names.cluster_name }})</dd>
+        <dt>{% trans "Job" %}</dt>
+        <dd><a href="{% url 'horizon:project:data_processing.jobs:details' job_execution.job_id %}">{{ object_names.job_name }}</a></dd>
+        <dt>{% trans "Input Data Source" %}</dt>
+        <dd><a href="{% url 'horizon:project:data_processing.data_sources:details' job_execution.input_id %}">{{ object_names.input_name }}</a></dd>
+        <dt>{% trans "Output Data Source" %}</dt>
+        <dd><a href="{% url 'horizon:project:data_processing.data_sources:details' job_execution.output_id %}">{{ object_names.output_name }}</a></dd>
+        <dt>{% trans "Cluster" %}</dt>
+        <dd><a href="{% url 'horizon:project:data_processing.clusters:details' job_execution.cluster_id %}">{{ object_names.cluster_name }}</a></dd>
         <dt>{% trans "Last Updated" %}</dt>
         <dd>{{ job_execution.updated_at }}</dd>
         <dt>{% trans "Started" %}</dt>
@@ -26,8 +27,6 @@
         <dd>{{ job_execution.oozie_job_id }}</dd>
         <dt>{% trans "Created" %}</dt>
         <dd>{{ job_execution.created_at }}</dd>
-        <dt>{% trans "Project ID" %}</dt>
-        <dd>{{ job_execution.tenant_id }}</dd>
         <dt>{% trans "Job Configuration" %}</dt>
         <dd>{% for group, vals in job_execution.job_configs.iteritems %}
             <ul><li><span style="font-weight:bold">{{ group }}:</span>
