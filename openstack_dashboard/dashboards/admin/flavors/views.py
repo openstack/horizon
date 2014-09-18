@@ -18,6 +18,7 @@
 
 import json
 
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -92,42 +93,35 @@ class UpdateMetadataView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:admin:flavors:index')
 
     def get_initial(self):
-        extra_specs = self.get_object()
-        extra_specs_dict = dict((i.key, i.value)
-                                for i in extra_specs)
+        extra_specs_dict = self.get_object()
         return {'id': self.kwargs["id"], 'metadata': extra_specs_dict}
 
     def get_context_data(self, **kwargs):
         context = super(UpdateMetadataView, self).get_context_data(**kwargs)
 
-        extra_specs = self.get_object()
-        extra_specs_dict = dict((i.key, i.value) for i in extra_specs)
+        extra_specs_dict = self.get_object()
 
-        try:
-            context['existing_metadata'] = json.dumps(extra_specs_dict)
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve flavor metadata.'))
+        context['existing_metadata'] = json.dumps(extra_specs_dict)
 
         resource_type = 'OS::Nova::Flavor'
+
+        namespaces = []
         try:
-            metadata = {}
             # metadefs_namespace_list() returns a tuple with list as 1st elem
-            metadata["namespaces"] = [
+            namespaces = [
                 api.glance.metadefs_namespace_get(self.request, x.namespace,
                                                   resource_type)
                 for x in api.glance.metadefs_namespace_list(
                     self.request,
-                    filters={"resource_types": [resource_type]}
+                    filters={'resource_types': [resource_type]}
                 )[0]
             ]
 
-            context['available_metadata'] = json.dumps(metadata)
         except Exception:
-            msg = _('Unable to retrieve available metadata for '
-                    'flavors.')
+            msg = _('Unable to retrieve available metadata for flavors.')
             exceptions.handle(self.request, msg)
 
+        context['available_metadata'] = json.dumps({'namespaces': namespaces})
         context['id'] = self.kwargs['id']
         return context
 
@@ -136,8 +130,8 @@ class UpdateMetadataView(forms.ModalFormView):
         flavor_id = self.kwargs['id']
         try:
             extra_specs = api.nova.flavor_get_extras(self.request, flavor_id)
+            return dict((i.key, i.value) for i in extra_specs)
         except Exception:
             msg = _('Unable to retrieve the flavor metadata.')
-            exceptions.handle(self.request, msg)
-        else:
-            return extra_specs
+            exceptions.handle(self.request, msg,
+                              redirect=reverse(INDEX_URL))
