@@ -5,13 +5,14 @@
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2014
 # yfukuda <fukuda.yuko@jp.fujitsu.com>, 2014
+# myamamot <myamamot@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 09:35-0500\n"
-"PO-Revision-Date: 2014-09-16 20:02+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2014-09-17 11:13-0500\n"
+"PO-Revision-Date: 2014-09-18 04:31+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,7 +86,7 @@ msgstr "インスタンスタイプ <type> (OpenStack でのタイプ) の存在
 
 #: api/ceilometer.py:919
 msgid "Volume of RAM in MB"
-msgstr "MB 単位のメモリー量"
+msgstr "]メモリー量 (MB)"
 
 #: api/ceilometer.py:923
 msgid "CPU time used"
@@ -93,7 +94,7 @@ msgstr "使用 CPU 時間"
 
 #: api/ceilometer.py:927
 msgid "Average CPU utilization"
-msgstr "平均CPU利用率"
+msgstr "平均 CPU 使用率"
 
 #: api/ceilometer.py:931
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
@@ -287,7 +288,7 @@ msgstr "両者"
 
 #: api/cinder.py:210
 msgid "Unknown instance"
-msgstr "未知のインスタンス"
+msgstr "不明なインスタンス"
 
 #: api/keystone.py:96
 #, python-format
@@ -10547,9 +10548,14 @@ msgstr "ネットワークトポロジー"
 
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
+#: dashboards/project/network_topology/templates/network_topology/create_router.html:3
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/routers/tables.py:65
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
-msgid "Create router"
+#: dashboards/project/routers/templates/routers/create.html:3
+#: dashboards/project/routers/templates/routers/create.html:6
+msgid "Create Router"
 msgstr "ルーターの作成"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
@@ -10558,14 +10564,6 @@ msgstr "ルーターの作成"
 #: dashboards/router/dashboard.py:21
 msgid "Router"
 msgstr "ルーター"
-
-#: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:65
-#: dashboards/project/routers/templates/routers/create.html:3
-#: dashboards/project/routers/templates/routers/create.html:6
-msgid "Create Router"
-msgstr "ルーターの作成"
 
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:6
 msgid "Create a Router"
