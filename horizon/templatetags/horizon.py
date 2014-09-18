@@ -125,7 +125,8 @@ def quota(val, units=None):
     if val == float("inf"):
         return _("No Limit")
     elif units is not None:
-        return "%s %s %s" % (val, units, force_text(_("Available")))
+        return "%s %s %s" % (val, force_text(units),
+                             force_text(_("Available")))
     else:
         return "%s %s" % (val, force_text(_("Available")))
 
@@ -145,7 +146,7 @@ class JSTemplateNode(template.Node):
     def __init__(self, nodelist):
         self.nodelist = nodelist
 
-    def render(self, context, ):
+    def render(self, context,):
         output = self.nodelist.render(context)
         output = output.replace('[[[', '{{{').replace(']]]', '}}}')
         output = output.replace('[[', '{{').replace(']]', '}}')
