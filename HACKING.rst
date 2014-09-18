@@ -8,6 +8,8 @@ Horizon Style Commandments
 
     collections.defaultdict,
     django.conf.settings,
+    django.conf.urls.patterns,
+    django.conf.urls.url,
     django.core.urlresolvers.reverse,
     django.core.urlresolvers.reverse_lazy,
     django.template.loader.render_to_string,

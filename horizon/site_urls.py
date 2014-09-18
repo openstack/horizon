@@ -18,8 +18,8 @@
 
 from django.conf import settings
 from django.conf.urls import include  # noqa
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 from django.views.generic import TemplateView  # noqa
 
 from horizon.test.jasmine import jasmine

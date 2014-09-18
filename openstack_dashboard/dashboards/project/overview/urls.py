@@ -17,8 +17,8 @@
 #    under the License.
 
 
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.overview import views
 

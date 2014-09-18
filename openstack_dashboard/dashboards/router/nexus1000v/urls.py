@@ -13,8 +13,8 @@
 # @author: Abishek Subramanian, Cisco Systems, Inc.
 # @author: Sergey Sudakovich,   Cisco Systems, Inc.
 
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 
 from openstack_dashboard.dashboards.router.nexus1000v import views
 

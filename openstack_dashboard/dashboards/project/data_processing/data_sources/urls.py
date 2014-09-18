@@ -12,8 +12,8 @@
 # limitations under the License.
 
 
-from django.conf.urls import patterns  # noqa
-from django.conf.urls import url  # noqa
+from django.conf.urls import patterns
+from django.conf.urls import url
 
 import openstack_dashboard.dashboards.project.data_processing. \
     data_sources.views as views
