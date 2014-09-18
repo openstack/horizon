@@ -161,8 +161,8 @@ We don't require that everything works with JavaScript disabled. It's fine to
 introduce features that require that JavaScript is enabled in the user's web
 browser.
 
-The code has to work on the stable versions of Firefox, Chrome, Safari, and
-Opera web browsers, and on Microsoft Internet Explorer 8 and later.
+The code has to work on the stable and latest versions of Firefox, Chrome,
+Safari, and Opera web browsers, and on Microsoft Internet Explorer 9 and later.
 
 .. _JSLint: http://jslint.com/
 

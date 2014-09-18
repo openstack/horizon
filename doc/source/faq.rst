@@ -35,3 +35,11 @@ What does this mean for visual design?
     designer has taken on the challenge of providing a reference design
     for Horizon which supports this possibility.
 
+What browsers are supported?
+
+    Horizon is primarily tested and supported on the latest version of Firefox,
+    the latest version of Chrome, and IE9+. Issues related to Safari and Opera
+    will also be considered. The list of supported browsers and versions is
+    informally documented on the `Browser Support wiki page
+    <https://wiki.openstack.org/wiki/Horizon/BrowserSupport>`_.
+
