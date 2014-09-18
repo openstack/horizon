@@ -302,7 +302,8 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
 
 
 class FloatingIp(base.APIDictWrapper):
-    _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id', 'pool']
+    _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id',
+              'instance_type', 'pool']
 
     def __init__(self, fip):
         fip['ip'] = fip['floating_ip_address']
@@ -320,6 +321,12 @@ class FloatingIpTarget(base.APIDictWrapper):
 
 
 class FloatingIpManager(network_base.FloatingIpManager):
+
+    device_owner_map = {
+        'compute:': 'compute',
+        'neutron:LOADBALANCER': 'loadbalancer',
+    }
+
     def __init__(self, request):
         self.request = request
         self.client = neutronclient(request)
@@ -328,6 +335,23 @@ class FloatingIpManager(network_base.FloatingIpManager):
         search_opts = {'router:external': True}
         return [FloatingIpPool(pool) for pool
                 in self.client.list_networks(**search_opts).get('networks')]
+
+    def _get_instance_type_from_device_owner(self, device_owner):
+        for key, value in self.device_owner_map.items():
+            if device_owner.startswith(key):
+                return value
+        return device_owner
+
+    def _set_instance_info(self, fip, port=None):
+        if fip['port_id']:
+            if not port:
+                port = port_get(self.request, fip['port_id'])
+            fip['instance_id'] = port.device_id
+            fip['instance_type'] = self._get_instance_type_from_device_owner(
+                port.device_owner)
+        else:
+            fip['instance_id'] = None
+            fip['instance_type'] = None
 
     def list(self, all_tenants=False, **search_opts):
         if not all_tenants:
@@ -344,27 +368,20 @@ class FloatingIpManager(network_base.FloatingIpManager):
         # Get port list to add instance_id to floating IP list
         # instance_id is stored in device_id attribute
         ports = port_list(self.request, **port_search_opts)
-        device_id_dict = SortedDict([(p['id'], p['device_id']) for p in ports])
+        port_dict = SortedDict([(p['id'], p) for p in ports])
         for fip in fips:
-            if fip['port_id']:
-                fip['instance_id'] = device_id_dict[fip['port_id']]
-            else:
-                fip['instance_id'] = None
+            self._set_instance_info(fip, port_dict.get(fip['port_id']))
         return [FloatingIp(fip) for fip in fips]
 
     def get(self, floating_ip_id):
         fip = self.client.show_floatingip(floating_ip_id).get('floatingip')
-        if fip['port_id']:
-            fip['instance_id'] = port_get(self.request,
-                                          fip['port_id']).device_id
-        else:
-            fip['instance_id'] = None
+        self._set_instance_info(fip)
         return FloatingIp(fip)
 
     def allocate(self, pool):
         body = {'floatingip': {'floating_network_id': pool}}
         fip = self.client.create_floatingip(body).get('floatingip')
-        fip['instance_id'] = None
+        self._set_instance_info(fip)
         return FloatingIp(fip)
 
     def release(self, floating_ip_id):

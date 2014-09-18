@@ -342,10 +342,13 @@ class FlavorExtraSpec(object):
 
 
 class FloatingIp(base.APIResourceWrapper):
-    _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id', 'pool']
+    _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id',
+              'instance_type', 'pool']
 
     def __init__(self, fip):
         fip.__setattr__('port_id', fip.instance_id)
+        fip.__setattr__('instance_type',
+                        'compute' if fip.instance_id else None)
         super(FloatingIp, self).__init__(fip)
 
 
