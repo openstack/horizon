@@ -4,13 +4,14 @@
 # 
 # Translators:
 # yfukuda <fukuda.yuko@jp.fujitsu.com>, 2014
+# myamamot <myamamot@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:24-0500\n"
-"PO-Revision-Date: 2014-07-02 05:41+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-09-17 11:13-0500\n"
+"PO-Revision-Date: 2014-09-17 12:41+0000\n"
+"Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,18 +20,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:281
+#: static/horizon/js/horizon.modals.js:302
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "読み込み中"
 
-#: static/horizon/js/horizon.d3linechart.js:386
-#: static/horizon/js/horizon.d3linechart.js:396
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
 msgstr "データがありません。"
 
-#: static/horizon/js/horizon.d3linechart.js:402
-#: static/horizon/js/horizon.modals.js:300
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:321
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -41,18 +42,18 @@ msgstr "エラーが発生しました。後からもう一度お試しくださ
 msgid "There was a problem communicating with the server, please try again."
 msgstr "サーバーとの通信中に問題がありました。再度お試しください。"
 
-#: static/horizon/js/horizon.forms.js:154
+#: static/horizon/js/horizon.forms.js:194
 msgid "Filter"
 msgstr "フィルター"
 
-#: static/horizon/js/horizon.instances.js:232
+#: static/horizon/js/horizon.instances.js:233
 msgid "Could not read the file"
 msgstr "ファイルを読み取れませんでした。"
 
-#: static/horizon/js/horizon.instances.js:238
-#: static/horizon/js/horizon.instances.js:265
+#: static/horizon/js/horizon.instances.js:239
+#: static/horizon/js/horizon.instances.js:266
 msgid "Could not decrypt the password"
-msgstr "パスワードを暗号化解除できませんでした。"
+msgstr "パスワードの暗号化を解除できませんでした。"
 
 #: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
@@ -62,23 +63,23 @@ msgstr "ロールがありません"
 msgid "Roles"
 msgstr "ロール"
 
-#: static/horizon/js/horizon.messages.js:11
+#: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
 msgstr "危険:"
 
-#: static/horizon/js/horizon.messages.js:12
+#: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
 msgstr "警告: "
 
-#: static/horizon/js/horizon.messages.js:13
+#: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
 msgstr "注意:"
 
-#: static/horizon/js/horizon.messages.js:14
+#: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
 msgstr "成功: "
 
-#: static/horizon/js/horizon.messages.js:15
+#: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "エラー: "
 
@@ -86,12 +87,12 @@ msgstr "エラー: "
 msgid "Cancel"
 msgstr "取り消し"
 
-#: static/horizon/js/horizon.modals.js:208
-#: static/horizon/js/horizon.tables.js:200
+#: static/horizon/js/horizon.modals.js:223
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "反映中"
 
-#: static/horizon/js/horizon.modals.js:238
+#: static/horizon/js/horizon.modals.js:253
 msgid "There was an error submitting the form. Please try again."
 msgstr "フォームの送信中にエラーが発生しました。再度お試しください。"
 
@@ -125,30 +126,30 @@ msgid "Add Interface"
 msgstr "インターフェースの追加"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:320
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
 msgstr "表示する項目がありません"
 
 #: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:129
+#: static/horizon/js/horizon.tables.js:120
 msgid "An error occurred while updating."
 msgstr "更新中にエラーが発生しました。"
 
-#: static/horizon/js/horizon.tables.js:183
+#: static/horizon/js/horizon.tables.js:204
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s を選択しました。"
 
-#: static/horizon/js/horizon.tables.js:185
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "Confirm %s"
 msgstr "%sの確認"
 
-#: static/horizon/js/horizon.tables.js:186
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "選択内容を確認してください。この操作は取り消せません。"
 
-#: static/horizon/js/horizon.tables.js:307
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

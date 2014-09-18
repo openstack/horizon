@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 09:35-0500\n"
-"PO-Revision-Date: 2014-09-17 02:00+0000\n"
-"Last-Translator: Tony Fu <tfu@redhat.com>\n"
+"POT-Creation-Date: 2014-09-17 11:13-0500\n"
+"PO-Revision-Date: 2014-09-17 16:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10549,9 +10549,14 @@ msgstr "网络拓扑"
 
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
+#: dashboards/project/network_topology/templates/network_topology/create_router.html:3
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/routers/tables.py:65
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
-msgid "Create router"
+#: dashboards/project/routers/templates/routers/create.html:3
+#: dashboards/project/routers/templates/routers/create.html:6
+msgid "Create Router"
 msgstr "新建路由"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
@@ -10560,14 +10565,6 @@ msgstr "新建路由"
 #: dashboards/router/dashboard.py:21
 msgid "Router"
 msgstr "路由"
-
-#: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:65
-#: dashboards/project/routers/templates/routers/create.html:3
-#: dashboards/project/routers/templates/routers/create.html:6
-msgid "Create Router"
-msgstr "新建路由"
 
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:6
 msgid "Create a Router"

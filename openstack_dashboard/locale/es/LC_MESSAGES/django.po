@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 09:35-0500\n"
-"PO-Revision-Date: 2014-09-16 20:02+0000\n"
+"POT-Creation-Date: 2014-09-17 11:13-0500\n"
+"PO-Revision-Date: 2014-09-17 16:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -10575,9 +10575,14 @@ msgstr "Topología de red"
 
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
+#: dashboards/project/network_topology/templates/network_topology/create_router.html:3
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/routers/tables.py:65
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
-msgid "Create router"
+#: dashboards/project/routers/templates/routers/create.html:3
+#: dashboards/project/routers/templates/routers/create.html:6
+msgid "Create Router"
 msgstr "Crear router"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
@@ -10586,14 +10591,6 @@ msgstr "Crear router"
 #: dashboards/router/dashboard.py:21
 msgid "Router"
 msgstr "Router"
-
-#: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:65
-#: dashboards/project/routers/templates/routers/create.html:3
-#: dashboards/project/routers/templates/routers/create.html:6
-msgid "Create Router"
-msgstr "Crear router"
 
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:6
 msgid "Create a Router"
