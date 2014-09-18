@@ -12,6 +12,7 @@
 
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import messages
 from horizon import tables
@@ -56,10 +57,36 @@ class EditUserLink(tables.LinkAction):
 
 class ToggleEnabled(tables.BatchAction):
     name = "toggle"
-    action_present = (_("Enable"), _("Disable"))
-    action_past = (_("Enabled"), _("Disabled"))
-    data_type_singular = _("User")
-    data_type_plural = _("Users")
+
+    @staticmethod
+    def action_present(count):
+        return (
+            ungettext_lazy(
+                u"Enable User",
+                u"Enable Users",
+                count
+            ),
+            ungettext_lazy(
+                u"Disable User",
+                u"Disable Users",
+                count
+            ),
+        )
+
+    @staticmethod
+    def action_past(count):
+        return (
+            ungettext_lazy(
+                u"Enabled User",
+                u"Enabled Users",
+                count
+            ),
+            ungettext_lazy(
+                u"Disabled User",
+                u"Disabled Users",
+                count
+            ),
+        )
     classes = ("btn-toggle",)
     policy_rules = (("identity", "identity:update_user"),)
 
@@ -101,8 +128,21 @@ class ToggleEnabled(tables.BatchAction):
 
 
 class DeleteUsersAction(tables.DeleteAction):
-    data_type_singular = _("User")
-    data_type_plural = _("Users")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete User",
+            u"Delete Users",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted User",
+            u"Deleted Users",
+            count
+        )
     policy_rules = (("identity", "identity:delete_user"),)
 
     def allowed(self, request, datum):
