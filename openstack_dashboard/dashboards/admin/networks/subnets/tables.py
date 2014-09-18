@@ -89,7 +89,7 @@ class UpdateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
 
 
 class SubnetsTable(tables.DataTable):
-    name = tables.Column("name", verbose_name=_("Name"),
+    name = tables.Column("name_or_id", verbose_name=_("Name"),
                          link='horizon:admin:networks:subnets:detail')
     cidr = tables.Column("cidr", verbose_name=_("CIDR"))
     ip_version = tables.Column("ipver_str", verbose_name=_("IP Version"))

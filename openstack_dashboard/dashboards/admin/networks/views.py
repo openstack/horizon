@@ -82,8 +82,6 @@ class IndexView(tables.DataTableView):
                 # Set tenant name
                 tenant = tenant_dict.get(n.tenant_id, None)
                 n.tenant_name = getattr(tenant, 'name', None)
-                # If name is empty use UUID as name
-                n.set_id_as_name_if_empty()
                 n.num_agents = self._get_agents_data(n.id)
 
             if self.exception:
@@ -113,8 +111,6 @@ class DetailView(tables.MultiTableView):
             subnets = []
             msg = _('Subnet list can not be retrieved.')
             exceptions.handle(self.request, msg)
-        for s in subnets:
-            s.set_id_as_name_if_empty()
         return subnets
 
     def get_ports_data(self):
@@ -125,8 +121,6 @@ class DetailView(tables.MultiTableView):
             ports = []
             msg = _('Port list can not be retrieved.')
             exceptions.handle(self.request, msg)
-        for p in ports:
-            p.set_id_as_name_if_empty()
         return ports
 
     def get_agents_data(self):

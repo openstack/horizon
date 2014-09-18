@@ -38,8 +38,6 @@ class PoolsTab(tabs.TableTab):
             pools = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve pools list.'))
-        for p in pools:
-            p.set_id_as_name_if_empty()
         return pools
 
 
@@ -58,8 +56,6 @@ class MembersTab(tabs.TableTab):
             members = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve member list.'))
-        for m in members:
-            m.set_id_as_name_if_empty()
         return members
 
 

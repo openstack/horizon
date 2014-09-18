@@ -53,7 +53,7 @@ class IndexView(tables.DataTableView):
         ext_net_dict = self._list_external_networks()
 
         for r in routers:
-            r.set_id_as_name_if_empty()
+            r.name = r.name_or_id
             self._set_external_network(r, ext_net_dict)
         return routers
 
@@ -66,9 +66,8 @@ class IndexView(tables.DataTableView):
             search_opts = {'router:external': True}
             ext_nets = api.neutron.network_list(self.request,
                                                 **search_opts)
-            for ext_net in ext_nets:
-                ext_net.set_id_as_name_if_empty()
-            ext_net_dict = SortedDict((n['id'], n.name) for n in ext_nets)
+            ext_net_dict = SortedDict((n['id'], n.name_or_id)
+                                      for n in ext_nets)
         except Exception as e:
             msg = _('Unable to retrieve a list of external networks "%s".') % e
             exceptions.handle(self.request, msg)

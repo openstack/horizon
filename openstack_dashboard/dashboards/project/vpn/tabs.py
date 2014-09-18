@@ -38,8 +38,6 @@ class IPSecSiteConnectionsTab(tabs.TableTab):
             exceptions.handle(
                 self.tab_group.request,
                 _('Unable to retrieve IPSec Site Connections list.'))
-        for c in ipsecsiteconnections:
-            c.set_id_as_name_if_empty()
         return ipsecsiteconnections
 
 
@@ -58,8 +56,6 @@ class VPNServicesTab(tabs.TableTab):
             vpnservices = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve VPN Services list.'))
-        for s in vpnservices:
-            s.set_id_as_name_if_empty()
         return vpnservices
 
 
@@ -78,8 +74,6 @@ class IKEPoliciesTab(tabs.TableTab):
             ikepolicies = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve IKE Policies list.'))
-        for p in ikepolicies:
-            p.set_id_as_name_if_empty()
         return ikepolicies
 
 
@@ -98,8 +92,6 @@ class IPSecPoliciesTab(tabs.TableTab):
             ipsecpolicies = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve IPSec Policies list.'))
-        for p in ipsecpolicies:
-            p.set_id_as_name_if_empty()
         return ipsecpolicies
 
 

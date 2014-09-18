@@ -142,11 +142,9 @@ class SelectRulesAction(workflows.Action):
         try:
             tenant_id = self.request.user.tenant_id
             rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
-            for r in rules:
-                r.set_id_as_name_if_empty()
             rules = sorted(rules,
-                           key=lambda rule: rule.name)
-            rule_list = [(rule.id, rule.name) for rule in rules
+                           key=lambda rule: rule.name_or_id)
+            rule_list = [(rule.id, rule.name_or_id) for rule in rules
                          if not rule.firewall_policy_id]
         except Exception as e:
             rule_list = []
@@ -257,8 +255,7 @@ class AddFirewallAction(workflows.Action):
                     'error': str(e)})
             policies = []
         for p in policies:
-            p.set_id_as_name_if_empty()
-            firewall_policy_id_choices.append((p.id, p.name))
+            firewall_policy_id_choices.append((p.id, p.name_or_id))
         self.fields['firewall_policy_id'].choices = firewall_policy_id_choices
         # only admin can set 'shared' attribute to True
         if not request.user.is_superuser:

@@ -142,7 +142,7 @@ def get_subnets(network):
 
 
 class NetworksTable(tables.DataTable):
-    name = tables.Column("name",
+    name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link='horizon:project:networks:detail')
     subnets = tables.Column(get_subnets,

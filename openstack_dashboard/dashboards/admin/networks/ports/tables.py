@@ -87,7 +87,7 @@ class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
 
 
 class PortsTable(tables.DataTable):
-    name = tables.Column("name",
+    name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:admin:networks:ports:detail")
     fixed_ips = tables.Column(

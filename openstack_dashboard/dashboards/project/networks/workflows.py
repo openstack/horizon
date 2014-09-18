@@ -357,9 +357,9 @@ class CreateNetwork(workflows.Workflow):
             if api.neutron.is_port_profiles_supported():
                 params['net_profile_id'] = data['net_profile_id']
             network = api.neutron.network_create(request, **params)
-            network.set_id_as_name_if_empty()
             self.context['net_id'] = network.id
-            msg = _('Network "%s" was successfully created.') % network.name
+            msg = (_('Network "%s" was successfully created.') %
+                   network.name_or_id)
             LOG.debug(msg)
             return network
         except Exception as e:

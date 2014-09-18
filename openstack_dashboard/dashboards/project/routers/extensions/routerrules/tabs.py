@@ -85,12 +85,10 @@ class RulesGridTab(tabs.Tab):
         ports = self.tab_group.ports
         networks = api.neutron.network_list_for_tenant(
             self.request, self.request.user.tenant_id)
-        for n in networks:
-            n.set_id_as_name_if_empty()
         netnamemap = {}
         subnetmap = {}
         for n in networks:
-            netnamemap[n['id']] = n['name']
+            netnamemap[n['id']] = n.name_or_id
             for s in n.subnets:
                 subnetmap[s.id] = {'name': s.name,
                                    'cidr': s.cidr}
