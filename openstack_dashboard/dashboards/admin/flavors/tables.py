@@ -20,6 +20,7 @@ from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -27,8 +28,21 @@ from openstack_dashboard import api
 
 
 class DeleteFlavor(tables.DeleteAction):
-    data_type_singular = _("Flavor")
-    data_type_plural = _("Flavors")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Flavor",
+            u"Delete Flavors",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Flavor",
+            u"Deleted Flavors",
+            count
+        )
 
     def delete(self, request, obj_id):
         api.nova.flavor_delete(request, obj_id)
