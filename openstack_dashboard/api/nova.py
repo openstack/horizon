@@ -758,9 +758,15 @@ def tenant_absolute_limits(request, reserved=False):
     limits = novaclient(request).limits.get(reserved=reserved).absolute
     limits_dict = {}
     for limit in limits:
-        # -1 is used to represent unlimited quotas
-        if limit.value == -1:
-            limits_dict[limit.name] = float("inf")
+        if limit.value < 0:
+            # Workaround for nova bug 1370867 that absolute_limits
+            # returns negative value for total.*Used instead of 0.
+            # For such case, replace negative values with 0.
+            if limit.name.startswith('total') and limit.name.endswith('Used'):
+                limits_dict[limit.name] = 0
+            else:
+                # -1 is used to represent unlimited quotas
+                limits_dict[limit.name] = float("inf")
         else:
             limits_dict[limit.name] = limit.value
     return limits_dict
