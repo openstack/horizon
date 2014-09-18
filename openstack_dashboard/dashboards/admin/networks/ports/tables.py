@@ -16,6 +16,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -29,8 +30,22 @@ LOG = logging.getLogger(__name__)
 
 
 class DeletePort(tables.DeleteAction):
-    data_type_singular = _("Port")
-    data_type_plural = _("Ports")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Port",
+            u"Delete Ports",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Port",
+            u"Deleted Ports",
+            count
+        )
+
     policy_rules = (("network", "delete_port"),)
 
     def get_policy_target(self, request, datum=None):

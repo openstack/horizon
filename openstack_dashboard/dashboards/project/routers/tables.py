@@ -17,6 +17,7 @@ import logging
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 from neutronclient.common import exceptions as q_ext
 
 from horizon import exceptions
@@ -29,8 +30,22 @@ LOG = logging.getLogger(__name__)
 
 
 class DeleteRouter(tables.DeleteAction):
-    data_type_singular = _("Router")
-    data_type_plural = _("Routers")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Router",
+            u"Delete Routers",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Router",
+            u"Deleted Routers",
+            count
+        )
+
     redirect_url = "horizon:project:routers:index"
     policy_rules = (("network", "delete_router"),)
 

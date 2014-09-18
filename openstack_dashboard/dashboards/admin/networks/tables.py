@@ -17,6 +17,7 @@ import logging
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -30,8 +31,22 @@ LOG = logging.getLogger(__name__)
 
 
 class DeleteNetwork(tables.DeleteAction):
-    data_type_singular = _("Network")
-    data_type_plural = _("Networks")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Network",
+            u"Delete Networks",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Network",
+            u"Deleted Networks",
+            count
+        )
+
     policy_rules = (("network", "delete_network"),)
 
     def get_policy_target(self, request, datum=None):
