@@ -76,16 +76,16 @@ class ReleaseIPs(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Release floating IP",
-            u"Release floating IPs",
+            u"Release Floating IP",
+            u"Release Floating IPs",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Floating IP released",
-            u"Floating IPs released",
+            u"Released Floating IP",
+            u"Released Floating IPs",
             count
         )
 
