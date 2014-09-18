@@ -35,7 +35,7 @@ def generate_key(key_length=64):
         choice = random.SystemRandom().choice
     else:
         choice = random.choice
-    return ''.join(map(lambda x: choice(string.digits + string.letters),
+    return ''.join(map(lambda x: choice(string.digits + string.ascii_letters),
                    range(key_length)))
 
 
