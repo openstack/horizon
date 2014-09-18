@@ -49,7 +49,7 @@ class CreateForm(forms.SelfHandlingForm):
         label=_("Description"), required=False)
     type = forms.ChoiceField(label=_("Type"),
                              required=False)
-    size = forms.IntegerField(min_value=1, label=_("Size (GB)"))
+    size = forms.IntegerField(min_value=1, initial=1, label=_("Size (GB)"))
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
                                            required=False,
                                            widget=forms.Select(attrs={
