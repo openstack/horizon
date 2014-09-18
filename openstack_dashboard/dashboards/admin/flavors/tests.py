@@ -853,3 +853,26 @@ class FlavorUpdateMetadataViewTest(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, reverse(constants.FLAVORS_INDEX_URL))
         self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.nova: ('flavor_get_extras',)})
+    def test_flavor_metadata_get_get_extras_fails(self):
+        # <Flavor: m1.metadata>
+        flavor = self.flavors.list()[3]
+
+        api.nova.flavor_get_extras(
+            IsA(http.HttpRequest),
+            flavor.id
+        ).AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(
+            reverse(
+                constants.FLAVORS_UPDATE_METADATA_URL,
+                kwargs={'id': flavor.id}
+            )
+        )
+
+        self.assertEqual(res.status_code, 302)
+        self.assertRedirectsNoFollow(res, reverse(constants.FLAVORS_INDEX_URL))
+        self.assertMessageCount(error=1)
