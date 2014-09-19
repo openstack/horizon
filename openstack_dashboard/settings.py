@@ -186,7 +186,6 @@ STATICFILES_DIRS = (
 )
 
 COMPRESS_PRECOMPILERS = (
-    ('text/less', 'lesscpy {infile}'),
     ('text/scss', 'django_pyscss.compressor.DjangoScssFilter'),
 )
 
