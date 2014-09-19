@@ -27,8 +27,10 @@
         These fake fields are required to prevent Chrome v34+ from autofilling form.
         {% endcomment %}
         {% if form.no_autocomplete %}
-        <input type="text" name="fake_email" value="" style="display: none" />
-        <input type="password" name="fake_password" value="" style="display: none" />
+        <div class="fake_credentials" style="display: none">
+        <input type="text" name="fake_email" value="" />
+        <input type="password" name="fake_password" value="" />
+        </div>
         {% endif %}
         {% block modal-body %}
           <div class="left">
