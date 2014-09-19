@@ -19,6 +19,7 @@ Views for managing Neutron Routers.
 
 from django.core.urlresolvers import reverse_lazy
 from django.utils.datastructures import SortedDict
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -87,7 +88,10 @@ class IndexView(tables.DataTableView):
                 messages.error(self.request, msg)
                 # gateway_info['network'] is just the network name, so putting
                 # in a smallish error message in the table is reasonable.
-                gateway_info['network'] = _('%s (Not Found)') % ext_net_id
+                gateway_info['network'] = pgettext_lazy(
+                    'External network not found',
+                    # Translators: The usage is "<UUID of ext_net> (Not Found)"
+                    u'%s (Not Found)') % ext_net_id
 
 
 class DetailView(tabs.TabbedTableView):

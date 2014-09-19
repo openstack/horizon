@@ -23,6 +23,7 @@ from __future__ import absolute_import
 import logging
 
 from django.conf import settings
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from cinderclient.v1.contrib import list_extensions as cinder_list_extensions
@@ -44,7 +45,7 @@ DEFAULT_QUOTA_NAME = 'default'
 CONSUMER_CHOICES = (
     ('back-end', _('back-end')),
     ('front-end', _('front-end')),
-    ('both', _('both')),
+    ('both', pgettext_lazy('Both of front-end and back-end', u'both')),
 )
 
 VERSIONS = base.APIVersionManager("volume", preferred_version=1)
