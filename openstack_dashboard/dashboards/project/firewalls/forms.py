@@ -38,9 +38,12 @@ class UpdateRule(forms.SelfHandlingForm):
         max_length=80, label=_("Description"))
     protocol = forms.ChoiceField(
         label=_("Protocol"), required=False,
+        choices=[('TCP', _('TCP')), ('UDP', _('UDP')), ('ICMP', _('ICMP')),
+                 ('ANY', _('ANY'))],
         help_text=_('Protocol for the firewall rule'))
     action = forms.ChoiceField(
         label=_("Action"), required=False,
+        choices=[('ALLOW', _('ALLOW')), ('DENY', _('DENY'))],
         help_text=_('Action for the firewall rule'))
     source_ip_address = forms.IPField(
         label=_("Source IP Address/Subnet"),
@@ -69,26 +72,6 @@ class UpdateRule(forms.SelfHandlingForm):
     enabled = forms.BooleanField(label=_("Enabled"), required=False)
 
     failure_url = 'horizon:project:firewalls:index'
-
-    def __init__(self, request, *args, **kwargs):
-        super(UpdateRule, self).__init__(request, *args, **kwargs)
-
-        protocol = kwargs['initial']['protocol']
-        protocol = protocol.upper() if protocol else 'ANY'
-        action = kwargs['initial']['action'].upper()
-
-        protocol_choices = [(protocol, protocol)]
-        for tup in [('TCP', _('TCP')), ('UDP', _('UDP')), ('ICMP', _('ICMP')),
-                    ('ANY', _('ANY'))]:
-            if tup[0] != protocol:
-                protocol_choices.append(tup)
-        self.fields['protocol'].choices = protocol_choices
-
-        action_choices = [(action, action)]
-        for tup in [('ALLOW', _('ALLOW')), ('DENY', _('DENY'))]:
-            if tup[0] != action:
-                action_choices.append(tup)
-        self.fields['action'].choices = action_choices
 
     def handle(self, request, context):
         rule_id = self.initial['rule_id']
