@@ -2,7 +2,7 @@
 DASHBOARD = 'idm'
 
 # If set to True, this dashboard will not be added to the settings.
-DISABLED = True
+DISABLED = False
 
 # A list of applications to be added to INSTALLED_APPS.
 ADD_INSTALLED_APPS = [

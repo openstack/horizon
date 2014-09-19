@@ -6,7 +6,7 @@ from openstack_dashboard.dashboards.idm import dashboard
 
 
 class Applications(horizon.Panel):
-    name = _("Applications")
+    name = _("My Applications")
     slug = "applications"
 
 
