@@ -19,6 +19,7 @@ from django.utils import datastructures
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import keystone
@@ -268,6 +269,7 @@ class Statistic(base.APIResourceWrapper):
               'duration', 'duration_start', 'duration_end']
 
 
+@memoized
 def ceilometerclient(request):
     """Initialization of Ceilometer client."""
 

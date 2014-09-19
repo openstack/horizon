@@ -15,6 +15,7 @@ import logging
 
 from django.conf import settings
 
+from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 
 from saharaclient import client as api_client
@@ -37,6 +38,7 @@ VERSIONS.load_supported_version(1.1, {"client": api_client,
                                       "version": 1.1})
 
 
+@memoized
 def client(request):
     return api_client.Client(VERSIONS.get_active_version()["version"],
                              sahara_url=base.url_for(request, SAHARA_SERVICE),
