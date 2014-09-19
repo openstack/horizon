@@ -198,7 +198,10 @@ class InstanceTests(helpers.TestCase):
         instances = res.context['instances_table'].data
 
         self.assertTemplateUsed(res, 'project/instances/index.html')
-        self.assertMessageCount(res, error=len(servers))
+        # Since error messages produced for each instance are identical,
+        # there will be only one error message for all instances
+        # (messages de-duplication)
+        self.assertMessageCount(res, error=1)
         self.assertItemsEqual(instances, self.servers.list())
 
     @helpers.create_stubs({

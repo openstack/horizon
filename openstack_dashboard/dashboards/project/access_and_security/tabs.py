@@ -22,6 +22,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
+from neutronclient.common import exceptions as neutron_exc
+
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
@@ -46,6 +48,9 @@ class SecurityGroupsTab(tabs.TableTab):
     def get_security_groups_data(self):
         try:
             security_groups = network.security_group_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            security_groups = []
+            exceptions.handle(self.request)
         except Exception:
             security_groups = []
             exceptions.handle(self.request,
@@ -80,6 +85,9 @@ class FloatingIPsTab(tabs.TableTab):
     def get_floating_ips_data(self):
         try:
             floating_ips = network.tenant_floating_ip_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            floating_ips = []
+            exceptions.handle(self.request)
         except Exception:
             floating_ips = []
             exceptions.handle(self.request,
@@ -87,6 +95,9 @@ class FloatingIPsTab(tabs.TableTab):
 
         try:
             floating_ip_pools = network.floating_ip_pools_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            floating_ip_pools = []
+            exceptions.handle(self.request)
         except Exception:
             floating_ip_pools = []
             exceptions.handle(self.request,

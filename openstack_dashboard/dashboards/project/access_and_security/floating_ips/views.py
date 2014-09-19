@@ -24,6 +24,8 @@ Views for managing floating IPs.
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
+from neutronclient.common import exceptions as neutron_exc
+
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
@@ -60,6 +62,9 @@ class AllocateView(forms.ModalFormView):
     def get_initial(self):
         try:
             pools = api.network.floating_ip_pools_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            pools = []
+            exceptions.handle(self.request)
         except Exception:
             pools = []
             exceptions.handle(self.request,

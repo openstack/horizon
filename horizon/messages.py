@@ -23,20 +23,34 @@ from django.utils.encoding import force_text
 from django.utils.safestring import SafeData  # noqa
 
 
+def horizon_message_already_queued(request, message):
+    _message = force_text(message)
+    if request.is_ajax():
+        for tag, msg, extra in request.horizon['async_messages']:
+            if _message == msg:
+                return True
+    else:
+        for msg in _messages.get_messages(request)._queued_messages:
+            if msg.message == _message:
+                return True
+    return False
+
+
 def add_message(request, level, message, extra_tags='', fail_silently=False):
     """Attempts to add a message to the request using the 'messages' app."""
-    if request.is_ajax():
-        tag = constants.DEFAULT_TAGS[level]
-        # if message is marked as safe, pass "safe" tag as extra_tags so that
-        # client can skip HTML escape for the message when rendering
-        if isinstance(message, SafeData):
-            extra_tags = extra_tags + ' safe'
-        request.horizon['async_messages'].append([tag,
-                                                  force_text(message),
-                                                  extra_tags])
-    else:
-        return _messages.add_message(request, level, message,
-                                     extra_tags, fail_silently)
+    if not horizon_message_already_queued(request, message):
+        if request.is_ajax():
+            tag = constants.DEFAULT_TAGS[level]
+            # if message is marked as safe, pass "safe" tag as extra_tags so
+            # that client can skip HTML escape for the message when rendering
+            if isinstance(message, SafeData):
+                extra_tags = extra_tags + ' safe'
+            request.horizon['async_messages'].append([tag,
+                                                      force_text(message),
+                                                      extra_tags])
+        else:
+            return _messages.add_message(request, level, message,
+                                         extra_tags, fail_silently)
 
 
 def debug(request, message, extra_tags='', fail_silently=False):

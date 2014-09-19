@@ -121,7 +121,10 @@ class InstanceViewTest(test.BaseAdminViewTests):
         res = self.client.get(INDEX_URL)
         instances = res.context['table'].data
         self.assertTemplateUsed(res, 'admin/instances/index.html')
-        self.assertMessageCount(res, error=len(servers))
+        # Since error messages produced for each instance are identical,
+        # there will be only one error message for all instances
+        # (messages de-duplication).
+        self.assertMessageCount(res, error=1)
         self.assertItemsEqual(instances, servers)
 
     @test.create_stubs({api.nova: ('server_list',)})
