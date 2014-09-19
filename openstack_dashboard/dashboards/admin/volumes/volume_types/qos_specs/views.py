@@ -61,7 +61,7 @@ class IndexView(QosSpecMixin, forms.ModalFormMixin, tables.DataTableView):
         except Exception:
             qos_list = []
             exceptions.handle(self.request,
-                              _('Unable to retrieve QOS spec list.'))
+                              _('Unable to retrieve QoS spec list.'))
         return qos_list
 
 
@@ -97,7 +97,7 @@ class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
         except Exception:
             qos_specs = {}
             exceptions.handle(self.request,
-                              _('Unable to retrieve QOS spec '
+                              _('Unable to retrieve QoS spec '
                                 'details.'))
         return {'qos_spec_id': qos_spec_id,
                 'key': key,

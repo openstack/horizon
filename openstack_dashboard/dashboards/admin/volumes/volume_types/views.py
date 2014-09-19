@@ -66,7 +66,7 @@ class EditQosSpecConsumerView(forms.ModalFormView):
         try:
             self._object = api.cinder.qos_spec_get(self.request, qos_spec_id)
         except Exception:
-            msg = _('Unable to retrieve QOS Spec details.')
+            msg = _('Unable to retrieve QoS Spec details.')
             exceptions.handle(self.request, msg)
         return self._object
 
@@ -108,7 +108,7 @@ class ManageQosSpecAssociationView(forms.ModalFormView):
             return api.cinder.qos_spec_list(self.request)
         except Exception:
             exceptions.handle(self.request,
-                              _('Unable to retrieve QOS Specs.'))
+                              _('Unable to retrieve QoS Specs.'))
 
     def find_current_qos_spec_association(self, vol_type_id):
         qos_specs = self.get_qos_specs()
@@ -127,7 +127,7 @@ class ManageQosSpecAssociationView(forms.ModalFormView):
 
             except Exception:
                 exceptions.handle(self.request,
-                        _('Unable to retrieve QOS Spec association.'))
+                        _('Unable to retrieve QoS Spec association.'))
 
         return None
 

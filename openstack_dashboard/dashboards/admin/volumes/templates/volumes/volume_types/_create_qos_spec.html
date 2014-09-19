@@ -6,7 +6,7 @@
 {% block form_action %}{% url 'horizon:admin:volumes:volume_types:create_qos_spec' %}{% endblock %}
 
 {% block modal_id %}create_volume_type_modal{% endblock %}
-{% block modal-header %}{% trans "Create QOS Spec" %}{% endblock %}
+{% block modal-header %}{% trans "Create QoS Spec" %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -17,16 +17,16 @@
 <div class="right">
   <h3>{% trans "Description" %}:</h3>
   <p>{% blocktrans %}
-      QOS Specs can be associated with volume types.
+      QoS Specs can be associated with volume types.
       It is used to map to a set of quality of service capabilities requested
       by the volume owner. This is equivalent to the
-      <tt>cinder qos-create</tt> command. Once the QOS Spec gets created,
-      click the "Manage Specs" button to manage the key-value specs for the QOS Spec.
+      <tt>cinder qos-create</tt> command. Once the QoS Spec gets created,
+      click the "Manage Specs" button to manage the key-value specs for the QoS Spec.
       <br>
       <br>
-      Each QOS Specs entity will have a "consumer" value which indicates where the
-      administrator would like the QOS policy to be enforced. This value can be "front-end"
-      (Nova Compute), "back-end" (Cinder back-end), or both.
+      Each QoS Specs entity will have a "Consumer" value which indicates where the
+      administrator would like the QoS policy to be enforced. This value can be "front-end"
+      (Nova Compute), "back-end" (Cinder back-end), or "both".
      {% endblocktrans %}
   </p>
 </div>
