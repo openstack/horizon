@@ -43,8 +43,12 @@ class CreateNetworkInfoAction(workflows.Action):
     net_profile_id = forms.ChoiceField(label=_("Network Profile"),
                                        required=False,
                                        widget=widget)
-    admin_state = forms.BooleanField(label=_("Admin State"),
-                                     initial=True, required=False)
+
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"),
+                                    help_text=_("The state to start"
+                                                " the network in."))
 
     def __init__(self, request, *args, **kwargs):
         super(CreateNetworkInfoAction, self).__init__(request,
@@ -342,7 +346,7 @@ class CreateNetwork(workflows.Workflow):
     def _create_network(self, request, data):
         try:
             params = {'name': data['net_name'],
-                      'admin_state_up': data['admin_state']}
+                      'admin_state_up': (data['admin_state'] == 'True')}
             if api.neutron.is_port_profiles_supported():
                 params['net_profile_id'] = data['net_profile_id']
             network = api.neutron.network_create(request, **params)

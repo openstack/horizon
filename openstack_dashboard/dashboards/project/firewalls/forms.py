@@ -143,8 +143,9 @@ class UpdateFirewall(forms.SelfHandlingForm):
                                   label=_("Description"),
                                   required=False)
     firewall_policy_id = forms.ChoiceField(label=_("Policy"))
-    admin_state_up = forms.BooleanField(label=_("Admin State Up"),
-                                        required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     failure_url = 'horizon:project:firewalls:index'
 
@@ -174,6 +175,7 @@ class UpdateFirewall(forms.SelfHandlingForm):
     def handle(self, request, context):
         firewall_id = self.initial['firewall_id']
         name_or_id = context.get('name') or firewall_id
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             firewall = api.fwaas.firewall_update(request, firewall_id,
                                                  **context)

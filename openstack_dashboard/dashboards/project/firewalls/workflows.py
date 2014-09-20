@@ -240,9 +240,9 @@ class AddFirewallAction(workflows.Action):
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False,
                                 required=False)
-    admin_state_up = forms.BooleanField(label=_("Admin State"),
-                                        initial=True,
-                                        required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddFirewallAction, self).__init__(request, *args, **kwargs)
@@ -281,6 +281,7 @@ class AddFirewallStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(AddFirewallStep, self).contribute(data, context)
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         return context
 
 
