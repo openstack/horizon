@@ -3,86 +3,76 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Claire Delcourt <cldelcou@gmail.com>, 2014
-# cloudwatt_l10n <l10n@cloudwatt.com>, 2014
-# Orizhial <contact@prunier.es>, 2014
-# EVEILLARD <stephane.eveillard@gmail.com>, 2014
-# François Bureau, 2014
-# Frédéric <frosmont@free.fr>, 2014
-# Kamel_CW <yamani.kamel@gmail.com>, 2014
-# Léo Carré <carre.leo+transifex@gmail.com>, 2014
-# Mohamed-Younès BOUMEDIENE <m-boumediene@live.fr>, 2014
-# Xavier Gauvrit <xavier.gauvrit@cloudwatt.com>, 2014
-# zopanix <christophe.vandekerchove-ext@cloudwatt.com>, 2014
+# Adhi Priharmanto <adhi.pri@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-19 13:06-0500\n"
-"PO-Revision-Date: 2014-09-19 08:50+0000\n"
-"Last-Translator: EVEILLARD <stephane.eveillard@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
+"PO-Revision-Date: 2014-09-20 06:00+0000\n"
+"Last-Translator: Adhi Priharmanto <adhi.pri@gmail.com>\n"
+"Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: base.py:454
 msgid "Other"
-msgstr "Autre"
+msgstr "Lainnya"
 
 #: decorators.py:53
 msgid "Please log in to continue."
-msgstr "Merci de vous connecter pour continuer."
+msgstr "Masuk untuk melanjutkan"
 
 #: decorators.py:85
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "Vous n'êtes pas autorisé à accéder à %s"
+msgstr "Anda tidak diijinkan untuk mengakses %s"
 
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "Des %(resource)s avec le nom \"%(name)s\" existent déjà."
+msgstr "%(resource)s dengan nama \"%(name)s\" sudah ada."
 
 #: exceptions.py:287
 #, python-format
 msgid "Unauthorized: %s"
-msgstr "%s : non autorisé"
+msgstr "Tidak Diijinkan: %s"
 
 #: exceptions.py:290
 msgid "Unauthorized. Please try logging in again."
-msgstr "Accès non autorisé. Merci de vous reconnecter."
+msgstr "Tidak Diijinkan. Silahkan login kembali."
 
 #: middleware.py:117
 msgid "Session timed out."
-msgstr "La session a expiré."
+msgstr "Sesi sudah berakhir."
 
 #: browsers/base.py:88
 msgid "Navigation Item"
-msgstr "Elément de navigation"
+msgstr "Menu"
 
 #: browsers/views.py:41
 #, python-format
 msgid "Select a %s to browse."
-msgstr "Sélectionner une %s à parcourir."
+msgstr "Pilih sebuah %s untuk menelusuri."
 
 #: conf/default.py:41
 msgid "Password is not accepted"
-msgstr "Le mot de passe n'est pas accepté"
+msgstr "Kata kunci ditolak"
 
 #: forms/fields.py:63
 msgid "Incorrect format for IP address"
-msgstr "Format d'adresse IP incorrect"
+msgstr "Format alamat IP salah."
 
 #: forms/fields.py:64
 msgid "Invalid version for IP address"
-msgstr "Version d'adresse IP invalide"
+msgstr "Versi alamat IP salah."
 
 #: forms/fields.py:65
 msgid "Invalid subnet mask"
-msgstr "Masque de sous-réseau invalide"
+msgstr "Subnet mask alamat IP salah."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -90,7 +80,7 @@ msgstr "Masque de sous-réseau invalide"
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
-msgstr "Filtrer"
+msgstr "Penyaring"
 
 #: tables/actions.py:756
 #, python-format
@@ -106,144 +96,143 @@ msgstr "%(action)s %(data_type)s"
 
 #: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
-msgstr "N/D"
+msgstr "Tidak Tersedia"
 
 #: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Vous n'êtes pas autorisé à %(action)s : %(objs)s"
+msgstr "Anda tidak diijinkan untuk %(action)s: %(objs)s"
 
 #: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr "Impossible de %(action)s : %(objs)s"
+msgstr "Tidak dapat %(action)s: %(objs)s"
 
 #: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
-msgstr "%(action)s : %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
 #: tables/actions.py:898
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Hapus"
 
 #: tables/actions.py:900
 msgid "Deleted"
-msgstr "Supprimé"
+msgstr "Terhapus"
 
 #: tables/actions.py:931
 msgid "Update"
-msgstr "Mettre à jour"
+msgstr "Perbaharui"
 
 #: tables/actions.py:932
 msgid "Updated"
-msgstr "Mis à jour"
+msgstr "Sudah di perbaharui"
 
 #: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "L'attribut %(attr)s n'existe pas sur %(obj)s."
+msgstr "Atribut  %(attr)s  tidak tersedia di %(obj)s."
 
 #: tables/base.py:967
 msgid "No items to display."
-msgstr "Aucun élément à afficher."
+msgstr "Tidak ada yang ditampilkan"
 
 #: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
-msgstr "Actions"
+msgstr "Lakukan"
 
 #: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "Aucun résultat retourné pour l'id \"%s\"."
+msgstr "Tidak ada hasil yang berhubungan dengan id \"%s\"."
 
 #: tables/base.py:1453
 msgid "Please select a row before taking that action."
-msgstr "Merci de sélectionner une ligne avant de faire cette action."
+msgstr "Mohon pilih baris terlebih dahulu."
 
 #: templates/_header.html:5
 #, python-format
 msgid "Logged in as: %(username)s"
-msgstr "Utilisateur connecté : %(username)s"
+msgstr "Anda login sebagai: %(username)s"
 
 #: templates/_header.html:7
 msgid "Help"
-msgstr "Aide"
+msgstr "Bantuan"
 
 #: templates/_header.html:9
 msgid "Sign Out"
-msgstr "Se déconnecter"
+msgstr "Keluar"
 
 #: templates/splash.html:8 templates/auth/login.html:4
 msgid "Login"
-msgstr "Identifiant"
+msgstr "Login"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
-msgstr "Se connecter"
+msgstr "Masuk"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
-msgstr "Vous n'avez pas la permission d'accéder à la ressource :"
+msgstr "Anda tidak diijinkan untuk mengakses bagian ini."
 
 #: templates/auth/_login.html:17
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr "Connectez-vous avec un autre nom d'utilisateur ou revenez à <a href=\"%(home_url)s\"> la page d’accueil</a>"
+msgstr ""
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
-msgstr "Se connecter"
+msgstr "Mendaftar"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr "Information :"
+msgstr "Informasi:"
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr "Avertissement :"
+msgstr "Peringatan:"
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr "Succès :"
+msgstr "Berhasil:"
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr "Erreur :"
+msgstr "Kesalahan:"
 
 #: templates/horizon/common/_data_table.html:54
 msgid "Summary"
-msgstr "Résumé"
+msgstr "Ringkasan"
 
 #: templates/horizon/common/_data_table.html:63
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Afficher %(counter)s éléments"
-msgstr[1] "Afficher %(counter)s éléments"
+msgstr[0] "Menampilkan %(counter)s items"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Aperçu"
+msgstr "&laquo;&nbsp;Prev"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
-msgstr "Suivant&nbsp;&raquo;"
+msgstr "Next&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_table_actions.html:38
 msgid "More Actions"
-msgstr "Plus d'Actions"
+msgstr "Perintah Lanjutan"
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
-msgstr "Ajouter une ligne"
+msgstr "Tambah baris"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr "Synthèse  des Quotas"
+msgstr "Ringkasan Limit"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
@@ -258,7 +247,7 @@ msgstr "Instances"
 #: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr " <span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
+msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
@@ -270,11 +259,11 @@ msgstr "RAM"
 
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
-msgstr "IP flottantes"
+msgstr "Floating IPs"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
-msgstr "Groupes de Sécurité"
+msgstr "Security Groups"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
@@ -282,7 +271,7 @@ msgstr "Volumes"
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr "Stockage de volumes"
+msgstr "Volume Storage"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:12
 msgid ""
@@ -292,28 +281,28 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr "\nVous pouvez spécifier des métadonnées en ajoutant des items depuis la colonne de gauche dans\nla colonne droite. Vous pouvez sélectionner les métadonnées ajoutées au dictionnaire\nglance ou vous pouvez utiliser une option \"Autre\" en utilisant une clé de\nvotre choix."
+msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr "Métadonnée Disponible"
+msgstr "Metadata yang tersedia"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr "Les clés dupliquées ne sont pas autorisées"
+msgstr "Tidak diijinkan untuk \"key\" yang sama"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr "Nom de clé invalide"
+msgstr "Kesalahan pada nama \"key\""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
 msgid "No existing metadata"
-msgstr "Pas de métadonnée existante"
+msgstr "Tidak ada metadata yang sudah ada"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr "Métadonnée existante"
+msgstr "Metadata yang sudah ada"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -323,85 +312,83 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr "\nVous pouvez spécifier les ressources de métadonnées en déplaçant les items de la colonne\nde gauche à la colonne de droite. Dans les colonnes de gauche il y a les définitions\ndes métadonnées depuis le Catalogue de Métadonnées Glance. Utiliser l'option \"Autre\" pour ajouter des métadonnées avec la clé de votre choix."
+msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Simpan"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:239
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Batal"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Afficher %(nav_items)s éléments"
-msgstr[1] "Affichage de %(nav_items)s éléments"
+msgstr[0] "Menampilkan %(nav_items)s hal"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Affichage de l'élément %(content_items)s"
-msgstr[1] "Affichage des éléments %(content_items)s"
+msgstr[0] "Menampilkan %(content_items)s hal"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "Résumé de l'Utilisation"
+msgstr "Ringkasan Penggunaan"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
-msgstr "Sélectionner une période pour en visualiser l'utilisation"
+msgstr "Pilih periode waktu untuk query penggunaannya"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr "\n<label>De:</label> %(start)s"
+msgstr "\n<label>From:</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr "\n<label>à:</label>%(end)s"
+msgstr "\n<label>To:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
-msgstr "Envoyer"
+msgstr "Kirim"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
-msgstr "La date doit être au format AAAA-mm-jj"
+msgstr "Format tanggal harus berupa YYYY-mm-dd"
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
-msgstr "Instances actives"
+msgstr "Instances yang Aktif"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
-msgstr "RAM active"
+msgstr "RAM yang aktif"
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours"
-msgstr "Heures-VCPUs de la période"
+msgstr "VCPU-Hours saat ini"
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours"
-msgstr "Go-heures de la période"
+msgstr "GB-Hours saat ini"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
-msgstr "Retour"
+msgstr "Kembali"
 
 #: templates/horizon/common/_workflow.html:43
 msgid "Next"
-msgstr "Suivant"
+msgstr "Berikutnya"
 
 #: templatetags/branding.py:34
 msgid "Horizon"
@@ -409,94 +396,93 @@ msgstr "Horizon"
 
 #: templatetags/horizon.py:126 templatetags/horizon.py:137
 msgid "No Limit"
-msgstr "Pas de limite"
+msgstr "Tidak Terbatas"
 
 #: templatetags/horizon.py:129 templatetags/horizon.py:131
 msgid "Available"
-msgstr "Disponible"
+msgstr "Tersedia"
 
 #: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d Octet"
-msgstr[1] "%(size)d Octets"
+msgstr[0] "%(size)d Bytes"
 
 #: templatetags/sizeformat.py:57
 #, python-format
 msgid "%s KB"
-msgstr "%s Ko"
+msgstr "%s KB"
 
 #: templatetags/sizeformat.py:60
 #, python-format
 msgid "%s MB"
-msgstr "%s Mo"
+msgstr "%s MB"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s GB"
-msgstr "%s Go"
+msgstr "%s GB"
 
 #: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s TB"
-msgstr "%s To"
+msgstr "%s TB"
 
 #: templatetags/sizeformat.py:68
 #, python-format
 msgid "%s PB"
-msgstr "%s Po"
+msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
-msgstr "0 octet"
+msgstr "0 bytes"
 
 #: utils/filters.py:49
 msgid "Never"
-msgstr "Jamais"
+msgstr "Tidak pernah"
 
 #: utils/validators.py:23 utils/validators.py:47
 msgid "Not a valid port number"
-msgstr "Numéro de port invalide"
+msgstr "Nomor port yang salah"
 
 #: utils/validators.py:28
 msgid "Not a valid IP protocol number"
-msgstr "Numéro de protocole IP invalide "
+msgstr "Nomor IP yang salah"
 
 #: utils/validators.py:42
 msgid "One colon allowed in port range"
-msgstr "Un seul caractère deux-points autorisé dans une plage de ports"
+msgstr "Diijinkan sebuah titik dua dalam jangkauan port"
 
 #: utils/validators.py:49
 msgid "Port number must be integer"
-msgstr "Le numéro de port doit être un nombre entier"
+msgstr "Nomor port harus bilangan bulat"
 
 #: workflows/base.py:71
 msgid "Processing..."
-msgstr "Traitement en cours..."
+msgstr "Sedang di proses..."
 
 #: workflows/base.py:475
 msgid "All available"
-msgstr "Disponibles"
+msgstr "Semua yang tersedia"
 
 #: workflows/base.py:476
 msgid "Members"
-msgstr "Membres"
+msgstr "Anggota"
 
 #: workflows/base.py:477
 msgid "None available."
-msgstr "Aucun disponible."
+msgstr "Tidak satupun tersedia"
 
 #: workflows/base.py:478
 msgid "No members."
-msgstr "Aucun membre."
+msgstr "Bukan anggota."
 
 #: workflows/base.py:595
 #, python-format
 msgid "%s completed successfully."
-msgstr "%s terminé avec succès."
+msgstr "%s berhasil diselesaikan."
 
 #: workflows/base.py:596
 #, python-format
 msgid "%s did not complete."
-msgstr "%s ne s'est pas terminé."
+msgstr "%s tidak selesai."
