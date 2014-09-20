@@ -1,4 +1,5 @@
-<div id="{% block modal_id %}{% endblock %}" class="{% block modal_class %}{% if hide %}modal{% else %}static_page{% endif %}{% endblock %}">
+<div id="{% block modal_id %}{% endblock %}"
+  class="{% block modal_class %}{% if hide %}modal{% else %}static_page{% endif %}{% endblock %}">
   <div class="{% if hide %}modal-dialog{% endif %}">
     <div class="{% if hide %}modal-content{% endif %}">
       <div class="modal-header">
@@ -9,8 +10,9 @@
       <div class="modal-body">
       {{ table.render }}
       </div>
-      <hr />
+      <hr>
       {% endif %}
+
       <form id="{% block form_id %}{% endblock %}"
             ng-controller="{% block ng_controller %}DummyCtrl{% endblock %}"
             name="{% block form_name %}{% endblock %}"
@@ -29,13 +31,24 @@
         <input type="password" name="fake_password" value="" style="display: none" />
         {% endif %}
         {% block modal-body %}
+          <div class="left">
             <fieldset>
             {% include "horizon/common/_form_fields.html" %}
             </fieldset>
+          </div>
+          <div class="right">
+            {% block modal-body-right %}{% endblock %}
+          </div>
         {% endblock %}
         </div>
-        <div class="modal-footer">{% block modal-footer %}{% endblock %}</div>
+        <div class="modal-footer">
+        {% block modal-footer %}
+          <a href="{{ cancel_url }}" class="btn btn-default cancel">{{ cancel_label }}</a>
+          <input class="btn btn-primary" type="submit" value="{{ submit_label }}">
+        {% endblock %}
+        </div>
       </form>
+
     </div>
   </div>
 </div>
