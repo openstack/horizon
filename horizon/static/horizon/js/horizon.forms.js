@@ -222,7 +222,7 @@ horizon.addInitFunction(function () {
 
   /* Switchable Fields (See Horizon's Forms docs for more information) */
 
-  // Bind handler for swapping labels on "switchable" select fields.
+  // Bind handler for swapping labels on "switchable" fields.
   $(document).on("change", 'select.switchable', function (evt) {
     var $fieldset = $(evt.target).closest('fieldset'),
       $switchables = $fieldset.find('.switchable');
@@ -255,45 +255,6 @@ horizon.addInitFunction(function () {
   // Queue up the for new modals, too.
   horizon.modals.addModalInitFunction(function (modal) {
     $(modal).find('select.switchable').trigger('change');
-  });
-
-  // Bind handler for swapping labels on "switchable" checkbox input fields.
-  $(document).on("change", 'input.switchable', function (evt) {
-    var $fieldset = $(evt.target).closest('fieldset'),
-      $switchables = $fieldset.find('input.switchable');
-
-    $switchables.each(function (index, switchable) {
-      var $switchable = $(switchable),
-        slug = $switchable.data('slug'),
-        checked = $switchable.prop('checked');
-
-      function handle_switched_field(index, input){
-        var $input = $(input);
-
-        if ( checked ) {
-          $input.closest('.form-group').show();
-          // Add the required class to form group to show a (*) next to label
-          if ($input.data('is-required')) {
-            $input.closest('.form-group').addClass("required");
-          }
-        } else {
-          $input.closest('.form-group').hide();
-          if ($input.data('is-required')) {
-            $input.closest('.form-group').removeClass("required");
-          }
-        }
-      }
-
-      $fieldset.find('.switched[data-switch-on*="' + slug + '"]').each(handle_switched_field);
-      $fieldset.siblings().find('.switched[data-switch-on*="' + slug + '"]').each(handle_switched_field);
-    });
-  });
-
-  // Fire off the change event to trigger the proper initial values.
-  $('input.switchable').trigger('change');
-  // Queue up the for new modals, too.
-  horizon.modals.addModalInitFunction(function (modal) {
-    $(modal).find('input.switchable').trigger('change');
   });
 
   // Handle field toggles for the Create Volume source type field
