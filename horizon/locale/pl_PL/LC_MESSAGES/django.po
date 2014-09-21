@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-18 21:05-0500\n"
-"PO-Revision-Date: 2014-09-18 09:01+0000\n"
+"POT-Creation-Date: 2014-09-19 13:06-0500\n"
+"PO-Revision-Date: 2014-09-19 08:30+0000\n"
 "Last-Translator: Antoni Dabek <adabek@outlook.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -292,11 +292,11 @@ msgstr "Dostępne metadane"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Ponowne użycie nazwy klucza jest niedozwolone."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr ""
+msgstr "Blędna nazwa klucza."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
@@ -305,7 +305,7 @@ msgstr "Brak metadanych"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Istniejące metadane"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -339,9 +339,9 @@ msgstr[2] "%(nav_items)s pozycje wyświetlone"
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(content_items)s pozycja wyświetlona"
+msgstr[1] "%(content_items)s pozycji wyświetlono."
+msgstr[2] "%(content_items)s pozycji wyświetlono."
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
