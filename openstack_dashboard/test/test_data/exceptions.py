@@ -66,7 +66,7 @@ def data(TEST):
     glance_exception = glance_exceptions.ClientException
     TEST.exceptions.glance = create_stubbed_exception(glance_exception)
 
-    ceilometer_exception = ceilometer_exceptions.ClientException
+    ceilometer_exception = ceilometer_exceptions.HTTPException
     TEST.exceptions.ceilometer = create_stubbed_exception(ceilometer_exception)
 
     neutron_exception = neutron_exceptions.NeutronClientException
