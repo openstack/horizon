@@ -1,16 +1,16 @@
 /****************************** Variables */
-@import "rewrites/bootstrap/variables"
+@import "rewrites/bootstrap/variables";
 
 
 /****************************** Mixins */
-@import "FIWARE-Accounts/general/mixins/mixins_call"
+@import "FIWARE-Accounts/general/mixins/mixins_call";
 
 
 /****************************** Rewrites */
-@import "rewrites/rewrites_call"
+@import "rewrites/rewrites_call";
 
 
 /****************************** Base */
-@import "FIWARE-Accounts/general/general_call"
+@import "FIWARE-Accounts/general/general_call";
 
-@import "FIWARE-Accounts/general/pages_call"
+@import "FIWARE-Accounts/general/pages_call";
