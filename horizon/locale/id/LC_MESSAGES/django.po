@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-19 13:06-0500\n"
-"PO-Revision-Date: 2014-09-20 06:00+0000\n"
+"POT-Creation-Date: 2014-09-21 14:06-0500\n"
+"PO-Revision-Date: 2014-09-20 07:10+0000\n"
 "Last-Translator: Adhi Priharmanto <adhi.pri@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -73,6 +73,16 @@ msgstr "Versi alamat IP salah."
 #: forms/fields.py:65
 msgid "Invalid subnet mask"
 msgstr "Subnet mask alamat IP salah."
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "Kirim"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "Batal"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -182,7 +192,7 @@ msgstr "Anda tidak diijinkan untuk mengakses bagian ini."
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr ""
+msgstr "Masuk sebagai user lain atau kembali ke <a href=\"%(home_url)s\"> halaman utama</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
@@ -281,7 +291,7 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr ""
+msgstr "\nAnda dapat menentukan metadata dengan menambahkan item dari kolom sebelah kiri ke kolom sebelah kanan.\nAnda dapat memilih metadata ditambahkan ke dalam kamus glance\natau anda dapat menggunakan pilihan \"Lainnya\" menggunakan \"key\" yang anda inginkan."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
@@ -312,17 +322,12 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr ""
+msgstr "\nAnda dapat menentukan sumber metadata dengan memindahkan item dari kolom kiri ke kolom kanan.\nPada kolom kiri adalah definisi metadata dari Katalog Metadata Glance.\nGunakan pilihan \"Lainnya\" untuk menambahkan metadata sesuai dengan yang anda pilih."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Simpan"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "Batal"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
@@ -357,10 +362,6 @@ msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
 msgstr "\n<label>To:</label>%(end)s"
-
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "Kirim"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."

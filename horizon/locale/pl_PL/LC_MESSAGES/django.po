@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-19 13:06-0500\n"
+"POT-Creation-Date: 2014-09-21 14:06-0500\n"
 "PO-Revision-Date: 2014-09-19 08:30+0000\n"
 "Last-Translator: Antoni Dabek <adabek@outlook.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
@@ -74,6 +74,16 @@ msgstr "Błędna wersja adresu IP"
 #: forms/fields.py:65
 msgid "Invalid subnet mask"
 msgstr "Błędna maska podsieci"
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "Wyślij"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "Anuluj"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -322,11 +332,6 @@ msgstr ""
 msgid "Save"
 msgstr "Zapisz"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "Anuluj"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -364,10 +369,6 @@ msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
 msgstr "\n      <label>Do:</label>%(end)s"
-
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "Wyślij"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."

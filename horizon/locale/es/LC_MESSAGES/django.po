@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-18 21:05-0500\n"
+"POT-Creation-Date: 2014-09-21 14:06-0500\n"
 "PO-Revision-Date: 2014-09-18 14:01+0000\n"
 "Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
@@ -75,6 +75,16 @@ msgstr "Versión de dirección IP no válida"
 #: forms/fields.py:65
 msgid "Invalid subnet mask"
 msgstr "Máscara de red no válida"
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "Enviar"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "Cancelar"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -322,11 +332,6 @@ msgstr "\nPuede especificar los metadatos del recurso moviendo los ítems de la 
 msgid "Save"
 msgstr "Guardar"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "Cancelar"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -362,10 +367,6 @@ msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
 msgstr "\n      <label>A:</label>%(end)s"
-
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "Enviar"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."

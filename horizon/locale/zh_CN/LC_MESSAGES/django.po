@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 09:35-0500\n"
+"POT-Creation-Date: 2014-09-21 14:06-0500\n"
 "PO-Revision-Date: 2014-09-17 01:20+0000\n"
 "Last-Translator: Tony Fu <tfu@redhat.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
@@ -76,6 +76,16 @@ msgstr "IP 地址版本无效"
 msgid "Invalid subnet mask"
 msgstr "无效的子网掩码"
 
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "提交"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "取消"
+
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
@@ -84,73 +94,73 @@ msgstr "无效的子网掩码"
 msgid "Filter"
 msgstr "筛选"
 
-#: tables/actions.py:752
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:754
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:782 tables/base.py:1533
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "无"
 
-#: tables/actions.py:811
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "不被允许 %(action)s: %(objs)s"
 
-#: tables/actions.py:818
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "无法执行 %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:867
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "删除"
 
-#: tables/actions.py:869
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "删除"
 
-#: tables/actions.py:900
+#: tables/actions.py:931
 msgid "Update"
 msgstr "更新"
 
-#: tables/actions.py:901
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "已更新"
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 
-#: tables/base.py:966
+#: tables/base.py:967
 msgid "No items to display."
 msgstr "没有条目显示。"
 
-#: tables/base.py:1073
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "动作"
 
-#: tables/base.py:1298
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "id \"%s\" 没有匹配的返回顶"
 
-#: tables/base.py:1449
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
 
@@ -321,11 +331,6 @@ msgstr ""
 msgid "Save"
 msgstr "保存"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "取消"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -360,10 +365,6 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr "\n<label>到:</label>%(end)s"
 
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "提交"
-
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期采是YYYY-mm-dd格式。"
@@ -396,11 +397,11 @@ msgstr "下一步"
 msgid "Horizon"
 msgstr "控制面板"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:126 templatetags/horizon.py:137
 msgid "No Limit"
 msgstr "无限制"
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:129 templatetags/horizon.py:131
 msgid "Available"
 msgstr "可用配额"
 
