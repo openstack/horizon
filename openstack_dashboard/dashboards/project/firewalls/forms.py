@@ -73,11 +73,13 @@ class UpdateRule(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(UpdateRule, self).__init__(request, *args, **kwargs)
 
-        protocol = kwargs['initial']['protocol'].upper()
+        protocol = kwargs['initial']['protocol']
+        protocol = protocol.upper() if protocol else 'ANY'
         action = kwargs['initial']['action'].upper()
 
         protocol_choices = [(protocol, protocol)]
-        for tup in [('TCP', _('TCP')), ('UDP', _('UDP')), ('ICMP', _('ICMP'))]:
+        for tup in [('TCP', _('TCP')), ('UDP', _('UDP')), ('ICMP', _('ICMP')),
+                    ('ANY', _('ANY'))]:
             if tup[0] != protocol:
                 protocol_choices.append(tup)
         self.fields['protocol'].choices = protocol_choices
@@ -91,6 +93,8 @@ class UpdateRule(forms.SelfHandlingForm):
     def handle(self, request, context):
         rule_id = self.initial['rule_id']
         name_or_id = context.get('name') or rule_id
+        if context['protocol'] == 'ANY':
+            context['protocol'] = None
         for f in ['source_ip_address', 'destination_ip_address',
                   'source_port', 'destination_port']:
             if not context[f]:
