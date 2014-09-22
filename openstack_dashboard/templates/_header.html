@@ -5,22 +5,79 @@
 <h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
 
 <div class="context-box">
-  <div class="dropdown context-selection">
-    <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-        {% show_overview %}
-    </button>
-    <div class="dropdown-menu">
-      <div class="context-lists">
-        {% show_domain_list %}
-        {% show_project_list %}
-        {% show_region_list %}
-      </div>
-      <div class="footer disabled">
-        <span class="glyphicon glyphicon-cog"></span>
-        {% trans "Filter selections" %}
-      </div>
-    </div><!-- end of dropdown-menu -->
-  </div><!-- end of context-selection -->
+  <div class="dropdown mobile">
+    <a href="#" class='dropdown-toggle' data-toggle="dropdown">
+      <span class="caret"></span> 
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-header">
+      <li class="cloud">
+        <a href="http://cloud.lab.fi-ware.org/">
+          Cloud
+        </a>
+      </li>
+
+      <li class="store">
+        <a href="http://store.lab.fi-ware.org/">
+          Store
+        </a>
+      </li>
+      <li class="mashup">
+        <a href="http://mashup.lab.fi-ware.org/">
+          Mashup
+        </a>
+      </li>
+      <li class="data">
+        <a href="http://data.lab.fi-ware.org/">
+          Data
+        </a>
+      </li>
+      <li class="account">
+        <a href="https://account.lab.fi-ware.org/">
+          Account
+        </a>
+      </li>
+      <li class="help">
+        <a href="http://lab.fi-ware.org/">
+          Help&info
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <ul class="oil-portal hidden-phone">
+    <li class="cloud">
+      <a href="http://cloud.lab.fi-ware.org/">
+        Cloud
+      </a>
+    </li>
+    <li class="store">
+      <a href="http://store.lab.fi-ware.org/">
+        Store
+      </a>
+    </li>
+    <li class="mashup">
+      <a href="http://mashup.lab.fi-ware.org/">
+        Mashup
+      </a>
+    </li>
+    <li class="data">
+      <a href="http://data.lab.fi-ware.org/">
+        Data
+      </a>
+    </li>
+    <li class="account">
+      <a href="https://account.lab.fi-ware.org/">
+        Account
+      </a>
+    </li>
+    <li class="help">
+      <a href="http://lab.fi-ware.org/">
+        Help&info
+      </a>
+    </li>
+  </ul>
 </div><!-- end of context-box -->
 
 <div id="user_info" class="pull-right">
@@ -32,7 +89,7 @@
       <li class='divider'></li>
       <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
       {% if HORIZON_CONFIG.help_url %}
-        <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
+      <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
       {% endif %}
     </ul>
   </div>

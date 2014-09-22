@@ -1,18 +1,21 @@
 /* Horizon Variables */
 
-$gray-darker: #222222;
-$gray-dark: #333333;
-$gray: #555555;
-$gray-light: #cccccc;
-$gray-lighter: #eeeeee;
+$black: #000 !default;
+$gray-darker: #222222 !default;
+$gray-dark: #333333 !default;
+$gray: #555555 !default;
+$gray-light: #cccccc !default;
+$gray-lighter: #e2e2e2 !default;
+$white: #fff !default;
 
-$brand-primary: #428bca;
+$brand-primary: #002d67 !default;
+$brand-secundary: #0380b4 !default;
 $brand-success: #5cb85c;
 $brand-info: #5bc0de;
 $brand-warning: #f0ad4e;
 $brand-danger: #d9534f;
 
-$body-bg: #ffffff;
+$body-bg: $white;
 
 $text-color: $gray-dark;
 
@@ -26,6 +29,24 @@ $headings-color: $gray-dark;
 $table-border-color: $border-color;
 $table-bg-hover: #f5f5f5;
 $table-bg-odd: #f9f9f9;
+
+
+// Typography
+// -------------------------
+$sansFontFamily:        "OpenSans", Arial, sans-serif;
+$sansFontFamilyLight:   "OpenSansLight", Arial, sans-serif;
+$serifFontFamily:       Times New Roman, Times, serif !default;
+$corporateFontFamily:   "NeoTechRegular" !default;
+
+
+$baseFontSize:          14px !default;
+$baseFontFamily:        $sansFontFamily;
+$baseLineHeight:        20px !default;
+$altFontFamily:         $serifFontFamily !default;
+
+$headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    normal !default;    // instead of browser default, bold
+$headingsColor:         inherit !default; // empty to use BS default, $textColor
 
 
 /* Workflows */

@@ -259,6 +259,7 @@ h1.brand {
 
 h1.brand a {
   background: url(../img/logo.png) top left no-repeat;
+  background-size: contain;
   display: block;
   float: left;
   width: 216px;

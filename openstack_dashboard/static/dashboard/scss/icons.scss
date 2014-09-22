@@ -1,0 +1,26 @@
+/**************MENU TOOLBAR 20PX*************/
+
+[class^="icon_menu-20-"],   [class*="icon_menu-20-"] {
+  width: 25px;
+  height: 25px;
+  margin-top: 7px;
+  background-image: url("icons/menu_ico-20.png");
+}
+
+
+.icon_menu-20-home { background-position: -12px -10px; }
+.icon_menu-20-organizations  { background-position: -12px -45px;  }
+.icon_menu-20-members  { background-position: -12px -45px;  }
+.icon_menu-20-resources { background-position: -12px -114px;  }
+.icon_menu-20-my-applications { background-position: -12px -80px;  }
+.icon_menu-20-notify { background-position: -12px -116px; }
+.icon_menu-20-administrators { background-position: -12px -150px; }
+
+
+.icon_menu-20-home-hover { background-position: -51px -10px; }
+.icon_menu-20-organizations-hover { background-position: -51px -45px;  }
+.icon_menu-20-members-hover  { background-position: -51px -45px;  }
+.icon_menu-20-resources-hover { background-position: -51px -114px;  }
+.icon_menu-20-my-applications-hover { background-position: -51px -79px;  }
+.icon_menu-20-notify-header { background-position: -51px -116px; }
+.icon_menu-20-administrators-header { background-position: -51px -150px; }
