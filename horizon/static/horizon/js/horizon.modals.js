@@ -287,6 +287,7 @@ horizon.addInitFunction(function() {
   });
 
   horizon.modals.addModalInitFunction(horizon.datatables.validate_button);
+  horizon.modals.addModalInitFunction(horizon.utils.loadAngular);
 
   // Load modals for ajax-modal links.
   $(document).on('click', '.ajax-modal', function (evt) {
@@ -341,14 +342,12 @@ horizon.addInitFunction(function() {
 
   /* Manage the modal "stack" */
 
-  // When a new modal is opened, hide any that are already in the stack.
+  // After a modal has been shown, hide any other modals that are already in
+  // the stack. Only one modal can be visible at the same time.
   $(document).on("show.bs.modal", ".modal", function () {
-    var container = $("#modal_wrapper"),
-      modal_stack = container.find(".modal"),
-      $this = $(this);
+    var modal_stack = $("#modal_wrapper .modal");
     modal_stack.splice(modal_stack.length - 1, 1);
     modal_stack.modal("hide");
-    horizon.utils.loadAngular(container);
   });
 
   // After a modal has been fully hidden, remove it to avoid confusion.
