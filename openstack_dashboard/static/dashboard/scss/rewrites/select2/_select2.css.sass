@@ -1,0 +1,70 @@
+.select2-drop,
+.select2-drop-mask,
+.select2-container-multi, 
+.select2-choices 
+  background-color: #F4F4F4 !important
+  border: none !important 
+  box-shadow: none !important
+.select2-drop
+  z-index: 99999999
+
+.select2-container-multi, 
+.select2-choices 
+  background-image: none !important
+  border-left: none !important
+  border-right: none !important
+  border-bottom: none !important
+  border-top: 1px solid #C1C1C1 !important
+
+  margin-left: 15px
+  @include border-radius
+  .select2-choices
+    border-top: none !important
+
+
+.select2-container,
+ul.select2-choices
+  -moz-border-radius: 0px !important
+  -webkit-border-radius: 0px !important
+  border-radius: 0px !important
+
+.select2-container
+  width: 98%
+  margin-bottom: 18px
+
+.select2-input
+  border-top: none !important
+
+
+.select2-highlighted
+  @include transition(background .3s, color, .3s)
+  background: $blue !important
+
+
+.select2-search-choice
+  color: #FFF !important
+  border: 1px solid $blue !important
+  box-shadow: none !important
+  background-color: $blue !important
+  background-image: none !important
+
+
+.select2-search-choice
+  a
+    padding: 0px !important
+    border: none !important
+    box-shadow: none !important
+    margin-top: 0 !important
+
+.select2-search-choice-close
+  background-position: -88px -19px
+  background-size: 104px 57px
+  &:hover
+    background-position: -88px -3px !important
+    background-size: 104px 57px
+
+.owners
+  .select2-container
+    margin-left: 0
+    width: 101%
+

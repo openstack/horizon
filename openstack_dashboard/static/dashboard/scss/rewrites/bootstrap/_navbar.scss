@@ -1,0 +1,49 @@
+.navbar-fixed-top{
+  background-color: $navbar-default-bg;
+  padding: 0;
+}
+
+.navbar-default {
+  background-color: #F4F4F4;
+  border-color: #E5E5E5;
+}
+
+.navbar-search .search-query {
+  font-family: "Verdana", Arial, sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 1px solid #f9f9f9;
+  line-height: 2;
+}
+
+
+.navbar .divider-vertical {
+  background-color: #f9f9f9;
+  border-right: 1px solid #f9f9f9;
+  border: none;
+}
+
+.navbar .btn-navbar .icon-bar {
+    background-color: #00D3DE;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
+  color: #002d67;
+}
+
+.nav-collapse.collapse {
+  background-color: #F4F4F4;
+}
+
+ul.navbar-nav > li {
+  font-family: $corporate-font-family-sans-serif-Regular;
+}
+.navbar-nav.navbar-right:last-child {
+  margin-right: $zero;
+}
+@media (min-width: 768px){
+.navbar-nav>li>a {
+  padding-top: 13px;
+  padding-bottom: 10px;
+}
+}
