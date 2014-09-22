@@ -1,0 +1,19 @@
+{% load i18n branding %}
+
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    {% include "horizon/_custom_meta.html" %}
+    <title>{% trans "Login" %} - {% site_branding %}</title>
+    {% include "_stylesheets.html" %}
+    {% include "horizon/_custom_head_js.html" %}
+  </head>
+  <body id="splash">
+    <div class="container">
+      <div class="row large-rounded">
+        {% include 'auth/_login.html' %}
+      </div>
+    </div>
+  </body>
+</html>
