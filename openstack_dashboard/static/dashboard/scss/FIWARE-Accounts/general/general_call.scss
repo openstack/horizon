@@ -1,7 +1,7 @@
 /*********** mixins call are in application */
 
-/****************************** layouts 
-@import "layouts/layouts_call"
+/****************************** layouts */
+@import "layouts/layouts_call";
 
 /****************************** extras 
 @import "extras/extras_call"
@@ -10,3 +10,6 @@
 @import "icons-fonts/icons-fonts"
 
 */
+body{
+background: black;
+}
