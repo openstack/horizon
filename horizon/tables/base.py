@@ -11,7 +11,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
+import pdb
 import collections
 import copy
 import json
@@ -367,6 +367,7 @@ class Column(html.HTMLElement):
         or the return value of the attr:`~horizon.tables.Column.transform`
         method for this column.
         """
+        #pdb.set_trace()
         datum_id = self.table.get_object_id(datum)
 
         if datum_id in self.table._data_cache[self]:
