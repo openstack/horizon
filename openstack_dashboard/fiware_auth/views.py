@@ -41,7 +41,7 @@ from horizon import messages
 from horizon.utils import validators
 
 from openstack_dashboard import api
-
+from django.core.mail import send_mail
 LOG = logging.getLogger(__name__)
 
 class RegistrationView(FormView):
@@ -101,12 +101,13 @@ class RegistrationView(FormView):
 												email=cleaned_data['email'],
 												password=cleaned_data['password1'],
 												project=None,
-												enabled=True,
+												enabled=False,
 												domain=domain.id)
 			messages.success(request,
 				_('User "%s" was successfully created.') % cleaned_data['username'])
+			#send a mail for activation
+			send_mail('Welcome to FIWARE','New user created at FIWARE :D', 'admin@fiware-idm-test.dit.upm.es',
+				[cleaned_data['email']], fail_silently=False)
 			return new_user
 		except Exception:
 			exceptions.handle(request, _('Unable to create user.'))
-                
-
