@@ -41,7 +41,7 @@ PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 
 
 class UpdateProjectQuotaAction(workflows.Action):
-    ifcb_label = _("Injected File Content Bytes")
+    ifcb_label = _("Injected File Content (Bytes)")
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))
     cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
