@@ -30,6 +30,7 @@ class UploadFile(tables.LinkAction):
     verbose_name = _("Upload Template")
     url = 'horizon:project:data_processing.cluster_templates:upload_file'
     classes = ("btn-launch", "ajax-modal")
+    icon = "upload"
 
 
 class CreateCluster(tables.LinkAction):
