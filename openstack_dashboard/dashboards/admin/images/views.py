@@ -20,6 +20,7 @@ import json
 import logging
 
 from django import conf
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -138,23 +139,19 @@ class UpdateMetadataView(forms.ModalFormView):
         image.properties = dict((k, v)
                                 for (k, v) in image.properties.iteritems()
                                 if k not in reserved_props)
-        try:
-            context['existing_metadata'] = json.dumps(image.properties)
-        except Exception:
-            msg = _('Unable to retrieve image properties.')
-            exceptions.handle(self.request, msg)
+        context['existing_metadata'] = json.dumps(image.properties)
 
         resource_type = 'OS::Glance::Image'
-        metadata = {'namespaces': []}
+        namespaces = []
         try:
             # metadefs_namespace_list() returns a tuple with list as 1st elem
-            namespaces = [x.namespace for x in
+            available_namespaces = [x.namespace for x in
                           api.glance.metadefs_namespace_list(
                               self.request,
                               filters={"resource_types":
                                        [resource_type]}
                           )[0]]
-            for namespace in namespaces:
+            for namespace in available_namespaces:
                 details = api.glance.metadefs_namespace_get(self.request,
                     namespace, resource_type)
                 # Filter out reserved custom properties from namespace
@@ -174,14 +171,13 @@ class UpdateMetadataView(forms.ModalFormView):
                                 if k not in reserved_props
                             )
 
-                metadata["namespaces"].append(details)
+                namespaces.append(details)
 
-            context['available_metadata'] = json.dumps(metadata)
         except Exception:
-            msg = _('Unable to retrieve available properties for '
-                    'image.')
+            msg = _('Unable to retrieve available properties for image.')
             exceptions.handle(self.request, msg)
 
+        context['available_metadata'] = json.dumps({'namespaces': namespaces})
         context['id'] = self.kwargs['id']
         return context
 
@@ -189,9 +185,8 @@ class UpdateMetadataView(forms.ModalFormView):
     def get_object(self):
         image_id = self.kwargs['id']
         try:
-            image = api.glance.image_get(self.request, image_id)
+            return api.glance.image_get(self.request, image_id)
         except Exception:
             msg = _('Unable to retrieve the image to be updated.')
-            exceptions.handle(self.request, msg)
-        else:
-            return image
+            exceptions.handle(self.request, msg,
+                redirect=reverse('horizon:admin:images:index'))
