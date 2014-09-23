@@ -1,16 +1,149 @@
-/****************************** Variables */
-@import "rewrites/bootstrap/variables";
+header,
+.navbar-header{
+  .logo-header,
+  .logo-header-in{
+    width: 200px;
+    display: inline;
+    a.logo{
+      width: auto;
+      margin-top: 0;
+      margin-left: 10px;
+      img.logo{
+        width: 51px;
+        padding-top: 0;
+      img.fiware-logo,
+      img.filab-logo{
+        margin-left: 3px;
+        margin-top: 8px;
+      }
+    .logo{
+      float: left;
+      margin-top: 0;
+    }
+  }
+  .extras{
+    display: inline-block;
+  }
+}
+
+.login{
+  width: 100%;
+  background: $body-bg;
+  min-height: 33px;
+  .dropdown{
+    position: absolute;
+    right: 0;
+    padding: 6px 25px 8px 0;
+  }
+  .dropdown-menu{ 
+    @include dropdown-log;
+  }
+}
+
+a.menu-down{
+  float: right !important;
+  padding: 0 !important;
+  margin: 12px 10px 8px !important;
+  background: rgba(0, 0, 0, 0) !important;
+  border: none;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  text-shadow: none !important;
+  color: #002759 !important;
+  -moz-opacity: .5;
+  -webkit-opacity: .5;
+  opacity: .5;
+  &:hover{
+    color: #00D3DE !important;
+    background: transparent !important;
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+    opacity: 1;
+  }
+  i {
+    font-size: 25px;
+  }
+}
+
+.brand-text{
+  font-size: 17px;
+  width: 83px;
+  float: left;
+}
 
 
-/****************************** Mixins */
-@import "FIWARE-Accounts/general/mixins/mixins_call";
+.in .brand{
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.navbar-header{
+  padding-top: 1px;
+}
 
 
-/****************************** Rewrites */
-@import "rewrites/rewrites_call";
+.navbar .nav > .active > a{
+  font-weight: bold;
+}
+
+.navbar .nav > .active > a{
+  color: #002759;
+  background-color: #FAFAFA;
+  &:focus,
+  &:hover{
+    background-color: #002759 !important;
+    color: #fff !important;
+  }
+}
 
 
-/****************************** Base */
-@import "FIWARE-Accounts/general/general_call";
+.navbar .nav > li > a {
+  padding: 14px 20px 9px 20px;
+  font-size: 14px;
+  text-shadow: none;
+  font-family: $corporate-font-family-sans-serif-Regular;
+  color: $navbar-default-link-color;
+  &:hover{
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none !important;
+    background-color: #FFF !important;
+    color: #00D3DE !important;
+  }
+  &:focus{
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none !important;
+    background-color: #FcFcFc !important;
+    color: #00D3DE !important;
+  }
+}
+.navbar-toggle{
+  padding: 0;
+  i{
+    font-size: 25px;
+  }
+}
+.nav-list > .active > a {
+  &:hover, 
+  &:focus{
+    color: #FFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #002759;
+  }
+}
 
-@import "FIWARE-Accounts/general/pages_call";
+.nav-collapse .dropdown-menu li.active a:hover{
+  background-color: #002759 !important;
+  color: #FFF !important;
+}
+
+.navbar-default .navbar-toggle{
+  border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover{
+  background-color: transparent;
+}
