@@ -235,19 +235,29 @@ ENDPOINT_TYPE_TO_INTERFACE = {
 
 def get_url_for_service(service, region, endpoint_type):
     identity_version = get_version_from_service(service)
-    for endpoint in service['endpoints']:
-        # ignore region for identity
-        if service['type'] == 'identity' or region == endpoint['region']:
-            try:
-                if identity_version < 3:
-                    return endpoint[endpoint_type]
-                else:
-                    interface = \
-                        ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
-                    if endpoint['interface'] == interface:
-                        return endpoint['url']
-            except (IndexError, KeyError):
-                return None
+    available_endpoints = [endpoint for endpoint in service['endpoints']
+                           if region == endpoint['region']]
+    """if we are dealing with the identity service and there is no endpoint
+    in the current region, it is okay to use the first endpoint for any
+    identity service endpoints and we can assume that it is global
+    """
+    if service['type'] == 'identity' and not available_endpoints:
+        available_endpoints = [endpoint for endpoint in service['endpoints']]
+
+    for endpoint in available_endpoints:
+        try:
+            if identity_version < 3:
+                return endpoint[endpoint_type]
+            else:
+                interface = \
+                    ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
+                if endpoint['interface'] == interface:
+                    return endpoint['url']
+        except (IndexError, KeyError):
+            """it could be that the current endpoint just doesn't match the
+            type, continue trying the next one
+            """
+            pass
     return None
 
 
