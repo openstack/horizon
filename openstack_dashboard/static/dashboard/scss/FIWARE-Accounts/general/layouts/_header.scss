@@ -1,152 +1,225 @@
-header,
-.navbar-header{
-
-  .logo-header,
-  .logo-header-in{
-    width: 200px;
-    display: inline;
-
-    a.logo{
-      width: auto;
-      margin-top: 0;
-      margin-left: 10px;
-
-      img.logo{
-        width: 51px;
-        padding-top: 0;
-      }
-      img.fiware-logo,
-      img.filab-logo{
-        margin-left: 3px;
-        margin-top: 8px;
-      }
-    }
-    .logo{
-      float: left;
-      margin-top: 0;
-    }
-  }
-  .extras{
-    display: inline-block;
-  }
+header.navbar{
+  display: block;
+  background-color: #f4f4f4;
+  padding: 1px 10px 1px;
+  border-bottom: 1px solid #F2F2F2;
+  -moz-box-shadow: 0px 1px 8px rgba(50, 51, 51, 0.15);
+  -webkit-box-shadow: 0px 1px 8px rgba(50, 51, 51, 0.15);
+  box-shadow: 0px 1px 8px rgba(50, 51, 51, 0.15);
+  position: fixed;
+  width: 96%;
+  height: 37px;
+  padding: 1px 2% 1px;
+  z-index: 2000000;
 }
 
-.login{
-  width: 100%;
-  background: $body-bg;
-  min-height: 33px;
-  .dropdown{
-    position: absolute;
-    right: 0;
-    padding: 6px 25px 8px 0;
-  }
-  .dropdown-menu{ 
-    @include dropdown-log;
-  }
-}
-
-a.menu-down{
-  float: right !important;
-  padding: 0 !important;
-  margin: 12px 10px 8px !important;
-  background: rgba(0, 0, 0, 0) !important;
+nav.navbar-inner{
+  padding: 0;
+  background-color: transparent;
+  background-image: none;
   border: none;
-  box-shadow: none !important;
-  border-color: transparent !important;
-  text-shadow: none !important;
-  color: #002759 !important;
-  -moz-opacity: .5;
-  -webkit-opacity: .5;
-  opacity: .5;
-  &:hover{
-    color: #00D3DE !important;
-    background: transparent !important;
-    -moz-opacity: 1;
-    -webkit-opacity: 1;
-    opacity: 1;
-  }
-  i {
-    font-size: 25px;
-  }
+  box-shadow: none;  
 }
-
-.brand-text{
-  font-size: 17px;
-  width: 83px;
+nav.navbar-inner .logo-header{
   float: left;
 }
 
 
-.in .brand{
-  margin-top: 5px;
-  margin-right: 10px;
+.fiware-logo {
+  margin-left: 0px;
+  margin-left: 0px;
+  margin-top: 2px;
+  width: 158px !important;
 }
 
-.navbar-header{
-  padding-top: 1px;
+.logo-header .brand{
+  margin: 0 0 0 -8px !important;
+  padding: 0 !important;
 }
 
 
-.navbar .nav > .active > a{
-  font-weight: bold;
+.mobile .dropdown-menu{
+  margin-left: -67px;
+  min-width: 90px
+  background-color: rgb(244, 244, 244);
+  border: none;
+  -webkit-border-top-left-radius: 0px;
+  -moz-border-top-left-radius: 0px;
+  border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -moz-border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+  -webkit-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
+  -moz-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
+  margin-top: 0px;
+  color: #333;
+
 }
 
-.navbar .nav > .active > a{
-  color: #002759;
-  background-color: #FAFAFA;
-  &:focus,
-  &:hover{
-    background-color: #002759 !important;
-    color: #fff !important;
+ul.oil-portal{
+  height: 36px;
+  padding: 0px;
+  margin-bottom: 0px;
+  margin-left: 2px;
+  float: left;
+}
+
+ul.oil-portal li{
+  display: inline-block;
+  padding: 12px 18px 8px;
+}
+
+ul.oil-portal li:hover{
+  background-color: rgba(152, 152, 152, 0.1);
+  background-image: none;
+}
+
+ul.oil-portal li:hover a{
+  color: #60C1CF;
+}
+
+ul.oil-portal li a{
+  color: #555;
+}
+
+ul.oil-portal li a:hover{
+  color: #60C1CF;
+}
+
+ul.oil-portal li.active{
+  background-color: #f9f9f9;
+  height: 18px;
+}
+
+ul.oil-portal li.active a{
+  color: #002D67;
+}
+
+.mobile{
+  display: none;
+  margin-top: 8px;
+}
+
+.mobile ul.dropdown-menu{
+  margin-left: -67px;
+  min-width: 90px;
+  background-color: rgb(244, 244, 244);
+  border: none;
+  -webkit-border-top-left-radius: 0px;
+  -moz-border-top-left-radius: 0px;
+  border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -moz-border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+  -webkit-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
+  -moz-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
+  margin-top: 0px;
+  color:#333;
+}
+
+.mobile ul li a:hover{
+  background-color: rgba(152, 152, 152, 0.1);
+  color:#333;
+}
+
+.mobile ul li.active a{
+  background-color: rgba(152, 152, 152, 0.1);
+  background-image: none;
+  color:#60C1CF;
+}
+
+.mobile ul li.active a:hover{
+  background-color: rgba(152, 152, 152, 0.1);
+  background-image: none;
+  color:#60C1CF;
+}
+
+.mobile ul li.active a:focus{
+  background-color: rgba(152, 152, 152, 0.1);
+  background-image: none;
+  color:#333;
+}
+
+.nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+  margin: 2px 0px 1px 0px;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+  color: #60C1CF;
+  background-color: #FFF;
+  border-radius: 5px;
+}
+
+
+
+@media (max-width: 767px){
+
+  header .navbar ul.nav{
+    margin-top: 0px;
+  }
+
+  .logo-header{
+    float: left;
+  }
+
+  .mobile .dropdown-menu li a{
+    padding: 6px 8px 6px;
+  }
+
+  .mobile{
+    display: inline-block !important;
+    margin-top: 10px;
+  }
+
+  .brand{
+    padding: 0px 4px 0 0px !important;
+    float: left !important;
+  }
+
+  .dropdown .caret {
+    margin-top: 8px;
+    margin-left: 2px;
+  }
+
+  .nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+    margin: 0px 0 1px 15px;
+    float: right;
   }
 }
 
+@media (min-width: 768px) and (max-width: 979px){
 
-.navbar .nav > li > a {
-  padding: 14px 20px 9px 20px;
-  font-size: 14px;
-  text-shadow: none;
-  &:hover{
-    border: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none !important;
-    background-color: #FFF !important;
-    color: #00D3DE !important;
-  }
-  &:focus{
-    border: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none !important;
-    background-color: #FcFcFc !important;
-    color: #00D3DE !important;
-  }
-}
-.navbar-toggle{
-  padding: 0;
-  i{
-    font-size: 25px;
-  }
-}
-.nav-list > .active > a {
-  &:hover, 
-  &:focus{
-    color: #FFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-    background-color: #002759;
-  }
-}
 
-.nav-collapse .dropdown-menu li.active a:hover{
-  background-color: #002759 !important;
-  color: #FFF !important;
-}
+  .nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+    margin: 2px 0 1px 15px;
+    float: right;
+  }
 
-.navbar-default .navbar-toggle{
-  border-color: transparent;
-}
+  header.navbar ul{
+    margin-top: 0px    
+  }
 
-.navbar-default .navbar-toggle:hover{
-  background-color: transparent;
+  .mobile{
+    display: none !important;
+    margin-top: 10px;
+  }
+
+  .brand{
+    padding: 0px 4px 0 0px !important;
+    float: left !important;
+  }
+
+
+  .dropdown .caret {
+    margin-top: 8px;
+    margin-left: 2px;
+  }
+
+  header.navbar .mobile {
+    margin-top: 8px;
+    margin-left: 2px;
+    margin-top: 10px;
+  }
 }

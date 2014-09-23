@@ -1,0 +1,43 @@
+{% load branding i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible' />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    {% include "horizon/_custom_meta.html" %}
+    <title>{% block title %}{% endblock %} - {% site_branding %}</title>
+    {% comment %} Load CSS sheets before Javascript  {% endcomment %}
+    {% block css %}
+      {% include "_stylesheets.html" %}
+    {% endblock %}
+    {% include "horizon/_conf.html" %}
+    {% include "horizon/client_side/_script_loader.html" %}
+    {% include "horizon/_custom_head_js.html" %}
+  </head>
+  <body id="{% block body_id %}{% endblock %}" ng-app='hz'>
+    {% block content %}
+      
+      {% include "_header.html" %}
+
+      <div id="container">
+        <div id='main_content'>
+          {% include "horizon/_messages.html" %}
+          {% block sidebar %}
+            {% include 'horizon/common/_sidebar.html' %}
+          {% endblock %}
+          <div id='content_body'>
+            {% block page_header %}{% endblock %}
+            {% block main %}{% endblock %}
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+    <div id="footer">
+      {% block footer %}{% endblock %}
+    </div>
+    {% block js %}
+      {% include "horizon/_scripts.html" %}
+    {% endblock %}
+    <div id="modal_wrapper"></div>
+  </body>
+</html>

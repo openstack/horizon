@@ -1,100 +1,107 @@
 {% load branding i18n %}
 {% load url from future %}
 {% load context_selection %}
+<header class="navbar">
+      <nav class="navbar-inner">
 
-<h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
+        <div class="logo-header">
+          <a href="#" class="brand">
+            <img alt="FIWARE" class="fiware-logo" src="img/Fi-lab.png">
+          </a>
+        </div>
 
-<div class="context-box">
-  <div class="dropdown mobile">
-    <a href="#" class='dropdown-toggle' data-toggle="dropdown">
-      <span class="caret"></span> 
-    </a>
+        <div class="dropdown mobile">
+          <a href="#" class='dropdown-toggle' data-toggle="dropdown">
+            <span class="caret"></span> 
+          </a>
 
-    <ul class="dropdown-menu dropdown-menu-header">
-      <li class="cloud">
-        <a href="http://cloud.lab.fi-ware.org/">
-          Cloud
-        </a>
-      </li>
+          <ul class="dropdown-menu dropdown-menu-header">
+            <li class="cloud">
+              <a href="http://cloud.lab.fi-ware.org/">
+                Cloud
+              </a>
+            </li>
 
-      <li class="store">
-        <a href="http://store.lab.fi-ware.org/">
-          Store
-        </a>
-      </li>
-      <li class="mashup">
-        <a href="http://mashup.lab.fi-ware.org/">
-          Mashup
-        </a>
-      </li>
-      <li class="data">
-        <a href="http://data.lab.fi-ware.org/">
-          Data
-        </a>
-      </li>
-      <li class="account">
-        <a href="https://account.lab.fi-ware.org/">
-          Account
-        </a>
-      </li>
-      <li class="help">
-        <a href="http://lab.fi-ware.org/">
-          Help&info
-        </a>
-      </li>
-    </ul>
-  </div>
+            <li class="store">
+              <a href="http://store.lab.fi-ware.org/">
+                Store
+              </a>
+            </li>
+            <li class="mashup">
+              <a href="http://mashup.lab.fi-ware.org/">
+                Mashup
+              </a>
+            </li>
+            <li class="data">
+              <a href="https://data.lab.fi-ware.org">
+                Data
+              </a>
+            </li>
+            <li class="account">
+              <a href="https://account.lab.fi-ware.org/">
+                Account
+              </a>
+            </li>
+            <li class="help">
+              <a href="http://help.lab.fi-ware.org/">
+                Help&info
+              </a>
+            </li>
+          </ul>
+        </div>
 
 
-  <ul class="oil-portal hidden-phone">
-    <li class="cloud">
-      <a href="http://cloud.lab.fi-ware.org/">
-        Cloud
-      </a>
-    </li>
-    <li class="store">
-      <a href="http://store.lab.fi-ware.org/">
-        Store
-      </a>
-    </li>
-    <li class="mashup">
-      <a href="http://mashup.lab.fi-ware.org/">
-        Mashup
-      </a>
-    </li>
-    <li class="data">
-      <a href="http://data.lab.fi-ware.org/">
-        Data
-      </a>
-    </li>
-    <li class="account">
-      <a href="https://account.lab.fi-ware.org/">
-        Account
-      </a>
-    </li>
-    <li class="help">
-      <a href="http://lab.fi-ware.org/">
-        Help&info
-      </a>
-    </li>
-  </ul>
-</div><!-- end of context-box -->
+        <ul class="oil-portal hidden-phone">
+          <li class="cloud">
+            <a href="http://cloud.lab.fi-ware.org/">
+              Cloud
+            </a>
+          </li>
+          <li class="store">
+            <a href="http://store.lab.fi-ware.org/">
+              Store
+            </a>
+          </li>
+          <li class="mashup">
+            <a href="http://mashup.lab.fi-ware.org/">
+              Mashup
+            </a>
+          </li>
+          <li class="data">
+            <a href="https://data.lab.fi-ware.org">
+              Data
+            </a>
+          </li>
+          <li class="account">
+            <a href="https://account.lab.fi-ware.org/">
+              Account
+            </a>
+          </li>
+          <li class="help">
+            <a href="http://help.lab.fi-ware.org/">
+              Help&info
+            </a>
+          </li>
+        </ul>
 
-<div id="user_info" class="pull-right">
-  <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
-      <div>{{ request.user.username }}</div>
-    </a>
-    <ul id="editor_list" class="dropdown-menu">
-      <li class='divider'></li>
-      <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
-      {% if HORIZON_CONFIG.help_url %}
-      <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
-      {% endif %}
-    </ul>
-  </div>
+        <div id="user_info" class="pull-right">
+          <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
+              <div>{{ request.user.username }}</div>
+            </a>
+            <ul id="editor_list" class="dropdown-menu">
+              <li class='divider'></li>
+              <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
+              {% if HORIZON_CONFIG.help_url %}
+              <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
+              {% endif %}
+            </ul>
+          </div>
 
-  <a href="{% url 'logout' %}">{% trans "Sign Out" %}</a>
-  {% include "horizon/common/_region_selector.html" %}
-</div>
+          <a href="{% url 'logout' %}">{% trans "Sign Out" %}</a>
+          {% include "horizon/common/_region_selector.html" %}
+        </div>
+      </nav>
 
+      
+</header>
