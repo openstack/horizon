@@ -47,7 +47,7 @@ class RegistrationManager(models.Manager):
 												name=cleaned_data['username'],
 												email=cleaned_data['email'],
 												password=cleaned_data['password1'],
-												project=None,
+												project='demo', #id=e8430da9da7e4dc8b4257f4319261429
 												enabled=False,
 												domain=domain.id)
 			messages.success(request,
@@ -87,7 +87,7 @@ class RegistrationProfile(models.Model):
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
         
-        message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?%s to activate' %self.activation_key
+        message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/%s to activate' %self.activation_key
         #send a mail for activation
         send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
         	[self.user_email], fail_silently=False)

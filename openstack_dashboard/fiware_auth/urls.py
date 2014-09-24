@@ -12,9 +12,12 @@
 # limitations under the License.
 from django.conf.urls import patterns
 from django.conf.urls import url
-from views import RegistrationView
+from views import RegistrationView,ActivationView
 
 urlpatterns = patterns(
 	'fiware_auth.views',
-	url(r"^sign_up/$", RegistrationView.as_view(), name='registration_register')
+	url(r"^sign_up/$", RegistrationView.as_view(), name='fiware_auth_register'),
+	url(r'^activate/(?P<activation_key>\w+)/$',
+                           ActivationView.as_view(),
+                           name='fiware_auth_activate'),
 )

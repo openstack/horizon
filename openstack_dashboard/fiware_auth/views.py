@@ -74,3 +74,21 @@ class RegistrationView(FormView):
 		#delegate to the manager to create all the stuff
 		new_user = RegistrationProfile.objects.create_inactive_user(request, **cleaned_data)
 		return new_user
+
+class ActivationView(TemplateView):
+	http_method_names = ['get']
+	template_name = 'auth/activate.html'
+
+	def get(self, request, *args, **kwargs):
+		activated_user = self.activate(request, *args, **kwargs)
+		if activated_user:
+			success_url = self.get_success_url(request, activated_user)
+			return redirect(success_url)
+		return super(ActivationView, self).get(request, *args, **kwargs)
+
+	def activate(self, request, activation_key):
+		activated_user = RegistrationProfile.objects.activate_user(request,activation_key)
+		return activated_user
+
+	def get_success_url(self, request, user):
+		return 'idm'
