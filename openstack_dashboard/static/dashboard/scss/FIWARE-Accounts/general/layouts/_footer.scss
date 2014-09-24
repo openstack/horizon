@@ -1,16 +1,26 @@
-footer{
-  padding: 10px 0;
-  border-top: 1px solid $gray-light;
-  height: 83px;
-  clear: both;
-  p{
-    padding: 0 15px;
-  }
-  img{
-    float: right;
-  }
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
 }
-.push{
-  height: 103px;
-  clear: both;
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+footer.footer-main {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .wrap {
+  padding: 50px 15px 0;
 }
