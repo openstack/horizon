@@ -40,6 +40,13 @@ class LaunchSnapshot(volume_tables.LaunchVolume):
                             "source_id": vol_id})
         return "?".join([base_url, params])
 
+    def allowed(self, request, snapshot=None):
+        if snapshot:
+            if (snapshot._volume and
+                    getattr(snapshot._volume, 'bootable', '') == 'true'):
+                return snapshot.status == "available"
+        return False
+
 
 class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
     data_type_singular = _("Volume Snapshot")
