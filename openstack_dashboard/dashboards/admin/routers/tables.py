@@ -23,12 +23,6 @@ class DeleteRouter(r_tables.DeleteRouter):
     redirect_url = "horizon:admin:routers:index"
     policy_rules = (("network", "delete_router"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
-
     def delete(self, request, obj_id):
         search_opts = {'device_owner': 'network:router_interface',
                        'device_id': obj_id}
