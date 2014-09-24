@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-14 01:02-0500\n"
+"POT-Creation-Date: 2014-09-22 01:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,6 +73,16 @@ msgstr ""
 msgid "Invalid subnet mask"
 msgstr ""
 
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr ""
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr ""
+
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
@@ -93,61 +103,61 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:873
+#: tables/actions.py:898
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:875
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr ""
 
-#: tables/actions.py:907
+#: tables/actions.py:931
 msgid "Update"
 msgstr ""
 
-#: tables/actions.py:908
+#: tables/actions.py:932
 msgid "Updated"
 msgstr ""
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:965
+#: tables/base.py:967
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1072
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1297
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1448
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -320,11 +330,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr ""
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -361,10 +366,6 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr ""
-
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr ""
@@ -397,11 +398,11 @@ msgstr ""
 msgid "Horizon"
 msgstr ""
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:126 templatetags/horizon.py:137
 msgid "No Limit"
 msgstr ""
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:129 templatetags/horizon.py:131
 msgid "Available"
 msgstr ""
 

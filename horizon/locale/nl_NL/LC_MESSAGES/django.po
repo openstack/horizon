@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
+"POT-Creation-Date: 2014-09-21 14:06-0500\n"
 "PO-Revision-Date: 2014-09-14 00:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
@@ -73,6 +73,16 @@ msgstr "Ongeldige versie voor IP adres"
 msgid "Invalid subnet mask"
 msgstr "Ongeldig subnet masker"
 
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "Indienen"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "Annuleren"
+
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
@@ -93,61 +103,61 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "n.v.t."
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Het is u niet toegestaan om %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Niet in staat om %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:873
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "Verwijder"
 
-#: tables/actions.py:875
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "Verwijderd"
 
-#: tables/actions.py:907
+#: tables/actions.py:931
 msgid "Update"
 msgstr "Bijwerken"
 
-#: tables/actions.py:908
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "Bijgewerkt"
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Het attribuut %(attr)s bestaat niet op %(obj)s."
 
-#: tables/base.py:965
+#: tables/base.py:967
 msgid "No items to display."
 msgstr "Geen artikelen om weer te geven."
 
-#: tables/base.py:1072
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Acties"
 
-#: tables/base.py:1297
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Geen overeenkomsten gevonden voor de id \"%s\"."
 
-#: tables/base.py:1448
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "Selecteer alstublieft een rij voor het uitvoeren van die actie."
 
@@ -319,11 +329,6 @@ msgstr ""
 msgid "Save"
 msgstr "Opslaan"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "Annuleren"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -360,10 +365,6 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "Indienen"
-
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "De datum dient in het JJJJ-mm-dd formaat te zijn."
@@ -396,11 +397,11 @@ msgstr "Volgende"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:126 templatetags/horizon.py:137
 msgid "No Limit"
 msgstr "Geen Limiet"
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:129 templatetags/horizon.py:131
 msgid "Available"
 msgstr "Beschikbaar"
 

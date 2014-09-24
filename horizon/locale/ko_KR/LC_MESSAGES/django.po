@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 09:35-0500\n"
+"POT-Creation-Date: 2014-09-21 14:06-0500\n"
 "PO-Revision-Date: 2014-09-16 02:30+0000\n"
 "Last-Translator: Mario Cho <hephaex@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
@@ -77,6 +77,16 @@ msgstr "IP 주소 버전이 잘못되었습니다."
 msgid "Invalid subnet mask"
 msgstr "서브넷 mask가 잘못되었습니다."
 
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "제출"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "취소"
+
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
@@ -85,73 +95,73 @@ msgstr "서브넷 mask가 잘못되었습니다."
 msgid "Filter"
 msgstr "필터"
 
-#: tables/actions.py:752
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:754
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:782 tables/base.py:1533
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:811
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr " %(action)s 이(가) 허용되지 않습니다: %(objs)s "
 
-#: tables/actions.py:818
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s를 할 수 없습니다.: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:867
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "삭제"
 
-#: tables/actions.py:869
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: tables/actions.py:900
+#: tables/actions.py:931
 msgid "Update"
 msgstr "업데이트"
 
-#: tables/actions.py:901
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "업데이트됨"
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
 
-#: tables/base.py:966
+#: tables/base.py:967
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
-#: tables/base.py:1073
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "작업"
 
-#: tables/base.py:1298
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
 
-#: tables/base.py:1449
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
 
@@ -322,11 +332,6 @@ msgstr "\n          당신은 왼쪽 열부터 오른쪽 열까지 자원의 메
 msgid "Save"
 msgstr "저장"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "취소"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -361,10 +366,6 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr "\n<label>끝:</label>%(end)s"
 
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "제출"
-
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
@@ -397,11 +398,11 @@ msgstr "다음"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:126 templatetags/horizon.py:137
 msgid "No Limit"
 msgstr "제한 없음"
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:129 templatetags/horizon.py:131
 msgid "Available"
 msgstr "사용 가능"
 
