@@ -83,8 +83,7 @@ class ActivationView(TemplateView):
 		activated_user = self.activate(request, *args, **kwargs)
 		if activated_user:
 			success_url = self.get_success_url(request, activated_user)
-			to, args, kwargs = success_url
-			return redirect(to, *args, **kwargs)
+			return redirect(success_url)
 		return super(ActivationView, self).get(request, *args, **kwargs)
 
 	def activate(self, request, activation_key):
@@ -92,4 +91,4 @@ class ActivationView(TemplateView):
 		return activated_user
 
 	def get_success_url(self, request, user):
-		return ('registration_activation_complete', (), {})
+		return 'idm'
