@@ -9,7 +9,7 @@
 {% block autocomplete %}{{ HORIZON_CONFIG.password_autocomplete }}{% endblock %}
 
 {% block modal-body %}
-  <fieldset>
+  <div id="login">
     {% if request.user.is_authenticated and 'next' in request.GET %}
     <div class="form-group clearfix error">
       <span class="help-block"><p>{% trans "You do not have permission to access the resource:" %}</p>
@@ -25,7 +25,7 @@
     {% endif %}
     {% if next %}<input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />{% endif %}
     {% include "horizon/common/_form_fields.html" %}
-  </fieldset>
+  </div>
 {% endblock %}
 
 {% block modal-footer %}

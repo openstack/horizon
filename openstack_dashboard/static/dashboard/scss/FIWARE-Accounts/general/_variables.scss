@@ -30,19 +30,16 @@ $table-border-color: $border-color;
 $table-bg-hover: #f5f5f5;
 $table-bg-odd: #f9f9f9;
 
-
+$zero: 0;
 // Typography
 // -------------------------
-$sansFontFamily:        "OpenSans", Arial, sans-serif;
-$sansFontFamilyLight:   "OpenSansLight", Arial, sans-serif;
-$serifFontFamily:       Times New Roman, Times, serif !default;
-$corporateFontFamily:   "NeoTechRegular" !default;
+$corporate-font-family-sans-serif-Regular: Verdana;
+$corporate-Font-Family:   "NeoTechRegular" !default;
 
 
 $baseFontSize:          14px !default;
-$baseFontFamily:        $sansFontFamily;
+$baseFontFamily:        $corporate-font-family-sans-serif-Regular;
 $baseLineHeight:        20px !default;
-$altFontFamily:         $serifFontFamily !default;
 
 $headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
 $headingsFontWeight:    normal !default;    // instead of browser default, bold

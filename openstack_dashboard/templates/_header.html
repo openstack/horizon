@@ -94,12 +94,11 @@
               <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
               {% if HORIZON_CONFIG.help_url %}
               <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
+              <li><a href="{% url 'logout' %}">{% trans "Sign Out" %}</a></li>
               {% endif %}
             </ul>
+            {% include "horizon/common/_region_selector.html" %}
           </div>
-
-          <a href="{% url 'logout' %}">{% trans "Sign Out" %}</a>
-          {% include "horizon/common/_region_selector.html" %}
         </div>
       </nav>
 

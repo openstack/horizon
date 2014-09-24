@@ -1,0 +1,112 @@
+.presentation{
+  @include make-xs-column(12, $gutter: $grid-gutter-width);
+  @include make-sm-column(7, $gutter: $grid-gutter-width);
+  @include make-md-column(7, $gutter: $grid-gutter-width);
+  @include make-lg-column(7, $gutter: $grid-gutter-width);
+  clear: none;
+  margin-top: 12px;
+  .media,
+  .help-box{
+    background-color: #EBEBEB;
+    margin-top: 18px;
+    font-size: 12px;
+  }
+  .media{
+    padding: 10px 25px 15px 25px;
+    h3{
+      font-family: $corporate-Font-Family;
+      margin-bottom: 4px;
+    }
+    span{
+      font-size: 13px;
+      font-weight: bold;
+      color: $brand-primary;
+      display: block;
+      margin: -7px 0 9px;
+    }
+    .sign_up{
+      float: right;
+      margin-top: 4px;
+    }
+  }
+}
+
+.help-bar{
+  width: 100%;
+}
+
+.help-box{ 
+  width: 48%;
+  min-height: 57px;
+  background-color: #f5f5f5;
+  margin-bottom: 2px;
+  float: left;
+  margin-left: 1%;
+  margin-right: 1%;
+  div{
+    margin-left: 8px;
+  }
+  header{
+    padding: 5px 1px 0px 5px;
+    min-height: 19px;
+    margin-bottom: 4px;
+    background-color: $brand-secundary;
+    i{
+      float: right;
+      margin-right: 4px;
+    }
+    &:hover{
+      background-color: darken($brand-secundary, 15%);
+    }
+  }
+  img{
+    display: inline;
+    width: 22px;
+    margin-top: -3px;
+    margin-right: 4px;
+  }
+  h5{ 
+    color: #fff;
+    line-height: 0;
+    display: inline-block;
+  }
+}
+
+
+.view-more{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  a{
+    color: $brand-primary;
+    text-decoration: none;
+    .icon_tool16-more{
+      margin-right: 6px;
+    }
+  }
+}
+
+
+
+#login{
+  @include make-xs-column(12, $gutter: $grid-gutter-width);
+  @include make-sm-column(3, $gutter: $grid-gutter-width);
+  @include make-md-column(3, $gutter: $grid-gutter-width);
+  @include make-lg-column(3, $gutter: $grid-gutter-width);
+  header{
+    width: 60%;
+    margin: 0 20%;
+    text-align: center;
+  }
+}
+
+
+.simple_captcha{
+  border-top: 1px solid #E2E2E2;
+  border-bottom: 1px solid #E2E2E2;
+  padding: 4px 0;
+  margin-bottom: 11px;
+  .simple_captcha_image{
+    display: block;
+    margin: 0 auto 2px;
+  }
+}

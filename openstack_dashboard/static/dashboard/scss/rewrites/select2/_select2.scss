@@ -42,14 +42,14 @@ ul.select2-choices{
 
 .select2-highlighted{
   @include transition(background .3s, color, .3s);
-  background: $blue !important;
+  background: $brand-primary !important;
 }
 
 .select2-search-choice{
   color: #FFF !important;
-  border: 1px solid $blue !important;
+  border: 1px solid $brand-primary !important;
   box-shadow: none !important;
-  background-color: $blue !important;
+  background-color: $brand-primary !important;
   background-image: none !important;
 }
 
