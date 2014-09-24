@@ -1,0 +1,14 @@
+//
+// Wells
+// --------------------------------------------------
+
+
+// Base class
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: $well-bg;
+  border-radius: $border-radius-base;
+  @include box-shadow(0 0px 4px 1px rgba(0, 0, 0, 0.10));
+}

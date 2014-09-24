@@ -1,20 +1,24 @@
 .presentation{
   @include make-xs-column(12, $gutter: $grid-gutter-width);
-  @include make-sm-column(7, $gutter: $grid-gutter-width);
-  @include make-md-column(7, $gutter: $grid-gutter-width);
-  @include make-lg-column(7, $gutter: $grid-gutter-width);
+  @include make-sm-column(6, $gutter: $grid-gutter-width);
+  @include make-md-column(6, $gutter: $grid-gutter-width);
+  @include make-lg-column(6, $gutter: $grid-gutter-width);
+  @include make-sm-column-offset(1);
+  @include make-md-column-offset(1);
+  @include make-lg-column-offset(1);
   clear: none;
-  margin-top: 12px;
-  .media,
   .help-box{
     background-color: #EBEBEB;
     margin-top: 18px;
     font-size: 12px;
   }
   .media{
+    background-color: #EBEBEB;
+    font-size: 12px;
+    margin-top: 0px;
     padding: 10px 25px 15px 25px;
     h3{
-      font-family: $corporate-Font-Family;
+      font-family: $corporate-font-family-sans-serif-Regular;
       margin-bottom: 4px;
     }
     span{
@@ -87,15 +91,19 @@
 
 
 
-#login{
+.login{
   @include make-xs-column(12, $gutter: $grid-gutter-width);
-  @include make-sm-column(3, $gutter: $grid-gutter-width);
-  @include make-md-column(3, $gutter: $grid-gutter-width);
-  @include make-lg-column(3, $gutter: $grid-gutter-width);
-  header{
-    width: 60%;
-    margin: 0 20%;
-    text-align: center;
+  @include make-sm-column(4, $gutter: $grid-gutter-width);
+  @include make-md-column(4, $gutter: $grid-gutter-width);
+  @include make-lg-column(4, $gutter: $grid-gutter-width);
+  @extend .well;
+  .modal-header{
+    h3{
+      @extend h4;
+      text-align: right;
+      color: $brand-secundary;
+      font-family: $corporate-font-family-sans-serif-Regular;
+    }
   }
 }
 

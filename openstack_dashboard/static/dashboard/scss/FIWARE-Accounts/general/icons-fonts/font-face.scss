@@ -4,20 +4,20 @@
 @font-face {
   font-family: "NeoTechRegular";
   font-style: normal;
-  src: url('static/dashboard/fonts/neotechstd-regular.eot');
-    src: url('static/dashboard/fonts/neotechstd-regular.eot') format('embedded-opentype'),
-         url('static/dashboard/fonts/neotechstd-regular.woff') format('woff'),
-         url('static/dashboard/fonts/neotechstd-regular.ttf') format('truetype'),
-         url('static/dashboard/fonts/neotechstd-regular.svg#NeoTechStdMedium') format('svg');
+  src: url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-regular.eot');
+    src: url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-regular.eot') format('embedded-opentype'),
+         url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-regular.woff') format('woff'),
+         url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-regular.ttf') format('truetype'),
+         url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-regular.svg#NeoTechStdMedium') format('svg');
 }
 
 
 @font-face {
   font-family: "NeoTechMedium";
   font-style: normal;
-  src: url('static/dashboard/fonts/neotechstd-medium.eot');
-    src: url('static/dashboard/fonts/neotechstd-medium.eot') format('embedded-opentype'),
-         url('static/dashboard/fonts/neotechstd-medium.woff') format('woff'),
-         url('static/dashboard/fonts/neotechstd-medium.ttf') format('truetype'),
-         url('static/dashboard/fonts/neotechstd-medium.svg#NeoTechStdMedium') format('svg');
+  src: url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-medium.eot');
+    src: url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-medium.eot') format('embedded-opentype'),
+         url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-medium.woff') format('woff'),
+         url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-medium.ttf') format('truetype'),
+         url('{{ STATIC_URL }}dashboard/fonts/neotechstd/neotechstd-medium.svg#NeoTechStdMedium') format('svg');
 }
