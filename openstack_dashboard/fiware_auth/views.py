@@ -11,39 +11,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import logging
-import django
-from django.conf import settings
-from django.contrib import auth
-from django.contrib.auth.decorators import login_required # noqa
-from django.contrib.auth import views as django_auth_views
-from django import shortcuts
-from django.utils import functional
-from django.utils import http
-from django.views.decorators.cache import never_cache # noqa
-from django.views.decorators.csrf import csrf_protect # noqa
-from django.views.decorators.debug import sensitive_post_parameters # noqa
-from keystoneclient import exceptions as keystone_exceptions
-from keystoneclient.v2_0 import client as keystone_client_v2
 
 from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from forms import RegistrationForm
 
-from django.forms import ValidationError  # noqa
-from django import http
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
-from horizon import forms
 from horizon import messages
-from horizon.utils import validators
-
 from openstack_dashboard import api
-from django.core.mail import send_mail
-LOG = logging.getLogger(__name__)
 
+LOG = logging.getLogger(__name__)
+#TODO all this file is just a quick prototype, correctly implement everything...
 class RegistrationView(FormView):
 	"""Creates a new user in the backend. Then redirects to the log-in page.
 	.. param:: login_url
@@ -105,9 +86,7 @@ class RegistrationView(FormView):
 												domain=domain.id)
 			messages.success(request,
 				_('User "%s" was successfully created.') % cleaned_data['username'])
-			#send a mail for activation
-			send_mail('Welcome to FIWARE','New user created at FIWARE :D', 'admin@fiware-idm-test.dit.upm.es',
-				[cleaned_data['email']], fail_silently=False)
+			
 			return new_user
 		except Exception:
 			exceptions.handle(request, _('Unable to create user.'))
