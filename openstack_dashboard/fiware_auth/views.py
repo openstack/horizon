@@ -22,6 +22,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import messages
 from openstack_dashboard import api
+from models import RegistrationProfile
 
 LOG = logging.getLogger(__name__)
 #TODO all this file is just a quick prototype, correctly implement everything...
@@ -71,22 +72,6 @@ class RegistrationView(FormView):
 	def register(self, request, **cleaned_data):
 		msg = 'Singup user "%(username)s".' % {'username': request.user.username}
 		LOG.info(msg)
-		#create the user
-		domain = api.keystone.get_default_domain(self.request)
-		try:
-			LOG.info('Creating user with name "%s"' % cleaned_data['username'])
-			if "email" in cleaned_data:
-				cleaned_data['email'] = cleaned_data['email'] or None
-			new_user = api.keystone.user_create(request,
-												name=cleaned_data['username'],
-												email=cleaned_data['email'],
-												password=cleaned_data['password1'],
-												project=None,
-												enabled=False,
-												domain=domain.id)
-			messages.success(request,
-				_('User "%s" was successfully created.') % cleaned_data['username'])
-			
-			return new_user
-		except Exception:
-			exceptions.handle(request, _('Unable to create user.'))
+		#delegate to the manager to create all the stuff
+		new_user = RegistrationProfile.objects.create_inactive_user(request, **cleaned_data)
+		return new_user
