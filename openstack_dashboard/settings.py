@@ -211,8 +211,8 @@ INSTALLED_APPS = [
     'compressor',
     'horizon',
     'openstack_auth',
+    'fiware_auth',
 ]
-
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'

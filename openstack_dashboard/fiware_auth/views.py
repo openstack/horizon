@@ -19,8 +19,7 @@ from forms import RegistrationForm
 
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
-from horizon import messages
+
 from openstack_dashboard import api
 from models import RegistrationProfile
 
