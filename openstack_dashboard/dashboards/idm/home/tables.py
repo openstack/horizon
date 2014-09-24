@@ -41,7 +41,7 @@ class TenantsTable(tables.DataTable):
 
     class Meta:
         name = "tenants"
-        verbose_name = _("Projects")
+        verbose_name = _("Organizations")
         pagination_param = "tenant_marker"
         
         

@@ -36,34 +36,7 @@ class TenantContextMixin(object):
         context['tenant'] = self.get_object()
         return context
 
-# class IndexView(tables.DataTableView):
-    
 
-#     def get_data(self):
-#         tenants = []
-#         domain_context = self.request.session.get('domain_context', None)
-#         if policy.check((("idm", "idm:list_home"),),
-#                         self.request):
-#             try:
-#                 tenants = api.keystone.tenant_list(
-#                     self.request)
-#             except Exception:
-#                 exceptions.handle(self.request,
-#                                   _("Unable to retrieve home list."))
-#         elif policy.check((("idm", "idm:list_user_home"),),
-#                           self.request):
-#             try:
-#                 tenants = api.keystone.tenant_list(
-#                     self.request,
-#                     user=self.request.user.id)
-#             except Exception:
-#                 exceptions.handle(self.request,
-#                                   _("Unable to retrieve home information."))
-#         else:
-#             msg = \
-#                 _("Insufficient privilege level to view home information.")
-#             messages.info(self.request, msg)
-#         return tenants
 
 class IndexView(tables.DataTableView):
     table_class = home_tables.TenantsTable

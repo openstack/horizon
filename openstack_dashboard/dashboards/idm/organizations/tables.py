@@ -24,24 +24,122 @@ from openstack_dashboard import api
 from openstack_dashboard import policy
 
 
+
+class CreateOrganization(tables.LinkAction):
+    name = "create"
+    verbose_name = _("Create Organization")
+    url = "horizon:idm:organizations:create"
+    classes = ("ajax-modal",)
+    icon = "plus"
+    policy_rules = (('idm', 'idm:create_organization'),)
+
+    def allowed(self, request, organization):
+        return api.keystone.keystone_can_edit_project()
+
+
+class UpdateOrganization(tables.LinkAction):
+    name = "update"
+    verbose_name = _("Edit Organization")
+    url = "horizon:idm:organizations:update"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (('idm', 'idm:update_organization'),)
+
+    def allowed(self, request, organization):
+        return api.keystone.keystone_can_edit_project()
+
+
+
+
+class DeleteTenantsAction(tables.DeleteAction):
+    data_type_singular = _("Organization")
+    data_type_plural = _("Organizations")
+    policy_rules = (("idm", "idm:delete_organization"),)
+
+    def allowed(self, request, organization):
+        return api.keystone.keystone_can_edit_project()
+
+    def delete(self, request, obj_id):
+        api.keystone.tenant_delete(request, obj_id)
+
+
+class TenantFilterAction(tables.FilterAction):
+    def filter(self, table, tenants, filter_string):
+        """Really naive case-insensitive search."""
+        # FIXME(gabriel): This should be smarter. Written for demo purposes.
+        q = filter_string.lower()
+
+        def comp(tenant):
+            if q in tenant.name.lower():
+                return True
+            return False
+
+        return filter(comp, tenants)
+
+
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, organization_id):
+        organization_info = api.keystone.tenant_get(request, organization_id,
+                                               admin=True)
+        return organization_info
+
+
+class UpdateCell(tables.UpdateAction):
+    def allowed(self, request, organization, cell):
+        return api.keystone.keystone_can_edit_project() and \
+            policy.check((("idm", "idm:update_organization"),),
+                         request)
+
+    def update_cell(self, request, datum, organization_id,
+                    cell_name, new_cell_value):
+        # inline update organization info
+        try:
+            organization_obj = datum
+            # updating changed value by new value
+            setattr(organization_obj, cell_name, new_cell_value)
+            api.keystone.tenant_update(
+                request,
+                organization_id,
+                name=organization_obj.name,
+                description=organization_obj.description,
+                enabled=organization_obj.enabled)
+
+        except Conflict:
+            # Returning a nice error message about name conflict. The message
+            # from exception is not that clear for the users.
+            message = _("This name is already taken.")
+            raise ValidationError(message)
+        except Exception:
+            exceptions.handle(request, ignore=True)
+            return False
+        return True
+
+
 class TenantsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(max_length=64))
+                         form_field=forms.CharField(max_length=64),
+                         update_action=UpdateCell)
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(),
-                                    required=False))
-    id = tables.Column('id', verbose_name=_('Project ID'))
+                                    required=False),
+                                update_action=UpdateCell)
+    id = tables.Column('id', verbose_name=_('Organization ID'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
                             form_field=forms.BooleanField(
                                 label=_('Enabled'),
-                                required=False))
-    
+                                required=False),
+                            update_action=UpdateCell)
 
     class Meta:
         name = "tenants"
-        verbose_name = _("Projects")
+        verbose_name = _("Organizations")
+        row_class = UpdateRow
+        row_actions = (UpdateOrganization,  DeleteTenantsAction)
+        table_actions = (TenantFilterAction, CreateOrganization,
+                         DeleteTenantsAction)
         pagination_param = "tenant_marker"
-        
-        
+
