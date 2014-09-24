@@ -6,8 +6,7 @@ from openstack_dashboard.dashboards.settings import dashboard
 
 
 class Useremail(horizon.Panel):
-    name = _("Useremail")
+    name = _("email")
     slug = "useremail"
-
 
 dashboard.Settings.register(Useremail)

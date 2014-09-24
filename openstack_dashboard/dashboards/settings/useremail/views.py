@@ -1,10 +1,7 @@
-from horizon import views
+from horizon import forms
+from openstack_dashboard.dashboards.settings.useremail import forms as useremail_forms
 
+class EmailView(forms.ModalFormView):
+    form_class = useremail_forms.EmailForm
+    template_name = 'settings/useremail/change.html'
 
-class IndexView(views.APIView):
-    # A very simple class-based view...
-    template_name = 'settings/useremail/index.html'
-
-    def get_data(self, request, context, *args, **kwargs):
-        # Add data to the context here...
-        return context
