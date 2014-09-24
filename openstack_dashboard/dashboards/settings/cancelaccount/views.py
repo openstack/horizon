@@ -1,10 +1,6 @@
-from horizon import views
+from horizon import forms
+from openstack_dashboard.dashboards.settings.cancelaccount import forms as cancel_forms
 
-
-class IndexView(views.APIView):
-    # A very simple class-based view...
-    template_name = 'settings/cancelaccount/index.html'
-
-    def get_data(self, request, context, *args, **kwargs):
-        # Add data to the context here...
-        return context
+class CancelView(forms.ModalFormView):
+    form_class = cancel_forms.BasicCancelForm
+    template_name = 'settings/cancelaccount/cancel.html'
