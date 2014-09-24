@@ -17,6 +17,7 @@ import logging
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -58,9 +59,23 @@ class EditGroupLink(tables.LinkAction):
 
 
 class DeleteGroupsAction(tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Group",
+            u"Delete Groups",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Group",
+            u"Deleted Groups",
+            count
+        )
+
     name = "delete"
-    data_type_singular = _("Group")
-    data_type_plural = _("Groups")
     policy_rules = (("identity", "identity:delete_group"),)
 
     def allowed(self, request, datum):
@@ -120,11 +135,23 @@ class UserFilterAction(tables.FilterAction):
 
 
 class RemoveMembers(tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Remove User",
+            u"Remove Users",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Removed User",
+            u"Removed Users",
+            count
+        )
+
     name = "removeGroupMember"
-    action_present = _("Remove")
-    action_past = _("Removed")
-    data_type_singular = _("User")
-    data_type_plural = _("Users")
     policy_rules = (("identity", "identity:remove_user_from_group"),)
 
     def allowed(self, request, user=None):
@@ -179,11 +206,23 @@ class GroupMembersTable(UsersTable):
 
 
 class AddMembers(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Add User",
+            u"Add Users",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Added User",
+            u"Added Users",
+            count
+        )
+
     name = "addMember"
-    action_present = _("Add")
-    action_past = _("Added")
-    data_type_singular = _("User")
-    data_type_plural = _("Users")
     icon = "plus"
     requires_input = True
     success_url = constants.GROUPS_MANAGE_URL
