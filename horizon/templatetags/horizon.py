@@ -14,9 +14,13 @@
 
 from __future__ import absolute_import
 
+from horizon.contrib import bootstrap_datepicker
+
+from django.conf import settings
 from django import template
 from django.utils.datastructures import SortedDict
 from django.utils.encoding import force_text
+from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.base import Horizon  # noqa
@@ -170,3 +174,10 @@ def jstemplate(parser, token):
 @register.assignment_tag
 def load_config():
     return conf.HORIZON_CONFIG
+
+
+@register.assignment_tag
+def datepicker_locale():
+    locale_mapping = getattr(settings, 'DATEPICKER_LOCALES',
+                             bootstrap_datepicker.LOCALE_MAPPING)
+    return locale_mapping.get(translation.get_language(), 'en')
