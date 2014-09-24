@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{% trans "Cancelaccount" %}{% endblock %}
+{% block title %}{% trans "Cancel Account" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Cancelaccount") %}
+  {% include "horizon/common/_page_header.html" with title=_("Cancel Account") %}
 {% endblock page_header %}
 
 {% block settings_main %}
 {% endblock %}
+
+{% block main %}
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to cancel your account? :(</p>
+    <input type="submit" value="Cancel" />
+</form>
+{% endblock %}
+
 
 
