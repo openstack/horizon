@@ -43,9 +43,10 @@ class EmailForm(forms.SelfHandlingForm):
                 user = api.keystone.user_get(request,user_id)
                 something = api.keystone.user_update(request,user,email=data['email'],
                                                             password=data['password'])
+                msg = _("Email changed succesfully")
+                messages.success(request,msg)
                 #TODO figure out how not to make user relog in
                 response = shortcuts.redirect(horizon.get_user_home(request.user))
-                msg = _("Email changed succesfully")
                 return response
             except Exception:
                 exceptions.handle(request,
