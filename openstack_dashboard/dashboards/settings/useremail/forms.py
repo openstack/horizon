@@ -15,7 +15,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables  # noqa
 from django import shortcuts
-
+import horizon
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -28,22 +28,23 @@ class EmailForm(forms.SelfHandlingForm):
     email = forms.EmailField(
             label=_("Email"),
             required=True)
-    current_password = forms.CharField(label=_("Current password"),
+    password = forms.CharField(label=_("Current password"),
                            widget=forms.PasswordInput(render_value=False))
 
     # We have to protect the entire "data" dict because it contains the
     # oldpassword string.
     @sensitive_variables('data')
     def handle(self, request, data):
-        #TODO we are not doing anything with the password because horizon+keystone doesn't requiere
         #the user's password to change the email, only to update the password
         user_is_editable = api.keystone.keystone_can_edit_user()
         if user_is_editable:
             try:
                 user_id=request.user.id
                 user = api.keystone.user_get(request,user_id)
-                something = api.keystone.user_update(request,user,email=data['email'])
-                response = shortcuts.redirect(request.build_absolute_uri())
+                something = api.keystone.user_update(request,user,email=data['email'],
+                                                            password=data['password'])
+                #TODO figure out how not to make user relog in
+                response = shortcuts.redirect(horizon.get_user_home(request.user))
                 msg = _("Email changed succesfully")
                 return response
             except Exception:
