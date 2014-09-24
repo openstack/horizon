@@ -6,7 +6,7 @@ from openstack_dashboard.dashboards.settings import dashboard
 
 
 class Cancelaccount(horizon.Panel):
-    name = _("Cancelaccount")
+    name = _("Cancel Account")
     slug = "cancelaccount"
 
 
