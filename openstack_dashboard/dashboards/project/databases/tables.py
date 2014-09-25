@@ -15,6 +15,7 @@
 from django.core import urlresolvers
 from django.template import defaultfilters as d_filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -30,11 +31,23 @@ ACTIVE_STATES = ("ACTIVE",)
 
 
 class TerminateInstance(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Terminate Instance",
+            u"Terminate Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled termination of Instance",
+            u"Scheduled termination of Instances",
+            count
+        )
+
     name = "terminate"
-    action_present = _("Terminate")
-    action_past = _("Scheduled termination of %(data_type)s")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ("btn-danger", )
     icon = "off"
 
@@ -43,11 +56,23 @@ class TerminateInstance(tables.BatchAction):
 
 
 class RestartInstance(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Restart Instance",
+            u"Restart Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Restarted Instance",
+            u"Restarted Instances",
+            count
+        )
+
     name = "restart"
-    action_present = _("Restart")
-    action_past = _("Restarted")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ('btn-danger', 'btn-reboot')
 
     def allowed(self, request, instance=None):
@@ -59,8 +84,21 @@ class RestartInstance(tables.BatchAction):
 
 
 class DeleteUser(tables.DeleteAction):
-    data_type_singular = _("User")
-    data_type_plural = _("Users")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete User",
+            u"Delete Users",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted User",
+            u"Deleted Users",
+            count
+        )
 
     def delete(self, request, obj_id):
         datum = self.table.get_object_by_id(obj_id)
@@ -72,8 +110,21 @@ class DeleteUser(tables.DeleteAction):
 
 
 class DeleteDatabase(tables.DeleteAction):
-    data_type_singular = _("Database")
-    data_type_plural = _("Databases")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Database",
+            u"Delete Databases",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Database",
+            u"Deleted Databases",
+            count
+        )
 
     def delete(self, request, obj_id):
         datum = self.table.get_object_by_id(obj_id)
