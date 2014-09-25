@@ -41,7 +41,7 @@ $corporate-font-family-sans-serif-Regular: "NeoTechRegular" !default;
 $corporate-font-family-sans-serif-Medium:   "NeoTechMedium" !default;
 
 
-$baseFontSize:          14px !default;
+$baseFontSize:          13px !default;
 $baseFontFamily:        Verdana;
 $baseLineHeight:        20px !default;
 
@@ -69,9 +69,9 @@ $line-height-large:         1.33 !default;
 $line-height-small:         1.5 !default;
 
 $border-radius-zero:        0px !default;
-$border-radius-base:        5px !default;
-$border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-base:        3px !default;
+$border-radius-large:       5px !default;
+$border-radius-small:       2px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    $white !default;
