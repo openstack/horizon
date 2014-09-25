@@ -23,6 +23,38 @@ from keystoneclient.exceptions import Conflict  # noqa
 from openstack_dashboard import api
 from openstack_dashboard import policy
 
+class UpdateMembersLink(tables.LinkAction):
+    name = "users"
+    verbose_name = _("Modify Users")
+    url = "horizon:idm:organizations:update"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("idm", "idm:list_users"),
+                    ("idm", "idm:list_roles"))
+
+    def get_link_url(self, organization):
+        step = 'update_members'
+        base_url = reverse(self.url, args=[organization.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
+
+
+class UpdateGroupsLink(tables.LinkAction):
+    name = "groups"
+    verbose_name = _("Modify Groups")
+    url = "horizon:idm:organizations:update"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("idm", "idm:list_groups"),)
+
+    def allowed(self, request, organization):
+        return api.keystone.VERSIONS.active >= 3
+
+    def get_link_url(self, organization):
+        step = 'update_group_members'
+        base_url = reverse(self.url, args=[organization.id])
+        param = urlencode({"step": step})
+        return "?".join([base_url, param])
 
 
 class CreateOrganization(tables.LinkAction):
@@ -138,8 +170,12 @@ class TenantsTable(tables.DataTable):
         name = "tenants"
         verbose_name = _("Organizations")
         row_class = UpdateRow
-        row_actions = (UpdateOrganization,  DeleteTenantsAction)
+        row_actions = (UpdateMembersLink, UpdateOrganization, DeleteTenantsAction)
         table_actions = (TenantFilterAction, CreateOrganization,
                          DeleteTenantsAction)
         pagination_param = "tenant_marker"
 
+  # 
+  #       row_actions = (UpdateOrganization,  DeleteTenantsAction)
+  #       table_actions = (TenantFilterAction, CreateOrganization,
+  #                        DeleteTenantsAction)

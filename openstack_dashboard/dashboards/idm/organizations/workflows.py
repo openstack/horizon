@@ -70,7 +70,9 @@ class CreateOrganizationInfoAction(workflows.Action):
 
     class Meta:
         name = _("Organization Information")
-        help_text = _("Create a organization to organize users.")
+        help_text = _("Create a new organization. \
+            Please enter your organization name and a description. \
+            On the next tab, choose the users that will belong to your organization.")
 
 
 class CreateOrganizationInfo(workflows.Step):
@@ -141,7 +143,7 @@ class UpdateOrganizationMembersAction(workflows.MembershipAction):
         # Figure out users & roles
         if organization_id:
             try:
-                users_roles = api.keystone.get_organization_users_roles(request,
+                users_roles = api.keystone.get_project_users_roles(request,
                                                                    organization_id)
             except Exception:
                 exceptions.handle(request,
@@ -153,6 +155,7 @@ class UpdateOrganizationMembersAction(workflows.MembershipAction):
                 for role_id in roles_ids:
                     field_name = self.get_member_field_name(role_id)
                     self.fields[field_name].initial.append(user_id)
+
 
     class Meta:
         name = _("Organization Members")
@@ -179,6 +182,7 @@ class UpdateOrganizationMembers(workflows.UpdateMembersStep):
                 field = self.get_member_field_name(role.id)
                 context[field] = post.getlist(field)
         return context
+
 
 
 class UpdateOrganizationGroupsAction(workflows.MembershipAction):
@@ -336,7 +340,7 @@ class CreateOrganization(workflows.Workflow):
                 users_added = 0
                 for user in role_list:
                     api.keystone.add_tenant_user_role(request,
-                                                      organization=organization_id,
+                                                      project=organization_id,
                                                       user=user,
                                                       role=role.id)
                     users_added += 1
@@ -461,7 +465,7 @@ class UpdateOrganization(workflows.Workflow):
             # Get the users currently associated with this organization so we
             # can diff against it.
             organization_members = api.keystone.user_list(request,
-                                                     organization=organization_id)
+                                                     project=organization_id)
             users_to_modify = len(organization_members)
 
             for user in organization_members:
@@ -481,7 +485,7 @@ class UpdateOrganization(workflows.Workflow):
                             # user role has changed
                             api.keystone.add_tenant_user_role(
                                 request,
-                                organization=organization_id,
+                                project=organization_id,
                                 user=user.id,
                                 role=role.id)
                         else:
@@ -514,7 +518,7 @@ class UpdateOrganization(workflows.Workflow):
                     for id_to_delete in current_role_ids:
                         api.keystone.remove_tenant_user_role(
                             request,
-                            organization=organization_id,
+                            project=organization_id,
                             user=user.id,
                             role=id_to_delete)
                 users_to_modify -= 1
@@ -530,7 +534,7 @@ class UpdateOrganization(workflows.Workflow):
                 for user_id in data[field_name]:
                     if not filter(lambda x: user_id == x.id, organization_members):
                         api.keystone.add_tenant_user_role(request,
-                                                          organization=organization_id,
+                                                          project=organization_id,
                                                           user=user_id,
                                                           role=role.id)
                     users_added += 1
@@ -556,7 +560,7 @@ class UpdateOrganization(workflows.Workflow):
                 # can diff against it.
                 organization_groups = api.keystone.group_list(request,
                                                          domain=domain_id,
-                                                         organization=organization_id)
+                                                         project=organization_id)
                 groups_to_modify = len(organization_groups)
                 for group in organization_groups:
                     # Check if there have been any changes in the roles of
@@ -564,7 +568,7 @@ class UpdateOrganization(workflows.Workflow):
                     current_roles = api.keystone.roles_for_group(
                         self.request,
                         group=group.id,
-                        organization=organization_id)
+                        project=organization_id)
                     current_role_ids = [role.id for role in current_roles]
                     for role in available_roles:
                         # Check if the group is in the list of groups with
@@ -578,7 +582,7 @@ class UpdateOrganization(workflows.Workflow):
                                     request,
                                     role=role.id,
                                     group=group.id,
-                                    organization=organization_id)
+                                    project=organization_id)
                             else:
                                 # Group role is unchanged, so remove it from
                                 # the remaining roles list to avoid removing it
@@ -591,7 +595,7 @@ class UpdateOrganization(workflows.Workflow):
                         api.keystone.remove_group_role(request,
                                                        role=id_to_delete,
                                                        group=group.id,
-                                                       organization=organization_id)
+                                                       project=organization_id)
                     groups_to_modify -= 1
 
                 # Grant new roles on the organization.
@@ -608,7 +612,7 @@ class UpdateOrganization(workflows.Workflow):
                             api.keystone.add_group_role(request,
                                                         role=role.id,
                                                         group=group_id,
-                                                        organization=organization_id)
+                                                        project=organization_id)
                         groups_added += 1
                     groups_to_modify -= groups_added
             except Exception:
@@ -618,5 +622,6 @@ class UpdateOrganization(workflows.Workflow):
                                     'and update organization quotas.')
                                   % groups_to_modify)
                 return False
+        return True
 
         
