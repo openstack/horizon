@@ -116,7 +116,11 @@ def data(TEST):
                         'segment_range': '3000-3100',
                         'id':
                         '00000000-1111-1111-1111-000000000000',
-                        'project': network_dict['tenant_id']}
+#                        'project': network_dict['tenant_id'],
+                        'project': TEST.networks.get(name="net1")['tenant_id'],
+                        # vlan profiles have no sub_type or multicast_ip_range
+                        'multicast_ip_range': None,
+                        'sub_type': None}
 
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))
@@ -971,7 +975,9 @@ def data(TEST):
                         'multicast_ip_range': '144.0.0.0-144.0.0.100',
                         'id':
                         '00000000-2222-2222-2222-000000000000',
-                        'project': '1'}
+                        'project': '1',
+                        # overlay profiles have no physical_network
+                        'physical_network': None}
 
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))

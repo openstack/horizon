@@ -197,3 +197,124 @@ class Nexus1000vTest(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res,
                                      reverse
                                      ('horizon:router:nexus1000v:index'))
+
+    @test.create_stubs({api.neutron: ('profile_get',
+                                      'profile_bindings_list'),
+                        api.keystone: ('tenant_list',)})
+    def test_network_profile_update_get(self):
+        tenants = self.tenants.list()
+        net_profile = self.net_profiles.first()
+        net_profile_binding = self.network_profile_binding.list()
+        api.keystone.tenant_list(
+            IsA(http.HttpRequest)).AndReturn([tenants, False])
+        api.neutron.profile_bindings_list(
+            IsA(http.HttpRequest),
+            'network').AndReturn(net_profile_binding)
+        api.neutron.profile_get(
+            IsA(http.HttpRequest),
+            net_profile.id).AndReturn(net_profile)
+        api.keystone.tenant_list(
+            IsA(http.HttpRequest)).AndReturn([tenants, False])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:router:nexus1000v:update_network_profile',
+                      args=[net_profile.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(
+            res,
+            'router/nexus1000v/_update_network_profile.html')
+
+    @test.create_stubs({api.neutron: ('profile_update',
+                                      'profile_get',
+                                      'profile_bindings_list'),
+                        api.keystone: ('tenant_list',)})
+    def test_vlan_net_profile_update_post(self):
+        tenants = self.tenants.list()
+        net_profile = self.net_profiles.first()
+        net_profile_binding = self.network_profile_binding.list()
+        # vlan profiles can only update name and segment_range
+        params = {'name': net_profile.name,
+                  'segment_range': net_profile.segment_range,
+                  # vlan profiles have no multicast_ip_range
+                  'multicast_ip_range': ''}
+
+        api.neutron.profile_update(
+            IsA(http.HttpRequest),
+            net_profile.id,
+            **params).AndReturn(net_profile)
+        api.keystone.tenant_list(
+            IsA(http.HttpRequest)).AndReturn([tenants, False])
+        api.neutron.profile_bindings_list(
+            IsA(http.HttpRequest),
+            'network').AndReturn(net_profile_binding)
+        api.neutron.profile_get(
+            IsA(http.HttpRequest),
+            net_profile.id).AndReturn(net_profile)
+        api.keystone.tenant_list(
+            IsA(http.HttpRequest)).AndReturn([tenants, False])
+        self.mox.ReplayAll()
+
+        form_data = {'profile_id': net_profile.id,
+                     'name': net_profile.name,
+                     'segment_type': net_profile.segment_type,
+                     'segment_range': net_profile.segment_range,
+                     'physical_network': net_profile.physical_network,
+                     'project': net_profile.project}
+        form_data.update(form_data_no_overlay())
+        url = reverse('horizon:router:nexus1000v:update_network_profile',
+                      args=[net_profile.id])
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res,
+                                     reverse
+                                     ('horizon:router:nexus1000v:index'))
+
+    @test.create_stubs({api.neutron: ('profile_update',
+                                      'profile_get',
+                                      'profile_bindings_list'),
+                        api.keystone: ('tenant_list',)})
+    def test_overlay_net_profile_update_post(self):
+        tenants = self.tenants.list()
+        net_profile = self.net_profiles.get(name="net_profile_test2")
+        net_profile_binding = self.network_profile_binding.list()
+        # overlay profiles can only update
+        # name, segment_range and multicast_ip_range
+        params = {'name': net_profile.name,
+                  'segment_range': net_profile.segment_range,
+                  'multicast_ip_range': net_profile.multicast_ip_range}
+
+        api.neutron.profile_update(
+            IsA(http.HttpRequest),
+            net_profile.id,
+            **params).AndReturn(net_profile)
+        api.keystone.tenant_list(
+            IsA(http.HttpRequest)).AndReturn([tenants, False])
+        api.neutron.profile_bindings_list(
+            IsA(http.HttpRequest),
+            'network').AndReturn(net_profile_binding)
+        api.neutron.profile_get(
+            IsA(http.HttpRequest),
+            net_profile.id).AndReturn(net_profile)
+        api.keystone.tenant_list(
+            IsA(http.HttpRequest)).AndReturn([tenants, False])
+        self.mox.ReplayAll()
+
+        form_data = {'profile_id': net_profile.id,
+                     'name': net_profile.name,
+                     'segment_type': net_profile.segment_type,
+                     'segment_range': net_profile.segment_range,
+                     'multicast_ip_range': net_profile.multicast_ip_range,
+                     'sub_type': net_profile.sub_type,
+                     'project': net_profile.project}
+        form_data.update(form_data_overlay())
+        url = reverse('horizon:router:nexus1000v:update_network_profile',
+                      args=[net_profile.id])
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res,
+                                     reverse
+                                     ('horizon:router:nexus1000v:index'))
