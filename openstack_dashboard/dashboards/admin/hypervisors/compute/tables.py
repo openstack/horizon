@@ -12,6 +12,7 @@
 
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils import filters as utils_filters
@@ -20,9 +21,23 @@ from openstack_dashboard import api
 
 
 class EvacuateHost(tables.LinkAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Evacuate Host",
+            u"Evacuate Hosts",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Evacuated Host",
+            u"Evacuated Hosts",
+            count
+        )
+
     name = "evacuate"
-    data_type_singular = _("Host")
-    data_type_plural = _("Hosts")
     verbose_name = _("Evacuate Host")
     url = "horizon:admin:hypervisors:compute:evacuate_host"
     classes = ("ajax-modal", "btn-migrate")
@@ -31,8 +46,6 @@ class EvacuateHost(tables.LinkAction):
     def __init__(self, **kwargs):
         super(EvacuateHost, self).__init__(**kwargs)
         self.name = kwargs.get('name', self.name)
-        self.action_present = kwargs.get('action_present', _("Evacuate"))
-        self.action_past = kwargs.get('action_past', _("Evacuated"))
 
     def allowed(self, request, instance):
         if not api.nova.extension_supported('AdminActions', request):

@@ -15,6 +15,7 @@ from django.http import Http404  # noqa
 from django.template.defaultfilters import title  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import messages
 from horizon import tables
@@ -47,8 +48,22 @@ class ChangeStackTemplate(tables.LinkAction):
 
 
 class DeleteStack(tables.DeleteAction):
-    data_type_singular = _("Stack")
-    data_type_plural = _("Stacks")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Stack",
+            u"Delete Stacks",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Stack",
+            u"Deleted Stacks",
+            count
+        )
+
     policy_rules = (("orchestration", "cloudformation:DeleteStack"),)
 
     def delete(self, request, stack_id):

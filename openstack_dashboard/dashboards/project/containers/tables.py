@@ -19,6 +19,7 @@ from django.template import defaultfilters as filters
 from django.utils import http
 from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import messages
@@ -103,8 +104,22 @@ class MakePrivateContainer(tables.Action):
 
 
 class DeleteContainer(tables.DeleteAction):
-    data_type_singular = _("Container")
-    data_type_plural = _("Containers")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Container",
+            u"Delete Containers",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Container",
+            u"Deleted Containers",
+            count
+        )
+
     success_url = "horizon:project:containers:index"
 
     def delete(self, request, obj_id):
@@ -312,9 +327,23 @@ class UpdateObject(tables.LinkAction):
 
 
 class DeleteObject(tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Object",
+            u"Delete Objects",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Object",
+            u"Deleted Objects",
+            count
+        )
+
     name = "delete_object"
-    data_type_singular = _("Object")
-    data_type_plural = _("Objects")
     allowed_data_types = ("objects", "subfolders",)
 
     def delete(self, request, obj_id):

@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ungettext_lazy
+
 from horizon import tables
 
 
@@ -22,8 +24,23 @@ class EagerPuppiesTable(tables.DataTable):
 
 
 class SellPuppy(tables.DeleteAction):
-    data_type_singular = 'Puppy'
-    data_type_plural = 'Puppies'
+    @staticmethod
+    def action_present(count):
+        # Translators: test code, don't really have to translate
+        return ungettext_lazy(
+            u"Sell Puppy",
+            u"Sell Puppies",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        # Translators: test code, don't really have to translate
+        return ungettext_lazy(
+            u"Sold Puppy",
+            u"Sold Puppies",
+            count
+        )
 
     def delete(self, request, obj_id):
         pass
