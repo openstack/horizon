@@ -98,3 +98,48 @@ class FormErrorTests(test.TestCase):
         self.assertEqual([error_text], self.form.non_field_errors())
         resp = self._render_form()
         self.assertIn(error_text, resp.content)
+
+
+class TestChoiceFieldForm(forms.SelfHandlingForm):
+    title_dic = {"label1": {"title": "This is choice 1"},
+                 "label2": {"title": "This is choice 2"},
+                 "label3": {"title": "This is choice 3"}}
+    name = forms.CharField(max_length=255,
+                          label="Test Name",
+                          help_text="Please enter a name")
+    test_choices = forms.ChoiceField(label="Test Choices",
+                                    required=False,
+                                    help_text="Testing drop down choices",
+                                    widget=forms.fields.SelectWidget(attrs={
+                                        'class': 'switchable',
+                                        'data-slug': 'source'},
+                                        transform_html_attrs=title_dic.get))
+
+    def __init__(self, request, *args, **kwargs):
+        super(TestChoiceFieldForm, self).__init__(request, *args, **kwargs)
+        choices = ([('choice1', 'label1'),
+                  ('choice2', 'label2')])
+        self.fields['test_choices'].choices = choices
+
+    def handle(self, request, data):
+        return True
+
+
+class ChoiceFieldTests(test.TestCase):
+
+    template = 'horizon/common/_form_fields.html'
+
+    def setUp(self):
+        super(ChoiceFieldTests, self).setUp()
+        self.form = TestChoiceFieldForm(self.request)
+
+    def _render_form(self):
+        return shortcuts.render(self.request, self.template,
+                                {'form': self.form})
+
+    def test_choicefield_title(self):
+        resp = self._render_form()
+        self.assertContains(resp, '<option value="choice1" '
+            'title="This is choice 1">label1</option>', count=1, html=True)
+        self.assertContains(resp, '<option value="choice2" '
+            'title="This is choice 2">label2</option>', count=1, html=True)

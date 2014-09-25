@@ -19,6 +19,7 @@ import netaddr
 from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
 from django.forms import fields
+from django.forms.util import flatatt  # noqa
 from django.forms import widgets
 from django.utils.encoding import force_text
 from django.utils.functional import Promise  # noqa
@@ -123,7 +124,9 @@ class MultiIPField(IPField):
 
 class SelectWidget(widgets.Select):
     """Customizable select widget, that allows to render
-    data-xxx attributes from choices.
+    data-xxx attributes from choices. This widget also
+    allows user to specify additional html attributes
+    for choices.
 
     .. attribute:: data_attrs
 
@@ -137,16 +140,54 @@ class SelectWidget(widgets.Select):
 
         A callable used to render the display value
         from the option object.
+
+    .. attribute:: transform_html_attrs
+
+        A callable used to render additional HTML attributes
+        for the option object. It returns a dictionary
+        containing the html attributes and their values.
+        For example, to define a title attribute for the
+        choices:
+
+        helpText = { 'Apple': 'This is a fruit',
+                  'Carrot': 'This is a vegetable' }
+
+        def get_title(data):
+            text = helpText.get(data, None)
+            if text:
+                return {'title': text}
+            else:
+                return {}
+
+        ....
+        ....
+
+        widget=forms.SelectWidget( attrs={'class': 'switchable',
+                                          'data-slug': 'source'},
+                                   transform_html_attrs=get_title )
+
+        self.fields[<field name>].choices =
+               ([
+                 ('apple','Apple'),
+                 ('carrot','Carrot')
+               ])
     """
-    def __init__(self, attrs=None, choices=(), data_attrs=(), transform=None):
+    def __init__(self, attrs=None, choices=(), data_attrs=(), transform=None,
+                transform_html_attrs=None):
         self.data_attrs = data_attrs
         self.transform = transform
+        self.transform_html_attrs = transform_html_attrs
         super(SelectWidget, self).__init__(attrs, choices)
 
     def render_option(self, selected_choices, option_value, option_label):
         option_value = force_text(option_value)
         other_html = (option_value in selected_choices) and \
                          u' selected="selected"' or ''
+
+        if callable(self.transform_html_attrs):
+            html_attrs = self.transform_html_attrs(option_label)
+            other_html += flatatt(html_attrs)
+
         if not isinstance(option_label, (basestring, Promise)):
             for data_attr in self.data_attrs:
                 data_value = html.conditional_escape(
@@ -154,8 +195,9 @@ class SelectWidget(widgets.Select):
                                        data_attr, "")))
                 other_html += ' data-%s="%s"' % (data_attr, data_value)
 
-            if self.transform:
+            if callable(self.transform):
                 option_label = self.transform(option_label)
+
         return u'<option value="%s"%s>%s</option>' % (
             html.escape(option_value), other_html,
             html.conditional_escape(force_text(option_label)))
