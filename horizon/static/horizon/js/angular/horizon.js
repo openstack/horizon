@@ -7,6 +7,7 @@ var horizonApp = angular.module('hz', dependencies)
       $interpolateProvider.endSymbol('$}');
       $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
       $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+      $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     }])
   .run(['hzConfig', 'hzUtils', '$cookieStore',
     function (hzConfig, hzUtils, $cookieStore) {
