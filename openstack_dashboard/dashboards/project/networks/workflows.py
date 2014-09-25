@@ -93,7 +93,8 @@ class CreateSubnetInfoAction(workflows.Action):
                                          'data-slug': 'with_subnet',
                                          'data-hide-tab': 'create_network__'
                                                           'createsubnetdetail'
-                                                          'action'
+                                                          'action',
+                                         'data-hide-on-checked': 'false'
                                      }),
                                      initial=True,
                                      required=False)
@@ -127,7 +128,7 @@ class CreateSubnetInfoAction(workflows.Action):
         label=_("Gateway IP"),
         widget=forms.TextInput(attrs={
             'class': 'switched',
-            'data-switch-on': 'with_subnet'
+            'data-switch-on': 'with_subnet gateway_ip'
         }),
         required=False,
         initial="",
@@ -143,8 +144,10 @@ class CreateSubnetInfoAction(workflows.Action):
         mask=False)
     no_gateway = forms.BooleanField(label=_("Disable Gateway"),
                                     widget=forms.CheckboxInput(attrs={
-                                        'class': 'switched',
-                                        'data-switch-on': 'with_subnet'
+                                        'class': 'switched switchable',
+                                        'data-slug': 'gateway_ip',
+                                        'data-switch-on': 'with_subnet',
+                                        'data-hide-on-checked': 'true'
                                     }),
                                     initial=False,
                                     required=False)
