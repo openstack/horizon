@@ -16,7 +16,7 @@
 
             {% if node_group.floating_ip_pool %}
             <dt>{% trans "Floating IP Pool" %}</dt>
-            <dd>{{ node_group.floating_ip_pool }}</dd>
+            <dd><a href="{% url 'horizon:project:networks:detail' node_group.floating_ip_pool %}">{{ node_group.floating_ip_pool_name }}</a></dd>
             {% endif %}
 
             <dt>{% trans "Template" %}</dt>

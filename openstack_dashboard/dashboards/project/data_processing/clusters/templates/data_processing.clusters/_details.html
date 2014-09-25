@@ -34,7 +34,7 @@
             <dd>{% trans "Template not specified" %}</dd>
         {% endif %}
         <dt>{% trans "Base Image" %}</dt>
-        <dd>{{ base_image.name }}</dd>
+        <dd><a href="{% url 'horizon:project:images:images:detail' base_image.id %}">{{ base_image.name }}</a></dd>
         {% if network %}
         <dt>{% trans "Neutron Management Network" %}</dt>
         <dd>{{ network }}</dd>

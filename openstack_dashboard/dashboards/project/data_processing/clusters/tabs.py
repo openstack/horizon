@@ -23,6 +23,7 @@ from openstack_dashboard.dashboards.project. \
     data_processing.utils import workflow_helpers as helpers
 
 from openstack_dashboard.api import glance
+from openstack_dashboard.api import network
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
 
@@ -93,10 +94,14 @@ class NodeGroupsTab(tabs.Tab):
             sahara = saharaclient.client(request)
             cluster = sahara.clusters.get(cluster_id)
             for ng in cluster.node_groups:
-                if not ng["flavor_id"]:
-                    continue
-                ng["flavor_name"] = (
-                    nova.flavor_get(request, ng["flavor_id"]).name)
+                if ng["flavor_id"]:
+                    ng["flavor_name"] = (
+                        nova.flavor_get(request, ng["flavor_id"]).name)
+                if ng["floating_ip_pool"]:
+                    ng["floating_ip_pool_name"] = (
+                        self._get_floating_ip_pool_name(
+                            request, ng["floating_ip_pool"]))
+
                 ng["node_group_template"] = helpers.safe_call(
                     sahara.node_group_templates.get,
                     ng.get("node_group_template_id", None))
@@ -106,6 +111,12 @@ class NodeGroupsTab(tabs.Tab):
                               _("Unable to get node group details."))
 
         return {"cluster": cluster}
+
+    def _get_floating_ip_pool_name(self, request, pool_id):
+        pools = [pool for pool in network.floating_ip_pools_list(
+            request) if pool.id == pool_id]
+
+        return pools[0].name if pools else pool_id
 
 
 class Instance(object):
