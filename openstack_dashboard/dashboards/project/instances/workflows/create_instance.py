@@ -556,24 +556,84 @@ class SetAccessControls(workflows.Step):
 
 
 class CustomizeAction(workflows.Action):
-    customization_script = forms.CharField(widget=forms.Textarea,
-                                           label=_("Customization Script"),
-                                           required=False,
-                                           help_text=_("A script or set of "
-                                                       "commands to be "
-                                                       "executed after the "
-                                                       "instance has been "
-                                                       "built (max 16kb)."))
-
     class Meta:
         name = _("Post-Creation")
         help_text_template = ("project/instances/"
                               "_launch_customize_help.html")
 
+    source_choices = [('raw', _('Direct Input')),
+                      ('file', _('File'))]
+
+    attributes = {'class': 'switchable', 'data-slug': 'scriptsource'}
+    script_source = forms.ChoiceField(label=_('Customization Script Source'),
+                                        choices=source_choices,
+                                        widget=forms.Select(attrs=attributes))
+
+    script_help = _("A script or set of commands to be executed after the "
+                    "instance has been built (max 16kb).")
+
+    script_upload = forms.FileField(
+        label=_('Script File'),
+        help_text=script_help,
+        widget=forms.FileInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'scriptsource',
+            'data-scriptsource-file': _('Script File')}),
+        required=False)
+
+    script_data = forms.CharField(
+        label=_('Script Data'),
+        help_text=script_help,
+        widget=forms.widgets.Textarea(attrs={
+            'class': 'switched',
+            'data-switch-on': 'scriptsource',
+            'data-scriptsource-raw': _('Script Data')}),
+        required=False)
+
+    def __init__(self, *args):
+        super(CustomizeAction, self).__init__(*args)
+
+    def clean(self):
+        cleaned = super(CustomizeAction, self).clean()
+
+        files = self.request.FILES
+        script = self.clean_uploaded_files('script', files)
+
+        if script is not None:
+            cleaned['script_data'] = script
+
+        return cleaned
+
+    def clean_uploaded_files(self, prefix, files):
+        upload_str = prefix + "_upload"
+
+        has_upload = upload_str in files
+        if has_upload:
+            upload_file = files[upload_str]
+            log_script_name = upload_file.name
+            LOG.info('got upload %s' % log_script_name)
+
+            if upload_file._size > 16 * 1024:  # 16kb
+                msg = _('File exceeds maximum size (16kb)')
+                raise forms.ValidationError(msg)
+            else:
+                script = upload_file.read()
+                if script != "":
+                    try:
+                        normalize_newlines(script)
+                    except Exception as e:
+                        msg = _('There was a problem parsing the'
+                                ' %(prefix)s: %(error)s')
+                        msg = msg % {'prefix': prefix, 'error': e}
+                        raise forms.ValidationError(msg)
+                return script
+        else:
+            return None
+
 
 class PostCreationStep(workflows.Step):
     action_class = CustomizeAction
-    contributes = ("customization_script",)
+    contributes = ("script_data",)
 
 
 class SetNetworkAction(workflows.Action):
@@ -699,6 +759,7 @@ class LaunchInstance(workflows.Workflow):
     success_message = _('Launched %(count)s named "%(name)s".')
     failure_message = _('Unable to launch %(count)s named "%(name)s".')
     success_url = "horizon:project:instances:index"
+    multipart = True
     default_steps = (SelectProjectUser,
                      SetInstanceDetails,
                      SetAccessControls,
@@ -717,7 +778,7 @@ class LaunchInstance(workflows.Workflow):
 
     @sensitive_variables('context')
     def handle(self, request, context):
-        custom_script = context.get('customization_script', '')
+        custom_script = context.get('script_data', '')
 
         dev_mapping_1 = None
         dev_mapping_2 = None

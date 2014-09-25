@@ -17,6 +17,7 @@
 #    under the License.
 
 import json
+import sys
 import uuid
 
 from django.conf import settings
@@ -30,6 +31,7 @@ from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa
 
 from horizon import exceptions
+from horizon import forms
 from horizon.workflows import views
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
@@ -1583,7 +1585,8 @@ class InstanceTests(helpers.TestCase):
                      'image_id': image.id,
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -1707,7 +1710,8 @@ class InstanceTests(helpers.TestCase):
                      'source_id': volume_choice,
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -1834,7 +1838,8 @@ class InstanceTests(helpers.TestCase):
                      # 'image_id': '',
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -1933,7 +1938,8 @@ class InstanceTests(helpers.TestCase):
                      'image_id': '',
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -2040,7 +2046,7 @@ class InstanceTests(helpers.TestCase):
         server = self.servers.first()
         sec_group = self.security_groups.first()
         avail_zone = self.availability_zones.first()
-        customization_script = 'userData'
+        customization_script = 'user data'
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
@@ -2116,7 +2122,8 @@ class InstanceTests(helpers.TestCase):
                      'availability_zone': avail_zone.zoneName,
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -2218,7 +2225,8 @@ class InstanceTests(helpers.TestCase):
                      'availability_zone': avail_zone.zoneName,
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -2316,7 +2324,8 @@ class InstanceTests(helpers.TestCase):
                      'availability_zone': avail_zone.zoneName,
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -2431,7 +2440,8 @@ class InstanceTests(helpers.TestCase):
                      'availability_zone': avail_zone.zoneName,
                      'keypair': keypair.name,
                      'name': server.name,
-                     'customization_script': customization_script,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
                      'project_id': self.tenants.first().id,
                      'user_id': self.user.id,
                      'groups': sec_group.name,
@@ -2558,7 +2568,8 @@ class InstanceTests(helpers.TestCase):
             'availability_zone': avail_zone.zoneName,
             'keypair': keypair.name,
             'name': server.name,
-            'customization_script': customization_script,
+            'script_source': 'raw',
+            'script_data': customization_script,
             'project_id': self.tenants.first().id,
             'user_id': self.user.id,
             'groups': sec_group.name,
@@ -3242,6 +3253,58 @@ class InstanceTests(helpers.TestCase):
 
         self.assertRedirectsNoFollow(res, next_page_url)
         self.assertMessageCount(success=1)
+
+    class SimpleFile(object):
+        def __init__(self, name, data, size):
+            self.name = name
+            self.data = data
+            self._size = size
+
+        def read(self):
+            return self.data
+
+    def test_clean_file_upload_form_oversize_data(self):
+        t = workflows.create_instance.CustomizeAction(self.request, {})
+        upload_str = 'user data'
+        files = {'script_upload':
+            self.SimpleFile('script_name',
+                            upload_str,
+                            (16 * 1024) + 1)}
+
+        self.assertRaises(
+            forms.ValidationError,
+            t.clean_uploaded_files,
+            'script',
+            files)
+
+    def test_clean_file_upload_form_invalid_data(self):
+        t = workflows.create_instance.CustomizeAction(self.request, {})
+        upload_str = '\x81'
+        files = {'script_upload':
+            self.SimpleFile('script_name',
+                            upload_str,
+                            sys.getsizeof(upload_str))}
+
+        self.assertRaises(
+            forms.ValidationError,
+            t.clean_uploaded_files,
+            'script',
+            files)
+
+    def test_clean_file_upload_form_valid_data(self):
+        t = workflows.create_instance.CustomizeAction(self.request, {})
+        precleaned = 'user data'
+        upload_str = 'user data'
+        files = {'script_upload':
+            self.SimpleFile('script_name',
+                            upload_str,
+                            sys.getsizeof(upload_str))}
+
+        cleaned = t.clean_uploaded_files('script', files)
+
+        self.assertEqual(
+            cleaned,
+            precleaned)
 
 
 class InstanceAjaxTests(helpers.TestCase):
