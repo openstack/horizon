@@ -17,6 +17,7 @@
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from openstack_dashboard import policy
@@ -50,29 +51,68 @@ class AddFirewallLink(tables.LinkAction):
 
 class DeleteRuleLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deleterule"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Rule")
-    data_type_plural = _("Rules")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Rule",
+            u"Delete Rules",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Rule",
+            u"Scheduled deletion of Rules",
+            count
+        )
+
     policy_rules = (("network", "delete_firewall_rule"),)
 
 
 class DeletePolicyLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletepolicy"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Policy")
-    data_type_plural = _("Policies")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Policy",
+            u"Delete Policies",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Policy",
+            u"Scheduled deletion of Policies",
+            count
+        )
+
     policy_rules = (("network", "delete_firewall_policy"),)
 
 
 class DeleteFirewallLink(policy.PolicyTargetMixin,
                          tables.DeleteAction):
     name = "deletefirewall"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Firewall")
-    data_type_plural = _("Firewalls")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Firewall",
+            u"Delete Firewalls",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Firewall",
+            u"Scheduled deletion of Firewalls",
+            count
+        )
+
     policy_rules = (("network", "delete_firewall"),)
 
 
