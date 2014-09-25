@@ -17,6 +17,7 @@ from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -49,9 +50,22 @@ class LaunchSnapshot(volume_tables.LaunchVolume):
 
 
 class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
-    data_type_singular = _("Volume Snapshot")
-    data_type_plural = _("Volume Snapshots")
-    action_past = _("Scheduled deletion of %(data_type)s")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Volume Snapshot",
+            u"Delete Volume Snapshots",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Volume Snapshot",
+            u"Scheduled deletion of Volume Snapshots",
+            count
+        )
+
     policy_rules = (("volume", "volume:delete_snapshot"),)
     policy_target_attrs = (("project_id",
                             'os-extended-snapshot-attributes:project_id'),)

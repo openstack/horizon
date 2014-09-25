@@ -12,6 +12,7 @@
 
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -45,8 +46,21 @@ class ManageQosSpecAssociation(tables.LinkAction):
 
 
 class DeleteVolumeType(tables.DeleteAction):
-    data_type_singular = _("Volume Type")
-    data_type_plural = _("Volume Types")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete VolumeType",
+            u"Delete VolumeTypes",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted VolumeType",
+            u"Deleted VolumeTypes",
+            count
+        )
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, obj_id):
@@ -98,8 +112,21 @@ class CreateQosSpec(tables.LinkAction):
 
 
 class DeleteQosSpecs(tables.DeleteAction):
-    data_type_singular = _("QOS Spec")
-    data_type_plural = _("QOS Specs")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete QOS Spec",
+            u"Delete QOS Specs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted QOS Spec",
+            u"Deleted QOS Specs",
+            count
+        )
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, qos_spec_id):

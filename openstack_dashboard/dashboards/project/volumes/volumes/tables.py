@@ -21,6 +21,7 @@ from django.utils.http import urlencode
 from django.utils import safestring
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -60,9 +61,22 @@ class LaunchVolume(tables.LinkAction):
 
 
 class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
-    data_type_singular = _("Volume")
-    data_type_plural = _("Volumes")
-    action_past = _("Scheduled deletion of %(data_type)s")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Volume",
+            u"Delete Volumes",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Volume",
+            u"Scheduled deletion of Volumes",
+            count
+        )
+
     policy_rules = (("volume", "volume:delete"),)
 
     def delete(self, request, obj_id):
