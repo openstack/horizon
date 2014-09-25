@@ -15,6 +15,7 @@ import logging
 
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from openstack_dashboard.api import sahara as saharaclient
@@ -49,14 +50,25 @@ class CopyTemplate(tables.LinkAction):
 
 
 class DeleteTemplate(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Template",
+            u"Delete Templates",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Template",
+            u"Deleted Templates",
+            count
+        )
+
     name = "delete_nodegroup_template"
     verbose_name = _("Delete")
     classes = ("btn-terminate", "btn-danger")
-
-    action_present = _("Delete")
-    action_past = _("Deleted")
-    data_type_singular = _("Template")
-    data_type_plural = _("Templates")
 
     def action(self, request, template_id):
         saharaclient.nodegroup_template_delete(request, template_id)

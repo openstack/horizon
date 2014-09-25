@@ -17,6 +17,7 @@ from django.core import urlresolvers
 from django.template import defaultfilters as filters
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -57,14 +58,25 @@ class CopyTemplate(tables.LinkAction):
 
 
 class DeleteTemplate(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Template",
+            u"Delete Templates",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Template",
+            u"Deleted Templates",
+            count
+        )
+
     name = "delete_cluster_template"
     verbose_name = _("Delete Template")
     classes = ("btn-terminate", "btn-danger")
-
-    action_present = _("Delete")
-    action_past = _("Deleted")
-    data_type_singular = _("Template")
-    data_type_plural = _("Templates")
 
     def action(self, request, template_id):
         saharaclient.cluster_template_delete(request, template_id)
