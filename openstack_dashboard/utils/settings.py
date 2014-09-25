@@ -85,6 +85,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     applied in alphabetical order of files where it was imported.
     """
     enabled_dashboards = []
+    disabled_dashboards = []
     exceptions = {}
     apps = []
     angular_modules = []
@@ -93,6 +94,8 @@ def update_dashboards(modules, horizon_config, installed_apps):
     update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
+            if config.get('DASHBOARD'):
+                disabled_dashboards.append(config.get('DASHBOARD'))
             continue
         apps.extend(config.get('ADD_INSTALLED_APPS', []))
         exceptions.update(config.get('ADD_EXCEPTIONS', {}))
@@ -111,7 +114,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     # Preserve the dashboard order specified in settings
     config_dashboards = horizon_config.get('dashboards', [])
     dashboards = ([d for d in config_dashboards
-                   if d in enabled_dashboards] +
+                   if d not in disabled_dashboards] +
                   [d for d in enabled_dashboards
                    if d not in config_dashboards])
 
