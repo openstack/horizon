@@ -8,10 +8,12 @@
 
 {% block main %}
 
-<div class="row">
-	<div class="col-sm-12">
-  		{{ table.render }}
-   	</div>
+<div id="tenants">
+	{{ tenants_table.render }}	
+</div>
+
+<div id="applications">
+	{{ applications_table.render}}
 </div>
 {% endblock %}
 

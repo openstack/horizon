@@ -157,17 +157,6 @@ class UpdateOrganizationView(workflows.WorkflowView):
                     exceptions.handle(self.request,
                         _('Unable to retrieve organization domain.'),
                         redirect=reverse(INDEX_URL))
-
-
-        #     # get initial organization quota
-        #     quota_data = quotas.get_tenant_quota_data(self.request,
-        #                                               tenant_id=organization_id)
-        #     if api.base.is_service_enabled(self.request, 'network') and \
-        #             api.neutron.is_quotas_extension_supported(self.request):
-        #         quota_data += api.neutron.tenant_quota_get(self.request,
-        #                                                   tenant_id=organization_id)
-        #     for field in quotas.QUOTA_FIELDS:
-        #         initial[field] = quota_data.get(field).limit
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve organization details.'),

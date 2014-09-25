@@ -175,7 +175,3 @@ class TenantsTable(tables.DataTable):
                          DeleteTenantsAction)
         pagination_param = "tenant_marker"
 
-  # 
-  #       row_actions = (UpdateOrganization,  DeleteTenantsAction)
-  #       table_actions = (TenantFilterAction, CreateOrganization,
-  #                        DeleteTenantsAction)

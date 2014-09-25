@@ -38,14 +38,15 @@ class TenantContextMixin(object):
 
 
 
-class IndexView(tables.DataTableView):
-    table_class = home_tables.TenantsTable
+class IndexView(tables.MultiTableView):
+    table_classes = (home_tables.TenantsTable,
+                     home_tables.ApplicationsTable)
     template_name = 'idm/home/index.html'
 
     def has_more_data(self, table):
         return self._more
 
-    def get_data(self):
+    def get_tenants_data(self):
         tenants = []
         marker = self.request.GET.get(
             home_tables.TenantsTable._meta.pagination_param, None)
@@ -80,4 +81,12 @@ class IndexView(tables.DataTableView):
             msg = \
                 _("Insufficient privilege level to view project information.")
             messages.info(self.request, msg)
+        return tenants
+
+    def get_applications_data(self):
+        tenants = []
+        marker = self.request.GET.get(
+            home_tables.ApplicationsTable._meta.pagination_param, None)
+        domain_context = self.request.session.get('domain_context', None)
+        
         return tenants
