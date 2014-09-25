@@ -48,9 +48,6 @@ class CreateForm(forms.SelfHandlingForm):
     description = forms.CharField(max_length=255, widget=forms.Textarea(
         attrs={'class': 'modal-body-fixed-width'}),
         label=_("Description"), required=False)
-    type = forms.ChoiceField(label=_("Type"),
-                             required=False)
-    size = forms.IntegerField(min_value=1, initial=1, label=_("Size (GB)"))
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
                                            required=False,
                                            widget=forms.Select(attrs={
@@ -78,6 +75,15 @@ class CreateForm(forms.SelfHandlingForm):
             transform=lambda x: "%s (%s)" % (x.name,
                 filesizeformat(x.size * 1024 * 1024 * 1024))),
         required=False)
+    type = forms.ChoiceField(
+        label=_("Type"),
+        required=False,
+        widget=forms.Select(
+            attrs={'class': 'switched',
+                   'data-switch-on': 'source',
+                   'data-source-no_source_type': _('Type'),
+                   'data-source-image_source': _('Type')}))
+    size = forms.IntegerField(min_value=1, initial=1, label=_("Size (GB)"))
     availability_zone = forms.ChoiceField(
         label=_("Availability Zone"),
         required=False,
