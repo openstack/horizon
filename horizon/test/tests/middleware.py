@@ -35,9 +35,8 @@ class MiddlewareTests(test.TestCase):
 
         self.assertRedirects(resp, url)
 
-    def test_redirect_session_timeout(self):
+    def test_session_timeout(self):
         requested_url = '/project/instances/'
-        response_url = '%s?next=%s' % (settings.LOGOUT_URL, requested_url)
         request = self.factory.get(requested_url)
         try:
             timeout = settings.SESSION_TIMEOUT
@@ -47,7 +46,7 @@ class MiddlewareTests(test.TestCase):
         mw = middleware.HorizonMiddleware()
         resp = mw.process_request(request)
         self.assertEqual(302, resp.status_code)
-        self.assertEqual(response_url, resp.get('Location'))
+        self.assertEqual(requested_url, resp.get('Location'))
 
     def test_process_response_redirect_on_ajax_request(self):
         url = settings.LOGIN_URL

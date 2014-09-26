@@ -221,6 +221,12 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
 SESSION_TIMEOUT = 1800
+# A token can be near the end af validity when a page starts loading, and
+# invalid during the rendering which can cause errors when a page load.
+# TOKEN_TIMEOUT_MARGIN defines a time in seconds we retrieve from token
+# validity to avoid this issue. You can adjust this time depending on the
+# performance of the infrastructure.
+TOKEN_TIMEOUT_MARGIN = 10
 
 # When using cookie-based sessions, log error when the session cookie exceeds
 # the following size (common browsers drop cookies above a certain size):
