@@ -51,36 +51,17 @@ class IndexView(tables.MultiTableView):
         marker = self.request.GET.get(
             home_tables.TenantsTable._meta.pagination_param, None)
         domain_context = self.request.session.get('domain_context', None)
-        if policy.check((("idm", "idm:list_home"),),
-                        self.request):
-            try:
-                tenants, self._more = api.keystone.tenant_list(
-                    self.request,
-                    domain=domain_context,
-                    paginate=True,
-                    marker=marker)
-            except Exception:
-                self._more = False
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve project list."))
-        elif policy.check((("idm", "idm:list_user_home"),),
-                          self.request):
-            try:
-                tenants, self._more = api.keystone.tenant_list(
-                    self.request,
-                    user=self.request.user.id,
-                    paginate=True,
-                    marker=marker,
-                    admin=False)
-            except Exception:
-                self._more = False
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve project information."))
-        else:
+        try:
+            tenants, self._more = api.keystone.tenant_list(
+                self.request,
+                user=self.request.user.id,
+                paginate=True,
+                marker=marker,
+                admin=False)
+        except Exception:
             self._more = False
-            msg = \
-                _("Insufficient privilege level to view project information.")
-            messages.info(self.request, msg)
+            exceptions.handle(self.request,
+                              _("Unable to retrieve project information."))    
         return tenants
 
     def get_applications_data(self):

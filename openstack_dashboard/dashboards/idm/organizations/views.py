@@ -24,6 +24,7 @@ from horizon import messages
 from horizon import tables
 from horizon.utils import memoized
 from horizon import workflows
+from horizon import tabs
 
 from openstack_dashboard import api
 from openstack_dashboard.api import keystone
@@ -34,6 +35,8 @@ from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
 from openstack_dashboard.dashboards.idm.organizations \
     import workflows as organization_workflows
+from openstack_dashboard.dashboards.idm.organizations \
+    import tabs as organization_tabs
 
 
 PROJECT_INFO_FIELDS = ("domain_id",
@@ -62,12 +65,12 @@ class TenantContextMixin(object):
         return context
 
 
-class IndexView(tables.DataTableView):
-    table_class = organization_tables.TenantsTable
+class IndexView(tabs.TabbedTableView):
+    tab_group_class = organization_tabs.PanelTabs
     template_name = 'idm/organizations/index.html'
 
-    def has_more_data(self, table):
-        return self._more
+    # def has_more_data(self, table):
+    #     return self._more
 
     def get_data(self):
         tenants = []
@@ -77,13 +80,14 @@ class IndexView(tables.DataTableView):
         if policy.check((("idm", "idm:list_organizations"),),
                         self.request):
             try:
-                tenants, self._more = api.keystone.tenant_list(
+                # , self._more
+                tenants = api.keystone.tenant_list(
                     self.request,
                     domain=domain_context,
                     paginate=True,
                     marker=marker)
             except Exception:
-                self._more = False
+                # self._more = False
                 exceptions.handle(self.request,
                                   _("Unable to retrieve organization list."))
         elif policy.check((("idm", "idm:list_user_organizations"),),
@@ -96,11 +100,11 @@ class IndexView(tables.DataTableView):
                     marker=marker,
                     admin=False)
             except Exception:
-                self._more = False
+                # self._more = False
                 exceptions.handle(self.request,
                                   _("Unable to retrieve organization information."))
         else:
-            self._more = False
+            # self._more = False
             msg = \
                 _("Insufficient privilege level to view organization information.")
             messages.info(self.request, msg)
