@@ -15,6 +15,7 @@ import logging
 
 from django.http import Http404  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import messages
 from horizon import tables
@@ -46,11 +47,23 @@ class ScaleCluster(tables.LinkAction):
 
 
 class DeleteCluster(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Cluster",
+            u"Delete Clusters",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Cluster",
+            u"Deleted Clusters",
+            count
+        )
+
     name = "delete"
-    action_present = _("Delete")
-    action_past = _("Deleted")
-    data_type_singular = _("Cluster")
-    data_type_plural = _("Clusters")
     classes = ('btn-danger', 'btn-terminate')
 
     def action(self, request, obj_id):

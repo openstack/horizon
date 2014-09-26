@@ -16,6 +16,7 @@ import logging
 from django.core import urlresolvers
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -33,11 +34,23 @@ class CreateJob(tables.LinkAction):
 
 
 class DeleteJob(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Job",
+            u"Delete Jobs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Job",
+            u"Deleted Jobs",
+            count
+        )
+
     name = "delete"
-    action_present = _("Delete")
-    action_past = _("Deleted")
-    data_type_singular = _("Job")
-    data_type_plural = _("Jobs")
     classes = ('btn-danger', 'btn-terminate')
 
     def action(self, request, obj_id):
@@ -45,12 +58,24 @@ class DeleteJob(tables.BatchAction):
 
 
 class LaunchJobExistingCluster(tables.LinkAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Launch Job",
+            u"Launch Jobs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Launched Job",
+            u"Launched Jobs",
+            count
+        )
+
     name = "launch-job-existing"
     verbose_name = _("Launch On Existing Cluster")
-    action_present = _("Launch")
-    action_past = _("Launched")
-    data_type_singular = _("Job")
-    data_type_plural = _("Jobs")
     url = "horizon:project:data_processing.jobs:launch-job"
     classes = ('ajax-modal', 'btn-launch')
 
@@ -62,12 +87,24 @@ class LaunchJobExistingCluster(tables.LinkAction):
 
 
 class LaunchJobNewCluster(tables.LinkAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Launch Job",
+            u"Launch Jobs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Launched Job",
+            u"Launched Jobs",
+            count
+        )
+
     name = "launch-job-new"
     verbose_name = _("Launch On New Cluster")
-    action_present = _("Launch")
-    action_past = _("Launched")
-    data_type_singular = _("Job")
-    data_type_plural = _("Jobs")
     url = "horizon:project:data_processing.jobs:launch-job-new-cluster"
     classes = ('ajax-modal', 'btn-launch')
 
@@ -79,12 +116,24 @@ class LaunchJobNewCluster(tables.LinkAction):
 
 
 class ChoosePlugin(tables.LinkAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Launch Job",
+            u"Launch Jobs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Launched Job",
+            u"Launched Jobs",
+            count
+        )
+
     name = "launch-job-new"
     verbose_name = _("Launch On New Cluster")
-    action_present = _("Launch")
-    action_past = _("Launched")
-    data_type_singular = _("Job")
-    data_type_plural = _("Jobs")
     url = "horizon:project:data_processing.jobs:choose-plugin"
     classes = ('ajax-modal', 'btn-launch')
 

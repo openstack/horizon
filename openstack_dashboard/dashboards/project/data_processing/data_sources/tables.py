@@ -14,6 +14,7 @@
 import logging
 
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -31,11 +32,23 @@ class CreateDataSource(tables.LinkAction):
 
 
 class DeleteDataSource(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Data source",
+            u"Delete Data sources",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Data source",
+            u"Deleted Data sources",
+            count
+        )
+
     name = "delete"
-    action_present = _("Delete")
-    action_past = _("Deleted")
-    data_type_singular = _("Data source")
-    data_type_plural = _("Data sources")
     classes = ('btn-danger', 'btn-terminate')
 
     def action(self, request, obj_id):

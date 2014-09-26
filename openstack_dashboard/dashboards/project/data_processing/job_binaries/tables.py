@@ -14,6 +14,7 @@
 import logging
 
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -34,11 +35,23 @@ class CreateJobBinary(tables.LinkAction):
 
 
 class DeleteJobBinary(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Job binary",
+            u"Delete Job binaries",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Job binary",
+            u"Deleted Job binaries",
+            count
+        )
+
     name = "delete"
-    action_present = _("Delete")
-    action_past = _("Deleted")
-    data_type_singular = _("Job binary")
-    data_type_plural = _("Job binaries")
     classes = ('btn-danger', 'btn-terminate')
 
     def action(self, request, obj_id):
