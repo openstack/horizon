@@ -9,6 +9,7 @@
 # EVEILLARD <stephane.eveillard@gmail.com>, 2014
 # François Bureau, 2014
 # Frédéric <frosmont@free.fr>, 2014
+# JF Taltavull <jftalta@gmail.com>, 2014
 # Kamel_CW <yamani.kamel@gmail.com>, 2014
 # Léo Carré <carre.leo+transifex@gmail.com>, 2014
 # Mohamed-Younès BOUMEDIENE <m-boumediene@live.fr>, 2014
@@ -18,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-21 14:06-0500\n"
-"PO-Revision-Date: 2014-09-19 08:50+0000\n"
-"Last-Translator: EVEILLARD <stephane.eveillard@gmail.com>\n"
+"POT-Creation-Date: 2014-09-25 13:08-0500\n"
+"PO-Revision-Date: 2014-09-22 15:11+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,15 +73,15 @@ msgstr "Sélectionner une %s à parcourir."
 msgid "Password is not accepted"
 msgstr "Le mot de passe n'est pas accepté"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Format d'adresse IP incorrect"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "Version d'adresse IP invalide"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "Masque de sous-réseau invalide"
 
@@ -367,14 +368,14 @@ msgstr "Sélectionner une période pour en visualiser l'utilisation"
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr "\n<label>De:</label> %(start)s"
+msgstr "\n<label>Du :</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr "\n<label>à:</label>%(end)s"
+msgstr "\n<label>au :</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
@@ -408,11 +409,11 @@ msgstr "Suivant"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:137
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "Pas de limite"
 
-#: templatetags/horizon.py:129 templatetags/horizon.py:131
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "Disponible"
 

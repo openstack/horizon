@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-21 14:06-0500\n"
-"PO-Revision-Date: 2014-09-18 04:31+0000\n"
+"POT-Creation-Date: 2014-09-25 13:08-0500\n"
+"PO-Revision-Date: 2014-09-24 21:15+0000\n"
 "Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -64,15 +64,15 @@ msgstr "表示する %s を選択してください。"
 msgid "Password is not accepted"
 msgstr "パスワードを受け付けられません"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "不正な形式の IP アドレス"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "無効な IP アドレスのバージョン"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "無効なサブネットマスク"
 
@@ -397,11 +397,11 @@ msgstr "次へ"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:137
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "制限なし"
 
-#: templatetags/horizon.py:129 templatetags/horizon.py:131
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "利用可能"
 
@@ -454,7 +454,7 @@ msgstr "有効な IP プロトコル番号ではありません"
 
 #: utils/validators.py:42
 msgid "One colon allowed in port range"
-msgstr "ポート範囲で使用できるコロンは一つだけです。"
+msgstr "ポート範囲で使用できるコロンは 1 つだけです。"
 
 #: utils/validators.py:49
 msgid "Port number must be integer"

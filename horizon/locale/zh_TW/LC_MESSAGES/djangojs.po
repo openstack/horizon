@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-23 00:10-0500\n"
-"PO-Revision-Date: 2014-07-22 22:01+0000\n"
-"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"POT-Creation-Date: 2014-09-25 13:08-0500\n"
+"PO-Revision-Date: 2014-09-23 03:32+0000\n"
+"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:281
+#: static/horizon/js/horizon.modals.js:303
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "讀取中"
 
-#: static/horizon/js/horizon.d3linechart.js:386
-#: static/horizon/js/horizon.d3linechart.js:396
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
 msgstr "無可用的資料。"
 
-#: static/horizon/js/horizon.d3linechart.js:402
-#: static/horizon/js/horizon.modals.js:300
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:322
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -41,16 +41,16 @@ msgstr "發生錯誤。請稍後再試。"
 msgid "There was a problem communicating with the server, please try again."
 msgstr "與伺服器間的通訊有問題，請再試一次。"
 
-#: static/horizon/js/horizon.forms.js:154
+#: static/horizon/js/horizon.forms.js:195
 msgid "Filter"
 msgstr "篩選"
 
-#: static/horizon/js/horizon.instances.js:233
+#: static/horizon/js/horizon.instances.js:248
 msgid "Could not read the file"
 msgstr "不能讀取檔案"
 
-#: static/horizon/js/horizon.instances.js:239
-#: static/horizon/js/horizon.instances.js:266
+#: static/horizon/js/horizon.instances.js:254
+#: static/horizon/js/horizon.instances.js:281
 msgid "Could not decrypt the password"
 msgstr "不能解鎖密碼"
 
@@ -62,23 +62,23 @@ msgstr "無角色"
 msgid "Roles"
 msgstr "角色"
 
-#: static/horizon/js/horizon.messages.js:11
+#: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
 msgstr "危險："
 
-#: static/horizon/js/horizon.messages.js:12
+#: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
 msgstr "警告："
 
-#: static/horizon/js/horizon.messages.js:13
+#: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
 msgstr "注意："
 
-#: static/horizon/js/horizon.messages.js:14
+#: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
 msgstr "成功："
 
-#: static/horizon/js/horizon.messages.js:15
+#: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "錯誤："
 
@@ -86,12 +86,12 @@ msgstr "錯誤："
 msgid "Cancel"
 msgstr "取消"
 
-#: static/horizon/js/horizon.modals.js:208
-#: static/horizon/js/horizon.tables.js:200
+#: static/horizon/js/horizon.modals.js:223
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "運作中"
 
-#: static/horizon/js/horizon.modals.js:238
+#: static/horizon/js/horizon.modals.js:253
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表單時有錯誤。請再試一次。"
 
@@ -122,33 +122,33 @@ msgstr "檢視 %s 的詳細資訊"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
-msgstr "加入網路卡"
+msgstr "加入網路卡介面"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:356
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
 
 #: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:129
+#: static/horizon/js/horizon.tables.js:120
 msgid "An error occurred while updating."
 msgstr "更新時發生錯誤。"
 
-#: static/horizon/js/horizon.tables.js:183
+#: static/horizon/js/horizon.tables.js:204
 #, c-format
 msgid "You have selected %s. "
 msgstr "您選擇了 %s。"
 
-#: static/horizon/js/horizon.tables.js:185
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "Confirm %s"
 msgstr "確認 %s"
 
-#: static/horizon/js/horizon.tables.js:186
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "請確認您的選擇。這個動作將無法回復。"
 
-#: static/horizon/js/horizon.tables.js:343
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
