@@ -106,6 +106,9 @@ def download_ec2_bundle(request):
 def download_rc_file(request):
     tenant_id = request.user.tenant_id
     tenant_name = request.user.tenant_name
+    region = request.user.services_region
+    if region is None:
+        region = ""
 
     template = 'project/access_and_security/api_access/openrc.sh.template'
 
@@ -117,7 +120,8 @@ def download_rc_file(request):
         context = {'user': request.user,
                    'auth_url': keystone_url,
                    'tenant_id': tenant_id,
-                   'tenant_name': tenant_name}
+                   'tenant_name': tenant_name,
+                   'region': region}
 
         response = shortcuts.render(request,
                                     template,
