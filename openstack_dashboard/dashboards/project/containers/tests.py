@@ -281,6 +281,26 @@ class SwiftTests(test.TestCase):
         handled = table.maybe_handle()
         self.assertEqual(handled['location'], index_url)
 
+    @test.create_stubs({api.swift: ('swift_delete_object',)})
+    def test_delete_pseudo_folder(self):
+        container = self.containers.first()
+        folder = self.folder.first()
+        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        index_url = reverse('horizon:project:containers:index', args=args)
+        api.swift.swift_delete_object(IsA(http.HttpRequest),
+                                      container.name,
+                                      folder.name + '/')
+        self.mox.ReplayAll()
+
+        action_string = "objects__delete_object__%s/%s" % (container.name,
+                                                           folder.name)
+        form_data = {"action": action_string}
+        req = self.factory.post(index_url, form_data)
+        kwargs = {"container_name": container.name}
+        table = tables.ObjectsTable(req, self.folder.list(), **kwargs)
+        handled = table.maybe_handle()
+        self.assertEqual(handled['location'], index_url)
+
     @test.create_stubs({api.swift: ('swift_get_object',)})
     def test_download(self):
         for container in self.containers.list():
