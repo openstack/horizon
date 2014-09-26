@@ -23,13 +23,14 @@ from horizon import tables
 from horizon.utils import memoized
 
 from openstack_dashboard import api
-from openstack_dashboard import policy
+from openstack_dashboard.dashboards.project.networks.subnets \
+    import tables as proj_tables
 
 
 LOG = logging.getLogger(__name__)
 
 
-class DeleteSubnet(policy.PolicyTargetMixin, tables.DeleteAction):
+class DeleteSubnet(proj_tables.SubnetPolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -47,7 +48,6 @@ class DeleteSubnet(policy.PolicyTargetMixin, tables.DeleteAction):
         )
 
     policy_rules = (("network", "delete_subnet"),)
-    policy_target_attrs = (("network:project_id", "tenant_id"),)
 
     def delete(self, request, obj_id):
         try:
@@ -61,32 +61,26 @@ class DeleteSubnet(policy.PolicyTargetMixin, tables.DeleteAction):
             exceptions.handle(request, msg, redirect=redirect)
 
 
-class CreateSubnet(policy.PolicyTargetMixin, tables.LinkAction):
+class CreateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
     name = "create"
     verbose_name = _("Create Subnet")
     url = "horizon:admin:networks:addsubnet"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)
-    policy_target_attrs = (("network:project_id", "tenant_id"),)
-
-    def get_policy_target(self, request, datum=None):
-        return super(CreateSubnet, self)\
-            .get_policy_target(request, self.table._get_network())
 
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
         return reverse(self.url, args=(network_id,))
 
 
-class UpdateSubnet(policy.PolicyTargetMixin, tables.LinkAction):
+class UpdateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Subnet")
     url = "horizon:admin:networks:editsubnet"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("network", "update_subnet"),)
-    policy_target_attrs = (("network:project_id", "tenant_id"),)
 
     def get_link_url(self, subnet):
         network_id = self.table.kwargs['network_id']

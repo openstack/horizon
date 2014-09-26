@@ -41,12 +41,21 @@ class CheckNetworkEditable(object):
         return True
 
 
-class DeleteSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
+class SubnetPolicyTargetMixin(policy.PolicyTargetMixin):
+
+    def get_policy_target(self, request, datum=None):
+        policy_target = super(SubnetPolicyTargetMixin, self)\
+            .get_policy_target(request, datum)
+        network = self.table._get_network()
+        policy_target["network:project_id"] = network.tenant_id
+        return policy_target
+
+
+class DeleteSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
                    tables.DeleteAction):
     data_type_singular = _("Subnet")
     data_type_plural = _("Subnets")
     policy_rules = (("network", "delete_subnet"),)
-    policy_target_attrs = (("network:project_id", "tenant_id"),)
 
     def delete(self, request, obj_id):
         try:
@@ -60,7 +69,7 @@ class DeleteSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
             exceptions.handle(request, msg, redirect=redirect)
 
 
-class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
+class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
                    tables.LinkAction):
     name = "create"
     verbose_name = _("Create Subnet")
@@ -68,18 +77,13 @@ class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)
-    policy_target_attrs = (("network:project_id", "tenant_id"),)
-
-    def get_policy_target(self, request, datum=None):
-        return super(CreateSubnet, self)\
-            .get_policy_target(request, self.table._get_network())
 
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
         return reverse(self.url, args=(network_id,))
 
 
-class UpdateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
+class UpdateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
                    tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Subnet")
@@ -87,7 +91,6 @@ class UpdateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("network", "update_subnet"),)
-    policy_target_attrs = (("network:project_id", "tenant_id"),)
 
     def get_link_url(self, subnet):
         network_id = self.table.kwargs['network_id']
