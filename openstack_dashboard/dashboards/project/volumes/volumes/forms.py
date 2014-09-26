@@ -129,7 +129,9 @@ class CreateForm(forms.SelfHandlingForm):
                 size_help_text = _('Volume size must be equal to or greater '
                                    'than the image size (%s)') \
                                  % filesizeformat(image.size)
-                min_disk_size = getattr(image, 'min_disk', 0)
+                properties = getattr(image, 'properties', {})
+                min_disk_size = getattr(image, 'min_disk', 0) or \
+                                properties.get('min_disk', 0)
                 if (min_disk_size > min_vol_size):
                     min_vol_size = min_disk_size
                     size_help_text = _('Volume size must be equal to or '
@@ -295,8 +297,10 @@ class CreateForm(forms.SelfHandlingForm):
                     error_message = _('The volume size cannot be less than '
                         'the image size (%s)') % filesizeformat(image.size)
                     raise ValidationError(error_message)
-                min_disk_size = getattr(image, 'min_disk', 0)
-                if (min_disk_size > 0 and data['size'] < image.min_disk):
+                properties = getattr(image, 'properties', {})
+                min_disk_size = getattr(image, 'min_disk', 0) or \
+                                properties.get('min_disk', 0)
+                if (min_disk_size > 0 and data['size'] < min_disk_size):
                     error_message = _('The volume size cannot be less than '
                         'the image minimum disk size (%sGB)') % min_disk_size
                     raise ValidationError(error_message)
