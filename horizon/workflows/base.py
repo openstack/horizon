@@ -164,7 +164,7 @@ class Action(forms.Form):
             text += linebreaks(force_unicode(self.help_text))
         return safe(text)
 
-    def add_error(self, message):
+    def add_action_error(self, message):
         """Adds an error to the Action's Step based on API issues."""
         self.errors[NON_FIELD_ERRORS] = self.error_class([message])
 
@@ -432,9 +432,9 @@ class Step(object):
         text += self.action.get_help_text()
         return safe(text)
 
-    def add_error(self, message):
+    def add_step_error(self, message):
         """Adds an error to the Step based on API issues."""
-        self.action.add_error(message)
+        self.action.add_action_error(message)
 
     def has_required_fields(self):
         """Returns True if action contains any required fields."""
@@ -863,4 +863,4 @@ class Workflow(html.HTMLElement):
         """
         step = self.get_step(slug)
         if step:
-            step.add_error(message)
+            step.add_step_error(message)
