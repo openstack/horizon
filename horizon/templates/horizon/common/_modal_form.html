@@ -1,61 +1,49 @@
-<div id="{% block modal_id %}{{ modal_id }}{% endblock %}"
-  class="{% block modal_class %}{% if hide %}modal{% else %}static_page{% endif %}{% endblock %}">
-  <div class="{% if hide %}modal-dialog{% endif %}">
-    <div class="{% if hide %}modal-content{% endif %}">
-      <div class="modal-header">
-        {% if hide %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
-        <h3>{% block modal-header %}{{ modal_header }}{% endblock %}</h3>
-      </div>
-      {% if table %}
-      <div class="modal-body">
+{% extends "horizon/common/_modal.html" %}
+{% block content %}
+  {% if table %}
+    <div class="modal-body">
       {{ table.render }}
-      </div>
-      <hr>
-      {% endif %}
-
-      <form id="{% block form_id %}{{ form_id }}{% endblock %}"
-            ng-controller="{% block ng_controller %}DummyCtrl{% endblock %}"
-            name="{% block form_name %}{% endblock %}"
-            autocomplete="{% block autocomplete %}{% if form.no_autocomplete %}off{% endif %}{% endblock %}"
-            class="{% block form_class %}{% endblock %}"
-            action="{% block form_action %}{{ submit_url }}{% endblock %}"
-            method="{% block form-method %}POST{% endblock %}"
-        {% block form_validation %}{% endblock %}
-            {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} {% block form_attrs %}{% endblock %}>{% csrf_token %}
-        <div class="modal-body clearfix">
-        {% comment %}
+    </div>
+    <hr>
+  {% endif %}
+  <form id="{% block form_id %}{{ form_id }}{% endblock %}"
+        ng-controller="{% block ng_controller %}DummyCtrl{% endblock %}"
+        name="{% block form_name %}{% endblock %}"
+        autocomplete="{% block autocomplete %}{% if form.no_autocomplete %}off{% endif %}{% endblock %}"
+        class="{% block form_class %}{% endblock %}"
+        action="{% block form_action %}{{ submit_url }}{% endblock %}"
+        method="{% block form-method %}POST{% endblock %}"
+      {% block form_validation %}{% endblock %}
+        {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} {% block form_attrs %}{% endblock %}>{% csrf_token %}
+    <div class="modal-body clearfix">
+      {% comment %}
         These fake fields are required to prevent Chrome v34+ from autofilling form.
         {% endcomment %}
-        {% if form.no_autocomplete %}
-        <div class="fake_credentials" style="display: none">
+      {% if form.no_autocomplete %}
+      <div class="fake_credentials" style="display: none">
         <input type="text" name="fake_email" value="" />
         <input type="password" name="fake_password" value="" />
-        </div>
-        {% endif %}
-        {% block modal-body %}
-          <div class="left">
-            <fieldset>
+      </div>
+      {% endif %}
+      {% block modal-body %}
+        <div class="left">
+          <fieldset>
             {% include "horizon/common/_form_fields.html" %}
-            </fieldset>
-          </div>
-          <div class="right">
-            {% block modal-body-right %}{% endblock %}
-          </div>
-        {% endblock %}
+          </fieldset>
         </div>
-        <div class="modal-footer">
-        {% block modal-footer %}
-          <a href="{% block cancel_url %}{{ cancel_url }}{% endblock %}"
-            class="btn btn-default cancel">
-            {{ cancel_label }}
-          </a>
-          <input class="btn btn-primary" type="submit" value="{{ submit_label }}">
-        {% endblock %}
+        <div class="right">
+          {% block modal-body-right %}{% endblock %}
         </div>
-      </form>
-
+      {% endblock %}
     </div>
-  </div>
-</div>
-{% block modal-js %}
+    <div class="modal-footer">
+      {% block modal-footer %}
+        <a href="{% block cancel_url %}{{ cancel_url }}{% endblock %}"
+           class="btn btn-default cancel">
+          {{ cancel_label }}
+        </a>
+        <input class="btn btn-primary" type="submit" value="{{ submit_label }}">
+      {% endblock %}
+    </div>
+  </form>
 {% endblock %}
