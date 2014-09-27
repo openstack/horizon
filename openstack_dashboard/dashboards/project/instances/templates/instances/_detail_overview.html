@@ -119,11 +119,11 @@
     {% for volume in instance.volumes %}
         <dt>{% trans "Attached To" %}</dt>
         <dd>
-            <a href="{% url 'horizon:project:volumes:volumes:detail' volume.volumeId %}">
+            <a href="{% url 'horizon:project:volumes:volumes:detail' volume.id %}">
             {% if volume.name %}
                 {{ volume.name }}
             {%  else %}
-                {{ volume.volumeId }}
+                {{ volume.id }}
             {% endif %}
             </a>
             <span> {% trans "on" %} {{ volume.device }}</span>
