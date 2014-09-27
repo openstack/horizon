@@ -12,16 +12,16 @@ pbr>=0.6,!=0.7,<1.0
 Django>=1.4.2,<1.7
 django_compressor>=1.4
 django_openstack_auth>=1.1.7
-django-pyscss>=1.0.2  # BSD License (2 clause)
+django-pyscss>=1.0.3  # BSD License (2 clause)
 eventlet>=0.15.1
 httplib2>=0.7.5
 iso8601>=0.1.9
-kombu>=2.4.8
+kombu>=2.5.0
 # Horizon Utility Requirements
 # for SECURE_KEY generation
 lockfile>=0.8
 netaddr>=0.7.12
-pyscss>=1.2.1,<1.3  # MIT License
+pyScss>=1.2.1,<1.3  # MIT License
 python-ceilometerclient>=1.0.6
 python-cinderclient>=1.1.0
 python-glanceclient>=0.14.0
