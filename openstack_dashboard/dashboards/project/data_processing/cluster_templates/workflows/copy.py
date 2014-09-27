@@ -11,6 +11,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import base64
+import json
 import logging
 
 from django.utils.translation import ugettext_lazy as _
@@ -28,6 +30,7 @@ LOG = logging.getLogger(__name__)
 
 class CopyClusterTemplate(create_flow.ConfigureClusterTemplate):
     success_message = _("Cluster Template copy %s created")
+    entry_point = "generalconfigaction"
 
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
         template_id = context_seed["template_id"]
@@ -59,15 +62,28 @@ class CopyClusterTemplate(create_flow.ConfigureClusterTemplate):
                         group_name = "group_name_%d" % i
                         template_id = "template_id_%d" % i
                         count = "count_%d" % i
-                        ng_action.groups.append({
+                        serialized = "serialized_%d" % i
+
+                        # save the original node group with all its fields in
+                        # case the template id is missing
+                        serialized_val = base64.urlsafe_b64encode(
+                            json.dumps(wf_helpers.clean_node_group(templ_ng)))
+
+                        ng = {
                             "name": templ_ng["name"],
-                            "template_id": templ_ng["node_group_template_id"],
                             "count": templ_ng["count"],
                             "id": i,
                             "deletable": "true",
-                        })
+                            "serialized": serialized_val
+                        }
+                        if "node_group_template_id" in templ_ng:
+                            ng["template_id"] = templ_ng[
+                                "node_group_template_id"]
+                        ng_action.groups.append(ng)
+
                         wf_helpers.build_node_group_fields(
-                            ng_action, group_name, template_id, count)
+                            ng_action, group_name, template_id, count,
+                            serialized)
 
                 elif isinstance(step, create_flow.GeneralConfig):
                     fields = step.action.fields

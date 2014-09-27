@@ -70,8 +70,7 @@ class GeneralConfigAction(workflows.Action):
     def __init__(self, request, *args, **kwargs):
         super(GeneralConfigAction, self).__init__(request, *args, **kwargs)
 
-        sahara = saharaclient.client(request)
-        hlps = helpers.Helpers(sahara)
+        hlps = helpers.Helpers(request)
 
         plugin, hadoop_version = (
             workflow_helpers.get_plugin_and_hadoop_version(request))
@@ -165,8 +164,7 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
     default_steps = (GeneralConfig,)
 
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
-        sahara = saharaclient.client(request)
-        hlps = helpers.Helpers(sahara)
+        hlps = helpers.Helpers(request)
 
         plugin, hadoop_version = (
             workflow_helpers.get_plugin_and_hadoop_version(request))

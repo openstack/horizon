@@ -102,7 +102,7 @@ def _create_step_action(name, title, parameters, advanced_fields=None,
     return step
 
 
-def build_node_group_fields(action, name, template, count):
+def build_node_group_fields(action, name, template, count, serialized=None):
     action.fields[name] = forms.CharField(
         label=_("Name"),
         widget=forms.TextInput())
@@ -114,6 +114,8 @@ def build_node_group_fields(action, name, template, count):
     action.fields[count] = forms.IntegerField(
         label=_("Count"),
         min_value=0,
+        widget=forms.HiddenInput())
+    action.fields[serialized] = forms.CharField(
         widget=forms.HiddenInput())
 
 
@@ -144,6 +146,17 @@ def get_plugin_and_hadoop_version(request):
     plugin_name = request.REQUEST["plugin_name"]
     hadoop_version = request.REQUEST["hadoop_version"]
     return (plugin_name, hadoop_version)
+
+
+def clean_node_group(node_group):
+    node_group_copy = dict((key, value)
+                           for key, value in node_group.items() if value)
+
+    for key in ["id", "created_at", "updated_at"]:
+        if key in node_group_copy:
+            node_group_copy.pop(key)
+
+    return node_group_copy
 
 
 class PluginAndVersionMixin(object):

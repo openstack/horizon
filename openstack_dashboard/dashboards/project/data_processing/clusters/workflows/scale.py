@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import base64
 import json
 import logging
 
@@ -83,15 +84,24 @@ class ScaleCluster(cl_create_flow.ConfigureCluster,
                     group_name = "group_name_%d" % i
                     template_id = "template_id_%d" % i
                     count = "count_%d" % i
+                    serialized = "serialized_%d" % i
+
+                    serialized_val = base64.urlsafe_b64encode(json.dumps(
+                        workflow_helpers.clean_node_group(templ_ng)))
+
                     ng_action.groups.append({
                         "name": templ_ng["name"],
                         "template_id": templ_ng["node_group_template_id"],
                         "count": templ_ng["count"],
                         "id": i,
                         "deletable": "false",
+                        "serialized": serialized_val
                     })
-                    workflow_helpers.build_node_group_fields(
-                        ng_action, group_name, template_id, count)
+                    workflow_helpers.build_node_group_fields(ng_action,
+                                                             group_name,
+                                                             template_id,
+                                                             count,
+                                                             serialized)
         except Exception:
             exceptions.handle(request,
                               _("Unable to fetch cluster to scale"))

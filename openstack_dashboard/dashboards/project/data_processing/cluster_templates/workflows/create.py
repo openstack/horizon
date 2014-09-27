@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import base64
 import json
 import logging
 
@@ -180,17 +181,20 @@ class ConfigureNodegroupsAction(workflows.Action):
                 group_name = "group_name_" + str(id)
                 template_id = "template_id_" + str(id)
                 count = "count_" + str(id)
+                serialized = "serialized_" + str(id)
                 self.groups.append({"name": request.POST[group_name],
                                     "template_id": request.POST[template_id],
                                     "count": request.POST[count],
                                     "id": id,
                                     "deletable": deletable.get(
-                                        request.POST[group_name], "true")})
+                                        request.POST[group_name], "true"),
+                                    "serialized": request.POST[serialized]})
 
                 whelpers.build_node_group_fields(self,
                                                  group_name,
                                                  template_id,
-                                                 count)
+                                                 count,
+                                                 serialized)
 
     def clean(self):
         cleaned_data = super(ConfigureNodegroupsAction, self).clean()
@@ -229,12 +233,10 @@ class ConfigureClusterTemplate(whelpers.ServiceParametersWorkflow,
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
         ConfigureClusterTemplate._cls_registry = set([])
 
-        sahara = saharaclient.client(request)
-        hlps = helpers.Helpers(sahara)
+        hlps = helpers.Helpers(request)
 
         plugin, hadoop_version = whelpers.\
             get_plugin_and_hadoop_version(request)
-
         general_parameters = hlps.get_cluster_general_configs(
             plugin,
             hadoop_version)
@@ -273,9 +275,16 @@ class ConfigureClusterTemplate(whelpers.ServiceParametersWorkflow,
                 template_id = context['ng_template_id_' + str(id)]
                 count = context['ng_count_' + str(id)]
 
-                ng = {"name": name,
-                      "node_group_template_id": template_id,
-                      "count": count}
+                raw_ng = context.get("ng_serialized_" + str(id))
+
+                if raw_ng and raw_ng != 'null':
+                    ng = json.loads(base64.urlsafe_b64decode(str(raw_ng)))
+                else:
+                    ng = dict()
+                ng["name"] = name
+                ng["count"] = count
+                if template_id and template_id != u'None':
+                    ng["node_group_template_id"] = template_id
                 node_groups.append(ng)
 
             plugin, hadoop_version = whelpers.\
