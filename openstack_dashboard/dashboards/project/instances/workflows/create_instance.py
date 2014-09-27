@@ -724,11 +724,18 @@ class SetNetwork(workflows.Step):
 
 
 class SetAdvancedAction(workflows.Action):
-    disk_config = forms.ChoiceField(label=_("Disk Partition"),
-                                    required=False)
+    disk_config = forms.ChoiceField(label=_("Disk Partition"), required=False,
+        help_text=_("Automatic: The entire disk is a single partition and "
+                    "automatically resizes. Manual: Results in faster build "
+                    "times but requires manual partitioning."))
+    config_drive = forms.BooleanField(label=_("Configuration Drive"),
+        required=False, help_text=_("Configure OpenStack to write metadata to "
+                                    "a special configuration drive that "
+                                    "attaches to the instance when it boots."))
 
-    def __init__(self, request, *args, **kwargs):
-        super(SetAdvancedAction, self).__init__(request, *args, **kwargs)
+    def __init__(self, request, context, *args, **kwargs):
+        super(SetAdvancedAction, self).__init__(request, context,
+                                                *args, **kwargs)
         try:
             if not api.nova.extension_supported("DiskConfig", request):
                 del self.fields['disk_config']
@@ -737,6 +744,12 @@ class SetAdvancedAction(workflows.Action):
                 config_choices = [("AUTO", _("Automatic")),
                                   ("MANUAL", _("Manual"))]
                 self.fields['disk_config'].choices = config_choices
+            # Only show the Config Drive option for the Launch Instance
+            # workflow (not Resize Instance) and only if the extension
+            # is supported.
+            if context.get('workflow_slug') != 'launch_instance' or (
+                    not api.nova.extension_supported("ConfigDrive", request)):
+                del self.fields['config_drive']
         except Exception:
             exceptions.handle(request, _('Unable to retrieve extensions '
                                          'information.'))
@@ -749,7 +762,16 @@ class SetAdvancedAction(workflows.Action):
 
 class SetAdvanced(workflows.Step):
     action_class = SetAdvancedAction
-    contributes = ("disk_config",)
+    contributes = ("disk_config", "config_drive",)
+
+    def prepare_action_context(self, request, context):
+        context = super(SetAdvanced, self).prepare_action_context(request,
+                                                                  context)
+        # Add the workflow slug to the context so that we can tell which
+        # workflow is being used when creating the action. This step is
+        # used by both the Launch Instance and Resize Instance workflows.
+        context['workflow_slug'] = self.workflow.slug
+        return context
 
 
 class LaunchInstance(workflows.Workflow):
@@ -850,7 +872,8 @@ class LaunchInstance(workflows.Workflow):
                                    availability_zone=avail_zone,
                                    instance_count=int(context['count']),
                                    admin_pass=context['admin_pass'],
-                                   disk_config=context.get('disk_config'))
+                                   disk_config=context.get('disk_config'),
+                                   config_drive=context.get('config_drive'))
             return True
         except Exception:
             exceptions.handle(request)
