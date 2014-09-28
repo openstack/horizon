@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2014
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-21 14:06-0500\n"
-"PO-Revision-Date: 2014-09-14 00:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-09-27 17:54-0500\n"
+"PO-Revision-Date: 2014-09-26 23:40+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +35,7 @@ msgstr "Вы не авторизованы для доступа к %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr ""
+msgstr "%(resource)s с названием \"%(name)s\" уже существует."
 
 #: exceptions.py:287
 #, python-format
@@ -45,7 +46,7 @@ msgstr "Не авторизован: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Вы не авторизованы. Попробуйте войти в систему еще раз."
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr "Время сеанса истекло"
 
@@ -62,15 +63,15 @@ msgstr "Выберите %s для просмотра"
 msgid "Password is not accepted"
 msgstr "Пароль не принят"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Неправильный формат IP-адреса"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "Неправильная версия IP-адреса"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "Неправльная маска подсети"
 
@@ -228,15 +229,15 @@ msgstr[2] "Показано %(counter)s элементов"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr ""
+msgstr "&laquo;&nbsp;Предыдущее"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
-msgstr ""
+msgstr "Следующее&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_table_actions.html:38
 msgid "More Actions"
-msgstr ""
+msgstr "Еще действия"
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
@@ -297,24 +298,24 @@ msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr ""
+msgstr "Доступные метаданные"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Повторяющиеся ключи не допускаются"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr ""
+msgstr "Неправильное имя ключа"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
 msgid "No existing metadata"
-msgstr ""
+msgstr "Нет метаданных"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Имеющиеся метаданные"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -360,14 +361,14 @@ msgstr "Выберите период времени, чтобы сделать 
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr ""
+msgstr "\n      <label>От:</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr ""
+msgstr "\n      <label>До:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
@@ -401,11 +402,11 @@ msgstr "Следующий"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:137
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "Без ограничений"
 
-#: templatetags/horizon.py:129 templatetags/horizon.py:131
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "Доступно"
 
@@ -444,7 +445,7 @@ msgstr "%s ПБ"
 
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
-msgstr ""
+msgstr "0 байт"
 
 #: utils/filters.py:49
 msgid "Never"
