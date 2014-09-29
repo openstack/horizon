@@ -32,7 +32,7 @@ python-novaclient>=2.18.0
 python-saharaclient>=0.7.3
 python-swiftclient>=2.2.0
 python-troveclient>=1.0.4
-pytz>=2010h
+pytz
 six>=1.7.0
 xstatic>=1.0.0  # MIT License
 xstatic-angular>=1.2.1.1  # MIT License
