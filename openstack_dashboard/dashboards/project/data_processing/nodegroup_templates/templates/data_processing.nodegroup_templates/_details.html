@@ -26,6 +26,23 @@
         <dt>{% trans "Hadoop Version" %}</dt>
         <dd>{{ template.hadoop_version }}</dd>
     </dl>
+
+    <dl>
+        <dt>{% trans "Auto Security Group" %}</dt>
+        <dd>{{ template.auto_security_group }}</dd>
+    </dl>
+
+    <dl>
+        <dt>{% trans "Security Groups" %}</dt>
+        <dd>
+            <ul class="list-bullet">
+                {% for group in template.security_groups %}
+                    <li>{{ group }}</li>
+                {% endfor %}
+            </ul>
+        </dd>
+    </dl>
+
     <dl>
         <dt>{% trans "Node Processes" %}</dt>
         <dd>

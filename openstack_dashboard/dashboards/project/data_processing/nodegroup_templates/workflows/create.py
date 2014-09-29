@@ -97,6 +97,21 @@ class GeneralConfigAction(workflows.Action):
                 choices=pool_choices,
                 required=False)
 
+        self.fields["autogroup"] = forms.BooleanField(
+            label=_("Auto Security Group"),
+            widget=forms.CheckboxInput(),
+            help_text=_("Create security group for this Node Group."),
+            required=False)
+
+        groups = network.security_group_list(request)
+        security_group_list = [(sg.id, sg.name) for sg in groups]
+        self.fields["groups"] = forms.MultipleChoiceField(
+            label=_("Security Groups"),
+            widget=forms.CheckboxSelectMultiple(),
+            help_text=_("Launch instances in these security groups."),
+            choices=security_group_list,
+            required=False)
+
         self.fields["processes"] = forms.MultipleChoiceField(
             label=_("Processes"),
             widget=forms.CheckboxSelectMultiple(),
@@ -241,7 +256,9 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 volumes_size=volumes_size,
                 node_processes=processes,
                 node_configs=configs_dict,
-                floating_ip_pool=context.get("general_floating_ip_pool", None))
+                floating_ip_pool=context.get("general_floating_ip_pool"),
+                security_groups=context["general_groups"],
+                auto_security_group=context["general_autogroup"])
             return True
         except api_base.APIException as e:
             self.error_description = str(e)

@@ -92,7 +92,8 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
                               flavor_id, description=None,
                               volumes_per_node=None, volumes_size=None,
                               node_processes=None, node_configs=None,
-                              floating_ip_pool=None):
+                              floating_ip_pool=None, security_groups=None,
+                              auto_security_group=False):
     return client(request).node_group_templates.create(name, plugin_name,
                                                        hadoop_version,
                                                        flavor_id, description,
@@ -100,7 +101,9 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
                                                        volumes_size,
                                                        node_processes,
                                                        node_configs,
-                                                       floating_ip_pool)
+                                                       floating_ip_pool,
+                                                       security_groups,
+                                                       auto_security_group)
 
 
 def nodegroup_template_list(request):
