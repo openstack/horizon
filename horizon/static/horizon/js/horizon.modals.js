@@ -233,7 +233,7 @@ horizon.addInitFunction(function() {
         var redirect_header = jqXHR.getResponseHeader("X-Horizon-Location"),
           add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
           json_data, field_to_update;
-        if (redirect_header == null) {
+        if (redirect_header === null) {
             $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
         }
         $form.closest(".modal").modal("hide");
