@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-27 17:54-0500\n"
-"PO-Revision-Date: 2014-09-27 06:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2014-09-28 19:02+0000\n"
+"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -551,12 +551,12 @@ msgstr "主机集合"
 #: dashboards/admin/aggregates/tables.py:29
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] ""
+msgstr[0] "删除主机聚合"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] ""
+msgstr[0] "已删除主机聚合"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/workflows.py:176
@@ -650,7 +650,7 @@ msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Create a host aggregate then select the hosts contained in "
 "it."
-msgstr ""
+msgstr "主机聚合通过将主机组合来把可用区域划分成逻辑单元。创建一个主机聚合，然后选择它里面的主机。"
 
 #: dashboards/admin/aggregates/workflows.py:44
 msgid "Unable to get host aggregate list"
@@ -695,7 +695,7 @@ msgstr "没有选中的主机。"
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
-msgstr ""
+msgstr "将主机添加到这个聚合，或者从聚合中删除主机。主机可以存在于多个聚合中。"
 
 #: dashboards/admin/aggregates/workflows.py:159
 msgid "All Available Hosts"
@@ -880,7 +880,7 @@ msgstr "描述"
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Edit the aggregate host to select hosts contained in it."
-msgstr ""
+msgstr "主机聚合通过将主机组合来把可用区域划分成逻辑单元。编辑主机聚合，选择它里面的主机。"
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:25
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:24
@@ -980,7 +980,7 @@ msgstr "取消"
 #: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:3
 #: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:6
 msgid "Update Aggregate Metadata"
-msgstr ""
+msgstr "更新聚合元数据"
 
 #: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:3
 #: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:6
@@ -989,7 +989,7 @@ msgstr "管理主机集合"
 
 #: dashboards/admin/flavors/forms.py:48
 msgid "Unable to update the flavor metadata."
-msgstr ""
+msgstr "无法更新云主机类型元数据"
 
 #: dashboards/admin/flavors/panel.py:27 dashboards/admin/flavors/tables.py:149
 #: dashboards/admin/flavors/templates/flavors/index.html:3
@@ -1000,12 +1000,12 @@ msgstr "云主机类型"
 #: dashboards/admin/flavors/tables.py:34
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] ""
+msgstr[0] "删除云主机类型"
 
 #: dashboards/admin/flavors/tables.py:42
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] ""
+msgstr[0] "已删除云主机类型"
 
 #: dashboards/admin/flavors/tables.py:53
 #: dashboards/admin/flavors/workflows.py:177
@@ -1156,11 +1156,11 @@ msgstr "无法获取云主机类型详细信息"
 
 #: dashboards/admin/flavors/views.py:121
 msgid "Unable to retrieve available metadata for flavors."
-msgstr ""
+msgstr "无法获取云主机类型可用的元数据"
 
 #: dashboards/admin/flavors/views.py:135
 msgid "Unable to retrieve the flavor metadata."
-msgstr ""
+msgstr "无法获取云主机类型的元数据"
 
 #: dashboards/admin/flavors/workflows.py:32
 msgid ""
@@ -1182,15 +1182,15 @@ msgstr "内存 (MB)"
 
 #: dashboards/admin/flavors/workflows.py:50
 msgid "Root Disk (GB)"
-msgstr ""
+msgstr "根磁盘(GB)"
 
 #: dashboards/admin/flavors/workflows.py:52
 msgid "Ephemeral Disk (GB)"
-msgstr ""
+msgstr "临时磁盘(GB)"
 
 #: dashboards/admin/flavors/workflows.py:54
 msgid "Swap Disk (MB)"
-msgstr ""
+msgstr "Swap磁盘(MB)"
 
 #: dashboards/admin/flavors/workflows.py:58
 #: dashboards/admin/flavors/workflows.py:224
@@ -1201,7 +1201,7 @@ msgstr "主机类型信息"
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources"
 " and can be selected when users deploy instances."
-msgstr ""
+msgstr "云主机类型定义RAM和磁盘的大小、核数，以及其他资源，在用户部署实例的时候使用。"
 
 #: dashboards/admin/flavors/workflows.py:72
 #: dashboards/admin/flavors/workflows.py:237
@@ -1231,7 +1231,7 @@ msgstr "云主机类型访问"
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
-msgstr ""
+msgstr "选择云主机类型可以使用的项目。如果没有选择任何项目，云主机类型可以在所有项目中使用。"
 
 #: dashboards/admin/flavors/workflows.py:159
 msgid "All Projects"
@@ -1273,7 +1273,7 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy "
 "instances."
-msgstr ""
+msgstr "编辑云主机类型的详细信息。云主机类型定义RAM和磁盘的大小、核数，以及其他资源，在用户部署实例的时候使用。"
 
 #: dashboards/admin/flavors/workflows.py:265
 #, python-format
@@ -1294,7 +1294,7 @@ msgstr "已修改云主机类型信息，但是无法修改云主机类型的访
 #: dashboards/admin/flavors/templates/flavors/update_metadata.html:3
 #: dashboards/admin/flavors/templates/flavors/update_metadata.html:6
 msgid "Update Flavor Metadata"
-msgstr ""
+msgstr "更新云主机类型的元数据"
 
 #: dashboards/admin/hypervisors/panel.py:22
 #: dashboards/admin/hypervisors/tables.py:64
@@ -1643,7 +1643,7 @@ msgstr "疏散实例从宕机的主机到一个可用的目标主机"
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
-msgstr ""
+msgstr "无法更新镜像元数据"
 
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:77
 #: dashboards/admin/images/templates/images/index.html:3
@@ -1693,11 +1693,11 @@ msgstr "无法查询镜像列表。"
 
 #: dashboards/admin/images/views.py:177
 msgid "Unable to retrieve available properties for image."
-msgstr ""
+msgstr "无法获取镜像的有效属性"
 
 #: dashboards/admin/images/views.py:190
 msgid "Unable to retrieve the image to be updated."
-msgstr ""
+msgstr "无法获取要更新的镜像"
 
 #: dashboards/admin/images/templates/images/_create.html:9
 #: dashboards/admin/images/templates/images/create.html:3
@@ -1752,14 +1752,14 @@ msgstr "上传镜像"
 #: dashboards/admin/images/templates/images/_update.html:19
 #: dashboards/project/images/templates/images/images/_update.html:18
 msgid "Edit the image details."
-msgstr ""
+msgstr "编辑镜像详情"
 
 #: dashboards/admin/images/templates/images/_update_metadata.html:4
 #: dashboards/admin/images/templates/images/_update_metadata.html:7
 #: dashboards/admin/images/templates/images/update_metadata.html:3
 #: dashboards/admin/images/templates/images/update_metadata.html:6
 msgid "Update Image Metadata"
-msgstr ""
+msgstr "更新镜像元数据"
 
 #: dashboards/admin/info/panel.py:27
 msgid "System Information"
@@ -2581,12 +2581,12 @@ msgstr "网络"
 #: dashboards/admin/networks/tables.py:37
 msgid "Delete Network"
 msgid_plural "Delete Networks"
-msgstr[0] ""
+msgstr[0] "删除网络"
 
 #: dashboards/admin/networks/tables.py:45
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
-msgstr[0] ""
+msgstr[0] "已删除网络"
 
 #: dashboards/admin/networks/tables.py:56
 #: dashboards/project/networks/tables.py:59
@@ -2704,12 +2704,12 @@ msgstr "为网络%(network)s增加代理%(agent_name)s失败。"
 #: dashboards/admin/networks/agents/tables.py:39
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
-msgstr[0] ""
+msgstr[0] "删除DHCP代理"
 
 #: dashboards/admin/networks/agents/tables.py:47
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
-msgstr[0] ""
+msgstr[0] "已删除DHCP代理"
 
 #: dashboards/admin/networks/agents/tables.py:60
 #, python-format
@@ -2793,12 +2793,12 @@ msgstr "更新端口%s失败"
 #: dashboards/admin/networks/ports/tables.py:36
 msgid "Delete Port"
 msgid_plural "Delete Ports"
-msgstr[0] ""
+msgstr[0] "删除端口"
 
 #: dashboards/admin/networks/ports/tables.py:44
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
-msgstr[0] ""
+msgstr[0] "已删除端口"
 
 #: dashboards/admin/networks/ports/tables.py:55
 #, python-format
@@ -2863,12 +2863,12 @@ msgstr "无法获取端口详情"
 #: dashboards/admin/networks/subnets/tables.py:37
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
-msgstr[0] ""
+msgstr[0] "删除子网"
 
 #: dashboards/admin/networks/subnets/tables.py:45
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
-msgstr[0] ""
+msgstr[0] "已删除子网"
 
 #: dashboards/admin/networks/subnets/tables.py:56
 #: dashboards/project/networks/subnets/tables.py:64
@@ -2925,20 +2925,20 @@ msgstr "获取网络%s的子网失败"
 
 #: dashboards/admin/networks/templates/networks/_create.html:19
 msgid "Create a new network for any project as you need."
-msgstr ""
+msgstr "根据需要创建新网络"
 
 #: dashboards/admin/networks/templates/networks/_create.html:20
 msgid ""
 "Provider specified network can be created. You can specify a physical "
 "network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
 "physical network name for a new virtual network."
-msgstr ""
+msgstr "可以创建供应商指定网络。你可以为虚拟网络指定物理网络类型(如Flat, VLAN, GRE, 和 VXLAN)以及segmentation_id，或者物理网络名称。"
 
 #: dashboards/admin/networks/templates/networks/_create.html:21
 msgid ""
 "In addition, you can create an external network or a shared network by "
 "checking the corresponding checkbox."
-msgstr ""
+msgstr "此外，你可以通过勾选相应的复选框来创建外部网络或者共享网络。"
 
 #: dashboards/admin/networks/templates/networks/_update.html:18
 #: dashboards/project/networks/templates/networks/_update.html:18
@@ -3250,7 +3250,7 @@ msgstr "无法获得云硬盘类型"
 
 #: dashboards/admin/volumes/tabs.py:87
 msgid "Unable to retrieve QOS specs"
-msgstr ""
+msgstr "无法获取QOS规格"
 
 #: dashboards/admin/volumes/tabs.py:109 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:201
@@ -3406,7 +3406,7 @@ msgstr "\n卷快照状态通常是自动管理的。在某些特定的环境下�
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:6
 msgid "Associate QOS Spec with Volume Type"
-msgstr ""
+msgstr "将QOS规格关联到卷类型"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
 msgid ""
@@ -3421,7 +3421,7 @@ msgid ""
 "    This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt>\n"
 "    commands.\n"
 "    "
-msgstr ""
+msgstr "\n    增加，更新或者删除该卷类型关联的QOS规格.\n    <br>\n    <br>\n    \"None\"表示目前没有关联的QOS规格。相对的，设置\n    QOS规格为\"None\"将删除所有的关联.\n    <br>\n    <br>\n    相当于<tt>cinder qos-associate</tt>和<tt>cinder qos-disassociate</tt>\n    命令.\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:107
@@ -3434,7 +3434,7 @@ msgstr "关联"
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:107
 msgid "Create QOS Spec"
-msgstr ""
+msgstr "创建QOS规格"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
 msgid ""
@@ -3450,7 +3450,7 @@ msgid ""
 "      administrator would like the QOS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or both.\n"
 "     "
-msgstr ""
+msgstr "\n      QOS规格可以关联到卷类型.\n      被卷所有者映射到一组要求的服务水准能力.\n      相当于命令\n      <tt>cinder qos-create</tt>. QOS Spec规格一旦被创建,\n      点击\"管理规格\"按钮来设置QOS规格的键-值参数.\n      <br>\n      <br>\n      每个QOS规格实体都有一个\"消费者\"的值，指明\n      管理员希望QOS策略实施的场所. 该值可以是\"前端\"\n      (Nova Compute), \"后端\" (Cinder back-end), 或者两者皆可.\n     "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:36
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:25
@@ -3494,7 +3494,7 @@ msgstr "\n卷类型标签可以在卷创建的时候指定。它通常映射到�
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:9
 msgid "Edit Consumer of QOS Spec"
-msgstr ""
+msgstr "编辑QOS规格的消费者"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:19
 msgid ""
@@ -3503,19 +3503,19 @@ msgid ""
 "    administrator would like the QOS policy to be enforced. This value can be \"front-end\"\n"
 "    (Nova Compute), \"back-end\" (Cinder back-end), or both.\n"
 "    "
-msgstr ""
+msgstr "\n    每个QOS规格实体都有一个\"消费者\"的值，指明\n    管理员希望QOS策略实施的场所. 该值可以是\"前端\"\n    (Nova Compute), \"后端\" (Cinder back-end), 或者两者皆可."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
 msgid "Modify Consumer"
-msgstr ""
+msgstr "更改消费者"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QOS Spec"
-msgstr ""
+msgstr "关联QOS规格"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:6
 msgid "Create a QOS Spec"
-msgstr ""
+msgstr "创建QOS规格"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -3524,7 +3524,7 @@ msgstr "创建云硬盘类型"
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:6
 msgid "Edit QOS Spec Consumer"
-msgstr ""
+msgstr "编辑QOS规格的消费者"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
@@ -3542,7 +3542,7 @@ msgstr "编辑额外说明值"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:20
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
-msgstr ""
+msgstr "为\"%(key)s\"更新\"额外规格\"的值"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:6
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:4
@@ -3570,38 +3570,38 @@ msgstr "编辑卷扩展规格"
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
 msgid "Create Spec"
-msgstr ""
+msgstr "创建规格"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:20
 #, python-format
 msgid "Create a new \"spec\" key-value pair for QOS Spec \"%(qos_spec_name)s\""
-msgstr ""
+msgstr "为QOS规格\"%(qos_spec_name)s\"创建新\"规格\"的键-值对"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:10
 msgid "Edit Spec Value: "
-msgstr ""
+msgstr "编辑规格的值:"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:20
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
-msgstr ""
+msgstr "为\"%(key)s\"更新规格的值"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:7
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:35
 msgid "Spec"
-msgstr ""
+msgstr "规格"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:4
 msgid "Edit Spec"
-msgstr ""
+msgstr "编辑规格"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
 msgid "QOS Spec: "
-msgstr ""
+msgstr "QOS规格:"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
 msgid "QOS Spec"
-msgstr ""
+msgstr "QOS规格"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
@@ -3636,46 +3636,46 @@ msgstr "卷详细信息:"
 
 #: dashboards/admin/volumes/volume_types/forms.py:25
 msgid "QOS Spec to be associated"
-msgstr ""
+msgstr "要关联的QOS规格"
 
 #: dashboards/admin/volumes/volume_types/forms.py:26
 msgid "Choose associated QOS Spec."
-msgstr ""
+msgstr "选择关联的QOS规格."
 
 #: dashboards/admin/volumes/volume_types/forms.py:71
 msgid ""
 "New associated QOS Spec must be different than the current associated QOS "
 "Spec."
-msgstr ""
+msgstr "新关联的QOS规格必须不同于目前关联的QOS规格."
 
 #: dashboards/admin/volumes/volume_types/forms.py:103
 msgid "Successfully updated QOS Spec association."
-msgstr ""
+msgstr "成功更新QOS规格关联."
 
 #: dashboards/admin/volumes/volume_types/forms.py:107
 msgid "Error updating QOS Spec association."
-msgstr ""
+msgstr "更新QOS规格关联失败."
 
 #: dashboards/admin/volumes/volume_types/forms.py:113
 msgid "QOS Spec Consumer"
-msgstr ""
+msgstr "QOS规格消费者"
 
 #: dashboards/admin/volumes/volume_types/forms.py:115
 msgid "Choose consumer for this QOS Spec."
-msgstr ""
+msgstr "为QOS规格选择消费者."
 
 #: dashboards/admin/volumes/volume_types/forms.py:131
 msgid ""
 "QOS Spec consumer value must be different than the current consumer value."
-msgstr ""
+msgstr "QOS规格消费者的值必须与当前消费者不同."
 
 #: dashboards/admin/volumes/volume_types/forms.py:145
 msgid "Successfully modified QOS Spec consumer."
-msgstr ""
+msgstr "成功更改QOS规格消费者."
 
 #: dashboards/admin/volumes/volume_types/forms.py:148
 msgid "Error editing QOS Spec consumer."
-msgstr ""
+msgstr "编辑QOS规格消费者出错"
 
 #: dashboards/admin/volumes/volume_types/tables.py:33
 msgid "View Extra Specs"
@@ -3683,39 +3683,39 @@ msgstr "查看特别设定"
 
 #: dashboards/admin/volumes/volume_types/tables.py:41
 msgid "Manage QOS Spec Association"
-msgstr ""
+msgstr "管理QOS规格关联"
 
 #: dashboards/admin/volumes/volume_types/tables.py:52
 msgid "Delete VolumeType"
 msgid_plural "Delete VolumeTypes"
-msgstr[0] ""
+msgstr[0] "删除卷类型"
 
 #: dashboards/admin/volumes/volume_types/tables.py:60
 msgid "Deleted VolumeType"
 msgid_plural "Deleted VolumeTypes"
-msgstr[0] ""
+msgstr[0] "已删除卷类型"
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Associated QOS Spec"
-msgstr ""
+msgstr "已关联QOS规格"
 
 #: dashboards/admin/volumes/volume_types/tables.py:93
 msgid "Manage Specs"
-msgstr ""
+msgstr "管理规格"
 
 #: dashboards/admin/volumes/volume_types/tables.py:118
 msgid "Delete QOS Spec"
 msgid_plural "Delete QOS Specs"
-msgstr[0] ""
+msgstr[0] "删除QOS规格"
 
 #: dashboards/admin/volumes/volume_types/tables.py:126
 msgid "Deleted QOS Spec"
 msgid_plural "Deleted QOS Specs"
-msgstr[0] ""
+msgstr[0] "已删除QOS规格"
 
 #: dashboards/admin/volumes/volume_types/tables.py:138
 msgid "Edit Consumer"
-msgstr ""
+msgstr "编辑消费者"
 
 #: dashboards/admin/volumes/volume_types/tables.py:147
 #: dashboards/admin/volumes/volumes/forms.py:89
@@ -3728,7 +3728,7 @@ msgstr "QOS 规格"
 
 #: dashboards/admin/volumes/volume_types/views.py:69
 msgid "Unable to retrieve QOS Spec details."
-msgstr ""
+msgstr "无法获取QOS规格详细信息."
 
 #: dashboards/admin/volumes/volume_types/views.py:101
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
@@ -3737,11 +3737,11 @@ msgstr "无法获取卷类型详细信息。"
 
 #: dashboards/admin/volumes/volume_types/views.py:111
 msgid "Unable to retrieve QOS Specs."
-msgstr ""
+msgstr "无法获取QOS规格"
 
 #: dashboards/admin/volumes/volume_types/views.py:130
 msgid "Unable to retrieve QOS Spec association."
-msgstr ""
+msgstr "无法获取QOS规格关联"
 
 #: dashboards/admin/volumes/volume_types/extras/forms.py:23
 #: dashboards/admin/volumes/volume_types/extras/tables.py:69
@@ -3771,12 +3771,12 @@ msgstr "无法编辑卷类型扩展规格"
 #: dashboards/admin/volumes/volume_types/extras/tables.py:27
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
-msgstr[0] ""
+msgstr[0] "删除额外规格"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:35
 msgid "Deleted Extra Spec"
 msgid_plural "Deleted Extra Specs"
-msgstr[0] ""
+msgstr[0] "已删除额外规格"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
@@ -3803,36 +3803,36 @@ msgstr "无法获取卷类型的附加规格详细信息。"
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:37
 #, python-format
 msgid "Created spec \"%s\"."
-msgstr ""
+msgstr "创建规格\"%s\"."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:42
 msgid "Unable to create spec."
-msgstr ""
+msgstr "无法创建规格"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:64
 #, python-format
 msgid "Saved spec \"%s\"."
-msgstr ""
+msgstr "已保存规格\"%s\"."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:69
 msgid "Unable to edit spec."
-msgstr ""
+msgstr "无法编辑规格"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:63
 msgid "Key-Value Pairs"
-msgstr ""
+msgstr "键-值对"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:48
 msgid "undefined"
-msgstr ""
+msgstr "无定义"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:64
 msgid "Unable to retrieve QOS spec list."
-msgstr ""
+msgstr "无法获取QOS规格列表"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Unable to retrieve QOS spec details."
-msgstr ""
+msgstr "无法获取QOS规格详细信息"
 
 #: dashboards/admin/volumes/volumes/forms.py:36
 #, python-format
@@ -3869,11 +3869,11 @@ msgstr "无法更新卷状状态为\"%s\"."
 #: dashboards/admin/volumes/volumes/forms.py:97
 #, python-format
 msgid "Successfully created QOS Spec: %s"
-msgstr ""
+msgstr "成功创建QOS规格: %s"
 
 #: dashboards/admin/volumes/volumes/forms.py:102
 msgid "Unable to create QOS Spec."
-msgstr ""
+msgstr "无法创建QOS规格"
 
 #: dashboards/admin/volumes/volumes/views.py:61
 #: dashboards/project/volumes/volumes/views.py:62
@@ -3971,7 +3971,7 @@ msgstr "域信息"
 msgid ""
 "Domains provide separation between users and infrastructure used by "
 "different organizations."
-msgstr ""
+msgstr "域提供了用户和不同组织使用的基础设施之间的分离."
 
 #: dashboards/identity/domains/workflows.py:71
 #: dashboards/identity/domains/workflows.py:170
@@ -4062,7 +4062,7 @@ msgid ""
 "Domains provide separation between users and infrastructure used by "
 "different organizations. Edit the domain details to add or remove groups in "
 "the domain."
-msgstr ""
+msgstr "域提供了不同组织使用的用户和基础设施之间的分离. 编辑域的详细信息，添加或删除域中的组."
 
 #: dashboards/identity/domains/workflows.py:298
 msgid "Edit Domain"
@@ -4083,12 +4083,12 @@ msgid ""
 "You cannot revoke your administrative privileges from the domain you are "
 "currently logged into. Please switch to another domain with administrative "
 "privileges or remove the administrative role manually via the CLI."
-msgstr ""
+msgstr "你无法撤消你目前登录到的域中的管理员权限。请切换到另外的域并使用管理员权限，或者通过CLI手动删除管理员角色."
 
 #: dashboards/identity/domains/workflows.py:401
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
-msgstr ""
+msgstr "无法更改%s项目成员和更新域的组成员."
 
 #: dashboards/identity/domains/workflows.py:473
 #, python-format
@@ -4250,7 +4250,7 @@ msgstr "添加组成员"
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " After creating the group, edit the group to add users."
-msgstr ""
+msgstr "组被用于管理使用权，同时为多个用于分配角色。创建组之后，编辑组，添加用户."
 
 #: dashboards/identity/groups/templates/groups/_update.html:8
 #: dashboards/identity/groups/templates/groups/_update.html:23
@@ -4263,7 +4263,7 @@ msgstr "更新组"
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " Edit the group to add users."
-msgstr ""
+msgstr "组被用于管理使用权，同时为多个用于分配角色。编辑组，添加用户."
 
 #: dashboards/identity/groups/templates/groups/add_non_member.html:3
 msgid "Add User to Group"
@@ -4338,7 +4338,7 @@ msgstr "无法获取项目详情"
 
 #: dashboards/identity/projects/workflows.py:44
 msgid "Injected File Content (Bytes)"
-msgstr ""
+msgstr "已注入文件内容(Bytes)"
 
 #: dashboards/identity/projects/workflows.py:87
 msgid "Quota"
@@ -4356,7 +4356,7 @@ msgstr "%(used)s %(key)s 已使用"
 #: dashboards/identity/projects/workflows.py:104
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
-msgstr ""
+msgstr "配额的值不能小于当前使用的值: %s."
 
 #: dashboards/identity/projects/workflows.py:122
 #: dashboards/identity/users/forms.py:78
@@ -4600,22 +4600,22 @@ msgstr "创建用户"
 #: dashboards/identity/users/tables.py:64
 msgid "Enable User"
 msgid_plural "Enable Users"
-msgstr[0] ""
+msgstr[0] "启用用户"
 
 #: dashboards/identity/users/tables.py:69
 msgid "Disable User"
 msgid_plural "Disable Users"
-msgstr[0] ""
+msgstr[0] "禁用用户"
 
 #: dashboards/identity/users/tables.py:79
 msgid "Enabled User"
 msgid_plural "Enabled Users"
-msgstr[0] ""
+msgstr[0] "已启用用户"
 
 #: dashboards/identity/users/tables.py:84
 msgid "Disabled User"
 msgid_plural "Disabled Users"
-msgstr[0] ""
+msgstr[0] "已禁用用户"
 
 #: dashboards/identity/users/tables.py:114
 msgid "You cannot disable the user you are currently logged in as."
@@ -4624,12 +4624,12 @@ msgstr "您不能禁用您当前登录的用户。"
 #: dashboards/identity/users/tables.py:129
 msgid "Delete User"
 msgid_plural "Delete Users"
-msgstr[0] ""
+msgstr[0] "删除用户"
 
 #: dashboards/identity/users/tables.py:137
 msgid "Deleted User"
 msgid_plural "Deleted Users"
-msgstr[0] ""
+msgstr[0] "已删除用户"
 
 #: dashboards/identity/users/views.py:65
 msgid "Unable to retrieve user information."
@@ -4804,12 +4804,12 @@ msgstr "(配额用尽)"
 #: dashboards/project/access_and_security/floating_ips/tables.py:79
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
-msgstr[0] ""
+msgstr[0] "释放浮动IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:87
 msgid "Released Floating IP"
 msgid_plural "Released Floating IPs"
-msgstr[0] ""
+msgstr[0] "已释放浮动IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:129
 #: dashboards/project/loadbalancers/workflows.py:729
@@ -4829,16 +4829,16 @@ msgstr "无法将浮动IP解除绑定"
 #: dashboards/project/access_and_security/floating_ips/tables.py:158
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
-msgstr ""
+msgstr "%(instance_name)s %(fixed_ip)s"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:162
 #, python-format
 msgid "Load Balancer VIP %s"
-msgstr ""
+msgstr "负载均衡VIP %s"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:183
 msgid "Mapped Fixed IP Address"
-msgstr ""
+msgstr "已映射固定IP地址"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:186
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
@@ -4932,12 +4932,12 @@ msgstr "无法导入密钥对。"
 #: dashboards/project/access_and_security/keypairs/tables.py:31
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] ""
+msgstr[0] "删除密钥对"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:39
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
-msgstr[0] ""
+msgstr[0] "已删除密钥对"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:8
@@ -5185,12 +5185,12 @@ msgstr "无法为安全组添加规则。"
 #: dashboards/project/access_and_security/security_groups/tables.py:36
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
-msgstr[0] ""
+msgstr[0] "删除安全组"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:44
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
-msgstr[0] ""
+msgstr[0] "已删除安全组"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:69
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:8
@@ -5225,12 +5225,12 @@ msgstr "添加规则"
 #: dashboards/project/firewalls/tables.py:58
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
-msgstr[0] ""
+msgstr[0] "删除规则"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:166
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
-msgstr[0] ""
+msgstr[0] "已删除规则"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:220
 msgid "Any"
@@ -5364,13 +5364,13 @@ msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. After the security group is created, you can add rules "
 "to the security group."
-msgstr ""
+msgstr "安全组是IP过滤规则的集合，应用到虚拟机网络设置中。在安全组创建后，你可以给安全组增加规则."
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:19
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
+msgstr "安全组是IP过滤规则的集合，应用到虚拟机网络设置中。编辑安全组，为安全组增加和更改规则."
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:3
 msgid "Manage Security Group Rules"
@@ -5476,7 +5476,7 @@ msgstr "目标容器"
 #: dashboards/project/containers/forms.py:190
 msgctxt "Swift pseudo folder path"
 msgid "Path"
-msgstr ""
+msgstr "路径"
 
 #: dashboards/project/containers/forms.py:193
 msgid "Destination object name"
@@ -5776,13 +5776,13 @@ msgstr "复制模板"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:56
 msgid "Delete Template"
 msgid_plural "Delete Templates"
-msgstr[0] ""
+msgstr[0] "删除模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:64
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
-msgstr[0] ""
+msgstr[0] "已删除模板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:87
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
@@ -6062,12 +6062,12 @@ msgstr "规模集群"
 #: dashboards/project/data_processing/clusters/tables.py:53
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
-msgstr[0] ""
+msgstr[0] "删除集群"
 
 #: dashboards/project/data_processing/clusters/tables.py:61
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
-msgstr[0] ""
+msgstr[0] "已删除集群"
 
 #: dashboards/project/data_processing/clusters/tables.py:84
 msgid "Unable to update row"
@@ -6286,12 +6286,12 @@ msgstr "注册镜像"
 #: dashboards/project/data_processing/data_image_registry/tables.py:54
 msgid "Unregister Image"
 msgid_plural "Unregister Images"
-msgstr[0] ""
+msgstr[0] "注销镜像"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:62
 msgid "Unregistered Image"
 msgid_plural "Unregistered Images"
-msgstr[0] ""
+msgstr[0] "已注销镜像"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:80
 msgid "Tags"
@@ -6341,7 +6341,7 @@ msgstr "数据处理过程中，用户名会被用来在实例上应用配置和
 msgid ""
 "Tags are used for filtering images suitable for each plugin and each Data Processing version.\n"
 "        To add required tags, select a plugin and a Data Processing version and click &quot;Add plugin tags&quot; button."
-msgstr ""
+msgstr "标签被用于过滤适合插件和数据处理版本的镜像.\n如要增加标签，选择一个插件和一个数据处理版本，点击&quot;增加插件标签&quot;按钮."
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:16
 msgid "You may also add any custom tag."
@@ -6421,12 +6421,12 @@ msgstr "创建数据源"
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Delete Data source"
 msgid_plural "Delete Data sources"
-msgstr[0] ""
+msgstr[0] "删除数据源"
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
 msgid "Deleted Data source"
 msgid_plural "Deleted Data sources"
-msgstr[0] ""
+msgstr[0] "已删除数据源"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
@@ -6557,12 +6557,12 @@ msgstr "任务二进制"
 #: dashboards/project/data_processing/job_binaries/tables.py:41
 msgid "Delete Job binary"
 msgid_plural "Delete Job binaries"
-msgstr[0] ""
+msgstr[0] "删除任务文件"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:49
 msgid "Deleted Job binary"
 msgid_plural "Deleted Job binaries"
-msgstr[0] ""
+msgstr[0] "已删除任务文件"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:74
 msgid "Download Job Binary"
@@ -6655,12 +6655,12 @@ msgstr "任务执行"
 #: dashboards/project/data_processing/job_executions/tables.py:34
 msgid "Delete Job execution"
 msgid_plural "Delete Job executions"
-msgstr[0] ""
+msgstr[0] "删除正在执行的任务"
 
 #: dashboards/project/data_processing/job_executions/tables.py:42
 msgid "Deleted Job execution"
 msgid_plural "Deleted Job executions"
-msgstr[0] ""
+msgstr[0] "已删除正在执行的任务"
 
 #: dashboards/project/data_processing/job_executions/tables.py:58
 #: dashboards/project/data_processing/job_executions/tables.py:87
@@ -6674,7 +6674,7 @@ msgstr[0] ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:415
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
-msgstr[0] ""
+msgstr[0] "启动任务"
 
 #: dashboards/project/data_processing/job_executions/tables.py:66
 #: dashboards/project/data_processing/job_executions/tables.py:95
@@ -6683,7 +6683,7 @@ msgstr[0] ""
 #: dashboards/project/data_processing/jobs/tables.py:130
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
-msgstr[0] ""
+msgstr[0] "已启动任务"
 
 #: dashboards/project/data_processing/job_executions/tables.py:72
 msgid "Relaunch On Existing Cluster"
@@ -6718,11 +6718,11 @@ msgstr "任务执行概览"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
-msgstr ""
+msgstr "输入数据源"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:14
 msgid "Output Data Source"
-msgstr ""
+msgstr "输出数据源"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
@@ -6746,7 +6746,7 @@ msgstr "返回代码"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:26
 msgid "Oozie Job ID"
-msgstr ""
+msgstr "Oozie任务ID"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:28
 msgctxt "Created time"
@@ -6779,12 +6779,12 @@ msgstr "创建任务"
 #: dashboards/project/data_processing/jobs/tables.py:40
 msgid "Delete Job"
 msgid_plural "Delete Jobs"
-msgstr[0] ""
+msgstr[0] "删除任务"
 
 #: dashboards/project/data_processing/jobs/tables.py:48
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
-msgstr[0] ""
+msgstr[0] "已删除任务"
 
 #: dashboards/project/data_processing/jobs/tables.py:78
 msgid "Launch On Existing Cluster"
@@ -7019,7 +7019,7 @@ msgstr "任务参数"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:373
 msgid "Job Execution ID"
-msgstr ""
+msgstr "任务执行ID"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:449
 msgid "Unable to create new cluster for job."
@@ -7060,7 +7060,7 @@ msgstr "无法获取模板的实例类型"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:58
 msgid "Unable to fetch floating ip pools."
-msgstr ""
+msgstr "无法获取浮动IP池"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:71
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:2
@@ -8036,27 +8036,27 @@ msgstr "创建防火墙"
 #: dashboards/project/firewalls/tables.py:66
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
-msgstr[0] ""
+msgstr[0] "已安排规则的删除"
 
 #: dashboards/project/firewalls/tables.py:80
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
-msgstr[0] ""
+msgstr[0] "删除策略"
 
 #: dashboards/project/firewalls/tables.py:88
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
-msgstr[0] ""
+msgstr[0] "已安排策略的删除"
 
 #: dashboards/project/firewalls/tables.py:103
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
-msgstr[0] ""
+msgstr[0] "删除防火墙"
 
 #: dashboards/project/firewalls/tables.py:111
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] ""
+msgstr[0] "已安排防火墙的删除"
 
 #: dashboards/project/firewalls/tables.py:121
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
@@ -8500,12 +8500,12 @@ msgstr "镜像更新成功。"
 #: dashboards/project/images/images/tables.py:63
 msgid "Delete Image"
 msgid_plural "Delete Images"
-msgstr[0] ""
+msgstr[0] "删除镜像"
 
 #: dashboards/project/images/images/tables.py:71
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
-msgstr[0] ""
+msgstr[0] "已删除镜像"
 
 #: dashboards/project/images/images/tables.py:119
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -8568,7 +8568,7 @@ msgstr "镜像概况"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:17
 msgid "Owner"
-msgstr ""
+msgstr "所有者"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:25
 msgid "Checksum"
@@ -8727,64 +8727,64 @@ msgstr "无法获取云主机密码。"
 #: dashboards/project/instances/tables.py:90
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
-msgstr[0] ""
+msgstr[0] "终止实例"
 
 #: dashboards/project/instances/tables.py:98
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
-msgstr[0] ""
+msgstr[0] "已安排实例的终止"
 
 #: dashboards/project/instances/tables.py:119
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] ""
+msgstr[0] "硬重启实例"
 
 #: dashboards/project/instances/tables.py:127
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
-msgstr[0] ""
+msgstr[0] "已硬重启实例"
 
 #: dashboards/project/instances/tables.py:150
 msgid "Soft Reboot Instance"
 msgid_plural "Soft Reboot Instances"
-msgstr[0] ""
+msgstr[0] "软重启实例"
 
 #: dashboards/project/instances/tables.py:158
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
-msgstr[0] ""
+msgstr[0] "已软重启实例"
 
 #: dashboards/project/instances/tables.py:175
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
-msgstr[0] ""
+msgstr[0] "中止实例"
 
 #: dashboards/project/instances/tables.py:180
 #: dashboards/project/instances/tables.py:247
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
-msgstr[0] ""
+msgstr[0] "恢复实例"
 
 #: dashboards/project/instances/tables.py:190
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
-msgstr[0] ""
+msgstr[0] "已中止实例"
 
 #: dashboards/project/instances/tables.py:195
 #: dashboards/project/instances/tables.py:262
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
-msgstr[0] ""
+msgstr[0] "已恢复实例"
 
 #: dashboards/project/instances/tables.py:242
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
-msgstr[0] ""
+msgstr[0] "挂起实例"
 
 #: dashboards/project/instances/tables.py:257
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
-msgstr[0] ""
+msgstr[0] "已挂起实例"
 
 #: dashboards/project/instances/tables.py:370
 msgid "Edit Security Groups"
@@ -8870,24 +8870,24 @@ msgstr "创建实例 \"%s\" 失败"
 #: dashboards/project/instances/tables.py:658
 msgid "Start Instance"
 msgid_plural "Start Instances"
-msgstr[0] ""
+msgstr[0] "启动实例"
 
 #: dashboards/project/instances/tables.py:666
 msgid "Started Instance"
 msgid_plural "Started Instances"
-msgstr[0] ""
+msgstr[0] "已启动实例"
 
 #: dashboards/project/instances/tables.py:687
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] ""
+msgstr[0] "关闭实例"
 
 #: dashboards/project/instances/tables.py:696
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] ""
+msgstr[0] "已关闭实例"
 
 #: dashboards/project/instances/tables.py:723
 #, python-format
@@ -9461,17 +9461,17 @@ msgstr "没有主机类型能满足选定的镜像的最低要求"
 
 #: dashboards/project/instances/templates/instances/_launch_advanced_help.html:2
 msgid "Specify advanced options to use when launching an instance."
-msgstr ""
+msgstr "指定启动实例时使用的高级选项"
 
 #: dashboards/project/instances/templates/instances/_launch_customize_help.html:2
 msgid ""
 "You can customize your instance after it has launched using the options "
 "available here."
-msgstr ""
+msgstr "当你的实例使用下面选项启动后，你可以定制它。"
 
 #: dashboards/project/instances/templates/instances/_launch_customize_help.html:3
 msgid "\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
+msgstr "\"定制脚本\"与其它系统中的\"用户数据\"类似."
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:6
 msgid ""
@@ -9593,19 +9593,19 @@ msgstr[0] "当前可用的配额数量为 %(avail)i, 无法完成创建 %(req)i 
 #: dashboards/project/instances/workflows/create_instance.py:197
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
-msgstr ""
+msgstr "核(可用: %(avail)s, 已请求: %(req)s)"
 
 #: dashboards/project/instances/workflows/create_instance.py:204
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
-msgstr ""
+msgstr "RAM(可用: %(avail)s, 已请求: %(req)s)"
 
 #: dashboards/project/instances/workflows/create_instance.py:211
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
-msgstr ""
+msgstr "请求的实例无法启动。如下的请求资源超过配额: %s."
 
 #: dashboards/project/instances/workflows/create_instance.py:225
 msgid "You must set volume size"
@@ -9763,7 +9763,7 @@ msgstr "直接输入"
 
 #: dashboards/project/instances/workflows/create_instance.py:568
 msgid "Customization Script Source"
-msgstr ""
+msgstr "定制脚本源"
 
 #: dashboards/project/instances/workflows/create_instance.py:572
 msgid ""
@@ -9774,16 +9774,16 @@ msgstr "在云主机创建后执行的一段脚本或者一组命令(最大16KB)
 #: dashboards/project/instances/workflows/create_instance.py:576
 #: dashboards/project/instances/workflows/create_instance.py:581
 msgid "Script File"
-msgstr ""
+msgstr "脚本文件"
 
 #: dashboards/project/instances/workflows/create_instance.py:585
 #: dashboards/project/instances/workflows/create_instance.py:590
 msgid "Script Data"
-msgstr ""
+msgstr "脚本数据"
 
 #: dashboards/project/instances/workflows/create_instance.py:617
 msgid "File exceeds maximum size (16kb)"
-msgstr ""
+msgstr "文件超出最大值 (16kb)"
 
 #: dashboards/project/instances/workflows/create_instance.py:625
 #: dashboards/project/stacks/forms.py:186
@@ -9803,17 +9803,17 @@ msgstr "使用这个策略概要来启动云主机"
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
-msgstr ""
+msgstr "自动：整个磁盘是一个独立分区，并且自动调整大小。手动：更快创建时间，但需要手动分区。"
 
 #: dashboards/project/instances/workflows/create_instance.py:731
 msgid "Configuration Drive"
-msgstr ""
+msgstr "配置驱动器"
 
 #: dashboards/project/instances/workflows/create_instance.py:732
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
-msgstr ""
+msgstr "配置OpenStack，将元数据写入某个指定的配置驱动器中，在实例启动时附加到实例上。"
 
 #: dashboards/project/instances/workflows/create_instance.py:758
 msgid "Advanced Options"
@@ -9847,7 +9847,7 @@ msgstr "云主机类型选择"
 
 #: dashboards/project/instances/workflows/resize_instance.py:52
 msgid "Please choose a new flavor that is not the same as the old one."
-msgstr ""
+msgstr "请选择一个与已有类型不同的新的云主机类型。"
 
 #: dashboards/project/instances/workflows/resize_instance.py:61
 msgid "Select a New Flavor"
@@ -9879,7 +9879,7 @@ msgstr "无法得到安全组列表.请稍后重试."
 msgid ""
 "Add and remove security groups to this project from the list of available "
 "security groups."
-msgstr ""
+msgstr "从以下可用安全组列表中，增加删除该项目的安全组。"
 
 #: dashboards/project/instances/workflows/update_instance.py:88
 msgid "All Security Groups"
@@ -10414,7 +10414,7 @@ msgid ""
 "Create a VIP for this pool. Assign a name, description, IP address, port, "
 "and maximum connections allowed for the VIP. Choose the protocol and session"
 " persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
+msgstr "为该池创建VIP。指定名称、描述、IP地址、端口和最大连接数。选择协议和会话持久性方法。Admin State缺省为UP (已勾选)."
 
 #: dashboards/project/loadbalancers/workflows.py:260
 #, python-format
@@ -10503,7 +10503,7 @@ msgid ""
 "Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight and port number for the selected member(s) to operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
-msgstr ""
+msgstr "给选定的池增加成员.\n\n选择一个或多个实例作为成员增加到池中. 为选定的成员指定权重数字和端口号; 例如, 80. \n\n每个实例只能关联一个端口."
 
 #: dashboards/project/loadbalancers/workflows.py:426
 msgid "Added member(s)."
@@ -10676,7 +10676,7 @@ msgstr "你可以在此更新健康监控属性：编辑延迟、超时、最大
 msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
 "method or admin state."
-msgstr ""
+msgstr "你可以在这里更新池的属性：编辑名称、描述、负载均衡方法或admin state."
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:18
 msgid ""
@@ -10747,13 +10747,13 @@ msgstr "无法获取wangluo详情"
 
 #: dashboards/project/networks/workflows.py:50
 msgid "The state to start the network in."
-msgstr ""
+msgstr "状态是启动网络"
 
 #: dashboards/project/networks/workflows.py:79
 msgid ""
 "Create a new network. In addition a subnet associated with the network can "
 "be created in the next panel."
-msgstr ""
+msgstr "创建新网络. 另外, 关联到网络的子网在下一面板中被创建."
 
 #: dashboards/project/networks/workflows.py:93
 msgid "Subnet Name"
@@ -10767,7 +10767,7 @@ msgstr "网络地址"
 
 #: dashboards/project/networks/workflows.py:98
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
-msgstr ""
+msgstr "CIDR格式的网络地址 (例如 192.168.0.0/24, 2001:DB8::/48)"
 
 #: dashboards/project/networks/workflows.py:112
 msgid ""
@@ -10775,7 +10775,7 @@ msgid ""
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 "
 "for 2001:DB8::/48). If you use the default, leave blank. If you do not want "
 "to use a gateway, check 'Disable Gateway' below."
-msgstr ""
+msgstr "网关IP地址(例如 192.168.0.254) 缺省值是网络地址的第一个IP (例如 192.168.0.0/24的192.168.0.1, 2001:DB8::/48的2001:DB8::1). 如果你要使用缺省值，保留为空白。如果你不想使用网关，勾选下面的'禁用网关'。"
 
 #: dashboards/project/networks/workflows.py:122
 #: dashboards/project/networks/subnets/workflows.py:111
@@ -10787,7 +10787,7 @@ msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
+msgstr "创建新网络关联的子网，这里\"网络地址\"必须指定. 如果你希望创建不带子网的网络，不选 \"创建子网\" 这个复选框就可以了。"
 
 #: dashboards/project/networks/workflows.py:146
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
@@ -10818,7 +10818,7 @@ msgstr "激活DHCP"
 #: dashboards/project/networks/workflows.py:191
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
 msgid "IPv6 Address Configuration Mode"
-msgstr ""
+msgstr "IPv6地址配置模式"
 
 #: dashboards/project/networks/workflows.py:195
 msgid ""
@@ -10826,7 +10826,7 @@ msgid ""
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
 " specify no option. 'No option selected' means addresses are configured "
 "manually or configured by non-OpenStack system."
-msgstr ""
+msgstr "它指定了IPv6地址及其附加信息如何配置。我们可以指定OpenStack提供SLAAC/有状态DHCPv6/无状态DHCPv6，或者不指定任何选项. '不选择选项'意味着地址被手动配置或者被非OpenStack系统配置。"
 
 #: dashboards/project/networks/workflows.py:203
 msgid "Allocation Pools"
@@ -10873,7 +10873,7 @@ msgstr "为子网指定扩展属性"
 #: dashboards/project/networks/workflows.py:229
 #, python-format
 msgid "%s (Default)"
-msgstr ""
+msgstr "%s (缺省)"
 
 #: dashboards/project/networks/workflows.py:238
 #, python-format
@@ -10965,21 +10965,21 @@ msgstr "无法获取子网详情"
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
-msgstr ""
+msgstr "无选项指定"
 
 #: dashboards/project/networks/subnets/utils.py:22
 msgid "SLAAC: Address discovered from Openstack Router"
-msgstr ""
+msgstr "SLAAC: 地址从OpenStack路由器中获得"
 
 #: dashboards/project/networks/subnets/utils.py:24
 msgid "DHCPv6 stateful: Address discovered from Openstack DHCP"
-msgstr ""
+msgstr "有状态DHCPv6: 地址从Openstack DHCP中获得"
 
 #: dashboards/project/networks/subnets/utils.py:26
 msgid ""
 "DHCPv6 stateless: Address discovered from Openstack Router and info from "
 "Openstack DHCP"
-msgstr ""
+msgstr "无状态DHCPv6: 地址从Openstack路由器获得，信息从Openstack DHCP获得"
 
 #: dashboards/project/networks/subnets/views.py:66
 msgid "Unable to retrieve subnet details"
@@ -10989,7 +10989,7 @@ msgstr "无法获取子网详情"
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Detail\" tab."
-msgstr ""
+msgstr "创建网络关联的子网. 点击\"子网详情\"标签可以进行高级配置."
 
 #: dashboards/project/networks/subnets/workflows.py:57
 #, python-format
@@ -11014,13 +11014,13 @@ msgid ""
 "IP address of Gateway (e.g. 192.168.0.254). Specify an explicit address to "
 "set the gateway. If you do not want to use a gateway, check 'Disable "
 "Gateway' below."
-msgstr ""
+msgstr "网关IP地址(例如 192.168.0.254)。为网关指定明确的地址。如果你不想使用网关，勾选下面的'禁用网关'。"
 
 #: dashboards/project/networks/subnets/workflows.py:116
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Detail\" tab."
-msgstr ""
+msgstr "更新网络关联的子网。点击\"子网详情\"标签可以进行高级配置。"
 
 #: dashboards/project/networks/subnets/workflows.py:161
 #, python-format
@@ -11122,7 +11122,7 @@ msgid ""
 "\n"
 "        Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s\n"
 "        "
-msgstr ""
+msgstr "\n其它IPv6模式: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s\n        "
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:41
 msgid "Additional routes"
@@ -11193,12 +11193,12 @@ msgstr "更新路由 %s 失败"
 #: dashboards/project/routers/tables.py:36
 msgid "Delete Router"
 msgid_plural "Delete Routers"
-msgstr[0] ""
+msgstr[0] "删除路由器"
 
 #: dashboards/project/routers/tables.py:44
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
-msgstr[0] ""
+msgstr[0] "已删除路由器"
 
 #: dashboards/project/routers/tables.py:58
 #: dashboards/project/routers/tables.py:64
@@ -11250,7 +11250,7 @@ msgstr "无法获取外部网络\"%s:列表"
 msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
 "\"%(router_id)s\"."
-msgstr ""
+msgstr "路由器\"%(router_id)s\"的外部网络\"%(ext_net_id)s\"没有找到。"
 
 #. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #: dashboards/project/routers/views.py:94
@@ -11331,7 +11331,7 @@ msgstr "IP地址(可选)"
 
 #: dashboards/project/routers/ports/forms.py:32
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
-msgstr ""
+msgstr "为创建的实例指定IP地址 (例如 192.168.0.254)."
 
 #: dashboards/project/routers/ports/forms.py:54
 #: dashboards/project/routers/ports/forms.py:165
@@ -11401,12 +11401,12 @@ msgstr "增加接口"
 #: dashboards/project/routers/ports/tables.py:57
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
-msgstr[0] ""
+msgstr[0] "删除接口"
 
 #: dashboards/project/routers/ports/tables.py:65
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
-msgstr[0] ""
+msgstr[0] "已删除接口"
 
 #: dashboards/project/routers/ports/tables.py:84
 #, python-format
@@ -11807,7 +11807,7 @@ msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not change"
 " them here."
-msgstr ""
+msgstr "用提供的值来更新堆栈。请注意任何加密参数，例如密码，如果你不在这里更改，则会被重置为缺省值。"
 
 #: dashboards/project/stacks/templates/stacks/_update.html:24
 msgid "Update"
@@ -11910,12 +11910,12 @@ msgstr "无法更新云硬盘快照"
 #: dashboards/project/volumes/snapshots/tables.py:56
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
-msgstr[0] ""
+msgstr[0] "删除卷快照"
 
 #: dashboards/project/volumes/snapshots/tables.py:64
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
-msgstr[0] ""
+msgstr[0] "已安排删除卷快照"
 
 #: dashboards/project/volumes/snapshots/tables.py:79
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:9
@@ -12092,14 +12092,14 @@ msgid ""
 "        Change the volume type of a volume after its creation.\n"
 "        This is equivalent to the <tt>cinder retype</tt> command.\n"
 "       "
-msgstr ""
+msgstr "\n在卷创建后更改卷类型。\n等同于命令<tt>cinder retype</tt>。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:24
 msgid ""
 "\n"
 "        The \"Volume Type\" selected must be different from the current volume type.\n"
 "       "
-msgstr ""
+msgstr "\n选定的\"卷类型\"必须与当前的卷类型不同。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:28
 msgid ""
@@ -12109,7 +12109,7 @@ msgid ""
 "        perform volume migration. Note that migration may take a significant\n"
 "        amount of time to complete, in some cases hours.\n"
 "       "
-msgstr ""
+msgstr "\n\"迁徙策略\"只在卷更改类型无法完成时使用。\n如果\"迁徙策略\"是\"按需\"，后端会\n执行卷迁徙。注意，迁徙可能会占用大量的时间来完成，\n有时会是数小时。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
 msgid "From here you can create a snapshot of a volume."
@@ -12147,7 +12147,7 @@ msgid ""
 "        Upload the volume to the Image Service as an image.\n"
 "        This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
 "       "
-msgstr ""
+msgstr "\n上传卷到镜像服务，作为镜像。\n等同于命令<tt>cinder upload-to-image</tt>"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:24
 msgid ""
@@ -12155,7 +12155,7 @@ msgid ""
 "        Choose \"Disk Format\" for the image. The volume images are created with\n"
 "        the QEMU disk image utility.\n"
 "       "
-msgstr ""
+msgstr "\n为镜像选择\"磁盘格式\"。卷镜像\n被QEMU磁盘镜像工具创建。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:30
 msgid ""
@@ -12163,7 +12163,7 @@ msgid ""
 "          When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
 "          volume to an image.\n"
 "         "
-msgstr ""
+msgstr "\n当卷状态是\"使用中\"，你可以用\"强制\"来上传\n卷到一个镜像中。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:6
 msgid "Create a Volume"
@@ -12314,7 +12314,7 @@ msgstr "选择要连接到的云主机。"
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
-msgstr ""
+msgstr "由于管理程序配置，实际设备名称可能不同。如果没有指定，那么管理程序会选择一个设备名称。"
 
 #: dashboards/project/volumes/volumes/forms.py:448
 msgid "Unknown instance (None)"
@@ -12360,7 +12360,7 @@ msgstr "强制"
 #: dashboards/project/volumes/volumes/forms.py:575
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
-msgstr ""
+msgstr "为卷 \"%s\"成功发送上传卷到镜像的请求。"
 
 #: dashboards/project/volumes/volumes/forms.py:582
 #, python-format
@@ -12376,7 +12376,7 @@ msgstr "新大小必须大于当前设置"
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
-msgstr ""
+msgstr "卷不能扩展到%(req)iGB，因为你的可用配置只有%(avail)iGB。"
 
 #: dashboards/project/volumes/volumes/forms.py:628
 #, python-format
@@ -12406,14 +12406,14 @@ msgstr "无法获取卷类型列表"
 #: dashboards/project/volumes/volumes/forms.py:671
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr ""
+msgstr "新卷类型必须不同于原卷类型\"%s\"."
 
 #: dashboards/project/volumes/volumes/forms.py:687
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
-msgstr ""
+msgstr "为卷\"%(name)s\"成功发送更改卷类型到\"%(vtype)s\"的请求。"
 
 #: dashboards/project/volumes/volumes/forms.py:696
 #, python-format
@@ -12427,12 +12427,12 @@ msgstr "作为实例启动"
 #: dashboards/project/volumes/volumes/tables.py:67
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
-msgstr[0] ""
+msgstr[0] "删除卷"
 
 #: dashboards/project/volumes/volumes/tables.py:75
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
-msgstr[0] ""
+msgstr[0] "已安排卷删除"
 
 #: dashboards/project/volumes/volumes/tables.py:88
 #, python-format
@@ -12445,7 +12445,7 @@ msgstr "编辑挂载"
 
 #: dashboards/project/volumes/volumes/tables.py:183
 msgid "Unable to retrieve tenant limits."
-msgstr ""
+msgstr "无法获取租户范围"
 
 #: dashboards/project/volumes/volumes/tables.py:210
 msgid "Upload to Image"
@@ -12716,7 +12716,7 @@ msgstr "这个连接的最大传输单元大小"
 msgid ""
 "Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater"
 " than 1280 if the local subnet is IPv6."
-msgstr ""
+msgstr "如果本地子网是IPv4，则等于或者大于68。如果本地子网是IPv6，则等于或大于1280。"
 
 #: dashboards/project/vpn/forms.py:243 dashboards/project/vpn/workflows.py:409
 msgid "Dead peer detection actions"
@@ -12982,7 +12982,7 @@ msgstr "无法获取IPSec站点连接详情. %s"
 #: dashboards/project/vpn/workflows.py:36
 #: dashboards/project/vpn/workflows.py:422
 msgid "The state to start in."
-msgstr ""
+msgstr "状态是启动"
 
 #: dashboards/project/vpn/workflows.py:57
 msgid "Select a Router"
@@ -13001,7 +13001,7 @@ msgid ""
 "Create VPN Service for current project.\n"
 "\n"
 "Specify a name, description, router, and subnet for the VPN Service. Admin State is Up (checked) by default."
-msgstr ""
+msgstr "为当前项目创建VPN服务\n\n指定VPN服务的名称、描述、路由器和子网。Admin State缺省为UP (已勾选)."
 
 #: dashboards/project/vpn/workflows.py:95
 #, python-format
@@ -13230,7 +13230,7 @@ msgstr "段范围"
 
 #: dashboards/router/nexus1000v/forms.py:88
 msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr ""
+msgstr "VLAn是1-4093; Overlay是5000及以上"
 
 #: dashboards/router/nexus1000v/forms.py:91
 #: dashboards/router/nexus1000v/forms.py:98
@@ -13240,7 +13240,7 @@ msgstr "组播IP范围"
 
 #: dashboards/router/nexus1000v/forms.py:99
 msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr ""
+msgstr "多播IPv4范围(例如 224.0.1.0-224.0.1.100)"
 
 #: dashboards/router/nexus1000v/forms.py:103
 #: dashboards/router/nexus1000v/forms.py:110
@@ -13313,7 +13313,7 @@ msgstr "无法获取网络配置概要的详细信息。"
 
 #: dashboards/router/nexus1000v/views.py:142
 msgid "Failed to obtain network profile binding"
-msgstr ""
+msgstr "获取网络简况绑定失败"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
 msgid " Select a name for your network profile."
@@ -13345,7 +13345,7 @@ msgstr "VLAN类型的段的区间是1-4093，Enhanced-VXLAN的段的区间是大
 msgid ""
 "Edit the network profile to update name, segment range or multicast IP "
 "range."
-msgstr ""
+msgstr "编辑网络简况，更改名称、段范围或者多播IP范围。"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/index.html:3
 #: dashboards/router/nexus1000v/templates/nexus1000v/network_profile/index.html:3
