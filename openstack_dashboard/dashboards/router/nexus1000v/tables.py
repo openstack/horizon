@@ -17,6 +17,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -35,8 +36,21 @@ class CreateNetworkProfile(tables.LinkAction):
 
 
 class DeleteNetworkProfile(tables.DeleteAction):
-    data_type_singular = _("Network Profile")
-    data_type_plural = _("Network Profiles")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Network Profile",
+            u"Delete Network Profiles",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Network Profile",
+            u"Deleted Network Profiles",
+            count
+        )
 
     def delete(self, request, obj_id):
         try:

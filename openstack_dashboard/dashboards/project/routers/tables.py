@@ -102,11 +102,23 @@ class SetGateway(policy.PolicyTargetMixin, tables.LinkAction):
 
 
 class ClearGateway(policy.PolicyTargetMixin, tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Clear Gateway",
+            u"Clear Gateways",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Cleared Gateway",
+            u"Cleared Gateways",
+            count
+        )
+
     name = "cleargateway"
-    action_present = _("Clear")
-    action_past = _("Cleared")
-    data_type_singular = _("Gateway")
-    data_type_plural = _("Gateways")
     classes = ('btn-danger', 'btn-cleargateway')
     redirect_url = "horizon:project:routers:index"
     policy_rules = (("network", "update_router"),)

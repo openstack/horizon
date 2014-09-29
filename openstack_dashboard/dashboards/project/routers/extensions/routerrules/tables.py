@@ -16,6 +16,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import rulemanager
@@ -40,8 +41,22 @@ class AddRouterRule(policy.PolicyTargetMixin, tables.LinkAction):
 
 
 class RemoveRouterRule(policy.PolicyTargetMixin, tables.DeleteAction):
-    data_type_singular = _("Router Rule")
-    data_type_plural = _("Router Rules")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Router Rule",
+            u"Delete Router Rules",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Router Rule",
+            u"Deleted Router Rules",
+            count
+        )
+
     failure_url = 'horizon:project:routers:detail'
     policy_rules = (("network", "update_router"),)
 

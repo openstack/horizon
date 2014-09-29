@@ -17,6 +17,7 @@ import logging
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -53,8 +54,22 @@ class SubnetPolicyTargetMixin(policy.PolicyTargetMixin):
 
 class DeleteSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
                    tables.DeleteAction):
-    data_type_singular = _("Subnet")
-    data_type_plural = _("Subnets")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Subnet",
+            u"Delete Subnets",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Subnet",
+            u"Deleted Subnets",
+            count
+        )
+
     policy_rules = (("network", "delete_subnet"),)
 
     def delete(self, request, obj_id):
