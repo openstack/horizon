@@ -110,6 +110,8 @@ class TenantFilterAction(tables.FilterAction):
 
 
 
+
+
 class UpdateRow(tables.Row):
     ajax = True
 

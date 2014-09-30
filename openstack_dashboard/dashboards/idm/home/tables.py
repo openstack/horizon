@@ -24,6 +24,7 @@ from openstack_dashboard import api
 from openstack_dashboard import policy
 
 
+
 class TenantsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
                          form_field=forms.CharField(max_length=64))

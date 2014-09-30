@@ -61,7 +61,8 @@ class IndexView(tables.MultiTableView):
         except Exception:
             self._more = False
             exceptions.handle(self.request,
-                              _("Unable to retrieve project information."))    
+                              _("Unable to retrieve project information."))
+    
         return tenants
 
     def get_applications_data(self):
