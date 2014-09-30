@@ -297,7 +297,8 @@ you register it in a ``panel.py`` file like so::
     class Images(horizon.Panel):
         name = "Images"
         slug = 'images'
-        permissions = ('openstack.roles.admin', 'my.other.permission',)
+        permissions = ('openstack.roles.admin', 'my.openstack.permission',)
+        policy_rules = (('endpoint', 'endpoint:rule'),)
 
 
     # You could also register your panel with another application's dashboard

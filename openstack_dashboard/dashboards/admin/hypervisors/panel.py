@@ -21,3 +21,4 @@ class Hypervisors(horizon.Panel):
     name = _("Hypervisors")
     slug = 'hypervisors'
     permissions = ('openstack.services.compute',)
+    policy_rules = (("compute", "compute_extension:hypervisors"),)
