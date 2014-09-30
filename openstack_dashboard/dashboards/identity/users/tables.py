@@ -10,16 +10,17 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core import exceptions as django_exceptions
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from horizon import exceptions as horizon_exceptions
+from horizon import forms
 from horizon import messages
 from horizon import tables
-
 from openstack_dashboard import api
 from openstack_dashboard import policy
-
 
 ENABLE = 0
 DISABLE = 1
@@ -159,6 +160,44 @@ class UserFilterAction(tables.FilterAction):
                 or q in (getattr(user, 'email', None) or '').lower()]
 
 
+class UpdateRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, user_id):
+        user_info = api.keystone.user_get(request, user_id, admin=True)
+        return user_info
+
+
+class UpdateCell(tables.UpdateAction):
+    def allowed(self, request, user, cell):
+        return api.keystone.keystone_can_edit_user() and \
+            policy.check((("identity", "identity:update_user"),),
+                         request)
+
+    def update_cell(self, request, datum, user_id,
+                    cell_name, new_cell_value):
+        try:
+            user_obj = datum
+            setattr(user_obj, cell_name, new_cell_value)
+            api.keystone.user_update(
+                request,
+                user_obj,
+                name=user_obj.name,
+                email=user_obj.email,
+                enabled=user_obj.enabled,
+                project=user_obj.project_id,
+                password=None)
+
+        except horizon_exceptions.Conflict:
+            message = _("This name is already taken.")
+            messages.warning(request, message)
+            raise django_exceptions.ValidationError(message)
+        except Exception:
+            horizon_exceptions.handle(request, ignore=True)
+            return False
+        return True
+
+
 class UsersTable(tables.DataTable):
     STATUS_CHOICES = (
         ("true", True),
@@ -166,8 +205,12 @@ class UsersTable(tables.DataTable):
     )
     name = tables.Column('name',
                          link=("horizon:identity:users:detail"),
-                         verbose_name=_('User Name'))
+                         verbose_name=_('User Name'),
+                         form_field=forms.CharField(),
+                         update_action=UpdateCell)
     email = tables.Column('email', verbose_name=_('Email'),
+                          form_field=forms.CharField(required=False),
+                          update_action=UpdateCell,
                           filters=(lambda v: defaultfilters
                                    .default_if_none(v, ""),
                                    defaultfilters.escape,
@@ -187,3 +230,4 @@ class UsersTable(tables.DataTable):
         verbose_name = _("Users")
         row_actions = (EditUserLink, ToggleEnabled, DeleteUsersAction)
         table_actions = (UserFilterAction, CreateUserLink, DeleteUsersAction)
+        row_class = UpdateRow
