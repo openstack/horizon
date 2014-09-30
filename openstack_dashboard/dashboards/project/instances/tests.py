@@ -93,14 +93,14 @@ class InstanceTests(helpers.TestCase):
         res = self._get_index()
 
         self.assertTemplateUsed(res,
-            'project/instances/index.html')
+                                'project/instances/index.html')
         instances = res.context['instances_table'].data
 
         self.assertItemsEqual(instances, self.servers.list())
         self.assertNotContains(res, "Launch Instance (Quota exceeded)")
 
     @helpers.create_stubs({api.nova: ('server_list',
-                                   'tenant_absolute_limits',)})
+                                      'tenant_absolute_limits',)})
     def test_index_server_list_exception(self):
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
@@ -299,10 +299,10 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_list',
-                                   'flavor_list',
-                                   'server_delete',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'flavor_list',
+                                      'server_delete',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_terminate_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -325,11 +325,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_pause',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_pause_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -355,11 +355,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_pause',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_pause_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -386,11 +386,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_unpause',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_unpause_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -416,11 +416,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_unpause',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_unpause_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -448,10 +448,10 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_reboot',
-                                   'server_list',
-                                   'flavor_list',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_reboot_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -474,10 +474,10 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_reboot',
-                                   'server_list',
-                                   'flavor_list',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_reboot_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -502,10 +502,10 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_reboot',
-                                   'server_list',
-                                   'flavor_list',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_soft_reboot_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -529,11 +529,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_suspend',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_suspend_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -559,11 +559,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_suspend',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_suspend_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -590,11 +590,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_resume',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_resume_instance(self):
         servers = self.servers.list()
         server = servers[0]
@@ -621,11 +621,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_resume',
-                                   'server_list',
-                                   'flavor_list',
-                                   'extension_supported',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_resume_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
@@ -709,8 +709,9 @@ class InstanceTests(helpers.TestCase):
         volumes = [self.volumes.list()[1]]
         security_groups = self.security_groups.list()
 
-        res = self._get_instance_details(server, volumes_return=volumes,
-                                       security_groups_return=security_groups)
+        res = self._get_instance_details(
+            server, volumes_return=volumes,
+            security_groups_return=security_groups)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
 
@@ -721,8 +722,9 @@ class InstanceTests(helpers.TestCase):
         volumes = self.volumes.list()[1:3]
         security_groups = self.security_groups.list()
 
-        res = self._get_instance_details(server, volumes_return=volumes,
-                                       security_groups_return=security_groups)
+        res = self._get_instance_details(
+            server, volumes_return=volumes,
+            security_groups_return=security_groups)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
         self.assertEqual(res.context['instance'].volumes[0].device,
@@ -772,7 +774,7 @@ class InstanceTests(helpers.TestCase):
         res = self._get_instance_details(server, qs)
         self.assertIn(tabs.ConsoleTab, res.context_data['tab_group'].tabs)
         self.assertTemplateUsed(res,
-            'project/instances/_detail_console.html')
+                                'project/instances/_detail_console.html')
         console_tab_rendered = False
         for tab in res.context_data['tab_group'].get_loaded_tabs():
             if isinstance(tab, tabs.ConsoleTab):
@@ -788,7 +790,7 @@ class InstanceTests(helpers.TestCase):
         self.assertIsNone(tg.get_tab("console"))
         res = self._get_instance_details(server)
         self.assertTemplateNotUsed(res,
-            'project/instances/_detail_console.html')
+                                   'project/instances/_detail_console.html')
         for tab in res.context_data['tab_group'].get_loaded_tabs():
             self.assertNotIsInstance(tab, tabs.ConsoleTab)
 
@@ -985,11 +987,11 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_get',
-                                   'snapshot_create',
-                                   'server_list',
-                                   'flavor_list',
-                                   'server_delete'),
-                        api.glance: ('image_list_detailed',)})
+                                      'snapshot_create',
+                                      'server_list',
+                                      'flavor_list',
+                                      'server_delete'),
+                           api.glance: ('image_list_detailed',)})
     def test_create_instance_snapshot(self):
         server = self.servers.first()
 
@@ -1000,7 +1002,7 @@ class InstanceTests(helpers.TestCase):
 
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None).AndReturn([[], False,
-                                       False])
+                                                               False])
 
         self.mox.ReplayAll()
 
@@ -1214,16 +1216,16 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'tenant_absolute_limits',
-                                   'availability_zone_list',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_snapshot_list',
-                                 'volume_list',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        api.glance: ('image_list_detailed',)})
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'tenant_absolute_limits',
+                                      'availability_zone_list',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_snapshot_list',
+                                    'volume_list',),
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           api.glance: ('image_list_detailed',)})
     def test_launch_instance_get(self,
                                  expect_password_fields=True,
                                  block_device_mapping_v2=True,
@@ -1241,13 +1243,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -1267,8 +1270,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(disk_config)
-        api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(config_drive)
+        api.nova.extension_supported(
+            'ConfigDrive', IsA(http.HttpRequest)).AndReturn(config_drive)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -1295,12 +1298,13 @@ class InstanceTests(helpers.TestCase):
                          workflows.LaunchInstance.name)
         step = workflow.get_step("setinstancedetailsaction")
         self.assertEqual(step.action.initial['image_id'], image.id)
-        self.assertQuerysetEqual(workflow.steps,
-                            ['<SetInstanceDetails: setinstancedetailsaction>',
-                             '<SetAccessControls: setaccesscontrolsaction>',
-                             '<SetNetwork: setnetworkaction>',
-                             '<PostCreationStep: customizeaction>',
-                             '<SetAdvanced: setadvancedaction>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<SetInstanceDetails: setinstancedetailsaction>',
+             '<SetAccessControls: setaccesscontrolsaction>',
+             '<SetNetwork: setnetworkaction>',
+             '<PostCreationStep: customizeaction>',
+             '<SetAdvanced: setadvancedaction>'])
 
         if custom_flavor_sort == 'id':
             # Reverse sorted by id
@@ -1425,22 +1429,22 @@ class InstanceTests(helpers.TestCase):
         self.test_launch_instance_get(test_with_profile=True)
 
     @helpers.create_stubs({api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'tenant_absolute_limits',
-                                   'availability_zone_list',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_snapshot_list',
-                                 'volume_list',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        api.glance: ('image_list_detailed',)})
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'tenant_absolute_limits',
+                                      'availability_zone_list',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_snapshot_list',
+                                    'volume_list',),
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           api.glance: ('image_list_detailed',)})
     def test_launch_instance_get_bootable_volumes(self,
-                                 block_device_mapping_v2=True,
-                                 only_one_network=False,
-                                 disk_config=True,
-                                 config_drive=True,
-                                 test_with_profile=False):
+                                                  block_device_mapping_v2=True,
+                                                  only_one_network=False,
+                                                  disk_config=True,
+                                                  config_drive=True,
+                                                  test_with_profile=False):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(block_device_mapping_v2)
@@ -1448,13 +1452,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -1496,7 +1501,8 @@ class InstanceTests(helpers.TestCase):
         res = self.client.get(url)
 
         bootable_volumes = [v.id for v in self.volumes.list()
-                        if v.bootable == 'true' and v.status == 'available']
+                            if (v.bootable == 'true' and
+                                v.status == 'available')]
 
         volume_sources = (res.context_data['workflow'].steps[0].
                           action.fields['volume_id'].choices)
@@ -1554,13 +1560,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -1657,18 +1664,18 @@ class InstanceTests(helpers.TestCase):
         self.test_launch_instance_post(test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',
-                                      'port_create',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'availability_zone_list',
-                                   'server_create',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',
+                                         'port_create',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'availability_zone_list',
+                                      'server_create',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_boot_from_volume(self,
                                                    test_with_profile=False):
         flavor = self.flavors.first()
@@ -1695,13 +1702,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -1728,7 +1736,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1784,19 +1792,19 @@ class InstanceTests(helpers.TestCase):
         self.test_launch_instance_post_boot_from_volume(test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',
-                                      'port_create'),
-                        api.nova: ('server_create',
-                                   'extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'availability_zone_list',
-                                   'tenant_absolute_limits',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',
+                                         'port_create'),
+                           api.nova: ('server_create',
+                                      'extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'availability_zone_list',
+                                      'tenant_absolute_limits',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_no_images_available_boot_from_volume(
         self,
         test_with_profile=False,
@@ -1825,14 +1833,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -1859,7 +1867,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -1917,17 +1925,17 @@ class InstanceTests(helpers.TestCase):
             test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'availability_zone_list',
-                                   'tenant_absolute_limits',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'availability_zone_list',
+                                      'tenant_absolute_limits',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_no_images_available(self,
                                                       test_with_profile=False):
         flavor = self.flavors.first()
@@ -1949,9 +1957,10 @@ class InstanceTests(helpers.TestCase):
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
             .AndReturn([[], False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -1970,7 +1979,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
@@ -2013,16 +2022,16 @@ class InstanceTests(helpers.TestCase):
             test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        api.network: ('security_group_list',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'tenant_absolute_limits',
-                                   'availability_zone_list',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           api.network: ('security_group_list',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'tenant_absolute_limits',
+                                      'availability_zone_list',)})
     def test_launch_flavorlist_error(self,
                                      test_with_profile=False):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -2032,13 +2041,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -2055,7 +2065,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -2082,18 +2092,18 @@ class InstanceTests(helpers.TestCase):
         self.test_launch_flavorlist_error(test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',
-                                      'port_create',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'availability_zone_list',
-                                   'server_create',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',
+                                         'port_create',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'availability_zone_list',
+                                      'server_create',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_form_keystone_exception(self,
                                             test_with_profile=False):
         flavor = self.flavors.first()
@@ -2117,13 +2127,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -2148,7 +2159,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
@@ -2206,17 +2217,17 @@ class InstanceTests(helpers.TestCase):
         self.test_launch_form_keystone_exception(test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'tenant_absolute_limits',
-                                   'availability_zone_list',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'tenant_absolute_limits',
+                                      'availability_zone_list',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def test_launch_form_instance_count_error(self,
                                               test_with_profile=False):
         flavor = self.flavors.first()
@@ -2242,13 +2253,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -2265,7 +2277,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2343,13 +2355,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -2366,7 +2379,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2427,17 +2440,17 @@ class InstanceTests(helpers.TestCase):
         self.test_launch_form_instance_count_error(test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'tenant_absolute_limits',
-                                   'availability_zone_list',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'tenant_absolute_limits',
+                                      'availability_zone_list',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def _test_launch_form_instance_requirement_error(self, image, flavor,
                                                      test_with_profile=False):
         keypair = self.keypairs.first()
@@ -2461,13 +2474,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -2484,7 +2498,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2556,17 +2570,17 @@ class InstanceTests(helpers.TestCase):
             test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'tenant_absolute_limits',
-                                   'availability_zone_list',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'tenant_absolute_limits',
+                                      'availability_zone_list',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def _test_launch_form_instance_show_device_name(self, device_name,
                                                     widget_class,
                                                     widget_attrs):
@@ -2670,17 +2684,17 @@ class InstanceTests(helpers.TestCase):
         )
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.neutron: ('network_list',
-                                      'profile_list',),
-                        api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'tenant_absolute_limits',
-                                   'availability_zone_list',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_list',
-                                 'volume_snapshot_list',),
-                        quotas: ('tenant_quota_usages',)})
+                           api.neutron: ('network_list',
+                                         'profile_list',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'tenant_absolute_limits',
+                                      'availability_zone_list',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
     def _test_launch_form_instance_volume_size(self, image, volume_size, msg,
                                                test_with_profile=False):
         flavor = self.flavors.get(name='m1.massive')
@@ -2704,13 +2718,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -2727,7 +2742,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2886,13 +2901,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -2905,7 +2921,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-            IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
@@ -2992,16 +3008,16 @@ class InstanceTests(helpers.TestCase):
         self.assertContains(res, "instances__revert")
 
     @helpers.create_stubs({api.nova: ('extension_supported',
-                                   'flavor_list',
-                                   'keypair_list',
-                                   'availability_zone_list',
-                                   'tenant_absolute_limits',),
-                        api.network: ('security_group_list',),
-                        cinder: ('volume_snapshot_list',
-                                 'volume_list',),
-                        api.neutron: ('network_list',
-                                      'profile_list'),
-                        api.glance: ('image_list_detailed',)})
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'availability_zone_list',
+                                      'tenant_absolute_limits',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_snapshot_list',
+                                    'volume_list',),
+                           api.neutron: ('network_list',
+                                         'profile_list'),
+                           api.glance: ('image_list_detailed',)})
     def test_select_default_keypair_if_only_one(self,
                                                 test_with_profile=False):
         keypair = self.keypairs.first()
@@ -3010,13 +3026,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
             .AndReturn(self.volumes.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -3038,7 +3055,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
-                IsA(http.HttpRequest)).AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -3066,12 +3083,12 @@ class InstanceTests(helpers.TestCase):
         self.test_select_default_keypair_if_only_one(test_with_profile=True)
 
     @helpers.create_stubs({api.network: ('floating_ip_target_get_by_instance',
-                                      'tenant_floating_ip_allocate',
-                                      'floating_ip_associate',
-                                      'servers_update_addresses',),
-                        api.glance: ('image_list_detailed',),
-                        api.nova: ('server_list',
-                                   'flavor_list')})
+                                         'tenant_floating_ip_allocate',
+                                         'floating_ip_associate',
+                                         'servers_update_addresses',),
+                           api.glance: ('image_list_detailed',),
+                           api.nova: ('server_list',
+                                      'flavor_list')})
     def test_associate_floating_ip(self):
         servers = self.servers.list()
         server = servers[0]
@@ -3100,12 +3117,12 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.network: ('floating_ip_target_list_by_instance',
-                                      'tenant_floating_ip_list',
-                                      'floating_ip_disassociate',
-                                      'servers_update_addresses',),
-                        api.glance: ('image_list_detailed',),
-                        api.nova: ('server_list',
-                                   'flavor_list')})
+                                         'tenant_floating_ip_list',
+                                         'floating_ip_disassociate',
+                                         'servers_update_addresses',),
+                           api.glance: ('image_list_detailed',),
+                           api.nova: ('server_list',
+                                      'flavor_list')})
     def test_disassociate_floating_ip(self):
         servers = self.servers.list()
         server = servers[0]
@@ -3135,9 +3152,9 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_get',
-                                   'flavor_list',
-                                   'tenant_absolute_limits',
-                                   'extension_supported')})
+                                      'flavor_list',
+                                      'tenant_absolute_limits',
+                                      'extension_supported')})
     def test_instance_resize_get(self):
         server = self.servers.first()
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
@@ -3163,7 +3180,7 @@ class InstanceTests(helpers.TestCase):
         self.assertNotContains(res, config_drive_field_label)
 
     @helpers.create_stubs({api.nova: ('server_get',
-                                   'flavor_list',)})
+                                      'flavor_list',)})
     def test_instance_resize_get_server_get_exception(self):
         server = self.servers.first()
 
@@ -3179,7 +3196,7 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.nova: ('server_get',
-                                   'flavor_list',)})
+                                      'flavor_list',)})
     def test_instance_resize_get_flavor_list_exception(self):
         server = self.servers.first()
 
@@ -3252,16 +3269,17 @@ class InstanceTests(helpers.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                        api.nova: ('extension_supported',)})
+                           api.nova: ('extension_supported',)})
     def test_rebuild_instance_get(self, expect_password_fields=True):
         server = self.servers.first()
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -3310,13 +3328,14 @@ class InstanceTests(helpers.TestCase):
         image = self.images.first()
         password = u'testpass'
 
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -3341,13 +3360,14 @@ class InstanceTests(helpers.TestCase):
         server = self.servers.first()
         image = self.images.first()
 
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -3374,13 +3394,14 @@ class InstanceTests(helpers.TestCase):
         pass1 = u'somepass'
         pass2 = u'notsomepass'
 
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -3399,13 +3420,14 @@ class InstanceTests(helpers.TestCase):
         server = self.servers.first()
         image = self.images.first()
 
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -3431,13 +3453,14 @@ class InstanceTests(helpers.TestCase):
         image = self.images.first()
         password = u'testpass'
 
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -3507,9 +3530,10 @@ class InstanceTests(helpers.TestCase):
         self.assertEqual(len(res.context['instances_table'].data), page_size)
 
         # update INDEX_URL with marker object
+        params = "=".join([tables.InstancesTable._meta.pagination_param,
+                           servers[page_size - 1].id])
         next_page_url = "?".join([reverse('horizon:project:instances:index'),
-                    "=".join([tables.InstancesTable._meta.pagination_param,
-                              servers[page_size - 1].id])])
+                                  params])
         form_action = 'action="%s"' % next_page_url
 
         res = self.client.get(next_page_url)
@@ -3520,10 +3544,10 @@ class InstanceTests(helpers.TestCase):
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
     @helpers.create_stubs({api.nova: ('server_list',
-                                   'flavor_list',
-                                   'server_delete',),
-                        api.glance: ('image_list_detailed',),
-                        api.network: ('servers_update_addresses',)})
+                                      'flavor_list',
+                                      'server_delete',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
     def test_terminate_instance_with_pagination(self):
         """Instance should be deleted from
            the next page.
@@ -3544,9 +3568,10 @@ class InstanceTests(helpers.TestCase):
         self.mox.ReplayAll()
 
         # update INDEX_URL with marker object
+        params = "=".join([tables.InstancesTable._meta.pagination_param,
+                           servers[page_size - 1].id])
         next_page_url = "?".join([reverse('horizon:project:instances:index'),
-                    "=".join([tables.InstancesTable._meta.pagination_param,
-                              servers[page_size - 1].id])])
+                                  params])
         formData = {'action': 'instances__terminate__%s' % server.id}
         res = self.client.post(next_page_url, formData)
 
@@ -3566,9 +3591,9 @@ class InstanceTests(helpers.TestCase):
         t = workflows.create_instance.CustomizeAction(self.request, {})
         upload_str = 'user data'
         files = {'script_upload':
-            self.SimpleFile('script_name',
-                            upload_str,
-                            (16 * 1024) + 1)}
+                 self.SimpleFile('script_name',
+                                 upload_str,
+                                 (16 * 1024) + 1)}
 
         self.assertRaises(
             forms.ValidationError,
@@ -3580,9 +3605,9 @@ class InstanceTests(helpers.TestCase):
         t = workflows.create_instance.CustomizeAction(self.request, {})
         upload_str = '\x81'
         files = {'script_upload':
-            self.SimpleFile('script_name',
-                            upload_str,
-                            sys.getsizeof(upload_str))}
+                 self.SimpleFile('script_name',
+                                 upload_str,
+                                 sys.getsizeof(upload_str))}
 
         self.assertRaises(
             forms.ValidationError,
@@ -3595,9 +3620,9 @@ class InstanceTests(helpers.TestCase):
         precleaned = 'user data'
         upload_str = 'user data'
         files = {'script_upload':
-            self.SimpleFile('script_name',
-                            upload_str,
-                            sys.getsizeof(upload_str))}
+                 self.SimpleFile('script_name',
+                                 upload_str,
+                                 sys.getsizeof(upload_str))}
 
         cleaned = t.clean_uploaded_files('script', files)
 
@@ -3608,9 +3633,9 @@ class InstanceTests(helpers.TestCase):
 
 class InstanceAjaxTests(helpers.TestCase):
     @helpers.create_stubs({api.nova: ("server_get",
-                                   "flavor_get",
-                                   "extension_supported"),
-                        api.neutron: ("is_extension_supported",)})
+                                      "flavor_get",
+                                      "extension_supported"),
+                           api.neutron: ("is_extension_supported",)})
     def test_row_update(self):
         server = self.servers.first()
         instance_id = server.id
@@ -3639,9 +3664,9 @@ class InstanceAjaxTests(helpers.TestCase):
         self.assertContains(res, server.name)
 
     @helpers.create_stubs({api.nova: ("server_get",
-                                   "flavor_get",
-                                   "extension_supported"),
-                        api.neutron: ("is_extension_supported",)})
+                                      "flavor_get",
+                                      "extension_supported"),
+                           api.neutron: ("is_extension_supported",)})
     def test_row_update_instance_error(self):
         server = self.servers.first()
         instance_id = server.id

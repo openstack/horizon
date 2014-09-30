@@ -73,8 +73,8 @@ class CreateForm(forms.SelfHandlingForm):
         widget=forms.SelectWidget(
             attrs={'class': 'image-selector'},
             data_attrs=('size', 'name'),
-            transform=lambda x: "%s (%s)" % (x.name,
-                filesizeformat(x.size * 1024 * 1024 * 1024))),
+            transform=lambda x: "%s (%s)" % (
+                x.name, filesizeformat(x.size * 1024 * 1024 * 1024))),
         required=False)
     type = forms.ChoiceField(
         label=_("Type"),
@@ -116,9 +116,9 @@ class CreateForm(forms.SelfHandlingForm):
                     self.fields['type'].initial = orig_volume.volume_type
                 except Exception:
                     pass
-                self.fields['size'].help_text = _('Volume size must be equal '
-                            'to or greater than the snapshot size (%sGB)') \
-                            % snapshot.size
+                self.fields['size'].help_text = (
+                    _('Volume size must be equal to or greater than the '
+                      'snapshot size (%sGB)') % snapshot.size)
                 del self.fields['image_source']
                 del self.fields['volume_source']
                 del self.fields['volume_source_type']
@@ -199,11 +199,11 @@ class CreateForm(forms.SelfHandlingForm):
                 else:
                     del self.fields['snapshot_source']
             except Exception:
-                exceptions.handle(request, _("Unable to retrieve "
-                        "volume snapshots."))
+                exceptions.handle(request,
+                                  _("Unable to retrieve volume snapshots."))
 
             images = utils.get_available_images(request,
-                                          request.user.tenant_id)
+                                                request.user.tenant_id)
             if images:
                 source_type_choices.append(("image_source", _("Image")))
                 choices = [('', _("Choose an image"))]
@@ -309,8 +309,9 @@ class CreateForm(forms.SelfHandlingForm):
                                              data["snapshot_source"])
                 snapshot_id = snapshot.id
                 if (data['size'] < snapshot.size):
-                    error_message = _('The volume size cannot be less than '
-                        'the snapshot size (%sGB)') % snapshot.size
+                    error_message = (_('The volume size cannot be less than '
+                                       'the snapshot size (%sGB)')
+                                     % snapshot.size)
                     raise ValidationError(error_message)
                 az = None
             elif (data.get("image_source", None) and
@@ -321,15 +322,17 @@ class CreateForm(forms.SelfHandlingForm):
                 image_id = image.id
                 image_size = functions.bytes_to_gigabytes(image.size)
                 if (data['size'] < image_size):
-                    error_message = _('The volume size cannot be less than '
-                        'the image size (%s)') % filesizeformat(image.size)
+                    error_message = (_('The volume size cannot be less than '
+                                       'the image size (%s)')
+                                     % filesizeformat(image.size))
                     raise ValidationError(error_message)
                 properties = getattr(image, 'properties', {})
                 min_disk_size = (getattr(image, 'min_disk', 0) or
                                  properties.get('min_disk', 0))
                 if (min_disk_size > 0 and data['size'] < min_disk_size):
-                    error_message = _('The volume size cannot be less than '
-                        'the image minimum disk size (%sGB)') % min_disk_size
+                    error_message = (_('The volume size cannot be less than '
+                                       'the image minimum disk size (%sGB)')
+                                     % min_disk_size)
                     raise ValidationError(error_message)
             elif (data.get("volume_source", None) and
                   source_type in [None, 'volume_source']):
@@ -338,8 +341,9 @@ class CreateForm(forms.SelfHandlingForm):
                 volume_id = volume.id
 
                 if data['size'] < volume.size:
-                    error_message = _('The volume size cannot be less than '
-                        'the source volume size (%sGB)') % volume.size
+                    error_message = (_('The volume size cannot be less than '
+                                       'the source volume size (%sGB)')
+                                     % volume.size)
                     raise ValidationError(error_message)
             else:
                 if type(data['size']) is str:
@@ -466,8 +470,10 @@ class AttachForm(forms.SelfHandlingForm):
 
 class CreateSnapshotForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Snapshot Name"))
-    description = forms.CharField(max_length=255, widget=forms.Textarea(
-        attrs={'rows': 4}), label=_("Description"), required=False)
+    description = forms.CharField(max_length=255,
+                                  widget=forms.Textarea(attrs={'rows': 4}),
+                                  label=_("Description"),
+                                  required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateSnapshotForm, self).__init__(request, *args, **kwargs)
@@ -504,8 +510,10 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Volume Name"))
-    description = forms.CharField(max_length=255, widget=forms.Textarea(
-        attrs={'rows': 4}), label=_("Description"), required=False)
+    description = forms.CharField(max_length=255,
+                                  widget=forms.Textarea(attrs={'rows': 4}),
+                                  label=_("Description"),
+                                  required=False)
 
     def handle(self, request, data):
         volume_id = self.initial['volume_id']

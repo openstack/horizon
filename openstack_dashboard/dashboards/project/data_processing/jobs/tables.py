@@ -146,8 +146,8 @@ class ChoosePlugin(tables.LinkAction):
 
 class JobsTable(tables.DataTable):
     name = tables.Column("name",
-        verbose_name=_("Name"),
-        link=("horizon:project:data_processing.jobs:details"))
+                         verbose_name=_("Name"),
+                         link=("horizon:project:data_processing.jobs:details"))
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 

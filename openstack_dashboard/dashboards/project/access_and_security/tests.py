@@ -199,7 +199,7 @@ class SecurityGroupTabTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL +
-                "?tab=access_security_tabs__security_groups_tab")
+                              "?tab=access_security_tabs__security_groups_tab")
 
         security_groups = res.context['security_groups_table'].data
         self.assertItemsEqual(security_groups, self.security_groups.list())

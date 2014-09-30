@@ -55,7 +55,7 @@ class TemplateForm(forms.SelfHandlingForm):
     # TODO(jomara) - update URL choice for template & environment files
     # w/ client side download when applicable
     base_choices = [('file', _('File')),
-               ('raw', _('Direct Input'))]
+                    ('raw', _('Direct Input'))]
     url_choice = [('url', _('URL'))]
     attributes = {'class': 'switchable', 'data-slug': 'templatesource'}
     template_source = forms.ChoiceField(label=_('Template Source'),
@@ -129,9 +129,9 @@ class TemplateForm(forms.SelfHandlingForm):
         files = self.request.FILES
         self.clean_uploaded_files('template', _('template'), cleaned, files)
         self.clean_uploaded_files('environment',
-            _('environment'),
-            cleaned,
-            files)
+                                  _('environment'),
+                                  cleaned,
+                                  files)
 
         # Validate the template and get back the params.
         kwargs = {}
@@ -226,9 +226,11 @@ class ChangeTemplateForm(TemplateForm):
     class Meta:
         name = _('Edit Template')
         help_text = _('Select a new template to re-launch a stack.')
-    stack_id = forms.CharField(label=_('Stack ID'),
+    stack_id = forms.CharField(
+        label=_('Stack ID'),
         widget=forms.widgets.HiddenInput)
-    stack_name = forms.CharField(label=_('Stack Name'),
+    stack_name = forms.CharField(
+        label=_('Stack Name'),
         widget=forms.TextInput(attrs={'readonly': 'readonly'}))
 
 
@@ -255,9 +257,10 @@ class CreateStackForm(forms.SelfHandlingForm):
         label=_('Stack Name'),
         help_text=_('Name of the stack to create.'),
         regex=r"^[a-zA-Z][a-zA-Z0-9_.-]*$",
-        error_messages={'invalid': _('Name must start with a letter and may '
-                            'only contain letters, numbers, underscores, '
-                            'periods and hyphens.')})
+        error_messages={'invalid':
+                        _('Name must start with a letter and may '
+                          'only contain letters, numbers, underscores, '
+                          'periods and hyphens.')})
     timeout_mins = forms.IntegerField(
         initial=60,
         label=_('Creation Timeout (minutes)'),
@@ -372,9 +375,11 @@ class EditStackForm(CreateStackForm):
     class Meta:
         name = _('Update Stack Parameters')
 
-    stack_id = forms.CharField(label=_('Stack ID'),
+    stack_id = forms.CharField(
+        label=_('Stack ID'),
         widget=forms.widgets.HiddenInput)
-    stack_name = forms.CharField(label=_('Stack Name'),
+    stack_name = forms.CharField(
+        label=_('Stack Name'),
         widget=forms.TextInput(attrs={'readonly': 'readonly'}))
 
     @sensitive_variables('password')

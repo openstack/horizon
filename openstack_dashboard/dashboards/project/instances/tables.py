@@ -215,7 +215,8 @@ class TogglePause(tables.BatchAction):
         has_permission = True
         policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
         if policy_check:
-            has_permission = policy_check(policy, request,
+            has_permission = policy_check(
+                policy, request,
                 target={'project_id': getattr(instance, 'tenant_id', None)})
 
         return (has_permission
@@ -282,7 +283,8 @@ class ToggleSuspend(tables.BatchAction):
         has_permission = True
         policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
         if policy_check:
-            has_permission = policy_check(policy, request,
+            has_permission = policy_check(
+                policy, request,
                 target={'project_id': getattr(instance, 'tenant_id', None)})
 
         return (has_permission

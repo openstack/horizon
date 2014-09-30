@@ -141,14 +141,16 @@ class StackTests(test.TestCase):
                          settings.API_RESULT_PAGE_SIZE)
 
         url = "%s?%s=%s" % (reverse('horizon:project:stacks:index'),
-                    tables.StacksTable._meta.pagination_param, stacks[2].id)
+                            tables.StacksTable._meta.pagination_param,
+                            stacks[2].id)
         res = self.client.get(url)
         # get second page (items 2-4)
         self.assertEqual(len(res.context['stacks_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
 
         url = "%s?%s=%s" % (reverse('horizon:project:stacks:index'),
-                    tables.StacksTable._meta.pagination_param, stacks[4].id)
+                            tables.StacksTable._meta.pagination_param,
+                            stacks[4].id)
         res = self.client.get(url)
         # get third page (item 5)
         self.assertEqual(len(res.context['stacks_table'].data),
@@ -194,13 +196,15 @@ class StackTests(test.TestCase):
                          settings.API_RESULT_PAGE_SIZE)
 
         url = "%s?%s=%s" % (reverse('horizon:project:stacks:index'),
-            tables.StacksTable._meta.pagination_param, stacks[2].id)
+                            tables.StacksTable._meta.pagination_param,
+                            stacks[2].id)
         res = self.client.get(url)
         # get second page (item 3)
         self.assertEqual(len(res.context['stacks_table'].data), 1)
 
         url = "%s?%s=%s" % (reverse('horizon:project:stacks:index'),
-            tables.StacksTable._meta.prev_pagination_param, stacks[2].id)
+                            tables.StacksTable._meta.prev_pagination_param,
+                            stacks[2].id)
         res = self.client.get(url)
         # prev back to get first page with 2 pages
         self.assertEqual(len(res.context['stacks_table'].data),
@@ -590,7 +594,7 @@ class StackTests(test.TestCase):
 
         # POST to edit form
         api.heat.stack_get(IsA(http.HttpRequest),
-            stack.id).AndReturn(stack)
+                           stack.id).AndReturn(stack)
 
         fields = {
             'stack_name': stack.stack_name,
@@ -606,7 +610,7 @@ class StackTests(test.TestCase):
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:stacks:change_template',
-                args=[stack.id])
+                      args=[stack.id])
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'project/stacks/change_template.html')
 
@@ -616,7 +620,7 @@ class StackTests(test.TestCase):
         res = self.client.post(url, form_data)
 
         url = reverse('horizon:project:stacks:edit_stack',
-                args=[stack.id, ])
+                      args=[stack.id, ])
         form_data = {'template_source': 'raw',
                      'template_data': template.data,
                      'password': 'password',
@@ -716,7 +720,7 @@ class TemplateFormTests(test.TestCase):
         }
         json_str = '{notvalidjson::::::json/////json'
         files = {'template_upload':
-            self.SimpleFile('template_name', json_str)}
+                 self.SimpleFile('template_name', json_str)}
 
         self.assertRaises(
             exceptions.ValidationError,
@@ -735,7 +739,7 @@ class TemplateFormTests(test.TestCase):
 
         json_str = '{"isvalid":"json"}'
         files = {'template_upload':
-            self.SimpleFile('template_name', json_str)}
+                 self.SimpleFile('template_name', json_str)}
 
         t.clean_uploaded_files('template', 'template', precleaned, files)
         self.assertEqual(

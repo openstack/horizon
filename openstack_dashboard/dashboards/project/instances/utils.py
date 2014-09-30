@@ -55,7 +55,7 @@ def sort_flavor_list(request, flavors):
         else:
             key = sort_key
         flavor_list = [(flavor.id, '%s' % flavor.name)
-                   for flavor in sorted(flavors, key=key, reverse=rev)]
+                       for flavor in sorted(flavors, key=key, reverse=rev)]
         return flavor_list
     except Exception:
         exceptions.handle(request,

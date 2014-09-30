@@ -105,8 +105,9 @@ class ClustersTable(tables.DataTable):
     )
 
     name = tables.Column("name",
-        verbose_name=_("Name"),
-        link=("horizon:project:data_processing.clusters:details"))
+                         verbose_name=_("Name"),
+                         link=("horizon:project:data_processing."
+                               "clusters:details"))
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            status=True,

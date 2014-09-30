@@ -31,7 +31,8 @@ from openstack_dashboard.dashboards.project.access_and_security.\
 from openstack_dashboard.dashboards.project.access_and_security import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'api_access/', include(api_access_urls, namespace='api_access')),
     url(r'keypairs/', include(keypair_urls, namespace='keypairs')),

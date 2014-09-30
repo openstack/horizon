@@ -67,13 +67,14 @@ class VolumeViewTests(test.TestCase):
             AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
@@ -130,13 +131,14 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
@@ -256,13 +258,14 @@ class VolumeViewTests(test.TestCase):
                                    'AvailabilityZones').AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
 
         cinder.volume_create(IsA(http.HttpRequest),
@@ -313,13 +316,14 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
@@ -475,13 +479,14 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
@@ -638,13 +643,14 @@ class VolumeViewTests(test.TestCase):
             AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
@@ -687,13 +693,14 @@ class VolumeViewTests(test.TestCase):
             AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                            filters={'property-owner_id': self.tenant.id,
-                                     'status': 'active'}) \
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
@@ -913,8 +920,9 @@ class VolumeViewTests(test.TestCase):
             "id=\"volumes__row_%s__action_snapshots\">%s</a>" \
             % (url, " ".join(classes), volume.id, link_name)
 
-        self.assertContains(res, expected_string, html=True,
-                msg_prefix="The create snapshot button is not disabled")
+        self.assertContains(
+            res, expected_string, html=True,
+            msg_prefix="The create snapshot button is not disabled")
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_list',

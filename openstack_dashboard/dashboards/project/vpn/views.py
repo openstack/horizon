@@ -81,7 +81,8 @@ class IndexView(tabs.TabView):
                                      _('Deleted IPSec Site Connection %s')
                                      % obj_id)
                 except Exception as e:
-                    exceptions.handle(request,
+                    exceptions.handle(
+                        request,
                         _('Unable to delete IPSec Site Connection: %s') % e)
 
         return self.get(request, *args, **kwargs)

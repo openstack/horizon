@@ -75,7 +75,8 @@ class DeleteTemplate(tables.BatchAction):
 
 
 class NodegroupTemplatesTable(tables.DataTable):
-    name = tables.Column("name",
+    name = tables.Column(
+        "name",
         verbose_name=_("Name"),
         link=("horizon:project:data_processing.nodegroup_templates:details"))
     plugin_name = tables.Column("plugin_name",

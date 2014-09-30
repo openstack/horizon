@@ -76,9 +76,8 @@ class GeneralConfigAction(workflows.Action):
             workflow_helpers.get_plugin_and_hadoop_version(request))
         process_choices = []
         try:
-            version_details = saharaclient.plugin_get_version_details(request,
-                                                            plugin,
-                                                            hadoop_version)
+            version_details = saharaclient.plugin_get_version_details(
+                request, plugin, hadoop_version)
             for service, processes in version_details.node_processes.items():
                 for process in processes:
                     process_choices.append(

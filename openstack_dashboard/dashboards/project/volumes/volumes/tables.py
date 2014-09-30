@@ -184,7 +184,7 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
             limits = {}
 
         snapshots_available = (limits.get('maxTotalSnapshots', float("inf"))
-                             - limits.get('totalSnapshotsUsed', 0))
+                               - limits.get('totalSnapshotsUsed', 0))
 
         if snapshots_available <= 0 and "disabled" not in self.classes:
             self.classes = [c for c in self.classes] + ['disabled']
@@ -357,12 +357,12 @@ class VolumesTable(VolumesTableBase):
                                 verbose_name=_("Type"),
                                 empty_value="-")
     attachments = AttachmentColumn("attachments",
-                                verbose_name=_("Attached To"))
+                                   verbose_name=_("Attached To"))
     availability_zone = tables.Column("availability_zone",
-                         verbose_name=_("Availability Zone"))
+                                      verbose_name=_("Availability Zone"))
     bootable = tables.Column('is_bootable',
-                         verbose_name=_("Bootable"),
-                         filters=(filters.yesno, filters.capfirst))
+                             verbose_name=_("Bootable"),
+                             filters=(filters.yesno, filters.capfirst))
     encryption = tables.Column(get_encrypted_value,
                                verbose_name=_("Encrypted"))
 

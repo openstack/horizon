@@ -256,8 +256,8 @@ class InstancesTable(tables.DataTable):
                          verbose_name=_("Size"),
                          attrs={'data-type': 'size'})
     volume = tables.Column(get_volume_size,
-                         verbose_name=_("Volume Size"),
-                         attrs={'data-type': 'size'})
+                           verbose_name=_("Volume Size"),
+                           attrs={'data-type': 'size'})
     status = tables.Column("status",
                            filters=(d_filters.title,
                                     filters.replace_underscores),

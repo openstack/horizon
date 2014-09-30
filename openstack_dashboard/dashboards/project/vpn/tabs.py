@@ -35,7 +35,8 @@ class IPSecSiteConnectionsTab(tabs.TableTab):
                 self.tab_group.request, tenant_id=tenant_id)
         except Exception:
             ipsecsiteconnections = []
-            exceptions.handle(self.tab_group.request,
+            exceptions.handle(
+                self.tab_group.request,
                 _('Unable to retrieve IPSec Site Connections list.'))
         for c in ipsecsiteconnections:
             c.set_id_as_name_if_empty()

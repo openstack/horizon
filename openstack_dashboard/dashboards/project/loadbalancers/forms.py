@@ -252,8 +252,8 @@ class UpdateMonitor(forms.SelfHandlingForm):
                     'timeout': context['timeout'],
                     'max_retries': context['max_retries'],
                     'admin_state_up': context['admin_state_up']}}
-            monitor = api.lbaas.pool_health_monitor_update(request,
-                                             context['monitor_id'], **data)
+            monitor = api.lbaas.pool_health_monitor_update(
+                request, context['monitor_id'], **data)
             msg = _('Health monitor %s was successfully updated.')\
                 % context['monitor_id']
             LOG.debug(msg)

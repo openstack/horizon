@@ -72,8 +72,8 @@ class KeyPairViewTests(test.TestCase):
     def test_create_keypair_get(self):
         res = self.client.get(
             reverse('horizon:project:access_and_security:keypairs:create'))
-        self.assertTemplateUsed(res,
-                        'project/access_and_security/keypairs/create.html')
+        self.assertTemplateUsed(
+            res, 'project/access_and_security/keypairs/create.html')
 
     def test_download_keypair_get(self):
         keypair_name = "keypair"

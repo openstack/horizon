@@ -238,14 +238,15 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest),
             'network').MultipleTimes() \
             .AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest),
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest),
             'ec2').MultipleTimes() \
             .AndReturn(False)
 
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL +
-                "?tab=access_security_tabs__floating_ips_tab")
+                              "?tab=access_security_tabs__floating_ips_tab")
 
         allocate_link = tables.AllocateIP()
         url = allocate_link.get_link_url()

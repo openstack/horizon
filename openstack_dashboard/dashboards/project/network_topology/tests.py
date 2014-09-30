@@ -49,9 +49,9 @@ class NetworkTopologyTests(test.TestCase):
         api.nova.server_list(
             IsA(http.HttpRequest)).AndReturn([self.servers.list(), False])
         tenant_networks = [net for net in self.networks.list()
-                          if not net['router:external']]
+                           if not net['router:external']]
         external_networks = [net for net in self.networks.list()
-                            if net['router:external']]
+                             if net['router:external']]
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest),
             self.tenant.id).AndReturn(tenant_networks)

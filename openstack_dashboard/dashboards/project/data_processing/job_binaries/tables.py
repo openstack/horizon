@@ -77,7 +77,8 @@ class DownloadJobBinary(tables.LinkAction):
 
 
 class JobBinariesTable(tables.DataTable):
-    name = tables.Column("name",
+    name = tables.Column(
+        "name",
         verbose_name=_("Name"),
         link=("horizon:project:data_processing.job_binaries:details"))
     type = tables.Column("url",
