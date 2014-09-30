@@ -673,7 +673,7 @@ class Workflow(html.HTMLElement):
         self._ordered_steps = [self._registry[step_class]
                                for step_class in ordered_step_classes
                                if has_permissions(self.request.user,
-                                          self._registry[step_class])]
+                                                  self._registry[step_class])]
 
     def _order_steps(self):
         steps = list(copy.copy(self.default_steps))

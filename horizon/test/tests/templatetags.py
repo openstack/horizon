@@ -53,7 +53,7 @@ class TemplateTagTests(test.TestCase):
         """Test if site_branding tag renders the correct setting."""
         rendered_str = self.render_template_tag("site_branding", "branding")
         self.assertEqual(settings.SITE_BRANDING, rendered_str.strip(),
-                        "tag site_branding renders %s" % rendered_str.strip())
+                         "tag site_branding renders %s" % rendered_str.strip())
 
     def test_size_format_filters(self):
         size_str = ('5|diskgbformat', '10|diskgbformat',

@@ -195,12 +195,14 @@ STATICFILES_DIRS = [
 
 if xstatic.main.XStatic(xstatic.pkg.jquery_ui).version.startswith('1.10.'):
     # The 1.10.x versions already contain the 'ui' directory.
-    STATICFILES_DIRS.append(('horizon/lib/jquery-ui',
-        xstatic.main.XStatic(xstatic.pkg.jquery_ui).base_dir))
+    STATICFILES_DIRS.append(
+        ('horizon/lib/jquery-ui',
+         xstatic.main.XStatic(xstatic.pkg.jquery_ui).base_dir))
 else:
     # Newer versions dropped the directory, add it to keep the path the same.
-    STATICFILES_DIRS.append(('horizon/lib/jquery-ui/ui',
-        xstatic.main.XStatic(xstatic.pkg.jquery_ui).base_dir))
+    STATICFILES_DIRS.append(
+        ('horizon/lib/jquery-ui/ui',
+         xstatic.main.XStatic(xstatic.pkg.jquery_ui).base_dir))
 
 LOGGING = {
     'version': 1,

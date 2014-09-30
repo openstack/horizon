@@ -173,7 +173,7 @@ class SelectWidget(widgets.Select):
                ])
     """
     def __init__(self, attrs=None, choices=(), data_attrs=(), transform=None,
-                transform_html_attrs=None):
+                 transform_html_attrs=None):
         self.data_attrs = data_attrs
         self.transform = transform
         self.transform_html_attrs = transform_html_attrs

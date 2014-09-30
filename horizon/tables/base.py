@@ -992,8 +992,8 @@ class DataTableOptions(object):
                                                 'context_var_name',
                                                 'table'))
         self.actions_column = getattr(options,
-                                     'actions_column',
-                                     len(self.row_actions) > 0)
+                                      'actions_column',
+                                      len(self.row_actions) > 0)
         self.multi_select = getattr(options,
                                     'multi_select',
                                     len(self.table_actions) > 0)
@@ -1186,13 +1186,11 @@ class DataTable(object):
                 if valid_method or needs_preloading:
                     filter_field = self.get_filter_field()
                     if self._meta.mixed_data_type:
-                        self._filtered_data = action.data_type_filter(self,
-                                                                self.data,
-                                                                filter_string)
+                        self._filtered_data = action.data_type_filter(
+                            self, self.data, filter_string)
                     elif not action.is_api_filter(filter_field):
-                        self._filtered_data = action.filter(self,
-                                                            self.data,
-                                                            filter_string)
+                        self._filtered_data = action.filter(
+                            self, self.data, filter_string)
         return self._filtered_data
 
     def slugify_name(self):
@@ -1298,7 +1296,7 @@ class DataTable(object):
                 matches.append(datum)
         if len(matches) > 1:
             raise ValueError("Multiple matches were returned for that id: %s."
-                           % matches)
+                             % matches)
         if not matches:
             raise exceptions.Http302(self.get_absolute_url(),
                                      _('No match returned for the id "%s".')
@@ -1609,7 +1607,7 @@ class DataTable(object):
         table_name, action_name, obj_id = self.check_handler(request)
         if table_name == self.name and action_name:
             action_names = [action.name for action in
-                self.base_actions.values() if not action.preempt]
+                            self.base_actions.values() if not action.preempt]
             # do not run preemptive actions here
             if action_name in action_names:
                 return self.take_action(action_name, obj_id)

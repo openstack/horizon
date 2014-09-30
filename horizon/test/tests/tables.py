@@ -209,7 +209,7 @@ class MyTable(tables.DataTable):
     tooltip_dict = {'up': {'title': 'service is up and running',
                            'style': 'color:green;cursor:pointer'},
                     'down': {'title': 'service is not available',
-                           'style': 'color:red;cursor:pointer'}}
+                             'style': 'color:red;cursor:pointer'}}
     id = tables.Column('id', hidden=True, sortable=False)
     name = tables.Column(get_name,
                          verbose_name="Verbose Name",

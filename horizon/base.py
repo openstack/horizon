@@ -510,13 +510,15 @@ class Dashboard(Registry, HorizonComponent):
                 continue
             url_slug = panel.slug.replace('.', '/')
             urlpatterns += patterns('',
-                    url(r'^%s/' % url_slug, include(panel._decorated_urls)))
+                                    url(r'^%s/' % url_slug,
+                                        include(panel._decorated_urls)))
         # Now the default view, which should come last
         if not default_panel:
             raise NotRegistered('The default panel "%s" is not registered.'
                                 % self.default_panel)
         urlpatterns += patterns('',
-                url(r'', include(default_panel._decorated_urls)))
+                                url(r'',
+                                    include(default_panel._decorated_urls)))
 
         # Require login if not public.
         if not self.public:
@@ -835,7 +837,8 @@ class Site(Registry, HorizonComponent):
         # Compile the dynamic urlconf.
         for dash in self._registry.values():
             urlpatterns += patterns('',
-                    url(r'^%s/' % dash.slug, include(dash._decorated_urls)))
+                                    url(r'^%s/' % dash.slug,
+                                        include(dash._decorated_urls)))
 
         # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.namespace, self.slug

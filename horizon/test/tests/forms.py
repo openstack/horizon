@@ -30,7 +30,8 @@ class FormMixinTests(test.TestCase):
         return view
 
     def test_modal_form_mixin_hide_true_if_ajax(self):
-        view = self._prepare_view(forms.views.ModalFormView,
+        view = self._prepare_view(
+            forms.views.ModalFormView,
             dict(HTTP_X_REQUESTED_WITH='XMLHttpRequest'))
         context = view.get_context_data()
         self.assertTrue(context['hide'])
@@ -55,7 +56,8 @@ class FormMixinTests(test.TestCase):
             self.assertNotIn('add_to_field', context)
 
     def test_template_name_change_based_on_ajax_request(self):
-            view = self._prepare_view(forms.views.ModalFormView,
+            view = self._prepare_view(
+                forms.views.ModalFormView,
                 dict(HTTP_X_REQUESTED_WITH='XMLHttpRequest'))
             self.assertEqual('_' + view.template_name,
                              view.get_template_names())
@@ -105,20 +107,21 @@ class TestChoiceFieldForm(forms.SelfHandlingForm):
                  "label2": {"title": "This is choice 2"},
                  "label3": {"title": "This is choice 3"}}
     name = forms.CharField(max_length=255,
-                          label="Test Name",
-                          help_text="Please enter a name")
+                           label="Test Name",
+                           help_text="Please enter a name")
     test_choices = forms.ChoiceField(label="Test Choices",
-                                    required=False,
-                                    help_text="Testing drop down choices",
-                                    widget=forms.fields.SelectWidget(attrs={
-                                        'class': 'switchable',
-                                        'data-slug': 'source'},
-                                        transform_html_attrs=title_dic.get))
+                                     required=False,
+                                     help_text="Testing drop down choices",
+                                     widget=forms.fields.SelectWidget(
+                                         attrs={
+                                             'class': 'switchable',
+                                             'data-slug': 'source'},
+                                         transform_html_attrs=title_dic.get))
 
     def __init__(self, request, *args, **kwargs):
         super(TestChoiceFieldForm, self).__init__(request, *args, **kwargs)
         choices = ([('choice1', 'label1'),
-                  ('choice2', 'label2')])
+                    ('choice2', 'label2')])
         self.fields['test_choices'].choices = choices
 
     def handle(self, request, data):
@@ -139,7 +142,11 @@ class ChoiceFieldTests(test.TestCase):
 
     def test_choicefield_title(self):
         resp = self._render_form()
-        self.assertContains(resp, '<option value="choice1" '
-            'title="This is choice 1">label1</option>', count=1, html=True)
-        self.assertContains(resp, '<option value="choice2" '
-            'title="This is choice 2">label2</option>', count=1, html=True)
+        self.assertContains(
+            resp,
+            '<option value="choice1" title="This is choice 1">label1</option>',
+            count=1, html=True)
+        self.assertContains(
+            resp,
+            '<option value="choice2" title="This is choice 2">label2</option>',
+            count=1, html=True)

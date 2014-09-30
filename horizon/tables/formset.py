@@ -38,7 +38,7 @@ class FormsetCell(horizon_tables.Cell):
         else:
             if self.field.errors:
                 self.attrs['class'] = (self.attrs.get('class', '') +
-                    ' error form-group')
+                                       ' error form-group')
                 self.attrs['title'] = ' '.join(
                     unicode(error) for error in self.field.errors)
 
@@ -64,7 +64,7 @@ class FormsetRow(horizon_tables.Row):
 
     def render(self):
         return loader.render_to_string(self.template_path,
-            {"row": self, "form": self.form})
+                                       {"row": self, "form": self.form})
 
 
 class FormsetDataTableMixin(object):
