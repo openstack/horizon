@@ -16,7 +16,8 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.admin.volumes.volume_types.qos_specs \
     import views
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^(?P<qos_spec_id>[^/]+)/create/$',
         views.CreateKeyValuePairView.as_view(), name='create'),
     url(r'^(?P<qos_spec_id>[^/]+)/$', views.IndexView.as_view(), name='index'),

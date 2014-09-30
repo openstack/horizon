@@ -32,7 +32,8 @@ class AddDHCPAgent(forms.SelfHandlingForm):
     network_name = forms.CharField(label=_("Network Name"),
                                    widget=forms.TextInput(
                                    attrs={'readonly': 'readonly'}))
-    agent = forms.ChoiceField(label=_("New DHCP Agent"),
+    agent = forms.ChoiceField(
+        label=_("New DHCP Agent"),
         help_text=_("Choose an DHCP Agent to attach to."))
 
     def __init__(self, request, *args, **kwargs):

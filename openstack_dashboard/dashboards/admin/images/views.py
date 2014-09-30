@@ -146,14 +146,15 @@ class UpdateMetadataView(forms.ModalFormView):
         try:
             # metadefs_namespace_list() returns a tuple with list as 1st elem
             available_namespaces = [x.namespace for x in
-                          api.glance.metadefs_namespace_list(
-                              self.request,
-                              filters={"resource_types":
-                                       [resource_type]}
-                          )[0]]
+                                    api.glance.metadefs_namespace_list(
+                                        self.request,
+                                        filters={"resource_types":
+                                                 [resource_type]}
+                                    )[0]]
             for namespace in available_namespaces:
                 details = api.glance.metadefs_namespace_get(self.request,
-                    namespace, resource_type)
+                                                            namespace,
+                                                            resource_type)
                 # Filter out reserved custom properties from namespace
                 if reserved_props:
                     if hasattr(details, 'properties'):
@@ -189,4 +190,4 @@ class UpdateMetadataView(forms.ModalFormView):
         except Exception:
             msg = _('Unable to retrieve the image to be updated.')
             exceptions.handle(self.request, msg,
-                redirect=reverse('horizon:admin:images:index'))
+                              redirect=reverse('horizon:admin:images:index'))

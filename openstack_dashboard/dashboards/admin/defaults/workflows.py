@@ -47,7 +47,8 @@ class UpdateDefaultQuotasAction(workflows.Action):
     cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
     security_groups = forms.IntegerField(min_value=-1,
                                          label=_("Security Groups"))
-    gigabytes = forms.IntegerField(min_value=-1,
+    gigabytes = forms.IntegerField(
+        min_value=-1,
         label=_("Total Size of Volumes and Snapshots (GB)"))
     snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
     volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))

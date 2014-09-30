@@ -32,27 +32,27 @@ class CreateFlavorInfoAction(workflows.Action):
     _flavor_id_help_text = _("Flavor ID should be UUID4 or integer. "
                              "Leave this field blank or use 'auto' to set "
                              "a random UUID4.")
-    name = forms.RegexField(label=_("Name"),
-                            max_length=255,
-                            regex=r'^[\w\.\- ]+$',
-                            error_messages={'invalid': _('Name may only '
-                                'contain letters, numbers, underscores, '
-                                'periods and hyphens.')})
+    name = forms.RegexField(
+        label=_("Name"),
+        max_length=255,
+        regex=r'^[\w\.\- ]+$',
+        error_messages={'invalid': _('Name may only contain letters, numbers, '
+                                     'underscores, periods and hyphens.')})
     flavor_id = forms.RegexField(label=_("ID"),
-                             regex=_flavor_id_regex,
-                             required=False,
-                             initial='auto',
-                             help_text=_flavor_id_help_text)
+                                 regex=_flavor_id_regex,
+                                 required=False,
+                                 initial='auto',
+                                 help_text=_flavor_id_help_text)
     vcpus = forms.IntegerField(label=_("VCPUs"),
-                            min_value=1)
+                               min_value=1)
     memory_mb = forms.IntegerField(label=_("RAM (MB)"),
-                            min_value=1)
+                                   min_value=1)
     disk_gb = forms.IntegerField(label=_("Root Disk (GB)"),
-                            min_value=0)
+                                 min_value=0)
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk (GB)"),
-                            min_value=0)
+                                min_value=0)
     swap_mb = forms.IntegerField(label=_("Swap Disk (MB)"),
-                            min_value=0)
+                                 min_value=0)
 
     class Meta:
         name = _("Flavor Information")
@@ -140,7 +140,8 @@ class UpdateFlavorAccessAction(workflows.MembershipAction):
                 flavor = api.nova.flavor_get(request, flavor_id)
                 if not flavor.is_public:
                     flavor_access = [project.tenant_id for project in
-                            api.nova.flavor_access_list(request, flavor_id)]
+                                     api.nova.flavor_access_list(request,
+                                                                 flavor_id)]
         except Exception:
             exceptions.handle(request, err_msg)
 
@@ -212,7 +213,8 @@ class CreateFlavor(workflows.Workflow):
                 api.nova.add_tenant_to_flavor(
                     request, flavor_id, project)
             except Exception:
-                exceptions.handle(request,
+                exceptions.handle(
+                    request,
                     _('Unable to set flavor access for project %s.') % project)
         return True
 

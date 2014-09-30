@@ -23,7 +23,8 @@ from openstack_dashboard.dashboards.admin.volumes.volume_types \
 
 VIEWS_MOD = ('openstack_dashboard.dashboards.admin.volumes.volume_types.views')
 
-urlpatterns = patterns('VIEWS_MOD',
+urlpatterns = patterns(
+    'VIEWS_MOD',
     url(r'^create_type$', views.CreateVolumeTypeView.as_view(),
         name='create_type'),
     url(r'^create_qos_spec$', views.CreateQosSpecView.as_view(),

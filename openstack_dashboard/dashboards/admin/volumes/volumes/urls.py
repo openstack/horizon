@@ -18,7 +18,8 @@ from openstack_dashboard.dashboards.admin.volumes.volumes \
 
 VIEWS_MOD = ('openstack_dashboard.dashboards.admin.volumes.volumes.views')
 
-urlpatterns = patterns(VIEWS_MOD,
+urlpatterns = patterns(
+    VIEWS_MOD,
     url(r'^(?P<volume_id>[^/]+)/$', views.DetailView.as_view(),
         name='detail'),
     url(r'^(?P<volume_id>[^/]+)/update_status$',

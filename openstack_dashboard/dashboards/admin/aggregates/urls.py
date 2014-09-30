@@ -17,7 +17,8 @@ from openstack_dashboard.dashboards.admin.aggregates \
     import views
 
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.aggregates.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.admin.aggregates.views',
     url(r'^$',
         views.IndexView.as_view(), name='index'),
     url(r'^create/$',

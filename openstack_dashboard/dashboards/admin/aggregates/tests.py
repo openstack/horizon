@@ -70,9 +70,10 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
         self.assertTemplateUsed(res, constants.AGGREGATES_CREATE_VIEW_TEMPLATE)
         self.assertEqual(workflow.name, workflows.CreateAggregateWorkflow.name)
-        self.assertQuerysetEqual(workflow.steps,
-                        ['<SetAggregateInfoStep: set_aggregate_info>',
-                        '<AddHostsToAggregateStep: add_host_to_aggregate>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<SetAggregateInfoStep: set_aggregate_info>',
+             '<AddHostsToAggregateStep: add_host_to_aggregate>'])
 
     @test.create_stubs({api.nova: ('host_list', 'aggregate_details_list',
                                    'aggregate_create'), })
@@ -95,8 +96,8 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
         if not expected_error_message:
             self.assertNoFormErrors(res)
-            self.assertRedirectsNoFollow(res,
-                    reverse(constants.AGGREGATES_INDEX_URL))
+            self.assertRedirectsNoFollow(
+                res, reverse(constants.AGGREGATES_INDEX_URL))
         else:
             self.assertFormErrors(res, error_count, expected_error_message)
 
@@ -211,8 +212,8 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
         if not expected_error_message:
             self.assertNoFormErrors(res)
-            self.assertRedirectsNoFollow(res,
-                    reverse(constants.AGGREGATES_INDEX_URL))
+            self.assertRedirectsNoFollow(
+                res, reverse(constants.AGGREGATES_INDEX_URL))
         else:
             self.assertFormErrors(res, error_count, expected_error_message)
 

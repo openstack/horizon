@@ -31,7 +31,8 @@ class UpdateVolumeSnapshotStatus(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume",
-        "snapshot_extension:snapshot_actions:update_snapshot_status"),)
+                     "snapshot_extension:snapshot_actions:"
+                     "update_snapshot_status"),)
 
 
 class UpdateRow(tables.Row):
@@ -41,9 +42,9 @@ class UpdateRow(tables.Row):
         snapshot = cinder.volume_snapshot_get(request, snapshot_id)
         snapshot._volume = cinder.volume_get(request, snapshot.volume_id)
         snapshot.host_name = getattr(snapshot._volume,
-            'os-vol-host-attr:host')
+                                     'os-vol-host-attr:host')
         tenant_id = getattr(snapshot._volume,
-            'os-vol-tenant-attr:tenant_id')
+                            'os-vol-tenant-attr:tenant_id')
         try:
             tenant = keystone.tenant_get(request, tenant_id)
             snapshot.tenant_name = getattr(tenant, "name")
@@ -56,7 +57,7 @@ class UpdateRow(tables.Row):
 
 class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
     name = tables.Column("name", verbose_name=_("Name"),
-        link="horizon:admin:volumes:snapshots:detail")
+                         link="horizon:admin:volumes:snapshots:detail")
     volume_name = snapshots_tables.SnapshotVolumeNameColumn(
         "name", verbose_name=_("Volume Name"),
         link="horizon:admin:volumes:volumes:detail")
@@ -68,8 +69,8 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
         verbose_name = _("Volume Snapshots")
         table_actions = (snapshots_tables.DeleteVolumeSnapshot,)
         row_actions = (snapshots_tables.DeleteVolumeSnapshot,
-            UpdateVolumeSnapshotStatus,)
+                       UpdateVolumeSnapshotStatus,)
         row_class = UpdateRow
         status_columns = ("status",)
         columns = ('tenant', 'host', 'name', 'description', 'size', 'status',
-            'volume_name',)
+                   'volume_name',)

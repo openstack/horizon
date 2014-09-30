@@ -37,7 +37,7 @@ class AdminIndexView(tabs.TabbedTableView):
             hypervisors.sort(key=utils.natural_sort('hypervisor_hostname'))
         except Exception:
             exceptions.handle(self.request,
-                _('Unable to retrieve hypervisor information.'))
+                              _('Unable to retrieve hypervisor information.'))
 
         return hypervisors
 
@@ -47,7 +47,7 @@ class AdminIndexView(tabs.TabbedTableView):
             context["stats"] = api.nova.hypervisor_stats(self.request)
         except Exception:
             exceptions.handle(self.request,
-                _('Unable to retrieve hypervisor statistics.'))
+                              _('Unable to retrieve hypervisor statistics.'))
 
         return context
 
@@ -67,6 +67,7 @@ class AdminDetailView(tables.DataTableView):
                 except AttributeError:
                     pass
         except Exception:
-            exceptions.handle(self.request,
+            exceptions.handle(
+                self.request,
                 _('Unable to retrieve hypervisor instances list.'))
         return instances

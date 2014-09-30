@@ -16,7 +16,8 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.admin.volumes.snapshots import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^(?P<snapshot_id>[^/]+)$',
         views.DetailView.as_view(),
         name='detail'),

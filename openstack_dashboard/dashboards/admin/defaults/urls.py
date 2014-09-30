@@ -18,7 +18,8 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.admin.defaults import views
 
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.defaults.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.admin.defaults.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^update_defaults$',
         views.UpdateDefaultQuotasView.as_view(), name='update_defaults'))

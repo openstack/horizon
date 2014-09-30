@@ -29,8 +29,8 @@ class ExtraSpecMixin(object):
     def get_context_data(self, **kwargs):
         context = super(ExtraSpecMixin, self).get_context_data(**kwargs)
         try:
-            context['vol_type'] = api.cinder.volume_type_get(self.request,
-                                                    self.kwargs['type_id'])
+            context['vol_type'] = api.cinder.volume_type_get(
+                self.request, self.kwargs['type_id'])
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve volume type details."))

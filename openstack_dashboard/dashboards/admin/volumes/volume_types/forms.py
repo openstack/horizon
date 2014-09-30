@@ -69,7 +69,7 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
         if found_error:
             raise forms.ValidationError(
                 _('New associated QoS Spec must be different than '
-                 'the current associated QoS Spec.'))
+                  'the current associated QoS Spec.'))
         return cleaned_new_spec_id
 
     def handle(self, request, data):
@@ -129,7 +129,7 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
         if cleaned_new_consumer == old_consumer:
             raise forms.ValidationError(
                 _('QoS Spec consumer value must be different than '
-                 'the current consumer value.'))
+                  'the current consumer value.'))
         return cleaned_new_consumer
 
     def handle(self, request, data):

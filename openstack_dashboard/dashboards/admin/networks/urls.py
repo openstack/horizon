@@ -32,7 +32,8 @@ from openstack_dashboard.dashboards.admin.networks import views
 NETWORKS = r'^(?P<network_id>[^/]+)/%s$'
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(NETWORKS % 'update', views.UpdateView.as_view(), name='update'),

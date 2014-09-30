@@ -126,8 +126,9 @@ class ManageQosSpecAssociationView(forms.ModalFormView):
                             return qos_spec
 
             except Exception:
-                exceptions.handle(self.request,
-                        _('Unable to retrieve QoS Spec association.'))
+                exceptions.handle(
+                    self.request,
+                    _('Unable to retrieve QoS Spec association.'))
 
         return None
 
