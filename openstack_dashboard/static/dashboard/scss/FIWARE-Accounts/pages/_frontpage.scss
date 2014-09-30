@@ -1,3 +1,13 @@
+#frontpage, #registration{
+  .row{
+    @media (max-width: $screen-sm-min){
+      margin: 0px;
+      .help-box{
+        padding: 0;
+      }
+    }
+  }
+}
 .presentation{
   @include make-xs-column(12, $gutter: $grid-gutter-width);
   @include make-sm-column(6, $gutter: $grid-gutter-width);
@@ -7,16 +17,16 @@
   @include make-md-column-offset(1);
   @include make-lg-column-offset(1);
   clear: none;
+  padding: 0;
   .help-box{
-    background-color: #EBEBEB;
-    margin-top: 18px;
+    margin-top: 20px;
     font-size: 12px;
   }
   .media{
     background-color: #EBEBEB;
     font-size: 12px;
     margin-top: 0px;
-    padding: 10px 25px 15px 25px;
+    padding: 15px;
     h3{
       font-family: $corporate-font-family-sans-serif-Regular;
       margin-bottom: 4px;
@@ -38,21 +48,29 @@
 
 .help-bar{
   width: 100%;
+  .row{
+    margin: 0;
+  }
 }
 
 .help-box{ 
-  width: 48%;
+  @include make-xs-column(12, $gutter: $grid-gutter-width);
+  @include make-sm-column(6, $gutter: $grid-gutter-width);
+  @include make-md-column(6, $gutter: $grid-gutter-width);
+  @include make-lg-column(6, $gutter: $grid-gutter-width);
   min-height: 57px;
-  background-color: #f5f5f5;
-  margin-bottom: 2px;
-  float: left;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin-bottom: 1px;
+  padding: 0 10px 0 0;
+  &:last-child{
+    padding: 0 0 0 10px;
+  }
+
   div{
-    margin-left: 8px;
+    padding: 5px 10px;
+    background-color: rgba(235, 235, 235, 0.91);
   }
   header{
-    padding: 5px 1px 4px 5px;
+    padding: 5px 10px 4px 10px;
     min-height: 19px;
     margin-bottom: 4px;
     background-color: $brand-secundary;

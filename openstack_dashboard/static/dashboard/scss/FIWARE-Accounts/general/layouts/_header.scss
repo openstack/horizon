@@ -31,7 +31,6 @@ nav.container-fluid .logo-header{
 
 
 .mobile .dropdown-menu{
-  margin-left: -67px;
   min-width: 90px
   background-color: rgb(244, 244, 244);
   border: none;
@@ -62,7 +61,7 @@ ul.oil-portal{
 
 ul.oil-portal li{
   display: inline-block;
-  padding: 12px 18px 8px;
+  padding: 13px 18px 4px;
 }
 
 ul.oil-portal li:hover{
@@ -71,25 +70,25 @@ ul.oil-portal li:hover{
 }
 
 ul.oil-portal li:hover a{
-  color: #60C1CF;
+  color: $brand-primary;
 }
 
 ul.oil-portal li a{
   color: #555;
+  font-family: $corporate-font-family-sans-serif-Regular;
 }
 
 ul.oil-portal li a:hover{
-  color: #60C1CF;
+  color: $brand-primary;
   text-decoration: none;
 }
 
 ul.oil-portal li.active{
-  background-color: #f9f9f9;
-  height: 18px;
+  background-color: #fff;
 }
 
 ul.oil-portal li.active a{
-  color: #002D67;
+  color: $brand-secundary;
 }
 
 .mobile{
@@ -98,7 +97,6 @@ ul.oil-portal li.active a{
 }
 
 .mobile ul.dropdown-menu{
-  margin-left: -67px;
   min-width: 90px;
   background-color: rgb(244, 244, 244);
   border: none;
@@ -115,21 +113,33 @@ ul.oil-portal li.active a{
   color:#333;
 }
 
+.mobile ul li{
+  border-bottom: 2px solid #FFF;
+  &:last-child{
+    border: none;
+  }
+}
+
+.mobile ul li a{
+  color:#555;
+  font-family: $corporate-font-family-sans-serif-Regular; 
+}
+  
 .mobile ul li a:hover{
   background-color: rgba(152, 152, 152, 0.1);
-  color:#333;
+  color: $brand-primary;
 }
 
 .mobile ul li.active a{
   background-color: rgba(152, 152, 152, 0.1);
   background-image: none;
-  color:#60C1CF;
+  color: $brand-secundary;
 }
 
 .mobile ul li.active a:hover{
   background-color: rgba(152, 152, 152, 0.1);
   background-image: none;
-  color:#60C1CF;
+  color: $brand-secundary;
 }
 
 .mobile ul li.active a:focus{
