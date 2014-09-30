@@ -38,12 +38,17 @@
 
     <dt>{% trans "Session Persistence" %}</dt>
     {% if vip.session_persistence %}
-    <dd>{% trans "Type" %}: {{ vip.session_persistence.type }}</dd>
+      <dd>
+        {% blocktrans with persistence_type=vip.session_persistence.type %}Type: {{ persistence_type }}{% endblocktrans %}
+      </dd>
+
     {% if vip.session_persistence.cookie_name %}
-    <dd>{% trans "Cookie Name" %}: {{ vip.session_persistence.cookie_name }}</dd>
+      <dd>
+        {% blocktrans with cookie_name=vip.session_persistence.cookie_name %}Cookie Name: {{ cookie_name }}{% endblocktrans %}
+      </dd>
     {% endif %}
     {% else %}
-    <dd>{% trans "None" %}</dd>
+      <dd>{% trans "None" %}</dd>
     {% endif %}
 
     <dt>{% trans "Connection Limit" %}</dt>
