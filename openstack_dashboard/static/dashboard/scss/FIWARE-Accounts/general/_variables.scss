@@ -7,8 +7,8 @@
 $black: #000 !default;
 $gray-darker: #222222 !default;
 $gray-dark: #333333 !default;
-$gray: #555555 !default;
-$gray-light: #cccccc !default;
+$gray: #8c8c8c !default;
+$gray-light: #c2c2c2 !default;
 $gray-lighter: #e2e2e2 !default;
 $white: #fff !default;
 
@@ -21,7 +21,7 @@ $brand-danger: #d9534f;
 
 $body-bg: $white;
 
-$text-color: $gray-dark;
+$text-color: $gray;
 
 $link-color: $brand-primary;
 $link-hover-color: darken($link-color, 15%);
@@ -41,13 +41,10 @@ $corporate-font-family-sans-serif-Regular: "NeoTechRegular" !default;
 $corporate-font-family-sans-serif-Medium:   "NeoTechMedium" !default;
 
 
-$baseFontSize:          13px !default;
-$baseFontFamily:        Verdana;
-$baseLineHeight:        20px !default;
+$font-size-base:          13px !default;
+$font-family-base:        "Verdana", sans-serif !default;
 
-$headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
-$headingsFontWeight:    normal !default;    // instead of browser default, bold
-$headingsColor:         inherit !default; // empty to use BS default, $textColor
+
 
 //== Components
 //

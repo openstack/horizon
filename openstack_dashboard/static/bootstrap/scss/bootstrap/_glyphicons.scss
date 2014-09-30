@@ -14,11 +14,11 @@
 // Import the fonts
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
-  src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
-       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
-       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
-       url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'), '#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
+  src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+  src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+       url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+       url('../fonts/bootstrap/glyphicons-halflings-regular.svg') format('svg');
 }
 
 // Catchall baseclass
@@ -42,6 +42,7 @@
 .glyphicon-cloud                  { &:before { content: "\2601"; } }
 .glyphicon-envelope               { &:before { content: "\2709"; } }
 .glyphicon-pencil                 { &:before { content: "\270f"; } }
+// A partir de aquí no renderiza
 .glyphicon-glass                  { &:before { content: "\e001"; } }
 .glyphicon-music                  { &:before { content: "\e002"; } }
 .glyphicon-search                 { &:before { content: "\e003"; } }

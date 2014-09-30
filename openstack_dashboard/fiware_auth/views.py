@@ -33,7 +33,7 @@ class RegistrationView(FormView):
 	form_class = RegistrationForm
 	http_method_names = ['get', 'post', 'head', 'options', 'trace']
 	success_url = '/' #TODO'
-	template_name = 'auth/registration_form.html'
+	template_name = 'auth/registration/registration.html'
 
 	def post(self, request, *args, **kwargs):
 		# Pass request to get_form_class and get_form for per-request
@@ -77,7 +77,7 @@ class RegistrationView(FormView):
 
 class ActivationView(TemplateView):
 	http_method_names = ['get']
-	template_name = 'auth/activate.html'
+	template_name = 'auth/activation/activate.html'
 
 	def get(self, request, *args, **kwargs):
 		activated_user = self.activate(request, *args, **kwargs)

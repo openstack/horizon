@@ -20,13 +20,14 @@
     h3{
       font-family: $corporate-font-family-sans-serif-Regular;
       margin-bottom: 4px;
+      color: $brand-secundary;
     }
     span{
       font-size: 13px;
-      font-weight: bold;
       color: $brand-primary;
       display: block;
-      margin: -7px 0 9px;
+      margin: -5px 0 9px;
+      letter-spacing: 0.1rem;
     }
     .sign_up{
       float: right;
@@ -51,13 +52,15 @@
     margin-left: 8px;
   }
   header{
-    padding: 5px 1px 0px 5px;
+    padding: 5px 1px 4px 5px;
     min-height: 19px;
     margin-bottom: 4px;
     background-color: $brand-secundary;
     i{
       float: right;
       margin-right: 4px;
+      margin-top: 5px;
+      color: $white;
     }
     &:hover{
       background-color: darken($brand-secundary, 15%);
@@ -91,7 +94,8 @@
 
 
 
-.login{
+.login,
+.registration{
   @include make-xs-column(12, $gutter: $grid-gutter-width);
   @include make-sm-column(3, $gutter: $grid-gutter-width);
   @include make-md-column(3, $gutter: $grid-gutter-width);
@@ -102,6 +106,7 @@
   @extend .well;
   .modal-header{
     border-bottom: transparent;
+    padding: 0px;
     h3{
       @extend h4;
       text-align: right;
@@ -109,6 +114,11 @@
       font-family: $corporate-font-family-sans-serif-Regular;
       margin-top: 0;
     }
+  }
+  .control-label{
+    font-weight: normal;
+    color: $gray-light;
+    margin-bottom: 4px;
   }
   .actions{
     clear: both;
@@ -122,6 +132,9 @@
         margin-left: 9px;
       }
     }
+  }
+  .modal-footer{
+    padding: 15px 0 0;
   }
 }
 

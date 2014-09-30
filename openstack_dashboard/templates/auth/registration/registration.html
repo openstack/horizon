@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Login" %}{% endblock %}
+{% block title %}{% trans "Registration" %}{% endblock %}
 
 {% block body_id %}splash{% endblock %}
 
@@ -10,7 +10,7 @@
   <div class="container-fluid wrap">
     <div class="row">
       {% include 'auth/_presentation.html' %}
-      {% include 'auth/_login.html' %}
+      {% include 'auth/registration/_registration_form.html' %}
     </div>
   </div>
 {% endblock %}

@@ -1,0 +1,19 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+<div class="registration">
+  {% block modal-header %}{% trans "Registration" %}{% endblock %}
+  {% block modal_class %}registration {% if hide %}modal hide{% endif %}{% endblock %}
+
+  {% block modal-body %}
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+  {% endblock %}
+
+  {% block modal-footer %}
+    <button type="submit" class="btn btn-primary pull-right">{% trans "Sign In" %}</button>
+  {% endblock %}
+</div>
