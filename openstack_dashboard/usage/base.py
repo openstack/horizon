@@ -86,14 +86,21 @@ class BaseUsage(object):
 
     def get_form(self):
         if not hasattr(self, 'form'):
-            if any(key in ['start', 'end'] for key in self.request.GET):
+            req = self.request
+            start = req.GET.get('start', req.session.get('usage_start'))
+            end = req.GET.get('end', req.session.get('usage_end'))
+            if start and end:
                 # bound form
-                self.form = forms.DateForm(self.request.GET)
+                self.form = forms.DateForm({'start': start, 'end': end})
             else:
                 # non-bound form
                 init = self.init_form()
-                self.form = forms.DateForm(initial={'start': init[0],
-                                                    'end': init[1]})
+                start = init[0].isoformat()
+                end = init[1].isoformat()
+                self.form = forms.DateForm(initial={'start': start,
+                                                    'end': end})
+            req.session['usage_start'] = start
+            req.session['usage_end'] = end
         return self.form
 
     def _get_neutron_usage(self, limits, resource_name):
