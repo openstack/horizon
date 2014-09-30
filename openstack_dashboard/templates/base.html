@@ -13,6 +13,12 @@
     {% include "horizon/_conf.html" %}
     {% include "horizon/client_side/_script_loader.html" %}
     {% include "_custom_head_js.html" %}
+    
+    <link rel="shortcut icon" href="{{ STATIC_URL }}dashboard/img/icons/favicon.ico"/>
+    <link rel="apple-touch-icon" href="{{ STATIC_URL }}dashboard/img/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}dashboard/img/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}dashboard/img/icons/apple-touch-icon-114x114.png">
+     
   </head>
   <body id="{% block body_id %}{% endblock %}" ng-app='hz'>
     {% block content %}

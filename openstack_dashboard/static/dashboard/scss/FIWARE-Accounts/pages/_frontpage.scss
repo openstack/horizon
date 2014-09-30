@@ -11,7 +11,7 @@
 }
 .presentation{
   @include make-xs-column(12, $gutter: $grid-gutter-width);
-  @include make-sm-column(6, $gutter: $grid-gutter-width);
+  @include make-sm-column(5, $gutter: $grid-gutter-width);
   @include make-md-column(6, $gutter: $grid-gutter-width);
   @include make-lg-column(6, $gutter: $grid-gutter-width);
   @include make-sm-column-offset(1);
@@ -73,11 +73,9 @@
   header{
     padding: 5px 10px 4px 10px;
     min-height: 19px;
-    margin-bottom: 4px;
     background-color: $brand-secundary;
     i{
       float: right;
-      margin-right: 4px;
       margin-top: 5px;
       color: $white;
     }
@@ -111,12 +109,32 @@
   }
 }
 
-
+.registration{
+  label{
+    @extend .control-label;
+  }
+  input{
+    &[type="text"],
+    &[type="email"],
+    &[type="password"]{
+      @extend .form-control;
+      margin-bottom: 15px; 
+    }
+  }
+  input{
+    &[type="submit"]{
+      float: right; 
+    }
+  }
+  .modal-footer{
+    display: none;
+  }
+}
 
 .login,
 .registration{
   @include make-xs-column(12, $gutter: $grid-gutter-width);
-  @include make-sm-column(3, $gutter: $grid-gutter-width);
+  @include make-sm-column(4, $gutter: $grid-gutter-width);
   @include make-md-column(3, $gutter: $grid-gutter-width);
   @include make-lg-column(3, $gutter: $grid-gutter-width);
   @include make-sm-column-offset(1);
@@ -146,7 +164,7 @@
     clear: both;
     text-align: left;
     a{
-      border-right: 1px solid #CCC;
+      border-right: 1px solid $gray-lighter;
       padding-right: 6px;
       font-size: 12px;
       &:last-child{

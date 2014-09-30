@@ -14,6 +14,7 @@ nav.container-fluid{
 }
 nav.container-fluid .logo-header{
   float: left;
+  width: 158px;
 }
 
 
@@ -31,7 +32,8 @@ nav.container-fluid .logo-header{
 
 
 .mobile .dropdown-menu{
-  min-width: 90px
+  min-width: 90px;
+  margin: 5px 0 0 -39px;
   background-color: rgb(244, 244, 244);
   border: none;
   -webkit-border-top-left-radius: 0px;
@@ -43,7 +45,6 @@ nav.container-fluid .logo-header{
   -webkit-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
   -moz-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
   box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
-  margin-top: 0px;
   color: #333;
 
 }
@@ -94,28 +95,16 @@ ul.oil-portal li.active a{
 
 .mobile{
   display: none;
-  margin-top: 8px;
+  margin-top: 9px;
+  i{
+    font-size: 11px;
+  }
 }
 
-.mobile ul.dropdown-menu{
-  min-width: 90px;
-  background-color: rgb(244, 244, 244);
-  border: none;
-  -webkit-border-top-left-radius: 0px;
-  -moz-border-top-left-radius: 0px;
-  border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -moz-border-top-right-radius: 0px;
-  border-top-right-radius: 0px;
-  -webkit-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
-  -moz-box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
-  box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
-  margin-top: 0px;
-  color:#333;
-}
 
 .mobile ul li{
   border-bottom: 2px solid #FFF;
+  text-align: center;
   &:last-child{
     border: none;
   }
@@ -169,16 +158,15 @@ ul.oil-portal li.active a{
   }
 
   .logo-header{
-    float: left;
+    width: 152px !important;
   }
 
   .mobile .dropdown-menu li a{
-    padding: 6px 8px 6px;
+    padding: 9px 8px 6px;
   }
 
   .mobile{
     display: inline-block !important;
-    margin-top: 5px;
   }
 
   .brand{
@@ -186,8 +174,7 @@ ul.oil-portal li.active a{
     float: left !important;
   }
 
-  .dropdown .caret {
-    margin-top: 8px;
+  .dropdown i {
     margin-left: 2px;
   }
 
@@ -211,23 +198,10 @@ ul.oil-portal li.active a{
 
   .mobile{
     display: none !important;
-    margin-top: 10px;
   }
 
   .brand{
     padding: 0px 4px 0 0px !important;
     float: left !important;
-  }
-
-
-  .dropdown .caret {
-    margin-top: 8px;
-    margin-left: 2px;
-  }
-
-  header.navbar .mobile {
-    margin-top: 8px;
-    margin-left: 2px;
-    margin-top: 10px;
   }
 }
