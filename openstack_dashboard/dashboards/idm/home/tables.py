@@ -11,17 +11,12 @@
 # under the License.
 
 from django.utils.translation import ugettext_lazy as _
-from django.shortcuts import render
-from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
 
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
-from keystoneclient.exceptions import Conflict  # noqa
 
-from openstack_dashboard import api
-from openstack_dashboard import policy
+
 
 class GoToOrganizationTable(tables.LinkAction):
     name = "organizations"
@@ -32,6 +27,7 @@ class GoToOrganizationTable(tables.LinkAction):
         base_url = '/idm/organizations/'
         return base_url
 
+
 class GoToApplicationsTable(tables.LinkAction):
     name = "applications"
     verbose_name = _("View All")
@@ -40,6 +36,7 @@ class GoToApplicationsTable(tables.LinkAction):
     def get_link_url(self):
         base_url = '/idm/applications/'
         return base_url
+
 
 class CreateOrganization(tables.LinkAction):
     name = "create_organization"
@@ -55,7 +52,7 @@ class CreateOrganization(tables.LinkAction):
 
 class TenantsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(max_length=64))
+                          form_field=forms.CharField(max_length=64))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 form_field=forms.CharField(
