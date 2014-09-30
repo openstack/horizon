@@ -342,7 +342,7 @@ class GetUserHomeTests(BaseHorizonTests):
         conf.HORIZON_CONFIG._setup()
 
         self.assertEqual(self.test_user.username.upper(),
-                               base.Horizon.get_user_home(self.test_user))
+                         base.Horizon.get_user_home(self.test_user))
 
     def test_using_module_function(self):
         module_func = 'django.utils.encoding.force_text'
@@ -351,7 +351,7 @@ class GetUserHomeTests(BaseHorizonTests):
 
         self.test_user.username = 'testname'
         self.assertEqual(self.original_username,
-                               base.Horizon.get_user_home(self.test_user))
+                         base.Horizon.get_user_home(self.test_user))
 
     def test_using_url(self):
         fixed_url = "/url"

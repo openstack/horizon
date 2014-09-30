@@ -227,7 +227,7 @@ class MyTable(tables.DataTable):
                           link_attrs={'data-type': 'modal dialog',
                                       'data-tip': 'click for dialog'})
     status = tables.Column('status', link=get_link,
-                            cell_attributes_getter=tooltip_dict.get)
+                           cell_attributes_getter=tooltip_dict.get)
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
 
@@ -1219,12 +1219,12 @@ class DataTableTests(test.TestCase):
 
         self.assertEqual(row.cells['status'].data, 'down')
         self.assertEqual(row.cells['status'].attrs,
-                          {'title': 'service is not available',
+                         {'title': 'service is not available',
                           'style': 'color:red;cursor:pointer'})
         self.assertEqual(row1.cells['status'].data, 'up')
         self.assertEqual(row1.cells['status'].attrs,
-                          {'title': 'service is up and running',
-                           'style': 'color:green;cursor:pointer'})
+                         {'title': 'service is up and running',
+                          'style': 'color:green;cursor:pointer'})
         self.assertEqual(row2.cells['status'].data, 'standby')
         self.assertEqual(row2.cells['status'].attrs, {})
 

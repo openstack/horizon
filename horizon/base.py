@@ -170,10 +170,10 @@ class Registry(object):
             parent = self._registered_with._registerable_class.__name__
             raise NotRegistered('%(type)s with slug "%(slug)s" is not '
                                 'registered with %(parent)s "%(name)s".'
-                                    % {"type": class_name,
-                                       "slug": cls,
-                                       "parent": parent,
-                                       "name": self.slug})
+                                % {"type": class_name,
+                                   "slug": cls,
+                                   "parent": parent,
+                                   "name": self.slug})
         else:
             slug = getattr(cls, "slug", cls)
             raise NotRegistered('%(type)s with slug "%(slug)s" is not '
