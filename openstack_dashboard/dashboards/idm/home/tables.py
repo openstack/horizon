@@ -13,6 +13,8 @@
 from django.core.exceptions import ValidationError  # noqa
 from django.core.urlresolvers import reverse
 from django.utils.http import urlencode
+from django.core.urlresolvers import resolve
+from django.shortcuts import render
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -22,6 +24,17 @@ from keystoneclient.exceptions import Conflict  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
+
+class GoToOrganizationTable(tables.LinkAction):
+    name = "organizations"
+    verbose_name = _("View All")
+    url = "horizon:idm:organizations"
+    classes = ("ajax-modal",)
+
+    def get_link_url(self):
+        base_url = render('/idm/organizations')
+        return base_url
+        
 
 
 
@@ -44,6 +57,7 @@ class TenantsTable(tables.DataTable):
         name = "tenants"
         verbose_name = _("Organizations")
         pagination_param = "tenant_marker"
+        table_actions = (GoToOrganizationTable,)
         
 
 class ApplicationsTable(tables.DataTable):

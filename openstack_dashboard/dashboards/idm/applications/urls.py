@@ -1,9 +1,9 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from .views import IndexView
+from openstack_dashboard.dashboards.idm.applications import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
 )
