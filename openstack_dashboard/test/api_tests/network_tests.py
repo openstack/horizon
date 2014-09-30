@@ -406,8 +406,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
     def test_security_group_create(self):
         secgroup = self.api_q_secgroups.list()[1]
         body = {'security_group':
-                    {'name': secgroup['name'],
-                     'description': secgroup['description']}}
+                {'name': secgroup['name'],
+                 'description': secgroup['description']}}
         self.qclient.create_security_group(body) \
             .AndReturn({'security_group': copy.deepcopy(secgroup)})
         self.mox.ReplayAll()
@@ -421,8 +421,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         secgroup['name'] = 'newname'
         secgroup['description'] = 'new description'
         body = {'security_group':
-                    {'name': secgroup['name'],
-                     'description': secgroup['description']}}
+                {'name': secgroup['name'],
+                 'description': secgroup['description']}}
         self.qclient.update_security_group(secgroup['id'], body) \
             .AndReturn({'security_group': secgroup})
         self.mox.ReplayAll()

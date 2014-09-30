@@ -845,7 +845,7 @@ class Meters(object):
             meter_names = only_meters
         else:
             meter_names = [meter_name for meter_name
-                            in self._all_meters_info.keys()]
+                           in self._all_meters_info.keys()]
 
         meter_names = diff_lists(meter_names, except_meters)
         # Collect meters for wanted meter names.

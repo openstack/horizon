@@ -2796,9 +2796,9 @@ class InstanceTests(helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-                .AndReturn(quota_usages)
+            .AndReturn(quota_usages)
 
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,

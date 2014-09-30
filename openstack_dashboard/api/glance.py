@@ -162,7 +162,7 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
     @property
     def resource_type_associations(self):
         result = [resource_type['name'] for resource_type in
-                    getattr(self._apiresource, 'resource_type_associations')]
+                  getattr(self._apiresource, 'resource_type_associations')]
         return result
 
     @property

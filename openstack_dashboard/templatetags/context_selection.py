@@ -40,7 +40,7 @@ def show_overview(context):
                'domain_name': request.user.user_domain_name,
                'project_name': request.user.project_name,
                'multi_region':
-                    len(request.user.available_services_regions) > 1,
+               len(request.user.available_services_regions) > 1,
                'region_name': request.user.services_region,
                'request': request}
 
@@ -80,7 +80,7 @@ def show_region_list(context):
         return {}
     request = context['request']
     context = {'multi_region':
-                    len(request.user.available_services_regions) > 1,
+               len(request.user.available_services_regions) > 1,
                'region_name': request.user.services_region,
                'regions': sorted(request.user.available_services_regions),
                'request': request}
