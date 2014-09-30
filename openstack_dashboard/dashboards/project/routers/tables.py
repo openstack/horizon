@@ -171,6 +171,10 @@ class RoutersTable(tables.DataTable):
     distributed = tables.Column("distributed",
                                 filters=(filters.yesno, filters.capfirst),
                                 verbose_name=_("Distributed"))
+    ha = tables.Column("ha",
+                       filters=(filters.yesno, filters.capfirst),
+                       # Translators: High Availability mode of Neutron router
+                       verbose_name=_("HA mode"))
     ext_net = tables.Column(get_external_network,
                             verbose_name=_("External Network"))
 
@@ -180,8 +184,10 @@ class RoutersTable(tables.DataTable):
             data=data,
             needs_form_wrapper=needs_form_wrapper,
             **kwargs)
-        if not api.neutron.get_dvr_permission(request, "get"):
+        if not api.neutron.get_feature_permission(request, "dvr", "get"):
             del self.columns["distributed"]
+        if not api.neutron.get_feature_permission(request, "l3-ha", "get"):
+            del self.columns["ha"]
 
     def get_object_display(self, obj):
         return obj.name

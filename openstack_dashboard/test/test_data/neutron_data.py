@@ -646,10 +646,14 @@ def data(TEST):
                    "alias": "dvr",
                    "description":
                    "Enables configuration of Distributed Virtual Routers."}
+    extension_5 = {"name": "HA Router extension",
+                   "alias": "l3-ha",
+                   "description": "Add HA capability to routers."}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
     TEST.api_extensions.add(extension_3)
     TEST.api_extensions.add(extension_4)
+    TEST.api_extensions.add(extension_5)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",

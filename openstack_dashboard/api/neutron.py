@@ -943,31 +943,90 @@ def is_port_profiles_supported():
         return True
 
 
-def get_dvr_permission(request, operation):
-    """Check if "distributed" field can be displayed.
+# FEATURE_MAP is used to define:
+# - related neutron extension name (key: "extension")
+# - corresponding dashboard config (key: "config")
+# - RBAC policies (key: "poclies")
+# If a key is not contained, the corresponding permission check is skipped.
+FEATURE_MAP = {
+    'dvr': {
+        'extension': 'dvr',
+        'config': {
+            'name': 'enable_distributed_router',
+            'default': False,
+        },
+        'policies': {
+            'get': 'get_router:distributed',
+            'create': 'create_router:distributed',
+            'update': 'update_router:distributed',
+        }
+    },
+    'l3-ha': {
+        'extension': 'l3-ha',
+        'config': {'name': 'enable_ha_router',
+                   'default': False},
+        'policies': {
+            'get': 'get_router:ha',
+            'create': 'create_router:ha',
+            'update': 'update_router:ha',
+        }
+    },
+}
+
+
+def get_feature_permission(request, feature, operation=None):
+    """Check if a feature-specific field can be displayed.
+
+    This method check a permission for a feature-specific field.
+    Such field is usually provided through Neutron extension.
 
     :param request: Request Object
-    :param operation: Operation type. The valid value is "get" or "create"
+    :param feature: feature name defined in FEATURE_MAP
+    :param operation (optional): Operation type. The valid value should be
+        defined in FEATURE_MAP[feature]['policies']
+        It must be specified if FEATURE_MAP[feature] has 'policies'.
     """
     network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-    if not network_config.get('enable_distributed_router', False):
-        return False
+    feature_info = FEATURE_MAP.get(feature)
+    if not feature_info:
+        # Translators: Only used inside Horizon code and invisible to users
+        raise ValueError(_("The requested feature '%(feature)s' is unknown. "
+                           "Please make sure to specify a feature defined "
+                           "in FEATURE_MAP."))
+
+    # Check dashboard settings
+    feature_config = feature_info.get('config')
+    if feature_config:
+        if not network_config.get(feature_config['name'],
+                                  feature_config['default']):
+            return False
+
+    # Check policy
+    feature_policies = feature_info.get('policies')
     policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
-    allowed_operations = ("get", "create", "update")
-    if operation not in allowed_operations:
-        raise ValueError(_("The 'operation' parameter for get_dvr_permission "
-                           "is invalid. It should be one of %s")
-                         % ' '.join(allowed_operations))
-    role = (("network", "%s_router:distributed" % operation),)
-    if policy_check:
-        has_permission = policy.check(role, request)
-    else:
-        has_permission = True
-    if not has_permission:
-        return False
-    try:
-        return is_extension_supported(request, 'dvr')
-    except Exception:
-        msg = _('Failed to check Neutron "dvr" extension is not supported')
-        LOG.info(msg)
-        return False
+    if feature_policies and policy_check:
+        policy_name = feature_policies.get(operation)
+        if not policy_name:
+            # Translators: Only used inside Horizon code and invisible to users
+            raise ValueError(_("The 'operation' parameter for "
+                               "get_feature_permission '%(feature)s' "
+                               "is invalid. It should be one of %(allowed)s")
+                             % {'feature': feature,
+                                'allowed': ' '.join(feature_policies.keys())})
+        role = (('network', policy_name),)
+        if not policy.check(role, request):
+            return False
+
+    # Check if a required extension is enabled
+    feature_extension = feature_info.get('extension')
+    if feature_extension:
+        try:
+            return is_extension_supported(request, feature_extension)
+        except Exception:
+            msg = (_("Failed to check Neutron '%s' extension is not supported")
+                   % feature_extension)
+            LOG.info(msg)
+            return False
+
+    # If all checks are passed, now a given feature is allowed.
+    return True

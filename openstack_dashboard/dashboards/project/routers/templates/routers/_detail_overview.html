@@ -16,6 +16,10 @@
     <dt>{% trans "Distributed" %}</dt>
     <dd>{{ router.distributed|yesno|capfirst }}</dd>
     {% endif %}
+    {% if ha_supported %}
+    <dt>{% trans "High Availability Mode" %}</dt>
+    <dd>{{ router.ha|yesno|capfirst }}</dd>
+    {% endif %}
     {% if router.external_gateway_info %}
     <dt>{% trans "External Gateway Information" %}</dt>
     <dd>{% trans "Connected External Network" %}:

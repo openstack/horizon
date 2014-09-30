@@ -126,8 +126,10 @@ class DetailView(tabs.TabbedTableView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         context["router"] = self._get_data()
-        context['dvr_supported'] = api.neutron.get_dvr_permission(self.request,
-                                                              "get")
+        context['dvr_supported'] = api.neutron.get_feature_permission(
+            self.request, "dvr", "get")
+        context['ha_supported'] = api.neutron.get_feature_permission(
+            self.request, "l3-ha", "get")
         return context
 
     def get(self, request, *args, **kwargs):
@@ -170,4 +172,6 @@ class UpdateView(forms.ModalFormView):
         if hasattr(router, 'distributed'):
             initial['mode'] = ('distributed' if router.distributed
                                else 'centralized')
+        if hasattr(router, 'ha'):
+            initial['ha'] = router.ha
         return initial

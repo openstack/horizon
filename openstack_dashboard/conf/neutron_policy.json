@@ -148,6 +148,9 @@
     "get_router:distributed": "rule:admin_only",
     "create_router:distributed": "rule:admin_only",
     "update_router:distributed": "rule:admin_only",
+    "get_router:ha": "rule:admin_only",
+    "create_router:ha": "rule:admin_only",
+    "update_router:ha": "rule:admin_only",
 
     "create_floatingip": "rule:regular_user",
     "update_floatingip": "rule:admin_or_owner",
