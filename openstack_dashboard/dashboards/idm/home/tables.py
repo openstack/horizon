@@ -10,12 +10,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.core.exceptions import ValidationError  # noqa
-from django.core.urlresolvers import reverse
-from django.utils.http import urlencode
-from django.core.urlresolvers import resolve
-from django.shortcuts import render
 from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import render
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
 from horizon import exceptions
 from horizon import forms
@@ -29,10 +27,18 @@ class GoToOrganizationTable(tables.LinkAction):
     name = "organizations"
     verbose_name = _("View All")
     url = "horizon:idm:organizations"
-    classes = ("ajax-modal",)
 
     def get_link_url(self):
-        base_url = render('/idm/organizations')
+        base_url = '/idm/organizations/'
+        return base_url
+
+class GoToApplicationsTable(tables.LinkAction):
+    name = "applications"
+    verbose_name = _("View All")
+    url = "horizon:idm:applications"
+    
+    def get_link_url(self):
+        base_url = '/idm/applications/'
         return base_url
         
 
@@ -79,5 +85,6 @@ class ApplicationsTable(tables.DataTable):
         name = "applications"
         verbose_name = _("My Applications")
         pagination_param = "tenant_marker"
+        table_actions = (GoToApplicationsTable,)
         
         
