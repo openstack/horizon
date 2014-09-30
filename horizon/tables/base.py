@@ -683,9 +683,14 @@ class Cell(html.HTMLElement):
             # Adding id of the input so it pairs with label correctly
             form_field_attributes['id'] = widget_name
 
-            data = widget.render(widget_name,
-                                 column.get_data(datum),
-                                 form_field_attributes)
+            if template.defaultfilters.urlize in column.filters:
+                data = widget.render(widget_name,
+                                     column.get_raw_data(datum),
+                                     form_field_attributes)
+            else:
+                data = widget.render(widget_name,
+                                     column.get_data(datum),
+                                     form_field_attributes)
             table._data_cache[column][table.get_object_id(datum)] = data
         elif column.auto == "actions":
             data = table.render_row_actions(datum, pull_right=False)
