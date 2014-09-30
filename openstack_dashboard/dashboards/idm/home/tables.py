@@ -40,6 +40,15 @@ class GoToApplicationsTable(tables.LinkAction):
     def get_link_url(self):
         base_url = '/idm/applications/'
         return base_url
+
+class CreateOrganization(tables.LinkAction):
+    name = "create_organization"
+    verbose_name = _("Create")
+    url = "horizon:idm:organizations:create"
+    
+    def get_link_url(self):
+        base_url = '/idm/organizations/create'
+        return base_url
         
 
 
@@ -63,7 +72,7 @@ class TenantsTable(tables.DataTable):
         name = "tenants"
         verbose_name = _("Organizations")
         pagination_param = "tenant_marker"
-        table_actions = (GoToOrganizationTable,)
+        table_actions = (CreateOrganization, GoToOrganizationTable,)
         
 
 class ApplicationsTable(tables.DataTable):
