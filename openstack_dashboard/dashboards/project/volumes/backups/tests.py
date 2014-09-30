@@ -35,7 +35,7 @@ class VolumeBackupsViewTests(test.TestCase):
                                         backup.container_name,
                                         backup.name,
                                         backup.description) \
-                                        .AndReturn(backup)
+            .AndReturn(backup)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateBackupForm',

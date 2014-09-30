@@ -165,7 +165,7 @@ class ImageViewTests(test.TestCase):
                                     'description': data['description'],
                                     'architecture': data['architecture']},
                                 name=data['name']). \
-                        AndReturn(self.images.first())
+            AndReturn(self.images.first())
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images:images:create')
@@ -205,7 +205,7 @@ class ImageViewTests(test.TestCase):
                                     'architecture': data['architecture']},
                                 name=data['name'],
                                 data=IsA(InMemoryUploadedFile)). \
-                        AndReturn(self.images.first())
+            AndReturn(self.images.first())
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images:images:create')
@@ -219,7 +219,7 @@ class ImageViewTests(test.TestCase):
         image = self.images.first()
 
         api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-                                 .AndReturn(self.images.first())
+            .AndReturn(self.images.first())
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:images:images:detail',
@@ -237,7 +237,7 @@ class ImageViewTests(test.TestCase):
         image = self.images.list()[8]
 
         api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-                                 .AndReturn(image)
+            .AndReturn(image)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:images:images:detail',
@@ -264,7 +264,7 @@ class ImageViewTests(test.TestCase):
         image = self.images.list()[2]
 
         api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-                                 .AndReturn(image)
+            .AndReturn(image)
         self.mox.ReplayAll()
 
         res = self.client.get(
@@ -279,7 +279,7 @@ class ImageViewTests(test.TestCase):
         image = self.images.first()
 
         api.glance.image_get(IsA(http.HttpRequest), str(image.id)) \
-                  .AndRaise(self.exceptions.glance)
+            .AndRaise(self.exceptions.glance)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images:images:detail',
@@ -347,9 +347,10 @@ class OwnerFilterTests(test.TestCase):
         if filter_string == 'public':
             return filter(lambda im: im.is_public, images)
         if filter_string == 'shared':
-            return filter(lambda im: not im.is_public and
-                                     im.owner != my_tenant_id and
-                                     im.owner not in special, images)
+            return filter(lambda im: (not im.is_public and
+                                      im.owner != my_tenant_id and
+                                      im.owner not in special),
+                          images)
         if filter_string == 'project':
             filter_string = my_tenant_id
         return filter(lambda im: im.owner == filter_string, images)

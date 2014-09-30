@@ -106,17 +106,17 @@ class CreateSubnetInfoAction(workflows.Action):
                                   label=_("Subnet Name"),
                                   required=False)
     cidr = forms.IPField(label=_("Network Address"),
-                          required=False,
-                          initial="",
-                          widget=forms.TextInput(attrs={
-                              'class': 'switched',
-                              'data-switch-on': 'with_subnet',
-                              'data-is-required': 'true'
-                          }),
-                          help_text=_("Network address in CIDR format "
-                                      "(e.g. 192.168.0.0/24, 2001:DB8::/48)"),
-                          version=forms.IPv4 | forms.IPv6,
-                          mask=True)
+                         required=False,
+                         initial="",
+                         widget=forms.TextInput(attrs={
+                             'class': 'switched',
+                             'data-switch-on': 'with_subnet',
+                             'data-is-required': 'true'
+                         }),
+                         help_text=_("Network address in CIDR format "
+                                     "(e.g. 192.168.0.0/24, 2001:DB8::/48)"),
+                         version=forms.IPv4 | forms.IPv6,
+                         mask=True)
     ip_version = forms.ChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
                                    widget=forms.Select(attrs={
                                        'class': 'switchable switched',

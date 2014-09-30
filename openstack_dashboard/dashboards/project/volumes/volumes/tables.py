@@ -189,7 +189,7 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
         if snapshots_available <= 0 and "disabled" not in self.classes:
             self.classes = [c for c in self.classes] + ['disabled']
             self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                  _("(Quota exceeded)"))
+                                              _("(Quota exceeded)"))
         return volume.status in ("available", "in-use")
 
 
@@ -217,8 +217,8 @@ class UploadToImage(VolumePolicyTargetMixin, tables.LinkAction):
         has_image_service_perm = \
             request.user.has_perm('openstack.services.image')
 
-        return volume.status in ("available", "in-use") and \
-               has_image_service_perm
+        return (volume.status in ("available", "in-use") and
+                has_image_service_perm)
 
 
 class EditVolume(VolumePolicyTargetMixin, tables.LinkAction):

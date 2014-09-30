@@ -52,7 +52,7 @@ class CreateGroup(forms.SelfHandlingForm):
                                                    data['description'])
             messages.success(request,
                              _('Successfully created security group: %s')
-                               % data['name'])
+                             % data['name'])
             return sg
         except Exception:
             redirect = reverse("horizon:project:access_and_security:index")
@@ -82,7 +82,7 @@ class UpdateGroup(forms.SelfHandlingForm):
                                                    data['description'])
             messages.success(request,
                              _('Successfully updated security group: %s')
-                               % data['name'])
+                             % data['name'])
             return sg
         except Exception:
             redirect = reverse("horizon:project:access_and_security:index")
@@ -206,16 +206,16 @@ class AddRule(forms.SelfHandlingForm):
                                    'data-slug': 'remote'}))
 
     cidr = forms.IPField(label=_("CIDR"),
-                          required=False,
-                          initial="0.0.0.0/0",
-                          help_text=_("Classless Inter-Domain Routing "
-                                      "(e.g. 192.168.0.0/24)"),
-                          version=forms.IPv4 | forms.IPv6,
-                          mask=True,
-                          widget=forms.TextInput(
-                              attrs={'class': 'switched',
-                                     'data-switch-on': 'remote',
-                                     'data-remote-cidr': _('CIDR')}))
+                         required=False,
+                         initial="0.0.0.0/0",
+                         help_text=_("Classless Inter-Domain Routing "
+                                     "(e.g. 192.168.0.0/24)"),
+                         version=forms.IPv4 | forms.IPv6,
+                         mask=True,
+                         widget=forms.TextInput(
+                             attrs={'class': 'switched',
+                                    'data-switch-on': 'remote',
+                                    'data-remote-cidr': _('CIDR')}))
 
     security_group = forms.ChoiceField(label=_('Security Group'),
                                        required=False,

@@ -37,8 +37,8 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
 
     image = forms.ChoiceField(label=_("Select Image"),
             widget=forms.SelectWidget(attrs={'class': 'image-selector'},
-                                       data_attrs=('size', 'display-name'),
-                                       transform=_image_choice_title))
+                                      data_attrs=('size', 'display-name'),
+                                      transform=_image_choice_title))
     password = forms.RegexField(label=_("Rebuild Password"),
             required=False,
             widget=forms.PasswordInput(render_value=False),

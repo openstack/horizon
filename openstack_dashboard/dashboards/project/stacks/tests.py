@@ -106,29 +106,25 @@ class StackTests(test.TestCase):
         stacks = self.stacks.list()[:5]
 
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=None,
-                                       paginate=True,
-                                       sort_dir='desc') \
-                                .AndReturn([stacks,
-                                            True, True])
+                             marker=None,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([stacks, True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=None,
-                                       paginate=True,
-                                       sort_dir='desc') \
-                                .AndReturn([stacks[:2],
-                                            True, True])
+                             marker=None,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([stacks[:2], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=stacks[2].id,
-                                       paginate=True,
-                                       sort_dir='desc') \
-                                .AndReturn([stacks[2:4],
-                                            True, True])
+                             marker=stacks[2].id,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([stacks[2:4], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=stacks[4].id,
-                                       paginate=True,
-                                       sort_dir='desc') \
-                                .AndReturn([stacks[4:],
-                                            True, True])
+                             marker=stacks[4].id,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([stacks[4:], True, True])
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:stacks:index')
@@ -163,29 +159,25 @@ class StackTests(test.TestCase):
         stacks = self.stacks.list()[:3]
 
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=None,
-                                       paginate=True,
-                                       sort_dir='desc') \
-                                .AndReturn([stacks,
-                                            True, False])
+                             marker=None,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([stacks, True, False])
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=None,
-                                       paginate=True,
-                                       sort_dir='desc') \
-                                .AndReturn([stacks[:2],
-                                            True, True])
+                             marker=None,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([stacks[:2], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=stacks[2].id,
-                                       paginate=True,
-                                       sort_dir='desc') \
-                                .AndReturn([stacks[2:],
-                                            True, True])
+                             marker=stacks[2].id,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([stacks[2:], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
-                                       marker=stacks[2].id,
-                                       paginate=True,
-                                       sort_dir='asc') \
-                                .AndReturn([stacks[:2],
-                                            True, True])
+                             marker=stacks[2].id,
+                             paginate=True,
+                             sort_dir='asc') \
+            .AndReturn([stacks[:2], True, True])
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:stacks:index')
@@ -361,14 +353,16 @@ class StackTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/stacks/create.html')
 
         # ensure the fields were rendered correctly
-        self.assertContains(res, '<input class="form-control" '
-                                        'id="id___param_public_string" '
-                                        'name="__param_public_string" '
-                                        'type="text" />', html=True)
-        self.assertContains(res, '<input class="form-control" '
-                                        'id="id___param_secret_string" '
-                                        'name="__param_secret_string" '
-                                        'type="password" />', html=True)
+        self.assertContains(res,
+                            '<input class="form-control" '
+                            'id="id___param_public_string" '
+                            'name="__param_public_string" '
+                            'type="text" />', html=True)
+        self.assertContains(res,
+                            '<input class="form-control" '
+                            'id="id___param_secret_string" '
+                            'name="__param_secret_string" '
+                            'type="password" />', html=True)
 
     @test.create_stubs({api.heat: ('template_validate',)})
     def test_launch_stack_with_parameter_group(self):
@@ -441,14 +435,14 @@ class StackTests(test.TestCase):
         self.assertRegexpMatches(res.content.decode('utf-8'), regex)
 
     @test.create_stubs({api.heat: ('stack_update', 'stack_get',
-                                    'template_get', 'template_validate')})
+                                   'template_get', 'template_validate')})
     def test_edit_stack_template(self):
         template = self.stack_templates.first()
         stack = self.stacks.first()
 
         # GET to template form
         api.heat.stack_get(IsA(http.HttpRequest),
-                              stack.id).AndReturn(stack)
+                           stack.id).AndReturn(stack)
         # POST template form, validation
         api.heat.template_validate(IsA(http.HttpRequest),
                                    template=template.data) \
@@ -456,7 +450,7 @@ class StackTests(test.TestCase):
 
         # GET to edit form
         api.heat.stack_get(IsA(http.HttpRequest),
-                              stack.id).AndReturn(stack)
+                           stack.id).AndReturn(stack)
         api.heat.template_get(IsA(http.HttpRequest),
                               stack.id) \
             .AndReturn(json.loads(template.validate))

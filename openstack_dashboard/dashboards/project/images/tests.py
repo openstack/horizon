@@ -129,11 +129,11 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([public_images, False, False])
+            .AndReturn([public_images, False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([private_images, False, False])
+            .AndReturn([private_images, False, False])
 
         self.mox.ReplayAll()
 
@@ -154,15 +154,15 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([public_images, False, False])
+            .AndReturn([public_images, False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([private_images, False, False])
+            .AndReturn([private_images, False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': 'other-tenant',
                                      'status': 'active'}) \
-                  .AndReturn([private_images, False, False])
+            .AndReturn([private_images, False, False])
 
         self.mox.ReplayAll()
 
@@ -209,17 +209,17 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndRaise(self.exceptions.glance)
+            .AndRaise(self.exceptions.glance)
         exceptions.handle(IsA(http.HttpRequest),
                           "Unable to retrieve public images.")
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([private_images, False, False])
+            .AndReturn([private_images, False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([public_images, False, False])
+            .AndReturn([public_images, False, False])
 
         self.mox.ReplayAll()
 
@@ -261,17 +261,17 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([public_images, False, False])
+            .AndReturn([public_images, False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndRaise(self.exceptions.glance)
+            .AndRaise(self.exceptions.glance)
         exceptions.handle(IsA(http.HttpRequest),
                           "Unable to retrieve images for the current project.")
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([private_images, False, False])
+            .AndReturn([private_images, False, False])
 
         self.mox.ReplayAll()
 

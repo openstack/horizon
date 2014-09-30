@@ -121,7 +121,7 @@ class DatabaseTests(test.TestCase):
 
     @test.create_stubs({
         api.trove: ('flavor_list', 'backup_list',
-                        'datastore_list', 'datastore_version_list')})
+                    'datastore_list', 'datastore_version_list')})
     def test_launch_instance(self):
         api.trove.flavor_list(IsA(http.HttpRequest))\
             .AndReturn(self.flavors.list())
@@ -144,7 +144,7 @@ class DatabaseTests(test.TestCase):
         self.mox.ReplayAll()
 
         toSuppress = ["openstack_dashboard.dashboards.project.databases."
-                           "workflows.create_instance",
+                      "workflows.create_instance",
                       "horizon.workflows.base"]
 
         # Suppress expected log messages in the test output
