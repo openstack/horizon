@@ -691,10 +691,10 @@ class InstanceTests(helpers.TestCase):
     def test_instance_details_volumes(self):
         server = self.servers.first()
         volumes = [self.volumes.list()[1]]
-        security_group = self.security_groups.first()
+        security_groups = self.security_groups.list()
 
         res = self._get_instance_details(server, volumes_return=volumes,
-                                         security_groups_return=security_group)
+                                       security_groups_return=security_groups)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
 
@@ -703,10 +703,10 @@ class InstanceTests(helpers.TestCase):
     def test_instance_details_volume_sorting(self):
         server = self.servers.first()
         volumes = self.volumes.list()[1:3]
-        security_group = self.security_groups.first()
+        security_groups = self.security_groups.list()
 
         res = self._get_instance_details(server, volumes_return=volumes,
-                                         security_groups_return=security_group)
+                                       security_groups_return=security_groups)
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
         self.assertEqual(res.context['instance'].volumes[0].device,
