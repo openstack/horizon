@@ -207,6 +207,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django_pyscss',
+    'openstack_dashboard.django_pyscss_fix',
     'compressor',
     'horizon',
     'openstack_auth',
