@@ -441,12 +441,6 @@ Or get the instances panel::
     projects_dashboard = horizon.get_dashboard("project")
     instances_panel = projects_dashboard.get_panel("instances")
 
-And limit access to users with the Keystone Admin role::
-
-    permissions = list(getattr(instances_panel, 'permissions', []))
-    permissions.append('openstack.roles.admin')
-    instances_panel.permissions = tuple(permissions)
-
 Or just remove it entirely::
 
     projects_dashboard.unregister(instances_panel.__class__)

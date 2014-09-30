@@ -25,3 +25,4 @@ class Instances(horizon.Panel):
     name = _("Instances")
     slug = 'instances'
     permissions = ('openstack.services.compute',)
+    policy_rules = (("compute", "compute:get_all"),)
