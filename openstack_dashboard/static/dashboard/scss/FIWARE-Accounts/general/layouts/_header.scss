@@ -70,7 +70,7 @@ ul.oil-portal li:hover{
 }
 
 ul.oil-portal li:hover a{
-  color: $brand-primary;
+  color: $brand-secundary;
 }
 
 ul.oil-portal li a{
@@ -79,7 +79,7 @@ ul.oil-portal li a{
 }
 
 ul.oil-portal li a:hover{
-  color: $brand-primary;
+  color: $brand-secundary;
   text-decoration: none;
 }
 
@@ -88,7 +88,8 @@ ul.oil-portal li.active{
 }
 
 ul.oil-portal li.active a{
-  color: $brand-secundary;
+  color: $brand-primary;
+  font-family: $corporate-font-family-sans-serif-Medium;
 }
 
 .mobile{
@@ -127,19 +128,20 @@ ul.oil-portal li.active a{
   
 .mobile ul li a:hover{
   background-color: rgba(152, 152, 152, 0.1);
-  color: $brand-primary;
+  color: $brand-secundary;
 }
 
 .mobile ul li.active a{
   background-color: rgba(152, 152, 152, 0.1);
   background-image: none;
-  color: $brand-secundary;
+  color: $brand-primary;
+  font-family: $corporate-font-family-sans-serif-Medium;
 }
 
 .mobile ul li.active a:hover{
   background-color: rgba(152, 152, 152, 0.1);
   background-image: none;
-  color: $brand-secundary;
+  color: $brand-primary;
 }
 
 .mobile ul li.active a:focus{
@@ -176,7 +178,7 @@ ul.oil-portal li.active a{
 
   .mobile{
     display: inline-block !important;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   .brand{

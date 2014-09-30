@@ -1,9 +1,10 @@
-#frontpage, #registration{
+#frontpage, 
+#registration{
   .row{
     @media (max-width: $screen-sm-min){
-      margin: 0px;
+      margin: 0px !important;
       .help-box{
-        padding: 0;
+        padding: 0 !important;
       }
     }
   }
@@ -29,7 +30,7 @@
     padding: 15px;
     h3{
       font-family: $corporate-font-family-sans-serif-Regular;
-      margin-bottom: 4px;
+      margin-bottom: 7px;
       color: $brand-secundary;
     }
     span{
@@ -122,6 +123,9 @@
   @include make-md-column-offset(1);
   @include make-lg-column-offset(1);
   @extend .well;
+  @media (max-width: $screen-sm-min){
+    margin-top: 40px; 
+  }
   .modal-header{
     border-bottom: transparent;
     padding: 0px;
