@@ -146,7 +146,7 @@ horizon.firewalls = {
   }
 };
 
-horizon.addInitFunction(function () {
+horizon.addInitFunction(horizon.firewalls.init = function () {
   $(document).on('submit', '#tail_length', function (evt) {
     horizon.firewalls.user_decided_length = true;
     horizon.firewalls.getConsoleLog(true);

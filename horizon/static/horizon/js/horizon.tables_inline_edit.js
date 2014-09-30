@@ -213,7 +213,7 @@ horizon.inline_edit = {
 };
 
 
-horizon.addInitFunction(function() {
+horizon.addInitFunction(horizon.inline_edit.init = function() {
   $('table').on('click', '.ajax-inline-edit', function (evt) {
     var $this = $(this);
     var td_element = $this.parents('td').first();

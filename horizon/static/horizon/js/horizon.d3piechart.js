@@ -270,9 +270,5 @@ horizon.d3_pie_chart_distribution = {
 
 horizon.addInitFunction(function () {
   horizon.d3_pie_chart_usage.init();
-});
-
-
-horizon.addInitFunction(function () {
   horizon.d3_pie_chart_distribution.init();
 });

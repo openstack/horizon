@@ -166,7 +166,7 @@ horizon.modals.init_wizard = function () {
 };
 
 
-horizon.addInitFunction(function() {
+horizon.addInitFunction(horizon.modals.init = function() {
 
   // Bind handler for initializing new modals.
   $('#modal_wrapper').on('new_modal', function (evt, modal) {

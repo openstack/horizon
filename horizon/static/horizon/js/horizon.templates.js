@@ -11,7 +11,7 @@ horizon.templates.compile_templates = function () {
   });
 };
 
-horizon.addInitFunction(function () {
+horizon.addInitFunction(horizon.templates.init = function () {
   // Load client-side template fragments and compile them.
   horizon.templates.compile_templates();
 });
