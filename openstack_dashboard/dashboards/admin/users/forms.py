@@ -94,6 +94,7 @@ class CreateUserForm(BaseUserForm):
     project = forms.DynamicChoiceField(label=_("Primary Project"),
                                        add_item_link=ADD_PROJECT_URL)
     role_id = forms.ChoiceField(label=_("Role"))
+    no_autocomplete = True
 
     def __init__(self, *args, **kwargs):
         roles = kwargs.pop('roles')
@@ -171,6 +172,7 @@ class UpdateUserForm(BaseUserForm):
         widget=forms.PasswordInput(render_value=False),
         required=False)
     project = forms.ChoiceField(label=_("Primary Project"))
+    no_autocomplete = True
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateUserForm, self).__init__(request, *args, **kwargs)
