@@ -67,7 +67,7 @@ def show_project_list(context):
         return {}
     request = context['request']
     context = {'projects': sorted(context['authorized_tenants'],
-                    key=lambda project: project.name),
+                                  key=lambda project: project.name),
                'project_id': request.user.project_id,
                'request': request}
     return context

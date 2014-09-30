@@ -27,10 +27,12 @@ LOG = logging.getLogger(__name__)
 # "type" of Sahara service registered in keystone
 SAHARA_SERVICE = 'data_processing'
 
-SAHARA_AUTO_IP_ALLOCATION_ENABLED = getattr(settings,
+SAHARA_AUTO_IP_ALLOCATION_ENABLED = getattr(
+    settings,
     'SAHARA_AUTO_IP_ALLOCATION_ENABLED',
     False)
-VERSIONS = base.APIVersionManager(SAHARA_SERVICE,
+VERSIONS = base.APIVersionManager(
+    SAHARA_SERVICE,
     preferred_version=getattr(settings,
                               'OPENSTACK_API_VERSIONS',
                               {}).get(SAHARA_SERVICE, 1.1))
@@ -83,9 +85,9 @@ def plugin_get_version_details(request, plugin_name, hadoop_version):
 def plugin_convert_to_template(request, plugin_name, hadoop_version,
                                template_name, file_content):
     return client(request).plugins.convert_to_cluster_template(plugin_name,
-                                                       hadoop_version,
-                                                       template_name,
-                                                       file_content)
+                                                               hadoop_version,
+                                                               template_name,
+                                                               file_content)
 
 
 def nodegroup_template_create(request, name, plugin_name, hadoop_version,

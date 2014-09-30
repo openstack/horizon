@@ -256,7 +256,8 @@ def _ipsecpolicy_get(request, ipsecpolicy_id, expand_conns=False):
     if expand_conns:
         ipsecsiteconns = _ipsecsiteconnection_list(request)
         ipsecpolicy['ipsecsiteconns'] = [c for c in ipsecsiteconns
-            if c.ipsecpolicy_id == ipsecpolicy['id']]
+                                         if (c.ipsecpolicy_id ==
+                                             ipsecpolicy['id'])]
     return IPSecPolicy(ipsecpolicy)
 
 

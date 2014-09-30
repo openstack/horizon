@@ -36,18 +36,18 @@ def get_flavor_names(request):
         return [f.name for f in flavors]
     except Exception:
         return ['m1.tiny', 'm1.small', 'm1.medium',
-            'm1.large', 'm1.xlarge']
+                'm1.large', 'm1.xlarge']
 
 
 def is_iterable(var):
     """Return True if the given is list or tuple."""
 
     return (isinstance(var, (list, tuple)) or
-        issubclass(var.__class__, (list, tuple)))
+            issubclass(var.__class__, (list, tuple)))
 
 
 def make_query(user_id=None, tenant_id=None, resource_id=None,
-        user_ids=None, tenant_ids=None, resource_ids=None):
+               user_ids=None, tenant_ids=None, resource_ids=None):
     """Returns query built form given parameters.
 
     This query can be then used for querying resources, meters and
@@ -233,8 +233,10 @@ class ResourceAggregate(Resource):
                 self.resource_id = resource_id
 
             self._query = make_query(tenant_id=tenant_id, user_id=user_id,
-                resource_id=resource_id, tenant_ids=tenant_ids,
-                user_ids=user_ids, resource_ids=resource_ids)
+                                     resource_id=resource_id,
+                                     tenant_ids=tenant_ids,
+                                     user_ids=user_ids,
+                                     resource_ids=resource_ids)
 
     @property
     def id(self):
@@ -356,21 +358,22 @@ class ThreadedUpdateResourceWithStatistics(threading.Thread):
 
     def run(self):
         # Run the job
-        self.resource_usage.update_with_statistics(self.resource,
+        self.resource_usage.update_with_statistics(
+            self.resource,
             meter_names=self.meter_names, period=self.period,
             stats_attr=self.stats_attr, additional_query=self.additional_query)
 
     @classmethod
     def process_list(cls, resource_usage, resources, meter_names=None,
-                 period=None, filter_func=None, stats_attr=None,
-                 additional_query=None):
+                     period=None, filter_func=None, stats_attr=None,
+                     additional_query=None):
         threads = []
 
         for resource in resources:
             # add statistics data into resource
             thread = cls(resource_usage, resource, meter_names=meter_names,
-                period=period, stats_attr=stats_attr,
-                additional_query=additional_query)
+                         period=period, stats_attr=stats_attr,
+                         additional_query=additional_query)
             thread.start()
             threads.append(thread)
 
@@ -512,7 +515,8 @@ class CeilometerUsage(object):
                 with_users_and_tenants=with_users_and_tenants)
         else:
             # Will load only resources without statistical data.
-            resources = self.resources(query, filter_func=filter_func,
+            resources = self.resources(
+                query, filter_func=filter_func,
                 with_users_and_tenants=with_users_and_tenants)
 
         return [used_cls(resource) for resource in resources]
@@ -610,7 +614,8 @@ class CeilometerUsage(object):
             ceilometer_usage_object = self
         else:
             ceilometer_usage_object = None
-        resources = resource_list(self._request,
+        resources = resource_list(
+            self._request,
             query=query, ceilometer_usage_object=ceilometer_usage_object)
         if filter_func:
             resources = [resource for resource in resources if
@@ -645,10 +650,12 @@ class CeilometerUsage(object):
                                       be added to each resource object.
         """
 
-        resources = self.resources(query, filter_func=filter_func,
+        resources = self.resources(
+            query, filter_func=filter_func,
             with_users_and_tenants=with_users_and_tenants)
 
-        ThreadedUpdateResourceWithStatistics.process_list(self, resources,
+        ThreadedUpdateResourceWithStatistics.process_list(
+            self, resources,
             meter_names=meter_names, period=period, stats_attr=stats_attr,
             additional_query=additional_query)
 
@@ -672,8 +679,9 @@ class CeilometerUsage(object):
         return resource_aggregates
 
     def resource_aggregates_with_statistics(self, queries=None,
-            meter_names=None, period=None, filter_func=None, stats_attr=None,
-            additional_query=None):
+                                            meter_names=None, period=None,
+                                            filter_func=None, stats_attr=None,
+                                            additional_query=None):
         """Obtaining resource aggregates with statistics data inside.
 
         :Parameters:
@@ -695,7 +703,8 @@ class CeilometerUsage(object):
         """
         resource_aggregates = self.resource_aggregates(queries)
 
-        ThreadedUpdateResourceWithStatistics.process_list(self,
+        ThreadedUpdateResourceWithStatistics.process_list(
+            self,
             resource_aggregates, meter_names=meter_names, period=period,
             stats_attr=stats_attr, additional_query=additional_query)
 
@@ -748,14 +757,16 @@ class Meters(object):
 
         # Storing the meters info of all services together.
         all_services_meters = (self._nova_meters_info,
-            self._neutron_meters_info, self._glance_meters_info,
-            self._cinder_meters_info, self._swift_meters_info,
-            self._kwapi_meters_info)
+                               self._neutron_meters_info,
+                               self._glance_meters_info,
+                               self._cinder_meters_info,
+                               self._swift_meters_info,
+                               self._kwapi_meters_info)
         self._all_meters_info = {}
         for service_meters in all_services_meters:
             self._all_meters_info.update(dict([(meter_name, meter_info)
-                for meter_name,
-                    meter_info in service_meters.items()]))
+                                               for meter_name, meter_info
+                                               in service_meters.items()]))
 
         # Here will be the cached Meter objects, that will be reused for
         # repeated listing.
@@ -770,17 +781,17 @@ class Meters(object):
         """
 
         return self._list(only_meters=only_meters,
-            except_meters=except_meters)
+                          except_meters=except_meters)
 
     def list_nova(self, except_meters=None):
         """Returns a list of meters tied to nova
 
         :Parameters:
-          - `except_meters`: The list of meter names we don't want to show
+        - `except_meters`: The list of meter names we don't want to show
         """
 
         return self._list(only_meters=self._nova_meters_info.keys(),
-            except_meters=except_meters)
+                          except_meters=except_meters)
 
     def list_neutron(self, except_meters=None):
         """Returns a list of meters tied to neutron
@@ -790,7 +801,7 @@ class Meters(object):
         """
 
         return self._list(only_meters=self._neutron_meters_info.keys(),
-            except_meters=except_meters)
+                          except_meters=except_meters)
 
     def list_glance(self, except_meters=None):
         """Returns a list of meters tied to glance
@@ -800,7 +811,7 @@ class Meters(object):
         """
 
         return self._list(only_meters=self._glance_meters_info.keys(),
-            except_meters=except_meters)
+                          except_meters=except_meters)
 
     def list_cinder(self, except_meters=None):
         """Returns a list of meters tied to cinder
@@ -810,7 +821,7 @@ class Meters(object):
         """
 
         return self._list(only_meters=self._cinder_meters_info.keys(),
-            except_meters=except_meters)
+                          except_meters=except_meters)
 
     def list_swift(self, except_meters=None):
         """Returns a list of meters tied to swift
@@ -820,7 +831,7 @@ class Meters(object):
         """
 
         return self._list(only_meters=self._swift_meters_info.keys(),
-            except_meters=except_meters)
+                          except_meters=except_meters)
 
     def list_kwapi(self, except_meters=None):
         """Returns a list of meters tied to kwapi
@@ -830,7 +841,7 @@ class Meters(object):
         """
 
         return self._list(only_meters=self._kwapi_meters_info.keys(),
-            except_meters=except_meters)
+                          except_meters=except_meters)
 
     def _list(self, only_meters=None, except_meters=None):
         """Returns a list of meters based on the meters names

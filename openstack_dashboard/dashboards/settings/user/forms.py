@@ -49,7 +49,7 @@ class UserSettingsForm(forms.SelfHandlingForm):
     def _sorted_zones():
         d = datetime(datetime.today().year, 1, 1)
         zones = [(tz, pytz.timezone(tz).localize(d).strftime('%z'))
-            for tz in pytz.common_timezones]
+                 for tz in pytz.common_timezones]
         zones.sort(key=lambda zone: int(zone[1]))
         return zones
 
@@ -87,11 +87,11 @@ class UserSettingsForm(forms.SelfHandlingForm):
             elif tz == "GMT":
                 tz_name = _("GMT")
             else:
-                tz_label = babel.dates.get_timezone_location(tz,
-                    locale=babel_locale)
+                tz_label = babel.dates.get_timezone_location(
+                    tz, locale=babel_locale)
                 # Translators:  UTC offset and timezone label
                 tz_name = _("%(offset)s: %(label)s") % {"offset": utc_offset,
-                    "label": tz_label}
+                                                        "label": tz_label}
             timezones.append((tz, tz_name))
 
         self.fields['timezone'].choices = timezones

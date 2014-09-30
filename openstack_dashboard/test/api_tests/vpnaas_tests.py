@@ -289,5 +289,5 @@ class VPNaasApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         ret_val = api.vpn.ipsecsiteconnection_get(self.request,
-            ipsecsiteconnection.id)
+                                                  ipsecsiteconnection.id)
         self.assertIsInstance(ret_val, api.vpn.IPSecSiteConnection)

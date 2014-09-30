@@ -28,15 +28,18 @@ from openstack_dashboard import api
 
 
 class PasswordForm(forms.SelfHandlingForm):
-    current_password = forms.CharField(label=_("Current password"),
-                           widget=forms.PasswordInput(render_value=False))
-    new_password = forms.RegexField(label=_("New password"),
-               widget=forms.PasswordInput(render_value=False),
-               regex=validators.password_validator(),
-               error_messages={'invalid':
-               validators.password_validator_msg()})
-    confirm_password = forms.CharField(label=_("Confirm new password"),
-                            widget=forms.PasswordInput(render_value=False))
+    current_password = forms.CharField(
+        label=_("Current password"),
+        widget=forms.PasswordInput(render_value=False))
+    new_password = forms.RegexField(
+        label=_("New password"),
+        widget=forms.PasswordInput(render_value=False),
+        regex=validators.password_validator(),
+        error_messages={'invalid':
+                        validators.password_validator_msg()})
+    confirm_password = forms.CharField(
+        label=_("Confirm new password"),
+        widget=forms.PasswordInput(render_value=False))
     no_autocomplete = True
 
     def clean(self):
@@ -56,8 +59,8 @@ class PasswordForm(forms.SelfHandlingForm):
         if user_is_editable:
             try:
                 api.keystone.user_update_own_password(request,
-                                                    data['current_password'],
-                                                    data['new_password'])
+                                                      data['current_password'],
+                                                      data['new_password'])
                 response = http.HttpResponseRedirect(settings.LOGOUT_URL)
                 msg = _("Password changed. Please log in again to continue.")
                 utils.add_logout_reason(request, response, msg)

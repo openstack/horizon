@@ -81,12 +81,12 @@ class Server(base.APIResourceWrapper):
     Preserves the request info so image name can later be retrieved.
     """
     _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
-             'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
-             'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
-             'tenant_id', 'user_id', 'created', 'OS-EXT-STS:power_state',
-             'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
-             'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone',
-             'OS-DCF:diskConfig']
+              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
+              'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
+              'tenant_id', 'user_id', 'created', 'OS-EXT-STS:power_state',
+              'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
+              'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone',
+              'OS-DCF:diskConfig']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -142,8 +142,8 @@ class NovaUsage(base.APIResourceWrapper):
     """Simple wrapper around contrib/simple_usage.py."""
 
     _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
-             'total_local_gb_usage', 'total_memory_mb_usage',
-             'total_vcpus_usage', 'total_hours']
+              'total_local_gb_usage', 'total_memory_mb_usage',
+              'total_vcpus_usage', 'total_hours']
 
     def get_summary(self):
         return {'instances': self.total_active_instances,
@@ -434,8 +434,8 @@ def novaclient(request):
 
 
 def server_vnc_console(request, instance_id, console_type='novnc'):
-    return VNCConsole(novaclient(request).servers.get_vnc_console(instance_id,
-                                                  console_type)['console'])
+    return VNCConsole(novaclient(request).servers.get_vnc_console(
+        instance_id, console_type)['console'])
 
 
 def server_spice_console(request, instance_id, console_type='spice-html5'):

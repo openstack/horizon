@@ -157,8 +157,9 @@ def keystoneclient(request, admin=False):
     # Admin vs. non-admin clients are cached separately for token matching.
     cache_attr = "_keystoneclient_admin" if admin \
         else backend.KEYSTONE_CLIENT_ATTR
-    if hasattr(request, cache_attr) and (not user.token.id
-            or getattr(request, cache_attr).auth_token == user.token.id):
+    if (hasattr(request, cache_attr) and
+        (not user.token.id or
+         getattr(request, cache_attr).auth_token == user.token.id)):
         LOG.debug("Using cached client for token: %s" % user.token.id)
         conn = getattr(request, cache_attr)
     else:
@@ -321,8 +322,8 @@ def user_update(request, user, **data):
     error = None
 
     if not keystone_can_edit_user():
-        raise keystone_exceptions.ClientException(405, _("Identity service "
-                                    "does not allow editing user data."))
+        raise keystone_exceptions.ClientException(
+            405, _("Identity service does not allow editing user data."))
 
     # The v2 API updates user model, password and default project separately
     if VERSIONS.active < 3:

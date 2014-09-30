@@ -221,28 +221,28 @@ def data(TEST):
     TEST.user.service_catalog = copy.deepcopy(SERVICE_CATALOG)
 
     group_dict = {'id': "1",
-                 'name': 'group_one',
-                 'description': 'group one description',
-                 'project_id': '1',
-                 'domain_id': '1'}
+                  'name': 'group_one',
+                  'description': 'group one description',
+                  'project_id': '1',
+                  'domain_id': '1'}
     group = groups.Group(groups.GroupManager(None), group_dict)
     group_dict = {'id': "2",
-                 'name': 'group_two',
-                 'description': 'group two description',
-                 'project_id': '1',
-                 'domain_id': '1'}
+                  'name': 'group_two',
+                  'description': 'group two description',
+                  'project_id': '1',
+                  'domain_id': '1'}
     group2 = groups.Group(groups.GroupManager(None), group_dict)
     group_dict = {'id': "3",
-                 'name': 'group_three',
-                 'description': 'group three description',
-                 'project_id': '1',
-                 'domain_id': '1'}
+                  'name': 'group_three',
+                  'description': 'group three description',
+                  'project_id': '1',
+                  'domain_id': '1'}
     group3 = groups.Group(groups.GroupManager(None), group_dict)
     group_dict = {'id': "4",
-                 'name': 'group_four',
-                 'description': 'group four description',
-                 'project_id': '2',
-                 'domain_id': '2'}
+                  'name': 'group_four',
+                  'description': 'group four description',
+                  'project_id': '2',
+                  'domain_id': '2'}
     group4 = groups.Group(groups.GroupManager(None), group_dict)
     TEST.groups.add(group, group2, group3, group4)
 

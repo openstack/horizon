@@ -212,11 +212,12 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['ram'], quota.get('ram').limit)
         self.assertEqual(step.action.initial['injected_files'],
                          quota.get('injected_files').limit)
-        self.assertQuerysetEqual(workflow.steps,
-                            ['<CreateProjectInfo: createprojectinfoaction>',
-                             '<UpdateProjectMembers: update_members>',
-                             '<UpdateProjectGroups: update_group_members>',
-                             '<UpdateProjectQuota: update_quotas>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<CreateProjectInfo: createprojectinfoaction>',
+             '<UpdateProjectMembers: update_members>',
+             '<UpdateProjectGroups: update_group_members>',
+             '<UpdateProjectQuota: update_quotas>'])
 
     def test_add_project_get_domain(self):
         domain = self.domains.get(id="1")
@@ -356,7 +357,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                      project.id,
                                      **nova_updated_quota)
         cinder_updated_quota = dict([(key, quota_data[key]) for key in
-                                   quotas.CINDER_QUOTA_FIELDS])
+                                     quotas.CINDER_QUOTA_FIELDS])
         api.cinder.tenant_quota_update(IsA(http.HttpRequest),
                                        project.id,
                                        **cinder_updated_quota)
@@ -905,11 +906,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['name'], project.name)
         self.assertEqual(step.action.initial['description'],
                          project.description)
-        self.assertQuerysetEqual(workflow.steps,
-                            ['<UpdateProjectInfo: update_info>',
-                             '<UpdateProjectMembers: update_members>',
-                             '<UpdateProjectGroups: update_group_members>',
-                             '<UpdateProjectQuota: update_quotas>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<UpdateProjectInfo: update_info>',
+             '<UpdateProjectMembers: update_members>',
+             '<UpdateProjectGroups: update_group_members>',
+             '<UpdateProjectQuota: update_quotas>'])
 
     @test.create_stubs({api.keystone: ('tenant_get',
                                        'domain_get',
@@ -1109,7 +1111,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                      **nova_updated_quota)
 
         cinder_updated_quota = dict([(key, updated_quota[key]) for key in
-                                   quotas.CINDER_QUOTA_FIELDS])
+                                     quotas.CINDER_QUOTA_FIELDS])
         api.cinder.tenant_quota_update(IsA(http.HttpRequest),
                                        project.id,
                                        **cinder_updated_quota)
@@ -1874,8 +1876,9 @@ class SeleniumTests(test.SeleniumAdminTestCase):
 
         self.mox.ReplayAll()
 
-        self.selenium.get("%s%s" % (self.live_server_url,
-                                reverse('horizon:identity:projects:create')))
+        self.selenium.get("%s%s" %
+                          (self.live_server_url,
+                           reverse('horizon:identity:projects:create')))
 
         members = self.selenium.find_element_by_css_selector(member_css_class)
 

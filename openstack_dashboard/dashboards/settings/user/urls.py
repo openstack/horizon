@@ -18,5 +18,6 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.settings.user import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.UserSettingsView.as_view(), name='index'))

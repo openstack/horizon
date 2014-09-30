@@ -33,8 +33,8 @@ class ClientConnectionTests(test.TestCase):
         super(ClientConnectionTests, self).setUp()
         self.mox.StubOutWithMock(keystone_client, "Client")
         self.internal_url = api.base.url_for(self.request,
-                                           'identity',
-                                           endpoint_type='internalURL')
+                                             'identity',
+                                             endpoint_type='internalURL')
         self.admin_url = api.base.url_for(self.request,
                                           'identity',
                                           endpoint_type='adminURL')
