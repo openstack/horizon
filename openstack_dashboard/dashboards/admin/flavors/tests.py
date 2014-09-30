@@ -30,7 +30,7 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                         flavors.Flavor: ('get_keys',), })
     def test_index(self):
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
         flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
         self.mox.ReplayAll()
 
@@ -109,7 +109,7 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         # handle
         params = self._flavor_create_params(flavor, id='auto')
         api.nova.flavor_create(IsA(http.HttpRequest), **params) \
-                .AndReturn(flavor)
+            .AndReturn(flavor)
 
         self.mox.ReplayAll()
 
@@ -139,7 +139,7 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         params = self._flavor_create_params(flavor, id='auto')
         params['is_public'] = False
         api.nova.flavor_create(IsA(http.HttpRequest), **params) \
-                .AndReturn(flavor)
+            .AndReturn(flavor)
         for project in projects:
             api.nova.add_tenant_to_flavor(IsA(http.HttpRequest),
                                           flavor.id, project.id)
@@ -219,7 +219,7 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         params = self._flavor_create_params(flavor, id='auto')
         params['is_public'] = False
         api.nova.flavor_create(IsA(http.HttpRequest), **params) \
-                .AndReturn(flavor)
+            .AndReturn(flavor)
         for project in projects:
             expect = api.nova.add_tenant_to_flavor(IsA(http.HttpRequest),
                                                    flavor.id, project.id)
@@ -274,7 +274,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
                                                                    False])
         api.nova.flavor_access_list(IsA(http.HttpRequest), flavor.id) \
-                .AndReturn(flavor_access)
+            .AndReturn(flavor_access)
 
         # Put all mocks created by mox into replay mode
         self.mox.ReplayAll()
@@ -311,7 +311,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         flavor = self.flavors.first()
 
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
-                .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 
@@ -345,16 +345,16 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         # GET/init, set up expected behavior
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
-                .MultipleTimes().AndReturn(flavor)
+            .MultipleTimes().AndReturn(flavor)
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .MultipleTimes().AndReturn([projects, False])
+            .MultipleTimes().AndReturn([projects, False])
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
 
         # POST/init
         api.nova.flavor_get_extras(IsA(http.HttpRequest),
                                    flavor.id, raw=True) \
-                                   .AndReturn(extra_specs)
+            .AndReturn(extra_specs)
         api.nova.flavor_delete(IsA(http.HttpRequest), flavor.id)
         api.nova.flavor_create(IsA(http.HttpRequest),
                                new_flavor.name,
@@ -415,16 +415,16 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         # GET/init, set up expected behavior
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
-                .MultipleTimes().AndReturn(flavor)
+            .MultipleTimes().AndReturn(flavor)
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .MultipleTimes().AndReturn([projects, False])
+            .MultipleTimes().AndReturn([projects, False])
 
         # POST/init
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
         api.nova.flavor_get_extras(IsA(http.HttpRequest),
                                    flavor.id, raw=True) \
-                                   .AndReturn(extra_specs)
+            .AndReturn(extra_specs)
         api.nova.flavor_delete(IsA(http.HttpRequest), flavor.id)
         api.nova.flavor_create(IsA(http.HttpRequest),
                                new_flavor.name,
@@ -485,9 +485,9 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         # GET/init, set up expected behavior
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
-                .MultipleTimes().AndReturn(flavor)
+            .MultipleTimes().AndReturn(flavor)
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .MultipleTimes().AndReturn([projects, False])
+            .MultipleTimes().AndReturn([projects, False])
 
         # POST
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
@@ -496,7 +496,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         # POST/init
         api.nova.flavor_get_extras(IsA(http.HttpRequest),
                                    flavor.id, raw=True) \
-                                   .AndReturn(extra_specs)
+            .AndReturn(extra_specs)
         api.nova.flavor_delete(IsA(http.HttpRequest), flavor.id)
         api.nova.flavor_create(IsA(http.HttpRequest),
                                new_flavor.name,
@@ -506,7 +506,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                swap=new_flavor.swap,
                                ephemeral=eph,
                                is_public=True)\
-                               .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
 
         # Put mocks in replay mode
         self.mox.ReplayAll()
@@ -562,16 +562,16 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         # GET/init, set up expected behavior
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
-                .MultipleTimes().AndReturn(flavor)
+            .MultipleTimes().AndReturn(flavor)
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .MultipleTimes().AndReturn([projects, False])
+            .MultipleTimes().AndReturn([projects, False])
 
         # POST/init
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
         api.nova.flavor_get_extras(IsA(http.HttpRequest),
                                    flavor.id, raw=True) \
-                                   .AndReturn(extra_specs)
+            .AndReturn(extra_specs)
 
         api.nova.flavor_delete(IsA(http.HttpRequest), flavor.id)
         api.nova.flavor_create(IsA(http.HttpRequest),
@@ -582,7 +582,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                swap=new_flavor.swap,
                                ephemeral=eph,
                                is_public=new_flavor.is_public) \
-                               .AndReturn(new_flavor)
+            .AndReturn(new_flavor)
 
         new_flavor_projects = flavor_projects
         for project in new_flavor_projects:
@@ -620,11 +620,11 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         # init
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
-                .MultipleTimes().AndReturn(flavor)
+            .MultipleTimes().AndReturn(flavor)
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .MultipleTimes().AndReturn([projects, False])
+            .MultipleTimes().AndReturn([projects, False])
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
 
         self.mox.ReplayAll()
 
@@ -668,13 +668,13 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
 
         # GET
         api.nova.flavor_get(IsA(http.HttpRequest), flavor_a.id) \
-                .MultipleTimes().AndReturn(flavor_a)
+            .MultipleTimes().AndReturn(flavor_a)
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .MultipleTimes().AndReturn([projects, False])
+            .MultipleTimes().AndReturn([projects, False])
 
         # POST
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
         self.mox.ReplayAll()
 
         # get test
@@ -706,11 +706,11 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
 
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
-                .MultipleTimes().AndReturn(flavor)
+            .MultipleTimes().AndReturn(flavor)
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
-                .MultipleTimes().AndReturn([projects, False])
+            .MultipleTimes().AndReturn([projects, False])
         api.nova.flavor_list(IsA(http.HttpRequest), None) \
-                .AndReturn(self.flavors.list())
+            .AndReturn(self.flavors.list())
 
         self.mox.ReplayAll()
 

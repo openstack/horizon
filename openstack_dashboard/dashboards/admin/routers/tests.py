@@ -35,7 +35,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
             IsA(http.HttpRequest),
             search_opts=None).AndReturn(self.routers.list())
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-             .AndReturn([tenants, False])
+            .AndReturn([tenants, False])
         self._mock_external_network_list()
 
         self.mox.ReplayAll()
@@ -68,7 +68,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
             IsA(http.HttpRequest),
             search_opts=None).AndReturn([router])
         api.keystone.tenant_list(IsA(http.HttpRequest))\
-             .AndReturn([self.tenants.list(), False])
+            .AndReturn([self.tenants.list(), False])
         self._mock_external_network_list(alter_ids=True)
         self.mox.ReplayAll()
 

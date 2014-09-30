@@ -132,13 +132,13 @@ class AdminInstancesTable(tables.DataTable):
                          verbose_name=_("Size"),
                          classes=('nowrap-col',),
                          attrs={'data-type': 'size'})
-    status = tables.Column("status",
-                           filters=(title, filters.replace_underscores),
-                           verbose_name=_("Status"),
-                           status=True,
-                           status_choices=STATUS_CHOICES,
-                           display_choices=
-                               project_tables.STATUS_DISPLAY_CHOICES)
+    status = tables.Column(
+        "status",
+        filters=(title, filters.replace_underscores),
+        verbose_name=_("Status"),
+        status=True,
+        status_choices=STATUS_CHOICES,
+        display_choices=project_tables.STATUS_DISPLAY_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
                          filters=(title, filters.replace_underscores),
