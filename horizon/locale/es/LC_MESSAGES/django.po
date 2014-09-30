@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-21 14:06-0500\n"
-"PO-Revision-Date: 2014-09-18 14:01+0000\n"
-"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
+"POT-Creation-Date: 2014-09-29 22:50-0500\n"
+"PO-Revision-Date: 2014-09-29 07:12+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +47,7 @@ msgstr "No autorizado: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "No autorizado. Inicie sesión de nuevo."
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr "Tiempo de sesión expirado "
 
@@ -64,15 +64,15 @@ msgstr "Seleccione una %s para navegar."
 msgid "Password is not accepted"
 msgstr "La contraseña no se ha aceptado"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Formato de dirección IP incorrecto"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "Versión de dirección IP no válida"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "Máscara de red no válida"
 
@@ -400,11 +400,11 @@ msgstr "Siguiente"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:137
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "Sin límite"
 
-#: templatetags/horizon.py:129 templatetags/horizon.py:131
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "Disponible"
 
@@ -443,6 +443,18 @@ msgstr "%s PB"
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
 msgstr "0 bytes"
+
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: utils/filters.py:49
 msgid "Never"

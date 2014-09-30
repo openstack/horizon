@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Tom Verdaat <tom@server.biz>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-21 14:06-0500\n"
-"PO-Revision-Date: 2014-09-14 00:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-09-29 22:50-0500\n"
+"PO-Revision-Date: 2014-09-29 13:11+0000\n"
+"Last-Translator: Tom Verdaat <tom@server.biz>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +45,7 @@ msgstr "Onbevoegd: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Onbevoegd. Meldt u zich opnieuw aan."
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr "Sessie verlopen."
 
@@ -61,15 +62,15 @@ msgstr "Selecteer een %s om te bladeren."
 msgid "Password is not accepted"
 msgstr "Wachtwoord is niet geaccepteerd"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Onjuist formaat voor IP adres"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "Ongeldige versie voor IP adres"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "Ongeldig subnet masker"
 
@@ -242,7 +243,7 @@ msgstr "Rij toevoegen"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr "Limiteer Samenvatting"
+msgstr "Beperk samenvatting"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
@@ -345,11 +346,11 @@ msgstr[1] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "Samenvatting verbruik"
+msgstr "Samenvatting van verbruik"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
-msgstr "Selecteer een tijdsvlak om het gebruik uit te vragen"
+msgstr "Selecteer een tijdsvlak om het verbruik voor op te vragen"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -371,7 +372,7 @@ msgstr "De datum dient in het JJJJ-mm-dd formaat te zijn."
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
-msgstr "Actieve Exemplaren"
+msgstr "Actieve exemplaren"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
@@ -397,11 +398,11 @@ msgstr "Volgende"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:137
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "Geen Limiet"
 
-#: templatetags/horizon.py:129 templatetags/horizon.py:131
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "Beschikbaar"
 
@@ -441,21 +442,33 @@ msgstr "%s PB"
 msgid "0 bytes"
 msgstr ""
 
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
 #: utils/filters.py:49
 msgid "Never"
 msgstr "Nooit"
 
 #: utils/validators.py:23 utils/validators.py:47
 msgid "Not a valid port number"
-msgstr "Geen valide poort nummer"
+msgstr "Geen geldig poortnummer"
 
 #: utils/validators.py:28
 msgid "Not a valid IP protocol number"
-msgstr "Geen valide IP protocol nummer"
+msgstr "Geen geldig IP protocolnummer"
 
 #: utils/validators.py:42
 msgid "One colon allowed in port range"
-msgstr "Een dubbele punt toegestaan in poortbereik"
+msgstr "Een dubbele punt is toegestaan in het poortbereik"
 
 #: utils/validators.py:49
 msgid "Port number must be integer"
@@ -463,7 +476,7 @@ msgstr "Poortnummer moet een geheel getal zijn"
 
 #: workflows/base.py:71
 msgid "Processing..."
-msgstr "Aan het verwerken..."
+msgstr "Bezig met verwerken..."
 
 #: workflows/base.py:475
 msgid "All available"

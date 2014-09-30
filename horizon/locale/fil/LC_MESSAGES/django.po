@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-21 14:06-0500\n"
-"PO-Revision-Date: 2014-09-14 00:03+0000\n"
+"POT-Creation-Date: 2014-09-29 22:50-0500\n"
+"PO-Revision-Date: 2014-09-29 07:12+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Filipino (http://www.transifex.com/projects/p/horizon/language/fil/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Di-awtorisado: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Di-awtorisado. Mangyaring subukang mag-log in muli."
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr "Ang sesyon ay nag time out."
 
@@ -62,15 +62,15 @@ msgstr "Pumili ng %s upang mag browse."
 msgid "Password is not accepted"
 msgstr "Ang Password ay hindi tinanggap"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Maling format para sa mga IP address"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "Maling bersyon para sa IP address"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "Maling subnet mask"
 
@@ -398,11 +398,11 @@ msgstr "Susunod"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:137
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "Walang Limitasyon"
 
-#: templatetags/horizon.py:129 templatetags/horizon.py:131
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "Magagamit"
 
@@ -441,6 +441,18 @@ msgstr "%s PB"
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
 msgstr ""
+
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: utils/filters.py:49
 msgid "Never"

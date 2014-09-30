@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-27 17:54-0500\n"
-"PO-Revision-Date: 2014-09-28 19:02+0000\n"
+"POT-Creation-Date: 2014-09-29 22:50-0500\n"
+"PO-Revision-Date: 2014-09-30 06:10+0000\n"
 "Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -437,6 +437,7 @@ msgstr "管理员"
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
 #: dashboards/project/data_processing/jobs/tables.py:149
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:79
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
@@ -473,15 +474,15 @@ msgstr "管理员"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:103
+#: dashboards/project/networks/tables.py:118
 #: dashboards/project/networks/ports/forms.py:34
 #: dashboards/project/networks/ports/tables.py:55
-#: dashboards/project/networks/subnets/tables.py:101
+#: dashboards/project/networks/subnets/tables.py:116
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/forms.py:73
-#: dashboards/project/routers/tables.py:153
+#: dashboards/project/routers/tables.py:165
 #: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -596,7 +597,6 @@ msgstr "服务停止"
 
 #: dashboards/admin/aggregates/tables.py:132
 #: dashboards/admin/aggregates/tables.py:156
-#: dashboards/admin/hypervisors/compute/tables.py:25
 msgid "Hosts"
 msgstr "主机"
 
@@ -1444,8 +1444,22 @@ msgstr "开始疏散实例从主机 %(current)s 到主机 %(target)s."
 msgid "Failed to evacuate host: %s."
 msgstr "无法疏散主机: %s."
 
-#: dashboards/admin/hypervisors/compute/tables.py:24
-#: dashboards/admin/hypervisors/compute/tables.py:52
+#: dashboards/admin/hypervisors/compute/tables.py:27
+#: dashboards/admin/hypervisors/compute/tables.py:41
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:8
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:3
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:6
+msgid "Evacuate Host"
+msgid_plural "Evacuate Hosts"
+msgstr[0] "清空主机"
+
+#: dashboards/admin/hypervisors/compute/tables.py:35
+msgid "Evacuated Host"
+msgid_plural "Evacuated Hosts"
+msgstr[0] "已清空主机"
+
+#: dashboards/admin/hypervisors/compute/tables.py:65
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:121
@@ -1461,28 +1475,12 @@ msgstr "无法疏散主机: %s."
 msgid "Host"
 msgstr "主机"
 
-#: dashboards/admin/hypervisors/compute/tables.py:26
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:8
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:6
-msgid "Evacuate Host"
-msgstr "疏散主机"
-
-#: dashboards/admin/hypervisors/compute/tables.py:34
-msgid "Evacuate"
-msgstr "疏散"
-
-#: dashboards/admin/hypervisors/compute/tables.py:35
-msgid "Evacuated"
-msgstr "已疏散"
-
-#: dashboards/admin/hypervisors/compute/tables.py:53
+#: dashboards/admin/hypervisors/compute/tables.py:66
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
 msgid "Zone"
 msgstr "域"
 
-#: dashboards/admin/hypervisors/compute/tables.py:54
+#: dashboards/admin/hypervisors/compute/tables.py:67
 #: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
 #: dashboards/admin/instances/tables.py:137
@@ -1515,16 +1513,16 @@ msgstr "域"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
-#: dashboards/project/networks/tables.py:109
+#: dashboards/project/networks/tables.py:124
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:157
+#: dashboards/project/routers/tables.py:169
 #: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
-#: dashboards/project/stacks/tables.py:98
-#: dashboards/project/stacks/tables.py:135
-#: dashboards/project/stacks/tables.py:182
+#: dashboards/project/stacks/tables.py:113
+#: dashboards/project/stacks/tables.py:150
+#: dashboards/project/stacks/tables.py:197
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
@@ -1540,18 +1538,18 @@ msgstr "域"
 msgid "Status"
 msgstr "状态"
 
-#: dashboards/admin/hypervisors/compute/tables.py:55
+#: dashboards/admin/hypervisors/compute/tables.py:68
 #: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
 #: dashboards/admin/info/tables.py:173 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "状态"
 
-#: dashboards/admin/hypervisors/compute/tables.py:57
+#: dashboards/admin/hypervisors/compute/tables.py:70
 #: dashboards/admin/networks/agents/tables.py:97
 msgid "Updated At"
 msgstr "已更新于"
 
-#: dashboards/admin/hypervisors/compute/tables.py:66
+#: dashboards/admin/hypervisors/compute/tables.py:79
 #: dashboards/admin/hypervisors/compute/tabs.py:24
 msgid "Compute Host"
 msgstr "计算主机"
@@ -1887,6 +1885,10 @@ msgstr "浮动IP"
 #: dashboards/identity/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:130
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:24
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
 #: dashboards/project/instances/workflows/create_instance.py:489
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -2052,8 +2054,8 @@ msgstr "实例热迁移"
 #: dashboards/project/instances/workflows/create_instance.py:50
 #: dashboards/router/nexus1000v/forms.py:121
 #: dashboards/router/nexus1000v/forms.py:179
-#: dashboards/router/nexus1000v/tables.py:62
-#: dashboards/router/nexus1000v/tables.py:84
+#: dashboards/router/nexus1000v/tables.py:76
+#: dashboards/router/nexus1000v/tables.py:98
 msgid "Project"
 msgstr "项目"
 
@@ -2090,7 +2092,7 @@ msgstr "IP 地址"
 
 #: dashboards/admin/instances/tables.py:132
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:417
+#: dashboards/project/containers/tables.py:446
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:205
@@ -2370,6 +2372,8 @@ msgstr "--"
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:25
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:47
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:59
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:55
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:65
 msgid "Value"
 msgstr "值"
 
@@ -2403,9 +2407,8 @@ msgstr "Flat"
 
 #: dashboards/admin/networks/forms.py:44
 #: dashboards/project/networks/workflows.py:43
-#: dashboards/router/nexus1000v/tables.py:38
-#: dashboards/router/nexus1000v/tables.py:61
-#: dashboards/router/nexus1000v/tables.py:76
+#: dashboards/router/nexus1000v/tables.py:75
+#: dashboards/router/nexus1000v/tables.py:90
 #: dashboards/router/nexus1000v/tabs.py:22
 msgid "Network Profile"
 msgstr "网络配置概要"
@@ -2457,7 +2460,7 @@ msgstr "段ID"
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:42
-#: dashboards/project/networks/tables.py:111
+#: dashboards/project/networks/tables.py:126
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/networks/ports/tables.py:61
@@ -2484,7 +2487,7 @@ msgstr "管理员状态"
 #: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:107
+#: dashboards/project/networks/tables.py:122
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "共享的"
@@ -2492,7 +2495,7 @@ msgstr "共享的"
 #: dashboards/admin/networks/forms.py:81
 #: dashboards/admin/networks/forms.py:240
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:163
+#: dashboards/project/routers/tables.py:175
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "外部网络"
@@ -2570,8 +2573,7 @@ msgstr "网络 %s 更新失败。"
 #: dashboards/project/databases/workflows/create_instance.py:131
 #: dashboards/project/instances/workflows/create_instance.py:640
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:43
-#: dashboards/project/networks/tables.py:115
+#: dashboards/project/networks/tables.py:130
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
@@ -2579,17 +2581,19 @@ msgid "Networks"
 msgstr "网络"
 
 #: dashboards/admin/networks/tables.py:37
+#: dashboards/project/networks/tables.py:46
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "删除网络"
 
 #: dashboards/admin/networks/tables.py:45
+#: dashboards/project/networks/tables.py:54
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "已删除网络"
 
 #: dashboards/admin/networks/tables.py:56
-#: dashboards/project/networks/tables.py:59
+#: dashboards/project/networks/tables.py:74
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "网络 %s 删除失败。"
@@ -2600,7 +2604,7 @@ msgstr "网络 %s 删除失败。"
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
-#: dashboards/project/networks/tables.py:67
+#: dashboards/project/networks/tables.py:82
 #: dashboards/project/networks/workflows.py:304
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
@@ -2609,7 +2613,7 @@ msgstr "创建网络"
 
 #: dashboards/admin/networks/tables.py:73
 #: dashboards/admin/networks/templates/networks/_update.html:8
-#: dashboards/project/networks/tables.py:77
+#: dashboards/project/networks/tables.py:92
 #: dashboards/project/networks/templates/networks/_update.html:8
 msgid "Edit Network"
 msgstr "编辑网络"
@@ -2622,7 +2626,7 @@ msgid "Network Name"
 msgstr "网络名称"
 
 #: dashboards/admin/networks/tables.py:90
-#: dashboards/project/networks/tables.py:106
+#: dashboards/project/networks/tables.py:121
 msgid "Subnets Associated"
 msgstr "子网已连接"
 
@@ -2670,7 +2674,7 @@ msgstr "无法获取端口列表"
 #: dashboards/admin/networks/views.py:153
 #: dashboards/admin/networks/subnets/tables.py:107
 #: dashboards/project/networks/views.py:132
-#: dashboards/project/networks/subnets/tables.py:115
+#: dashboards/project/networks/subnets/tables.py:130
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "无法获取网络\"%s\"的详情."
@@ -2861,30 +2865,32 @@ msgid "Unable to retrieve port details."
 msgstr "无法获取端口详情"
 
 #: dashboards/admin/networks/subnets/tables.py:37
+#: dashboards/project/networks/subnets/tables.py:60
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] "删除子网"
 
 #: dashboards/admin/networks/subnets/tables.py:45
+#: dashboards/project/networks/subnets/tables.py:68
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "已删除子网"
 
 #: dashboards/admin/networks/subnets/tables.py:56
-#: dashboards/project/networks/subnets/tables.py:64
+#: dashboards/project/networks/subnets/tables.py:79
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "删除子网%s失败"
 
 #: dashboards/admin/networks/subnets/tables.py:66
 #: dashboards/project/networks/workflows.py:90
-#: dashboards/project/networks/subnets/tables.py:75
+#: dashboards/project/networks/subnets/tables.py:90
 #: dashboards/project/networks/subnets/workflows.py:55
 msgid "Create Subnet"
 msgstr "创建子网"
 
 #: dashboards/admin/networks/subnets/tables.py:79
-#: dashboards/project/networks/subnets/tables.py:89
+#: dashboards/project/networks/subnets/tables.py:104
 #: dashboards/project/networks/subnets/workflows.py:159
 msgid "Edit Subnet"
 msgstr "编辑子网"
@@ -2899,22 +2905,21 @@ msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:94
 #: dashboards/project/networks/workflows.py:107
-#: dashboards/project/networks/subnets/tables.py:104
+#: dashboards/project/networks/subnets/tables.py:119
 #: dashboards/project/networks/subnets/workflows.py:99
 msgid "IP Version"
 msgstr "IP版本"
 
 #: dashboards/admin/networks/subnets/tables.py:95
 #: dashboards/project/networks/workflows.py:109
-#: dashboards/project/networks/subnets/tables.py:105
+#: dashboards/project/networks/subnets/tables.py:120
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
 msgstr "网关IP"
 
 #: dashboards/admin/networks/subnets/tables.py:114
 #: dashboards/identity/projects/workflows.py:74
-#: dashboards/project/networks/subnets/tables.py:57
-#: dashboards/project/networks/subnets/tables.py:122 usage/quotas.py:78
+#: dashboards/project/networks/subnets/tables.py:137 usage/quotas.py:78
 msgid "Subnets"
 msgstr "子网"
 
@@ -3061,7 +3066,7 @@ msgstr "监控"
 #: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:179
+#: dashboards/project/routers/tables.py:191
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
@@ -3074,13 +3079,13 @@ msgstr "无法获取路优列表"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:21
 #: dashboards/project/routers/extensions/routerrules/forms.py:48
-#: dashboards/project/routers/extensions/routerrules/tables.py:55
+#: dashboards/project/routers/extensions/routerrules/tables.py:70
 msgid "Source CIDR"
 msgstr "源CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:23
 #: dashboards/project/routers/extensions/routerrules/forms.py:50
-#: dashboards/project/routers/extensions/routerrules/tables.py:57
+#: dashboards/project/routers/extensions/routerrules/tables.py:72
 msgid "Destination CIDR"
 msgstr "目的CIDR"
 
@@ -3091,19 +3096,18 @@ msgstr "目的CIDR"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
-#: dashboards/project/routers/extensions/routerrules/tables.py:58
+#: dashboards/project/routers/extensions/routerrules/tables.py:73
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Action"
 msgstr "动作"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:25
-#: dashboards/project/routers/extensions/routerrules/tables.py:59
+#: dashboards/project/routers/extensions/routerrules/tables.py:74
 msgid "Next Hops"
 msgstr "下一跳"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:29
-#: dashboards/project/routers/extensions/routerrules/tables.py:44
-#: dashboards/project/routers/extensions/routerrules/tables.py:66
+#: dashboards/project/routers/extensions/routerrules/tables.py:81
 #: dashboards/project/routers/extensions/routerrules/tabs.py:32
 msgid "Router Rules"
 msgstr "路由规则"
@@ -3191,7 +3195,7 @@ msgstr "项目ID"
 #: dashboards/project/routers/forms.py:46
 #: dashboards/project/routers/forms.py:92
 #: dashboards/project/routers/forms.py:98
-#: dashboards/project/routers/tables.py:161
+#: dashboards/project/routers/tables.py:173
 #: dashboards/project/routers/templates/routers/_detail_overview.html:16
 msgid "Distributed"
 msgstr "分布式的"
@@ -3372,7 +3376,7 @@ msgstr "GB"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:287
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:304
 #: dashboards/project/database_backups/tables.py:136
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
 #: dashboards/project/databases/tables.py:265
@@ -3380,7 +3384,7 @@ msgstr "GB"
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
-#: dashboards/project/stacks/tables.py:89
+#: dashboards/project/stacks/tables.py:104
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -3465,8 +3469,8 @@ msgstr "\n      QOS规格可以关联到卷类型.\n      被卷所有者映射�
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:119
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:160
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:286
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
 #: dashboards/project/networks/workflows.py:305
 #: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create"
@@ -3783,7 +3787,7 @@ msgstr[0] "已删除额外规格"
 #: dashboards/identity/domains/tables.py:79
 #: dashboards/identity/roles/tables.py:36
 #: dashboards/identity/users/tables.py:45
-#: dashboards/project/containers/tables.py:303
+#: dashboards/project/containers/tables.py:318
 #: dashboards/project/images/images/tables.py:102
 msgid "Edit"
 msgstr "编辑"
@@ -4141,6 +4145,9 @@ msgid "Group ID"
 msgstr "组ID"
 
 #: dashboards/identity/groups/tables.py:124
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:16
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:34
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:47
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:3
 msgid "Remove"
 msgstr "移除"
@@ -4200,6 +4207,8 @@ msgstr "组成员"
 
 #: dashboards/identity/groups/tables.py:183
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/firewalls/workflows.py:106
 #: dashboards/project/firewalls/workflows.py:213
 #: dashboards/project/firewalls/workflows.py:291
@@ -4668,7 +4677,7 @@ msgstr "编辑用户详情，包括主项目和角色。"
 msgid "Compute"
 msgstr "Compute"
 
-#: dashboards/project/dashboard.py:32 dashboards/project/networks/tables.py:42
+#: dashboards/project/dashboard.py:32
 #: dashboards/project/networks/workflows.py:78
 #: dashboards/project/networks/templates/networks/subnets/index.html:3
 #: dashboards/project/networks/templates/networks/subnets/index.html:6
@@ -4960,7 +4969,7 @@ msgstr "创建密钥对"
 msgid "Fingerprint"
 msgstr "指纹"
 
-#: dashboards/project/access_and_security/keypairs/views.py:71
+#: dashboards/project/access_and_security/keypairs/views.py:74
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "无法创建密钥对：%(exc)s"
@@ -5386,7 +5395,6 @@ msgid "Swift"
 msgstr "Swift"
 
 #: dashboards/project/containers/browsers.py:27
-#: dashboards/project/containers/tables.py:106
 msgid "Container"
 msgstr "容器"
 
@@ -5401,7 +5409,7 @@ msgid "Private"
 msgstr "私有"
 
 #: dashboards/project/containers/forms.py:49
-#: dashboards/project/containers/tables.py:250
+#: dashboards/project/containers/tables.py:265
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
@@ -5432,7 +5440,7 @@ msgid "File"
 msgstr "文件"
 
 #: dashboards/project/containers/forms.py:88
-#: dashboards/project/containers/tables.py:414
+#: dashboards/project/containers/tables.py:443
 msgid "Object Name"
 msgstr "对象名称"
 
@@ -5492,44 +5500,53 @@ msgid "Unable to copy object."
 msgstr "无法拷贝对象。"
 
 #: dashboards/project/containers/panel.py:27
-#: dashboards/project/containers/tables.py:107
-#: dashboards/project/containers/tables.py:261
+#: dashboards/project/containers/tables.py:276
 #: dashboards/project/containers/templates/containers/index.html:5
 #: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr "容器"
 
-#: dashboards/project/containers/tables.py:44
-#: dashboards/project/containers/tables.py:291
+#: dashboards/project/containers/tables.py:45
+#: dashboards/project/containers/tables.py:306
 msgid "View Details"
 msgstr "查看详情"
 
-#: dashboards/project/containers/tables.py:55
+#: dashboards/project/containers/tables.py:56
 msgid "Make Public"
 msgstr "公有化"
 
-#: dashboards/project/containers/tables.py:71
+#: dashboards/project/containers/tables.py:72
 msgid "Successfully updated container access to public."
 msgstr "成功更新容器为公开访问类型"
 
-#: dashboards/project/containers/tables.py:75
-#: dashboards/project/containers/tables.py:101
+#: dashboards/project/containers/tables.py:76
+#: dashboards/project/containers/tables.py:102
 msgid "Unable to update container access."
 msgstr "无法更新容器访问类型"
 
-#: dashboards/project/containers/tables.py:81
+#: dashboards/project/containers/tables.py:82
 msgid "Make Private"
 msgstr "私有化"
 
-#: dashboards/project/containers/tables.py:97
+#: dashboards/project/containers/tables.py:98
 msgid "Successfully updated container access to private."
 msgstr "成功更新容器为私有访问类型"
 
-#: dashboards/project/containers/tables.py:117
+#: dashboards/project/containers/tables.py:110
+msgid "Delete Container"
+msgid_plural "Delete Containers"
+msgstr[0] "删除容器"
+
+#: dashboards/project/containers/tables.py:118
+msgid "Deleted Container"
+msgid_plural "Deleted Containers"
+msgstr[0] "已删除容器"
+
+#: dashboards/project/containers/tables.py:132
 msgid "Unable to delete container."
 msgstr "无法删除容器"
 
-#: dashboards/project/containers/tables.py:134
+#: dashboards/project/containers/tables.py:149
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -5537,52 +5554,55 @@ msgstr "无法删除容器"
 msgid "Create Container"
 msgstr "创建容器"
 
-#: dashboards/project/containers/tables.py:142
+#: dashboards/project/containers/tables.py:157
 msgid "View Container"
 msgstr "查看容器"
 
-#: dashboards/project/containers/tables.py:154
+#: dashboards/project/containers/tables.py:169
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:6
 msgid "Create Pseudo-folder"
 msgstr "创建虚拟文件夹"
 
-#: dashboards/project/containers/tables.py:182
+#: dashboards/project/containers/tables.py:197
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "上传对象"
 
-#: dashboards/project/containers/tables.py:252
+#: dashboards/project/containers/tables.py:267
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
 msgstr "容器详情"
 
-#: dashboards/project/containers/tables.py:316
-#: dashboards/project/containers/templates/containers/_update.html:21
-#: dashboards/project/containers/templates/containers/_upload.html:20
-msgid "Object"
-msgstr "对象"
+#: dashboards/project/containers/tables.py:333
+msgid "Delete Object"
+msgid_plural "Delete Objects"
+msgstr[0] "删除对象"
 
-#: dashboards/project/containers/tables.py:317
-#: dashboards/project/containers/tables.py:421
-msgid "Objects"
-msgstr "对象"
+#: dashboards/project/containers/tables.py:341
+msgid "Deleted Object"
+msgid_plural "Deleted Objects"
+msgstr[0] "已删除对象"
 
-#: dashboards/project/containers/tables.py:339
+#: dashboards/project/containers/tables.py:368
 msgid "Copy"
 msgstr "复制"
 
-#: dashboards/project/containers/tables.py:352
+#: dashboards/project/containers/tables.py:381
 #: dashboards/project/databases/tables.py:267
 msgid "Download"
 msgstr "下载"
 
-#: dashboards/project/containers/tables.py:399
+#: dashboards/project/containers/tables.py:428
 msgid "pseudo-folder"
 msgstr "虚拟文件夹"
+
+#: dashboards/project/containers/tables.py:450
+msgid "Objects"
+msgstr "对象"
 
 #: dashboards/project/containers/views.py:57
 msgid "Unable to retrieve container list."
@@ -5696,6 +5716,11 @@ msgstr "最近修改"
 #: dashboards/project/containers/templates/containers/_update.html:11
 msgid "Edit Object"
 msgstr "编辑对象"
+
+#: dashboards/project/containers/templates/containers/_update.html:21
+#: dashboards/project/containers/templates/containers/_upload.html:20
+msgid "Object"
+msgstr "对象"
 
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:20
@@ -5899,16 +5924,16 @@ msgid "no processes"
 msgstr "没有过程"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:34
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:60
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:42
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
 msgid "Node Configurations"
 msgstr "节点配置"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:58
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:66
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
 msgid "No configurations"
 msgstr "没有配置"
@@ -5949,18 +5974,25 @@ msgstr "没有指定模板"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:31
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:101
+msgid "Auto Security Group"
+msgstr "自动安全组"
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:33
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:41
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:86
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:30
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
 msgid "Node Processes"
 msgstr "节点处理"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:31
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:39
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:43
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:51
 msgid "Node processes are not specified"
 msgstr "节点处理没有被指定"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:51
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:59
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:71
 msgid "Node configurations are not specified"
 msgstr "没有指定结点配置"
 
@@ -6019,7 +6051,7 @@ msgstr "为集群模板选择一个插件和一个Hadoop版本"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:288
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:305
 msgid "Could not create"
 msgstr "不能创建"
 
@@ -6892,15 +6924,19 @@ msgstr "选择输入数据源(Java任务不用)."
 msgid "Choose the Output Data Source (n/a for Java jobs)."
 msgstr "选择输出数据源(Java任务不用)."
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:218
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:5
+msgid "Select property name"
+msgstr "选择属性名称"
+
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:220
 msgid "Configuration"
 msgstr "配置"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:221
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
 msgid "Parameters"
 msgstr "参数"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:224
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 msgid "Arguments"
 msgstr "Arguments"
 
@@ -7101,24 +7137,24 @@ msgstr "当任务处理流程被选定，你可以在Hadoop相应的配置标签
 msgid "Select a plugin and Hadoop version for a new Node group template."
 msgstr "为一个新的结点群组模板选择一个新的插件和Hadoop版本。"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:40
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:57
 msgid "HDFS placement"
 msgstr "HDFS位置"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:59
 msgid "Cinder volumes"
 msgstr "Cinder卷"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:43
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:60
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
 msgid "Volumes per node"
 msgstr "卷/节点"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:45
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:62
 msgid "Volumes size"
 msgstr "卷大小"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:48
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:65
 msgid "Ephemeral drive"
 msgstr "临时驱动"
 
@@ -7138,8 +7174,8 @@ msgstr "隐藏所有配置项"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:159
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:285
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:174
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:302
 msgid "Create Node Group Template"
 msgstr "创建节点组模板"
 
@@ -7184,24 +7220,32 @@ msgstr "无法生成处理选项。"
 msgid "Floating IP pool"
 msgstr "浮动IP池"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:101
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:103
+msgid "Create security group for this Node Group."
+msgstr "为该节点组创建安全组"
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:111
+msgid "Launch instances in these security groups."
+msgstr "在这些安全组下启动实例"
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:116
 msgid "Processes"
 msgstr "处理"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:103
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:118
 msgid "Processes to be launched in node group"
 msgstr "结点群组上启动的任务进程"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:135
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:150
 msgid "Configure Node Group Template"
 msgstr "配置结点群组模板"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:161
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:176
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr "创建结点群组模板%s"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:266
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:283
 msgid "Select plugin and hadoop version"
 msgstr "选择插件和hadoop 版本"
 
@@ -7355,7 +7399,7 @@ msgstr "初始云硬盘大小"
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:93
+#: dashboards/project/stacks/tables.py:108
 msgid "Updated"
 msgstr "已更新"
 
@@ -10179,7 +10223,6 @@ msgstr "提供者"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
 #: dashboards/project/networks/workflows.py:126
-#: dashboards/project/networks/subnets/tables.py:56
 #: dashboards/project/networks/subnets/workflows.py:37
 #: dashboards/project/networks/subnets/workflows.py:115
 #: dashboards/project/routers/ports/forms.py:29
@@ -10737,7 +10780,7 @@ msgstr "正常"
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "没有可以显示的网络，路由或者连接的云主机。"
 
-#: dashboards/project/networks/tables.py:87
+#: dashboards/project/networks/tables.py:102
 msgid "Add Subnet"
 msgstr "增加子网"
 
@@ -10760,7 +10803,7 @@ msgid "Subnet Name"
 msgstr "子网名称"
 
 #: dashboards/project/networks/workflows.py:95
-#: dashboards/project/networks/subnets/tables.py:103
+#: dashboards/project/networks/subnets/tables.py:118
 #: dashboards/project/networks/subnets/workflows.py:80
 msgid "Network Address"
 msgstr "网络地址"
@@ -11214,23 +11257,17 @@ msgstr "无法删除路由\"%s\""
 msgid "Set Gateway"
 msgstr "设置网关"
 
-#: dashboards/project/routers/tables.py:106
-msgid "Clear"
-msgstr "清除"
-
-#: dashboards/project/routers/tables.py:107
-msgid "Cleared"
-msgstr "清除"
-
 #: dashboards/project/routers/tables.py:108
-msgid "Gateway"
-msgstr "网关"
+msgid "Clear Gateway"
+msgid_plural "Clear Gateways"
+msgstr[0] "清除网关"
 
-#: dashboards/project/routers/tables.py:109
-msgid "Gateways"
-msgstr "网关"
+#: dashboards/project/routers/tables.py:116
+msgid "Cleared Gateway"
+msgid_plural "Cleared Gateways"
+msgstr[0] "已清除网关"
 
-#: dashboards/project/routers/tables.py:120
+#: dashboards/project/routers/tables.py:132
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "无法清除路由\"%(name)s\"的网关: \"%(msg)s\""
@@ -11305,16 +11342,22 @@ msgstr "路由规则增加成功"
 msgid "Failed to add router rule %s"
 msgstr "增加路由规则 %s 失败"
 
-#: dashboards/project/routers/extensions/routerrules/tables.py:31
+#: dashboards/project/routers/extensions/routerrules/tables.py:32
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:9
 #: dashboards/project/routers/templates/routers/extensions/routerrules/create.html:3
 #: dashboards/project/routers/templates/routers/extensions/routerrules/create.html:6
 msgid "Add Router Rule"
 msgstr "增加路由规则"
 
-#: dashboards/project/routers/extensions/routerrules/tables.py:43
-msgid "Router Rule"
-msgstr "路由规则"
+#: dashboards/project/routers/extensions/routerrules/tables.py:47
+msgid "Delete Router Rule"
+msgid_plural "Delete Router Rules"
+msgstr[0] "删除路由规则"
+
+#: dashboards/project/routers/extensions/routerrules/tables.py:55
+msgid "Deleted Router Rule"
+msgid_plural "Deleted Router Rules"
+msgstr[0] "已删除路由规则"
 
 #: dashboards/project/routers/extensions/routerrules/tabs.py:59
 msgid "Router Rules Grid"
@@ -11588,7 +11631,7 @@ msgstr "栈ID"
 #: dashboards/project/stacks/forms.py:230
 #: dashboards/project/stacks/forms.py:254
 #: dashboards/project/stacks/forms.py:360
-#: dashboards/project/stacks/tables.py:86
+#: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr "栈名"
 
@@ -11648,61 +11691,66 @@ msgid "Stack update started."
 msgstr "开始更新栈。"
 
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:51
-#: dashboards/project/stacks/tables.py:107
+#: dashboards/project/stacks/tables.py:122
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
 msgstr "栈"
 
-#: dashboards/project/stacks/tables.py:31
+#: dashboards/project/stacks/tables.py:32
 #: dashboards/project/stacks/templates/stacks/_create.html:8
 #: dashboards/project/stacks/templates/stacks/create.html:3
 #: dashboards/project/stacks/templates/stacks/create.html:6
 msgid "Launch Stack"
 msgstr "启动栈"
 
-#: dashboards/project/stacks/tables.py:40
+#: dashboards/project/stacks/tables.py:41
 msgid "Change Stack Template"
 msgstr "改变栈模板"
 
-#: dashboards/project/stacks/tables.py:50
-msgid "Stack"
-msgstr "栈"
+#: dashboards/project/stacks/tables.py:54
+msgid "Delete Stack"
+msgid_plural "Delete Stacks"
+msgstr[0] "删除堆栈"
 
-#: dashboards/project/stacks/tables.py:124
-#: dashboards/project/stacks/tables.py:169
+#: dashboards/project/stacks/tables.py:62
+msgid "Deleted Stack"
+msgid_plural "Deleted Stacks"
+msgstr[0] "已删除堆栈"
+
+#: dashboards/project/stacks/tables.py:139
+#: dashboards/project/stacks/tables.py:184
 msgid "Stack Resource"
 msgstr "栈资源"
 
-#: dashboards/project/stacks/tables.py:127
-#: dashboards/project/stacks/tables.py:172
+#: dashboards/project/stacks/tables.py:142
+#: dashboards/project/stacks/tables.py:187
 msgid "Resource"
 msgstr "资源"
 
-#: dashboards/project/stacks/tables.py:130
+#: dashboards/project/stacks/tables.py:145
 msgid "Time Since Event"
 msgstr "事件后时间"
 
-#: dashboards/project/stacks/tables.py:138
-#: dashboards/project/stacks/tables.py:187
+#: dashboards/project/stacks/tables.py:153
+#: dashboards/project/stacks/tables.py:202
 msgid "Status Reason"
 msgstr "状态原因"
 
-#: dashboards/project/stacks/tables.py:142
+#: dashboards/project/stacks/tables.py:157
 msgid "Stack Events"
 msgstr "栈事件"
 
-#: dashboards/project/stacks/tables.py:175
+#: dashboards/project/stacks/tables.py:190
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
 msgid "Stack Resource Type"
 msgstr "栈资源类型"
 
-#: dashboards/project/stacks/tables.py:177
+#: dashboards/project/stacks/tables.py:192
 msgid "Date Updated"
 msgstr "日期已更新"
 
-#: dashboards/project/stacks/tables.py:200
+#: dashboards/project/stacks/tables.py:215
 msgid "Stack Resources"
 msgstr "栈资源"
 
@@ -13186,7 +13234,7 @@ msgid "Projects could not be retrieved."
 msgstr "无法获取项目。"
 
 #: dashboards/router/nexus1000v/forms.py:51
-#: dashboards/router/nexus1000v/tables.py:64
+#: dashboards/router/nexus1000v/tables.py:78
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
 msgid "Segment Type"
 msgstr "段类型"
@@ -13208,7 +13256,7 @@ msgstr "分支"
 #: dashboards/router/nexus1000v/forms.py:69
 #: dashboards/router/nexus1000v/forms.py:71
 #: dashboards/router/nexus1000v/forms.py:77
-#: dashboards/router/nexus1000v/tables.py:66
+#: dashboards/router/nexus1000v/tables.py:80
 msgid "Sub Type"
 msgstr "子类型"
 
@@ -13223,7 +13271,7 @@ msgstr "增强VXLAN"
 #: dashboards/router/nexus1000v/forms.py:79
 #: dashboards/router/nexus1000v/forms.py:85
 #: dashboards/router/nexus1000v/forms.py:87
-#: dashboards/router/nexus1000v/tables.py:68
+#: dashboards/router/nexus1000v/tables.py:82
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
 msgid "Segment Range"
 msgstr "段范围"
@@ -13234,7 +13282,7 @@ msgstr "VLAn是1-4093; Overlay是5000及以上"
 
 #: dashboards/router/nexus1000v/forms.py:91
 #: dashboards/router/nexus1000v/forms.py:98
-#: dashboards/router/nexus1000v/tables.py:70
+#: dashboards/router/nexus1000v/tables.py:84
 msgid "Multicast IP Range"
 msgstr "组播IP范围"
 
@@ -13275,7 +13323,7 @@ msgstr "网络配置概要  更新失败 (%s)。"
 msgid "Cisco Nexus 1000v"
 msgstr "Cisco Nexus 1000v"
 
-#: dashboards/router/nexus1000v/tables.py:31
+#: dashboards/router/nexus1000v/tables.py:32
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:27
 #: dashboards/router/nexus1000v/templates/nexus1000v/create_network_profile.html:3
@@ -13283,26 +13331,32 @@ msgstr "Cisco Nexus 1000v"
 msgid "Create Network Profile"
 msgstr "创建网络配置概要"
 
-#: dashboards/router/nexus1000v/tables.py:39
-msgid "Network Profiles"
-msgstr "网络配置概要"
+#: dashboards/router/nexus1000v/tables.py:42
+msgid "Delete Network Profile"
+msgid_plural "Delete Network Profiles"
+msgstr[0] "删除网络配置概要"
 
-#: dashboards/router/nexus1000v/tables.py:45
+#: dashboards/router/nexus1000v/tables.py:50
+msgid "Deleted Network Profile"
+msgid_plural "Deleted Network Profiles"
+msgstr[0] "已删除网络配置概要"
+
+#: dashboards/router/nexus1000v/tables.py:59
 #, python-format
 msgid "Failed to delete network profile (%s)."
 msgstr "删除网络概要(%s)失败"
 
-#: dashboards/router/nexus1000v/tables.py:53
+#: dashboards/router/nexus1000v/tables.py:67
 #: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:8
 msgid "Edit Network Profile"
 msgstr "编辑网络配置概要"
 
-#: dashboards/router/nexus1000v/tables.py:72
+#: dashboards/router/nexus1000v/tables.py:86
 msgid "Physical Network Name"
 msgstr "物理网络名称"
 
-#: dashboards/router/nexus1000v/tables.py:83
-#: dashboards/router/nexus1000v/tables.py:88
+#: dashboards/router/nexus1000v/tables.py:97
+#: dashboards/router/nexus1000v/tables.py:102
 #: dashboards/router/nexus1000v/tabs.py:31
 msgid "Policy Profile"
 msgstr "策略概要"
