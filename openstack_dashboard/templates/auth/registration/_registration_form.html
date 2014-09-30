@@ -6,6 +6,31 @@
   {% block modal_class %}registration {% if hide %}modal hide{% endif %}{% endblock %}
 
   {% block modal-body %}
+
+  <!-- así debería quedar -->
+    <div class="form-group ">
+        <label class="control-label  " for="id_username">Nombre de usuario</label>
+      
+	    <input autofocus="autofocus" class="form-control" id="id_username" name="username" type="text">
+	</div> 
+	<div class="form-group ">
+        <label class="control-label  " for="id_email">Email</label>
+      
+	    <input autofocus="autofocus" class="form-control" id="id_email" name="username" type="text">
+	</div> 
+	<div class="form-group ">
+        <label class="control-label  " for="id_password1">Password</label>
+      
+	    <input autofocus="autofocus" class="form-control" id="id_password1" name="username" type="text">
+	</div>  
+		<div class="form-group ">
+        <label class="control-label  " for="id_password2">Password</label>
+      
+	    <input autofocus="autofocus" class="form-control" id="id_password2" name="username" type="text">
+	</div>   
+
+	<!-- así debería quedar -->
+
     <form action="" method="post">
     {% csrf_token %}
     {{ form }}
