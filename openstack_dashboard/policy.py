@@ -90,7 +90,7 @@ def check(actions, request, target={}):
     :param target: dictionary representing the object of the action
                       for object creation this should be a dictionary
                       representing the location of the object e.g.
-                      {'tenant_id': object.tenant_id}
+                      {'project_id': object.project_id}
     :returns: boolean if the user has permission or not for the actions.
     """
     user = auth_utils.get_user(request)
