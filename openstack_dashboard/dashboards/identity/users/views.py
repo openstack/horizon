@@ -103,7 +103,7 @@ class UpdateView(forms.ModalFormView):
         if api.keystone.VERSIONS.active >= 3:
             try:
                 domain = api.keystone.domain_get(self.request,
-                                                    domain_id)
+                                                 domain_id)
                 domain_name = domain.name
             except Exception:
                 exceptions.handle(self.request,
