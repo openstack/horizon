@@ -210,14 +210,14 @@ $dropdown-caret-color:           #000 !default;
 //##
 
 // Basics of a navbar
-$navbar-height:                    45px !default;
+$navbar-height:                    42px !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        0 !default;
 $navbar-padding-vertical:          3px !default;
 $navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             #777 !default;
-$navbar-default-bg:                #f1f1f2 !default;
+$navbar-default-bg:                $white !default;
 $navbar-default-border:            darken($navbar-default-bg, 5%) !default;
 
 // Navbar links
