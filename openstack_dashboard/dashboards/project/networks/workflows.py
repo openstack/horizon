@@ -121,6 +121,8 @@ class CreateSubnetInfoAction(workflows.Action):
         mask=False)
     no_gateway = forms.BooleanField(label=_("Disable Gateway"),
                                     initial=False, required=False)
+    msg = _('Specify "Network Address" or '
+            'clear "Create Subnet" checkbox.')
 
     class Meta:
         name = _("Subnet")
@@ -143,9 +145,7 @@ class CreateSubnetInfoAction(workflows.Action):
         gateway_ip = cleaned_data.get('gateway_ip')
         no_gateway = cleaned_data.get('no_gateway')
         if not cidr:
-            msg = _('Specify "Network Address" or '
-                    'clear "Create Subnet" checkbox.')
-            raise forms.ValidationError(msg)
+            raise forms.ValidationError(self.msg)
         if cidr:
             subnet = netaddr.IPNetwork(cidr)
             if subnet.version != ip_version:
