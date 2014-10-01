@@ -149,7 +149,7 @@ class AdminInstancesTable(tables.DataTable):
                           filters=(title, filters.replace_underscores),
                           verbose_name=_("Power State"))
     created = tables.Column("created",
-                            verbose_name=_("Uptime"),
+                            verbose_name=_("Time since created"),
                             filters=(filters.parse_isotime,
                                      filters.timesince_sortable),
                             attrs={'data-type': 'timesince'})
