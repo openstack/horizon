@@ -16,6 +16,7 @@ from openstack_dashboard.test.integration_tests import basewebobject
 
 class BaseRegion(basewebobject.BaseWebObject):
     """Base class for region module
+
     * there is necessity to override some basic methods for obtaining elements
       as in content of regions it is required to do relative searches
 
@@ -24,12 +25,21 @@ class BaseRegion(basewebobject.BaseWebObject):
       src_elem is WebElement its usage is different.
 
     * this does not mean that self.src_elem cannot be self.driver
-      """
+    """
+
+    _default_src_locator = None
 
     # private methods
     def __init__(self, driver, conf, src_elem=None):
         super(BaseRegion, self).__init__(driver, conf)
+        if src_elem is None and self._default_src_locator:
+            # fake self.src_elem must be set up in
+            # order self._get_element work
+            self.src_elem = driver
+            src_elem = self._get_element(*self._default_src_locator)
+
         self.src_elem = src_elem or driver
+
         # variable for storing names of dynamic properties and
         # associated 'getters' - meaning method that are supplying
         # regions or web elements
