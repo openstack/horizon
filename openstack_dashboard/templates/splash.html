@@ -1,0 +1,26 @@
+{% load i18n branding %}
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+{% include "horizon/_custom_meta.html" %}
+<title>{% trans "Login" %} - {% site_branding %}</title>
+{% include "_stylesheets.html" %}
+{% include "_custom_head_js.html" %}
+<!-- icons -->
+<link rel="shortcut icon" href="{{ STATIC_URL }}dashboard/img/icons/favicon.ico"/>
+<link rel="apple-touch-icon" href="{{ STATIC_URL }}dashboard/img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}dashboard/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}dashboard/img/icons/apple-touch-icon-114x114.png">
+</head>
+<body id="splash">
+{% include '_header.html' %}
+<div id="frontpage" class="container-fluid wrap">
+<div class="row">
+{% include 'auth/_presentation.html' %}
+{% include 'auth/_login.html' %}
+</div>
+</div>
+{% include '_footer.html' %}
+</body>
+</html>
