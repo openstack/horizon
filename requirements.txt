@@ -47,6 +47,7 @@ xstatic-jquery>=1.7.2  # MIT License
 xstatic-jquery-migrate>=1.2.1.1  # MIT License
 xstatic-jquery.quicksearch>=2.0.3.1  # MIT License
 xstatic-jquery.tablesorter>=2.0.5b.0  # MIT License
+xstatic-jquery-ui>=1.10.1  # MIT License
 xstatic-jsencrypt>=2.0.0.2  # MIT License
 xstatic-qunit>=1.14.0.2  # MIT License
 xstatic-rickshaw>=1.5.0  # BSD License (prior)
