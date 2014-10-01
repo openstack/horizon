@@ -1,5 +1,10 @@
 .form-control {
   height: 33px;
+  box-shadow: none;
+  background-color: #f1f1f2;
+  @include border-top-radius (0);
+  @include border-bottom-radius (0);
+  border: 1px solid #f1f1f2;
 }
 
 .table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
