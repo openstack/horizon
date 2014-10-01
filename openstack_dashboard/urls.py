@@ -26,12 +26,13 @@ from django.conf.urls import patterns
 from django.conf.urls.static import static  # noqa
 from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
+from openstack_auth.views import login
 
 import horizon
 
 
 urlpatterns = patterns('',
-    url(r'^$', 'openstack_dashboard.views.splash', name='splash'),
+    url(r'^$', login , name='splash'),
     url(r'^auth/', include('openstack_auth.urls')),
     url(r'', include(horizon.urls)),
     url(r'',include('fiware_auth.urls'))
