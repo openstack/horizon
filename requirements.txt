@@ -8,6 +8,7 @@ kombu>=2.4.8
 lesscpy>=0.9j
 iso8601>=0.1.8
 netaddr
+oslo.i18n
 python-cinderclient>=1.0.6
 python-glanceclient>=0.9.0
 python-heatclient>=0.2.3
