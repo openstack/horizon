@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 22:50-0500\n"
-"PO-Revision-Date: 2014-09-29 13:31+0000\n"
-"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
+"POT-Creation-Date: 2014-09-30 16:19-0500\n"
+"PO-Revision-Date: 2014-09-30 10:20+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,15 +62,15 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:283
+#: settings.py:284
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:289
+#: settings.py:290
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:295
+#: settings.py:296
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -326,16 +326,26 @@ msgstr "Neutron に接続できません。"
 msgid "Unable to parse IP address %s."
 msgstr "IPアドレス %s のパースに失敗しました。"
 
-#: api/neutron.py:958
+#. Translators: Only used inside Horizon code and invisible to users
+#: api/neutron.py:993
 #, python-format
 msgid ""
-"The 'operation' parameter for get_dvr_permission is invalid. It should be "
-"one of %s"
-msgstr "get_dvr_permission の 'operation' パラメーターが無効です。 %s のいずれかでなければいけません。"
+"The requested feature '%(feature)s' is unknown. Please make sure to specify "
+"a feature defined in FEATURE_MAP."
+msgstr "要求された機能 \"'%(feature)s' が不明です。FEATURE_MAP で定義されている機能名を指定してください。"
 
-#: api/neutron.py:971
-msgid "Failed to check Neutron \"dvr\" extension is not supported"
-msgstr "Neutron が \"dvr\" 拡張に対応しているか確認できませんでした"
+#. Translators: Only used inside Horizon code and invisible to users
+#: api/neutron.py:1011
+#, python-format
+msgid ""
+"The 'operation' parameter for get_feature_permission '%(feature)s' is "
+"invalid. It should be one of %(allowed)s"
+msgstr "get_dvr_permission '%(feature)s' の 'operation' パラメーターが無効です。 %(allowed)s のいずれかでなければいけません。"
+
+#: api/neutron.py:1026
+#, python-format
+msgid "Failed to check Neutron '%s' extension is not supported"
+msgstr "Neutron が '%s' 拡張に対応しているか確認できませんでした。"
 
 #: api/nova.py:211
 #, python-format
@@ -481,7 +491,7 @@ msgstr "管理"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
-#: dashboards/project/routers/forms.py:73
+#: dashboards/project/routers/forms.py:85
 #: dashboards/project/routers/tables.py:165
 #: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
@@ -1118,7 +1128,7 @@ msgstr "スワップディスク"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/ports/_update.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
-#: dashboards/project/routers/forms.py:77
+#: dashboards/project/routers/forms.py:89
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
@@ -2466,7 +2476,7 @@ msgstr "セグメント ID"
 #: dashboards/project/networks/ports/tables.py:61
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
-#: dashboards/project/routers/forms.py:76
+#: dashboards/project/routers/forms.py:88
 #: dashboards/project/routers/ports/tables.py:102
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/vpn/forms.py:41 dashboards/project/vpn/forms.py:263
@@ -2495,7 +2505,7 @@ msgstr "共有"
 #: dashboards/admin/networks/forms.py:81
 #: dashboards/admin/networks/forms.py:240
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:175
+#: dashboards/project/routers/tables.py:179
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "外部ネットワーク"
@@ -3066,7 +3076,7 @@ msgstr "監視"
 #: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:191
+#: dashboards/project/routers/tables.py:197
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
@@ -3192,21 +3202,28 @@ msgid "Project ID"
 msgstr "プロジェクト ID"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:18
-#: dashboards/project/routers/forms.py:46
-#: dashboards/project/routers/forms.py:92
-#: dashboards/project/routers/forms.py:98
+#: dashboards/project/routers/forms.py:47
+#: dashboards/project/routers/forms.py:105
+#: dashboards/project/routers/forms.py:111
 #: dashboards/project/routers/tables.py:173
 #: dashboards/project/routers/templates/routers/_detail_overview.html:16
 msgid "Distributed"
 msgstr "分散ルータ"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:22
+#: dashboards/project/routers/forms.py:37
+#: dashboards/project/routers/forms.py:92
 #: dashboards/project/routers/templates/routers/_detail_overview.html:20
+msgid "High Availability Mode"
+msgstr "高可用性（HA）モード"
+
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:26
+#: dashboards/project/routers/templates/routers/_detail_overview.html:24
 msgid "External Gateway Information"
 msgstr "外部ゲートウェイの情報"
 
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:23
-#: dashboards/project/routers/templates/routers/_detail_overview.html:21
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:27
+#: dashboards/project/routers/templates/routers/_detail_overview.html:25
 msgid "Connected External Network"
 msgstr "接続された外部ネットワーク"
 
@@ -4718,7 +4735,7 @@ msgstr "アクセスとセキュリティ"
 
 #: dashboards/project/access_and_security/tabs.py:57
 #: dashboards/project/access_and_security/security_groups/views.py:120
-#: usage/base.py:109
+#: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr "セキュリティグループの一覧を取得できません。"
 
@@ -4728,7 +4745,7 @@ msgstr "キーペアの一覧を取得できません。"
 
 #: dashboards/project/access_and_security/tabs.py:94
 #: dashboards/project/access_and_security/floating_ips/workflows.py:71
-#: usage/base.py:104
+#: usage/base.py:111
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Floating IP アドレスを取得できません。"
 
@@ -9710,7 +9727,7 @@ msgstr "すべてのアベイラビリティゾーン"
 
 #: dashboards/project/instances/workflows/create_instance.py:350
 #: dashboards/project/instances/workflows/resize_instance.py:76
-#: usage/base.py:230
+#: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "クォータ情報を取得できません。"
 
@@ -11196,39 +11213,48 @@ msgid "Router Name"
 msgstr "ルーター名"
 
 #: dashboards/project/routers/forms.py:36
-#: dashboards/project/routers/forms.py:79
+#: dashboards/project/routers/forms.py:91
 msgid "Router Type"
 msgstr "ルーター種別"
 
-#: dashboards/project/routers/forms.py:44
+#: dashboards/project/routers/forms.py:45
+#: dashboards/project/routers/forms.py:55
 msgid "Use Server Default"
 msgstr "デフォルト設定を使用"
 
-#: dashboards/project/routers/forms.py:45
-#: dashboards/project/routers/forms.py:97
+#: dashboards/project/routers/forms.py:46
+#: dashboards/project/routers/forms.py:110
 msgid "Centralized"
 msgstr "集中ルータ"
 
-#: dashboards/project/routers/forms.py:58
+#: dashboards/project/routers/forms.py:56
+msgid "Enable HA mode"
+msgstr "HA モード有効"
+
+#: dashboards/project/routers/forms.py:57
+msgid "Disable HA mode"
+msgstr "HA モード無効"
+
+#: dashboards/project/routers/forms.py:70
 #, python-format
 msgid "Router %s was successfully created."
 msgstr "ルーター %s が正常に作成されました。"
 
-#: dashboards/project/routers/forms.py:63
+#: dashboards/project/routers/forms.py:75
 msgid "Quota exceeded for resource router."
 msgstr "ルーターのクォータを超過しました。"
 
-#: dashboards/project/routers/forms.py:65
+#: dashboards/project/routers/forms.py:77
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "ルーター \"%s\" を作成できません。"
 
-#: dashboards/project/routers/forms.py:109
+#: dashboards/project/routers/forms.py:129
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "ルーター %s が正常に更新されました。"
 
-#: dashboards/project/routers/forms.py:114
+#: dashboards/project/routers/forms.py:134
 #, python-format
 msgid "Failed to update router %s"
 msgstr "ルーター %s の更新に失敗しました。"
@@ -11260,20 +11286,25 @@ msgstr "ゲートウェイの設定"
 #: dashboards/project/routers/tables.py:108
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
-msgstr[0] "ゲートウェイの解除"
+msgstr[0] "ゲートウェイの削除"
 
 #: dashboards/project/routers/tables.py:116
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
-msgstr[0] "ゲートウェイを解除しました"
+msgstr[0] "ゲートウェイを削除しました"
 
 #: dashboards/project/routers/tables.py:132
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "ルーター \"%(name)s\" のゲートウェイを削除できません: \"%(msg)s\""
 
+#. Translators: High Availability mode of Neutron router
+#: dashboards/project/routers/tables.py:177
+msgid "HA mode"
+msgstr "HA モード"
+
 #: dashboards/project/routers/tabs.py:54
-#: dashboards/project/routers/views.py:161
+#: dashboards/project/routers/views.py:163
 msgid "Unable to retrieve router details."
 msgstr "ルーターの詳細を取得できません。"
 
@@ -13550,28 +13581,28 @@ msgstr "リージョン:"
 msgid "Invalid date format: Using today as default."
 msgstr "不正な日付の形式です。デフォルト値として今日の日付を使用します。"
 
-#: usage/base.py:164
+#: usage/base.py:171
 msgid "Unable to retrieve network quota information."
 msgstr "ネットワークのクォータ情報を取得できません。"
 
-#: usage/base.py:179 usage/quotas.py:292
+#: usage/base.py:186 usage/quotas.py:292
 msgid "Unable to retrieve volume limit information."
 msgstr "ボリュームのリソース上限情報を取得できません。"
 
-#: usage/base.py:189
+#: usage/base.py:196
 msgid "Unable to retrieve limit information."
 msgstr "リソース上限情報を取得できません。"
 
-#: usage/base.py:209 usage/views.py:54
+#: usage/base.py:216 usage/views.py:54
 msgid "Unable to retrieve usage information."
 msgstr "使用状況を取得できません。"
 
-#: usage/base.py:212
+#: usage/base.py:219
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr "指定された期間が不正です。終了日は開始日より後でなければなりません。"
 
-#: usage/base.py:216
+#: usage/base.py:223
 msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
