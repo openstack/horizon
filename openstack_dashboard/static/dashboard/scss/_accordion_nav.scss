@@ -1,100 +1,103 @@
-$accordionBorderColor: #e5e5e5;
+$accordionBorderColor: #aeb0b2;
+
+@mixin sidebar_toggle_icon {
+  & > span {
+    transition: all .3s ease 0s;
+    @extend .glyphicon-chevron-down;
+    &:before {
+      font-size: .6em;
+      line-height: 18px;
+      vertical-align: middle;
+    }
+  }
+  &.active > span {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+  }
+}
 
 .nav_accordion {
   color: #6e6e6e;
   margin: 0px 0px;
   dt, dd {
-    padding: 10px 0 10px 0;
     line-height: 18px;
     h4 {
-      border: 1px solid #bbbbbb;
-      border-right: 0;
-      border-bottom: 0;
-      background-color: #f0f0f0;
-      background-repeat: no-repeat;
-      background-position: 96% center;
-      background-image: url("../img/right_droparrow.png");
-      padding: 10px 0 10px 0;
-      line-height: 16px;
-      margin-top: 0;
-      margin-bottom: 0;
+      padding: .5em 0 .3em 0;
+      margin: 0 1.2em .5em 1.2em;
+      border-bottom: 3px solid #c0c1c2;
+      font-size: $font-size-base;
+      line-height: $line-height-base;
       color: #6e6e6e;
       font-weight: bold;
       text-rendering: optimizelegibility;
-      max-width: 217px;
-      padding-right: 16px;
       cursor: pointer;
-      div {
-        color: #6e6e6e;
-        font-size: 14px;
-        margin: 0 0 0 14px;
-        display: block;
-        font-weight: bold;
-        outline: none;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 177px; } }
-    h4.active {
-      border-bottom: 1px solid #bbbbbb;
-      background-image: url("../img/drop_arrow.png"); }
-    a {
-      color: #6e6e6e;
-      font-size: 16px;
-      margin: 0 0 0 14px;
-      padding: 0;
-      display: block;
-      font-weight: bold;
-      outline: none;
-      text-decoration: none; }
+      @include sidebar_toggle_icon();
+      transition: all .3s ease 0s;
+      &:hover{
+        border-color: darken(#c0c1c2, 10%)
+      }
+    }
     ul {
       list-style: none outside none;
-      margin: 10px 0 0;
+      margin: 0;
       padding: 0;
-      width: 222px; }
+    }
     li {
+      &:not(:first-child) a {
+        margin-top: .2em;
+      }
+      &:not(:last-child) a {
+        margin-bottom: .2em;
+      }
       a {
-        width: 209px;
-        padding: 10px;
+        color: #6e6e6e;
+        padding: .7em 1.2em;
+        outline: none;
+        text-decoration: none;
         display: block;
-        line-height: 18px;
-        margin-left: 20px;
-        font-weight: normal;
-        font-size: 13px; }
-      a.active {
-        background: white;
-        border-top: 2px solid $accordionBorderColor;
-        border-left: 4px solid #d93c27;
-        border-bottom: 2px solid $accordionBorderColor;
-        margin-left: 19px;
-        border-radius: 5px 0 0 5px; }
-      a:last-child {
-        margin-bottom: 8px; } } }
+        font-size: 1.2em;
+        text-align: right;
+        transition: all .3s ease 0s;
+        &.active, &:hover {
+          color: #d93c27;
+        }
+        &.active {
+          background: white;
+          border-top: 1px solid $accordionBorderColor;
+          border-left: 4px solid #d93c27;
+          border-bottom: 1px solid $accordionBorderColor;
+          -webkit-box-shadow: -3px 2px 6px -3px #C7C7C7;
+          box-shadow: -3px 3px 6px -3px #C7C7C7;
+        }
+      }
+    }
+  }
   dd {
     padding: 0;
-    margin-left: 9px;
-    font-size: 12px; }
+    border-bottom: 1px solid #bbbbbb;
+    div {
+      &:first-child h4 {
+        margin-top: .5em;
+      }
+      &:last-child h4:not(.active) {
+        margin-bottom: 1em;
+      }
+    }
+  }
   dt {
-    border-top: 1px solid #bbbbbb;
-    background-color: $accordionBorderColor;
-    background-repeat: no-repeat;
-    background-position: 96% center;
-    background-image: url("../img/right_droparrow.png");
-    padding-right: 16px;
+    &:first-child { border-top: 1px solid #bbbbbb; }
+    border-bottom: 1px solid #bbbbbb;
+    padding: .5em 1.2em;
     max-width: 231px;
     cursor: pointer;
-    div {
-      color: #6e6e6e;
-      font-size: 14px;
-      margin: 0 0 0 14px;
-      padding: 0;
-      font-weight: bold;
-      outline: none;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 201px; } }
-  dt.active {
-    background-image: url("../img/drop_arrow.png"); }
-  dt:first-child {
-    border-top: 0; }
-  dt a {
-    text-decoration: none; } }
+    @include sidebar_toggle_icon();
+    transition: all .3s ease 0s;
+    &.active {
+      background-color: #e3e4e6;
+    }
+    &:hover{
+      background-color: darken(#e3e4e6, 3%)
+    }
+  }
+}
