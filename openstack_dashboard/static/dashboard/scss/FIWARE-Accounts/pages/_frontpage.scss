@@ -1,14 +1,3 @@
-#frontpage, 
-#registration{
-  .row{
-    @media (max-width: $screen-sm-min){
-      margin: 0px !important;
-      .help-box{
-        padding: 0 !important;
-      }
-    }
-  }
-}
 .presentation{
   @include make-xs-column(12, $gutter: $grid-gutter-width);
   @include make-sm-column(5, $gutter: $grid-gutter-width);

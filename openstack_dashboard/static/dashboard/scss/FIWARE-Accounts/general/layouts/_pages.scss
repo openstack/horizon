@@ -1,0 +1,12 @@
+#frontpage, 
+#registration,
+#home{
+  .row{
+    @media (max-width: $screen-sm-min){
+      margin: 0px !important;
+      .help-box{
+        padding: 0 !important;
+      }
+    }
+  }
+}

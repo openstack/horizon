@@ -5,10 +5,10 @@
 {% block form_id %}change_password_modal{% endblock %}
 {% block form_action %}{% url 'horizon:settings:password:index' %}{% endblock %}
 
-{% block modal_id %}change_password_modal{% endblock %}
-{% block modal-header %}{% trans "Change Password" %}{% endblock %}
+{% block modal_id panel_class s%}change_password_modal{% endblock %}
+{% block panel-header %}{% trans "Change Password" %}{% endblock %}
 
-{% block modal-body %}
+{% block panel-body %}
 <div class="left">
   <fieldset>
     {% include "horizon/common/_form_fields.html" %}
@@ -20,7 +20,7 @@
 </div>
 {% endblock %}
 
-{% block modal-footer %}
+{% block panel-footer %}
     <button type="submit" class="btn btn-primary">{% trans "Change" %}</button>
     {% if hide %}<a href="{% url 'horizon:settings:password:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
 {% endblock %}

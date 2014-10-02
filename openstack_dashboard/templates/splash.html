@@ -24,6 +24,9 @@
           {% include 'auth/_login.html' %}
       </div>
     </div>
+    {% block js %}
+      {% include "horizon/_scripts.html" %}
+    {% endblock %}
     {% include '_footer.html' %}
   </body>
 </html>
