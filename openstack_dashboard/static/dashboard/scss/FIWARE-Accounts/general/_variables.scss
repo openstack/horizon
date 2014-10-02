@@ -9,7 +9,7 @@ $gray-darker: #222222 !default;
 $gray-dark: #333333 !default;
 $gray: #8c8c8c !default;
 $gray-light: #c2c2c2 !default;
-$gray-lighter: #e2e2e2 !default;
+$gray-lighter: #f1f1f2 !default;
 $white: #fff !default;
 
 $brand-primary: #193B6B !default;
@@ -210,14 +210,14 @@ $dropdown-caret-color:           #000 !default;
 //##
 
 // Basics of a navbar
-$navbar-height:                    42px !default;
+$navbar-height:                    45px !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        0 !default;
 $navbar-padding-vertical:          3px !default;
 $navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             #777 !default;
-$navbar-default-bg:                $white !default;
+$navbar-default-bg:                $gray-lighter !default;
 $navbar-default-border:            darken($navbar-default-bg, 5%) !default;
 
 // Navbar links
