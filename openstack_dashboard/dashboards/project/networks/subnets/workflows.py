@@ -32,6 +32,7 @@ LOG = logging.getLogger(__name__)
 class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
     with_subnet = forms.BooleanField(initial=True, required=False,
                                      widget=forms.HiddenInput())
+    msg = _('Specify "Network Address"')
 
     class Meta:
         name = _("Subnet")
