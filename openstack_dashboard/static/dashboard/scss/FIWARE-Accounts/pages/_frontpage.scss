@@ -13,7 +13,7 @@
     font-size: 12px;
   }
   .media{
-    background-color: #f1f1f2;
+    background-color: #EBEBEB;
     font-size: 12px;
     margin-top: 0px;
     padding: 15px;
@@ -57,7 +57,7 @@
 
   div{
     padding: 5px 10px;
-    background-color: #f1f1f2;
+    background-color: rgba(235, 235, 235, 0.91);
   }
   header{
     padding: 5px 10px 4px 10px;
@@ -130,8 +130,6 @@
   @include make-md-column-offset(1);
   @include make-lg-column-offset(1);
   @extend .well;
-  @include border-top-radius (0);
-  @include border-bottom-radius (0);
   @media (max-width: $screen-sm-min){
     margin-top: 40px; 
   }
@@ -157,13 +155,10 @@
     a{
       border-right: 1px solid $gray-lighter;
       padding-right: 6px;
-      padding-left: 10px;
       font-size: 12px;
-      &:first-child{
-        padding-left: 0px;
-      }
       &:last-child{
         border-right: none;
+        margin-left: 9px;
       }
     }
   }
