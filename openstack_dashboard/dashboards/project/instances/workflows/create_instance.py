@@ -677,6 +677,7 @@ class SetNetworkAction(workflows.Action):
             for n in networks:
                 n.set_id_as_name_if_empty()
                 network_list.append((n.id, n.name))
+            sorted(network_list, key=lambda obj: obj[1])
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve networks.'))
