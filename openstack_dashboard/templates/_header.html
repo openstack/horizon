@@ -86,13 +86,14 @@
         <div id="user_info" class="pull-right">
           <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
             <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
+              <img alt="User" src="/assets/logos/small/user.png">
               <div>{{ request.user.username }}</div>
             </a>
-            <ul id="editor_list" class="dropdown-menu">
-              <li class='divider'></li>
+            <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
               <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
               {% if HORIZON_CONFIG.help_url %}
-              <li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>
+              <!--<li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>-->
+              <li class="divider"></li>
               <li><a href="{% url 'logout' %}">{% trans "Sign Out" %}</a></li>
               {% endif %}
             </ul>

@@ -1,16 +1,13 @@
 #home{
-  @include make-xs-column(12, $gutter: $grid-gutter-width);
   @include make-sm-column(10, $gutter: $grid-gutter-width);
   @include make-md-column(10, $gutter: $grid-gutter-width);
   @include make-lg-column(10, $gutter: $grid-gutter-width);
-  .tenants{
-    @include make-xs-column(12, $gutter: $grid-gutter-width);
-    @include make-sm-column(7, $gutter: $grid-gutter-width);
-    @include make-md-column(7, $gutter: $grid-gutter-width);
-    @include make-lg-column(7, $gutter: $grid-gutter-width);
+  #applications-box{
+    @include make-sm-column(6, $gutter: $grid-gutter-width);
+    @include make-md-column(6, $gutter: $grid-gutter-width);
+    @include make-lg-column(6, $gutter: $grid-gutter-width);
   }
-  .applications{
-    @include make-xs-column(12, $gutter: $grid-gutter-width);
+  #tenants-box{
     @include make-sm-column(4, $gutter: $grid-gutter-width);
     @include make-md-column(4, $gutter: $grid-gutter-width);
     @include make-lg-column(4, $gutter: $grid-gutter-width);

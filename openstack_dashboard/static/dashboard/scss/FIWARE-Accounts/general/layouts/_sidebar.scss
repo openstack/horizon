@@ -1,11 +1,126 @@
 /* Sidebar
 -------------------------------------------------- */
-.sidebar
-  width: 17%
-  float: left
-  margin-left: 0
-  h5
-    @extend .hidden-tablet
-  h5.tablet
-    @extend .visible-tablet
- 
+.sidebar{
+  @include make-sm-column(2, $gutter: $grid-gutter-width);
+  @include make-md-column(2, $gutter: $grid-gutter-width);
+  @include make-lg-column(2, $gutter: $grid-gutter-width);
+
+
+
+
+  ul{
+    margin-left: -3px;
+    li{
+      a{
+        color: #8c8c8c;
+      }
+      &:hover{
+        a{
+          color: $brand-secundary;
+        }
+      }
+      h2{
+        display: inline;
+        font-size: 15px;
+        margin-left: 12px;
+        line-height: 42px;
+        vertical-align: text-top;
+        a{
+          text-decoration: none;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    li.home{
+      &:hover{
+        .icon_menu-20-home{
+          background-position: -88px -10px;
+        }
+      }
+    }
+    .home.active{
+      .icon_menu-20-home{
+        background-position: -51px -10px;
+      }
+    }
+    li.organizations,
+    li.members{
+      &:hover{
+        .icon_menu-20-organizations{
+          background-position: -88px -45px;
+        }
+        .icon_menu-20-members{
+          background-position: -88px -45px;
+        }
+      }
+    }
+    .members.active,     
+    .organizations.active{
+      .icon_menu-20-organizations{
+        background-position: -51px -45px;
+      }
+      .icon_menu-20-members{
+        background-position: -51px -45px;
+      }
+    }
+
+    li.my-applications{
+      &:hover{
+        .icon_menu-20-my-applications{
+          background-position: -88px -80px;
+        }
+      }
+      a {
+        @include text-overflow;
+      }
+    }
+    .my-applications.active{
+      .icon_menu-20-my-applications{
+        background-position: -51px -80px;
+      }
+    }
+    .administrators.active{
+      .icon_menu-20-administrators{
+        background-position: -51px -150px;
+      }
+    }
+    li.administrators{
+      &:hover{
+        .icon_menu-20-administrators{
+          background-position: -88px -150px;
+        }
+      }
+    }
+
+   
+    .notify.active{
+      .icon_menu-20-notify{
+        background-position: -51px -116px;
+      }
+    }
+
+    li.notify{
+      &:hover{
+        .icon_menu-20-notify{
+          background-position: -88px -116px;
+        }
+      }
+    }
+
+    li.active{
+      a{
+        color: $brand-primary;
+      }
+      &:hover{
+        a{
+          color: $brand-secundary;
+        }
+      }
+    }
+
+    .soften{
+      margin: 10px 0;}
+  }
+}

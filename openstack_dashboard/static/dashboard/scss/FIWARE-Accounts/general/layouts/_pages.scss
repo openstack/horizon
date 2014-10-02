@@ -10,3 +10,10 @@
     }
   }
 }
+
+#content_body{
+  @include make-sm-column(10, $gutter: $grid-gutter-width);
+  @include make-md-column(9, $gutter: $grid-gutter-width);
+  @include make-lg-column(9, $gutter: $grid-gutter-width);
+
+}

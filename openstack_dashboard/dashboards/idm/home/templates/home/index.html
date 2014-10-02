@@ -7,17 +7,14 @@
 {% endblock page_header %}
 
 {% block main %}
-    <div id="home" class="container-fluid wrap">
-        <div class="row">
-			<div id="tenants">
-				{{ tenants_table.render }}	
-			</div>
-
-			<div id="applications">
-				{{ applications_table.render}}
-			</div>
-		</div>
-	</div>
+  <div id="home">
+    <div id="applications-box">
+      {{ applications_table.render}}
+    </div>
+      <div id="tenants-box">
+      {{ tenants_table.render }}  
+    </div>
+  </div>
 {% endblock %}
 
 
