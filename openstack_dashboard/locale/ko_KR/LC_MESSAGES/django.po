@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 16:19-0500\n"
-"PO-Revision-Date: 2014-09-30 09:56+0000\n"
+"POT-Creation-Date: 2014-10-02 00:15-0500\n"
+"PO-Revision-Date: 2014-10-02 05:39+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,55 +21,55 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:101
+#: settings.py:103
 msgid "Select format"
 msgstr "포맷 선택"
 
-#: settings.py:102
+#: settings.py:104
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:103
+#: settings.py:105
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:104
+#: settings.py:106
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:105
+#: settings.py:107
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:106
+#: settings.py:108
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:107
+#: settings.py:109
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:108
+#: settings.py:110
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:109
+#: settings.py:111
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:110
+#: settings.py:112
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:284
+#: settings.py:298
 msgid "All TCP"
 msgstr "모든 TCP"
 
-#: settings.py:290
+#: settings.py:304
 msgid "All UDP"
 msgstr "모든 UDP"
 
-#: settings.py:296
+#: settings.py:310
 msgid "All ICMP"
 msgstr "모든 ICMP"
 
@@ -376,12 +376,12 @@ msgstr "%(num_groups_to_modify)d 인스턴스 시큐리티 그룹 수정에 실�
 msgid "Failed to modify %d instance security groups"
 msgstr "%d 인스턴스 시큐리티 그룹을 수정하지 못하였습니다."
 
-#: api/nova.py:748
+#: api/nova.py:752
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "이름: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:753
+#: api/nova.py:757
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "인스턴스를 철수하는데 실패했습니다: %s"
@@ -996,6 +996,230 @@ msgstr "집계 메타데이타 업데이트"
 msgid "Manage Hosts Aggregate"
 msgstr "호스트 합계 관리"
 
+#: dashboards/admin/defaults/panel.py:23
+#: dashboards/admin/defaults/templates/defaults/index.html:3
+#: dashboards/admin/defaults/templates/defaults/index.html:6
+msgid "Defaults"
+msgstr "기본"
+
+#: dashboards/admin/defaults/tables.py:34
+#: dashboards/admin/defaults/workflows.py:80
+msgid "Update Defaults"
+msgstr "업데이트 기본"
+
+#: dashboards/admin/defaults/tables.py:41
+#: dashboards/admin/defaults/workflows.py:31 usage/quotas.py:66
+msgid "Injected File Content Bytes"
+msgstr "첨부한 파일 콘텐츠 바이트"
+
+#: dashboards/admin/defaults/tables.py:42
+#: dashboards/admin/defaults/workflows.py:32
+msgid "Length of Injected File Path"
+msgstr "첨부한 파일 위치에 대한 길이"
+
+#: dashboards/admin/defaults/tables.py:43
+#: dashboards/admin/defaults/workflows.py:36
+#: dashboards/identity/projects/workflows.py:46 usage/quotas.py:62
+msgid "Metadata Items"
+msgstr "Metadata 항목"
+
+#: dashboards/admin/defaults/tables.py:44
+#: dashboards/admin/defaults/workflows.py:47
+#: dashboards/admin/flavors/tables.py:122
+#: dashboards/admin/flavors/workflows.py:46
+#: dashboards/admin/overview/views.py:33
+#: dashboards/identity/projects/workflows.py:47
+#: dashboards/project/instances/templates/instances/_detail_overview.html:50
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:4
+#: dashboards/project/overview/views.py:32 usage/quotas.py:63
+#: usage/tables.py:33
+msgid "VCPUs"
+msgstr "VCPUs"
+
+#: dashboards/admin/defaults/tables.py:45
+#: dashboards/admin/defaults/workflows.py:42
+#: dashboards/admin/hypervisors/tables.py:57
+#: dashboards/admin/instances/panel.py:27
+#: dashboards/admin/instances/tables.py:37
+#: dashboards/admin/instances/tables.py:159
+#: dashboards/admin/instances/templates/instances/index.html:3
+#: dashboards/identity/projects/workflows.py:48
+#: dashboards/project/data_processing/clusters/tabs.py:149
+#: dashboards/project/databases/panel.py:23
+#: dashboards/project/databases/tables.py:37
+#: dashboards/project/databases/tables.py:50
+#: dashboards/project/databases/tables.py:219
+#: dashboards/project/databases/templates/databases/index.html:3
+#: dashboards/project/databases/templates/databases/index.html:6
+#: dashboards/project/instances/panel.py:23
+#: dashboards/project/instances/tables.py:921
+#: dashboards/project/instances/templates/instances/index.html:3
+#: dashboards/project/instances/templates/instances/index.html:6
+#: dashboards/project/network_topology/instances/tables.py:23
+#: usage/quotas.py:64
+msgid "Instances"
+msgstr "인스턴스"
+
+#: dashboards/admin/defaults/tables.py:46
+#: dashboards/admin/defaults/workflows.py:46
+#: dashboards/identity/projects/workflows.py:50 usage/quotas.py:65
+msgid "Injected Files"
+msgstr "첨부한 파일"
+
+#: dashboards/admin/defaults/tables.py:47
+#: dashboards/admin/defaults/workflows.py:53
+#: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:35
+#: dashboards/admin/volumes/templates/volumes/index.html:3
+#: dashboards/admin/volumes/templates/volumes/index.html:6
+#: dashboards/admin/volumes/volumes/tables.py:48
+#: dashboards/identity/projects/workflows.py:53
+#: dashboards/project/volumes/panel.py:23
+#: dashboards/project/volumes/tabs.py:62
+#: dashboards/project/volumes/templates/volumes/index.html:3
+#: dashboards/project/volumes/templates/volumes/index.html:6
+#: dashboards/project/volumes/volumes/tables.py:371
+#: dashboards/project/volumes/volumes/tables.py:385 usage/quotas.py:74
+msgid "Volumes"
+msgstr "볼륨"
+
+#: dashboards/admin/defaults/tables.py:48
+#: dashboards/admin/defaults/workflows.py:52
+#: dashboards/admin/volumes/tabs.py:93
+#: dashboards/admin/volumes/snapshots/tables.py:68
+#: dashboards/identity/projects/workflows.py:54
+#: dashboards/project/volumes/tabs.py:76
+#: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
+msgid "Volume Snapshots"
+msgstr "볼륨 스냅샷"
+
+#: dashboards/admin/defaults/tables.py:49
+#: dashboards/admin/defaults/workflows.py:51
+#: dashboards/identity/projects/workflows.py:56 usage/quotas.py:76
+msgid "Total Size of Volumes and Snapshots (GB)"
+msgstr "볼륨 및 스냅샷 총량 (GB)"
+
+#: dashboards/admin/defaults/tables.py:50
+#: dashboards/admin/defaults/workflows.py:37
+#: dashboards/admin/flavors/workflows.py:48
+#: dashboards/admin/overview/views.py:33
+#: dashboards/identity/projects/workflows.py:57
+#: dashboards/project/overview/views.py:32 usage/quotas.py:67
+msgid "RAM (MB)"
+msgstr "RAM (MB)"
+
+#: dashboards/admin/defaults/tables.py:51
+#: dashboards/admin/defaults/workflows.py:38
+#: dashboards/identity/projects/workflows.py:58
+#: dashboards/identity/projects/workflows.py:70
+#: dashboards/project/access_and_security/tabs.py:80
+#: dashboards/project/access_and_security/floating_ips/tables.py:197
+#: usage/quotas.py:68 usage/quotas.py:81
+msgid "Floating IPs"
+msgstr "유동 IP"
+
+#: dashboards/admin/defaults/tables.py:52
+#: dashboards/admin/defaults/workflows.py:49
+#: dashboards/identity/projects/workflows.py:61
+#: dashboards/identity/projects/workflows.py:67
+#: dashboards/project/access_and_security/tabs.py:43
+#: dashboards/project/access_and_security/security_groups/tables.py:130
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:24
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
+#: dashboards/project/instances/templates/instances/_detail_overview.html:77
+#: dashboards/project/instances/workflows/create_instance.py:489
+#: dashboards/project/instances/workflows/update_instance.py:80
+#: usage/quotas.py:70 usage/quotas.py:82
+msgid "Security Groups"
+msgstr "시큐리티 그룹"
+
+#: dashboards/admin/defaults/tables.py:53
+#: dashboards/admin/defaults/workflows.py:44
+#: dashboards/identity/projects/workflows.py:63
+#: dashboards/identity/projects/workflows.py:69
+#: dashboards/project/access_and_security/security_groups/tables.py:258
+#: usage/quotas.py:71 usage/quotas.py:83
+msgid "Security Group Rules"
+msgstr "시큐리티 그룹 룰"
+
+#: dashboards/admin/defaults/tables.py:54
+#: dashboards/admin/defaults/workflows.py:39
+#: dashboards/project/access_and_security/tabs.py:63
+#: dashboards/project/access_and_security/keypairs/tables.py:90
+#: usage/quotas.py:72
+msgid "Key Pairs"
+msgstr "키 패어"
+
+#: dashboards/admin/defaults/tables.py:55
+#: dashboards/admin/networks/ports/tables.py:94
+#: dashboards/admin/routers/ports/tables.py:29
+#: dashboards/identity/projects/workflows.py:59
+#: dashboards/project/networks/ports/tables.py:57
+#: dashboards/project/routers/ports/tables.py:97 usage/quotas.py:69
+msgid "Fixed IPs"
+msgstr "고정 IP"
+
+#: dashboards/admin/defaults/tables.py:56
+msgid "LUKS Volumes"
+msgstr "LUKS 볼륨"
+
+#: dashboards/admin/defaults/tables.py:57
+msgid "LUKS Volume Snapshots"
+msgstr "LUKS 볼륨 스냅샷"
+
+#: dashboards/admin/defaults/tables.py:59
+msgid "Total Size of LUKS Volumes and Snapshots (GB)"
+msgstr "LUKS 볼륨 및 스냅샷 총량 (GB)"
+
+#: dashboards/admin/defaults/tables.py:60
+msgid "dm-crypt"
+msgstr "dm-crypt"
+
+#: dashboards/admin/defaults/tables.py:66
+msgid "Quota Name"
+msgstr "Quota 이름"
+
+#: dashboards/admin/defaults/tables.py:67
+msgid "Limit"
+msgstr "제한"
+
+#: dashboards/admin/defaults/tables.py:74
+msgid "Quotas"
+msgstr "Quotas"
+
+#: dashboards/admin/defaults/tabs.py:27
+#: dashboards/admin/defaults/workflows.py:66
+msgid "Default Quotas"
+msgstr "기본 Quotas"
+
+#: dashboards/admin/defaults/tabs.py:37
+msgid "Unable to get quota info."
+msgstr "Quota 정보를 가져올 수 없습니다."
+
+#: dashboards/admin/defaults/views.py:44
+#: dashboards/identity/projects/views.py:159
+msgid "Unable to retrieve default quota values."
+msgstr "기본 quota 값을 찾지 못했습니다."
+
+#: dashboards/admin/defaults/workflows.py:68
+msgid "From here you can update the default quotas (max limits)."
+msgstr "여기서 기본 quota (최대 한계)를 업데이트 할 수 있습니다."
+
+#: dashboards/admin/defaults/workflows.py:79
+msgid "Update Default Quotas"
+msgstr "기본 Quotas 업데이트"
+
+#: dashboards/admin/defaults/workflows.py:81
+msgid "Default quotas updated."
+msgstr "기본 quota가 업데이트되었습니다."
+
+#: dashboards/admin/defaults/workflows.py:82
+#: dashboards/admin/defaults/workflows.py:99
+msgid "Unable to update default quotas."
+msgstr "기본 quotas를 업데이트할 수 없습니다."
+
 #: dashboards/admin/flavors/forms.py:48
 msgid "Unable to update the flavor metadata."
 msgstr "Flavor 메타데이타를 업데이트하지 못했습니다."
@@ -1052,18 +1276,6 @@ msgstr "%sGB"
 #: dashboards/admin/flavors/tables.py:121
 msgid "Flavor Name"
 msgstr "Flavor 이름"
-
-#: dashboards/admin/flavors/tables.py:122
-#: dashboards/admin/flavors/workflows.py:46
-#: dashboards/admin/info/tables.py:208 dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:47
-#: dashboards/project/instances/templates/instances/_detail_overview.html:50
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:4
-#: dashboards/project/overview/views.py:32 usage/quotas.py:63
-#: usage/tables.py:33
-msgid "VCPUs"
-msgstr "VCPUs"
 
 #: dashboards/admin/flavors/tables.py:124
 #: dashboards/project/databases/templates/databases/_detail_overview.html:28
@@ -1181,13 +1393,6 @@ msgstr "Flavor 아이디는 UUID4 또는 정수여야 합니다. 이 필드를 �
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "이름은 문자, 숫자, 밑줄, 마침표와 하이픈만 사용할 수 있습니다."
-
-#: dashboards/admin/flavors/workflows.py:48
-#: dashboards/admin/info/tables.py:214 dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:57
-#: dashboards/project/overview/views.py:32 usage/quotas.py:67
-msgid "RAM (MB)"
-msgstr "RAM (MB)"
 
 #: dashboards/admin/flavors/workflows.py:50
 msgid "Root Disk (GB)"
@@ -1358,28 +1563,6 @@ msgstr "스토리지 (사용중)"
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Storage (total)"
 msgstr "스토리지 (전체)"
-
-#: dashboards/admin/hypervisors/tables.py:57
-#: dashboards/admin/info/tables.py:209 dashboards/admin/instances/panel.py:27
-#: dashboards/admin/instances/tables.py:37
-#: dashboards/admin/instances/tables.py:159
-#: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/identity/projects/workflows.py:48
-#: dashboards/project/data_processing/clusters/tabs.py:149
-#: dashboards/project/databases/panel.py:23
-#: dashboards/project/databases/tables.py:37
-#: dashboards/project/databases/tables.py:50
-#: dashboards/project/databases/tables.py:219
-#: dashboards/project/databases/templates/databases/index.html:3
-#: dashboards/project/databases/templates/databases/index.html:6
-#: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:921
-#: dashboards/project/instances/templates/instances/index.html:3
-#: dashboards/project/instances/templates/instances/index.html:6
-#: dashboards/project/network_topology/instances/tables.py:23
-#: usage/quotas.py:64
-msgid "Instances"
-msgstr "인스턴스"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:198
@@ -1564,7 +1747,7 @@ msgid "Compute Host"
 msgstr "Compute 호스트"
 
 #: dashboards/admin/hypervisors/compute/tabs.py:34
-#: dashboards/admin/info/tabs.py:56
+#: dashboards/admin/info/tabs.py:55
 msgid "Unable to get nova services list."
 msgstr "Nova 서비스 목록을 가져올 수 없습니다"
 
@@ -1802,7 +1985,7 @@ msgstr "비활성된"
 msgid "Service"
 msgstr "서비스"
 
-#: dashboards/admin/info/tables.py:74 dashboards/admin/info/tabs.py:31
+#: dashboards/admin/info/tables.py:74 dashboards/admin/info/tabs.py:30
 msgid "Services"
 msgstr "서비스"
 
@@ -1812,11 +1995,11 @@ msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "마지막 업데이트"
 
-#: dashboards/admin/info/tables.py:112 dashboards/admin/info/tabs.py:47
+#: dashboards/admin/info/tables.py:112 dashboards/admin/info/tabs.py:46
 msgid "Compute Services"
 msgstr "Compute 서비스"
 
-#: dashboards/admin/info/tables.py:137 dashboards/admin/info/tabs.py:65
+#: dashboards/admin/info/tables.py:137 dashboards/admin/info/tabs.py:64
 msgid "Block Storage Services"
 msgstr "블록 스토리지 서비스"
 
@@ -1830,152 +2013,21 @@ msgstr "위로"
 msgid "Down"
 msgstr "아래로"
 
-#: dashboards/admin/info/tables.py:186 dashboards/admin/info/tabs.py:83
+#: dashboards/admin/info/tables.py:186 dashboards/admin/info/tabs.py:82
 msgid "Network Agents"
 msgstr "네트워크 에이전트"
 
-#: dashboards/admin/info/tables.py:205 usage/quotas.py:66
-msgid "Injected File Content Bytes"
-msgstr "첨부한 파일 콘텐츠 바이트"
-
-#: dashboards/admin/info/tables.py:206
-msgid "Length of Injected File Path"
-msgstr "첨부한 파일 위치에 대한 길이"
-
-#: dashboards/admin/info/tables.py:207
-#: dashboards/identity/projects/workflows.py:46 usage/quotas.py:62
-msgid "Metadata Items"
-msgstr "Metadata 항목"
-
-#: dashboards/admin/info/tables.py:210
-#: dashboards/identity/projects/workflows.py:50 usage/quotas.py:65
-msgid "Injected Files"
-msgstr "첨부한 파일"
-
-#: dashboards/admin/info/tables.py:211 dashboards/admin/volumes/panel.py:21
-#: dashboards/admin/volumes/tabs.py:35
-#: dashboards/admin/volumes/templates/volumes/index.html:3
-#: dashboards/admin/volumes/templates/volumes/index.html:6
-#: dashboards/admin/volumes/volumes/tables.py:48
-#: dashboards/identity/projects/workflows.py:53
-#: dashboards/project/volumes/panel.py:23
-#: dashboards/project/volumes/tabs.py:62
-#: dashboards/project/volumes/templates/volumes/index.html:3
-#: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:371
-#: dashboards/project/volumes/volumes/tables.py:385 usage/quotas.py:74
-msgid "Volumes"
-msgstr "볼륨"
-
-#: dashboards/admin/info/tables.py:212 dashboards/admin/volumes/tabs.py:93
-#: dashboards/admin/volumes/snapshots/tables.py:68
-#: dashboards/identity/projects/workflows.py:54
-#: dashboards/project/volumes/tabs.py:76
-#: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
-msgid "Volume Snapshots"
-msgstr "볼륨 스냅샷"
-
-#: dashboards/admin/info/tables.py:213
-#: dashboards/identity/projects/workflows.py:56 usage/quotas.py:76
-msgid "Total Size of Volumes and Snapshots (GB)"
-msgstr "볼륨 및 스냅샷 총량 (GB)"
-
-#: dashboards/admin/info/tables.py:215
-#: dashboards/identity/projects/workflows.py:58
-#: dashboards/identity/projects/workflows.py:70
-#: dashboards/project/access_and_security/tabs.py:80
-#: dashboards/project/access_and_security/floating_ips/tables.py:197
-#: usage/quotas.py:68 usage/quotas.py:81
-msgid "Floating IPs"
-msgstr "유동 IP"
-
-#: dashboards/admin/info/tables.py:216
-#: dashboards/identity/projects/workflows.py:61
-#: dashboards/identity/projects/workflows.py:67
-#: dashboards/project/access_and_security/tabs.py:43
-#: dashboards/project/access_and_security/security_groups/tables.py:130
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:24
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
-#: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:489
-#: dashboards/project/instances/workflows/update_instance.py:80
-#: usage/quotas.py:70 usage/quotas.py:82
-msgid "Security Groups"
-msgstr "시큐리티 그룹"
-
-#: dashboards/admin/info/tables.py:217
-#: dashboards/identity/projects/workflows.py:63
-#: dashboards/identity/projects/workflows.py:69
-#: dashboards/project/access_and_security/security_groups/tables.py:258
-#: usage/quotas.py:71 usage/quotas.py:83
-msgid "Security Group Rules"
-msgstr "시큐리티 그룹 룰"
-
-#: dashboards/admin/info/tables.py:218
-#: dashboards/project/access_and_security/tabs.py:63
-#: dashboards/project/access_and_security/keypairs/tables.py:90
-#: usage/quotas.py:72
-msgid "Key Pairs"
-msgstr "키 패어"
-
-#: dashboards/admin/info/tables.py:219
-#: dashboards/admin/networks/ports/tables.py:94
-#: dashboards/admin/routers/ports/tables.py:29
-#: dashboards/identity/projects/workflows.py:59
-#: dashboards/project/networks/ports/tables.py:57
-#: dashboards/project/routers/ports/tables.py:97 usage/quotas.py:69
-msgid "Fixed IPs"
-msgstr "고정 IP"
-
-#: dashboards/admin/info/tables.py:220
-msgid "LUKS Volumes"
-msgstr "LUKS 볼륨"
-
-#: dashboards/admin/info/tables.py:221
-msgid "LUKS Volume Snapshots"
-msgstr "LUKS 볼륨 스냅샷"
-
-#: dashboards/admin/info/tables.py:223
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "LUKS 볼륨 및 스냅샷 총량 (GB)"
-
-#: dashboards/admin/info/tables.py:224
-msgid "dm-crypt"
-msgstr "dm-crypt"
-
-#: dashboards/admin/info/tables.py:230
-msgid "Quota Name"
-msgstr "Quota 이름"
-
-#: dashboards/admin/info/tables.py:231
-msgid "Limit"
-msgstr "제한"
-
-#: dashboards/admin/info/tables.py:238
-msgid "Quotas"
-msgstr "Quotas"
-
-#: dashboards/admin/info/tabs.py:74
+#: dashboards/admin/info/tabs.py:73
 msgid "Unable to get cinder services list."
 msgstr "Cinder 서비스 목록을 가져올 수 없습니다."
 
-#: dashboards/admin/info/tabs.py:92
+#: dashboards/admin/info/tabs.py:91
 msgid "Unable to get network agents info."
 msgstr "네트워크 에이전트 정보를 가져올 수 없습니다."
 
-#: dashboards/admin/info/tabs.py:99
+#: dashboards/admin/info/tabs.py:98
 msgid "Unable to get network agents list."
 msgstr "네트워크 에이전트 목록을 불러올 수 없습니다."
-
-#: dashboards/admin/info/tabs.py:108
-msgid "Default Quotas"
-msgstr "기본 Quotas"
-
-#: dashboards/admin/info/tabs.py:119
-msgid "Unable to get quota info."
-msgstr "Quota 정보를 가져올 수 없습니다."
 
 #: dashboards/admin/info/views.py:39
 msgid "Unable to retrieve version information."
@@ -4347,10 +4399,6 @@ msgstr "불충분한 권한 수준으로 프로젝트 정보를 볼 수 있습�
 #: dashboards/identity/projects/views.py:151
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "기본 Neutron quota 값을 찾지 못했습니다."
-
-#: dashboards/identity/projects/views.py:159
-msgid "Unable to retrieve default quota values."
-msgstr "기본 quota 값을 찾지 못했습니다."
 
 #: dashboards/identity/projects/views.py:189
 #: dashboards/identity/users/views.py:110
