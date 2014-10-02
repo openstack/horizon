@@ -56,7 +56,7 @@ class MiddlewareTests(test.TestCase):
                                     HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         request.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
         request.horizon = {'async_messages':
-                                [('error', 'error_msg', 'extra_tag')]}
+                           [('error', 'error_msg', 'extra_tag')]}
 
         response = HttpResponseRedirect(url)
         response.client = self.client

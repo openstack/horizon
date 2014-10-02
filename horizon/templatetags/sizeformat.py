@@ -66,7 +66,7 @@ def filesizeformat(bytes, filesize_number_format):
         return _("%s TB") % \
             filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024))
     return _("%s PB") % \
-            filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024 * 1024))
+        filesize_number_format(bytes / (1024 * 1024 * 1024 * 1024 * 1024))
 
 
 def float_cast_filesizeformat(value, multiplier=1, format=int_format):

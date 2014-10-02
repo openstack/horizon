@@ -768,7 +768,7 @@ class Cell(html.HTMLElement):
         """Returns a flattened string of the cell's CSS classes."""
         if not self.url:
             self.column.classes = [cls for cls in self.column.classes
-                                    if cls != "anchor"]
+                                   if cls != "anchor"]
         column_class_string = self.column.get_final_attrs().get('class', "")
         classes = set(column_class_string.split(" "))
         if self.column.status:
@@ -944,8 +944,8 @@ class DataTableOptions(object):
     """
     def __init__(self, options):
         self.name = getattr(options, 'name', self.__class__.__name__)
-        verbose_name = getattr(options, 'verbose_name', None) \
-                                    or self.name.title()
+        verbose_name = (getattr(options, 'verbose_name', None)
+                        or self.name.title())
         self.verbose_name = verbose_name
         self.columns = getattr(options, 'columns', None)
         self.status_columns = getattr(options, 'status_columns', [])
@@ -983,9 +983,9 @@ class DataTableOptions(object):
                                 'template',
                                 'horizon/common/_data_table.html')
         self.row_actions_template = \
-                        'horizon/common/_data_table_row_actions.html'
+            'horizon/common/_data_table_row_actions.html'
         self.table_actions_template = \
-                        'horizon/common/_data_table_table_actions.html'
+            'horizon/common/_data_table_table_actions.html'
         self.context_var_name = unicode(getattr(options,
                                                 'context_var_name',
                                                 'table'))
@@ -1300,7 +1300,7 @@ class DataTable(object):
         if not matches:
             raise exceptions.Http302(self.get_absolute_url(),
                                      _('No match returned for the id "%s".')
-                                       % lookup)
+                                     % lookup)
         return matches[0]
 
     @property

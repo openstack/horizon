@@ -107,7 +107,7 @@ class RequestFactoryWithMessages(RequestFactory):
 
 
 @unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
-                     "The SKIP_UNITTESTS env variable is set.")
+                 "The SKIP_UNITTESTS env variable is set.")
 class TestCase(django_test.TestCase):
     """Specialized base test case class for Horizon which gives access to
     numerous additional features:
@@ -191,8 +191,8 @@ class TestCase(django_test.TestCase):
             msgs = [force_text(m.message)
                     for m in messages if msg_type in m.tags]
             assert len(msgs) == count, \
-                   "%s messages not as expected: %s" % (msg_type.title(),
-                                                        ", ".join(msgs))
+                "%s messages not as expected: %s" % (msg_type.title(),
+                                                     ", ".join(msgs))
 
 
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
