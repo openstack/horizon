@@ -38,8 +38,11 @@ def get_user_home(user):
 @django.views.decorators.vary.vary_on_cookie
 def splash(request):
     if request.user.is_authenticated():
-        return shortcuts.redirect(horizon.get_user_home(request.user))
-    form = forms.Login(request)
-    request.session.clear()
-    request.session.set_test_cookie()
-    return shortcuts.render(request, 'splash.html', {'form': form})
+        response = shortcuts.redirect(horizon.get_user_home(request.user))
+    else:
+        form = forms.Login(request)
+        request.session.clear()
+        request.session.set_test_cookie()
+        response = shortcuts.render(request, 'splash.html', {'form': form})
+    response.delete_cookie('logout_reason')
+    return response
