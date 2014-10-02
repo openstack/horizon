@@ -402,10 +402,10 @@ class FloatingIpManager(network_base.FloatingIpManager):
     def list_targets(self):
         return [FloatingIpTarget(s) for s in self.client.servers.list()]
 
-    def get_target_id_by_instance(self, instance_id):
+    def get_target_id_by_instance(self, instance_id, target_list=None):
         return instance_id
 
-    def list_target_id_by_instance(self, instance_id):
+    def list_target_id_by_instance(self, instance_id, target_list=None):
         return [instance_id, ]
 
     def is_simple_associate_supported(self):
