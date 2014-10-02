@@ -96,6 +96,7 @@ In-depth documentation for Horizon and its APIs.
    ref/decorators
    ref/exceptions
    ref/test
+   ref/local_conf
 
 Source Code Reference
 ---------------------
