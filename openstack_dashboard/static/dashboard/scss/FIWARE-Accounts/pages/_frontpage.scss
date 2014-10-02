@@ -1,5 +1,4 @@
 .presentation{
-  @include make-xs-column(12, $gutter: $grid-gutter-width);
   @include make-sm-column(5, $gutter: $grid-gutter-width);
   @include make-md-column(6, $gutter: $grid-gutter-width);
   @include make-lg-column(6, $gutter: $grid-gutter-width);
@@ -43,8 +42,7 @@
   }
 }
 
-.help-box{ 
-  @include make-xs-column(12, $gutter: $grid-gutter-width);
+.help-box{
   @include make-sm-column(6, $gutter: $grid-gutter-width);
   @include make-md-column(6, $gutter: $grid-gutter-width);
   @include make-lg-column(6, $gutter: $grid-gutter-width);
@@ -122,7 +120,6 @@
 
 .login,
 .registration{
-  @include make-xs-column(12, $gutter: $grid-gutter-width);
   @include make-sm-column(4, $gutter: $grid-gutter-width);
   @include make-md-column(3, $gutter: $grid-gutter-width);
   @include make-lg-column(3, $gutter: $grid-gutter-width);
