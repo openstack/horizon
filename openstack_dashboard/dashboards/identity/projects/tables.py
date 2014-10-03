@@ -14,6 +14,7 @@ from django.core.exceptions import ValidationError  # noqa
 from django.core.urlresolvers import reverse
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import forms
@@ -109,8 +110,22 @@ class ModifyQuotas(tables.LinkAction):
 
 
 class DeleteTenantsAction(tables.DeleteAction):
-    data_type_singular = _("Project")
-    data_type_plural = _("Projects")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Project",
+            u"Delete Projects",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Project",
+            u"Deleted Projects",
+            count
+        )
+
     policy_rules = (("identity", "identity:delete_project"),)
 
     def allowed(self, request, project):
