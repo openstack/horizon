@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 22:50-0500\n"
-"PO-Revision-Date: 2014-09-29 07:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-02 13:57-0500\n"
+"PO-Revision-Date: 2014-10-02 21:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -221,7 +221,7 @@ msgstr "Özet"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "%(counter)s kayıtları gösteriliyor"
+msgstr[0] ""
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -268,7 +268,7 @@ msgstr "RAM"
 
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
-msgstr "Gezici IP'ler"
+msgstr "Floating IP'ler"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -332,13 +332,13 @@ msgstr "Kaydet"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "%(nav_items)s kayıtları gösteriliyor"
+msgstr[0] ""
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "%(content_items)s kayıtları gösteriliyor"
+msgstr[0] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -406,7 +406,7 @@ msgstr "Uygun"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d Bytes"
+msgstr[0] ""
 
 #: templatetags/sizeformat.py:57
 #, python-format

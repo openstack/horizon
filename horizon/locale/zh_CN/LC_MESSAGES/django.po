@@ -3,18 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# LIU Yulong <dragon889@163.com>, 2014
-# Tom Fifield <tom@openstack.org>, 2014
-# Tony Fu <tfu@redhat.com>, 2014
-# Ying Chun Guo <daisy.ycguo@gmail.com>, 2014
-# 颜海峰 <yanheven@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 22:50-0500\n"
-"PO-Revision-Date: 2014-09-30 06:20+0000\n"
-"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
+"POT-Creation-Date: 2014-10-02 13:57-0500\n"
+"PO-Revision-Date: 2014-10-02 21:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,7 +221,7 @@ msgstr "概要"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "显示 %(counter)s 个条目"
+msgstr[0] ""
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -337,13 +332,13 @@ msgstr "保存"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "显示了 %(nav_items)s 个条目"
+msgstr[0] ""
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "显示了 %(content_items)s 个条目"
+msgstr[0] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -373,7 +368,7 @@ msgstr "日期采是YYYY-mm-dd格式。"
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
-msgstr "活跃的云主机"
+msgstr "运行的云主机"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
@@ -411,7 +406,7 @@ msgstr "可用配额"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d 字节"
+msgstr[0] ""
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -445,12 +440,12 @@ msgstr "0 bytes"
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] "出售小狗"
+msgstr[0] ""
 
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "已出售小狗"
+msgstr[0] ""
 
 #: utils/filters.py:49
 msgid "Never"

@@ -3,15 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# yfukuda <fukuda.yuko@jp.fujitsu.com>, 2014
-# myamamot <myamamot@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 13:08-0500\n"
-"PO-Revision-Date: 2014-09-24 20:40+0000\n"
-"Last-Translator: myamamot <myamamot@redhat.com>\n"
+"POT-Creation-Date: 2014-10-02 13:57-0500\n"
+"PO-Revision-Date: 2014-10-02 21:33+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:303
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "読み込み中"
@@ -31,7 +29,7 @@ msgid "No data available."
 msgstr "データがありません。"
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:322
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -87,12 +85,12 @@ msgstr "エラー: "
 msgid "Cancel"
 msgstr "取り消し"
 
-#: static/horizon/js/horizon.modals.js:223
+#: static/horizon/js/horizon.modals.js:225
 #: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "反映中"
 
-#: static/horizon/js/horizon.modals.js:253
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
 msgstr "フォームの送信中にエラーが発生しました。再度お試しください。"
 
@@ -153,7 +151,7 @@ msgstr "選択内容を確認してください。この操作は取り消せま
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "%s件表示"
+msgstr[0] ""
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169

@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jerome Gotangco <jgotangco@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 22:50-0500\n"
-"PO-Revision-Date: 2014-09-29 07:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-02 13:57-0500\n"
+"PO-Revision-Date: 2014-10-02 21:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Filipino (http://www.transifex.com/projects/p/horizon/language/fil/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -222,8 +221,8 @@ msgstr "Buod"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Pinapakita ang %(counter)s items"
-msgstr[1] "Pinapakita ang %(counter)s items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -334,15 +333,15 @@ msgstr "I-Save"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Pinapakita ang %(nav_items)s item"
-msgstr[1] "Pinapakita ang %(nav_items)s item"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Pinapakita ang %(content_items)s item"
-msgstr[1] "Pinapakita ang %(content_items)s items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -410,8 +409,8 @@ msgstr "Magagamit"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d Byte"
-msgstr[1] "%(size)d Bytes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templatetags/sizeformat.py:57
 #, python-format

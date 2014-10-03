@@ -3,18 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andreas Jaeger <jaegerandi@gmail.com>, 2014
-# Carsten Duch <cad@teuto.net>, 2014
-# Christian Berendt <berendt@b1-systems.de>, 2014
-# Ettore Atalan <atalanttore@googlemail.com>, 2014
-# Robert Simai, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 16:19-0500\n"
-"PO-Revision-Date: 2014-09-30 07:00+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"POT-Creation-Date: 2014-10-02 13:57-0500\n"
+"PO-Revision-Date: 2014-10-02 21:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,8 +221,8 @@ msgstr "Zusammenfassung"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Zeige %(counter)s Eintrag an."
-msgstr[1] "Zeige %(counter)s Einträge an."
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -338,15 +333,15 @@ msgstr "Speichern"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Zeige %(nav_items)s Eintrag an."
-msgstr[1] "Zeige %(nav_items)s Einträge an."
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Zeige %(content_items)s Eintrag an."
-msgstr[1] "Zeige %(content_items)s Einträge an."
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -414,8 +409,8 @@ msgstr "Verfügbar"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d Byte"
-msgstr[1] "%(size)d Bytes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -449,14 +444,14 @@ msgstr "0 Bytes"
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] "Sell Puppy"
-msgstr[1] "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "Sold Puppy"
-msgstr[1] "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: utils/filters.py:49
 msgid "Never"

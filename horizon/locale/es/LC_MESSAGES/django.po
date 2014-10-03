@@ -3,16 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2014
-# Marian Tort <marian.tort@gmail.com>, 2014
-# Milton Mazzarri <milmazz@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 16:19-0500\n"
-"PO-Revision-Date: 2014-09-30 08:31+0000\n"
-"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
+"POT-Creation-Date: 2014-10-02 13:57-0500\n"
+"PO-Revision-Date: 2014-10-02 21:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +46,7 @@ msgstr "No autorizado. Inicie sesión de nuevo."
 
 #: middleware.py:97
 msgid "Session timed out."
-msgstr "Tiempo de sesión expirado "
+msgstr "La sesión ha expirado."
 
 #: browsers/base.py:88
 msgid "Navigation Item"
@@ -84,7 +81,7 @@ msgstr "Enviar"
 #: templates/horizon/common/_modal_form_update_metadata.html:239
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Cancelar "
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -127,11 +124,11 @@ msgstr "%(action)s: %(objs)s"
 
 #: tables/actions.py:898
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Eliminar"
 
 #: tables/actions.py:900
 msgid "Deleted"
-msgstr "Borrado"
+msgstr "Eliminado"
 
 #: tables/actions.py:931
 msgid "Update"
@@ -183,7 +180,7 @@ msgstr "Usuario"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
-msgstr "Acceder"
+msgstr "Iniciar sesión"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
@@ -194,7 +191,7 @@ msgstr "No tiene permisos para acceder al recurso:"
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr "Acceder como otro usuario o volver a la <a href=\"%(home_url)s\"> página de inicio</a>"
+msgstr "Inicie sesión con otro usuario o volver a la <a href=\"%(home_url)s\"> página de inicio</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
@@ -224,8 +221,8 @@ msgstr "Resumen"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Mostrando %(counter)s ítem"
-msgstr[1] "Mostrando %(counter)s ítems"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -264,7 +261,7 @@ msgstr "<span> %(used)s </span> usado de <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr "VCPUs"
+msgstr "VCPU"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
@@ -336,19 +333,19 @@ msgstr "Guardar"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Mostrando %(nav_items)s ítem"
-msgstr[1] "Mostrando %(nav_items)s ítems"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Mostrando %(content_items)s ítem"
-msgstr[1] "Mostrando %(content_items)s ítems"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "Resumen de uso"
+msgstr "Resumen del uso"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
@@ -412,8 +409,8 @@ msgstr "Disponible"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d Byte"
-msgstr[1] "%(size)d Bytes"
+msgstr[0] ""
+msgstr[1] ""
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -447,14 +444,14 @@ msgstr "0 bytes"
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] "Sell Puppy"
-msgstr[1] "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "Sold Puppy"
-msgstr[1] "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: utils/filters.py:49
 msgid "Never"

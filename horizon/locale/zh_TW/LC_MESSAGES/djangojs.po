@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Tom Fifield <tom@openstack.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 13:08-0500\n"
-"PO-Revision-Date: 2014-09-23 03:32+0000\n"
-"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
+"POT-Creation-Date: 2014-10-02 13:57-0500\n"
+"PO-Revision-Date: 2014-10-02 21:33+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:303
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "讀取中"
@@ -30,7 +29,7 @@ msgid "No data available."
 msgstr "無可用的資料。"
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:322
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -86,12 +85,12 @@ msgstr "錯誤："
 msgid "Cancel"
 msgstr "取消"
 
-#: static/horizon/js/horizon.modals.js:223
+#: static/horizon/js/horizon.modals.js:225
 #: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "運作中"
 
-#: static/horizon/js/horizon.modals.js:253
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表單時有錯誤。請再試一次。"
 
@@ -109,7 +108,7 @@ msgstr "網路卡介面"
 
 #: static/horizon/js/horizon.networktopology.js:538
 msgid "Interface"
-msgstr "網路卡介面"
+msgstr "網路卡"
 
 #: static/horizon/js/horizon.networktopology.js:539
 msgid "open console"
@@ -152,7 +151,7 @@ msgstr "請確認您的選擇。這個動作將無法回復。"
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "顯示 %s 個項目"
+msgstr[0] ""
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169
@@ -161,4 +160,4 @@ msgstr "沒有足夠的權限執行這個操作。"
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
-msgstr "密碼沒有符合。"
+msgstr "密碼沒有相配。"
