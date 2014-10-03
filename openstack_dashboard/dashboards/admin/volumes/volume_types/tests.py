@@ -26,7 +26,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         formData = {'name': 'volume type 1'}
         cinder.volume_type_create(IsA(http.HttpRequest),
                                   formData['name']).\
-                                  AndReturn(self.volume_types.first())
+            AndReturn(self.volume_types.first())
         self.mox.ReplayAll()
 
         res = self.client.post(
@@ -51,7 +51,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest)).\
-                             AndReturn(self.cinder_qos_specs.list())
+            AndReturn(self.cinder_qos_specs.list())
         cinder.volume_type_delete(IsA(http.HttpRequest),
                                   str(volume_type.id))
         self.mox.ReplayAll()

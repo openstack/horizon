@@ -18,8 +18,8 @@ from openstack_dashboard.dashboards.admin.volumes.volume_types.qos_specs \
 
 urlpatterns = patterns('',
     url(r'^(?P<qos_spec_id>[^/]+)/create/$',
-            views.CreateKeyValuePairView.as_view(), name='create'),
+        views.CreateKeyValuePairView.as_view(), name='create'),
     url(r'^(?P<qos_spec_id>[^/]+)/$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<qos_spec_id>[^/]+)/key/(?P<key>[^/]+)/edit/$',
-            views.EditKeyValuePairView.as_view(), name='edit')
+        views.EditKeyValuePairView.as_view(), name='edit')
 )

@@ -120,7 +120,7 @@ class ManageQosSpecAssociationView(forms.ModalFormView):
                 for qos_spec in qos_specs:
                     type_ids = \
                         api.cinder.qos_spec_get_associations(self.request,
-                                                              qos_spec.id)
+                                                             qos_spec.id)
                     for vtype in type_ids:
                         if vtype.id == vol_type_id:
                             return qos_spec

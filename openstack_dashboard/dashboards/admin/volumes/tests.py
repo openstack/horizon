@@ -31,9 +31,9 @@ class VolumeTests(test.BaseAdminViewTests):
             'all_tenants': True}).AndReturn(self.cinder_volumes.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}) \
-                       .AndReturn([self.servers.list(), False])
+            .AndReturn([self.servers.list(), False])
         keystone.tenant_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.tenants.list(), False])
+            .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:volumes:index'))

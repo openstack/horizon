@@ -67,29 +67,25 @@ class ImagesViewTest(test.BaseAdminViewTests):
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='desc') \
-                                .AndReturn([images,
-                                            True, True])
+            .AndReturn([images, True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='desc') \
-                                .AndReturn([images[:2],
-                                            True, True])
+            .AndReturn([images[:2], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='desc') \
-                                .AndReturn([images[2:4],
-                                            True, True])
+            .AndReturn([images[2:4], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[4].id,
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='desc') \
-                                .AndReturn([images[4:],
-                                            True, True])
+            .AndReturn([images[4:], True, True])
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:images:index')
@@ -188,29 +184,25 @@ class ImagesViewTest(test.BaseAdminViewTests):
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='desc') \
-                                .AndReturn([images,
-                                            True, False])
+            .AndReturn([images, True, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='desc') \
-                                .AndReturn([images[:2],
-                                            True, True])
+            .AndReturn([images[:2], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='desc') \
-                                .AndReturn([images[2:],
-                                            True, True])
+            .AndReturn([images[2:], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
                                        paginate=True,
                                        filters=filters,
                                        sort_dir='asc') \
-                                .AndReturn([images[:2],
-                                            True, True])
+            .AndReturn([images[:2], True, True])
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:images:index')
@@ -227,7 +219,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
 
         url = "?".join([reverse('horizon:admin:images:index'),
                 "=".join([tables.AdminImagesTable._meta.pagination_param,
-                            images[2].id])])
+                          images[2].id])])
         res = self.client.get(url)
         # get second page (item 3)
         self.assertEqual(len(res.context['images_table'].data), 1)

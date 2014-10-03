@@ -152,7 +152,7 @@ class DetailView(tables.MultiTableView):
             exceptions.handle(self.request,
                               _('Unable to retrieve details for '
                                 'network "%s".') % network_id,
-                                redirect=redirect)
+                              redirect=redirect)
         return network
 
     def get_context_data(self, **kwargs):

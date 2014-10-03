@@ -44,7 +44,7 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
         # populate qos spec list box
         qos_specs = self.initial["qos_specs"]
         qos_spec_list = [(qos_spec.id, qos_spec.name)
-                          for qos_spec in qos_specs]
+                         for qos_spec in qos_specs]
 
         # 'none' is always listed first
         qos_spec_list.insert(0, ("-1", _("None")))
@@ -100,7 +100,7 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
                                           vol_type_id)
 
             messages.success(request,
-                              _('Successfully updated QOS Spec association.'))
+                             _('Successfully updated QOS Spec association.'))
             return True
         except Exception:
             exceptions.handle(request,

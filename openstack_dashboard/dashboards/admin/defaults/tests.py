@@ -45,14 +45,14 @@ class ServicesViewTests(test.BaseAdminViewTests):
             self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
-                .AndReturn(True)
+            .AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-                .MultipleTimes().AndReturn(neutron_enabled)
+            .MultipleTimes().AndReturn(neutron_enabled)
 
         api.nova.default_quota_get(IsA(http.HttpRequest),
                                    self.tenant.id).AndReturn(self.quotas.nova)
         api.cinder.default_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-                .AndReturn(self.cinder_quotas.first())
+            .AndReturn(self.cinder_quotas.first())
         if neutron_enabled:
             api.neutron.is_extension_supported(
                 IsA(http.HttpRequest),

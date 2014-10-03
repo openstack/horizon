@@ -91,11 +91,11 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                           .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
-                           .AndReturn(self.q_secgroups.list())
+            .AndReturn(self.q_secgroups.list())
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
-                           .AndReturn(self.cinder_limits['absolute'])
+            .AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
@@ -177,11 +177,11 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                           .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
-                           .AndReturn(self.q_secgroups.list())
+            .AndReturn(self.q_secgroups.list())
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
-                           .AndReturn(self.cinder_limits['absolute'])
+            .AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"

@@ -657,7 +657,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:subnets:detail',
-                                      args=[subnet.id])
+                      args=[subnet.id])
         res = self.client.get(url)
 
         # admin DetailView is shared with userpanel one, so
