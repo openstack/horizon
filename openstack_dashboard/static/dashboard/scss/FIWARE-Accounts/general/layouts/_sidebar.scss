@@ -59,6 +59,7 @@
         }
       }
       i{
+        color: #5B5B5F;
         @media (max-width: $screen-sm-min){
           float: left;
           margin-right: 10px;
@@ -84,7 +85,10 @@
           color: $brand-primary;
         }
         &:hover{
-          color: $brand-secundary;
+          h2,
+          i{
+            color: $brand-secundary;
+          }
         }
       }
     }
@@ -93,11 +97,7 @@
         @include text-overflow;
       }
     }
-    li.active{
-      a{
-        color: $brand-primary;
-      }
-    }
+
     hr{
       margin: 10px 0;
       @media (max-width: $screen-sm-min){
