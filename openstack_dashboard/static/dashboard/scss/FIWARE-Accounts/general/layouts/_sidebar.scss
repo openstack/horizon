@@ -30,7 +30,7 @@
   }
   h5.tablet
   ul{
-    padding: 0
+    padding: 0;
     @media (max-width: $screen-sm-min){
       width: 352px;
       margin: 0 auto;
@@ -52,24 +52,39 @@
         float: left
         margin: 0 1rem;
       }
-      a{
-        color: #8c8c8c;
-      }
       &:hover{
-        a{
+        h2,
+        i{
           color: $brand-secundary;
         }
       }
+      i{
+        @media (max-width: $screen-sm-min){
+          float: left;
+          margin-right: 10px;
+        }
+      }
+
       h2{
         display: inline;
         font-size: 15px;
-        margin-left: 12px;
+        margin-left: 10px;
         line-height: 42px;
-        vertical-align: text-top;
+        @extend .hidden-xs;
+        @extend .hidden-sm;
         @media (max-width: $screen-sm-min){
           i{
             padding-right: 8px;
           }
+        }
+      }
+      a.active{
+        h2,
+        i{
+          color: $brand-primary;
+        }
+        &:hover{
+          color: $brand-secundary;
         }
       }
     }
