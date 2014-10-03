@@ -162,19 +162,19 @@ class TenantsTable(tables.DataTable):
                                     widget=forms.Textarea(),
                                     required=False),
                                 update_action=UpdateCell)
-    id = tables.Column('id', verbose_name=_('Organization ID'))
-    enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
-                            form_field=forms.BooleanField(
-                                label=_('Enabled'),
-                                required=False),
-                            update_action=UpdateCell)
+    # id = tables.Column('id', verbose_name=_('Organization ID'))
+    # enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
+    #                         form_field=forms.BooleanField(
+    #                             label=_('Enabled'),
+    #                             required=False),
+    #                         update_action=UpdateCell)
 
     class Meta:
         name = "tenants"
         verbose_name = _("Organizations")
         row_class = UpdateRow
-        row_actions = (UpdateMembersLink, UpdateOrganization)
-        table_actions = (TenantFilterAction, CreateOrganization)
+        # row_actions = (UpdateMembersLink, )
+        table_actions = (TenantFilterAction, CreateOrganization, UpdateOrganization)
         pagination_param = "tenant_marker"
 
 class MyTenantsTable(tables.DataTable):
@@ -187,19 +187,23 @@ class MyTenantsTable(tables.DataTable):
                                     widget=forms.Textarea(),
                                     required=False),
                                 update_action=UpdateCell)
-    id = tables.Column('id', verbose_name=_('Organization ID'))
-    enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
-                            form_field=forms.BooleanField(
-                                label=_('Enabled'),
-                                required=False),
-                            update_action=UpdateCell)
+    # id = tables.Column('id', verbose_name=_('Organization ID'))
+    # enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
+    #                         form_field=forms.BooleanField(
+    #                             label=_('Enabled'),
+    #                             required=False),
+    #                         update_action=UpdateCell)
 
     class Meta:
         name = "mytenants"
         verbose_name = _("My Organizations")
         row_class = UpdateRow
-        row_actions = (UpdateMembersLink, UpdateOrganization, DeleteTenantsAction)
-        table_actions = (TenantFilterAction, CreateOrganization, DeleteTenantsAction)
+        # row_actions = (UpdateMembersLink, UpdateOrganization, DeleteTenantsAction)
+        table_actions = (TenantFilterAction, CreateOrganization, DeleteTenantsAction, UpdateOrganization)
         pagination_param = "my_tenant_marker"
+        columns =('name','description')
+        # multi_select=False Esto hace desaparecer el check-box
+        footer = False
+       
 
 
