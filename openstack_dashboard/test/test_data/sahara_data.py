@@ -482,7 +482,11 @@ def data(TEST):
         "return_code": None,
         "start_time": "2014-06-05T16:03:32",
         "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
-        "updated_at": "2014-06-05 20:03:46.438248"
+        "updated_at": "2014-06-05 20:03:46.438248",
+        "cluster_name_set": True,
+        "job_name_set": True,
+        "cluster_name": "cluster-1",
+        "job_name": "job-1"
     }
 
     jobex1 = job_executions.JobExecution(

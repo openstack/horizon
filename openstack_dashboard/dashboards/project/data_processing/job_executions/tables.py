@@ -132,20 +132,38 @@ class UpdateRow(tables.Row):
                 messages.error(request, _("Unable to update row"))
 
 
-def get_job_link(job_execution):
-    return reverse("horizon:project:data_processing.jobs:details",
-                   args=(http.urlquote(job_execution.job_id),))
-
-
-def get_cluster_link(job_execution):
-    return reverse("horizon:project:data_processing.clusters:details",
-                   args=(http.urlquote(job_execution.cluster_id),))
-
-
 class JobExecutionsTable(tables.DataTable):
     class StatusColumn(tables.Column):
         def get_raw_data(self, datum):
             return datum.info['status']
+
+    class JobNameColumn(tables.Column):
+        @staticmethod
+        def link(job_execution):
+            if job_execution.job_name:
+                return reverse("horizon:project:data_processing.jobs:details",
+                               args=(http.urlquote(job_execution.job_id),))
+            else:
+                # No link should be generated for a deleted Job.
+                return None
+
+        def get_data(self, job_execution):
+            return job_execution.job_name or _("Not available")
+
+    class ClusterNameColumn(tables.Column):
+
+        @staticmethod
+        def link(job_execution):
+            if job_execution.cluster_name:
+                return reverse(
+                    "horizon:project:data_processing.clusters:details",
+                    args=(http.urlquote(job_execution.cluster_id),))
+            else:
+                # No link should be generated for a deleted Cluster.
+                return None
+
+        def get_data(self, job_execution):
+            return job_execution.cluster_name or _("Not available")
 
     STATUS_CHOICES = (
         ("DONEWITHERROR", False),
@@ -170,14 +188,16 @@ class JobExecutionsTable(tables.DataTable):
                                           ("name", pgettext_lazy("Name")),),
                          link=("horizon:project:data_processing."
                                "job_executions:details"))
-    job_name = tables.Column(
+    job_name = JobNameColumn(
         "job_name",
         verbose_name=_("Job Template"),
-        link=get_job_link)
-    cluster_name = tables.Column(
+        link=JobNameColumn.link)
+
+    cluster_name = ClusterNameColumn(
         "cluster_name",
         verbose_name=_("Cluster"),
-        link=get_cluster_link)
+        link=ClusterNameColumn.link)
+
     status = StatusColumn("info",
                           status=True,
                           status_choices=STATUS_CHOICES,

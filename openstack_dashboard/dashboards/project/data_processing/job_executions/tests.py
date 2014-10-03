@@ -31,6 +31,12 @@ class DataProcessingJobExecutionTests(test.TestCase):
             .AndReturn(self.job_executions.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
+        self.assertEqual(
+            "cluster-1",
+            res.context_data["job_executions_table"].data[0].cluster_name)
+        self.assertEqual(
+            "job-1",
+            res.context_data["job_executions_table"].data[0].job_name)
         self.assertTemplateUsed(
             res, 'project/data_processing.job_executions/job_executions.html')
         self.assertContains(res, 'Jobs')

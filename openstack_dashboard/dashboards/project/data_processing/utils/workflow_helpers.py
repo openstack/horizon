@@ -141,13 +141,6 @@ def parse_configs_from_context(context, defaults):
     return configs_dict
 
 
-def safe_call(func, *args, **kwargs):
-    try:
-        return func(*args, **kwargs)
-    except Exception:
-        return None
-
-
 def get_security_groups(request, security_group_ids):
     security_groups = []
     for group in security_group_ids or []:
