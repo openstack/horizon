@@ -1,0 +1,14 @@
+.dropdown-menu {
+  padding: 0;
+  margin: 0;
+  border: 2px solid #FDFDFD;
+  border-radius: 0px; 
+}
+.dropdown-menu .divider {
+  background-color: #FDFDFD;
+  margin: 0;
+  height: 2px;
+}
+.dropdown-menu > li > a {
+  padding: 7px 20px;
+}

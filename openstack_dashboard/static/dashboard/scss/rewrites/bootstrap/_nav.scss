@@ -1,24 +1,64 @@
-.nav-tabs
-  a
-    color: $gray-lighter
-    &:hover
-      color: $white
-  .active
-    a
-      color: $brand-primary
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.nav-tabs {
+  clear: both;
+  border-bottom: 1px solid $nav-tabs-border-color;
+  margin-bottom: 10px;
+  .icontitle{
+    float: left;
+    margin: 7px 4px 0 0;
+  }
+  span.helpheader{
+    float: right;
+  }
+}
+.nav-tabs > li > a{
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: 7px 7px 6px 7px;
+  outline: 0;
+  margin-top: 5px;
+  width: 100%;
+  color: $gray;
+}
 
-.navbar-search 
-  margin: 15px 0 0 0
-  width: 100%
-  position: inherit !important
-  z-index: 1 !important
+.nav-tabs > li > a:hover,.nav-tabs > li > a:focus{
+  background-color: transparent !important;
+  border: none;
+  border-bottom: 3px solid $gray;
+  color: $gray-dark;
+}          
 
+.nav-tabs > li > a i{ 
+  display: inline;
+}
 
-.nav-list > .active > a, .nav-list > .active > a:hover
-  color: $white
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2)
-  background-color: rgb(0, 147, 198)
+.nav-tabs > li > a .caption{
+  display: inline;
+  @extend .hidden-xs;
+  @extend .hidden-sm;
+}
+.nav-tabs > li.active{
+  background-color: transparent !important;
+  border: none;
+  border-bottom: 3px solid $brand-primary;
+  color: $gray-dark;
+}
+.nav-tabs > li.active > a:hover{
+  color: $gray-darker !important;
+  background-color: transparent !important;
+}
 
-.nav-pills > .active > a, .nav-pills > .active > a:hover
-  background-color: #002759
-  color: $white
+.nav-tabs > li.active a{
+  margin-top: 5px;
+  padding: 6px 10px 6px 10px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color: $gray-darker;
+}

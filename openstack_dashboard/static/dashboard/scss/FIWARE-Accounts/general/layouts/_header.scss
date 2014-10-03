@@ -151,7 +151,12 @@ ul.oil-portal li.active a{
   border-radius: 5px;
 }
 
-
+#profile_editor_switcher{
+  margin-top: 7px;
+   a img {
+    width: 24px;
+  }
+}
 
 @media (max-width: 767px){
 

@@ -2,3 +2,51 @@ hr{
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
+
+li{
+	list-style: none;
+}
+
+
+.page-header h2 {
+	font-family: $corporate-font-family-sans-serif-Regular;
+	color: $brand-primary;
+	text-align: right;
+}
+
+.page-header {
+	border: none;
+}
+
+a{
+  color: $brand-primary;
+  text-decoration: underline;
+	&:hover{
+	  color: $brand-secundary;
+	  text-decoration: underline;
+	}
+}
+
+
+.nav > li a,
+.navbar-fixed-top a,
+.pager > li a,
+.btn,
+.accordion-heading > a,
+.logo-header a,
+.dropdown-menu li a,
+.breadcrumb a,
+.page-header a{
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: $corporate-font-family-sans-serif-Regular !important;
+  font-weight: normal;
+  margin: 1px $zero;
+}

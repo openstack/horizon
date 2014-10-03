@@ -1,0 +1,85 @@
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#change-password">
+          Change your password
+        </a>
+      </h4>
+    </div>
+    <div id="change-password" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <form accept-charset="UTF-8" action="/users" class="edit_user" id="edit_user" method="post">
+
+	      <div class="form_label">
+	        <label for="user_New password">New password</label>
+	      </div>
+	      <div class="form_field">
+	        <input class="form_tag" id="user_password" name="user[password]" size="30" type="password">
+	      </div>
+
+	      <div class="form_label">
+	        <label for="user_Retype new password">Retype new password</label>
+	      </div>
+	      <div class="form_field">
+	        <input class="form_tag" id="user_password_confirmation" name="user[password_confirmation]" size="30" type="password">
+	      </div>
+
+	      <div class="form_label">
+	        <label for="user_Current password">Current password</label>
+	      </div>
+	      <div class="form_field">
+	        <input class="form_tag" id="user_current_password" name="user[current_password]" size="30" type="password">
+	      </div>
+
+	      <input class="btn btn-primary" name="commit" type="submit" value="Update">
+	  </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#change-email">
+          Change your e-mail
+        </a>
+      </h4>
+    </div>
+    <div id="change-email" class="panel-collapse collapse">
+      <div class="panel-body">
+        <form accept-charset="UTF-8" action="/users" class="edit_user" id="edit_user" method="post">
+	      <div class="form_label">
+	        <label for="user_email">Email</label>
+	      </div>
+	      <div class="form_field">
+	        <input class="required form_tag" id="user_email" name="user[email]" size="30" type="email" value="your e-mail">
+	      </div>
+
+	      <div class="form_label">
+	        <label for="user_current_password">Current password</label>
+	      </div>
+	      <div class="form_field">
+	        <input class="required form_tag" id="user_current_password" name="user[current_password]" size="30" type="password">
+	      </div>
+
+	      <input class="btn btn-primary" name="commit" type="submit" value="Update">
+
+		</form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#cancel-account">
+          Cancel account
+        </a>
+      </h4>
+    </div>
+    <div id="cancel-account" class="panel-collapse collapse">
+      <div class="panel-body">
+        Unhappy? <a href="/users" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Cancel my account</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,57 @@
 /* Sidebar
 -------------------------------------------------- */
+
 .sidebar{
-  @include make-sm-column(2, $gutter: $grid-gutter-width);
-  @include make-md-column(2, $gutter: $grid-gutter-width);
-  @include make-lg-column(2, $gutter: $grid-gutter-width);
-
-
-
-
+  @include make-sm-column(1, $gutter: $grid-gutter-width);
+  @include make-md-column(3, $gutter: $grid-gutter-width);
+  @include make-lg-column(3, $gutter: $grid-gutter-width);
+  @media (max-width: $screen-sm-min){
+    position: relative;
+    margin-bottom: 0;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  @media (max-width: $screen-xs-min){
+    position: relative;
+    margin-bottom: 0;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  h5{
+    font-size: 19px;
+    font-family: $corporate-font-family-sans-serif-Regular;
+    color: #CCC;
+    border-bottom: 2px solid #CCC;
+    padding-bottom: 2px;
+    letter-spacing: 1px;
+    @media (min-width: 1200px){
+      a{
+        font-size: 25px;
+      }
+    }
+  }
+  h5.tablet
   ul{
-    margin-left: -3px;
+    padding: 0
+    @media (max-width: $screen-sm-min){
+      width: 352px;
+      margin: 0 auto;
+      height: 45px;
+    }
+    @media (max-width: $screen-xs-min){
+      width: 100%;
+    }
     li{
+      @media (max-width: $screen-xs-min){
+        &:first-child{
+          margin-left: 0;
+        }
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+      @media (max-width: $screen-sm-min){
+        float: left
+        margin: 0 1rem;
+      }
       a{
         color: #8c8c8c;
       }
@@ -25,102 +66,39 @@
         margin-left: 12px;
         line-height: 42px;
         vertical-align: text-top;
-        a{
-          text-decoration: none;
-          &:hover{
-            text-decoration: none;
+        @media (max-width: $screen-sm-min){
+          i{
+            padding-right: 8px;
           }
         }
       }
     }
-    li.home{
-      &:hover{
-        .icon_menu-20-home{
-          background-position: -88px -10px;
-        }
-      }
-    }
-    .home.active{
-      .icon_menu-20-home{
-        background-position: -51px -10px;
-      }
-    }
-    li.organizations,
-    li.members{
-      &:hover{
-        .icon_menu-20-organizations{
-          background-position: -88px -45px;
-        }
-        .icon_menu-20-members{
-          background-position: -88px -45px;
-        }
-      }
-    }
-    .members.active,     
-    .organizations.active{
-      .icon_menu-20-organizations{
-        background-position: -51px -45px;
-      }
-      .icon_menu-20-members{
-        background-position: -51px -45px;
-      }
-    }
-
     li.my-applications{
-      &:hover{
-        .icon_menu-20-my-applications{
-          background-position: -88px -80px;
-        }
-      }
       a {
         @include text-overflow;
       }
     }
-    .my-applications.active{
-      .icon_menu-20-my-applications{
-        background-position: -51px -80px;
-      }
-    }
-    .administrators.active{
-      .icon_menu-20-administrators{
-        background-position: -51px -150px;
-      }
-    }
-    li.administrators{
-      &:hover{
-        .icon_menu-20-administrators{
-          background-position: -88px -150px;
-        }
-      }
-    }
-
-   
-    .notify.active{
-      .icon_menu-20-notify{
-        background-position: -51px -116px;
-      }
-    }
-
-    li.notify{
-      &:hover{
-        .icon_menu-20-notify{
-          background-position: -88px -116px;
-        }
-      }
-    }
-
     li.active{
       a{
         color: $brand-primary;
       }
-      &:hover{
-        a{
-          color: $brand-secundary;
-        }
+    }
+    hr{
+      margin: 10px 0;
+      @media (max-width: $screen-sm-min){
+        float: left;
+        margin: 0 15px;
+        width: 1px;
+        height: 45px;
+        clear: none;
+        border-left: 2px solid #E2E2E2;
       }
     }
-
-    .soften{
-      margin: 10px 0;}
   }
 }
+
+li.home i{@extend .fa-home;}
+li.my-applications i{@extend .fa-cube;}
+li.organizations i, li.members i{@extend .fa-group;}
+li.notify i{@extend .fa-comment;}
+li.administrator i{@extend .fa-wrench;}

@@ -12,8 +12,10 @@
 }
 
 #content_body{
-  @include make-sm-column(10, $gutter: $grid-gutter-width);
+  @include make-sm-column(11, $gutter: $grid-gutter-width);
   @include make-md-column(9, $gutter: $grid-gutter-width);
   @include make-lg-column(9, $gutter: $grid-gutter-width);
-
+  @media (max-width: $screen-sm-min){
+    margin-top: 45px;
+  }
 }
