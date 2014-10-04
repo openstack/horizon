@@ -379,12 +379,25 @@ class VolumesTable(VolumesTableBase):
 
 class DetachVolume(tables.BatchAction):
     name = "detach"
-    action_present = _("Detach")
-    action_past = _("Detaching")  # This action is asynchronous.
-    data_type_singular = _("Volume")
-    data_type_plural = _("Volumes")
     classes = ('btn-danger', 'btn-detach')
     policy_rules = (("compute", "compute:detach_volume"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Detach Volume",
+            u"Detach Volumes",
+            count
+        )
+
+    # This action is asynchronous.
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Detaching Volume",
+            u"Detaching Volumes",
+            count
+        )
 
     def action(self, request, obj_id):
         attachment = self.table.get_object_by_id(obj_id)

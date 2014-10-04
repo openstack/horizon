@@ -17,6 +17,7 @@ from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -72,11 +73,23 @@ class AddMonitorLink(tables.LinkAction):
 
 class DeleteVipLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletevip"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("VIP")
-    data_type_plural = _("VIPs")
     policy_rules = (("network", "delete_vip"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete VIP",
+            u"Delete VIPs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of VIP",
+            u"Scheduled deletion of VIPs",
+            count
+        )
 
     def allowed(self, request, datum=None):
         if datum and not datum.vip_id:
@@ -86,11 +99,23 @@ class DeleteVipLink(policy.PolicyTargetMixin, tables.DeleteAction):
 
 class DeletePoolLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletepool"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Pool")
-    data_type_plural = _("Pools")
     policy_rules = (("network", "delete_pool"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Pool",
+            u"Delete Pools",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Pool",
+            u"Scheduled deletion of Pools",
+            count
+        )
 
     def allowed(self, request, datum=None):
         if datum and datum.vip_id:
@@ -101,20 +126,44 @@ class DeletePoolLink(policy.PolicyTargetMixin, tables.DeleteAction):
 class DeleteMonitorLink(policy.PolicyTargetMixin,
                         tables.DeleteAction):
     name = "deletemonitor"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Monitor")
-    data_type_plural = _("Monitors")
     policy_rules = (("network", "delete_health_monitor"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Monitor",
+            u"Delete Monitors",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Monitor",
+            u"Scheduled deletion of Monitors",
+            count
+        )
 
 
 class DeleteMemberLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletemember"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Member")
-    data_type_plural = _("Members")
     policy_rules = (("network", "delete_member"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Member",
+            u"Delete Members",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Member",
+            u"Scheduled deletion of Members",
+            count
+        )
 
 
 class UpdatePoolLink(policy.PolicyTargetMixin, tables.LinkAction):
