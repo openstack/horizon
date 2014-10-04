@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import collections
 import logging
+import warnings
 
 import netaddr
 
@@ -936,6 +937,12 @@ def is_extension_supported(request, extension_alias):
 
 
 def is_enabled_by_config(name, default=True):
+    if hasattr(settings, 'OPENSTACK_QUANTUM_NETWORK'):
+        warnings.warn(
+            'OPENSTACK_QUANTUM_NETWORK setting is deprecated and will be '
+            'removed in the near future. '
+            'Please use OPENSTACK_NEUTRON_NETWORK instead.',
+            DeprecationWarning)
     network_config = (getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {}) or
                       getattr(settings, 'OPENSTACK_QUANTUM_NETWORK', {}))
     return network_config.get(name, default)
