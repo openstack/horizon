@@ -229,7 +229,7 @@ class ImageViewTests(test.TestCase):
                             'project/images/images/detail.html')
         self.assertEqual(res.context['image'].name, image.name)
         self.assertEqual(res.context['image'].protected, image.protected)
-        self.assertContains(res, "<h2>Image Details: %s</h2>" % image.name,
+        self.assertContains(res, "<h1>Image Details: %s</h1>" % image.name,
                             1, 200)
 
     @test.create_stubs({api.glance: ('image_get',)})

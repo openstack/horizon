@@ -972,7 +972,7 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.get(url)
 
-        self.assertContains(res, "<h2>Volume Details: Volume name</h2>",
+        self.assertContains(res, "<h1>Volume Details: Volume name</h1>",
                             1, 200)
         self.assertContains(res, "<dd>Volume name</dd>", 1, 200)
         self.assertContains(res, "<dd>%s</dd>" % volume.id, 1, 200)

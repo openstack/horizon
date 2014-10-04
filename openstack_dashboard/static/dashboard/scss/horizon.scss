@@ -172,12 +172,12 @@ dt {
 
 .page-header {
   margin: 0 0 5px 0;
-  padding: 0 0 5px 0;
-  border-bottom: 2px solid $headings-color;
+  padding: 10px 0 5px 0;
+  border-bottom: 0;
   font-family: anivers;
   height: auto;
   width: 100%;
-  h2 {
+  h1 {
     margin: 0;
   }
 }
