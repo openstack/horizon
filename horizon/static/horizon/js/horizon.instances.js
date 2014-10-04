@@ -258,7 +258,7 @@ horizon.addInitFunction(function () {
     The font-family is changed because with the default policy the major I
     and minor the l cannot be distinguished.
   */
-  $(document).on('show', '#password_instance_modal', function (evt) {
+  $(document).on('show.bs.modal', '#password_instance_modal', function (evt) {
     $("#id_decrypted_password").css("font-family","monospace");
     $("#id_decrypted_password").css("cursor","text");
     $("#id_encrypted_password").css("cursor","text");
