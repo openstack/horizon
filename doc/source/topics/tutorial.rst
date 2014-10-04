@@ -1,6 +1,6 @@
-===================
-Building on Horizon
-===================
+============================================
+Tutorial: Building a Dashboard using Horizon
+============================================
 
 This tutorial covers how to use the various components in Horizon to build
 an example dashboard and a panel with a tab which has a table containing data

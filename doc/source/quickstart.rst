@@ -1,6 +1,6 @@
-==================
-Horizon Quickstart
-==================
+==========
+Quickstart
+==========
 
 ..  Note ::
 
@@ -88,8 +88,12 @@ or to the IP and port the server is listening for.
     * Nova (compute, api, scheduler, and network)
     * Glance
     * Keystone
+    * Neutron (unless nova-network is used)
 
-    Optional support is provided for Swift.
+    Horizon provides optional support for other services.
+    See :ref:`system-requirements-label` for the supported services.
+    If Keystone endpoint for a service is configured, Horizon detects it
+    and enables its support automatically.
 
 
 Editing Horizon's Source
