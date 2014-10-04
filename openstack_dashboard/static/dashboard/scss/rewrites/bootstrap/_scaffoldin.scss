@@ -20,25 +20,11 @@ li{
 
 a{
   color: $brand-primary;
-  text-decoration: underline;
+  text-decoration: none;
 	&:hover{
 	  color: $brand-secundary;
-	  text-decoration: underline;
+	  text-decoration: none;
 	}
-}
-
-
-.nav > li a,
-.navbar-fixed-top a,
-.pager > li a,
-.btn,
-.accordion-heading > a,
-.logo-header a,
-.dropdown-menu li a,
-.breadcrumb a,
-.page-header a,
-.sidebar a{
-  text-decoration: none;
 }
 
 h1,

@@ -18,6 +18,9 @@ footer.footer-main {
   border-top: 1px solid $gray-lighter;
   padding-top: 16px;
   margin: 0;
+  a{
+    text-decoration: underline;
+  }
 }
 
 

@@ -81,7 +81,10 @@
     line-height: 0;
     display: inline-block;
   }
-}
+  &:hover{
+    text-decoration: none;
+  }
+} 
 
 
 .view-more{
@@ -152,12 +155,12 @@
     clear: both;
     text-align: left;
     a{
-      border-right: 1px solid $gray-lighter;
+      border-right: 1px solid $gray-light;
       padding-right: 6px;
-      padding-left: 10px
+      padding-left: 10px;
       font-size: 12px;
-      &:last-child{
-        margin-left: 0px;
+      &:first-child{
+        padding-left: 0px;
       }
       &:last-child{
         border-right: none;
@@ -169,7 +172,9 @@
   }
 }
 
-
+.conditions{
+  font-size: 12px;
+}
 .simple_captcha{
   border-top: 1px solid #E2E2E2;
   border-bottom: 1px solid #E2E2E2;
