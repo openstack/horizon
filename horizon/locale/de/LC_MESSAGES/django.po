@@ -8,13 +8,14 @@
 # Christian Berendt <berendt@b1-systems.de>, 2014
 # Ettore Atalan <atalanttore@googlemail.com>, 2014
 # Robert Simai, 2014
+# Robert Simai, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 16:19-0500\n"
-"PO-Revision-Date: 2014-09-30 07:00+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-06 16:01+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +61,7 @@ msgstr "Navigations-Eintrag"
 #: browsers/views.py:41
 #, python-format
 msgid "Select a %s to browse."
-msgstr "Wähle %s zum Durchsuchen."
+msgstr "Wählen Sie %s zum Durchsuchen."
 
 #: conf/default.py:41
 msgid "Password is not accepted"
@@ -296,7 +297,7 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr "\nSie können Metadaten angeben in dem Sie Einträge von der linken Spalten zur rechten Spalte hinzufügen. Sie können wählen, ob Sie die Metadaten zum Glance Verzeichnis hinzufügen wollen oder Sie wählen die Option \"Other\" und benutzen eine Bezeichnung Ihrer Wahl."
+msgstr "\nSie können Metadaten angeben, in dem Sie Einträge von der linken Spalte zur rechten Spalte hinzufügen. Sie können wählen, ob Sie die Metadaten zum Glance Verzeichnis hinzufügen wollen oder Sie wählen die Option \"Andere\" und benutzen eine Bezeichnung Ihrer Wahl."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
@@ -327,7 +328,7 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr "\nSie können Ressource-Metadaten angeben in dem Sie Einträge von der linken Spalten zur rechten Spalte verschieben. In der linken Spalte sind Metadatenangaben aus dem Glance Metadaten Katalog. Wählen Sie die Option \"Other\" um eine Bezeichnung Ihrer Wahl zu benutzen."
+msgstr "\nSie können Ressource-Metadaten angeben, in dem Sie Einträge von der linken Spalte zur rechten Spalte verschieben. In der linken Spalte sind Metadatenangaben aus dem Glance Metadaten Katalog. Wählen Sie die Option \"Other\" um eine Bezeichnung Ihrer Wahl zu benutzen."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
@@ -440,7 +441,7 @@ msgstr "%s TB"
 #: templatetags/sizeformat.py:68
 #, python-format
 msgid "%s PB"
-msgstr "%s TB"
+msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"

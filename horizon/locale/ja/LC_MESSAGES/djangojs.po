@@ -5,12 +5,13 @@
 # Translators:
 # yfukuda <fukuda.yuko@jp.fujitsu.com>, 2014
 # myamamot <myamamot@redhat.com>, 2014
+# ykatabam <ykatabam@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 13:08-0500\n"
-"PO-Revision-Date: 2014-09-24 20:40+0000\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-09 00:00+0000\n"
 "Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:303
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "読み込み中"
@@ -31,7 +32,7 @@ msgid "No data available."
 msgstr "データがありません。"
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:322
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -48,7 +49,7 @@ msgstr "フィルター"
 
 #: static/horizon/js/horizon.instances.js:248
 msgid "Could not read the file"
-msgstr "ファイルを読み取れませんでした。"
+msgstr "ファイルを読み取ることができませんでした。"
 
 #: static/horizon/js/horizon.instances.js:254
 #: static/horizon/js/horizon.instances.js:281
@@ -87,18 +88,18 @@ msgstr "エラー: "
 msgid "Cancel"
 msgstr "取り消し"
 
-#: static/horizon/js/horizon.modals.js:223
+#: static/horizon/js/horizon.modals.js:225
 #: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "反映中"
 
-#: static/horizon/js/horizon.modals.js:253
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
 msgstr "フォームの送信中にエラーが発生しました。再度お試しください。"
 
 #: static/horizon/js/horizon.networktopology.js:535
 msgid "STATUS"
-msgstr "状態"
+msgstr "ステータス"
 
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "ID"

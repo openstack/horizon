@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 13:08-0500\n"
-"PO-Revision-Date: 2014-09-23 03:32+0000\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-02 22:40+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:303
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "讀取中"
@@ -30,7 +30,7 @@ msgid "No data available."
 msgstr "無可用的資料。"
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:322
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -86,12 +86,12 @@ msgstr "錯誤："
 msgid "Cancel"
 msgstr "取消"
 
-#: static/horizon/js/horizon.modals.js:223
+#: static/horizon/js/horizon.modals.js:225
 #: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "運作中"
 
-#: static/horizon/js/horizon.modals.js:253
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表單時有錯誤。請再試一次。"
 

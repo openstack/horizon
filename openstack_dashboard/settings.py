@@ -262,10 +262,8 @@ LANGUAGES = (
     ('hi', 'Hindi'),
     ('ja', 'Japanese'),
     ('ko', 'Korean (Korea)'),
-    ('nl', 'Dutch (Netherlands)'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese (Brazil)'),
-    ('sr', 'Serbian'),
     ('zh-cn', 'Simplified Chinese'),
     ('zh-tw', 'Chinese (Taiwan)'),
 )

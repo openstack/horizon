@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 21:10-0500\n"
-"PO-Revision-Date: 2014-08-21 09:35+0000\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-08 15:00+0000\n"
 "Last-Translator: Bruno seznec <Brunoconsult@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:303
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "Chargement..."
 
-#: static/horizon/js/horizon.d3linechart.js:393
-#: static/horizon/js/horizon.d3linechart.js:403
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
 msgstr "Pas de données disponibles."
 
-#: static/horizon/js/horizon.d3linechart.js:409
-#: static/horizon/js/horizon.modals.js:322
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -41,16 +41,16 @@ msgstr "Une erreur s'est produite. Veuillez réessayer ultérieurement."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Problème de communication avec le serveur, veuillez réessayer."
 
-#: static/horizon/js/horizon.forms.js:193
+#: static/horizon/js/horizon.forms.js:195
 msgid "Filter"
 msgstr "Filtrer"
 
-#: static/horizon/js/horizon.instances.js:233
+#: static/horizon/js/horizon.instances.js:248
 msgid "Could not read the file"
 msgstr "Le fichier ne peut être lu"
 
-#: static/horizon/js/horizon.instances.js:239
-#: static/horizon/js/horizon.instances.js:266
+#: static/horizon/js/horizon.instances.js:254
+#: static/horizon/js/horizon.instances.js:281
 msgid "Could not decrypt the password"
 msgstr "Le mot de passe ne peut être décrypté"
 
@@ -62,23 +62,23 @@ msgstr "Aucun rôle"
 msgid "Roles"
 msgstr "Rôles"
 
-#: static/horizon/js/horizon.messages.js:11
+#: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
 msgstr "Danger :"
 
-#: static/horizon/js/horizon.messages.js:12
+#: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
 msgstr "Avertissement :"
 
-#: static/horizon/js/horizon.messages.js:13
+#: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
 msgstr "Notification :"
 
-#: static/horizon/js/horizon.messages.js:14
+#: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
 msgstr "Succès :"
 
-#: static/horizon/js/horizon.messages.js:15
+#: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "Erreur :"
 
@@ -86,12 +86,12 @@ msgstr "Erreur :"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: static/horizon/js/horizon.modals.js:224
-#: static/horizon/js/horizon.tables.js:220
+#: static/horizon/js/horizon.modals.js:225
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "Traitement en cours..."
 
-#: static/horizon/js/horizon.modals.js:254
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
 msgstr "Erreur lors de la soumission du formulaire, veuillez réessayer. "
 
@@ -125,7 +125,7 @@ msgid "Add Interface"
 msgstr "Ajouter une Interface"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:376
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
 
@@ -134,21 +134,21 @@ msgstr "Aucun élément à afficher."
 msgid "An error occurred while updating."
 msgstr "Une erreur s'est produite durant la mise à jour."
 
-#: static/horizon/js/horizon.tables.js:203
+#: static/horizon/js/horizon.tables.js:204
 #, c-format
 msgid "You have selected %s. "
 msgstr "Vous avez sélectionné %s."
 
-#: static/horizon/js/horizon.tables.js:205
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "Confirm %s"
 msgstr "Confirmez %s"
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "Confirmez votre sélection. Cette action ne peut pas être annulée."
 
-#: static/horizon/js/horizon.tables.js:363
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

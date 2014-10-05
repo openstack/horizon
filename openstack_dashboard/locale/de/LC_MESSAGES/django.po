@@ -10,13 +10,14 @@
 # Matthias Runge <mrunge@redhat.com>, 2014
 # Peter Singhof <peter.singhof@hp.com>, 2014
 # Robert Simai, 2014
+# Robert Simai, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-02 00:15-0500\n"
-"PO-Revision-Date: 2014-10-02 05:39+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-06 13:30+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -319,35 +320,35 @@ msgstr "Passwort geändert. Bitte melden Sie sich erneut an um fortzufahren."
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "Erlaube %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:823
+#: api/neutron.py:852
 msgid "Unable to connect to Neutron."
 msgstr "Keine Verbindung zu Neutron."
 
-#: api/neutron.py:860
+#: api/neutron.py:889
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP Adresse %s kann nicht analysiert werden."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:993
+#: api/neutron.py:1022
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
 "a feature defined in FEATURE_MAP."
-msgstr ""
+msgstr "Das verlangte Merkmal '%(feature)s' ist unbekannt. Bitte stellen Sie sicher, ein Merkmal aus der FEATURE_MAP anzugeben."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1011
+#: api/neutron.py:1040
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
-msgstr ""
+msgstr "Der 'operation' Parameter für get_feature_permission '%(feature)s' ist ungültig. Gültig ist %(allowed)s"
 
-#: api/neutron.py:1026
+#: api/neutron.py:1055
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr ""
+msgstr "Fehler bei der Prüfung, Neutron '%s' Erweiterung ist nicht unterstützt"
 
 #: api/nova.py:211
 #, python-format
@@ -564,14 +565,14 @@ msgstr "Host Aggregate"
 #: dashboards/admin/aggregates/tables.py:29
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Host Aggregat löschen"
+msgstr[1] "Host Aggregate löschen"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Host Aggregat"
+msgstr[1] "Gelöschte Host Aggregate"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/workflows.py:176
@@ -757,7 +758,7 @@ msgstr "Hinzufügen/Entfernen von Hosts zum/vom Aggregat"
 #: dashboards/identity/domains/workflows.py:299
 #: dashboards/identity/projects/workflows.py:510
 #: dashboards/project/instances/workflows/update_instance.py:133
-#: dashboards/project/networks/subnets/workflows.py:160
+#: dashboards/project/networks/subnets/workflows.py:161
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Save"
 msgstr "Speichern"
@@ -1134,7 +1135,7 @@ msgstr "Floating IPs"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:489
+#: dashboards/project/instances/workflows/create_instance.py:493
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1651,14 +1652,14 @@ msgstr "Fehler beim Evakuieren des Hosts: %s"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:6
 msgid "Evacuate Host"
 msgid_plural "Evacuate Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Host evakuieren"
+msgstr[1] "Hosts evakuieren"
 
 #: dashboards/admin/hypervisors/compute/tables.py:35
 msgid "Evacuated Host"
 msgid_plural "Evacuated Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Evakuierter Host"
+msgstr[1] "Evakuierte Hosts"
 
 #: dashboards/admin/hypervisors/compute/tables.py:65
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
@@ -2097,7 +2098,7 @@ msgid "Scheduled migration (pending confirmation) of"
 msgstr "Geplante Migration (wartet auf Bestätigung) von"
 
 #: dashboards/admin/instances/tables.py:36
-#: dashboards/project/access_and_security/floating_ips/workflows.py:36
+#: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/databases/tables.py:36
 #: dashboards/project/databases/tables.py:49
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
@@ -2153,8 +2154,8 @@ msgstr "Variante ID ="
 
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/project/access_and_security/floating_ips/tables.py:179
-#: dashboards/project/access_and_security/floating_ips/workflows.py:32
-#: dashboards/project/access_and_security/floating_ips/workflows.py:39
+#: dashboards/project/access_and_security/floating_ips/workflows.py:33
+#: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:889
 #: dashboards/project/loadbalancers/tables.py:253
 msgid "IP Address"
@@ -2189,15 +2190,13 @@ msgid "Power State"
 msgstr "Zustand"
 
 #: dashboards/admin/instances/tables.py:152
-#: dashboards/project/instances/tables.py:914
-#: dashboards/project/instances/templates/instances/_detail_overview.html:20
-#: usage/tables.py:75
-msgid "Uptime"
-msgstr "Betriebszeit"
+#: dashboards/project/instances/tables.py:914 usage/tables.py:75
+msgid "Time since created"
+msgstr "Zeit seit Erzeugung"
 
 #: dashboards/admin/instances/views.py:84
 #: dashboards/project/access_and_security/tabs.py:112
-#: dashboards/project/access_and_security/floating_ips/workflows.py:88
+#: dashboards/project/access_and_security/floating_ips/workflows.py:91
 msgid "Unable to retrieve instance list."
 msgstr "Instanzliste kann nicht abgerufen werden."
 
@@ -2586,13 +2585,13 @@ msgid ""
 msgstr "Für VLAN Netzwerke die VLAN ID auf dem physischen Netzwerk, das die VLANs realisiert. Gültige VLAN IDs sind %(vlan_min)s bis %(vlan_max)s. Für GRE oder VXLAN Netzwerke die Tunnel ID. Gültige Tunnel IDs für GRE Netzwerke sind %(gre_min)s bis %(gre_max)s, für VXLAN Netzwerke %(vxlan_min)s bis %(vxlan_max)s."
 
 #: dashboards/admin/networks/forms.py:142
-#: dashboards/project/instances/workflows/create_instance.py:686
+#: dashboards/project/instances/workflows/create_instance.py:691
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "Profil auswählen"
 
 #: dashboards/admin/networks/forms.py:152
-#: dashboards/project/instances/workflows/create_instance.py:696
+#: dashboards/project/instances/workflows/create_instance.py:701
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:55
 msgid "Network Profiles could not be retrieved."
@@ -2641,7 +2640,7 @@ msgstr "Das Netzwerk %s konnte nicht aktualisiert werden."
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:640
+#: dashboards/project/instances/workflows/create_instance.py:644
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:130
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -2780,14 +2779,14 @@ msgstr "Fehler beim Hinzufügen des Agenten %(agent_name)s für das Netzwerk %(n
 #: dashboards/admin/networks/agents/tables.py:39
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "DHCP Agent löschen"
+msgstr[1] "DHCP Agenten löschen"
 
 #: dashboards/admin/networks/agents/tables.py:47
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter DHCP Agent"
+msgstr[1] "Gelöschte DHCP Agenten"
 
 #: dashboards/admin/networks/agents/tables.py:60
 #, python-format
@@ -2963,13 +2962,13 @@ msgstr "Das Subnetz %s konnte nicht gelöscht werden."
 #: dashboards/admin/networks/subnets/tables.py:66
 #: dashboards/project/networks/workflows.py:90
 #: dashboards/project/networks/subnets/tables.py:90
-#: dashboards/project/networks/subnets/workflows.py:55
+#: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create Subnet"
 msgstr "Subnetz erstellen"
 
 #: dashboards/admin/networks/subnets/tables.py:79
 #: dashboards/project/networks/subnets/tables.py:104
-#: dashboards/project/networks/subnets/workflows.py:159
+#: dashboards/project/networks/subnets/workflows.py:160
 msgid "Edit Subnet"
 msgstr "Subnetz bearbeiten"
 
@@ -2984,7 +2983,7 @@ msgstr "CIDR"
 #: dashboards/admin/networks/subnets/tables.py:94
 #: dashboards/project/networks/workflows.py:107
 #: dashboards/project/networks/subnets/tables.py:119
-#: dashboards/project/networks/subnets/workflows.py:99
+#: dashboards/project/networks/subnets/workflows.py:100
 msgid "IP Version"
 msgstr "IP Version"
 
@@ -3283,7 +3282,7 @@ msgstr "Verteilt"
 #: dashboards/project/routers/forms.py:92
 #: dashboards/project/routers/templates/routers/_detail_overview.html:20
 msgid "High Availability Mode"
-msgstr ""
+msgstr "Hochverfügbarkeitsmodus"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:26
 #: dashboards/project/routers/templates/routers/_detail_overview.html:24
@@ -3420,7 +3419,7 @@ msgstr "Info"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:363
+#: dashboards/project/instances/workflows/create_instance.py:367
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:21
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:219
@@ -3514,7 +3513,7 @@ msgstr "\nQOS Spezifikation die mit diesem Datenträgertyp verbunden ist hinzuf�
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:107
-#: dashboards/project/access_and_security/floating_ips/workflows.py:129
+#: dashboards/project/access_and_security/floating_ips/workflows.py:137
 #: dashboards/project/loadbalancers/workflows.py:666
 msgid "Associate"
 msgstr "Zuweisen"
@@ -3557,7 +3556,7 @@ msgstr "\nQOS Spezifikation können mit Datenträgertypen verbunden werden.\nDas
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
 #: dashboards/project/networks/workflows.py:305
-#: dashboards/project/networks/subnets/workflows.py:56
+#: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
 msgstr "Erstellen"
 
@@ -3777,14 +3776,14 @@ msgstr "Verbindungen der QOS Spezifikation verwalten"
 #: dashboards/admin/volumes/volume_types/tables.py:52
 msgid "Delete VolumeType"
 msgid_plural "Delete VolumeTypes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lösche Datenträger Typ"
+msgstr[1] "Lösche Datenträger Typen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:60
 msgid "Deleted VolumeType"
 msgid_plural "Deleted VolumeTypes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Datenträger Typ"
+msgstr[1] "Gelöschte Datenträger Typen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Associated QOS Spec"
@@ -3803,8 +3802,8 @@ msgstr[1] "Lösche QOS Spezifikationen"
 #: dashboards/admin/volumes/volume_types/tables.py:126
 msgid "Deleted QOS Spec"
 msgid_plural "Deleted QOS Specs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte QOS Spezifikation"
+msgstr[1] "Gelöschte QOS Spezifikationen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:138
 msgid "Edit Consumer"
@@ -3864,14 +3863,14 @@ msgstr "Extra Spezifikation für Datenträgertyp  kann nicht bearbeitet werden."
 #: dashboards/admin/volumes/volume_types/extras/tables.py:27
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Extra-Spezifikation löschen"
+msgstr[1] "Extra-Spezifikationen löschen"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:35
 msgid "Deleted Extra Spec"
 msgid_plural "Deleted Extra Specs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Extra-Spezifikation"
+msgstr[1] "Gelöschte Extra-Spezifikationen"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
@@ -4641,7 +4640,7 @@ msgstr "Keine verfügbaren Projekte"
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:538
+#: dashboards/project/instances/workflows/create_instance.py:542
 #: dashboards/settings/password/forms.py:47
 msgid "Passwords do not match."
 msgstr "Die Passwörter stimmen nicht überein."
@@ -4805,7 +4804,7 @@ msgid "Data Processing"
 msgstr "Datenverarbeitung"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:496
+#: dashboards/project/instances/workflows/create_instance.py:500
 msgid "Access & Security"
 msgstr "Zugriff & Sicherheit"
 
@@ -4820,7 +4819,7 @@ msgid "Unable to retrieve key pair list."
 msgstr "Liste der Schlüsselpaare kann nicht abgerufen werden."
 
 #: dashboards/project/access_and_security/tabs.py:94
-#: dashboards/project/access_and_security/floating_ips/workflows.py:71
+#: dashboards/project/access_and_security/floating_ips/workflows.py:73
 #: usage/base.py:111
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Floating IP Nummern können nicht abgerufen werden."
@@ -4954,55 +4953,55 @@ msgstr "Floating IP Pool"
 msgid "No floating IP pools available"
 msgstr "Keine Floating IP Pools verfügbar"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:40
+#: dashboards/project/access_and_security/floating_ips/workflows.py:41
 msgid ""
 "Select the IP address you wish to associate with the selected instance."
 msgstr "Wählen Sie die IP-Adresse, die Sie der ausgewählten Instanz zuweisen wollen."
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:46
+#: dashboards/project/access_and_security/floating_ips/workflows.py:47
 msgid "Port to be associated"
 msgstr "Protokoll wird verknüpft"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:48
+#: dashboards/project/access_and_security/floating_ips/workflows.py:49
 msgid "Instance to be associated"
 msgstr "Instanz wird verknüpft"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:75
+#: dashboards/project/access_and_security/floating_ips/workflows.py:77
 msgid "Select an IP address"
 msgstr "IP-Adresse wählen"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:77
+#: dashboards/project/access_and_security/floating_ips/workflows.py:79
 msgid "No floating IP addresses allocated"
 msgstr "Keine Floating IP belegt"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:100
+#: dashboards/project/access_and_security/floating_ips/workflows.py:108
 msgid "Select a port"
 msgstr "Einen Port auswählen"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:102
+#: dashboards/project/access_and_security/floating_ips/workflows.py:110
 #: dashboards/project/volumes/volumes/forms.py:440
 msgid "Select an instance"
 msgstr "Instanz auswählen"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:106
+#: dashboards/project/access_and_security/floating_ips/workflows.py:114
 msgid "No ports available"
 msgstr "Keine Ports verfügbar"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:108
+#: dashboards/project/access_and_security/floating_ips/workflows.py:116
 #: dashboards/project/volumes/volumes/forms.py:442
 msgid "No instances available"
 msgstr "Keine Instanz verfügbar"
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:128
+#: dashboards/project/access_and_security/floating_ips/workflows.py:136
 msgid "Manage Floating IP Associations"
 msgstr "Floating IP Zuweisungen einrichten."
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:130
+#: dashboards/project/access_and_security/floating_ips/workflows.py:138
 #, python-format
 msgid "IP address %s associated."
 msgstr "IP-Adresse %s wurde zugewiesen."
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:131
+#: dashboards/project/access_and_security/floating_ips/workflows.py:139
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "IP-Adresse %s kann nicht zugewiesen werden."
@@ -5535,7 +5534,7 @@ msgstr "Container konnte nicht erstellt werden. "
 
 #: dashboards/project/containers/forms.py:84
 #: dashboards/project/containers/templates/containers/_update.html:22
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:569
 #: dashboards/project/stacks/forms.py:56
 msgid "File"
 msgstr "Datei"
@@ -5642,8 +5641,8 @@ msgstr[1] "Lösche Container"
 #: dashboards/project/containers/tables.py:118
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Container"
+msgstr[1] "Gelöschte Container"
 
 #: dashboards/project/containers/tables.py:132
 msgid "Unable to delete container."
@@ -5683,14 +5682,14 @@ msgstr "Container Details"
 #: dashboards/project/containers/tables.py:333
 msgid "Delete Object"
 msgid_plural "Delete Objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Objekt löschen"
+msgstr[1] "Objekte löschen"
 
 #: dashboards/project/containers/tables.py:341
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Objekt"
+msgstr[1] "Gelöschte Objekte"
 
 #: dashboards/project/containers/tables.py:368
 msgid "Copy"
@@ -5906,15 +5905,15 @@ msgstr "Vorlage kopieren"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:56
 msgid "Delete Template"
 msgid_plural "Delete Templates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Vorlage löschen"
+msgstr[1] "Vorlagen löschen"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:64
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Vorlage"
+msgstr[1] "Gelöschte Vorlagen"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:87
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
@@ -6084,7 +6083,7 @@ msgstr "Vorlage nicht spezifiziert"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:31
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:101
 msgid "Auto Security Group"
-msgstr ""
+msgstr "Auto Sicherheitsgruppe"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:33
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:41
@@ -6201,14 +6200,14 @@ msgstr "Cluster skalieren"
 #: dashboards/project/data_processing/clusters/tables.py:53
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Cluster löschen"
+msgstr[1] "Cluster löschen"
 
 #: dashboards/project/data_processing/clusters/tables.py:61
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Cluster"
+msgstr[1] "Gelöschte Cluster"
 
 #: dashboards/project/data_processing/clusters/tables.py:84
 msgid "Unable to update row"
@@ -6390,7 +6389,7 @@ msgstr "Abbild"
 #: dashboards/project/data_processing/data_image_registry/forms.py:71
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:385
+#: dashboards/project/instances/workflows/create_instance.py:389
 msgid "Select Image"
 msgstr "Abbild auswählen"
 
@@ -6422,19 +6421,19 @@ msgstr "Schlagwörter bearbeiten"
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:6
 msgid "Register Image"
-msgstr "Abbild registrieren"
+msgstr "Abbild anmelden"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:54
 msgid "Unregister Image"
 msgid_plural "Unregister Images"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abbild abmelden"
+msgstr[1] "Abbilder abmelden"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:62
 msgid "Unregistered Image"
 msgid_plural "Unregistered Images"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abgemeldetes Abbild"
+msgstr[1] "Abgemeldete Abbilder"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:80
 msgid "Tags"
@@ -6564,14 +6563,14 @@ msgstr "Datenquelle erstellen"
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Delete Data source"
 msgid_plural "Delete Data sources"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Datenquelle löschen"
+msgstr[1] "Datenquellen löschen"
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
 msgid "Deleted Data source"
 msgid_plural "Deleted Data sources"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Datenquelle"
+msgstr[1] "Gelöschte Datenquellen"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
@@ -6702,14 +6701,14 @@ msgstr "Aufgaben-Binärprogramme"
 #: dashboards/project/data_processing/job_binaries/tables.py:41
 msgid "Delete Job binary"
 msgid_plural "Delete Job binaries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aufgaben-Binärprogramm löschen"
+msgstr[1] "Aufgaben-Binärprogramme löschen"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:49
 msgid "Deleted Job binary"
 msgid_plural "Deleted Job binaries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Aufgaben-Binärprogramm"
+msgstr[1] "Gelöschte Aufgaben-Binärprogramme"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:74
 msgid "Download Job Binary"
@@ -6802,14 +6801,14 @@ msgstr "Aufgaben Ausführungen"
 #: dashboards/project/data_processing/job_executions/tables.py:34
 msgid "Delete Job execution"
 msgid_plural "Delete Job executions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aufgabenausführung löschen"
+msgstr[1] "Aufgabenausführungen löschen"
 
 #: dashboards/project/data_processing/job_executions/tables.py:42
 msgid "Deleted Job execution"
 msgid_plural "Deleted Job executions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Aufgabenausführung"
+msgstr[1] "Gelöschte Aufgabenausführungen"
 
 #: dashboards/project/data_processing/job_executions/tables.py:58
 #: dashboards/project/data_processing/job_executions/tables.py:87
@@ -6823,8 +6822,8 @@ msgstr[1] ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:415
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aufgabe starten"
+msgstr[1] "Aufgaben starten"
 
 #: dashboards/project/data_processing/job_executions/tables.py:66
 #: dashboards/project/data_processing/job_executions/tables.py:95
@@ -6833,8 +6832,8 @@ msgstr[1] ""
 #: dashboards/project/data_processing/jobs/tables.py:130
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gestartete Aufgabe"
+msgstr[1] "Gestartete Aufgaben"
 
 #: dashboards/project/data_processing/job_executions/tables.py:72
 msgid "Relaunch On Existing Cluster"
@@ -6930,14 +6929,14 @@ msgstr "Aufgabe erstellen"
 #: dashboards/project/data_processing/jobs/tables.py:40
 msgid "Delete Job"
 msgid_plural "Delete Jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aufgabe löschen"
+msgstr[1] "Aufgaben löschen"
 
 #: dashboards/project/data_processing/jobs/tables.py:48
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Aufgabe"
+msgstr[1] "Gelöschte Aufgaben"
 
 #: dashboards/project/data_processing/jobs/tables.py:78
 msgid "Launch On Existing Cluster"
@@ -7047,7 +7046,7 @@ msgstr "Ausgabe-Datenquelle wählen (nicht verfügbar für Java Aufgaben)."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:5
 msgid "Select property name"
-msgstr ""
+msgstr "Wähle Eigenschaft Name"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:220
 msgid "Configuration"
@@ -7147,7 +7146,7 @@ msgstr "Cluster nach Beendigung der Aufgabe bestehen lassen."
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:780
+#: dashboards/project/instances/workflows/create_instance.py:785
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Start"
@@ -7343,11 +7342,11 @@ msgstr "Floating IP Pool"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:103
 msgid "Create security group for this Node Group."
-msgstr ""
+msgstr "Erstelle Sicherheitsgruppe für diese Node Gruppe"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:111
 msgid "Launch instances in these security groups."
-msgstr ""
+msgstr "Start von Instanzen in diesen Sicherheitsgruppen"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:116
 msgid "Processes"
@@ -7384,7 +7383,7 @@ msgstr "Anti-Affinität Prozesse können nicht bestückt werden."
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:682
+#: dashboards/project/instances/workflows/create_instance.py:687
 msgid "Unable to retrieve networks."
 msgstr "Netzwerke können nicht abgerufen werden."
 
@@ -7581,14 +7580,14 @@ msgstr "Geplante Sicherung \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:782
+#: dashboards/project/instances/workflows/create_instance.py:787
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Außerstande %(count)s mal \"%(name)s\" zu starten."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:799
+#: dashboards/project/instances/workflows/create_instance.py:804
 msgid "instance"
 msgstr "Instanz"
 
@@ -7657,7 +7656,7 @@ msgstr "Fehler beim Löschen der Datenbank auf Instanz."
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/instances/tables.py:303
 #: dashboards/project/instances/tables.py:331
-#: dashboards/project/instances/workflows/create_instance.py:779
+#: dashboards/project/instances/workflows/create_instance.py:784
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Instanz starten"
@@ -7928,22 +7927,22 @@ msgid "Select datastore type and version"
 msgstr "Typ und Version des Datenspeichers wählen"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:644
+#: dashboards/project/instances/workflows/create_instance.py:648
 msgid "At least one network must be specified."
 msgstr "Es muss mindestens ein Netzwerk angegeben werden."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:646
+#: dashboards/project/instances/workflows/create_instance.py:650
 msgid "Launch instance with these networks"
 msgstr "Instanz mit diesen Netzwerken starten"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:668
+#: dashboards/project/instances/workflows/create_instance.py:672
 msgid "Networking"
 msgstr "Netzwerk"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:670
+#: dashboards/project/instances/workflows/create_instance.py:674
 msgid "Select networks for your instance."
 msgstr "Wählen Sie die Netzwerke für Ihre Instanz."
 
@@ -7988,7 +7987,7 @@ msgid "Unable to find backup!"
 msgstr "Sicherungskopie kann nicht gefunden werden!"
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:781
+#: dashboards/project/instances/workflows/create_instance.py:786
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s mal \"%(name)s\" gestartet."
@@ -8201,20 +8200,20 @@ msgstr "Firewall erstellen"
 #: dashboards/project/firewalls/tables.py:66
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Geplante Löschung der Regel"
+msgstr[1] "Geplante Löschung von Regeln"
 
 #: dashboards/project/firewalls/tables.py:80
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Richtlinie löschen"
+msgstr[1] "Richtlinien löschen"
 
 #: dashboards/project/firewalls/tables.py:88
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Geplante Löschung der Richtlinie"
+msgstr[1] "Geplante Löschung von Richtlinien"
 
 #: dashboards/project/firewalls/tables.py:103
 msgid "Delete Firewall"
@@ -8225,8 +8224,8 @@ msgstr[1] "Lösche Firewalls"
 #: dashboards/project/firewalls/tables.py:111
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Geplante Löschung der Firewall"
+msgstr[1] "Geplante Löschung der Firewalls"
 
 #: dashboards/project/firewalls/tables.py:121
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
@@ -8834,28 +8833,28 @@ msgid "Confirm Rebuild Password"
 msgstr "Bestätige Passwort erneuern"
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:727
+#: dashboards/project/instances/workflows/create_instance.py:732
 msgid "Disk Partition"
 msgstr "Festplattenpartition"
 
 #: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:387
+#: dashboards/project/instances/workflows/create_instance.py:391
 msgid "No images available"
 msgstr "Keine Abbilder verfügbar"
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:744
+#: dashboards/project/instances/workflows/create_instance.py:749
 msgid "Automatic"
 msgstr "Automatisch"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:745
+#: dashboards/project/instances/workflows/create_instance.py:750
 msgid "Manual"
 msgstr "Manuell"
 
 #: dashboards/project/instances/forms.py:79
 #: dashboards/project/instances/workflows/create_instance.py:155
-#: dashboards/project/instances/workflows/create_instance.py:754
+#: dashboards/project/instances/workflows/create_instance.py:759
 msgid "Unable to retrieve extensions information."
 msgstr "Informationen zu Erweiterungen können nicht abgerufen werden."
 
@@ -9415,7 +9414,7 @@ msgid "Building"
 msgstr "Aufbauend"
 
 #: dashboards/project/instances/tables.py:894
-#: dashboards/project/instances/workflows/create_instance.py:474
+#: dashboards/project/instances/workflows/create_instance.py:478
 msgid "Key Pair"
 msgstr "Schlüsselpaar"
 
@@ -9547,6 +9546,10 @@ msgstr "Los"
 msgid "View Full Log"
 msgstr "Gesamtes Log anzeigen"
 
+#: dashboards/project/instances/templates/instances/_detail_overview.html:20
+msgid "Uptime"
+msgstr "Betriebszeit"
+
 #: dashboards/project/instances/templates/instances/_detail_overview.html:27
 msgid "Fault"
 msgstr "Fehler"
@@ -9649,7 +9652,7 @@ msgstr "Es gibt keine Variante, die den Minimalkriterien des gewählten Abbildes
 
 #: dashboards/project/instances/templates/instances/_launch_advanced_help.html:2
 msgid "Specify advanced options to use when launching an instance."
-msgstr ""
+msgstr "Geben Sie weitere zu verwendende Optionen zum Start einer Instanz an."
 
 #: dashboards/project/instances/templates/instances/_launch_customize_help.html:2
 msgid ""
@@ -9659,7 +9662,7 @@ msgstr "Die Instanz kann, nachdem sie gestartet wurde, mit den hier verfügbaren
 
 #: dashboards/project/instances/templates/instances/_launch_customize_help.html:3
 msgid "\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
+msgstr "\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
 
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:6
 msgid ""
@@ -9796,224 +9799,228 @@ msgid ""
 "resource(s) exceed quota(s): %s."
 msgstr "Die angeforderte Instanz kann nicht gestartet werden. Die folgende(n) angeforderte(n) Ressource(n) überschreitet/n Kontingent(e): %s."
 
-#: dashboards/project/instances/workflows/create_instance.py:225
+#: dashboards/project/instances/workflows/create_instance.py:226
 msgid "You must set volume size"
 msgstr "Sie müssen die Datenträger Größe angeben."
 
-#: dashboards/project/instances/workflows/create_instance.py:228
-#: dashboards/project/instances/workflows/create_instance.py:302
+#: dashboards/project/instances/workflows/create_instance.py:229
+msgid "Volume size must be greater than 0"
+msgstr "Datenträgergröße muß größer als 0 sein"
+
+#: dashboards/project/instances/workflows/create_instance.py:232
+#: dashboards/project/instances/workflows/create_instance.py:306
 msgid "You must set device name"
 msgstr "Sie müssen den Gerätenamen angeben."
 
-#: dashboards/project/instances/workflows/create_instance.py:231
+#: dashboards/project/instances/workflows/create_instance.py:235
 msgid "You must select an image."
 msgstr "Sie müssen ein Abbild auswählen."
 
-#: dashboards/project/instances/workflows/create_instance.py:254
+#: dashboards/project/instances/workflows/create_instance.py:258
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "Die Variante '%(flavor)s' ist zu klein für das angeforderte Abbild. \nMinimale Anforderungen: %(min_ram)s MB RAM und %(min_disk)s GB Root-Partition."
 
-#: dashboards/project/instances/workflows/create_instance.py:271
+#: dashboards/project/instances/workflows/create_instance.py:275
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "Die Partition/Platte ist zu klein für das Abbild '%(image_name)s' und muss größer oder gleich '%(smallest_size)d' GB sein."
 
-#: dashboards/project/instances/workflows/create_instance.py:282
-#: dashboards/project/instances/workflows/create_instance.py:299
+#: dashboards/project/instances/workflows/create_instance.py:286
+#: dashboards/project/instances/workflows/create_instance.py:303
 msgid "You must select a snapshot."
 msgstr "Sie müssen einen Speicherauszug auswählen."
 
-#: dashboards/project/instances/workflows/create_instance.py:287
+#: dashboards/project/instances/workflows/create_instance.py:291
 msgid "You must select a volume."
 msgstr "Sie müssen einen Datenträger auswählen."
 
-#: dashboards/project/instances/workflows/create_instance.py:293
+#: dashboards/project/instances/workflows/create_instance.py:297
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "Starten von mehreren Instanzen wird nur unterstützt für Abbilder und Instanzmomentaufnahmen."
 
-#: dashboards/project/instances/workflows/create_instance.py:319
+#: dashboards/project/instances/workflows/create_instance.py:323
 #: dashboards/project/volumes/volumes/forms.py:271
 msgid "Unable to retrieve availability zones."
 msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
 
-#: dashboards/project/instances/workflows/create_instance.py:325
+#: dashboards/project/instances/workflows/create_instance.py:329
 #: dashboards/project/volumes/volumes/forms.py:274
 msgid "No availability zones found"
 msgstr "Keine Verfügbarkeitszone gefunden"
 
-#: dashboards/project/instances/workflows/create_instance.py:327
+#: dashboards/project/instances/workflows/create_instance.py:331
 #: dashboards/project/volumes/volumes/forms.py:276
 msgid "Any Availability Zone"
 msgstr "Irgendeine Verfügbarkeitszone"
 
-#: dashboards/project/instances/workflows/create_instance.py:350
+#: dashboards/project/instances/workflows/create_instance.py:354
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "Kontingent Informationen können nicht abgerufen werden."
 
-#: dashboards/project/instances/workflows/create_instance.py:360
+#: dashboards/project/instances/workflows/create_instance.py:364
 #: dashboards/project/volumes/volumes/forms.py:194
 msgid "Snapshot"
 msgstr "Speicherauszug"
 
-#: dashboards/project/instances/workflows/create_instance.py:365
+#: dashboards/project/instances/workflows/create_instance.py:369
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:399
+#: dashboards/project/instances/workflows/create_instance.py:403
 msgid "Select Instance Snapshot"
 msgstr "Wähle Instanzspeicherauszug"
 
-#: dashboards/project/instances/workflows/create_instance.py:401
+#: dashboards/project/instances/workflows/create_instance.py:405
 msgid "No snapshots available"
 msgstr "Keine Schnappschüsse verfügbar"
 
-#: dashboards/project/instances/workflows/create_instance.py:413
+#: dashboards/project/instances/workflows/create_instance.py:417
 #: dashboards/project/volumes/volumes/forms.py:289
 msgid "Unable to retrieve list of volumes."
 msgstr "Liste der Datenträger kann nicht abgerufen werden."
 
-#: dashboards/project/instances/workflows/create_instance.py:415
+#: dashboards/project/instances/workflows/create_instance.py:419
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "Datenträger auswählen"
 
-#: dashboards/project/instances/workflows/create_instance.py:417
+#: dashboards/project/instances/workflows/create_instance.py:421
 msgid "No volumes available"
 msgstr "Keine Datenträger verfügbar"
 
-#: dashboards/project/instances/workflows/create_instance.py:428
+#: dashboards/project/instances/workflows/create_instance.py:432
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Liste von Datenträger-Schattenkopien kann nicht abgerufen werden."
 
-#: dashboards/project/instances/workflows/create_instance.py:431
+#: dashboards/project/instances/workflows/create_instance.py:435
 msgid "Select Volume Snapshot"
 msgstr "Wähle Schattenkopie"
 
-#: dashboards/project/instances/workflows/create_instance.py:433
+#: dashboards/project/instances/workflows/create_instance.py:437
 msgid "No volume snapshots available"
 msgstr "Keine Schattenkopien verfügbar"
 
-#: dashboards/project/instances/workflows/create_instance.py:476
+#: dashboards/project/instances/workflows/create_instance.py:480
 msgid "Key pair to use for authentication."
 msgstr "Für die Authentifizierung zu nutzendes Schlüsselpaar."
 
-#: dashboards/project/instances/workflows/create_instance.py:480
+#: dashboards/project/instances/workflows/create_instance.py:484
 msgid "Admin Pass"
 msgstr "Administratorkennwort"
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:490
 msgid "Confirm Admin Pass"
 msgstr "Administratorkennwort bestätigen"
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:496
 msgid "Launch instance in these security groups."
 msgstr "Starte Instanz in diesen Sicherheitsgruppen."
 
-#: dashboards/project/instances/workflows/create_instance.py:497
+#: dashboards/project/instances/workflows/create_instance.py:501
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "Kontrollieren Sie den Zugriff auf Ihre Instanz durch Schlüsselpaare, Sicherheitsgruppen und andere Mechanismen."
 
-#: dashboards/project/instances/workflows/create_instance.py:513
+#: dashboards/project/instances/workflows/create_instance.py:517
 msgid "Unable to retrieve key pairs."
 msgstr "Schlüsselpaare können nicht abgerufen werden."
 
-#: dashboards/project/instances/workflows/create_instance.py:517
+#: dashboards/project/instances/workflows/create_instance.py:521
 msgid "Select a key pair"
 msgstr "Wählen Sie ein Schlüsselpaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:519
+#: dashboards/project/instances/workflows/create_instance.py:523
 msgid "No key pairs available"
 msgstr "Keine Schlüsselpaare verfügbar"
 
-#: dashboards/project/instances/workflows/create_instance.py:528
+#: dashboards/project/instances/workflows/create_instance.py:532
 msgid "Unable to retrieve list of security groups"
 msgstr "Die Liste der Sicherheitsgruppen kann nicht abgerufen werden."
 
-#: dashboards/project/instances/workflows/create_instance.py:560
+#: dashboards/project/instances/workflows/create_instance.py:564
 msgid "Post-Creation"
 msgstr "Nach Erstellung"
 
-#: dashboards/project/instances/workflows/create_instance.py:564
+#: dashboards/project/instances/workflows/create_instance.py:568
 #: dashboards/project/stacks/forms.py:57
 msgid "Direct Input"
 msgstr "Direkteingabe"
 
-#: dashboards/project/instances/workflows/create_instance.py:568
-msgid "Customization Script Source"
-msgstr ""
-
 #: dashboards/project/instances/workflows/create_instance.py:572
+msgid "Customization Script Source"
+msgstr "Anpassungsskript Quelle"
+
+#: dashboards/project/instances/workflows/create_instance.py:576
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Ein Skript oder eine Folge von Kommandos, die nach dem Neubau einer Instanz ausgeführt werden (max 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:576
-#: dashboards/project/instances/workflows/create_instance.py:581
-msgid "Script File"
-msgstr ""
-
+#: dashboards/project/instances/workflows/create_instance.py:580
 #: dashboards/project/instances/workflows/create_instance.py:585
-#: dashboards/project/instances/workflows/create_instance.py:590
+msgid "Script File"
+msgstr "Skript-Datei"
+
+#: dashboards/project/instances/workflows/create_instance.py:589
+#: dashboards/project/instances/workflows/create_instance.py:594
 msgid "Script Data"
-msgstr ""
+msgstr "Skript-Daten"
 
-#: dashboards/project/instances/workflows/create_instance.py:617
+#: dashboards/project/instances/workflows/create_instance.py:621
 msgid "File exceeds maximum size (16kb)"
-msgstr ""
+msgstr "Dateigröße übersteigt die Maximalgröße (16kb)"
 
-#: dashboards/project/instances/workflows/create_instance.py:625
+#: dashboards/project/instances/workflows/create_instance.py:629
 #: dashboards/project/stacks/forms.py:186
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Es gab einb Problem beim analysieren von %(prefix)s: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:652
+#: dashboards/project/instances/workflows/create_instance.py:656
 msgid "Policy Profiles"
 msgstr "Datenschutz Profile"
 
-#: dashboards/project/instances/workflows/create_instance.py:655
+#: dashboards/project/instances/workflows/create_instance.py:659
 msgid "Launch instance with this policy profile"
 msgstr "Instanz mit diesen Datenschutz Profilen starten"
 
-#: dashboards/project/instances/workflows/create_instance.py:728
+#: dashboards/project/instances/workflows/create_instance.py:733
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
-msgstr ""
+msgstr "Automatisch: die komplette Platte ist eine einzige Partition und passt sich automatisch mit der Größe an. Manuell: ergibt schnellere Bauzeiten aber erfordert manuelle Partitionierung."
 
-#: dashboards/project/instances/workflows/create_instance.py:731
+#: dashboards/project/instances/workflows/create_instance.py:736
 msgid "Configuration Drive"
-msgstr ""
+msgstr "Konfigurationslaufwerk"
 
-#: dashboards/project/instances/workflows/create_instance.py:732
+#: dashboards/project/instances/workflows/create_instance.py:737
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
-msgstr ""
+msgstr "Konfigurieren Sie OpenStack, um Metadaten auf ein spezielles Konfigurationslaufwerk zu schreiben, das beim Start einer Instanz mit ihr verbunden wird."
 
-#: dashboards/project/instances/workflows/create_instance.py:758
+#: dashboards/project/instances/workflows/create_instance.py:763
 msgid "Advanced Options"
 msgstr "Weitergehende Optionen"
 
-#: dashboards/project/instances/workflows/create_instance.py:796
+#: dashboards/project/instances/workflows/create_instance.py:801
 #, python-format
 msgid "%s instances"
 msgstr "%s Instanzen"
 
-#: dashboards/project/instances/workflows/create_instance.py:854
+#: dashboards/project/instances/workflows/create_instance.py:859
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Port nicht angelegt für Profile-ID (%s)."
@@ -10367,9 +10374,9 @@ msgstr "Provider"
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:126
-#: dashboards/project/networks/subnets/workflows.py:37
-#: dashboards/project/networks/subnets/workflows.py:115
+#: dashboards/project/networks/workflows.py:128
+#: dashboards/project/networks/subnets/workflows.py:38
+#: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:44
@@ -10949,7 +10956,7 @@ msgstr "Subnetzname"
 
 #: dashboards/project/networks/workflows.py:95
 #: dashboards/project/networks/subnets/tables.py:118
-#: dashboards/project/networks/subnets/workflows.py:80
+#: dashboards/project/networks/subnets/workflows.py:81
 msgid "Network Address"
 msgstr "Netzwerkaddresse"
 
@@ -10966,20 +10973,20 @@ msgid ""
 msgstr "IP Adresse des Gateways (z.B. 192.168.0.254) Der Standardwert ist die erste IP Adresse des Netzwerks (z.B. 192.168.0.1 für 192.168.0.0/24, 2001:DB8::1 für 2001:DB8::/48). Für den Standard das Feld leer lassen. Falls kein Gateway genutzt werden soll, bitte unten 'Gateway abschalten' auswählen."
 
 #: dashboards/project/networks/workflows.py:122
-#: dashboards/project/networks/subnets/workflows.py:111
+#: dashboards/project/networks/subnets/workflows.py:112
 msgid "Disable Gateway"
 msgstr "Gateway abschalten"
 
-#: dashboards/project/networks/workflows.py:127
+#: dashboards/project/networks/workflows.py:124
+msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
+msgstr "Geben Sie die Netzwerkadresse an oder wählen Sie \"Subnetz erzeugen\" ab."
+
+#: dashboards/project/networks/workflows.py:129
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "Erstellen Sie ein Subnetz, das mit dem neuen Netzwerk verbunden ist. Die \"Netzwerkadresse\" muss angegeben werden. Soll ein Netzwerk ohne Subnetz erzeugt werden muss das Kontollkästchen \"Subnetz erstellen\" abgewählt werden."
-
-#: dashboards/project/networks/workflows.py:146
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Geben Sie die Netzwerkadresse an oder wählen Sie \"Subnetz erzeugen\" ab."
 
 #: dashboards/project/networks/workflows.py:152
 msgid "Network Address and IP version are inconsistent."
@@ -11047,14 +11054,14 @@ msgid ""
 msgstr "Dem Host werden zusätzliche Routen zugewiesen. Jeder Eintrag lautet: destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) und jeder Eintrag benötigt eine eigene Zeile. "
 
 #: dashboards/project/networks/workflows.py:225
-#: dashboards/project/networks/subnets/workflows.py:149
+#: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "Subnetzdetails"
 
 #: dashboards/project/networks/workflows.py:226
-#: dashboards/project/networks/subnets/workflows.py:150
+#: dashboards/project/networks/subnets/workflows.py:151
 msgid "Specify additional attributes for the subnet."
 msgstr "Zusätzliche Eigenschaften des Subnetzes angeben."
 
@@ -11173,59 +11180,63 @@ msgstr "DHCPv6 stateless: Adresse vom Openstack Router erhalten, Informationen v
 msgid "Unable to retrieve subnet details"
 msgstr "Subnetz-Details können nicht abgerufen werden"
 
-#: dashboards/project/networks/subnets/workflows.py:38
+#: dashboards/project/networks/subnets/workflows.py:35
+msgid "Specify \"Network Address\""
+msgstr "\"Netzwerkadresse\" angeben"
+
+#: dashboards/project/networks/subnets/workflows.py:39
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Detail\" tab."
 msgstr "Ein Subnetz erzeugen, das mit dem Netzwerk verbunden ist. Die weitergehende Konfiguration ist mit Klick auf den \"Subnetz Detail\"  Reiter verfügbar.\n "
 
-#: dashboards/project/networks/subnets/workflows.py:57
+#: dashboards/project/networks/subnets/workflows.py:58
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "Subnetz \"%s\" erstellt."
 
-#: dashboards/project/networks/subnets/workflows.py:58
+#: dashboards/project/networks/subnets/workflows.py:59
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "Subnetz \"%s\" kann nicht erzeugt werden."
 
-#: dashboards/project/networks/subnets/workflows.py:85
+#: dashboards/project/networks/subnets/workflows.py:86
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "Netzwerkadresse im CIDR Format (z.B. 192.168.0.0/24)"
 
-#: dashboards/project/networks/subnets/workflows.py:102
+#: dashboards/project/networks/subnets/workflows.py:103
 msgid "Gateway IP (optional)"
 msgstr "Gateway-IP (optional)"
 
-#: dashboards/project/networks/subnets/workflows.py:105
+#: dashboards/project/networks/subnets/workflows.py:106
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254). Specify an explicit address to "
 "set the gateway. If you do not want to use a gateway, check 'Disable "
 "Gateway' below."
 msgstr "IP Adresse des Gateways (z.B. 192.168.0.254).  Um das Gateway zu setzen, muss eine explizite IP Adresse angegeben werden. Wenn sie kein Gateway verwenden möchten, wählen sie unten 'Gateway abschalten' aus."
 
-#: dashboards/project/networks/subnets/workflows.py:116
+#: dashboards/project/networks/subnets/workflows.py:117
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Detail\" tab."
 msgstr "Ein mit den Netzwerk verbundenes Subnetz aktualisieren. Für die detaillierte Konfiguration den Reiter \"Subnetz Detail\" anklicken."
 
-#: dashboards/project/networks/subnets/workflows.py:161
+#: dashboards/project/networks/subnets/workflows.py:162
 #, python-format
 msgid "Updated subnet \"%s\"."
 msgstr "Subnetz aktualisiert \"%s\"."
 
-#: dashboards/project/networks/subnets/workflows.py:162
+#: dashboards/project/networks/subnets/workflows.py:163
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr "Subnetz \"%s\" kann nicht aktualisiert werden."
 
-#: dashboards/project/networks/subnets/workflows.py:197
+#: dashboards/project/networks/subnets/workflows.py:198
 #, python-format
 msgid "Subnet \"%s\" was successfully updated."
 msgstr "Subnetz \"%s\" wurde erfolgreich aktualisiert."
 
-#: dashboards/project/networks/subnets/workflows.py:201
+#: dashboards/project/networks/subnets/workflows.py:202
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Subnetz \"%(sub)s\" konnte nicht aktualisiert werden:  %(reason)s"
@@ -11357,11 +11368,11 @@ msgstr "Zentralisiert"
 
 #: dashboards/project/routers/forms.py:56
 msgid "Enable HA mode"
-msgstr ""
+msgstr "HA Modus aktivieren"
 
 #: dashboards/project/routers/forms.py:57
 msgid "Disable HA mode"
-msgstr ""
+msgstr "HA Modus deaktivieren"
 
 #: dashboards/project/routers/forms.py:70
 #, python-format
@@ -11416,14 +11427,14 @@ msgstr "Gateway setzen"
 #: dashboards/project/routers/tables.py:108
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gateway entfernen"
+msgstr[1] "Gateways entfernen"
 
 #: dashboards/project/routers/tables.py:116
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Entferntes Gateway"
+msgstr[1] "Entfernte Gateways"
 
 #: dashboards/project/routers/tables.py:132
 #, python-format
@@ -11433,7 +11444,7 @@ msgstr "Der Gateway für den Router kann nicht identifiziert werden \"%(name)s\"
 #. Translators: High Availability mode of Neutron router
 #: dashboards/project/routers/tables.py:177
 msgid "HA mode"
-msgstr ""
+msgstr "HA Modus"
 
 #: dashboards/project/routers/tabs.py:54
 #: dashboards/project/routers/views.py:163
@@ -11515,14 +11526,14 @@ msgstr "Router-Rolle hinzufügen"
 #: dashboards/project/routers/extensions/routerrules/tables.py:47
 msgid "Delete Router Rule"
 msgid_plural "Delete Router Rules"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lösche Router-Regel"
+msgstr[1] "Lösche Router-Regeln"
 
 #: dashboards/project/routers/extensions/routerrules/tables.py:55
 msgid "Deleted Router Rule"
 msgid_plural "Deleted Router Rules"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Router-Regel"
+msgstr[1] "Gelöschte Router-Regeln"
 
 #: dashboards/project/routers/extensions/routerrules/tabs.py:59
 msgid "Router Rules Grid"
@@ -11878,14 +11889,14 @@ msgstr "Ändern der Stack-Vorlage"
 #: dashboards/project/stacks/tables.py:54
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Stack löschen"
+msgstr[1] "Stacks löschen"
 
 #: dashboards/project/stacks/tables.py:62
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Stack"
+msgstr[1] "Gelöschte Stacks"
 
 #: dashboards/project/stacks/tables.py:139
 #: dashboards/project/stacks/tables.py:184
@@ -12127,14 +12138,14 @@ msgstr "Schattenkopie kann nicht aktualisiert werden."
 #: dashboards/project/volumes/snapshots/tables.py:56
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Datenträger-Schattenkopie löschen"
+msgstr[1] "Datenträger-Schattenkopien löschen"
 
 #: dashboards/project/volumes/snapshots/tables.py:64
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Geplante Löschung der Datenträger-Schattenkopie"
+msgstr[1] "Geplante Löschung von Datenträger-Schattenkopien"
 
 #: dashboards/project/volumes/snapshots/tables.py:79
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:9
@@ -12652,8 +12663,8 @@ msgstr[1] "Lösche Datenträger"
 #: dashboards/project/volumes/volumes/tables.py:75
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Geplante Löschung des Datenträgers"
+msgstr[1] "Geplante Löschung von Datenträgern"
 
 #: dashboards/project/volumes/volumes/tables.py:88
 #, python-format
@@ -13451,7 +13462,7 @@ msgstr "Segment Bereich"
 
 #: dashboards/router/nexus1000v/forms.py:88
 msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr ""
+msgstr "1-4093 für VLAN; 5000 und höher für Overlay"
 
 #: dashboards/router/nexus1000v/forms.py:91
 #: dashboards/router/nexus1000v/forms.py:98
@@ -13461,7 +13472,7 @@ msgstr "Multicast IP Bereich"
 
 #: dashboards/router/nexus1000v/forms.py:99
 msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr ""
+msgstr "Multicast IPv4 Bereich (z.B. 224.0.1.0-224.0.1.100)"
 
 #: dashboards/router/nexus1000v/forms.py:103
 #: dashboards/router/nexus1000v/forms.py:110
@@ -13513,8 +13524,8 @@ msgstr[1] "Lösche Netzwerkprofile"
 #: dashboards/router/nexus1000v/tables.py:50
 msgid "Deleted Network Profile"
 msgid_plural "Deleted Network Profiles"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Netzwerkprofil"
+msgstr[1] "Gelöschte Netzwerkprofile"
 
 #: dashboards/router/nexus1000v/tables.py:59
 #, python-format
@@ -13542,7 +13553,7 @@ msgstr "Netzwerkprofildetails können nicht abgerufen werden."
 
 #: dashboards/router/nexus1000v/views.py:142
 msgid "Failed to obtain network profile binding"
-msgstr ""
+msgstr "Fehler beim Abruf der Netzwerk-Profil-Bindung"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
 msgid " Select a name for your network profile."
@@ -13574,7 +13585,7 @@ msgstr "Der Segmentbereich ist 1-4093 für VLAN und über 5000 für den Enhanced
 msgid ""
 "Edit the network profile to update name, segment range or multicast IP "
 "range."
-msgstr ""
+msgstr "Bearbeiten Sie das Netzwerkprofil um Name, Segmentbereich oder den Multicast IP Bereich zu aktualisieren."
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/index.html:3
 #: dashboards/router/nexus1000v/templates/nexus1000v/network_profile/index.html:3

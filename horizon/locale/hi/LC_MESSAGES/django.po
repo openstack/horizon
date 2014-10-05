@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 22:50-0500\n"
-"PO-Revision-Date: 2014-09-29 07:12+0000\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-09 13:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -227,11 +227,11 @@ msgstr[1] "%(counter)s सामाग्री दिखाएँ"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr ""
+msgstr "&laquo;&nbsp;पिछला"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
-msgstr ""
+msgstr "अगला&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_table_actions.html:38
 msgid "More Actions"
@@ -292,28 +292,28 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr ""
+msgstr "\n        आप दाएँ स्तंभ से बाएँ स्तंभ तक आइटम जोड़कर मेटाडाटा निर्दिष्ट कर सकते हैं.\n        आप ग्लांस शब्दकोश में जोड़ा मेटाडाटा को चुन सकते हैं या आप अपनी\n        पसंद का एक कुंजी का उपयोग करने के लिए \"अन्य\" विकल्प का उपयोग\n       कर सकते हैं.\n     "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr ""
+msgstr "उपलब्ध मेटाडाटा"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "एक जैसे कुंजी की अनुमति नहीं है"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr ""
+msgstr "अवैध कुंजी नाम"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
 msgid "No existing metadata"
-msgstr ""
+msgstr "कोई मौजूदा मेटाडाटा नहीं "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr ""
+msgstr "मौजूदा मेटाडाटा "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -323,7 +323,7 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr ""
+msgstr "\n        आप दाएँ स्तंभ से बाएँ स्तंभ तक आइटम जोड़कर स्रोत मेटाडाटा निर्दिष्ट कर सकते हैं.\n        आप ग्लांस शब्दकोश में जोड़ा मेटाडाटा को चुन सकते हैं या आप अपनी\n        पसंद का एक कुंजी का उपयोग करने के लिए \"अन्य\" विकल्प का उपयोग\n       कर सकते हैं.\n     "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
@@ -364,7 +364,7 @@ msgstr "\n\n<label> से :</label> %(start)s"
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr ""
+msgstr "\n      <label>तक:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
@@ -440,19 +440,19 @@ msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
-msgstr ""
+msgstr "0 बाइट"
 
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Puppies बेचें "
 
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "बेचा हुआ Puppy"
 
 #: utils/filters.py:49
 msgid "Never"
