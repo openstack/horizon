@@ -58,6 +58,7 @@ class IndexView(tables.DataTableView):
 
 class CreateView(workflows.WorkflowView):
     workflow_class = project_workflows.CreateNetwork
+    ajax_template_name = 'project/networks/create.html'
 
     def get_initial(self):
         pass
