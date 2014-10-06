@@ -230,9 +230,6 @@ class CreateNetwork(forms.SelfHandlingForm):
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     tenant_id = forms.CharField(widget=forms.HiddenInput)
-    network_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
     # TODO(amotoki): make UP/DOWN translatable
     admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
                                     label=_("Admin State"))
@@ -246,7 +243,8 @@ class UpdateNetwork(forms.SelfHandlingForm):
                       'admin_state_up': (data['admin_state'] == 'True'),
                       'shared': data['shared'],
                       'router:external': data['external']}
-            network = api.neutron.network_update(request, data['network_id'],
+            network = api.neutron.network_update(request,
+                                                 self.initial['network_id'],
                                                  **params)
             msg = _('Network %s was successfully updated.') % data['name']
             LOG.debug(msg)
