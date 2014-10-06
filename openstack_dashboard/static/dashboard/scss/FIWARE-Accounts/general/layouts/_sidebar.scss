@@ -12,7 +12,7 @@
   }
   @media (max-width: $screen-xs-min){
     position: relative;
-    margin-bottom: 0;
+    margin: 0;
     border-bottom: 1px solid #E0E0E0;
   }
   h5{
@@ -31,16 +31,17 @@
   h5.tablet
   ul{
     padding: 0;
+    margin-top: 9px;
     @media (max-width: $screen-sm-min){
-      width: 352px;
-      margin: 0 auto;
-      height: 45px;
+      height: 22px;
     }
     @media (max-width: $screen-xs-min){
       width: 100%;
     }
     li{
+      line-height: 42px;
       @media (max-width: $screen-xs-min){
+        line-height: 37px;
         &:first-child{
           margin-left: 0;
         }
@@ -49,7 +50,7 @@
         }
       }
       @media (max-width: $screen-sm-min){
-        float: left
+        float: left;
         margin: 0 1rem;
       }
       &:hover{
@@ -60,6 +61,7 @@
       }
       i{
         color: #5B5B5F;
+        font-size: 1.3rem;
         @media (max-width: $screen-sm-min){
           float: left;
           margin-right: 10px;
@@ -70,7 +72,6 @@
         display: inline;
         font-size: 15px;
         margin-left: 10px;
-        line-height: 42px;
         @extend .hidden-xs;
         @extend .hidden-sm;
         @media (max-width: $screen-sm-min){
@@ -92,7 +93,7 @@
         }
       }
     }
-    li.my-applications{
+    li.myApplications{
       a {
         @include text-overflow;
       }
@@ -113,7 +114,7 @@
 }
 
 li.home i{@extend .fa-home;}
-li.my-applications i{@extend .fa-cube;}
+li.myApplications i{@extend .fa-cube;}
 li.organizations i, li.members i{@extend .fa-group;}
 li.notify i{@extend .fa-comment;}
 li.administrator i{@extend .fa-wrench;}
