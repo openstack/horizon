@@ -41,5 +41,6 @@ class ApplicationsTable(tables.DataTable):
         name = "applications_table"
         verbose_name = _("My Applications")
         pagination_param = "tenant_marker"
+        multi_select = False
         
         

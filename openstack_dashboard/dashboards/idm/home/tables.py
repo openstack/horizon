@@ -70,6 +70,7 @@ class TenantsTable(tables.DataTable):
         verbose_name = _("Organizations")
         pagination_param = "tenant_marker"
         table_actions = (CreateOrganization, GoToOrganizationTable,)
+        multi_select = False
         
 
 class ApplicationsTable(tables.DataTable):
@@ -92,5 +93,6 @@ class ApplicationsTable(tables.DataTable):
         verbose_name = _("My Applications")
         pagination_param = "tenant_marker"
         table_actions = (GoToApplicationsTable,)
+        multi_select = False
         
         
