@@ -5,13 +5,13 @@ from horizon import exceptions
 from horizon import messages
 from horizon import tables
 
-from openstack_dashboard.dashboards.idm.applications import tables as home_tables
+from openstack_dashboard.dashboards.idm.myApplications import tables as home_tables
 
 
 
 class IndexView(tables.DataTableView):
     table_class = home_tables.ApplicationsTable
-    template_name = 'idm/applications/index.html'
+    template_name = 'idm/myApplications/index.html'
 
     def get_data(self):
         tenants = []

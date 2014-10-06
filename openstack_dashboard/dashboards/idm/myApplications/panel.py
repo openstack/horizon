@@ -5,9 +5,9 @@ import horizon
 from openstack_dashboard.dashboards.idm import dashboard
 
 
-class Applications(horizon.Panel):
+class myApplications(horizon.Panel):
     name = _("My Applications")
-    slug = "applications"
+    slug = "myApplications"
 
 
-dashboard.Idm.register(Applications)
+dashboard.Idm.register(myApplications)

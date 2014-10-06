@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}cancel_account_modal{% endblock %}
+{% block form_action %}{% url 'horizon:settings:cancelaccount:index' %}{% endblock %}
+
+{% block modal_id %}cancel_account_modal{% endblock %}
+{% block modal-header %}{% trans "Cancel account" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Are you sure you want to cancel your account? :(" %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+    <button type="submit" class="btn btn-primary">{% trans "Cancel Account" %}</button>
+    {% if hide %}<a href="{% url 'horizon:settings:cancelaccount:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+{% endblock %}
+

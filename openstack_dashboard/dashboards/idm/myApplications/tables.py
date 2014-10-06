@@ -38,7 +38,7 @@ class ApplicationsTable(tables.DataTable):
     
 
     class Meta:
-        name = "applications"
+        name = "applications_table"
         verbose_name = _("My Applications")
         pagination_param = "tenant_marker"
         

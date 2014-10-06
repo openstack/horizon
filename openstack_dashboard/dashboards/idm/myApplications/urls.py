@@ -1,7 +1,7 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.idm.applications import views
+from openstack_dashboard.dashboards.idm.myApplications import views
 
 
 urlpatterns = patterns('',

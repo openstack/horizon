@@ -29,7 +29,6 @@ from horizon import tabs
 from openstack_dashboard import api
 from openstack_dashboard.api import keystone
 from openstack_dashboard import policy
-from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
@@ -127,11 +126,8 @@ class CreateOrganizationView(workflows.WorkflowView):
         try:
             organization_id = self.request.user.organization_id
         except Exception:
-            error_msg = _('Unable to retrieve default Neutron quota '
-                          'values.')
-            self.add_error_to_step(error_msg, 'update_quotas')
- 
-
+            error_msg = _('Unable to create organization')
+            
         return initial
 
 
