@@ -18,6 +18,7 @@
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils import filters
@@ -64,11 +65,23 @@ class AddIPSecSiteConnectionLink(tables.LinkAction):
 
 class DeleteVPNServiceLink(tables.DeleteAction):
     name = "deletevpnservice"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("VPN Service")
-    data_type_plural = _("VPN Services")
     policy_rules = (("network", "delete_vpnservice"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete VPN Service",
+            u"Delete VPN Services",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of VPN Service",
+            u"Scheduled deletion of VPN Services",
+            count
+        )
 
     def allowed(self, request, datum=None):
         if datum and datum.ipsecsiteconns:
@@ -78,11 +91,23 @@ class DeleteVPNServiceLink(tables.DeleteAction):
 
 class DeleteIKEPolicyLink(tables.DeleteAction):
     name = "deleteikepolicy"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("IKE Policy")
-    data_type_plural = _("IKE Policies")
     policy_rules = (("network", "delete_ikepolicy"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete IKE Policy",
+            u"Delete IKE Policies",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of IKE Policy",
+            u"Scheduled deletion of IKE Policies",
+            count
+        )
 
     def allowed(self, request, datum=None):
         if datum and datum.ipsecsiteconns:
@@ -92,11 +117,23 @@ class DeleteIKEPolicyLink(tables.DeleteAction):
 
 class DeleteIPSecPolicyLink(tables.DeleteAction):
     name = "deleteipsecpolicy"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("IPSec Policy")
-    data_type_plural = _("IPSec Policies")
     policy_rules = (("network", "delete_ipsecpolicy"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete IPSec Policy",
+            u"Delete IPSec Policies",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of IPSec Policy",
+            u"Scheduled deletion of IPSec Policies",
+            count
+        )
 
     def allowed(self, request, datum=None):
         if datum and datum.ipsecsiteconns:
@@ -106,11 +143,23 @@ class DeleteIPSecPolicyLink(tables.DeleteAction):
 
 class DeleteIPSecSiteConnectionLink(tables.DeleteAction):
     name = "deleteipsecsiteconnection"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("IPSec Site Connection")
-    data_type_plural = _("IPSec Site Connections")
     policy_rules = (("network", "delete_ipsec_site_connection"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete IPSec Site Connection",
+            u"Delete IPSec Site Connections",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of IPSec Site Connection",
+            u"Scheduled deletion of IPSec Site Connections",
+            count
+        )
 
 
 class UpdateVPNServiceLink(tables.LinkAction):

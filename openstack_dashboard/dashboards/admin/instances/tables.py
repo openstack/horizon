@@ -15,6 +15,7 @@
 
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils import filters
@@ -31,12 +32,24 @@ class AdminEditInstance(project_tables.EditInstance):
 
 class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
-    action_present = _("Migrate")
-    action_past = _("Scheduled migration (pending confirmation) of")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ("btn-migrate", "btn-danger")
     policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Migrate Instance",
+            u"Migrate Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled migration (pending confirmation) of Instance",
+            u"Scheduled migration (pending confirmation) of Instances",
+            count
+        )
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES
