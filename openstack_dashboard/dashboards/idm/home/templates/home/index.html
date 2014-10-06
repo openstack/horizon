@@ -8,11 +8,21 @@
 
 {% block main %}
   <div id="home">
-    <div class="applications">
-      {{ applications_table.render}}
+    <div class="panel panel-default applications">
+        <div class="panel-heading">
+            {{ applications_table.name }}
+        </div>
+        <div class="panel-body">
+            {{ applications_table.render}}
+        </div>
     </div>
-      <div class="tenants">
-      {{ tenants_table.render }}  
+    <div class="panel panel-default tenants">
+        <div class="panel-heading">
+            {{ tenants_table.name }}
+        </div>
+        <div class="panel-body">
+            {{ tenants_table.render}}
+        </div>
     </div>
   </div>
 {% endblock %}

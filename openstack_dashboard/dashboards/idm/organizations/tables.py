@@ -176,6 +176,7 @@ class TenantsTable(tables.DataTable):
         # row_actions = (UpdateMembersLink, )
         table_actions = (TenantFilterAction, CreateOrganization, UpdateOrganization)
         pagination_param = "tenant_marker"
+        multi_select = False
 
 class MyTenantsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
@@ -202,8 +203,8 @@ class MyTenantsTable(tables.DataTable):
         table_actions = (TenantFilterAction, CreateOrganization, DeleteTenantsAction, UpdateOrganization)
         pagination_param = "my_tenant_marker"
         columns =('name','description')
-        # multi_select=False Esto hace desaparecer el check-box
         footer = False
+        multi_select = False
        
 
 
