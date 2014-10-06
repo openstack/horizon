@@ -31,10 +31,10 @@ class GoToOrganizationTable(tables.LinkAction):
 class GoToApplicationsTable(tables.LinkAction):
     name = "applications"
     verbose_name = _("View All")
-    url = "horizon:idm:applications"
+    url = "horizon:idm:myApplications"
     
     def get_link_url(self):
-        base_url = '/idm/applications/'
+        base_url = '/idm/myApplications/'
         return base_url
 
 
