@@ -37,7 +37,7 @@ def show_overview(context):
         return {}
     request = context['request']
     context = {'domain_supported': is_multidomain_supported(),
-               'domain_name': request.user.user_domain_id,
+               'domain_name': request.user.user_domain_name,
                'project_name': request.user.project_name,
                'multi_region':
                     len(request.user.available_services_regions) > 1,
@@ -55,7 +55,7 @@ def show_domain_list(context):
         return {}
     request = context['request']
     context = {'domain_supported': is_multidomain_supported(),
-               'domain_name': request.user.user_domain_id,
+               'domain_name': request.user.user_domain_name,
                'request': request}
     return context
 
