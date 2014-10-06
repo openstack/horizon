@@ -1,7 +1,5 @@
 #home{
-  @include make-sm-column(10, $gutter: $grid-gutter-width);
-  @include make-md-column(10, $gutter: $grid-gutter-width);
-  @include make-lg-column(10, $gutter: $grid-gutter-width);
+
   #applications-box{
     @include make-sm-column(6, $gutter: $grid-gutter-width);
     @include make-md-column(6, $gutter: $grid-gutter-width);

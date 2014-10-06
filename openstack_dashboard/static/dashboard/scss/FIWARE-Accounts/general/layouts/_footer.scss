@@ -30,4 +30,7 @@ footer.footer-main {
 
 body > .wrap {
   padding: 75px 15px 30px;
+  @media (max-width: $screen-sm-min){
+    padding: 52px 15px 30px;
+  }
 }

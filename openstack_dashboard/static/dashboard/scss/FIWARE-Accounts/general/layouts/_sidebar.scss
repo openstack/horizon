@@ -33,7 +33,7 @@
     padding: 0;
     margin-top: 9px;
     @media (max-width: $screen-sm-min){
-      height: 22px;
+      height: 21px;
     }
     @media (max-width: $screen-xs-min){
       width: 100%;
@@ -65,6 +65,15 @@
         @media (max-width: $screen-sm-min){
           float: left;
           margin-right: 10px;
+          border-right: 1px solid $gray-light;
+          padding-right: 15px;
+          font-size: 12px;
+          &:first-child{
+            padding-left: 0px;
+          }
+          &:last-child{
+            border-right: none;
+          }
         }
       }
 

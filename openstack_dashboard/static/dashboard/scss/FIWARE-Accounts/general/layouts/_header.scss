@@ -141,14 +141,19 @@ ul.oil-portal li.active a{
   color:#333;
 }
 
-.nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-  margin: 2px 0px 1px 0px;
+.nav-tabs, .nav-tabs li a, 
+.nav-tabs > .active > a, 
+.nav-tabs > .active > a:hover {
+  //margin: 2px 0px 1px 0px;//
 }
 
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-  color: #60C1CF;
+  color: $brand-secundary;
   background-color: #FFF;
-  border-radius: 5px;
+}
+
+#user_info{
+  display: inline;
 }
 
 #profile_editor_switcher{
@@ -186,7 +191,7 @@ ul.oil-portal li.active a{
   }
 
   .nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-    margin: 0px 0 1px 15px;
+    //margin: 0px 0 1px 15px;//
     float: right;
   }
 }
@@ -195,7 +200,7 @@ ul.oil-portal li.active a{
 
 
   .nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-    margin: 2px 0 1px 15px;
+    //margin: 2px 0 1px 15px;//
     float: right;
   }
 
