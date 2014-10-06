@@ -38,10 +38,8 @@ IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
 
 class CreateImageForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
-    description = forms.CharField(widget=forms.widgets.Textarea(
-        attrs={'class': 'modal-body-fixed-width', 'rows': 4}),
-        label=_("Description"),
-        required=False)
+    description = forms.CharField(max_length=255, label=_("Description"),
+                                  required=False)
 
     source_type = forms.ChoiceField(
         label=_('Image Source'),
@@ -193,11 +191,8 @@ class CreateImageForm(forms.SelfHandlingForm):
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Name"))
-    description = forms.CharField(
-        widget=forms.widgets.Textarea(),
-        label=_("Description"),
-        required=False,
-    )
+    description = forms.CharField(max_length=255, label=_("Description"),
+                                  required=False)
     kernel = forms.CharField(
         max_length=36,
         label=_("Kernel ID"),
