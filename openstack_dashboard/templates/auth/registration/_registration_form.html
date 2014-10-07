@@ -4,7 +4,7 @@
 <div class="registration">
   {% block modal-header %}{% trans "Registration" %}{% endblock %}
   {% block modal_class %}registration {% if hide %}modal hide{% endif %}{% endblock %}
-
+  {% block form_action %}{% url 'fiware_auth_register' %}{% endblock %}
   {% block modal-body %}
 
       {% include "horizon/common/_form_fields.html" %}
@@ -17,5 +17,4 @@
 
       <button type="submit" class="btn btn-primary pull-right">{% trans "Sign Up" %}</button>
   {% endblock %}
-
 </div>

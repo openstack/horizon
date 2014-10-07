@@ -22,9 +22,13 @@ from horizon import messages
 from horizon import exceptions
 from openstack_dashboard import api
 
+from openstack_dashboard.fiware_auth.keystone_manager import KeystoneManager
+
 LOG = logging.getLogger(__name__)
 
 class RegistrationManager(models.Manager):
+
+    keystone_manager = KeystoneManager()
 
     def activate_user(self,request,activation_key):
         try:
@@ -42,31 +46,28 @@ class RegistrationManager(models.Manager):
             messages.success(request,_('User "%s" was successfully activated.') % user.name)
             return user
 
-	def create_profile(self, user):
-		username = user.name
-		if isinstance(username, unicode):
-		    username = username.encode('utf-8')
-		activation_key = hashlib.sha1(username).hexdigest()
-		return self.create(user_id=user.id,
-							user_name=username,
-							user_email=user.email,
-		                   activation_key=activation_key)
+    def create_profile(self, user):
+        username = user.name
+        if isinstance(username, unicode):
+            username = username.encode('utf-8')
+        activation_key = hashlib.sha1(username).hexdigest()
+        return self.create(user_id=user.id,
+                           user_name=username,
+                           user_email=user.email,
+                           activation_key=activation_key)
 
     def create_inactive_user(self,request,**cleaned_data):
-        domain = api.keystone.get_default_domain(request)
         try:
             LOG.info('Creating user with name "%s"' % cleaned_data['username'])
-            #if "email" in cleaned_data:
-                #cleaned_data['email'] = cleaned_data['email'] or None
-            default_tenant = api.keystone.tenant_create(name=cleaned_data['username'],
-                                                        enabled=False)
-            new_user = api.keystone.user_create(request,
-                                                name=cleaned_data['username'],
-                                                email=cleaned_data['email'],
-                                                password=cleaned_data['password1'],
-                                                project=default_tenant,
-                                                enabled=False,
-                                                domain=domain.id)
+
+            # We use the keystoneclient directly here because the keystone api
+            # reuses the request (and therefor the session). We make the normal rest-api
+            # calls, using our own user for our portal
+            import pdb; pdb.set_trace()
+            new_user = self.keystone_manager.register_user(
+                                        name=cleaned_data['username'],
+                                        email=cleaned_data['email'],
+                                        password=cleaned_data['password1'])
 
             messages.success(request,
                 _('User "%s" was successfully created.') % cleaned_data['username'])
@@ -76,6 +77,7 @@ class RegistrationManager(models.Manager):
             registration_profile.send_activation_email()
 
             return new_user
+
         except Exception:
             exceptions.handle(request, _('Unable to create user.'))
 

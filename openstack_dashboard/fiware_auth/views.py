@@ -52,10 +52,12 @@ class RegistrationView(FormView):
 		return super(RegistrationView, self).get_success_url()	
 
 	def form_valid(self, request, form):
+		import pdb; pdb.set_trace()
 		new_user = self.register(request, **form.cleaned_data)
-		success_url = self.get_success_url(request, new_user)
-		# success_url must be a simple string, no tuples
-		return redirect(success_url)
+		if new_user:
+			success_url = self.get_success_url(request, new_user)
+			# success_url must be a simple string, no tuples
+			return redirect(success_url)
 
 	# TODO(garcianavalon)
 	# We have to protect the entire "cleaned_data" dict because it contains the
