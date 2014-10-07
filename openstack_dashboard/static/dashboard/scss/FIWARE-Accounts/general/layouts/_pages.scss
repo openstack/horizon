@@ -25,8 +25,8 @@
     margin-top: 45px;
     padding: 0px;
   }
-}
-
-.panel-heading{
-  .nav-tabs{ margin-bottom: 0;}
+  .panel-heading{
+    padding: 0;
+    .nav-tabs{ margin-bottom: 0; border-bottom: 0;}
+  }
 }

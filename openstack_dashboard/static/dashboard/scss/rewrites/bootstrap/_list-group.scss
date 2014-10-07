@@ -6,7 +6,7 @@
   border: none;
   border-bottom: 1px solid #DDD;
   padding: 10px 0;
-  &:first-child{
+  &:last-child{
     border-bottom: none;
   }
 }
