@@ -9,8 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Abishek Subramanian, Cisco Systems, Inc.
 
 from django.core.urlresolvers import reverse
 from django import http

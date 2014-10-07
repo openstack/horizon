@@ -9,9 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Abishek Subramanian, Cisco Systems, Inc.
-# @author: Sergey Sudakovich,   Cisco Systems, Inc.
 
 from django.utils.translation import ugettext_lazy as _
 
