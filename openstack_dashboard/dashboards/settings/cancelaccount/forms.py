@@ -36,8 +36,8 @@ class BasicCancelForm(forms.SelfHandlingForm):
                 messages.success(request,msg)
                 #TODO check the redirect logic
                 response = shortcuts.redirect(horizon.get_user_home(request.user))
-                return response
-            except Exception:
+                return response 
+            except Exception:   
                 exceptions.handle(request,
                                   _('Unable to cancel account.'))
                 return False
