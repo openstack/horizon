@@ -1,6 +1,7 @@
 {% load i18n %}
 {% with columns=table.get_columns rows=table.get_rows %}
 {% block table %}
+
   
     <ul class="list-group" id="{{ table.slugify_name }}">
     {% block table_body %}

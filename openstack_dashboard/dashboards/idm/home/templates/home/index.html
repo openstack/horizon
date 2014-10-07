@@ -10,21 +10,34 @@
   <div id="home">
     <div class="panel panel-default applications">
         <div class="panel-heading">
-            {{ applications_table.name }}
-        </div>
+            <div>
+                {{ applications_table.name }}
+                <a href="/idm/myApplications/create/">Register</a>
+            </div>
+        </div> 
         <div class="panel-body">
             {{ applications_table.render}}
+        </div>
+        <div class="panel-footer">
+            <a href="/idm/myApplications/">View All</a>
         </div>
     </div>
     <div class="panel panel-default tenants">
         <div class="panel-heading">
             {{ tenants_table.name }}
-        </div>
+            <a href="/idm/organizations/create/">Create</a>
+        </div>    
+      
         <div class="panel-body">
             {{ tenants_table.render}}
+        </div>
+
+        <div class="panel-footer">
+            <a href="/idm/organizations/">View All</a>
         </div>
     </div>
   </div>
 {% endblock %}
+
 
 
