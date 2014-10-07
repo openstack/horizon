@@ -22,7 +22,17 @@ from openstack_dashboard import api
 from openstack_dashboard import policy
 
 
-class ApplicationsTable(tables.DataTable):
+class CreateApplication(tables.LinkAction):
+    name = "create_application"
+    verbose_name = _("Add application")
+    url = "horizon:idm:myApplication"
+
+    def get_link_url(self):
+        base_url = '/idm/myApplication/new'
+        return base_url
+
+
+class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
                          form_field=forms.CharField(max_length=64))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
@@ -38,9 +48,33 @@ class ApplicationsTable(tables.DataTable):
     
 
     class Meta:
-        name = "applications_table"
-        verbose_name = _("My Applications")
+        name = "providing_table"
+        verbose_name = _("Providing Applications")
         pagination_param = "tenant_marker"
+        table_actions = (CreateApplication, )
+        multi_select = False
+
+
+class PurchasedApplicationsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Name'),
+                         form_field=forms.CharField(max_length=64))
+    description = tables.Column(lambda obj: getattr(obj, 'description', None),
+                                verbose_name=_('Description'),
+                                form_field=forms.CharField(
+                                    widget=forms.Textarea(),
+                                    required=False))
+    # id = tables.Column('id', verbose_name=_('Project ID'))
+    # enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
+    #                         form_field=forms.BooleanField(
+    #                             label=_('Enabled'),
+    #                             required=False))
+    
+
+    class Meta:
+        name = "purchased_table"
+        verbose_name = _("Purchased Applications")
+        pagination_param = "tenant_marker"
+        table_actions = (CreateApplication, )
         multi_select = False
         
         
