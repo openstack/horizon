@@ -1,3 +1,9 @@
+#splash{
+  #user_info{
+    display: none;
+  }
+}
+
 #frontpage, 
 #registration,
 #home{
@@ -21,8 +27,6 @@
   }
 }
 
-#splash{
-  #user_info{
-    display: none;
-  }
+.panel-heading{
+  .nav-tabs{ margin-bottom: 0;}
 }
