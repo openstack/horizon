@@ -14,13 +14,14 @@
 
 from django.utils.translation import ugettext_lazy as _
 from django import shortcuts
+
 import horizon
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
-
+from openstack_auth.views import logout
 
 class BasicCancelForm(forms.SelfHandlingForm):
 
@@ -35,13 +36,8 @@ class BasicCancelForm(forms.SelfHandlingForm):
                 msg = _("Account canceled succesfully")
                 messages.success(request,msg)
                 #Log the user out
-                endpoint = request.session.get('region_endpoint')
-                token = request.session.get('token')
-                if token and endpoint:
-                    delete_token(endpoint=endpoint, token_id=token.id)
-                    
-                response = shortcuts.redirect(horizon.get_user_home(request.user))
-                return response 
+                response = shortcuts.redirect('logout') 
+                return response
             except Exception:   
                 exceptions.handle(request,
                                   _('Unable to cancel account.'))
