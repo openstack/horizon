@@ -10,29 +10,26 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 import logging
 
 from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
-from forms import RegistrationForm
 
-from django.utils.translation import ugettext_lazy as _
+from openstack_dashboard.fiware_auth.forms import RegistrationForm
+from openstack_dashboard.fiware_auth.models import RegistrationProfile
 
-
-from openstack_dashboard import api
-from models import RegistrationProfile
 
 LOG = logging.getLogger(__name__)
-#TODO all this file is just a quick prototype, correctly implement everything...
+
 class RegistrationView(FormView):
 	"""Creates a new user in the backend. Then redirects to the log-in page.
-	.. param:: login_url
 	Once registered, defines the URL where to redirect for login
 	"""
 	form_class = RegistrationForm
 	http_method_names = ['get', 'post', 'head', 'options', 'trace']
-	success_url = '/' #TODO'
+	success_url = 'login'
 	template_name = 'auth/registration/registration.html'
 
 	def post(self, request, *args, **kwargs):
@@ -43,31 +40,26 @@ class RegistrationView(FormView):
 		if form.is_valid():
 			# Pass request to form_valid.
 			return self.form_valid(request, form)
-		else:
+		else:	
 			return self.form_invalid(form)
+
 	def get_form_class(self, request=None):
 		return super(RegistrationView, self).get_form_class()
+
  	def get_success_url(self, request=None, user=None):
 		# We need to be able to use the request and the new user when
 		# constructing success_url.
-		return super(RegistrationView, self).get_success_url()				
+		return super(RegistrationView, self).get_success_url()	
+
 	def form_valid(self, request, form):
 		new_user = self.register(request, **form.cleaned_data)
 		success_url = self.get_success_url(request, new_user)
+		# success_url must be a simple string, no tuples
+		return redirect(success_url)
 
-		# success_url may be a simple string, or a tuple providing the
-		# full argument set for redirect(). Attempting to unpack it
-		# tells us which one it is.
-		try:
-			#redirect to login page
-		    to, args, kwargs = success_url
-		    return redirect(to, *args, **kwargs)
-		except ValueError:
-		    return redirect(success_url)
-
+	# TODO(garcianavalon)
 	# We have to protect the entire "cleaned_data" dict because it contains the
     # password and confirm_password strings.
-	
 	def register(self, request, **cleaned_data):
 		msg = 'Singup user "%(username)s".' % {'username': request.user.username}
 		LOG.info(msg)
@@ -75,7 +67,9 @@ class RegistrationView(FormView):
 		new_user = RegistrationProfile.objects.create_inactive_user(request, **cleaned_data)
 		return new_user
 
+
 class ActivationView(TemplateView):
+
 	http_method_names = ['get']
 	template_name = 'auth/activation/activate.html'
 
