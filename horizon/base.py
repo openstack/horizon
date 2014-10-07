@@ -56,6 +56,23 @@ def _decorate_urlconf(urlpatterns, decorator, *args, **kwargs):
             _decorate_urlconf(pattern.url_patterns, decorator, *args, **kwargs)
 
 
+def access_cached(func):
+    def inner(self, context):
+        session = context['request'].session
+        try:
+            if session['allowed']['valid_for'] != session.get('token'):
+                raise KeyError()
+        except KeyError:
+            session['allowed'] = {"valid_for": session.get('token')}
+
+        key = "%s.%s" % (self.__class__.__module__, self.__class__.__name__)
+        if key not in session['allowed']:
+            session['allowed'][key] = func(self, context)
+            session.modified = True
+        return session['allowed'][key]
+    return inner
+
+
 class NotRegistered(Exception):
     pass
 
@@ -90,8 +107,17 @@ class HorizonComponent(object):
                 urlpatterns = patterns('')
         return urlpatterns
 
+    @access_cached
     def can_access(self, context):
-        """Checks to see that the user has role based access to this component.
+        """Return whether the user has role based access to this component.
+
+        This method is not intended to be overridden.
+        The result of the method is stored in per-session cache.
+        """
+        return self.allowed(context)
+
+    def allowed(self, context):
+        """Checks if the user is allowed to access this component.
 
         This method should be overridden to return the result of
         any policy checks required for the user to access this component
@@ -568,7 +594,7 @@ class Dashboard(Registry, HorizonComponent):
                 del loaders.panel_template_dirs[key]
         return success
 
-    def can_access(self, context):
+    def allowed(self, context):
         """Checks for role based access for this dashboard.
 
         Checks for access to any panels in the dashboard and of the the
