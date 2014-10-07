@@ -31,10 +31,15 @@ class BasicCancelForm(forms.SelfHandlingForm):
             try:
                 user_id=request.user.id
                 user = api.keystone.user_get(request,user_id)
-                something = api.keystone.user_update_enabled(request,user,enabled=False)
+                api.keystone.user_update_enabled(request,user,enabled=False)
                 msg = _("Account canceled succesfully")
                 messages.success(request,msg)
-                #TODO check the redirect logic
+                #Log the user out
+                endpoint = request.session.get('region_endpoint')
+                token = request.session.get('token')
+                if token and endpoint:
+                    delete_token(endpoint=endpoint, token_id=token.id)
+                    
                 response = shortcuts.redirect(horizon.get_user_home(request.user))
                 return response 
             except Exception:   
