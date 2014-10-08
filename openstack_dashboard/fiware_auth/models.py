@@ -1,65 +1,83 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import hashlib
 import logging
+import uuid
+
 from django.core.mail import send_mail
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+
 from horizon import messages
-from openstack_dashboard import api
 from horizon import exceptions
-from horizon import messages
-#TODO all this file is just a quick prototype, correctly implement everything...
+
+from openstack_dashboard.fiware_auth.keystone_manager import KeystoneManager
+
 LOG = logging.getLogger(__name__)
+
 class RegistrationManager(models.Manager):
 
-	def activate_user(self,request,activation_key):
-		try:
-			profile = self.get(activation_key=activation_key)
-		except self.model.DoesNotExist:
-			return False
-		if not profile.activation_key_expired():
-			user_id = profile.user_id
-			#enable the user in the keystone backend
-			user = api.keystone.user_get(request,user_id=user_id)
-			something = api.keystone.user_update_enabled(request,user,enabled=True)
-			#TODO check if everything went right
-			profile.activation_key = self.model.ACTIVATED
-			profile.save()
-			messages.success(request,
-				_('User "%s" was successfully activated.') % user.name)
-		return user
-	def create_profile(self, user):
-		username = user.name
-		if isinstance(username, unicode):
-		    username = username.encode('utf-8')
-		activation_key = hashlib.sha1(username).hexdigest()
-		return self.create(user_id=user.id,
-							user_name=username,
-							user_email=user.email,
-		                   activation_key=activation_key)
+    keystone_manager = KeystoneManager()
 
-	def create_inactive_user(self,request,**cleaned_data):
-		domain = api.keystone.get_default_domain(request)
-		try:
-			LOG.info('Creating user with name "%s"' % cleaned_data['username'])
-			if "email" in cleaned_data:
-				cleaned_data['email'] = cleaned_data['email'] or None
-			new_user = api.keystone.user_create(request,
-												name=cleaned_data['username'],
-												email=cleaned_data['email'],
-												password=cleaned_data['password1'],
-												project='demo', #id=e8430da9da7e4dc8b4257f4319261429
-												enabled=False,
-												domain=domain.id)
-			messages.success(request,
-				_('User "%s" was successfully created.') % cleaned_data['username'])
+    def activate_user(self,request,activation_key):
+        try:
+            profile = self.get(activation_key=activation_key)
+        except self.model.DoesNotExist:
+            return False
+        if not profile.activation_key_expired():
+            user_id = profile.user_id
+            #enable the user in the keystone backend
+            user = self.keystone_manager.activate_user(user_id)
+            if user:
+                profile.activation_key = self.model.ACTIVATED
+                profile.save()
+                messages.success(request,_('User "%s" was successfully activated.') % user.name)
+                return user
 
-			registration_profile = self.create_profile(new_user)
+    def create_profile(self, user):
+        username = user.name
+        if isinstance(username, unicode):
+            username = username.encode('utf-8')
+        activation_key = hashlib.sha1(username).hexdigest()
+        return self.create(user_id=user.id,
+                           user_name=username,
+                           user_email=user.email,
+                           activation_key=activation_key)
 
-			registration_profile.send_activation_email()
+    def create_inactive_user(self,request,**cleaned_data):
+        try:
+            LOG.info('Creating user with name "%s"' % cleaned_data['username'])
 
-			return new_user
-		except Exception:
-			exceptions.handle(request, _('Unable to create user.'))
+            # We use the keystoneclient directly here because the keystone api
+            # reuses the request (and therefor the session). We make the normal rest-api
+            # calls, using our own user for our portal
+            
+            new_user = self.keystone_manager.register_user(
+                                        name=cleaned_data['username'],
+                                        email=cleaned_data['email'],
+                                        password=cleaned_data['password1'])
+            messages.success(request,
+                _('User "%s" was successfully created.') % cleaned_data['username'])
+
+            registration_profile = self.create_profile(new_user)
+
+            registration_profile.send_activation_email()
+
+            return new_user
+
+        except Exception:
+            exceptions.handle(request, _('Unable to create user.'))
 
 class RegistrationProfile(models.Model):
     """
@@ -86,9 +104,64 @@ class RegistrationProfile(models.Model):
         subject = 'Welcome to FIWARE'
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
-        
+        #TODO(garcianavalon) message...
         message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/%s to activate' %self.activation_key
         #send a mail for activation
         send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
         	[self.user_email], fail_silently=False)
+
+
+class ResetPasswordManager(models.Manager):
     
+    keystone_manager = KeystoneManager()
+
+    def create_profile(self):
+        reset_password_token = uuid.uuid4().get_hex()
+        return self.create(reset_password_token=reset_password_token)
+
+    def create_reset_password_token(self,request,email):
+
+        registration_profile = self.create_profile()
+        registration_profile.send_reset_email(email)
+
+        messages.success(request,_('Reset mail send to %s') % email)
+
+    def reset_password(self,request,token,new_password):
+        try:
+            profile = self.get(reset_password_token=token)
+        except self.model.DoesNotExist:
+            return False
+
+        if not profile.reset_password_token_expired():
+            user_email = profile.user_email
+            #change the user password in the keystone backend
+            user = self.keystone_manager.change_password(user_email,new_password)
+            if user:
+                profile.reset_password_token = self.model.USED
+                profile.save()
+                messages.success(request,_('password successfully changed.'))
+                return user
+
+
+class ResetPasswordProfile(models.Model):
+    """Holds the key to reset the user password"""
+
+    reset_password_token = models.CharField(_('reset password token'), max_length=40)
+    user_email = models.CharField(_('user email'), max_length=40)
+    USED = u"ALREADY_USED"
+
+    objects = ResetPasswordManager()
+
+    def send_reset_email(self,email):
+        subject = 'Reset password instructions - FIWARE'
+        # Email subject *must not* contain newlines
+        subject = ''.join(subject.splitlines())
+        #TODO(garcianavalon) message...
+        message = 'Hello! Go to http://localhost:8000/password/reset/?reset_password_token=%s to reset it!' %self.reset_password_token
+        #send a mail for activation
+        send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
+            [email], fail_silently=False)
+
+    def reset_password_token_expired(self):
+        #TODO
+        return False
