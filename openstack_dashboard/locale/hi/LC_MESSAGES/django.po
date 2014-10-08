@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-06 21:13-0500\n"
-"PO-Revision-Date: 2014-10-06 17:51+0000\n"
-"Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
+"POT-Creation-Date: 2014-10-08 00:40-0500\n"
+"PO-Revision-Date: 2014-10-08 03:35+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -854,7 +854,7 @@ msgstr ""
 #: dashboards/project/stacks/templates/stacks/_change_template.html:19
 #: dashboards/project/stacks/templates/stacks/_create.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/backups/forms.py:35
@@ -1716,8 +1716,8 @@ msgstr "क्षेत्र"
 #: dashboards/project/stacks/tables.py:197
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:36
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
 #: dashboards/project/volumes/backups/tables.py:116
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -2205,7 +2205,7 @@ msgstr "मेजबान में सूचना को प्राप्�
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:322
 msgid "Unable to retrieve instance details."
 msgstr "इंस्टेंस विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -2660,7 +2660,7 @@ msgstr "%s संजाल को मिटा पाने में विफ�
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:82
-#: dashboards/project/networks/workflows.py:304
+#: dashboards/project/networks/workflows.py:334
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2711,24 +2711,24 @@ msgid "Network list can not be retrieved."
 msgstr "संजाल सूची प्राप्त नहीं किया जा सकता है."
 
 #: dashboards/admin/networks/views.py:90
-#: dashboards/admin/networks/views.py:140
+#: dashboards/admin/networks/views.py:139
 #: dashboards/admin/networks/agents/forms.py:64
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp प्रतिनिधि संजाल पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/networks/views.py:115
-#: dashboards/project/networks/views.py:108
+#: dashboards/admin/networks/views.py:114
+#: dashboards/project/networks/views.py:107
 msgid "Subnet list can not be retrieved."
 msgstr "सबनेट सूची प्राप्त नहीं किया जा सकता है."
 
-#: dashboards/admin/networks/views.py:127
-#: dashboards/project/networks/views.py:120
+#: dashboards/admin/networks/views.py:126
+#: dashboards/project/networks/views.py:119
 msgid "Port list can not be retrieved."
 msgstr "पोर्ट सूची प्राप्त नहीं किया जा सकता है."
 
-#: dashboards/admin/networks/views.py:153
+#: dashboards/admin/networks/views.py:151
 #: dashboards/admin/networks/subnets/tables.py:107
-#: dashboards/project/networks/views.py:133
+#: dashboards/project/networks/views.py:132
 #: dashboards/project/networks/subnets/tables.py:130
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -2787,7 +2787,7 @@ msgstr "DHCP प्रतिनिधि जोड़ें"
 
 #: dashboards/admin/networks/agents/views.py:59
 #: dashboards/admin/networks/ports/views.py:48
-#: dashboards/project/networks/subnets/views.py:47
+#: dashboards/project/networks/subnets/views.py:49
 msgid "Unable to retrieve network."
 msgstr "संजाल पुनः प्राप्त करने में असमर्थ."
 
@@ -2905,8 +2905,8 @@ msgstr "पोर्ट"
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:29
-#: dashboards/project/networks/ports/tabs.py:25
-#: dashboards/project/networks/subnets/tabs.py:26
+#: dashboards/project/networks/ports/tabs.py:21
+#: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
 #: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
@@ -2918,7 +2918,7 @@ msgid "Overview"
 msgstr "सारांश"
 
 #: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/tabs.py:35
+#: dashboards/project/networks/ports/views.py:46
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "पोर्ट विवरण को पुनः प्राप्त करने में असमर्थ."
@@ -2965,14 +2965,14 @@ msgid "CIDR"
 msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/networks/workflows.py:107
+#: dashboards/project/networks/workflows.py:126
 #: dashboards/project/networks/subnets/tables.py:119
 #: dashboards/project/networks/subnets/workflows.py:100
 msgid "IP Version"
 msgstr "IP संस्करण"
 
 #: dashboards/admin/networks/subnets/tables.py:95
-#: dashboards/project/networks/workflows.py:109
+#: dashboards/project/networks/workflows.py:128
 #: dashboards/project/networks/subnets/tables.py:120
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
@@ -3376,7 +3376,7 @@ msgid "Volume Name"
 msgstr "वॉल्यूम नाम"
 
 #: dashboards/admin/volumes/snapshots/views.py:44
-#: dashboards/project/volumes/snapshots/views.py:42
+#: dashboards/project/volumes/snapshots/views.py:44
 msgid "Unable to retrieve volume snapshot."
 msgstr "स्नैपशॉट को पुनः प्राप्त करने में असमर्थ."
 
@@ -3538,7 +3538,7 @@ msgstr "\n      QOS  Specs can be associated with volume types.\n      It is use
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
-#: dashboards/project/networks/workflows.py:305
+#: dashboards/project/networks/workflows.py:335
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
 msgstr "बनाएँ"
@@ -3952,7 +3952,7 @@ msgid "Unable to create QOS Spec."
 msgstr "QOS स्पेक बनाने में असमर्थ."
 
 #: dashboards/admin/volumes/volumes/views.py:61
-#: dashboards/project/volumes/volumes/views.py:62
+#: dashboards/project/volumes/volumes/views.py:66
 msgid "Unable to retrieve volume details."
 msgstr "वॉल्यूम विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -6896,7 +6896,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:34
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Last Updated"
 msgstr "अंतिम बार अद्यतन"
 
@@ -8743,11 +8743,11 @@ msgstr "वॉल्यूम बनाएँ"
 msgid "Shared with Me"
 msgstr "मेरे साथ साझा"
 
-#: dashboards/project/images/images/views.py:56
+#: dashboards/project/images/images/views.py:58
 msgid "Unable to retrieve image."
 msgstr "बिंब को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/images/images/views.py:97
+#: dashboards/project/images/images/views.py:106
 msgid "Unable to retrieve image details."
 msgstr "बिंब विवरण प्राप्त करने में असमर्थ."
 
@@ -9502,17 +9502,17 @@ msgstr "\"%s\" इंस्टेंस के लिए SPICE कंसोल �
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "\"%s\" इंस्टेंस के लिए RDp कंसोल प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:279
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "इंस्टेंस के लिए जानकारी प्राप्त करने में असमर्थ \"%s\"."
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:290
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr " \"%s\" इंस्टेंस के लिए न्यूट्रॉन से आईपी पते को पुनः प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:334
 msgid "Unable to retrieve flavors."
 msgstr "फ्लेवर को पुनः प्राप्त करने में असमर्थ."
 
@@ -10198,7 +10198,7 @@ msgstr "वीआईपी के लिए अनुमति दी गई य
 
 #: dashboards/project/loadbalancers/forms.py:111
 #: dashboards/project/loadbalancers/forms.py:194
-#: dashboards/project/loadbalancers/tabs.py:41
+#: dashboards/project/loadbalancers/tabs.py:40
 #: dashboards/project/loadbalancers/workflows.py:358
 msgid "Unable to retrieve pools list."
 msgstr "पूल सूची को प्राप्त करने में असमर्थ."
@@ -10414,7 +10414,7 @@ msgstr "प्रदाता"
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:128
+#: dashboards/project/networks/workflows.py:158
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
@@ -10430,7 +10430,7 @@ msgid "VIP"
 msgstr "VIP"
 
 #: dashboards/project/loadbalancers/tables.py:283
-#: dashboards/project/loadbalancers/tabs.py:29
+#: dashboards/project/loadbalancers/tabs.py:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr "पुल"
@@ -10444,7 +10444,7 @@ msgid "Protocol Port"
 msgstr "प्रोटोकॉल पोर्ट"
 
 #: dashboards/project/loadbalancers/tables.py:315
-#: dashboards/project/loadbalancers/tabs.py:49
+#: dashboards/project/loadbalancers/tabs.py:48
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr "सदस्य"
@@ -10459,49 +10459,37 @@ msgid "Max Retries"
 msgstr "अधिकतम कोशिशों"
 
 #: dashboards/project/loadbalancers/tables.py:341
-#: dashboards/project/loadbalancers/tabs.py:69
+#: dashboards/project/loadbalancers/tabs.py:68
 msgid "Monitors"
 msgstr "मॉनीटर"
 
-#: dashboards/project/loadbalancers/tabs.py:61
+#: dashboards/project/loadbalancers/tabs.py:60
 msgid "Unable to retrieve member list."
 msgstr "सदस्य सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/tabs.py:81
+#: dashboards/project/loadbalancers/tabs.py:80
 msgid "Unable to retrieve monitor list."
 msgstr "मॉनिटर सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/tabs.py:92
+#: dashboards/project/loadbalancers/tabs.py:91
 msgid "Pool Details"
 msgstr "पूल विवरण"
 
-#: dashboards/project/loadbalancers/tabs.py:103
-msgid "Unable to retrieve pool details."
-msgstr "पूल विवरण को पुनः प्राप्त करने में असमर्थ."
-
-#: dashboards/project/loadbalancers/tabs.py:111
+#: dashboards/project/loadbalancers/tabs.py:101
 msgid "VIP Details"
 msgstr "VIP विवरण"
 
-#: dashboards/project/loadbalancers/tabs.py:122
+#: dashboards/project/loadbalancers/tabs.py:112
 msgid "Unable to retrieve VIP details."
 msgstr "VIP विवरण को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/tabs.py:127
+#: dashboards/project/loadbalancers/tabs.py:117
 msgid "Member Details"
 msgstr "सदस्य विवरण"
 
-#: dashboards/project/loadbalancers/tabs.py:138
-msgid "Unable to retrieve member details."
-msgstr "सदस्य विवरण को पुनः प्राप्त करने में असमर्थ."
-
-#: dashboards/project/loadbalancers/tabs.py:143
+#: dashboards/project/loadbalancers/tabs.py:127
 msgid "Monitor Details"
 msgstr "मॉनिटर विवरण "
-
-#: dashboards/project/loadbalancers/tabs.py:154
-msgid "Unable to retrieve monitor details."
-msgstr "मॉनिटर विवरण को पुनः प्राप्त करने में असमर्थ."
 
 #: dashboards/project/loadbalancers/utils.py:22
 #, python-format
@@ -10515,78 +10503,90 @@ msgstr ""
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s देरी:%(delay)d कोशिश:%(max_retries)d मध्यांतर:%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:50
+#: dashboards/project/loadbalancers/views.py:53
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "मॉनिटर %s हटाए"
 
-#: dashboards/project/loadbalancers/views.py:53
+#: dashboards/project/loadbalancers/views.py:56
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "मॉनिटर हटाने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:58
+#: dashboards/project/loadbalancers/views.py:61
 #, python-format
 msgid "Deleted pool %s"
 msgstr "%s पूल मिटाया"
 
-#: dashboards/project/loadbalancers/views.py:61
+#: dashboards/project/loadbalancers/views.py:64
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "पूल हटाने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:66
+#: dashboards/project/loadbalancers/views.py:69
 #, python-format
 msgid "Deleted member %s"
 msgstr "हटाए गए सदस्य %s"
 
-#: dashboards/project/loadbalancers/views.py:69
+#: dashboards/project/loadbalancers/views.py:72
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "सदस्य को हटाने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:76
+#: dashboards/project/loadbalancers/views.py:79
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "हटाने के लिए VIP को खोजने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:81
+#: dashboards/project/loadbalancers/views.py:84
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "हटाए गए VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:84
+#: dashboards/project/loadbalancers/views.py:87
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr " %s VIP हटाने में असमर्थ."
 
-#: dashboards/project/loadbalancers/views.py:104
+#: dashboards/project/loadbalancers/views.py:107
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr " %s पूल सबनेट को पुनः प्राप्त करने में असमर्थ"
 
-#: dashboards/project/loadbalancers/views.py:155
+#: dashboards/project/loadbalancers/views.py:133
+msgid "Unable to retrieve pool details."
+msgstr "पूल विवरण को पुनः प्राप्त करने में असमर्थ."
+
+#: dashboards/project/loadbalancers/views.py:175
+msgid "Unable to retrieve member details."
+msgstr "सदस्य विवरण को पुनः प्राप्त करने में असमर्थ."
+
+#: dashboards/project/loadbalancers/views.py:206
+msgid "Unable to retrieve monitor details."
+msgstr "मॉनिटर विवरण को पुनः प्राप्त करने में असमर्थ."
+
+#: dashboards/project/loadbalancers/views.py:244
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "पूल विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:185
+#: dashboards/project/loadbalancers/views.py:274
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "VIP विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:229
+#: dashboards/project/loadbalancers/views.py:318
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "सदस्य विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:258
+#: dashboards/project/loadbalancers/views.py:347
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "स्वास्थ्य मॉनिटर विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/loadbalancers/views.py:281
-#: dashboards/project/loadbalancers/views.py:297
+#: dashboards/project/loadbalancers/views.py:370
+#: dashboards/project/loadbalancers/views.py:386
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "पूल प्राप्त करने में असमर्थ. %s"
@@ -11017,21 +11017,21 @@ msgid ""
 "be created in the next panel."
 msgstr "संजाल बनाएँ. इसके अलावा संजाल के साथ जुड़े एक सबनेट अगले पैनल में बनाया जा सकता है."
 
-#: dashboards/project/networks/workflows.py:93
+#: dashboards/project/networks/workflows.py:106
 msgid "Subnet Name"
 msgstr "सबनेट नाम"
 
-#: dashboards/project/networks/workflows.py:95
+#: dashboards/project/networks/workflows.py:108
 #: dashboards/project/networks/subnets/tables.py:118
 #: dashboards/project/networks/subnets/workflows.py:81
 msgid "Network Address"
 msgstr "संजाल पता"
 
-#: dashboards/project/networks/workflows.py:98
+#: dashboards/project/networks/workflows.py:116
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:112
+#: dashboards/project/networks/workflows.py:135
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 "
@@ -11039,50 +11039,50 @@ msgid ""
 "to use a gateway, check 'Disable Gateway' below."
 msgstr "गेटवे (जैसे 192.168.0.254) के आईपी पते डिफ़ॉल्ट मूल्य (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for 2001:DB8::/48) संजाल पते का पहला आईपी है. आप डिफ़ॉल्ट का उपयोग करें, तो खाली छोड़ दें. आप कोई प्रवेश द्वार का उपयोग करना चाहते हैं, तो 'अक्षम गेटवे' नीचे की जाँच करें."
 
-#: dashboards/project/networks/workflows.py:122
+#: dashboards/project/networks/workflows.py:145
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid "Disable Gateway"
 msgstr "गेटवे अक्षम"
 
-#: dashboards/project/networks/workflows.py:124
+#: dashboards/project/networks/workflows.py:154
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "\"नेटवर्क पता\" या स्पष्ट \"सबनेट बनाएँ\" चेकबॉक्स निर्दिष्ट करें."
 
-#: dashboards/project/networks/workflows.py:129
+#: dashboards/project/networks/workflows.py:159
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "\"नेटवर्क पता\" निर्दिष्ट किया जाना चाहिए जिसमें नए संजाल के साथ जुड़े एक सबनेट बनाएँ. आप एक सबनेट के बिना एक नेटवर्क बनाने के लिए चाहते हैं, \"सबनेट बनाएँ\" चेकबॉक्स अचयनित."
 
-#: dashboards/project/networks/workflows.py:152
+#: dashboards/project/networks/workflows.py:182
 msgid "Network Address and IP version are inconsistent."
 msgstr "संजाल पता और आईपी संस्करण असंगत हैं."
 
-#: dashboards/project/networks/workflows.py:156
+#: dashboards/project/networks/workflows.py:186
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "संजाल पता में सबनेट (/% s) बहुत छोटा है."
 
-#: dashboards/project/networks/workflows.py:161
+#: dashboards/project/networks/workflows.py:191
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "गेटवे आईपी और आईपी संस्करण असंगत हैं."
 
-#: dashboards/project/networks/workflows.py:164
+#: dashboards/project/networks/workflows.py:194
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "प्रवेश द्वार के आईपी पता निर्दिष्ट या \"अक्षम गेटवे\" की जाँच करें."
 
-#: dashboards/project/networks/workflows.py:184
+#: dashboards/project/networks/workflows.py:214
 msgid "Enable DHCP"
 msgstr " DHCP सक्रिय करें"
 
-#: dashboards/project/networks/workflows.py:187
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:221
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 पता विन्यास अवस्था"
 
-#: dashboards/project/networks/workflows.py:195
+#: dashboards/project/networks/workflows.py:225
 msgid ""
 "It specifies how IPv6 address and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
@@ -11090,116 +11090,116 @@ msgid ""
 "manually or configured by non-OpenStack system."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:203
+#: dashboards/project/networks/workflows.py:233
 msgid "Allocation Pools"
 msgstr "आवंटन पूल"
 
-#: dashboards/project/networks/workflows.py:204
+#: dashboards/project/networks/workflows.py:234
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr "आईपी ​​पते आवंटन पूल.प्रत्येक प्रविष्टि: start_ip_address,end_ip_address (e.g., 192.168.1.100,192.168.1.120) (उदाहरण के लिए, 192.168.1.100,192.168.1.120) और प्रति पंक्ति एक प्रविष्टि."
 
-#: dashboards/project/networks/workflows.py:211
+#: dashboards/project/networks/workflows.py:241
 msgid "DNS Name Servers"
 msgstr "DNS नाम सर्वर"
 
-#: dashboards/project/networks/workflows.py:212
+#: dashboards/project/networks/workflows.py:242
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "आईपी ​​पता इस सबनेट के लिए DNS नाम सर्वर की सूची. प्रति पंक्ति एक प्रविष्टि."
 
-#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:247
 msgid "Host Routes"
 msgstr "होस्ट रूट"
 
-#: dashboards/project/networks/workflows.py:218
+#: dashboards/project/networks/workflows.py:248
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr "होस्ट्स की घोषणा की अतिरिक्त रूट. प्रत्येक प्रविष्टि : destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) (उदाहरण के लिए, 192.168.200.0/24, 10.56.1.254) और प्रति पंक्ति एक प्रविष्टि."
 
-#: dashboards/project/networks/workflows.py:225
+#: dashboards/project/networks/workflows.py:255
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "सबनेट विस्तार"
 
-#: dashboards/project/networks/workflows.py:226
+#: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
 msgid "Specify additional attributes for the subnet."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:229
+#: dashboards/project/networks/workflows.py:259
 #, python-format
 msgid "%s (Default)"
 msgstr "%s (तयशुदा)"
 
-#: dashboards/project/networks/workflows.py:238
+#: dashboards/project/networks/workflows.py:268
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Iअमान्य आईपी पता (मान=%(ip)s)"
 
-#: dashboards/project/networks/workflows.py:246
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: अमान्य आईपी पता (मान=%(network)s)"
 
-#: dashboards/project/networks/workflows.py:257
+#: dashboards/project/networks/workflows.py:287
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "आरंभ और अंत पते निर्दिष्ट किया जाना चाहिए (मान=%s)"
 
-#: dashboards/project/networks/workflows.py:263
+#: dashboards/project/networks/workflows.py:293
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "प्रारंभ पता अंत पते से बड़ा है(मान=%s)"
 
-#: dashboards/project/networks/workflows.py:281
+#: dashboards/project/networks/workflows.py:311
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "होस्ट मार्गों प्रारूप त्रुटि: गंतव्य सीआईडीआर और nexthop निर्दिष्ट किया जाना चाहिए (मान=%s)"
 
-#: dashboards/project/networks/workflows.py:306
+#: dashboards/project/networks/workflows.py:336
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "बनाई गई संजाल \"%s\"."
 
-#: dashboards/project/networks/workflows.py:307
+#: dashboards/project/networks/workflows.py:337
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "संजाल बनाने में असमर्थ \"%s\"."
 
-#: dashboards/project/networks/workflows.py:332
+#: dashboards/project/networks/workflows.py:362
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "नेटवर्क \"%s\" को सफलतापूर्वक बनाया गया"
 
-#: dashboards/project/networks/workflows.py:336
+#: dashboards/project/networks/workflows.py:366
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "संजाल बनाने में विफल \"%(network)s\": %(reason)s"
 
-#: dashboards/project/networks/workflows.py:399
+#: dashboards/project/networks/workflows.py:429
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "सबनेट \"%s\" सफलतापूर्वक बनाया गया था."
 
-#: dashboards/project/networks/workflows.py:403
+#: dashboards/project/networks/workflows.py:433
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "%(sub)s\" सबनेट बनाने में विफल \"%(net)s\" संजाल के लिए :  %(reason)s"
 
-#: dashboards/project/networks/workflows.py:419
+#: dashboards/project/networks/workflows.py:449
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "\"%s\" बनाया संजाल हटाएं सबनेट निर्माण की विफलता की वजह से"
 
-#: dashboards/project/networks/workflows.py:426
+#: dashboards/project/networks/workflows.py:456
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "\"%s\" संजाल को मिटा पाने में विफल"
@@ -11217,13 +11217,9 @@ msgstr "विलग"
 msgid "Attached Device"
 msgstr "संलग्न युक्ति"
 
-#: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/networks/ports/views.py:92
 msgid "Unable to retrieve port details"
 msgstr "पोर्ट विवरण को पुनः प्राप्त करने में असमर्थ"
-
-#: dashboards/project/networks/subnets/tabs.py:36
-msgid "Unable to retrieve subnet details."
-msgstr "सबनेट विवरण को पुनः प्राप्त करने में असमर्थ."
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
@@ -11243,9 +11239,13 @@ msgid ""
 "Openstack DHCP"
 msgstr ""
 
-#: dashboards/project/networks/subnets/views.py:66
+#: dashboards/project/networks/subnets/views.py:68
 msgid "Unable to retrieve subnet details"
 msgstr "सबनेट विवरण को पुनः प्राप्त करने में असमर्थ"
+
+#: dashboards/project/networks/subnets/views.py:112
+msgid "Unable to retrieve subnet details."
+msgstr "सबनेट विवरण को पुनः प्राप्त करने में असमर्थ."
 
 #: dashboards/project/networks/subnets/workflows.py:35
 msgid "Specify \"Network Address\""
@@ -11520,7 +11520,7 @@ msgid "HA mode"
 msgstr "HA अवस्था"
 
 #: dashboards/project/routers/tabs.py:54
-#: dashboards/project/routers/views.py:163
+#: dashboards/project/routers/views.py:169
 msgid "Unable to retrieve router details."
 msgstr "रूटर विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -11875,13 +11875,13 @@ msgid "Select a new template to re-launch a stack."
 msgstr ""
 
 #: dashboards/project/stacks/forms.py:228
-#: dashboards/project/stacks/forms.py:358
+#: dashboards/project/stacks/forms.py:366
 msgid "Stack ID"
 msgstr "ढेर आईडी"
 
 #: dashboards/project/stacks/forms.py:230
 #: dashboards/project/stacks/forms.py:254
-#: dashboards/project/stacks/forms.py:360
+#: dashboards/project/stacks/forms.py:368
 #: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr " ढेर नाम"
@@ -11927,17 +11927,17 @@ msgid ""
 "the stack"
 msgstr "आपरेशन ढेर के जीवन चक्र के दौरान प्रदर्शन किया जा करने के लिए यह आवश्यक है"
 
-#: dashboards/project/stacks/forms.py:347
+#: dashboards/project/stacks/forms.py:355
 msgid "Stack creation started."
 msgstr "ढेर निर्माण शुरू कर दिया."
 
-#: dashboards/project/stacks/forms.py:356
+#: dashboards/project/stacks/forms.py:364
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "अद्यतन ढेर पैरामीटर्स"
 
-#: dashboards/project/stacks/forms.py:389
+#: dashboards/project/stacks/forms.py:397
 msgid "Stack update started."
 msgstr "ढेर अद्यतन शुरू कर दिया."
 
@@ -11995,7 +11995,7 @@ msgid "Stack Events"
 msgstr "ढेर घटनाक्रम"
 
 #: dashboards/project/stacks/tables.py:190
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "ढेर संसाधन प्रकार"
 
@@ -12035,15 +12035,15 @@ msgstr "ढेर सूची को प्राप्त करने मे�
 
 #: dashboards/project/stacks/views.py:111
 #: dashboards/project/stacks/views.py:188
-#: dashboards/project/stacks/views.py:212
+#: dashboards/project/stacks/views.py:216
 msgid "Unable to retrieve stack."
 msgstr "ढेर को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/stacks/views.py:240
+#: dashboards/project/stacks/views.py:247
 msgid "Unable to retrieve resource."
 msgstr "संसाधन को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/stacks/views.py:253
+#: dashboards/project/stacks/views.py:260
 msgid "Unable to retrieve metadata."
 msgstr "मेटाडेटा प्राप्त करने में असमर्थ."
 
@@ -12094,7 +12094,7 @@ msgstr "ढेर संसाधन ID"
 msgid "Resource ID"
 msgstr "संसाधन ID"
 
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:42
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:46
 msgid "Resource Metadata"
 msgstr "संसाधन मेटाडाटा"
 
@@ -12195,7 +12195,7 @@ msgid "Scheduled deletion of %(data_type)s"
 msgstr "%(data_type)s के अनुसूचित विलोपन"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:61
+#: dashboards/project/volumes/backups/views.py:67
 msgid "Unable to retrieve backup details."
 msgstr "बैकअप विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -12229,7 +12229,7 @@ msgid "Edit Snapshot"
 msgstr "स्नैपशॉट संपादित करें"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:77
+#: dashboards/project/volumes/snapshots/views.py:83
 msgid "Unable to retrieve snapshot details."
 msgstr "स्नैपशॉट जानकारी प्राप्त करने में असमर्थ."
 
@@ -12757,7 +12757,7 @@ msgid "Upload to Image"
 msgstr "छवि में अपलोड करें"
 
 #: dashboards/project/volumes/volumes/tables.py:272
-#: dashboards/project/volumes/volumes/views.py:244
+#: dashboards/project/volumes/volumes/views.py:248
 msgid "Unable to retrieve attachment information."
 msgstr "अनुलग्नक सूचना पाने में असमर्थ."
 
@@ -12803,25 +12803,25 @@ msgstr "युक्ति"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:101
-#: dashboards/project/volumes/volumes/views.py:144
-#: dashboards/project/volumes/volumes/views.py:227
+#: dashboards/project/volumes/volumes/views.py:105
+#: dashboards/project/volumes/volumes/views.py:148
+#: dashboards/project/volumes/volumes/views.py:231
 msgid "Unable to retrieve volume information."
 msgstr "वॉल्यूम सूचना पाने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/views.py:135
+#: dashboards/project/volumes/volumes/views.py:139
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "यह मात्रा वर्तमान में एक इंस्टेंस से जुड़ा हुआ है. कुछ मामलों में, एक संलग्न वॉल्यूम से एक स्नैपशॉट बनाने के एक भ्रष्ट स्नैपशॉट में परिणाम कर सकते हैं."
 
-#: dashboards/project/volumes/volumes/views.py:163
-#: dashboards/project/volumes/volumes/views.py:293
+#: dashboards/project/volumes/volumes/views.py:167
+#: dashboards/project/volumes/volumes/views.py:297
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:196
+#: dashboards/project/volumes/volumes/views.py:200
 msgid "Unable to retrieve volume."
 msgstr "वॉल्यूम को पुनः प्राप्त करने में असमर्थ."
 
@@ -13204,11 +13204,11 @@ msgstr " IKE नीति"
 msgid "IPSec Policy"
 msgstr "IPSec नीति "
 
-#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:31
+#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:30
 msgid "IPSec Site Connections"
 msgstr "IPSec साइट कनेक्शन"
 
-#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:51
+#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:50
 msgid "VPN Services"
 msgstr "VPN सेवाएँ"
 
@@ -13216,118 +13216,118 @@ msgstr "VPN सेवाएँ"
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:71
+#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:70
 msgid "IKE Policies"
 msgstr " IKE नीति"
 
-#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:91
+#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:90
 msgid "IPSec Policies"
 msgstr "IPSec नीति "
 
-#: dashboards/project/vpn/tabs.py:43
+#: dashboards/project/vpn/tabs.py:42
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "IPSec साइट कनेक्शन सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:63 dashboards/project/vpn/workflows.py:377
+#: dashboards/project/vpn/tabs.py:62 dashboards/project/vpn/workflows.py:377
 msgid "Unable to retrieve VPN Services list."
 msgstr "वीपीएन सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:83 dashboards/project/vpn/workflows.py:348
+#: dashboards/project/vpn/tabs.py:82 dashboards/project/vpn/workflows.py:348
 msgid "Unable to retrieve IKE Policies list."
 msgstr "IKE नीतियाँ सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:103 dashboards/project/vpn/workflows.py:363
+#: dashboards/project/vpn/tabs.py:102 dashboards/project/vpn/workflows.py:363
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "IPSec नीतियों सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:117
+#: dashboards/project/vpn/tabs.py:116
 msgid "IKE Policy Details"
 msgstr "IKE नीति विवरण"
 
-#: dashboards/project/vpn/tabs.py:127
-msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE नीति विवरण को पुनः प्राप्त करने में असमर्थ."
-
-#: dashboards/project/vpn/tabs.py:138
+#: dashboards/project/vpn/tabs.py:131
 msgid "IPSec Policy Details"
 msgstr "IPSec नीति विवरण"
 
-#: dashboards/project/vpn/tabs.py:148
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec नीति विवरण को पुनः प्राप्त करने में असमर्थ."
-
-#: dashboards/project/vpn/tabs.py:159
+#: dashboards/project/vpn/tabs.py:146
 msgid "VPN Service Details"
 msgstr "वीपीएन सेवा का विवरण"
 
-#: dashboards/project/vpn/tabs.py:169
-msgid "Unable to retrieve VPN Service details."
-msgstr "वीपीएन सेवा का विवरण प्राप्त करने में असमर्थ."
-
-#: dashboards/project/vpn/tabs.py:186
+#: dashboards/project/vpn/tabs.py:161
 msgid "IPSec Site Connection Details"
 msgstr "IPSec साइट कनेक्शन विवरण"
 
-#: dashboards/project/vpn/tabs.py:196
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPSec साइट कनेक्शन विवरण प्राप्त करने में असमर्थ."
-
-#: dashboards/project/vpn/views.py:54
+#: dashboards/project/vpn/views.py:55
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "हटाए गए वीपीएन सेवा %s"
 
-#: dashboards/project/vpn/views.py:57
+#: dashboards/project/vpn/views.py:58
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "वीपीएन सेवा हटाने में असमर्थ: %s"
 
-#: dashboards/project/vpn/views.py:64
+#: dashboards/project/vpn/views.py:65
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "हटाए गए IKE नीति %s"
 
-#: dashboards/project/vpn/views.py:67
+#: dashboards/project/vpn/views.py:68
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "IKE नीति को हटाने में असमर्थ: %s"
 
-#: dashboards/project/vpn/views.py:73
+#: dashboards/project/vpn/views.py:74
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "हटाए गए IPSec नीति %s"
 
-#: dashboards/project/vpn/views.py:76
+#: dashboards/project/vpn/views.py:77
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "IPSec नीति को हटाने में असमर्थ: %s"
 
-#: dashboards/project/vpn/views.py:83
+#: dashboards/project/vpn/views.py:84
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "हटाए गए IPSec साइट कनेक्शन %s"
 
-#: dashboards/project/vpn/views.py:87
+#: dashboards/project/vpn/views.py:88
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "IPSec साइट कनेक्शन हटाने में असमर्थ: %s"
 
-#: dashboards/project/vpn/views.py:162
+#: dashboards/project/vpn/views.py:135
+msgid "Unable to retrieve IKE Policy details."
+msgstr "IKE नीति विवरण को पुनः प्राप्त करने में असमर्थ."
+
+#: dashboards/project/vpn/views.py:167
+msgid "Unable to retrieve IPSec Policy details."
+msgstr "IPSec नीति विवरण को पुनः प्राप्त करने में असमर्थ."
+
+#: dashboards/project/vpn/views.py:202
+msgid "Unable to retrieve VPN Service details."
+msgstr "वीपीएन सेवा का विवरण प्राप्त करने में असमर्थ."
+
+#: dashboards/project/vpn/views.py:242
+msgid "Unable to retrieve IPSec Site Connection details."
+msgstr "IPSec साइट कनेक्शन विवरण प्राप्त करने में असमर्थ."
+
+#: dashboards/project/vpn/views.py:285
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "वीपीएन सेवा का विवरण प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/vpn/views.py:191
+#: dashboards/project/vpn/views.py:314
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "IKE नीति विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/vpn/views.py:227
+#: dashboards/project/vpn/views.py:350
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "IPSec नीति विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/vpn/views.py:264
+#: dashboards/project/vpn/views.py:387
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "IPSec साइट कनेक्शन विवरण प्राप्त करने में असमर्थ. %s"
@@ -13764,23 +13764,42 @@ msgstr ""
 msgid "Change"
 msgstr "बदलें"
 
-#: dashboards/settings/user/forms.py:36
+#: dashboards/settings/user/forms.py:38
 msgid "Language"
 msgstr "भाषा"
 
-#: dashboards/settings/user/forms.py:37
+#: dashboards/settings/user/forms.py:39
 msgid "Timezone"
 msgstr "समयक्षेत्र"
 
-#: dashboards/settings/user/forms.py:38
+#: dashboards/settings/user/forms.py:40
 msgid "Items Per Page"
 msgstr "आइटम प्रति पृष्ठ"
 
-#: dashboards/settings/user/forms.py:43
+#: dashboards/settings/user/forms.py:45
 msgid "Number of items to show per page"
 msgstr "प्रति पृष्ठ दिखाने के लिए आइटम की संख्या"
 
-#: dashboards/settings/user/forms.py:103
+#: dashboards/settings/user/forms.py:80
+#, python-format
+msgid "UTC %(hour)s:%(min)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:86
+msgid "UTC"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:88
+msgid "GMT"
+msgstr ""
+
+#. Translators:  UTC offset and timezone label
+#: dashboards/settings/user/forms.py:93
+#, python-format
+msgid "%(offset)s: %(label)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:121
 msgid "Settings saved."
 msgstr "जमावट सहेजा गया."
 

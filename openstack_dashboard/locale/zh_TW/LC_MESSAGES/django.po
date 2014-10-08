@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-06 21:13-0500\n"
-"PO-Revision-Date: 2014-10-06 11:59+0000\n"
+"POT-Creation-Date: 2014-10-08 00:40-0500\n"
+"PO-Revision-Date: 2014-10-08 03:35+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -851,7 +851,7 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/project/stacks/templates/stacks/_change_template.html:19
 #: dashboards/project/stacks/templates/stacks/_create.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/backups/forms.py:35
@@ -1709,8 +1709,8 @@ msgstr "區域"
 #: dashboards/project/stacks/tables.py:197
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:36
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
 #: dashboards/project/volumes/backups/tables.py:116
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -2196,7 +2196,7 @@ msgstr "無法取回主機資訊。"
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:322
 msgid "Unable to retrieve instance details."
 msgstr "無法取回執行實例的詳細資訊。"
 
@@ -2649,7 +2649,7 @@ msgstr "刪除網路 %s 時失敗"
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:82
-#: dashboards/project/networks/workflows.py:304
+#: dashboards/project/networks/workflows.py:334
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2700,24 +2700,24 @@ msgid "Network list can not be retrieved."
 msgstr "不能取回網路列表。"
 
 #: dashboards/admin/networks/views.py:90
-#: dashboards/admin/networks/views.py:140
+#: dashboards/admin/networks/views.py:139
 #: dashboards/admin/networks/agents/forms.py:64
 msgid "Unable to list dhcp agents hosting network."
 msgstr "無法列出 DHCP 媒介所服務的網路。"
 
-#: dashboards/admin/networks/views.py:115
-#: dashboards/project/networks/views.py:108
+#: dashboards/admin/networks/views.py:114
+#: dashboards/project/networks/views.py:107
 msgid "Subnet list can not be retrieved."
 msgstr "不能取回子網路列表。"
 
-#: dashboards/admin/networks/views.py:127
-#: dashboards/project/networks/views.py:120
+#: dashboards/admin/networks/views.py:126
+#: dashboards/project/networks/views.py:119
 msgid "Port list can not be retrieved."
 msgstr "不能取回接口列表。"
 
-#: dashboards/admin/networks/views.py:153
+#: dashboards/admin/networks/views.py:151
 #: dashboards/admin/networks/subnets/tables.py:107
-#: dashboards/project/networks/views.py:133
+#: dashboards/project/networks/views.py:132
 #: dashboards/project/networks/subnets/tables.py:130
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -2774,7 +2774,7 @@ msgstr "加入 DHCP 媒介"
 
 #: dashboards/admin/networks/agents/views.py:59
 #: dashboards/admin/networks/ports/views.py:48
-#: dashboards/project/networks/subnets/views.py:47
+#: dashboards/project/networks/subnets/views.py:49
 msgid "Unable to retrieve network."
 msgstr "無法取回網路。"
 
@@ -2890,8 +2890,8 @@ msgstr "接口"
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:29
-#: dashboards/project/networks/ports/tabs.py:25
-#: dashboards/project/networks/subnets/tabs.py:26
+#: dashboards/project/networks/ports/tabs.py:21
+#: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
 #: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
@@ -2903,7 +2903,7 @@ msgid "Overview"
 msgstr "概觀"
 
 #: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/tabs.py:35
+#: dashboards/project/networks/ports/views.py:46
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "無法取回接口詳細資訊。"
@@ -2948,14 +2948,14 @@ msgid "CIDR"
 msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/networks/workflows.py:107
+#: dashboards/project/networks/workflows.py:126
 #: dashboards/project/networks/subnets/tables.py:119
 #: dashboards/project/networks/subnets/workflows.py:100
 msgid "IP Version"
 msgstr "IP 版本"
 
 #: dashboards/admin/networks/subnets/tables.py:95
-#: dashboards/project/networks/workflows.py:109
+#: dashboards/project/networks/workflows.py:128
 #: dashboards/project/networks/subnets/tables.py:120
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
@@ -3359,7 +3359,7 @@ msgid "Volume Name"
 msgstr "儲存空間名稱"
 
 #: dashboards/admin/volumes/snapshots/views.py:44
-#: dashboards/project/volumes/snapshots/views.py:42
+#: dashboards/project/volumes/snapshots/views.py:44
 msgid "Unable to retrieve volume snapshot."
 msgstr "無法取回儲存空間即時存檔。"
 
@@ -3521,7 +3521,7 @@ msgstr "\n      QOS 規格可以以儲存空間類型聯結。\n      它是用�
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
-#: dashboards/project/networks/workflows.py:305
+#: dashboards/project/networks/workflows.py:335
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
 msgstr "新增"
@@ -3929,7 +3929,7 @@ msgid "Unable to create QOS Spec."
 msgstr "無法新增 QOS 規格。"
 
 #: dashboards/admin/volumes/volumes/views.py:61
-#: dashboards/project/volumes/volumes/views.py:62
+#: dashboards/project/volumes/volumes/views.py:66
 msgid "Unable to retrieve volume details."
 msgstr "無法取回儲存空間詳細資訊。"
 
@@ -6829,7 +6829,7 @@ msgstr "輸出資料來源"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:34
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Last Updated"
 msgstr "最近一次更新"
 
@@ -8659,11 +8659,11 @@ msgstr "新增儲存空間"
 msgid "Shared with Me"
 msgstr "與我分享"
 
-#: dashboards/project/images/images/views.py:56
+#: dashboards/project/images/images/views.py:58
 msgid "Unable to retrieve image."
 msgstr "無法取回映像檔。"
 
-#: dashboards/project/images/images/views.py:97
+#: dashboards/project/images/images/views.py:106
 msgid "Unable to retrieve image details."
 msgstr "無法取回映像檔詳細資訊。"
 
@@ -9404,17 +9404,17 @@ msgstr "無法獲得執行實例「%s」的 SPICE 主控臺。"
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "無法獲得執行實例「%s」的 RDP 主控臺。"
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:279
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "無法取回執行實例「%s」的詳細資訊。"
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:290
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "無法從 Neutron 取回執行實例「%s」的 IP 位址。"
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:334
 msgid "Unable to retrieve flavors."
 msgstr "無法取回虛擬硬體樣板。"
 
@@ -10099,7 +10099,7 @@ msgstr "允許虛擬 IP 的最大連線數或者以「-1」來代表不設限制
 
 #: dashboards/project/loadbalancers/forms.py:111
 #: dashboards/project/loadbalancers/forms.py:194
-#: dashboards/project/loadbalancers/tabs.py:41
+#: dashboards/project/loadbalancers/tabs.py:40
 #: dashboards/project/loadbalancers/workflows.py:358
 msgid "Unable to retrieve pools list."
 msgstr "無法取回倉庫列表"
@@ -10307,7 +10307,7 @@ msgstr "提供者"
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:128
+#: dashboards/project/networks/workflows.py:158
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
@@ -10323,7 +10323,7 @@ msgid "VIP"
 msgstr "虛擬 IP"
 
 #: dashboards/project/loadbalancers/tables.py:283
-#: dashboards/project/loadbalancers/tabs.py:29
+#: dashboards/project/loadbalancers/tabs.py:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr "倉庫"
@@ -10337,7 +10337,7 @@ msgid "Protocol Port"
 msgstr "協定埠口"
 
 #: dashboards/project/loadbalancers/tables.py:315
-#: dashboards/project/loadbalancers/tabs.py:49
+#: dashboards/project/loadbalancers/tabs.py:48
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr "成員"
@@ -10352,49 +10352,37 @@ msgid "Max Retries"
 msgstr "最大重試數"
 
 #: dashboards/project/loadbalancers/tables.py:341
-#: dashboards/project/loadbalancers/tabs.py:69
+#: dashboards/project/loadbalancers/tabs.py:68
 msgid "Monitors"
 msgstr "監視器"
 
-#: dashboards/project/loadbalancers/tabs.py:61
+#: dashboards/project/loadbalancers/tabs.py:60
 msgid "Unable to retrieve member list."
 msgstr "無法取回成員列表。"
 
-#: dashboards/project/loadbalancers/tabs.py:81
+#: dashboards/project/loadbalancers/tabs.py:80
 msgid "Unable to retrieve monitor list."
 msgstr "無法取回視器列表。"
 
-#: dashboards/project/loadbalancers/tabs.py:92
+#: dashboards/project/loadbalancers/tabs.py:91
 msgid "Pool Details"
 msgstr "倉庫詳細資訊"
 
-#: dashboards/project/loadbalancers/tabs.py:103
-msgid "Unable to retrieve pool details."
-msgstr "無法取回倉庫詳細資訊。"
-
-#: dashboards/project/loadbalancers/tabs.py:111
+#: dashboards/project/loadbalancers/tabs.py:101
 msgid "VIP Details"
 msgstr "虛擬 IP 詳細資訊"
 
-#: dashboards/project/loadbalancers/tabs.py:122
+#: dashboards/project/loadbalancers/tabs.py:112
 msgid "Unable to retrieve VIP details."
 msgstr "無法取回虛擬 IP 詳細資訊。"
 
-#: dashboards/project/loadbalancers/tabs.py:127
+#: dashboards/project/loadbalancers/tabs.py:117
 msgid "Member Details"
 msgstr "成員詳細資訊"
 
-#: dashboards/project/loadbalancers/tabs.py:138
-msgid "Unable to retrieve member details."
-msgstr "無法取回成員詳細資訊。"
-
-#: dashboards/project/loadbalancers/tabs.py:143
+#: dashboards/project/loadbalancers/tabs.py:127
 msgid "Monitor Details"
 msgstr "監視器詳細資訊"
-
-#: dashboards/project/loadbalancers/tabs.py:154
-msgid "Unable to retrieve monitor details."
-msgstr "無法取回監視器詳細資訊。"
 
 #: dashboards/project/loadbalancers/utils.py:22
 #, python-format
@@ -10408,78 +10396,90 @@ msgstr "%(type)s：網址：%(url_path)s 方法：%(http_method)s 代碼：%(exp
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s 延遲：%(delay)d 重試：%(max_retries)d 逾期：%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:50
+#: dashboards/project/loadbalancers/views.py:53
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "刪除監視器 %s"
 
-#: dashboards/project/loadbalancers/views.py:53
+#: dashboards/project/loadbalancers/views.py:56
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "無法刪除監視器。%s"
 
-#: dashboards/project/loadbalancers/views.py:58
+#: dashboards/project/loadbalancers/views.py:61
 #, python-format
 msgid "Deleted pool %s"
 msgstr "已刪除倉庫 %s"
 
-#: dashboards/project/loadbalancers/views.py:61
+#: dashboards/project/loadbalancers/views.py:64
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "無法刪除倉庫。%s"
 
-#: dashboards/project/loadbalancers/views.py:66
+#: dashboards/project/loadbalancers/views.py:69
 #, python-format
 msgid "Deleted member %s"
 msgstr "已刪除成員 %s"
 
-#: dashboards/project/loadbalancers/views.py:69
+#: dashboards/project/loadbalancers/views.py:72
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "無法刪除成員。%s"
 
-#: dashboards/project/loadbalancers/views.py:76
+#: dashboards/project/loadbalancers/views.py:79
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "無法定位虛擬 IP 來刪除。%s"
 
-#: dashboards/project/loadbalancers/views.py:81
+#: dashboards/project/loadbalancers/views.py:84
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "已刪除虛擬 IP %s"
 
-#: dashboards/project/loadbalancers/views.py:84
+#: dashboards/project/loadbalancers/views.py:87
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "無法刪除虛擬 IP。%s"
 
-#: dashboards/project/loadbalancers/views.py:104
+#: dashboards/project/loadbalancers/views.py:107
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr "無法取回倉庫子網路。%s"
 
-#: dashboards/project/loadbalancers/views.py:155
+#: dashboards/project/loadbalancers/views.py:133
+msgid "Unable to retrieve pool details."
+msgstr "無法取回倉庫詳細資訊。"
+
+#: dashboards/project/loadbalancers/views.py:175
+msgid "Unable to retrieve member details."
+msgstr "無法取回成員詳細資訊。"
+
+#: dashboards/project/loadbalancers/views.py:206
+msgid "Unable to retrieve monitor details."
+msgstr "無法取回監視器詳細資訊。"
+
+#: dashboards/project/loadbalancers/views.py:244
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "無法取回倉庫詳細資訊。%s"
 
-#: dashboards/project/loadbalancers/views.py:185
+#: dashboards/project/loadbalancers/views.py:274
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "無法取回虛擬 IP 詳細資訊。%s"
 
-#: dashboards/project/loadbalancers/views.py:229
+#: dashboards/project/loadbalancers/views.py:318
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "無法取回成員詳細資訊。%s"
 
-#: dashboards/project/loadbalancers/views.py:258
+#: dashboards/project/loadbalancers/views.py:347
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "無法取回健康監視器詳細資訊。%s"
 
-#: dashboards/project/loadbalancers/views.py:281
-#: dashboards/project/loadbalancers/views.py:297
+#: dashboards/project/loadbalancers/views.py:370
+#: dashboards/project/loadbalancers/views.py:386
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "無法取回倉庫。%s"
@@ -10910,21 +10910,21 @@ msgid ""
 "be created in the next panel."
 msgstr "新增一個新的網路。另外，可以在下一個面板新增一個子網路來聯結這個網路。"
 
-#: dashboards/project/networks/workflows.py:93
+#: dashboards/project/networks/workflows.py:106
 msgid "Subnet Name"
 msgstr "子網路名稱"
 
-#: dashboards/project/networks/workflows.py:95
+#: dashboards/project/networks/workflows.py:108
 #: dashboards/project/networks/subnets/tables.py:118
 #: dashboards/project/networks/subnets/workflows.py:81
 msgid "Network Address"
 msgstr "網路位址"
 
-#: dashboards/project/networks/workflows.py:98
+#: dashboards/project/networks/workflows.py:116
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "用 CIDR 格式的網路位址（如 192.168.0.0/24、2001:DB8::/48）"
 
-#: dashboards/project/networks/workflows.py:112
+#: dashboards/project/networks/workflows.py:135
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 "
@@ -10932,50 +10932,50 @@ msgid ""
 "to use a gateway, check 'Disable Gateway' below."
 msgstr "閘道 IP 位址（如 192.168.0.254）預設值是網路位址的第一個 IP（如 192.168.0.0/24 裡的 192.168.0.1、2001:DB8::/48 裡的 2001:DB8::1）。假如您使用預設值，保留欄位為空。假如您不想使用閘道，勾選下列的「關閉閘道」。"
 
-#: dashboards/project/networks/workflows.py:122
+#: dashboards/project/networks/workflows.py:145
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid "Disable Gateway"
 msgstr "關閉閘道"
 
-#: dashboards/project/networks/workflows.py:124
+#: dashboards/project/networks/workflows.py:154
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "指定「網路位址」或清除「新增子網路」方格。"
 
-#: dashboards/project/networks/workflows.py:129
+#: dashboards/project/networks/workflows.py:159
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "新增一個子網路聯結新的網路，但「網路位址」必須指定。假如您希望新增一個不包含子網路的網路，取消勾選「新增子網路」方格。"
 
-#: dashboards/project/networks/workflows.py:152
+#: dashboards/project/networks/workflows.py:182
 msgid "Network Address and IP version are inconsistent."
 msgstr "網路位址和 IP 版本不一致。"
 
-#: dashboards/project/networks/workflows.py:156
+#: dashboards/project/networks/workflows.py:186
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "網路位址裡的子網路太小（/%s）。"
 
-#: dashboards/project/networks/workflows.py:161
+#: dashboards/project/networks/workflows.py:191
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "閘道 IP 和 IP 版本不一致。"
 
-#: dashboards/project/networks/workflows.py:164
+#: dashboards/project/networks/workflows.py:194
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "指定閘道的 IP 位址或勾選「關閉閘道」。"
 
-#: dashboards/project/networks/workflows.py:184
+#: dashboards/project/networks/workflows.py:214
 msgid "Enable DHCP"
 msgstr "啟用 DHCP"
 
-#: dashboards/project/networks/workflows.py:187
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:221
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 位址設置模式"
 
-#: dashboards/project/networks/workflows.py:195
+#: dashboards/project/networks/workflows.py:225
 msgid ""
 "It specifies how IPv6 address and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
@@ -10983,116 +10983,116 @@ msgid ""
 "manually or configured by non-OpenStack system."
 msgstr "這指定 IPv6 位址和額外的資訊要如何設置。我們可以指定 OpenStack 提供的 SLAAC/DHCPv6 有態/DHCPv6 無態，或者不指定選項。「未指定選項」意味著位址要手動設置或以非 OpenStack 系統設置。"
 
-#: dashboards/project/networks/workflows.py:203
+#: dashboards/project/networks/workflows.py:233
 msgid "Allocation Pools"
 msgstr "分配倉庫"
 
-#: dashboards/project/networks/workflows.py:204
+#: dashboards/project/networks/workflows.py:234
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr "IP 位址分配倉庫。每個條目長得像：start_ip_address,end_ip_address（如 192.168.1.100,192.168.1.120）並且一行一個條目。"
 
-#: dashboards/project/networks/workflows.py:211
+#: dashboards/project/networks/workflows.py:241
 msgid "DNS Name Servers"
 msgstr "DNS 名稱伺服器"
 
-#: dashboards/project/networks/workflows.py:212
+#: dashboards/project/networks/workflows.py:242
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "此子網路的 DNS 名稱伺服器 IP 位址列表。一行一個條目。"
 
-#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:247
 msgid "Host Routes"
 msgstr "主機路由"
 
-#: dashboards/project/networks/workflows.py:218
+#: dashboards/project/networks/workflows.py:248
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr "額外的路由發佈到主機。每個條目就像：destination_cidr,nexthop（如 192.168.200.0/24,10.56.1.254）並且一行一個條目。"
 
-#: dashboards/project/networks/workflows.py:225
+#: dashboards/project/networks/workflows.py:255
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "子網路詳細資訊"
 
-#: dashboards/project/networks/workflows.py:226
+#: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
 msgid "Specify additional attributes for the subnet."
 msgstr "為子網路指定額外的屬性。"
 
-#: dashboards/project/networks/workflows.py:229
+#: dashboards/project/networks/workflows.py:259
 #, python-format
 msgid "%s (Default)"
 msgstr "%s（預設值）"
 
-#: dashboards/project/networks/workflows.py:238
+#: dashboards/project/networks/workflows.py:268
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s：無效的 IP 位址（值為 %(ip)s）"
 
-#: dashboards/project/networks/workflows.py:246
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s：無效的 IP 位址（值為 %(network)s）"
 
-#: dashboards/project/networks/workflows.py:257
+#: dashboards/project/networks/workflows.py:287
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "必須指定開始與結束位址（值為 %s）"
 
-#: dashboards/project/networks/workflows.py:263
+#: dashboards/project/networks/workflows.py:293
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "開始位址要大於結束位址（值為 %s）"
 
-#: dashboards/project/networks/workflows.py:281
+#: dashboards/project/networks/workflows.py:311
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "主機路由格式錯誤：必須指定目標 CIDR 與下一跳點（值為 %s）"
 
-#: dashboards/project/networks/workflows.py:306
+#: dashboards/project/networks/workflows.py:336
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "已新增網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:307
+#: dashboards/project/networks/workflows.py:337
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "無法新增網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:332
+#: dashboards/project/networks/workflows.py:362
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "已成功新增網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:336
+#: dashboards/project/networks/workflows.py:366
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "新增網路「%(network)s」時失敗：%(reason)s"
 
-#: dashboards/project/networks/workflows.py:399
+#: dashboards/project/networks/workflows.py:429
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "已成功新增子網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:403
+#: dashboards/project/networks/workflows.py:433
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "為網路「%(net)s」新增子網路「%(sub)s」時失敗：%(reason)s"
 
-#: dashboards/project/networks/workflows.py:419
+#: dashboards/project/networks/workflows.py:449
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "刪除已新增的網路「%s」直到子網路新增失敗。"
 
-#: dashboards/project/networks/workflows.py:426
+#: dashboards/project/networks/workflows.py:456
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "刪除網路「%s」時失敗"
@@ -11110,13 +11110,9 @@ msgstr "已卸除"
 msgid "Attached Device"
 msgstr "已附加的裝置"
 
-#: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/networks/ports/views.py:92
 msgid "Unable to retrieve port details"
 msgstr "無法取回接口詳細資訊"
-
-#: dashboards/project/networks/subnets/tabs.py:36
-msgid "Unable to retrieve subnet details."
-msgstr "無法取回子網路詳細資訊。"
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
@@ -11136,9 +11132,13 @@ msgid ""
 "Openstack DHCP"
 msgstr "DHCPv6 無態：從 OpenStack 路由器探索位址並且從 OpenStack DHCP 獲得資訊"
 
-#: dashboards/project/networks/subnets/views.py:66
+#: dashboards/project/networks/subnets/views.py:68
 msgid "Unable to retrieve subnet details"
 msgstr "無法取回子網路詳細資訊"
+
+#: dashboards/project/networks/subnets/views.py:112
+msgid "Unable to retrieve subnet details."
+msgstr "無法取回子網路詳細資訊。"
 
 #: dashboards/project/networks/subnets/workflows.py:35
 msgid "Specify \"Network Address\""
@@ -11409,7 +11409,7 @@ msgid "HA mode"
 msgstr "高可用性模式"
 
 #: dashboards/project/routers/tabs.py:54
-#: dashboards/project/routers/views.py:163
+#: dashboards/project/routers/views.py:169
 msgid "Unable to retrieve router details."
 msgstr "無法取回路由器詳細資訊。"
 
@@ -11760,13 +11760,13 @@ msgid "Select a new template to re-launch a stack."
 msgstr "選擇一個新的樣板來重新發動機櫃。"
 
 #: dashboards/project/stacks/forms.py:228
-#: dashboards/project/stacks/forms.py:358
+#: dashboards/project/stacks/forms.py:366
 msgid "Stack ID"
 msgstr "機櫃識別號"
 
 #: dashboards/project/stacks/forms.py:230
 #: dashboards/project/stacks/forms.py:254
-#: dashboards/project/stacks/forms.py:360
+#: dashboards/project/stacks/forms.py:368
 #: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr "機櫃名稱"
@@ -11812,17 +11812,17 @@ msgid ""
 "the stack"
 msgstr "這是機櫃終生履行作業所必需的"
 
-#: dashboards/project/stacks/forms.py:347
+#: dashboards/project/stacks/forms.py:355
 msgid "Stack creation started."
 msgstr "已開始新增機櫃。"
 
-#: dashboards/project/stacks/forms.py:356
+#: dashboards/project/stacks/forms.py:364
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "更新機櫃的參數"
 
-#: dashboards/project/stacks/forms.py:389
+#: dashboards/project/stacks/forms.py:397
 msgid "Stack update started."
 msgstr "已開始更新機櫃。"
 
@@ -11878,7 +11878,7 @@ msgid "Stack Events"
 msgstr "機櫃事件"
 
 #: dashboards/project/stacks/tables.py:190
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "機櫃資源類型"
 
@@ -11918,15 +11918,15 @@ msgstr "無法取回機櫃列表。"
 
 #: dashboards/project/stacks/views.py:111
 #: dashboards/project/stacks/views.py:188
-#: dashboards/project/stacks/views.py:212
+#: dashboards/project/stacks/views.py:216
 msgid "Unable to retrieve stack."
 msgstr "無法取回機櫃。"
 
-#: dashboards/project/stacks/views.py:240
+#: dashboards/project/stacks/views.py:247
 msgid "Unable to retrieve resource."
 msgstr "無法取回資源。"
 
-#: dashboards/project/stacks/views.py:253
+#: dashboards/project/stacks/views.py:260
 msgid "Unable to retrieve metadata."
 msgstr "無法取回描述資料。"
 
@@ -11977,7 +11977,7 @@ msgstr "機櫃資源識別號"
 msgid "Resource ID"
 msgstr "資源識別號"
 
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:42
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:46
 msgid "Resource Metadata"
 msgstr "資源描述資料"
 
@@ -12078,7 +12078,7 @@ msgid "Scheduled deletion of %(data_type)s"
 msgstr "已排程%(data_type)s的刪除"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:61
+#: dashboards/project/volumes/backups/views.py:67
 msgid "Unable to retrieve backup details."
 msgstr "無法取回備份詳細資訊。"
 
@@ -12110,7 +12110,7 @@ msgid "Edit Snapshot"
 msgstr "編輯即時存檔"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:77
+#: dashboards/project/volumes/snapshots/views.py:83
 msgid "Unable to retrieve snapshot details."
 msgstr "無法取回即時存檔詳細資訊。"
 
@@ -12636,7 +12636,7 @@ msgid "Upload to Image"
 msgstr "上傳至映像檔"
 
 #: dashboards/project/volumes/volumes/tables.py:272
-#: dashboards/project/volumes/volumes/views.py:244
+#: dashboards/project/volumes/volumes/views.py:248
 msgid "Unable to retrieve attachment information."
 msgstr "無法取回附件資訊。"
 
@@ -12680,25 +12680,25 @@ msgstr "裝置"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "儲存空間 %(volume_name)s 於執行實例 %(instance_name)s 上"
 
-#: dashboards/project/volumes/volumes/views.py:101
-#: dashboards/project/volumes/volumes/views.py:144
-#: dashboards/project/volumes/volumes/views.py:227
+#: dashboards/project/volumes/volumes/views.py:105
+#: dashboards/project/volumes/volumes/views.py:148
+#: dashboards/project/volumes/volumes/views.py:231
 msgid "Unable to retrieve volume information."
 msgstr "無法取回儲存空間資訊。"
 
-#: dashboards/project/volumes/volumes/views.py:135
+#: dashboards/project/volumes/volumes/views.py:139
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "此儲存空間目前正被附加到一個執行實例。某些狀況下，從一個附加的儲存空間新增一個即時存檔會損毀即時存檔。"
 
-#: dashboards/project/volumes/volumes/views.py:163
-#: dashboards/project/volumes/volumes/views.py:293
+#: dashboards/project/volumes/volumes/views.py:167
+#: dashboards/project/volumes/volumes/views.py:297
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "無法為儲存空間取回儲存空間資訊：「%s」"
 
-#: dashboards/project/volumes/volumes/views.py:196
+#: dashboards/project/volumes/volumes/views.py:200
 msgid "Unable to retrieve volume."
 msgstr "無法取回儲存空間。"
 
@@ -13073,11 +13073,11 @@ msgstr "網際網路金鑰交換政策"
 msgid "IPSec Policy"
 msgstr "IPSec 政策"
 
-#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:31
+#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:30
 msgid "IPSec Site Connections"
 msgstr "IPSec 網站連線"
 
-#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:51
+#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:50
 msgid "VPN Services"
 msgstr "虛擬私人網路伺服器"
 
@@ -13085,118 +13085,118 @@ msgstr "虛擬私人網路伺服器"
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:71
+#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:70
 msgid "IKE Policies"
 msgstr "網際網路金鑰交換政策"
 
-#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:91
+#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:90
 msgid "IPSec Policies"
 msgstr "IPSec 政策"
 
-#: dashboards/project/vpn/tabs.py:43
+#: dashboards/project/vpn/tabs.py:42
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "無法取回 IPSec 網站連線列表。"
 
-#: dashboards/project/vpn/tabs.py:63 dashboards/project/vpn/workflows.py:377
+#: dashboards/project/vpn/tabs.py:62 dashboards/project/vpn/workflows.py:377
 msgid "Unable to retrieve VPN Services list."
 msgstr "無法取回虛擬私人網路伺服器列表。"
 
-#: dashboards/project/vpn/tabs.py:83 dashboards/project/vpn/workflows.py:348
+#: dashboards/project/vpn/tabs.py:82 dashboards/project/vpn/workflows.py:348
 msgid "Unable to retrieve IKE Policies list."
 msgstr "無法取回網際網路金鑰交換政策列表。"
 
-#: dashboards/project/vpn/tabs.py:103 dashboards/project/vpn/workflows.py:363
+#: dashboards/project/vpn/tabs.py:102 dashboards/project/vpn/workflows.py:363
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "無法取回 IPSec 政策列表。"
 
-#: dashboards/project/vpn/tabs.py:117
+#: dashboards/project/vpn/tabs.py:116
 msgid "IKE Policy Details"
 msgstr "網際網路金鑰交換政策詳細資訊"
 
-#: dashboards/project/vpn/tabs.py:127
-msgid "Unable to retrieve IKE Policy details."
-msgstr "無法取回網際網路金鑰交換政策詳細資訊。"
-
-#: dashboards/project/vpn/tabs.py:138
+#: dashboards/project/vpn/tabs.py:131
 msgid "IPSec Policy Details"
 msgstr "IPSec 政策詳細資訊"
 
-#: dashboards/project/vpn/tabs.py:148
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "無法取回 IPSec 政策詳細資訊。"
-
-#: dashboards/project/vpn/tabs.py:159
+#: dashboards/project/vpn/tabs.py:146
 msgid "VPN Service Details"
 msgstr "虛擬私人網路伺服器詳細資訊"
 
-#: dashboards/project/vpn/tabs.py:169
-msgid "Unable to retrieve VPN Service details."
-msgstr "無法取回虛擬私人網路伺服器詳細資訊。"
-
-#: dashboards/project/vpn/tabs.py:186
+#: dashboards/project/vpn/tabs.py:161
 msgid "IPSec Site Connection Details"
 msgstr "IPSec 網站連線詳細資訊"
 
-#: dashboards/project/vpn/tabs.py:196
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "無法取回 IPSec 網站連線詳細資訊。"
-
-#: dashboards/project/vpn/views.py:54
+#: dashboards/project/vpn/views.py:55
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "已刪除虛擬私人網路伺服器 %s"
 
-#: dashboards/project/vpn/views.py:57
+#: dashboards/project/vpn/views.py:58
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "無法刪除虛擬私人網路伺服器：%s"
 
-#: dashboards/project/vpn/views.py:64
+#: dashboards/project/vpn/views.py:65
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "已刪除網際網路金鑰交換政策 %s"
 
-#: dashboards/project/vpn/views.py:67
+#: dashboards/project/vpn/views.py:68
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "無法刪除網際網路金鑰交換政策：%s"
 
-#: dashboards/project/vpn/views.py:73
+#: dashboards/project/vpn/views.py:74
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "已刪除 IPSec 政策 %s"
 
-#: dashboards/project/vpn/views.py:76
+#: dashboards/project/vpn/views.py:77
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "無法刪除 IPSec 政策：%s"
 
-#: dashboards/project/vpn/views.py:83
+#: dashboards/project/vpn/views.py:84
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "已刪除 IPSec 網站連線 %s"
 
-#: dashboards/project/vpn/views.py:87
+#: dashboards/project/vpn/views.py:88
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "無法刪除 IPSec 網站連線：%s"
 
-#: dashboards/project/vpn/views.py:162
+#: dashboards/project/vpn/views.py:135
+msgid "Unable to retrieve IKE Policy details."
+msgstr "無法取回網際網路金鑰交換政策詳細資訊。"
+
+#: dashboards/project/vpn/views.py:167
+msgid "Unable to retrieve IPSec Policy details."
+msgstr "無法取回 IPSec 政策詳細資訊。"
+
+#: dashboards/project/vpn/views.py:202
+msgid "Unable to retrieve VPN Service details."
+msgstr "無法取回虛擬私人網路伺服器詳細資訊。"
+
+#: dashboards/project/vpn/views.py:242
+msgid "Unable to retrieve IPSec Site Connection details."
+msgstr "無法取回 IPSec 網站連線詳細資訊。"
+
+#: dashboards/project/vpn/views.py:285
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "無法取回虛擬私人網路伺服器詳細資訊。%s"
 
-#: dashboards/project/vpn/views.py:191
+#: dashboards/project/vpn/views.py:314
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "無法取回網際網路金鑰交換政策詳細資訊。%s"
 
-#: dashboards/project/vpn/views.py:227
+#: dashboards/project/vpn/views.py:350
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "無法取回 IPSec 政策詳細資訊。%s"
 
-#: dashboards/project/vpn/views.py:264
+#: dashboards/project/vpn/views.py:387
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "無法取回 IPSec 網站連線詳細資訊。%s"
@@ -13631,23 +13631,42 @@ msgstr "變更您的密碼。我們強力建議您新增一個堅固的密碼。
 msgid "Change"
 msgstr "變更"
 
-#: dashboards/settings/user/forms.py:36
+#: dashboards/settings/user/forms.py:38
 msgid "Language"
 msgstr "語系"
 
-#: dashboards/settings/user/forms.py:37
+#: dashboards/settings/user/forms.py:39
 msgid "Timezone"
 msgstr "時區"
 
-#: dashboards/settings/user/forms.py:38
+#: dashboards/settings/user/forms.py:40
 msgid "Items Per Page"
 msgstr "每頁的項目"
 
-#: dashboards/settings/user/forms.py:43
+#: dashboards/settings/user/forms.py:45
 msgid "Number of items to show per page"
 msgstr "每頁顯示項目數"
 
-#: dashboards/settings/user/forms.py:103
+#: dashboards/settings/user/forms.py:80
+#, python-format
+msgid "UTC %(hour)s:%(min)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:86
+msgid "UTC"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:88
+msgid "GMT"
+msgstr ""
+
+#. Translators:  UTC offset and timezone label
+#: dashboards/settings/user/forms.py:93
+#, python-format
+msgid "%(offset)s: %(label)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:121
 msgid "Settings saved."
 msgstr "已儲存設定。"
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-06 21:13-0500\n"
-"PO-Revision-Date: 2014-10-06 11:59+0000\n"
+"POT-Creation-Date: 2014-10-08 00:40-0500\n"
+"PO-Revision-Date: 2014-10-08 03:35+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -853,7 +853,7 @@ msgstr "Erreur pendant l'ajout ou la suppression d'hôtes."
 #: dashboards/project/stacks/templates/stacks/_change_template.html:19
 #: dashboards/project/stacks/templates/stacks/_create.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/backups/forms.py:35
@@ -1715,8 +1715,8 @@ msgstr "Zone"
 #: dashboards/project/stacks/tables.py:197
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:36
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
 #: dashboards/project/volumes/backups/tables.py:116
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -2204,7 +2204,7 @@ msgstr "Impossible de récupérer les information sur l’hôte."
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:322
 msgid "Unable to retrieve instance details."
 msgstr "Impossible de récupérer les détails de l'instance."
 
@@ -2659,7 +2659,7 @@ msgstr "Echec lors de la suppression du réseau %s"
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:82
-#: dashboards/project/networks/workflows.py:304
+#: dashboards/project/networks/workflows.py:334
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2710,24 +2710,24 @@ msgid "Network list can not be retrieved."
 msgstr "Impossible de récupérer la liste des réseaux."
 
 #: dashboards/admin/networks/views.py:90
-#: dashboards/admin/networks/views.py:140
+#: dashboards/admin/networks/views.py:139
 #: dashboards/admin/networks/agents/forms.py:64
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Impossible d'obtenir la liste d'agents dhcp sur le réseau hôte."
 
-#: dashboards/admin/networks/views.py:115
-#: dashboards/project/networks/views.py:108
+#: dashboards/admin/networks/views.py:114
+#: dashboards/project/networks/views.py:107
 msgid "Subnet list can not be retrieved."
 msgstr "Impossible de récupérer la liste des sous-réseaux."
 
-#: dashboards/admin/networks/views.py:127
-#: dashboards/project/networks/views.py:120
+#: dashboards/admin/networks/views.py:126
+#: dashboards/project/networks/views.py:119
 msgid "Port list can not be retrieved."
 msgstr "Impossible de récupérer la liste des ports."
 
-#: dashboards/admin/networks/views.py:153
+#: dashboards/admin/networks/views.py:151
 #: dashboards/admin/networks/subnets/tables.py:107
-#: dashboards/project/networks/views.py:133
+#: dashboards/project/networks/views.py:132
 #: dashboards/project/networks/subnets/tables.py:130
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -2786,7 +2786,7 @@ msgstr "Ajouter un agent DHCP"
 
 #: dashboards/admin/networks/agents/views.py:59
 #: dashboards/admin/networks/ports/views.py:48
-#: dashboards/project/networks/subnets/views.py:47
+#: dashboards/project/networks/subnets/views.py:49
 msgid "Unable to retrieve network."
 msgstr "Impossible de récupérer le réseau."
 
@@ -2904,8 +2904,8 @@ msgstr "Ports"
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:29
-#: dashboards/project/networks/ports/tabs.py:25
-#: dashboards/project/networks/subnets/tabs.py:26
+#: dashboards/project/networks/ports/tabs.py:21
+#: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
 #: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
@@ -2917,7 +2917,7 @@ msgid "Overview"
 msgstr "Vue d'ensemble"
 
 #: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/tabs.py:35
+#: dashboards/project/networks/ports/views.py:46
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "Impossible de retrouver les détails du port."
@@ -2964,14 +2964,14 @@ msgid "CIDR"
 msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/networks/workflows.py:107
+#: dashboards/project/networks/workflows.py:126
 #: dashboards/project/networks/subnets/tables.py:119
 #: dashboards/project/networks/subnets/workflows.py:100
 msgid "IP Version"
 msgstr "Version IP"
 
 #: dashboards/admin/networks/subnets/tables.py:95
-#: dashboards/project/networks/workflows.py:109
+#: dashboards/project/networks/workflows.py:128
 #: dashboards/project/networks/subnets/tables.py:120
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
@@ -3375,7 +3375,7 @@ msgid "Volume Name"
 msgstr "Nom du volume"
 
 #: dashboards/admin/volumes/snapshots/views.py:44
-#: dashboards/project/volumes/snapshots/views.py:42
+#: dashboards/project/volumes/snapshots/views.py:44
 msgid "Unable to retrieve volume snapshot."
 msgstr "Impossible de récupérer l'instantané du volume."
 
@@ -3537,7 +3537,7 @@ msgstr "\nLes Spécifications QOS peuvent être associées aux types de volume.\
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
-#: dashboards/project/networks/workflows.py:305
+#: dashboards/project/networks/workflows.py:335
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
 msgstr "Créer"
@@ -3951,7 +3951,7 @@ msgid "Unable to create QOS Spec."
 msgstr "Incapable de créer la Spécification QOS."
 
 #: dashboards/admin/volumes/volumes/views.py:61
-#: dashboards/project/volumes/volumes/views.py:62
+#: dashboards/project/volumes/volumes/views.py:66
 msgid "Unable to retrieve volume details."
 msgstr "Impossible de retrouver les détails du volume."
 
@@ -6895,7 +6895,7 @@ msgstr "Source de Donnée de Sortie"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:34
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Last Updated"
 msgstr "Dernière mise à jour"
 
@@ -8742,11 +8742,11 @@ msgstr "Créer le volume"
 msgid "Shared with Me"
 msgstr "Partagées avec Moi"
 
-#: dashboards/project/images/images/views.py:56
+#: dashboards/project/images/images/views.py:58
 msgid "Unable to retrieve image."
 msgstr "Impossible de récupérer l'image."
 
-#: dashboards/project/images/images/views.py:97
+#: dashboards/project/images/images/views.py:106
 msgid "Unable to retrieve image details."
 msgstr "Impossible de récupérer les détails de l'image."
 
@@ -9501,17 +9501,17 @@ msgstr "Impossible d'obtenir la console SPICE pour l'instance \"%s\"."
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Impossible d'obtenir la console RDP pour l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:279
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Impossible de récupérer les détails de l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:290
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "Impossible de récupérer les adresses IP de Neutron pour l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:334
 msgid "Unable to retrieve flavors."
 msgstr "Impossible de récupérer les gabarits."
 
@@ -10197,7 +10197,7 @@ msgstr "Nombre maximal de connexions autorisées pour la VIP ou '-1' si la limit
 
 #: dashboards/project/loadbalancers/forms.py:111
 #: dashboards/project/loadbalancers/forms.py:194
-#: dashboards/project/loadbalancers/tabs.py:41
+#: dashboards/project/loadbalancers/tabs.py:40
 #: dashboards/project/loadbalancers/workflows.py:358
 msgid "Unable to retrieve pools list."
 msgstr "Impossible de récupérer la liste des pools."
@@ -10413,7 +10413,7 @@ msgstr "Fournisseur"
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:128
+#: dashboards/project/networks/workflows.py:158
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
@@ -10429,7 +10429,7 @@ msgid "VIP"
 msgstr "VIP"
 
 #: dashboards/project/loadbalancers/tables.py:283
-#: dashboards/project/loadbalancers/tabs.py:29
+#: dashboards/project/loadbalancers/tabs.py:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr "Pools"
@@ -10443,7 +10443,7 @@ msgid "Protocol Port"
 msgstr "Numéro de port"
 
 #: dashboards/project/loadbalancers/tables.py:315
-#: dashboards/project/loadbalancers/tabs.py:49
+#: dashboards/project/loadbalancers/tabs.py:48
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr "Membres"
@@ -10458,49 +10458,37 @@ msgid "Max Retries"
 msgstr "Max tentatives"
 
 #: dashboards/project/loadbalancers/tables.py:341
-#: dashboards/project/loadbalancers/tabs.py:69
+#: dashboards/project/loadbalancers/tabs.py:68
 msgid "Monitors"
 msgstr "Moniteurs"
 
-#: dashboards/project/loadbalancers/tabs.py:61
+#: dashboards/project/loadbalancers/tabs.py:60
 msgid "Unable to retrieve member list."
 msgstr "Impossible de récupérer la liste des membres."
 
-#: dashboards/project/loadbalancers/tabs.py:81
+#: dashboards/project/loadbalancers/tabs.py:80
 msgid "Unable to retrieve monitor list."
 msgstr "Impossible de récupérer la liste des moniteurs."
 
-#: dashboards/project/loadbalancers/tabs.py:92
+#: dashboards/project/loadbalancers/tabs.py:91
 msgid "Pool Details"
 msgstr "Détails du pool"
 
-#: dashboards/project/loadbalancers/tabs.py:103
-msgid "Unable to retrieve pool details."
-msgstr "Impossible de récupérer les détails du pool."
-
-#: dashboards/project/loadbalancers/tabs.py:111
+#: dashboards/project/loadbalancers/tabs.py:101
 msgid "VIP Details"
 msgstr "Détails de la VIP"
 
-#: dashboards/project/loadbalancers/tabs.py:122
+#: dashboards/project/loadbalancers/tabs.py:112
 msgid "Unable to retrieve VIP details."
 msgstr "Impossible de récupérer les détails de la VIP."
 
-#: dashboards/project/loadbalancers/tabs.py:127
+#: dashboards/project/loadbalancers/tabs.py:117
 msgid "Member Details"
 msgstr "Détails du membre"
 
-#: dashboards/project/loadbalancers/tabs.py:138
-msgid "Unable to retrieve member details."
-msgstr "Impossible de récupérer les détails du membre."
-
-#: dashboards/project/loadbalancers/tabs.py:143
+#: dashboards/project/loadbalancers/tabs.py:127
 msgid "Monitor Details"
 msgstr "Détails du moniteur"
-
-#: dashboards/project/loadbalancers/tabs.py:154
-msgid "Unable to retrieve monitor details."
-msgstr "Impossible de récupérer les détails du moniteur."
 
 #: dashboards/project/loadbalancers/utils.py:22
 #, python-format
@@ -10514,78 +10502,90 @@ msgstr "%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:50
+#: dashboards/project/loadbalancers/views.py:53
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "Moniteur %s supprimé"
 
-#: dashboards/project/loadbalancers/views.py:53
+#: dashboards/project/loadbalancers/views.py:56
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "Impossible de supprimer le moniteur %s"
 
-#: dashboards/project/loadbalancers/views.py:58
+#: dashboards/project/loadbalancers/views.py:61
 #, python-format
 msgid "Deleted pool %s"
 msgstr "Pool %s supprimé"
 
-#: dashboards/project/loadbalancers/views.py:61
+#: dashboards/project/loadbalancers/views.py:64
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "Impossible de supprimer le pool %s"
 
-#: dashboards/project/loadbalancers/views.py:66
+#: dashboards/project/loadbalancers/views.py:69
 #, python-format
 msgid "Deleted member %s"
 msgstr "Membre %s supprimé"
 
-#: dashboards/project/loadbalancers/views.py:69
+#: dashboards/project/loadbalancers/views.py:72
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "Impossible de supprimer le membre %s"
 
-#: dashboards/project/loadbalancers/views.py:76
+#: dashboards/project/loadbalancers/views.py:79
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "Impossible de localiser la VIP à supprimer %s"
 
-#: dashboards/project/loadbalancers/views.py:81
+#: dashboards/project/loadbalancers/views.py:84
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "VIP %s supprimée"
 
-#: dashboards/project/loadbalancers/views.py:84
+#: dashboards/project/loadbalancers/views.py:87
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Impossible de supprimer la VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:104
+#: dashboards/project/loadbalancers/views.py:107
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr "Impossible de récupérer le sous-réseau du pool %s"
 
-#: dashboards/project/loadbalancers/views.py:155
+#: dashboards/project/loadbalancers/views.py:133
+msgid "Unable to retrieve pool details."
+msgstr "Impossible de récupérer les détails du pool."
+
+#: dashboards/project/loadbalancers/views.py:175
+msgid "Unable to retrieve member details."
+msgstr "Impossible de récupérer les détails du membre."
+
+#: dashboards/project/loadbalancers/views.py:206
+msgid "Unable to retrieve monitor details."
+msgstr "Impossible de récupérer les détails du moniteur."
+
+#: dashboards/project/loadbalancers/views.py:244
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "Impossible de récupérer les détails du pool %s"
 
-#: dashboards/project/loadbalancers/views.py:185
+#: dashboards/project/loadbalancers/views.py:274
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "Impossible de récupérer les détails de la VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:229
+#: dashboards/project/loadbalancers/views.py:318
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "Impossible de récupérer les détails du membre %s"
 
-#: dashboards/project/loadbalancers/views.py:258
+#: dashboards/project/loadbalancers/views.py:347
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "Impossible de récupérer les détails du moniteur de santé. %s"
 
-#: dashboards/project/loadbalancers/views.py:281
-#: dashboards/project/loadbalancers/views.py:297
+#: dashboards/project/loadbalancers/views.py:370
+#: dashboards/project/loadbalancers/views.py:386
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "Impossible de récupérer le pool %s"
@@ -11016,21 +11016,21 @@ msgid ""
 "be created in the next panel."
 msgstr "Créer un nouveau réseau. De plus, un sous-réseau associé au réseau peut être créé dans le panneau suivant."
 
-#: dashboards/project/networks/workflows.py:93
+#: dashboards/project/networks/workflows.py:106
 msgid "Subnet Name"
 msgstr "Nom du sous-réseau"
 
-#: dashboards/project/networks/workflows.py:95
+#: dashboards/project/networks/workflows.py:108
 #: dashboards/project/networks/subnets/tables.py:118
 #: dashboards/project/networks/subnets/workflows.py:81
 msgid "Network Address"
 msgstr "Adresse réseau"
 
-#: dashboards/project/networks/workflows.py:98
+#: dashboards/project/networks/workflows.py:116
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Adresse du réseau au format CIDR (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 
-#: dashboards/project/networks/workflows.py:112
+#: dashboards/project/networks/workflows.py:135
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 "
@@ -11038,50 +11038,50 @@ msgid ""
 "to use a gateway, check 'Disable Gateway' below."
 msgstr "Adresse IP de la passerelle (e.g. 192.168.0.254). La valeur par défaut est la première IP du réseau (e.g. : 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for 2001:DB8::/48). Si vous utilisez la valeur par défaut, laissez ce champ vide. Si vous ne voulez pas utiliser de passerelle, cocher la case 'Désactiver la passerelle' ci-dessous."
 
-#: dashboards/project/networks/workflows.py:122
+#: dashboards/project/networks/workflows.py:145
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid "Disable Gateway"
 msgstr "Désactiver la passerelle"
 
-#: dashboards/project/networks/workflows.py:124
+#: dashboards/project/networks/workflows.py:154
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "Spécifier \"Adresse réseau\" ou décocher \"Créer un sous-réseau\"."
 
-#: dashboards/project/networks/workflows.py:129
+#: dashboards/project/networks/workflows.py:159
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "Créer un sous-réseau associé au nouveau réseau. Dans ce cas le champ \"Adresse réseau\" doit être renseigné. Si vous voulez créer un réseau sans sous-réseau, décocher la case \"Créer un sous-réseau\"."
 
-#: dashboards/project/networks/workflows.py:152
+#: dashboards/project/networks/workflows.py:182
 msgid "Network Address and IP version are inconsistent."
 msgstr "L'adresse réseau ne correspond pas au type d'adressage utilisé."
 
-#: dashboards/project/networks/workflows.py:156
+#: dashboards/project/networks/workflows.py:186
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "le sous réseau dans l'adresse réseau choisie est trop petit (/%s)"
 
-#: dashboards/project/networks/workflows.py:161
+#: dashboards/project/networks/workflows.py:191
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "L'adresse IP de la passerelle ne correspond pas au type d'adressage utilisé."
 
-#: dashboards/project/networks/workflows.py:164
+#: dashboards/project/networks/workflows.py:194
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Spécifier l'adresse IP de la passerelle ou cocher \"Désactiver la passerelle\"."
 
-#: dashboards/project/networks/workflows.py:184
+#: dashboards/project/networks/workflows.py:214
 msgid "Enable DHCP"
 msgstr "Activer DHCP"
 
-#: dashboards/project/networks/workflows.py:187
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:221
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
 msgid "IPv6 Address Configuration Mode"
 msgstr "Mode de Configuration d'Adresse IPv6"
 
-#: dashboards/project/networks/workflows.py:195
+#: dashboards/project/networks/workflows.py:225
 msgid ""
 "It specifies how IPv6 address and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
@@ -11089,116 +11089,116 @@ msgid ""
 "manually or configured by non-OpenStack system."
 msgstr "Cela précise comment les adresses IPv6 et les informations additionnelles sont configurées. Nous pouvons spécifier SLAAC/DHCPv6 avec état/DHCPv6 sans état fournis par OpenStack ou spécifier pas d'option. 'Pas d'option sélectionnée' signifie que les adresses sont configurées manuellement ou configurées par un système non-OpenStack."
 
-#: dashboards/project/networks/workflows.py:203
+#: dashboards/project/networks/workflows.py:233
 msgid "Allocation Pools"
 msgstr "Pools d'allocation"
 
-#: dashboards/project/networks/workflows.py:204
+#: dashboards/project/networks/workflows.py:234
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr "Pool d'adresses IP à allouer. Chaque entrée est de la forme : start_ip_address,end_ip_address (e.g. : 192.168.1.100,192.168.1.120).  Une seule entrée par ligne est permise."
 
-#: dashboards/project/networks/workflows.py:211
+#: dashboards/project/networks/workflows.py:241
 msgid "DNS Name Servers"
 msgstr "Serveurs DNS"
 
-#: dashboards/project/networks/workflows.py:212
+#: dashboards/project/networks/workflows.py:242
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "Liste des adresses IP des serveurs DNS pour ce sous-réseau. Une seule adresse par ligne est permise."
 
-#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:247
 msgid "Host Routes"
 msgstr "Routes d'hôte"
 
-#: dashboards/project/networks/workflows.py:218
+#: dashboards/project/networks/workflows.py:248
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr "Routes additionnelles annoncées aux hôtes. Chaque entrée est de la forme cidr_destination,saut_suivant (e.g. : 192.168.200.0/24,10.56.1.254). Une seule entrée par ligne est permise."
 
-#: dashboards/project/networks/workflows.py:225
+#: dashboards/project/networks/workflows.py:255
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "Détails du sous-réseau"
 
-#: dashboards/project/networks/workflows.py:226
+#: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
 msgid "Specify additional attributes for the subnet."
 msgstr "Spécifier les attributs additionnels pour le sous-réseau."
 
-#: dashboards/project/networks/workflows.py:229
+#: dashboards/project/networks/workflows.py:259
 #, python-format
 msgid "%s (Default)"
 msgstr "%s (par défaut)"
 
-#: dashboards/project/networks/workflows.py:238
+#: dashboards/project/networks/workflows.py:268
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s : adresse IP invalide (value=%(ip)s)"
 
-#: dashboards/project/networks/workflows.py:246
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s : adresse IP invalide (value=%(network)s)"
 
-#: dashboards/project/networks/workflows.py:257
+#: dashboards/project/networks/workflows.py:287
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Les adresses de début et de fin doivent être spécifiées (valeur=%s)"
 
-#: dashboards/project/networks/workflows.py:263
+#: dashboards/project/networks/workflows.py:293
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "L'adresse de début est plus grande que celle de fin (value=%s)"
 
-#: dashboards/project/networks/workflows.py:281
+#: dashboards/project/networks/workflows.py:311
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "Format d'erreur des routes d'hôte : Destination CIDR et saut suivant doivent être spécifiés (valeur=%s)"
 
-#: dashboards/project/networks/workflows.py:306
+#: dashboards/project/networks/workflows.py:336
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "Réseau \"%s\" créé."
 
-#: dashboards/project/networks/workflows.py:307
+#: dashboards/project/networks/workflows.py:337
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "Impossible de créer le réseau \"%s\"."
 
-#: dashboards/project/networks/workflows.py:332
+#: dashboards/project/networks/workflows.py:362
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "Le réseau \"%s\" a été créé avec succès."
 
-#: dashboards/project/networks/workflows.py:336
+#: dashboards/project/networks/workflows.py:366
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "Echec de la création du réseau  \"%(network)s\" : %(reason)s"
 
-#: dashboards/project/networks/workflows.py:399
+#: dashboards/project/networks/workflows.py:429
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "Le sous-réseau \"%s\" a été créé avec succès"
 
-#: dashboards/project/networks/workflows.py:403
+#: dashboards/project/networks/workflows.py:433
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "Echec de la création du sous-réseau \"%(sub)s\" pour le réseau \"%(net)s\" : %(reason)s"
 
-#: dashboards/project/networks/workflows.py:419
+#: dashboards/project/networks/workflows.py:449
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Le réseau \"%s\" créé a été détruit suite à un échec de création du sous-réseau."
 
-#: dashboards/project/networks/workflows.py:426
+#: dashboards/project/networks/workflows.py:456
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Échec lors de la suppression du réseau \"%s\""
@@ -11216,13 +11216,9 @@ msgstr "Détaché"
 msgid "Attached Device"
 msgstr "Périphérique attaché"
 
-#: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/networks/ports/views.py:92
 msgid "Unable to retrieve port details"
 msgstr "Impossible de récupérer les détails du port"
-
-#: dashboards/project/networks/subnets/tabs.py:36
-msgid "Unable to retrieve subnet details."
-msgstr "Impossible de récupérer les détails du sous-réseau."
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
@@ -11242,9 +11238,13 @@ msgid ""
 "Openstack DHCP"
 msgstr "DHCPv6 stateless : adresse découverte par le routeur Openstack et les informations par le DHCP Openstack"
 
-#: dashboards/project/networks/subnets/views.py:66
+#: dashboards/project/networks/subnets/views.py:68
 msgid "Unable to retrieve subnet details"
 msgstr "Impossible de récupérer les détails du sous-réseau"
+
+#: dashboards/project/networks/subnets/views.py:112
+msgid "Unable to retrieve subnet details."
+msgstr "Impossible de récupérer les détails du sous-réseau."
 
 #: dashboards/project/networks/subnets/workflows.py:35
 msgid "Specify \"Network Address\""
@@ -11519,7 +11519,7 @@ msgid "HA mode"
 msgstr "Mode HA"
 
 #: dashboards/project/routers/tabs.py:54
-#: dashboards/project/routers/views.py:163
+#: dashboards/project/routers/views.py:169
 msgid "Unable to retrieve router details."
 msgstr "Impossible de récupérer les détails du routeur."
 
@@ -11874,13 +11874,13 @@ msgid "Select a new template to re-launch a stack."
 msgstr "Sélectionner un nouveau modèle pour relancer une Stack."
 
 #: dashboards/project/stacks/forms.py:228
-#: dashboards/project/stacks/forms.py:358
+#: dashboards/project/stacks/forms.py:366
 msgid "Stack ID"
 msgstr "Id de la Stack"
 
 #: dashboards/project/stacks/forms.py:230
 #: dashboards/project/stacks/forms.py:254
-#: dashboards/project/stacks/forms.py:360
+#: dashboards/project/stacks/forms.py:368
 #: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr "Nom de la Stack"
@@ -11926,17 +11926,17 @@ msgid ""
 "the stack"
 msgstr "C'est obligatoire pour les opérations à réaliser pendant tout le cycle de vie de la Stack"
 
-#: dashboards/project/stacks/forms.py:347
+#: dashboards/project/stacks/forms.py:355
 msgid "Stack creation started."
 msgstr "Création de Stack commencée"
 
-#: dashboards/project/stacks/forms.py:356
+#: dashboards/project/stacks/forms.py:364
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "Mise à jour des paramètres de la Stack."
 
-#: dashboards/project/stacks/forms.py:389
+#: dashboards/project/stacks/forms.py:397
 msgid "Stack update started."
 msgstr "Mise à jour de Stack commencée."
 
@@ -11994,7 +11994,7 @@ msgid "Stack Events"
 msgstr "Évènements de la Stack"
 
 #: dashboards/project/stacks/tables.py:190
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "Type de ressource de Stack"
 
@@ -12034,15 +12034,15 @@ msgstr "Impossible d'extraire la liste des Stacks."
 
 #: dashboards/project/stacks/views.py:111
 #: dashboards/project/stacks/views.py:188
-#: dashboards/project/stacks/views.py:212
+#: dashboards/project/stacks/views.py:216
 msgid "Unable to retrieve stack."
 msgstr "Impossible d'extraire la Stack."
 
-#: dashboards/project/stacks/views.py:240
+#: dashboards/project/stacks/views.py:247
 msgid "Unable to retrieve resource."
 msgstr "Impossible de récupérer la ressource."
 
-#: dashboards/project/stacks/views.py:253
+#: dashboards/project/stacks/views.py:260
 msgid "Unable to retrieve metadata."
 msgstr "Impossible de récupérer les métadonnées."
 
@@ -12093,7 +12093,7 @@ msgstr "ID de la ressource de Stack"
 msgid "Resource ID"
 msgstr "Ressource ID"
 
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:42
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:46
 msgid "Resource Metadata"
 msgstr "Métadonnée de la ressource"
 
@@ -12194,7 +12194,7 @@ msgid "Scheduled deletion of %(data_type)s"
 msgstr "Suppression de %(data_type)s programmée "
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:61
+#: dashboards/project/volumes/backups/views.py:67
 msgid "Unable to retrieve backup details."
 msgstr "Impossible de retrouver les détails de la sauvegarde."
 
@@ -12228,7 +12228,7 @@ msgid "Edit Snapshot"
 msgstr "Modifier l'Instantané"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:77
+#: dashboards/project/volumes/snapshots/views.py:83
 msgid "Unable to retrieve snapshot details."
 msgstr "Impossible de récupérer les détails de l'instantané."
 
@@ -12756,7 +12756,7 @@ msgid "Upload to Image"
 msgstr "Télécharger dans l'Image"
 
 #: dashboards/project/volumes/volumes/tables.py:272
-#: dashboards/project/volumes/volumes/views.py:244
+#: dashboards/project/volumes/volumes/views.py:248
 msgid "Unable to retrieve attachment information."
 msgstr "Impossible de récupérer les informations d'attachement."
 
@@ -12802,25 +12802,25 @@ msgstr "Périphérique"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Volume %(volume_name)s sur l'instance %(instance_name)s"
 
-#: dashboards/project/volumes/volumes/views.py:101
-#: dashboards/project/volumes/volumes/views.py:144
-#: dashboards/project/volumes/volumes/views.py:227
+#: dashboards/project/volumes/volumes/views.py:105
+#: dashboards/project/volumes/volumes/views.py:148
+#: dashboards/project/volumes/volumes/views.py:231
 msgid "Unable to retrieve volume information."
 msgstr "Impossible de récupérer les informations du volume."
 
-#: dashboards/project/volumes/volumes/views.py:135
+#: dashboards/project/volumes/volumes/views.py:139
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "Ce volume est attaché à une instance. Dans certains cas, la création d'un instantané depuis un volume attaché peut produire un instantané endommagé."
 
-#: dashboards/project/volumes/volumes/views.py:163
-#: dashboards/project/volumes/volumes/views.py:293
+#: dashboards/project/volumes/volumes/views.py:167
+#: dashboards/project/volumes/volumes/views.py:297
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "Impossible de récupérer les informations du volume : \"%s\""
 
-#: dashboards/project/volumes/volumes/views.py:196
+#: dashboards/project/volumes/volumes/views.py:200
 msgid "Unable to retrieve volume."
 msgstr "Impossible de récupérer le volume."
 
@@ -13203,11 +13203,11 @@ msgstr "Politique IKE"
 msgid "IPSec Policy"
 msgstr "Politique IPSec"
 
-#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:31
+#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:30
 msgid "IPSec Site Connections"
 msgstr "Connexions IPSec de site"
 
-#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:51
+#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:50
 msgid "VPN Services"
 msgstr "Services VPN"
 
@@ -13215,118 +13215,118 @@ msgstr "Services VPN"
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:71
+#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:70
 msgid "IKE Policies"
 msgstr "Politiques IKE"
 
-#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:91
+#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:90
 msgid "IPSec Policies"
 msgstr "Politiques IPSec"
 
-#: dashboards/project/vpn/tabs.py:43
+#: dashboards/project/vpn/tabs.py:42
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Impossible de récupérer la liste des connexions IPSec de site."
 
-#: dashboards/project/vpn/tabs.py:63 dashboards/project/vpn/workflows.py:377
+#: dashboards/project/vpn/tabs.py:62 dashboards/project/vpn/workflows.py:377
 msgid "Unable to retrieve VPN Services list."
 msgstr "Impossible de récupérer la liste des services VPN."
 
-#: dashboards/project/vpn/tabs.py:83 dashboards/project/vpn/workflows.py:348
+#: dashboards/project/vpn/tabs.py:82 dashboards/project/vpn/workflows.py:348
 msgid "Unable to retrieve IKE Policies list."
 msgstr "Impossible de récupérer la liste des politiques IKE."
 
-#: dashboards/project/vpn/tabs.py:103 dashboards/project/vpn/workflows.py:363
+#: dashboards/project/vpn/tabs.py:102 dashboards/project/vpn/workflows.py:363
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "Impossible de récupérer la liste des politiques IPSec."
 
-#: dashboards/project/vpn/tabs.py:117
+#: dashboards/project/vpn/tabs.py:116
 msgid "IKE Policy Details"
 msgstr "Détails de la politique IKE."
 
-#: dashboards/project/vpn/tabs.py:127
-msgid "Unable to retrieve IKE Policy details."
-msgstr "Impossible de récupérer les détails de la politique IKE."
-
-#: dashboards/project/vpn/tabs.py:138
+#: dashboards/project/vpn/tabs.py:131
 msgid "IPSec Policy Details"
 msgstr "Détails de la politique IPSec"
 
-#: dashboards/project/vpn/tabs.py:148
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "Impossible de récupérer les détails de la politique IPSec."
-
-#: dashboards/project/vpn/tabs.py:159
+#: dashboards/project/vpn/tabs.py:146
 msgid "VPN Service Details"
 msgstr "Détails du service VPN"
 
-#: dashboards/project/vpn/tabs.py:169
-msgid "Unable to retrieve VPN Service details."
-msgstr "Impossible de récupérer les détails du service VPN."
-
-#: dashboards/project/vpn/tabs.py:186
+#: dashboards/project/vpn/tabs.py:161
 msgid "IPSec Site Connection Details"
 msgstr "Détails de la connexion IPSec de site"
 
-#: dashboards/project/vpn/tabs.py:196
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "Impossible de récupérer les détails de la connexion IPSec de site."
-
-#: dashboards/project/vpn/views.py:54
+#: dashboards/project/vpn/views.py:55
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "Service VPN %s supprimé"
 
-#: dashboards/project/vpn/views.py:57
+#: dashboards/project/vpn/views.py:58
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "Impossible de supprimer le service VPN : %s"
 
-#: dashboards/project/vpn/views.py:64
+#: dashboards/project/vpn/views.py:65
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "Politique IKE %s supprimée"
 
-#: dashboards/project/vpn/views.py:67
+#: dashboards/project/vpn/views.py:68
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "Impossible de supprimer la stratégie IKE : %s"
 
-#: dashboards/project/vpn/views.py:73
+#: dashboards/project/vpn/views.py:74
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "Politique IPSec %s supprimée"
 
-#: dashboards/project/vpn/views.py:76
+#: dashboards/project/vpn/views.py:77
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "Impossible de supprimer la stratégie IPSec : %s"
 
-#: dashboards/project/vpn/views.py:83
+#: dashboards/project/vpn/views.py:84
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "Connexion IPSec de site %s supprimée"
 
-#: dashboards/project/vpn/views.py:87
+#: dashboards/project/vpn/views.py:88
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "Impossible de supprimer la connexion IPSec de site : %s"
 
-#: dashboards/project/vpn/views.py:162
+#: dashboards/project/vpn/views.py:135
+msgid "Unable to retrieve IKE Policy details."
+msgstr "Impossible de récupérer les détails de la politique IKE."
+
+#: dashboards/project/vpn/views.py:167
+msgid "Unable to retrieve IPSec Policy details."
+msgstr "Impossible de récupérer les détails de la politique IPSec."
+
+#: dashboards/project/vpn/views.py:202
+msgid "Unable to retrieve VPN Service details."
+msgstr "Impossible de récupérer les détails du service VPN."
+
+#: dashboards/project/vpn/views.py:242
+msgid "Unable to retrieve IPSec Site Connection details."
+msgstr "Impossible de récupérer les détails de la connexion IPSec de site."
+
+#: dashboards/project/vpn/views.py:285
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "Impossible de récupérer les détails du service VPN %s"
 
-#: dashboards/project/vpn/views.py:191
+#: dashboards/project/vpn/views.py:314
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "Impossible de récupérer les détails de la politique IKE %s"
 
-#: dashboards/project/vpn/views.py:227
+#: dashboards/project/vpn/views.py:350
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "Impossible de récupérer les détails de la politique IPSec %s"
 
-#: dashboards/project/vpn/views.py:264
+#: dashboards/project/vpn/views.py:387
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "Impossible de récupérer les détails de la connexion IPSec de site %s"
@@ -13763,23 +13763,42 @@ msgstr "Changer votre mot de passe. Nous vous recommandons vivement d'en créer 
 msgid "Change"
 msgstr "Changer"
 
-#: dashboards/settings/user/forms.py:36
+#: dashboards/settings/user/forms.py:38
 msgid "Language"
 msgstr "Langue"
 
-#: dashboards/settings/user/forms.py:37
+#: dashboards/settings/user/forms.py:39
 msgid "Timezone"
 msgstr "Fuseau horaire "
 
-#: dashboards/settings/user/forms.py:38
+#: dashboards/settings/user/forms.py:40
 msgid "Items Per Page"
 msgstr "Nombre d'éléments par page"
 
-#: dashboards/settings/user/forms.py:43
+#: dashboards/settings/user/forms.py:45
 msgid "Number of items to show per page"
 msgstr "Nombre d'éléments à afficher par page"
 
-#: dashboards/settings/user/forms.py:103
+#: dashboards/settings/user/forms.py:80
+#, python-format
+msgid "UTC %(hour)s:%(min)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:86
+msgid "UTC"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:88
+msgid "GMT"
+msgstr ""
+
+#. Translators:  UTC offset and timezone label
+#: dashboards/settings/user/forms.py:93
+#, python-format
+msgid "%(offset)s: %(label)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:121
 msgid "Settings saved."
 msgstr "Paramètres sauvegardés."
 

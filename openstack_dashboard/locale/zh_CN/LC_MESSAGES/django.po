@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-06 21:13-0500\n"
-"PO-Revision-Date: 2014-10-06 11:59+0000\n"
+"POT-Creation-Date: 2014-10-08 00:40-0500\n"
+"PO-Revision-Date: 2014-10-08 03:35+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -851,7 +851,7 @@ msgstr "增加或删除主机时错误"
 #: dashboards/project/stacks/templates/stacks/_change_template.html:19
 #: dashboards/project/stacks/templates/stacks/_create.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/backups/forms.py:35
@@ -1709,8 +1709,8 @@ msgstr "域"
 #: dashboards/project/stacks/tables.py:197
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:31
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:36
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
 #: dashboards/project/volumes/backups/tables.py:116
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -2196,7 +2196,7 @@ msgstr "无法获取主机信息。"
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:322
 msgid "Unable to retrieve instance details."
 msgstr "无法获取云主机详情。"
 
@@ -2649,7 +2649,7 @@ msgstr "网络 %s 删除失败。"
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:82
-#: dashboards/project/networks/workflows.py:304
+#: dashboards/project/networks/workflows.py:334
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -2700,24 +2700,24 @@ msgid "Network list can not be retrieved."
 msgstr "无法获取网络列表"
 
 #: dashboards/admin/networks/views.py:90
-#: dashboards/admin/networks/views.py:140
+#: dashboards/admin/networks/views.py:139
 #: dashboards/admin/networks/agents/forms.py:64
 msgid "Unable to list dhcp agents hosting network."
 msgstr "无法列出DHCP代理主机的网络"
 
-#: dashboards/admin/networks/views.py:115
-#: dashboards/project/networks/views.py:108
+#: dashboards/admin/networks/views.py:114
+#: dashboards/project/networks/views.py:107
 msgid "Subnet list can not be retrieved."
 msgstr "无法获取子网列表"
 
-#: dashboards/admin/networks/views.py:127
-#: dashboards/project/networks/views.py:120
+#: dashboards/admin/networks/views.py:126
+#: dashboards/project/networks/views.py:119
 msgid "Port list can not be retrieved."
 msgstr "无法获取端口列表"
 
-#: dashboards/admin/networks/views.py:153
+#: dashboards/admin/networks/views.py:151
 #: dashboards/admin/networks/subnets/tables.py:107
-#: dashboards/project/networks/views.py:133
+#: dashboards/project/networks/views.py:132
 #: dashboards/project/networks/subnets/tables.py:130
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -2774,7 +2774,7 @@ msgstr "增加DHCP Agent"
 
 #: dashboards/admin/networks/agents/views.py:59
 #: dashboards/admin/networks/ports/views.py:48
-#: dashboards/project/networks/subnets/views.py:47
+#: dashboards/project/networks/subnets/views.py:49
 msgid "Unable to retrieve network."
 msgstr "无法获取网络"
 
@@ -2890,8 +2890,8 @@ msgstr "端口"
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
 #: dashboards/project/instances/tabs.py:29
-#: dashboards/project/networks/ports/tabs.py:25
-#: dashboards/project/networks/subnets/tabs.py:26
+#: dashboards/project/networks/ports/tabs.py:21
+#: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
 #: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
@@ -2903,7 +2903,7 @@ msgid "Overview"
 msgstr "概况"
 
 #: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/tabs.py:35
+#: dashboards/project/networks/ports/views.py:46
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "无法获取端口详情"
@@ -2948,14 +2948,14 @@ msgid "CIDR"
 msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/networks/workflows.py:107
+#: dashboards/project/networks/workflows.py:126
 #: dashboards/project/networks/subnets/tables.py:119
 #: dashboards/project/networks/subnets/workflows.py:100
 msgid "IP Version"
 msgstr "IP版本"
 
 #: dashboards/admin/networks/subnets/tables.py:95
-#: dashboards/project/networks/workflows.py:109
+#: dashboards/project/networks/workflows.py:128
 #: dashboards/project/networks/subnets/tables.py:120
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
@@ -3359,7 +3359,7 @@ msgid "Volume Name"
 msgstr "云硬盘名称"
 
 #: dashboards/admin/volumes/snapshots/views.py:44
-#: dashboards/project/volumes/snapshots/views.py:42
+#: dashboards/project/volumes/snapshots/views.py:44
 msgid "Unable to retrieve volume snapshot."
 msgstr "无法恢复云硬盘快照"
 
@@ -3521,7 +3521,7 @@ msgstr "\n      QOS规格可以关联到卷类型.\n      被卷所有者映射�
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
-#: dashboards/project/networks/workflows.py:305
+#: dashboards/project/networks/workflows.py:335
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
 msgstr "已创建"
@@ -3929,7 +3929,7 @@ msgid "Unable to create QOS Spec."
 msgstr "无法创建QOS规格"
 
 #: dashboards/admin/volumes/volumes/views.py:61
-#: dashboards/project/volumes/volumes/views.py:62
+#: dashboards/project/volumes/volumes/views.py:66
 msgid "Unable to retrieve volume details."
 msgstr "无法获取云硬盘详情"
 
@@ -6829,7 +6829,7 @@ msgstr "输出数据源"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:34
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Last Updated"
 msgstr "最近更新"
 
@@ -8659,11 +8659,11 @@ msgstr "创建云硬盘"
 msgid "Shared with Me"
 msgstr "与我共享"
 
-#: dashboards/project/images/images/views.py:56
+#: dashboards/project/images/images/views.py:58
 msgid "Unable to retrieve image."
 msgstr "无法检索到镜像。"
 
-#: dashboards/project/images/images/views.py:97
+#: dashboards/project/images/images/views.py:106
 msgid "Unable to retrieve image details."
 msgstr "无法检索到镜像细节。"
 
@@ -9404,17 +9404,17 @@ msgstr "无法获得云主机 \"%s\"SPICE控制台"
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\"RDP控制台"
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:279
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "无法获取云主机 \"%s\" 的详情。"
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:290
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "无法从Neutron获取云主机 \"%s\" 的IP地址。"
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:334
 msgid "Unable to retrieve flavors."
 msgstr "无法获取云主机类型列表。"
 
@@ -10099,7 +10099,7 @@ msgstr "VIP的最大允许链接数，如果没有限制则为\"-1\"。"
 
 #: dashboards/project/loadbalancers/forms.py:111
 #: dashboards/project/loadbalancers/forms.py:194
-#: dashboards/project/loadbalancers/tabs.py:41
+#: dashboards/project/loadbalancers/tabs.py:40
 #: dashboards/project/loadbalancers/workflows.py:358
 msgid "Unable to retrieve pools list."
 msgstr "无法获得资源池列表"
@@ -10307,7 +10307,7 @@ msgstr "提供者"
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:128
+#: dashboards/project/networks/workflows.py:158
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
@@ -10323,7 +10323,7 @@ msgid "VIP"
 msgstr "vip"
 
 #: dashboards/project/loadbalancers/tables.py:283
-#: dashboards/project/loadbalancers/tabs.py:29
+#: dashboards/project/loadbalancers/tabs.py:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr "资源池"
@@ -10337,7 +10337,7 @@ msgid "Protocol Port"
 msgstr "协议端口"
 
 #: dashboards/project/loadbalancers/tables.py:315
-#: dashboards/project/loadbalancers/tabs.py:49
+#: dashboards/project/loadbalancers/tabs.py:48
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr "成员"
@@ -10352,49 +10352,37 @@ msgid "Max Retries"
 msgstr "最大尝试次数"
 
 #: dashboards/project/loadbalancers/tables.py:341
-#: dashboards/project/loadbalancers/tabs.py:69
+#: dashboards/project/loadbalancers/tabs.py:68
 msgid "Monitors"
 msgstr "监控"
 
-#: dashboards/project/loadbalancers/tabs.py:61
+#: dashboards/project/loadbalancers/tabs.py:60
 msgid "Unable to retrieve member list."
 msgstr "无法获取成员列表"
 
-#: dashboards/project/loadbalancers/tabs.py:81
+#: dashboards/project/loadbalancers/tabs.py:80
 msgid "Unable to retrieve monitor list."
 msgstr "无法获取监控列表"
 
-#: dashboards/project/loadbalancers/tabs.py:92
+#: dashboards/project/loadbalancers/tabs.py:91
 msgid "Pool Details"
 msgstr "端口详情"
 
-#: dashboards/project/loadbalancers/tabs.py:103
-msgid "Unable to retrieve pool details."
-msgstr "无法获得资源池详情"
-
-#: dashboards/project/loadbalancers/tabs.py:111
+#: dashboards/project/loadbalancers/tabs.py:101
 msgid "VIP Details"
 msgstr "VIP详情"
 
-#: dashboards/project/loadbalancers/tabs.py:122
+#: dashboards/project/loadbalancers/tabs.py:112
 msgid "Unable to retrieve VIP details."
 msgstr "无法获取VIP详情。"
 
-#: dashboards/project/loadbalancers/tabs.py:127
+#: dashboards/project/loadbalancers/tabs.py:117
 msgid "Member Details"
 msgstr "成员详情"
 
-#: dashboards/project/loadbalancers/tabs.py:138
-msgid "Unable to retrieve member details."
-msgstr "无法获取成员详情"
-
-#: dashboards/project/loadbalancers/tabs.py:143
+#: dashboards/project/loadbalancers/tabs.py:127
 msgid "Monitor Details"
 msgstr "监控详情"
-
-#: dashboards/project/loadbalancers/tabs.py:154
-msgid "Unable to retrieve monitor details."
-msgstr "无法获取监控详情"
 
 #: dashboards/project/loadbalancers/utils.py:22
 #, python-format
@@ -10408,78 +10396,90 @@ msgstr "%(type)s: url:%(url_path)s 方法:%(http_method)s 指令:%(expected_code
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s 延时:%(delay)d 重试:%(max_retries)d 超时:%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:50
+#: dashboards/project/loadbalancers/views.py:53
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "监控程序%s已删除"
 
-#: dashboards/project/loadbalancers/views.py:53
+#: dashboards/project/loadbalancers/views.py:56
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "无法删除监控程序%s"
 
-#: dashboards/project/loadbalancers/views.py:58
+#: dashboards/project/loadbalancers/views.py:61
 #, python-format
 msgid "Deleted pool %s"
 msgstr "已删除资源池%s"
 
-#: dashboards/project/loadbalancers/views.py:61
+#: dashboards/project/loadbalancers/views.py:64
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "无法删除资源池%s"
 
-#: dashboards/project/loadbalancers/views.py:66
+#: dashboards/project/loadbalancers/views.py:69
 #, python-format
 msgid "Deleted member %s"
 msgstr "已删除成员%s"
 
-#: dashboards/project/loadbalancers/views.py:69
+#: dashboards/project/loadbalancers/views.py:72
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "无法删除成员%s"
 
-#: dashboards/project/loadbalancers/views.py:76
+#: dashboards/project/loadbalancers/views.py:79
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "无法找到要删除的VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:81
+#: dashboards/project/loadbalancers/views.py:84
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "已删除VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:84
+#: dashboards/project/loadbalancers/views.py:87
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "无法删除VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:104
+#: dashboards/project/loadbalancers/views.py:107
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr "无法获取资源池子网 %s"
 
-#: dashboards/project/loadbalancers/views.py:155
+#: dashboards/project/loadbalancers/views.py:133
+msgid "Unable to retrieve pool details."
+msgstr "无法获得资源池详情"
+
+#: dashboards/project/loadbalancers/views.py:175
+msgid "Unable to retrieve member details."
+msgstr "无法获取成员详情"
+
+#: dashboards/project/loadbalancers/views.py:206
+msgid "Unable to retrieve monitor details."
+msgstr "无法获取监控详情"
+
+#: dashboards/project/loadbalancers/views.py:244
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "无法获取资源池 %s 详细信息"
 
-#: dashboards/project/loadbalancers/views.py:185
+#: dashboards/project/loadbalancers/views.py:274
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "无法获取VIP %s 详细信息"
 
-#: dashboards/project/loadbalancers/views.py:229
+#: dashboards/project/loadbalancers/views.py:318
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "无法获取成员 %s 详细信息"
 
-#: dashboards/project/loadbalancers/views.py:258
+#: dashboards/project/loadbalancers/views.py:347
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "无法获取健康监控程序 %s 详细信息"
 
-#: dashboards/project/loadbalancers/views.py:281
-#: dashboards/project/loadbalancers/views.py:297
+#: dashboards/project/loadbalancers/views.py:370
+#: dashboards/project/loadbalancers/views.py:386
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "无法获取资源池 %s "
@@ -10910,21 +10910,21 @@ msgid ""
 "be created in the next panel."
 msgstr "创建新网络. 另外, 关联到网络的子网在下一面板中被创建."
 
-#: dashboards/project/networks/workflows.py:93
+#: dashboards/project/networks/workflows.py:106
 msgid "Subnet Name"
 msgstr "子网名称"
 
-#: dashboards/project/networks/workflows.py:95
+#: dashboards/project/networks/workflows.py:108
 #: dashboards/project/networks/subnets/tables.py:118
 #: dashboards/project/networks/subnets/workflows.py:81
 msgid "Network Address"
 msgstr "网络地址"
 
-#: dashboards/project/networks/workflows.py:98
+#: dashboards/project/networks/workflows.py:116
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "CIDR格式的网络地址 (例如 192.168.0.0/24, 2001:DB8::/48)"
 
-#: dashboards/project/networks/workflows.py:112
+#: dashboards/project/networks/workflows.py:135
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 "
@@ -10932,50 +10932,50 @@ msgid ""
 "to use a gateway, check 'Disable Gateway' below."
 msgstr "网关IP地址(例如 192.168.0.254) 缺省值是网络地址的第一个IP (例如 192.168.0.0/24的192.168.0.1, 2001:DB8::/48的2001:DB8::1). 如果你要使用缺省值，保留为空白。如果你不想使用网关，勾选下面的'禁用网关'。"
 
-#: dashboards/project/networks/workflows.py:122
+#: dashboards/project/networks/workflows.py:145
 #: dashboards/project/networks/subnets/workflows.py:112
 msgid "Disable Gateway"
 msgstr "禁用网关"
 
-#: dashboards/project/networks/workflows.py:124
+#: dashboards/project/networks/workflows.py:154
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "请指定\"网络地址\"或取消\"建立子网\"选项"
 
-#: dashboards/project/networks/workflows.py:129
+#: dashboards/project/networks/workflows.py:159
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "创建新网络关联的子网，这里\"网络地址\"必须指定. 如果你希望创建不带子网的网络，不选 \"创建子网\" 这个复选框就可以了。"
 
-#: dashboards/project/networks/workflows.py:152
+#: dashboards/project/networks/workflows.py:182
 msgid "Network Address and IP version are inconsistent."
 msgstr "网络地址和IP版本是可变的"
 
-#: dashboards/project/networks/workflows.py:156
+#: dashboards/project/networks/workflows.py:186
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "子网地址太小 (/%s)."
 
-#: dashboards/project/networks/workflows.py:161
+#: dashboards/project/networks/workflows.py:191
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "网关IP和IP版本是可变的"
 
-#: dashboards/project/networks/workflows.py:164
+#: dashboards/project/networks/workflows.py:194
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "填写网关ip或者选择\"禁用网关\""
 
-#: dashboards/project/networks/workflows.py:184
+#: dashboards/project/networks/workflows.py:214
 msgid "Enable DHCP"
 msgstr "激活DHCP"
 
-#: dashboards/project/networks/workflows.py:187
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:221
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6地址配置模式"
 
-#: dashboards/project/networks/workflows.py:195
+#: dashboards/project/networks/workflows.py:225
 msgid ""
 "It specifies how IPv6 address and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
@@ -10983,116 +10983,116 @@ msgid ""
 "manually or configured by non-OpenStack system."
 msgstr "它指定了IPv6地址及其附加信息如何配置。我们可以指定OpenStack提供SLAAC/有状态DHCPv6/无状态DHCPv6，或者不指定任何选项. '不选择选项'意味着地址被手动配置或者被非OpenStack系统配置。"
 
-#: dashboards/project/networks/workflows.py:203
+#: dashboards/project/networks/workflows.py:233
 msgid "Allocation Pools"
 msgstr "分配地址池"
 
-#: dashboards/project/networks/workflows.py:204
+#: dashboards/project/networks/workflows.py:234
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr "IP地址分配池. 每条记录是：开始IP,结束IP(例如 192.168.1.100,192.168.1.120) ，每行一条记录."
 
-#: dashboards/project/networks/workflows.py:211
+#: dashboards/project/networks/workflows.py:241
 msgid "DNS Name Servers"
 msgstr "DNS域名解析服务"
 
-#: dashboards/project/networks/workflows.py:212
+#: dashboards/project/networks/workflows.py:242
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "该子网的DNS服务器ip地址列表.每行一个"
 
-#: dashboards/project/networks/workflows.py:217
+#: dashboards/project/networks/workflows.py:247
 msgid "Host Routes"
 msgstr "主机路由"
 
-#: dashboards/project/networks/workflows.py:218
+#: dashboards/project/networks/workflows.py:248
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr "主机增加额外的路由. 每条记录是：目的CIDR, 下一跳(例如192.168.200.0/24,10.56.1.254) ，每行一个记录。"
 
-#: dashboards/project/networks/workflows.py:225
+#: dashboards/project/networks/workflows.py:255
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Detail"
 msgstr "子网详情"
 
-#: dashboards/project/networks/workflows.py:226
+#: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
 msgid "Specify additional attributes for the subnet."
 msgstr "为子网指定扩展属性"
 
-#: dashboards/project/networks/workflows.py:229
+#: dashboards/project/networks/workflows.py:259
 #, python-format
 msgid "%s (Default)"
 msgstr "%s (缺省)"
 
-#: dashboards/project/networks/workflows.py:238
+#: dashboards/project/networks/workflows.py:268
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s:ip地址不可用 (value=%(ip)s)"
 
-#: dashboards/project/networks/workflows.py:246
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s:ip地址不可用 (value=%(network)s)"
 
-#: dashboards/project/networks/workflows.py:257
+#: dashboards/project/networks/workflows.py:287
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "需要指出起始和结束地址 (value=%s)"
 
-#: dashboards/project/networks/workflows.py:263
+#: dashboards/project/networks/workflows.py:293
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "起始地址大于结束地址 (value=%s)"
 
-#: dashboards/project/networks/workflows.py:281
+#: dashboards/project/networks/workflows.py:311
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "主机路由错误: 必须指定目的CIDR 和下一跳(value=%s)"
 
-#: dashboards/project/networks/workflows.py:306
+#: dashboards/project/networks/workflows.py:336
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "网络 \"%s\"已创建"
 
-#: dashboards/project/networks/workflows.py:307
+#: dashboards/project/networks/workflows.py:337
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "无法创建网络\"%s\"."
 
-#: dashboards/project/networks/workflows.py:332
+#: dashboards/project/networks/workflows.py:362
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "成功创建网络\"%s\"."
 
-#: dashboards/project/networks/workflows.py:336
+#: dashboards/project/networks/workflows.py:366
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "创建网络\"%(network)s\"失败: %(reason)s"
 
-#: dashboards/project/networks/workflows.py:399
+#: dashboards/project/networks/workflows.py:429
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "成功创建子网\"%s\""
 
-#: dashboards/project/networks/workflows.py:403
+#: dashboards/project/networks/workflows.py:433
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "为网络 \"%(net)s\"创建子网\"%(sub)s\"失败: %(reason)s"
 
-#: dashboards/project/networks/workflows.py:419
+#: dashboards/project/networks/workflows.py:449
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "创建子网时删除网络\"%s\"失败"
 
-#: dashboards/project/networks/workflows.py:426
+#: dashboards/project/networks/workflows.py:456
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "删除网络失败\"%s\""
@@ -11110,13 +11110,9 @@ msgstr "断开"
 msgid "Attached Device"
 msgstr "连接设备"
 
-#: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/networks/ports/views.py:92
 msgid "Unable to retrieve port details"
 msgstr "无法获取端口详情"
-
-#: dashboards/project/networks/subnets/tabs.py:36
-msgid "Unable to retrieve subnet details."
-msgstr "无法获取子网详情"
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
@@ -11136,8 +11132,12 @@ msgid ""
 "Openstack DHCP"
 msgstr "无状态DHCPv6: 地址从Openstack路由器获得，信息从Openstack DHCP获得"
 
-#: dashboards/project/networks/subnets/views.py:66
+#: dashboards/project/networks/subnets/views.py:68
 msgid "Unable to retrieve subnet details"
+msgstr "无法获取子网详情"
+
+#: dashboards/project/networks/subnets/views.py:112
+msgid "Unable to retrieve subnet details."
 msgstr "无法获取子网详情"
 
 #: dashboards/project/networks/subnets/workflows.py:35
@@ -11409,7 +11409,7 @@ msgid "HA mode"
 msgstr "HA模式"
 
 #: dashboards/project/routers/tabs.py:54
-#: dashboards/project/routers/views.py:163
+#: dashboards/project/routers/views.py:169
 msgid "Unable to retrieve router details."
 msgstr "无法获取路由详情"
 
@@ -11760,13 +11760,13 @@ msgid "Select a new template to re-launch a stack."
 msgstr "重新选择模板来启动stack"
 
 #: dashboards/project/stacks/forms.py:228
-#: dashboards/project/stacks/forms.py:358
+#: dashboards/project/stacks/forms.py:366
 msgid "Stack ID"
 msgstr "栈ID"
 
 #: dashboards/project/stacks/forms.py:230
 #: dashboards/project/stacks/forms.py:254
-#: dashboards/project/stacks/forms.py:360
+#: dashboards/project/stacks/forms.py:368
 #: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr "栈名"
@@ -11812,17 +11812,17 @@ msgid ""
 "the stack"
 msgstr "为在栈的生命周期中执行操作，这是必须的。"
 
-#: dashboards/project/stacks/forms.py:347
+#: dashboards/project/stacks/forms.py:355
 msgid "Stack creation started."
 msgstr "栈创建开始。"
 
-#: dashboards/project/stacks/forms.py:356
+#: dashboards/project/stacks/forms.py:364
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "更新栈参数"
 
-#: dashboards/project/stacks/forms.py:389
+#: dashboards/project/stacks/forms.py:397
 msgid "Stack update started."
 msgstr "开始更新栈。"
 
@@ -11878,7 +11878,7 @@ msgid "Stack Events"
 msgstr "栈事件"
 
 #: dashboards/project/stacks/tables.py:190
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:21
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "栈资源类型"
 
@@ -11918,15 +11918,15 @@ msgstr "无法获取栈列表。"
 
 #: dashboards/project/stacks/views.py:111
 #: dashboards/project/stacks/views.py:188
-#: dashboards/project/stacks/views.py:212
+#: dashboards/project/stacks/views.py:216
 msgid "Unable to retrieve stack."
 msgstr "无法获取栈。"
 
-#: dashboards/project/stacks/views.py:240
+#: dashboards/project/stacks/views.py:247
 msgid "Unable to retrieve resource."
 msgstr "无法获取资源。"
 
-#: dashboards/project/stacks/views.py:253
+#: dashboards/project/stacks/views.py:260
 msgid "Unable to retrieve metadata."
 msgstr "无法获取元数据。"
 
@@ -11977,7 +11977,7 @@ msgstr "栈资源ID"
 msgid "Resource ID"
 msgstr "资源ID"
 
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:42
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:46
 msgid "Resource Metadata"
 msgstr "资源元数据"
 
@@ -12078,7 +12078,7 @@ msgid "Scheduled deletion of %(data_type)s"
 msgstr "已计划删除%(data_type)s"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:61
+#: dashboards/project/volumes/backups/views.py:67
 msgid "Unable to retrieve backup details."
 msgstr "无法获取卷备份详细信息。"
 
@@ -12110,7 +12110,7 @@ msgid "Edit Snapshot"
 msgstr "编辑快照"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:77
+#: dashboards/project/volumes/snapshots/views.py:83
 msgid "Unable to retrieve snapshot details."
 msgstr "无法获取快照详情"
 
@@ -12636,7 +12636,7 @@ msgid "Upload to Image"
 msgstr "上传镜像"
 
 #: dashboards/project/volumes/volumes/tables.py:272
-#: dashboards/project/volumes/volumes/views.py:244
+#: dashboards/project/volumes/volumes/views.py:248
 msgid "Unable to retrieve attachment information."
 msgstr "无法获取附加信息"
 
@@ -12680,25 +12680,25 @@ msgstr "设备"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "实例%(instance_name)s的附加卷%(volume_name)s"
 
-#: dashboards/project/volumes/volumes/views.py:101
-#: dashboards/project/volumes/volumes/views.py:144
-#: dashboards/project/volumes/volumes/views.py:227
+#: dashboards/project/volumes/volumes/views.py:105
+#: dashboards/project/volumes/volumes/views.py:148
+#: dashboards/project/volumes/volumes/views.py:231
 msgid "Unable to retrieve volume information."
 msgstr "无法获取云硬盘信息"
 
-#: dashboards/project/volumes/volumes/views.py:135
+#: dashboards/project/volumes/volumes/views.py:139
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "这个卷已经被挂载到一个实例了。从某种程度上来说，从一个已挂载的卷上创建快照可能会导致快照失败"
 
-#: dashboards/project/volumes/volumes/views.py:163
-#: dashboards/project/volumes/volumes/views.py:293
+#: dashboards/project/volumes/volumes/views.py:167
+#: dashboards/project/volumes/volumes/views.py:297
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "无法获取卷: \"%s\" 的信息"
 
-#: dashboards/project/volumes/volumes/views.py:196
+#: dashboards/project/volumes/volumes/views.py:200
 msgid "Unable to retrieve volume."
 msgstr "无法取回卷"
 
@@ -13073,11 +13073,11 @@ msgstr "IKE策略"
 msgid "IPSec Policy"
 msgstr "IPSec策略"
 
-#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:31
+#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:30
 msgid "IPSec Site Connections"
 msgstr "IPSec站点连接"
 
-#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:51
+#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:50
 msgid "VPN Services"
 msgstr "VPN服务"
 
@@ -13085,118 +13085,118 @@ msgstr "VPN服务"
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:71
+#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:70
 msgid "IKE Policies"
 msgstr "IKE策略"
 
-#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:91
+#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:90
 msgid "IPSec Policies"
 msgstr "IPSec策略"
 
-#: dashboards/project/vpn/tabs.py:43
+#: dashboards/project/vpn/tabs.py:42
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "无法获取IPSec站点连接列表。"
 
-#: dashboards/project/vpn/tabs.py:63 dashboards/project/vpn/workflows.py:377
+#: dashboards/project/vpn/tabs.py:62 dashboards/project/vpn/workflows.py:377
 msgid "Unable to retrieve VPN Services list."
 msgstr "无法获取VPN服务列表。"
 
-#: dashboards/project/vpn/tabs.py:83 dashboards/project/vpn/workflows.py:348
+#: dashboards/project/vpn/tabs.py:82 dashboards/project/vpn/workflows.py:348
 msgid "Unable to retrieve IKE Policies list."
 msgstr "无法获取IKE策略列表。"
 
-#: dashboards/project/vpn/tabs.py:103 dashboards/project/vpn/workflows.py:363
+#: dashboards/project/vpn/tabs.py:102 dashboards/project/vpn/workflows.py:363
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "无法获取IPSec策略列表。"
 
-#: dashboards/project/vpn/tabs.py:117
+#: dashboards/project/vpn/tabs.py:116
 msgid "IKE Policy Details"
 msgstr "IKE策略详情"
 
-#: dashboards/project/vpn/tabs.py:127
-msgid "Unable to retrieve IKE Policy details."
-msgstr "无法获取IKE策略详情。"
-
-#: dashboards/project/vpn/tabs.py:138
+#: dashboards/project/vpn/tabs.py:131
 msgid "IPSec Policy Details"
 msgstr "IPSec策略详情"
 
-#: dashboards/project/vpn/tabs.py:148
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "无法获取IPSec策略详情。"
-
-#: dashboards/project/vpn/tabs.py:159
+#: dashboards/project/vpn/tabs.py:146
 msgid "VPN Service Details"
 msgstr "VPN服务详情"
 
-#: dashboards/project/vpn/tabs.py:169
-msgid "Unable to retrieve VPN Service details."
-msgstr "无法获取VPN服务详情。"
-
-#: dashboards/project/vpn/tabs.py:186
+#: dashboards/project/vpn/tabs.py:161
 msgid "IPSec Site Connection Details"
 msgstr "IPSec站点连接详情"
 
-#: dashboards/project/vpn/tabs.py:196
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "无法获取IPSec站点连接详情。"
-
-#: dashboards/project/vpn/views.py:54
+#: dashboards/project/vpn/views.py:55
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "VPN服务 %s 已删除"
 
-#: dashboards/project/vpn/views.py:57
+#: dashboards/project/vpn/views.py:58
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "无法删除VPN服务: %s"
 
-#: dashboards/project/vpn/views.py:64
+#: dashboards/project/vpn/views.py:65
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "IKE策略 %s 已删除"
 
-#: dashboards/project/vpn/views.py:67
+#: dashboards/project/vpn/views.py:68
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "无法删除IKE策略: %s"
 
-#: dashboards/project/vpn/views.py:73
+#: dashboards/project/vpn/views.py:74
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "IPSec策略 %s 已删除"
 
-#: dashboards/project/vpn/views.py:76
+#: dashboards/project/vpn/views.py:77
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "无法删除IPSec策略: %s"
 
-#: dashboards/project/vpn/views.py:83
+#: dashboards/project/vpn/views.py:84
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "IPSec站点连接 %s 已删除"
 
-#: dashboards/project/vpn/views.py:87
+#: dashboards/project/vpn/views.py:88
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "无法删除IPSec站点连接: %s"
 
-#: dashboards/project/vpn/views.py:162
+#: dashboards/project/vpn/views.py:135
+msgid "Unable to retrieve IKE Policy details."
+msgstr "无法获取IKE策略详情。"
+
+#: dashboards/project/vpn/views.py:167
+msgid "Unable to retrieve IPSec Policy details."
+msgstr "无法获取IPSec策略详情。"
+
+#: dashboards/project/vpn/views.py:202
+msgid "Unable to retrieve VPN Service details."
+msgstr "无法获取VPN服务详情。"
+
+#: dashboards/project/vpn/views.py:242
+msgid "Unable to retrieve IPSec Site Connection details."
+msgstr "无法获取IPSec站点连接详情。"
+
+#: dashboards/project/vpn/views.py:285
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "无法获取VPN服务详情. %s"
 
-#: dashboards/project/vpn/views.py:191
+#: dashboards/project/vpn/views.py:314
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "无法获取IKE策略详情. %s"
 
-#: dashboards/project/vpn/views.py:227
+#: dashboards/project/vpn/views.py:350
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "无法获取IPSec策略详情. %s"
 
-#: dashboards/project/vpn/views.py:264
+#: dashboards/project/vpn/views.py:387
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "无法获取IPSec站点连接详情. %s"
@@ -13631,23 +13631,42 @@ msgstr "修改你的密码。强烈建议您选择一个复杂密码。"
 msgid "Change"
 msgstr "修改"
 
-#: dashboards/settings/user/forms.py:36
+#: dashboards/settings/user/forms.py:38
 msgid "Language"
 msgstr "语言"
 
-#: dashboards/settings/user/forms.py:37
+#: dashboards/settings/user/forms.py:39
 msgid "Timezone"
 msgstr "时区"
 
-#: dashboards/settings/user/forms.py:38
+#: dashboards/settings/user/forms.py:40
 msgid "Items Per Page"
 msgstr "每页条目数"
 
-#: dashboards/settings/user/forms.py:43
+#: dashboards/settings/user/forms.py:45
 msgid "Number of items to show per page"
 msgstr "每页显示的条目数量"
 
-#: dashboards/settings/user/forms.py:103
+#: dashboards/settings/user/forms.py:80
+#, python-format
+msgid "UTC %(hour)s:%(min)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:86
+msgid "UTC"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:88
+msgid "GMT"
+msgstr ""
+
+#. Translators:  UTC offset and timezone label
+#: dashboards/settings/user/forms.py:93
+#, python-format
+msgid "%(offset)s: %(label)s"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:121
 msgid "Settings saved."
 msgstr "设置已保存"
 
