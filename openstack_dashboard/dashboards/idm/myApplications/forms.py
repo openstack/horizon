@@ -19,10 +19,16 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 	callbackurl = forms.CharField(label=_("Callback URL"), required=True)
 
 	def handle(self, request, data):
-		user_id=request.user.id
-		user = api.keystone.user_get(request,user_id,admin=False)    
+		# user_id=request.user.id
+		# user = api.keystone.user_get(request,user_id,admin=False)    
 		response = shortcuts.redirect(horizon.get_user_home(request.user))
 		return response
 	
-# class UploadFileForm(forms.Form):
-#     file = forms.ImageField()
+class UploadImageForm(forms.Form):
+	file = forms.ImageField(required=True)
+
+	def handle(self, request, data):
+		# user_id=request.user.id
+		# user = api.keystone.user_get(request,user_id,admin=False)    
+		response = shortcuts.redirect(horizon.get_user_home(request.user))
+		return response

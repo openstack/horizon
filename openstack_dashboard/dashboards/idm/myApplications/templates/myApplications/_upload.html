@@ -2,10 +2,10 @@
 {% load i18n %}
 {% load url from future %}
 
-{% block form_id %}create_application_modal{% endblock %}
-{% block form_action %}{% url 'horizon:idm:myApplications:upload' %}{% endblock %}
+{% block form_id %}<!-- upload_image_modal -->{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:index' %}{% endblock %}
 
-{% block modal_id %}create_application_modal{% endblock %}
+{% block modal_id %}upload_image_modal{% endblock %}
 {% block modal-header %}
 {% endblock %}
 
@@ -19,6 +19,5 @@
 
 {% block modal-footer %}
     <button type="submit" class="btn btn-primary">{% trans "Next" %}</button>
-    
 {% endblock %}
 

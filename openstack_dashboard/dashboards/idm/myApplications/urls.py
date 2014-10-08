@@ -8,4 +8,5 @@ from openstack_dashboard.dashboards.idm.myApplications \
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
+    url(r'^upload/$', views.UploadImageView.as_view(), name='upload'),
 )
