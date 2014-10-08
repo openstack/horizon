@@ -154,6 +154,9 @@
 .conditions{
   font-size: 11px;
   text-align: left;
+  a{
+    text-decoration: underline;
+  }
 }
 .simple_captcha{
   border-top: 1px solid #E2E2E2;
