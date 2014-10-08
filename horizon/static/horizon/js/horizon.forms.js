@@ -265,13 +265,18 @@ horizon.addInitFunction(function () {
 
     $switchables.each(function (index, switchable) {
       var $switchable = $(switchable),
+        visible = $switchable.is(':visible'),
         slug = $switchable.data('slug'),
         checked = $switchable.prop('checked'),
-        hide_tab = $switchable.data('hide-tab');
+        hide_tab = $switchable.data('hide-tab'),
+        hide_on = $switchable.data('hideOnChecked');
+
+      // If checkbox is hidden then do not apply any further logic
+      if (!visible) return;
 
       // If the checkbox has hide-tab attribute then hide/show the tab
       if (hide_tab) {
-        if(!checked) {
+        if(checked == hide_on) {
           // If the checkbox is not checked then hide the tab
           $('*[data-target="#'+ hide_tab +'"]').parent().hide();
           $('.button-next').hide();
@@ -287,7 +292,7 @@ horizon.addInitFunction(function () {
       function handle_switched_field(index, input){
         var $input = $(input);
 
-        if ( checked ) {
+        if (checked != hide_on) {
           $input.closest('.form-group').show();
           // Add the required class to form group to show a (*) next to label
           if ($input.data('is-required')) {
