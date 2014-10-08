@@ -223,10 +223,10 @@ horizon.addInitFunction(function () {
 
   /* Switchable Fields (See Horizon's Forms docs for more information) */
 
-  // Bind handler for swapping labels on "switchable" fields.
+  // Bind handler for swapping labels on "switchable" select fields.
   $(document).on("change", 'select.switchable', function (evt) {
     var $fieldset = $(evt.target).closest('fieldset'),
-      $switchables = $fieldset.find('.switchable');
+      $switchables = $fieldset.find('select.switchable');
 
     $switchables.each(function (index, switchable) {
       var $switchable = $(switchable),
@@ -256,6 +256,61 @@ horizon.addInitFunction(function () {
   // Queue up the for new modals, too.
   horizon.modals.addModalInitFunction(function (modal) {
     $(modal).find('select.switchable').trigger('change');
+  });
+
+  // Bind handler for swapping labels on "switchable" checkbox input fields.
+  $(document).on("change", 'input.switchable', function (evt) {
+    var $fieldset = $(evt.target).closest('fieldset'),
+      $switchables = $fieldset.find('input.switchable');
+
+    $switchables.each(function (index, switchable) {
+      var $switchable = $(switchable),
+        slug = $switchable.data('slug'),
+        checked = $switchable.prop('checked'),
+        hide_tab = $switchable.data('hide-tab');
+
+      // If the checkbox has hide-tab attribute then hide/show the tab
+      if (hide_tab) {
+        if(!checked) {
+          // If the checkbox is not checked then hide the tab
+          $('*[data-target="#'+ hide_tab +'"]').parent().hide();
+          $('.button-next').hide();
+          $('.button-final').show();
+        } else if (!$('*[data-target="#'+ hide_tab +'"]').parent().is(':visible')) {
+          // If the checkbox is checked and the tab is currently hidden then show the tab again
+          $('*[data-target="#'+ hide_tab +'"]').parent().show();
+          $('.button-final').hide();
+          $('.button-next').show();
+        }
+      }
+
+      function handle_switched_field(index, input){
+        var $input = $(input);
+
+        if ( checked ) {
+          $input.closest('.form-group').show();
+          // Add the required class to form group to show a (*) next to label
+          if ($input.data('is-required')) {
+            $input.closest('.form-group').addClass("required");
+          }
+        } else {
+          $input.closest('.form-group').hide();
+          if ($input.data('is-required')) {
+            $input.closest('.form-group').removeClass("required");
+          }
+        }
+      }
+
+      $fieldset.find('.switched[data-switch-on*="' + slug + '"]').each(handle_switched_field);
+      $fieldset.siblings().find('.switched[data-switch-on*="' + slug + '"]').each(handle_switched_field);
+    });
+  });
+
+  // Fire off the change event to trigger the proper initial values.
+  $('input.switchable').trigger('change');
+  // Queue up the for new modals, too.
+  horizon.modals.addModalInitFunction(function (modal) {
+    $(modal).find('input.switchable').trigger('change');
   });
 
   // Handle field toggles for the Create Volume source type field
