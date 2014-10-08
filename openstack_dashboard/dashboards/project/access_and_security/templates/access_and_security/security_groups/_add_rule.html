@@ -15,11 +15,11 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description" %}:</h3>
+    <h3>{% trans "Description:" %}</h3>
     <p>{% blocktrans %}Rules define which traffic is allowed to instances assigned to the security group. A security group rule consists of three main parts:{% endblocktrans %}</p>
-    <p><strong>{% trans "Rule" %}</strong>: {% blocktrans %}You can specify the desired rule template or use custom rules, the options are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule.{% endblocktrans %}</p>
-    <p><strong>{% trans "Open Port/Port Range" %}</strong>: {% blocktrans %}For TCP and UDP rules you may choose to open either a single port or a range of ports. Selecting the "Port Range" option will provide you with space to provide both the starting and ending ports for the range. For ICMP rules you instead specify an ICMP type and code in the spaces provided.{% endblocktrans %}</p>
-    <p><strong>{% trans "Remote" %}</strong>: {% blocktrans %}You must specify the source of the traffic to be allowed via this rule. You may do so either in the form of an IP address block (CIDR) or via a source group (Security Group). Selecting a security group as the source will allow any other instance in that security group access to any other instance via this rule.{% endblocktrans %}</p>
+    <p><strong>{% trans "Rule:" %}</strong> {% blocktrans %}You can specify the desired rule template or use custom rules, the options are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule.{% endblocktrans %}</p>
+    <p><strong>{% trans "Open Port/Port Range:" %}</strong> {% blocktrans %}For TCP and UDP rules you may choose to open either a single port or a range of ports. Selecting the "Port Range" option will provide you with space to provide both the starting and ending ports for the range. For ICMP rules you instead specify an ICMP type and code in the spaces provided.{% endblocktrans %}</p>
+    <p><strong>{% trans "Remote:" %}</strong> {% blocktrans %}You must specify the source of the traffic to be allowed via this rule. You may do so either in the form of an IP address block (CIDR) or via a source group (Security Group). Selecting a security group as the source will allow any other instance in that security group access to any other instance via this rule.{% endblocktrans %}</p>
 </div>
 {% endblock %}
 

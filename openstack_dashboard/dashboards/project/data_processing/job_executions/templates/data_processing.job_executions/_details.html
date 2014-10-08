@@ -29,7 +29,7 @@
         <dd>{{ job_execution.created_at }}</dd>
         <dt>{% trans "Job Configuration" %}</dt>
         <dd>{% for group, vals in job_execution.job_configs.iteritems %}
-            <ul><li><span style="font-weight:bold">{{ group }}:</span>
+            <ul><li><span style="font-weight:bold">{% blocktrans %}{{ group }}:{% endblocktrans %}</span>
               {%if group == "args" %}
                 <ul>{% for val in vals %} <li>{{ val }}</li> {% endfor %}</ul>
               {% else %}

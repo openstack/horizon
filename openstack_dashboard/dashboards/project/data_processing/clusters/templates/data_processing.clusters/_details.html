@@ -65,7 +65,7 @@
                     {% if service_conf %}
                     <ul>
                     {% for conf_name, conf_value in service_conf.items %}
-                        <li>{{ conf_name }}:&nbsp{{ conf_value }}</li>
+                        <li>{% blocktrans %}{{ conf_name }}: {{ conf_value }}{% endblocktrans %}</li>
                     {% endfor %}
                     </ul>
                     {% else %}
@@ -82,7 +82,9 @@
         {% for info_key, info_val in cluster.info.items %}
         <dt>{{ info_key }}</dt>
             {% for key, val in info_val.items %}
-                <dd>{{ key }}:&nbsp{% autoescape off %}{{ val }}{% endautoescape %}</dd>
+                <dd>
+                  {% blocktrans %}{{ key }}: {% autoescape off %}{{ val }}{% endautoescape %}{% endblocktrans %}
+                </dd>
             {% endfor %}
         {% endfor %}
     </dl>

@@ -5,7 +5,7 @@
   <tr><th>{% trans 'RAM' %}</th><td>{{ size_ram }}</td></tr>
   <tr><th>{% trans 'Size' %}</th><td>{{ size_disk }}</td></tr>
 </table>
-" data-original-title="{% trans "Flavor Details" %}: {{ name }}">{{ name }}</a>
+" data-original-title="{% blocktrans %}Flavor Details: {{ name }}">{{ name }}{% endblocktrans %}</a>
 <script type="text/javascript" charset="utf-8">
 $(function ()
     { $("#flavor_details_{{ id }}").popover({html:true});

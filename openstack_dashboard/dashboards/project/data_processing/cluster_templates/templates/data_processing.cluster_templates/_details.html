@@ -39,7 +39,7 @@
                     {% if service_conf %}
                     <ul>
                     {% for conf_name, conf_value in service_conf.items %}
-                        <li>{{ conf_name }}:&nbsp{{ conf_value }}</li>
+                        <li>{% blocktrans %}{{ conf_name }}: {{ conf_value }}{% endblocktrans %}</li>
                     {% endfor %}
                     </ul>
                     {% else %}
