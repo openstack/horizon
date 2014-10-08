@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Reset Password" %}{% endblock %}
+
+{% block content %}
+    {% include '_header.html' %}
+    <div>
+        {% include 'auth/password/_request.html' %}
+    </div>
+{% endblock %}

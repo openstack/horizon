@@ -13,6 +13,7 @@
 
 import hashlib
 import logging
+import uuid
 
 from django.core.mail import send_mail
 from django.db import models
@@ -20,7 +21,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import messages
 from horizon import exceptions
-from openstack_dashboard import api
 
 from openstack_dashboard.fiware_auth.keystone_manager import KeystoneManager
 
@@ -67,7 +67,6 @@ class RegistrationManager(models.Manager):
                                         name=cleaned_data['username'],
                                         email=cleaned_data['email'],
                                         password=cleaned_data['password1'])
-
             messages.success(request,
                 _('User "%s" was successfully created.') % cleaned_data['username'])
 
@@ -110,3 +109,59 @@ class RegistrationProfile(models.Model):
         #send a mail for activation
         send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
         	[self.user_email], fail_silently=False)
+
+
+class ResetPasswordManager(models.Manager):
+    
+    keystone_manager = KeystoneManager()
+
+    def create_profile(self):
+        reset_password_token = uuid.uuid4().get_hex()
+        return self.create(reset_password_token=reset_password_token)
+
+    def create_reset_password_token(self,request,email):
+
+        registration_profile = self.create_profile()
+        registration_profile.send_reset_email(email)
+
+        messages.success(request,_('Reset mail send to %s') % email)
+
+    def reset_password(self,request,token,new_password):
+        try:
+            profile = self.get(reset_password_token=token)
+        except self.model.DoesNotExist:
+            return False
+
+        if not profile.reset_password_token_expired():
+            user_email = profile.user_email
+            #change the user password in the keystone backend
+            user = self.keystone_manager.change_password(user_email,new_password)
+            if user:
+                profile.reset_password_token = self.model.USED
+                profile.save()
+                messages.success(request,_('password successfully changed.'))
+                return user
+
+
+class ResetPasswordProfile(models.Model):
+    """Holds the key to reset the user password"""
+
+    reset_password_token = models.CharField(_('reset password token'), max_length=40)
+    user_email = models.CharField(_('user email'), max_length=40)
+    USED = u"ALREADY_USED"
+
+    objects = ResetPasswordManager()
+
+    def send_reset_email(self,email):
+        subject = 'Reset password instructions - FIWARE'
+        # Email subject *must not* contain newlines
+        subject = ''.join(subject.splitlines())
+        #TODO(garcianavalon) message...
+        message = 'Hello! Go to http://localhost:8000/password/reset/?reset_password_token=%s to reset it!' %self.reset_password_token
+        #send a mail for activation
+        send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
+            [email], fail_silently=False)
+
+    def reset_password_token_expired(self):
+        #TODO
+        return False
