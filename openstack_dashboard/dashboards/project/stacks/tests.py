@@ -11,6 +11,7 @@
 # under the License.
 
 import json
+import re
 
 from django.conf import settings
 from django.core import exceptions
@@ -368,6 +369,76 @@ class StackTests(test.TestCase):
                                         'id="id___param_secret_string" '
                                         'name="__param_secret_string" '
                                         'type="password" />', html=True)
+
+    @test.create_stubs({api.heat: ('template_validate',)})
+    def test_launch_stack_with_parameter_group(self):
+        template = {
+            'data': ('heat_template_version: 2013-05-23\n'
+                     'parameters:\n'
+                     '  last_param:\n'
+                     '    type: string\n'
+                     '  first_param:\n'
+                     '    type: string\n'
+                     '  middle_param:\n'
+                     '    type: string\n'
+                     'parameter_groups:\n'
+                     '- parameters:\n'
+                     '  - first_param\n'
+                     '  - middle_param\n'
+                     '  - last_param\n'),
+            'validate': {
+                'Description': 'No description',
+                'Parameters': {
+                    'last_param': {
+                        'Label': 'last_param',
+                        'Description': '',
+                        'Type': 'String',
+                        'NoEcho': 'false'
+                    },
+                    'first_param': {
+                        'Label': 'first_param',
+                        'Description': '',
+                        'Type': 'String',
+                        'NoEcho': 'false'
+                    },
+                    'middle_param': {
+                        'Label': 'middle_param',
+                        'Description': '',
+                        'Type': 'String',
+                        'NoEcho': 'true'
+                    }
+                },
+                'ParameterGroups': [
+                    {
+                        'parameters': [
+                            'first_param',
+                            'middle_param',
+                            'last_param'
+                        ]
+                    }
+                ]
+            }
+        }
+        api.heat.template_validate(IsA(http.HttpRequest),
+                                   template=template['data']) \
+           .AndReturn(template['validate'])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:stacks:select_template')
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'project/stacks/select_template.html')
+
+        form_data = {'template_source': 'raw',
+                     'template_data': template['data'],
+                     'method': forms.TemplateForm.__name__}
+        res = self.client.post(url, form_data)
+        self.assertTemplateUsed(res, 'project/stacks/create.html')
+
+        # ensure the fields were rendered in the correct order
+        regex = re.compile('^.*>first_param<.*>middle_param<.*>last_param<.*$',
+                           flags=re.DOTALL)
+        self.assertRegexpMatches(res.content.decode('utf-8'), regex)
 
     @test.create_stubs({api.heat: ('stack_update', 'stack_get',
                                     'template_get', 'template_validate')})

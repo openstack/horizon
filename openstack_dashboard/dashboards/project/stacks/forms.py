@@ -284,8 +284,16 @@ class CreateStackForm(forms.SelfHandlingForm):
         self.help_text = template_validate['Description']
 
         params = template_validate.get('Parameters', {})
-
-        for param_key, param in params.items():
+        if template_validate.get('ParameterGroups'):
+            params_in_order = []
+            for group in template_validate['ParameterGroups']:
+                for param in group.get('parameters', []):
+                    if param in params:
+                        params_in_order.append((param, params[param]))
+        else:
+            # no parameter groups, so no way to determine order
+            params_in_order = params.items()
+        for param_key, param in params_in_order:
             field_key = self.param_prefix + param_key
             field_args = {
                 'initial': param.get('Default', None),
