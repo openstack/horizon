@@ -14,6 +14,12 @@
         <dt>{% trans "Flavor" %}</dt>
         <dd>{{ flavor.name }}</dd>
     </dl>
+    {% if template.availability_zone %}
+    <dl>
+        <dt>{% trans "Availability Zone" %}</dt>
+        <dd>{{ template.availability_zone }}</dd>
+    </dl>
+    {% endif %}
     {% if template.floating_ip_pool %}
     <dl>
         <dt>{% trans "Floating IP Pool" %}</dt>
