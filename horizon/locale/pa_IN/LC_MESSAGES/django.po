@@ -3,85 +3,86 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Amandeep Singh Saini <jimidar@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-08 00:40-0500\n"
-"PO-Revision-Date: 2014-10-02 21:40+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
+"PO-Revision-Date: 2014-10-08 06:00+0000\n"
+"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
+"Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: pa_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: base.py:480
 msgid "Other"
-msgstr "Другое"
+msgstr "ਹੋਰ"
 
 #: decorators.py:53
 msgid "Please log in to continue."
-msgstr "Войдите в систему для продолжения."
+msgstr "ਜਾਰੀ ਰਹਿਣ ਲਈ ਕਿਰਪਾ ਕਰ ਕੇ ਲਾਗਇਨ ਕਰੋ।"
 
 #: decorators.py:85
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "Нет права доступа к %s"
+msgstr "ਤੁਸੀਂ %s ਤੇ ਦਖਲ ਦੇਣ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ"
 
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "%(resource)s с названием \"%(name)s\" уже существует."
+msgstr "ਇੱਕ %(resource)s ਪਹਿਲਾਂ ਹੀ \"%(name)s\" ਨਾਂ ਨਾਲ ਮੌਜੂਦ ਹੈ।"
 
 #: exceptions.py:287
 #, python-format
 msgid "Unauthorized: %s"
-msgstr "Не авторизован: %s"
+msgstr "ਅਣ-ਅਧਿਕਾਰਤ ਕੀਤਾ: %s"
 
 #: exceptions.py:290
 msgid "Unauthorized. Please try logging in again."
-msgstr "Вы не авторизованы. Попробуйте войти в систему еще раз."
+msgstr "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰ ਕੇ ਦੁਬਾਰਾ ਲਾਗਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: middleware.py:97
 msgid "Session timed out."
-msgstr "Время сеанса истекло."
+msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
 
 #: browsers/base.py:88
 msgid "Navigation Item"
-msgstr "Элемент навигации"
+msgstr ""
 
 #: browsers/views.py:41
 #, python-format
 msgid "Select a %s to browse."
-msgstr "Выберите %s для просмотра"
+msgstr "ਬਰਾਊਜ਼ ਕਰਨ ਲਈ ਇੱਕ %s ਚੁਣੋ।"
 
 #: conf/default.py:41
 msgid "Password is not accepted"
-msgstr "Пароль не принят"
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਪਰਵਾਨਿਤ ਨਹੀਂ ਹੈ"
 
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
-msgstr "Неправильный формат IP-адреса"
+msgstr "IP ਪਤੇ ਲਈ ਗਲਤ ਬਣਤਰ"
 
 #: forms/fields.py:65
 msgid "Invalid version for IP address"
-msgstr "Неправильная версия IP-адреса"
+msgstr "IP ਪਤੇ ਲਈ ਅਢੁਕਵਾਂ ਸੰਸਕਰਣ"
 
 #: forms/fields.py:66
 msgid "Invalid subnet mask"
-msgstr "Неправльная маска подсети"
+msgstr "ਅਢੁਕਵਾਂ ਸਬਨੈੱਟ ਮਾਸਕ"
 
 #: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
-msgstr "Отправить"
+msgstr "ਦਾਖਲ ਕਰੋ"
 
 #: forms/views.py:82
 #: templates/horizon/common/_modal_form_update_metadata.html:239
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "ਰੱਦ ਕਰੋ"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -89,7 +90,7 @@ msgstr "Отмена"
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
-msgstr "Фильтр"
+msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 
 #: tables/actions.py:756
 #, python-format
@@ -105,17 +106,17 @@ msgstr "%(action)s %(data_type)s"
 
 #: tables/actions.py:786 tables/base.py:1545
 msgid "N/A"
-msgstr "Н/Д"
+msgstr "ਲਾਗੂ ਨਹੀਂ"
 
 #: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Не разрешено: %(action)s: %(objs)s"
+msgstr "ਤੁਹਾਨੂੰ %(action)s: ਦੀ ਮਨਜੂਰੀ ਨਹੀਂ ਹੈ: %(objs)s"
 
 #: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr "Невозможно выполнить %(action)s: %(objs)s"
+msgstr "%(action)s ਤੋਂ ਅਸਮਰੱਥ: %(objs)s"
 
 #: tables/actions.py:828
 #, python-format
@@ -124,130 +125,129 @@ msgstr "%(action)s: %(objs)s"
 
 #: tables/actions.py:898
 msgid "Delete"
-msgstr "Удалить"
+msgstr "ਮਿਟਾਉ"
 
 #: tables/actions.py:900
 msgid "Deleted"
-msgstr "Удалено"
+msgstr "ਮਿਟਾਇਆ ਗਿਆ"
 
 #: tables/actions.py:931
 msgid "Update"
-msgstr "Обновить"
+msgstr "ਅਪਡੇਟ ਕਰੋ"
 
 #: tables/actions.py:932
 msgid "Updated"
-msgstr "Обновлено"
+msgstr "ਅਪਡੇਟ ਹੋਇਆ"
 
 #: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Атрибут %(attr)s не существует для %(obj)s."
+msgstr "%(attr)s ਐਟਰੀਬਿਊਟ %(obj)s ਉੱਪਰ ਹੋਂਦ ਨਹੀੰ ਰਖ਼ਦਾ।"
 
 #: tables/base.py:967
 msgid "No items to display."
-msgstr "Нет элементов для отображения."
+msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
 
 #: tables/base.py:1076
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
-msgstr "Действия"
+msgstr "ਕਾਰਵਾਈਆਂ"
 
 #: tables/base.py:1304
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "Нет совпадений для id \"%s\"."
+msgstr "id \"%s\" ਲਈ ਕੁੱਝ ਵੀ ਮੇਲ ਖਾਂਦਾ ਵਾਪਿਸ ਨਹੀਂ ਹੋਇਆ।"
 
 #: tables/base.py:1461
 msgid "Please select a row before taking that action."
-msgstr "Выберите строку перед выполнением этого действия."
+msgstr "ਉਹ ਕਾਰਵਾਈ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਰਪਾ ਕਰ ਕੇ ਇੱਕ ਸਤਰ੍ਹ ਚੁਣੋ।"
 
 #: templates/_header.html:5
 #, python-format
 msgid "Logged in as: %(username)s"
-msgstr "Вошёл как: %(username)s"
+msgstr "ਇਸ ਨਾਂ ਤੇ ਲਾਗਇਨ: %(username)s"
 
 #: templates/_header.html:7
 msgid "Help"
-msgstr "Помощь"
+msgstr "ਮਦਦ"
 
 #: templates/_header.html:9
 msgid "Sign Out"
-msgstr "Выход"
+msgstr "ਸਾਈਨ ਆਊਟ"
 
 #: templates/splash.html:8 templates/auth/login.html:4
 msgid "Login"
-msgstr "Имя пользователя"
+msgstr "ਲਾਗਇਨ"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
-msgstr "Войти"
+msgstr "ਲਾਗ ਇਨ"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
-msgstr "Вы не имеете права доступа к ресурсу:"
+msgstr "ਤੁਹਾਡੇ ਕੋਲ ਵਸੀਲੇ ਤੱਕ ਦਖਲ ਦੀ ਪਰਵਾਨਗੀ ਨਹੀਂ ਹੈ:"
 
 #: templates/auth/_login.html:17
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr "Войдите под другим пользователем или вернитесь на домашнюю страницу <a href=\"%(home_url)s\"> </a>"
+msgstr "ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਵਜੋਂ ਲਾਗਇਨ ਹੋਵੋ ਜਾਂ ਵਾਪਸ <a href=\"%(home_url)s\"> ਘਰ ਵਰਕਾ</a> ਤੇ ਜਾਉ।"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
-msgstr "Вход"
+msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
-msgstr "Информация:"
+msgstr "ਜਾਣਕਾਰੀ: "
 
 #: templates/horizon/_messages.html:13
 msgid "Warning: "
-msgstr "Внимание:"
+msgstr "ਚੇਤਾਵਨੀ: "
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr "Успешно:"
+msgstr "ਸਫਲਤਾ: "
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
-msgstr "Ошибка:"
+msgstr "ਗਲਤੀ: "
 
 #: templates/horizon/common/_data_table.html:54
 msgid "Summary"
-msgstr "Итого"
+msgstr "ਸਾਰ"
 
 #: templates/horizon/common/_data_table.html:63
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(counter)s ਚੀਜ ਵਿਖਾਈ ਜਾ ਰਹੀ"
+msgstr[1] "%(counter)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Предыдущее"
+msgstr "&laquo;&nbsp;Prev"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
-msgstr "Следующее&nbsp;&raquo;"
+msgstr "Next&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_table_actions.html:38
 msgid "More Actions"
-msgstr "Еще действия"
+msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
-msgstr "Добавить строку"
+msgstr "ਇੱਕ ਸਤਰ੍ਹ ਜੋੜੋ"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr "Краткая сводка"
+msgstr "ਹੱਦ ਸਾਰ"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
-msgstr "Машины"
+msgstr "ਇੰਸਟਾਂਸਜ਼"
 
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
@@ -258,31 +258,31 @@ msgstr "Машины"
 #: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Использовано <span> %(used)s </span> из <span> %(available)s </span>"
+msgstr "<span> %(used)s </span> ਵਰਤੇ <span> %(available)s </span> ਵਿੱਚੋਂ"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr "ВЦПУ"
+msgstr "VCPUs"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
-msgstr "ОЗУ"
+msgstr "RAM"
 
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
-msgstr "Назначаемые IP"
+msgstr "ਫਲੋਟਿੰਗ IPs"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
-msgstr "Группы безопасности"
+msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹ"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
-msgstr "Диски"
+msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr "Хранилище"
+msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:12
 msgid ""
@@ -296,24 +296,24 @@ msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr "Доступные метаданные"
+msgstr "ਉਪਲੱਬਧ ਮੈਟਾਡਾਟਾ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr "Повторяющиеся ключи не допускаются"
+msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr "Неправильное имя ключа"
+msgstr "ਅਢੁਕਵਾਂ ਚਾਬੀ ਨਾਂ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
 msgid "No existing metadata"
-msgstr "Нет метаданных"
+msgstr "ਕੋਈ ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ ਨਹੀਂ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr "Имеющиеся метаданные"
+msgstr "ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -328,7 +328,7 @@ msgstr ""
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
 msgid "Save"
-msgstr "Сохранить"
+msgstr "ਸੰਭਾਲੋ"
 
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
@@ -336,7 +336,6 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
@@ -344,57 +343,56 @@ msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "Сводка использования"
+msgstr "ਵਰਤੋਂ ਸਾਰ"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
-msgstr "Выберите период времени для получения сводки об использовании"
+msgstr "ਇਸਦੀ ਵਰਤੋਂ ਬਾਰੇ ਪੁੱਛ-ਗਿੱਛ ਲਈ ਇੱਕ ਸਮਾਂ ਅੰਤਰਾਲ ਚੁਣੋ"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr "\n      <label>От:</label> %(start)s"
+msgstr "\n      <label>ਇਸ ਤੋਂ:</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr "\n      <label>До:</label>%(end)s"
+msgstr "\n      <label>ਵੱਲ:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
-msgstr "Дата должна иметь формат YYYY-mm-dd."
+msgstr "ਮਿਤੀ YYYY-mm-dd ਤਰਜ ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।"
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
-msgstr "Активные машины"
+msgstr "ਕਿਰਿਆਸ਼ੀਲ ਇੰਸਟਾਸਜ਼"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
-msgstr "Активное ОЗУ"
+msgstr "ਕਿਰਿਆਸ਼ੀਲ RAM"
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours"
-msgstr "Затрачено ВЦПУ-часов"
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ VCPU-ਘੰਟੇ"
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours"
-msgstr "Затрачено ГБ-часов"
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ GB-ਘੰਟੇ"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
-msgstr "Назад"
+msgstr "ਪਿੱਛੇ"
 
 #: templates/horizon/common/_workflow.html:43
 msgid "Next"
-msgstr "Следующий"
+msgstr "ਅਗਲਾ"
 
 #: templatetags/branding.py:34
 msgid "Horizon"
@@ -402,48 +400,47 @@ msgstr "Horizon"
 
 #: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
-msgstr "Без ограничений"
+msgstr "ਕੋਈ ਹੱਦ ਨਹੀਂ"
 
 #: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
-msgstr "Доступно"
+msgstr "ਉਪਲੱਬਧ"
 
 #: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(size)d ਬਾਈਟ"
+msgstr[1] "%(size)d ਬਾਈਟਾਂ"
 
 #: templatetags/sizeformat.py:57
 #, python-format
 msgid "%s KB"
-msgstr "%s КБ"
+msgstr "%s KB"
 
 #: templatetags/sizeformat.py:60
 #, python-format
 msgid "%s MB"
-msgstr "%s МБ"
+msgstr "%s MB"
 
 #: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s GB"
-msgstr "%s ГБ"
+msgstr "%s GB"
 
 #: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s TB"
-msgstr "%s ТБ"
+msgstr "%s TB"
 
 #: templatetags/sizeformat.py:68
 #, python-format
 msgid "%s PB"
-msgstr "%s ПБ"
+msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
-msgstr "0 байт"
+msgstr "ਸਿਫ਼ਰ ਬਾਈਟਾਂ"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
@@ -451,7 +448,6 @@ msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] "Sell Puppies"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
@@ -459,54 +455,53 @@ msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] "Sold Puppies"
 
 #: utils/filters.py:49
 msgid "Never"
-msgstr "Никогда"
+msgstr "ਕਦੇ ਨਹੀਂ"
 
 #: utils/validators.py:23 utils/validators.py:47
 msgid "Not a valid port number"
-msgstr "Недопустимый номер порта"
+msgstr "ਇੱਕ ਢੁਕਵਾਂ ਪੋਰਟ ਨੰਬਰ ਨਹੀਂ"
 
 #: utils/validators.py:28
 msgid "Not a valid IP protocol number"
-msgstr "Недопустимый номер IP-протокола"
+msgstr "ਇੱਕ ਢੁਕਵਾਂ IP ਜਾਬਤਾ ਅੰਕ ਨਹੀਂ"
 
 #: utils/validators.py:42
 msgid "One colon allowed in port range"
-msgstr "В списке портов допустима одна запятая"
+msgstr "ਪੋਰਟ ਹੱਦ ਵਿੱਚ ਇੱਕ ਕੌਲਨ ਦੀ ਪਰਵਾਨਗੀ ਹੈ"
 
 #: utils/validators.py:49
 msgid "Port number must be integer"
-msgstr "Номер порта должен быть целым числом"
+msgstr "ਪੋਰਟ ਨੰਬਰ ਦਾ ਅੰਕ ਹੋਣਾ ਲਾਜਮੀ ਹੈ"
 
 #: workflows/base.py:71
 msgid "Processing..."
-msgstr "Обработка…"
+msgstr ""
 
 #: workflows/base.py:475
 msgid "All available"
-msgstr "Все доступные"
+msgstr "ਸਾਰੇ ਉਪਲੱਬਧ"
 
 #: workflows/base.py:476
 msgid "Members"
-msgstr "Участники"
+msgstr "ਜੀਅ"
 
 #: workflows/base.py:477
 msgid "None available."
-msgstr "Нет доступных."
+msgstr "ਕੋਈ ਉਪਲੱਬਧ ਨਹੀਂ"
 
 #: workflows/base.py:478
 msgid "No members."
-msgstr "Нет участников."
+msgstr "ਕੋਈ ਜੀਅ ਨਹੀਂ।"
 
 #: workflows/base.py:595
 #, python-format
 msgid "%s completed successfully."
-msgstr "%s успешно завершено."
+msgstr "%s ਸਫਲਤਾ ਪੂਰਵਕ ਪੂਰਾ ਹੋਇਆ।"
 
 #: workflows/base.py:596
 #, python-format
 msgid "%s did not complete."
-msgstr "%s не завершено."
+msgstr "%s ਪੂਰਾ ਨਹੀੰ ਹੋਇਆ।"
