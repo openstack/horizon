@@ -19,7 +19,7 @@ class KeystoneManager(object):
     """Encapsulates all the logic for communicating with the keystone server.
 
     The IdM has its own admin account in the keystone server, and uses it to perform
-    operations like create users, tenants, etc. when there is no user with admin rights
+    operations like create users, projects, etc. when there is no user with admin rights
     (for example, when user registration) to overcome the Keystone limitations.
     """
 
@@ -34,36 +34,58 @@ class KeystoneManager(object):
         """ Get an authorized token to perform operations on the keystone backend """
         keystone = client.Client(username=self.USERNAME, 
                                     password=self.PASSWORD, 
-                                    tenant_name=self.TENANT, 
+                                    project_name=self.TENANT, 
                                     auth_url=self.AUTH_URL)
         return keystone
 
-    def _create_user(self,name,domain,password,email,default_project,enabled=False):
-        keystone = self._login()
+    def _create_user(self,keystone,name,domain,password,email,default_project,enabled=False):
         user = keystone.users.create(name,domain=domain,password=password,email=email,
                                         default_project=default_project, enabled=enabled)
         return user
 
-    def _create_tenant(self,name,domain,description=None,enabled=False):
-        keystone = self._login()
-        tenant = keystone.projects.create(name,domain=domain,
+    def _update_user(self,keystone,user,enabled=False):
+        user = keystone.users.update(user,enabled=enabled)
+        return user
+
+    def _get_user(self,keystone,user_id):
+        user = keystone.users.get(user_id)
+        return user
+
+    def _create_project(self,keystone,name,domain,description=None,enabled=False):
+        project = keystone.projects.create(name,domain=domain,
                                 description=description, enabled=enabled)
-        return tenant
+        return project
+
+    def _update_project(self,keystone,project,enabled=False):
+        project = keystone.projects.update(project,enabled=enabled)
+        return project
+
+    def _grant_admin_role(self,keystone, user, project):
+        role = keystone.roles.find(name='admin')
+        keystone.roles.grant(role,user=user,project=project)
+        return role
 
     def _create_domain(self):
         pass
 
-    def _get_default_domain(self):
-        keystone = self._login()
+    def _get_default_domain(self,keystone):
         domain = keystone.domains.get(self.DOMAIN)
         return domain
 
     def register_user(self,name,email,password):
-        default_domain = self._get_default_domain()
-        default_project = self._create_tenant(name,default_domain)
-        new_user = self._create_user(name,default_domain,password,email,default_project)
+        keystone = self._login()
+        default_domain = self._get_default_domain(keystone)
+        default_project = self._create_project(keystone,name,default_domain)
+        new_user = self._create_user(keystone,name,default_domain,password,email,default_project)
+        role = self._grant_admin_role(keystone,new_user,default_project)
         return new_user
         
-
+    def activate_user(self,user_id):
+        keystone = self._login()
+        #default_domain = self._get_default_domain(keystone)
+        user = self._get_user(keystone,user_id)
+        project = self._update_project(keystone,user.default_project_id,enabled=True)
+        user = self._update_user(keystone,user,enabled=True)
+        return user
 
         

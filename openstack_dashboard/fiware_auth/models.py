@@ -38,13 +38,12 @@ class RegistrationManager(models.Manager):
         if not profile.activation_key_expired():
             user_id = profile.user_id
             #enable the user in the keystone backend
-            user = api.keystone.user_get(request,user_id=user_id)
-            api.keystone.user_update_enabled(request,user,enabled=True)
-            api.keystone.tenant_update(request,user.project,enabled=True)
-            profile.activation_key = self.model.ACTIVATED
-            profile.save()
-            messages.success(request,_('User "%s" was successfully activated.') % user.name)
-            return user
+            user = self.keystone_manager.activate_user(user_id)
+            if user:
+                profile.activation_key = self.model.ACTIVATED
+                profile.save()
+                messages.success(request,_('User "%s" was successfully activated.') % user.name)
+                return user
 
     def create_profile(self, user):
         username = user.name
@@ -63,7 +62,7 @@ class RegistrationManager(models.Manager):
             # We use the keystoneclient directly here because the keystone api
             # reuses the request (and therefor the session). We make the normal rest-api
             # calls, using our own user for our portal
-            import pdb; pdb.set_trace()
+            
             new_user = self.keystone_manager.register_user(
                                         name=cleaned_data['username'],
                                         email=cleaned_data['email'],

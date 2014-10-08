@@ -25,7 +25,7 @@ LOG = logging.getLogger(__name__)
 
 class RegistrationView(FormView):
 	"""Creates a new user in the backend. Then redirects to the log-in page.
-	Once registered, defines the URL where to redirect for login
+	Once registered, defines the URL where to redirect for activation
 	"""
 	form_class = RegistrationForm
 	http_method_names = ['get', 'post', 'head', 'options', 'trace']
@@ -52,7 +52,6 @@ class RegistrationView(FormView):
 		return super(RegistrationView, self).get_success_url()	
 
 	def form_valid(self, request, form):
-		import pdb; pdb.set_trace()
 		new_user = self.register(request, **form.cleaned_data)
 		if new_user:
 			success_url = self.get_success_url(request, new_user)
@@ -87,4 +86,4 @@ class ActivationView(TemplateView):
 		return activated_user
 
 	def get_success_url(self, request, user):
-		return 'idm'
+		return 'login'
