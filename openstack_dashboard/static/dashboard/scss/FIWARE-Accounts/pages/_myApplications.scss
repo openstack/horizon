@@ -22,4 +22,8 @@
       color: $brand-secundary;
     }
   }
+  form#new_application section textarea {
+    min-height: 40px;
+    max-height: 55px;
+  }
 }
