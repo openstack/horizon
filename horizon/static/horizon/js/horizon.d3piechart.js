@@ -237,7 +237,7 @@ horizon.d3_pie_chart_distribution = {
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", function(d) {
-        var item = undefined;
+        var item;
         for (var i = 0; i < self.data.length; i++) {
           if (self.data[i].key == d) {
             item = self.data[i];
