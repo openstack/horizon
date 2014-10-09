@@ -18,8 +18,8 @@ from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
-from openstack_dashboard.fiware_auth.forms import RegistrationForm,EmailForm,ChangePasswordForm
-from openstack_dashboard.fiware_auth.models import RegistrationProfile,ResetPasswordProfile
+from openstack_dashboard.fiware_auth import forms as fiware_forms
+from openstack_dashboard.fiware_auth import models as fiware_models
 
 
 LOG = logging.getLogger(__name__)
@@ -68,7 +68,7 @@ class RegistrationView(_RequestPassingFormView):
     """Creates a new user in the backend. Then redirects to the log-in page.
     Once registered, defines the URL where to redirect for activation
     """
-    form_class = RegistrationForm
+    form_class = fiware_forms.RegistrationForm
     http_method_names = ['get', 'post', 'head', 'options', 'trace']
     success_url = reverse_lazy('login')
     template_name = 'auth/registration/registration.html'
@@ -80,14 +80,13 @@ class RegistrationView(_RequestPassingFormView):
             # success_url must be a simple string, no tuples
             return redirect(success_url)
 
-    # TODO(garcianavalon)
     # We have to protect the entire "cleaned_data" dict because it contains the
     # password and confirm_password strings.
     def register(self, request, **cleaned_data):
         msg = 'Singup user "%(username)s".' % {'username': request.user.username}
         LOG.info(msg)
         #delegate to the manager to create all the stuff
-        new_user = RegistrationProfile.objects.create_inactive_user(request, **cleaned_data)
+        new_user = fiware_models.RegistrationProfile.objects.create_inactive_user(request, **cleaned_data)
         return new_user
 
 
@@ -104,11 +103,11 @@ class ActivationView(TemplateView):
         return super(ActivationView, self).get(request, *args, **kwargs)
 
     def activate(self, request, activation_key):
-        activated_user = RegistrationProfile.objects.activate_user(request,activation_key)
+        activated_user = fiware_models.RegistrationProfile.objects.activate_user(request,activation_key)
         return activated_user
 
 class RequestPasswordResetView(_RequestPassingFormView):
-    form_class = EmailForm
+    form_class = fiware_forms.EmailForm
     template_name = 'auth/password/request.html'
     success_url = reverse_lazy('login')
 
@@ -120,11 +119,11 @@ class RequestPasswordResetView(_RequestPassingFormView):
         msg = 'Creating reset token for "%s".' % email
         LOG.info(msg)
         #delegate to the manager
-        ResetPasswordProfile.objects.create_reset_password_token(request,email)
+        fiware_models.ResetPasswordProfile.objects.create_reset_password_token(request,email)
 
 
 class ResetPasswordView(_RequestPassingFormView):
-    form_class = ChangePasswordForm
+    form_class = fiware_forms.ChangePasswordForm
     template_name = 'auth/password/reset.html'
     success_url = reverse_lazy('login')
 
@@ -140,7 +139,6 @@ class ResetPasswordView(_RequestPassingFormView):
     def form_valid(self,request,form):
         password = form.cleaned_data['password1']
         token = request.GET.get('reset_password_token')
-        import pdb; pdb.set_trace()
         user = self._reset_password(request,token,password)
         if user:
             return super(ResetPasswordView, self).form_valid(form)
@@ -150,11 +148,11 @@ class ResetPasswordView(_RequestPassingFormView):
         msg = 'Reseting password for token "%s".' % token
         LOG.info(msg)
         #delegate to the manager
-        user = ResetPasswordProfile.objects.reset_password(request,token,new_password)
+        user = fiware_models.ResetPasswordProfile.objects.reset_password(request,token,new_password)
         return user
     
 class ResendConfirmationInstructionsView(_RequestPassingFormView):
-    form_class = EmailForm
+    form_class = fiware_forms.EmailForm
     template_name = 'auth/registration/confirmation.html'
     success_url = reverse_lazy('login')
 
@@ -166,4 +164,4 @@ class ResendConfirmationInstructionsView(_RequestPassingFormView):
         msg = 'Resending confirmation instructions to "%s".' % email
         LOG.info(msg)
         #delegate to the manager
-        RegistrationProfile.objects.resend_email(request,email)
+        fiware_models.RegistrationProfile.objects.resend_email(request,email)

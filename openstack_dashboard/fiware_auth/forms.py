@@ -65,13 +65,8 @@ class RegistrationForm(ConfirmPasswordForm):
         self.fields.keyOrder = ['username', 'email', 'password1', 'password2']
     
     def clean_username(self):
-        """
-        Validate that the username is alphanumeric and is not already
-        in use.
-        
-        """
+        """ Validate that the username is not already in use."""
         username = self.cleaned_data['username']
-        #TODO(garcianavalon) check if alfanumeric/valid for keystone
 
         keystone_manager = KeystoneManager()
         try:
