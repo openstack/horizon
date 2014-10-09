@@ -1,0 +1,18 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+<div class="resend-confirmation-instructions">
+    {% block modal-header %}
+        <br>
+        <br>
+        <h1>Resend confirmation instructions</h1>
+    {% endblock %}
+    {% block form_action %}{% url 'fiware_auth_confirmation' %}{% endblock %}
+    {% block modal-body %}
+        {% include "horizon/common/_form_fields.html" %}
+    {% endblock %}
+
+    {% block modal-footer %}
+        <button type="submit" class="btn btn-primary">{% trans "Resend confirmation instructions" %}</button>
+    {% endblock %}
+</div>
