@@ -28,7 +28,7 @@ class CreateApplication(tables.LinkAction):
     url = "horizon:idm:myApplication"
 
     def get_link_url(self):
-        base_url = '/idm/myApplication/new'
+        base_url = '/idm/myApplication/create'
         return base_url
 
 

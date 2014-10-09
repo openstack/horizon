@@ -13,22 +13,26 @@ from openstack_auth import exceptions as auth_exceptions
 
 
 class CreateApplicationForm(forms.SelfHandlingForm):
-	name = forms.CharField(label=_("Name"), required=True)
-	description = forms.CharField(label=_("Description"),widget=forms.Textarea, required=True)
-	url = forms.CharField(label=_("URL"), required=True)
-	callbackurl = forms.CharField(label=_("Callback URL"), required=True)
+	name = forms.CharField(label=_("Name"), required=False)
+	description = forms.CharField(label=_("Description"),widget=forms.Textarea, required=False)
+	url = forms.CharField(label=_("URL"), required=False)
+	callbackurl = forms.CharField(label=_("Callback URL"), required=False)
 
-	def handle(self, request, data):
-		# user_id=request.user.id
-		# user = api.keystone.user_get(request,user_id,admin=False)    
-		response = shortcuts.redirect(horizon.get_user_home(request.user))
+	def handle(self, request,data):
+		response = shortcuts.redirect('horizon:idm:myApplications:upload')
 		return response
 	
-class UploadImageForm(forms.Form):
-	file = forms.ImageField(required=True)
+class UploadImageForm(forms.SelfHandlingForm):
+	file = forms.ImageField(required=False)
 
 	def handle(self, request, data):
-		# user_id=request.user.id
-		# user = api.keystone.user_get(request,user_id,admin=False)    
-		response = shortcuts.redirect(horizon.get_user_home(request.user))
+		response = shortcuts.redirect('horizon:idm:myApplications:roles')
+		return response
+	
+class RolesApplicationForm(forms.SelfHandlingForm):
+	name = forms.CharField(label=_("Nombre"), required=False)
+	file = forms.ImageField(required=False)
+
+	def handle(self, request, data):
+		response = shortcuts.redirect('horizon:idm:myApplications:index')
 		return response
