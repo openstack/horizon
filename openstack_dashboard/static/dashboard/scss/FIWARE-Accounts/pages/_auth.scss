@@ -86,7 +86,6 @@
   }
 } 
 
-
 .view-more{
   margin-top: 10px;
   margin-bottom: 10px;
@@ -98,6 +97,8 @@
     }
   }
 }
+
+
 
 
 .login,
@@ -168,3 +169,19 @@
     margin: 0 auto 2px;
   }
 }
+
+
+
+.remember-password{
+  @include make-sm-column(6, $gutter: $grid-gutter-width);
+  @include make-md-column(6, $gutter: $grid-gutter-width);
+  @include make-lg-column(6, $gutter: $grid-gutter-width);
+  @include make-sm-column-offset(3);
+  @include make-md-column-offset(3);
+  @include make-lg-column-offset(3);
+  @extend .well;
+  @include border-top-radius (0);
+  @include border-bottom-radius (0);
+}
+
+
