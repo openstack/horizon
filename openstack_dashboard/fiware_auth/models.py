@@ -11,7 +11,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import hashlib
 import logging
 import uuid
 
@@ -46,12 +45,9 @@ class RegistrationManager(models.Manager):
                 return user
 
     def create_profile(self, user):
-        username = user.name
-        if isinstance(username, unicode):
-            username = username.encode('utf-8')
-        activation_key = hashlib.sha1(username).hexdigest()
+        activation_key = uuid.uuid4().get_hex()
         return self.create(user_id=user.id,
-                           user_name=username,
+                           user_name=user.name,
                            user_email=user.email,
                            activation_key=activation_key)
 
@@ -78,6 +74,32 @@ class RegistrationManager(models.Manager):
 
         except Exception:
             exceptions.handle(request, _('Unable to create user.'))
+
+    def resend_email(self,request,email):
+        try:
+            profile = self.get(user_email=email)
+        except self.model.DoesNotExist:
+            msg = _('Sorry. You have specified an email address that is not registered \
+                 to any our our user accounts. If your problem persits, please contact: \
+                 fiware-lab-help@lists.fi-ware.org')
+            messages.error(request,msg)
+            return False
+
+        if profile.activation_key == self.model.ACTIVATED:
+            msg = _('Email was already confirmed, please try signing in')
+            messages.error(request,msg)
+            return False
+
+        # generate a new key and send
+        profile.activation_key = uuid.uuid4().get_hex()
+        profile.save()
+
+        profile.send_activation_email()
+
+        msg = _('Resended confirmation instructions to %s') %email
+        messages.success(request,msg)
+        return True
+
 
 class RegistrationProfile(models.Model):
     """
@@ -115,13 +137,14 @@ class ResetPasswordManager(models.Manager):
     
     keystone_manager = KeystoneManager()
 
-    def create_profile(self):
+    def create_profile(self,email):
         reset_password_token = uuid.uuid4().get_hex()
-        return self.create(reset_password_token=reset_password_token)
+        return self.create(reset_password_token=reset_password_token,
+                            user_email=email)
 
     def create_reset_password_token(self,request,email):
 
-        registration_profile = self.create_profile()
+        registration_profile = self.create_profile(email)
         registration_profile.send_reset_email(email)
 
         messages.success(request,_('Reset mail send to %s') % email)
@@ -130,7 +153,8 @@ class ResetPasswordManager(models.Manager):
         try:
             profile = self.get(reset_password_token=token)
         except self.model.DoesNotExist:
-            return False
+            messages.error(request,_('Reset password token is invalid'))
+            return None
 
         if not profile.reset_password_token_expired():
             user_email = profile.user_email
@@ -163,5 +187,5 @@ class ResetPasswordProfile(models.Model):
             [email], fail_silently=False)
 
     def reset_password_token_expired(self):
-        #TODO
+        #TODO(garcianavalon)
         return False

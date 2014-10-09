@@ -19,12 +19,15 @@ from openstack_dashboard.fiware_auth import views
 
 urlpatterns = patterns(
     'fiware_auth.views',
-    url(r"^sign_up/$", views.RegistrationView.as_view(), name='fiware_auth_register'),
+    url(r"^sign_up/$", views.RegistrationView.as_view(), 
+                            name='fiware_auth_register'),
     url(r'^activate/(?P<activation_key>\w+)/$',
-                           views.ActivationView.as_view(),
-                           name='fiware_auth_activate'),
+                            views.ActivationView.as_view(),
+                            name='fiware_auth_activate'),
     url(r'^password/request/$',views.RequestPasswordResetView.as_view(),
                             name='fiware_auth_request'),
     url(r'^password/reset/$',views.ResetPasswordView.as_view(),
                             name='fiware_auth_reset'),
+    url(r'^confirmation/$',views.ResendConfirmationInstructionsView.as_view(),
+                            name='fiware_auth_confirmation'),
 )

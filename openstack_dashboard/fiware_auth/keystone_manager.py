@@ -14,7 +14,9 @@
 from django.conf import settings
 
 from keystoneclient.v3 import client
-        
+from keystoneclient import exceptions as keystoneclient_exceptions    
+
+
 class KeystoneManager(object):
     """Encapsulates all the logic for communicating with the keystone server.
 
@@ -51,9 +53,21 @@ class KeystoneManager(object):
         user = keystone.users.get(user_id)
         return user
 
-    def _find_user(self,keystone,email=None):
-        user = keystone.users.find(email=email)
-        return user
+    def _find_user(self,keystone,email=None,name=None):
+        # (garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
+        # exception so we do it by hand filtering the python dictionary, 
+        # which is extremely inneficient...
+        if name:
+            user = keystone.users.find(name=name)
+            return user
+        elif email:
+            user_list = keystone.users.list()
+            for user in user_list:
+                if user.email == email:
+                    return user
+            # consistent behaviour with the keystoneclient api
+            msg = "No user matching email=%s." % email
+            raise keystoneclient_exceptions.NotFound(404, msg) 
 
     def _create_project(self,keystone,name,domain,description=None,enabled=False):
         project = keystone.projects.create(name,domain=domain,
@@ -95,5 +109,15 @@ class KeystoneManager(object):
     def change_password(self,user_email,new_password):
         keystone = self._login()
         user = self._find_user(keystone,email=user_email)
-        user = self._update_user(keystone,user,password=new_password)
+        user = self._update_user(keystone,user,password=new_password,enabled=True)
+        return user
+
+    def check_user(self,name):
+        keystone = self._login()
+        user = self._find_user(keystone,name=name)
+        return user
+
+    def check_email(self,email):
+        keystone = self._login()
+        user = self._find_user(keystone,email=email)
         return user
