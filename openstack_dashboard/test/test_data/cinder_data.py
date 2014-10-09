@@ -161,6 +161,7 @@ def data(TEST):
 
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot2))
+    TEST.cinder_volume_snapshots.first()._volume = volume
 
     volume_backup1 = vol_backups.VolumeBackup(vol_backups.
                                               VolumeBackupManager(None),
