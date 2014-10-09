@@ -1,29 +1,31 @@
-#create_application_modal{
+#create_application_modal,
+#upload_image_modal{
    @extend .well;
   .modal-header{
     padding: 0;
     margin-bottom: 15px;
     h3{
       margin: 0;
-    }
-    h3 div {
-      display: inline-block;
-      margin-right: 100px;
-      border-bottom: 5px solid $gray-light;
-      color: $gray-light;
-      padding-bottom: 3px;
-      font-size: 2rem;
-      &:last-child{
-        margin-right: 0px;
+      .steps-group div{
+        display: inline-block;
+        margin-right: 100px;
+        border-bottom: 5px solid $gray-light;
+        color: $gray-light;
+        padding-bottom: 3px;
+        font-size: 2rem;
+        &:last-child{
+          margin-right: 0px;
+        }
+      }
+      div.active {
+        border-bottom: 5px solid $brand-secundary;
+        color: $brand-secundary;
       }
     }
-    h3 div.active {
-      border-bottom: 5px solid $brand-secundary;
-      color: $brand-secundary;
-    }
   }
-  form#new_application section textarea {
+  textarea {
     min-height: 40px;
     max-height: 55px;
+    resize: none;
   }
 }
