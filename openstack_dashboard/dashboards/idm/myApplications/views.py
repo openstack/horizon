@@ -25,7 +25,7 @@ class CreateView(forms.ModalFormView):
 	form_class = application_forms.CreateApplicationForm
 	template_name = 'idm/myApplications/create.html'
 
-	
+
 class UploadImageView(forms.ModalFormView):
 	form_class = application_forms.UploadImageForm
 	template_name = 'idm/myApplications/upload.html'
@@ -33,3 +33,7 @@ class UploadImageView(forms.ModalFormView):
 class RolesView(forms.ModalFormView):
 	form_class = application_forms.RolesApplicationForm
 	template_name = 'idm/myApplications/roles.html'
+
+class FinalView(forms.ModalFormView):
+	form_class = application_forms.CreateApplicationForm
+	template_name = 'idm/myApplications/create.html'
