@@ -66,9 +66,9 @@ class IndexView(tables.MultiTableView):
         return tenants
 
     def get_applications_data(self):
-        tenants = []
+        applications = []
         marker = self.request.GET.get(
             home_tables.ApplicationsTable._meta.pagination_param, None)
         domain_context = self.request.session.get('domain_context', None)
         
-        return tenants
+        return applications
