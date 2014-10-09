@@ -83,7 +83,7 @@
         <dt>{{ info_key }}</dt>
             {% for key, val in info_val.items %}
                 <dd>
-                  {% blocktrans %}{{ key }}: {% autoescape off %}{{ val }}{% endautoescape %}{% endblocktrans %}
+                   {% autoescape off %} {% blocktrans %}{{ key }}:{{ val | safe }} {% endblocktrans %} {% endautoescape %}
                 </dd>
             {% endfor %}
         {% endfor %}
