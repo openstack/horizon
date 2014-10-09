@@ -34,6 +34,3 @@ class RolesView(forms.ModalFormView):
 	form_class = application_forms.RolesApplicationForm
 	template_name = 'idm/myApplications/roles.html'
 
-class FinalView(forms.ModalFormView):
-	form_class = application_forms.CreateApplicationForm
-	template_name = 'idm/myApplications/create.html'

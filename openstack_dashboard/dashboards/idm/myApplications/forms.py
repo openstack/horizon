@@ -22,7 +22,6 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 		response = shortcuts.redirect('horizon:idm:myApplications:upload')
 		return response
 	
-	
 class UploadImageForm(forms.SelfHandlingForm):
 	file = forms.ImageField(required=False)
 
@@ -35,5 +34,5 @@ class RolesApplicationForm(forms.SelfHandlingForm):
 	file = forms.ImageField(required=False)
 
 	def handle(self, request, data):
-		response = shortcuts.redirect('horizon:idm:myApplications:upload')
+		response = shortcuts.redirect('horizon:idm:myApplications:index')
 		return response
