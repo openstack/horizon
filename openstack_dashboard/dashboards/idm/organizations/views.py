@@ -59,7 +59,6 @@ class IndexView(tabs.TabbedTableView):
 class CreateOrganizationView(forms.ModalFormView):
     form_class = organization_forms.CreateOrganizationForm
     template_name = 'idm/organizations/create.html'
-    success_url = '/idm/organizations/'
 
 
 
