@@ -95,10 +95,10 @@ class CreateQosSpec(forms.SelfHandlingForm):
                                               data['name'],
                                               {'consumer': data['consumer']})
             messages.success(request,
-                             _('Successfully created QOS Spec: %s')
+                             _('Successfully created QoS Spec: %s')
                              % data['name'])
             return qos_spec
         except Exception:
             exceptions.handle(request,
-                              _('Unable to create QOS Spec.'))
+                              _('Unable to create QoS Spec.'))
             return False

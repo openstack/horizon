@@ -84,7 +84,7 @@ class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
         except Exception:
             qos_specs = []
             exceptions.handle(self.request,
-                              _("Unable to retrieve QOS specs"))
+                              _("Unable to retrieve QoS specs"))
         return qos_specs
 
 

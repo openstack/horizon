@@ -22,8 +22,8 @@ from openstack_dashboard.api import cinder
 
 class ManageQosSpecAssociation(forms.SelfHandlingForm):
     qos_spec_choice = forms.ChoiceField(
-        label=_("QOS Spec to be associated"),
-        help_text=_("Choose associated QOS Spec."))
+        label=_("QoS Spec to be associated"),
+        help_text=_("Choose associated QoS Spec."))
 
     def __init__(self, request, *args, **kwargs):
         super(ManageQosSpecAssociation, self).__init__(request,
@@ -68,8 +68,8 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
 
         if found_error:
             raise forms.ValidationError(
-                _('New associated QOS Spec must be different than '
-                 'the current associated QOS Spec.'))
+                _('New associated QoS Spec must be different than '
+                 'the current associated QoS Spec.'))
         return cleaned_new_spec_id
 
     def handle(self, request, data):
@@ -100,19 +100,19 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
                                           vol_type_id)
 
             messages.success(request,
-                             _('Successfully updated QOS Spec association.'))
+                             _('Successfully updated QoS Spec association.'))
             return True
         except Exception:
             exceptions.handle(request,
-                              _('Error updating QOS Spec association.'))
+                              _('Error updating QoS Spec association.'))
             return False
 
 
 class EditQosSpecConsumer(forms.SelfHandlingForm):
     consumer_choice = forms.ChoiceField(
-        label=_("QOS Spec Consumer"),
+        label=_("QoS Spec Consumer"),
         choices=cinder.CONSUMER_CHOICES,
-        help_text=_("Choose consumer for this QOS Spec."))
+        help_text=_("Choose consumer for this QoS Spec."))
 
     def __init__(self, request, *args, **kwargs):
         super(EditQosSpecConsumer, self).__init__(request, *args, **kwargs)
@@ -128,7 +128,7 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
 
         if cleaned_new_consumer == old_consumer:
             raise forms.ValidationError(
-                _('QOS Spec consumer value must be different than '
+                _('QoS Spec consumer value must be different than '
                  'the current consumer value.'))
         return cleaned_new_consumer
 
@@ -142,8 +142,8 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
                                      qos_spec_id,
                                      {'consumer': new_consumer})
             messages.success(request,
-                             _('Successfully modified QOS Spec consumer.'))
+                             _('Successfully modified QoS Spec consumer.'))
             return True
         except Exception:
-            exceptions.handle(request, _('Error editing QOS Spec consumer.'))
+            exceptions.handle(request, _('Error editing QoS Spec consumer.'))
             return False
