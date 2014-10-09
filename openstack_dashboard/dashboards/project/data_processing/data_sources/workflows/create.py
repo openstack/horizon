@@ -45,7 +45,7 @@ class GeneralConfigAction(workflows.Action):
     data_source_description = forms.CharField(
         label=_("Description"),
         required=False,
-        widget=forms.Textarea)
+        widget=forms.Textarea(attrs={'rows': 4}))
 
     def __init__(self, request, *args, **kwargs):
         super(GeneralConfigAction, self).__init__(request, *args, **kwargs)

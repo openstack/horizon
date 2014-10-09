@@ -124,7 +124,8 @@ class CreateProjectInfoAction(workflows.Action):
                                   widget=forms.HiddenInput())
     name = forms.CharField(label=_("Name"),
                            max_length=64)
-    description = forms.CharField(widget=forms.widgets.Textarea(),
+    description = forms.CharField(widget=forms.widgets.Textarea(
+                                  attrs={'rows': 4}),
                                   label=_("Description"),
                                   required=False)
     enabled = forms.BooleanField(label=_("Enabled"),

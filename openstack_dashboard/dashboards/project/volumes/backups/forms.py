@@ -31,7 +31,7 @@ from openstack_dashboard.dashboards.project.containers \
 
 class CreateBackupForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Backup Name"))
-    description = forms.CharField(widget=forms.Textarea,
+    description = forms.CharField(widget=forms.Textarea(attrs={'rows': 4}),
                                   label=_("Description"),
                                   required=False)
     container_name = forms.CharField(

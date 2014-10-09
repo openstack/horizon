@@ -113,7 +113,7 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
     _keypair_name_label = _("Key Pair Name")
     _keypair_name_help = _("The Key Pair name that "
                            "was associated with the instance")
-    _attrs = {'readonly': 'readonly'}
+    _attrs = {'readonly': 'readonly', 'rows': 4}
     keypair_name = forms.CharField(widget=forms.widgets.TextInput(_attrs),
                                    label=_keypair_name_label,
                                    help_text=_keypair_name_help,
