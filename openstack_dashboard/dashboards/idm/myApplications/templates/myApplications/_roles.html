@@ -2,26 +2,22 @@
 {% load i18n %}
 {% load url from future %}
 
-{% block form_id %}<!-- upload_image_modal -->{% endblock %}
-{% block form_action %}{% url 'horizon:idm:myApplications:index' %}{% endblock %}
+{% block form_id %}upload_image_modal{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:roles' %}{% endblock %}
 
 {% block modal_id %}upload_image_modal{% endblock %}
 {% block modal-header %}
 {% endblock %}
 
 {% block modal-body %}
-<div class="left">
+<div>
   <fieldset>
     {% include "horizon/common/_form_fields.html" %}
     </fieldset>
 </div>
-<div class="right">
-   <p>{% trans "Manage the permissions of your contacts and create new roles :(" %}</p>
-</div>
-
 {% endblock %}
 
 {% block modal-footer %}
-    <button type="submit" class="btn btn-primary">{% trans "Finish" %}</button>
+    <button type="submit" class="btn btn-primary">{% trans "Next" %}</button>
 {% endblock %}
 

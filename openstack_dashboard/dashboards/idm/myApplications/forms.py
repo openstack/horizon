@@ -18,26 +18,22 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 	url = forms.CharField(label=_("URL"), required=False)
 	callbackurl = forms.CharField(label=_("Callback URL"), required=False)
 
-	def handle(self, request, data):
-		response = shortcuts.redirect(update)
+	def handle(self, request,data):
+		response = shortcuts.redirect('horizon:idm:myApplications:upload')
 		return response
 	
-	
-class UploadImageForm(forms.Form):
+class UploadImageForm(forms.SelfHandlingForm):
 	file = forms.ImageField(required=False)
 
 	def handle(self, request, data):
-		response = shortcuts.redirect('roles')
+		response = shortcuts.redirect('horizon:idm:myApplications:roles')
 		return response
 	
-
 class RolesApplicationForm(forms.SelfHandlingForm):
-	name = forms.CharField(label=_("Name"), required=False)
-	# roles = forms.ChoiceField( 'Provider', 'Purchaser')
+	name = forms.CharField(label=_("Nombre"), required=False)
+	file = forms.ImageField(required=False)
 
 	def handle(self, request, data):
-		user_id=request.user.id
-		user = api.keystone.user_get(request,user_id,admin=False)
-		response = shortcuts.redirect(horizon.get_user_home(request.user))
+		response = shortcuts.redirect('horizon:idm:myApplications:index')
 		return response
-	
+

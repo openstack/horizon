@@ -34,7 +34,7 @@ class CreateView(forms.ModalFormView):
 		return response
 		# return super(ContactView, self).form_valid(form)
 
-	
+
 class UploadImageView(forms.ModalFormView):
 	form_class = application_forms.UploadImageForm
 	template_name = 'idm/myApplications/upload.html'
@@ -50,4 +50,4 @@ class UploadImageView(forms.ModalFormView):
 class RolesView(forms.ModalFormView):
 	form_class = application_forms.RolesApplicationForm
 	template_name = 'idm/myApplications/roles.html'
-	success_url = '/idm/'
+
