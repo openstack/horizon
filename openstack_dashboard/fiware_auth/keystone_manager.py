@@ -51,8 +51,8 @@ class KeystoneManager(object):
         user = keystone.users.get(user_id)
         return user
 
-    def _find_user(self,keystone,email=None):
-        user = keystone.users.find(email=email)
+    def _find_user(self,keystone,email=None,name=None):
+        user = keystone.users.find(email=email,name=name)
         return user
 
     def _create_project(self,keystone,name,domain,description=None,enabled=False):
@@ -96,4 +96,14 @@ class KeystoneManager(object):
         keystone = self._login()
         user = self._find_user(keystone,email=user_email)
         user = self._update_user(keystone,user,password=new_password)
+        return user
+
+    def check_user(self,name):
+        keystone = self._login()
+        user = self._find_user(keystone,name=name)
+        return user
+
+    def check_email(self,email):
+        keystone = self._login()
+        user = self._find_user(keystone,email=email)
         return user

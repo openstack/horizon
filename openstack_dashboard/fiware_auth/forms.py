@@ -14,7 +14,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard import api
+from openstack_dashboard.fiware_auth.keystone_manager import KeystoneManager
 
 
 class RegistrationForm(forms.Form):
@@ -51,14 +51,29 @@ class RegistrationForm(forms.Form):
         in use.
         
         """
-        #TODO(garcianavalon) check if email already in use
+        username = self.cleaned_data['username']
         #TODO(garcianavalon) check if alphanumeric
-        #TODO(garcianavalon) check if user exists
-        # existing = api.keystone.user_list(self.request)
-        # if existing.exists():
-        #     raise forms.ValidationError(_("A user with that username already exists."))
-        # else:
-        return self.cleaned_data['username']
+
+        keystone_manager = KeystoneManager()
+        existing = keystone_manager.check_user(username)
+
+        if existing.exists():
+             raise forms.ValidationError(_("A user with that username already exists."),
+                                        code='invalid')
+        return username
+
+    def clean_email(self):
+        """ Validate taht the email is not already in use"""
+
+        email = self.cleaned_data['email']
+
+        keystone_manager = KeystoneManager()
+        existing = keystone_manager.check_email(email)
+
+        if existing.exists():
+             raise forms.ValidationError(_("The email is already in use."),
+                                         code='invalid')
+        return email
 
     def clean(self):
         """
@@ -70,7 +85,8 @@ class RegistrationForm(forms.Form):
         """
         if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
             if self.cleaned_data['password1'] != self.cleaned_data['password2']:
-                raise forms.ValidationError(_("The two password fields didn't match."))
+                raise forms.ValidationError(_("The two password fields didn't match."),
+                                                code='invalid')
         return self.cleaned_data
 
 
