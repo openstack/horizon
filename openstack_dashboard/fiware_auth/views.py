@@ -18,7 +18,7 @@ from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
-from openstack_dashboard.fiware_auth.forms import RegistrationForm,RequestPasswordResetForm,ChangePasswordForm
+from openstack_dashboard.fiware_auth.forms import RegistrationForm,EmailForm,ChangePasswordForm
 from openstack_dashboard.fiware_auth.models import RegistrationProfile,ResetPasswordProfile
 
 
@@ -108,7 +108,7 @@ class ActivationView(TemplateView):
         return activated_user
 
 class RequestPasswordResetView(_RequestPassingFormView):
-    form_class = RequestPasswordResetForm
+    form_class = EmailForm
     template_name = 'auth/password/request.html'
     success_url = reverse_lazy('login')
 
@@ -141,12 +141,29 @@ class ResetPasswordView(_RequestPassingFormView):
         password = form.cleaned_data['password1']
         token = request.GET.get('reset_password_token')
         import pdb; pdb.set_trace()
-        self._reset_password(request,token,password)
-        return super(ResetPasswordView, self).form_valid(form)
+        user = self._reset_password(request,token,password)
+        if user:
+            return super(ResetPasswordView, self).form_valid(form)
+        return self.get(request) # redirect to itself
 
     def _reset_password(self,request,token,new_password):
         msg = 'Reseting password for token "%s".' % token
         LOG.info(msg)
         #delegate to the manager
-        ResetPasswordProfile.objects.reset_password(request,token,new_password)
+        user = ResetPasswordProfile.objects.reset_password(request,token,new_password)
+        return user
     
+class ResendConfirmationInstructionsView(_RequestPassingFormView):
+    form_class = EmailForm
+    template_name = 'auth/registration/confirmation.html'
+    success_url = reverse_lazy('login')
+
+    def form_valid(self,request,form):
+        self._resend_confirmation_email(request,form.cleaned_data['email'])
+        return super(ResendConfirmationInstructionsView, self).form_valid(form)
+
+    def _resend_confirmation_email(self,request,email):
+        msg = 'Resending confirmation instructions to "%s".' % email
+        LOG.info(msg)
+        #delegate to the manager
+        RegistrationProfile.objects.resend_email(request,email)

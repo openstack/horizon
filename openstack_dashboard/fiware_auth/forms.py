@@ -13,6 +13,7 @@
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from keystoneclient import exceptions as keystoneclient_exceptions   
 
 from openstack_dashboard.fiware_auth.keystone_manager import KeystoneManager
 
@@ -55,12 +56,12 @@ class RegistrationForm(forms.Form):
         #TODO(garcianavalon) check if alphanumeric
 
         keystone_manager = KeystoneManager()
-        existing = keystone_manager.check_user(username)
-
-        if existing.exists():
-             raise forms.ValidationError(_("A user with that username already exists."),
+        try:
+            existing = keystone_manager.check_user(username)
+            raise forms.ValidationError(_("A user with that username already exists."),
                                         code='invalid')
-        return username
+        except keystoneclient_exceptions.NotFound:
+            return username
 
     def clean_email(self):
         """ Validate taht the email is not already in use"""
@@ -68,12 +69,12 @@ class RegistrationForm(forms.Form):
         email = self.cleaned_data['email']
 
         keystone_manager = KeystoneManager()
-        existing = keystone_manager.check_email(email)
-
-        if existing.exists():
-             raise forms.ValidationError(_("The email is already in use."),
+        try:
+            existing = keystone_manager.check_email(email)
+            raise forms.ValidationError(_("The email is already in use."),
                                          code='invalid')
-        return email
+        except keystoneclient_exceptions.NotFound:
+            return email
 
     def clean(self):
         """
@@ -90,7 +91,7 @@ class RegistrationForm(forms.Form):
         return self.cleaned_data
 
 
-class RequestPasswordResetForm(forms.Form):
+class EmailForm(forms.Form):
     email = forms.EmailField(label=_("E-mail"))
  
 

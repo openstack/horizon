@@ -27,4 +27,6 @@ urlpatterns = patterns(
                             name='fiware_auth_request'),
     url(r'^password/reset/$',views.ResetPasswordView.as_view(),
                             name='fiware_auth_reset'),
+    url(r'^confirmation/$',views.ResendConfirmationInstructionsView.as_view(),
+                            name='fiware_auth_confirmation'),
 )
