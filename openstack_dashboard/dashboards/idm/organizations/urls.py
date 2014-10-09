@@ -5,7 +5,6 @@ from openstack_dashboard.dashboards.idm.organizations import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create$', views.CreateOrganizationView.as_view(), name='create'),
-    url(r'^(?P<tenant_id>[^/]+)/update/$',
-        views.UpdateOrganizationView.as_view(), name='update'),    
+    url(r'^create/$', views.CreateOrganizationView.as_view(), name='create'),
+    url(r'^(?P<tenant_id>[^/]+)/update/$', views.UpdateOrganizationView.as_view(), name='update'),    
 )
