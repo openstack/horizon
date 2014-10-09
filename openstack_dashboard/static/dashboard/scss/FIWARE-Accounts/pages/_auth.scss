@@ -116,20 +116,7 @@
     margin-top: 40px; 
   }
   .modal-header{
-    border-bottom: transparent;
-    padding: 0px;
-    h3{
-      @extend h4;
-      text-align: right;
-      color: $brand-secundary;
-      font-family: $corporate-font-family-sans-serif-Regular;
-      margin-top: 0;
-    }
-  }
-  .control-label{
-    font-weight: normal;
-    color: $gray-light;
-    margin-bottom: 4px;
+    @include modal-header;
   }
   .actions{
     clear: both;
@@ -151,14 +138,24 @@
     padding: 15px 0 0;
   }
 }
-
+.control-label{
+  font-weight: normal;
+  color: $gray-light;
+  margin-bottom: 4px;
+}
 .conditions{
-  font-size: 11px;
+  font-size: 10px;
   text-align: left;
-  a{
+  margin-bottom: 15px;
+  float: left;
+    a{
     text-decoration: underline;
   }
+  #inlineCheckbox1{ 
+    margin-top: 2.2px;
+  }
 }
+
 .simple_captcha{
   border-top: 1px solid #E2E2E2;
   border-bottom: 1px solid #E2E2E2;
@@ -182,6 +179,12 @@
   @extend .well;
   @include border-top-radius (0);
   @include border-bottom-radius (0);
+  .modal-header{
+    @include modal-header;
+  }
+  .modal-footer {
+    padding-bottom: 0;
+  }
 }
 
 
