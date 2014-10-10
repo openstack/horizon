@@ -49,16 +49,16 @@ class DeleteVolumeType(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete VolumeType",
-            u"Delete VolumeTypes",
+            u"Delete Volume Type",
+            u"Delete Volume Types",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted VolumeType",
-            u"Deleted VolumeTypes",
+            u"Deleted Volume Type",
+            u"Deleted Volume Types",
             count
         )
     policy_rules = (("volume", "volume_extension:types_manage"),)
