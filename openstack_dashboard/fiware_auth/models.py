@@ -21,13 +21,11 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import messages
 from horizon import exceptions
 
-from openstack_dashboard.fiware_auth.keystone_manager import KeystoneManager
+from openstack_dashboard import fiware_api
 
 LOG = logging.getLogger(__name__)
 
 class RegistrationManager(models.Manager):
-
-    keystone_manager = KeystoneManager()
 
     def activate_user(self,request,activation_key):
         try:
@@ -37,7 +35,7 @@ class RegistrationManager(models.Manager):
         if not profile.activation_key_expired():
             user_id = profile.user_id
             #enable the user in the keystone backend
-            user = self.keystone_manager.activate_user(user_id)
+            user = fiware_api.keystone.activate_user(user_id)
             if user:
                 profile.activation_key = self.model.ACTIVATED
                 profile.save()
@@ -59,7 +57,7 @@ class RegistrationManager(models.Manager):
             # reuses the request (and therefor the session). We make the normal rest-api
             # calls, using our own user for our portal
             
-            new_user = self.keystone_manager.register_user(
+            new_user = fiware_api.keystone.register_user(
                                         name=cleaned_data['username'],
                                         email=cleaned_data['email'],
                                         password=cleaned_data['password1'])
@@ -134,8 +132,6 @@ class RegistrationProfile(models.Model):
 
 
 class ResetPasswordManager(models.Manager):
-    
-    keystone_manager = KeystoneManager()
 
     def create_profile(self,email):
         reset_password_token = uuid.uuid4().get_hex()
@@ -159,7 +155,7 @@ class ResetPasswordManager(models.Manager):
         if not profile.reset_password_token_expired():
             user_email = profile.user_email
             #change the user password in the keystone backend
-            user = self.keystone_manager.change_password(user_email,new_password)
+            user = fiware_api.keystone.change_password(user_email,new_password)
             if user:
                 profile.reset_password_token = self.model.USED
                 profile.save()

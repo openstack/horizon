@@ -15,7 +15,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from keystoneclient import exceptions as keystoneclient_exceptions   
 
-from openstack_dashboard.fiware_auth.keystone_manager import KeystoneManager
+from openstack_dashboard import fiware_api
 
 class ConfirmPasswordForm(forms.Form):
     """Encapsulates the idea of two password fields and checking they are the same"""
@@ -68,9 +68,8 @@ class RegistrationForm(ConfirmPasswordForm):
         """ Validate that the username is not already in use."""
         username = self.cleaned_data['username']
 
-        keystone_manager = KeystoneManager()
         try:
-            existing = keystone_manager.check_user(username)
+            existing = fiware_api.keystone.check_user(username)
             raise forms.ValidationError(_("A user with that username already exists."),
                                         code='invalid')
         except keystoneclient_exceptions.NotFound:
@@ -81,9 +80,8 @@ class RegistrationForm(ConfirmPasswordForm):
 
         email = self.cleaned_data['email']
 
-        keystone_manager = KeystoneManager()
         try:
-            existing = keystone_manager.check_email(email)
+            existing = fiware_api.keystone.check_email(email)
             raise forms.ValidationError(_("The email is already in use."),
                                          code='invalid')
         except keystoneclient_exceptions.NotFound:
