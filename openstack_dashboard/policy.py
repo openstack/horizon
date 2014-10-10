@@ -28,6 +28,11 @@ from openstack_dashboard.openstack.common import policy
 LOG = logging.getLogger(__name__)
 
 CONF = cfg.CONF
+# Policy Enforcer has been updated to take in a policy directory
+# as a config option. However, the default value in is set to
+# ['policy.d'] which causes the code to break. Set the default
+# value to empty list for now.
+CONF.policy_dirs = []
 
 _ENFORCER = None
 _BASE_PATH = getattr(settings, 'POLICY_FILES_PATH', '')
