@@ -639,6 +639,10 @@ form label {
     display: inline-block;
 }
 
+.login.modal .modal-dialog {
+  width: 390px;
+}
+
 .modal.fullscreen .modal-dialog {
   width: 90%;
   margin: auto;

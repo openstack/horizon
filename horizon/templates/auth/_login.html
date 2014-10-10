@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block modal-header %}{% trans "Log In" %}{% endblock %}
-{% block modal_class %}login {% if hide %}modal hide{% endif %}{% endblock %}
+{% block modal_class %}login {% if hide %}modal{% endif %}{% endblock %}
 
 {% block form_action %}{% url 'login' %}{% endblock %}
 {% block ng_controller %}hzLoginCtrl{% endblock %}
