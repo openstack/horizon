@@ -99,27 +99,6 @@
   }
 }
 
-.registration{
-  label{
-    @extend .control-label;
-  }
-  input{
-    &[type="text"],
-    &[type="email"],
-    &[type="password"]{
-      @extend .form-control;
-      margin-bottom: 15px; 
-    }
-  }
-  input{
-    &[type="submit"]{
-      float: right; 
-    }
-  }
-  .modal-footer{
-    display: none;
-  }
-}
 
 .login,
 .registration{
@@ -173,7 +152,8 @@
 }
 
 .conditions{
-  font-size: 12px;
+  font-size: 11px;
+  text-align: left;
 }
 .simple_captcha{
   border-top: 1px solid #E2E2E2;
