@@ -25,6 +25,7 @@ from horizon import tables
 from horizon.utils import memoized
 from horizon import workflows
 from horizon import tabs
+from horizon import forms
 
 from openstack_dashboard import api
 from openstack_dashboard.api import keystone
@@ -36,6 +37,8 @@ from openstack_dashboard.dashboards.idm.organizations \
     import workflows as organization_workflows
 from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
+from openstack_dashboard.dashboards.idm.organizations \
+    import forms as organization_forms
 
 
 PROJECT_INFO_FIELDS = ("domain_id",
@@ -47,88 +50,17 @@ PROJECT_INFO_FIELDS = ("domain_id",
 INDEX_URL = "horizon:idm:organizations:index"
 
 
-class TenantContextMixin(object):
-    @memoized.memoized_method
-    def get_object(self):
-        tenant_id = self.kwargs['tenant_id']
-        try:
-            return api.keystone.tenant_get(self.request, tenant_id, admin=True)
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve organization information.'),
-                              redirect=reverse(INDEX_URL))
-
-    def get_context_data(self, **kwargs):
-        context = super(TenantContextMixin, self).get_context_data(**kwargs)
-        context['tenant'] = self.get_object()
-        return context
 
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = organization_tabs.PanelTabs
     template_name = 'idm/organizations/index.html'
 
-    # def has_more_data(self, table):
-    #     return self._more
 
-    def get_data(self):
-        tenants = []
-        marker = self.request.GET.get(
-            organization_tables.TenantsTable._meta.pagination_param, None)
-        domain_context = self.request.session.get('domain_context', None)
-        if policy.check((("idm", "idm:list_organizations"),),
-                        self.request):
-            try:
-                # , self._more
-                tenants = api.keystone.tenant_list(
-                    self.request,
-                    domain=domain_context,
-                    paginate=True,
-                    marker=marker)
-            except Exception:
-                # self._more = False
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve organization list."))
-        elif policy.check((("idm", "idm:list_user_organizations"),),
-                          self.request):
-            try:
-                tenants, self._more = api.keystone.tenant_list(
-                    self.request,
-                    user=self.request.user.id,
-                    paginate=True,
-                    marker=marker,
-                    admin=False)
-            except Exception:
-                # self._more = False
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve organization information."))
-        else:
-            # self._more = False
-            msg = \
-                _("Insufficient privilege level to view organization information.")
-            messages.info(self.request, msg)
-        return tenants
+class CreateOrganizationView(forms.ModalFormView):
+    form_class = organization_forms.CreateOrganizationForm
+    template_name = 'idm/organizations/create.html'
 
-
-
-
-class CreateOrganizationView(workflows.WorkflowView):
-    workflow_class = organization_workflows.CreateOrganization
-
-    def get_initial(self):
-        initial = super(CreateOrganizationView, self).get_initial()
-
-        # Set the domain of the organization
-        domain = api.keystone.get_default_domain(self.request)
-        initial["domain_id"] = domain.id
-        initial["domain_name"] = domain.name
-
-        try:
-            organization_id = self.request.user.organization_id
-        except Exception:
-            error_msg = _('Unable to create organization')
-            
-        return initial
 
 
 class UpdateOrganizationView(workflows.WorkflowView):
