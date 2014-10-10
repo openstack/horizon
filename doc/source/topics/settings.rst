@@ -1,6 +1,6 @@
-==================================
-Horizon Settings and Configuration
-==================================
+==========================
+Settings and Configuration
+==========================
 
 Introduction
 ============
