@@ -37,7 +37,8 @@ from openstack_dashboard.dashboards.idm.organizations \
     import workflows as organization_workflows
 from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
-from openstack_dashboard.dashboards.idm.organizations import forms as organization_forms
+from openstack_dashboard.dashboards.idm.organizations \
+    import forms as organization_forms
 
 
 PROJECT_INFO_FIELDS = ("domain_id",

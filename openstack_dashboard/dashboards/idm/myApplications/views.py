@@ -25,26 +25,11 @@ class IndexView(tabs.TabbedTableView):
 class CreateView(forms.ModalFormView):
 	form_class = application_forms.CreateApplicationForm
 	template_name = 'idm/myApplications/create.html'
-	success_url = '/idm/myApplications/upload'
-
-	def form_valid(self, form):
-		# This method is called when valid form data has been POSTed.
-		# It should return an HttpResponse.
-		response = shortcuts.redirect('update')
-		return response
-		# return super(ContactView, self).form_valid(form)
-
+	
 
 class UploadImageView(forms.ModalFormView):
 	form_class = application_forms.UploadImageForm
 	template_name = 'idm/myApplications/upload.html'
-	# success_url = '/idm/myApplications/roles'
-
-	def form_valid(self, form):
-		# This method is called when valid form data has been POSTed.
-		# It should return an HttpResponse.
-		response = shortcuts.redirect('roles')
-		return response
 
 
 class RolesView(forms.ModalFormView):
