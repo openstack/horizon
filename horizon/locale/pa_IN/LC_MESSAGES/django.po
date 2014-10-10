@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-08 00:40-0500\n"
-"PO-Revision-Date: 2014-10-08 06:00+0000\n"
-"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
+"POT-Creation-Date: 2014-10-09 22:05-0500\n"
+"PO-Revision-Date: 2014-10-09 23:37+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
 
 #: browsers/base.py:88
 msgid "Navigation Item"
-msgstr ""
+msgstr "ਨੈਵੀਗੇਸ਼ਨ ਚੀਜ਼"
 
 #: browsers/views.py:41
 #, python-format
@@ -278,11 +278,11 @@ msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹ"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
-msgstr ""
+msgstr "ਆਇਤਨ"
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr ""
+msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:12
 msgid ""
@@ -292,7 +292,7 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr ""
+msgstr "\n        ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ।\n        ਤੁਸੀਂ ਗਲਾਂਸ ਸ਼ਬਦਕੋਸ਼ ਵਿੱਚ ਜੋੜੇ ਮੈਟਾਡਾਟਾ ਨੂੰ ਚੁਣ ਸਕਦੇ ਹੋ ਜਾਂ ਫਿਰ ਤੁਸੀਂ ਆਪਣੀ\n        ਪਸੰਦ ਦੀ ਕੋਈ ਚਾਬੀ ਵਰਤ ਕੇ \"ਹੋਰ\" ਚੋਣ ਵਰਤ\n        ਸਕਦੇ ਹੋ।\n      "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
@@ -300,7 +300,7 @@ msgstr "ਉਪਲੱਬਧ ਮੈਟਾਡਾਟਾ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "ਨਕਲ ਚਾਬੀਆਂ ਪਰਵਾਨਤ ਨਹੀਂ ਹਨ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
@@ -308,8 +308,8 @@ msgstr "ਅਢੁਕਵਾਂ ਚਾਬੀ ਨਾਂ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No existing metadata"
-msgstr "ਕੋਈ ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ ਨਹੀਂ"
+msgid "No available metadata"
+msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -323,7 +323,7 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr ""
+msgstr "\n          ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਵਸੀਲਾ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ।\n          ਖੱਬੀ ਪੱਟੀ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ।\n          ਆਪਣੀ ਪਸੰਦ ਦੀ ਚਾਬੀ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।\n        "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
@@ -335,14 +335,14 @@ msgstr "ਸੰਭਾਲੋ"
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "%(nav_items)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "%(content_items)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -478,7 +478,7 @@ msgstr "ਪੋਰਟ ਨੰਬਰ ਦਾ ਅੰਕ ਹੋਣਾ ਲਾਜਮੀ 
 
 #: workflows/base.py:71
 msgid "Processing..."
-msgstr ""
+msgstr "...ਕਾਰਵਾਈ ਚੱਲ ਰਹੀ ਹੈ"
 
 #: workflows/base.py:475
 msgid "All available"

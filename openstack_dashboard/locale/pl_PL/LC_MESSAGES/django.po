@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-08 00:40-0500\n"
-"PO-Revision-Date: 2014-10-08 03:35+0000\n"
+"POT-Creation-Date: 2014-10-09 22:05-0500\n"
+"PO-Revision-Date: 2014-10-09 23:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -419,12 +419,12 @@ msgstr "Administracja"
 #: dashboards/identity/domains/tables.py:198
 #: dashboards/identity/domains/workflows.py:34
 #: dashboards/identity/groups/forms.py:30
-#: dashboards/identity/groups/forms.py:55
+#: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:193
 #: dashboards/identity/projects/workflows.py:125
 #: dashboards/project/access_and_security/security_groups/forms.py:37
-#: dashboards/project/access_and_security/security_groups/forms.py:64
+#: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:122
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/cluster_templates/tables.py:112
@@ -432,7 +432,6 @@ msgstr "Administracja"
 #: dashboards/project/data_processing/clusters/tables.py:108
 #: dashboards/project/data_processing/clusters/tabs.py:134
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/data_sources/tables.py:60
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
@@ -489,11 +488,11 @@ msgstr "Administracja"
 #: dashboards/project/routers/forms.py:85
 #: dashboards/project/routers/tables.py:165
 #: dashboards/project/routers/ports/tables.py:94
-#: dashboards/project/routers/templates/routers/_detail_overview.html:7
+#: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/volumes/backups/tables.py:106
 #: dashboards/project/volumes/snapshots/tables.py:138
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:10
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: dashboards/project/volumes/volumes/tables.py:325
@@ -511,7 +510,6 @@ msgstr "Administracja"
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:7
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:7
 #: dashboards/router/nexus1000v/forms.py:50
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
 msgid "Name"
 msgstr "Nazwa"
 
@@ -611,7 +609,7 @@ msgstr "Hosty"
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:141
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:44
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
 msgstr "Metadane"
@@ -749,8 +747,8 @@ msgstr "Dodaj/usuń hosty z agregatu"
 #: dashboards/admin/flavors/workflows.py:264
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
-#: dashboards/identity/domains/workflows.py:299
-#: dashboards/identity/projects/workflows.py:510
+#: dashboards/identity/domains/workflows.py:300
+#: dashboards/identity/projects/workflows.py:511
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -780,31 +778,21 @@ msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:19
 #: dashboards/identity/domains/tables.py:200
-#: dashboards/identity/domains/workflows.py:36
-#: dashboards/identity/groups/forms.py:32
-#: dashboards/identity/groups/forms.py:57
+#: dashboards/identity/domains/workflows.py:37
+#: dashboards/identity/groups/forms.py:33
+#: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
 #: dashboards/identity/groups/templates/groups/_create.html:17
 #: dashboards/identity/groups/templates/groups/_update.html:17
 #: dashboards/identity/projects/tables.py:197
-#: dashboards/identity/projects/workflows.py:128
+#: dashboards/identity/projects/workflows.py:129
 #: dashboards/identity/roles/templates/roles/_create.html:17
 #: dashboards/identity/roles/templates/roles/_update.html:17
 #: dashboards/identity/users/templates/users/_create.html:17
 #: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/security_groups/forms.py:44
-#: dashboards/project/access_and_security/security_groups/forms.py:71
+#: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:123
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:17
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:18
-#: dashboards/project/containers/templates/containers/_copy.html:17
-#: dashboards/project/containers/templates/containers/_create.html:17
-#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
-#: dashboards/project/containers/templates/containers/_update.html:20
-#: dashboards/project/containers/templates/containers/_upload.html:19
 #: dashboards/project/data_processing/cluster_templates/tables.py:123
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
@@ -816,7 +804,7 @@ msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 #: dashboards/project/data_processing/data_sources/tables.py:65
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: dashboards/project/data_processing/data_sources/workflows/create.py:46
-#: dashboards/project/data_processing/job_binaries/forms.py:76
+#: dashboards/project/data_processing/job_binaries/forms.py:77
 #: dashboards/project/data_processing/job_binaries/tables.py:86
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
 #: dashboards/project/data_processing/jobs/tables.py:152
@@ -838,8 +826,6 @@ msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 #: dashboards/project/images/images/forms.py:41
 #: dashboards/project/images/images/forms.py:194
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
-#: dashboards/project/instances/templates/instances/_decryptpassword.html:20
-#: dashboards/project/instances/templates/instances/_rebuild.html:18
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:80
 #: dashboards/project/loadbalancers/tables.py:272
@@ -847,26 +833,15 @@ msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 #: dashboards/project/loadbalancers/workflows.py:158
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
-#: dashboards/project/networks/templates/networks/_create.html:17
-#: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:121
-#: dashboards/project/routers/templates/routers/ports/_create.html:18
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
-#: dashboards/project/stacks/templates/stacks/_change_template.html:19
-#: dashboards/project/stacks/templates/stacks/_create.html:18
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:122
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
-#: dashboards/project/stacks/templates/stacks/_select_template.html:19
-#: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/backups/forms.py:35
 #: dashboards/project/volumes/backups/tables.py:109
 #: dashboards/project/volumes/snapshots/forms.py:27
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:15
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
-#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
 #: dashboards/project/volumes/volumes/forms.py:50
 #: dashboards/project/volumes/volumes/forms.py:474
 #: dashboards/project/volumes/volumes/forms.py:512
@@ -881,7 +856,6 @@ msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:10
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:18
 msgid "Description"
 msgstr "Opis"
 
@@ -929,7 +903,7 @@ msgstr "Agregaty hostów dzielą strefę dostępności w logiczne jednostki popr
 #: dashboards/project/containers/templates/containers/_create.html:25
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
 #: dashboards/project/containers/templates/containers/_update.html:28
-#: dashboards/project/containers/templates/containers/_upload.html:27
+#: dashboards/project/containers/templates/containers/_upload.html:29
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:23
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:22
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:28
@@ -1340,9 +1314,9 @@ msgstr "Dysk swap"
 #: dashboards/project/networks/templates/networks/ports/_update.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/project/routers/forms.py:89
-#: dashboards/project/routers/templates/routers/_detail_overview.html:9
+#: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:14
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:12
 #: dashboards/project/vpn/forms.py:35 dashboards/project/vpn/forms.py:69
@@ -1523,14 +1497,13 @@ msgstr "Nazwa hosta"
 #: dashboards/admin/hypervisors/tables.py:28
 #: dashboards/admin/info/tables.py:169
 #: dashboards/admin/routers/ports/tables.py:32
-#: dashboards/project/access_and_security/security_groups/forms.py:169
-#: dashboards/project/access_and_security/security_groups/forms.py:176
+#: dashboards/project/access_and_security/security_groups/forms.py:173
+#: dashboards/project/access_and_security/security_groups/forms.py:180
 #: dashboards/project/data_processing/data_sources/tables.py:63
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:229
 #: dashboards/project/loadbalancers/workflows.py:485
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:41
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:79
 #: dashboards/project/volumes/volumes/forms.py:84
@@ -1708,14 +1681,14 @@ msgstr "Strefa"
 #: dashboards/project/loadbalancers/tables.py:311
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
 #: dashboards/project/networks/tables.py:124
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/routers/tables.py:169
 #: dashboards/project/routers/ports/tables.py:98
-#: dashboards/project/routers/templates/routers/_detail_overview.html:11
+#: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:113
 #: dashboards/project/stacks/tables.py:150
 #: dashboards/project/stacks/tables.py:197
@@ -1724,7 +1697,7 @@ msgstr "Strefa"
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
 #: dashboards/project/volumes/backups/tables.py:116
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:335
@@ -1802,6 +1775,15 @@ msgstr "Wykorzystanie dysków"
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:18
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:18
+#: dashboards/project/containers/templates/containers/_copy.html:17
+#: dashboards/project/containers/templates/containers/_create.html:17
+#: dashboards/project/containers/templates/containers/_update.html:20
+#: dashboards/project/containers/templates/containers/_upload.html:21
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:17
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:17
@@ -1810,20 +1792,34 @@ msgstr "Wykorzystanie dysków"
 #: dashboards/project/images/templates/images/images/_create.html:19
 #: dashboards/project/images/templates/images/images/_update.html:17
 #: dashboards/project/images/templates/images/snapshots/_create.html:18
+#: dashboards/project/instances/templates/instances/_decryptpassword.html:20
+#: dashboards/project/instances/templates/instances/_rebuild.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:17
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:17
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:17
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:17
+#: dashboards/project/networks/templates/networks/_create.html:17
 #: dashboards/project/networks/templates/networks/_update.html:17
 #: dashboards/project/networks/templates/networks/ports/_update.html:22
 #: dashboards/project/routers/templates/routers/_update.html:17
+#: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
+#: dashboards/project/routers/templates/routers/ports/_create.html:18
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
+#: dashboards/project/stacks/templates/stacks/_change_template.html:19
+#: dashboards/project/stacks/templates/stacks/_create.html:18
+#: dashboards/project/stacks/templates/stacks/_select_template.html:19
+#: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:17
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:17
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:17
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:17
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:18
 #: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:17
 #: dashboards/settings/password/templates/password/_change.html:18
 #: dashboards/settings/user/templates/user/_settings.html:18
@@ -1962,24 +1958,24 @@ msgstr "Informacje systemowe"
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:156
 #: dashboards/admin/networks/agents/tables.py:81
 #: dashboards/identity/domains/tables.py:202
-#: dashboards/identity/domains/workflows.py:38
+#: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:203
 #: dashboards/identity/projects/tables.py:205
-#: dashboards/identity/projects/workflows.py:130
-#: dashboards/identity/projects/workflows.py:489
+#: dashboards/identity/projects/workflows.py:131
+#: dashboards/identity/projects/workflows.py:490
 #: dashboards/identity/users/tables.py:178
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/tables.py:218
 #: dashboards/project/firewalls/workflows.py:69
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Enabled"
 msgstr "Włączone"
 
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:158
 #: dashboards/admin/networks/agents/tables.py:82
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "Wyłączone"
 
@@ -2162,7 +2158,7 @@ msgstr "Adres IP"
 #: dashboards/project/instances/tables.py:892
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:35
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
 #: dashboards/project/volumes/volumes/tables.py:331
@@ -2483,7 +2479,6 @@ msgstr "Fizyczny mechanizm, za pomocą którego jest zaimplementowana sieć wirt
 
 #: dashboards/admin/networks/forms.py:57 dashboards/admin/networks/forms.py:64
 #: dashboards/admin/networks/forms.py:65
-#: dashboards/project/networks/templates/networks/_detail_overview.html:24
 #: dashboards/router/nexus1000v/forms.py:114
 #: dashboards/router/nexus1000v/forms.py:120
 msgid "Physical Network"
@@ -2497,7 +2492,6 @@ msgstr "Nazwa fizycznej sieci, na której zaimplementowana jest sieć wirtualna.
 
 #: dashboards/admin/networks/forms.py:68 dashboards/admin/networks/forms.py:72
 #: dashboards/admin/networks/forms.py:73 dashboards/admin/networks/forms.py:74
-#: dashboards/project/networks/templates/networks/_detail_overview.html:25
 msgid "Segmentation ID"
 msgstr "ID segmentacji"
 
@@ -2528,7 +2522,7 @@ msgstr "ID segmentacji"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/forms.py:88
 #: dashboards/project/routers/ports/tables.py:102
-#: dashboards/project/routers/templates/routers/_detail_overview.html:13
+#: dashboards/project/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/vpn/forms.py:41 dashboards/project/vpn/forms.py:263
 #: dashboards/project/vpn/workflows.py:35
 #: dashboards/project/vpn/workflows.py:421
@@ -2707,8 +2701,8 @@ msgstr "Agenci DHCP"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
-#: dashboards/project/routers/templates/routers/_detail_overview.html:12
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
+#: dashboards/project/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/volumes/backups/tables.py:36
 #: dashboards/project/volumes/snapshots/tables.py:126
 msgid "Unknown"
@@ -2972,9 +2966,9 @@ msgid "Edit Subnet"
 msgstr "Modyfikuj podsieć"
 
 #: dashboards/admin/networks/subnets/tables.py:93
-#: dashboards/project/access_and_security/security_groups/forms.py:192
-#: dashboards/project/access_and_security/security_groups/forms.py:204
-#: dashboards/project/access_and_security/security_groups/forms.py:214
+#: dashboards/project/access_and_security/security_groups/forms.py:196
+#: dashboards/project/access_and_security/security_groups/forms.py:208
+#: dashboards/project/access_and_security/security_groups/forms.py:218
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 msgid "CIDR"
 msgstr "CIDR"
@@ -3173,7 +3167,6 @@ msgstr "Docelowy CIDR"
 #: dashboards/project/instances/audit_tables.py:25
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
 #: dashboards/project/routers/extensions/routerrules/tables.py:73
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Action"
 msgstr "Akcja"
 
@@ -3196,7 +3189,6 @@ msgid "Interfaces"
 msgstr "Interfejsy"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:3
-#: dashboards/project/routers/templates/routers/_detail_overview.html:3
 msgid "Router Overview"
 msgstr "Przegląd routerów"
 
@@ -3217,7 +3209,7 @@ msgstr "Przegląd routerów"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
 #: dashboards/project/instances/templates/instances/_detail_overview.html:109
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:46
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
 #: dashboards/project/networks/templates/networks/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
@@ -3234,9 +3226,9 @@ msgstr "Przegląd routerów"
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:47
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:55
-#: dashboards/project/routers/templates/routers/_detail_overview.html:3
-#: dashboards/project/routers/templates/routers/_detail_overview.html:8
+#: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #: dashboards/project/routers/templates/routers/_detail_overview.html:10
+#: dashboards/project/routers/templates/routers/_detail_overview.html:12
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:7
@@ -3272,24 +3264,23 @@ msgstr "ID projektu"
 #: dashboards/project/routers/forms.py:105
 #: dashboards/project/routers/forms.py:111
 #: dashboards/project/routers/tables.py:173
-#: dashboards/project/routers/templates/routers/_detail_overview.html:16
+#: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "Rozproszony"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:22
 #: dashboards/project/routers/forms.py:37
 #: dashboards/project/routers/forms.py:92
-#: dashboards/project/routers/templates/routers/_detail_overview.html:20
+#: dashboards/project/routers/templates/routers/_detail_overview.html:22
 msgid "High Availability Mode"
 msgstr "Tryb wysokiej dostępności (HA)"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:26
-#: dashboards/project/routers/templates/routers/_detail_overview.html:24
+#: dashboards/project/routers/templates/routers/_detail_overview.html:26
 msgid "External Gateway Information"
 msgstr "Informacje o zewnętrznej bramie"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:27
-#: dashboards/project/routers/templates/routers/_detail_overview.html:25
 msgid "Connected External Network"
 msgstr "Podłączona sieć zewnętrzna"
 
@@ -3336,8 +3327,8 @@ msgid "Unable to retrieve volume types"
 msgstr "Nie można pobrać typów wolumenów."
 
 #: dashboards/admin/volumes/tabs.py:87
-msgid "Unable to retrieve QOS specs"
-msgstr "Nie można pobrać specyfikacji QOS"
+msgid "Unable to retrieve QoS specs"
+msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:109 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:201
@@ -3409,7 +3400,7 @@ msgstr "Szczegóły migawki wolumenu"
 #: dashboards/project/instances/workflows/update_instance.py:119
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:7
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:9
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 msgid "Info"
@@ -3419,7 +3410,7 @@ msgstr "Info"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
 #: dashboards/project/instances/workflows/create_instance.py:367
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:21
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:219
 msgid "Volume"
@@ -3432,7 +3423,7 @@ msgstr "Wolumen"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
 #: dashboards/project/instances/templates/instances/_detail_overview.html:43
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:32
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
 msgid "Specs"
@@ -3445,7 +3436,7 @@ msgstr "Specyfikacja"
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:36
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:38
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:38
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
@@ -3468,7 +3459,7 @@ msgstr "GB"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
 #: dashboards/project/stacks/tables.py:104
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
 msgid "Created"
@@ -3491,23 +3482,23 @@ msgstr "\nStan migawki wolumenu zazwyczaj jest zarządzany automatycznie. W niek
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:6
-msgid "Associate QOS Spec with Volume Type"
-msgstr "Powiązanie specyfikacji QOS z typem wolumenu"
+msgid "Associate QoS Spec with Volume Type"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
 msgid ""
 "\n"
-"    Add, modify or remove the QOS Spec associated with this volume type.\n"
+"    Add, modify or remove the QoS Spec associated with this volume type.\n"
 "    <br>\n"
 "    <br>\n"
-"    \"None\" indicates that no QOS Spec is currently associated. Conversely, setting\n"
-"    the QOS Spec to \"None\" will remove the current association.\n"
+"    \"None\" indicates that no QoS Spec is currently associated. Conversely, setting\n"
+"    the QoS Spec to \"None\" will remove the current association.\n"
 "    <br>\n"
 "    <br>\n"
 "    This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt>\n"
 "    commands.\n"
 "    "
-msgstr "\nDodanie, zmiana lub usunięcie specyfikacji QOS powiązanej z tym typem wolumenu.\n<br>\n<br>\n„Brak” oznacza, że żadna specyfikacja QOS nie jest obecnie powiązana. Ustawienie specyfikacji na „Brak” usunie obecne powiązanie.\n<br>\n<br>\nJest to odpowiednik poleceń <tt>cinder qos-associate</tt> i<tt>cinder qos-disassociate</tt>."
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:107
@@ -3519,24 +3510,24 @@ msgstr "Powiąż"
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:107
-msgid "Create QOS Spec"
-msgstr "Tworzenie specyfikacji QOS"
+msgid "Create QoS Spec"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
 msgid ""
 "\n"
-"      QOS Specs can be associated with volume types.\n"
+"      QoS Specs can be associated with volume types.\n"
 "      It is used to map to a set of quality of service capabilities requested\n"
 "      by the volume owner. This is equivalent to the\n"
-"      <tt>cinder qos-create</tt> command. Once the QOS Spec gets created,\n"
-"      click the \"Manage Specs\" button to manage the key-value specs for the QOS Spec.\n"
+"      <tt>cinder qos-create</tt> command. Once the QoS Spec gets created,\n"
+"      click the \"Manage Specs\" button to manage the key-value specs for the QoS Spec.\n"
 "      <br>\n"
 "      <br>\n"
-"      Each QOS Specs entity will have a \"consumer\" value which indicates where the\n"
-"      administrator would like the QOS policy to be enforced. This value can be \"front-end\"\n"
-"      (Nova Compute), \"back-end\" (Cinder back-end), or both.\n"
+"      Each QoS Specs entity will have a \"Consumer\" value which indicates where the\n"
+"      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
+"      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "     "
-msgstr "\nSpecyfikacje QOS mogą zostać powiązane z typami wolumenów.\nWykorzystuję się je, by określić zestaw właściwości jakości usług wymaganych przez właściciela wolumenu. Jest to odpowiednik\npolecenia <tt>cinder qos-create</tt>. Po utworzeniu specyfikacji QOS, należy kliknąć przycisk „Zarządzaj specyfikacjami”, aby zarządzać parami klucz-wartość dla specyfikacji QOS.\n<br>\n<br>\nKażda specyfikacja QOS będzie posiadała wartość „konsumenta”, która wskazuje\ngdzie administrator chciałby wymusić politykę QOS. Wartość ta może być „front-end” (Usługa obliczeniowa/Nova Compute), „back-end” (Cinder) lub obie."
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:36
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:25
@@ -3579,29 +3570,29 @@ msgid ""
 msgstr "\nTyp wolumenu jest typem lub etykietą, która może zostać wybrana podczas\ntworzenie wolumenu w OpenStack. Zazwyczaj określa zestaw możliwości sterownika przechowywania danych dla tego wolumenu. Przykładowo „Wydajność”, „SSD”, „kopie zapasowe”.\nJest to odpowiednik polecenia <tt>cinder type-create</tt>. Po utworzeniu typu wolumenu, należy kliknąć przycisk „Wyświetl dodatkowe specyfikacje”, aby ustawić pary klucz-wartość dla tego typu wolumenu."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:9
-msgid "Edit Consumer of QOS Spec"
-msgstr "Edycja konsumenta specyfikacji QOS"
+msgid "Edit Consumer of QoS Spec"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:19
 msgid ""
 "\n"
-"    Each QOS Specs entity will have a \"consumer\" value which indicates where the\n"
-"    administrator would like the QOS policy to be enforced. This value can be \"front-end\"\n"
-"    (Nova Compute), \"back-end\" (Cinder back-end), or both.\n"
+"    Each QoS Specs entity will have a \"Consumer\" value which indicates where the\n"
+"    administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
+"    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "    "
-msgstr "\nKażda specyfikacja QOS będzie posiadała wartość „konsumenta”, która wskazuje\ngdzie administrator chciałby wymusić politykę QOS. Wartość ta może być „front-end” (Usługa obliczeniowa/Nova Compute), „back-end” (Cinder) lub obie."
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
 msgid "Modify Consumer"
 msgstr "Modyfikacja konsumenta"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
-msgid "Associate QOS Spec"
-msgstr "Powiązanie specyfikacji QOS"
+msgid "Associate QoS Spec"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:6
-msgid "Create a QOS Spec"
-msgstr "Tworzenie specyfikacji QOS"
+msgid "Create a QoS Spec"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -3609,8 +3600,8 @@ msgstr "Utwórz typ wolumenu"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:6
-msgid "Edit QOS Spec Consumer"
-msgstr "Edycja konsumenta specyfikacji QOS"
+msgid "Edit QoS Spec Consumer"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
@@ -3639,7 +3630,7 @@ msgstr "Dodatkowa specyfikacja typu wolumenu"
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:14
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:103
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
 msgid "Close"
 msgstr "Zamknij"
 
@@ -3660,8 +3651,8 @@ msgstr "Utwórz specyfikację"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:20
 #, python-format
-msgid "Create a new \"spec\" key-value pair for QOS Spec \"%(qos_spec_name)s\""
-msgstr "Utwórz nową parę klucz-wartość specyfikacji dla specyfikacji QOS „%(qos_spec_name)s”"
+msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:10
 msgid "Edit Spec Value: "
@@ -3682,12 +3673,12 @@ msgid "Edit Spec"
 msgstr "Edytuj specyfikację"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
-msgid "QOS Spec: "
-msgstr "Specyfikacja QOS: "
+msgid "QoS Spec: "
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
-msgid "QOS Spec"
-msgstr "Specyfikacja QOS"
+msgid "QoS Spec"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
@@ -3721,55 +3712,55 @@ msgid "Volume Details:"
 msgstr "Szczegóły wolumenu:"
 
 #: dashboards/admin/volumes/volume_types/forms.py:25
-msgid "QOS Spec to be associated"
-msgstr "Specyfikacja QOS do powiązania"
+msgid "QoS Spec to be associated"
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:26
-msgid "Choose associated QOS Spec."
-msgstr "Wybór powiązanej specyfikacji QOS."
+msgid "Choose associated QoS Spec."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:71
 msgid ""
-"New associated QOS Spec must be different than the current associated QOS "
+"New associated QoS Spec must be different than the current associated QoS "
 "Spec."
-msgstr "Nowe powiązanie specyfikacji QOS musi być inne niż obecne powiązanie."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:103
-msgid "Successfully updated QOS Spec association."
-msgstr "Zaktualizowano powiązanie specyfikacji QOS."
+msgid "Successfully updated QoS Spec association."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:107
-msgid "Error updating QOS Spec association."
-msgstr "Błąd podczas aktualizacji powiązania specyfikacji QOS."
+msgid "Error updating QoS Spec association."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:113
-msgid "QOS Spec Consumer"
-msgstr "Konsument specyfikacji QOS"
+msgid "QoS Spec Consumer"
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:115
-msgid "Choose consumer for this QOS Spec."
-msgstr "Wybór konsumenta dla tej specyfikacji QOS."
+msgid "Choose consumer for this QoS Spec."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:131
 msgid ""
-"QOS Spec consumer value must be different than the current consumer value."
-msgstr "Wartość konsumenta specyfikacji QOS musi być różna od obecnej wartości konsumenta."
+"QoS Spec consumer value must be different than the current consumer value."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:145
-msgid "Successfully modified QOS Spec consumer."
-msgstr "Zmodyfikowano konsumenta specyfikacji QOS."
+msgid "Successfully modified QoS Spec consumer."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:148
-msgid "Error editing QOS Spec consumer."
-msgstr "Błąd podczas edycji konsumenta specyfikacji QOS."
+msgid "Error editing QoS Spec consumer."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:33
 msgid "View Extra Specs"
 msgstr "Wyświetl dodatkowe opcje"
 
 #: dashboards/admin/volumes/volume_types/tables.py:41
-msgid "Manage QOS Spec Association"
-msgstr "Zarządzanie powiązaniami specyfikacji QOS"
+msgid "Manage QoS Spec Association"
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:52
 msgid "Delete VolumeType"
@@ -3786,23 +3777,23 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
-msgid "Associated QOS Spec"
-msgstr "Powiązane specyfikacje QOS"
+msgid "Associated QoS Spec"
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:93
 msgid "Manage Specs"
 msgstr "Zarządzanie specyfikacjami"
 
 #: dashboards/admin/volumes/volume_types/tables.py:118
-msgid "Delete QOS Spec"
-msgid_plural "Delete QOS Specs"
+msgid "Delete QoS Spec"
+msgid_plural "Delete QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:126
-msgid "Deleted QOS Spec"
-msgid_plural "Deleted QOS Specs"
+msgid "Deleted QoS Spec"
+msgid_plural "Deleted QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -3817,12 +3808,12 @@ msgid "Consumer"
 msgstr "Konsument"
 
 #: dashboards/admin/volumes/volume_types/tables.py:161
-msgid "QOS Specs"
-msgstr "Specyfikacja QOS"
+msgid "QoS Specs"
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:69
-msgid "Unable to retrieve QOS Spec details."
-msgstr "Nie można pobrać specyfikacji QOS."
+msgid "Unable to retrieve QoS Spec details."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:101
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
@@ -3830,12 +3821,12 @@ msgid "Unable to retrieve volume type details."
 msgstr "Nie można pobrać szczegółów typu wolumenu."
 
 #: dashboards/admin/volumes/volume_types/views.py:111
-msgid "Unable to retrieve QOS Specs."
-msgstr "Nie można pobrać specyfikacji QOS."
+msgid "Unable to retrieve QoS Specs."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:130
-msgid "Unable to retrieve QOS Spec association."
-msgstr "Nie można pobrać powiązania ze specyfikacją QOS."
+msgid "Unable to retrieve QoS Spec association."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/extras/forms.py:23
 #: dashboards/admin/volumes/volume_types/extras/tables.py:69
@@ -3925,12 +3916,12 @@ msgid "undefined"
 msgstr "niezdefiniowane"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:64
-msgid "Unable to retrieve QOS spec list."
-msgstr "Nie można pobrać listy specyfikacji QOS."
+msgid "Unable to retrieve QoS spec list."
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
-msgid "Unable to retrieve QOS spec details."
-msgstr "Nie można pobrać szczegółów specyfikacji QOS."
+msgid "Unable to retrieve QoS spec details."
+msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:36
 #, python-format
@@ -3965,12 +3956,12 @@ msgstr "Nie można zmienić stanu wolumenu na „%s”."
 
 #: dashboards/admin/volumes/volumes/forms.py:98
 #, python-format
-msgid "Successfully created QOS Spec: %s"
-msgstr "Utworzono specyfikację QOS: %s"
+msgid "Successfully created QoS Spec: %s"
+msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:103
-msgid "Unable to create QOS Spec."
-msgstr "Nie można utworzyć specyfikacji QOS."
+msgid "Unable to create QoS Spec."
+msgstr ""
 
 #: dashboards/admin/volumes/volumes/views.py:61
 #: dashboards/project/volumes/volumes/views.py:66
@@ -4000,8 +3991,8 @@ msgid "Modify Groups"
 msgstr "Modyfikuj grupy"
 
 #: dashboards/identity/domains/tables.py:68
-#: dashboards/identity/domains/workflows.py:252
 #: dashboards/identity/domains/workflows.py:253
+#: dashboards/identity/domains/workflows.py:254
 msgid "Create Domain"
 msgstr "Utwórz domenę"
 
@@ -4068,153 +4059,153 @@ msgstr "Brak uprawnień do przeglądania informacji o domenie."
 msgid "Unable to retrieve domain details."
 msgstr "Nie można pobrać szczegółów domeny."
 
-#: dashboards/identity/domains/workflows.py:43
-#: dashboards/identity/domains/workflows.py:280
+#: dashboards/identity/domains/workflows.py:44
+#: dashboards/identity/domains/workflows.py:281
 msgid "Domain Information"
 msgstr "Informacje o domenie"
 
-#: dashboards/identity/domains/workflows.py:45
+#: dashboards/identity/domains/workflows.py:46
 msgid ""
 "Domains provide separation between users and infrastructure used by "
 "different organizations."
 msgstr "Domeny zapewniają separację między użytkownikami oraz infrastrukturą wykorzystywaną przez różne organizacje. "
 
-#: dashboards/identity/domains/workflows.py:71
-#: dashboards/identity/domains/workflows.py:170
-#: dashboards/identity/projects/workflows.py:178
-#: dashboards/identity/projects/workflows.py:276
+#: dashboards/identity/domains/workflows.py:72
+#: dashboards/identity/domains/workflows.py:171
+#: dashboards/identity/projects/workflows.py:179
+#: dashboards/identity/projects/workflows.py:277
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Nie można znaleźć domyślnej roli „%s” w Keystone"
 
-#: dashboards/identity/domains/workflows.py:76
+#: dashboards/identity/domains/workflows.py:77
 msgid "Unable to find default role."
 msgstr "Nie znaleziono domyślnej roli."
 
-#: dashboards/identity/domains/workflows.py:88
-#: dashboards/identity/projects/workflows.py:248
+#: dashboards/identity/domains/workflows.py:89
+#: dashboards/identity/projects/workflows.py:249
 #: dashboards/identity/users/views.py:56
 msgid "Unable to retrieve user list."
 msgstr "Nie można pobrać listy użytkowników."
 
-#: dashboards/identity/domains/workflows.py:97
-#: dashboards/identity/domains/workflows.py:144
-#: dashboards/identity/domains/workflows.py:241
-#: dashboards/identity/projects/workflows.py:345
+#: dashboards/identity/domains/workflows.py:98
+#: dashboards/identity/domains/workflows.py:145
+#: dashboards/identity/domains/workflows.py:242
+#: dashboards/identity/projects/workflows.py:346
 msgid "Unable to retrieve role list."
 msgstr "Nie można pobrać listy ról."
 
-#: dashboards/identity/domains/workflows.py:114
+#: dashboards/identity/domains/workflows.py:115
 msgid "Unable to retrieve user domain role assignments."
 msgstr "Nie można pobrać przypisań do ról użytkowników domeny."
 
-#: dashboards/identity/domains/workflows.py:126
-#: dashboards/identity/domains/workflows.py:133
+#: dashboards/identity/domains/workflows.py:127
+#: dashboards/identity/domains/workflows.py:134
 msgid "Domain Members"
 msgstr "Członkowie domeny"
 
-#: dashboards/identity/domains/workflows.py:132
-#: dashboards/identity/projects/workflows.py:237
+#: dashboards/identity/domains/workflows.py:133
+#: dashboards/identity/projects/workflows.py:238
 msgid "All Users"
 msgstr "Wszyscy użytkownicy"
 
-#: dashboards/identity/domains/workflows.py:134
-#: dashboards/identity/projects/workflows.py:239
+#: dashboards/identity/domains/workflows.py:135
+#: dashboards/identity/projects/workflows.py:240
 msgid "No users found."
 msgstr "Nie znaleziono użytkowników"
 
-#: dashboards/identity/domains/workflows.py:135
-#: dashboards/identity/projects/workflows.py:240
+#: dashboards/identity/domains/workflows.py:136
+#: dashboards/identity/projects/workflows.py:241
 msgid "No users."
 msgstr "Brak użytkowników."
 
-#: dashboards/identity/domains/workflows.py:160
-#: dashboards/identity/projects/workflows.py:262
+#: dashboards/identity/domains/workflows.py:161
+#: dashboards/identity/projects/workflows.py:263
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "Nie można pobrać listy grup. Proszę spróbować później."
 
-#: dashboards/identity/domains/workflows.py:223
-#: dashboards/identity/domains/workflows.py:230
+#: dashboards/identity/domains/workflows.py:224
+#: dashboards/identity/domains/workflows.py:231
 msgid "Domain Groups"
 msgstr "Grupy domenowe"
 
-#: dashboards/identity/domains/workflows.py:229
-#: dashboards/identity/projects/workflows.py:334
+#: dashboards/identity/domains/workflows.py:230
+#: dashboards/identity/projects/workflows.py:335
 msgid "All Groups"
 msgstr "Wszystkie grupy"
 
-#: dashboards/identity/domains/workflows.py:231
-#: dashboards/identity/projects/workflows.py:336
+#: dashboards/identity/domains/workflows.py:232
+#: dashboards/identity/projects/workflows.py:337
 msgid "No groups found."
 msgstr "Nie znaleziono grup."
 
-#: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:337
+#: dashboards/identity/domains/workflows.py:233
+#: dashboards/identity/projects/workflows.py:338
 msgid "No groups."
 msgstr "Brak grup."
 
-#: dashboards/identity/domains/workflows.py:254
+#: dashboards/identity/domains/workflows.py:255
 #, python-format
 msgid "Created new domain \"%s\"."
 msgstr "Utworzono nową domenę „%s”."
 
-#: dashboards/identity/domains/workflows.py:255
+#: dashboards/identity/domains/workflows.py:256
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Nie można utworzyć domeny „%s”."
 
-#: dashboards/identity/domains/workflows.py:282
+#: dashboards/identity/domains/workflows.py:283
 msgid ""
 "Domains provide separation between users and infrastructure used by "
 "different organizations. Edit the domain details to add or remove groups in "
 "the domain."
 msgstr "Domeny zapewniają separację między użytkownikami oraz infrastrukturą wykorzystywaną przez różne organizacje. Można edytować szczegóły domeny, aby dodać lub usunąć z niej grupy."
 
-#: dashboards/identity/domains/workflows.py:298
+#: dashboards/identity/domains/workflows.py:299
 msgid "Edit Domain"
 msgstr "Edycja domeny"
 
-#: dashboards/identity/domains/workflows.py:300
+#: dashboards/identity/domains/workflows.py:301
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Zmodyfikowano domenę „%s”."
 
-#: dashboards/identity/domains/workflows.py:301
+#: dashboards/identity/domains/workflows.py:302
 #, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Nie można zmodyfikować domeny „%s”."
 
-#: dashboards/identity/domains/workflows.py:366
+#: dashboards/identity/domains/workflows.py:367
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "
 "currently logged into. Please switch to another domain with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "Nie można odwołać uprawnień administracyjnych z domeny, w której jest się zalogowanym. Należy przełączyć się do innej domeny z uprawnieniami administracyjnymi lub usunąć rolę administracyjną ręcznie przy pomocy CLI."
 
-#: dashboards/identity/domains/workflows.py:401
+#: dashboards/identity/domains/workflows.py:402
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
 msgstr "Nie można zmodyfikować członków projektu %s oraz zaktualizować grup domennowych."
 
-#: dashboards/identity/domains/workflows.py:473
+#: dashboards/identity/domains/workflows.py:474
 #, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "Nie można zmodyfikować grup domenowych %s."
 
-#: dashboards/identity/groups/forms.py:45
+#: dashboards/identity/groups/forms.py:46
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Grupa „%s” została utworzona"
 
-#: dashboards/identity/groups/forms.py:48
+#: dashboards/identity/groups/forms.py:49
 msgid "Unable to create group."
 msgstr "Nie można utworzyć grupy."
 
-#: dashboards/identity/groups/forms.py:69
+#: dashboards/identity/groups/forms.py:71
 msgid "Group has been updated successfully."
 msgstr "Zaktualizowano grupę."
 
-#: dashboards/identity/groups/forms.py:71
+#: dashboards/identity/groups/forms.py:73
 msgid "Unable to update the group."
 msgstr "Nie można zaktualizować grupy."
 
@@ -4385,13 +4376,13 @@ msgid "View Usage"
 msgstr "Wyświetl wykorzystanie"
 
 #: dashboards/identity/projects/tables.py:75
-#: dashboards/identity/projects/workflows.py:356
 #: dashboards/identity/projects/workflows.py:357
+#: dashboards/identity/projects/workflows.py:358
 msgid "Create Project"
 msgstr "Utwórz projekt"
 
 #: dashboards/identity/projects/tables.py:87
-#: dashboards/identity/projects/workflows.py:509
+#: dashboards/identity/projects/workflows.py:510
 msgid "Edit Project"
 msgstr "Edytuj projekt"
 
@@ -4468,99 +4459,99 @@ msgstr "Wartości limitów nie mogą być mniejsze niż obecne wartości zużyci
 msgid "Domain Name"
 msgstr "Nazwa domeny"
 
-#: dashboards/identity/projects/workflows.py:145
-#: dashboards/identity/projects/workflows.py:492
+#: dashboards/identity/projects/workflows.py:146
+#: dashboards/identity/projects/workflows.py:493
 msgid "Project Information"
 msgstr "Informacje o projekcie"
 
-#: dashboards/identity/projects/workflows.py:146
+#: dashboards/identity/projects/workflows.py:147
 msgid "Create a project to organize users."
 msgstr "Utworzenie projektu pozwala na uporządkowanie użytkowników"
 
-#: dashboards/identity/projects/workflows.py:164
+#: dashboards/identity/projects/workflows.py:165
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "Nie można pobrać listy użytkowników. Proszę spróbować później."
 
-#: dashboards/identity/projects/workflows.py:231
-#: dashboards/identity/projects/workflows.py:238
+#: dashboards/identity/projects/workflows.py:232
+#: dashboards/identity/projects/workflows.py:239
 msgid "Project Members"
 msgstr "Członkowie projektu"
 
-#: dashboards/identity/projects/workflows.py:328
-#: dashboards/identity/projects/workflows.py:335
+#: dashboards/identity/projects/workflows.py:329
+#: dashboards/identity/projects/workflows.py:336
 msgid "Project Groups"
 msgstr "Grupy w projekcie"
 
-#: dashboards/identity/projects/workflows.py:358
+#: dashboards/identity/projects/workflows.py:359
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Utworzono nowy projekt „%s”."
 
-#: dashboards/identity/projects/workflows.py:359
+#: dashboards/identity/projects/workflows.py:360
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "Nie można utworzyć projektu „%s”."
 
-#: dashboards/identity/projects/workflows.py:421
+#: dashboards/identity/projects/workflows.py:422
 msgid ", add project groups"
 msgstr ", dodać grup projektów"
 
-#: dashboards/identity/projects/workflows.py:424
+#: dashboards/identity/projects/workflows.py:425
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "Nie można dodać %(users_to_add)s członków projektu %(group_msg)s oraz ustawić limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:456
+#: dashboards/identity/projects/workflows.py:457
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "Nie można dodać %s grup projektów oraz zaktualizować limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:484
+#: dashboards/identity/projects/workflows.py:485
 msgid "Unable to set project quotas."
 msgstr "Nie można ustawić limitów dla projektu."
 
-#: dashboards/identity/projects/workflows.py:494
+#: dashboards/identity/projects/workflows.py:495
 msgid "Edit the project details."
 msgstr "Edycja szczegółów projektu."
 
-#: dashboards/identity/projects/workflows.py:511
+#: dashboards/identity/projects/workflows.py:512
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Zmodyfikowano projekt „%s”."
 
-#: dashboards/identity/projects/workflows.py:512
+#: dashboards/identity/projects/workflows.py:513
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Nie można zmodyfikować projektu „%s”."
 
-#: dashboards/identity/projects/workflows.py:607
+#: dashboards/identity/projects/workflows.py:608
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "Nie można odwołać administracyjnych praw dostępu w projekcie, do którego jest się obecnie zalogowanym. Należy przełączyć się na innych projekt z uprawnieniami administracyjnymi lub ręcznie usunąć rolę administracyjną używając linii poleceń."
 
-#: dashboards/identity/projects/workflows.py:642
+#: dashboards/identity/projects/workflows.py:643
 msgid ", update project groups"
 msgstr ", zaktualizować grup projektów"
 
-#: dashboards/identity/projects/workflows.py:645
+#: dashboards/identity/projects/workflows.py:646
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "Nie można zmodyfikować %(users_to_modify)s członków projektu%(group_msg)s i zaktualizować limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:718
+#: dashboards/identity/projects/workflows.py:719
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "Nie można zmodyfikować %s członków projektu, zaktualizować grup projektów oraz limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:751
+#: dashboards/identity/projects/workflows.py:752
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -4664,7 +4655,7 @@ msgstr "Hasła nie pasują"
 
 #: dashboards/identity/users/forms.py:86
 #: dashboards/identity/users/forms.py:166
-#: dashboards/project/data_processing/job_binaries/forms.py:71
+#: dashboards/project/data_processing/job_binaries/forms.py:72
 #: dashboards/project/databases/workflows/create_instance.py:197
 #: dashboards/project/instances/forms.py:153
 msgid "Password"
@@ -5117,219 +5108,217 @@ msgid "Unable to create key pair: %(exc)s"
 msgstr "Nie można utworzyć pary kluczy: %(exc)s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:40
-#: dashboards/project/access_and_security/security_groups/forms.py:67
+#: dashboards/project/access_and_security/security_groups/forms.py:69
 msgid "This field is required."
 msgstr "Pole wymagane."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:41
-#: dashboards/project/access_and_security/security_groups/forms.py:68
+#: dashboards/project/access_and_security/security_groups/forms.py:70
 msgid "The string may only contain ASCII characters and numbers."
 msgstr "Ciąg może zawierać wyłącznie znaki ASCII oraz liczby."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:52
+#: dashboards/project/access_and_security/security_groups/forms.py:54
 #, python-format
 msgid "Successfully created security group: %s"
 msgstr "Utworzono grupę zabezpieczeń: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:58
+#: dashboards/project/access_and_security/security_groups/forms.py:60
 msgid "Unable to create security group."
 msgstr "Nie można utworzyć grupy zabezpieczeń."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:80
+#: dashboards/project/access_and_security/security_groups/forms.py:84
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "Zaktualizowano grupę zabezpieczeń: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:86
+#: dashboards/project/access_and_security/security_groups/forms.py:90
 msgid "Unable to update security group."
 msgstr "Nie można zaktualizować grupy zabezpieczeń."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:92
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
+#: dashboards/project/access_and_security/security_groups/forms.py:96
 msgid "Rule"
 msgstr "Reguła "
 
-#: dashboards/project/access_and_security/security_groups/forms.py:101
-#: dashboards/project/access_and_security/security_groups/forms.py:106
-#: dashboards/project/access_and_security/security_groups/forms.py:107
-#: dashboards/project/access_and_security/security_groups/forms.py:108
-#: dashboards/project/access_and_security/security_groups/forms.py:109
+#: dashboards/project/access_and_security/security_groups/forms.py:105
 #: dashboards/project/access_and_security/security_groups/forms.py:110
 #: dashboards/project/access_and_security/security_groups/forms.py:111
 #: dashboards/project/access_and_security/security_groups/forms.py:112
+#: dashboards/project/access_and_security/security_groups/forms.py:113
+#: dashboards/project/access_and_security/security_groups/forms.py:114
+#: dashboards/project/access_and_security/security_groups/forms.py:115
+#: dashboards/project/access_and_security/security_groups/forms.py:116
 #: dashboards/project/access_and_security/security_groups/tables.py:239
 msgid "Direction"
 msgstr "Kierunek"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:116
-#: dashboards/project/access_and_security/security_groups/forms.py:123
+#: dashboards/project/access_and_security/security_groups/forms.py:120
+#: dashboards/project/access_and_security/security_groups/forms.py:127
 #: dashboards/project/access_and_security/security_groups/tables.py:244
 msgid "IP Protocol"
 msgstr "Protokół IP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:117
+#: dashboards/project/access_and_security/security_groups/forms.py:121
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
 msgstr "Należy podać liczbę całkowitą z przedziału od 0 do 255 (lub -1 dla dowolnej)."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:126
-#: dashboards/project/access_and_security/security_groups/forms.py:133
-#: dashboards/project/access_and_security/security_groups/forms.py:134
+#: dashboards/project/access_and_security/security_groups/forms.py:130
+#: dashboards/project/access_and_security/security_groups/forms.py:137
+#: dashboards/project/access_and_security/security_groups/forms.py:138
 msgid "Open Port"
 msgstr "Otwarty port"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:127
-#: dashboards/project/access_and_security/security_groups/forms.py:136
-#: dashboards/project/access_and_security/security_groups/forms.py:143
+#: dashboards/project/access_and_security/security_groups/forms.py:131
+#: dashboards/project/access_and_security/security_groups/forms.py:140
+#: dashboards/project/access_and_security/security_groups/forms.py:147
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
 msgid "Port"
 msgstr "Port"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:128
+#: dashboards/project/access_and_security/security_groups/forms.py:132
 #: dashboards/project/access_and_security/security_groups/tables.py:247
 msgid "Port Range"
 msgstr "Zakres portu"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:138
-#: dashboards/project/access_and_security/security_groups/forms.py:149
-#: dashboards/project/access_and_security/security_groups/forms.py:160
+#: dashboards/project/access_and_security/security_groups/forms.py:142
+#: dashboards/project/access_and_security/security_groups/forms.py:153
+#: dashboards/project/access_and_security/security_groups/forms.py:164
 #: dashboards/project/loadbalancers/workflows.py:168
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Należy podać wartość całkowitą z przedziału 1 do 65535."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:147
-#: dashboards/project/access_and_security/security_groups/forms.py:154
+#: dashboards/project/access_and_security/security_groups/forms.py:151
+#: dashboards/project/access_and_security/security_groups/forms.py:158
 msgid "From Port"
 msgstr "Od portu"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:158
-#: dashboards/project/access_and_security/security_groups/forms.py:165
+#: dashboards/project/access_and_security/security_groups/forms.py:162
+#: dashboards/project/access_and_security/security_groups/forms.py:169
 msgid "To Port"
 msgstr "Do portu"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:171
+#: dashboards/project/access_and_security/security_groups/forms.py:175
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Należy podać typ ICMP z zakresu (-1 :255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:180
-#: dashboards/project/access_and_security/security_groups/forms.py:187
+#: dashboards/project/access_and_security/security_groups/forms.py:184
+#: dashboards/project/access_and_security/security_groups/forms.py:191
 #: dashboards/project/instances/templates/instances/_detail_overview.html:32
 msgid "Code"
 msgstr "Kod"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:182
+#: dashboards/project/access_and_security/security_groups/forms.py:186
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Należy podać kod ICMP z zakresu (-1 : 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:191
+#: dashboards/project/access_and_security/security_groups/forms.py:195
 #: dashboards/project/access_and_security/security_groups/tables.py:248
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid "Remote"
 msgstr "Zdalne"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:193
-#: dashboards/project/access_and_security/security_groups/forms.py:216
-#: dashboards/project/access_and_security/security_groups/forms.py:221
+#: dashboards/project/access_and_security/security_groups/forms.py:197
+#: dashboards/project/access_and_security/security_groups/forms.py:220
+#: dashboards/project/access_and_security/security_groups/forms.py:225
 msgid "Security Group"
 msgstr "Grupa zabezpieczeń"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:194
+#: dashboards/project/access_and_security/security_groups/forms.py:198
 msgid ""
 "To specify an allowed IP range, select \"CIDR\". To allow access from all "
 "members of another security group select \"Security Group\"."
 msgstr "W celu podania zakresu IP, należy wybrać „CIDR”. Aby zezwolić na dostęp dla wszystkich członków innej grupy zabezpieczeń należy wybrać „Grupa zabezpieczeń”."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:207
+#: dashboards/project/access_and_security/security_groups/forms.py:211
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Classless Inter-Domain Routing (np. 192.168.0.0/24)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:225
-#: dashboards/project/access_and_security/security_groups/forms.py:233
+#: dashboards/project/access_and_security/security_groups/forms.py:229
+#: dashboards/project/access_and_security/security_groups/forms.py:237
 #: dashboards/project/access_and_security/security_groups/tables.py:242
 msgid "Ether Type"
 msgstr "Typ medium"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:227
+#: dashboards/project/access_and_security/security_groups/forms.py:231
 msgid "IPv4"
 msgstr "IPv4"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:228
+#: dashboards/project/access_and_security/security_groups/forms.py:232
 msgid "IPv6"
 msgstr "IPv6"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:243
+#: dashboards/project/access_and_security/security_groups/forms.py:247
 msgid "No security groups available"
 msgstr "Brak dostępnych grup zabezpieczeń"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:253
+#: dashboards/project/access_and_security/security_groups/forms.py:257
 msgid "Custom TCP Rule"
 msgstr "Własna reguła TCP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:254
+#: dashboards/project/access_and_security/security_groups/forms.py:258
 msgid "Custom UDP Rule"
 msgstr "Własna reguła UDP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:255
+#: dashboards/project/access_and_security/security_groups/forms.py:259
 msgid "Custom ICMP Rule"
 msgstr "Własna reguła ICMP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:257
+#: dashboards/project/access_and_security/security_groups/forms.py:261
 msgid "Other Protocol"
 msgstr "Inny protokół"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:262
+#: dashboards/project/access_and_security/security_groups/forms.py:266
 #: dashboards/project/access_and_security/security_groups/tables.py:213
 msgid "Ingress"
 msgstr "Przychodzący"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:263
+#: dashboards/project/access_and_security/security_groups/forms.py:267
 #: dashboards/project/access_and_security/security_groups/tables.py:215
 msgid "Egress"
 msgstr "Wychodzący"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:293
+#: dashboards/project/access_and_security/security_groups/forms.py:297
 msgid "The ICMP type is invalid."
 msgstr "Niepoprawny typ ICMP."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:296
+#: dashboards/project/access_and_security/security_groups/forms.py:300
 msgid "The ICMP code is invalid."
 msgstr "Niepoprawny kod ICMP."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:299
+#: dashboards/project/access_and_security/security_groups/forms.py:303
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "Typ ICMP nie znajduje się w zakresie od -1 do 255"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:302
+#: dashboards/project/access_and_security/security_groups/forms.py:306
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "Kod ICMP nie znajduje się zakresie od -1 do 255"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:315
+#: dashboards/project/access_and_security/security_groups/forms.py:319
 msgid "The specified port is invalid."
 msgstr "Podany port jest nieprawidłowy."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:320
+#: dashboards/project/access_and_security/security_groups/forms.py:324
 msgid "The \"from\" port number is invalid."
 msgstr "Numer portu w polu „od portu” jest nieprawidłowy."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:323
+#: dashboards/project/access_and_security/security_groups/forms.py:327
 msgid "The \"to\" port number is invalid."
 msgstr "Numer portu w polu „do portu” jest nieprawidłowy."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:326
+#: dashboards/project/access_and_security/security_groups/forms.py:330
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr "Numer portu w polu „do portu” musi być większy lub równy numerowi w polu „od portu”.  "
 
-#: dashboards/project/access_and_security/security_groups/forms.py:359
+#: dashboards/project/access_and_security/security_groups/forms.py:363
 msgid "CIDR must be specified."
 msgstr "Należy podać CIDR."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:382
+#: dashboards/project/access_and_security/security_groups/forms.py:386
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "Dodano regułę: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:388
+#: dashboards/project/access_and_security/security_groups/forms.py:392
 msgid "Unable to add rule to security group."
 msgstr "Nie można dodać reguły do grupy zabezpieczeń"
 
@@ -5492,14 +5481,18 @@ msgid ""
 msgstr "Reguły określają jaki ruch jest dozwolony dla instancji przypisanych do danej grupy zabezpieczeń. Grupa zabezpieczeń składa się z trzech głównych elementów:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
+msgid "Rule:"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr "Można wybrać reguły z szablonu lub wykorzystać własne reguły TCP, UDP lub ICMP."
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
-msgid "Open Port/Port Range"
-msgstr "Otwarty port/zakres portów"
+msgid "Open Port/Port Range:"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid ""
@@ -5508,6 +5501,10 @@ msgid ""
 "to provide both the starting and ending ports for the range. For ICMP rules "
 "you instead specify an ICMP type and code in the spaces provided."
 msgstr "Dla reguł protokołów TCP i UDP można otworzyć pojedynczy port lub zakres portów. Wybranie opcji „Zakres portów” wyświetli pola pozwalające na podanie zarówno początku jak i końca zakresu. Dla reguł protokołu ICMP natomiast, podaje się jego typ i kod."
+
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
+msgid "Remote:"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid ""
@@ -5600,7 +5597,6 @@ msgid "Unable to create container."
 msgstr "Nie można utworzyć kontenera."
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/containers/templates/containers/_update.html:22
 #: dashboards/project/instances/workflows/create_instance.py:569
 #: dashboards/project/stacks/forms.py:56
 msgid "File"
@@ -5736,7 +5732,7 @@ msgid "Create Pseudo-folder"
 msgstr "Utwórz pseudokatalog"
 
 #: dashboards/project/containers/tables.py:197
-#: dashboards/project/containers/templates/containers/_upload.html:26
+#: dashboards/project/containers/templates/containers/_upload.html:28
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr "Wyślij obiekt"
@@ -5821,11 +5817,9 @@ msgid "Access: "
 msgstr "Dostęp:"
 
 #: dashboards/project/containers/templates/containers/_copy.html:8
-#: dashboards/project/containers/templates/containers/_copy.html:23
-#: dashboards/project/containers/templates/containers/copy.html:3
-#: dashboards/project/containers/templates/containers/copy.html:6
-msgid "Copy Object"
-msgstr "Kopiuj obiekt"
+#, python-format
+msgid "Copy Object: %(object_name)s"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_copy.html:18
 msgid ""
@@ -5833,6 +5827,12 @@ msgid ""
 " You may additionally specify the path within the selected container where "
 "the new copy should be stored."
 msgstr "Tworzy nową kopię istniejącego obiektu, celem przechowania go w bieżącym lub innym kontenerze. Dodatkowo można podać ścieżkę wewnątrz wybranego kontenera, pod którą ma być przechowywany obiekt."
+
+#: dashboards/project/containers/templates/containers/_copy.html:23
+#: dashboards/project/containers/templates/containers/copy.html:3
+#: dashboards/project/containers/templates/containers/copy.html:6
+msgid "Copy Object"
+msgstr "Kopiuj obiekt"
 
 #: dashboards/project/containers/templates/containers/_create.html:18
 msgid ""
@@ -5856,12 +5856,12 @@ msgid "Create pseudo-folder in container"
 msgstr "Utwórz pseudo-katalog w kontenerze"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
-#: dashboards/project/containers/templates/containers/_upload.html:21
-msgid "Pseudo-folder"
-msgstr "Pseudo-katalog"
+#: dashboards/project/containers/templates/containers/_upload.html:23
+msgid "Pseudo-folder:"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
-#: dashboards/project/containers/templates/containers/_upload.html:21
+#: dashboards/project/containers/templates/containers/_upload.html:23
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -5893,12 +5893,12 @@ msgid "Edit Object"
 msgstr "Edytuj obiekt"
 
 #: dashboards/project/containers/templates/containers/_update.html:21
-#: dashboards/project/containers/templates/containers/_upload.html:20
-msgid "Object"
-msgstr "Obiekt"
+#: dashboards/project/containers/templates/containers/_upload.html:22
+msgid "Object:"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_update.html:21
-#: dashboards/project/containers/templates/containers/_upload.html:20
+#: dashboards/project/containers/templates/containers/_upload.html:22
 msgid ""
 "An object is the basic storage entity that represents a file you store in "
 "the OpenStack Object Storage system. When you upload data to OpenStack "
@@ -5906,6 +5906,10 @@ msgid ""
 "consists of a location (container), the object's name, and any metadata "
 "consisting of key/value pairs."
 msgstr "Obiekt jest podstawową jednostką przechowywania reprezentującą plik przechowywany w magazynie obiektów OpenStack. Przy wysyłaniu danych do magazynu obiektów OpenStack, dane są przechowywane tak jak są (bez kompresji lub szyfrowania) i składają się z położenia (kontenera), nazwy obiektu i metadanych w formie par klucz/wartość."
+
+#: dashboards/project/containers/templates/containers/_update.html:22
+msgid "File:"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "A new uploaded file will replace the content of the current object"
@@ -5917,9 +5921,10 @@ msgstr "Przesłany plik zastąpi zawartość bieżącego obiektu"
 msgid "Update Object"
 msgstr "Zaktualizuj obiekt"
 
-#: dashboards/project/containers/templates/containers/_upload.html:10
-msgid "Upload Object To Container"
-msgstr "Przesyłanie obiektu do kontenera"
+#: dashboards/project/containers/templates/containers/_upload.html:11
+#, python-format
+msgid "Upload Object To Container: %(container_name)s"
+msgstr ""
 
 #: dashboards/project/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
@@ -6109,6 +6114,15 @@ msgstr "brak procesów"
 msgid "Node Configurations"
 msgstr "Konfiguracje węzła"
 
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:42
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:54
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:68
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:62
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
+#, python-format
+msgid "%(conf_name)s: %(conf_value)s"
+msgstr ""
+
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:58
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
@@ -6123,8 +6137,9 @@ msgid "Cluster configurations are not specified"
 msgstr "Nie podano konfiguracji klastra"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:7
-msgid "Node Group"
-msgstr "Grupa węzłów"
+#, python-format
+msgid "Node Group: %(node_group_name)s"
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
@@ -6181,8 +6196,8 @@ msgid "Upload"
 msgstr "Wyślij"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_node_groups_template.html:95
-msgid "Select a Node Group Template to add"
-msgstr "Wybór grupy węzłów do dodania"
+msgid "Select a Node Group Template to add:"
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
 msgid "Data Processing - Cluster Templates"
@@ -6371,9 +6386,19 @@ msgstr "Sieć zarządzająca Neutron"
 msgid "Keypair"
 msgstr "Para kluczy"
 
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:86
+#, python-format
+msgid "%(key)s:%(val | safe)s "
+msgstr ""
+
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
 msgstr "Instancje klastra"
+
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
+#, python-format
+msgid "Name: %(node_group_name)s"
+msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
 msgid "Number of Nodes"
@@ -6742,20 +6767,20 @@ msgstr "Nazwa skryptu"
 msgid "Script text"
 msgstr "Zawartość skryptu"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:68
+#: dashboards/project/data_processing/job_binaries/forms.py:69
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:98
+#: dashboards/project/data_processing/job_binaries/forms.py:99
 msgid "Failed to get list of internal binaries."
 msgstr "Nie można pobrać listy wewnętrznych bibliotek."
 
-#: dashboards/project/data_processing/job_binaries/forms.py:128
-#: dashboards/project/data_processing/job_binaries/forms.py:171
+#: dashboards/project/data_processing/job_binaries/forms.py:129
+#: dashboards/project/data_processing/job_binaries/forms.py:172
 msgid "Unable to create job binary"
 msgstr "Nie można utworzyć pliku binarnego zadania"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:143
+#: dashboards/project/data_processing/job_binaries/forms.py:144
 #: dashboards/project/data_processing/job_binaries/tables.py:31
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:11
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
@@ -6763,11 +6788,11 @@ msgstr "Nie można utworzyć pliku binarnego zadania"
 msgid "Create Job Binary"
 msgstr "Utwórz plik binarny zadania"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:160
+#: dashboards/project/data_processing/job_binaries/forms.py:161
 msgid "Unable to upload job binary"
 msgstr "Nie można przesłać pliku binarnego zadania"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:193
+#: dashboards/project/data_processing/job_binaries/forms.py:194
 msgid "Failed to fetch internal binary list"
 msgstr "Nie można pobrać listy wewnętrznych plików binarnych"
 
@@ -6991,6 +7016,11 @@ msgstr "Utworzono"
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:30
 msgid "Job Configuration"
 msgstr "Konfiguracja zadania"
+
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
+#, python-format
+msgid "%(group)s:"
+msgstr ""
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
@@ -7503,7 +7533,6 @@ msgstr "Utwórz kopię zapasową"
 
 #: dashboards/project/database_backups/tables.py:46
 #: dashboards/project/volumes/backups/tables.py:63
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Restore Backup"
 msgstr "Przywróć kopię zapasową"
 
@@ -8586,7 +8615,7 @@ msgstr "ID zasady"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:25
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:35
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:63
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:52
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:57
 msgid "Admin State Up"
 msgstr "Stan administracyjny"
 
@@ -9741,7 +9770,6 @@ msgid "No volumes attached."
 msgstr "Nie dołączono wolumenów."
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:6
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:8
 msgid "Flavor Details"
 msgstr "Szczegóły odmiany"
 
@@ -9784,6 +9812,11 @@ msgstr "Niektóre z odmian niespełniających minimalnych wymagań obrazu zosta�
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:44
 msgid "No flavors meet minimum criteria for selected image."
 msgstr "Żadna z odmian nie spełnia wymaganych kryteriów dla wybranego obrazu."
+
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:8
+#, python-format
+msgid "Flavor Details: %(name)s\">%(name)s"
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_launch_advanced_help.html:2
 msgid "Specify advanced options to use when launching an instance."
@@ -10271,7 +10304,6 @@ msgstr "Trwałość sesji"
 
 #: dashboards/project/loadbalancers/forms.py:87
 #: dashboards/project/loadbalancers/workflows.py:180
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:43
 msgid "Cookie Name"
 msgstr "Nazwa ciasteczka"
 
@@ -10282,7 +10314,7 @@ msgstr "Wymagane dla trwałości sesji typu APP_COOKIE, w innych przypadkach ign
 
 #: dashboards/project/loadbalancers/forms.py:92
 #: dashboards/project/loadbalancers/workflows.py:189
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:49
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:54
 msgid "Connection Limit"
 msgstr "Limit połączeń"
 
@@ -10356,7 +10388,7 @@ msgstr "Minimalny odstęp czasu w sekundach pomiędzy testami członka"
 #: dashboards/project/loadbalancers/tables.py:335
 #: dashboards/project/loadbalancers/workflows.py:501
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:60
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
 msgid "Timeout"
 msgstr "Limit czasu"
 
@@ -10523,8 +10555,6 @@ msgstr "Dostawca"
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:44
 #: dashboards/project/vpn/tables.py:265 dashboards/project/vpn/workflows.py:32
 msgid "Subnet"
 msgstr "Podsieć"
@@ -11055,6 +11085,16 @@ msgstr "Pozwala na modyfikację atrybutów VIP-a: edycję nazwy, opisu, puli, tr
 msgid "Port ID"
 msgstr "ID portu"
 
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:42
+#, python-format
+msgid "Type: %(persistence_type)s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:47
+#, python-format
+msgid "Cookie Name: %(cookie_name)s"
+msgstr ""
+
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:6
 msgid "Load Balancer"
@@ -11426,8 +11466,16 @@ msgid "Provider Network"
 msgstr "Sieć dostawcy"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
-msgid "Network Type"
-msgstr "Typ sieci"
+msgid "Network Type:"
+msgstr ""
+
+#: dashboards/project/networks/templates/networks/_detail_overview.html:24
+msgid "Physical Network:"
+msgstr ""
+
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+msgid "Segmentation ID:"
+msgstr ""
 
 #: dashboards/project/networks/templates/networks/create.html:17
 #: dashboards/project/stacks/templates/stacks/_change_template.html:25
@@ -11507,7 +11555,6 @@ msgstr "Dodatkowe trasy"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:44
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:24
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:99
 msgid "Destination"
 msgstr "Cel"
 
@@ -11824,6 +11871,15 @@ msgstr "Nie można usunąć interfejsu %s"
 msgid "Unable to set gateway."
 msgstr "Nie można ustawić bramki."
 
+#: dashboards/project/routers/templates/routers/_detail_overview.html:4
+#, python-format
+msgid "Router Overview: %(router_name)s"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/_detail_overview.html:27
+msgid "Connected External Network:"
+msgstr ""
+
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
 "Routing rules to apply to router. Rules are matched by most specific source "
@@ -11849,26 +11905,47 @@ msgid "Reset to Default"
 msgstr "Przywróć domyślne"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:24
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:98
 msgid "Source"
 msgstr "Źródło"
 
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:92
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
+#, python-format
+msgid "Subnet: %(dest_subnetname)s"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:45
+#, python-format
+msgid "Subnet: %(row_source_subnetname)s"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:93
 msgid "Rule Conflict"
 msgstr "Konflikt reguł"
 
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:95
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:96
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
 "automatically generated to control the behavior of the entire "
 "source/destination combination."
 msgstr "Bardziej szczegółowa reguła dotyczy części ruchu, w związku z czym nie można automatycznie wygenerować reguły kontrolującej zachowanie wszystkich kombinacji źródeł/celi."
 
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:97
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:98
 msgid "Conflicting Rule"
 msgstr "Konfliktująca reguła"
 
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:122
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:99
+msgid "Source:"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
+msgid "Destination:"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:101
+msgid "Action:"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
 "The color and icon of an intersection indicates whether or not traffic is permitted from the source (row) to the destination (column).\n"
 "     Clicking the <i class=\"icon-random\"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>\n"
@@ -12177,23 +12254,28 @@ msgstr "Tworzy nowy stos o podanych wartościach."
 msgid "Stack Overview"
 msgstr "Przegląd stosu"
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:32
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:28
+#, python-format
+msgid "%(stack_status_title)s: %(stack_status_reason)s"
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:34
 msgid "Outputs"
 msgstr "Wyjścia"
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:46
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:48
 msgid "Stack Parameters"
 msgstr "Parametry stosu"
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:57
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:59
 msgid "Launch Parameters"
 msgstr "Parametry uruchomieniowe"
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:61
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Minutes"
 msgstr "Minut"
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
 msgid "Rollback"
 msgstr "Wycofaj"
 
@@ -12209,7 +12291,12 @@ msgstr "ID zasobu stosu"
 msgid "Resource ID"
 msgstr "ID zasobu"
 
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:46
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:42
+#, python-format
+msgid "%(resource_status)s: %(resource_status_reason)s"
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:48
 msgid "Resource Metadata"
 msgstr "Metadane zasobu"
 
@@ -12300,7 +12387,6 @@ msgid "Unable to restore backup."
 msgstr "Nie można przywrócić kopii zapasowej."
 
 #: dashboards/project/volumes/backups/tables.py:47
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup"
 msgstr "Kopia zapasowa wolumenu"
 
@@ -12357,6 +12443,10 @@ msgid "Create Volume Backup"
 msgstr "Utwórz kopię zapasową wolumenu"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
+msgid "Volume Backup:"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
@@ -12369,14 +12459,19 @@ msgid ""
 "they originate from."
 msgstr "Jeśli nie zostanie podana nazwa kontenera, domyślny kontener o nazwie volumebackups zostanie automatycznie utworzony. Kopie zapasowe będą miały ten sam rozmiar, co wolumen z którego zostaną utworzone."
 
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:4
-msgid "Volume Backup Overview"
-msgstr "Przegląd kopii zapasowych wolumenu"
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:5
+#, python-format
+msgid "Volume Backup Overview: %(backup_display_name)s"
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
 msgid "Restore Volume Backup"
 msgstr "Przywróć kopię zapasową wolumenu"
+
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
+msgid "Restore Backup:"
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Select a volume to restore to."
@@ -13669,7 +13764,6 @@ msgstr "Nie można pobrać projektów."
 
 #: dashboards/router/nexus1000v/forms.py:51
 #: dashboards/router/nexus1000v/tables.py:78
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
 msgid "Segment Type"
 msgstr "Typ segmentu"
 
@@ -13706,7 +13800,6 @@ msgstr "Rozszerzony VXLAN"
 #: dashboards/router/nexus1000v/forms.py:85
 #: dashboards/router/nexus1000v/forms.py:87
 #: dashboards/router/nexus1000v/tables.py:82
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
 msgid "Segment Range"
 msgstr "Rozmiar segmentu"
 
@@ -13808,16 +13901,24 @@ msgid "Failed to obtain network profile binding"
 msgstr "Nie można pobrać powiązania profilu sieciowego"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
+msgid "Name:"
+msgstr "Nazwa:"
+
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
 msgid " Select a name for your network profile."
 msgstr "Wybór nazwy profilu sieciowego."
+
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
+msgid "Segment Type:"
+msgstr ""
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
 msgid " Segment types available are VLAN, Overlay and Trunk."
 msgstr "Dostępne typy segmentów to VLAN, Overlay oraz Trunk."
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:21
-msgid "Segment Sub Type"
-msgstr "Podtyp segmentu"
+msgid "Segment Sub Type:"
+msgstr ""
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:21
 msgid ""
@@ -13826,6 +13927,10 @@ msgid ""
 "which can be manually inputed as a text parameter for subtype. Available "
 "sub-type for Trunk is: VLAN."
 msgstr "Dla segmentów Overlay oraz Trunk dostępne są podtypy. Dostępne podtypy dla Overlay to: Native-VXLAN, Enhanced-VXLAN  oraz „Inne” (np. GRE), które mogą być podane ręcznie jako parametr tekstowy dla podtypu. Dostępny podtyp dla Trunk to VLAN."
+
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
+msgid "Segment Range:"
+msgstr ""
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
 msgid ""

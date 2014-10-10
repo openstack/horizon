@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-02 13:57-0500\n"
-"PO-Revision-Date: 2014-10-02 21:40+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-10-09 22:05-0500\n"
+"PO-Revision-Date: 2014-10-09 23:37+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: base.py:454
+#: base.py:480
 msgid "Other"
 msgstr "Inne"
 
@@ -103,7 +103,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:786 tables/base.py:1537
+#: tables/actions.py:786 tables/base.py:1545
 msgid "N/A"
 msgstr "n.d."
 
@@ -147,17 +147,17 @@ msgstr "Atrybut %(attr)s nie istnieje dla %(obj)s."
 msgid "No items to display."
 msgstr "Brak pozycji do wyświetlenia."
 
-#: tables/base.py:1074
+#: tables/base.py:1076
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Czynności"
 
-#: tables/base.py:1302
+#: tables/base.py:1304
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nie znaleziono wyników dla identyfikatora „%s”."
 
-#: tables/base.py:1453
+#: tables/base.py:1461
 msgid "Please select a row before taking that action."
 msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
 
@@ -308,8 +308,8 @@ msgstr "Blędna nazwa klucza."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No existing metadata"
-msgstr "Brak metadanych"
+msgid "No available metadata"
+msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -445,6 +445,7 @@ msgstr "%s PB"
 msgid "0 bytes"
 msgstr "0 bajtów"
 
+#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
@@ -452,6 +453,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
+#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"

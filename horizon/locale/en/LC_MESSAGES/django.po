@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-30 01:42-0500\n"
+"POT-Creation-Date: 2014-10-10 01:36-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: base.py:454
+#: base.py:480
 msgid "Other"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:786 tables/base.py:1537
+#: tables/actions.py:786 tables/base.py:1545
 msgid "N/A"
 msgstr ""
 
@@ -147,17 +147,17 @@ msgstr ""
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1074
+#: tables/base.py:1076
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1302
+#: tables/base.py:1304
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1453
+#: tables/base.py:1461
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -306,7 +306,7 @@ msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No existing metadata"
+msgid "No available metadata"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
@@ -442,12 +442,14 @@ msgstr ""
 msgid "0 bytes"
 msgstr ""
 
+#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] ""
 msgstr[1] ""
 
+#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
