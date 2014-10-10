@@ -652,11 +652,20 @@ class InstanceTests(helpers.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @helpers.create_stubs({api.nova: ("server_get",
-                                   "instance_volumes_list",
-                                   "flavor_get"),
-                        api.network: ("server_security_groups",
-                                      "servers_update_addresses")})
+    @helpers.create_stubs({
+        api.nova: (
+            "server_get",
+            "instance_volumes_list",
+            "flavor_get",
+            "extension_supported"
+        ),
+        api.network: (
+            "server_security_groups",
+            "servers_update_addresses",
+            "floating_ip_simple_associate_supported",
+            "floating_ip_supported"
+        )
+    })
     def _get_instance_details(self, server, qs=None,
                               flavor_return=None, volumes_return=None,
                               security_groups_return=None, ):
@@ -683,6 +692,12 @@ class InstanceTests(helpers.TestCase):
                 .AndReturn(flavor_return)
         api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
                 .AndReturn(security_groups_return)
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 
