@@ -16,5 +16,14 @@
       </label>
 
       <button type="submit" class="btn btn-primary pull-right">{% trans "Sign Up" %}</button>
+
+      <div class="actions">
+        <a href="{% url 'fiware_auth_request' %}">
+          Forgot password
+        </a>
+        <a href="{% url 'fiware_auth_confirmation' %}">
+          Didn't receive confirmation instructions?
+        </a>
+      </div>
   {% endblock %}
 </div>

@@ -118,31 +118,22 @@
   .modal-header{
     @include modal-header;
   }
-  .actions{
-    clear: both;
-    text-align: left;
-    a{
-      border-right: 1px solid $gray-light;
-      padding-right: 6px;
-      padding-left: 10px;
-      font-size: 12px;
-      &:first-child{
-        padding-left: 0px;
-      }
-      &:last-child{
-        border-right: none;
+  .modal-footer{
+    padding: 15px 0 0;
+    .checkbox{
+      label{
+        margin-top: -4px;
       }
     }
   }
-  .modal-footer{
-    padding: 15px 0 0;
-  }
 }
+
 .control-label{
   font-weight: normal;
   color: $gray-light;
   margin-bottom: 4px;
 }
+
 .conditions{
   font-size: 10px;
   text-align: left;
@@ -156,6 +147,25 @@
   }
 }
 
+.actions{
+  clear: both;
+  text-align: left;
+  padding-top: 10px;
+  a{
+    border-right: 1px solid $gray-light;
+    padding-right: 6px;
+    padding-left: 10px;
+    font-size: 12px;
+    float: left;
+    &:first-child{
+      padding-left: 0px;
+    }
+    &:last-child{
+      border-right: none;
+      float: none;
+    }
+  }
+}
 .simple_captcha{
   border-top: 1px solid #E2E2E2;
   border-bottom: 1px solid #E2E2E2;
@@ -169,13 +179,14 @@
 
 
 
-.remember-password{
-  @include make-sm-column(6, $gutter: $grid-gutter-width);
-  @include make-md-column(6, $gutter: $grid-gutter-width);
-  @include make-lg-column(6, $gutter: $grid-gutter-width);
-  @include make-sm-column-offset(3);
-  @include make-md-column-offset(3);
-  @include make-lg-column-offset(3);
+.remember-password,
+.resend-confirmation-instructions{
+  @include make-sm-column(4, $gutter: $grid-gutter-width);
+  @include make-md-column(4, $gutter: $grid-gutter-width);
+  @include make-lg-column(4, $gutter: $grid-gutter-width);
+  @include make-sm-column-offset(4);
+  @include make-md-column-offset(4);
+  @include make-lg-column-offset(4);
   @extend .well;
   @include border-top-radius (0);
   @include border-bottom-radius (0);

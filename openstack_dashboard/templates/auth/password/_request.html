@@ -3,7 +3,7 @@
 {% load url from future %}
 
     {% block modal-header %}
-        <h3>Forgot your password?</h3>
+        Forgot your password?
     {% endblock %}
 
     {% block form_action %}{% url 'fiware_auth_request' %}{% endblock %}
@@ -16,6 +16,14 @@
 
     {% block modal-footer %}
         <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+        <div class="actions">
+          <a href="{% url 'fiware_auth_register' %}">
+            Sign up
+          </a>
+          <a href="{% url 'fiware_auth_confirmation' %}">
+            Didn't receive confirmation instructions?
+          </a>
+        </div>
     {% endblock %}
 
 

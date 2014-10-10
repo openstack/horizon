@@ -4,7 +4,7 @@
 
 <div class="remember-password">
     {% block modal-header %}
-        <h3>Change your password</h3>
+        Change your password
     {% endblock %}
 
     {% block form_action %}{% url 'fiware_auth_reset' %}?reset_password_token={{ token }}{% endblock %}
@@ -15,5 +15,13 @@
 
     {% block modal-footer %}
         <button type="submit" class="btn btn-primary">{% trans "Change my password" %}</button>
+        <div class="actions">
+          <a href="{% url 'fiware_auth_register' %}">
+            Sign up
+          </a>
+          <a href="{% url 'fiware_auth_confirmation' %}">
+            Didn't receive confirmation instructions?
+          </a>
+        </div>
     {% endblock %}
 </div>
