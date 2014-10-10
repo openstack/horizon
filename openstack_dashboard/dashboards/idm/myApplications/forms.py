@@ -36,3 +36,4 @@ class RolesApplicationForm(forms.SelfHandlingForm):
 	def handle(self, request, data):
 		response = shortcuts.redirect('horizon:idm:myApplications:index')
 		return response
+
