@@ -21,6 +21,7 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 from openstack_dashboard.utils import filters
 
 
@@ -76,6 +77,15 @@ class CreateGroup(tables.LinkAction):
             policy = (("network", "create_security_group"),)
         else:
             policy = (("compute", "compute_extension:security_groups"),)
+
+        usages = quotas.tenant_quota_usages(request)
+        if usages['security_groups']['available'] <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ["disabled"]
+                self.verbose_name = _("Create Security Group (Quota exceeded)")
+        else:
+            self.verbose_name = _("Create Security Group")
+            self.classes = [c for c in self.classes if c != "disabled"]
 
         return POLICY_CHECK(policy, request, target={})
 

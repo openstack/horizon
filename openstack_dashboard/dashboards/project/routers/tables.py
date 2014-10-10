@@ -23,8 +23,11 @@ from neutronclient.common import exceptions as q_ext
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
+
 from openstack_dashboard import api
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
+
 
 LOG = logging.getLogger(__name__)
 
@@ -76,6 +79,18 @@ class CreateRouter(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_router"),)
+
+    def allowed(self, request, datum=None):
+        usages = quotas.tenant_quota_usages(request)
+        if usages['routers']['available'] <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ["disabled"]
+                self.verbose_name = _("Create Router (Quota exceeded)")
+        else:
+            self.verbose_name = _("Create Router")
+            self.classes = [c for c in self.classes if c != "disabled"]
+
+        return True
 
 
 class EditRouter(policy.PolicyTargetMixin, tables.LinkAction):
