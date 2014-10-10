@@ -1,0 +1,26 @@
+% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Organizations" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_domain_page_header.html" with title=_("Organizations") %}
+{% endblock page_header %}
+
+{% block main %}
+<div>
+	{{ organization_id }}
+</div>
+{% endblock %}
+
+<!-- <h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{error_message}}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+	<input type="radio" name="choice" id="choice{{ forloop.counter}}" value="{{ choice.id}}" />
+	<label for="choice{{ forloop.counter }}">{{ choice.choice_text}}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form> -->

@@ -18,6 +18,7 @@
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from horizon import exceptions
 from horizon import messages
@@ -63,27 +64,57 @@ class CreateOrganizationView(forms.ModalFormView):
 
 
 
-class UpdateOrganizationView(workflows.WorkflowView):
-    workflow_class = organization_workflows.UpdateOrganization
+# class UpdateOrganizationView(forms.ModalFormView):
+#     template_name = 'idm/organiztions/update.html'
+#     def get_initial(self):
+#         initial = super(UpdateOrganizationView, self).get_initial()
 
-    def get_initial(self):
-        initial = super(UpdateOrganizationView, self).get_initial()
+#         organization_id = self.kwargs['tenant_id']
+#         initial['organization_id'] = organization_id
 
+#         try:
+#             # get initial organization info
+#             organization_info = api.keystone.tenant_get(self.request, organization_id,
+#                                                    admin=True)
+#             for field in PROJECT_INFO_FIELDS:
+#                 initial[field] = getattr(organization_info, field, None)
+
+#             # Retrieve the domain name where the organization belong
+#             if keystone.VERSIONS.active >= 3:
+#                 try:
+#                     domain = api.keystone.domain_get(self.request,
+#                                                      initial["domain_id"])
+#                     initial["domain_name"] = domain.name
+#                 except Exception:
+#                     exceptions.handle(self.request,
+#                         _('Unable to retrieve organization domain.'),
+#                         redirect=reverse(INDEX_URL))
+#         except Exception:
+#             exceptions.handle(self.request,
+#                               _('Unable to retrieve organization details.'),
+#                               redirect=reverse(INDEX_URL))
+#         return initial         
+
+class DetailOrganizationView(generic.DetailView):
+    template_name = 'idm/organizations/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailOrganizationView, self).get_context_data(**kwargs)
         organization_id = self.kwargs['tenant_id']
-        initial['organization_id'] = organization_id
+        context['organization_id'] = organization_id
 
         try:
             # get initial organization info
             organization_info = api.keystone.tenant_get(self.request, organization_id,
-                                                   admin=True)
+                                                admin=True)
             for field in PROJECT_INFO_FIELDS:
-                initial[field] = getattr(organization_info, field, None)
+                context[field] = getattr(organization_info, field, None)
 
             # Retrieve the domain name where the organization belong
             if keystone.VERSIONS.active >= 3:
                 try:
                     domain = api.keystone.domain_get(self.request,
-                                                     initial["domain_id"])
+                                                    initial["domain_id"])
                     initial["domain_name"] = domain.name
                 except Exception:
                     exceptions.handle(self.request,
@@ -91,6 +122,34 @@ class UpdateOrganizationView(workflows.WorkflowView):
                         redirect=reverse(INDEX_URL))
         except Exception:
             exceptions.handle(self.request,
-                              _('Unable to retrieve organization details.'),
-                              redirect=reverse(INDEX_URL))
-        return initial         
+                        _('Unable to retrieve organization details.'),
+                        redirect=reverse(INDEX_URL))
+        return context
+
+    def get_queryset(self,**kwargs):
+        context = super(DetailOrganizationView, self).get_context_data(**kwargs)
+        organization_id = self.kwargs['tenant_id']
+        context['organization_id'] = organization_id
+
+        try:
+            # get initial organization info
+            organization_info = api.keystone.tenant_get(self.request, organization_id,
+                                                admin=True)
+            for field in PROJECT_INFO_FIELDS:
+                context[field] = getattr(organization_info, field, None)
+
+            # Retrieve the domain name where the organization belong
+            if keystone.VERSIONS.active >= 3:
+                try:
+                    domain = api.keystone.domain_get(self.request,
+                                                    initial["domain_id"])
+                    initial["domain_name"] = domain.name
+                except Exception:
+                    exceptions.handle(self.request,
+                        _('Unable to retrieve organization domain.'),
+                        redirect=reverse(INDEX_URL))
+        except Exception:
+            exceptions.handle(self.request,
+                        _('Unable to retrieve organization details.'),
+                        redirect=reverse(INDEX_URL))
+        return context
