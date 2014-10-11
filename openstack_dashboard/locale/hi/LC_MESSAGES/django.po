@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-09 22:05-0500\n"
-"PO-Revision-Date: 2014-10-09 23:37+0000\n"
+"POT-Creation-Date: 2014-10-10 21:25-0500\n"
+"PO-Revision-Date: 2014-10-11 02:26+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -427,7 +427,7 @@ msgstr "प्रशासक"
 #: dashboards/identity/projects/workflows.py:125
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
-#: dashboards/project/access_and_security/security_groups/tables.py:122
+#: dashboards/project/access_and_security/security_groups/tables.py:132
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/cluster_templates/tables.py:112
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
@@ -480,7 +480,7 @@ msgstr "प्रशासक"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:118
+#: dashboards/project/networks/tables.py:132
 #: dashboards/project/networks/ports/forms.py:34
 #: dashboards/project/networks/ports/tables.py:55
 #: dashboards/project/networks/subnets/tables.py:116
@@ -488,7 +488,7 @@ msgstr "प्रशासक"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/forms.py:85
-#: dashboards/project/routers/tables.py:165
+#: dashboards/project/routers/tables.py:180
 #: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -792,7 +792,7 @@ msgstr "होस्ट जोड़ने या हटाने में त�
 #: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
-#: dashboards/project/access_and_security/security_groups/tables.py:123
+#: dashboards/project/access_and_security/security_groups/tables.py:133
 #: dashboards/project/data_processing/cluster_templates/tables.py:123
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
@@ -1095,7 +1095,7 @@ msgstr " उत्प्लावित IP"
 #: dashboards/identity/projects/workflows.py:61
 #: dashboards/identity/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:43
-#: dashboards/project/access_and_security/security_groups/tables.py:130
+#: dashboards/project/access_and_security/security_groups/tables.py:140
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:24
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
@@ -1111,7 +1111,7 @@ msgstr "सुरक्षा समूह"
 #: dashboards/admin/defaults/workflows.py:44
 #: dashboards/identity/projects/workflows.py:63
 #: dashboards/identity/projects/workflows.py:69
-#: dashboards/project/access_and_security/security_groups/tables.py:258
+#: dashboards/project/access_and_security/security_groups/tables.py:268
 #: usage/quotas.py:71 usage/quotas.py:83
 msgid "Security Group Rules"
 msgstr "सुरक्षा समूह नियम"
@@ -1678,11 +1678,11 @@ msgstr "क्षेत्र"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
-#: dashboards/project/networks/tables.py:124
+#: dashboards/project/networks/tables.py:138
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:169
+#: dashboards/project/routers/tables.py:184
 #: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:113
@@ -2508,7 +2508,7 @@ msgstr "विभाजन आईडी"
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:39
-#: dashboards/project/networks/tables.py:126
+#: dashboards/project/networks/tables.py:140
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/networks/ports/tables.py:61
@@ -2535,7 +2535,7 @@ msgstr "व्यवस्थापक स्थिति"
 #: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:122
+#: dashboards/project/networks/tables.py:136
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "साझा"
@@ -2543,7 +2543,7 @@ msgstr "साझा"
 #: dashboards/admin/networks/forms.py:81
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:179
+#: dashboards/project/routers/tables.py:194
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "बाहरी नेटवर्क "
@@ -2621,7 +2621,7 @@ msgstr "%s संजाल अद्यतन करने में विफ�
 #: dashboards/project/databases/workflows/create_instance.py:131
 #: dashboards/project/instances/workflows/create_instance.py:644
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:130
+#: dashboards/project/networks/tables.py:144
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
@@ -2629,21 +2629,21 @@ msgid "Networks"
 msgstr "संजाल"
 
 #: dashboards/admin/networks/tables.py:37
-#: dashboards/project/networks/tables.py:46
+#: dashboards/project/networks/tables.py:48
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "संजाल मिटाएँसंजाल मिटाएँ"
 msgstr[1] "संजाल मिटाएँ"
 
 #: dashboards/admin/networks/tables.py:45
-#: dashboards/project/networks/tables.py:54
+#: dashboards/project/networks/tables.py:56
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "मिटाया संजाल"
 msgstr[1] "मिटाया संजाल"
 
 #: dashboards/admin/networks/tables.py:56
-#: dashboards/project/networks/tables.py:74
+#: dashboards/project/networks/tables.py:76
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "%s संजाल को मिटा पाने में विफल"
@@ -2654,7 +2654,8 @@ msgstr "%s संजाल को मिटा पाने में विफ�
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
-#: dashboards/project/networks/tables.py:82
+#: dashboards/project/networks/tables.py:84
+#: dashboards/project/networks/tables.py:97
 #: dashboards/project/networks/workflows.py:334
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
@@ -2663,7 +2664,7 @@ msgstr "संजाल बनायें"
 
 #: dashboards/admin/networks/tables.py:73
 #: dashboards/admin/networks/templates/networks/_update.html:8
-#: dashboards/project/networks/tables.py:92
+#: dashboards/project/networks/tables.py:106
 #: dashboards/project/networks/templates/networks/_update.html:8
 msgid "Edit Network"
 msgstr "संजाल संपादित करें"
@@ -2676,7 +2677,7 @@ msgid "Network Name"
 msgstr "संजाल नाम"
 
 #: dashboards/admin/networks/tables.py:90
-#: dashboards/project/networks/tables.py:121
+#: dashboards/project/networks/tables.py:135
 msgid "Subnets Associated"
 msgstr "जुड़ा हुआ सबनेट"
 
@@ -3122,7 +3123,7 @@ msgstr "मॉनिटरिंग"
 #: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:197
+#: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
@@ -3249,7 +3250,7 @@ msgstr "परियोजना आईडी"
 #: dashboards/project/routers/forms.py:47
 #: dashboards/project/routers/forms.py:105
 #: dashboards/project/routers/forms.py:111
-#: dashboards/project/routers/tables.py:173
+#: dashboards/project/routers/tables.py:188
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "वितरित"
@@ -3271,7 +3272,7 @@ msgid "Connected External Network"
 msgstr "जुड़ा हुआ बाहरी संजाल"
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
-#: dashboards/project/routers/tables.py:83
+#: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/templates/routers/_update.html:8
 msgid "Edit Router"
 msgstr "रॉटर संपादन करें"
@@ -3749,16 +3750,16 @@ msgid "Manage QoS Spec Association"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:52
-msgid "Delete VolumeType"
-msgid_plural "Delete VolumeTypes"
-msgstr[0] "VolumeType मिटाएँ"
-msgstr[1] "VolumeType मिटाएँ"
+msgid "Delete Volume Type"
+msgid_plural "Delete Volume Types"
+msgstr[0] ""
+msgstr[1] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:60
-msgid "Deleted VolumeType"
-msgid_plural "Deleted VolumeTypes"
-msgstr[0] "VolumeType मिटाया"
-msgstr[1] "VolumeType मिटाया"
+msgid "Deleted Volume Type"
+msgid_plural "Deleted Volume Types"
+msgstr[0] ""
+msgstr[1] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Associated QoS Spec"
@@ -5105,13 +5106,13 @@ msgstr "नियम"
 #: dashboards/project/access_and_security/security_groups/forms.py:114
 #: dashboards/project/access_and_security/security_groups/forms.py:115
 #: dashboards/project/access_and_security/security_groups/forms.py:116
-#: dashboards/project/access_and_security/security_groups/tables.py:239
+#: dashboards/project/access_and_security/security_groups/tables.py:249
 msgid "Direction"
 msgstr "दिशा"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:120
 #: dashboards/project/access_and_security/security_groups/forms.py:127
-#: dashboards/project/access_and_security/security_groups/tables.py:244
+#: dashboards/project/access_and_security/security_groups/tables.py:254
 msgid "IP Protocol"
 msgstr " IP प्रोटोकॉल "
 
@@ -5133,7 +5134,7 @@ msgid "Port"
 msgstr "पोर्ट"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:132
-#: dashboards/project/access_and_security/security_groups/tables.py:247
+#: dashboards/project/access_and_security/security_groups/tables.py:257
 msgid "Port Range"
 msgstr "पोर्ट सीमा"
 
@@ -5169,7 +5170,7 @@ msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr " ICMP कोड के लिए एक मूल्य दर्ज (: 255 -1) रेंज में"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:195
-#: dashboards/project/access_and_security/security_groups/tables.py:248
+#: dashboards/project/access_and_security/security_groups/tables.py:258
 msgid "Remote"
 msgstr "दूरस्थ"
 
@@ -5191,7 +5192,7 @@ msgstr "वर्गहीन अंतर डोमेन रूटिंग (�
 
 #: dashboards/project/access_and_security/security_groups/forms.py:229
 #: dashboards/project/access_and_security/security_groups/forms.py:237
-#: dashboards/project/access_and_security/security_groups/tables.py:242
+#: dashboards/project/access_and_security/security_groups/tables.py:252
 msgid "Ether Type"
 msgstr "ईथर प्रकार"
 
@@ -5224,12 +5225,12 @@ msgid "Other Protocol"
 msgstr "अन्य प्रोटोकॉल"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:266
-#: dashboards/project/access_and_security/security_groups/tables.py:213
+#: dashboards/project/access_and_security/security_groups/tables.py:223
 msgid "Ingress"
 msgstr "प्रवेश"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:267
-#: dashboards/project/access_and_security/security_groups/tables.py:215
+#: dashboards/project/access_and_security/security_groups/tables.py:225
 msgid "Egress"
 msgstr "निकास"
 
@@ -5280,19 +5281,20 @@ msgstr "सफ़लतापूर्वक जोड़ा गया निय
 msgid "Unable to add rule to security group."
 msgstr "सुरक्षा समूह के लिए शासन को जोड़ने में असमर्थ."
 
-#: dashboards/project/access_and_security/security_groups/tables.py:36
+#: dashboards/project/access_and_security/security_groups/tables.py:37
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "सुरक्षा समूह मिटाएँ"
 msgstr[1] "सुरक्षा समूह मिटाएँ"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:44
+#: dashboards/project/access_and_security/security_groups/tables.py:45
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] "मिटाया सुरक्षा समूह"
 msgstr[1] "मिटाया सुरक्षा समूह"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:69
+#: dashboards/project/access_and_security/security_groups/tables.py:70
+#: dashboards/project/access_and_security/security_groups/tables.py:87
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
@@ -5301,6 +5303,10 @@ msgid "Create Security Group"
 msgstr "सुरक्षा समूह बनाएँ"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:85
+msgid "Create Security Group (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/access_and_security/security_groups/tables.py:95
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:3
@@ -5308,11 +5314,11 @@ msgstr "सुरक्षा समूह बनाएँ"
 msgid "Edit Security Group"
 msgstr "संपादित सुरक्षा समूह"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:107
+#: dashboards/project/access_and_security/security_groups/tables.py:117
 msgid "Manage Rules"
 msgstr "नियम प्रबंधित करें"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:137
+#: dashboards/project/access_and_security/security_groups/tables.py:147
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
@@ -5321,20 +5327,20 @@ msgstr "नियम प्रबंधित करें"
 msgid "Add Rule"
 msgstr "नियम जोड़ें"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:158
+#: dashboards/project/access_and_security/security_groups/tables.py:168
 #: dashboards/project/firewalls/tables.py:58
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "नियम मिटाएँ"
 msgstr[1] "नियम मिटाएँ"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:166
+#: dashboards/project/access_and_security/security_groups/tables.py:176
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "मिटाया नियम"
 msgstr[1] "मिटाया नियम"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:220
+#: dashboards/project/access_and_security/security_groups/tables.py:230
 msgid "Any"
 msgstr "कोई"
 
@@ -6334,7 +6340,7 @@ msgstr "कुंजीयुग्म"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:86
 #, python-format
-msgid "%(key)s:%(val | safe)s "
+msgid "%(key)s: %(val)s"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
@@ -11006,7 +11012,8 @@ msgstr "संजाल टोपोलॉजी"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:74
+#: dashboards/project/routers/tables.py:77
+#: dashboards/project/routers/tables.py:90
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 #: dashboards/project/routers/templates/routers/create.html:3
@@ -11040,7 +11047,11 @@ msgstr "सामान्य"
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "कोई नेटवर्क, रूटर या प्रदर्शित करने के लिए जुड़ा इंस्टेंस हैं."
 
-#: dashboards/project/networks/tables.py:102
+#: dashboards/project/networks/tables.py:95
+msgid "Create Network (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:116
 msgid "Add Subnet"
 msgstr "सबनेट जोड़ें"
 
@@ -11519,25 +11530,29 @@ msgstr "रॉटर %s सफलतापूर्वक अद्यतन क
 msgid "Failed to update router %s"
 msgstr ""
 
-#: dashboards/project/routers/tables.py:36
+#: dashboards/project/routers/tables.py:39
 msgid "Delete Router"
 msgid_plural "Delete Routers"
 msgstr[0] "रूटर मिटाएँ"
 msgstr[1] "रूटर मिटाएँ"
 
-#: dashboards/project/routers/tables.py:44
+#: dashboards/project/routers/tables.py:47
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
 msgstr[0] "मिटाया रॉटर"
 msgstr[1] "मिटाया रॉटर"
 
-#: dashboards/project/routers/tables.py:58
-#: dashboards/project/routers/tables.py:64
+#: dashboards/project/routers/tables.py:61
+#: dashboards/project/routers/tables.py:67
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "रूटर \"%s\" मिटाने में असमर्थ"
 
-#: dashboards/project/routers/tables.py:92
+#: dashboards/project/routers/tables.py:88
+msgid "Create Router (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/routers/tables.py:107
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
@@ -11545,25 +11560,25 @@ msgstr "रूटर \"%s\" मिटाने में असमर्थ"
 msgid "Set Gateway"
 msgstr "गेटवे सेट करें"
 
-#: dashboards/project/routers/tables.py:108
+#: dashboards/project/routers/tables.py:123
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
 msgstr[0] "गेटवे साफ करें"
 msgstr[1] "गेटवे साफ करें"
 
-#: dashboards/project/routers/tables.py:116
+#: dashboards/project/routers/tables.py:131
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
 msgstr[0] "साफ किया गेटवे"
 msgstr[1] "साफ किया गेटवे"
 
-#: dashboards/project/routers/tables.py:132
+#: dashboards/project/routers/tables.py:147
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr " \"%(name)s\" रूटर के लिए प्रवेश द्वार साफ करने में असमर्थ: \"%(msg)s\""
 
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:177
+#: dashboards/project/routers/tables.py:192
 msgid "HA mode"
 msgstr "HA अवस्था"
 
@@ -13986,7 +14001,7 @@ msgstr "अमान्य तिथि प्रारूप: डिफ़ॉ�
 msgid "Unable to retrieve network quota information."
 msgstr "नेटवर्क कोटा जानकारी प्राप्त करने में असमर्थ."
 
-#: usage/base.py:186 usage/quotas.py:292
+#: usage/base.py:186 usage/quotas.py:337
 msgid "Unable to retrieve volume limit information."
 msgstr "वॉल्यूम सीमा में सूचना को प्राप्त करने में असमर्थ."
 
@@ -14013,7 +14028,7 @@ msgstr "अमान्य समय अवधि. आप भविष्य स
 msgid "Injected File Path Bytes"
 msgstr "इंजेक्ट फ़ाइल पथ बाइट"
 
-#: usage/quotas.py:278
+#: usage/quotas.py:323
 msgid "Unable to retrieve compute limit information."
 msgstr "गणना सीमा में सूचना को प्राप्त करने में असमर्थ."
 

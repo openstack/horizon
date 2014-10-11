@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-09 22:05-0500\n"
-"PO-Revision-Date: 2014-10-09 23:37+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-10 21:25-0500\n"
+"PO-Revision-Date: 2014-10-10 13:31+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,7 +309,7 @@ msgstr "無効なキー名"
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
 msgid "No available metadata"
-msgstr ""
+msgstr "利用可能なメタデータはありません"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-09 22:05-0500\n"
-"PO-Revision-Date: 2014-10-09 23:51+0000\n"
+"POT-Creation-Date: 2014-10-10 21:25-0500\n"
+"PO-Revision-Date: 2014-10-11 02:26+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -425,7 +425,7 @@ msgstr "管理員"
 #: dashboards/identity/projects/workflows.py:125
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
-#: dashboards/project/access_and_security/security_groups/tables.py:122
+#: dashboards/project/access_and_security/security_groups/tables.py:132
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/cluster_templates/tables.py:112
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
@@ -478,7 +478,7 @@ msgstr "管理員"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:118
+#: dashboards/project/networks/tables.py:132
 #: dashboards/project/networks/ports/forms.py:34
 #: dashboards/project/networks/ports/tables.py:55
 #: dashboards/project/networks/subnets/tables.py:116
@@ -486,7 +486,7 @@ msgstr "管理員"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/forms.py:85
-#: dashboards/project/routers/tables.py:165
+#: dashboards/project/routers/tables.py:180
 #: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -788,7 +788,7 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
-#: dashboards/project/access_and_security/security_groups/tables.py:123
+#: dashboards/project/access_and_security/security_groups/tables.py:133
 #: dashboards/project/data_processing/cluster_templates/tables.py:123
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
@@ -1091,7 +1091,7 @@ msgstr "浮動 IP"
 #: dashboards/identity/projects/workflows.py:61
 #: dashboards/identity/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:43
-#: dashboards/project/access_and_security/security_groups/tables.py:130
+#: dashboards/project/access_and_security/security_groups/tables.py:140
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:24
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
@@ -1107,7 +1107,7 @@ msgstr "安全性群組"
 #: dashboards/admin/defaults/workflows.py:44
 #: dashboards/identity/projects/workflows.py:63
 #: dashboards/identity/projects/workflows.py:69
-#: dashboards/project/access_and_security/security_groups/tables.py:258
+#: dashboards/project/access_and_security/security_groups/tables.py:268
 #: usage/quotas.py:71 usage/quotas.py:83
 msgid "Security Group Rules"
 msgstr "安全性群組規則"
@@ -1670,11 +1670,11 @@ msgstr "區域"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
-#: dashboards/project/networks/tables.py:124
+#: dashboards/project/networks/tables.py:138
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:169
+#: dashboards/project/routers/tables.py:184
 #: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:113
@@ -2498,7 +2498,7 @@ msgstr "分段識別號"
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:39
-#: dashboards/project/networks/tables.py:126
+#: dashboards/project/networks/tables.py:140
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/networks/ports/tables.py:61
@@ -2525,7 +2525,7 @@ msgstr "管理員狀態"
 #: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:122
+#: dashboards/project/networks/tables.py:136
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "已分享"
@@ -2533,7 +2533,7 @@ msgstr "已分享"
 #: dashboards/admin/networks/forms.py:81
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:179
+#: dashboards/project/routers/tables.py:194
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "對外網路"
@@ -2611,7 +2611,7 @@ msgstr "更新網路 %s 時失敗"
 #: dashboards/project/databases/workflows/create_instance.py:131
 #: dashboards/project/instances/workflows/create_instance.py:644
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:130
+#: dashboards/project/networks/tables.py:144
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
@@ -2619,19 +2619,19 @@ msgid "Networks"
 msgstr "網路"
 
 #: dashboards/admin/networks/tables.py:37
-#: dashboards/project/networks/tables.py:46
+#: dashboards/project/networks/tables.py:48
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] ""
 
 #: dashboards/admin/networks/tables.py:45
-#: dashboards/project/networks/tables.py:54
+#: dashboards/project/networks/tables.py:56
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] ""
 
 #: dashboards/admin/networks/tables.py:56
-#: dashboards/project/networks/tables.py:74
+#: dashboards/project/networks/tables.py:76
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "刪除網路 %s 時失敗"
@@ -2642,7 +2642,8 @@ msgstr "刪除網路 %s 時失敗"
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
-#: dashboards/project/networks/tables.py:82
+#: dashboards/project/networks/tables.py:84
+#: dashboards/project/networks/tables.py:97
 #: dashboards/project/networks/workflows.py:334
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
@@ -2651,7 +2652,7 @@ msgstr "新增網路"
 
 #: dashboards/admin/networks/tables.py:73
 #: dashboards/admin/networks/templates/networks/_update.html:8
-#: dashboards/project/networks/tables.py:92
+#: dashboards/project/networks/tables.py:106
 #: dashboards/project/networks/templates/networks/_update.html:8
 msgid "Edit Network"
 msgstr "編輯網路"
@@ -2664,7 +2665,7 @@ msgid "Network Name"
 msgstr "網路名稱"
 
 #: dashboards/admin/networks/tables.py:90
-#: dashboards/project/networks/tables.py:121
+#: dashboards/project/networks/tables.py:135
 msgid "Subnets Associated"
 msgstr "子網路已聯結"
 
@@ -3104,7 +3105,7 @@ msgstr "監視"
 #: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:197
+#: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
@@ -3231,7 +3232,7 @@ msgstr "專案識別號"
 #: dashboards/project/routers/forms.py:47
 #: dashboards/project/routers/forms.py:105
 #: dashboards/project/routers/forms.py:111
-#: dashboards/project/routers/tables.py:173
+#: dashboards/project/routers/tables.py:188
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "分散式"
@@ -3253,7 +3254,7 @@ msgid "Connected External Network"
 msgstr "已連接對外網路"
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
-#: dashboards/project/routers/tables.py:83
+#: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/templates/routers/_update.html:8
 msgid "Edit Router"
 msgstr "編輯路由器"
@@ -3731,13 +3732,13 @@ msgid "Manage QoS Spec Association"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:52
-msgid "Delete VolumeType"
-msgid_plural "Delete VolumeTypes"
+msgid "Delete Volume Type"
+msgid_plural "Delete Volume Types"
 msgstr[0] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:60
-msgid "Deleted VolumeType"
-msgid_plural "Deleted VolumeTypes"
+msgid "Deleted Volume Type"
+msgid_plural "Deleted Volume Types"
 msgstr[0] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
@@ -5059,13 +5060,13 @@ msgstr "規則"
 #: dashboards/project/access_and_security/security_groups/forms.py:114
 #: dashboards/project/access_and_security/security_groups/forms.py:115
 #: dashboards/project/access_and_security/security_groups/forms.py:116
-#: dashboards/project/access_and_security/security_groups/tables.py:239
+#: dashboards/project/access_and_security/security_groups/tables.py:249
 msgid "Direction"
 msgstr "方向"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:120
 #: dashboards/project/access_and_security/security_groups/forms.py:127
-#: dashboards/project/access_and_security/security_groups/tables.py:244
+#: dashboards/project/access_and_security/security_groups/tables.py:254
 msgid "IP Protocol"
 msgstr "IP 協定"
 
@@ -5087,7 +5088,7 @@ msgid "Port"
 msgstr "接口"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:132
-#: dashboards/project/access_and_security/security_groups/tables.py:247
+#: dashboards/project/access_and_security/security_groups/tables.py:257
 msgid "Port Range"
 msgstr "埠口範圍"
 
@@ -5123,7 +5124,7 @@ msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "為 ICMP 代碼輸入一個數值（範圍：-1 到 255）"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:195
-#: dashboards/project/access_and_security/security_groups/tables.py:248
+#: dashboards/project/access_and_security/security_groups/tables.py:258
 msgid "Remote"
 msgstr "遠程"
 
@@ -5145,7 +5146,7 @@ msgstr "無類別域間路由（如 192.168.0.0/24）"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:229
 #: dashboards/project/access_and_security/security_groups/forms.py:237
-#: dashboards/project/access_and_security/security_groups/tables.py:242
+#: dashboards/project/access_and_security/security_groups/tables.py:252
 msgid "Ether Type"
 msgstr "網路協定類型"
 
@@ -5178,12 +5179,12 @@ msgid "Other Protocol"
 msgstr "其他協定"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:266
-#: dashboards/project/access_and_security/security_groups/tables.py:213
+#: dashboards/project/access_and_security/security_groups/tables.py:223
 msgid "Ingress"
 msgstr "入口"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:267
-#: dashboards/project/access_and_security/security_groups/tables.py:215
+#: dashboards/project/access_and_security/security_groups/tables.py:225
 msgid "Egress"
 msgstr "出口"
 
@@ -5234,17 +5235,18 @@ msgstr "已成功加入規則：%s"
 msgid "Unable to add rule to security group."
 msgstr "無法加入規則到安全性群組。"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:36
+#: dashboards/project/access_and_security/security_groups/tables.py:37
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:44
+#: dashboards/project/access_and_security/security_groups/tables.py:45
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:69
+#: dashboards/project/access_and_security/security_groups/tables.py:70
+#: dashboards/project/access_and_security/security_groups/tables.py:87
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
@@ -5253,6 +5255,10 @@ msgid "Create Security Group"
 msgstr "新增安全性群組"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:85
+msgid "Create Security Group (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/access_and_security/security_groups/tables.py:95
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:3
@@ -5260,11 +5266,11 @@ msgstr "新增安全性群組"
 msgid "Edit Security Group"
 msgstr "編輯安全性群組"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:107
+#: dashboards/project/access_and_security/security_groups/tables.py:117
 msgid "Manage Rules"
 msgstr "管理規則"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:137
+#: dashboards/project/access_and_security/security_groups/tables.py:147
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
@@ -5273,18 +5279,18 @@ msgstr "管理規則"
 msgid "Add Rule"
 msgstr "加入規則"
 
-#: dashboards/project/access_and_security/security_groups/tables.py:158
+#: dashboards/project/access_and_security/security_groups/tables.py:168
 #: dashboards/project/firewalls/tables.py:58
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:166
+#: dashboards/project/access_and_security/security_groups/tables.py:176
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:220
+#: dashboards/project/access_and_security/security_groups/tables.py:230
 msgid "Any"
 msgstr "任意"
 
@@ -6276,7 +6282,7 @@ msgstr "密鑰對"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:86
 #, python-format
-msgid "%(key)s:%(val | safe)s "
+msgid "%(key)s: %(val)s"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
@@ -10898,7 +10904,8 @@ msgstr "網路拓撲"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:74
+#: dashboards/project/routers/tables.py:77
+#: dashboards/project/routers/tables.py:90
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 #: dashboards/project/routers/templates/routers/create.html:3
@@ -10932,7 +10939,11 @@ msgstr "適中"
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "無網路、路由器或已連接的執行實例可以列出。"
 
-#: dashboards/project/networks/tables.py:102
+#: dashboards/project/networks/tables.py:95
+msgid "Create Network (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:116
 msgid "Add Subnet"
 msgstr "加入子網路"
 
@@ -11411,23 +11422,27 @@ msgstr "已成功更新路由器 %s。"
 msgid "Failed to update router %s"
 msgstr "更新路由器 %s 時失敗"
 
-#: dashboards/project/routers/tables.py:36
+#: dashboards/project/routers/tables.py:39
 msgid "Delete Router"
 msgid_plural "Delete Routers"
 msgstr[0] ""
 
-#: dashboards/project/routers/tables.py:44
+#: dashboards/project/routers/tables.py:47
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
 msgstr[0] ""
 
-#: dashboards/project/routers/tables.py:58
-#: dashboards/project/routers/tables.py:64
+#: dashboards/project/routers/tables.py:61
+#: dashboards/project/routers/tables.py:67
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "無法刪除路由器「%s」"
 
-#: dashboards/project/routers/tables.py:92
+#: dashboards/project/routers/tables.py:88
+msgid "Create Router (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/routers/tables.py:107
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
@@ -11435,23 +11450,23 @@ msgstr "無法刪除路由器「%s」"
 msgid "Set Gateway"
 msgstr "設定閘道"
 
-#: dashboards/project/routers/tables.py:108
+#: dashboards/project/routers/tables.py:123
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
 msgstr[0] ""
 
-#: dashboards/project/routers/tables.py:116
+#: dashboards/project/routers/tables.py:131
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
 msgstr[0] ""
 
-#: dashboards/project/routers/tables.py:132
+#: dashboards/project/routers/tables.py:147
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "無法清除路由器「%(name)s」的閘道：「%(msg)s」"
 
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:177
+#: dashboards/project/routers/tables.py:192
 msgid "HA mode"
 msgstr "高可用性模式"
 
@@ -13852,7 +13867,7 @@ msgstr "無效的日期格式：預設使用今日。"
 msgid "Unable to retrieve network quota information."
 msgstr "無法取回網路配額資訊。"
 
-#: usage/base.py:186 usage/quotas.py:292
+#: usage/base.py:186 usage/quotas.py:337
 msgid "Unable to retrieve volume limit information."
 msgstr "無法取回儲存空間限制資訊。"
 
@@ -13879,7 +13894,7 @@ msgstr "無效的時段。您從未來要求的資料還不存在。"
 msgid "Injected File Path Bytes"
 msgstr "已注入的資料路徑位元組"
 
-#: usage/quotas.py:278
+#: usage/quotas.py:323
 msgid "Unable to retrieve compute limit information."
 msgstr "無法取回運算限制資訊。"
 
