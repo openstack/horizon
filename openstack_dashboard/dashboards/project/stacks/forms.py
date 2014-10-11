@@ -16,6 +16,7 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables  # noqa
 
+from oslo.utils import strutils
 import six
 
 from horizon import exceptions
@@ -23,7 +24,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
-from openstack_dashboard.openstack.common import strutils
+
 
 LOG = logging.getLogger(__name__)
 
