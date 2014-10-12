@@ -78,3 +78,21 @@ class DataProcessingJobBinaryTests(test.TestCase):
                       kwargs={'job_binary_id': jb.id})
         res = self.client.get(url, context)
         self.assertTrue(res.has_header('content-disposition'))
+
+    @test.create_stubs({api.sahara: ('job_binary_get',
+                                     'job_binary_get_file')})
+    def test_download_with_spaces(self):
+        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
+            .AndReturn(self.job_binaries.list()[1])
+        api.sahara.job_binary_get_file(IsA(http.HttpRequest), jb.id) \
+            .AndReturn("MORE TEST FILE CONTENT")
+        self.mox.ReplayAll()
+
+        context = {'job_binary_id': jb.id}
+        url = reverse('horizon:project:data_processing.job_binaries:download',
+                      kwargs={'job_binary_id': jb.id})
+        res = self.client.get(url, context)
+        self.assertEqual(
+            res.get('Content-Disposition'),
+            'attachment; filename="%s"' % jb.name
+        )
