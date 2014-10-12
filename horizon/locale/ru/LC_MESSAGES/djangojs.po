@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Yury Sakarinen, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-02 13:57-0500\n"
-"PO-Revision-Date: 2014-10-02 21:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-10-10 21:25-0500\n"
+"PO-Revision-Date: 2014-10-11 14:31+0000\n"
+"Last-Translator: Yury Sakarinen\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +87,7 @@ msgid "Cancel"
 msgstr "Отмена"
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:221
+#: static/horizon/js/horizon.tables.js:223
 msgid "Working"
 msgstr "Обработка"
 
@@ -112,19 +113,19 @@ msgstr "Интерфейс"
 
 #: static/horizon/js/horizon.networktopology.js:539
 msgid "open console"
-msgstr "Открыть консоль"
+msgstr "откройте консоль"
 
 #: static/horizon/js/horizon.networktopology.js:540
 #, c-format
 msgid "view %s details"
-msgstr "Открыть детали %s"
+msgstr "просмотреть %s значений"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
-msgstr "Добавить интерфейс"
+msgstr "Добавить Интерфейс"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:377
+#: static/horizon/js/horizon.tables.js:379
 msgid "No items to display."
 msgstr "Нет элементов для отображения."
 
@@ -133,32 +134,32 @@ msgstr "Нет элементов для отображения."
 msgid "An error occurred while updating."
 msgstr "Во время обновления произошла ошибка."
 
-#: static/horizon/js/horizon.tables.js:204
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "You have selected %s. "
 msgstr "Выбрано %s."
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:208
 #, c-format
 msgid "Confirm %s"
 msgstr "Подтвердите %s"
 
-#: static/horizon/js/horizon.tables.js:207
+#: static/horizon/js/horizon.tables.js:209
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "Подтвердите ваш выбор. Действие не может быть отменено."
 
-#: static/horizon/js/horizon.tables.js:364
+#: static/horizon/js/horizon.tables.js:366
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Отображено %s значение"
+msgstr[1] "Отображено %s значений"
+msgstr[2] "Отображено %s значений"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169
 msgid "Not authorized to do this operation."
-msgstr "Эта операция не разрешена."
+msgstr "Нет прав для выполнения."
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
