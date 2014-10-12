@@ -64,6 +64,8 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
         g_fields["storage"].initial = storage
         g_fields["volumes_per_node"].initial = volumes_per_node
         g_fields["volumes_size"].initial = volumes_size
+        g_fields["volumes_availability_zone"].initial = \
+            template.volumes_availability_zone
 
         if template.floating_ip_pool:
             g_fields['floating_ip_pool'].initial = template.floating_ip_pool

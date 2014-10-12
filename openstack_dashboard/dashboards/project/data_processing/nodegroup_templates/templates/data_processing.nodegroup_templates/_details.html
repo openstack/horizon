@@ -71,6 +71,10 @@
     <dd>{{ template.volumes_per_node }}</dd>
     <dt>{% trans "Volumes size" %}</dt>
     <dd>{{ template.volumes_size }}</dd>
+    {% if template.volumes_availability_zone %}
+      <dt>{% trans "Volumes Availability Zone" %}</dt>
+      <dd>{{ template.volumes_availability_zone }}</dd>
+    {% endif %}
     {% else %}
     <h6>{% trans "Ephemeral drive" %}</h6>
     {% endif %}
