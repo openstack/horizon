@@ -194,3 +194,21 @@ class MyTenantsTable(tables.DataTable):
        
 
 
+class MembersTable(tables.DataTable):
+    name = tables.Column('member', verbose_name=_('Member'))
+
+    class Meta:
+        name = "members"
+        verbose_name = _("Members")
+        footer = False
+        multi_select = False
+
+class ApplicationsTable(tables.DataTable):
+    name = tables.Column('application', verbose_name=_('Applications'))
+
+    class Meta:
+        name = "applications"
+        verbose_name = _("Applications")
+        footer = False
+        multi_select = False
+

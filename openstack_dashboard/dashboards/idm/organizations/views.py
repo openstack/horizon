@@ -95,61 +95,37 @@ class CreateOrganizationView(forms.ModalFormView):
 #                               redirect=reverse(INDEX_URL))
 #         return initial         
 
-class DetailOrganizationView(generic.DetailView):
+class DetailOrganizationView(tables.MultiTableView):
     template_name = 'idm/organizations/detail.html'
+    table_classes = (organization_tables.MembersTable,
+                     organization_tables.ApplicationsTable)
+
+    
+    def get_members_data(self):
+        
+        user = []
+        user_id=self.request.user.id
+        try:
+            user_info = api.keystone.user_get(self.request,self.request.user.id)
+            user.append(user_info)
+            
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve member information."))
+        return user
+
+    def get_applications_data(self):
+        applications = []
+        return applications
 
     def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
         context = super(DetailOrganizationView, self).get_context_data(**kwargs)
-        organization_id = self.kwargs['tenant_id']
-        context['organization_id'] = organization_id
-
-        try:
-            # get initial organization info
-            organization_info = api.keystone.tenant_get(self.request, organization_id,
-                                                admin=True)
-            for field in PROJECT_INFO_FIELDS:
-                context[field] = getattr(organization_info, field, None)
-
-            # Retrieve the domain name where the organization belong
-            if keystone.VERSIONS.active >= 3:
-                try:
-                    domain = api.keystone.domain_get(self.request,
-                                                    initial["domain_id"])
-                    initial["domain_name"] = domain.name
-                except Exception:
-                    exceptions.handle(self.request,
-                        _('Unable to retrieve organization domain.'),
-                        redirect=reverse(INDEX_URL))
-        except Exception:
-            exceptions.handle(self.request,
-                        _('Unable to retrieve organization details.'),
-                        redirect=reverse(INDEX_URL))
+        organization_id =self.kwargs['organization_id']
+        organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
+        # Add in a QuerySet of all the books
+        context['contact_info'] = organization.description
         return context
 
-    def get_queryset(self,**kwargs):
-        context = super(DetailOrganizationView, self).get_context_data(**kwargs)
-        organization_id = self.kwargs['tenant_id']
-        context['organization_id'] = organization_id
 
-        try:
-            # get initial organization info
-            organization_info = api.keystone.tenant_get(self.request, organization_id,
-                                                admin=True)
-            for field in PROJECT_INFO_FIELDS:
-                context[field] = getattr(organization_info, field, None)
-
-            # Retrieve the domain name where the organization belong
-            if keystone.VERSIONS.active >= 3:
-                try:
-                    domain = api.keystone.domain_get(self.request,
-                                                    initial["domain_id"])
-                    initial["domain_name"] = domain.name
-                except Exception:
-                    exceptions.handle(self.request,
-                        _('Unable to retrieve organization domain.'),
-                        redirect=reverse(INDEX_URL))
-        except Exception:
-            exceptions.handle(self.request,
-                        _('Unable to retrieve organization details.'),
-                        redirect=reverse(INDEX_URL))
-        return context
+    
