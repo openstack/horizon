@@ -2728,6 +2728,118 @@ class InstanceTests(helpers.TestCase):
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The launch button is not disabled")
 
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
+                           api.neutron: ('network_list',),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'availability_zone_list',
+                                      'tenant_absolute_limits',
+                                      'server_create',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
+    def test_launch_with_empty_device_name_allowed(self):
+        flavor = self.flavors.get(name='m1.massive')
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        sec_group = self.security_groups.first()
+        avail_zone = self.availability_zones.first()
+        customization_script = 'user data'
+        nics = [{'net-id': self.networks.first().id, 'v4-fixed-ip': ''}]
+        device_name = u''
+        quota_usages = self.quota_usages.first()
+        quota_usages['cores']['available'] = 2000
+        device_mapping_v2 = [{'device_name': None,  # device_name must be None
+                              'source_type': 'image',
+                              'destination_type': 'volume',
+                              'delete_on_termination': 0,
+                              'uuid': image.id,
+                              'boot_index': '0',
+                              'volume_size': image.size}]
+
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.keypairs.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.availability_zones.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([self.images.list(), False, False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                            filters={'property-owner_id': self.tenant.id,
+                                     'status': 'active'}) \
+            .AndReturn([[], False, False])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+            .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+            .AndReturn(self.networks.list()[1:])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+            IsA(http.HttpRequest)).AndReturn(True)
+        cinder.volume_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+                .AndReturn(quota_usages)
+
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               '',
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [sec_group.name],
+                               block_device_mapping=None,
+                               block_device_mapping_v2=device_mapping_v2,
+                               nics=nics,
+                               availability_zone=avail_zone.zoneName,
+                               instance_count=IsA(int),
+                               admin_pass=u'',
+                               config_drive=False,
+                               disk_config=u'')
+
+        self.mox.ReplayAll()
+
+        form_data = {
+            'flavor': flavor.id,
+            'source_type': 'volume_image_id',
+            'image_id': image.id,
+            'availability_zone': avail_zone.zoneName,
+            'keypair': keypair.name,
+            'name': server.name,
+            'script_source': 'raw',
+            'script_data': customization_script,
+            'project_id': self.tenants.first().id,
+            'user_id': self.user.id,
+            'groups': sec_group.name,
+            'volume_size': image.size,
+            'device_name': device_name,
+            'network': self.networks.first().id,
+            'count': 1
+        }
+        url = reverse('horizon:project:instances:launch')
+
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+
     @helpers.create_stubs({
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported',),

@@ -119,7 +119,10 @@ class SetInstanceDetailsAction(workflows.Action):
                                   required=False,
                                   initial="vda",
                                   help_text=_("Volume mount point (e.g. 'vda' "
-                                              "mounts at '/dev/vda')."))
+                                              "mounts at '/dev/vda'). Leave "
+                                              "this field blank to let the "
+                                              "system choose a device name "
+                                              "for you."))
 
     delete_on_terminate = forms.BooleanField(label=_("Delete on Terminate"),
                                              initial=False,
@@ -228,9 +231,6 @@ class SetInstanceDetailsAction(workflows.Action):
                 if float(volume_size) <= 0:
                     msg = _("Volume size must be greater than 0")
                     self._errors['volume_size'] = self.error_class([msg])
-                if not cleaned_data.get('device_name'):
-                    msg = _("You must set device name")
-                    self._errors['device_name'] = self.error_class([msg])
             if not cleaned_data.get('image_id'):
                 msg = _("You must select an image.")
                 self._errors['image_id'] = self.error_class([msg])
@@ -302,9 +302,6 @@ class SetInstanceDetailsAction(workflows.Action):
             if not cleaned_data.get('volume_snapshot_id'):
                 msg = _("You must select a snapshot.")
                 self._errors['volume_snapshot_id'] = self.error_class([msg])
-            if not cleaned_data.get('device_name'):
-                msg = _("You must set device name")
-                self._errors['device_name'] = self.error_class([msg])
 
         return cleaned_data
 
@@ -821,8 +818,9 @@ class LaunchInstance(workflows.Workflow):
                                                      (context['source_id'],
                            int(bool(context['delete_on_terminate'])))}
         elif source_type == 'volume_image_id':
+            device_name = context.get('device_name', '').strip() or None
             dev_mapping_2 = [
-                {'device_name': str(context['device_name']),
+                {'device_name': device_name,  # None auto-selects device
                  'source_type': 'image',
                  'destination_type': 'volume',
                  'delete_on_termination':
