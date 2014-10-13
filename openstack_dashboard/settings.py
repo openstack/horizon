@@ -73,8 +73,6 @@ STATIC_URL = '/static/'
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
 HORIZON_CONFIG = {
-    'dashboards': ('project', 'admin', 'router',),
-    'default_dashboard': 'project',
     'user_home': 'openstack_dashboard.views.get_user_home',
     'ajax_queue_limit': 10,
     'auto_fade_alerts': {

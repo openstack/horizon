@@ -42,30 +42,60 @@ behavior of your Horizon installation. All of them are contained in the
 ``dashboards``
 --------------
 
+.. warning::
+
+   In OpenStack Dashboard configuration, we suggest **NOT** to use this
+   setting. Please specify the order of dashboard using the
+   :ref:`pluggable-settings-label`.
+
+   Both the pluggable dashboard mechanism (OpenStack Dashboard default) and
+   this setting ``dashboard`` configure the order of dashboards and
+   the setting ``dashboard`` precedes the pluggable dashboard mechanism.
+   Specifying the order in two places may cause confusion.
+   Please use this parameter only when the pluggable config is not used.
+
 .. versionadded:: 2012.1(Essex)
 
 Default: ``None``
 
 Horizon Dashboards are automatically discovered in the following way:
 
+* By adding a configuration file to the ``openstack_dashboard/local/enabled``
+  directory (for more information see :ref:`pluggable-settings-label`).
+  This is the default way in OpenStack Dashboard.
 * By traversing Django's list of
   `INSTALLED_APPS <https://docs.djangoproject.com/en/1.4/ref/settings/#std:setting-INSTALLED_APPS>`_
   and importing any files that have the name ``"dashboard.py"`` and include
   code to register themselves as a Horizon dashboard.
-* By adding a configuration file to the ``openstack_dashboard/local/enabled``
-  directory (for more information see :ref:`pluggable-settings-label`).
 
-By default, these dashboards are ordered alphabetically.
-However, if a list of dashboard slugs is provided in this setting, the supplied
+By default, dashboards defined by ``openstack_dashboard/local/enabled`` are
+displayed first in the alphabetical order of the config files, and then the
+remaining dashboards discovered by traversing INSTALLED_APPS are displayed
+in the alphabetical order.
+
+If a list of ``dashboard`` slugs is provided in this setting, the supplied
 ordering is applied to the list of discovered dashboards. If the list of
 dashboard slugs is shorter than the number of discovered dashboards, the
-remaining dashboards are appended in alphabetical order.
+remaining dashboards are appended in the default order described above.
 
 The dashboards listed must be in a Python module which
 is included in the ``INSTALLED_APPS`` list and on the Python path.
 
 ``default_dashboard``
 ---------------------
+
+.. warning::
+
+   In OpenStack Dashboard configuration, we suggest **NOT** to use this
+   setting. Please specify the order of dashboard using the
+   :ref:`pluggable-settings-label`.
+
+   The default dashboard can be configured via both the pluggable
+   dashboard mechanism (OpenStack Dashboard default) and this setting
+   ``default_dashboard``, and if both are specified, the setting
+   by the pluggable dashboard mechanism will be used.
+   Specifying the default dashboard in two places may cause confusion.
+   Please use this parameter only when the pluggable config is not used.
 
 .. versionadded:: 2012.1(Essex)
 
