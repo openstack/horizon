@@ -13,6 +13,7 @@
 import json
 import re
 
+import django
 from django.conf import settings
 from django.core import exceptions
 from django.core.urlresolvers import reverse
@@ -439,6 +440,132 @@ class StackTests(test.TestCase):
         regex = re.compile('^.*>first_param<.*>middle_param<.*>last_param<.*$',
                            flags=re.DOTALL)
         self.assertRegexpMatches(res.content.decode('utf-8'), regex)
+
+    @test.create_stubs({api.heat: ('stack_create', 'template_validate')})
+    def test_launch_stack_parameter_types(self):
+        template = {
+            'data': ('heat_template_version: 2013-05-23\n'
+                     'parameters:\n'
+                     '  param1:\n'
+                     '    type: string\n'
+                     '  param2:\n'
+                     '    type: number\n'
+                     '  param3:\n'
+                     '    type: json\n'
+                     '  param4:\n'
+                     '    type: comma_delimited_list\n'
+                     '  param5:\n'
+                     '    type: boolean\n'),
+            'validate': {
+                "Description": "No description",
+                "Parameters": {
+                    "param1": {
+                        "Type": "String",
+                        "NoEcho": "false",
+                        "Description": "",
+                        "Label": "param1"
+                    },
+                    "param2": {
+                        "Type": "Number",
+                        "NoEcho": "false",
+                        "Description": "",
+                        "Label": "param2"
+                    },
+                    "param3": {
+                        "Type": "Json",
+                        "NoEcho": "false",
+                        "Description": "",
+                        "Label": "param3"
+                    },
+                    "param4": {
+                        "Type": "CommaDelimitedList",
+                        "NoEcho": "false",
+                        "Description": "",
+                        "Label": "param4"
+                    },
+                    "param5": {
+                        "Type": "Boolean",
+                        "NoEcho": "false",
+                        "Description": "",
+                        "Label": "param5"
+                    }
+                }
+            }
+        }
+        stack = self.stacks.first()
+
+        api.heat.template_validate(IsA(http.HttpRequest),
+                                   template=template['data']) \
+           .AndReturn(template['validate'])
+
+        api.heat.stack_create(IsA(http.HttpRequest),
+                              stack_name=stack.stack_name,
+                              timeout_mins=60,
+                              disable_rollback=True,
+                              template=template['data'],
+                              parameters={'param1': 'some string',
+                                          'param2': 42,
+                                          'param3': '{"key": "value"}',
+                                          'param4': 'a,b,c',
+                                          'param5': True},
+                              password='password')
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:stacks:select_template')
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'project/stacks/select_template.html')
+
+        form_data = {'template_source': 'raw',
+                     'template_data': template['data'],
+                     'method': forms.TemplateForm.__name__}
+        res = self.client.post(url, form_data)
+        self.assertTemplateUsed(res, 'project/stacks/create.html')
+
+        # ensure the fields were rendered correctly
+        self.assertContains(res, '<input class="form-control" '
+                                        'id="id___param_param1" '
+                                        'name="__param_param1" '
+                                        'type="text" />', html=True)
+        if django.VERSION >= (1, 6):
+            self.assertContains(res, '<input class="form-control" '
+                                            'id="id___param_param2" '
+                                            'name="__param_param2" '
+                                            'type="number" />', html=True)
+        else:
+            self.assertContains(res, '<input class="form-control" '
+                                            'id="id___param_param2" '
+                                            'name="__param_param2" '
+                                            'type="text" />', html=True)
+        self.assertContains(res, '<input class="form-control" '
+                                        'id="id___param_param3" '
+                                        'name="__param_param3" '
+                                        'type="text" />', html=True)
+        self.assertContains(res, '<input class="form-control" '
+                                        'id="id___param_param4" '
+                                        'name="__param_param4" '
+                                        'type="text" />', html=True)
+        self.assertContains(res, '<input id="id___param_param5" '
+                                        'name="__param_param5" '
+                                        'type="checkbox" />', html=True)
+
+        # post some sample data and make sure it validates
+        url = reverse('horizon:project:stacks:launch')
+        form_data = {'template_source': 'raw',
+                     'template_data': template['data'],
+                     'password': 'password',
+                     'parameters': json.dumps(template['validate']),
+                     'stack_name': stack.stack_name,
+                     "timeout_mins": 60,
+                     "disable_rollback": True,
+                     "__param_param1": "some string",
+                     "__param_param2": 42,
+                     "__param_param3": '{"key": "value"}',
+                     "__param_param4": "a,b,c",
+                     "__param_param5": True,
+                     'method': forms.CreateStackForm.__name__}
+        res = self.client.post(url, form_data)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.heat: ('stack_update', 'stack_get',
                                     'template_get', 'template_validate')})
