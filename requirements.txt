@@ -14,7 +14,7 @@ Django>=1.4.2,<1.7
 django_compressor>=1.4
 django_openstack_auth>=1.1.7
 django-pyscss>=1.0.3  # BSD License (2 clause)
-eventlet>=0.15.1
+eventlet>=0.15.2
 httplib2>=0.7.5
 iso8601>=0.1.9
 kombu>=2.5.0
@@ -22,7 +22,7 @@ kombu>=2.5.0
 # for SECURE_KEY generation
 lockfile>=0.8
 netaddr>=0.7.12
-oslo.config>=1.4.0 # Apache-2.0
+oslo.config>=1.4.0  # Apache-2.0
 oslo.i18n>=1.0.0  # Apache-2.0
 oslo.serialization>=1.0.0               # Apache-2.0
 oslo.utils>=1.0.0                       # Apache-2.0
