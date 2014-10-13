@@ -19,10 +19,6 @@
     margin-top: 45px;
     padding: 0px;
   }
-  .panel-heading{
-    padding: 0;
-    .nav-tabs{ margin-bottom: 0; border-bottom: 0;}
-  }
 }
 
 textarea {
@@ -52,14 +48,24 @@ textarea {
     &:last-child{color: $gray;}
     button.btn.btn-link {
       padding: 0;
-      margin-top: -2px;
       margin-left: 15px;
       @include opacity(0);
+      color: $brand-secundary;
+      font-family: $corporate-font-family-sans-serif-Regular;
     }
   }
   &:hover{
     button.btn.btn-link {
       @include opacity(1);
     }
+  }
+}
+
+
+#organizations,
+#myApplications{
+  .panel-heading{
+    padding: 0;
+    .nav-tabs{ margin-bottom: 0; border-bottom: 0;}
   }
 }

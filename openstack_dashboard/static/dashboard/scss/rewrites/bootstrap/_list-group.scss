@@ -4,6 +4,7 @@
 
 .list-group-item {
   padding: 10px 0;
+  min-height: 58px;
   &:first-child{
     border-top: none;
   }
