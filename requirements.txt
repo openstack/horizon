@@ -22,6 +22,10 @@ kombu>=2.5.0
 # for SECURE_KEY generation
 lockfile>=0.8
 netaddr>=0.7.12
+oslo.config>=1.4.0 # Apache-2.0
+oslo.i18n>=1.0.0  # Apache-2.0
+oslo.serialization>=1.0.0               # Apache-2.0
+oslo.utils>=1.0.0                       # Apache-2.0
 pyScss>=1.2.1,<1.3  # MIT License
 python-ceilometerclient>=1.0.6
 python-cinderclient>=1.1.0
