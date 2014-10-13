@@ -142,7 +142,7 @@ class RegistrationProfile(ModelWithTimeStamps):
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
         #TODO(garcianavalon) message...
-        message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/%s to activate' %self.activation_key
+        message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key=%s to activate' %self.activation_key
         #send a mail for activation
         send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
         	[self.user_email], fail_silently=False)
