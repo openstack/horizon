@@ -1,7 +1,17 @@
+   <div class="avatar">
+       <img src="/static/dashboard/img/logos/small/user.png">
+    </div>
 {% for cell in row %}  
-    <div class="avatar">
-    </div>
     <div class="data">
+    {% if cell.column.name == 'name'%}
         {{ cell.column.name }} : {{ cell.value }}
-    </div>
+        <button class="btn btn-link">switch</button>
+
+	{% else %}
+        {{ cell.column.name }} : {{ cell.value }}
+
+	{% endif %}
+	</div>
+
 {% endfor %}
+ 

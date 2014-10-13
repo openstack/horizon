@@ -31,3 +31,35 @@ textarea {
   -moz-transition: height 0.2s;
   transition: height 0.2s;
 }
+
+.list-group-item{
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-left: rgba(0, 0, 0, 0);
+  border-right: rgba(0, 0, 0, 0);
+  .avatar {
+    float: left;    
+    margin-right: 10px;
+    img{
+      width: 36px;      
+    }
+  }
+  .data{
+    @include text-overflow;
+    &:first-child{color: $black;}
+    &:last-child{color: $gray;}
+    button.btn.btn-link {
+      padding: 0;
+      margin-top: -2px;
+      margin-left: 15px;
+      @include opacity(0);
+    }
+  }
+  &:hover{
+    button.btn.btn-link {
+      @include opacity(1);
+    }
+  }
+}
