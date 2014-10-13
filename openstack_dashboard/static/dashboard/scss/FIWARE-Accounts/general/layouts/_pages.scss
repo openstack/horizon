@@ -11,6 +11,13 @@
   }
 }
 
+.page-header{
+  .btn{
+    float: left;
+  }
+}
+
+
 #content_body{
   @include make-sm-column(11, $gutter: $grid-gutter-width);
   @include make-md-column(9, $gutter: $grid-gutter-width);

@@ -1,106 +1,111 @@
 {% load branding i18n %}
 {% load url from future %}
 <header class="navbar navbar-fixed-top">
-      <nav class="container-fluid">
+  <nav class="container-fluid">
 
-        <div class="logo-header">
-          <a href="{%site_branding_link%}" class="brand">
-            <img alt="FIWARE" class="fiware-logo" src="{{ STATIC_URL }}dashboard/img/Fi-lab.png">
+    <div class="logo-header">
+      <a href="{%site_branding_link%}" class="brand">
+        <img alt="FIWARE" class="fiware-logo" src="{{ STATIC_URL }}dashboard/img/Fi-lab.png">
+      </a>
+    </div>
+
+    <div class="dropdown mobile">
+      <a href="#" class='dropdown-toggle' data-toggle="dropdown">
+        <i class="fa fa-chevron-down"></i> 
+      </a>
+
+      <ul class="dropdown-menu dropdown-menu-header">
+        <li class="">
+          <a href="http://cloud.lab.fi-ware.org/">
+            Cloud
           </a>
-        </div>
-
-        <div class="dropdown mobile">
-          <a href="#" class='dropdown-toggle' data-toggle="dropdown">
-            <i class="fa fa-chevron-down"></i> 
+        </li>
+        <li class="">
+          <a href="http://store.lab.fi-ware.org/">
+            Store
           </a>
-
-          <ul class="dropdown-menu dropdown-menu-header">
-            <li class="cloud">
-              <a href="http://cloud.lab.fi-ware.org/">
-                Cloud
-              </a>
-            </li>
-
-            <li class="store">
-              <a href="http://store.lab.fi-ware.org/">
-                Store
-              </a>
-            </li>
-            <li class="mashup">
-              <a href="http://mashup.lab.fi-ware.org/">
-                Mashup
-              </a>
-            </li>
-            <li class="data">
-              <a href="https://data.lab.fi-ware.org">
-                Data
-              </a>
-            </li>
-            <li class="active account">
-              <a href="https://account.lab.fi-ware.org/">
-                Account
-              </a>
-            </li>
-            <li class="help">
-              <a href="http://help.lab.fi-ware.org/">
-                Help&info
-              </a>
-            </li>
-          </ul>
-        </div>
+        </li>
+        <li class="">
+          <a href="http://mashup.lab.fi-ware.org/">
+            Mashup
+          </a>
+        </li>
+        <li class="">
+          <a href="https://data.lab.fi-ware.org">
+            Data
+          </a>
+        </li>
+        <li class="active">
+          <a href="#">
+            Account
+          </a>
+        </li>
+        <li class="">
+          <a href="http://help.lab.fi-ware.org/">
+            Help&info
+          </a>
+        </li>
+      </ul>
+    </div>
 
 
-        <ul class="oil-portal hidden-phone">
-          <li class="cloud">
-            <a href="http://cloud.lab.fi-ware.org/">
-              Cloud
+    <ul class="oil-portal hidden-phone">
+      <li class="">
+        <a href="http://cloud.lab.fi-ware.org/">
+          Cloud
+        </a>
+      </li>
+      <li class="">
+        <a href="http://store.lab.fi-ware.org/">
+          Store
+        </a>
+      </li>
+      <li class="">
+        <a href="http://mashup.lab.fi-ware.org/">
+          Mashup
+        </a>
+      </li>
+      <li class="">
+        <a href="https://data.lab.fi-ware.org">
+          Data
+        </a>
+      </li>
+      <li class="active">
+        <a href="#">
+          Account
+        </a>
+      </li>
+      <li class="">
+        <a href="http://help.lab.fi-ware.org/">
+          Help&info
+        </a>
+      </li>
+    </ul>
+
+    <div id="user_info" class="pull-right">
+      <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
+          <img alt="User" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+          {{ request.user.username }}
+          <i class="fa fa-angle-double-down"></i>
+        </a>
+        <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
+          <li>
+            <a href="{% url 'horizon:settings:user:index' %}">   {% trans "Settings" %}
             </a>
           </li>
-          <li class="store">
-            <a href="http://store.lab.fi-ware.org/">
-              Store
+          {% if HORIZON_CONFIG.help_url %}
+          <!--<li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>-->
+          <li class="divider"></li>
+          <li>
+            <a href="{% url 'logout' %}">
+              {% trans "Sign Out" %}
             </a>
           </li>
-          <li class="mashup">
-            <a href="http://mashup.lab.fi-ware.org/">
-              Mashup
-            </a>
-          </li>
-          <li class="data">
-            <a href="https://data.lab.fi-ware.org">
-              Data
-            </a>
-          </li>
-          <li class="active account">
-            <a href="https://account.lab.fi-ware.org/">
-              Account
-            </a>
-          </li>
-          <li class="help">
-            <a href="http://help.lab.fi-ware.org/">
-              Help&info
-            </a>
-          </li>
+          {% endif %}
         </ul>
-
-        <div id="user_info" class="pull-right">
-          <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
-              <img alt="User" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
-              {{ request.user.username }}<i class="fa fa-angle-double-down"></i>
-            </a>
-            <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
-              <li><a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a></li>
-              {% if HORIZON_CONFIG.help_url %}
-              <!--<li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>-->
-              <li class="divider"></li>
-              <li><a href="{% url 'logout' %}">{% trans "Sign Out" %}</a></li>
-              {% endif %}
-            </ul>
-            {% include "horizon/common/_region_selector.html" %}
-          </div>
-        </div>
-      </nav>
-
-      
+        {% include "horizon/common/_region_selector.html" %}
+      </div>
+    </div>
+  </nav> 
 </header>
