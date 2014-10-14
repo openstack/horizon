@@ -19,22 +19,28 @@ from keystoneclient import exceptions as keystoneclient_exceptions
 CREDENTIALS = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')
 CREDENTIALS['AUTH_URL'] = getattr(settings,'OPENSTACK_KEYSTONE_URL')
 
-def fiware_keystoneclient():
-    """Encapsulates all the logic for communicating with the keystone server.
+class FiwareClient(client.Client):
+    """Encapsulates all the logic for communicating with the modified keystone server.
 
     The IdM has its own admin account in the keystone server, and uses it to perform
     operations like create users, projects, etc. when there is no user with admin rights
     (for example, when user registration) to overcome the Keystone limitations.
+
+    Also adds the methods to operate with the OAuth2.0 extension.
     """
-    #TODO(garcianavalon)caching and efficiency
-    keystone = client.Client(username=CREDENTIALS['USERNAME'], 
-                                password=CREDENTIALS['PASSWORD'], 
-                                project_name=CREDENTIALS['PROJECT'], 
-                                auth_url=CREDENTIALS['AUTH_URL'])
-    return keystone
+    # TODO(garcianavalon)caching and efficiency
+    def __init__(self, **kwargs):
+        conf_params = {
+            'username':CREDENTIALS['USERNAME'], 
+            'password':CREDENTIALS['PASSWORD'], 
+            'project_name':CREDENTIALS['PROJECT'], 
+            'auth_url':CREDENTIALS['AUTH_URL']
+        }
+        kwargs.update(conf_params)
+        super(FiwareClient, self).__init__(**kwargs)
 
 def _find_user(keystone,email=None,name=None):
-    # (garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
+    # FIXME(garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
     # exception so we do it by hand filtering the python dictionary, 
     # which is extremely inneficient...
     if name:
@@ -57,7 +63,7 @@ def _grant_admin_role(keystone, user, project):
     return role
 
 def register_user(name,email,password):
-    keystone = fiware_keystoneclient()
+    keystone = FiwareClient()
     default_domain = keystone.domains.get(CREDENTIALS['DOMAIN'])
     default_project = keystone.projects.create(name,domain=default_domain)
     new_user = keystone.users.create(name,
@@ -69,25 +75,24 @@ def register_user(name,email,password):
     return new_user
     
 def activate_user(user_id):
-    keystone = fiware_keystoneclient()
-    #default_domain = _get_default_domain(keystone)
+    keystone = FiwareClient()
     user = keystone.users.get(user_id)
     project = keystone.projects.update(user.default_project_id,enabled=True)
     user = keystone.users.update(user,enabled=True)
     return user
 
 def change_password(user_email,new_password):
-    keystone = fiware_keystoneclient()
+    keystone = FiwareClient()
     user = _find_user(keystone,email=user_email)
     user = keystone.users.update(user,password=new_password,enabled=True)
     return user
 
 def check_user(name):
-    keystone = fiware_keystoneclient()
+    keystone = FiwareClient()
     user = _find_user(keystone,name=name)
     return user
 
 def check_email(email):
-    keystone = fiware_keystoneclient()
+    keystone = FiwareClient()
     user = _find_user(keystone,email=email)
     return user
