@@ -21,6 +21,42 @@ def show_date(datum):
     return datum.split('T')[0]
 
 
+class ModifyUsageReportParameters(tables.LinkAction):
+    name = "create"
+    verbose_name = _("Modify Usage Report Parameters")
+    url = "horizon:admin:metering:create"
+    classes = ("btn-create",)
+    icon = "edit"
+
+
+class CreateCSVUsageReport(tables.LinkAction):
+    name = "csv"
+    verbose_name = _("Download CSV Summary")
+    url = "horizon:admin:metering:csvreport"
+    classes = ("btn-create",)
+    icon = "download"
+
+
+class ReportTable(tables.DataTable):
+    project = tables.Column('project', verbose_name=_('Project'))
+    service = tables.Column('service', verbose_name=_('Service'))
+    meter = tables.Column('meter', verbose_name=_('Meter'))
+    description = tables.Column('description', verbose_name=_('Description'))
+    time = tables.Column('time', verbose_name=_('Day'),
+                         filters=[show_date])
+    value = tables.Column('value', verbose_name=_('Value (Avg)'),
+                          filters=[humanize.intcomma])
+
+    def get_object_id(self, obj):
+        return "%s-%s-%s" % (obj['project'], obj['service'], obj['meter'])
+
+    class Meta:
+        name = 'report_table'
+        verbose_name = _("Daily Usage Report")
+        table_actions = (ModifyUsageReportParameters, CreateCSVUsageReport)
+        multi_select = False
+
+
 class UsageTable(tables.DataTable):
     service = tables.Column('service', verbose_name=_('Service'))
     meter = tables.Column('meter', verbose_name=_('Meter'))
@@ -29,6 +65,10 @@ class UsageTable(tables.DataTable):
                          filters=[show_date])
     value = tables.Column('value', verbose_name=_('Value (Avg)'),
                           filters=[humanize.intcomma])
+
+    def __init__(self, request, *args, **kwargs):
+        super(UsageTable, self).__init__(request, *args, **kwargs)
+        self.title = getattr(self, 'title', None)
 
     def get_object_id(self, datum):
         return datum['time'] + datum['meter']

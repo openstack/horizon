@@ -1,0 +1,57 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}create_usage_report_form{% endblock %}
+{% block form_action %}{% url 'horizon:admin:metering:create' %}{% endblock %}
+
+{% block modal_id %}create_usage_report_modal{% endblock %}
+{% block modal-header %}{% trans "Modify Usage Report Parameters" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+        {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Select a pre-defined period or specify date." %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "View Usage Report" %}" />
+  <a href="{% url 'horizon:admin:metering:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
+
+{% block modal-js %}
+<script type="text/javascript">
+  if (typeof $ !== 'undefined') {
+    show_hide_datepickers();
+  } else {
+    addHorizonLoadEvent(function() {
+      show_hide_datepickers();
+    });
+  }
+
+  function show_hide_datepickers() {
+    $("#id_period").change(function(evt) {
+        // Enhancing behaviour of selectbox, on 'other' value selected, I don't
+        // want to refresh, but show hide the date fields
+        if ($(this).find("option:selected").val() === "other"){
+          evt.stopPropagation();
+          $("#date_from .controls input, #date_to .controls input").val('');
+          $("#id_date_from, #id_date_to").parent().parent().show();
+        } else {
+          $("#id_date_from, #id_date_to").parent().parent().hide();
+        }
+    });
+    if ($("#id_period").find("option:selected").val() === "other"){
+      $("#id_date_from, #id_date_to").parent().parent().show();
+    } else {
+      $("#id_date_from, #id_date_to").parent().parent().hide();
+    }
+  }
+</script>
+{% endblock %}
