@@ -1,0 +1,12 @@
+{% load i18n %}
+{% block page_header %}
+  <div class='page-header'>
+    {{ button_create }}
+    <h2>
+    {% if request.session.domain_context_name %}
+      <em>{{ request.session.domain_context_name }}:</em>
+    {% endif %}
+    {{ title }}
+    </h2>
+  </div>
+{% endblock %}

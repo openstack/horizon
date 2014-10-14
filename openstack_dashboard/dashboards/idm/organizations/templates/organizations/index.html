@@ -3,8 +3,7 @@
 {% block title %}{% trans "Organizations" %}{% endblock %}
 
 {% block page_header %}
-  <a class="btn btn-primary" href="/idm/organizations/create/">Create</a>
-  {% include "horizon/common/_domain_page_header.html" with title=_("Organizations") %}
+  {% include "horizon/common/_domain_page_header.html" with button_create='<a class="btn btn-primary" href="/idm/organizations/create/">Create</a>' title=_("Organizations") %}
 {% endblock page_header %}
 
 {% block main %}
