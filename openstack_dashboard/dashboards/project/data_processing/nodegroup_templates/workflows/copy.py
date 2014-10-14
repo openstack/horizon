@@ -65,6 +65,11 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
             if template.floating_ip_pool:
                 fields['floating_ip_pool'].initial = template.floating_ip_pool
 
+            fields["autogroup"].initial = template.auto_security_group
+
+            fields["groups"].initial = dict(
+                [(sg, sg) for sg in template.security_groups])
+
             processes_dict = dict()
             try:
                 plugin_details = saharaclient.plugin_get_version_details(

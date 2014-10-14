@@ -107,7 +107,8 @@ class GeneralConfigAction(workflows.Action):
             label=_("Auto Security Group"),
             widget=forms.CheckboxInput(),
             help_text=_("Create security group for this Node Group."),
-            required=False)
+            required=False,
+            initial=True)
 
         groups = network.security_group_list(request)
         security_group_list = [(sg.id, sg.name) for sg in groups]
