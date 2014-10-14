@@ -1,26 +1,25 @@
 {% load i18n %}
 <div class="field-filter">
-    <input type="text" class="field-filter" placeholder="{% trans "Filter" %}" style="background:no-repeat scroll 195px 5px transparent url('/static/dashboard/img/search.png');"/><br>
-    <a class="full-config-show" onclick="show_not_important_fields(this);">{% trans "Show full configuration" %}</a>
-    <a class="full-config-hide" onclick="hide_not_important_fields(this);">{% trans "Hide full configuration" %}</a>
+  <input type="text" class="form-control field-filter" placeholder="{% trans "Filter" %}"/>
+  <button type="button" class="btn btn-default full-config-show" onclick="show_not_important_fields(this);">{% trans "Show full configuration" %}</button>
+  <button type="button" class="btn btn-default full-config-hide" onclick="hide_not_important_fields(this);">{% trans "Hide full configuration" %}</button>
 </div>
-
 <script type="text/javascript">
     function hide_not_important_fields(element) {
         var fieldset = $(element).parents("fieldset")[0];
         $("[priority='2']", fieldset).parents("div.form-group").hide();
         $("[priority='1']", fieldset).parents("div.form-group").show();
         var div = $(element).parents("div.field-filter")[0];
-        $("a.full-config-show",div).show();
-        $("a.full-config-hide",div).hide();
+        $("button.full-config-show",div).show();
+        $("button.full-config-hide",div).hide();
     }
 
     function show_not_important_fields(element) {
         var fieldset = $(element).parents("fieldset")[0];
         $("[priority='2']", fieldset).parents("div.form-group").show();
         var div = $(element).parents("div.field-filter")[0];
-        $("a.full-config-show",div).hide();
-        $("a.full-config-hide",div).show();
+        $("button.full-config-show",div).hide();
+        $("button.full-config-hide",div).show();
     }
 
     function create_auto_search(inpt) {
@@ -39,7 +38,7 @@
             var fieldset = $(input).parents("fieldset")[0];
             if (val == "") {
                 $("label", fieldset).parents("div.form-group").show();
-                if ($("a.full-config-show")[0].style.display == "inline") {
+                if ($("button.full-config-show")[0].style.display == "inline") {
                   hide_not_important_fields(this);
                 }
             } else {
@@ -57,5 +56,5 @@
         create_auto_search(this);
     });
 
-    $("a.full-config-hide").click();
+    $("button.full-config-hide").click();
 </script>
