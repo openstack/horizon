@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-10 21:25-0500\n"
-"PO-Revision-Date: 2014-10-11 02:26+0000\n"
+"POT-Creation-Date: 2014-10-13 22:23-0500\n"
+"PO-Revision-Date: 2014-10-13 17:16+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,55 +18,55 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:103
+#: settings.py:101
 msgid "Select format"
 msgstr "포맷 선택"
 
-#: settings.py:104
+#: settings.py:102
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:105
+#: settings.py:103
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:106
+#: settings.py:104
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:107
+#: settings.py:105
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:108
+#: settings.py:106
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:109
+#: settings.py:107
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:110
+#: settings.py:108
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:111
+#: settings.py:109
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:112
+#: settings.py:110
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:296
 msgid "All TCP"
 msgstr "모든 TCP"
 
-#: settings.py:304
+#: settings.py:302
 msgid "All UDP"
 msgstr "모든 UDP"
 
-#: settings.py:310
+#: settings.py:308
 msgid "All ICMP"
 msgstr "모든 ICMP"
 
@@ -453,15 +453,15 @@ msgstr "관리자"
 #: dashboards/project/database_backups/workflows/create_backup.py:32
 #: dashboards/project/databases/tables.py:315
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
-#: dashboards/project/firewalls/forms.py:35
-#: dashboards/project/firewalls/forms.py:117
-#: dashboards/project/firewalls/forms.py:144
-#: dashboards/project/firewalls/tables.py:200
-#: dashboards/project/firewalls/tables.py:232
-#: dashboards/project/firewalls/tables.py:249
-#: dashboards/project/firewalls/workflows.py:32
-#: dashboards/project/firewalls/workflows.py:177
-#: dashboards/project/firewalls/workflows.py:234
+#: dashboards/project/firewalls/forms.py:33
+#: dashboards/project/firewalls/forms.py:98
+#: dashboards/project/firewalls/forms.py:125
+#: dashboards/project/firewalls/tables.py:198
+#: dashboards/project/firewalls/tables.py:230
+#: dashboards/project/firewalls/tables.py:247
+#: dashboards/project/firewalls/workflows.py:30
+#: dashboards/project/firewalls/workflows.py:175
+#: dashboards/project/firewalls/workflows.py:232
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -471,8 +471,8 @@ msgstr "관리자"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
 #: dashboards/project/instances/workflows/update_instance.py:105
-#: dashboards/project/loadbalancers/forms.py:33
-#: dashboards/project/loadbalancers/forms.py:75
+#: dashboards/project/loadbalancers/forms.py:31
+#: dashboards/project/loadbalancers/forms.py:73
 #: dashboards/project/loadbalancers/tables.py:270
 #: dashboards/project/loadbalancers/workflows.py:36
 #: dashboards/project/loadbalancers/workflows.py:155
@@ -498,19 +498,19 @@ msgstr "관리자"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: dashboards/project/volumes/volumes/tables.py:325
 #: dashboards/project/volumes/volumes/tables.py:354
-#: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:67
-#: dashboards/project/vpn/forms.py:138 dashboards/project/vpn/forms.py:209
-#: dashboards/project/vpn/tables.py:232 dashboards/project/vpn/tables.py:262
-#: dashboards/project/vpn/tables.py:282 dashboards/project/vpn/tables.py:300
-#: dashboards/project/vpn/workflows.py:27
-#: dashboards/project/vpn/workflows.py:112
-#: dashboards/project/vpn/workflows.py:211
-#: dashboards/project/vpn/workflows.py:308
+#: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
+#: dashboards/project/vpn/forms.py:136 dashboards/project/vpn/forms.py:207
+#: dashboards/project/vpn/tables.py:229 dashboards/project/vpn/tables.py:259
+#: dashboards/project/vpn/tables.py:279 dashboards/project/vpn/tables.py:297
+#: dashboards/project/vpn/workflows.py:25
+#: dashboards/project/vpn/workflows.py:110
+#: dashboards/project/vpn/workflows.py:209
+#: dashboards/project/vpn/workflows.py:306
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:7
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:7
-#: dashboards/router/nexus1000v/forms.py:50
+#: dashboards/router/nexus1000v/forms.py:47
 msgid "Name"
 msgstr "이름"
 
@@ -811,20 +811,20 @@ msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니�
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
 #: dashboards/project/database_backups/workflows/create_backup.py:34
-#: dashboards/project/firewalls/forms.py:38
-#: dashboards/project/firewalls/forms.py:119
-#: dashboards/project/firewalls/forms.py:147
-#: dashboards/project/firewalls/workflows.py:36
-#: dashboards/project/firewalls/workflows.py:179
-#: dashboards/project/firewalls/workflows.py:237
+#: dashboards/project/firewalls/forms.py:36
+#: dashboards/project/firewalls/forms.py:100
+#: dashboards/project/firewalls/forms.py:128
+#: dashboards/project/firewalls/workflows.py:34
+#: dashboards/project/firewalls/workflows.py:177
+#: dashboards/project/firewalls/workflows.py:235
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:41
 #: dashboards/project/images/images/forms.py:194
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
-#: dashboards/project/loadbalancers/forms.py:38
-#: dashboards/project/loadbalancers/forms.py:80
+#: dashboards/project/loadbalancers/forms.py:36
+#: dashboards/project/loadbalancers/forms.py:78
 #: dashboards/project/loadbalancers/tables.py:272
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:158
@@ -843,12 +843,12 @@ msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니�
 #: dashboards/project/volumes/volumes/forms.py:474
 #: dashboards/project/volumes/volumes/forms.py:512
 #: dashboards/project/volumes/volumes/tables.py:328
-#: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:72
-#: dashboards/project/vpn/forms.py:143 dashboards/project/vpn/forms.py:213
-#: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:30
-#: dashboards/project/vpn/workflows.py:115
-#: dashboards/project/vpn/workflows.py:214
-#: dashboards/project/vpn/workflows.py:311
+#: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
+#: dashboards/project/vpn/forms.py:141 dashboards/project/vpn/forms.py:211
+#: dashboards/project/vpn/tables.py:261 dashboards/project/vpn/workflows.py:28
+#: dashboards/project/vpn/workflows.py:113
+#: dashboards/project/vpn/workflows.py:212
+#: dashboards/project/vpn/workflows.py:309
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
@@ -1098,7 +1098,7 @@ msgstr "유동 IP"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:493
+#: dashboards/project/instances/workflows/create_instance.py:490
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1272,7 +1272,7 @@ msgstr "Swap 디스크"
 
 #: dashboards/admin/flavors/tables.py:135
 #: dashboards/admin/flavors/workflows.py:41
-#: dashboards/admin/networks/agents/tables.py:92
+#: dashboards/admin/networks/agents/tables.py:89
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
@@ -1294,10 +1294,10 @@ msgstr "Swap 디스크"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:13
 #: dashboards/project/images/templates/images/images/_detail_overview.html:15
 #: dashboards/project/instances/templates/instances/_detail_overview.html:12
-#: dashboards/project/loadbalancers/forms.py:34
-#: dashboards/project/loadbalancers/forms.py:76
-#: dashboards/project/loadbalancers/forms.py:171
-#: dashboards/project/loadbalancers/forms.py:222
+#: dashboards/project/loadbalancers/forms.py:32
+#: dashboards/project/loadbalancers/forms.py:74
+#: dashboards/project/loadbalancers/forms.py:169
+#: dashboards/project/loadbalancers/forms.py:220
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
@@ -1312,13 +1312,13 @@ msgstr "Swap 디스크"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:14
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:12
-#: dashboards/project/vpn/forms.py:35 dashboards/project/vpn/forms.py:69
-#: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
+#: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:67
+#: dashboards/project/vpn/forms.py:138 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:12
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:12
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:13
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:13
-#: dashboards/router/nexus1000v/forms.py:176
+#: dashboards/router/nexus1000v/forms.py:173
 msgid "ID"
 msgstr "ID"
 
@@ -1621,7 +1621,7 @@ msgstr[0] "호스트 철수함"
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:134
-#: dashboards/admin/networks/agents/tables.py:93
+#: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/volumes/snapshots/tables.py:63
 #: dashboards/admin/volumes/volumes/tables.py:43
 #: dashboards/project/databases/tables.py:254
@@ -1643,7 +1643,7 @@ msgstr "영역"
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
 #: dashboards/admin/instances/tables.py:151
 #: dashboards/admin/networks/tables.py:95
-#: dashboards/admin/networks/agents/tables.py:94
+#: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/networks/ports/tables.py:97
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
@@ -1660,7 +1660,7 @@ msgstr "영역"
 #: dashboards/project/databases/tables.py:264
 #: dashboards/project/databases/tables.py:328
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
-#: dashboards/project/firewalls/tables.py:255
+#: dashboards/project/firewalls/tables.py:253
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:233
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1690,7 +1690,7 @@ msgstr "영역"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:335
-#: dashboards/project/vpn/tables.py:242 dashboards/project/vpn/tables.py:269
+#: dashboards/project/vpn/tables.py:239 dashboards/project/vpn/tables.py:266
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
@@ -1703,7 +1703,7 @@ msgid "State"
 msgstr "상태"
 
 #: dashboards/admin/hypervisors/compute/tables.py:70
-#: dashboards/admin/networks/agents/tables.py:97
+#: dashboards/admin/networks/agents/tables.py:94
 msgid "Updated At"
 msgstr "업데이트"
 
@@ -1945,7 +1945,7 @@ msgid "System Information"
 msgstr "시스템 정보"
 
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:156
-#: dashboards/admin/networks/agents/tables.py:81
+#: dashboards/admin/networks/agents/tables.py:78
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
@@ -1954,16 +1954,16 @@ msgstr "시스템 정보"
 #: dashboards/identity/projects/workflows.py:131
 #: dashboards/identity/projects/workflows.py:490
 #: dashboards/identity/users/tables.py:178
-#: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/tables.py:218
-#: dashboards/project/firewalls/workflows.py:69
+#: dashboards/project/firewalls/forms.py:70
+#: dashboards/project/firewalls/tables.py:216
+#: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Enabled"
 msgstr "활성화됨"
 
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:158
-#: dashboards/admin/networks/agents/tables.py:82
+#: dashboards/admin/networks/agents/tables.py:79
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "비활성된"
@@ -1993,12 +1993,12 @@ msgid "Block Storage Services"
 msgstr "블록 스토리지 서비스"
 
 #: dashboards/admin/info/tables.py:163
-#: dashboards/admin/networks/agents/tables.py:87
+#: dashboards/admin/networks/agents/tables.py:84
 msgid "Up"
 msgstr "위로"
 
 #: dashboards/admin/info/tables.py:165
-#: dashboards/admin/networks/agents/tables.py:88
+#: dashboards/admin/networks/agents/tables.py:85
 msgid "Down"
 msgstr "아래로"
 
@@ -2094,10 +2094,10 @@ msgstr "실시간 마이그레이트 인스턴스 "
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:151
 #: dashboards/project/instances/workflows/create_instance.py:50
-#: dashboards/router/nexus1000v/forms.py:121
-#: dashboards/router/nexus1000v/forms.py:179
-#: dashboards/router/nexus1000v/tables.py:76
-#: dashboards/router/nexus1000v/tables.py:98
+#: dashboards/router/nexus1000v/forms.py:118
+#: dashboards/router/nexus1000v/forms.py:176
+#: dashboards/router/nexus1000v/tables.py:73
+#: dashboards/router/nexus1000v/tables.py:95
 msgid "Project"
 msgstr "프로젝트"
 
@@ -2321,7 +2321,7 @@ msgstr "최근 1년"
 
 #: dashboards/admin/metering/templates/metering/daily.html:16
 #: dashboards/admin/metering/templates/metering/stats.html:112
-#: dashboards/router/nexus1000v/forms.py:62
+#: dashboards/router/nexus1000v/forms.py:59
 msgid "Other"
 msgstr "다른"
 
@@ -2448,9 +2448,9 @@ msgstr "평면"
 
 #: dashboards/admin/networks/forms.py:44
 #: dashboards/project/networks/workflows.py:43
-#: dashboards/router/nexus1000v/tables.py:75
-#: dashboards/router/nexus1000v/tables.py:90
-#: dashboards/router/nexus1000v/tabs.py:22
+#: dashboards/router/nexus1000v/tables.py:72
+#: dashboards/router/nexus1000v/tables.py:87
+#: dashboards/router/nexus1000v/tabs.py:19
 msgid "Network Profile"
 msgstr "네트워크 프로필"
 
@@ -2464,8 +2464,8 @@ msgstr "가상 네트워크를 이용하는 물리적 메커니즘을 구현합�
 
 #: dashboards/admin/networks/forms.py:57 dashboards/admin/networks/forms.py:64
 #: dashboards/admin/networks/forms.py:65
-#: dashboards/router/nexus1000v/forms.py:114
-#: dashboards/router/nexus1000v/forms.py:120
+#: dashboards/router/nexus1000v/forms.py:111
+#: dashboards/router/nexus1000v/forms.py:117
 msgid "Physical Network"
 msgstr "물리적인 네트워크"
 
@@ -2483,17 +2483,17 @@ msgstr "구분 ID"
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:235
 #: dashboards/admin/networks/tables.py:97
-#: dashboards/admin/networks/agents/tables.py:95
+#: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:99
 #: dashboards/admin/routers/ports/tables.py:34
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
-#: dashboards/project/firewalls/forms.py:152
-#: dashboards/project/firewalls/workflows.py:245
-#: dashboards/project/loadbalancers/forms.py:42
-#: dashboards/project/loadbalancers/forms.py:97
-#: dashboards/project/loadbalancers/forms.py:180
-#: dashboards/project/loadbalancers/forms.py:242
+#: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/workflows.py:243
+#: dashboards/project/loadbalancers/forms.py:40
+#: dashboards/project/loadbalancers/forms.py:95
+#: dashboards/project/loadbalancers/forms.py:178
+#: dashboards/project/loadbalancers/forms.py:240
 #: dashboards/project/loadbalancers/workflows.py:48
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:346
@@ -2508,9 +2508,9 @@ msgstr "구분 ID"
 #: dashboards/project/routers/forms.py:88
 #: dashboards/project/routers/ports/tables.py:102
 #: dashboards/project/routers/templates/routers/_detail_overview.html:15
-#: dashboards/project/vpn/forms.py:41 dashboards/project/vpn/forms.py:263
-#: dashboards/project/vpn/workflows.py:35
-#: dashboards/project/vpn/workflows.py:421
+#: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:261
+#: dashboards/project/vpn/workflows.py:33
+#: dashboards/project/vpn/workflows.py:419
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:68
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:35
 msgid "Admin State"
@@ -2519,11 +2519,11 @@ msgstr "관리자 상태"
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/tables.py:93
-#: dashboards/project/firewalls/forms.py:68
-#: dashboards/project/firewalls/forms.py:120
-#: dashboards/project/firewalls/workflows.py:67
-#: dashboards/project/firewalls/workflows.py:181
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/forms.py:69
+#: dashboards/project/firewalls/forms.py:101
+#: dashboards/project/firewalls/workflows.py:65
+#: dashboards/project/firewalls/workflows.py:179
+#: dashboards/project/firewalls/workflows.py:238
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:136
@@ -2540,7 +2540,7 @@ msgid "External Network"
 msgstr "외부 네트워크"
 
 #: dashboards/admin/networks/forms.py:90 dashboards/identity/users/forms.py:58
-#: dashboards/router/nexus1000v/forms.py:32
+#: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr "프로젝트 선택"
 
@@ -2555,15 +2555,15 @@ msgid ""
 msgstr "VLAN 네트워크의 경우, 물리적 네트워크에서 VLAN VID를 이용하여 가상 네트워크를 실현합니다. 사용 가능한 VLAN VID는 %(vlan_min)s에서 %(vlan_max)s까지 입니다. GRE 또는 VXLAN 네트워크의 경우, 터널 ID를 사용합니다. 사용 가능한 GRE 네트워크의 터널 ID는 %(gre_min)s에서 %(gre_max)s까지 입니다. VXLAN 네트워크는 %(vxlan_min)s에서 %(vxlan_max)s까지 입니다."
 
 #: dashboards/admin/networks/forms.py:142
-#: dashboards/project/instances/workflows/create_instance.py:691
+#: dashboards/project/instances/workflows/create_instance.py:688
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "프로필 선택"
 
 #: dashboards/admin/networks/forms.py:152
-#: dashboards/project/instances/workflows/create_instance.py:701
+#: dashboards/project/instances/workflows/create_instance.py:698
 #: dashboards/project/networks/workflows.py:71
-#: dashboards/router/nexus1000v/views.py:55
+#: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
 msgstr "네트워크 프로필을 찾을 수 없습니다."
 
@@ -2610,7 +2610,7 @@ msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:644
+#: dashboards/project/instances/workflows/create_instance.py:641
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:144
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -2659,7 +2659,7 @@ msgid "Edit Network"
 msgstr "네트워크 편집"
 
 #: dashboards/admin/networks/tables.py:87
-#: dashboards/admin/networks/agents/forms.py:35
+#: dashboards/admin/networks/agents/forms.py:32
 #: dashboards/admin/networks/ports/forms.py:33
 #: dashboards/project/networks/workflows.py:37
 msgid "Network Name"
@@ -2671,7 +2671,7 @@ msgid "Subnets Associated"
 msgstr "관련 서브넷"
 
 #: dashboards/admin/networks/tables.py:92
-#: dashboards/admin/networks/agents/tables.py:103
+#: dashboards/admin/networks/agents/tables.py:100
 msgid "DHCP Agents"
 msgstr "DHCP 에이전트"
 
@@ -2697,7 +2697,7 @@ msgstr "네트워크 목록을 찾을 수 없습니다."
 
 #: dashboards/admin/networks/views.py:90
 #: dashboards/admin/networks/views.py:139
-#: dashboards/admin/networks/agents/forms.py:64
+#: dashboards/admin/networks/agents/forms.py:61
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Dhcp 에이전트 호스팅 네트워크를 나열할 수 없습니다."
 
@@ -2719,48 +2719,48 @@ msgstr "포트 목록을 찾을 수 없습니다."
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "네트워크 \"%s\"의 세부 정보를 찾지 못했습니다."
 
-#: dashboards/admin/networks/agents/forms.py:38
+#: dashboards/admin/networks/agents/forms.py:35
 msgid "New DHCP Agent"
 msgstr "새로운 DHCP 에이전트"
 
-#: dashboards/admin/networks/agents/forms.py:39
+#: dashboards/admin/networks/agents/forms.py:36
 msgid "Choose an DHCP Agent to attach to."
 msgstr "연결할 DHCP 에전트를 선택합니다."
 
-#: dashboards/admin/networks/agents/forms.py:57
+#: dashboards/admin/networks/agents/forms.py:54
 msgid "Select a new agent"
 msgstr "새로운 에이전트 선택"
 
-#: dashboards/admin/networks/agents/forms.py:59
+#: dashboards/admin/networks/agents/forms.py:56
 msgid "No other agents available."
 msgstr "다른 에이전트가 없습니다."
 
-#: dashboards/admin/networks/agents/forms.py:76
+#: dashboards/admin/networks/agents/forms.py:73
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "에이전트 %s를 추가했습니다."
 
-#: dashboards/admin/networks/agents/forms.py:82
+#: dashboards/admin/networks/agents/forms.py:79
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "네트워크 %(network)s 의 에이전트 %(agent_name)s 를 추가하지 못했습니다."
 
-#: dashboards/admin/networks/agents/tables.py:39
+#: dashboards/admin/networks/agents/tables.py:36
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP 에전트 삭제"
 
-#: dashboards/admin/networks/agents/tables.py:47
+#: dashboards/admin/networks/agents/tables.py:44
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP 에이전트 삭제함"
 
-#: dashboards/admin/networks/agents/tables.py:60
+#: dashboards/admin/networks/agents/tables.py:57
 #, python-format
 msgid "Failed to delete agent: %s"
 msgstr "에이전트를 삭제하지 못했습니다: %s"
 
-#: dashboards/admin/networks/agents/tables.py:69
+#: dashboards/admin/networks/agents/tables.py:66
 #: dashboards/admin/networks/templates/networks/agents/_add.html:9
 #: dashboards/admin/networks/templates/networks/agents/_add.html:24
 #: dashboards/admin/networks/templates/networks/agents/add.html:3
@@ -2768,13 +2768,13 @@ msgstr "에이전트를 삭제하지 못했습니다: %s"
 msgid "Add DHCP Agent"
 msgstr "DHCP 에이전트 추가"
 
-#: dashboards/admin/networks/agents/views.py:59
+#: dashboards/admin/networks/agents/views.py:56
 #: dashboards/admin/networks/ports/views.py:48
 #: dashboards/project/networks/subnets/views.py:49
 msgid "Unable to retrieve network."
 msgstr "네트워크를 찾지 못했습니다."
 
-#: dashboards/admin/networks/agents/views.py:70
+#: dashboards/admin/networks/agents/views.py:67
 msgid "Unable to retrieve agent list."
 msgstr "에이전트 목록을 찾지 못했습니다."
 
@@ -3131,8 +3131,8 @@ msgstr "목적지 CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:24
 #: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:216
-#: dashboards/project/firewalls/workflows.py:45
+#: dashboards/project/firewalls/tables.py:214
+#: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
@@ -3379,7 +3379,7 @@ msgstr "정보"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:367
+#: dashboards/project/instances/workflows/create_instance.py:364
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:219
@@ -4348,7 +4348,7 @@ msgstr "이 이름은 현재 사용중입니다."
 
 #: dashboards/identity/projects/views.py:58
 #: dashboards/identity/projects/views.py:103
-#: dashboards/router/nexus1000v/views.py:44
+#: dashboards/router/nexus1000v/views.py:41
 msgid "Unable to retrieve project information."
 msgstr "프로젝트 정보를 찾지 못했습니다."
 
@@ -4582,7 +4582,7 @@ msgstr "프로젝트를 사용할 수 없습니다."
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:542
+#: dashboards/project/instances/workflows/create_instance.py:539
 #: dashboards/settings/password/forms.py:47
 msgid "Passwords do not match."
 msgstr "비밀번호가 일치하지 않습니다."
@@ -4754,7 +4754,7 @@ msgid "Data Processing"
 msgstr "데이터 프로세싱"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:500
+#: dashboards/project/instances/workflows/create_instance.py:497
 msgid "Access & Security"
 msgstr "접근 & 시큐리티"
 
@@ -4816,8 +4816,8 @@ msgid "Error Downloading RC File: %s"
 msgstr "RC 파일 다운로드 중 오류: %s"
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
-#: dashboards/project/loadbalancers/forms.py:81
-#: dashboards/project/loadbalancers/forms.py:174
+#: dashboards/project/loadbalancers/forms.py:79
+#: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/tables.py:310
 #: dashboards/project/loadbalancers/workflows.py:300
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
@@ -5275,13 +5275,13 @@ msgstr "룰 관리"
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
-#: dashboards/project/firewalls/tables.py:28
-#: dashboards/project/firewalls/workflows.py:105
+#: dashboards/project/firewalls/tables.py:26
+#: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
 msgstr "룰 추가"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:168
-#: dashboards/project/firewalls/tables.py:58
+#: dashboards/project/firewalls/tables.py:56
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "룰 삭제"
@@ -5429,17 +5429,17 @@ msgstr "이 룰을 이용하여 허용 할 트래픽 소스를 지정해야 합�
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
-#: dashboards/project/firewalls/workflows.py:106
-#: dashboards/project/firewalls/workflows.py:213
-#: dashboards/project/firewalls/workflows.py:291
+#: dashboards/project/firewalls/workflows.py:104
+#: dashboards/project/firewalls/workflows.py:211
+#: dashboards/project/firewalls/workflows.py:289
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:259
 #: dashboards/project/loadbalancers/workflows.py:425
 #: dashboards/project/loadbalancers/workflows.py:603
-#: dashboards/project/vpn/workflows.py:94
-#: dashboards/project/vpn/workflows.py:193
-#: dashboards/project/vpn/workflows.py:290
-#: dashboards/project/vpn/workflows.py:475
+#: dashboards/project/vpn/workflows.py:92
+#: dashboards/project/vpn/workflows.py:191
+#: dashboards/project/vpn/workflows.py:288
+#: dashboards/project/vpn/workflows.py:473
 msgid "Add"
 msgstr "추가"
 
@@ -5508,8 +5508,8 @@ msgid "Unable to create container."
 msgstr "컨테이너를 생성할 수 없습니다."
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:569
-#: dashboards/project/stacks/forms.py:56
+#: dashboards/project/instances/workflows/create_instance.py:566
+#: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "파일"
 
@@ -6158,7 +6158,7 @@ msgstr "템플릿 이름"
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:131
+#: dashboards/project/instances/workflows/create_instance.py:134
 #: dashboards/project/loadbalancers/tables.py:337
 msgid "Details"
 msgstr "세부 정보"
@@ -6384,7 +6384,7 @@ msgstr "이미지"
 #: dashboards/project/data_processing/data_image_registry/forms.py:71
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:389
+#: dashboards/project/instances/workflows/create_instance.py:386
 msgid "Select Image"
 msgstr "이미지 선택"
 
@@ -6599,7 +6599,7 @@ msgstr "데이터 소스 개요"
 #: dashboards/project/loadbalancers/workflows.py:525
 #: dashboards/project/loadbalancers/workflows.py:529
 #: dashboards/project/loadbalancers/workflows.py:530
-#: dashboards/project/stacks/forms.py:58
+#: dashboards/project/stacks/forms.py:59
 msgid "URL"
 msgstr "URL"
 
@@ -6711,11 +6711,11 @@ msgstr "Url"
 msgid "Unable to fetch job binary."
 msgstr "잡 바이너리를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/job_binaries/views.py:51
+#: dashboards/project/data_processing/job_binaries/views.py:50
 msgid "Unable to fetch job binary list."
 msgstr "잡 바이너리 목록을 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/job_binaries/views.py:85
+#: dashboards/project/data_processing/job_binaries/views.py:84
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "잡 바이너리를 가져올 수 없습니다: %(exc)s"
@@ -7141,7 +7141,7 @@ msgstr "작업 종료 후 클러스터 지속"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:785
+#: dashboards/project/instances/workflows/create_instance.py:782
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "실행"
@@ -7372,7 +7372,7 @@ msgstr "Anti-affinity 프로세스를 채우지 못했습니다."
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:687
+#: dashboards/project/instances/workflows/create_instance.py:684
 msgid "Unable to retrieve networks."
 msgstr "네트워크를 찾지 못했습니다."
 
@@ -7576,14 +7576,14 @@ msgstr "\"%(name)s\" 백업할 예정입니다."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:787
+#: dashboards/project/instances/workflows/create_instance.py:784
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:804
+#: dashboards/project/instances/workflows/create_instance.py:801
 msgid "instance"
 msgstr "인스턴스"
 
@@ -7660,7 +7660,7 @@ msgstr "인스턴스에서 데이터베이스를 삭제하는 동안 오류가 �
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/instances/tables.py:303
 #: dashboards/project/instances/tables.py:331
-#: dashboards/project/instances/workflows/create_instance.py:784
+#: dashboards/project/instances/workflows/create_instance.py:781
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "인스턴스 시작"
@@ -7937,22 +7937,22 @@ msgid "Select datastore type and version"
 msgstr "데이터 저장소 타입과 버전 선택"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:648
+#: dashboards/project/instances/workflows/create_instance.py:645
 msgid "At least one network must be specified."
 msgstr "최소 하나의 네트워크가 지정되어야 합니다."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:650
+#: dashboards/project/instances/workflows/create_instance.py:647
 msgid "Launch instance with these networks"
 msgstr "정한 네트워크로 인스턴스 구동"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:672
+#: dashboards/project/instances/workflows/create_instance.py:669
 msgid "Networking"
 msgstr "네트워크"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:674
+#: dashboards/project/instances/workflows/create_instance.py:671
 msgid "Select networks for your instance."
 msgstr "인스턴스 네트워크 선택"
 
@@ -7997,14 +7997,14 @@ msgid "Unable to find backup!"
 msgstr "백업을 찾을 수 없습니다!"
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:786
+#: dashboards/project/instances/workflows/create_instance.py:783
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
 
-#: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:205
-#: dashboards/project/firewalls/workflows.py:39
+#: dashboards/project/firewalls/forms.py:38
+#: dashboards/project/firewalls/tables.py:203
+#: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:276
 #: dashboards/project/loadbalancers/workflows.py:44
@@ -8014,69 +8014,25 @@ msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
 msgid "Protocol"
 msgstr "프로토콜"
 
-#: dashboards/project/firewalls/forms.py:41
-msgid "Protocol for the firewall rule"
-msgstr "방화벽 룰에 대한 프로토콜"
-
-#: dashboards/project/firewalls/forms.py:44
-msgid "Action for the firewall rule"
-msgstr "방화벽 룰에 대한 행동"
-
-#: dashboards/project/firewalls/forms.py:46
-#: dashboards/project/firewalls/workflows.py:49
-msgid "Source IP Address/Subnet"
-msgstr "소스 IP 주소/서브넷"
-
-#: dashboards/project/firewalls/forms.py:49
-msgid "Source IP address or subnet"
-msgstr "소스 IP 주소 또는 서브넷"
-
-#: dashboards/project/firewalls/forms.py:51
-#: dashboards/project/firewalls/workflows.py:53
-msgid "Destination IP Address/Subnet"
-msgstr "대상 IP 주소/서브넷"
-
-#: dashboards/project/firewalls/forms.py:54
-msgid "Destination IP address or subnet"
-msgstr "대상 IP 주소 또는 서브넷"
-
-#: dashboards/project/firewalls/forms.py:57
-#: dashboards/project/firewalls/workflows.py:58
-msgid "Source Port/Port Range"
-msgstr "소스 포트/포트 범위"
-
-#: dashboards/project/firewalls/forms.py:60
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "소스 포트 (정수 [1, 65535] 사이 또는 a:b 범위)"
-
-#: dashboards/project/firewalls/forms.py:63
-#: dashboards/project/firewalls/workflows.py:63
-msgid "Destination Port/Port Range"
-msgstr "대상 포트/포트 범위"
-
-#: dashboards/project/firewalls/forms.py:66
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
-
-#: dashboards/project/firewalls/forms.py:81
-#: dashboards/project/firewalls/workflows.py:40
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/workflows.py:38
 #: dashboards/project/loadbalancers/workflows.py:487
 msgid "TCP"
 msgstr "TCP"
 
-#: dashboards/project/firewalls/forms.py:81
-#: dashboards/project/firewalls/workflows.py:41
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/workflows.py:39
 msgid "UDP"
 msgstr "UDP"
 
-#: dashboards/project/firewalls/forms.py:81
-#: dashboards/project/firewalls/workflows.py:42
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/workflows.py:40
 msgid "ICMP"
 msgstr "ICMP"
 
-#: dashboards/project/firewalls/forms.py:82
-#: dashboards/project/firewalls/tables.py:203
-#: dashboards/project/firewalls/workflows.py:43
+#: dashboards/project/firewalls/forms.py:40
+#: dashboards/project/firewalls/tables.py:201
+#: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:29
@@ -8085,369 +8041,413 @@ msgstr "ICMP"
 msgid "ANY"
 msgstr "ANY"
 
-#: dashboards/project/firewalls/forms.py:88
-#: dashboards/project/firewalls/workflows.py:46
+#: dashboards/project/firewalls/forms.py:41
+msgid "Protocol for the firewall rule"
+msgstr "방화벽 룰에 대한 프로토콜"
+
+#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/workflows.py:44
 msgid "ALLOW"
 msgstr "ALLOW"
 
-#: dashboards/project/firewalls/forms.py:88
-#: dashboards/project/firewalls/workflows.py:47
+#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/workflows.py:45
 msgid "DENY"
 msgstr "DENY"
 
-#: dashboards/project/firewalls/forms.py:104
+#: dashboards/project/firewalls/forms.py:45
+msgid "Action for the firewall rule"
+msgstr "방화벽 룰에 대한 행동"
+
+#: dashboards/project/firewalls/forms.py:47
+#: dashboards/project/firewalls/workflows.py:47
+msgid "Source IP Address/Subnet"
+msgstr "소스 IP 주소/서브넷"
+
+#: dashboards/project/firewalls/forms.py:50
+msgid "Source IP address or subnet"
+msgstr "소스 IP 주소 또는 서브넷"
+
+#: dashboards/project/firewalls/forms.py:52
+#: dashboards/project/firewalls/workflows.py:51
+msgid "Destination IP Address/Subnet"
+msgstr "대상 IP 주소/서브넷"
+
+#: dashboards/project/firewalls/forms.py:55
+msgid "Destination IP address or subnet"
+msgstr "대상 IP 주소 또는 서브넷"
+
+#: dashboards/project/firewalls/forms.py:58
+#: dashboards/project/firewalls/workflows.py:56
+msgid "Source Port/Port Range"
+msgstr "소스 포트/포트 범위"
+
+#: dashboards/project/firewalls/forms.py:61
+msgid "Source port (integer in [1, 65535] or range in a:b)"
+msgstr "소스 포트 (정수 [1, 65535] 사이 또는 a:b 범위)"
+
+#: dashboards/project/firewalls/forms.py:64
+#: dashboards/project/firewalls/workflows.py:61
+msgid "Destination Port/Port Range"
+msgstr "대상 포트/포트 범위"
+
+#: dashboards/project/firewalls/forms.py:67
+msgid "Destination port (integer in [1, 65535] or range in a:b)"
+msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
+
+#: dashboards/project/firewalls/forms.py:85
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "룰 %s를 성공적으로 업데이트 하였습니다."
 
-#: dashboards/project/firewalls/forms.py:109
+#: dashboards/project/firewalls/forms.py:90
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "룰 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:121
-#: dashboards/project/firewalls/tables.py:237
-#: dashboards/project/firewalls/workflows.py:184
+#: dashboards/project/firewalls/forms.py:102
+#: dashboards/project/firewalls/tables.py:235
+#: dashboards/project/firewalls/workflows.py:182
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr "상태 확인"
 
-#: dashboards/project/firewalls/forms.py:130
+#: dashboards/project/firewalls/forms.py:111
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "정책 %s를 성공적으로 업데이트 하였습니다."
 
-#: dashboards/project/firewalls/forms.py:135
+#: dashboards/project/firewalls/forms.py:116
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "정책 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:149
-#: dashboards/project/firewalls/tables.py:253
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/forms.py:130
+#: dashboards/project/firewalls/tables.py:251
+#: dashboards/project/firewalls/workflows.py:237
 msgid "Policy"
 msgstr "정책"
 
-#: dashboards/project/firewalls/forms.py:165
+#: dashboards/project/firewalls/forms.py:146
 msgid "Unable to retrieve policy list."
 msgstr "정책 목록을 찾지 못했습니다."
 
-#: dashboards/project/firewalls/forms.py:186
+#: dashboards/project/firewalls/forms.py:167
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "방화벽 %s를 성공적으로 업데이트하지 못하였습니다."
 
-#: dashboards/project/firewalls/forms.py:191
+#: dashboards/project/firewalls/forms.py:172
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "방화벽 %(name)s 를 업데이트 하지 못하였습니다.: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:199
-#: dashboards/project/firewalls/tables.py:158
+#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/tables.py:156
 msgid "Insert Rule"
 msgstr "룰 삽입"
 
-#: dashboards/project/firewalls/forms.py:200
+#: dashboards/project/firewalls/forms.py:181
 msgid "Before"
 msgstr "이전"
 
-#: dashboards/project/firewalls/forms.py:202
+#: dashboards/project/firewalls/forms.py:183
 msgid "After"
 msgstr "이후"
 
-#: dashboards/project/firewalls/forms.py:229
+#: dashboards/project/firewalls/forms.py:210
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "사용가능한 룰을 검색하지 못하였습니다.: %s"
 
-#: dashboards/project/firewalls/forms.py:248
+#: dashboards/project/firewalls/forms.py:229
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr "룰 %(rule)s를 정책 %(policy)s에 성공적으로 추가하였습니다."
 
-#: dashboards/project/firewalls/forms.py:256
+#: dashboards/project/firewalls/forms.py:237
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "정책 %(name)s에 룰을 추가하지 못하였습니다.: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:264
-#: dashboards/project/firewalls/tables.py:172
+#: dashboards/project/firewalls/forms.py:245
+#: dashboards/project/firewalls/tables.py:170
 msgid "Remove Rule"
 msgstr "룰 삭제"
 
-#: dashboards/project/firewalls/forms.py:284
+#: dashboards/project/firewalls/forms.py:265
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "정책 %(name)s에서 현재 룰을 찾지 못하였습니다.: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:300
+#: dashboards/project/firewalls/forms.py:281
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr "룰 %(rule)s를 정책 %(policy)s에서 성공적으로 제거하였습니다."
 
-#: dashboards/project/firewalls/forms.py:308
+#: dashboards/project/firewalls/forms.py:289
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "룰을 정책 %(name)s에서 제거하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:22
-#: dashboards/project/firewalls/tables.py:259
-#: dashboards/project/firewalls/tabs.py:75
+#: dashboards/project/firewalls/tables.py:257
+#: dashboards/project/firewalls/tabs.py:73
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "방화벽"
 
-#: dashboards/project/firewalls/tables.py:37
-#: dashboards/project/firewalls/workflows.py:212
+#: dashboards/project/firewalls/tables.py:35
+#: dashboards/project/firewalls/workflows.py:210
 msgid "Add Policy"
 msgstr "정책 추가"
 
-#: dashboards/project/firewalls/tables.py:45
+#: dashboards/project/firewalls/tables.py:43
 msgid "Create Firewall"
 msgstr "방화벽 생성"
 
-#: dashboards/project/firewalls/tables.py:66
+#: dashboards/project/firewalls/tables.py:64
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] "롤 예약 삭제"
 
-#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/firewalls/tables.py:78
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "정책 삭제"
 
-#: dashboards/project/firewalls/tables.py:88
+#: dashboards/project/firewalls/tables.py:86
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "정책 예약 삭제"
 
-#: dashboards/project/firewalls/tables.py:103
+#: dashboards/project/firewalls/tables.py:101
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] "방화벽 삭제"
 
-#: dashboards/project/firewalls/tables.py:111
+#: dashboards/project/firewalls/tables.py:109
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "방화벽 예약 삭제"
 
-#: dashboards/project/firewalls/tables.py:121
+#: dashboards/project/firewalls/tables.py:119
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "룰 편집"
 
-#: dashboards/project/firewalls/tables.py:133
+#: dashboards/project/firewalls/tables.py:131
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "정책 편집"
 
-#: dashboards/project/firewalls/tables.py:145
+#: dashboards/project/firewalls/tables.py:143
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "방화벽 편집"
 
-#: dashboards/project/firewalls/tables.py:207
+#: dashboards/project/firewalls/tables.py:205
 msgid "Source IP"
 msgstr "소스 IP"
 
-#: dashboards/project/firewalls/tables.py:209
+#: dashboards/project/firewalls/tables.py:207
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "소스 포트"
 
-#: dashboards/project/firewalls/tables.py:211
+#: dashboards/project/firewalls/tables.py:209
 msgid "Destination IP"
 msgstr "대상 IP"
 
-#: dashboards/project/firewalls/tables.py:213
+#: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "대상 포트"
 
-#: dashboards/project/firewalls/tables.py:221
+#: dashboards/project/firewalls/tables.py:219
 msgid "In Policy"
 msgstr "정책에서"
 
-#: dashboards/project/firewalls/tables.py:225
-#: dashboards/project/firewalls/tables.py:235
-#: dashboards/project/firewalls/workflows.py:133
-#: dashboards/project/firewalls/workflows.py:139
+#: dashboards/project/firewalls/tables.py:223
+#: dashboards/project/firewalls/tables.py:233
+#: dashboards/project/firewalls/workflows.py:131
+#: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr "룰"
 
-#: dashboards/project/firewalls/tables.py:241
+#: dashboards/project/firewalls/tables.py:239
 msgid "Policies"
 msgstr "정책"
 
-#: dashboards/project/firewalls/tabs.py:33
+#: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
 msgstr "방화벽 룰"
 
-#: dashboards/project/firewalls/tabs.py:45
+#: dashboards/project/firewalls/tabs.py:43
 msgid "Unable to retrieve rules list."
 msgstr "룰 목록을 찾지 못했습니다."
 
-#: dashboards/project/firewalls/tabs.py:54
+#: dashboards/project/firewalls/tabs.py:52
 msgid "Firewall Policies"
 msgstr "방화벽 정책"
 
-#: dashboards/project/firewalls/tabs.py:66
+#: dashboards/project/firewalls/tabs.py:64
 msgid "Unable to retrieve policies list."
 msgstr "정책 목록을 찾지 못했습니다."
 
-#: dashboards/project/firewalls/tabs.py:87
+#: dashboards/project/firewalls/tabs.py:85
 msgid "Unable to retrieve firewall list."
 msgstr "방화벽 목록을 찾지 못했습니다."
 
-#: dashboards/project/firewalls/tabs.py:96
+#: dashboards/project/firewalls/tabs.py:94
 msgid "Firewall Rule Details"
 msgstr "방화벽 룰 세부 정보"
 
-#: dashboards/project/firewalls/tabs.py:107
-#: dashboards/project/firewalls/views.py:144
+#: dashboards/project/firewalls/tabs.py:105
+#: dashboards/project/firewalls/views.py:142
 msgid "Unable to retrieve rule details."
 msgstr "룰 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/firewalls/tabs.py:113
+#: dashboards/project/firewalls/tabs.py:111
 msgid "Firewall Policy Details"
 msgstr "방화벽 정책 세부 정보"
 
-#: dashboards/project/firewalls/tabs.py:124
-#: dashboards/project/firewalls/views.py:176
-#: dashboards/project/firewalls/views.py:242
-#: dashboards/project/firewalls/views.py:276
+#: dashboards/project/firewalls/tabs.py:122
+#: dashboards/project/firewalls/views.py:177
+#: dashboards/project/firewalls/views.py:243
+#: dashboards/project/firewalls/views.py:277
 msgid "Unable to retrieve policy details."
 msgstr "정책 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/firewalls/tabs.py:130
+#: dashboards/project/firewalls/tabs.py:128
 msgid "Firewall Details"
 msgstr "방화벽 세부 정보"
 
-#: dashboards/project/firewalls/tabs.py:141
-#: dashboards/project/firewalls/views.py:209
+#: dashboards/project/firewalls/tabs.py:139
+#: dashboards/project/firewalls/views.py:210
 msgid "Unable to retrieve firewall details."
 msgstr "방화벽 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/firewalls/views.py:67
+#: dashboards/project/firewalls/views.py:65
 #, python-format
 msgid "Deleted rule %s"
 msgstr "률 %s 삭제됨"
 
-#: dashboards/project/firewalls/views.py:70
+#: dashboards/project/firewalls/views.py:68
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr "룰을 삭제할 수 없습니다. %s"
 
-#: dashboards/project/firewalls/views.py:75
+#: dashboards/project/firewalls/views.py:73
 #, python-format
 msgid "Deleted policy %s"
 msgstr "Policy %s 삭제됨"
 
-#: dashboards/project/firewalls/views.py:78
+#: dashboards/project/firewalls/views.py:76
 #, python-format
 msgid "Unable to delete policy. %s"
 msgstr "정책를 삭제할 수 없습니다. %s"
 
-#: dashboards/project/firewalls/views.py:84
+#: dashboards/project/firewalls/views.py:82
 #, python-format
 msgid "Deleted firewall %s"
 msgstr "방화벽 %s 삭제됨"
 
-#: dashboards/project/firewalls/views.py:87
+#: dashboards/project/firewalls/views.py:85
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "방화벽을 삭제할 수 없습니다. %s"
 
-#: dashboards/project/firewalls/workflows.py:75
+#: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
 msgstr "룰 추가"
 
-#: dashboards/project/firewalls/workflows.py:77
+#: dashboards/project/firewalls/workflows.py:75
 msgid ""
 "Create a firewall rule.\n"
 "\n"
 "Protocol and action must be specified. Other fields are optional."
 msgstr "방화벽 룰 생성합니다.\n\n프로토콜과 행동을 지정해야 합니다. 다른 필드는 옵션입니다."
 
-#: dashboards/project/firewalls/workflows.py:107
+#: dashboards/project/firewalls/workflows.py:105
 #, python-format
 msgid "Added Rule \"%s\"."
 msgstr "룰 \"%s\"를 추가하였습니다."
 
-#: dashboards/project/firewalls/workflows.py:108
+#: dashboards/project/firewalls/workflows.py:106
 #, python-format
 msgid "Unable to add Rule \"%s\"."
 msgstr "룰 \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/firewalls/workflows.py:136
+#: dashboards/project/firewalls/workflows.py:134
 msgid "Create a policy with selected rules."
 msgstr "선택한 룰에 대한 정책를 생성합니다."
 
-#: dashboards/project/firewalls/workflows.py:141
+#: dashboards/project/firewalls/workflows.py:139
 msgid "Select rules for your policy."
 msgstr "정책을 위해 룰을 선택합니다."
 
-#: dashboards/project/firewalls/workflows.py:156
+#: dashboards/project/firewalls/workflows.py:154
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "룰을 찾지 못했습니다 (%(error)s). "
 
-#: dashboards/project/firewalls/workflows.py:192
+#: dashboards/project/firewalls/workflows.py:190
 msgid "AddPolicy"
 msgstr "정책 추가"
 
-#: dashboards/project/firewalls/workflows.py:194
+#: dashboards/project/firewalls/workflows.py:192
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
 msgstr "방화벽 룰의 명령 목록에서 방화벽 정책을 생성할 수 있습니다.\n\n이름을 입력해야 합니다. 방화벽 룰은 룰 탭 아래에 배치된 순서대로 추가됩니다."
 
-#: dashboards/project/firewalls/workflows.py:214
+#: dashboards/project/firewalls/workflows.py:212
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr "정책 \"%s\"를 추가하였습니다.:"
 
-#: dashboards/project/firewalls/workflows.py:215
+#: dashboards/project/firewalls/workflows.py:213
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr "정책 \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/firewalls/workflows.py:250
+#: dashboards/project/firewalls/workflows.py:248
 msgid "Select a Policy"
 msgstr "정책 선택합니다."
 
-#: dashboards/project/firewalls/workflows.py:258
+#: dashboards/project/firewalls/workflows.py:256
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr "정책 목록 (%(error)s)를 찾지 못했습니다."
 
-#: dashboards/project/firewalls/workflows.py:270
+#: dashboards/project/firewalls/workflows.py:268
 msgid "AddFirewall"
 msgstr "방화벽 추가"
 
-#: dashboards/project/firewalls/workflows.py:272
+#: dashboards/project/firewalls/workflows.py:270
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr "정책을 기반으로 방화벽을 생성합니다.\n\n정책은 꼭 선택해야 합니다. 다른 항목은 옵션입니다."
 
-#: dashboards/project/firewalls/workflows.py:290
+#: dashboards/project/firewalls/workflows.py:288
 msgid "Add Firewall"
 msgstr "방화벽 추가"
 
-#: dashboards/project/firewalls/workflows.py:292
+#: dashboards/project/firewalls/workflows.py:290
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "방화벽 \"%s\"를 추가하였습니다."
 
-#: dashboards/project/firewalls/workflows.py:293
+#: dashboards/project/firewalls/workflows.py:291
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "방화벽 \"%s\"를 추가할 수 없습니다."
@@ -8836,28 +8836,28 @@ msgid "Confirm Rebuild Password"
 msgstr "비밀번호 재설정 확인"
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:732
+#: dashboards/project/instances/workflows/create_instance.py:729
 msgid "Disk Partition"
 msgstr "디스크 파티션"
 
 #: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:391
+#: dashboards/project/instances/workflows/create_instance.py:388
 msgid "No images available"
 msgstr "사용 가능한 이미지가 없습니다."
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:749
+#: dashboards/project/instances/workflows/create_instance.py:746
 msgid "Automatic"
 msgstr "자동"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:750
+#: dashboards/project/instances/workflows/create_instance.py:747
 msgid "Manual"
 msgstr "수동"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:155
-#: dashboards/project/instances/workflows/create_instance.py:759
+#: dashboards/project/instances/workflows/create_instance.py:158
+#: dashboards/project/instances/workflows/create_instance.py:756
 msgid "Unable to retrieve extensions information."
 msgstr "확장 정보를 찾지 못했습니다."
 
@@ -9391,7 +9391,7 @@ msgid "Building"
 msgstr "빌드 중"
 
 #: dashboards/project/instances/tables.py:894
-#: dashboards/project/instances/workflows/create_instance.py:478
+#: dashboards/project/instances/workflows/create_instance.py:475
 msgid "Key Pair"
 msgstr "키 패어"
 
@@ -9721,42 +9721,44 @@ msgid "Device Name"
 msgstr "장치 이름"
 
 #: dashboards/project/instances/workflows/create_instance.py:121
-msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
-msgstr "볼륨 마운트 장소 (e.g. 'vda'를 '/dev/vda'에 마운트)."
+msgid ""
+"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank"
+" to let the system choose a device name for you."
+msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:124
+#: dashboards/project/instances/workflows/create_instance.py:127
 msgid "Delete on Terminate"
 msgstr "종료 후 삭제"
 
-#: dashboards/project/instances/workflows/create_instance.py:127
+#: dashboards/project/instances/workflows/create_instance.py:130
 msgid "Delete volume on instance terminate"
 msgstr "인스턴스 종료시 볼륨 삭제"
 
-#: dashboards/project/instances/workflows/create_instance.py:142
+#: dashboards/project/instances/workflows/create_instance.py:145
 msgid "Select source"
 msgstr "소스 선택"
 
-#: dashboards/project/instances/workflows/create_instance.py:143
+#: dashboards/project/instances/workflows/create_instance.py:146
 msgid "Boot from image"
 msgstr "이미지로 부팅"
 
-#: dashboards/project/instances/workflows/create_instance.py:144
+#: dashboards/project/instances/workflows/create_instance.py:147
 msgid "Boot from snapshot"
 msgstr "스냅샷으로 부팅"
 
-#: dashboards/project/instances/workflows/create_instance.py:147
+#: dashboards/project/instances/workflows/create_instance.py:150
 msgid "Boot from volume"
 msgstr "볼륨으로 부팅"
 
-#: dashboards/project/instances/workflows/create_instance.py:153
+#: dashboards/project/instances/workflows/create_instance.py:156
 msgid "Boot from image (creates a new volume)"
 msgstr "이미지로 부팅 (새로운 볼륨 생성)"
 
-#: dashboards/project/instances/workflows/create_instance.py:159
+#: dashboards/project/instances/workflows/create_instance.py:162
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "볼륨 스냅샷으로 부팅 (새로운 볼륨 생성)"
 
-#: dashboards/project/instances/workflows/create_instance.py:170
+#: dashboards/project/instances/workflows/create_instance.py:173
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -9766,35 +9768,30 @@ msgid_plural ""
 "%(avail)i of your quota available."
 msgstr[0] "사용가능한 Quota 내에서 %(avail)i만 가능하여 %(req)i 인스턴스가 요청한 것에 대해 작동하지 못했습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:197
+#: dashboards/project/instances/workflows/create_instance.py:200
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "코어(사용: %(avail)s, 요청: %(req)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:204
+#: dashboards/project/instances/workflows/create_instance.py:207
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(사용: %(avail)s, 요청: %(req)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:211
+#: dashboards/project/instances/workflows/create_instance.py:214
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr "요청된 인스턴스를 작동하지 못했습니다. 요청된 리소스가 quota를 초과했습니다: %s."
 
-#: dashboards/project/instances/workflows/create_instance.py:226
+#: dashboards/project/instances/workflows/create_instance.py:229
 msgid "You must set volume size"
 msgstr "볼륨 크기를 설정해야 합니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:229
+#: dashboards/project/instances/workflows/create_instance.py:232
 msgid "Volume size must be greater than 0"
 msgstr "볼륨 사이즈는 0 이상이어야 합니다."
-
-#: dashboards/project/instances/workflows/create_instance.py:232
-#: dashboards/project/instances/workflows/create_instance.py:306
-msgid "You must set device name"
-msgstr "장치 이름을 설정해야 합니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:235
 msgid "You must select an image."
@@ -9829,182 +9826,182 @@ msgid ""
 "snapshots."
 msgstr "여러 개의 인스턴스를 구동하는 것은 이미지 및 인스턴스 스냅샷에서만 지원됩니다. "
 
-#: dashboards/project/instances/workflows/create_instance.py:323
+#: dashboards/project/instances/workflows/create_instance.py:320
 #: dashboards/project/volumes/volumes/forms.py:271
 msgid "Unable to retrieve availability zones."
 msgstr "가용성 존에 대한 정보를 찾지 못했습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:329
+#: dashboards/project/instances/workflows/create_instance.py:326
 #: dashboards/project/volumes/volumes/forms.py:274
 msgid "No availability zones found"
 msgstr "가용성 존을 찾을 수 없습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:331
+#: dashboards/project/instances/workflows/create_instance.py:328
 #: dashboards/project/volumes/volumes/forms.py:276
 msgid "Any Availability Zone"
 msgstr "임의의 가용성 존"
 
-#: dashboards/project/instances/workflows/create_instance.py:354
+#: dashboards/project/instances/workflows/create_instance.py:351
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "Quota 정보를 찾지 못했습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:364
+#: dashboards/project/instances/workflows/create_instance.py:361
 #: dashboards/project/volumes/volumes/forms.py:194
 msgid "Snapshot"
 msgstr "스냅샷"
 
-#: dashboards/project/instances/workflows/create_instance.py:369
+#: dashboards/project/instances/workflows/create_instance.py:366
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:403
+#: dashboards/project/instances/workflows/create_instance.py:400
 msgid "Select Instance Snapshot"
 msgstr "인스턴스 스냅샷 선택"
 
-#: dashboards/project/instances/workflows/create_instance.py:405
+#: dashboards/project/instances/workflows/create_instance.py:402
 msgid "No snapshots available"
 msgstr "사용 가능한 스냅샷이 없습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:417
+#: dashboards/project/instances/workflows/create_instance.py:414
 #: dashboards/project/volumes/volumes/forms.py:289
 msgid "Unable to retrieve list of volumes."
 msgstr "볼륨 목록을 찾지 못했습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:419
+#: dashboards/project/instances/workflows/create_instance.py:416
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "볼륨 선택"
 
-#: dashboards/project/instances/workflows/create_instance.py:421
+#: dashboards/project/instances/workflows/create_instance.py:418
 msgid "No volumes available"
 msgstr "사용 가능한 볼륨이 없습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:432
+#: dashboards/project/instances/workflows/create_instance.py:429
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "볼륨 스냅샷 목록을 찾지 못했습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:435
+#: dashboards/project/instances/workflows/create_instance.py:432
 msgid "Select Volume Snapshot"
 msgstr "볼륨 스냅샷 선택"
 
-#: dashboards/project/instances/workflows/create_instance.py:437
+#: dashboards/project/instances/workflows/create_instance.py:434
 msgid "No volume snapshots available"
 msgstr "사용 가능한 볼륨 스냅샷이 없습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:480
+#: dashboards/project/instances/workflows/create_instance.py:477
 msgid "Key pair to use for authentication."
 msgstr "키 페어는 인승에 사용합니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:484
+#: dashboards/project/instances/workflows/create_instance.py:481
 msgid "Admin Pass"
 msgstr "관리자 비밀번호"
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:487
 msgid "Confirm Admin Pass"
 msgstr "관리자 비밀 번호 확인"
 
-#: dashboards/project/instances/workflows/create_instance.py:496
+#: dashboards/project/instances/workflows/create_instance.py:493
 msgid "Launch instance in these security groups."
 msgstr "이 시큐리티 그룹에서 인스턴스를 구동하십시오."
 
-#: dashboards/project/instances/workflows/create_instance.py:501
+#: dashboards/project/instances/workflows/create_instance.py:498
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "키 패어, 시큐리티 그룹 및 다른 메커니즘을 통해 인스턴스에 접근하는 것을 제어합니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:517
+#: dashboards/project/instances/workflows/create_instance.py:514
 msgid "Unable to retrieve key pairs."
 msgstr "키 패어를 찾지 못했습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:521
+#: dashboards/project/instances/workflows/create_instance.py:518
 msgid "Select a key pair"
 msgstr "키 패어 선택"
 
-#: dashboards/project/instances/workflows/create_instance.py:523
+#: dashboards/project/instances/workflows/create_instance.py:520
 msgid "No key pairs available"
 msgstr "사용할 수 있는 키 패어가 없습니다"
 
-#: dashboards/project/instances/workflows/create_instance.py:532
+#: dashboards/project/instances/workflows/create_instance.py:529
 msgid "Unable to retrieve list of security groups"
 msgstr "시큐리티 그룹 목록을 찾지 못했습니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:564
+#: dashboards/project/instances/workflows/create_instance.py:561
 msgid "Post-Creation"
 msgstr "생성 이후"
 
-#: dashboards/project/instances/workflows/create_instance.py:568
-#: dashboards/project/stacks/forms.py:57
+#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "직접 입력"
 
-#: dashboards/project/instances/workflows/create_instance.py:572
+#: dashboards/project/instances/workflows/create_instance.py:569
 msgid "Customization Script Source"
 msgstr "사용자 정의 스크립트 소스"
 
-#: dashboards/project/instances/workflows/create_instance.py:576
+#: dashboards/project/instances/workflows/create_instance.py:573
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "인스턴스 시작 후 명령어 스크립트 또는 세트를 실행할 수 있습니다 (최대 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:580
-#: dashboards/project/instances/workflows/create_instance.py:585
+#: dashboards/project/instances/workflows/create_instance.py:577
+#: dashboards/project/instances/workflows/create_instance.py:582
 msgid "Script File"
 msgstr "스크립트 파일"
 
-#: dashboards/project/instances/workflows/create_instance.py:589
-#: dashboards/project/instances/workflows/create_instance.py:594
+#: dashboards/project/instances/workflows/create_instance.py:586
+#: dashboards/project/instances/workflows/create_instance.py:591
 msgid "Script Data"
 msgstr "스크립트 데이터"
 
-#: dashboards/project/instances/workflows/create_instance.py:621
+#: dashboards/project/instances/workflows/create_instance.py:618
 msgid "File exceeds maximum size (16kb)"
 msgstr "파일 최대 크기 (16kb) 초과"
 
-#: dashboards/project/instances/workflows/create_instance.py:629
-#: dashboards/project/stacks/forms.py:186
+#: dashboards/project/instances/workflows/create_instance.py:626
+#: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s를 파싱하는동안 문제가 발생했습니다: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:656
+#: dashboards/project/instances/workflows/create_instance.py:653
 msgid "Policy Profiles"
 msgstr "정책 프로필"
 
-#: dashboards/project/instances/workflows/create_instance.py:659
+#: dashboards/project/instances/workflows/create_instance.py:656
 msgid "Launch instance with this policy profile"
 msgstr "이 정책 프로필을 사용하여 인스턴스 시작"
 
-#: dashboards/project/instances/workflows/create_instance.py:733
+#: dashboards/project/instances/workflows/create_instance.py:730
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "자동: 전체 디스크가 하나의 파티션으로되어있고 자동으로 크기조절이 됩니다. 수동: 빠른 빌드 시간으로 결과를 확인할 수 있으나 수동으로 파티션을 조정해야합니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:736
+#: dashboards/project/instances/workflows/create_instance.py:733
 msgid "Configuration Drive"
 msgstr "드라이브 구성"
 
-#: dashboards/project/instances/workflows/create_instance.py:737
+#: dashboards/project/instances/workflows/create_instance.py:734
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "부팅할때 인스턴스에 연결할 특별한 구성 드라이브에 대한 메타데이터를 작성하여 OpenStack을 구성합니다."
 
-#: dashboards/project/instances/workflows/create_instance.py:763
+#: dashboards/project/instances/workflows/create_instance.py:760
 msgid "Advanced Options"
 msgstr "고급 옵션"
 
-#: dashboards/project/instances/workflows/create_instance.py:801
+#: dashboards/project/instances/workflows/create_instance.py:798
 #, python-format
 msgid "%s instances"
 msgstr "%s 인스턴스"
 
-#: dashboards/project/instances/workflows/create_instance.py:859
+#: dashboards/project/instances/workflows/create_instance.py:857
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "포트를 프로필-id (%s)에서 생성할 수 없습니다."
@@ -10091,111 +10088,111 @@ msgstr "인스턴스 \"%s\" 수정합니다."
 msgid "Unable to modify instance \"%s\"."
 msgstr "인스턴스 \"%s\"를 수정할 수 없습니다."
 
-#: dashboards/project/loadbalancers/forms.py:39
+#: dashboards/project/loadbalancers/forms.py:37
 #: dashboards/project/loadbalancers/workflows.py:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:36
 msgid "Load Balancing Method"
 msgstr "로드 발란싱 메소드"
 
-#: dashboards/project/loadbalancers/forms.py:63
+#: dashboards/project/loadbalancers/forms.py:61
 #, python-format
 msgid "Pool %s was successfully updated."
 msgstr "Pool %s 는 성공적으로 업데이트되었습니다."
 
-#: dashboards/project/loadbalancers/forms.py:68
+#: dashboards/project/loadbalancers/forms.py:66
 #, python-format
 msgid "Failed to update pool %s"
 msgstr "Pool %s 업데이트 실패"
 
-#: dashboards/project/loadbalancers/forms.py:83
+#: dashboards/project/loadbalancers/forms.py:81
 #: dashboards/project/loadbalancers/workflows.py:173
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Session Persistence"
 msgstr "세션 지속성"
 
-#: dashboards/project/loadbalancers/forms.py:87
+#: dashboards/project/loadbalancers/forms.py:85
 #: dashboards/project/loadbalancers/workflows.py:180
 msgid "Cookie Name"
 msgstr "쿠키 이름"
 
-#: dashboards/project/loadbalancers/forms.py:88
+#: dashboards/project/loadbalancers/forms.py:86
 #: dashboards/project/loadbalancers/workflows.py:181
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 지속성을 위해 요청되었습니다. 다른 경우 무시됩니다."
 
-#: dashboards/project/loadbalancers/forms.py:92
+#: dashboards/project/loadbalancers/forms.py:90
 #: dashboards/project/loadbalancers/workflows.py:189
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:54
 msgid "Connection Limit"
 msgstr "연결 제한"
 
-#: dashboards/project/loadbalancers/forms.py:93
+#: dashboards/project/loadbalancers/forms.py:91
 #: dashboards/project/loadbalancers/workflows.py:190
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
 msgstr "VIP에 허용된 연결의 최대 갯수나 '-1'로 설정하게 되면 제한이 없습니다."
 
-#: dashboards/project/loadbalancers/forms.py:111
-#: dashboards/project/loadbalancers/forms.py:194
+#: dashboards/project/loadbalancers/forms.py:109
+#: dashboards/project/loadbalancers/forms.py:192
 #: dashboards/project/loadbalancers/tabs.py:40
 #: dashboards/project/loadbalancers/workflows.py:358
 msgid "Unable to retrieve pools list."
 msgstr "Pool 목록을 찾지 못했습니다."
 
-#: dashboards/project/loadbalancers/forms.py:122
+#: dashboards/project/loadbalancers/forms.py:120
 msgid "No session persistence"
 msgstr "세션 지속을 못함"
 
-#: dashboards/project/loadbalancers/forms.py:132
+#: dashboards/project/loadbalancers/forms.py:130
 #: dashboards/project/loadbalancers/workflows.py:227
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "APP_COOKIE 지속성을 위한 쿠키 이름이 요구됩니다."
 
-#: dashboards/project/loadbalancers/forms.py:159
+#: dashboards/project/loadbalancers/forms.py:157
 #, python-format
 msgid "VIP %s was successfully updated."
 msgstr "VIP %s를 성공적으로 업데이트 하였습니다."
 
-#: dashboards/project/loadbalancers/forms.py:164
+#: dashboards/project/loadbalancers/forms.py:162
 #, python-format
 msgid "Failed to update VIP %s"
 msgstr "VIP %s 업데이트 실패하였습니다."
 
-#: dashboards/project/loadbalancers/forms.py:175
+#: dashboards/project/loadbalancers/forms.py:173
 #: dashboards/project/loadbalancers/tables.py:308
 #: dashboards/project/loadbalancers/workflows.py:331
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
 msgstr "Weight"
 
-#: dashboards/project/loadbalancers/forms.py:176
+#: dashboards/project/loadbalancers/forms.py:174
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "다른 것들에 비해 이 pool 멤버가 제공할 수 있는 요청에 대해 상대적인 부분"
 
-#: dashboards/project/loadbalancers/forms.py:209
+#: dashboards/project/loadbalancers/forms.py:207
 #, python-format
 msgid "Member %s was successfully updated."
 msgstr "멤버 %s를 성공적으로 업데이트 하였습니다."
 
-#: dashboards/project/loadbalancers/forms.py:215
+#: dashboards/project/loadbalancers/forms.py:213
 #, python-format
 msgid "Failed to update member %s"
 msgstr "멤버 %s 업데이트 실패하였습니다."
 
-#: dashboards/project/loadbalancers/forms.py:227
+#: dashboards/project/loadbalancers/forms.py:225
 #: dashboards/project/loadbalancers/tables.py:334
 #: dashboards/project/loadbalancers/workflows.py:496
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "지연"
 
-#: dashboards/project/loadbalancers/forms.py:228
+#: dashboards/project/loadbalancers/forms.py:226
 #: dashboards/project/loadbalancers/workflows.py:497
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "멤버의 정기 정검 사이의 최소 시간"
 
-#: dashboards/project/loadbalancers/forms.py:232
+#: dashboards/project/loadbalancers/forms.py:230
 #: dashboards/project/loadbalancers/tables.py:335
 #: dashboards/project/loadbalancers/workflows.py:501
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
@@ -10203,29 +10200,29 @@ msgstr "멤버의 정기 정검 사이의 최소 시간"
 msgid "Timeout"
 msgstr "Timeout"
 
-#: dashboards/project/loadbalancers/forms.py:233
+#: dashboards/project/loadbalancers/forms.py:231
 #: dashboards/project/loadbalancers/workflows.py:502
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "모니터 응답을 기다리는는 최대 시간"
 
-#: dashboards/project/loadbalancers/forms.py:237
+#: dashboards/project/loadbalancers/forms.py:235
 #: dashboards/project/loadbalancers/workflows.py:506
 msgid "Max Retries (1~10)"
 msgstr "최대 재시도 (1~10)"
 
-#: dashboards/project/loadbalancers/forms.py:238
+#: dashboards/project/loadbalancers/forms.py:236
 #: dashboards/project/loadbalancers/workflows.py:507
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
 msgstr "멤버 상태를 비활성상태로 변경하전 실패 횟수"
 
-#: dashboards/project/loadbalancers/forms.py:259
+#: dashboards/project/loadbalancers/forms.py:257
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "상태 모니터 %s를 성공적으로 업데이트하였습니다."
 
-#: dashboards/project/loadbalancers/forms.py:265
+#: dashboards/project/loadbalancers/forms.py:263
 #, python-format
 msgid "Failed to update health monitor %s"
 msgstr "상태 모니터 %s 업데이트 실패하였습니다."
@@ -10350,7 +10347,7 @@ msgstr "공급자"
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
-#: dashboards/project/vpn/tables.py:265 dashboards/project/vpn/workflows.py:32
+#: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
 msgstr "서브넷"
 
@@ -10523,13 +10520,13 @@ msgstr "Pool을 찾지 못했습니다. %s"
 
 #: dashboards/project/loadbalancers/workflows.py:55
 #: dashboards/project/loadbalancers/workflows.py:199
-#: dashboards/project/vpn/workflows.py:42
+#: dashboards/project/vpn/workflows.py:40
 msgid "Select a Subnet"
 msgstr "서브넷 선택"
 
 #: dashboards/project/loadbalancers/workflows.py:60
 #: dashboards/project/loadbalancers/workflows.py:204
-#: dashboards/project/vpn/workflows.py:48
+#: dashboards/project/vpn/workflows.py:46
 msgid "Unable to retrieve networks list."
 msgstr "네트워크 목록을 찾지 못했습니다."
 
@@ -10915,8 +10912,8 @@ msgid "Create Router"
 msgstr "라우터 생성"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
-#: dashboards/project/vpn/tables.py:266 dashboards/project/vpn/workflows.py:31
-#: dashboards/router/dashboard.py:21
+#: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:29
+#: dashboards/router/dashboard.py:19
 msgid "Router"
 msgstr "라우터"
 
@@ -11765,7 +11762,7 @@ msgid ""
 "a gateway for external connectivity."
 msgstr "라우터에 지정된 외부 네트워크를 연결할 수 있습니다. 외부 네트워크는 라우터의 기본 경로와 외부 연결을 위한 게이트웨이 역할을 합니다."
 
-#: dashboards/project/stacks/forms.py:51
+#: dashboards/project/stacks/forms.py:52
 #: dashboards/project/stacks/templates/stacks/_change_template.html:9
 #: dashboards/project/stacks/templates/stacks/_select_template.html:9
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
@@ -11773,149 +11770,149 @@ msgstr "라우터에 지정된 외부 네트워크를 연결할 수 있습니다
 msgid "Select Template"
 msgstr "템플릿 선택"
 
-#: dashboards/project/stacks/forms.py:52
+#: dashboards/project/stacks/forms.py:53
 msgid "Select a template to launch a stack."
 msgstr "스택 시작시 템플릿을 선택합니다."
 
-#: dashboards/project/stacks/forms.py:60
+#: dashboards/project/stacks/forms.py:61
 msgid "Template Source"
 msgstr "템플릿 소스"
 
-#: dashboards/project/stacks/forms.py:67 dashboards/project/stacks/forms.py:69
+#: dashboards/project/stacks/forms.py:68 dashboards/project/stacks/forms.py:70
 msgid "Template File"
 msgstr "템플릿 파일"
 
-#: dashboards/project/stacks/forms.py:70
+#: dashboards/project/stacks/forms.py:71
 msgid "A local template to upload."
 msgstr "업로드할 로컬 템플릿."
 
-#: dashboards/project/stacks/forms.py:77 dashboards/project/stacks/forms.py:79
+#: dashboards/project/stacks/forms.py:78 dashboards/project/stacks/forms.py:80
 msgid "Template URL"
 msgstr "템플릿 URL"
 
-#: dashboards/project/stacks/forms.py:80
+#: dashboards/project/stacks/forms.py:81
 msgid "An external (HTTP) URL to load the template from."
 msgstr "템플릿을 외부 (HTTP) URL로 불러옵니다."
 
-#: dashboards/project/stacks/forms.py:87 dashboards/project/stacks/forms.py:89
+#: dashboards/project/stacks/forms.py:88 dashboards/project/stacks/forms.py:90
 msgid "Template Data"
 msgstr "템플릿 데이터"
 
-#: dashboards/project/stacks/forms.py:90
+#: dashboards/project/stacks/forms.py:91
 msgid "The raw contents of the template."
 msgstr "템플릿의 raw 내용."
 
-#: dashboards/project/stacks/forms.py:96
+#: dashboards/project/stacks/forms.py:97
 msgid "Environment Source"
 msgstr "Environment 소스"
 
-#: dashboards/project/stacks/forms.py:104
-#: dashboards/project/stacks/forms.py:106
+#: dashboards/project/stacks/forms.py:105
+#: dashboards/project/stacks/forms.py:107
 msgid "Environment File"
 msgstr "Environment 파일"
 
-#: dashboards/project/stacks/forms.py:107
+#: dashboards/project/stacks/forms.py:108
 msgid "A local environment to upload."
 msgstr "로컬에서 environment 업로드."
 
-#: dashboards/project/stacks/forms.py:114
-#: dashboards/project/stacks/forms.py:116
+#: dashboards/project/stacks/forms.py:115
+#: dashboards/project/stacks/forms.py:117
 msgid "Environment Data"
 msgstr "Environment 데이터"
 
-#: dashboards/project/stacks/forms.py:117
+#: dashboards/project/stacks/forms.py:118
 msgid "The raw contents of the environment file."
 msgstr "Environment 파일의 raw 컨텐트."
 
-#: dashboards/project/stacks/forms.py:129
+#: dashboards/project/stacks/forms.py:130
 msgid "template"
 msgstr "template"
 
-#: dashboards/project/stacks/forms.py:131
+#: dashboards/project/stacks/forms.py:132
 msgid "environment"
 msgstr "environment"
 
-#: dashboards/project/stacks/forms.py:194
+#: dashboards/project/stacks/forms.py:195
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "소스 메소드 하나만 사용하여 %s를 지정하십시오."
 
-#: dashboards/project/stacks/forms.py:201
+#: dashboards/project/stacks/forms.py:202
 msgid "You must specify a template via one of the available sources."
 msgstr "사용 가능한 소스중 하나를 선택하여 템필릿을 지정해야 합니다."
 
-#: dashboards/project/stacks/forms.py:226
+#: dashboards/project/stacks/forms.py:227
 msgid "Edit Template"
 msgstr "템플릿 편집"
 
-#: dashboards/project/stacks/forms.py:227
+#: dashboards/project/stacks/forms.py:228
 msgid "Select a new template to re-launch a stack."
 msgstr "스택을 다시 시작시 새 템플릿을 선택합니다."
 
-#: dashboards/project/stacks/forms.py:228
-#: dashboards/project/stacks/forms.py:366
+#: dashboards/project/stacks/forms.py:229
+#: dashboards/project/stacks/forms.py:375
 msgid "Stack ID"
 msgstr "스택 ID"
 
-#: dashboards/project/stacks/forms.py:230
-#: dashboards/project/stacks/forms.py:254
-#: dashboards/project/stacks/forms.py:368
+#: dashboards/project/stacks/forms.py:231
+#: dashboards/project/stacks/forms.py:255
+#: dashboards/project/stacks/forms.py:377
 #: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr "스택 이름"
 
-#: dashboards/project/stacks/forms.py:239
+#: dashboards/project/stacks/forms.py:240
 msgid "Create Stack"
 msgstr "스택 생성"
 
-#: dashboards/project/stacks/forms.py:255
+#: dashboards/project/stacks/forms.py:256
 msgid "Name of the stack to create."
 msgstr "생성하는 스택의 이름입니다."
 
-#: dashboards/project/stacks/forms.py:257
+#: dashboards/project/stacks/forms.py:258
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "이름은 반드시 문자로 시작되어야 하고, 오직 문자, 숫자, 언더스코어(_), 마침표(.) 및 하이픈(-)만 포함할 수 있습니다. "
 
-#: dashboards/project/stacks/forms.py:262
+#: dashboards/project/stacks/forms.py:263
 msgid "Creation Timeout (minutes)"
 msgstr "생성 Timeout (분)"
 
-#: dashboards/project/stacks/forms.py:263
+#: dashboards/project/stacks/forms.py:264
 msgid "Stack creation timeout in minutes."
 msgstr "스택을 몇분 동안 생성 타임아웃."
 
-#: dashboards/project/stacks/forms.py:265
+#: dashboards/project/stacks/forms.py:266
 msgid "Rollback On Failure"
 msgstr "실패시 롤백"
 
-#: dashboards/project/stacks/forms.py:266
+#: dashboards/project/stacks/forms.py:267
 msgid "Enable rollback on create/update failure."
 msgstr "생성/업데이트 실패시 롤백 사용."
 
-#: dashboards/project/stacks/forms.py:279
+#: dashboards/project/stacks/forms.py:280
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "사용자 \"%s\" 비밀번호"
 
-#: dashboards/project/stacks/forms.py:280
+#: dashboards/project/stacks/forms.py:281
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "스택의 라이프 사이클 동안 실행하는 작동에 필요로 합니다."
 
-#: dashboards/project/stacks/forms.py:355
+#: dashboards/project/stacks/forms.py:364
 msgid "Stack creation started."
 msgstr "스택 생성 중입니다."
 
-#: dashboards/project/stacks/forms.py:364
+#: dashboards/project/stacks/forms.py:373
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "스택 매개변수 업데이트"
 
-#: dashboards/project/stacks/forms.py:397
+#: dashboards/project/stacks/forms.py:406
 msgid "Stack update started."
 msgstr "스택 업데이트를 시작하였습니다."
 
@@ -12813,636 +12810,636 @@ msgstr "선택한 볼륨에 대한 정보를 찾지 못했습니다: \"%s\""
 msgid "Unable to retrieve volume."
 msgstr "볼륨을 찾지 못했습니다."
 
-#: dashboards/project/vpn/forms.py:54
+#: dashboards/project/vpn/forms.py:52
 #, python-format
 msgid "VPN Service %s was successfully updated."
 msgstr "VPN 서비스 %s를 성공적으로 업데이트하였습니다."
 
-#: dashboards/project/vpn/forms.py:60
+#: dashboards/project/vpn/forms.py:58
 #, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "VPN 서비스 %s를 업데이트 하는데 실패했습니다."
 
-#: dashboards/project/vpn/forms.py:75 dashboards/project/vpn/forms.py:146
-#: dashboards/project/vpn/tables.py:285 dashboards/project/vpn/tables.py:303
-#: dashboards/project/vpn/workflows.py:116
-#: dashboards/project/vpn/workflows.py:215
+#: dashboards/project/vpn/forms.py:73 dashboards/project/vpn/forms.py:144
+#: dashboards/project/vpn/tables.py:282 dashboards/project/vpn/tables.py:300
+#: dashboards/project/vpn/workflows.py:114
+#: dashboards/project/vpn/workflows.py:213
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:18
 msgid "Authorization algorithm"
 msgstr "인증 알고리즘"
 
-#: dashboards/project/vpn/forms.py:76 dashboards/project/vpn/forms.py:147
+#: dashboards/project/vpn/forms.py:74 dashboards/project/vpn/forms.py:145
 msgid "sha1"
 msgstr "sha1"
 
-#: dashboards/project/vpn/forms.py:79 dashboards/project/vpn/forms.py:154
-#: dashboards/project/vpn/tables.py:288 dashboards/project/vpn/tables.py:306
-#: dashboards/project/vpn/workflows.py:117
-#: dashboards/project/vpn/workflows.py:217
+#: dashboards/project/vpn/forms.py:77 dashboards/project/vpn/forms.py:152
+#: dashboards/project/vpn/tables.py:285 dashboards/project/vpn/tables.py:303
+#: dashboards/project/vpn/workflows.py:115
+#: dashboards/project/vpn/workflows.py:215
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:24
 msgid "Encryption algorithm"
 msgstr "암호화 알고리즘"
 
-#: dashboards/project/vpn/forms.py:80 dashboards/project/vpn/forms.py:155
+#: dashboards/project/vpn/forms.py:78 dashboards/project/vpn/forms.py:153
 msgid "3des"
 msgstr "3des"
 
-#: dashboards/project/vpn/forms.py:81 dashboards/project/vpn/forms.py:156
+#: dashboards/project/vpn/forms.py:79 dashboards/project/vpn/forms.py:154
 msgid "aes-128"
 msgstr "aes-128"
 
-#: dashboards/project/vpn/forms.py:82 dashboards/project/vpn/forms.py:157
+#: dashboards/project/vpn/forms.py:80 dashboards/project/vpn/forms.py:155
 msgid "aes-192"
 msgstr "aes-192"
 
-#: dashboards/project/vpn/forms.py:83 dashboards/project/vpn/forms.py:158
+#: dashboards/project/vpn/forms.py:81 dashboards/project/vpn/forms.py:156
 msgid "aes-256"
 msgstr "aes-256"
 
-#: dashboards/project/vpn/forms.py:85 dashboards/project/vpn/workflows.py:118
+#: dashboards/project/vpn/forms.py:83 dashboards/project/vpn/workflows.py:116
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:24
 msgid "IKE version"
 msgstr "IKE 버전"
 
-#: dashboards/project/vpn/forms.py:86
+#: dashboards/project/vpn/forms.py:84
 msgid "v1"
 msgstr "v1"
 
-#: dashboards/project/vpn/forms.py:87
+#: dashboards/project/vpn/forms.py:85
 msgid "v2"
 msgstr "v2"
 
-#: dashboards/project/vpn/forms.py:90 dashboards/project/vpn/workflows.py:119
+#: dashboards/project/vpn/forms.py:88 dashboards/project/vpn/workflows.py:117
 msgid "Lifetime units for IKE keys"
 msgstr "IKE 키의 수명 단위"
 
-#: dashboards/project/vpn/forms.py:91 dashboards/project/vpn/forms.py:162
+#: dashboards/project/vpn/forms.py:89 dashboards/project/vpn/forms.py:160
 msgid "seconds"
 msgstr "초"
 
-#: dashboards/project/vpn/forms.py:95 dashboards/project/vpn/workflows.py:121
+#: dashboards/project/vpn/forms.py:93 dashboards/project/vpn/workflows.py:119
 msgid "Lifetime value for IKE keys"
 msgstr "IKE 키의 수명 값"
 
-#: dashboards/project/vpn/forms.py:96 dashboards/project/vpn/forms.py:167
-#: dashboards/project/vpn/workflows.py:123
-#: dashboards/project/vpn/workflows.py:222
+#: dashboards/project/vpn/forms.py:94 dashboards/project/vpn/forms.py:165
+#: dashboards/project/vpn/workflows.py:121
+#: dashboards/project/vpn/workflows.py:220
 msgid "Equal to or greater than 60"
 msgstr "60이상"
 
-#: dashboards/project/vpn/forms.py:98 dashboards/project/vpn/forms.py:169
-#: dashboards/project/vpn/workflows.py:124
-#: dashboards/project/vpn/workflows.py:223
+#: dashboards/project/vpn/forms.py:96 dashboards/project/vpn/forms.py:167
+#: dashboards/project/vpn/workflows.py:122
+#: dashboards/project/vpn/workflows.py:221
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:33
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:33
 msgid "Perfect Forward Secrecy"
 msgstr "완벽한 Forward 시큐리티"
 
-#: dashboards/project/vpn/forms.py:99 dashboards/project/vpn/forms.py:170
+#: dashboards/project/vpn/forms.py:97 dashboards/project/vpn/forms.py:168
 msgid "group2"
 msgstr "group2"
 
-#: dashboards/project/vpn/forms.py:100 dashboards/project/vpn/forms.py:171
+#: dashboards/project/vpn/forms.py:98 dashboards/project/vpn/forms.py:169
 msgid "group5"
 msgstr "group5"
 
-#: dashboards/project/vpn/forms.py:101 dashboards/project/vpn/forms.py:172
+#: dashboards/project/vpn/forms.py:99 dashboards/project/vpn/forms.py:170
 msgid "group14"
 msgstr "group14"
 
-#: dashboards/project/vpn/forms.py:104 dashboards/project/vpn/workflows.py:126
+#: dashboards/project/vpn/forms.py:102 dashboards/project/vpn/workflows.py:124
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:36
 msgid "IKE Phase1 negotiation mode"
 msgstr "IKE Phase1 협상 모드"
 
-#: dashboards/project/vpn/forms.py:125
+#: dashboards/project/vpn/forms.py:123
 #, python-format
 msgid "IKE Policy %s was successfully updated."
 msgstr "IKE 정책 %s를 성공적으로 업데이트 했습니다."
 
-#: dashboards/project/vpn/forms.py:131
+#: dashboards/project/vpn/forms.py:129
 #, python-format
 msgid "Failed to update IKE Policy %s"
 msgstr "IKE 정책 %s를 업데이트하지 못했습니다."
 
-#: dashboards/project/vpn/forms.py:150 dashboards/project/vpn/workflows.py:216
+#: dashboards/project/vpn/forms.py:148 dashboards/project/vpn/workflows.py:214
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:21
 msgid "Encapsulation mode"
 msgstr "캡슐화 모드"
 
-#: dashboards/project/vpn/forms.py:151
+#: dashboards/project/vpn/forms.py:149
 msgid "tunnel"
 msgstr "tunnel"
 
-#: dashboards/project/vpn/forms.py:152
+#: dashboards/project/vpn/forms.py:150
 msgid "transport"
 msgstr "transport"
 
-#: dashboards/project/vpn/forms.py:161 dashboards/project/vpn/workflows.py:218
+#: dashboards/project/vpn/forms.py:159 dashboards/project/vpn/workflows.py:216
 msgid "Lifetime units"
 msgstr "수명 단위"
 
-#: dashboards/project/vpn/forms.py:166
+#: dashboards/project/vpn/forms.py:164
 msgid "Lifetime value"
 msgstr "Lifetime value"
 
-#: dashboards/project/vpn/forms.py:174 dashboards/project/vpn/workflows.py:224
+#: dashboards/project/vpn/forms.py:172 dashboards/project/vpn/workflows.py:222
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:36
 msgid "Transform Protocol"
 msgstr "변환 프로토콜"
 
-#: dashboards/project/vpn/forms.py:175
+#: dashboards/project/vpn/forms.py:173
 msgid "esp"
 msgstr "esp"
 
-#: dashboards/project/vpn/forms.py:176
+#: dashboards/project/vpn/forms.py:174
 msgid "ah"
 msgstr "ah"
 
-#: dashboards/project/vpn/forms.py:177
+#: dashboards/project/vpn/forms.py:175
 msgid "ah-esp"
 msgstr "ah-esp"
 
-#: dashboards/project/vpn/forms.py:196
+#: dashboards/project/vpn/forms.py:194
 #, python-format
 msgid "IPSec Policy %s was successfully updated."
 msgstr "IPSec 정책 %s를 성공적으로 업데이트 했습니다."
 
-#: dashboards/project/vpn/forms.py:202
+#: dashboards/project/vpn/forms.py:200
 #, python-format
 msgid "Failed to update IPSec Policy %s"
 msgstr "IPSec 정책 %s를 업데이트 하지 못하였습니다."
 
-#: dashboards/project/vpn/forms.py:215 dashboards/project/vpn/workflows.py:319
+#: dashboards/project/vpn/forms.py:213 dashboards/project/vpn/workflows.py:317
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:31
 msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
 msgstr "피어 게이트웨이 공용 IPv4/IPv6 주소 또는 FQDN"
 
-#: dashboards/project/vpn/forms.py:216 dashboards/project/vpn/workflows.py:320
+#: dashboards/project/vpn/forms.py:214 dashboards/project/vpn/workflows.py:318
 msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
 msgstr "VPN에 연결을 위한 피어 게이트웨이 공용 IPv4/IPv6 주소 또는 FQDN"
 
-#: dashboards/project/vpn/forms.py:221 dashboards/project/vpn/workflows.py:325
+#: dashboards/project/vpn/forms.py:219 dashboards/project/vpn/workflows.py:323
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:34
 msgid "Peer router identity for authentication (Peer ID)"
 msgstr "신원 인증을 위한 피어 라우터 ID (피어 ID)"
 
-#: dashboards/project/vpn/forms.py:222 dashboards/project/vpn/workflows.py:326
+#: dashboards/project/vpn/forms.py:220 dashboards/project/vpn/workflows.py:324
 msgid ""
 "Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
 "key ID, or FQDN"
 msgstr "신원 인증을 위한 피어 라우터 ID. IPv4/IPv6 주소, e-mail, 키 ID, FQDN으로도 가능합니다."
 
-#: dashboards/project/vpn/forms.py:227 dashboards/project/vpn/workflows.py:331
+#: dashboards/project/vpn/forms.py:225 dashboards/project/vpn/workflows.py:329
 msgid "Remote peer subnet(s)"
 msgstr "원격 피어 서브넷"
 
-#: dashboards/project/vpn/forms.py:228 dashboards/project/vpn/workflows.py:332
+#: dashboards/project/vpn/forms.py:226 dashboards/project/vpn/workflows.py:330
 msgid ""
 "Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with"
 " commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
 msgstr "필요한 경우, CIDR 포멧으로 마스크와 원격 비어 서브넷 주소를 쉼표로 구분합니다. (예: 20.1.0.0/24, 21.1.0.0/24)"
 
-#: dashboards/project/vpn/forms.py:235 dashboards/project/vpn/workflows.py:339
+#: dashboards/project/vpn/forms.py:233 dashboards/project/vpn/workflows.py:337
 msgid "Pre-Shared Key (PSK) string"
 msgstr "사전 공유키 (PSK) 문자\t"
 
-#: dashboards/project/vpn/forms.py:238 dashboards/project/vpn/workflows.py:404
+#: dashboards/project/vpn/forms.py:236 dashboards/project/vpn/workflows.py:402
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "연결에 대한 최대 전달 단위 크기"
 
-#: dashboards/project/vpn/forms.py:239 dashboards/project/vpn/workflows.py:406
+#: dashboards/project/vpn/forms.py:237 dashboards/project/vpn/workflows.py:404
 msgid ""
 "Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater"
 " than 1280 if the local subnet is IPv6."
 msgstr "로컬 서브넷이 IPv4이면 68이상입니다. 그리고 로컬 서브넷이 IPv6라면 1280이상입니다."
 
-#: dashboards/project/vpn/forms.py:243 dashboards/project/vpn/workflows.py:409
+#: dashboards/project/vpn/forms.py:241 dashboards/project/vpn/workflows.py:407
 msgid "Dead peer detection actions"
 msgstr "죽은 피어 감지 동작"
 
-#: dashboards/project/vpn/forms.py:244
+#: dashboards/project/vpn/forms.py:242
 msgid "hold"
 msgstr "hold"
 
-#: dashboards/project/vpn/forms.py:245
+#: dashboards/project/vpn/forms.py:243
 msgid "clear"
 msgstr "clear"
 
-#: dashboards/project/vpn/forms.py:246
+#: dashboards/project/vpn/forms.py:244
 msgid "disabled"
 msgstr "disabled"
 
-#: dashboards/project/vpn/forms.py:247
+#: dashboards/project/vpn/forms.py:245
 msgid "restart"
 msgstr "재시작"
 
-#: dashboards/project/vpn/forms.py:248
+#: dashboards/project/vpn/forms.py:246
 msgid "restart-by-peer"
 msgstr "restart-by-peer"
 
-#: dashboards/project/vpn/forms.py:251 dashboards/project/vpn/workflows.py:411
+#: dashboards/project/vpn/forms.py:249 dashboards/project/vpn/workflows.py:409
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:56
 msgid "Dead peer detection interval"
 msgstr "죽은 피어 감지 간격"
 
-#: dashboards/project/vpn/forms.py:252 dashboards/project/vpn/workflows.py:413
+#: dashboards/project/vpn/forms.py:250 dashboards/project/vpn/workflows.py:411
 msgid "Valid integer"
 msgstr "유효한 정수"
 
-#: dashboards/project/vpn/forms.py:255 dashboards/project/vpn/workflows.py:415
+#: dashboards/project/vpn/forms.py:253 dashboards/project/vpn/workflows.py:413
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:59
 msgid "Dead peer detection timeout"
 msgstr "죽은 피어 감지 타임아웃"
 
-#: dashboards/project/vpn/forms.py:256 dashboards/project/vpn/workflows.py:417
+#: dashboards/project/vpn/forms.py:254 dashboards/project/vpn/workflows.py:415
 msgid "Valid integer greater than the DPD interval"
 msgstr "DPD 간격을 보다 큰 유효한 정수"
 
-#: dashboards/project/vpn/forms.py:258 dashboards/project/vpn/workflows.py:418
+#: dashboards/project/vpn/forms.py:256 dashboards/project/vpn/workflows.py:416
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:50
 msgid "Initiator state"
 msgstr "Initiator 상태"
 
-#: dashboards/project/vpn/forms.py:259
+#: dashboards/project/vpn/forms.py:257
 msgid "bi-directional"
 msgstr "bi-directional"
 
-#: dashboards/project/vpn/forms.py:260
+#: dashboards/project/vpn/forms.py:258
 msgid "response-only"
 msgstr "response-only"
 
-#: dashboards/project/vpn/forms.py:287
+#: dashboards/project/vpn/forms.py:285
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
 msgstr "IPSec 사이트 연결 %s를 성공적으로 업데이트하였습니다."
 
-#: dashboards/project/vpn/forms.py:293
+#: dashboards/project/vpn/forms.py:291
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPSec 사이트 연결 %s를 업데이트 하지 못하였습니다."
 
-#: dashboards/project/vpn/panel.py:26
+#: dashboards/project/vpn/panel.py:24
 msgid "VPN"
 msgstr "VPN"
 
-#: dashboards/project/vpn/tables.py:32 dashboards/project/vpn/workflows.py:192
+#: dashboards/project/vpn/tables.py:29 dashboards/project/vpn/workflows.py:190
 msgid "Add IKE Policy"
 msgstr "IKE 정책 추가"
 
-#: dashboards/project/vpn/tables.py:41 dashboards/project/vpn/workflows.py:289
+#: dashboards/project/vpn/tables.py:38 dashboards/project/vpn/workflows.py:287
 msgid "Add IPSec Policy"
 msgstr "IPSec 정책 추가"
 
-#: dashboards/project/vpn/tables.py:50 dashboards/project/vpn/workflows.py:93
+#: dashboards/project/vpn/tables.py:47 dashboards/project/vpn/workflows.py:91
 msgid "Add VPN Service"
 msgstr "VPN 서비스 추가"
 
-#: dashboards/project/vpn/tables.py:59 dashboards/project/vpn/workflows.py:474
+#: dashboards/project/vpn/tables.py:56 dashboards/project/vpn/workflows.py:472
 msgid "Add IPSec Site Connection"
 msgstr "IPSec 사이트 연결 추가"
 
-#: dashboards/project/vpn/tables.py:73
+#: dashboards/project/vpn/tables.py:70
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
 msgstr[0] "VPN 서비스 삭제"
 
-#: dashboards/project/vpn/tables.py:81
+#: dashboards/project/vpn/tables.py:78
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
 msgstr[0] "VPN 서비스 예약 삭제"
 
-#: dashboards/project/vpn/tables.py:99
+#: dashboards/project/vpn/tables.py:96
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
 msgstr[0] "IKE 정책 삭제"
 
-#: dashboards/project/vpn/tables.py:107
+#: dashboards/project/vpn/tables.py:104
 msgid "Scheduled deletion of IKE Policy"
 msgid_plural "Scheduled deletion of IKE Policies"
 msgstr[0] "IKE 정책 예약 삭제"
 
-#: dashboards/project/vpn/tables.py:125
+#: dashboards/project/vpn/tables.py:122
 msgid "Delete IPSec Policy"
 msgid_plural "Delete IPSec Policies"
 msgstr[0] "IPSec 정책 삭제"
 
-#: dashboards/project/vpn/tables.py:133
+#: dashboards/project/vpn/tables.py:130
 msgid "Scheduled deletion of IPSec Policy"
 msgid_plural "Scheduled deletion of IPSec Policies"
 msgstr[0] "IPSec 정책 예약 삭제"
 
-#: dashboards/project/vpn/tables.py:151
+#: dashboards/project/vpn/tables.py:148
 msgid "Delete IPSec Site Connection"
 msgid_plural "Delete IPSec Site Connections"
 msgstr[0] "IPSec 사이트 연결 삭제"
 
-#: dashboards/project/vpn/tables.py:159
+#: dashboards/project/vpn/tables.py:156
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "IPSec 사이트 연결 예약 삭제"
 
-#: dashboards/project/vpn/tables.py:167
+#: dashboards/project/vpn/tables.py:164
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:6
 msgid "Edit VPN Service"
 msgstr "VPN 서비스 편집"
 
-#: dashboards/project/vpn/tables.py:183
+#: dashboards/project/vpn/tables.py:180
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:6
 msgid "Edit IKE Policy"
 msgstr "IKE 정책 편집"
 
-#: dashboards/project/vpn/tables.py:197
+#: dashboards/project/vpn/tables.py:194
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:6
 msgid "Edit IPSec Policy"
 msgstr "IPSec 정책 편집"
 
-#: dashboards/project/vpn/tables.py:211
+#: dashboards/project/vpn/tables.py:208
 msgid "Edit Connection"
 msgstr "연결 편집"
 
-#: dashboards/project/vpn/tables.py:235
+#: dashboards/project/vpn/tables.py:232
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
 msgid "VPN Service"
 msgstr "VPN 서비스"
 
-#: dashboards/project/vpn/tables.py:237
+#: dashboards/project/vpn/tables.py:234
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
 msgid "IKE Policy"
 msgstr "IKE 정책"
 
-#: dashboards/project/vpn/tables.py:239
+#: dashboards/project/vpn/tables.py:236
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
 msgid "IPSec Policy"
 msgstr "IPSec 정책"
 
-#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:30
+#: dashboards/project/vpn/tables.py:245 dashboards/project/vpn/tabs.py:27
 msgid "IPSec Site Connections"
 msgstr "IPSec 사이트 연결"
 
-#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:50
+#: dashboards/project/vpn/tables.py:272 dashboards/project/vpn/tabs.py:47
 msgid "VPN Services"
 msgstr "VPN 서비스"
 
-#: dashboards/project/vpn/tables.py:289 dashboards/project/vpn/tables.py:307
+#: dashboards/project/vpn/tables.py:286 dashboards/project/vpn/tables.py:304
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:70
+#: dashboards/project/vpn/tables.py:290 dashboards/project/vpn/tabs.py:67
 msgid "IKE Policies"
 msgstr "IKE 정책"
 
-#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:90
+#: dashboards/project/vpn/tables.py:308 dashboards/project/vpn/tabs.py:87
 msgid "IPSec Policies"
 msgstr "IPSec 정책"
 
-#: dashboards/project/vpn/tabs.py:42
+#: dashboards/project/vpn/tabs.py:39
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "IPSec 사이트 연결 목록을 찾지 못했습니다."
 
-#: dashboards/project/vpn/tabs.py:62 dashboards/project/vpn/workflows.py:377
+#: dashboards/project/vpn/tabs.py:59 dashboards/project/vpn/workflows.py:375
 msgid "Unable to retrieve VPN Services list."
 msgstr "VPN 서비스 목록을 찾지 못했습니다."
 
-#: dashboards/project/vpn/tabs.py:82 dashboards/project/vpn/workflows.py:348
+#: dashboards/project/vpn/tabs.py:79 dashboards/project/vpn/workflows.py:346
 msgid "Unable to retrieve IKE Policies list."
 msgstr "IKE 정책 목록을 찾지 못했습니다."
 
-#: dashboards/project/vpn/tabs.py:102 dashboards/project/vpn/workflows.py:363
+#: dashboards/project/vpn/tabs.py:99 dashboards/project/vpn/workflows.py:361
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "IPSec 정책 목록을 찾지 못했습니다."
 
-#: dashboards/project/vpn/tabs.py:116
+#: dashboards/project/vpn/tabs.py:113
 msgid "IKE Policy Details"
 msgstr "IKE 정책 세부 정보"
 
-#: dashboards/project/vpn/tabs.py:131
+#: dashboards/project/vpn/tabs.py:128
 msgid "IPSec Policy Details"
 msgstr "IPSec 정책 세부 정보"
 
-#: dashboards/project/vpn/tabs.py:146
+#: dashboards/project/vpn/tabs.py:143
 msgid "VPN Service Details"
 msgstr "VPN 서비스 세부 정보"
 
-#: dashboards/project/vpn/tabs.py:161
+#: dashboards/project/vpn/tabs.py:158
 msgid "IPSec Site Connection Details"
 msgstr "IPSec 사이트 연결 세부 정보"
 
-#: dashboards/project/vpn/views.py:55
+#: dashboards/project/vpn/views.py:52
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "VPN 서비스 %s를 삭제하였습니다."
 
-#: dashboards/project/vpn/views.py:58
+#: dashboards/project/vpn/views.py:55
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "VPN 서비스를 삭제할 수 없습니다: %s"
 
-#: dashboards/project/vpn/views.py:65
+#: dashboards/project/vpn/views.py:62
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "IKE 정책 %s를 삭제하였습니다."
 
-#: dashboards/project/vpn/views.py:68
+#: dashboards/project/vpn/views.py:65
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "IKE 정책을 삭제할 수 없습니다: %s"
 
-#: dashboards/project/vpn/views.py:74
+#: dashboards/project/vpn/views.py:71
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "IPSec 정책 %s를 삭제하였습니다."
 
-#: dashboards/project/vpn/views.py:77
+#: dashboards/project/vpn/views.py:74
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "IPSec 정책을 삭제할 수 없습니다: %s"
 
-#: dashboards/project/vpn/views.py:84
+#: dashboards/project/vpn/views.py:81
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "IPSec 사이트 연결 %s를 삭제하였습니다."
 
-#: dashboards/project/vpn/views.py:88
+#: dashboards/project/vpn/views.py:85
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "IPSec Site 연결을 삭제할 수 없습니다: %s"
 
-#: dashboards/project/vpn/views.py:135
+#: dashboards/project/vpn/views.py:132
 msgid "Unable to retrieve IKE Policy details."
 msgstr "IKE 정책 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/vpn/views.py:167
+#: dashboards/project/vpn/views.py:164
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "IPSec 정책 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/vpn/views.py:202
+#: dashboards/project/vpn/views.py:199
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN 서비스 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/vpn/views.py:242
+#: dashboards/project/vpn/views.py:239
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "IPSec 사이트 연결 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/vpn/views.py:285
+#: dashboards/project/vpn/views.py:282
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "VPN 서비스 세부 정보를 찾지 못했습니다. %s"
 
-#: dashboards/project/vpn/views.py:314
+#: dashboards/project/vpn/views.py:311
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "IKE 정책 세부 정보를 찾지 못했습니다. %s"
 
-#: dashboards/project/vpn/views.py:350
+#: dashboards/project/vpn/views.py:347
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "IPSec 정책의 세부 정보를 찾지 못했습니다. %s"
 
-#: dashboards/project/vpn/views.py:387
+#: dashboards/project/vpn/views.py:384
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "IPSec 사이트 접속 세부 정보를 찾지 못했습니다. %s"
 
-#: dashboards/project/vpn/workflows.py:36
-#: dashboards/project/vpn/workflows.py:422
+#: dashboards/project/vpn/workflows.py:34
+#: dashboards/project/vpn/workflows.py:420
 msgid "The state to start in."
 msgstr "시작시 상태를 나타냅니다."
 
-#: dashboards/project/vpn/workflows.py:57
+#: dashboards/project/vpn/workflows.py:55
 msgid "Select a Router"
 msgstr "라우터 선택"
 
-#: dashboards/project/vpn/workflows.py:63
+#: dashboards/project/vpn/workflows.py:61
 msgid "Unable to retrieve routers list."
 msgstr "라우터 목록을 찾지 못했습니다."
 
-#: dashboards/project/vpn/workflows.py:71
+#: dashboards/project/vpn/workflows.py:69
 msgid "Add New VPN Service"
 msgstr "새로운 VPN 서비스 추가"
 
-#: dashboards/project/vpn/workflows.py:73
+#: dashboards/project/vpn/workflows.py:71
 msgid ""
 "Create VPN Service for current project.\n"
 "\n"
 "Specify a name, description, router, and subnet for the VPN Service. Admin State is Up (checked) by default."
 msgstr "현재 프로젝트에대한 VPN 서비스 생성.\n\nVPN 서비스의 이름, 설명, 라우터, 서브넷을 지정합니다. 관리 상태는 기본이 UP (선택된) 상태입니다."
 
-#: dashboards/project/vpn/workflows.py:95
+#: dashboards/project/vpn/workflows.py:93
 #, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN 서비스 \"%s\" 추가합니다."
 
-#: dashboards/project/vpn/workflows.py:96
+#: dashboards/project/vpn/workflows.py:94
 #, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN 서비스 \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/vpn/workflows.py:166
+#: dashboards/project/vpn/workflows.py:164
 msgid "Add New IKE Policy"
 msgstr "새로운 IKE 정책 추가"
 
-#: dashboards/project/vpn/workflows.py:168
+#: dashboards/project/vpn/workflows.py:166
 msgid ""
 "Create IKE Policy for current project.\n"
 "\n"
 "Assign a name and description for the IKE Policy. "
 msgstr "현재 프로젝트에 IKE 정책을 생성합니다.\n\nIKE 정책에 대한 이름과 설명을 입력하세요."
 
-#: dashboards/project/vpn/workflows.py:194
+#: dashboards/project/vpn/workflows.py:192
 #, python-format
 msgid "Added IKE Policy \"%s\"."
 msgstr "IKE 정책 \"%s\"를 추가하였습니다."
 
-#: dashboards/project/vpn/workflows.py:195
+#: dashboards/project/vpn/workflows.py:193
 #, python-format
 msgid "Unable to add IKE Policy \"%s\"."
 msgstr "IKE 정책 \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/vpn/workflows.py:220
+#: dashboards/project/vpn/workflows.py:218
 msgid "Lifetime value for IKE keys "
 msgstr "IKE 키의 수명 값"
 
-#: dashboards/project/vpn/workflows.py:263
+#: dashboards/project/vpn/workflows.py:261
 msgid "Add New IPSec Policy"
 msgstr "새로운 IPSec 정책 추가"
 
-#: dashboards/project/vpn/workflows.py:265
+#: dashboards/project/vpn/workflows.py:263
 msgid ""
 "Create IPSec Policy for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Policy. "
 msgstr "현재 프로젝트에 IPSec 정책를 생성합니다.\n\nIPSec 정책에 대한 이름과 설명을 입력하세요."
 
-#: dashboards/project/vpn/workflows.py:291
+#: dashboards/project/vpn/workflows.py:289
 #, python-format
 msgid "Added IPSec Policy \"%s\"."
 msgstr "IPSec 정책 \"%s\"를 추가하였습니다."
 
-#: dashboards/project/vpn/workflows.py:292
+#: dashboards/project/vpn/workflows.py:290
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
 msgstr "IPSec 정책 \"%s\"를 추가할 수 없습니다."
 
-#: dashboards/project/vpn/workflows.py:313
+#: dashboards/project/vpn/workflows.py:311
 msgid "VPN Service associated with this connection"
 msgstr "이 연결에 연결할 VPN 서비스 "
 
-#: dashboards/project/vpn/workflows.py:315
+#: dashboards/project/vpn/workflows.py:313
 msgid "IKE Policy associated with this connection"
 msgstr "이 연결에 적용할 IKE 정책"
 
-#: dashboards/project/vpn/workflows.py:317
+#: dashboards/project/vpn/workflows.py:315
 msgid "IPSec Policy associated with this connection"
 msgstr "이 연결에 적용할 IPSec 정책"
 
-#: dashboards/project/vpn/workflows.py:342
+#: dashboards/project/vpn/workflows.py:340
 msgid "Select IKE Policy"
 msgstr "IKE 정책 선택"
 
-#: dashboards/project/vpn/workflows.py:356
+#: dashboards/project/vpn/workflows.py:354
 msgid "Select IPSec Policy"
 msgstr "IPSec 정책 선택"
 
-#: dashboards/project/vpn/workflows.py:371
+#: dashboards/project/vpn/workflows.py:369
 msgid "Select VPN Service"
 msgstr "VPN 서비스 선택"
 
-#: dashboards/project/vpn/workflows.py:385
+#: dashboards/project/vpn/workflows.py:383
 msgid "Add New IPSec Site Connection"
 msgstr "새로운 IPSec 사이트 연결 추가"
 
-#: dashboards/project/vpn/workflows.py:387
+#: dashboards/project/vpn/workflows.py:385
 msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in this tab are required."
 msgstr "현재 프로젝트에 IPSec 사이트 연결을 생성합니다.\n\nIPSec 사이트 연결에 대한 이름과 설명을 입력해주세요. 그리고 이 탭에 있는 모든 항목은 꼭 작성해 주십시오."
 
-#: dashboards/project/vpn/workflows.py:442
+#: dashboards/project/vpn/workflows.py:440
 msgid "Optional Parameters"
 msgstr "옵션 변수"
 
-#: dashboards/project/vpn/workflows.py:444
+#: dashboards/project/vpn/workflows.py:442
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
 msgstr "이 탭의 항목은 선택 사항입니다. 생성된 IPSec 사이트 연결에 대한 세부 사항을 구성할 수 있습니다."
 
-#: dashboards/project/vpn/workflows.py:476
+#: dashboards/project/vpn/workflows.py:474
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
 msgstr "IPSec 사이트 연결 \"%s\"를 추가하였습니다."
 
-#: dashboards/project/vpn/workflows.py:477
+#: dashboards/project/vpn/workflows.py:475
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
 msgstr "IPSec 사이트 연결 \"%s\"를 추가 할 수 없습니다."
@@ -13514,99 +13511,99 @@ msgstr "VPN 연결"
 msgid "Virtual Private Network"
 msgstr "가상 내부 네트워크"
 
-#: dashboards/router/nexus1000v/forms.py:37
+#: dashboards/router/nexus1000v/forms.py:34
 msgid "Projects could not be retrieved."
 msgstr "프로젝트를 검색할 수 없습니다."
 
-#: dashboards/router/nexus1000v/forms.py:51
-#: dashboards/router/nexus1000v/tables.py:78
+#: dashboards/router/nexus1000v/forms.py:48
+#: dashboards/router/nexus1000v/tables.py:75
 msgid "Segment Type"
 msgstr "구분 타입"
 
-#: dashboards/router/nexus1000v/forms.py:52
-#: dashboards/router/nexus1000v/forms.py:72
+#: dashboards/router/nexus1000v/forms.py:49
+#: dashboards/router/nexus1000v/forms.py:69
 msgid "VLAN"
 msgstr "VLAN"
 
-#: dashboards/router/nexus1000v/forms.py:53
+#: dashboards/router/nexus1000v/forms.py:50
 msgid "Overlay"
 msgstr "Overlay"
 
-#: dashboards/router/nexus1000v/forms.py:54
+#: dashboards/router/nexus1000v/forms.py:51
 msgid "Trunk"
 msgstr "Trunk"
 
-#: dashboards/router/nexus1000v/forms.py:59
-#: dashboards/router/nexus1000v/forms.py:69
-#: dashboards/router/nexus1000v/forms.py:71
-#: dashboards/router/nexus1000v/forms.py:77
-#: dashboards/router/nexus1000v/tables.py:80
+#: dashboards/router/nexus1000v/forms.py:56
+#: dashboards/router/nexus1000v/forms.py:66
+#: dashboards/router/nexus1000v/forms.py:68
+#: dashboards/router/nexus1000v/forms.py:74
+#: dashboards/router/nexus1000v/tables.py:77
 msgid "Sub Type"
 msgstr "서브 타입"
 
-#: dashboards/router/nexus1000v/forms.py:60
+#: dashboards/router/nexus1000v/forms.py:57
 msgid "Native VXLAN"
 msgstr "Native VXLAN"
 
-#: dashboards/router/nexus1000v/forms.py:61
+#: dashboards/router/nexus1000v/forms.py:58
 msgid "Enhanced VXLAN"
 msgstr "Enhanced VXLAN"
 
-#: dashboards/router/nexus1000v/forms.py:79
-#: dashboards/router/nexus1000v/forms.py:85
-#: dashboards/router/nexus1000v/forms.py:87
-#: dashboards/router/nexus1000v/tables.py:82
+#: dashboards/router/nexus1000v/forms.py:76
+#: dashboards/router/nexus1000v/forms.py:82
+#: dashboards/router/nexus1000v/forms.py:84
+#: dashboards/router/nexus1000v/tables.py:79
 msgid "Segment Range"
 msgstr "구분 범위"
 
-#: dashboards/router/nexus1000v/forms.py:88
+#: dashboards/router/nexus1000v/forms.py:85
 msgid "1-4093 for VLAN; 5000 and above for Overlay"
 msgstr "VLAN은 1-4093까지, 오버레이는 5000 이상을 사용합니다."
 
-#: dashboards/router/nexus1000v/forms.py:91
-#: dashboards/router/nexus1000v/forms.py:98
-#: dashboards/router/nexus1000v/tables.py:84
+#: dashboards/router/nexus1000v/forms.py:88
+#: dashboards/router/nexus1000v/forms.py:95
+#: dashboards/router/nexus1000v/tables.py:81
 msgid "Multicast IP Range"
 msgstr "멀티 캐스트 IP 범위"
 
-#: dashboards/router/nexus1000v/forms.py:99
+#: dashboards/router/nexus1000v/forms.py:96
 msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
 msgstr "멀티 캐스트 IPv4 범위 (예. 224.0.1.0-224.0.1.100)"
 
-#: dashboards/router/nexus1000v/forms.py:103
-#: dashboards/router/nexus1000v/forms.py:110
+#: dashboards/router/nexus1000v/forms.py:100
+#: dashboards/router/nexus1000v/forms.py:107
 msgid "Sub Type Value (Manual Input)"
 msgstr "서브 타입 값 (직접 입력)"
 
-#: dashboards/router/nexus1000v/forms.py:112
+#: dashboards/router/nexus1000v/forms.py:109
 msgid "Enter parameter (e.g. GRE)"
 msgstr "변수 입력 (예, GRE)"
 
-#: dashboards/router/nexus1000v/forms.py:162
+#: dashboards/router/nexus1000v/forms.py:159
 #, python-format
 msgid "Network Profile %s was successfully created."
 msgstr "네트워크 프로필 %s를 성공적으로 생성하였습니다."
 
-#: dashboards/router/nexus1000v/forms.py:169
+#: dashboards/router/nexus1000v/forms.py:166
 #, python-format
 msgid "Failed to create network profile %s"
 msgstr "네트워크 프로필 %s를 생성하지 못하였습니다."
 
-#: dashboards/router/nexus1000v/forms.py:203
+#: dashboards/router/nexus1000v/forms.py:200
 #, python-format
 msgid "Network Profile %s was successfully updated."
 msgstr "네트워크 프로필 %s를 성공적으로 업데이트 하였습니다."
 
-#: dashboards/router/nexus1000v/forms.py:209
+#: dashboards/router/nexus1000v/forms.py:206
 #, python-format
 msgid "Failed to update network profile (%s)."
 msgstr "네트워크 프로필(%s)를 업데이트 하지 못하였습니다."
 
-#: dashboards/router/nexus1000v/panel.py:23
+#: dashboards/router/nexus1000v/panel.py:20
 msgid "Cisco Nexus 1000v"
 msgstr "Cisco Nexus 1000v"
 
-#: dashboards/router/nexus1000v/tables.py:32
+#: dashboards/router/nexus1000v/tables.py:29
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:27
 #: dashboards/router/nexus1000v/templates/nexus1000v/create_network_profile.html:3
@@ -13614,41 +13611,41 @@ msgstr "Cisco Nexus 1000v"
 msgid "Create Network Profile"
 msgstr "네트워크 프로필 생성"
 
-#: dashboards/router/nexus1000v/tables.py:42
+#: dashboards/router/nexus1000v/tables.py:39
 msgid "Delete Network Profile"
 msgid_plural "Delete Network Profiles"
 msgstr[0] "네트워크 정책 삭제"
 
-#: dashboards/router/nexus1000v/tables.py:50
+#: dashboards/router/nexus1000v/tables.py:47
 msgid "Deleted Network Profile"
 msgid_plural "Deleted Network Profiles"
 msgstr[0] "네트워크 정책 삭제함"
 
-#: dashboards/router/nexus1000v/tables.py:59
+#: dashboards/router/nexus1000v/tables.py:56
 #, python-format
 msgid "Failed to delete network profile (%s)."
 msgstr "네트워크 프로필(%s)을 삭제하지 못하였습니다."
 
-#: dashboards/router/nexus1000v/tables.py:67
+#: dashboards/router/nexus1000v/tables.py:64
 #: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:8
 msgid "Edit Network Profile"
 msgstr "네트워크 프로필 수정"
 
-#: dashboards/router/nexus1000v/tables.py:86
+#: dashboards/router/nexus1000v/tables.py:83
 msgid "Physical Network Name"
 msgstr "물리 네트워크 이름"
 
-#: dashboards/router/nexus1000v/tables.py:97
-#: dashboards/router/nexus1000v/tables.py:102
-#: dashboards/router/nexus1000v/tabs.py:31
+#: dashboards/router/nexus1000v/tables.py:94
+#: dashboards/router/nexus1000v/tables.py:99
+#: dashboards/router/nexus1000v/tabs.py:28
 msgid "Policy Profile"
 msgstr "정책 프로필"
 
-#: dashboards/router/nexus1000v/views.py:131
+#: dashboards/router/nexus1000v/views.py:128
 msgid "Unable to retrieve network profile details."
 msgstr "네트워크 프로필 세부 정보를 찾지 못했습니다."
 
-#: dashboards/router/nexus1000v/views.py:142
+#: dashboards/router/nexus1000v/views.py:139
 msgid "Failed to obtain network profile binding"
 msgstr "네트워크 프로파일 바인딩을 가져오지 못했습니다."
 
