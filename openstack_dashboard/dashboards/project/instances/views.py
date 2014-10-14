@@ -278,7 +278,7 @@ class DetailView(tabs.TabView):
             exceptions.handle(self.request,
                               _('Unable to retrieve details for '
                                 'instance "%s".') % instance_id,
-                                redirect=redirect)
+                              redirect=redirect)
             # Not all exception types handled above will result in a redirect.
             # Need to raise here just in case.
             raise exceptions.Http302(redirect)

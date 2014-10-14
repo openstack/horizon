@@ -77,7 +77,7 @@ class IndexView(tabs.TabView):
                 except Exception as e:
                     exceptions.handle(request,
                                       _('Unable to locate VIP to delete. %s')
-                                        % e)
+                                      % e)
                 if vip_id is not None:
                     try:
                         api.lbaas.vip_delete(request, vip_id)

@@ -30,8 +30,8 @@ LOG = logging.getLogger(__name__)
 class UpdatePool(forms.SelfHandlingForm):
     name = forms.CharField(max_length=80, label=_("Name"))
     pool_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
+                              widget=forms.TextInput(
+                                  attrs={'readonly': 'readonly'}))
     description = forms.CharField(required=False,
                                   max_length=80, label=_("Description"))
     lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
@@ -72,8 +72,8 @@ class UpdatePool(forms.SelfHandlingForm):
 class UpdateVip(forms.SelfHandlingForm):
     name = forms.CharField(max_length=80, label=_("Name"))
     vip_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
+                             widget=forms.TextInput(
+                                 attrs={'readonly': 'readonly'}))
     description = forms.CharField(required=False,
                                   max_length=80, label=_("Description"))
     pool_id = forms.ChoiceField(label=_("Pool"))
@@ -167,8 +167,8 @@ class UpdateVip(forms.SelfHandlingForm):
 
 class UpdateMember(forms.SelfHandlingForm):
     member_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
+                                widget=forms.TextInput(
+                                    attrs={'readonly': 'readonly'}))
     pool_id = forms.ChoiceField(label=_("Pool"))
     weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
                                 help_text=_("Relative part of requests this "

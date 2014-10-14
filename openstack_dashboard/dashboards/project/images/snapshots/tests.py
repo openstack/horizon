@@ -45,7 +45,7 @@ class SnapshotsViewTests(test.TestCase):
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'server_get')
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
-                    .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images:snapshots:create',

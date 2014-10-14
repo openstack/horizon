@@ -118,8 +118,8 @@ class GeneralConfigAction(workflows.Action):
                                                               hadoop_version)
 
             return [(image.id, image.name) for image in all_images
-                    if set(details.required_image_tags).
-                        issubset(set(image.tags))]
+                    if (set(details.required_image_tags).
+                        issubset(set(image.tags)))]
         except Exception:
             exceptions.handle(request,
                               _("Unable to fetch image choices."))

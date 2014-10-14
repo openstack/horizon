@@ -777,8 +777,8 @@ class RouterViewTests(test.TestCase):
 
         create_link = tables.CreateRouter()
         url = create_link.get_link_url()
-        classes = list(create_link.get_default_classes())\
-                        + list(create_link.classes)
+        classes = (list(create_link.get_default_classes())
+                   + list(create_link.classes))
         link_name = "%s (%s)" % (unicode(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\

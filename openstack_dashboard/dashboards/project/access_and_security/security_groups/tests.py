@@ -81,7 +81,7 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_update_security_groups_get(self):
         sec_group = self.security_groups.first()
         api.network.security_group_get(IsA(http.HttpRequest),
-                                        sec_group.id).AndReturn(sec_group)
+                                       sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:access_and_security:'
@@ -97,12 +97,12 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_update_security_groups_post(self):
         sec_group = self.security_groups.get(name="other_group")
         api.network.security_group_update(IsA(http.HttpRequest),
-                                       str(sec_group.id),
-                                       sec_group.name,
-                                       sec_group.description) \
+                                          str(sec_group.id),
+                                          sec_group.name,
+                                          sec_group.description) \
             .AndReturn(sec_group)
         api.network.security_group_get(IsA(http.HttpRequest),
-                                        sec_group.id).AndReturn(sec_group)
+                                       sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateGroup',
@@ -182,8 +182,8 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group = self.security_groups.first()
 
         api.network.security_group_get(IsA(http.HttpRequest),
-                                    sec_group.id) \
-                .AndRaise(self.exceptions.nova)
+                                       sec_group.id) \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 

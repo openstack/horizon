@@ -42,7 +42,7 @@ class KeyPairViewTests(test.TestCase):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.keypairs.list())
+            .AndReturn(self.keypairs.list())
         api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name)
         self.mox.ReplayAll()
 
@@ -60,9 +60,9 @@ class KeyPairViewTests(test.TestCase):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.keypairs.list())
+            .AndReturn(self.keypairs.list())
         api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name) \
-                .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'action': 'keypairs__delete__%s' % keypair.name}
@@ -139,7 +139,7 @@ class KeyPairViewTests(test.TestCase):
         public_key = "ABCDEF"
 
         api.nova.keypair_import(IsA(http.HttpRequest), key_name, public_key) \
-                        .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'method': 'ImportKeypair',
@@ -169,7 +169,7 @@ class KeyPairViewTests(test.TestCase):
         keypair = self.keypairs.first()
 
         api.nova.keypair_create(IsA(http.HttpRequest), keypair.name) \
-                        .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         context = {'keypair_name': keypair.name}

@@ -82,9 +82,9 @@ class FloatingIpViewTests(test.TestCase):
         server = self.servers.first()
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.servers.list())
+            .AndReturn(self.servers.list())
         api.network.floating_ip_associate(IsA(http.HttpRequest),
                                           floating_ip.id,
                                           server.id)
@@ -104,9 +104,9 @@ class FloatingIpViewTests(test.TestCase):
         server = self.servers.first()
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.servers.list())
+            .AndReturn(self.servers.list())
         api.network.floating_ip_associate(IsA(http.HttpRequest),
                                           floating_ip.id,
                                           server.id)
@@ -127,13 +127,13 @@ class FloatingIpViewTests(test.TestCase):
         server = self.servers.first()
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.servers.list())
+            .AndReturn(self.servers.list())
         api.network.floating_ip_associate(IsA(http.HttpRequest),
                                           floating_ip.id,
                                           server.id) \
-                .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         form_data = {'instance_id': server.id,
@@ -152,11 +152,11 @@ class FloatingIpViewTests(test.TestCase):
         server = self.servers.first()
 
         api.nova.server_list(IsA(http.HttpRequest)) \
-                            .AndReturn([self.servers.list(), False])
+            .AndReturn([self.servers.list(), False])
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                                    .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
                                              floating_ip.id,
                                              server.id)
@@ -177,7 +177,7 @@ class FloatingIpViewTests(test.TestCase):
         server = self.servers.first()
 
         api.nova.server_list(IsA(http.HttpRequest)) \
-                        .AndReturn([self.servers.list(), False])
+            .AndReturn([self.servers.list(), False])
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \

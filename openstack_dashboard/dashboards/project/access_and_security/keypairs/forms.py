@@ -61,8 +61,9 @@ class ImportKeypair(forms.SelfHandlingForm):
             keypair = api.nova.keypair_import(request,
                                               data['name'],
                                               data['public_key'])
-            messages.success(request, _('Successfully imported public key: %s')
-                                       % data['name'])
+            messages.success(request,
+                             _('Successfully imported public key: %s')
+                             % data['name'])
             return keypair
         except Exception:
             exceptions.handle(request, ignore=True)

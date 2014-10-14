@@ -62,19 +62,19 @@ class VolumeViewTests(test.TestCase):
                     'availability_zone': az}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False, False])
+            .AndReturn([[], False, False])
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
 
@@ -127,21 +127,21 @@ class VolumeViewTests(test.TestCase):
                     'image_source': self.images.first().id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.cinder_volume_snapshots.list())
+            AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False, False])
+            .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
 
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
@@ -187,13 +187,13 @@ class VolumeViewTests(test.TestCase):
                     'snapshot_source': snapshot.id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
-                          AndReturn(self.cinder_volumes.first())
+            AndReturn(self.cinder_volumes.first())
 
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
@@ -242,13 +242,13 @@ class VolumeViewTests(test.TestCase):
                     'volume_source': volume.id}
 
         cinder.volume_list(IsA(http.HttpRequest)).\
-                AndReturn(self.cinder_volumes.list())
+            AndReturn(self.cinder_volumes.list())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
-                AndReturn(self.cinder_volume_snapshots.list())
+            AndReturn(self.cinder_volume_snapshots.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                AndReturn(usage_limit)
+            AndReturn(usage_limit)
 
         cinder.volume_get(IsA(http.HttpRequest),
                           volume.id).AndReturn(self.cinder_volumes.first())
@@ -259,11 +259,11 @@ class VolumeViewTests(test.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False, False])
+            .AndReturn([[], False, False])
 
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
@@ -310,21 +310,21 @@ class VolumeViewTests(test.TestCase):
                     'snapshot_source': snapshot.id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.cinder_volume_snapshots.list())
+            AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False, False])
+            .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
 
@@ -370,16 +370,16 @@ class VolumeViewTests(test.TestCase):
                     'size': 20, 'snapshot_source': snapshot.id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
-                          AndReturn(self.cinder_volumes.first())
+            AndReturn(self.cinder_volumes.first())
 
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -413,9 +413,9 @@ class VolumeViewTests(test.TestCase):
                     'image_source': image.id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
 
@@ -472,21 +472,21 @@ class VolumeViewTests(test.TestCase):
                     'image_source': image.id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.cinder_volume_snapshots.list())
+            AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False, False])
+            .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
-                  .AndReturn(usage_limit)
+            .AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
 
@@ -533,9 +533,9 @@ class VolumeViewTests(test.TestCase):
                     'size': 1, 'image_source': image.id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
@@ -543,7 +543,7 @@ class VolumeViewTests(test.TestCase):
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -581,9 +581,9 @@ class VolumeViewTests(test.TestCase):
                     'size': 5, 'image_source': image.id}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
@@ -591,7 +591,7 @@ class VolumeViewTests(test.TestCase):
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -633,19 +633,19 @@ class VolumeViewTests(test.TestCase):
                     'size': 5000}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False, False])
+            .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
@@ -653,7 +653,7 @@ class VolumeViewTests(test.TestCase):
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -682,19 +682,19 @@ class VolumeViewTests(test.TestCase):
                     'size': 10}
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
-                                AndReturn(self.volume_types.list())
+            AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.images.list(), False, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                             filters={'property-owner_id': self.tenant.id,
                                      'status': 'active'}) \
-                  .AndReturn([[], False, False])
+            .AndReturn([[], False, False])
         cinder.volume_list(IsA(
             http.HttpRequest)).AndReturn(self.cinder_volumes.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
@@ -702,7 +702,7 @@ class VolumeViewTests(test.TestCase):
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-                                AndReturn(usage_limit)
+            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -761,17 +761,17 @@ class VolumeViewTests(test.TestCase):
         cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-                           AndReturn(volumes)
+            AndReturn(volumes)
         cinder.volume_delete(IsA(http.HttpRequest), volume.id).\
-                             AndRaise(exc)
+            AndRaise(exc)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
-                             AndReturn([self.servers.list(), False])
+            AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-                           AndReturn(volumes)
+            AndReturn(volumes)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
-                             AndReturn([self.servers.list(), False])
+            AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
-                                   AndReturn(self.cinder_limits['absolute'])
+            AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         url = VOLUME_INDEX_URL
@@ -868,9 +868,9 @@ class VolumeViewTests(test.TestCase):
         volume = self.cinder_volumes.list()[0]
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
-                          .AndReturn(volume)
+            .AndReturn(volume)
         api.nova.server_list(IsA(http.HttpRequest)) \
-                             .AndReturn([servers, False])
+            .AndReturn([servers, False])
 
         self.mox.ReplayAll()
 
@@ -899,14 +899,14 @@ class VolumeViewTests(test.TestCase):
 
         create_link = tables.CreateSnapshot()
         url = reverse(create_link.get_link_url(), args=[volume.id])
-        res_url = VOLUME_INDEX_URL + \
-                "?action=row_update&table=volumes&obj_id=" + volume.id
+        res_url = (VOLUME_INDEX_URL +
+                   "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(res_url, {},
-                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+                              HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
-        classes = list(create_link.get_default_classes())\
-                    + list(create_link.classes)
+        classes = (list(create_link.get_default_classes())
+                   + list(create_link.classes))
         link_name = "%s (%s)" % (unicode(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' class=\"%s disabled\" "\
@@ -928,11 +928,11 @@ class VolumeViewTests(test.TestCase):
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-              .AndReturn(volumes)
+            .AndReturn(volumes)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
-              .AndReturn([self.servers.list(), False])
+            .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
-              .MultipleTimes().AndReturn(limits)
+            .MultipleTimes().AndReturn(limits)
         self.mox.ReplayAll()
 
         res = self.client.get(VOLUME_INDEX_URL)
@@ -943,8 +943,8 @@ class VolumeViewTests(test.TestCase):
 
         create_link = tables.CreateVolume()
         url = create_link.get_link_url()
-        classes = list(create_link.get_default_classes())\
-                    + list(create_link.classes)
+        classes = (list(create_link.get_default_classes())
+                   + list(create_link.classes))
         link_name = "%s (%s)" % (unicode(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
@@ -999,11 +999,11 @@ class VolumeViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = VOLUME_INDEX_URL + \
-                "?action=row_update&table=volumes&obj_id=" + volume.id
+        url = (VOLUME_INDEX_URL +
+               "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(url, {},
-                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+                              HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(volume.name, volume.id)
@@ -1162,8 +1162,8 @@ class VolumeViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = VOLUME_INDEX_URL + \
-              "?action=row_update&table=volumes&obj_id=" + volume.id
+        url = (VOLUME_INDEX_URL +
+               "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(url, {}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
@@ -1186,8 +1186,8 @@ class VolumeViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = VOLUME_INDEX_URL + \
-              "?action=row_update&table=volumes&obj_id=" + volume.id
+        url = (VOLUME_INDEX_URL +
+               "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(url, {}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 

@@ -98,7 +98,7 @@ class SetInstanceDetailsAction(workflows.Action):
     volume_id = forms.ChoiceField(label=_("Volume"), required=False)
 
     volume_snapshot_id = forms.ChoiceField(label=_("Volume Snapshot"),
-                                               required=False)
+                                           required=False)
 
     image_id = forms.ChoiceField(
         label=_("Image Name"),
@@ -320,7 +320,7 @@ class SetInstanceDetailsAction(workflows.Action):
                               _('Unable to retrieve availability zones.'))
 
         zone_list = [(zone.zoneName, zone.zoneName)
-                      for zone in zones if zone.zoneState['available']]
+                     for zone in zones if zone.zoneState['available']]
         zone_list.sort()
         if not zone_list:
             zone_list.insert(0, ("", _("No availability zones found")))
@@ -343,7 +343,7 @@ class SetInstanceDetailsAction(workflows.Action):
                 attrs = [{'id': i.id,
                           'min_disk': getattr(i, 'min_disk', 0),
                           'min_ram': getattr(i, 'min_ram', 0)}
-                          for i in images]
+                         for i in images]
                 extra['images'] = json.dumps(attrs)
 
         except Exception:
@@ -406,8 +406,8 @@ class SetInstanceDetailsAction(workflows.Action):
         try:
             volumes = [self._get_volume_display_name(v)
                        for v in cinder.volume_list(self.request)
-                       if v.status == api.cinder.VOLUME_STATE_AVAILABLE
-                        and v.bootable == 'true']
+                       if (v.status == api.cinder.VOLUME_STATE_AVAILABLE
+                           and v.bootable == 'true')]
         except Exception:
             volumes = []
             exceptions.handle(self.request,
@@ -567,8 +567,8 @@ class CustomizeAction(workflows.Action):
 
     attributes = {'class': 'switchable', 'data-slug': 'scriptsource'}
     script_source = forms.ChoiceField(label=_('Customization Script Source'),
-                                        choices=source_choices,
-                                        widget=forms.Select(attrs=attributes))
+                                      choices=source_choices,
+                                      widget=forms.Select(attrs=attributes))
 
     script_help = _("A script or set of commands to be executed after the "
                     "instance has been built (max 16kb).")

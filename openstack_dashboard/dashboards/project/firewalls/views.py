@@ -202,7 +202,7 @@ class UpdateFirewallView(forms.ModalFormView):
         firewall_id = self.kwargs['firewall_id']
         try:
             firewall = api.fwaas.firewall_get(self.request,
-                                                  firewall_id)
+                                              firewall_id)
             firewall.set_id_as_name_if_empty()
             return firewall
         except Exception:
