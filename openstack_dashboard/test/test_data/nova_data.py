@@ -420,6 +420,8 @@ def data(TEST):
                                   'quota': 20},
                         'floating_ips': {'used': 0,
                                          'quota': 10},
+                        'security_groups': {'used': 0,
+                                            'quota': 10},
                         'volumes': {'used': 0,
                                     'quota': 10}}
     quota_usage = usage_quotas.QuotaUsage()
