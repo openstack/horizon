@@ -108,6 +108,7 @@ class EditOrganizationView(forms.ModalFormView):
         # Call the base implementation first to get a context
         context = super(EditOrganizationView, self).get_context_data(**kwargs)
         context['organization']=self.get_object()
+        #context['delete']=self.deleteOrganization()
         return context
         # organization_id =self.kwargs['organization_id']
         # organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
@@ -117,6 +118,12 @@ class EditOrganizationView(forms.ModalFormView):
         return {'id': organization.id,
                 'name': organization.name,
                 'description': organization.description}
+
+    def deleteOrganization(self):
+        organization = self.get_object()
+        #api.keystone.delete.tenant(org)
+        #
+
 
 
 
