@@ -3,17 +3,17 @@
 {% block table %}
 
   
-    <ul class="list-group" id="{{ table.slugify_name }}">
+    <div class="list-group" id="{{ table.slugify_name }}">
     {% block table_body %}
       {% for row in rows %}
-      <li class="list-group-item">
+      <a class="list-group-item" href="#">
         {{ row.render }}
-      </li>
+      </a>
       {% endfor %}
     {% endblock table_body %}
     {% block table_footer %}
     {% endblock table_footer %}
-    </ul>
+    </div>
 {% endblock table %}
 
 {% endwith %}

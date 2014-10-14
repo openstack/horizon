@@ -5,8 +5,11 @@
 /****************************** Bootstrap */
 @import "/bootstrap/scss/bootstrap";
 
+/****************************** JCrop */
+@import "/jcrop/scss/jquery.Jcrop";
+
 /****************************** Mixins */
-@import "FIWARE-Accounts/general/mixins_call";
+@import "FIWARE-Accounts/general/mixins/mixins_call";
 
 /****************************** Rewrites */
 @import "rewrites/rewrites_call";

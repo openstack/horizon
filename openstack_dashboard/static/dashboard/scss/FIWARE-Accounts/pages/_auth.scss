@@ -86,7 +86,6 @@
   }
 } 
 
-
 .view-more{
   margin-top: 10px;
   margin-bottom: 10px;
@@ -99,27 +98,8 @@
   }
 }
 
-.registration{
-  label{
-    @extend .control-label;
-  }
-  input{
-    &[type="text"],
-    &[type="email"],
-    &[type="password"]{
-      @extend .form-control;
-      margin-bottom: 15px; 
-    }
-  }
-  input{
-    &[type="submit"]{
-      float: right; 
-    }
-  }
-  .modal-footer{
-    display: none;
-  }
-}
+
+
 
 .login,
 .registration{
@@ -136,44 +116,55 @@
     margin-top: 40px; 
   }
   .modal-header{
-    border-bottom: transparent;
-    padding: 0px;
-    h3{
-      @extend h4;
-      text-align: right;
-      color: $brand-secundary;
-      font-family: $corporate-font-family-sans-serif-Regular;
-      margin-top: 0;
-    }
-  }
-  .control-label{
-    font-weight: normal;
-    color: $gray-light;
-    margin-bottom: 4px;
-  }
-  .actions{
-    clear: both;
-    text-align: left;
-    a{
-      border-right: 1px solid $gray-light;
-      padding-right: 6px;
-      padding-left: 10px;
-      font-size: 12px;
-      &:first-child{
-        padding-left: 0px;
-      }
-      &:last-child{
-        border-right: none;
-      }
-    }
+    @include modal-header;
   }
   .modal-footer{
     padding: 15px 0 0;
+    .checkbox{
+      label{
+        margin-top: -4px;
+      }
+    }
   }
 }
 
+.control-label{
+  font-weight: normal;
+  color: $gray-light;
+  margin-bottom: 4px;
+}
+
 .conditions{
-  font-size: 12px;
+  font-size: 10px;
+  text-align: left;
+  margin-bottom: 15px;
+  float: left;
+    a{
+    text-decoration: underline;
+  }
+  #inlineCheckbox1{ 
+    margin-top: 2.2px;
+  }
+}
+
+.actions{
+  clear: both;
+  text-align: left;
+  padding-top: 10px;
+  a{
+    border-right: 1px solid $gray-light;
+    padding-right: 6px;
+    padding-left: 10px;
+    font-size: 12px;
+    float: left;
+    &:first-child{
+      padding-left: 0px;
+    }
+    &:last-child{
+      border-right: none;
+      float: none;
+    }
+  }
 }
 .simple_captcha{
   border-top: 1px solid #E2E2E2;
@@ -185,3 +176,26 @@
     margin: 0 auto 2px;
   }
 }
+
+
+
+.remember-password,
+.resend-confirmation-instructions{
+  @include make-sm-column(4, $gutter: $grid-gutter-width);
+  @include make-md-column(4, $gutter: $grid-gutter-width);
+  @include make-lg-column(4, $gutter: $grid-gutter-width);
+  @include make-sm-column-offset(4);
+  @include make-md-column-offset(4);
+  @include make-lg-column-offset(4);
+  @extend .well;
+  @include border-top-radius (0);
+  @include border-bottom-radius (0);
+  .modal-header{
+    @include modal-header;
+  }
+  .modal-footer {
+    padding-bottom: 0;
+  }
+}
+
+

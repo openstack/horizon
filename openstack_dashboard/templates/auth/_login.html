@@ -37,10 +37,13 @@
     </div>
     <button type="submit" class="btn btn-primary pull-right">{% trans "Sign In" %}</button>
     <div class="actions">
-      <a target="_blank" href="{% url 'fiware_auth_register' %}">
+      <a href="{% url 'fiware_auth_register' %}">
+        Sign up
+      </a>
+      <a href="{% url 'fiware_auth_request' %}">
         Forgot password
       </a>
-      <a target="_blank" href="{% url 'fiware_auth_register' %}">
+      <a href="{% url 'fiware_auth_confirmation' %}">
         Didn't receive confirmation instructions?
       </a>
     </div>

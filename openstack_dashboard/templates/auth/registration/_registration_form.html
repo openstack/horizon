@@ -4,7 +4,7 @@
 <div class="registration">
   {% block modal-header %}{% trans "Registration" %}{% endblock %}
   {% block modal_class %}registration {% if hide %}modal hide{% endif %}{% endblock %}
-
+  {% block form_action %}{% url 'fiware_auth_register' %}{% endblock %}
   {% block modal-body %}
 
       {% include "horizon/common/_form_fields.html" %}
@@ -15,7 +15,15 @@
         <input type="checkbox" id="inlineCheckbox1" required="required" title="You need to accept the Terms and Conditions to create your account" value="option1"> I accept FIWARE Lab <a href="http://forge.fi-ware.org/plugins/mediawiki/wiki/fiware/index.php/FI-LAB_Terms_and_Conditions" target="_blank">Terms and Conditions.</a>
       </label>
 
-      <input class="btn btn-primary" type="submit" value="Sign Up" />
-  {% endblock %}
+      <button type="submit" class="btn btn-primary pull-right">{% trans "Sign Up" %}</button>
 
+      <div class="actions">
+        <a href="{% url 'fiware_auth_request' %}">
+          Forgot password
+        </a>
+        <a href="{% url 'fiware_auth_confirmation' %}">
+          Didn't receive confirmation instructions?
+        </a>
+      </div>
+  {% endblock %}
 </div>

@@ -1,0 +1,19 @@
+.list-group {
+  margin-bottom: 0;
+}
+
+.list-group-item {
+  padding: 10px 0;
+  min-height: 58px;
+  &:first-child{
+    border-top: none;
+  }
+  &:last-child{
+    border-bottom: none;
+  }
+}
+
+.list-group-item:first-child{
+  @include border-top-radius (0);
+  @include border-bottom-radius (0);
+}

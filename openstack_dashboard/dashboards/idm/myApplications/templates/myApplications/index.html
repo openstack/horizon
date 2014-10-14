@@ -3,12 +3,14 @@
 {% block title %}{% trans "Applications" %}{% endblock %}
 
 {% block page_header %}
+  <a class="btn btn-primary" href="/idm/myApplications/create/">Register</a>
   {% include "horizon/common/_page_header.html" with title=_("Applications") %}
 {% endblock page_header %}
 
 {% block main %}
 
-<div>
+
+<div id="myApplications">
 	{{ tab_group.render }}
 </div>
 {% endblock %}

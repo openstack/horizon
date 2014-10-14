@@ -10,14 +10,24 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 from django.conf.urls import patterns
 from django.conf.urls import url
-from views import RegistrationView,ActivationView
+
+from openstack_dashboard.fiware_auth import views
+
 
 urlpatterns = patterns(
-	'fiware_auth.views',
-	url(r"^sign_up/$", RegistrationView.as_view(), name='fiware_auth_register'),
-	url(r'^activate/(?P<activation_key>\w+)/$',
-                           ActivationView.as_view(),
-                           name='fiware_auth_activate'),
+    'fiware_auth.views',
+    url(r"^sign_up/$", views.RegistrationView.as_view(), 
+                            name='fiware_auth_register'),
+    url(r'^activate/(?P<activation_key>\w+)/$',
+                            views.ActivationView.as_view(),
+                            name='fiware_auth_activate'),
+    url(r'^password/request/$',views.RequestPasswordResetView.as_view(),
+                            name='fiware_auth_request'),
+    url(r'^password/reset/$',views.ResetPasswordView.as_view(),
+                            name='fiware_auth_reset'),
+    url(r'^confirmation/$',views.ResendConfirmationInstructionsView.as_view(),
+                            name='fiware_auth_confirmation'),
 )

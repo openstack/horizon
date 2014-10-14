@@ -1,0 +1,29 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+    {% block modal-header %}
+        Forgot your password?
+    {% endblock %}
+
+    {% block form_action %}{% url 'fiware_auth_request' %}{% endblock %}
+    
+    {% block modal-body %}
+        <p>Write down the email address you associated to your account and you will receive an email with instructions about how to reset your password in a few minutes</p>
+
+        {% include "horizon/common/_form_fields.html" %}
+    {% endblock %}
+
+    {% block modal-footer %}
+        <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+        <div class="actions">
+          <a href="{% url 'fiware_auth_register' %}">
+            Sign up
+          </a>
+          <a href="{% url 'fiware_auth_confirmation' %}">
+            Didn't receive confirmation instructions?
+          </a>
+        </div>
+    {% endblock %}
+
+
