@@ -111,8 +111,11 @@ class UpdateForm(forms.SelfHandlingForm):
                             ('distributed', _('Distributed'))]
             self.fields['mode'].choices = mode_choices
 
-        self.ha_allowed = api.neutron.get_feature_permission(self.request,
-                                                             "l3-ha", "update")
+        # TODO(amotoki): Due to Neutron Bug 1378525, Neutron disables
+        # PUT operation. It will be fixed in Kilo cycle.
+        # self.ha_allowed = api.neutron.get_feature_permission(
+        #     self.request, "l3-ha", "update")
+        self.ha_allowed = False
         if not self.ha_allowed:
             del self.fields['ha']
 

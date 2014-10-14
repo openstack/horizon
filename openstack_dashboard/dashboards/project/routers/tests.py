@@ -258,9 +258,11 @@ class RouterActionTests(test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "update")\
             .AndReturn(dvr_enabled)
-        api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "update")\
-            .AndReturn(ha_enabled)
+        # TODO(amotoki): Due to Neutron Bug 1378525, Neutron disables
+        # PUT operation. It will be fixed in Kilo cycle.
+        # api.neutron.get_feature_permission(IsA(http.HttpRequest),
+        #                                "l3-ha", "update")\
+        #     .AndReturn(ha_enabled)
         self.mox.ReplayAll()
 
         url = reverse('horizon:%s:routers:update' % self.DASHBOARD,
@@ -310,9 +312,11 @@ class RouterActionTests(test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "update")\
             .AndReturn(False)
-        api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "update")\
-            .AndReturn(False)
+        # TODO(amotoki): Due to Neutron Bug 1378525, Neutron disables
+        # PUT operation. It will be fixed in Kilo cycle.
+        # api.neutron.get_feature_permission(IsA(http.HttpRequest),
+        #                                "l3-ha", "update")\
+        #     .AndReturn(False)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,
                                   admin_state_up=router.admin_state_up)\
@@ -338,15 +342,16 @@ class RouterActionTests(test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "dvr", "update")\
             .AndReturn(True)
-        api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "update")\
-            .AndReturn(True)
+        # TODO(amotoki): Due to Neutron Bug 1378525, Neutron disables
+        # PUT operation. It will be fixed in Kilo cycle.
+        # api.neutron.get_feature_permission(IsA(http.HttpRequest),
+        #                                "l3-ha", "update")\
+        #     .AndReturn(True)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,
                                   admin_state_up=router.admin_state_up,
-                                  distributed=True,
-                                  ha=True)\
-            .AndReturn(router)
+                                  # ha=True,
+                                  distributed=True).AndReturn(router)
         api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndReturn(router)
         self.mox.ReplayAll()
