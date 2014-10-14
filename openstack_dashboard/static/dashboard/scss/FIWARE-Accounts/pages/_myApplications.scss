@@ -17,9 +17,13 @@
           margin-right: 0px;
         }
       }
+      .steps-group .completed{
+        color: darken($gray-light, 20%);
+        border-bottom: 5px solid darken($gray-light, 20%);
+      }
       div.active {
         border-bottom: 5px solid $brand-secundary;
-        color: $brand-secundary;
+        color: $brand-primary;
       }
     }
   }

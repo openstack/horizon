@@ -46,18 +46,19 @@
     {% endblock %}
     <div id="modal_wrapper"></div>
     {% include '_footer.html' %}
-    
+
     <script type="text/javascript">
       jQuery(function($){
-        $('#target').Jcrop();
+        $('#avatar-update').Jcrop();
       });
     </script>
 
     <script>
-      $(function(){
+    $(function(){
         $('.textarea').autosize;
-      });
+    });
     </script>
+
 
   </body>
 </html>
