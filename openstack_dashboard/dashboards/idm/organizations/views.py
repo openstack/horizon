@@ -63,43 +63,10 @@ class CreateOrganizationView(forms.ModalFormView):
     template_name = 'idm/organizations/create.html'
 
 
-
-# class UpdateOrganizationView(forms.ModalFormView):
-#     template_name = 'idm/organiztions/update.html'
-#     def get_initial(self):
-#         initial = super(UpdateOrganizationView, self).get_initial()
-
-#         organization_id = self.kwargs['tenant_id']
-#         initial['organization_id'] = organization_id
-
-#         try:
-#             # get initial organization info
-#             organization_info = api.keystone.tenant_get(self.request, organization_id,
-#                                                    admin=True)
-#             for field in PROJECT_INFO_FIELDS:
-#                 initial[field] = getattr(organization_info, field, None)
-
-#             # Retrieve the domain name where the organization belong
-#             if keystone.VERSIONS.active >= 3:
-#                 try:
-#                     domain = api.keystone.domain_get(self.request,
-#                                                      initial["domain_id"])
-#                     initial["domain_name"] = domain.name
-#                 except Exception:
-#                     exceptions.handle(self.request,
-#                         _('Unable to retrieve organization domain.'),
-#                         redirect=reverse(INDEX_URL))
-#         except Exception:
-#             exceptions.handle(self.request,
-#                               _('Unable to retrieve organization details.'),
-#                               redirect=reverse(INDEX_URL))
-#         return initial         
-
 class DetailOrganizationView(tables.MultiTableView):
     template_name = 'idm/organizations/detail.html'
     table_classes = (organization_tables.MembersTable,
                      organization_tables.ApplicationsTable)
-
     
     def get_members_data(self):
         
@@ -127,5 +94,40 @@ class DetailOrganizationView(tables.MultiTableView):
         context['contact_info'] = organization.description
         return context
 
+class EditOrganizationView(forms.ModalFormView):
+    form_class = organization_forms.EditOrganizationForm
+    template_name = 'idm/organizations/edit.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(EditOrganizationView, self).get_context_data(**kwargs)
+
+    # def get_initial(self):
+    #     initial = super(UpdateOrganizationView, self).get_initial()
+
+    #     organization_id = self.kwargs['tenant_id']
+    #     initial['organization_id'] = organization_id
+
+    #     try:
+    #         # get initial organization info
+    #         organization_info = api.keystone.tenant_get(self.request, organization_id,
+    #                                                admin=True)
+    #         for field in PROJECT_INFO_FIELDS:
+    #             initial[field] = getattr(organization_info, field, None)
+
+    #         # Retrieve the domain name where the organization belong
+    #         if keystone.VERSIONS.active >= 3:
+    #             try:
+    #                 domain = api.keystone.domain_get(self.request,
+    #                                                  initial["domain_id"])
+    #                 initial["domain_name"] = domain.name
+    #             except Exception:
+    #                 exceptions.handle(self.request,
+    #                     _('Unable to retrieve organization domain.'),
+    #                     redirect=reverse(INDEX_URL))
+    #     except Exception:
+    #         exceptions.handle(self.request,
+    #                           _('Unable to retrieve organization details.'),
+    #                           redirect=reverse(INDEX_URL))
+    #     return initial         
 
     
