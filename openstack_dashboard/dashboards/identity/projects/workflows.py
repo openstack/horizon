@@ -97,8 +97,8 @@ class UpdateProjectQuotaAction(workflows.Action):
             used = usages[key].get('used', 0)
             if value is not None and value >= 0 and used > value:
                 bad_values.append(_('%(used)s %(key)s used') %
-                                    {'used': used,
-                                     'key': quotas.QUOTA_NAMES.get(key, key)})
+                                  {'used': used,
+                                   'key': quotas.QUOTA_NAMES.get(key, key)})
         if bad_values:
             value_str = ", ".join(bad_values)
             msg = (_('Quota value(s) cannot be less than the current usage '
@@ -176,8 +176,8 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
             if default_role is None:
                 default = getattr(settings,
                                   "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone') % \
-                        default
+                msg = (_('Could not find default role "%s" in Keystone') %
+                       default)
                 raise exceptions.NotFound(msg)
         except Exception:
             exceptions.handle(self.request,
@@ -274,8 +274,8 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
             if default_role is None:
                 default = getattr(settings,
                                   "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone') % \
-                        default
+                msg = (_('Could not find default role "%s" in Keystone') %
+                       default)
                 raise exceptions.NotFound(msg)
         except Exception:
             exceptions.handle(self.request,
@@ -422,11 +422,11 @@ class CreateProject(workflows.Workflow):
                 group_msg = _(", add project groups")
             else:
                 group_msg = ""
-            exceptions.handle(request, _('Failed to add %(users_to_add)s '
-                                         'project members%(group_msg)s and '
-                                         'set project quotas.')
-                                      % {'users_to_add': users_to_add,
-                                         'group_msg': group_msg})
+            exceptions.handle(request,
+                              _('Failed to add %(users_to_add)s project '
+                                'members%(group_msg)s and set project quotas.')
+                              % {'users_to_add': users_to_add,
+                                 'group_msg': group_msg})
 
         if PROJECT_GROUP_ENABLED:
             # update project groups
@@ -643,11 +643,12 @@ class UpdateProject(workflows.Workflow):
                 group_msg = _(", update project groups")
             else:
                 group_msg = ""
-            exceptions.handle(request, _('Failed to modify %(users_to_modify)s'
-                                         ' project members%(group_msg)s and '
-                                         'update project quotas.')
-                                       % {'users_to_modify': users_to_modify,
-                                          'group_msg': group_msg})
+            exceptions.handle(request,
+                              _('Failed to modify %(users_to_modify)s'
+                                ' project members%(group_msg)s and '
+                                'update project quotas.')
+                              % {'users_to_modify': users_to_modify,
+                                 'group_msg': group_msg})
             return False
 
         if PROJECT_GROUP_ENABLED:
