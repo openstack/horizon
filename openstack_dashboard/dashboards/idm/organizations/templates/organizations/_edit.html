@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}edit_organization_modal{% endblock %}
-{% block form_action %}{% url 'horizon:idm:organizations:edit' %}{% endblock %}
+{% block form_action %}{% url 'horizon:idm:organizations:edit' organization.id %}{% endblock %}
 
 {% block modal_id %}edit_application_modal{% endblock %}
 {% block modal-header %}
@@ -15,6 +15,7 @@
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
 </div>
+
 {% endblock %}
 
 {% block modal-footer %}

@@ -68,8 +68,7 @@ class DetailOrganizationView(tables.MultiTableView):
     table_classes = (organization_tables.MembersTable,
                      organization_tables.ApplicationsTable)
     
-    def get_members_data(self):
-        
+    def get_members_data(self):        
         user = []
         user_id=self.request.user.id
         try:
@@ -90,7 +89,6 @@ class DetailOrganizationView(tables.MultiTableView):
         context = super(DetailOrganizationView, self).get_context_data(**kwargs)
         organization_id =self.kwargs['organization_id']
         organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
-        # Add in a QuerySet of all the books
         context['contact_info'] = organization.description
         return context
 
@@ -98,8 +96,30 @@ class EditOrganizationView(forms.ModalFormView):
     form_class = organization_forms.EditOrganizationForm
     template_name = 'idm/organizations/edit.html'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(EditOrganizationView, self).get_context_data(**kwargs)
+    @memoized.memoized_method
+    def get_object(self):
+        try:
+            return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
+        except Exception:
+            redirect = reverse("horizon:idm:organizations:index")
+            exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(EditOrganizationView, self).get_context_data(**kwargs)
+        context['organization']=self.get_object()
+        return context
+        # organization_id =self.kwargs['organization_id']
+        # organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
+
+    def get_initial(self):
+        organization = self.get_object()
+        return {'id': organization.id,
+                'name': organization.name,
+                'description': organization.description}
+
+
+
 
     # def get_initial(self):
     #     initial = super(UpdateOrganizationView, self).get_initial()

@@ -68,26 +68,18 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
     	return response
 
 class EditOrganizationForm(forms.SelfHandlingForm):
+    id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
     name = forms.CharField(label=_("Name"), max_length=64,required=False)
     description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
 
     def handle(self, request, data):
-        organization_id = data['organization_id']
-        domain_id = ''
-        # update organization info
         try:
-            organization = api.keystone.tenant_update(
-                request,
-                organization_id,
-                name=data['name'],
-                description=data['description'],
-                enabled=data['enabled'])
-            # Use the domain_id from the organization if available
-            domain_id = getattr(organization, "domain_id", None)
+            api.keystone.tenant_update(request, data['id'], name=data['name'], description=data['description'])
+            messages.success(request, _("Organization updated successfully."))
+            response = shortcuts.redirect('horizon:idm:organizations:index')
+            return response
         except Exception:
-            exceptions.handle(request, ignore=True)
-            return False
+            exceptions.handle(request, _('Unable to update organization.'))
 
-        response = shortcuts.redirect('horizon:idm:organizations:index')
-        return response
+       
 
