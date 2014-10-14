@@ -19,6 +19,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import shortcuts
 from django.utils.http import urlencode
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -174,7 +175,19 @@ def get_instance_link(datum):
         return None
 
 
+STATUS_DISPLAY_CHOICES = (
+    ("active", pgettext_lazy("Current status of a Floating IP", u"Active")),
+    ("down", pgettext_lazy("Current status of a Floating IP", u"Down")),
+    ("error", pgettext_lazy("Current status of a Floating IP", u"Error")),
+)
+
+
 class FloatingIPsTable(tables.DataTable):
+    STATUS_CHOICES = (
+        ("active", True),
+        ("down", True),
+        ("error", False)
+    )
     ip = tables.Column("ip",
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
@@ -183,8 +196,20 @@ class FloatingIPsTable(tables.DataTable):
                              verbose_name=_("Mapped Fixed IP Address"),
                              empty_value="-")
     pool = tables.Column("pool_name",
-                         verbose_name=_("Floating IP Pool"),
+                         verbose_name=_("Pool"),
                          empty_value="-")
+    status = tables.Column("status",
+                           verbose_name=_("Status"),
+                           status=True,
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
+
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
+        super(FloatingIPsTable, self).__init__(
+            request, data=data, needs_form_wrapper=needs_form_wrapper,
+            **kwargs)
+        if not api.base.is_service_enabled(request, 'network'):
+            del self.columns['status']
 
     def sanitize_id(self, obj_id):
         return filters.get_int_or_uuid(obj_id)
