@@ -102,8 +102,10 @@ class ActivationView(TemplateView):
             return redirect(self.success_url)
         return super(ActivationView, self).get(request, *args, **kwargs)
 
-    def activate(self, request, activation_key):
-        activated_user = fiware_models.RegistrationProfile.objects.activate_user(request,activation_key)
+    def activate(self, request):
+        activation_key = request.GET.get('activation_key')
+        activated_user = fiware_models.RegistrationProfile.objects.activate_user(
+                                                            request,activation_key)
         return activated_user
 
 class RequestPasswordResetView(_RequestPassingFormView):

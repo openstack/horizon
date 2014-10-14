@@ -11,12 +11,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
 import logging
 import uuid
 
+from django.conf import settings
 from django.core.mail import send_mail
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
 
 from horizon import messages
 from horizon import exceptions
@@ -24,6 +27,17 @@ from horizon import exceptions
 from openstack_dashboard import fiware_api
 
 LOG = logging.getLogger(__name__)
+
+class ModelWithTimeStamps(models.Model):
+    created = models.DateTimeField(editable=False)
+    updated = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        if not self.id:
+            self.created = timezone.now()
+        self.updated = timezone.now()
+        return super(ModelWithTimeStamps, self).save(*args, **kwargs)
 
 class RegistrationManager(models.Manager):
 
@@ -99,7 +113,7 @@ class RegistrationManager(models.Manager):
         return True
 
 
-class RegistrationProfile(models.Model):
+class RegistrationProfile(ModelWithTimeStamps):
     """
     A simple profile which stores an activation key for use during
     user account registration. 
@@ -117,15 +131,18 @@ class RegistrationProfile(models.Model):
         return u"Registration information for %s" % self.user_name
     
     def activation_key_expired(self):
-    	#TODO
-        return False
+        if self.activation_key == self.ACTIVATED:
+            return True
+        base_date = max([self.created, self.updated]) 
+    	expiration_date = datetime.timedelta(days=settings.ACCOUNT_ACTIVATION_DAYS)
+        return base_date + expiration_date <= timezone.now()
 
     def send_activation_email(self):
         subject = 'Welcome to FIWARE'
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
         #TODO(garcianavalon) message...
-        message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/%s to activate' %self.activation_key
+        message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key=%s to activate' %self.activation_key
         #send a mail for activation
         send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
         	[self.user_email], fail_silently=False)
@@ -163,7 +180,7 @@ class ResetPasswordManager(models.Manager):
                 return user
 
 
-class ResetPasswordProfile(models.Model):
+class ResetPasswordProfile(ModelWithTimeStamps):
     """Holds the key to reset the user password"""
 
     reset_password_token = models.CharField(_('reset password token'), max_length=40)
@@ -183,5 +200,8 @@ class ResetPasswordProfile(models.Model):
             [email], fail_silently=False)
 
     def reset_password_token_expired(self):
-        #TODO(garcianavalon)
-        return False
+        if self.reset_password_token == self.USED:
+            return True
+        base_date = max([self.created, self.updated]) 
+        expiration_date = datetime.timedelta(days=settings.RESET_PASSWORD_DAYS  )
+        return base_date + expiration_date <= timezone.now()
