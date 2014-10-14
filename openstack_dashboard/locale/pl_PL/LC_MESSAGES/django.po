@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-10 21:25-0500\n"
-"PO-Revision-Date: 2014-10-11 02:26+0000\n"
+"POT-Creation-Date: 2014-10-13 22:23-0500\n"
+"PO-Revision-Date: 2014-10-13 17:16+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -17,55 +17,55 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: settings.py:103
+#: settings.py:101
 msgid "Select format"
 msgstr "Wybierz format"
 
-#: settings.py:104
+#: settings.py:102
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:105
+#: settings.py:103
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:106
+#: settings.py:104
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:107
+#: settings.py:105
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:108
+#: settings.py:106
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:109
+#: settings.py:107
 msgid "Raw"
 msgstr "Nieprzetworzone"
 
-#: settings.py:110
+#: settings.py:108
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:111
+#: settings.py:109
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:112
+#: settings.py:110
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:296
 msgid "All TCP"
 msgstr "Wszystkie TCP"
 
-#: settings.py:304
+#: settings.py:302
 msgid "All UDP"
 msgstr "Wszystkie UDP"
 
-#: settings.py:310
+#: settings.py:308
 msgid "All ICMP"
 msgstr "Wszystkie ICMP"
 
@@ -452,15 +452,15 @@ msgstr "Administracja"
 #: dashboards/project/database_backups/workflows/create_backup.py:32
 #: dashboards/project/databases/tables.py:315
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
-#: dashboards/project/firewalls/forms.py:35
-#: dashboards/project/firewalls/forms.py:117
-#: dashboards/project/firewalls/forms.py:144
-#: dashboards/project/firewalls/tables.py:200
-#: dashboards/project/firewalls/tables.py:232
-#: dashboards/project/firewalls/tables.py:249
-#: dashboards/project/firewalls/workflows.py:32
-#: dashboards/project/firewalls/workflows.py:177
-#: dashboards/project/firewalls/workflows.py:234
+#: dashboards/project/firewalls/forms.py:33
+#: dashboards/project/firewalls/forms.py:98
+#: dashboards/project/firewalls/forms.py:125
+#: dashboards/project/firewalls/tables.py:198
+#: dashboards/project/firewalls/tables.py:230
+#: dashboards/project/firewalls/tables.py:247
+#: dashboards/project/firewalls/workflows.py:30
+#: dashboards/project/firewalls/workflows.py:175
+#: dashboards/project/firewalls/workflows.py:232
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -470,8 +470,8 @@ msgstr "Administracja"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
 #: dashboards/project/instances/workflows/update_instance.py:105
-#: dashboards/project/loadbalancers/forms.py:33
-#: dashboards/project/loadbalancers/forms.py:75
+#: dashboards/project/loadbalancers/forms.py:31
+#: dashboards/project/loadbalancers/forms.py:73
 #: dashboards/project/loadbalancers/tables.py:270
 #: dashboards/project/loadbalancers/workflows.py:36
 #: dashboards/project/loadbalancers/workflows.py:155
@@ -497,19 +497,19 @@ msgstr "Administracja"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: dashboards/project/volumes/volumes/tables.py:325
 #: dashboards/project/volumes/volumes/tables.py:354
-#: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:67
-#: dashboards/project/vpn/forms.py:138 dashboards/project/vpn/forms.py:209
-#: dashboards/project/vpn/tables.py:232 dashboards/project/vpn/tables.py:262
-#: dashboards/project/vpn/tables.py:282 dashboards/project/vpn/tables.py:300
-#: dashboards/project/vpn/workflows.py:27
-#: dashboards/project/vpn/workflows.py:112
-#: dashboards/project/vpn/workflows.py:211
-#: dashboards/project/vpn/workflows.py:308
+#: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
+#: dashboards/project/vpn/forms.py:136 dashboards/project/vpn/forms.py:207
+#: dashboards/project/vpn/tables.py:229 dashboards/project/vpn/tables.py:259
+#: dashboards/project/vpn/tables.py:279 dashboards/project/vpn/tables.py:297
+#: dashboards/project/vpn/workflows.py:25
+#: dashboards/project/vpn/workflows.py:110
+#: dashboards/project/vpn/workflows.py:209
+#: dashboards/project/vpn/workflows.py:306
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:7
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:7
-#: dashboards/router/nexus1000v/forms.py:50
+#: dashboards/router/nexus1000v/forms.py:47
 msgid "Name"
 msgstr "Nazwa"
 
@@ -814,20 +814,20 @@ msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
 #: dashboards/project/database_backups/workflows/create_backup.py:34
-#: dashboards/project/firewalls/forms.py:38
-#: dashboards/project/firewalls/forms.py:119
-#: dashboards/project/firewalls/forms.py:147
-#: dashboards/project/firewalls/workflows.py:36
-#: dashboards/project/firewalls/workflows.py:179
-#: dashboards/project/firewalls/workflows.py:237
+#: dashboards/project/firewalls/forms.py:36
+#: dashboards/project/firewalls/forms.py:100
+#: dashboards/project/firewalls/forms.py:128
+#: dashboards/project/firewalls/workflows.py:34
+#: dashboards/project/firewalls/workflows.py:177
+#: dashboards/project/firewalls/workflows.py:235
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:41
 #: dashboards/project/images/images/forms.py:194
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
-#: dashboards/project/loadbalancers/forms.py:38
-#: dashboards/project/loadbalancers/forms.py:80
+#: dashboards/project/loadbalancers/forms.py:36
+#: dashboards/project/loadbalancers/forms.py:78
 #: dashboards/project/loadbalancers/tables.py:272
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:158
@@ -846,12 +846,12 @@ msgstr "Błąd w trakcie dodawania lub usuwania hosta."
 #: dashboards/project/volumes/volumes/forms.py:474
 #: dashboards/project/volumes/volumes/forms.py:512
 #: dashboards/project/volumes/volumes/tables.py:328
-#: dashboards/project/vpn/forms.py:38 dashboards/project/vpn/forms.py:72
-#: dashboards/project/vpn/forms.py:143 dashboards/project/vpn/forms.py:213
-#: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:30
-#: dashboards/project/vpn/workflows.py:115
-#: dashboards/project/vpn/workflows.py:214
-#: dashboards/project/vpn/workflows.py:311
+#: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
+#: dashboards/project/vpn/forms.py:141 dashboards/project/vpn/forms.py:211
+#: dashboards/project/vpn/tables.py:261 dashboards/project/vpn/workflows.py:28
+#: dashboards/project/vpn/workflows.py:113
+#: dashboards/project/vpn/workflows.py:212
+#: dashboards/project/vpn/workflows.py:309
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
@@ -1101,7 +1101,7 @@ msgstr "Pływające adresy IP"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:493
+#: dashboards/project/instances/workflows/create_instance.py:490
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1279,7 +1279,7 @@ msgstr "Dysk swap"
 
 #: dashboards/admin/flavors/tables.py:135
 #: dashboards/admin/flavors/workflows.py:41
-#: dashboards/admin/networks/agents/tables.py:92
+#: dashboards/admin/networks/agents/tables.py:89
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
@@ -1301,10 +1301,10 @@ msgstr "Dysk swap"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:13
 #: dashboards/project/images/templates/images/images/_detail_overview.html:15
 #: dashboards/project/instances/templates/instances/_detail_overview.html:12
-#: dashboards/project/loadbalancers/forms.py:34
-#: dashboards/project/loadbalancers/forms.py:76
-#: dashboards/project/loadbalancers/forms.py:171
-#: dashboards/project/loadbalancers/forms.py:222
+#: dashboards/project/loadbalancers/forms.py:32
+#: dashboards/project/loadbalancers/forms.py:74
+#: dashboards/project/loadbalancers/forms.py:169
+#: dashboards/project/loadbalancers/forms.py:220
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
@@ -1319,13 +1319,13 @@ msgstr "Dysk swap"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:14
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:12
-#: dashboards/project/vpn/forms.py:35 dashboards/project/vpn/forms.py:69
-#: dashboards/project/vpn/forms.py:140 dashboards/project/vpn/forms.py:210
+#: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:67
+#: dashboards/project/vpn/forms.py:138 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:12
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:12
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:13
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:13
-#: dashboards/router/nexus1000v/forms.py:176
+#: dashboards/router/nexus1000v/forms.py:173
 msgid "ID"
 msgstr "ID"
 
@@ -1632,7 +1632,7 @@ msgstr[2] ""
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:134
-#: dashboards/admin/networks/agents/tables.py:93
+#: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/volumes/snapshots/tables.py:63
 #: dashboards/admin/volumes/volumes/tables.py:43
 #: dashboards/project/databases/tables.py:254
@@ -1654,7 +1654,7 @@ msgstr "Strefa"
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
 #: dashboards/admin/instances/tables.py:151
 #: dashboards/admin/networks/tables.py:95
-#: dashboards/admin/networks/agents/tables.py:94
+#: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/networks/ports/tables.py:97
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
@@ -1671,7 +1671,7 @@ msgstr "Strefa"
 #: dashboards/project/databases/tables.py:264
 #: dashboards/project/databases/tables.py:328
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
-#: dashboards/project/firewalls/tables.py:255
+#: dashboards/project/firewalls/tables.py:253
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:233
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1701,7 +1701,7 @@ msgstr "Strefa"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:335
-#: dashboards/project/vpn/tables.py:242 dashboards/project/vpn/tables.py:269
+#: dashboards/project/vpn/tables.py:239 dashboards/project/vpn/tables.py:266
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
@@ -1714,7 +1714,7 @@ msgid "State"
 msgstr "Stan"
 
 #: dashboards/admin/hypervisors/compute/tables.py:70
-#: dashboards/admin/networks/agents/tables.py:97
+#: dashboards/admin/networks/agents/tables.py:94
 msgid "Updated At"
 msgstr "Zaktualizowano"
 
@@ -1956,7 +1956,7 @@ msgid "System Information"
 msgstr "Informacje systemowe"
 
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:156
-#: dashboards/admin/networks/agents/tables.py:81
+#: dashboards/admin/networks/agents/tables.py:78
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
@@ -1965,16 +1965,16 @@ msgstr "Informacje systemowe"
 #: dashboards/identity/projects/workflows.py:131
 #: dashboards/identity/projects/workflows.py:490
 #: dashboards/identity/users/tables.py:178
-#: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/tables.py:218
-#: dashboards/project/firewalls/workflows.py:69
+#: dashboards/project/firewalls/forms.py:70
+#: dashboards/project/firewalls/tables.py:216
+#: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Enabled"
 msgstr "Włączone"
 
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:158
-#: dashboards/admin/networks/agents/tables.py:82
+#: dashboards/admin/networks/agents/tables.py:79
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "Wyłączone"
@@ -2004,12 +2004,12 @@ msgid "Block Storage Services"
 msgstr "Usługi przechowywania blokowego"
 
 #: dashboards/admin/info/tables.py:163
-#: dashboards/admin/networks/agents/tables.py:87
+#: dashboards/admin/networks/agents/tables.py:84
 msgid "Up"
 msgstr "Podniesiono"
 
 #: dashboards/admin/info/tables.py:165
-#: dashboards/admin/networks/agents/tables.py:88
+#: dashboards/admin/networks/agents/tables.py:85
 msgid "Down"
 msgstr "Położono"
 
@@ -2109,10 +2109,10 @@ msgstr "Migruj na żywo instancję"
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:151
 #: dashboards/project/instances/workflows/create_instance.py:50
-#: dashboards/router/nexus1000v/forms.py:121
-#: dashboards/router/nexus1000v/forms.py:179
-#: dashboards/router/nexus1000v/tables.py:76
-#: dashboards/router/nexus1000v/tables.py:98
+#: dashboards/router/nexus1000v/forms.py:118
+#: dashboards/router/nexus1000v/forms.py:176
+#: dashboards/router/nexus1000v/tables.py:73
+#: dashboards/router/nexus1000v/tables.py:95
 msgid "Project"
 msgstr "Projekt"
 
@@ -2336,7 +2336,7 @@ msgstr "Ostatni rok"
 
 #: dashboards/admin/metering/templates/metering/daily.html:16
 #: dashboards/admin/metering/templates/metering/stats.html:112
-#: dashboards/router/nexus1000v/forms.py:62
+#: dashboards/router/nexus1000v/forms.py:59
 msgid "Other"
 msgstr "Inne"
 
@@ -2463,9 +2463,9 @@ msgstr "Płaska"
 
 #: dashboards/admin/networks/forms.py:44
 #: dashboards/project/networks/workflows.py:43
-#: dashboards/router/nexus1000v/tables.py:75
-#: dashboards/router/nexus1000v/tables.py:90
-#: dashboards/router/nexus1000v/tabs.py:22
+#: dashboards/router/nexus1000v/tables.py:72
+#: dashboards/router/nexus1000v/tables.py:87
+#: dashboards/router/nexus1000v/tabs.py:19
 msgid "Network Profile"
 msgstr "Profil sieci"
 
@@ -2479,8 +2479,8 @@ msgstr "Fizyczny mechanizm, za pomocą którego jest zaimplementowana sieć wirt
 
 #: dashboards/admin/networks/forms.py:57 dashboards/admin/networks/forms.py:64
 #: dashboards/admin/networks/forms.py:65
-#: dashboards/router/nexus1000v/forms.py:114
-#: dashboards/router/nexus1000v/forms.py:120
+#: dashboards/router/nexus1000v/forms.py:111
+#: dashboards/router/nexus1000v/forms.py:117
 msgid "Physical Network"
 msgstr "Fizyczna sieć"
 
@@ -2498,17 +2498,17 @@ msgstr "ID segmentacji"
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:235
 #: dashboards/admin/networks/tables.py:97
-#: dashboards/admin/networks/agents/tables.py:95
+#: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:99
 #: dashboards/admin/routers/ports/tables.py:34
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
-#: dashboards/project/firewalls/forms.py:152
-#: dashboards/project/firewalls/workflows.py:245
-#: dashboards/project/loadbalancers/forms.py:42
-#: dashboards/project/loadbalancers/forms.py:97
-#: dashboards/project/loadbalancers/forms.py:180
-#: dashboards/project/loadbalancers/forms.py:242
+#: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/workflows.py:243
+#: dashboards/project/loadbalancers/forms.py:40
+#: dashboards/project/loadbalancers/forms.py:95
+#: dashboards/project/loadbalancers/forms.py:178
+#: dashboards/project/loadbalancers/forms.py:240
 #: dashboards/project/loadbalancers/workflows.py:48
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:346
@@ -2523,9 +2523,9 @@ msgstr "ID segmentacji"
 #: dashboards/project/routers/forms.py:88
 #: dashboards/project/routers/ports/tables.py:102
 #: dashboards/project/routers/templates/routers/_detail_overview.html:15
-#: dashboards/project/vpn/forms.py:41 dashboards/project/vpn/forms.py:263
-#: dashboards/project/vpn/workflows.py:35
-#: dashboards/project/vpn/workflows.py:421
+#: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:261
+#: dashboards/project/vpn/workflows.py:33
+#: dashboards/project/vpn/workflows.py:419
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:68
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:35
 msgid "Admin State"
@@ -2534,11 +2534,11 @@ msgstr "Stan administracyjny"
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/tables.py:93
-#: dashboards/project/firewalls/forms.py:68
-#: dashboards/project/firewalls/forms.py:120
-#: dashboards/project/firewalls/workflows.py:67
-#: dashboards/project/firewalls/workflows.py:181
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/forms.py:69
+#: dashboards/project/firewalls/forms.py:101
+#: dashboards/project/firewalls/workflows.py:65
+#: dashboards/project/firewalls/workflows.py:179
+#: dashboards/project/firewalls/workflows.py:238
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:136
@@ -2555,7 +2555,7 @@ msgid "External Network"
 msgstr "Zewnętrzna sieć"
 
 #: dashboards/admin/networks/forms.py:90 dashboards/identity/users/forms.py:58
-#: dashboards/router/nexus1000v/forms.py:32
+#: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr "Wybierz projekt"
 
@@ -2570,15 +2570,15 @@ msgid ""
 msgstr "VLAN VID fizycznej sieci realizującej sieć wirtualną, dla sieci VLAN. Poprawne VID VLAN to %(vlan_min)s do %(vlan_max)s. Dla sieci GRE lub VXLAN, należy podać ID tunelu. Poprawne ID tunelu dla sieci GRE to %(gre_min)s do %(gre_max)s, natomiast dla sieci VXLAN to %(vxlan_min)s do %(vxlan_max)s."
 
 #: dashboards/admin/networks/forms.py:142
-#: dashboards/project/instances/workflows/create_instance.py:691
+#: dashboards/project/instances/workflows/create_instance.py:688
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "Wybierz profil"
 
 #: dashboards/admin/networks/forms.py:152
-#: dashboards/project/instances/workflows/create_instance.py:701
+#: dashboards/project/instances/workflows/create_instance.py:698
 #: dashboards/project/networks/workflows.py:71
-#: dashboards/router/nexus1000v/views.py:55
+#: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
 msgstr "Nie można pobrać profili sieci"
 
@@ -2625,7 +2625,7 @@ msgstr "Błąd przy aktualizacji sieci %s"
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:644
+#: dashboards/project/instances/workflows/create_instance.py:641
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:144
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -2678,7 +2678,7 @@ msgid "Edit Network"
 msgstr "Edytuj sieć"
 
 #: dashboards/admin/networks/tables.py:87
-#: dashboards/admin/networks/agents/forms.py:35
+#: dashboards/admin/networks/agents/forms.py:32
 #: dashboards/admin/networks/ports/forms.py:33
 #: dashboards/project/networks/workflows.py:37
 msgid "Network Name"
@@ -2690,7 +2690,7 @@ msgid "Subnets Associated"
 msgstr "Powiązane podsieci"
 
 #: dashboards/admin/networks/tables.py:92
-#: dashboards/admin/networks/agents/tables.py:103
+#: dashboards/admin/networks/agents/tables.py:100
 msgid "DHCP Agents"
 msgstr "Agenci DHCP"
 
@@ -2716,7 +2716,7 @@ msgstr "Nie można pobrać listy sieci."
 
 #: dashboards/admin/networks/views.py:90
 #: dashboards/admin/networks/views.py:139
-#: dashboards/admin/networks/agents/forms.py:64
+#: dashboards/admin/networks/agents/forms.py:61
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Nie można pobrać listy agentów DHCP dla sieci."
 
@@ -2738,52 +2738,52 @@ msgstr "Nie można pobrać listy portów."
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Nie można pobrać szczegółów dla sieci „%s”."
 
-#: dashboards/admin/networks/agents/forms.py:38
+#: dashboards/admin/networks/agents/forms.py:35
 msgid "New DHCP Agent"
 msgstr "Nowy agent DHCP"
 
-#: dashboards/admin/networks/agents/forms.py:39
+#: dashboards/admin/networks/agents/forms.py:36
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Agent DHCP, do którego należy podpiąć sieć."
 
-#: dashboards/admin/networks/agents/forms.py:57
+#: dashboards/admin/networks/agents/forms.py:54
 msgid "Select a new agent"
 msgstr "Wybierz nowego agenta"
 
-#: dashboards/admin/networks/agents/forms.py:59
+#: dashboards/admin/networks/agents/forms.py:56
 msgid "No other agents available."
 msgstr "Brak dostępnych agentów."
 
-#: dashboards/admin/networks/agents/forms.py:76
+#: dashboards/admin/networks/agents/forms.py:73
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "Agent %s został dodany."
 
-#: dashboards/admin/networks/agents/forms.py:82
+#: dashboards/admin/networks/agents/forms.py:79
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Nie można dodać agenta %(agent_name)s dla sieci %(network)s."
 
-#: dashboards/admin/networks/agents/tables.py:39
+#: dashboards/admin/networks/agents/tables.py:36
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/admin/networks/agents/tables.py:47
+#: dashboards/admin/networks/agents/tables.py:44
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/admin/networks/agents/tables.py:60
+#: dashboards/admin/networks/agents/tables.py:57
 #, python-format
 msgid "Failed to delete agent: %s"
 msgstr "Nie udało się usunąć agenta %s"
 
-#: dashboards/admin/networks/agents/tables.py:69
+#: dashboards/admin/networks/agents/tables.py:66
 #: dashboards/admin/networks/templates/networks/agents/_add.html:9
 #: dashboards/admin/networks/templates/networks/agents/_add.html:24
 #: dashboards/admin/networks/templates/networks/agents/add.html:3
@@ -2791,13 +2791,13 @@ msgstr "Nie udało się usunąć agenta %s"
 msgid "Add DHCP Agent"
 msgstr "Dodaj agenta DHCP"
 
-#: dashboards/admin/networks/agents/views.py:59
+#: dashboards/admin/networks/agents/views.py:56
 #: dashboards/admin/networks/ports/views.py:48
 #: dashboards/project/networks/subnets/views.py:49
 msgid "Unable to retrieve network."
 msgstr "Nie można pobrać sieci."
 
-#: dashboards/admin/networks/agents/views.py:70
+#: dashboards/admin/networks/agents/views.py:67
 msgid "Unable to retrieve agent list."
 msgstr "Nie udało się pobrać listy agentów"
 
@@ -3162,8 +3162,8 @@ msgstr "Docelowy CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:24
 #: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:216
-#: dashboards/project/firewalls/workflows.py:45
+#: dashboards/project/firewalls/tables.py:214
+#: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
@@ -3410,7 +3410,7 @@ msgstr "Info"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:367
+#: dashboards/project/instances/workflows/create_instance.py:364
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:219
@@ -4411,7 +4411,7 @@ msgstr "Nazwa jest już zajęta."
 
 #: dashboards/identity/projects/views.py:58
 #: dashboards/identity/projects/views.py:103
-#: dashboards/router/nexus1000v/views.py:44
+#: dashboards/router/nexus1000v/views.py:41
 msgid "Unable to retrieve project information."
 msgstr "Nie można pobrać informacji o projekcie."
 
@@ -4649,7 +4649,7 @@ msgstr "Brak dostępnych projektów"
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:542
+#: dashboards/project/instances/workflows/create_instance.py:539
 #: dashboards/settings/password/forms.py:47
 msgid "Passwords do not match."
 msgstr "Hasła nie pasują"
@@ -4833,7 +4833,7 @@ msgid "Data Processing"
 msgstr "Przetwarzanie danych"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:500
+#: dashboards/project/instances/workflows/create_instance.py:497
 msgid "Access & Security"
 msgstr "Dostęp i bezpieczeństwo"
 
@@ -4895,8 +4895,8 @@ msgid "Error Downloading RC File: %s"
 msgstr "Błąd podczas pobierania pliku RC: %s"
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
-#: dashboards/project/loadbalancers/forms.py:81
-#: dashboards/project/loadbalancers/forms.py:174
+#: dashboards/project/loadbalancers/forms.py:79
+#: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/tables.py:310
 #: dashboards/project/loadbalancers/workflows.py:300
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
@@ -5366,13 +5366,13 @@ msgstr "Zarządzaj regułami"
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
-#: dashboards/project/firewalls/tables.py:28
-#: dashboards/project/firewalls/workflows.py:105
+#: dashboards/project/firewalls/tables.py:26
+#: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
 msgstr "Dodaj regułę"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:168
-#: dashboards/project/firewalls/tables.py:58
+#: dashboards/project/firewalls/tables.py:56
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] ""
@@ -5524,17 +5524,17 @@ msgstr "Należy podać źródło ruchu dozwolone przez tą regułę. Można to z
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
-#: dashboards/project/firewalls/workflows.py:106
-#: dashboards/project/firewalls/workflows.py:213
-#: dashboards/project/firewalls/workflows.py:291
+#: dashboards/project/firewalls/workflows.py:104
+#: dashboards/project/firewalls/workflows.py:211
+#: dashboards/project/firewalls/workflows.py:289
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:259
 #: dashboards/project/loadbalancers/workflows.py:425
 #: dashboards/project/loadbalancers/workflows.py:603
-#: dashboards/project/vpn/workflows.py:94
-#: dashboards/project/vpn/workflows.py:193
-#: dashboards/project/vpn/workflows.py:290
-#: dashboards/project/vpn/workflows.py:475
+#: dashboards/project/vpn/workflows.py:92
+#: dashboards/project/vpn/workflows.py:191
+#: dashboards/project/vpn/workflows.py:288
+#: dashboards/project/vpn/workflows.py:473
 msgid "Add"
 msgstr "Dodaj"
 
@@ -5603,8 +5603,8 @@ msgid "Unable to create container."
 msgstr "Nie można utworzyć kontenera."
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:569
-#: dashboards/project/stacks/forms.py:56
+#: dashboards/project/instances/workflows/create_instance.py:566
+#: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "Plik"
 
@@ -6265,7 +6265,7 @@ msgstr "Nazwa szablonu"
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:131
+#: dashboards/project/instances/workflows/create_instance.py:134
 #: dashboards/project/loadbalancers/tables.py:337
 msgid "Details"
 msgstr "Szczegóły"
@@ -6495,7 +6495,7 @@ msgstr "Obraz"
 #: dashboards/project/data_processing/data_image_registry/forms.py:71
 #: dashboards/project/instances/forms.py:38
 #: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:389
+#: dashboards/project/instances/workflows/create_instance.py:386
 msgid "Select Image"
 msgstr "Wybierz obraz"
 
@@ -6718,7 +6718,7 @@ msgstr "Przegląd źródła danych"
 #: dashboards/project/loadbalancers/workflows.py:525
 #: dashboards/project/loadbalancers/workflows.py:529
 #: dashboards/project/loadbalancers/workflows.py:530
-#: dashboards/project/stacks/forms.py:58
+#: dashboards/project/stacks/forms.py:59
 msgid "URL"
 msgstr "URL"
 
@@ -6834,11 +6834,11 @@ msgstr "Url"
 msgid "Unable to fetch job binary."
 msgstr "Nie można pobrać pliku binarnego zadania."
 
-#: dashboards/project/data_processing/job_binaries/views.py:51
+#: dashboards/project/data_processing/job_binaries/views.py:50
 msgid "Unable to fetch job binary list."
 msgstr "Nie można pobrać listy plików binarnych zadania."
 
-#: dashboards/project/data_processing/job_binaries/views.py:85
+#: dashboards/project/data_processing/job_binaries/views.py:84
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "Nie można pobrać pliku binarnego zadania: %(exc)s"
@@ -7276,7 +7276,7 @@ msgstr "Pozostaw klaster po zakończeniu zadania"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:785
+#: dashboards/project/instances/workflows/create_instance.py:782
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Uruchom"
@@ -7507,7 +7507,7 @@ msgstr "Nie można wypełnić procesów anti-affinity."
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:687
+#: dashboards/project/instances/workflows/create_instance.py:684
 msgid "Unable to retrieve networks."
 msgstr "Nie można pobrać sieci."
 
@@ -7715,14 +7715,14 @@ msgstr "Zaplanowano kopię zapasową „%(name)s”."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:787
+#: dashboards/project/instances/workflows/create_instance.py:784
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nie można uruchomić %(count)s nazwanych „%(name)s”."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:804
+#: dashboards/project/instances/workflows/create_instance.py:801
 msgid "instance"
 msgstr "instancja"
 
@@ -7811,7 +7811,7 @@ msgstr "Błąd podczas usuwania bazy danych na instancji."
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/instances/tables.py:303
 #: dashboards/project/instances/tables.py:331
-#: dashboards/project/instances/workflows/create_instance.py:784
+#: dashboards/project/instances/workflows/create_instance.py:781
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Uruchom instancję"
@@ -8088,22 +8088,22 @@ msgid "Select datastore type and version"
 msgstr "Wybór typu datastore oraz wersji"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:648
+#: dashboards/project/instances/workflows/create_instance.py:645
 msgid "At least one network must be specified."
 msgstr "Należy podać przynajmniej jedną sieć."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:650
+#: dashboards/project/instances/workflows/create_instance.py:647
 msgid "Launch instance with these networks"
 msgstr "Uruchom instancję z tymi sieciami"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:672
+#: dashboards/project/instances/workflows/create_instance.py:669
 msgid "Networking"
 msgstr "Sieć"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:674
+#: dashboards/project/instances/workflows/create_instance.py:671
 msgid "Select networks for your instance."
 msgstr "Wybierz sieci dla instancji"
 
@@ -8148,14 +8148,14 @@ msgid "Unable to find backup!"
 msgstr "Nie można znaleźć kopii zapasowej."
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:786
+#: dashboards/project/instances/workflows/create_instance.py:783
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Uruchomiono %(count)s nazwanych „%(name)s”."
 
-#: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:205
-#: dashboards/project/firewalls/workflows.py:39
+#: dashboards/project/firewalls/forms.py:38
+#: dashboards/project/firewalls/tables.py:203
+#: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:276
 #: dashboards/project/loadbalancers/workflows.py:44
@@ -8165,69 +8165,25 @@ msgstr "Uruchomiono %(count)s nazwanych „%(name)s”."
 msgid "Protocol"
 msgstr "Protokół"
 
-#: dashboards/project/firewalls/forms.py:41
-msgid "Protocol for the firewall rule"
-msgstr "Protokół reguły zapory ogniowej"
-
-#: dashboards/project/firewalls/forms.py:44
-msgid "Action for the firewall rule"
-msgstr "Akcja dla reguły zapory ogniowej"
-
-#: dashboards/project/firewalls/forms.py:46
-#: dashboards/project/firewalls/workflows.py:49
-msgid "Source IP Address/Subnet"
-msgstr "Źródłowy adres IP/podsieć"
-
-#: dashboards/project/firewalls/forms.py:49
-msgid "Source IP address or subnet"
-msgstr "Źródłowy adres IP lub podsieć"
-
-#: dashboards/project/firewalls/forms.py:51
-#: dashboards/project/firewalls/workflows.py:53
-msgid "Destination IP Address/Subnet"
-msgstr "Docelowy adres IP/podsieć"
-
-#: dashboards/project/firewalls/forms.py:54
-msgid "Destination IP address or subnet"
-msgstr "Docelowy adres IP lub podsieć"
-
-#: dashboards/project/firewalls/forms.py:57
-#: dashboards/project/firewalls/workflows.py:58
-msgid "Source Port/Port Range"
-msgstr "Port źródłowy/zakres portów"
-
-#: dashboards/project/firewalls/forms.py:60
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "Port źródłowy (liczba całkowita z przedziału [1, 65535] lub zakres w formacie a:b)"
-
-#: dashboards/project/firewalls/forms.py:63
-#: dashboards/project/firewalls/workflows.py:63
-msgid "Destination Port/Port Range"
-msgstr "Port docelowy/zakres portów"
-
-#: dashboards/project/firewalls/forms.py:66
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "Port docelowy (liczba całkowita z przedziału [1, 65535] lub zakres w formacie a:b)"
-
-#: dashboards/project/firewalls/forms.py:81
-#: dashboards/project/firewalls/workflows.py:40
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/workflows.py:38
 #: dashboards/project/loadbalancers/workflows.py:487
 msgid "TCP"
 msgstr "TCP"
 
-#: dashboards/project/firewalls/forms.py:81
-#: dashboards/project/firewalls/workflows.py:41
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/workflows.py:39
 msgid "UDP"
 msgstr "UDP"
 
-#: dashboards/project/firewalls/forms.py:81
-#: dashboards/project/firewalls/workflows.py:42
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/workflows.py:40
 msgid "ICMP"
 msgstr "ICMP"
 
-#: dashboards/project/firewalls/forms.py:82
-#: dashboards/project/firewalls/tables.py:203
-#: dashboards/project/firewalls/workflows.py:43
+#: dashboards/project/firewalls/forms.py:40
+#: dashboards/project/firewalls/tables.py:201
+#: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:29
@@ -8236,379 +8192,423 @@ msgstr "ICMP"
 msgid "ANY"
 msgstr "DOWOLNY"
 
-#: dashboards/project/firewalls/forms.py:88
-#: dashboards/project/firewalls/workflows.py:46
+#: dashboards/project/firewalls/forms.py:41
+msgid "Protocol for the firewall rule"
+msgstr "Protokół reguły zapory ogniowej"
+
+#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/workflows.py:44
 msgid "ALLOW"
 msgstr "ZEZWÓL"
 
-#: dashboards/project/firewalls/forms.py:88
-#: dashboards/project/firewalls/workflows.py:47
+#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/workflows.py:45
 msgid "DENY"
 msgstr "ODRZUĆ"
 
-#: dashboards/project/firewalls/forms.py:104
+#: dashboards/project/firewalls/forms.py:45
+msgid "Action for the firewall rule"
+msgstr "Akcja dla reguły zapory ogniowej"
+
+#: dashboards/project/firewalls/forms.py:47
+#: dashboards/project/firewalls/workflows.py:47
+msgid "Source IP Address/Subnet"
+msgstr "Źródłowy adres IP/podsieć"
+
+#: dashboards/project/firewalls/forms.py:50
+msgid "Source IP address or subnet"
+msgstr "Źródłowy adres IP lub podsieć"
+
+#: dashboards/project/firewalls/forms.py:52
+#: dashboards/project/firewalls/workflows.py:51
+msgid "Destination IP Address/Subnet"
+msgstr "Docelowy adres IP/podsieć"
+
+#: dashboards/project/firewalls/forms.py:55
+msgid "Destination IP address or subnet"
+msgstr "Docelowy adres IP lub podsieć"
+
+#: dashboards/project/firewalls/forms.py:58
+#: dashboards/project/firewalls/workflows.py:56
+msgid "Source Port/Port Range"
+msgstr "Port źródłowy/zakres portów"
+
+#: dashboards/project/firewalls/forms.py:61
+msgid "Source port (integer in [1, 65535] or range in a:b)"
+msgstr "Port źródłowy (liczba całkowita z przedziału [1, 65535] lub zakres w formacie a:b)"
+
+#: dashboards/project/firewalls/forms.py:64
+#: dashboards/project/firewalls/workflows.py:61
+msgid "Destination Port/Port Range"
+msgstr "Port docelowy/zakres portów"
+
+#: dashboards/project/firewalls/forms.py:67
+msgid "Destination port (integer in [1, 65535] or range in a:b)"
+msgstr "Port docelowy (liczba całkowita z przedziału [1, 65535] lub zakres w formacie a:b)"
+
+#: dashboards/project/firewalls/forms.py:85
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "Zaktualizowano regułę %s"
 
-#: dashboards/project/firewalls/forms.py:109
+#: dashboards/project/firewalls/forms.py:90
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "Nie można zaktualizować reguły %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:121
-#: dashboards/project/firewalls/tables.py:237
-#: dashboards/project/firewalls/workflows.py:184
+#: dashboards/project/firewalls/forms.py:102
+#: dashboards/project/firewalls/tables.py:235
+#: dashboards/project/firewalls/workflows.py:182
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr "Audytowany"
 
-#: dashboards/project/firewalls/forms.py:130
+#: dashboards/project/firewalls/forms.py:111
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "Zaktualizowano zasadę %s."
 
-#: dashboards/project/firewalls/forms.py:135
+#: dashboards/project/firewalls/forms.py:116
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Nie można zaktualizować zasady %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:149
-#: dashboards/project/firewalls/tables.py:253
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/forms.py:130
+#: dashboards/project/firewalls/tables.py:251
+#: dashboards/project/firewalls/workflows.py:237
 msgid "Policy"
 msgstr "Zasada"
 
-#: dashboards/project/firewalls/forms.py:165
+#: dashboards/project/firewalls/forms.py:146
 msgid "Unable to retrieve policy list."
 msgstr "Nie można pobrać listy zasad."
 
-#: dashboards/project/firewalls/forms.py:186
+#: dashboards/project/firewalls/forms.py:167
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "Zaktualizowano zaporę ogniową %s."
 
-#: dashboards/project/firewalls/forms.py:191
+#: dashboards/project/firewalls/forms.py:172
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Nie można zaktualizować zapory ogniowej %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:199
-#: dashboards/project/firewalls/tables.py:158
+#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/tables.py:156
 msgid "Insert Rule"
 msgstr "Dodaj regułę"
 
-#: dashboards/project/firewalls/forms.py:200
+#: dashboards/project/firewalls/forms.py:181
 msgid "Before"
 msgstr "Przed"
 
-#: dashboards/project/firewalls/forms.py:202
+#: dashboards/project/firewalls/forms.py:183
 msgid "After"
 msgstr "Po"
 
-#: dashboards/project/firewalls/forms.py:229
+#: dashboards/project/firewalls/forms.py:210
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "Nie można pobrać dostępnych reguł: %s"
 
-#: dashboards/project/firewalls/forms.py:248
+#: dashboards/project/firewalls/forms.py:229
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr "Poprawnie dodano regułę %(rule)s do zasady %(policy)s."
 
-#: dashboards/project/firewalls/forms.py:256
+#: dashboards/project/firewalls/forms.py:237
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Nie można dodać reguły do zasady %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:264
-#: dashboards/project/firewalls/tables.py:172
+#: dashboards/project/firewalls/forms.py:245
+#: dashboards/project/firewalls/tables.py:170
 msgid "Remove Rule"
 msgstr "Usuń regułę"
 
-#: dashboards/project/firewalls/forms.py:284
+#: dashboards/project/firewalls/forms.py:265
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Nie można pobrać bieżących reguł w zasadach %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:300
+#: dashboards/project/firewalls/forms.py:281
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr "Usunięto regułę %(rule)s z zasady %(policy)s."
 
-#: dashboards/project/firewalls/forms.py:308
+#: dashboards/project/firewalls/forms.py:289
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Nie można usunąć reguły z zasady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:22
-#: dashboards/project/firewalls/tables.py:259
-#: dashboards/project/firewalls/tabs.py:75
+#: dashboards/project/firewalls/tables.py:257
+#: dashboards/project/firewalls/tabs.py:73
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "Zapory ogniowe"
 
-#: dashboards/project/firewalls/tables.py:37
-#: dashboards/project/firewalls/workflows.py:212
+#: dashboards/project/firewalls/tables.py:35
+#: dashboards/project/firewalls/workflows.py:210
 msgid "Add Policy"
 msgstr "Dodaj zasadę"
 
-#: dashboards/project/firewalls/tables.py:45
+#: dashboards/project/firewalls/tables.py:43
 msgid "Create Firewall"
 msgstr "Utwórz zaporę ogniową"
 
-#: dashboards/project/firewalls/tables.py:66
+#: dashboards/project/firewalls/tables.py:64
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/firewalls/tables.py:78
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:88
+#: dashboards/project/firewalls/tables.py:86
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:103
+#: dashboards/project/firewalls/tables.py:101
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:111
+#: dashboards/project/firewalls/tables.py:109
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:121
+#: dashboards/project/firewalls/tables.py:119
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "Edycja reguły"
 
-#: dashboards/project/firewalls/tables.py:133
+#: dashboards/project/firewalls/tables.py:131
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "Edytuj zasadę"
 
-#: dashboards/project/firewalls/tables.py:145
+#: dashboards/project/firewalls/tables.py:143
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "Edytuj zaporę ogniową"
 
-#: dashboards/project/firewalls/tables.py:207
+#: dashboards/project/firewalls/tables.py:205
 msgid "Source IP"
 msgstr "IP źródłowe"
 
-#: dashboards/project/firewalls/tables.py:209
+#: dashboards/project/firewalls/tables.py:207
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "Port źródłowy"
 
-#: dashboards/project/firewalls/tables.py:211
+#: dashboards/project/firewalls/tables.py:209
 msgid "Destination IP"
 msgstr "IP docelowe"
 
-#: dashboards/project/firewalls/tables.py:213
+#: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "Port docelowy"
 
-#: dashboards/project/firewalls/tables.py:221
+#: dashboards/project/firewalls/tables.py:219
 msgid "In Policy"
 msgstr "W zasadzie"
 
-#: dashboards/project/firewalls/tables.py:225
-#: dashboards/project/firewalls/tables.py:235
-#: dashboards/project/firewalls/workflows.py:133
-#: dashboards/project/firewalls/workflows.py:139
+#: dashboards/project/firewalls/tables.py:223
+#: dashboards/project/firewalls/tables.py:233
+#: dashboards/project/firewalls/workflows.py:131
+#: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr "Reguły"
 
-#: dashboards/project/firewalls/tables.py:241
+#: dashboards/project/firewalls/tables.py:239
 msgid "Policies"
 msgstr "Zasady"
 
-#: dashboards/project/firewalls/tabs.py:33
+#: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
 msgstr "Reguły zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:45
+#: dashboards/project/firewalls/tabs.py:43
 msgid "Unable to retrieve rules list."
 msgstr "Nie można pobrać listy reguł."
 
-#: dashboards/project/firewalls/tabs.py:54
+#: dashboards/project/firewalls/tabs.py:52
 msgid "Firewall Policies"
 msgstr "Zasady zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:66
+#: dashboards/project/firewalls/tabs.py:64
 msgid "Unable to retrieve policies list."
 msgstr "Nie można pobrać listy zasad."
 
-#: dashboards/project/firewalls/tabs.py:87
+#: dashboards/project/firewalls/tabs.py:85
 msgid "Unable to retrieve firewall list."
 msgstr "Nie można pobrać listy zapór ogniowych."
 
-#: dashboards/project/firewalls/tabs.py:96
+#: dashboards/project/firewalls/tabs.py:94
 msgid "Firewall Rule Details"
 msgstr "Szczegóły reguły zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:107
-#: dashboards/project/firewalls/views.py:144
+#: dashboards/project/firewalls/tabs.py:105
+#: dashboards/project/firewalls/views.py:142
 msgid "Unable to retrieve rule details."
 msgstr "Nie można pobrać szczegółów reguły."
 
-#: dashboards/project/firewalls/tabs.py:113
+#: dashboards/project/firewalls/tabs.py:111
 msgid "Firewall Policy Details"
 msgstr "Szczegóły zasad zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:124
-#: dashboards/project/firewalls/views.py:176
-#: dashboards/project/firewalls/views.py:242
-#: dashboards/project/firewalls/views.py:276
+#: dashboards/project/firewalls/tabs.py:122
+#: dashboards/project/firewalls/views.py:177
+#: dashboards/project/firewalls/views.py:243
+#: dashboards/project/firewalls/views.py:277
 msgid "Unable to retrieve policy details."
 msgstr "Nie można pobrać szczegółów zasady."
 
-#: dashboards/project/firewalls/tabs.py:130
+#: dashboards/project/firewalls/tabs.py:128
 msgid "Firewall Details"
 msgstr "Szczegóły zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:141
-#: dashboards/project/firewalls/views.py:209
+#: dashboards/project/firewalls/tabs.py:139
+#: dashboards/project/firewalls/views.py:210
 msgid "Unable to retrieve firewall details."
 msgstr "Nie można pobrać szczegółów zapory ogniowej."
 
-#: dashboards/project/firewalls/views.py:67
+#: dashboards/project/firewalls/views.py:65
 #, python-format
 msgid "Deleted rule %s"
 msgstr "Usunięto regułę %s"
 
-#: dashboards/project/firewalls/views.py:70
+#: dashboards/project/firewalls/views.py:68
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr "Nie można usunąć reguły. %s"
 
-#: dashboards/project/firewalls/views.py:75
+#: dashboards/project/firewalls/views.py:73
 #, python-format
 msgid "Deleted policy %s"
 msgstr "Usunięto politykę %s"
 
-#: dashboards/project/firewalls/views.py:78
+#: dashboards/project/firewalls/views.py:76
 #, python-format
 msgid "Unable to delete policy. %s"
 msgstr "Nie można usunąć zasady. %s"
 
-#: dashboards/project/firewalls/views.py:84
+#: dashboards/project/firewalls/views.py:82
 #, python-format
 msgid "Deleted firewall %s"
 msgstr "Usunięto zaporę ogniową %s"
 
-#: dashboards/project/firewalls/views.py:87
+#: dashboards/project/firewalls/views.py:85
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "Nie można usunąć zapory ogniowej. %s"
 
-#: dashboards/project/firewalls/workflows.py:75
+#: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
 msgstr "Dodanie reguły"
 
-#: dashboards/project/firewalls/workflows.py:77
+#: dashboards/project/firewalls/workflows.py:75
 msgid ""
 "Create a firewall rule.\n"
 "\n"
 "Protocol and action must be specified. Other fields are optional."
 msgstr "Tworzenie reguły zapory ogniowej.\n\nWymagane są pole protokół i akcja. Pozostałe pola są opcjonalne."
 
-#: dashboards/project/firewalls/workflows.py:107
+#: dashboards/project/firewalls/workflows.py:105
 #, python-format
 msgid "Added Rule \"%s\"."
 msgstr "Dodano regułę „%s”."
 
-#: dashboards/project/firewalls/workflows.py:108
+#: dashboards/project/firewalls/workflows.py:106
 #, python-format
 msgid "Unable to add Rule \"%s\"."
 msgstr "Nie można dodać reguły „%s”."
 
-#: dashboards/project/firewalls/workflows.py:136
+#: dashboards/project/firewalls/workflows.py:134
 msgid "Create a policy with selected rules."
 msgstr "Tworzy zasadę z wybranymi regułami."
 
-#: dashboards/project/firewalls/workflows.py:141
+#: dashboards/project/firewalls/workflows.py:139
 msgid "Select rules for your policy."
 msgstr "Wybór reguł dla zasad."
 
-#: dashboards/project/firewalls/workflows.py:156
+#: dashboards/project/firewalls/workflows.py:154
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "Nie można pobrać reguł (%(error)s)."
 
-#: dashboards/project/firewalls/workflows.py:192
+#: dashboards/project/firewalls/workflows.py:190
 msgid "AddPolicy"
 msgstr "Dodanie zasady"
 
-#: dashboards/project/firewalls/workflows.py:194
+#: dashboards/project/firewalls/workflows.py:192
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
 msgstr "Pozwala na utworzenie zasady zapory ogniowej z uporządkowaną listą reguł.\n\nMusi być podana jej nazwa. Reguły zapory ogniowej są dodawane w kolejności umieszczenia ich w zakładce Reguły."
 
-#: dashboards/project/firewalls/workflows.py:214
+#: dashboards/project/firewalls/workflows.py:212
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr "Dodano zasadę „%s”."
 
-#: dashboards/project/firewalls/workflows.py:215
+#: dashboards/project/firewalls/workflows.py:213
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr "Nie można dodać zasady „%s”."
 
-#: dashboards/project/firewalls/workflows.py:250
+#: dashboards/project/firewalls/workflows.py:248
 msgid "Select a Policy"
 msgstr "Wybór zasady"
 
-#: dashboards/project/firewalls/workflows.py:258
+#: dashboards/project/firewalls/workflows.py:256
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr "Nie można pobrać listy zasad (%(error)s)."
 
-#: dashboards/project/firewalls/workflows.py:270
+#: dashboards/project/firewalls/workflows.py:268
 msgid "AddFirewall"
 msgstr "Dodanie zapory ogniowej"
 
-#: dashboards/project/firewalls/workflows.py:272
+#: dashboards/project/firewalls/workflows.py:270
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr "Pozwala utworzyć zaporę ogniową na bazie zasad.\n\nNależy wybrać zasadę. Pozostałe pola nie są wymagane."
 
-#: dashboards/project/firewalls/workflows.py:290
+#: dashboards/project/firewalls/workflows.py:288
 msgid "Add Firewall"
 msgstr "Dodaj zaporę ogniową"
 
-#: dashboards/project/firewalls/workflows.py:292
+#: dashboards/project/firewalls/workflows.py:290
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Dodano zaporę ogniową „%s”."
 
-#: dashboards/project/firewalls/workflows.py:293
+#: dashboards/project/firewalls/workflows.py:291
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "Nie można dodać zapory ogniowej „%s”."
@@ -9001,28 +9001,28 @@ msgid "Confirm Rebuild Password"
 msgstr "Potwierdź hasło do przebudowania"
 
 #: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:732
+#: dashboards/project/instances/workflows/create_instance.py:729
 msgid "Disk Partition"
 msgstr "Partycjonowanie dysku"
 
 #: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:391
+#: dashboards/project/instances/workflows/create_instance.py:388
 msgid "No images available"
 msgstr "Brak dostępnych obrazów."
 
 #: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:749
+#: dashboards/project/instances/workflows/create_instance.py:746
 msgid "Automatic"
 msgstr "Automatyczne"
 
 #: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:750
+#: dashboards/project/instances/workflows/create_instance.py:747
 msgid "Manual"
 msgstr "Ręczne"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:155
-#: dashboards/project/instances/workflows/create_instance.py:759
+#: dashboards/project/instances/workflows/create_instance.py:158
+#: dashboards/project/instances/workflows/create_instance.py:756
 msgid "Unable to retrieve extensions information."
 msgstr "Nie można pobrać informacji o rozszerzeniach."
 
@@ -9584,7 +9584,7 @@ msgid "Building"
 msgstr "Budowanie"
 
 #: dashboards/project/instances/tables.py:894
-#: dashboards/project/instances/workflows/create_instance.py:478
+#: dashboards/project/instances/workflows/create_instance.py:475
 msgid "Key Pair"
 msgstr "Para kluczy"
 
@@ -9914,42 +9914,44 @@ msgid "Device Name"
 msgstr "Nazwa urządzenia"
 
 #: dashboards/project/instances/workflows/create_instance.py:121
-msgid "Volume mount point (e.g. 'vda' mounts at '/dev/vda')."
-msgstr "Punkt montowania wolumenu (np. \"vda\" zostanie zamontowane jako „/dev/vda”)."
+msgid ""
+"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank"
+" to let the system choose a device name for you."
+msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:124
+#: dashboards/project/instances/workflows/create_instance.py:127
 msgid "Delete on Terminate"
 msgstr "Usuń podczas niszczenia"
 
-#: dashboards/project/instances/workflows/create_instance.py:127
+#: dashboards/project/instances/workflows/create_instance.py:130
 msgid "Delete volume on instance terminate"
 msgstr "Usuwa wolumen podczas niszczenia instancji"
 
-#: dashboards/project/instances/workflows/create_instance.py:142
+#: dashboards/project/instances/workflows/create_instance.py:145
 msgid "Select source"
 msgstr "Wybierz źródło"
 
-#: dashboards/project/instances/workflows/create_instance.py:143
+#: dashboards/project/instances/workflows/create_instance.py:146
 msgid "Boot from image"
 msgstr "Uruchom z obrazu"
 
-#: dashboards/project/instances/workflows/create_instance.py:144
+#: dashboards/project/instances/workflows/create_instance.py:147
 msgid "Boot from snapshot"
 msgstr "Uruchom z migawki"
 
-#: dashboards/project/instances/workflows/create_instance.py:147
+#: dashboards/project/instances/workflows/create_instance.py:150
 msgid "Boot from volume"
 msgstr "Bootuj z wolumenu"
 
-#: dashboards/project/instances/workflows/create_instance.py:153
+#: dashboards/project/instances/workflows/create_instance.py:156
 msgid "Boot from image (creates a new volume)"
 msgstr "Uruchom z obrazu (tworzy nowy wolumen)"
 
-#: dashboards/project/instances/workflows/create_instance.py:159
+#: dashboards/project/instances/workflows/create_instance.py:162
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "Uruchom z migawki wolumenu (tworzy nowy wolumen)"
 
-#: dashboards/project/instances/workflows/create_instance.py:170
+#: dashboards/project/instances/workflows/create_instance.py:173
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -9961,35 +9963,30 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/instances/workflows/create_instance.py:197
+#: dashboards/project/instances/workflows/create_instance.py:200
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "Rdzenie (Dostępne: %(avail)s, Żądane: %(req)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:204
+#: dashboards/project/instances/workflows/create_instance.py:207
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM (Dostępna: %(avail)s, Żądana: %(req)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:211
+#: dashboards/project/instances/workflows/create_instance.py:214
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr "Nie można uruchomić żądanej instancji. Następujące limit/y zostały przekroczony/e: %s."
 
-#: dashboards/project/instances/workflows/create_instance.py:226
+#: dashboards/project/instances/workflows/create_instance.py:229
 msgid "You must set volume size"
 msgstr "Należy ustawić rozmiar wolumenu"
 
-#: dashboards/project/instances/workflows/create_instance.py:229
+#: dashboards/project/instances/workflows/create_instance.py:232
 msgid "Volume size must be greater than 0"
 msgstr "Rozmiar wolumenu musi być większy od 0"
-
-#: dashboards/project/instances/workflows/create_instance.py:232
-#: dashboards/project/instances/workflows/create_instance.py:306
-msgid "You must set device name"
-msgstr "Należy ustawić nazwę urządzenia"
 
 #: dashboards/project/instances/workflows/create_instance.py:235
 msgid "You must select an image."
@@ -10024,182 +10021,182 @@ msgid ""
 "snapshots."
 msgstr "Uruchamianie wielu instancji jest wspierane wyłącznie dla obrazów i migawek instancji."
 
-#: dashboards/project/instances/workflows/create_instance.py:323
+#: dashboards/project/instances/workflows/create_instance.py:320
 #: dashboards/project/volumes/volumes/forms.py:271
 msgid "Unable to retrieve availability zones."
 msgstr "Nie można pobrać stref dostępności."
 
-#: dashboards/project/instances/workflows/create_instance.py:329
+#: dashboards/project/instances/workflows/create_instance.py:326
 #: dashboards/project/volumes/volumes/forms.py:274
 msgid "No availability zones found"
 msgstr "Nie znaleziono stref dostępności"
 
-#: dashboards/project/instances/workflows/create_instance.py:331
+#: dashboards/project/instances/workflows/create_instance.py:328
 #: dashboards/project/volumes/volumes/forms.py:276
 msgid "Any Availability Zone"
 msgstr "Dowolna strefa dostępności"
 
-#: dashboards/project/instances/workflows/create_instance.py:354
+#: dashboards/project/instances/workflows/create_instance.py:351
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "Nie można pobrać informacji o limitach."
 
-#: dashboards/project/instances/workflows/create_instance.py:364
+#: dashboards/project/instances/workflows/create_instance.py:361
 #: dashboards/project/volumes/volumes/forms.py:194
 msgid "Snapshot"
 msgstr "Migawka"
 
-#: dashboards/project/instances/workflows/create_instance.py:369
+#: dashboards/project/instances/workflows/create_instance.py:366
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:403
+#: dashboards/project/instances/workflows/create_instance.py:400
 msgid "Select Instance Snapshot"
 msgstr "Wybierz migawkę instancji"
 
-#: dashboards/project/instances/workflows/create_instance.py:405
+#: dashboards/project/instances/workflows/create_instance.py:402
 msgid "No snapshots available"
 msgstr "Brak dostępnych migawek"
 
-#: dashboards/project/instances/workflows/create_instance.py:417
+#: dashboards/project/instances/workflows/create_instance.py:414
 #: dashboards/project/volumes/volumes/forms.py:289
 msgid "Unable to retrieve list of volumes."
 msgstr "Nie można pobrać listy wolumenów."
 
-#: dashboards/project/instances/workflows/create_instance.py:419
+#: dashboards/project/instances/workflows/create_instance.py:416
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "Wybierz wolumen"
 
-#: dashboards/project/instances/workflows/create_instance.py:421
+#: dashboards/project/instances/workflows/create_instance.py:418
 msgid "No volumes available"
 msgstr "Brak dostępnych wolumenów"
 
-#: dashboards/project/instances/workflows/create_instance.py:432
+#: dashboards/project/instances/workflows/create_instance.py:429
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Nie można pobrać listy migawek wolumenu."
 
-#: dashboards/project/instances/workflows/create_instance.py:435
+#: dashboards/project/instances/workflows/create_instance.py:432
 msgid "Select Volume Snapshot"
 msgstr "Wybierz migawkę wolumenu"
 
-#: dashboards/project/instances/workflows/create_instance.py:437
+#: dashboards/project/instances/workflows/create_instance.py:434
 msgid "No volume snapshots available"
 msgstr "Brak dostępnych migawek wolumenów"
 
-#: dashboards/project/instances/workflows/create_instance.py:480
+#: dashboards/project/instances/workflows/create_instance.py:477
 msgid "Key pair to use for authentication."
 msgstr "Para kluczy, która będzie użyta do autentykacji."
 
-#: dashboards/project/instances/workflows/create_instance.py:484
+#: dashboards/project/instances/workflows/create_instance.py:481
 msgid "Admin Pass"
 msgstr "Hasło administracyjne"
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:487
 msgid "Confirm Admin Pass"
 msgstr "Potwierdź hasło administracyjne"
 
-#: dashboards/project/instances/workflows/create_instance.py:496
+#: dashboards/project/instances/workflows/create_instance.py:493
 msgid "Launch instance in these security groups."
 msgstr "Uruchom instancję w podanych grupach zabezpieczeń."
 
-#: dashboards/project/instances/workflows/create_instance.py:501
+#: dashboards/project/instances/workflows/create_instance.py:498
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "Zarządzanie dostępem do instancji za pomocą par kluczy, grup zabezpieczeń i innych mechanizmów."
 
-#: dashboards/project/instances/workflows/create_instance.py:517
+#: dashboards/project/instances/workflows/create_instance.py:514
 msgid "Unable to retrieve key pairs."
 msgstr "Nie można pobrać pary kluczy."
 
-#: dashboards/project/instances/workflows/create_instance.py:521
+#: dashboards/project/instances/workflows/create_instance.py:518
 msgid "Select a key pair"
 msgstr "Wybierz parę kluczy"
 
-#: dashboards/project/instances/workflows/create_instance.py:523
+#: dashboards/project/instances/workflows/create_instance.py:520
 msgid "No key pairs available"
 msgstr "Brak dostępnych par kluczy"
 
-#: dashboards/project/instances/workflows/create_instance.py:532
+#: dashboards/project/instances/workflows/create_instance.py:529
 msgid "Unable to retrieve list of security groups"
 msgstr "Nie można pobrać listy grup zabezpieczeń"
 
-#: dashboards/project/instances/workflows/create_instance.py:564
+#: dashboards/project/instances/workflows/create_instance.py:561
 msgid "Post-Creation"
 msgstr "Po uruchomieniu"
 
-#: dashboards/project/instances/workflows/create_instance.py:568
-#: dashboards/project/stacks/forms.py:57
+#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "Bezpośrednio"
 
-#: dashboards/project/instances/workflows/create_instance.py:572
+#: dashboards/project/instances/workflows/create_instance.py:569
 msgid "Customization Script Source"
 msgstr "Źródło skryptu dostosowującego"
 
-#: dashboards/project/instances/workflows/create_instance.py:576
+#: dashboards/project/instances/workflows/create_instance.py:573
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Skrypt lub zestaw poleceń, który należy wykonać po zbudowaniu instancji (maks. 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:580
-#: dashboards/project/instances/workflows/create_instance.py:585
+#: dashboards/project/instances/workflows/create_instance.py:577
+#: dashboards/project/instances/workflows/create_instance.py:582
 msgid "Script File"
 msgstr "Plik skryptu"
 
-#: dashboards/project/instances/workflows/create_instance.py:589
-#: dashboards/project/instances/workflows/create_instance.py:594
+#: dashboards/project/instances/workflows/create_instance.py:586
+#: dashboards/project/instances/workflows/create_instance.py:591
 msgid "Script Data"
 msgstr "Dane skryptu"
 
-#: dashboards/project/instances/workflows/create_instance.py:621
+#: dashboards/project/instances/workflows/create_instance.py:618
 msgid "File exceeds maximum size (16kb)"
 msgstr "Plik przekracza dozwolony rozmiar (16kb)"
 
-#: dashboards/project/instances/workflows/create_instance.py:629
-#: dashboards/project/stacks/forms.py:186
+#: dashboards/project/instances/workflows/create_instance.py:626
+#: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Wystąpił problem podczas przetwarzania %(prefix)s: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:656
+#: dashboards/project/instances/workflows/create_instance.py:653
 msgid "Policy Profiles"
 msgstr "Profile zasad"
 
-#: dashboards/project/instances/workflows/create_instance.py:659
+#: dashboards/project/instances/workflows/create_instance.py:656
 msgid "Launch instance with this policy profile"
 msgstr "Uruchom instancję z tym profilem zasad"
 
-#: dashboards/project/instances/workflows/create_instance.py:733
+#: dashboards/project/instances/workflows/create_instance.py:730
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "Automatyczne: Cały dysk jest jedną partycją i zmienia rozmiar automatycznie.\nRęczne: Pozwala na krótsze czasy budowania, jednakże wymaga ręcznego partycjonowania."
 
-#: dashboards/project/instances/workflows/create_instance.py:736
+#: dashboards/project/instances/workflows/create_instance.py:733
 msgid "Configuration Drive"
 msgstr "Dysk konfiguracyjny"
 
-#: dashboards/project/instances/workflows/create_instance.py:737
+#: dashboards/project/instances/workflows/create_instance.py:734
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "Pozwala skonfigurować OpenStack by zapisywał metadane do specjalnego dysku konfiguracyjnego, który jest dołączany do instancji podczas uruchamiania."
 
-#: dashboards/project/instances/workflows/create_instance.py:763
+#: dashboards/project/instances/workflows/create_instance.py:760
 msgid "Advanced Options"
 msgstr "Ustawienia zaawansowane"
 
-#: dashboards/project/instances/workflows/create_instance.py:801
+#: dashboards/project/instances/workflows/create_instance.py:798
 #, python-format
 msgid "%s instances"
 msgstr "%s instancje"
 
-#: dashboards/project/instances/workflows/create_instance.py:859
+#: dashboards/project/instances/workflows/create_instance.py:857
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Nie utworzono portu dla id profilu (%s)"
@@ -10286,111 +10283,111 @@ msgstr "Zmodyfikowano instancję „%s”."
 msgid "Unable to modify instance \"%s\"."
 msgstr "Nie można zmodyfikować instancji „%s”."
 
-#: dashboards/project/loadbalancers/forms.py:39
+#: dashboards/project/loadbalancers/forms.py:37
 #: dashboards/project/loadbalancers/workflows.py:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:36
 msgid "Load Balancing Method"
 msgstr "Metoda równoważenia obciążania"
 
-#: dashboards/project/loadbalancers/forms.py:63
+#: dashboards/project/loadbalancers/forms.py:61
 #, python-format
 msgid "Pool %s was successfully updated."
 msgstr "Utworzono pulę %s."
 
-#: dashboards/project/loadbalancers/forms.py:68
+#: dashboards/project/loadbalancers/forms.py:66
 #, python-format
 msgid "Failed to update pool %s"
 msgstr "Nie można zaktualizować puli %s"
 
-#: dashboards/project/loadbalancers/forms.py:83
+#: dashboards/project/loadbalancers/forms.py:81
 #: dashboards/project/loadbalancers/workflows.py:173
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Session Persistence"
 msgstr "Trwałość sesji"
 
-#: dashboards/project/loadbalancers/forms.py:87
+#: dashboards/project/loadbalancers/forms.py:85
 #: dashboards/project/loadbalancers/workflows.py:180
 msgid "Cookie Name"
 msgstr "Nazwa ciasteczka"
 
-#: dashboards/project/loadbalancers/forms.py:88
+#: dashboards/project/loadbalancers/forms.py:86
 #: dashboards/project/loadbalancers/workflows.py:181
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Wymagane dla trwałości sesji typu APP_COOKIE, w innych przypadkach ignorowane."
 
-#: dashboards/project/loadbalancers/forms.py:92
+#: dashboards/project/loadbalancers/forms.py:90
 #: dashboards/project/loadbalancers/workflows.py:189
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:54
 msgid "Connection Limit"
 msgstr "Limit połączeń"
 
-#: dashboards/project/loadbalancers/forms.py:93
+#: dashboards/project/loadbalancers/forms.py:91
 #: dashboards/project/loadbalancers/workflows.py:190
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
 msgstr "Maksymalna liczba połączeń dozwolona dla VIP-a liub „-1” w przypadku braku limitu"
 
-#: dashboards/project/loadbalancers/forms.py:111
-#: dashboards/project/loadbalancers/forms.py:194
+#: dashboards/project/loadbalancers/forms.py:109
+#: dashboards/project/loadbalancers/forms.py:192
 #: dashboards/project/loadbalancers/tabs.py:40
 #: dashboards/project/loadbalancers/workflows.py:358
 msgid "Unable to retrieve pools list."
 msgstr "Nie można pobrać listy pul."
 
-#: dashboards/project/loadbalancers/forms.py:122
+#: dashboards/project/loadbalancers/forms.py:120
 msgid "No session persistence"
 msgstr "Brak trwałości sesji"
 
-#: dashboards/project/loadbalancers/forms.py:132
+#: dashboards/project/loadbalancers/forms.py:130
 #: dashboards/project/loadbalancers/workflows.py:227
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "Nazwa ciasteczka jest wymagana dla trwałości sesji typu APP_COOKIE."
 
-#: dashboards/project/loadbalancers/forms.py:159
+#: dashboards/project/loadbalancers/forms.py:157
 #, python-format
 msgid "VIP %s was successfully updated."
 msgstr "Zaktualizowano VIP %s."
 
-#: dashboards/project/loadbalancers/forms.py:164
+#: dashboards/project/loadbalancers/forms.py:162
 #, python-format
 msgid "Failed to update VIP %s"
 msgstr "Nie można zaktualizować VIP-a %s"
 
-#: dashboards/project/loadbalancers/forms.py:175
+#: dashboards/project/loadbalancers/forms.py:173
 #: dashboards/project/loadbalancers/tables.py:308
 #: dashboards/project/loadbalancers/workflows.py:331
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
 msgstr "Waga"
 
-#: dashboards/project/loadbalancers/forms.py:176
+#: dashboards/project/loadbalancers/forms.py:174
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "Względna część żądań do tego członka puli w porównaniu do innych"
 
-#: dashboards/project/loadbalancers/forms.py:209
+#: dashboards/project/loadbalancers/forms.py:207
 #, python-format
 msgid "Member %s was successfully updated."
 msgstr "Zaktualizowano członka %s."
 
-#: dashboards/project/loadbalancers/forms.py:215
+#: dashboards/project/loadbalancers/forms.py:213
 #, python-format
 msgid "Failed to update member %s"
 msgstr "Nie można zaktualizować członka %s"
 
-#: dashboards/project/loadbalancers/forms.py:227
+#: dashboards/project/loadbalancers/forms.py:225
 #: dashboards/project/loadbalancers/tables.py:334
 #: dashboards/project/loadbalancers/workflows.py:496
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "Opóźnienie"
 
-#: dashboards/project/loadbalancers/forms.py:228
+#: dashboards/project/loadbalancers/forms.py:226
 #: dashboards/project/loadbalancers/workflows.py:497
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "Minimalny odstęp czasu w sekundach pomiędzy testami członka"
 
-#: dashboards/project/loadbalancers/forms.py:232
+#: dashboards/project/loadbalancers/forms.py:230
 #: dashboards/project/loadbalancers/tables.py:335
 #: dashboards/project/loadbalancers/workflows.py:501
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
@@ -10398,29 +10395,29 @@ msgstr "Minimalny odstęp czasu w sekundach pomiędzy testami członka"
 msgid "Timeout"
 msgstr "Limit czasu"
 
-#: dashboards/project/loadbalancers/forms.py:233
+#: dashboards/project/loadbalancers/forms.py:231
 #: dashboards/project/loadbalancers/workflows.py:502
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "Maksymalny czas oczekiwania w sekundach na odpowiedź z monitora"
 
-#: dashboards/project/loadbalancers/forms.py:237
+#: dashboards/project/loadbalancers/forms.py:235
 #: dashboards/project/loadbalancers/workflows.py:506
 msgid "Max Retries (1~10)"
 msgstr "Maks. powtórzeń (1-10)"
 
-#: dashboards/project/loadbalancers/forms.py:238
+#: dashboards/project/loadbalancers/forms.py:236
 #: dashboards/project/loadbalancers/workflows.py:507
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
 msgstr "Liczba dozwolonych niepowodzeń przed zmianą stanu członka na nieaktywny"
 
-#: dashboards/project/loadbalancers/forms.py:259
+#: dashboards/project/loadbalancers/forms.py:257
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "Dodano monitor stanu %s."
 
-#: dashboards/project/loadbalancers/forms.py:265
+#: dashboards/project/loadbalancers/forms.py:263
 #, python-format
 msgid "Failed to update health monitor %s"
 msgstr "Nie można zaktualizować monitora stanu %s"
@@ -10561,7 +10558,7 @@ msgstr "Dostawca"
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
-#: dashboards/project/vpn/tables.py:265 dashboards/project/vpn/workflows.py:32
+#: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
 msgstr "Podsieć"
 
@@ -10734,13 +10731,13 @@ msgstr "Nie można pobrać puli. %s"
 
 #: dashboards/project/loadbalancers/workflows.py:55
 #: dashboards/project/loadbalancers/workflows.py:199
-#: dashboards/project/vpn/workflows.py:42
+#: dashboards/project/vpn/workflows.py:40
 msgid "Select a Subnet"
 msgstr "Wybierz podsieć"
 
 #: dashboards/project/loadbalancers/workflows.py:60
 #: dashboards/project/loadbalancers/workflows.py:204
-#: dashboards/project/vpn/workflows.py:48
+#: dashboards/project/vpn/workflows.py:46
 msgid "Unable to retrieve networks list."
 msgstr "Nie można pobrać listy sieci."
 
@@ -11126,8 +11123,8 @@ msgid "Create Router"
 msgstr "Utwórz router"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
-#: dashboards/project/vpn/tables.py:266 dashboards/project/vpn/workflows.py:31
-#: dashboards/router/dashboard.py:21
+#: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:29
+#: dashboards/router/dashboard.py:19
 msgid "Router"
 msgstr "Router"
 
@@ -11992,7 +11989,7 @@ msgid ""
 "a gateway for external connectivity."
 msgstr "Pozwala połączyć router z wybraną siecią zewnętrzną. Sieć zewnętrzna postrzegana jest jako domyślna trasa dla tego routera i funkcjonuje on jako brama dla zewnętrznych połączeń."
 
-#: dashboards/project/stacks/forms.py:51
+#: dashboards/project/stacks/forms.py:52
 #: dashboards/project/stacks/templates/stacks/_change_template.html:9
 #: dashboards/project/stacks/templates/stacks/_select_template.html:9
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
@@ -12000,149 +11997,149 @@ msgstr "Pozwala połączyć router z wybraną siecią zewnętrzną. Sieć zewn�
 msgid "Select Template"
 msgstr "Wybór szablonu"
 
-#: dashboards/project/stacks/forms.py:52
+#: dashboards/project/stacks/forms.py:53
 msgid "Select a template to launch a stack."
 msgstr "Należy wybrać szablon do uruchomienia stosu."
 
-#: dashboards/project/stacks/forms.py:60
+#: dashboards/project/stacks/forms.py:61
 msgid "Template Source"
 msgstr "Źródło szablonu"
 
-#: dashboards/project/stacks/forms.py:67 dashboards/project/stacks/forms.py:69
+#: dashboards/project/stacks/forms.py:68 dashboards/project/stacks/forms.py:70
 msgid "Template File"
 msgstr "Plik szablonu"
 
-#: dashboards/project/stacks/forms.py:70
+#: dashboards/project/stacks/forms.py:71
 msgid "A local template to upload."
 msgstr "Lokalny plik z szablonem do wysłania."
 
-#: dashboards/project/stacks/forms.py:77 dashboards/project/stacks/forms.py:79
+#: dashboards/project/stacks/forms.py:78 dashboards/project/stacks/forms.py:80
 msgid "Template URL"
 msgstr "URL szablonu"
 
-#: dashboards/project/stacks/forms.py:80
+#: dashboards/project/stacks/forms.py:81
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Zewnętrzny adres URL (HTTP), z którego należy pobrać szablon."
 
-#: dashboards/project/stacks/forms.py:87 dashboards/project/stacks/forms.py:89
+#: dashboards/project/stacks/forms.py:88 dashboards/project/stacks/forms.py:90
 msgid "Template Data"
 msgstr "Dane szablonu"
 
-#: dashboards/project/stacks/forms.py:90
+#: dashboards/project/stacks/forms.py:91
 msgid "The raw contents of the template."
 msgstr "Zawartość szablonu."
 
-#: dashboards/project/stacks/forms.py:96
+#: dashboards/project/stacks/forms.py:97
 msgid "Environment Source"
 msgstr "Źródło środowiska"
 
-#: dashboards/project/stacks/forms.py:104
-#: dashboards/project/stacks/forms.py:106
+#: dashboards/project/stacks/forms.py:105
+#: dashboards/project/stacks/forms.py:107
 msgid "Environment File"
 msgstr "Plik środowiska"
 
-#: dashboards/project/stacks/forms.py:107
+#: dashboards/project/stacks/forms.py:108
 msgid "A local environment to upload."
 msgstr "Lokalne środowisko do przesłania."
 
-#: dashboards/project/stacks/forms.py:114
-#: dashboards/project/stacks/forms.py:116
+#: dashboards/project/stacks/forms.py:115
+#: dashboards/project/stacks/forms.py:117
 msgid "Environment Data"
 msgstr "Dane środowiska"
 
-#: dashboards/project/stacks/forms.py:117
+#: dashboards/project/stacks/forms.py:118
 msgid "The raw contents of the environment file."
 msgstr "Zawartość pliku środowiska."
 
-#: dashboards/project/stacks/forms.py:129
+#: dashboards/project/stacks/forms.py:130
 msgid "template"
 msgstr "szablon"
 
-#: dashboards/project/stacks/forms.py:131
+#: dashboards/project/stacks/forms.py:132
 msgid "environment"
 msgstr "środowisko"
 
-#: dashboards/project/stacks/forms.py:194
+#: dashboards/project/stacks/forms.py:195
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Należy podać %s wykorzystując tylko jedną metodę źródłową."
 
-#: dashboards/project/stacks/forms.py:201
+#: dashboards/project/stacks/forms.py:202
 msgid "You must specify a template via one of the available sources."
 msgstr "Należy podać szablon wykorzystując jedno z dostępnych źródeł."
 
-#: dashboards/project/stacks/forms.py:226
+#: dashboards/project/stacks/forms.py:227
 msgid "Edit Template"
 msgstr "Edycja szablonu"
 
-#: dashboards/project/stacks/forms.py:227
+#: dashboards/project/stacks/forms.py:228
 msgid "Select a new template to re-launch a stack."
 msgstr "Należy wybrać szablon do ponownego uruchomienia stosu."
 
-#: dashboards/project/stacks/forms.py:228
-#: dashboards/project/stacks/forms.py:366
+#: dashboards/project/stacks/forms.py:229
+#: dashboards/project/stacks/forms.py:375
 msgid "Stack ID"
 msgstr "ID stosu"
 
-#: dashboards/project/stacks/forms.py:230
-#: dashboards/project/stacks/forms.py:254
-#: dashboards/project/stacks/forms.py:368
+#: dashboards/project/stacks/forms.py:231
+#: dashboards/project/stacks/forms.py:255
+#: dashboards/project/stacks/forms.py:377
 #: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr "Nazwa stosu"
 
-#: dashboards/project/stacks/forms.py:239
+#: dashboards/project/stacks/forms.py:240
 msgid "Create Stack"
 msgstr "Utwórz stos"
 
-#: dashboards/project/stacks/forms.py:255
+#: dashboards/project/stacks/forms.py:256
 msgid "Name of the stack to create."
 msgstr "Nazwa stosu, który zostanie utworzony."
 
-#: dashboards/project/stacks/forms.py:257
+#: dashboards/project/stacks/forms.py:258
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "Nazwa może zawierać wyłącznie litery, cyfry, kropki, myślniki i znaki podkreślenia."
 
-#: dashboards/project/stacks/forms.py:262
+#: dashboards/project/stacks/forms.py:263
 msgid "Creation Timeout (minutes)"
 msgstr "Limit czasu tworzenia (w minutach)"
 
-#: dashboards/project/stacks/forms.py:263
+#: dashboards/project/stacks/forms.py:264
 msgid "Stack creation timeout in minutes."
 msgstr "Limit czasu tworzenia stosu w minutach."
 
-#: dashboards/project/stacks/forms.py:265
+#: dashboards/project/stacks/forms.py:266
 msgid "Rollback On Failure"
 msgstr "Wycofanie po wystąpieniu błędu"
 
-#: dashboards/project/stacks/forms.py:266
+#: dashboards/project/stacks/forms.py:267
 msgid "Enable rollback on create/update failure."
 msgstr "Wycofuje zmiany, jeśli wystąpi błąd podczas tworzenia lub modyfikacji."
 
-#: dashboards/project/stacks/forms.py:279
+#: dashboards/project/stacks/forms.py:280
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "Hasło dla użytkownika „%s"
 
-#: dashboards/project/stacks/forms.py:280
+#: dashboards/project/stacks/forms.py:281
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "Wymagane dla czynności przeprowadzanych podczas całego cyklu życia stosu"
 
-#: dashboards/project/stacks/forms.py:355
+#: dashboards/project/stacks/forms.py:364
 msgid "Stack creation started."
 msgstr "Tworzenie stosu."
 
-#: dashboards/project/stacks/forms.py:364
+#: dashboards/project/stacks/forms.py:373
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "Aktualizacja parametrów stosu"
 
-#: dashboards/project/stacks/forms.py:397
+#: dashboards/project/stacks/forms.py:406
 msgid "Stack update started."
 msgstr "Aktualizacja stosu rozpoczęta."
 
@@ -13056,652 +13053,652 @@ msgstr "Nie można pobrać informacji o wolumenie dla wolumenu: „%s”"
 msgid "Unable to retrieve volume."
 msgstr "Nie można pobrać wolumenu."
 
-#: dashboards/project/vpn/forms.py:54
+#: dashboards/project/vpn/forms.py:52
 #, python-format
 msgid "VPN Service %s was successfully updated."
 msgstr "Zaktualizowano usługę VPN %s."
 
-#: dashboards/project/vpn/forms.py:60
+#: dashboards/project/vpn/forms.py:58
 #, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "Nie można zaktualizować usługi VPN %s"
 
-#: dashboards/project/vpn/forms.py:75 dashboards/project/vpn/forms.py:146
-#: dashboards/project/vpn/tables.py:285 dashboards/project/vpn/tables.py:303
-#: dashboards/project/vpn/workflows.py:116
-#: dashboards/project/vpn/workflows.py:215
+#: dashboards/project/vpn/forms.py:73 dashboards/project/vpn/forms.py:144
+#: dashboards/project/vpn/tables.py:282 dashboards/project/vpn/tables.py:300
+#: dashboards/project/vpn/workflows.py:114
+#: dashboards/project/vpn/workflows.py:213
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:18
 msgid "Authorization algorithm"
 msgstr "Algorytm upoważniania"
 
-#: dashboards/project/vpn/forms.py:76 dashboards/project/vpn/forms.py:147
+#: dashboards/project/vpn/forms.py:74 dashboards/project/vpn/forms.py:145
 msgid "sha1"
 msgstr "sha1"
 
-#: dashboards/project/vpn/forms.py:79 dashboards/project/vpn/forms.py:154
-#: dashboards/project/vpn/tables.py:288 dashboards/project/vpn/tables.py:306
-#: dashboards/project/vpn/workflows.py:117
-#: dashboards/project/vpn/workflows.py:217
+#: dashboards/project/vpn/forms.py:77 dashboards/project/vpn/forms.py:152
+#: dashboards/project/vpn/tables.py:285 dashboards/project/vpn/tables.py:303
+#: dashboards/project/vpn/workflows.py:115
+#: dashboards/project/vpn/workflows.py:215
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:24
 msgid "Encryption algorithm"
 msgstr "Algorytm szyfrowania"
 
-#: dashboards/project/vpn/forms.py:80 dashboards/project/vpn/forms.py:155
+#: dashboards/project/vpn/forms.py:78 dashboards/project/vpn/forms.py:153
 msgid "3des"
 msgstr "3des"
 
-#: dashboards/project/vpn/forms.py:81 dashboards/project/vpn/forms.py:156
+#: dashboards/project/vpn/forms.py:79 dashboards/project/vpn/forms.py:154
 msgid "aes-128"
 msgstr "aes-128"
 
-#: dashboards/project/vpn/forms.py:82 dashboards/project/vpn/forms.py:157
+#: dashboards/project/vpn/forms.py:80 dashboards/project/vpn/forms.py:155
 msgid "aes-192"
 msgstr "aes-192"
 
-#: dashboards/project/vpn/forms.py:83 dashboards/project/vpn/forms.py:158
+#: dashboards/project/vpn/forms.py:81 dashboards/project/vpn/forms.py:156
 msgid "aes-256"
 msgstr "aes-256"
 
-#: dashboards/project/vpn/forms.py:85 dashboards/project/vpn/workflows.py:118
+#: dashboards/project/vpn/forms.py:83 dashboards/project/vpn/workflows.py:116
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:24
 msgid "IKE version"
 msgstr "Wersja IKE"
 
-#: dashboards/project/vpn/forms.py:86
+#: dashboards/project/vpn/forms.py:84
 msgid "v1"
 msgstr "v1"
 
-#: dashboards/project/vpn/forms.py:87
+#: dashboards/project/vpn/forms.py:85
 msgid "v2"
 msgstr "v2"
 
-#: dashboards/project/vpn/forms.py:90 dashboards/project/vpn/workflows.py:119
+#: dashboards/project/vpn/forms.py:88 dashboards/project/vpn/workflows.py:117
 msgid "Lifetime units for IKE keys"
 msgstr "Jednostki czasu życia dla kluczy IKE"
 
-#: dashboards/project/vpn/forms.py:91 dashboards/project/vpn/forms.py:162
+#: dashboards/project/vpn/forms.py:89 dashboards/project/vpn/forms.py:160
 msgid "seconds"
 msgstr "sekund"
 
-#: dashboards/project/vpn/forms.py:95 dashboards/project/vpn/workflows.py:121
+#: dashboards/project/vpn/forms.py:93 dashboards/project/vpn/workflows.py:119
 msgid "Lifetime value for IKE keys"
 msgstr "Wartość czasu życia dla kluczy IKE"
 
-#: dashboards/project/vpn/forms.py:96 dashboards/project/vpn/forms.py:167
-#: dashboards/project/vpn/workflows.py:123
-#: dashboards/project/vpn/workflows.py:222
+#: dashboards/project/vpn/forms.py:94 dashboards/project/vpn/forms.py:165
+#: dashboards/project/vpn/workflows.py:121
+#: dashboards/project/vpn/workflows.py:220
 msgid "Equal to or greater than 60"
 msgstr "Równy lub większy niż 60"
 
-#: dashboards/project/vpn/forms.py:98 dashboards/project/vpn/forms.py:169
-#: dashboards/project/vpn/workflows.py:124
-#: dashboards/project/vpn/workflows.py:223
+#: dashboards/project/vpn/forms.py:96 dashboards/project/vpn/forms.py:167
+#: dashboards/project/vpn/workflows.py:122
+#: dashboards/project/vpn/workflows.py:221
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:33
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:33
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
-#: dashboards/project/vpn/forms.py:99 dashboards/project/vpn/forms.py:170
+#: dashboards/project/vpn/forms.py:97 dashboards/project/vpn/forms.py:168
 msgid "group2"
 msgstr "group2"
 
-#: dashboards/project/vpn/forms.py:100 dashboards/project/vpn/forms.py:171
+#: dashboards/project/vpn/forms.py:98 dashboards/project/vpn/forms.py:169
 msgid "group5"
 msgstr "group5"
 
-#: dashboards/project/vpn/forms.py:101 dashboards/project/vpn/forms.py:172
+#: dashboards/project/vpn/forms.py:99 dashboards/project/vpn/forms.py:170
 msgid "group14"
 msgstr "group14"
 
-#: dashboards/project/vpn/forms.py:104 dashboards/project/vpn/workflows.py:126
+#: dashboards/project/vpn/forms.py:102 dashboards/project/vpn/workflows.py:124
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:36
 msgid "IKE Phase1 negotiation mode"
 msgstr "Tryb negocjacji IKE Phase1"
 
-#: dashboards/project/vpn/forms.py:125
+#: dashboards/project/vpn/forms.py:123
 #, python-format
 msgid "IKE Policy %s was successfully updated."
 msgstr "Zaktualizowano zasadę IKE %s."
 
-#: dashboards/project/vpn/forms.py:131
+#: dashboards/project/vpn/forms.py:129
 #, python-format
 msgid "Failed to update IKE Policy %s"
 msgstr "Nie można zaktualizować zasady IKE %s"
 
-#: dashboards/project/vpn/forms.py:150 dashboards/project/vpn/workflows.py:216
+#: dashboards/project/vpn/forms.py:148 dashboards/project/vpn/workflows.py:214
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:21
 msgid "Encapsulation mode"
 msgstr "Tryb enkapsulacji"
 
-#: dashboards/project/vpn/forms.py:151
+#: dashboards/project/vpn/forms.py:149
 msgid "tunnel"
 msgstr "tunel"
 
-#: dashboards/project/vpn/forms.py:152
+#: dashboards/project/vpn/forms.py:150
 msgid "transport"
 msgstr "transport"
 
-#: dashboards/project/vpn/forms.py:161 dashboards/project/vpn/workflows.py:218
+#: dashboards/project/vpn/forms.py:159 dashboards/project/vpn/workflows.py:216
 msgid "Lifetime units"
 msgstr "Jednostki czasu życia"
 
-#: dashboards/project/vpn/forms.py:166
+#: dashboards/project/vpn/forms.py:164
 msgid "Lifetime value"
 msgstr "Czas życia"
 
-#: dashboards/project/vpn/forms.py:174 dashboards/project/vpn/workflows.py:224
+#: dashboards/project/vpn/forms.py:172 dashboards/project/vpn/workflows.py:222
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:36
 msgid "Transform Protocol"
 msgstr "Protokół transformacji"
 
-#: dashboards/project/vpn/forms.py:175
+#: dashboards/project/vpn/forms.py:173
 msgid "esp"
 msgstr "esp"
 
-#: dashboards/project/vpn/forms.py:176
+#: dashboards/project/vpn/forms.py:174
 msgid "ah"
 msgstr "ah"
 
-#: dashboards/project/vpn/forms.py:177
+#: dashboards/project/vpn/forms.py:175
 msgid "ah-esp"
 msgstr "ah-esp"
 
-#: dashboards/project/vpn/forms.py:196
+#: dashboards/project/vpn/forms.py:194
 #, python-format
 msgid "IPSec Policy %s was successfully updated."
 msgstr "Zaktualizowano zasadę IPSec %s."
 
-#: dashboards/project/vpn/forms.py:202
+#: dashboards/project/vpn/forms.py:200
 #, python-format
 msgid "Failed to update IPSec Policy %s"
 msgstr "Nie można zaktualizować zasady IPSec %s."
 
-#: dashboards/project/vpn/forms.py:215 dashboards/project/vpn/workflows.py:319
+#: dashboards/project/vpn/forms.py:213 dashboards/project/vpn/workflows.py:317
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:31
 msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
 msgstr "Publiczny adres IPv4/IPv6 lub FQDN bramy partnera"
 
-#: dashboards/project/vpn/forms.py:216 dashboards/project/vpn/workflows.py:320
+#: dashboards/project/vpn/forms.py:214 dashboards/project/vpn/workflows.py:318
 msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
 msgstr "Publiczny adres IPv4/IPv6 lub FQDN bramy partnera dla połączenia VPN"
 
-#: dashboards/project/vpn/forms.py:221 dashboards/project/vpn/workflows.py:325
+#: dashboards/project/vpn/forms.py:219 dashboards/project/vpn/workflows.py:323
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:34
 msgid "Peer router identity for authentication (Peer ID)"
 msgstr "Tożsamość routera partnera dla uwierzytelniania (Peer ID)"
 
-#: dashboards/project/vpn/forms.py:222 dashboards/project/vpn/workflows.py:326
+#: dashboards/project/vpn/forms.py:220 dashboards/project/vpn/workflows.py:324
 msgid ""
 "Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
 "key ID, or FQDN"
 msgstr "Tożsamość routera partnera dla uwierzytelniania. Może być adresem IPv4/IPv6, adresem e-mail, identyfikatorem klucza lub FQDN"
 
-#: dashboards/project/vpn/forms.py:227 dashboards/project/vpn/workflows.py:331
+#: dashboards/project/vpn/forms.py:225 dashboards/project/vpn/workflows.py:329
 msgid "Remote peer subnet(s)"
 msgstr "Podsieć(i) zdalnego partnera"
 
-#: dashboards/project/vpn/forms.py:228 dashboards/project/vpn/workflows.py:332
+#: dashboards/project/vpn/forms.py:226 dashboards/project/vpn/workflows.py:330
 msgid ""
 "Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with"
 " commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
 msgstr "Adresy podsieci zdalnego partnera z maską/ami w formacie CIDR, w razie potrzeby rozdzielone przecinkami (np. 20.1.0.0/24, 21.1.0.0/24))"
 
-#: dashboards/project/vpn/forms.py:235 dashboards/project/vpn/workflows.py:339
+#: dashboards/project/vpn/forms.py:233 dashboards/project/vpn/workflows.py:337
 msgid "Pre-Shared Key (PSK) string"
 msgstr "Ciąg Pre-Shared Key (PSK)"
 
-#: dashboards/project/vpn/forms.py:238 dashboards/project/vpn/workflows.py:404
+#: dashboards/project/vpn/forms.py:236 dashboards/project/vpn/workflows.py:402
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Rozmiar Maximum Transmission Unit dla połączenia"
 
-#: dashboards/project/vpn/forms.py:239 dashboards/project/vpn/workflows.py:406
+#: dashboards/project/vpn/forms.py:237 dashboards/project/vpn/workflows.py:404
 msgid ""
 "Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater"
 " than 1280 if the local subnet is IPv6."
 msgstr "Większe lub równe 68, jeśli lokalna podsieć jest IPv4. Większe lub równe 1280, jeżeli lokalna podsieć jest IPv6."
 
-#: dashboards/project/vpn/forms.py:243 dashboards/project/vpn/workflows.py:409
+#: dashboards/project/vpn/forms.py:241 dashboards/project/vpn/workflows.py:407
 msgid "Dead peer detection actions"
 msgstr "Czynności dla wykrywania martwych partnerów"
 
-#: dashboards/project/vpn/forms.py:244
+#: dashboards/project/vpn/forms.py:242
 msgid "hold"
 msgstr "hold"
 
-#: dashboards/project/vpn/forms.py:245
+#: dashboards/project/vpn/forms.py:243
 msgid "clear"
 msgstr "clear"
 
-#: dashboards/project/vpn/forms.py:246
+#: dashboards/project/vpn/forms.py:244
 msgid "disabled"
 msgstr "wyłączone"
 
-#: dashboards/project/vpn/forms.py:247
+#: dashboards/project/vpn/forms.py:245
 msgid "restart"
 msgstr "restart"
 
-#: dashboards/project/vpn/forms.py:248
+#: dashboards/project/vpn/forms.py:246
 msgid "restart-by-peer"
 msgstr "restart-by-peer"
 
-#: dashboards/project/vpn/forms.py:251 dashboards/project/vpn/workflows.py:411
+#: dashboards/project/vpn/forms.py:249 dashboards/project/vpn/workflows.py:409
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:56
 msgid "Dead peer detection interval"
 msgstr "Przedział wykrywania martwych partnerów (DPD)"
 
-#: dashboards/project/vpn/forms.py:252 dashboards/project/vpn/workflows.py:413
+#: dashboards/project/vpn/forms.py:250 dashboards/project/vpn/workflows.py:411
 msgid "Valid integer"
 msgstr "Poprawna liczba całkowita"
 
-#: dashboards/project/vpn/forms.py:255 dashboards/project/vpn/workflows.py:415
+#: dashboards/project/vpn/forms.py:253 dashboards/project/vpn/workflows.py:413
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:59
 msgid "Dead peer detection timeout"
 msgstr "Limit czasu wykrywania martwych partnerów (DPD)"
 
-#: dashboards/project/vpn/forms.py:256 dashboards/project/vpn/workflows.py:417
+#: dashboards/project/vpn/forms.py:254 dashboards/project/vpn/workflows.py:415
 msgid "Valid integer greater than the DPD interval"
 msgstr "Poprawna liczba całkowita większa niż okres DPD"
 
-#: dashboards/project/vpn/forms.py:258 dashboards/project/vpn/workflows.py:418
+#: dashboards/project/vpn/forms.py:256 dashboards/project/vpn/workflows.py:416
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:50
 msgid "Initiator state"
 msgstr "Stan inicjującego"
 
-#: dashboards/project/vpn/forms.py:259
+#: dashboards/project/vpn/forms.py:257
 msgid "bi-directional"
 msgstr "bi-directional"
 
-#: dashboards/project/vpn/forms.py:260
+#: dashboards/project/vpn/forms.py:258
 msgid "response-only"
 msgstr "response-only"
 
-#: dashboards/project/vpn/forms.py:287
+#: dashboards/project/vpn/forms.py:285
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
 msgstr "Zaktualizowano połączenie tunelowe IPSec %s."
 
-#: dashboards/project/vpn/forms.py:293
+#: dashboards/project/vpn/forms.py:291
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
 msgstr "Nie można zaktualizować połączenia tunelowego IPSec %s"
 
-#: dashboards/project/vpn/panel.py:26
+#: dashboards/project/vpn/panel.py:24
 msgid "VPN"
 msgstr "VPN"
 
-#: dashboards/project/vpn/tables.py:32 dashboards/project/vpn/workflows.py:192
+#: dashboards/project/vpn/tables.py:29 dashboards/project/vpn/workflows.py:190
 msgid "Add IKE Policy"
 msgstr "Dodaj zasadę IKE"
 
-#: dashboards/project/vpn/tables.py:41 dashboards/project/vpn/workflows.py:289
+#: dashboards/project/vpn/tables.py:38 dashboards/project/vpn/workflows.py:287
 msgid "Add IPSec Policy"
 msgstr "Dodaj zasadę IPSec"
 
-#: dashboards/project/vpn/tables.py:50 dashboards/project/vpn/workflows.py:93
+#: dashboards/project/vpn/tables.py:47 dashboards/project/vpn/workflows.py:91
 msgid "Add VPN Service"
 msgstr "Dodaj usługę VPN"
 
-#: dashboards/project/vpn/tables.py:59 dashboards/project/vpn/workflows.py:474
+#: dashboards/project/vpn/tables.py:56 dashboards/project/vpn/workflows.py:472
 msgid "Add IPSec Site Connection"
 msgstr "Dodaj połączenie tunelowe IPSec "
 
-#: dashboards/project/vpn/tables.py:73
+#: dashboards/project/vpn/tables.py:70
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:81
+#: dashboards/project/vpn/tables.py:78
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:99
+#: dashboards/project/vpn/tables.py:96
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:107
+#: dashboards/project/vpn/tables.py:104
 msgid "Scheduled deletion of IKE Policy"
 msgid_plural "Scheduled deletion of IKE Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:125
+#: dashboards/project/vpn/tables.py:122
 msgid "Delete IPSec Policy"
 msgid_plural "Delete IPSec Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:133
+#: dashboards/project/vpn/tables.py:130
 msgid "Scheduled deletion of IPSec Policy"
 msgid_plural "Scheduled deletion of IPSec Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:151
+#: dashboards/project/vpn/tables.py:148
 msgid "Delete IPSec Site Connection"
 msgid_plural "Delete IPSec Site Connections"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:159
+#: dashboards/project/vpn/tables.py:156
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:167
+#: dashboards/project/vpn/tables.py:164
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:6
 msgid "Edit VPN Service"
 msgstr "Edytuj usługę VPN"
 
-#: dashboards/project/vpn/tables.py:183
+#: dashboards/project/vpn/tables.py:180
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:6
 msgid "Edit IKE Policy"
 msgstr "Edytuj zasadę IKE"
 
-#: dashboards/project/vpn/tables.py:197
+#: dashboards/project/vpn/tables.py:194
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:6
 msgid "Edit IPSec Policy"
 msgstr "Edytuj zasadę IPSec"
 
-#: dashboards/project/vpn/tables.py:211
+#: dashboards/project/vpn/tables.py:208
 msgid "Edit Connection"
 msgstr "Edytuj połączenie"
 
-#: dashboards/project/vpn/tables.py:235
+#: dashboards/project/vpn/tables.py:232
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
 msgid "VPN Service"
 msgstr "Usługa VPN"
 
-#: dashboards/project/vpn/tables.py:237
+#: dashboards/project/vpn/tables.py:234
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
 msgid "IKE Policy"
 msgstr "Zasada IKE"
 
-#: dashboards/project/vpn/tables.py:239
+#: dashboards/project/vpn/tables.py:236
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
 msgid "IPSec Policy"
 msgstr "Zasada IPSec"
 
-#: dashboards/project/vpn/tables.py:248 dashboards/project/vpn/tabs.py:30
+#: dashboards/project/vpn/tables.py:245 dashboards/project/vpn/tabs.py:27
 msgid "IPSec Site Connections"
 msgstr "Połączenia tunelowe IPSec"
 
-#: dashboards/project/vpn/tables.py:275 dashboards/project/vpn/tabs.py:50
+#: dashboards/project/vpn/tables.py:272 dashboards/project/vpn/tabs.py:47
 msgid "VPN Services"
 msgstr "Usługi VPN"
 
-#: dashboards/project/vpn/tables.py:289 dashboards/project/vpn/tables.py:307
+#: dashboards/project/vpn/tables.py:286 dashboards/project/vpn/tables.py:304
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:293 dashboards/project/vpn/tabs.py:70
+#: dashboards/project/vpn/tables.py:290 dashboards/project/vpn/tabs.py:67
 msgid "IKE Policies"
 msgstr "Zasady IKE"
 
-#: dashboards/project/vpn/tables.py:311 dashboards/project/vpn/tabs.py:90
+#: dashboards/project/vpn/tables.py:308 dashboards/project/vpn/tabs.py:87
 msgid "IPSec Policies"
 msgstr "Zasady IPSec"
 
-#: dashboards/project/vpn/tabs.py:42
+#: dashboards/project/vpn/tabs.py:39
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Nie można pobrać listy połączeń tunelowych IPSec."
 
-#: dashboards/project/vpn/tabs.py:62 dashboards/project/vpn/workflows.py:377
+#: dashboards/project/vpn/tabs.py:59 dashboards/project/vpn/workflows.py:375
 msgid "Unable to retrieve VPN Services list."
 msgstr "Nie można pobrać listy usług VPN."
 
-#: dashboards/project/vpn/tabs.py:82 dashboards/project/vpn/workflows.py:348
+#: dashboards/project/vpn/tabs.py:79 dashboards/project/vpn/workflows.py:346
 msgid "Unable to retrieve IKE Policies list."
 msgstr "Nie można pobrać listy zasad IKE."
 
-#: dashboards/project/vpn/tabs.py:102 dashboards/project/vpn/workflows.py:363
+#: dashboards/project/vpn/tabs.py:99 dashboards/project/vpn/workflows.py:361
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "Nie można pobrać listy zasad IPSec."
 
-#: dashboards/project/vpn/tabs.py:116
+#: dashboards/project/vpn/tabs.py:113
 msgid "IKE Policy Details"
 msgstr "Szczegóły zasady IKE"
 
-#: dashboards/project/vpn/tabs.py:131
+#: dashboards/project/vpn/tabs.py:128
 msgid "IPSec Policy Details"
 msgstr "Szczegóły zasady IPSec"
 
-#: dashboards/project/vpn/tabs.py:146
+#: dashboards/project/vpn/tabs.py:143
 msgid "VPN Service Details"
 msgstr "Szczegóły usługi VPN"
 
-#: dashboards/project/vpn/tabs.py:161
+#: dashboards/project/vpn/tabs.py:158
 msgid "IPSec Site Connection Details"
 msgstr "Szczegóły połączenia tunelowego IPSec"
 
-#: dashboards/project/vpn/views.py:55
+#: dashboards/project/vpn/views.py:52
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "Usunięto usługę VPN %s"
 
-#: dashboards/project/vpn/views.py:58
+#: dashboards/project/vpn/views.py:55
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "Nie można usunąć usługi VPN: %s"
 
-#: dashboards/project/vpn/views.py:65
+#: dashboards/project/vpn/views.py:62
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "Usunięto zasadę IKE %s"
 
-#: dashboards/project/vpn/views.py:68
+#: dashboards/project/vpn/views.py:65
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "Nie można usunąć zasady IKE: %s"
 
-#: dashboards/project/vpn/views.py:74
+#: dashboards/project/vpn/views.py:71
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "Usunięto zasadę IPSec %s"
 
-#: dashboards/project/vpn/views.py:77
+#: dashboards/project/vpn/views.py:74
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "Nie można usunąć zasady IPSec: %s"
 
-#: dashboards/project/vpn/views.py:84
+#: dashboards/project/vpn/views.py:81
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "Usunięto połączenie IPSec %s"
 
-#: dashboards/project/vpn/views.py:88
+#: dashboards/project/vpn/views.py:85
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "Nie można usunąć połączenia tunelowego IPSec: %s"
 
-#: dashboards/project/vpn/views.py:135
+#: dashboards/project/vpn/views.py:132
 msgid "Unable to retrieve IKE Policy details."
 msgstr "Nie można pobrać szczegółów zasady IKE."
 
-#: dashboards/project/vpn/views.py:167
+#: dashboards/project/vpn/views.py:164
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "Nie można pobrać szczegółów zasady IPSec."
 
-#: dashboards/project/vpn/views.py:202
+#: dashboards/project/vpn/views.py:199
 msgid "Unable to retrieve VPN Service details."
 msgstr "Nie można pobrać szczegółów usługi VPN."
 
-#: dashboards/project/vpn/views.py:242
+#: dashboards/project/vpn/views.py:239
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "Nie można pobrać szczegółów połączenia tunelowego IPSec"
 
-#: dashboards/project/vpn/views.py:285
+#: dashboards/project/vpn/views.py:282
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "Nie można pobrać szczegółów usługi VPN. %s"
 
-#: dashboards/project/vpn/views.py:314
+#: dashboards/project/vpn/views.py:311
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "Nie można pobrać szczegółów zasady IKE. %s"
 
-#: dashboards/project/vpn/views.py:350
+#: dashboards/project/vpn/views.py:347
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "Nie można pobrać szczegółów zasady IPSec. %s"
 
-#: dashboards/project/vpn/views.py:387
+#: dashboards/project/vpn/views.py:384
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "Nie można pobrać szczegółów połączenia tunelowego IPSec. %s"
 
-#: dashboards/project/vpn/workflows.py:36
-#: dashboards/project/vpn/workflows.py:422
+#: dashboards/project/vpn/workflows.py:34
+#: dashboards/project/vpn/workflows.py:420
 msgid "The state to start in."
 msgstr "Stan, w którym rozpocząć."
 
-#: dashboards/project/vpn/workflows.py:57
+#: dashboards/project/vpn/workflows.py:55
 msgid "Select a Router"
 msgstr "Wybór routera"
 
-#: dashboards/project/vpn/workflows.py:63
+#: dashboards/project/vpn/workflows.py:61
 msgid "Unable to retrieve routers list."
 msgstr "Nie można pobrać listy routerów."
 
-#: dashboards/project/vpn/workflows.py:71
+#: dashboards/project/vpn/workflows.py:69
 msgid "Add New VPN Service"
 msgstr "Dodanie nowej usługi VPN"
 
-#: dashboards/project/vpn/workflows.py:73
+#: dashboards/project/vpn/workflows.py:71
 msgid ""
 "Create VPN Service for current project.\n"
 "\n"
 "Specify a name, description, router, and subnet for the VPN Service. Admin State is Up (checked) by default."
 msgstr "Tworzenie usługi VPN dla bieżącego projektu.\n\nNależy podać nazwę, opis, router oraz podsieć dla usługi VPN. Domyślny stan administracyjny jest UP (zaznaczone)."
 
-#: dashboards/project/vpn/workflows.py:95
+#: dashboards/project/vpn/workflows.py:93
 #, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "Dodano usługę VPN „%s”."
 
-#: dashboards/project/vpn/workflows.py:96
+#: dashboards/project/vpn/workflows.py:94
 #, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "Nie można dodać usługi VPN „%s”."
 
-#: dashboards/project/vpn/workflows.py:166
+#: dashboards/project/vpn/workflows.py:164
 msgid "Add New IKE Policy"
 msgstr "Dodanie nowej zasady IKE"
 
-#: dashboards/project/vpn/workflows.py:168
+#: dashboards/project/vpn/workflows.py:166
 msgid ""
 "Create IKE Policy for current project.\n"
 "\n"
 "Assign a name and description for the IKE Policy. "
 msgstr "Pozwala utworzyć zasadę IKE dla bieżącego projektu.\n\nNależy przypisać nazwę i opis zasady IKE."
 
-#: dashboards/project/vpn/workflows.py:194
+#: dashboards/project/vpn/workflows.py:192
 #, python-format
 msgid "Added IKE Policy \"%s\"."
 msgstr "Dodano zasadę IKE „%s”."
 
-#: dashboards/project/vpn/workflows.py:195
+#: dashboards/project/vpn/workflows.py:193
 #, python-format
 msgid "Unable to add IKE Policy \"%s\"."
 msgstr "Nie można dodać zasady IKE „%s”."
 
-#: dashboards/project/vpn/workflows.py:220
+#: dashboards/project/vpn/workflows.py:218
 msgid "Lifetime value for IKE keys "
 msgstr "Wartość czasu życia dla kluczy IKE"
 
-#: dashboards/project/vpn/workflows.py:263
+#: dashboards/project/vpn/workflows.py:261
 msgid "Add New IPSec Policy"
 msgstr "Dodanie nowej zasady IPSec"
 
-#: dashboards/project/vpn/workflows.py:265
+#: dashboards/project/vpn/workflows.py:263
 msgid ""
 "Create IPSec Policy for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Policy. "
 msgstr "Pozwala utworzyć zasadę IPSec dla bieżącego projektu.\n\nNależy podać nazwę i opis zasady IPSec."
 
-#: dashboards/project/vpn/workflows.py:291
+#: dashboards/project/vpn/workflows.py:289
 #, python-format
 msgid "Added IPSec Policy \"%s\"."
 msgstr "Dodano zasadę IPSec „%s”."
 
-#: dashboards/project/vpn/workflows.py:292
+#: dashboards/project/vpn/workflows.py:290
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
 msgstr "Nie można dodać zasady IPSec „%s”."
 
-#: dashboards/project/vpn/workflows.py:313
+#: dashboards/project/vpn/workflows.py:311
 msgid "VPN Service associated with this connection"
 msgstr "Usługa VPN powiązana z tym połączeniem"
 
-#: dashboards/project/vpn/workflows.py:315
+#: dashboards/project/vpn/workflows.py:313
 msgid "IKE Policy associated with this connection"
 msgstr "Zasada IKE powiązana z tym połączeniem"
 
-#: dashboards/project/vpn/workflows.py:317
+#: dashboards/project/vpn/workflows.py:315
 msgid "IPSec Policy associated with this connection"
 msgstr "Zasada IPSec powiązana z tym połączeniem"
 
-#: dashboards/project/vpn/workflows.py:342
+#: dashboards/project/vpn/workflows.py:340
 msgid "Select IKE Policy"
 msgstr "Wybór zasady IKE"
 
-#: dashboards/project/vpn/workflows.py:356
+#: dashboards/project/vpn/workflows.py:354
 msgid "Select IPSec Policy"
 msgstr "Wybór zasady IPSec"
 
-#: dashboards/project/vpn/workflows.py:371
+#: dashboards/project/vpn/workflows.py:369
 msgid "Select VPN Service"
 msgstr "Wybór usługi VPN"
 
-#: dashboards/project/vpn/workflows.py:385
+#: dashboards/project/vpn/workflows.py:383
 msgid "Add New IPSec Site Connection"
 msgstr "Dodanie nowego połączenia tunelowego IPSec"
 
-#: dashboards/project/vpn/workflows.py:387
+#: dashboards/project/vpn/workflows.py:385
 msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in this tab are required."
 msgstr "Pozwala utworzyć połączenie tunelowe IPSec dla bieżącego projektu.\n\nNależy podać nazwę i opis połączenia IPSec. Wszystkie pola w tej zakładce są wymagane."
 
-#: dashboards/project/vpn/workflows.py:442
+#: dashboards/project/vpn/workflows.py:440
 msgid "Optional Parameters"
 msgstr "Dodatkowe parametry"
 
-#: dashboards/project/vpn/workflows.py:444
+#: dashboards/project/vpn/workflows.py:442
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
 msgstr "Pozwala na skonfigurowanie szczegółów tworzonego połączenia IPSec. Pola w tej zakładce nie są wymagane."
 
-#: dashboards/project/vpn/workflows.py:476
+#: dashboards/project/vpn/workflows.py:474
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
 msgstr "Dodano połączenie tunelowe IPSec „%s”."
 
-#: dashboards/project/vpn/workflows.py:477
+#: dashboards/project/vpn/workflows.py:475
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
 msgstr "Nie można dodać połączenia tunelowego IPSec „%s”."
@@ -13773,99 +13770,99 @@ msgstr "Połączenia VPN"
 msgid "Virtual Private Network"
 msgstr "Wirtualna sieć prywatna"
 
-#: dashboards/router/nexus1000v/forms.py:37
+#: dashboards/router/nexus1000v/forms.py:34
 msgid "Projects could not be retrieved."
 msgstr "Nie można pobrać projektów."
 
-#: dashboards/router/nexus1000v/forms.py:51
-#: dashboards/router/nexus1000v/tables.py:78
+#: dashboards/router/nexus1000v/forms.py:48
+#: dashboards/router/nexus1000v/tables.py:75
 msgid "Segment Type"
 msgstr "Typ segmentu"
 
-#: dashboards/router/nexus1000v/forms.py:52
-#: dashboards/router/nexus1000v/forms.py:72
+#: dashboards/router/nexus1000v/forms.py:49
+#: dashboards/router/nexus1000v/forms.py:69
 msgid "VLAN"
 msgstr "VLAN"
 
-#: dashboards/router/nexus1000v/forms.py:53
+#: dashboards/router/nexus1000v/forms.py:50
 msgid "Overlay"
 msgstr "Overlay"
 
-#: dashboards/router/nexus1000v/forms.py:54
+#: dashboards/router/nexus1000v/forms.py:51
 msgid "Trunk"
 msgstr "Trunk"
 
-#: dashboards/router/nexus1000v/forms.py:59
-#: dashboards/router/nexus1000v/forms.py:69
-#: dashboards/router/nexus1000v/forms.py:71
-#: dashboards/router/nexus1000v/forms.py:77
-#: dashboards/router/nexus1000v/tables.py:80
+#: dashboards/router/nexus1000v/forms.py:56
+#: dashboards/router/nexus1000v/forms.py:66
+#: dashboards/router/nexus1000v/forms.py:68
+#: dashboards/router/nexus1000v/forms.py:74
+#: dashboards/router/nexus1000v/tables.py:77
 msgid "Sub Type"
 msgstr "Podtyp"
 
-#: dashboards/router/nexus1000v/forms.py:60
+#: dashboards/router/nexus1000v/forms.py:57
 msgid "Native VXLAN"
 msgstr "Natywny VXLAN"
 
-#: dashboards/router/nexus1000v/forms.py:61
+#: dashboards/router/nexus1000v/forms.py:58
 msgid "Enhanced VXLAN"
 msgstr "Rozszerzony VXLAN"
 
-#: dashboards/router/nexus1000v/forms.py:79
-#: dashboards/router/nexus1000v/forms.py:85
-#: dashboards/router/nexus1000v/forms.py:87
-#: dashboards/router/nexus1000v/tables.py:82
+#: dashboards/router/nexus1000v/forms.py:76
+#: dashboards/router/nexus1000v/forms.py:82
+#: dashboards/router/nexus1000v/forms.py:84
+#: dashboards/router/nexus1000v/tables.py:79
 msgid "Segment Range"
 msgstr "Rozmiar segmentu"
 
-#: dashboards/router/nexus1000v/forms.py:88
+#: dashboards/router/nexus1000v/forms.py:85
 msgid "1-4093 for VLAN; 5000 and above for Overlay"
 msgstr "1-4093 dla VLAN; 5000 i więcej dla Overlay"
 
-#: dashboards/router/nexus1000v/forms.py:91
-#: dashboards/router/nexus1000v/forms.py:98
-#: dashboards/router/nexus1000v/tables.py:84
+#: dashboards/router/nexus1000v/forms.py:88
+#: dashboards/router/nexus1000v/forms.py:95
+#: dashboards/router/nexus1000v/tables.py:81
 msgid "Multicast IP Range"
 msgstr "Przedział adresów IP Multicast"
 
-#: dashboards/router/nexus1000v/forms.py:99
+#: dashboards/router/nexus1000v/forms.py:96
 msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
 msgstr "Zakres adresów multicast IPv4 (np. 224.0.1.0-224.0.1.100)"
 
-#: dashboards/router/nexus1000v/forms.py:103
-#: dashboards/router/nexus1000v/forms.py:110
+#: dashboards/router/nexus1000v/forms.py:100
+#: dashboards/router/nexus1000v/forms.py:107
 msgid "Sub Type Value (Manual Input)"
 msgstr "Wartość podtypu (wprowadzanie ręczne)"
 
-#: dashboards/router/nexus1000v/forms.py:112
+#: dashboards/router/nexus1000v/forms.py:109
 msgid "Enter parameter (e.g. GRE)"
 msgstr "Parametr (np. GRE)"
 
-#: dashboards/router/nexus1000v/forms.py:162
+#: dashboards/router/nexus1000v/forms.py:159
 #, python-format
 msgid "Network Profile %s was successfully created."
 msgstr "Utworzono profil sieci %s."
 
-#: dashboards/router/nexus1000v/forms.py:169
+#: dashboards/router/nexus1000v/forms.py:166
 #, python-format
 msgid "Failed to create network profile %s"
 msgstr "Nie można utworzyć profilu sieci %s"
 
-#: dashboards/router/nexus1000v/forms.py:203
+#: dashboards/router/nexus1000v/forms.py:200
 #, python-format
 msgid "Network Profile %s was successfully updated."
 msgstr "Zaktualizowano profil sieci %s."
 
-#: dashboards/router/nexus1000v/forms.py:209
+#: dashboards/router/nexus1000v/forms.py:206
 #, python-format
 msgid "Failed to update network profile (%s)."
 msgstr "Nie można zaktualizować profilu sieciowego (%s)."
 
-#: dashboards/router/nexus1000v/panel.py:23
+#: dashboards/router/nexus1000v/panel.py:20
 msgid "Cisco Nexus 1000v"
 msgstr "Cisco Nexus 1000v"
 
-#: dashboards/router/nexus1000v/tables.py:32
+#: dashboards/router/nexus1000v/tables.py:29
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:27
 #: dashboards/router/nexus1000v/templates/nexus1000v/create_network_profile.html:3
@@ -13873,45 +13870,45 @@ msgstr "Cisco Nexus 1000v"
 msgid "Create Network Profile"
 msgstr "Utwórz profil sieciowy"
 
-#: dashboards/router/nexus1000v/tables.py:42
+#: dashboards/router/nexus1000v/tables.py:39
 msgid "Delete Network Profile"
 msgid_plural "Delete Network Profiles"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/router/nexus1000v/tables.py:50
+#: dashboards/router/nexus1000v/tables.py:47
 msgid "Deleted Network Profile"
 msgid_plural "Deleted Network Profiles"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/router/nexus1000v/tables.py:59
+#: dashboards/router/nexus1000v/tables.py:56
 #, python-format
 msgid "Failed to delete network profile (%s)."
 msgstr "Nie można usunąć profilu sieciowego (%s)."
 
-#: dashboards/router/nexus1000v/tables.py:67
+#: dashboards/router/nexus1000v/tables.py:64
 #: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:8
 msgid "Edit Network Profile"
 msgstr "Edytuj profil sieciowy"
 
-#: dashboards/router/nexus1000v/tables.py:86
+#: dashboards/router/nexus1000v/tables.py:83
 msgid "Physical Network Name"
 msgstr "Nazwa sieci fizycznej"
 
-#: dashboards/router/nexus1000v/tables.py:97
-#: dashboards/router/nexus1000v/tables.py:102
-#: dashboards/router/nexus1000v/tabs.py:31
+#: dashboards/router/nexus1000v/tables.py:94
+#: dashboards/router/nexus1000v/tables.py:99
+#: dashboards/router/nexus1000v/tabs.py:28
 msgid "Policy Profile"
 msgstr "Profil zasad"
 
-#: dashboards/router/nexus1000v/views.py:131
+#: dashboards/router/nexus1000v/views.py:128
 msgid "Unable to retrieve network profile details."
 msgstr "Nie można pobrać szczegółów profilu sieciowego."
 
-#: dashboards/router/nexus1000v/views.py:142
+#: dashboards/router/nexus1000v/views.py:139
 msgid "Failed to obtain network profile binding"
 msgstr "Nie można pobrać powiązania profilu sieciowego"
 
