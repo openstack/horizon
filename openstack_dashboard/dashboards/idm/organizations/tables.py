@@ -195,7 +195,7 @@ class MyTenantsTable(tables.DataTable):
 
 
 class MembersTable(tables.DataTable):
-    name = tables.Column('member', verbose_name=_('Member'))
+    name = tables.Column('name', verbose_name=_('Member'))
 
     class Meta:
         name = "members"
