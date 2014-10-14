@@ -1,6 +1,6 @@
 {% load i18n sizeformat parse_date %}
 
-<h3>{% trans "Router Overview" %}: {{router.name }}</h3>
+<h3>{% blocktrans with router_name=router.name %}Router Overview: {{ router_name }}{% endblocktrans %}</h3>
 
 <div class="info detail">
   <dl>
@@ -24,8 +24,9 @@
     {% endif %}
     {% if router.external_gateway_info %}
     <dt>{% trans "External Gateway Information" %}</dt>
-    <dd>{% trans "Connected External Network" %}:
-      {{ router.external_gateway_info.network }}</dd>
+    <dd>
+      {% blocktrans with router_gw_info_network=router.external_gateway_info.network %}Connected External Network: {{ router_gw_info_network }}{% endblocktrans %}
+    </dd>
     {% endif %}
   </dl>
 </div>

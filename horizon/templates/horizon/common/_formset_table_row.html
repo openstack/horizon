@@ -10,7 +10,9 @@
       {% for field in row.form.hidden_fields %}
         {{ field }}
         {% for error in field.errors %}
-          <span class="help-block">{{ field.name }}: {{ error }}</span>
+          <span class="help-block">
+            {% blocktrans with name=field.name error=error %}{{ name }}: {{ error }}{% endblocktrans %}
+          </span>
         {% endfor %}
       {% endfor %}
       {% if row.form.non_field_errors %}

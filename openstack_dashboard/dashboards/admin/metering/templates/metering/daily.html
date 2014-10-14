@@ -3,7 +3,7 @@
   <form class="form-horizontal" action="{% url 'horizon:admin:metering:report' %}" method="POST">
       {% csrf_token %}
     <div class="form-group">
-      <label for="report_date_options" class="control-label col-sm-2">{% trans "Period" %}:&nbsp;</label>
+      <label for="report_date_options" class="control-label col-sm-2">{% trans "Period:" %}</label>
       <div class="col-sm-2">
         <select data-line-chart-command="select_box_change"
                 id="report_date_options" name="date_options" class="form-control">
@@ -18,21 +18,21 @@
       </div>
     </div>
     <div class="form-group" id="report_date_from">
-      <label for="date_from" class="control-label col-sm-2">{% trans "From" %}:&nbsp;</label>
+      <label for="date_from" class="control-label col-sm-2">{% trans "From:" %}</label>
       <div class="col-sm-2">
         <input data-line-chart-command="date_picker_change"
                type="text" id="date_from" name="date_from" class="form-control example"/>
       </div>
     </div>
     <div class="form-group" id="report_date_to">
-      <label for="date_to" class="control-label col-sm-2">{% trans "To" %}:&nbsp;</label>
+      <label for="date_to" class="control-label col-sm-2">{% trans "To:" %}</label>
       <div class="col-sm-2">
         <input data-line-chart-command="date_picker_change"
                type="text" name="date_to" class="form-control example"/>
       </div>
     </div>
     <div class="form-group">
-      <label for="limit" class="control-label col-sm-2">{% trans "Limit project count" %}:&nbsp;</label>
+      <label for="limit" class="control-label col-sm-2">{% trans "Limit project count:" %}</label>
       <div class="col-sm-2">
         <input type="text" name="limit" class="form-control example" value="20"/>
       </div>

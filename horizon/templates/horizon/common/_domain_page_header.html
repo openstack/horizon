@@ -3,7 +3,7 @@
   <div class='page-header'>
     <h1>
     {% if request.session.domain_context_name %}
-      <em>{{ request.session.domain_context_name }}:</em>
+      <em>{% blocktrans with context_name=request.session.domain_context_name %}{{ context_name }}:{% endblocktrans %}</em>
     {% endif %}
     {{ title }}
     </h1>
