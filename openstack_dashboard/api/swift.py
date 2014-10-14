@@ -18,6 +18,7 @@
 
 import logging
 
+from oslo.utils import timeutils
 import six.moves.urllib.parse as urlparse
 import swiftclient
 
@@ -28,7 +29,6 @@ from horizon import exceptions
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
-from openstack_dashboard.openstack.common import timeutils
 
 
 LOG = logging.getLogger(__name__)
