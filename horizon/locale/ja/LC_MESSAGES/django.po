@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-10 21:25-0500\n"
-"PO-Revision-Date: 2014-10-10 13:31+0000\n"
+"POT-Creation-Date: 2014-10-14 23:28-0500\n"
+"PO-Revision-Date: 2014-10-14 08:31+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -237,9 +237,19 @@ msgstr "次へ&nbsp;&raquo;"
 msgid "More Actions"
 msgstr "その他のアクション"
 
+#: templates/horizon/common/_domain_page_header.html:6
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
+
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "行の追加"
+
+#: templates/horizon/common/_formset_table_row.html:14
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -347,8 +357,8 @@ msgid "Usage Summary"
 msgstr "使用状況概要"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage"
-msgstr "使用状況を照会する期間を選択してください"
+msgid "Select a period of time to query its usage:"
+msgstr "使用状況を照会する期間を選択してください:"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -369,20 +379,20 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "日付は YYYY-mm-dd 形式にする必要があります。"
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances"
-msgstr "稼働中のインスタンス"
+msgid "Active Instances:"
+msgstr "稼働中のインスタンス:"
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM"
-msgstr "使用中のメモリー"
+msgid "Active RAM:"
+msgstr "使用中のメモリー:"
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours"
-msgstr "指定期間中の仮想 CPU 時間"
+msgid "This Period's VCPU-Hours:"
+msgstr "指定期間中の仮想 CPU 時間:"
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours"
-msgstr "指定期間中の GB 時間"
+msgid "This Period's GB-Hours:"
+msgstr "指定期間中の GB 時間:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:23-0500\n"
-"PO-Revision-Date: 2014-10-13 17:16+0000\n"
+"POT-Creation-Date: 2014-10-14 23:28-0500\n"
+"PO-Revision-Date: 2014-10-14 07:54+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -479,7 +479,7 @@ msgstr "관리자"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:132
+#: dashboards/project/networks/tables.py:134
 #: dashboards/project/networks/ports/forms.py:34
 #: dashboards/project/networks/ports/tables.py:55
 #: dashboards/project/networks/subnets/tables.py:116
@@ -761,100 +761,83 @@ msgid "Error when adding or removing hosts."
 msgstr "호스트를 추가하거나 삭제할때 에러가 발생하였습니다."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:17
+#: dashboards/admin/images/templates/images/_create.html:18
 #: dashboards/admin/images/templates/images/_update.html:18
-#: dashboards/admin/metering/tables.py:27
-#: dashboards/admin/metering/views.py:148
+#: dashboards/admin/instances/templates/instances/_live_migrate.html:17
 #: dashboards/admin/networks/templates/networks/_create.html:18
+#: dashboards/admin/networks/templates/networks/_update.html:17
 #: dashboards/admin/networks/templates/networks/agents/_add.html:18
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
-#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
+#: dashboards/admin/networks/templates/networks/ports/_update.html:22
+#: dashboards/admin/routers/templates/routers/_update.html:17
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:18
+#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:19
-#: dashboards/identity/domains/tables.py:200
-#: dashboards/identity/domains/workflows.py:37
-#: dashboards/identity/groups/forms.py:33
-#: dashboards/identity/groups/forms.py:59
-#: dashboards/identity/groups/tables.py:117
+#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/identity/groups/templates/groups/_create.html:17
 #: dashboards/identity/groups/templates/groups/_update.html:17
-#: dashboards/identity/projects/tables.py:197
-#: dashboards/identity/projects/workflows.py:129
 #: dashboards/identity/roles/templates/roles/_create.html:17
 #: dashboards/identity/roles/templates/roles/_update.html:17
 #: dashboards/identity/users/templates/users/_create.html:17
 #: dashboards/identity/users/templates/users/_update.html:17
-#: dashboards/project/access_and_security/security_groups/forms.py:44
-#: dashboards/project/access_and_security/security_groups/forms.py:73
-#: dashboards/project/access_and_security/security_groups/tables.py:133
-#: dashboards/project/data_processing/cluster_templates/tables.py:123
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
-#: dashboards/project/data_processing/clusters/workflows/create.py:73
-#: dashboards/project/data_processing/data_image_registry/forms.py:30
-#: dashboards/project/data_processing/data_plugins/tables.py:35
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
-#: dashboards/project/data_processing/data_sources/tables.py:65
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
-#: dashboards/project/data_processing/data_sources/workflows/create.py:46
-#: dashboards/project/data_processing/job_binaries/forms.py:77
-#: dashboards/project/data_processing/job_binaries/tables.py:86
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
-#: dashboards/project/data_processing/jobs/tables.py:152
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:65
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
-#: dashboards/project/database_backups/templates/database_backups/details.html:20
-#: dashboards/project/database_backups/workflows/create_backup.py:34
-#: dashboards/project/firewalls/forms.py:36
-#: dashboards/project/firewalls/forms.py:100
-#: dashboards/project/firewalls/forms.py:128
-#: dashboards/project/firewalls/workflows.py:34
-#: dashboards/project/firewalls/workflows.py:177
-#: dashboards/project/firewalls/workflows.py:235
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
-#: dashboards/project/images/images/forms.py:41
-#: dashboards/project/images/images/forms.py:194
-#: dashboards/project/images/templates/images/images/_detail_overview.html:12
-#: dashboards/project/loadbalancers/forms.py:36
-#: dashboards/project/loadbalancers/forms.py:78
-#: dashboards/project/loadbalancers/tables.py:272
-#: dashboards/project/loadbalancers/workflows.py:39
-#: dashboards/project/loadbalancers/workflows.py:158
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
-#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:122
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
-#: dashboards/project/volumes/backups/forms.py:35
-#: dashboards/project/volumes/backups/tables.py:109
-#: dashboards/project/volumes/snapshots/forms.py:27
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
-#: dashboards/project/volumes/volumes/forms.py:50
-#: dashboards/project/volumes/volumes/forms.py:474
-#: dashboards/project/volumes/volumes/forms.py:512
-#: dashboards/project/volumes/volumes/tables.py:328
-#: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
-#: dashboards/project/vpn/forms.py:141 dashboards/project/vpn/forms.py:211
-#: dashboards/project/vpn/tables.py:261 dashboards/project/vpn/workflows.py:28
-#: dashboards/project/vpn/workflows.py:113
-#: dashboards/project/vpn/workflows.py:212
-#: dashboards/project/vpn/workflows.py:309
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:10
-msgid "Description"
-msgstr "설명"
+#: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:18
+#: dashboards/project/containers/templates/containers/_copy.html:17
+#: dashboards/project/containers/templates/containers/_create.html:17
+#: dashboards/project/containers/templates/containers/_update.html:20
+#: dashboards/project/containers/templates/containers/_upload.html:21
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:17
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:17
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:17
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:17
+#: dashboards/project/images/templates/images/images/_create.html:19
+#: dashboards/project/images/templates/images/images/_update.html:17
+#: dashboards/project/images/templates/images/snapshots/_create.html:18
+#: dashboards/project/instances/templates/instances/_decryptpassword.html:20
+#: dashboards/project/instances/templates/instances/_rebuild.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:17
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:17
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:17
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:17
+#: dashboards/project/networks/templates/networks/_create.html:17
+#: dashboards/project/networks/templates/networks/_update.html:17
+#: dashboards/project/networks/templates/networks/ports/_update.html:22
+#: dashboards/project/routers/templates/routers/_update.html:17
+#: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
+#: dashboards/project/routers/templates/routers/ports/_create.html:18
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
+#: dashboards/project/stacks/templates/stacks/_change_template.html:19
+#: dashboards/project/stacks/templates/stacks/_create.html:18
+#: dashboards/project/stacks/templates/stacks/_select_template.html:19
+#: dashboards/project/stacks/templates/stacks/_update.html:18
+#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
+#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:17
+#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:17
+#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:17
+#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:17
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:18
+#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:17
+#: dashboards/settings/password/templates/password/_change.html:18
+#: dashboards/settings/user/templates/user/_settings.html:18
+msgid "Description:"
+msgstr "설명:"
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:19
 msgid ""
@@ -1671,7 +1654,7 @@ msgstr "영역"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
-#: dashboards/project/networks/tables.py:138
+#: dashboards/project/networks/tables.py:140
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
@@ -1752,68 +1735,6 @@ msgstr "메모리 사용량"
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
 msgid "Disk Usage"
 msgstr "디스크 사용량"
-
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:17
-#: dashboards/admin/images/templates/images/_create.html:18
-#: dashboards/admin/instances/templates/instances/_live_migrate.html:17
-#: dashboards/admin/networks/templates/networks/_update.html:17
-#: dashboards/admin/networks/templates/networks/ports/_update.html:22
-#: dashboards/admin/routers/templates/routers/_update.html:17
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:18
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:17
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:17
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:18
-#: dashboards/project/containers/templates/containers/_copy.html:17
-#: dashboards/project/containers/templates/containers/_create.html:17
-#: dashboards/project/containers/templates/containers/_update.html:20
-#: dashboards/project/containers/templates/containers/_upload.html:21
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:17
-#: dashboards/project/images/templates/images/images/_create.html:19
-#: dashboards/project/images/templates/images/images/_update.html:17
-#: dashboards/project/images/templates/images/snapshots/_create.html:18
-#: dashboards/project/instances/templates/instances/_decryptpassword.html:20
-#: dashboards/project/instances/templates/instances/_rebuild.html:18
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:17
-#: dashboards/project/networks/templates/networks/_create.html:17
-#: dashboards/project/networks/templates/networks/_update.html:17
-#: dashboards/project/networks/templates/networks/ports/_update.html:22
-#: dashboards/project/routers/templates/routers/_update.html:17
-#: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
-#: dashboards/project/routers/templates/routers/ports/_create.html:18
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
-#: dashboards/project/stacks/templates/stacks/_change_template.html:19
-#: dashboards/project/stacks/templates/stacks/_create.html:18
-#: dashboards/project/stacks/templates/stacks/_select_template.html:19
-#: dashboards/project/stacks/templates/stacks/_update.html:18
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:18
-#: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:18
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:17
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:17
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:17
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:17
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:18
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:17
-#: dashboards/settings/password/templates/password/_change.html:18
-#: dashboards/settings/user/templates/user/_settings.html:18
-msgid "Description:"
-msgstr "설명:"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -2023,8 +1944,9 @@ msgid "Unable to retrieve version information."
 msgstr "버전 정보를 찾지 못했습니다."
 
 #: dashboards/admin/info/templates/info/_cell_status.html:4
-msgid "Reason"
-msgstr "현황"
+#, python-format
+msgid "Reason: %(disabled_reason)s"
+msgstr ""
 
 #: dashboards/admin/info/templates/info/index.html:3
 #: dashboards/admin/info/templates/info/index.html:6
@@ -2220,6 +2142,85 @@ msgstr "리소스 사용"
 msgid "Meter"
 msgstr "미터"
 
+#: dashboards/admin/metering/tables.py:27
+#: dashboards/admin/metering/views.py:148
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
+#: dashboards/identity/domains/tables.py:200
+#: dashboards/identity/domains/workflows.py:37
+#: dashboards/identity/groups/forms.py:33
+#: dashboards/identity/groups/forms.py:59
+#: dashboards/identity/groups/tables.py:117
+#: dashboards/identity/projects/tables.py:197
+#: dashboards/identity/projects/workflows.py:129
+#: dashboards/project/access_and_security/security_groups/forms.py:44
+#: dashboards/project/access_and_security/security_groups/forms.py:73
+#: dashboards/project/access_and_security/security_groups/tables.py:133
+#: dashboards/project/data_processing/cluster_templates/tables.py:123
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
+#: dashboards/project/data_processing/clusters/workflows/create.py:73
+#: dashboards/project/data_processing/data_image_registry/forms.py:30
+#: dashboards/project/data_processing/data_plugins/tables.py:35
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
+#: dashboards/project/data_processing/data_sources/tables.py:65
+#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
+#: dashboards/project/data_processing/data_sources/workflows/create.py:46
+#: dashboards/project/data_processing/job_binaries/forms.py:77
+#: dashboards/project/data_processing/job_binaries/tables.py:86
+#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
+#: dashboards/project/data_processing/jobs/tables.py:152
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
+#: dashboards/project/data_processing/jobs/workflows/create.py:65
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
+#: dashboards/project/database_backups/templates/database_backups/details.html:20
+#: dashboards/project/database_backups/workflows/create_backup.py:34
+#: dashboards/project/firewalls/forms.py:36
+#: dashboards/project/firewalls/forms.py:100
+#: dashboards/project/firewalls/forms.py:128
+#: dashboards/project/firewalls/workflows.py:34
+#: dashboards/project/firewalls/workflows.py:177
+#: dashboards/project/firewalls/workflows.py:235
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
+#: dashboards/project/images/images/forms.py:41
+#: dashboards/project/images/images/forms.py:194
+#: dashboards/project/images/templates/images/images/_detail_overview.html:12
+#: dashboards/project/loadbalancers/forms.py:36
+#: dashboards/project/loadbalancers/forms.py:78
+#: dashboards/project/loadbalancers/tables.py:272
+#: dashboards/project/loadbalancers/workflows.py:39
+#: dashboards/project/loadbalancers/workflows.py:158
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
+#: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:122
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
+#: dashboards/project/volumes/backups/forms.py:35
+#: dashboards/project/volumes/backups/tables.py:109
+#: dashboards/project/volumes/snapshots/forms.py:27
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
+#: dashboards/project/volumes/volumes/forms.py:50
+#: dashboards/project/volumes/volumes/forms.py:474
+#: dashboards/project/volumes/volumes/forms.py:512
+#: dashboards/project/volumes/volumes/tables.py:328
+#: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
+#: dashboards/project/vpn/forms.py:141 dashboards/project/vpn/forms.py:211
+#: dashboards/project/vpn/tables.py:261 dashboards/project/vpn/workflows.py:28
+#: dashboards/project/vpn/workflows.py:113
+#: dashboards/project/vpn/workflows.py:212
+#: dashboards/project/vpn/workflows.py:309
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:10
+msgid "Description"
+msgstr "설명"
+
 #: dashboards/admin/metering/tables.py:28
 msgid "Day"
 msgstr "일"
@@ -2286,8 +2287,8 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/templates/metering/daily.html:6
 #: dashboards/admin/metering/templates/metering/stats.html:102
-msgid "Period"
-msgstr "기간"
+msgid "Period:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/daily.html:10
 #: dashboards/admin/metering/templates/metering/stats.html:106
@@ -2327,17 +2328,17 @@ msgstr "다른"
 
 #: dashboards/admin/metering/templates/metering/daily.html:21
 #: dashboards/admin/metering/templates/metering/stats.html:117
-msgid "From"
-msgstr "From"
+msgid "From:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/daily.html:28
 #: dashboards/admin/metering/templates/metering/stats.html:124
-msgid "To"
-msgstr "To"
+msgid "To:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/daily.html:35
-msgid "Limit project count"
-msgstr "최대 프로젝트 수"
+msgid "Limit project count:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/daily.html:42
 msgid "Generate Report"
@@ -2371,8 +2372,8 @@ msgid "No data available"
 msgstr "데이터 없음"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
-msgid "Metric"
-msgstr "계량"
+msgid "Metric:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/stats.html:16
 msgid "Compute (Nova)"
@@ -2399,24 +2400,16 @@ msgid "Energy (Kwapi)"
 msgstr "전력 (Kwapi) "
 
 #: dashboards/admin/metering/templates/metering/stats.html:79
-msgid "Group by"
-msgstr "그룹에서"
+msgid "Group by:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/stats.html:83
 msgid "--"
 msgstr "--"
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
-#: dashboards/admin/volumes/volume_types/extras/forms.py:24
-#: dashboards/admin/volumes/volume_types/extras/forms.py:41
-#: dashboards/admin/volumes/volume_types/extras/tables.py:70
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:25
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:47
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:59
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:55
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:65
-msgid "Value"
-msgstr "값"
+msgid "Value:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/stats.html:94
 msgid "Avg."
@@ -2499,7 +2492,7 @@ msgstr "구분 ID"
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:39
-#: dashboards/project/networks/tables.py:140
+#: dashboards/project/networks/tables.py:142
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/networks/ports/tables.py:61
@@ -2526,7 +2519,7 @@ msgstr "관리자 상태"
 #: dashboards/project/firewalls/workflows.py:238
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:136
+#: dashboards/project/networks/tables.py:138
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "공유"
@@ -2612,7 +2605,7 @@ msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
 #: dashboards/project/databases/workflows/create_instance.py:131
 #: dashboards/project/instances/workflows/create_instance.py:641
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:144
+#: dashboards/project/networks/tables.py:146
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
@@ -2632,7 +2625,7 @@ msgid_plural "Deleted Networks"
 msgstr[0] "네트워크 삭제함"
 
 #: dashboards/admin/networks/tables.py:56
-#: dashboards/project/networks/tables.py:76
+#: dashboards/project/networks/tables.py:78
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "네트워크 %s 삭제하지 못하였습니다."
@@ -2643,8 +2636,8 @@ msgstr "네트워크 %s 삭제하지 못하였습니다."
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
-#: dashboards/project/networks/tables.py:84
-#: dashboards/project/networks/tables.py:97
+#: dashboards/project/networks/tables.py:86
+#: dashboards/project/networks/tables.py:99
 #: dashboards/project/networks/workflows.py:334
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
@@ -2653,7 +2646,7 @@ msgstr "네트워크 생성"
 
 #: dashboards/admin/networks/tables.py:73
 #: dashboards/admin/networks/templates/networks/_update.html:8
-#: dashboards/project/networks/tables.py:106
+#: dashboards/project/networks/tables.py:108
 #: dashboards/project/networks/templates/networks/_update.html:8
 msgid "Edit Network"
 msgstr "네트워크 편집"
@@ -2666,7 +2659,7 @@ msgid "Network Name"
 msgstr "네트워크 이름"
 
 #: dashboards/admin/networks/tables.py:90
-#: dashboards/project/networks/tables.py:135
+#: dashboards/project/networks/tables.py:137
 msgid "Subnets Associated"
 msgstr "관련 서브넷"
 
@@ -3097,8 +3090,8 @@ msgid "Usage Overview"
 msgstr "사용 개요"
 
 #: dashboards/admin/overview/templates/overview/usage.html:12
-msgid "Monitoring"
-msgstr "모니터링"
+msgid "Monitoring:"
+msgstr ""
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:59
 #: dashboards/admin/routers/templates/routers/index.html:3
@@ -3159,8 +3152,10 @@ msgid "Interfaces"
 msgstr "인터페이스"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:3
-msgid "Router Overview"
-msgstr "라우터 개요"
+#: dashboards/project/routers/templates/routers/_detail_overview.html:4
+#, python-format
+msgid "Router Overview: %(router_name)s"
+msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:50
@@ -3250,9 +3245,10 @@ msgstr "고가용성 모드"
 msgid "External Gateway Information"
 msgstr "외부 게이트웨이 정보"
 
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:27
-msgid "Connected External Network"
-msgstr "외부 네트워크 연결합니다."
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:28
+#, python-format
+msgid "Connected External Network: %(router_gw_info_network)s"
+msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
 #: dashboards/project/routers/tables.py:98
@@ -3583,8 +3579,9 @@ msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값을 생성합니다."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:10
-msgid "Edit Extra Spec Value"
-msgstr "추가 사양 값 편집"
+#, python-format
+msgid "Edit Extra Spec Value: %(key)s"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:20
 #, python-format
@@ -3604,15 +3601,20 @@ msgstr "볼륨 타입 추가 사양"
 msgid "Close"
 msgstr "닫기"
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:7
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:7
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:7
-msgid "Volume Type"
-msgstr "볼륨 타입"
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:8
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:8
+#, python-format
+msgid "Volume Type: %(volume_type_name)s "
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:4
 msgid "Edit Volume Type Extra Spec"
 msgstr "볼륨 타입 추가 사양 편집"
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:7
+#, python-format
+msgid "Volume Type: %(volume_type_name)s"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
@@ -3634,9 +3636,9 @@ msgid "Update the spec value for \"%(key)s\""
 msgstr " \"%(key)s\" 스펙 값을 갱신합니다. "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:7
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:35
-msgid "Spec"
-msgstr "사양"
+#, python-format
+msgid "Spec: %(qos_spec_name)s"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:4
 msgid "Edit Spec"
@@ -3647,7 +3649,8 @@ msgid "QoS Spec: "
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
-msgid "QoS Spec"
+#, python-format
+msgid "QoS Spec: %(qos_spec_name)s"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
@@ -3797,6 +3800,17 @@ msgstr ""
 msgid "Key"
 msgstr "키"
 
+#: dashboards/admin/volumes/volume_types/extras/forms.py:24
+#: dashboards/admin/volumes/volume_types/extras/forms.py:41
+#: dashboards/admin/volumes/volume_types/extras/tables.py:70
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:25
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:47
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:59
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:55
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:65
+msgid "Value"
+msgstr "값"
+
 #: dashboards/admin/volumes/volume_types/extras/forms.py:32
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -3864,6 +3878,10 @@ msgstr "사양  \"%s\"를 저장했습니다."
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:69
 msgid "Unable to edit spec."
 msgstr "사양을 수정하지 못했습니다."
+
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:35
+msgid "Spec"
+msgstr "사양"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:63
 msgid "Key-Value Pairs"
@@ -4136,12 +4154,12 @@ msgid ""
 "privileges or remove the administrative role manually via the CLI."
 msgstr "현재 로그인한 도메인에서 관리자 권한을 취소할 수 있습니다. 관리자 권한을 이용하여 다른 도메인으로 전환하거나 CLI를 통해 수동으로 관리 롤을 제거하십시오."
 
-#: dashboards/identity/domains/workflows.py:402
+#: dashboards/identity/domains/workflows.py:403
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
 msgstr "%s 프로젝트 멤버 수정 및 도메인 그룹을 업데이트하지 못했습니다."
 
-#: dashboards/identity/domains/workflows.py:474
+#: dashboards/identity/domains/workflows.py:475
 #, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "%s 도메인 그룹을 수정하지 못하였습니다."
@@ -4434,7 +4452,7 @@ msgstr "프로젝트 \"%s\" 만들 수 없습니다."
 msgid ", add project groups"
 msgstr ", 프로젝트 그룹 추가"
 
-#: dashboards/identity/projects/workflows.py:425
+#: dashboards/identity/projects/workflows.py:426
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
@@ -4475,21 +4493,21 @@ msgstr "현재 로그인된 사용자로는 프로젝트에서 관리 권한을 
 msgid ", update project groups"
 msgstr ", 프로젝트 그룹 업데이트"
 
-#: dashboards/identity/projects/workflows.py:646
+#: dashboards/identity/projects/workflows.py:647
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "%(users_to_modify)s 프로젝트 멤버 수정하고 %(group_msg)s , 프로젝트 quota를 업데이트하는데 실패했습니다"
 
-#: dashboards/identity/projects/workflows.py:719
+#: dashboards/identity/projects/workflows.py:720
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "%s 프로젝트 멤버를 수정하고, 프로젝트 그룹과 프로젝트 quota를 업데이트하는데 실패했습니다."
 
-#: dashboards/identity/projects/workflows.py:752
+#: dashboards/identity/projects/workflows.py:753
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -4976,12 +4994,12 @@ msgstr "키 패어 이름"
 msgid "Public Key"
 msgstr "공개 Key"
 
-#: dashboards/project/access_and_security/keypairs/forms.py:64
+#: dashboards/project/access_and_security/keypairs/forms.py:65
 #, python-format
 msgid "Successfully imported public key: %s"
 msgstr "공개 Key를 성공적으로 가져왔습니다.:%s"
 
-#: dashboards/project/access_and_security/keypairs/forms.py:69
+#: dashboards/project/access_and_security/keypairs/forms.py:70
 msgid "Unable to import key pair."
 msgstr "키 패어를 가져오지 못했습니다."
 
@@ -10937,11 +10955,11 @@ msgstr "기본"
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "표시할 네트워크, 라우터, 연결한 인스턴스가 없습니다."
 
-#: dashboards/project/networks/tables.py:95
+#: dashboards/project/networks/tables.py:97
 msgid "Create Network (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/networks/tables.py:116
+#: dashboards/project/networks/tables.py:118
 msgid "Add Subnet"
 msgstr "서브넷 추가"
 
@@ -11655,11 +11673,6 @@ msgstr "인터페이스 %s를 삭제하지 못하였습니다."
 #: dashboards/project/routers/ports/views.py:78
 msgid "Unable to set gateway."
 msgstr "게이트웨이를 설정하지 못했습니다."
-
-#: dashboards/project/routers/templates/routers/_detail_overview.html:4
-#, python-format
-msgid "Router Overview: %(router_name)s"
-msgstr ""
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:27
 msgid "Connected External Network:"
