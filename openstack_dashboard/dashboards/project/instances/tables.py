@@ -700,7 +700,7 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     def allowed(self, request, instance):
         return ((get_power_state(instance)
-                in ("RUNNING", "PAUSED", "SUSPENDED"))
+                in ("RUNNING", "SUSPENDED"))
                 and not is_deleting(instance))
 
     def action(self, request, obj_id):
