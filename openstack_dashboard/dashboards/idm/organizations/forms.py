@@ -14,8 +14,8 @@ from openstack_dashboard.api import keystone
 
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
-    name = forms.CharField(label=_("Name"), max_length=64,required=False)
-    description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
+    name = forms.CharField(label=_("Name"), max_length=64,required=True)
+    description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=True)
     domain_id = forms.CharField(label=_("Domain ID"),required=False,widget=forms.HiddenInput())
     enabled = forms.BooleanField(label=_("Enabled"),required=False,initial=True,widget=forms.HiddenInput())
     domain_name = forms.CharField(label=_("Domain Name"),required=False,widget=forms.HiddenInput())

@@ -30,8 +30,7 @@ class UploadImageForm(forms.SelfHandlingForm):
 
 	def get_context_data(self, **kwargs):
 		context = super(UploadImageForm, self).get_context_data(**kwargs)
-		context['hola'] = 'pepe'
-		context['imageURL']=file
+		
 		return context
 
 	def handle(self, request, data):

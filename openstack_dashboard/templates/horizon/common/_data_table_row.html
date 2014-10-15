@@ -5,7 +5,9 @@
     <div class="data">
     {% if cell.column.name == 'name'%}
         {{ cell.column.name }} : {{ cell.value }}
-        <button class="btn btn-link">switch</button>
+        {% if row.table.name != "members" %}
+          <button class="btn btn-link">switch</button>
+        {% endif %}
 
 	{% else %}
         {{ cell.column.name }} : {{ cell.value }}
