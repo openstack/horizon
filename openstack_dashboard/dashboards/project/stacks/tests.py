@@ -517,31 +517,37 @@ class StackTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/stacks/create.html')
 
         # ensure the fields were rendered correctly
-        self.assertContains(res, '<input class="form-control" '
-                                        'id="id___param_param1" '
-                                        'name="__param_param1" '
-                                        'type="text" />', html=True)
+        self.assertContains(res,
+                            '<input class="form-control" '
+                            'id="id___param_param1" '
+                            'name="__param_param1" '
+                            'type="text" />', html=True)
         if django.VERSION >= (1, 6):
-            self.assertContains(res, '<input class="form-control" '
-                                            'id="id___param_param2" '
-                                            'name="__param_param2" '
-                                            'type="number" />', html=True)
+            self.assertContains(res,
+                                '<input class="form-control" '
+                                'id="id___param_param2" '
+                                'name="__param_param2" '
+                                'type="number" />', html=True)
         else:
-            self.assertContains(res, '<input class="form-control" '
-                                            'id="id___param_param2" '
-                                            'name="__param_param2" '
-                                            'type="text" />', html=True)
-        self.assertContains(res, '<input class="form-control" '
-                                        'id="id___param_param3" '
-                                        'name="__param_param3" '
-                                        'type="text" />', html=True)
-        self.assertContains(res, '<input class="form-control" '
-                                        'id="id___param_param4" '
-                                        'name="__param_param4" '
-                                        'type="text" />', html=True)
-        self.assertContains(res, '<input id="id___param_param5" '
-                                        'name="__param_param5" '
-                                        'type="checkbox" />', html=True)
+            self.assertContains(res,
+                                '<input class="form-control" '
+                                'id="id___param_param2" '
+                                'name="__param_param2" '
+                                'type="text" />', html=True)
+        self.assertContains(res,
+                            '<input class="form-control" '
+                            'id="id___param_param3" '
+                            'name="__param_param3" '
+                            'type="text" />', html=True)
+        self.assertContains(res,
+                            '<input class="form-control" '
+                            'id="id___param_param4" '
+                            'name="__param_param4" '
+                            'type="text" />', html=True)
+        self.assertContains(res,
+                            '<input id="id___param_param5" '
+                            'name="__param_param5" '
+                            'type="checkbox" />', html=True)
 
         # post some sample data and make sure it validates
         url = reverse('horizon:project:stacks:launch')

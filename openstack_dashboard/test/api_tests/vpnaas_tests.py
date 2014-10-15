@@ -272,7 +272,7 @@ class VPNaasApiTests(test.APITestCase):
     def test_ipsecsiteconnection_get(self):
         ipsecsiteconnection = self.ipsecsiteconnections.first()
         connection_dict = {'ipsec_site_connection':
-                               self.api_ipsecsiteconnections.first()}
+                           self.api_ipsecsiteconnections.first()}
         ikepolicy_dict = {'ikepolicy': self.api_ikepolicies.first()}
         ipsecpolicy_dict = {'ipsecpolicy': self.api_ipsecpolicies.first()}
         vpnservice_dict = {'vpnservice': self.api_vpnservices.first()}

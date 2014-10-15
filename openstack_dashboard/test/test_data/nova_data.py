@@ -544,7 +544,7 @@ def data(TEST):
                     "flavor_disk": flavor_1.disk,
                     "flavor_ram": flavor_1.ram}
     usage_obj_2 = usage.Usage(usage.UsageManager(None),
-                               json.loads(USAGE_DATA % usage_2_vals))
+                              json.loads(USAGE_DATA % usage_2_vals))
     TEST.usages.add(usage_obj_2)
 
     volume_snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),

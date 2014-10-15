@@ -249,14 +249,15 @@ class FloatingIpViewTests(test.TestCase):
 
         allocate_link = tables.AllocateIP()
         url = allocate_link.get_link_url()
-        classes = list(allocate_link.get_default_classes())\
-                    + list(allocate_link.classes)
+        classes = (list(allocate_link.get_default_classes())
+                   + list(allocate_link.classes))
         link_name = "%s (%s)" % (unicode(allocate_link.verbose_name),
                                  "Quota exceeded")
-        expected_string = "<a href='%s' title='%s' class='%s disabled' " \
-            "id='floating_ips__action_allocate'>" \
-            "<span class='glyphicon glyphicon-download-alt'></span>%s</a>" \
-             % (url, link_name, " ".join(classes), link_name)
+        expected_string = ("<a href='%s' title='%s' class='%s disabled' "
+                           "id='floating_ips__action_allocate'>"
+                           "<span class='glyphicon glyphicon-download-alt'>"
+                           "</span>%s</a>"
+                           % (url, link_name, " ".join(classes), link_name))
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The create button is not disabled")
 

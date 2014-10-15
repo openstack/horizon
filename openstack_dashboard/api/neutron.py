@@ -270,14 +270,14 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
             ip_protocol = None
 
         body = {'security_group_rule':
-                    {'security_group_id': parent_group_id,
-                     'direction': direction,
-                     'ethertype': ethertype,
-                     'protocol': ip_protocol,
-                     'port_range_min': from_port,
-                     'port_range_max': to_port,
-                     'remote_ip_prefix': cidr,
-                     'remote_group_id': group_id}}
+                {'security_group_id': parent_group_id,
+                 'direction': direction,
+                 'ethertype': ethertype,
+                 'protocol': ip_protocol,
+                 'port_range_min': from_port,
+                 'port_range_max': to_port,
+                 'remote_ip_prefix': cidr,
+                 'remote_group_id': group_id}}
         rule = self.client.create_security_group_rule(body)
         rule = rule.get('security_group_rule')
         sg_dict = self._sg_name_dict(parent_group_id, [rule])
@@ -612,9 +612,9 @@ def subnet_create(request, network_id, cidr, ip_version, **kwargs):
     LOG.debug("subnet_create(): netid=%s, cidr=%s, ipver=%d, kwargs=%s"
               % (network_id, cidr, ip_version, kwargs))
     body = {'subnet':
-                {'network_id': network_id,
-                 'ip_version': ip_version,
-                 'cidr': cidr}}
+            {'network_id': network_id,
+             'ip_version': ip_version,
+             'cidr': cidr}}
     body['subnet'].update(kwargs)
     subnet = neutronclient(request).create_subnet(body=body).get('subnet')
     return Subnet(subnet)

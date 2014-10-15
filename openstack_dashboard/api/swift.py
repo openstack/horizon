@@ -219,7 +219,7 @@ def swift_get_objects(request, container_name, prefix=None, marker=None,
                   delimiter=FOLDER_DELIMITER,
                   full_listing=True)
     headers, objects = swift_api(request).get_container(container_name,
-                                                          **kwargs)
+                                                        **kwargs)
     object_objs = _objectify(objects, container_name)
 
     if(len(object_objs) > limit):
