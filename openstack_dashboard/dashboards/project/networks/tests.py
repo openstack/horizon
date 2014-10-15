@@ -721,11 +721,16 @@ class NetworkTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_list',
-                                      'subnet_list',
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'network_list',
                                       'network_delete')})
     def test_delete_network_no_subnet(self):
         network = self.networks.first()
+        network.subnets = []
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id,
+                                expand_subnet=False)\
+            .AndReturn(network)
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=network.tenant_id,
                                  shared=False)\
@@ -733,33 +738,33 @@ class NetworkTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True)\
             .AndReturn([])
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
-            .AndReturn([])
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
         self.mox.ReplayAll()
 
         form_data = {'action': 'networks__delete__%s' % network.id}
         res = self.client.post(INDEX_URL, form_data)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_list',
-                                      'subnet_list',
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'network_list',
                                       'network_delete',
                                       'subnet_delete')})
     def test_delete_network_with_subnet(self):
         network = self.networks.first()
-        subnet = self.subnets.first()
+        network.subnets = [subnet.id for subnet in network.subnets]
+        subnet_id = network.subnets[0]
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id,
+                                expand_subnet=False)\
+            .AndReturn(network)
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=network.tenant_id,
                                  shared=False)\
             .AndReturn([network])
         api.neutron.network_list(IsA(http.HttpRequest), shared=True)\
             .AndReturn([])
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
-            .AndReturn([subnet])
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
+        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
         self.mox.ReplayAll()
@@ -769,13 +774,18 @@ class NetworkTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_list',
-                                      'subnet_list',
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'network_list',
                                       'network_delete',
                                       'subnet_delete')})
     def test_delete_network_exception(self):
         network = self.networks.first()
-        subnet = self.subnets.first()
+        network.subnets = [subnet.id for subnet in network.subnets]
+        subnet_id = network.subnets[0]
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id,
+                                expand_subnet=False)\
+            .AndReturn(network)
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=network.tenant_id,
                                  shared=False)\
@@ -783,9 +793,7 @@ class NetworkTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True)\
             .AndReturn([])
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
-            .AndReturn([subnet])
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
+        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)\
             .AndRaise(self.exceptions.neutron)
 

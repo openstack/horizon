@@ -61,22 +61,24 @@ class DeleteNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
     policy_rules = (("network", "delete_network"),)
 
     def delete(self, request, network_id):
+        network_name = network_id
         try:
-            # Retrieve existing subnets belonging to the network.
-            subnets = api.neutron.subnet_list(request, network_id=network_id)
-            LOG.debug('Network %s has subnets: %s' %
-                      (network_id, [s.id for s in subnets]))
-            for s in subnets:
-                api.neutron.subnet_delete(request, s.id)
-                LOG.debug('Deleted subnet %s' % s.id)
-
+            # Retrieve the network list.
+            network = api.neutron.network_get(request, network_id,
+                                              expand_subnet=False)
+            network_name = network.name
+            LOG.debug('Network %(network_id)s has subnets: %(subnets)s',
+                      {'network_id': network_id, 'subnets': network.subnets})
+            for subnet_id in network.subnets:
+                api.neutron.subnet_delete(request, subnet_id)
+                LOG.debug('Deleted subnet %s', subnet_id)
             api.neutron.network_delete(request, network_id)
-            LOG.debug('Deleted network %s successfully' % network_id)
+            LOG.debug('Deleted network %s successfully', network_id)
         except Exception:
-            msg = _('Failed to delete network %s') % network_id
-            LOG.info(msg)
+            msg = _('Failed to delete network %s')
+            LOG.info(msg, network_id)
             redirect = reverse("horizon:project:networks:index")
-            exceptions.handle(request, msg, redirect=redirect)
+            exceptions.handle(request, msg % network_name, redirect=redirect)
 
 
 class CreateNetwork(tables.LinkAction):
