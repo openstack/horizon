@@ -64,7 +64,6 @@
         font-size: 1.3rem;
         @media (max-width: $screen-sm-min){
           float: left;
-          margin-right: 10px;
           border-right: 1px solid $gray-light;
           padding-right: 15px;
           font-size: 12px;
@@ -126,4 +125,4 @@ li.home i{@extend .fa-home;}
 li.myApplications i{@extend .fa-cube;}
 li.organizations i, li.members i{@extend .fa-group;}
 li.notify i{@extend .fa-comment;}
-li.administrator i{@extend .fa-wrench;}
+li.administrators i{@extend .fa-wrench;}
