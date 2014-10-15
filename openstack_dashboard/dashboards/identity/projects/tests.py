@@ -882,11 +882,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                             user.id,
                                             self.tenant.id).AndReturn(roles)
 
-        for group in groups:
-            api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                         group=group.id,
-                                         project=self.tenant.id) \
-                .AndReturn(roles)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           project=self.tenant.id) \
+           .AndReturn(role_assignments)
 
         self.mox.ReplayAll()
 
@@ -987,11 +985,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                             user.id,
                                             self.tenant.id).AndReturn(roles)
 
-        for group in groups:
-            api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                         group=group.id,
-                                         project=self.tenant.id) \
-                .AndReturn(roles)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           project=self.tenant.id) \
+           .AndReturn(role_assignments)
 
         workflow_data[USER_ROLE_PREFIX + "1"] = ['3']  # admin role
         workflow_data[USER_ROLE_PREFIX + "2"] = ['2']  # member role
@@ -1243,12 +1239,12 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                 workflow_data.setdefault(USER_ROLE_PREFIX + role_ids[0], []) \
                              .append(user.id)
 
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           project=self.tenant.id) \
+           .AndReturn(role_assignments)
+
+        role_ids = [role.id for role in roles]
         for group in groups:
-            api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                         group=group.id,
-                                         project=self.tenant.id) \
-                .AndReturn(roles)
-            role_ids = [role.id for role in roles]
             if role_ids:
                 workflow_data.setdefault(GROUP_ROLE_PREFIX + role_ids[0], []) \
                              .append(group.id)
@@ -1360,11 +1356,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                             user.id,
                                             self.tenant.id).AndReturn(roles)
 
-        for group in groups:
-            api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                         group=group.id,
-                                         project=self.tenant.id) \
-                .AndReturn(roles)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           project=self.tenant.id) \
+           .AndReturn(role_assignments)
 
         workflow_data[USER_ROLE_PREFIX + "1"] = ['1', '3']  # admin role
         workflow_data[USER_ROLE_PREFIX + "2"] = ['1', '2', '3']  # member role
@@ -1538,11 +1532,9 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                             user.id,
                                             self.tenant.id).AndReturn(roles)
 
-        for group in groups:
-            api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                         group=group.id,
-                                         project=self.tenant.id) \
-                .AndReturn(roles)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           project=self.tenant.id) \
+           .AndReturn(role_assignments)
 
         workflow_data[USER_ROLE_PREFIX + "1"] = ['1', '3']  # admin role
         workflow_data[USER_ROLE_PREFIX + "2"] = ['1', '2', '3']  # member role
