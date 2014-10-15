@@ -27,7 +27,8 @@ from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
 PROVIDER_TYPES = [('local', _('Local')), ('flat', _('Flat')),
-                  ('vlan', 'VLAN'), ('gre', 'GRE'), ('vxlan', 'VXLAN')]
+                  ('vlan', _('VLAN')), ('gre', _('GRE')),
+                  ('vxlan', _('VXLAN'))]
 SEGMENTATION_ID_RANGE = {'vlan': [1, 4094], 'gre': [0, (2 ** 32) - 1],
                          'vxlan': [0, (2 ** 24) - 1]}
 
