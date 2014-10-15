@@ -11,6 +11,9 @@ from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
 
+CHOICES=[('role1','Role 1'),
+         ('role2','Role 2')]
+
 
 class CreateApplicationForm(forms.SelfHandlingForm):
 	name = forms.CharField(label=_("Name"), required=False)
@@ -25,13 +28,17 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 class UploadImageForm(forms.SelfHandlingForm):
 	file = forms.ImageField(required=False)
 
+	def get_context_data(self, **kwargs):
+		context = super(UploadImageForm, self).get_context_data(**kwargs)
+		
+		return context
+
 	def handle(self, request, data):
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')
 		return response
 	
 class RolesApplicationForm(forms.SelfHandlingForm):
-	name = forms.CharField(label=_("Nombre"), required=False)
-	file = forms.ImageField(required=False)
+	role = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
 
 	def handle(self, request, data):
 		response = shortcuts.redirect('horizon:idm:myApplications:index')

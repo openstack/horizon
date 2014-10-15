@@ -6,9 +6,15 @@
     <div class="list-group" id="{{ table.slugify_name }}">
     {% block table_body %}
       {% for row in rows %}
-      <a class="list-group-item" href="#">
-        {{ row.render }}
-      </a>
+        {% if row.table.name == "members" %}
+          <div class="list-group-item">
+          {{ row.render }}
+          </div>
+        {% else %}
+          <a class="list-group-item" href="{% url 'horizon:idm:organizations:detail' row.datum.id %}">
+          {{ row.render }}
+          </a>
+        {% endif %}
       {% endfor %}
     {% endblock table_body %}
     {% block table_footer %}

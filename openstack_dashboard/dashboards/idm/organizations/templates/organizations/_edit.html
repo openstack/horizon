@@ -1,0 +1,24 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}edit_organization_modal{% endblock %}
+{% block form_action %}{% url 'horizon:idm:organizations:edit' organization.id %}{% endblock %}
+
+{% block modal_id %}edit_application_modal{% endblock %}
+{% block modal-header %}
+{% endblock %}
+
+{% block modal-body %}
+<div >
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+
+{% endblock %}
+
+{% block modal-footer %}
+    <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+    
+{% endblock %}
