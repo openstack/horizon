@@ -56,7 +56,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
         res = self.client.post(
             reverse('horizon:admin:volumes:volumes:update_status',
-                args=(volume.id,)),
+                    args=(volume.id,)),
             formData)
         self.assertNoFormErrors(res)
 
@@ -74,8 +74,8 @@ class VolumeTests(test.BaseAdminViewTests):
             'horizon:admin:volumes:volume_types_tab'))
 
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res,
-            'admin/volumes/volume_types/volume_types_tables.html')
+        self.assertTemplateUsed(
+            res, 'admin/volumes/volume_types/volume_types_tables.html')
         volume_types = res.context['volume_types_table'].data
         self.assertItemsEqual(volume_types, self.volume_types.list())
         qos_specs = res.context['qos_specs_table'].data

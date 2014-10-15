@@ -100,17 +100,17 @@ class ImagesViewTest(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['images_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
 
-        url = "?".join([reverse('horizon:admin:images:index'),
-                    "=".join([tables.AdminImagesTable._meta.pagination_param,
-                              images[2].id])])
+        params = "=".join([tables.AdminImagesTable._meta.pagination_param,
+                           images[2].id])
+        url = "?".join([reverse('horizon:admin:images:index'), params])
         res = self.client.get(url)
         # get second page (items 2-4)
         self.assertEqual(len(res.context['images_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
 
-        url = "?".join([reverse('horizon:admin:images:index'),
-                    "=".join([tables.AdminImagesTable._meta.pagination_param,
-                              images[4].id])])
+        params = "=".join([tables.AdminImagesTable._meta.pagination_param,
+                           images[4].id])
+        url = "?".join([reverse('horizon:admin:images:index'), params])
         res = self.client.get(url)
         # get third page (item 5)
         self.assertEqual(len(res.context['images_table'].data),
@@ -217,16 +217,16 @@ class ImagesViewTest(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['images_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
 
-        url = "?".join([reverse('horizon:admin:images:index'),
-                "=".join([tables.AdminImagesTable._meta.pagination_param,
-                          images[2].id])])
+        params = "=".join([tables.AdminImagesTable._meta.pagination_param,
+                           images[2].id])
+        url = "?".join([reverse('horizon:admin:images:index'), params])
         res = self.client.get(url)
         # get second page (item 3)
         self.assertEqual(len(res.context['images_table'].data), 1)
 
-        url = "?".join([reverse('horizon:admin:images:index'),
-                "=".join([tables.AdminImagesTable._meta.prev_pagination_param,
-                          images[2].id])])
+        params = "=".join([tables.AdminImagesTable._meta.prev_pagination_param,
+                           images[2].id])
+        url = "?".join([reverse('horizon:admin:images:index'), params])
         res = self.client.get(url)
         # prev back to get first page with 2 items
         self.assertEqual(len(res.context['images_table'].data),

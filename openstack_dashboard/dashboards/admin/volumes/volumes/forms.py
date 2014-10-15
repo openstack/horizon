@@ -80,7 +80,7 @@ class UpdateStatus(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request,
                               _('Unable to update volume status to "%s".') %
-                             new_status)
+                              new_status)
             return False
 
 

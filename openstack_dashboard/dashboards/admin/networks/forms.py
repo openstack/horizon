@@ -110,18 +110,19 @@ class CreateNetwork(forms.SelfHandlingForm):
                 'vxlan': seg_id_range.get('vxlan',
                                           SEGMENTATION_ID_RANGE.get('vxlan'))
             }
-            seg_id_help = (_("For VLAN networks, the VLAN VID on the physical "
-                "network that realizes the virtual network. Valid VLAN VIDs "
-                "are %(vlan_min)s through %(vlan_max)s. For GRE or VXLAN "
-                "networks, the tunnel ID. Valid tunnel IDs for GRE networks "
-                "are %(gre_min)s through %(gre_max)s. For VXLAN networks, "
-                "%(vxlan_min)s through %(vxlan_max)s.") % {
-                    'vlan_min': self.seg_id_range['vlan'][0],
-                    'vlan_max': self.seg_id_range['vlan'][1],
-                    'gre_min': self.seg_id_range['gre'][0],
-                    'gre_max': self.seg_id_range['gre'][1],
-                    'vxlan_min': self.seg_id_range['vxlan'][0],
-                    'vxlan_max': self.seg_id_range['vxlan'][1]})
+            seg_id_help = (
+                _("For VLAN networks, the VLAN VID on the physical "
+                  "network that realizes the virtual network. Valid VLAN VIDs "
+                  "are %(vlan_min)s through %(vlan_max)s. For GRE or VXLAN "
+                  "networks, the tunnel ID. Valid tunnel IDs for GRE networks "
+                  "are %(gre_min)s through %(gre_max)s. For VXLAN networks, "
+                  "%(vxlan_min)s through %(vxlan_max)s.")
+                % {'vlan_min': self.seg_id_range['vlan'][0],
+                   'vlan_max': self.seg_id_range['vlan'][1],
+                   'gre_min': self.seg_id_range['gre'][0],
+                   'gre_max': self.seg_id_range['gre'][1],
+                   'vxlan_min': self.seg_id_range['vxlan'][0],
+                   'vxlan_max': self.seg_id_range['vxlan'][1]})
             self.fields['segmentation_id'].help_text = seg_id_help
 
             supported_provider_types = neutron_settings.get(
@@ -129,8 +130,9 @@ class CreateNetwork(forms.SelfHandlingForm):
             if supported_provider_types == ['*']:
                 network_type_choices = PROVIDER_TYPES
             else:
-                network_type_choices = [net_type for net_type in
-                    PROVIDER_TYPES if net_type[0] in supported_provider_types]
+                network_type_choices = [
+                    net_type for net_type in PROVIDER_TYPES
+                    if net_type[0] in supported_provider_types]
             if len(network_type_choices) == 0:
                 self._hide_provider_network_type()
             else:

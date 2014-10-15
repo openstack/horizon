@@ -33,7 +33,7 @@ class HypervisorTab(tabs.TableTab):
             hypervisors = nova.hypervisor_list(self.request)
         except Exception:
             exceptions.handle(self.request,
-                _('Unable to retrieve hypervisor information.'))
+                              _('Unable to retrieve hypervisor information.'))
 
         return hypervisors
 

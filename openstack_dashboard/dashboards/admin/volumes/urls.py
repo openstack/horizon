@@ -22,7 +22,8 @@ from openstack_dashboard.dashboards.admin.volumes.volume_types \
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import urls as volumes_urls
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$',
         views.IndexView.as_view(),
         name='index'),

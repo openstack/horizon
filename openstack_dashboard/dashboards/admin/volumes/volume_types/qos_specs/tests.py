@@ -35,8 +35,8 @@ class QosSpecsTests(test.BaseAdminViewTests):
 
         res = self.client.get(index_url)
 
-        self.assertTemplateUsed(res,
-            'admin/volumes/volume_types/qos_specs/index.html')
+        self.assertTemplateUsed(
+            res, 'admin/volumes/volume_types/qos_specs/index.html')
         rows = res.context['table'].get_rows()
         specs = self.cinder_qos_specs.first().specs
         for row in rows:
@@ -77,7 +77,7 @@ class QosSpecsTests(test.BaseAdminViewTests):
         api.cinder.qos_spec_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_qos_specs.list())
         api.cinder.qos_spec_delete(IsA(http.HttpRequest),
-                                  str(qos_spec.id))
+                                   str(qos_spec.id))
         self.mox.ReplayAll()
 
         res = self.client.post(

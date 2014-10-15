@@ -41,7 +41,7 @@ class UpdateStatus(forms.SelfHandlingForm):
             choices = dict(STATUS_CHOICES)
             choice = choices[data['status']]
             messages.success(request, _('Successfully updated volume snapshot'
-                                     ' status: "%s".') % choice)
+                                        ' status: "%s".') % choice)
             return True
         except Exception:
             exceptions.handle(request,

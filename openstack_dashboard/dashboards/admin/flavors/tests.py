@@ -89,9 +89,10 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         workflow = res.context['workflow']
         expected_name = workflows.CreateFlavor.name
         self.assertEqual(res.context['workflow'].name, expected_name)
-        self.assertQuerysetEqual(workflow.steps,
-                            ['<CreateFlavorInfo: createflavorinfoaction>',
-                             '<UpdateFlavorAccess: update_flavor_access>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<CreateFlavorInfo: createflavorinfoaction>',
+             '<UpdateFlavorAccess: update_flavor_access>'])
 
     @test.create_stubs({api.keystone: ('tenant_list',),
                         api.nova: ('flavor_list',
@@ -288,9 +289,10 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         expected_name = workflows.UpdateFlavor.name
         self.assertEqual(res.context['workflow'].name, expected_name)
 
-        self.assertQuerysetEqual(workflow.steps,
-                            ['<UpdateFlavorInfo: update_info>',
-                             '<UpdateFlavorAccess: update_flavor_access>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<UpdateFlavorInfo: update_info>',
+             '<UpdateFlavorAccess: update_flavor_access>'])
 
         step = workflow.get_step("update_info")
         eph = getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral')
@@ -405,13 +407,13 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         new_flavor = flavors.Flavor(flavors.FlavorManager(None),
                                     {'id':
                                      "cccccccc-cccc-cccc-cccc-cccccccccccc",
-                                    'name': flavor.name,
-                                    'vcpus': flavor.vcpus + 1,
-                                    'disk': flavor.disk,
-                                    'ram': flavor.ram,
-                                    'swap': flavor.swap,
-                                    'OS-FLV-EXT-DATA:ephemeral': eph,
-                                    'extra_specs': extra_specs})
+                                     'name': flavor.name,
+                                     'vcpus': flavor.vcpus + 1,
+                                     'disk': flavor.disk,
+                                     'ram': flavor.ram,
+                                     'swap': flavor.swap,
+                                     'OS-FLV-EXT-DATA:ephemeral': eph,
+                                     'extra_specs': extra_specs})
 
         # GET/init, set up expected behavior
         api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
@@ -658,13 +660,13 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         extra_specs = getattr(flavor_a, 'extra_specs')
         new_flavor = flavors.Flavor(flavors.FlavorManager(None),
                                     {'id': flavor_a.id,
-                                    'name': flavor_b.name,
-                                    'vcpus': flavor_a.vcpus,
-                                    'disk': flavor_a.disk,
-                                    'ram': flavor_a.ram,
-                                    'swap': flavor_a.swap,
-                                    'OS-FLV-EXT-DATA:ephemeral': eph,
-                                    'extra_specs': extra_specs})
+                                     'name': flavor_b.name,
+                                     'vcpus': flavor_a.vcpus,
+                                     'disk': flavor_a.disk,
+                                     'ram': flavor_a.ram,
+                                     'swap': flavor_a.swap,
+                                     'OS-FLV-EXT-DATA:ephemeral': eph,
+                                     'extra_specs': extra_specs})
 
         # GET
         api.nova.flavor_get(IsA(http.HttpRequest), flavor_a.id) \
