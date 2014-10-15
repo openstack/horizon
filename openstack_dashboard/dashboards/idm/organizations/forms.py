@@ -14,8 +14,8 @@ from openstack_dashboard.api import keystone
 
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
-    name = forms.CharField(label=_("Name"), max_length=64,required=False)
-    description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
+    name = forms.CharField(label=_("Name"), max_length=64,required=True)
+    description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=True)
     domain_id = forms.CharField(label=_("Domain ID"),required=False,widget=forms.HiddenInput())
     enabled = forms.BooleanField(label=_("Enabled"),required=False,initial=True,widget=forms.HiddenInput())
     domain_name = forms.CharField(label=_("Domain Name"),required=False,widget=forms.HiddenInput())
@@ -66,3 +66,20 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
     
        	response = shortcuts.redirect('horizon:idm:organizations:index')
     	return response
+
+class EditOrganizationForm(forms.SelfHandlingForm):
+    id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
+    name = forms.CharField(label=_("Name"), max_length=64,required=False)
+    description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
+
+    def handle(self, request, data):
+        try:
+            api.keystone.tenant_update(request, data['id'], name=data['name'], description=data['description'])
+            messages.success(request, _("Organization updated successfully."))
+            response = shortcuts.redirect('horizon:idm:organizations:index')
+            return response
+        except Exception:
+            exceptions.handle(request, _('Unable to update organization.'))
+
+       
+

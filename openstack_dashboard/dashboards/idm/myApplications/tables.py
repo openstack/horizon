@@ -40,13 +40,7 @@ class ProvidingApplicationsTable(tables.DataTable):
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(),
                                     required=False))
-    # id = tables.Column('id', verbose_name=_('Project ID'))
-    # enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
-    #                         form_field=forms.BooleanField(
-    #                             label=_('Enabled'),
-    #                             required=False))
     
-
     class Meta:
         name = "providing_table"
         verbose_name = _("Providing Applications")
@@ -63,13 +57,7 @@ class PurchasedApplicationsTable(tables.DataTable):
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(),
                                     required=False))
-    # id = tables.Column('id', verbose_name=_('Project ID'))
-    # enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
-    #                         form_field=forms.BooleanField(
-    #                             label=_('Enabled'),
-    #                             required=False))
     
-
     class Meta:
         name = "purchased_table"
         verbose_name = _("Purchased Applications")

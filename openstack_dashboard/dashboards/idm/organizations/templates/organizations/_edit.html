@@ -2,12 +2,11 @@
 {% load i18n %}
 {% load url from future %}
 
-{% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:idm:organizations:create' %}{% endblock %}
+{% block form_id %}edit_organization_modal{% endblock %}
+{% block form_action %}{% url 'horizon:idm:organizations:edit' organization.id %}{% endblock %}
 
-{% block modal_id %}create_application_modal{% endblock %}
+{% block modal_id %}edit_application_modal{% endblock %}
 {% block modal-header %}
-Create Organization
 {% endblock %}
 
 {% block modal-body %}
@@ -16,9 +15,10 @@ Create Organization
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
 </div>
+
 {% endblock %}
 
 {% block modal-footer %}
-    <button type="submit" class="btn btn-primary">{% trans "Create Organization" %}</button>
+    <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
     
 {% endblock %}

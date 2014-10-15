@@ -3,10 +3,12 @@
 }
 
 .list-group-item {
-  border: none;
-  border-bottom: 1px solid #DDD;
   padding: 10px 0;
+  min-height: 58px;
   &:first-child{
+    border-top: none;
+  }
+  &:last-child{
     border-bottom: none;
   }
 }

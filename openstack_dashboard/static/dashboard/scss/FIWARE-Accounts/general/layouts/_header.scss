@@ -178,7 +178,8 @@ ul.oil-portal li.active a{
   }
 
   .mobile{
-    display: inline-block !important;
+    display: inline-block;
+    float: left;
   }
 
   .brand{

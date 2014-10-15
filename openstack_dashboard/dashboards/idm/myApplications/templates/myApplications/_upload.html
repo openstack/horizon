@@ -2,19 +2,22 @@
 {% load i18n %}
 {% load url from future %}
 
-{% block form_id %}upload_image_modal{% endblock %}
+{% block form_id %}{% endblock %}
 {% block form_action %}{% url 'horizon:idm:myApplications:upload' %}{% endblock %}
 
 {% block modal_id %}upload_image_modal{% endblock %}
 {% block modal-header %}
+	{% include "idm/myApplications/_steps.html" %}
 {% endblock %}
 
 {% block modal-body %}
-<div >
-  <fieldset>
+ <fieldset>
     {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
+
+    
+</fieldset>
+
+
 {% endblock %}
 
 {% block modal-footer %}

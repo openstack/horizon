@@ -5,7 +5,11 @@
 
 {% block content %}
     {% include '_header.html' %}
-    <div>
-        {% include 'auth/password/_reset.html' %}
+    <div id="reset-pass" class="container-fluid wrap">
+      <div class="row">
+        <div class="remember-password">
+          {% include 'auth/password/_reset.html' %}
+        </div>
+      </div>
     </div>
 {% endblock %}

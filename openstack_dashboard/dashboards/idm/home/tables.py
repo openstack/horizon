@@ -61,7 +61,7 @@ class TenantsTable(tables.DataTable):
         pagination_param = "tenant_marker"
         table_actions = (CreateOrganization, GoToOrganizationTable,)
         multi_select = False
-        
+    
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),

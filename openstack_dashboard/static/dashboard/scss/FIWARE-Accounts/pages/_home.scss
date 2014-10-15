@@ -11,6 +11,16 @@
     @include make-sm-column-offset(1);
     @include make-md-column-offset(1);
     @include make-lg-column-offset(1);
+    .list-group-item{
+      &:hover{
+        button.btn-link{
+          float: none;
+          display: block;
+          clear: both;
+          margin-left: 0;
+        }
+      }
+    }
   }
   .applications,
   .tenants {
