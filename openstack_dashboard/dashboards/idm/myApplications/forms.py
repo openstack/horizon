@@ -12,7 +12,8 @@ from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
 
 CHOICES=[('role1','Role 1'),
-         ('role2','Role 2')]
+         ('role2','Role 2'),
+         ('role3','Role 3' )]
 
 
 class CreateApplicationForm(forms.SelfHandlingForm):
@@ -27,11 +28,6 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 	
 class UploadImageForm(forms.SelfHandlingForm):
 	file = forms.ImageField(required=False)
-
-	def get_context_data(self, **kwargs):
-		context = super(UploadImageForm, self).get_context_data(**kwargs)
-		
-		return context
 
 	def handle(self, request, data):
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')

@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load url from future %}
 
+
 {% block form_id %}{% endblock %}
 {% block form_action %}{% url 'horizon:idm:myApplications:upload' %}{% endblock %}
 
@@ -11,11 +12,17 @@
 {% endblock %}
 
 {% block modal-body %}
- <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
+<!--  <fieldset>
+    <form id="form-upload">
+    	<input type='file' id="inputFile" />
+    	<img id="avatarUpdate" src="#" alt="avatar">
+    </form>
 
-    
-</fieldset>
+</fieldset> -->
+<form id="form1" runat="server">
+    <input type='file' id="imgInp" />
+    <img id="blah" src="#" alt="your image" />
+</form>
 
 
 {% endblock %}
