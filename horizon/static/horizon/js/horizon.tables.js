@@ -171,8 +171,11 @@ horizon.datatables = {
         $form.find(".table_actions button.btn-danger").addClass("disabled");
       }
     });
-  }
+  },
 
+  initialize_table_tooltips: function() {
+    $('div.table_wrapper').tooltip({selector: '[data-toggle="tooltip"]', container: 'body'});
+  }
 };
 
 /* Generates a confirmation modal dialog for the given action. */
@@ -517,6 +520,7 @@ horizon.addInitFunction(function() {
     horizon.datatables.update_footer_count($(el), 0);
   });
   horizon.datatables.initialize_checkboxes_behavior();
+  horizon.datatables.initialize_table_tooltips();
 
   // Trigger run-once setup scripts for tables.
   horizon.datatables.add_table_checkboxes($('body'));
@@ -529,6 +533,7 @@ horizon.addInitFunction(function() {
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_sorting);
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_query_filter);
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_fixed_filter);
+  horizon.modals.addModalInitFunction(horizon.datatables.initialize_table_tooltips);
 
   // Also apply on tables in tabs views for lazy-loaded data.
   horizon.tabs.addTabLoadFunction(horizon.datatables.add_table_checkboxes);
@@ -536,6 +541,7 @@ horizon.addInitFunction(function() {
   horizon.tabs.addTabLoadFunction(horizon.datatables.set_table_query_filter);
   horizon.tabs.addTabLoadFunction(horizon.datatables.set_table_fixed_filter);
   horizon.tabs.addTabLoadFunction(horizon.datatables.initialize_checkboxes_behavior);
+  horizon.tabs.addTabLoadFunction(horizon.datatables.initialize_table_tooltips);
   horizon.tabs.addTabLoadFunction(horizon.datatables.validate_button);
 
   horizon.datatables.update();

@@ -233,6 +233,11 @@ class Column(html.HTMLElement):
         ``link_attrs={"data-foo": "bar"}``.
         ``link_attrs={"target": "_blank", "class": "link-foo link-bar"}``.
         Defaults to ``None``.
+
+    .. attribute:: help_text
+
+        A string of simple help text displayed in a tooltip when you hover
+        over the help icon beside the Column name. Defaults to ``None``.
     """
     summation_methods = {
         "sum": sum,
@@ -269,7 +274,7 @@ class Column(html.HTMLElement):
                  auto=None, truncate=None, link_classes=None, wrap_list=False,
                  form_field=None, form_field_attributes=None,
                  update_action=None, link_attrs=None,
-                 cell_attributes_getter=None):
+                 cell_attributes_getter=None, help_text=None):
 
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
@@ -305,6 +310,7 @@ class Column(html.HTMLElement):
         self.form_field_attributes = form_field_attributes or {}
         self.update_action = update_action
         self.link_attrs = link_attrs or {}
+        self.help_text = help_text
         if link_classes:
             self.link_attrs['class'] = ' '.join(link_classes)
         self.cell_attributes_getter = cell_attributes_getter
