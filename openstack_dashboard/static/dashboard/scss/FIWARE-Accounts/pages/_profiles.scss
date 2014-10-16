@@ -2,7 +2,16 @@
   header{
     position: relative;
     .name{
-      color: $brand-secundary
+      color: $brand-secundary;
+      a{
+        margin-left: 1px;
+        border-left: 1px solid #CCC;
+        padding-left: 10px;
+        padding-top: 7px;
+        &:hover{
+          color: #C1C1C1;
+        }
+      }
     }
     .logo{
       position: absolute;
@@ -18,12 +27,17 @@
 
 .panel-body{
   min-height: 52px;
-  h4{
+  h5{
     border-bottom: 1px solid $brand-secundary;
     margin-top: 10px;
     margin-bottom: 6px;
   }
   p.empty{
     margin: 17px 0;
+  }
+  .description{
+    #description{
+      margin-bottom: 17px;
+    }
   }
 }
