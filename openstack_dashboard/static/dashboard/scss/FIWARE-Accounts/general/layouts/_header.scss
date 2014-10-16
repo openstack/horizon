@@ -190,20 +190,10 @@ ul.oil-portal li.active a{
   .dropdown i {
     margin-left: 2px;
   }
-
-  .nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-    //margin: 0px 0 1px 15px;//
-    float: right;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 979px){
 
-
-  .nav-tabs, .nav-tabs li a, .nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-    //margin: 2px 0 1px 15px;//
-    float: right;
-  }
 
   header.navbar ul{
     margin-top: 0px    

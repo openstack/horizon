@@ -2,28 +2,43 @@
 {% load i18n %}
 {% block title %}{% trans "Organizations" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_domain_page_header.html" with title=_("Organizations") %}
-{% endblock page_header %}
+{% block page_header %}{% endblock page_header %}
 
 {% block main %}
 <div id="detailOrganization">
-
-	<div class="panel panel-default">
-		<div class="panel-heading">
-            Contact Info
+    <header>
+        <!--crear la carga del nombre -->
+        <h3 class="name">
+            Name of Organization
+        </h3>
+        <!--crear la carga de la imagen -->
+        <div class="logo">
+            <img alt="organization logo" src="{{ STATIC_URL }}dashboard/img/logos/original/group.png">
         </div> 
+    </header>
+	<div class="panel panel-default">
 		<div class="panel-body">
+            <h5>
+              Contact us
+            </h5>
 			{{ contact_info }}
+            <!-- div que contiene la información de la org, cuando no esté relleno este campo ocultar -->
+            <div class="description">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#description">
+                        Description
+                    </a>
+                </h4>
+                <div id="description" class="collapse in">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                </div>
+            </div>
 		</div>
 	</div>
 
 	<div class="panel panel-default members">
         <div class="panel-heading">
-            <div>
                 {{ members_table.name }}
-              
-            </div>
         </div> 
         <div class="panel-body">
             {{ members_table.render}}
@@ -32,13 +47,12 @@
 
     <div class="panel panel-default applications">
         <div class="panel-heading">
-            <div>
-                {{ applications_table.name }}
-              
-            </div>
+            {{ applications_table.name }}
         </div> 
         <div class="panel-body">
             {{ applications_table.render}}
+            <!-- texto que debe aparecer cuando no haya nada -->
+            <p class="empty">Name of organization has not any application.</p>
         </div>   
     </div>
 

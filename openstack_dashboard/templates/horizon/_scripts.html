@@ -62,8 +62,16 @@
 <script src='{{ STATIC_URL }}horizon/lib/jsencrypt/jsencrypt.js' type='text/javascript' charset='utf-8'></script>
 
 <script src='{{ STATIC_URL }}horizon/js/horizon.images.js' type='text/javascript' charset='utf-8'></script>
-{% block custom_js_files %}{% endblock %}
+{% block custom_js_files %}
+
+{% endblock %}
 {% endcompress %}
+<script src="{{ STATIC_URL }}library/select2/js/select2.js"/></script>
+
+<script src="{{ STATIC_URL }}library/autosize/js/jquery.autosize.min.js" type="text/javascript" charset='utf-8'></script>
+
+
+<script src="{{ STATIC_URL }}library/jcrop/js/jquery.Jcrop.js" type="text/javascript" charset='utf-8'></script>
 
 {% comment %} Client-side Templates (These should *not* be inside the "compress" tag.) {% endcomment %}
 {% include "horizon/client_side/templates.html" %}

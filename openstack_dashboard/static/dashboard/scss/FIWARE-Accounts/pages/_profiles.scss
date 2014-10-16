@@ -1,0 +1,29 @@
+#detailOrganization{
+  header{
+    position: relative;
+    .name{
+      color: $brand-secundary
+    }
+    .logo{
+      position: absolute;
+      right: 15px;
+      top: -15px;
+    }
+  }
+  .panel-title{
+    text-align: right;
+    margin-bottom: 6px;
+  }
+}
+
+.panel-body{
+  min-height: 52px;
+  h4{
+    border-bottom: 1px solid $brand-secundary;
+    margin-top: 10px;
+    margin-bottom: 6px;
+  }
+  p.empty{
+    margin: 17px 0;
+  }
+}
