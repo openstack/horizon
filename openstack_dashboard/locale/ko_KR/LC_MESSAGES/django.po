@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-14 23:28-0500\n"
-"PO-Revision-Date: 2014-10-14 07:54+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-15 05:38-0500\n"
+"PO-Revision-Date: 2014-10-15 16:23+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2288,7 +2288,7 @@ msgstr "Kwapi"
 #: dashboards/admin/metering/templates/metering/daily.html:6
 #: dashboards/admin/metering/templates/metering/stats.html:102
 msgid "Period:"
-msgstr ""
+msgstr "기간:"
 
 #: dashboards/admin/metering/templates/metering/daily.html:10
 #: dashboards/admin/metering/templates/metering/stats.html:106
@@ -2329,16 +2329,16 @@ msgstr "다른"
 #: dashboards/admin/metering/templates/metering/daily.html:21
 #: dashboards/admin/metering/templates/metering/stats.html:117
 msgid "From:"
-msgstr ""
+msgstr "에서"
 
 #: dashboards/admin/metering/templates/metering/daily.html:28
 #: dashboards/admin/metering/templates/metering/stats.html:124
 msgid "To:"
-msgstr ""
+msgstr "까지"
 
 #: dashboards/admin/metering/templates/metering/daily.html:35
 msgid "Limit project count:"
-msgstr ""
+msgstr "최대 프로젝트 수:"
 
 #: dashboards/admin/metering/templates/metering/daily.html:42
 msgid "Generate Report"
@@ -2373,7 +2373,7 @@ msgstr "데이터 없음"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric:"
-msgstr ""
+msgstr "계량:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:16
 msgid "Compute (Nova)"
@@ -2401,7 +2401,7 @@ msgstr "전력 (Kwapi) "
 
 #: dashboards/admin/metering/templates/metering/stats.html:79
 msgid "Group by:"
-msgstr ""
+msgstr "그룹에서:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:83
 msgid "--"
@@ -2409,7 +2409,7 @@ msgstr "--"
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Value:"
-msgstr ""
+msgstr "값:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:94
 msgid "Avg."
@@ -3091,7 +3091,7 @@ msgstr "사용 개요"
 
 #: dashboards/admin/overview/templates/overview/usage.html:12
 msgid "Monitoring:"
-msgstr ""
+msgstr "모니터링:"
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:59
 #: dashboards/admin/routers/templates/routers/index.html:3

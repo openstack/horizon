@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Frédéric <frosmont@free.fr>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-14 23:28-0500\n"
-"PO-Revision-Date: 2014-10-14 07:54+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-15 05:38-0500\n"
+"PO-Revision-Date: 2014-10-15 13:13+0000\n"
+"Last-Translator: Frédéric <frosmont@free.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -555,14 +556,14 @@ msgstr "Agrégats d'hôtes"
 #: dashboards/admin/aggregates/tables.py:29
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Supprimer l'Agrégation d'hôte"
+msgstr[1] "Supprimer les Agrégations d'hôte"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Agrégation d'hôte supprimée"
+msgstr[1] "Agrégations d'hôte supprimées"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/workflows.py:176
@@ -1186,14 +1187,14 @@ msgstr "Gabarits"
 #: dashboards/admin/flavors/tables.py:34
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Supprimer le type d'instance"
+msgstr[1] "Supprimer les Types d'Instances"
 
 #: dashboards/admin/flavors/tables.py:42
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Type d'Instance supprimée"
+msgstr[1] "Types d'Instances supprimées"
 
 #: dashboards/admin/flavors/tables.py:53
 #: dashboards/admin/flavors/workflows.py:177
@@ -1998,8 +1999,8 @@ msgstr "Échec de la migration dynamique de l'hôte \"%s\"."
 #: dashboards/admin/instances/tables.py:41
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Transférer une Instance"
+msgstr[1] "Transférer des Instances"
 
 #: dashboards/admin/instances/tables.py:49
 msgid "Scheduled migration (pending confirmation) of Instance"
@@ -2295,7 +2296,7 @@ msgstr "Kwapi"
 #: dashboards/admin/metering/templates/metering/daily.html:6
 #: dashboards/admin/metering/templates/metering/stats.html:102
 msgid "Period:"
-msgstr ""
+msgstr "Période :"
 
 #: dashboards/admin/metering/templates/metering/daily.html:10
 #: dashboards/admin/metering/templates/metering/stats.html:106
@@ -2336,7 +2337,7 @@ msgstr "Autre"
 #: dashboards/admin/metering/templates/metering/daily.html:21
 #: dashboards/admin/metering/templates/metering/stats.html:117
 msgid "From:"
-msgstr ""
+msgstr "Depuis :"
 
 #: dashboards/admin/metering/templates/metering/daily.html:28
 #: dashboards/admin/metering/templates/metering/stats.html:124
@@ -2380,7 +2381,7 @@ msgstr "Pas de données disponibles"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric:"
-msgstr ""
+msgstr "Métrique :"
 
 #: dashboards/admin/metering/templates/metering/stats.html:16
 msgid "Compute (Nova)"
@@ -2416,7 +2417,7 @@ msgstr "--"
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Value:"
-msgstr ""
+msgstr "Valeur :"
 
 #: dashboards/admin/metering/templates/metering/stats.html:94
 msgid "Avg."
@@ -2623,15 +2624,15 @@ msgstr "Réseaux"
 #: dashboards/project/networks/tables.py:48
 msgid "Delete Network"
 msgid_plural "Delete Networks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Supprimer le Réseau"
+msgstr[1] "Supprimer les Réseaux"
 
 #: dashboards/admin/networks/tables.py:45
 #: dashboards/project/networks/tables.py:56
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Réseau Supprimé"
+msgstr[1] "Réseaux Supprimés"
 
 #: dashboards/admin/networks/tables.py:56
 #: dashboards/project/networks/tables.py:78
@@ -2756,8 +2757,8 @@ msgstr[1] "Supprimer les agents DHCP"
 #: dashboards/admin/networks/agents/tables.py:44
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Agent DHCP supprimé"
+msgstr[1] "Agents DHCP supprimés"
 
 #: dashboards/admin/networks/agents/tables.py:57
 #, python-format
@@ -2841,14 +2842,14 @@ msgstr "Échec lors de la mise à jour du port %s"
 #: dashboards/admin/networks/ports/tables.py:36
 msgid "Delete Port"
 msgid_plural "Delete Ports"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Supprimer le Port"
+msgstr[1] "Supprimer les Ports"
 
 #: dashboards/admin/networks/ports/tables.py:44
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Port Supprimé"
+msgstr[1] "Ports Supprimés"
 
 #: dashboards/admin/networks/ports/tables.py:55
 #, python-format
@@ -2914,15 +2915,15 @@ msgstr "Impossible de retrouver les détails du port."
 #: dashboards/project/networks/subnets/tables.py:60
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Supprimer le Sous-Réseau"
+msgstr[1] "Supprimer les Sous-Réseaux"
 
 #: dashboards/admin/networks/subnets/tables.py:45
 #: dashboards/project/networks/subnets/tables.py:68
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sous-Réseau Supprimé"
+msgstr[1] "Sous-Réseaux Supprimés"
 
 #: dashboards/admin/networks/subnets/tables.py:56
 #: dashboards/project/networks/subnets/tables.py:79
@@ -3106,7 +3107,7 @@ msgstr "Aperçu de l'Utilisation"
 
 #: dashboards/admin/overview/templates/overview/usage.html:12
 msgid "Monitoring:"
-msgstr ""
+msgstr "Monitoring :"
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:59
 #: dashboards/admin/routers/templates/routers/index.html:3
@@ -3170,7 +3171,7 @@ msgstr "Interfaces"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #, python-format
 msgid "Router Overview: %(router_name)s"
-msgstr ""
+msgstr "Aperçu du Routeur : %(router_name)s"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:50
@@ -3263,7 +3264,7 @@ msgstr "Informations de la passerelle externe"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:28
 #, python-format
 msgid "Connected External Network: %(router_gw_info_network)s"
-msgstr ""
+msgstr "Réseau Externe connecté : %(router_gw_info_network)s"
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
 #: dashboards/project/routers/tables.py:98
@@ -3309,7 +3310,7 @@ msgstr "Impossible de récupérer les types de volumes"
 
 #: dashboards/admin/volumes/tabs.py:87
 msgid "Unable to retrieve QoS specs"
-msgstr ""
+msgstr "Incapable de récupérer les spécifications QoS"
 
 #: dashboards/admin/volumes/tabs.py:109 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:201
@@ -3464,7 +3465,7 @@ msgstr "\n   L'état d'un volume de snapshot est normallement géré automatique
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:6
 msgid "Associate QoS Spec with Volume Type"
-msgstr ""
+msgstr "Associer les Spécifications QoS avec le Type de Volume"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
 msgid ""
