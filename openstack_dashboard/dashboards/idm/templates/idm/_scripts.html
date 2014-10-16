@@ -1,0 +1,29 @@
+{% extends 'horizon/_scripts.html' %}
+
+{% block custom_js_files %}
+
+<script type="text/javascript">
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            $('#avatar-update').attr('src', e.target.result);
+            $('#avatar-update').attr('style', "");
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    }
+    console.log('Hace el cambio');
+}
+
+$("#id_file").change(function(){
+	console.log('Entra al cambio');
+    readURL(this);
+});
+    
+
+</script>
+<!--<script src='{{ STATIC_URL }}idm/js/uploadavatar.js' type='text/javascript' charset='utf-8'></script>-->
+{% endblock %}
