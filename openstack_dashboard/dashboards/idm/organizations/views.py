@@ -90,6 +90,8 @@ class DetailOrganizationView(tables.MultiTableView):
         organization_id =self.kwargs['organization_id']
         organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
         context['contact_info'] = organization.description
+        context['organization.id'] = organization.id
+        context['organization.name'] = organization.name
         return context
 
 class EditOrganizationView(forms.ModalFormView):
