@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block js %}
+    {% include "idm/_scripts.html" %}
+{% endblock %}
+
 {% block sidebar %}
   {% include 'horizon/common/_sidebar.html' %}
 {% endblock %}

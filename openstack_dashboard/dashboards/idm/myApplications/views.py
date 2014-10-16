@@ -31,6 +31,11 @@ class UploadImageView(forms.ModalFormView):
 	form_class = application_forms.UploadImageForm
 	template_name = 'idm/myApplications/upload.html'
 
+	def get_context_data(self, **kwargs):
+		context = super(UploadImageView, self).get_context_data(**kwargs)
+		context['hola']='Hello'
+		return context
+
 
 class RolesView(forms.ModalFormView):
 	form_class = application_forms.RolesApplicationForm
