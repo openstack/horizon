@@ -51,12 +51,9 @@
               </div>
             </li>
             <li class="list-group-item list-group-item-danger"
-                ng-show="!customItem.valid && customItem.focused && treeForm.customItem.$dirty">
-              <span ng-show="customItem.found.length > 0">
+                ng-show="!customItem.valid && customItem.focused && customItem.found.length > 0">
+              <span>
                 {% trans "Duplicate keys are not allowed" %}
-              </span>
-              <span ng-hide="customItem.found.length > 0">
-                {% trans "Invalid key name" %}
               </span>
             </li>
 
