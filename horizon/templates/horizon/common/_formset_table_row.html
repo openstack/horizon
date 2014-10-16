@@ -1,3 +1,4 @@
+{% load i18n %}
 <tr{{ row.attr_string|safe }}>
   {% for cell in row %}
   <td{{ cell.attr_string|safe }}>
@@ -11,7 +12,7 @@
         {{ field }}
         {% for error in field.errors %}
           <span class="help-block">
-            {% blocktrans with name=field.name error=error %}{{ name }}: {{ error }}{% endblocktrans %}
+            {% blocktrans with name=field.name %}{{ name }}: {{ error }}{% endblocktrans %}
           </span>
         {% endfor %}
       {% endfor %}
