@@ -39,7 +39,7 @@ class SnapshotsViewTests(test.TestCase):
                       args=[server.id])
         res = self.client.get(url)
         self.assertTemplateUsed(res,
-                        'project/images/snapshots/create.html')
+                                'project/images/snapshots/create.html')
 
     def test_create_get_server_exception(self):
         server = self.servers.first()

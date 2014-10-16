@@ -27,7 +27,8 @@ from openstack_dashboard.dashboards.project.images.snapshots \
 from openstack_dashboard.dashboards.project.images import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'', include(image_urls, namespace='images')),
     url(r'', include(snapshot_urls, namespace='snapshots')),

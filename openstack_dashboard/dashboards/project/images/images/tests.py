@@ -134,7 +134,7 @@ class ImageViewTests(test.TestCase):
         url = reverse('horizon:project:images:images:create')
         res = self.client.get(url)
         self.assertTemplateUsed(res,
-                            'project/images/images/create.html')
+                                'project/images/images/create.html')
 
     @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_copy_from(self):
@@ -226,7 +226,7 @@ class ImageViewTests(test.TestCase):
                                       args=[image.id]))
 
         self.assertTemplateUsed(res,
-                            'project/images/images/detail.html')
+                                'project/images/images/detail.html')
         self.assertEqual(res.context['image'].name, image.name)
         self.assertEqual(res.context['image'].protected, image.protected)
         self.assertContains(res, "<h1>Image Details: %s</h1>" % image.name,
@@ -269,9 +269,9 @@ class ImageViewTests(test.TestCase):
 
         res = self.client.get(
             reverse('horizon:project:images:images:detail',
-            args=[image.id]))
+                    args=[image.id]))
         self.assertTemplateUsed(res,
-                            'project/images/images/detail.html')
+                                'project/images/images/detail.html')
         self.assertEqual(res.context['image'].protected, image.protected)
 
     @test.create_stubs({api.glance: ('image_get',)})
@@ -301,7 +301,7 @@ class ImageViewTests(test.TestCase):
                     args=[image.id]))
 
         self.assertTemplateUsed(res,
-                            'project/images/images/_update.html')
+                                'project/images/images/_update.html')
         self.assertEqual(res.context['image'].name, image.name)
         # Bug 1076216 - is_public checkbox not being set correctly
         self.assertContains(res, "<input type='checkbox' id='id_public'"

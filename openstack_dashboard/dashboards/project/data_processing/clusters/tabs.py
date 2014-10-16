@@ -69,9 +69,9 @@ class GeneralTab(tabs.Tab):
                 net_name = None
 
             cluster_info.update({"cluster": cluster,
-                "base_image": base_image,
-                "cluster_template": cluster_template,
-                "network": net_name})
+                                 "base_image": base_image,
+                                 "cluster_template": cluster_template,
+                                 "network": net_name})
         except Exception as e:
             LOG.error("Unable to fetch cluster details: %s" % str(e))
 

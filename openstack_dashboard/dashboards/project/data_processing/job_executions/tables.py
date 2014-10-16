@@ -135,9 +135,10 @@ class JobExecutionsTable(tables.DataTable):
     )
 
     name = tables.Column("id",
-        verbose_name=_("ID"),
-        display_choices=(("id", "ID"), ("name", "Name")),
-        link=("horizon:project:data_processing.job_executions:details"))
+                         verbose_name=_("ID"),
+                         display_choices=(("id", "ID"), ("name", "Name")),
+                         link=("horizon:project:data_processing."
+                               "job_executions:details"))
     job_name = tables.Column(
         "job_name",
         verbose_name=_("Job"),
@@ -147,9 +148,9 @@ class JobExecutionsTable(tables.DataTable):
         verbose_name=_("Cluster"),
         link=get_cluster_link)
     status = StatusColumn("info",
-        status=True,
-        status_choices=STATUS_CHOICES,
-        verbose_name=_("Status"))
+                          status=True,
+                          status_choices=STATUS_CHOICES,
+                          verbose_name=_("Status"))
 
     def get_object_display(self, datum):
         return datum.id

@@ -17,7 +17,8 @@ from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.vpn import views
 
-urlpatterns = patterns('openstack_dashboard.dashboards.project.vpn.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.project.vpn.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^addikepolicy$',
         views.AddIKEPolicyView.as_view(), name='addikepolicy'),

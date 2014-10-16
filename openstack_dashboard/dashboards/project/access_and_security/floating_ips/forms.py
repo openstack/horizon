@@ -46,7 +46,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                 return False
 
             fip = api.network.tenant_floating_ip_allocate(request,
-                                                       pool=data['pool'])
+                                                          pool=data['pool'])
             messages.success(request,
                              _('Allocated Floating IP %(ip)s.')
                              % {"ip": fip.ip})

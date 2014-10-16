@@ -211,7 +211,8 @@ class UpdateIPSecSiteConnectionLink(tables.LinkAction):
 
     def get_link_url(self, ipsecsiteconnection):
         return reverse("horizon:project:vpn:update_ipsecsiteconnection",
-            kwargs={'ipsecsiteconnection_id': ipsecsiteconnection.id})
+                       kwargs={'ipsecsiteconnection_id':
+                               ipsecsiteconnection.id})
 
     def allowed(self, request, datum=None):
         if datum and datum.status not in forbid_updates:

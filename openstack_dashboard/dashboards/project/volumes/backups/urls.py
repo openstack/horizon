@@ -20,7 +20,8 @@ VIEWS_MOD = ('openstack_dashboard.dashboards.project'
              '.volumes.backups.views')
 
 
-urlpatterns = patterns(VIEWS_MOD,
+urlpatterns = patterns(
+    VIEWS_MOD,
     url(r'^(?P<backup_id>[^/]+)/$',
         views.BackupDetailView.as_view(),
         name='detail'),

@@ -57,8 +57,9 @@ class DeleteDataSource(tables.BatchAction):
 
 class DataSourcesTable(tables.DataTable):
     name = tables.Column("name",
-        verbose_name=_("Name"),
-        link=("horizon:project:data_processing.data_sources:details"))
+                         verbose_name=_("Name"),
+                         link=("horizon:project:data_processing."
+                               "data_sources:details"))
     type = tables.Column("type",
                          verbose_name=_("Type"))
     description = tables.Column("description",

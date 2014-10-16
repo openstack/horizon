@@ -35,18 +35,21 @@ def _image_choice_title(img):
 class RebuildInstanceForm(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
 
-    image = forms.ChoiceField(label=_("Select Image"),
-            widget=forms.SelectWidget(attrs={'class': 'image-selector'},
-                                      data_attrs=('size', 'display-name'),
-                                      transform=_image_choice_title))
-    password = forms.RegexField(label=_("Rebuild Password"),
-            required=False,
-            widget=forms.PasswordInput(render_value=False),
-            regex=validators.password_validator(),
-            error_messages={'invalid': validators.password_validator_msg()})
-    confirm_password = forms.CharField(label=_("Confirm Rebuild Password"),
-            required=False,
-            widget=forms.PasswordInput(render_value=False))
+    image = forms.ChoiceField(
+        label=_("Select Image"),
+        widget=forms.SelectWidget(attrs={'class': 'image-selector'},
+                                  data_attrs=('size', 'display-name'),
+                                  transform=_image_choice_title))
+    password = forms.RegexField(
+        label=_("Rebuild Password"),
+        required=False,
+        widget=forms.PasswordInput(render_value=False),
+        regex=validators.password_validator(),
+        error_messages={'invalid': validators.password_validator_msg()})
+    confirm_password = forms.CharField(
+        label=_("Confirm Rebuild Password"),
+        required=False,
+        widget=forms.PasswordInput(render_value=False))
     disk_config = forms.ChoiceField(label=_("Disk Partition"),
                                     required=False)
 

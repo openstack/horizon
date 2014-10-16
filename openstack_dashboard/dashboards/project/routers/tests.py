@@ -181,7 +181,7 @@ class RouterActionTests(test.TestCase):
                                            "dvr", "create")\
             .AndReturn(True)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "create")\
+                                           "l3-ha", "create")\
             .AndReturn(True)
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
             .AndReturn(router)
@@ -204,7 +204,7 @@ class RouterActionTests(test.TestCase):
                                            "dvr", "create")\
             .MultipleTimes().AndReturn(True)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "create")\
+                                           "l3-ha", "create")\
             .MultipleTimes().AndReturn(True)
         param = {'name': router.name,
                  'distributed': True,
@@ -230,7 +230,7 @@ class RouterActionTests(test.TestCase):
                                            "dvr", "create")\
             .MultipleTimes().AndReturn(False)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "create")\
+                                           "l3-ha", "create")\
             .AndReturn(False)
         self.exceptions.neutron.status_code = 409
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
@@ -252,7 +252,7 @@ class RouterActionTests(test.TestCase):
                                            "dvr", "create")\
             .MultipleTimes().AndReturn(False)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "create")\
+                                           "l3-ha", "create")\
             .MultipleTimes().AndReturn(False)
         self.exceptions.neutron.status_code = 999
         api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
@@ -279,7 +279,7 @@ class RouterActionTests(test.TestCase):
                                            "dvr", "update")\
             .AndReturn(dvr_enabled)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "update")\
+                                           "l3-ha", "update")\
             .AndReturn(ha_enabled)
         self.mox.ReplayAll()
 
@@ -331,7 +331,7 @@ class RouterActionTests(test.TestCase):
                                            "dvr", "update")\
             .AndReturn(False)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "update")\
+                                           "l3-ha", "update")\
             .AndReturn(False)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,
@@ -359,7 +359,7 @@ class RouterActionTests(test.TestCase):
                                            "dvr", "update")\
             .AndReturn(True)
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
-                                       "l3-ha", "update")\
+                                           "l3-ha", "update")\
             .AndReturn(True)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,
@@ -598,7 +598,8 @@ class RouterRuleTests(test.TestCase):
                                       args=[router.id]))
 
         self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
-        self.assertTemplateNotUsed(res,
+        self.assertTemplateNotUsed(
+            res,
             '%s/routers/extensions/routerrules/grid.html' % self.DASHBOARD)
 
     @test.create_stubs({api.neutron: ('router_get', 'port_list',
@@ -627,7 +628,8 @@ class RouterRuleTests(test.TestCase):
 
         self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
         if self.DASHBOARD == 'project':
-            self.assertTemplateUsed(res,
+            self.assertTemplateUsed(
+                res,
                 '%s/routers/extensions/routerrules/grid.html' % self.DASHBOARD)
         rules = res.context['routerrules_table'].data
         self.assertItemsEqual(rules, router['router_rules'])

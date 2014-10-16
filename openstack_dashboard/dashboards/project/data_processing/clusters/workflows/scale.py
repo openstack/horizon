@@ -68,8 +68,8 @@ class ScaleCluster(cl_create_flow.ConfigureCluster,
             })
 
             super(ScaleCluster, self).__init__(request, context_seed,
-                                           entry_point, *args,
-                                           **kwargs)
+                                               entry_point, *args,
+                                               **kwargs)
             # Initialize node groups.
             for step in self.steps:
                 if not isinstance(step, clt_create_flow.ConfigureNodegroups):

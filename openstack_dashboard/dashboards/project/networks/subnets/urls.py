@@ -22,6 +22,7 @@ SUBNETS = r'^(?P<subnet_id>[^/]+)/%s$'
 VIEW_MOD = 'openstack_dashboard.dashboards.project.networks.subnets.views'
 
 
-urlpatterns = patterns(VIEW_MOD,
+urlpatterns = patterns(
+    VIEW_MOD,
     url(SUBNETS % 'detail', views.DetailView.as_view(), name='detail')
 )

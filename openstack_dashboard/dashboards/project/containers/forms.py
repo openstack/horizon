@@ -228,8 +228,8 @@ class CopyObject(forms.SelfHandlingForm):
             return True
         except exceptions.HorizonException as exc:
             messages.error(request, exc)
-            raise exceptions.Http302(reverse(index,
-                args=[tables.wrap_delimiter(orig_container)]))
+            raise exceptions.Http302(
+                reverse(index, args=[tables.wrap_delimiter(orig_container)]))
         except Exception:
             redirect = reverse(index,
                                args=[tables.wrap_delimiter(orig_container)])

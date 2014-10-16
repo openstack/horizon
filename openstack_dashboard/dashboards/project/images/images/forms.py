@@ -80,22 +80,18 @@ class CreateImageForm(forms.SelfHandlingForm):
                                         'ng-model': 'diskFormat'}))
     architecture = forms.CharField(max_length=255, label=_("Architecture"),
                                    required=False)
-    minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),
-                                    min_value=0,
-                                    help_text=_('The minimum disk size'
-                                            ' required to boot the'
-                                            ' image. If unspecified, this'
-                                            ' value defaults to 0'
-                                            ' (no minimum).'),
-                                    required=False)
-    minimum_ram = forms.IntegerField(label=_("Minimum RAM (MB)"),
-                                    min_value=0,
-                                    help_text=_('The minimum memory size'
-                                            ' required to boot the'
-                                            ' image. If unspecified, this'
-                                            ' value defaults to 0 (no'
-                                            ' minimum).'),
-                                    required=False)
+    minimum_disk = forms.IntegerField(
+        label=_("Minimum Disk (GB)"),
+        min_value=0,
+        help_text=_('The minimum disk size required to boot the image. '
+                    'If unspecified, this value defaults to 0 (no minimum).'),
+        required=False)
+    minimum_ram = forms.IntegerField(
+        label=_("Minimum RAM (MB)"),
+        min_value=0,
+        help_text=_('The minimum memory size required to boot the image. '
+                    'If unspecified, this value defaults to 0 (no minimum).'),
+        required=False)
     is_public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
@@ -181,8 +177,8 @@ class CreateImageForm(forms.SelfHandlingForm):
         try:
             image = api.glance.image_create(request, **meta)
             messages.success(request,
-                _('Your image %s has been queued for creation.') %
-                data['name'])
+                             _('Your image %s has been queued for creation.') %
+                             data['name'])
             return image
         except Exception:
             exceptions.handle(request, _('Unable to create new image.'))

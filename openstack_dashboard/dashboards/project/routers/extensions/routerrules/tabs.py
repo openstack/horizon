@@ -83,8 +83,8 @@ class RulesGridTab(tabs.Tab):
 
     def get_routerrulesgrid_data(self, rules):
         ports = self.tab_group.ports
-        networks = api.neutron.network_list_for_tenant(self.request,
-                                         self.request.user.tenant_id)
+        networks = api.neutron.network_list_for_tenant(
+            self.request, self.request.user.tenant_id)
         for n in networks:
             n.set_id_as_name_if_empty()
         netnamemap = {}

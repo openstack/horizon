@@ -100,7 +100,7 @@ class DatabasesBackupsTests(test.TestCase):
         res = self.client.get(BACKUP_URL)
         self.assertMessageCount(res, error=1)
         self.assertTemplateUsed(res,
-            'project/database_backups/backup.html')
+                                'project/database_backups/backup.html')
 
     @test.create_stubs({api.trove: ('instance_list',
                                     'backup_list',
@@ -150,7 +150,7 @@ class DatabasesBackupsTests(test.TestCase):
         res = self.client.get(DETAILS_URL)
 
         self.assertTemplateUsed(res,
-            'project/database_backups/details.html')
+                                'project/database_backups/details.html')
 
     @test.create_stubs({api.trove: ('backup_get',)})
     def test_detail_backup_notfound(self):

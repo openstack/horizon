@@ -22,6 +22,7 @@ PORTS = r'^(?P<port_id>[^/]+)/%s$'
 VIEW_MOD = 'openstack_dashboard.dashboards.project.networks.ports.views'
 
 
-urlpatterns = patterns(VIEW_MOD,
+urlpatterns = patterns(
+    VIEW_MOD,
     url(PORTS % 'detail', views.DetailView.as_view(), name='detail')
 )

@@ -31,8 +31,8 @@ class DataProcessingJobBinaryTests(test.TestCase):
             .AndReturn(self.job_binaries.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res,
-            'project/data_processing.job_binaries/job_binaries.html')
+        self.assertTemplateUsed(
+            res, 'project/data_processing.job_binaries/job_binaries.html')
         self.assertContains(res, 'Job Binaries')
         self.assertContains(res, 'Name')
         self.assertContains(res, 'example.pig')
@@ -43,8 +43,8 @@ class DataProcessingJobBinaryTests(test.TestCase):
             .AndReturn(self.job_binaries.list()[0])
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(res,
-            'project/data_processing.job_binaries/details.html')
+        self.assertTemplateUsed(
+            res, 'project/data_processing.job_binaries/details.html')
         self.assertContains(res, 'Job Binary Details')
 
     @test.create_stubs({api.sahara: ('job_binary_list',
@@ -53,7 +53,7 @@ class DataProcessingJobBinaryTests(test.TestCase):
                                      'job_binary_delete',)})
     def test_delete(self):
         jb_list = (api.sahara.job_binary_list(IsA(http.HttpRequest))
-            .AndReturn(self.job_binaries.list()))
+                   .AndReturn(self.job_binaries.list()))
         api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
             .AndReturn(self.job_binaries.list()[0])
         api.sahara.job_binary_delete(IsA(http.HttpRequest), jb_list[0].id)

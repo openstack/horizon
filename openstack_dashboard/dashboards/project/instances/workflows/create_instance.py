@@ -110,11 +110,11 @@ class SetInstanceDetailsAction(workflows.Action):
                                               filesizeformat(x.bytes)))))
 
     volume_size = forms.IntegerField(label=_("Device size (GB)"),
-                                  initial=1,
-                                  min_value=0,
-                                  required=False,
-                                  help_text=_("Volume size in gigabytes "
-                                              "(integer value)."))
+                                     initial=1,
+                                     min_value=0,
+                                     required=False,
+                                     help_text=_("Volume size in gigabytes "
+                                                 "(integer value)."))
 
     device_name = forms.CharField(label=_("Device Name"),
                                   required=False,
@@ -158,14 +158,16 @@ class SetInstanceDetailsAction(workflows.Action):
             try:
                 if api.nova.extension_supported("BlockDeviceMappingV2Boot",
                                                 request):
-                    source_type_choices.append(("volume_image_id",
-                            _("Boot from image (creates a new volume)")))
+                    source_type_choices.append(
+                        ("volume_image_id",
+                         _("Boot from image (creates a new volume)")))
             except Exception:
                 exceptions.handle(request, _('Unable to retrieve extensions '
-                                            'information.'))
+                                             'information.'))
 
-            source_type_choices.append(("volume_snapshot_id",
-                    _("Boot from volume snapshot (creates a new volume)")))
+            source_type_choices.append(
+                ("volume_snapshot_id",
+                 _("Boot from volume snapshot (creates a new volume)")))
         self.fields['source_type'].choices = source_type_choices
 
     def clean(self):
@@ -205,15 +207,15 @@ class SetInstanceDetailsAction(workflows.Action):
         if flavor and available_cores < count * flavor.vcpus:
             count_error.append(_("Cores(Available: %(avail)s, "
                                  "Requested: %(req)s)")
-                    % {'avail': available_cores,
-                       'req': count * flavor.vcpus})
+                               % {'avail': available_cores,
+                                  'req': count * flavor.vcpus})
 
         available_ram = usages['ram']['available']
         if flavor and available_ram < count * flavor.ram:
             count_error.append(_("RAM(Available: %(avail)s, "
                                  "Requested: %(req)s)")
-                    % {'avail': available_ram,
-                       'req': count * flavor.ram})
+                               % {'avail': available_ram,
+                                  'req': count * flavor.ram})
 
         if count_error:
             value_str = ", ".join(count_error)
@@ -342,9 +344,8 @@ class SetInstanceDetailsAction(workflows.Action):
             flavors = json.dumps([f._info for f in
                                   instance_utils.flavor_list(self.request)])
             extra['flavors'] = flavors
-            images = image_utils.get_available_images(self.request,
-                                                self.initial['project_id'],
-                                                self._images_cache)
+            images = image_utils.get_available_images(
+                self.request, self.initial['project_id'], self._images_cache)
             if images is not None:
                 attrs = [{'id': i.id,
                           'min_disk': getattr(i, 'min_disk', 0),
@@ -377,8 +378,8 @@ class SetInstanceDetailsAction(workflows.Action):
     def populate_image_id_choices(self, request, context):
         choices = []
         images = image_utils.get_available_images(request,
-                                            context.get('project_id'),
-                                            self._images_cache)
+                                                  context.get('project_id'),
+                                                  self._images_cache)
         for image in images:
             image.bytes = image.size
             image.volume_size = max(
@@ -396,8 +397,8 @@ class SetInstanceDetailsAction(workflows.Action):
 
     def populate_instance_snapshot_id_choices(self, request, context):
         images = image_utils.get_available_images(request,
-                                            context.get('project_id'),
-                                            self._images_cache)
+                                                  context.get('project_id'),
+                                                  self._images_cache)
         choices = [(image.id, image.name)
                    for image in images
                    if image.properties.get("image_type", '') == "snapshot"]
@@ -550,7 +551,7 @@ class SetAccessControls(workflows.Step):
     action_class = SetAccessControlsAction
     depends_on = ("project_id", "user_id")
     contributes = ("keypair_id", "security_group_ids",
-            "admin_pass", "confirm_admin_pass")
+                   "admin_pass", "confirm_admin_pass")
 
     def contribute(self, data, context):
         if data:
@@ -732,11 +733,13 @@ class SetNetwork(workflows.Step):
 
 
 class SetAdvancedAction(workflows.Action):
-    disk_config = forms.ChoiceField(label=_("Disk Partition"), required=False,
+    disk_config = forms.ChoiceField(
+        label=_("Disk Partition"), required=False,
         help_text=_("Automatic: The entire disk is a single partition and "
                     "automatically resizes. Manual: Results in faster build "
                     "times but requires manual partitioning."))
-    config_drive = forms.BooleanField(label=_("Configuration Drive"),
+    config_drive = forms.BooleanField(
+        label=_("Configuration Drive"),
         required=False, help_text=_("Configure OpenStack to write metadata to "
                                     "a special configuration drive that "
                                     "attaches to the instance when it boots."))
@@ -820,9 +823,10 @@ class LaunchInstance(workflows.Workflow):
         if source_type in ['image_id', 'instance_snapshot_id']:
             image_id = context['source_id']
         elif source_type in ['volume_id', 'volume_snapshot_id']:
-            dev_mapping_1 = {context['device_name']: '%s::%s' %
-                                                     (context['source_id'],
-                           int(bool(context['delete_on_terminate'])))}
+            dev_mapping_1 = {context['device_name']:
+                             '%s::%s' %
+                             (context['source_id'],
+                              int(bool(context['delete_on_terminate'])))}
         elif source_type == 'volume_image_id':
             device_name = context.get('device_name', '').strip() or None
             dev_mapping_2 = [

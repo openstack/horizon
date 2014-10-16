@@ -169,9 +169,8 @@ class ConfigureNodegroupsAction(workflows.Action):
         plugin, hadoop_version = whelpers.\
             get_plugin_and_hadoop_version(request)
 
-        self.templates = saharaclient.nodegroup_template_find(request,
-            plugin_name=plugin,
-            hadoop_version=hadoop_version)
+        self.templates = saharaclient.nodegroup_template_find(
+            request, plugin_name=plugin, hadoop_version=hadoop_version)
 
         deletable = request.REQUEST.get("deletable", dict())
 

@@ -31,7 +31,7 @@ class DataProcessingClusterTests(test.TestCase):
             .AndReturn(self.clusters.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res,
-            'project/data_processing.clusters/clusters.html')
+        self.assertTemplateUsed(
+            res, 'project/data_processing.clusters/clusters.html')
         self.assertContains(res, 'Clusters')
         self.assertContains(res, 'Name')

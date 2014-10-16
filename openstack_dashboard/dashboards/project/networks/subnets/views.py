@@ -92,7 +92,7 @@ class UpdateView(workflows.WorkflowView):
                  for p in subnet['allocation_pools']]
         initial['allocation_pools'] = '\n'.join(pools)
         routes = ['%s,%s' % (r['destination'], r['nexthop'])
-                 for r in subnet['host_routes']]
+                  for r in subnet['host_routes']]
         initial['host_routes'] = '\n'.join(routes)
 
         return initial

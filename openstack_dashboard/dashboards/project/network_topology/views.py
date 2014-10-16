@@ -220,7 +220,7 @@ class JSONView(View):
                     'name': router.name,
                     'status': router.status,
                     'external_gateway_info': router.external_gateway_info}
-            for router in neutron_routers]
+                   for router in neutron_routers]
         self.add_resource_url('horizon:project:routers:detail', routers)
         return routers
 
