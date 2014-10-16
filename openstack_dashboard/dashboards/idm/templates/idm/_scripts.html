@@ -9,7 +9,8 @@ function readURL(input) {
         var reader = new FileReader();
         
         reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
+            $('#avatar-update').attr('src', e.target.result);
+            $('#avatar-update').attr('style', "");
         }
         
         reader.readAsDataURL(input.files[0]);
