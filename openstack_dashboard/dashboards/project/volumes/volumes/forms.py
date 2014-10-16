@@ -33,6 +33,7 @@ from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import glance
+from openstack_dashboard.api import nova
 from openstack_dashboard.dashboards.project.images import utils
 from openstack_dashboard.dashboards.project.instances import tables
 from openstack_dashboard.usage import quotas
@@ -410,12 +411,7 @@ class AttachForm(forms.SelfHandlingForm):
         super(AttachForm, self).__init__(*args, **kwargs)
 
         # Hide the device field if the hypervisor doesn't support it.
-        hypervisor_features = getattr(settings,
-                                      "OPENSTACK_HYPERVISOR_FEATURES",
-                                      {})
-        can_set_mount_point = hypervisor_features.get("can_set_mount_point",
-                                                      False)
-        if not can_set_mount_point:
+        if not nova.can_set_mount_point():
             self.fields['device'].widget = forms.widgets.HiddenInput()
 
         # populate volume_id

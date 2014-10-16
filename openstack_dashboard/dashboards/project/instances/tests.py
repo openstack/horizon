@@ -22,6 +22,7 @@ import uuid
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.forms import widgets
 from django import http
 import django.test
 from django.utils.datastructures import SortedDict
@@ -2553,6 +2554,120 @@ class InstanceTests(helpers.TestCase):
     def test_launch_form_instance_requirement_error_ram_with_profile(self):
         self.test_launch_form_instance_requirement_error_ram(
             test_with_profile=True)
+
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
+                        api.neutron: ('network_list',
+                                      'profile_list',),
+                        api.nova: ('extension_supported',
+                                   'flavor_list',
+                                   'keypair_list',
+                                   'tenant_absolute_limits',
+                                   'availability_zone_list',),
+                        api.network: ('security_group_list',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def _test_launch_form_instance_show_device_name(self, device_name,
+                                                    widget_class,
+                                                    widget_attrs):
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        volume = self.volumes.first()
+        sec_group = self.security_groups.first()
+        avail_zone = self.availability_zones.first()
+        customization_script = 'user data'
+        volume_choice = "%s:vol" % volume.id
+        quota_usages = self.quota_usages.first()
+
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)).AndReturn(True)
+        api.nova.flavor_list(
+            IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.nova.keypair_list(
+            IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(
+            IsA(http.HttpRequest)).AndReturn(self.availability_zones.list())
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True,
+                     'status': 'active'}).AndReturn(
+            [self.images.list(), False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}).AndReturn([[], False, False])
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            shared=False).AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn(self.networks.list()[1:])
+        api.nova.extension_supported(
+            'DiskConfig', IsA(http.HttpRequest)).AndReturn(True)
+        api.nova.extension_supported(
+            'ConfigDrive', IsA(http.HttpRequest)).AndReturn(True)
+        cinder.volume_list(
+            IsA(http.HttpRequest)).AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        api.nova.flavor_list(
+            IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+        api.nova.tenant_absolute_limits(
+            IsA(http.HttpRequest)).AndReturn(self.limits['absolute'])
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)).AndReturn(quota_usages)
+        api.nova.flavor_list(
+            IsA(http.HttpRequest)).AndReturn(self.flavors.list())
+
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'volume_image_id',
+                     'image_id': image.id,
+                     'availability_zone': avail_zone.zoneName,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'customization_script': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': 'volume_id',
+                     'volume_id': volume_choice,
+                     'volume_size': max(
+                         image.min_disk, image.size / 1024 ** 3),
+                     'device_name': device_name,
+                     'count': 1}
+
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        widget_content = widget_class().render(**widget_attrs)
+        # In django 1.4, the widget's html attributes are not always rendered
+        # in the same order and checking the fully rendered widget fails.
+        for widget_part in widget_content.split():
+            self.assertContains(res, widget_part)
+
+    @django.test.utils.override_settings(
+        OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True})
+    def test_launch_form_instance_device_name_showed(self):
+        self._test_launch_form_instance_show_device_name(
+            u'vda', widgets.TextInput, {
+                'name': 'device_name', 'value': 'vda',
+                'attrs': {'id': 'id_device_name'}}
+        )
+
+    @django.test.utils.override_settings(
+        OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': False})
+    def test_launch_form_instance_device_name_hidden(self):
+        self._test_launch_form_instance_show_device_name(
+            u'', widgets.HiddenInput, {
+                'name': 'device_name', 'value': '',
+                'attrs': {'id': 'id_device_name'}}
+        )
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                         api.neutron: ('network_list',
