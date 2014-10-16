@@ -16,7 +16,8 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.router.nexus1000v import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     # Network Profile
     url(r'^network_profile/create$', views.CreateNetworkProfileView.as_view(),

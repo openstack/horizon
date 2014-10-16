@@ -250,10 +250,11 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['name'], domain.name)
         self.assertEqual(step.action.initial['description'],
                          domain.description)
-        self.assertQuerysetEqual(workflow.steps,
-                            ['<UpdateDomainInfo: update_domain>',
-                             '<UpdateDomainUsers: update_user_members>',
-                             '<UpdateDomainGroups: update_group_members>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<UpdateDomainInfo: update_domain>',
+             '<UpdateDomainUsers: update_user_members>',
+             '<UpdateDomainGroups: update_group_members>'])
 
     @test.create_stubs({api.keystone: ('domain_get',
                                        'domain_update',

@@ -18,5 +18,6 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.settings.password import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.PasswordView.as_view(), name='index'))

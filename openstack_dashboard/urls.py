@@ -30,7 +30,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
 import horizon
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', 'openstack_dashboard.views.splash', name='splash'),
     url(r'^auth/', include('openstack_auth.urls')),
     url(r'', include(horizon.urls))
@@ -45,6 +46,7 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
-    urlpatterns += patterns('',
+    urlpatterns += patterns(
+        '',
         url(r'^500/$', 'django.views.defaults.server_error')
     )

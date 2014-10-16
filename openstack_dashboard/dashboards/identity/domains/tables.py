@@ -168,8 +168,8 @@ class SetDomainContext(tables.Action):
                 request.session['domain_context'] = obj_id
                 request.session['domain_context_name'] = domain.name
                 messages.success(request,
-                                _('Domain Context updated to Domain %s.') %
-                                domain.name)
+                                 _('Domain Context updated to Domain %s.') %
+                                 domain.name)
             except Exception:
                 messages.error(request,
                                _('Unable to set Domain Context.'))
