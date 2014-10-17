@@ -321,6 +321,17 @@ This example sorts flavors by vcpus in descending order::
          'reverse': True,
     }
 
+``DROPDOWN_MAX_ITEMS``
+----------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``30``
+
+This setting sets the maximum number of items displayed in a dropdown.
+Dropdowns that limit based on this value need to support a way to observe
+the entire list.
+
 ``IMAGES_LIST_FILTER_TENANTS``
 ------------------------------
 

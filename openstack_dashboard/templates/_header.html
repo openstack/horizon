@@ -15,9 +15,9 @@
         {% show_project_list %}
         {% show_region_list %}
       </div>
-      <div class="footer disabled">
+      <div class="footer">
         <span class="glyphicon glyphicon-cog"></span>
-        {% trans "Filter selections" %}
+        <a href="{% url 'horizon:identity:projects:index' %}">{% trans "More Projects" %}</a>
       </div>
     </div><!-- end of dropdown-menu -->
   </div><!-- end of context-selection -->

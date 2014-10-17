@@ -248,6 +248,9 @@ IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 API_RESULT_LIMIT = 1000
 API_RESULT_PAGE_SIZE = 20
 
+# Specify a maximum number of items to display in a dropdown.
+DROPDOWN_MAX_ITEMS = 30
+
 # The timezone of the server. This should correspond with the timezone
 # of your entire OpenStack installation, and hopefully be in UTC.
 TIME_ZONE = "UTC"
