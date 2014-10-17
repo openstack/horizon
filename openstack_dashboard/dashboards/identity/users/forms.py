@@ -158,7 +158,7 @@ class UpdateUserForm(BaseUserForm):
                                   required=False,
                                   widget=forms.HiddenInput())
     id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
-    name = forms.CharField(label=_("User Name"))
+    name = forms.CharField(max_length=255, label=_("User Name"))
     email = forms.EmailField(
         label=_("Email"),
         required=False)
