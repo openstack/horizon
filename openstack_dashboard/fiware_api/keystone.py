@@ -14,11 +14,22 @@
 import logging
 
 from django.conf import settings
-from keystoneclient import exceptions as ks_exceptions
-from keystoneclient.v3 import client
 
-# TODO(garcianavalon)caching and efficiency with the client object.
-def fiwareclient(self):
+# TODO(garcianavalon) until we create a propper package
+import sys
+sys.path.append('../../../python-fiwareclient')
+try:
+    from keystoneclient.v3.contrib.oauth2 import core
+except ImportError, e:
+    raise ImportError(e,
+                'You dont have setup correctly the extended keystoneclient. \
+                ask Kike or look at the wiki in github!')
+else:
+    from keystoneclient import exceptions as ks_exceptions
+    from keystoneclient.v3 import client
+
+
+def fiwareclient(request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
 
     The IdM has its own admin account in the keystone server, and uses it to perform
@@ -27,17 +38,16 @@ def fiwareclient(self):
 
     Also adds the methods to operate with the OAuth2.0 extension.
     """
+    # TODO(garcianavalon)caching and efficiency with the client object.
     conf_params = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')
     conf_params['AUTH_URL'] = getattr(settings,'OPENSTACK_KEYSTONE_URL')
-    # TODO(garcianavalon) replace with our client
+
     keystone = client.Client(username=conf_params['USERNAME'],
                             password=conf_params['PASSWORD'],
                             project=conf_params['PROJECT'],
                             auth_url=conf_params['AUTH_URL'])
     return keystone
         
-
-
 
 def _find_user(keystone,email=None,name=None):
     # FIXME(garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
@@ -97,3 +107,74 @@ def check_email(email):
     keystone = fiwareclient()
     user = _find_user(keystone,email=email)
     return user
+
+def create_application(request, redirect_uris, scopes,
+                    client_type='confidential', description=None, 
+                    grant_type='authorization_code'):
+    """ Registers a new consumer in the Keystone OAuth2 extension.
+
+    In FIWARE applications is the name OAuth2 consumers/clients receive. 
+    """
+    manager = fiwareclient(request).oauth2.consumers
+    return manager.create(redirect_uris=redirect_uris,
+                            description=description,
+                            scopes=scopes,
+                            client_type=client_type,
+                            grant_type=grant_type)
+
+def request_authorization_for_application(request, application, 
+                                        redirect_uri, scope, state=None):
+    """ Sends the consumer/client credentials to the authorization server to ask
+    a resource owner for authorization in a certain scope.
+
+    :returns: a dict with all the data response from the provider, use it to populate
+        a nice form for the user, for example.
+    """
+    manager = fiwareclient(request).oauh2.authorization_codes
+    response_dict = manager.request_authorization(consumer=application, 
+                                    redirect_uri=redirect_uri, 
+                                    scope=scope, 
+                                    state=state)
+    return  response_dict
+
+def authorize_application(request, user, application, scopes, redirect=False):
+    """ Give authorization from a resource owner to the consumer/client on the 
+    requested scopes.
+
+    Example use case: when the user is redirected from the application website to
+    us, the provider/resource owner we present a nice form. If the user accepts, we
+    delegate to our Keystone backend, where the client credentials will be checked an
+    an authorization_code returned if everything is correct.
+
+    :returns: an authorization_code object, following the same pattern as other 
+        keystoneclient objects
+    """
+    manager = fiwareclient(request).oauth2.authorization_codes
+    authorization_code = manager.authorize(user=user, 
+                                    consumer=application, 
+                                    scopes=scopes, 
+                                    redirect=redirect)
+    return authorization_code
+
+def obtain_access_token(request, consumer_id, consumer_secret, code,
+               redirect_uri):
+    """ Exchange the authorization_code for an access_token.
+
+    This token can be later exchanged for a keystone scoped token using the oauth2
+    auth method. See the Keystone OAuth2 Extension documentation for more information
+    about the auth plugin.
+
+    :returns: an access_token object
+    """
+    manager = fiwareclient(request).oauth2.access_tokens
+    access_token = manager.create(consumer_id=consumer_id, 
+                                consumer_secret=consumer_secret, 
+                                authorization_code=code,
+                                redirect_uri=redirect_uri)
+    return access_token
+
+def obtain_keystone_token(request, access_token, project=None):
+    """ Use an OAuth2 access token to obtain a keystone token, scoped for
+    the authorizing user in one of his projects.
+    """
+    pass
