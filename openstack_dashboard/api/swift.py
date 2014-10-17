@@ -110,8 +110,6 @@ def swift_api(request):
     endpoint = base.url_for(request, 'object-store')
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    LOG.debug('Swift connection created using token "%s" and url "%s"'
-              % (request.user.token.id, endpoint))
     return swiftclient.client.Connection(None,
                                          request.user.username,
                                          None,

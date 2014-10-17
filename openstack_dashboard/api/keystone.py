@@ -160,7 +160,6 @@ def keystoneclient(request, admin=False):
     if (hasattr(request, cache_attr) and
         (not user.token.id or
          getattr(request, cache_attr).auth_token == user.token.id)):
-        LOG.debug("Using cached client for token: %s" % user.token.id)
         conn = getattr(request, cache_attr)
     else:
         endpoint = _get_endpoint_url(request, endpoint_type)

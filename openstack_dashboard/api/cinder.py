@@ -160,8 +160,6 @@ def cinderclient(request):
     except exceptions.ServiceCatalogException:
         LOG.debug('no volume service configured.')
         raise
-    LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, cinder_url))
     c = api_version['client'].Client(request.user.username,
                                      request.user.token.id,
                                      project_id=request.user.tenant_id,

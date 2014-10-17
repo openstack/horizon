@@ -30,8 +30,6 @@ def troveclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     trove_url = base.url_for(request, 'database')
-    LOG.debug('troveclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, trove_url))
     c = client.Client(request.user.username,
                       request.user.token.id,
                       project_id=request.user.project_id,

@@ -41,8 +41,6 @@ def glanceclient(request, version='1'):
     url = base.url_for(request, 'image')
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    LOG.debug('glanceclient connection created using token "%s" and url "%s"'
-              % (request.user.token.id, url))
     return glance_client.Client(version, url, token=request.user.token.id,
                                 insecure=insecure, cacert=cacert)
 

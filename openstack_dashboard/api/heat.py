@@ -36,8 +36,6 @@ def heatclient(request, password=None):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     endpoint = base.url_for(request, 'orchestration')
-    LOG.debug('heatclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, endpoint))
     kwargs = {
         'token': request.user.token.id,
         'insecure': insecure,
