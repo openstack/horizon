@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-02 13:57-0500\n"
-"PO-Revision-Date: 2014-10-02 21:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-10-16 22:36-0500\n"
+"PO-Revision-Date: 2014-10-16 13:10+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +87,7 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:221
+#: static/horizon/js/horizon.tables.js:223
 msgid "Working"
 msgstr "Zpracovávání"
 
@@ -124,7 +125,7 @@ msgid "Add Interface"
 msgstr "Přidat rozhraní"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:377
+#: static/horizon/js/horizon.tables.js:379
 msgid "No items to display."
 msgstr "Žádné položky k zobrazení."
 
@@ -133,27 +134,27 @@ msgstr "Žádné položky k zobrazení."
 msgid "An error occurred while updating."
 msgstr "Při aktualizaci nastal problém."
 
-#: static/horizon/js/horizon.tables.js:204
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "You have selected %s. "
 msgstr "Vybrali jste %s."
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:208
 #, c-format
 msgid "Confirm %s"
 msgstr "Potvrdit %s"
 
-#: static/horizon/js/horizon.tables.js:207
+#: static/horizon/js/horizon.tables.js:209
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "Potvrďte prosím váš výběr. Toto nelze vrátit."
 
-#: static/horizon/js/horizon.tables.js:364
+#: static/horizon/js/horizon.tables.js:366
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Zobrazena %s položka"
+msgstr[1] "Zobrazeny %s položky"
+msgstr[2] "Zobrazeno %s položek"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169

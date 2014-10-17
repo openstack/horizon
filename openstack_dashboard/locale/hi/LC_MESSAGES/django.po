@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-14 23:28-0500\n"
-"PO-Revision-Date: 2014-10-14 07:54+0000\n"
+"POT-Creation-Date: 2014-10-16 22:36-0500\n"
+"PO-Revision-Date: 2014-10-16 11:04+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -59,217 +59,217 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:296
+#: settings.py:298
 msgid "All TCP"
 msgstr "सभी TCP"
 
-#: settings.py:302
+#: settings.py:304
 msgid "All UDP"
 msgstr "सभी UDP"
 
-#: settings.py:308
+#: settings.py:310
 msgid "All ICMP"
 msgstr "सभी ICMP"
 
-#: api/ceilometer.py:738
+#: api/ceilometer.py:747
 msgid "Unable to retrieve Ceilometer meterlist."
 msgstr "सिलोमीटर सूचकांक को पुनः प्राप्त करने में असमर्थ. "
 
-#: api/ceilometer.py:912
+#: api/ceilometer.py:923
 msgid "Duration of instance"
 msgstr "इंस्टेंस की अवधि"
 
-#: api/ceilometer.py:916
+#: api/ceilometer.py:927
 msgid "Duration of instance <type> (openstack types)"
 msgstr "इंस्टेंस की अवधि <type> (ओपेनस्टैक प्रकार)"
 
-#: api/ceilometer.py:921
+#: api/ceilometer.py:932
 msgid "Volume of RAM in MB"
 msgstr "रैम का आयतन MB में "
 
-#: api/ceilometer.py:925
+#: api/ceilometer.py:936
 msgid "CPU time used"
 msgstr "उपयोग किया गया CPU समय"
 
-#: api/ceilometer.py:929
+#: api/ceilometer.py:940
 msgid "Average CPU utilization"
 msgstr "औसत CPU उपयोग"
 
-#: api/ceilometer.py:933
+#: api/ceilometer.py:944
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "VCPUs की संख्या"
 
-#: api/ceilometer.py:937
+#: api/ceilometer.py:948
 msgid "Number of read requests"
 msgstr "पाठ अनुरोधों की संख्या"
 
-#: api/ceilometer.py:941
+#: api/ceilometer.py:952
 msgid "Number of write requests"
 msgstr "लेखन अनुरोधों की संख्या"
 
-#: api/ceilometer.py:945
+#: api/ceilometer.py:956
 msgid "Volume of reads in B"
 msgstr "B में पाठ की मात्रा "
 
-#: api/ceilometer.py:949
+#: api/ceilometer.py:960
 msgid "Volume of writes in B"
 msgstr "B में लेखन की मात्रा"
 
-#: api/ceilometer.py:953
+#: api/ceilometer.py:964
 msgid "Size of root disk in GB"
 msgstr "मुख्य डिस्क का आकार मे.बा. में"
 
-#: api/ceilometer.py:957
+#: api/ceilometer.py:968
 msgid "Size of ephemeral disk in GB"
 msgstr "अस्थायी डिस्क का आकार मे.बा. में"
 
-#: api/ceilometer.py:962
+#: api/ceilometer.py:973
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "वीएम अंतरफलक के लिए संजाल पर आने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:967
+#: api/ceilometer.py:978
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "वीएम अंतरफलक के लिए संजाल पर जाने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:972
+#: api/ceilometer.py:983
 msgid "Number of incoming packets for a VM interface"
 msgstr "वीएम अंतरफलक के लिए आने वाले पैकेट की संख्या"
 
-#: api/ceilometer.py:977
+#: api/ceilometer.py:988
 msgid "Number of outgoing packets for a VM interface"
 msgstr "वीएम अंतरफलक के लिए जाने वाले पैकेट की संख्या"
 
-#: api/ceilometer.py:989
+#: api/ceilometer.py:1000
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "इंस्टेंस प्रकार की अवधि %s (ओपेनस्टैक फ्लेवर)"
 
-#: api/ceilometer.py:1009
+#: api/ceilometer.py:1020
 msgid "Duration of network"
 msgstr "संजाल की अवधि"
 
-#: api/ceilometer.py:1013
+#: api/ceilometer.py:1024
 msgid "Creation requests for this network"
 msgstr "इस संजाल के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1017
+#: api/ceilometer.py:1028
 msgid "Update requests for this network"
 msgstr "इस संजाल के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1021
+#: api/ceilometer.py:1032
 msgid "Duration of subnet"
 msgstr "सबनेट की अवधि "
 
-#: api/ceilometer.py:1025
+#: api/ceilometer.py:1036
 msgid "Creation requests for this subnet"
 msgstr "इस सबनेट के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1029
+#: api/ceilometer.py:1040
 msgid "Update requests for this subnet"
 msgstr "इस सबनेट के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1033
+#: api/ceilometer.py:1044
 msgid "Duration of port"
 msgstr "पोर्ट की अवधि"
 
-#: api/ceilometer.py:1037
+#: api/ceilometer.py:1048
 msgid "Creation requests for this port"
 msgstr "इस पोर्ट के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1041
+#: api/ceilometer.py:1052
 msgid "Update requests for this port"
 msgstr "इस पोर्ट के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1045
+#: api/ceilometer.py:1056
 msgid "Duration of router"
 msgstr "रूटर की अवधि"
 
-#: api/ceilometer.py:1049
+#: api/ceilometer.py:1060
 msgid "Creation requests for this router"
 msgstr "इस रूटर के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1053
+#: api/ceilometer.py:1064
 msgid "Update requests for this router"
 msgstr "इस रूटर के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1057
+#: api/ceilometer.py:1068
 msgid "Duration of floating ip"
 msgstr " उत्प्लावित ip की अवधि"
 
-#: api/ceilometer.py:1061
+#: api/ceilometer.py:1072
 msgid "Creation requests for this floating ip"
 msgstr "इस  उत्प्लावित ip के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1065
+#: api/ceilometer.py:1076
 msgid "Update requests for this floating ip"
 msgstr "इस उत्प्लावित ip के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1082
+#: api/ceilometer.py:1093
 msgid "Image existence check"
 msgstr "बिंब की मौजूदगी जाँच"
 
-#: api/ceilometer.py:1086
+#: api/ceilometer.py:1097
 msgid "Uploaded image size"
 msgstr "अपलोड किये बिंब का आकर"
 
-#: api/ceilometer.py:1090
+#: api/ceilometer.py:1101
 msgid "Number of update on the image"
 msgstr "बिंब पर अद्यतन की संख्या "
 
-#: api/ceilometer.py:1094
+#: api/ceilometer.py:1105
 msgid "Number of upload of the image"
 msgstr "बिंब पर अपलोड की संख्या "
 
-#: api/ceilometer.py:1098
+#: api/ceilometer.py:1109
 msgid "Number of delete on the image"
 msgstr "बिंब पर मिटाव की संख्या "
 
-#: api/ceilometer.py:1102
+#: api/ceilometer.py:1113
 msgid "Image is downloaded"
 msgstr "बिंब डाउनलोड हो गया"
 
-#: api/ceilometer.py:1106
+#: api/ceilometer.py:1117
 msgid "Image is served out"
 msgstr "बिंब पूर्ण हो गया"
 
-#: api/ceilometer.py:1123
+#: api/ceilometer.py:1134
 msgid "Duration of volume"
 msgstr "खंड की अवधि"
 
-#: api/ceilometer.py:1127
+#: api/ceilometer.py:1138
 msgid "Size of volume"
 msgstr "खंड का आकार "
 
-#: api/ceilometer.py:1144
+#: api/ceilometer.py:1155
 msgid "Number of objects"
 msgstr "वस्तुओं की संख्या"
 
-#: api/ceilometer.py:1148
+#: api/ceilometer.py:1159
 msgid "Total size of stored objects"
 msgstr "भंडारित वस्तुओं का कुल आकार"
 
-#: api/ceilometer.py:1152
+#: api/ceilometer.py:1163
 msgid "Number of containers"
 msgstr "कंटेनरों की संख्या"
 
-#: api/ceilometer.py:1156
+#: api/ceilometer.py:1167
 msgid "Number of incoming bytes"
 msgstr "आने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:1160
+#: api/ceilometer.py:1171
 msgid "Number of outgoing bytes"
 msgstr "जाने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:1164
+#: api/ceilometer.py:1175
 msgid "Number of API requests against swift"
 msgstr "स्विफ्ट के खिलाफ एपीआई अनुरोधों की संख्या"
 
-#: api/ceilometer.py:1181
+#: api/ceilometer.py:1192
 msgid "Amount of energy"
 msgstr "ऊर्जा की मात्रा"
 
-#: api/ceilometer.py:1185
+#: api/ceilometer.py:1196
 msgid "Power consumption"
 msgstr "ऊर्जा खपत"
 
@@ -295,17 +295,17 @@ msgstr "अज्ञात इंस्टेंस"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:324
+#: api/keystone.py:326
 msgid "Identity service does not allow editing user data."
 msgstr "पहचान सेवा उपयोगकर्ता डेटा का संपादन की अनुमति नहीं है."
 
-#: api/keystone.py:350
+#: api/keystone.py:351
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr " इस परियोजना के लिए उपयोगकर्ता %s का कोई परिभाषित भूमिका नहीं है."
 
-#: api/keystone.py:362 api/keystone.py:378
-#: dashboards/settings/password/forms.py:62
+#: api/keystone.py:363 api/keystone.py:379
+#: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "कूटशब्द बदल गया. जारी रखने के लिए फिर से लॉग इन करें."
 
@@ -384,7 +384,7 @@ msgstr "नाम: %(name)s ID: %(uuid)s"
 msgid "Failed to evacuate instances: %s"
 msgstr "इंस्टेंस को खाली करने में असफल: %s"
 
-#: api/swift.py:204
+#: api/swift.py:205
 msgid "The container cannot be deleted since it's not empty."
 msgstr "कंटेनर खाली नहीं होने के कारण नष्ट नहीं किया जा सकता है."
 
@@ -399,19 +399,19 @@ msgstr "प्रशासक"
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
 #: dashboards/admin/aggregates/workflows.py:24
-#: dashboards/admin/flavors/workflows.py:35 dashboards/admin/info/tables.py:64
+#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
 #: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
 #: dashboards/admin/info/tables.py:170 dashboards/admin/instances/tables.py:95
 #: dashboards/admin/instances/tables.py:138
-#: dashboards/admin/networks/forms.py:37
-#: dashboards/admin/networks/forms.py:231
+#: dashboards/admin/networks/forms.py:38
+#: dashboards/admin/networks/forms.py:234
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/ports/tables.py:91
 #: dashboards/admin/networks/subnets/tables.py:91
 #: dashboards/admin/routers/tables.py:54
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
-#: dashboards/admin/volumes/snapshots/tables.py:58
+#: dashboards/admin/volumes/snapshots/tables.py:59
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/volume_types/tables.py:71
 #: dashboards/admin/volumes/volume_types/tables.py:146
@@ -439,13 +439,13 @@ msgstr "प्रशासक"
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
 #: dashboards/project/data_processing/data_sources/workflows/create.py:28
 #: dashboards/project/data_processing/job_binaries/forms.py:48
-#: dashboards/project/data_processing/job_binaries/tables.py:81
+#: dashboards/project/data_processing/job_binaries/tables.py:82
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
 #: dashboards/project/data_processing/jobs/tables.py:149
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:107
 #: dashboards/project/database_backups/tables.py:145
@@ -467,7 +467,7 @@ msgstr "प्रशासक"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images/images/forms.py:40
-#: dashboards/project/images/images/forms.py:193
+#: dashboards/project/images/images/forms.py:189
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -500,9 +500,9 @@ msgstr "प्रशासक"
 #: dashboards/project/volumes/volumes/tables.py:325
 #: dashboards/project/volumes/volumes/tables.py:354
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
-#: dashboards/project/vpn/forms.py:136 dashboards/project/vpn/forms.py:207
-#: dashboards/project/vpn/tables.py:229 dashboards/project/vpn/tables.py:259
-#: dashboards/project/vpn/tables.py:279 dashboards/project/vpn/tables.py:297
+#: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
+#: dashboards/project/vpn/tables.py:230 dashboards/project/vpn/tables.py:260
+#: dashboards/project/vpn/tables.py:280 dashboards/project/vpn/tables.py:298
 #: dashboards/project/vpn/workflows.py:25
 #: dashboards/project/vpn/workflows.py:110
 #: dashboards/project/vpn/workflows.py:209
@@ -518,12 +518,12 @@ msgstr "नाम"
 #: dashboards/admin/aggregates/forms.py:30
 #: dashboards/admin/aggregates/tables.py:130
 #: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/project/instances/tables.py:902
+#: dashboards/project/instances/tables.py:904
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
-#: dashboards/project/instances/workflows/create_instance.py:77
-#: dashboards/project/volumes/volumes/forms.py:88
-#: dashboards/project/volumes/volumes/forms.py:93
+#: dashboards/project/instances/workflows/create_instance.py:78
+#: dashboards/project/volumes/volumes/forms.py:89
 #: dashboards/project/volumes/volumes/forms.py:94
+#: dashboards/project/volumes/volumes/forms.py:95
 #: dashboards/project/volumes/volumes/tables.py:362
 msgid "Availability Zone"
 msgstr "उपलब्धता क्षेत्र"
@@ -744,11 +744,11 @@ msgstr "सकल से होस्ट जोड़ें / हटाये"
 
 #: dashboards/admin/aggregates/workflows.py:209
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
-#: dashboards/admin/flavors/workflows.py:264
+#: dashboards/admin/flavors/workflows.py:266
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:511
+#: dashboards/identity/projects/workflows.py:512
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -798,6 +798,7 @@ msgstr "होस्ट जोड़ने या हटाने में त�
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:18
 #: dashboards/project/containers/templates/containers/_copy.html:17
 #: dashboards/project/containers/templates/containers/_create.html:17
+#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:21
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
@@ -962,7 +963,7 @@ msgid "Defaults"
 msgstr "तयशुदा"
 
 #: dashboards/admin/defaults/tables.py:34
-#: dashboards/admin/defaults/workflows.py:80
+#: dashboards/admin/defaults/workflows.py:81
 msgid "Update Defaults"
 msgstr "तयशुदा अद्यतन करें"
 
@@ -1009,7 +1010,7 @@ msgstr "VCPUs"
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:921
+#: dashboards/project/instances/tables.py:923
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1024,7 +1025,7 @@ msgid "Injected Files"
 msgstr "इंजेक्ट फ़ाइलें "
 
 #: dashboards/admin/defaults/tables.py:47
-#: dashboards/admin/defaults/workflows.py:53
+#: dashboards/admin/defaults/workflows.py:54
 #: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:35
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
@@ -1039,9 +1040,9 @@ msgid "Volumes"
 msgstr "वॉल्यूम"
 
 #: dashboards/admin/defaults/tables.py:48
-#: dashboards/admin/defaults/workflows.py:52
+#: dashboards/admin/defaults/workflows.py:53
 #: dashboards/admin/volumes/tabs.py:93
-#: dashboards/admin/volumes/snapshots/tables.py:68
+#: dashboards/admin/volumes/snapshots/tables.py:69
 #: dashboards/identity/projects/workflows.py:54
 #: dashboards/project/volumes/tabs.py:76
 #: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
@@ -1049,7 +1050,7 @@ msgid "Volume Snapshots"
 msgstr "वॉल्यूम स्नैपशॉट"
 
 #: dashboards/admin/defaults/tables.py:49
-#: dashboards/admin/defaults/workflows.py:51
+#: dashboards/admin/defaults/workflows.py:52
 #: dashboards/identity/projects/workflows.py:56 usage/quotas.py:76
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "वॉल्यूम और स्नैपशॉट का कुल आकार (GB)"
@@ -1082,9 +1083,9 @@ msgstr " उत्प्लावित IP"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:24
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:108
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:497
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1145,7 +1146,7 @@ msgid "Quotas"
 msgstr "कोटा"
 
 #: dashboards/admin/defaults/tabs.py:27
-#: dashboards/admin/defaults/workflows.py:66
+#: dashboards/admin/defaults/workflows.py:67
 msgid "Default Quotas"
 msgstr "डिफ़ॉल्ट कोटा"
 
@@ -1158,20 +1159,20 @@ msgstr "कोटा जानकारी प्राप्त करने �
 msgid "Unable to retrieve default quota values."
 msgstr "डिफ़ॉल्ट कोटा मान प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/defaults/workflows.py:68
+#: dashboards/admin/defaults/workflows.py:69
 msgid "From here you can update the default quotas (max limits)."
 msgstr "यहाँ से आप डिफ़ॉल्ट कोटा (अधिकतम सीमा) अपडेट कर सकते हैं."
 
-#: dashboards/admin/defaults/workflows.py:79
+#: dashboards/admin/defaults/workflows.py:80
 msgid "Update Default Quotas"
 msgstr "डिफ़ॉल्ट कोटा अद्यतन करें"
 
-#: dashboards/admin/defaults/workflows.py:81
+#: dashboards/admin/defaults/workflows.py:82
 msgid "Default quotas updated."
 msgstr "डिफ़ॉल्ट कोटा अद्यतन."
 
-#: dashboards/admin/defaults/workflows.py:82
-#: dashboards/admin/defaults/workflows.py:99
+#: dashboards/admin/defaults/workflows.py:83
+#: dashboards/admin/defaults/workflows.py:100
 msgid "Unable to update default quotas."
 msgstr "डिफ़ॉल्ट कोटा अद्यतन करने में असमर्थ."
 
@@ -1198,15 +1199,15 @@ msgstr[0] "फ्लैवर मिटाया"
 msgstr[1] "फ्लैवर मिटाया"
 
 #: dashboards/admin/flavors/tables.py:53
-#: dashboards/admin/flavors/workflows.py:177
 #: dashboards/admin/flavors/workflows.py:178
+#: dashboards/admin/flavors/workflows.py:179
 #: dashboards/admin/flavors/templates/flavors/create.html:3
 #: dashboards/admin/flavors/templates/flavors/create.html:6
 msgid "Create Flavor"
 msgstr "फ्लेवर बनाएँ"
 
 #: dashboards/admin/flavors/tables.py:61
-#: dashboards/admin/flavors/workflows.py:263
+#: dashboards/admin/flavors/workflows.py:265
 #: dashboards/admin/flavors/templates/flavors/update.html:3
 #: dashboards/admin/flavors/templates/flavors/update.html:6
 msgid "Edit Flavor"
@@ -1301,12 +1302,12 @@ msgstr "स्वैप डिस्क"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:12
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:67
-#: dashboards/project/vpn/forms.py:138 dashboards/project/vpn/forms.py:208
+#: dashboards/project/vpn/forms.py:139 dashboards/project/vpn/forms.py:210
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:12
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:12
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:13
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:13
-#: dashboards/router/nexus1000v/forms.py:173
+#: dashboards/router/nexus1000v/forms.py:174
 msgid "ID"
 msgstr "आईडी"
 
@@ -1314,8 +1315,8 @@ msgstr "आईडी"
 #: dashboards/project/containers/forms.py:42
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:99
-#: dashboards/project/images/images/forms.py:232
+#: dashboards/project/images/images/forms.py:95
+#: dashboards/project/images/images/forms.py:228
 #: dashboards/project/images/images/tables.py:157
 #: dashboards/project/images/images/tables.py:237
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
@@ -1344,7 +1345,7 @@ msgid ""
 "to set a random UUID4."
 msgstr "फ्लेवर आईडी अंक या  UUID4 होना चाहिए. इस क्षेत्र को खाली रखें या यादृच्छिक UUID4 सेट करने के लिए 'स्वतः' का उपयोग करें."
 
-#: dashboards/admin/flavors/workflows.py:38
+#: dashboards/admin/flavors/workflows.py:39
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "नाम में सिर्फ एक अक्षर, संख्या, हाइफन, और डैश ही हो सकते हैं."
@@ -1362,7 +1363,7 @@ msgid "Swap Disk (MB)"
 msgstr "स्वैप डिस्क  (MB)"
 
 #: dashboards/admin/flavors/workflows.py:58
-#: dashboards/admin/flavors/workflows.py:224
+#: dashboards/admin/flavors/workflows.py:226
 msgid "Flavor Information"
 msgstr "फ्लेवर जानकारी"
 
@@ -1373,12 +1374,12 @@ msgid ""
 msgstr "फ्लेवर रैम, डिस्क, कोर की संख्या, और अन्य संसाधनों के लिए आकार को परिभाषित करता हैं और चयनित किया जा सकता है उपयोगकर्ता इंस्टेंस को संस्थापित करता हैं "
 
 #: dashboards/admin/flavors/workflows.py:72
-#: dashboards/admin/flavors/workflows.py:237
+#: dashboards/admin/flavors/workflows.py:239
 msgid "Unable to get flavor list"
 msgstr "फ्लेवर सूची पाने में असमर्थ"
 
 #: dashboards/admin/flavors/workflows.py:79
-#: dashboards/admin/flavors/workflows.py:245
+#: dashboards/admin/flavors/workflows.py:247
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "नाम \"%s\" अन्य फ्लेवर के द्वारा पहले से ही उपयोग में है."
@@ -1392,69 +1393,69 @@ msgstr "आईडी \"%s\" अन्य फ्लेवर के द्वा�
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "फ्लेवर अभिगम सूची को प्राप्त करने में असमर्थ. बाद में पुन: प्रयास करें."
 
-#: dashboards/admin/flavors/workflows.py:150
+#: dashboards/admin/flavors/workflows.py:151
 msgid "Flavor Access"
 msgstr "फ्लेवर अभिगम "
 
-#: dashboards/admin/flavors/workflows.py:156
+#: dashboards/admin/flavors/workflows.py:157
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr "परियोजनाओं का चयन करें जहां Flavors का उपयोग किया गया हैं। अगर कोई परियोजनाओं का चयन नहीं किया गया है तो सभी परियोजनाओं में Flavors उपलब्ध हो जाएगा."
 
-#: dashboards/admin/flavors/workflows.py:159
+#: dashboards/admin/flavors/workflows.py:160
 msgid "All Projects"
 msgstr "सभी परियोजना"
 
-#: dashboards/admin/flavors/workflows.py:160
+#: dashboards/admin/flavors/workflows.py:161
 msgid "Selected Projects"
 msgstr "चयनित परियोजना"
 
-#: dashboards/admin/flavors/workflows.py:161
+#: dashboards/admin/flavors/workflows.py:162
 msgid "No projects found."
 msgstr "कोई परियोजना नहीं मिला."
 
-#: dashboards/admin/flavors/workflows.py:162
+#: dashboards/admin/flavors/workflows.py:163
 msgid "No projects selected. All projects can use the flavor."
 msgstr "कोई परियोजनाओं चयनित नहीं. सभी परियोजनाओं फ्लेवर का उपयोग कर सकते हैं."
 
-#: dashboards/admin/flavors/workflows.py:179
+#: dashboards/admin/flavors/workflows.py:180
 #, python-format
 msgid "Created new flavor \"%s\"."
 msgstr "नया फ्लेवर बनाया \"%s\"."
 
-#: dashboards/admin/flavors/workflows.py:180
+#: dashboards/admin/flavors/workflows.py:181
 #, python-format
 msgid "Unable to create flavor \"%s\"."
 msgstr "फ्लेवर बनाने में असमर्थ \"%s\"."
 
-#: dashboards/admin/flavors/workflows.py:205
+#: dashboards/admin/flavors/workflows.py:206
 msgid "Unable to create flavor."
 msgstr "फ्लेवर बनाने में असमर्थ ."
 
-#: dashboards/admin/flavors/workflows.py:216
+#: dashboards/admin/flavors/workflows.py:218
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr "परियोजना के लिए फ्लेवर पहुँच सेट करने में असमर्थ %s."
 
-#: dashboards/admin/flavors/workflows.py:226
+#: dashboards/admin/flavors/workflows.py:228
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy "
 "instances."
 msgstr "फ्लेवर विवरण संपादित करें. फ्लेवर रैम, डिस्क, कोर की संख्या, और अन्य संसाधनों के लिए आकार को परिभाषित करता हैं. फ्लेवर चयनित किया जा सकता है जब उपयोगकर्ता इंस्टेंस को संस्थापित करता हैं "
 
-#: dashboards/admin/flavors/workflows.py:265
+#: dashboards/admin/flavors/workflows.py:267
 #, python-format
 msgid "Modified flavor \"%s\"."
 msgstr "परिवर्धित फ्लेवर \"%s\"."
 
-#: dashboards/admin/flavors/workflows.py:266
+#: dashboards/admin/flavors/workflows.py:268
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
 msgstr "फ्लेवर \"%s\" के विश्लेषण में असमर्थ"
 
-#: dashboards/admin/flavors/workflows.py:311
+#: dashboards/admin/flavors/workflows.py:313
 msgid "Modified flavor information, but unable to modify flavor access."
 msgstr "संशोधित फ्लेवर जानकारी, लेकिन फ्लेवर पहुँच को संशोधित करने में असमर्थ."
 
@@ -1480,16 +1481,16 @@ msgstr "होस्टनाम"
 #: dashboards/admin/routers/ports/tables.py:32
 #: dashboards/project/access_and_security/security_groups/forms.py:173
 #: dashboards/project/access_and_security/security_groups/forms.py:180
-#: dashboards/project/data_processing/data_sources/tables.py:63
+#: dashboards/project/data_processing/data_sources/tables.py:64
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:229
 #: dashboards/project/loadbalancers/workflows.py:485
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:100
-#: dashboards/project/volumes/volumes/forms.py:79
-#: dashboards/project/volumes/volumes/forms.py:84
+#: dashboards/project/volumes/volumes/forms.py:80
 #: dashboards/project/volumes/volumes/forms.py:85
-#: dashboards/project/volumes/volumes/forms.py:642
+#: dashboards/project/volumes/volumes/forms.py:86
+#: dashboards/project/volumes/volumes/forms.py:646
 #: dashboards/project/volumes/volumes/tables.py:357
 msgid "Type"
 msgstr "प्रकार"
@@ -1521,9 +1522,9 @@ msgstr "भंडारण  (कुल)"
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:249
 #: dashboards/project/databases/workflows/create_instance.py:35
-#: dashboards/project/instances/tables.py:863
-#: dashboards/project/instances/tables.py:885
-#: dashboards/project/instances/workflows/create_instance.py:80
+#: dashboards/project/instances/tables.py:865
+#: dashboards/project/instances/tables.py:887
+#: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/overview/views.py:32 usage/tables.py:72
 msgid "Instance Name"
 msgstr "इंस्टैंस नाम"
@@ -1550,7 +1551,7 @@ msgstr "हाइपरविजर जानकारी निकालने 
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "हाइपरविजर आंकड़े निकालने में अक्षम."
 
-#: dashboards/admin/hypervisors/views.py:71
+#: dashboards/admin/hypervisors/views.py:72
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "हाइपरविजर इंस्टेंस सूची निकालने में अक्षम."
 
@@ -1559,33 +1560,33 @@ msgstr "हाइपरविजर इंस्टेंस सूची नि
 msgid "Current Host"
 msgstr "मौज़ूदा होस्ट"
 
-#: dashboards/admin/hypervisors/compute/forms.py:28
+#: dashboards/admin/hypervisors/compute/forms.py:29
 msgid "Target Host"
 msgstr "लक्ष्य मेजबान"
 
-#: dashboards/admin/hypervisors/compute/forms.py:29
+#: dashboards/admin/hypervisors/compute/forms.py:30
 msgid "Choose a Host to evacuate servers to."
 msgstr "सर्वर में खाली करने के लिए होस्ट चुनें :"
 
-#: dashboards/admin/hypervisors/compute/forms.py:31
+#: dashboards/admin/hypervisors/compute/forms.py:32
 msgid "Shared Storage"
 msgstr "साझा भंडार"
 
-#: dashboards/admin/hypervisors/compute/forms.py:47
+#: dashboards/admin/hypervisors/compute/forms.py:48
 msgid "Select a target host"
 msgstr "लक्ष्य मेजबान चयन करें"
 
-#: dashboards/admin/hypervisors/compute/forms.py:49
+#: dashboards/admin/hypervisors/compute/forms.py:50
 #: dashboards/admin/instances/forms.py:58
 msgid "No other hosts available."
 msgstr "कोई  होस्ट उपलब्ध नहीं."
 
-#: dashboards/admin/hypervisors/compute/forms.py:60
+#: dashboards/admin/hypervisors/compute/forms.py:61
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "%(current)s से %(target)s तक निकासी शुरू है"
 
-#: dashboards/admin/hypervisors/compute/forms.py:66
+#: dashboards/admin/hypervisors/compute/forms.py:67
 #, python-format
 msgid "Failed to evacuate host: %s."
 msgstr "मेजबान खाली करने में विफल: %s."
@@ -1612,7 +1613,7 @@ msgstr[1] "खाली किया मेजबान"
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:134
 #: dashboards/admin/networks/agents/tables.py:90
-#: dashboards/admin/volumes/snapshots/tables.py:63
+#: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:43
 #: dashboards/project/databases/tables.py:254
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
@@ -1640,9 +1641,9 @@ msgstr "क्षेत्र"
 #: dashboards/admin/volumes/snapshots/forms.py:33
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:46
-#: dashboards/project/data_processing/clusters/tables.py:111
+#: dashboards/project/data_processing/clusters/tables.py:112
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
-#: dashboards/project/data_processing/job_executions/tables.py:152
+#: dashboards/project/data_processing/job_executions/tables.py:153
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
 #: dashboards/project/database_backups/tables.py:161
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
@@ -1654,7 +1655,7 @@ msgstr "क्षेत्र"
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:233
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
-#: dashboards/project/instances/tables.py:897
+#: dashboards/project/instances/tables.py:899
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:277
 #: dashboards/project/loadbalancers/tables.py:311
@@ -1680,7 +1681,7 @@ msgstr "क्षेत्र"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:335
-#: dashboards/project/vpn/tables.py:239 dashboards/project/vpn/tables.py:266
+#: dashboards/project/vpn/tables.py:240 dashboards/project/vpn/tables.py:267
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
@@ -1768,7 +1769,7 @@ msgstr "बिंब नाम ="
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:98
-#: dashboards/project/instances/tables.py:864
+#: dashboards/project/instances/tables.py:866
 msgid "Status ="
 msgstr "स्थिति ="
 
@@ -1787,10 +1788,10 @@ msgstr "अधिकतम आकार (MB)"
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:140
 #: dashboards/project/images/images/tables.py:227
-#: dashboards/project/instances/tables.py:887
+#: dashboards/project/instances/tables.py:889
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
-#: dashboards/project/instances/workflows/create_instance.py:104
-#: dashboards/project/volumes/volumes/forms.py:534
+#: dashboards/project/instances/workflows/create_instance.py:105
+#: dashboards/project/volumes/volumes/forms.py:538
 msgid "Image Name"
 msgstr "बिंब नाम"
 
@@ -1798,11 +1799,11 @@ msgstr "बिंब नाम"
 msgid "Unable to retrieve image list."
 msgstr "बिंब सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/images/views.py:177
+#: dashboards/admin/images/views.py:178
 msgid "Unable to retrieve available properties for image."
 msgstr "बिंब के लिए उपलब्ध विशेषता को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/images/views.py:190
+#: dashboards/admin/images/views.py:191
 msgid "Unable to retrieve the image to be updated."
 msgstr "अपडेट होने वाले छवि को निकालने में अक्षम."
 
@@ -1880,7 +1881,7 @@ msgstr "तंत्र जानकारी"
 #: dashboards/identity/projects/tables.py:203
 #: dashboards/identity/projects/tables.py:205
 #: dashboards/identity/projects/workflows.py:131
-#: dashboards/identity/projects/workflows.py:490
+#: dashboards/identity/projects/workflows.py:491
 #: dashboards/identity/users/tables.py:178
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2017,16 +2018,16 @@ msgstr "लाइव पलायन इंस्टेंस"
 #: dashboards/admin/instances/tables.py:93
 #: dashboards/admin/instances/tables.py:127
 #: dashboards/admin/metering/templates/metering/stats.html:84
-#: dashboards/admin/networks/forms.py:39
+#: dashboards/admin/networks/forms.py:40
 #: dashboards/admin/networks/tables.py:86
 #: dashboards/admin/routers/tables.py:52
-#: dashboards/admin/volumes/snapshots/tables.py:64
+#: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:44
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:151
-#: dashboards/project/instances/workflows/create_instance.py:50
-#: dashboards/router/nexus1000v/forms.py:118
-#: dashboards/router/nexus1000v/forms.py:176
+#: dashboards/project/instances/workflows/create_instance.py:51
+#: dashboards/router/nexus1000v/forms.py:119
+#: dashboards/router/nexus1000v/forms.py:177
 #: dashboards/router/nexus1000v/tables.py:73
 #: dashboards/router/nexus1000v/tables.py:95
 msgid "Project"
@@ -2045,12 +2046,12 @@ msgid "IPv6 Address ="
 msgstr "IPv6 पता ="
 
 #: dashboards/admin/instances/tables.py:99
-#: dashboards/project/instances/tables.py:865
+#: dashboards/project/instances/tables.py:867
 msgid "Image ID ="
 msgstr "बिंब ID ="
 
 #: dashboards/admin/instances/tables.py:100
-#: dashboards/project/instances/tables.py:866
+#: dashboards/project/instances/tables.py:868
 msgid "Flavor ID ="
 msgstr "फ्लैवर ID ="
 
@@ -2058,7 +2059,7 @@ msgstr "फ्लैवर ID ="
 #: dashboards/project/access_and_security/floating_ips/tables.py:179
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: dashboards/project/instances/tables.py:889
+#: dashboards/project/instances/tables.py:891
 #: dashboards/project/loadbalancers/tables.py:302
 msgid "IP Address"
 msgstr "IP पता"
@@ -2071,7 +2072,7 @@ msgstr "IP पता"
 #: dashboards/project/databases/tables.py:256
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:892
+#: dashboards/project/instances/tables.py:894
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
@@ -2082,17 +2083,17 @@ msgid "Size"
 msgstr "आकार"
 
 #: dashboards/admin/instances/tables.py:156
-#: dashboards/project/instances/tables.py:904
+#: dashboards/project/instances/tables.py:906
 msgid "Task"
 msgstr "कार्य"
 
 #: dashboards/admin/instances/tables.py:163
-#: dashboards/project/instances/tables.py:911
+#: dashboards/project/instances/tables.py:913
 msgid "Power State"
 msgstr "पॉवर की स्थिति"
 
 #: dashboards/admin/instances/tables.py:165
-#: dashboards/project/instances/tables.py:914 usage/tables.py:75
+#: dashboards/project/instances/tables.py:916 usage/tables.py:75
 msgid "Time since created"
 msgstr "निर्माण के समय से समय"
 
@@ -2164,19 +2165,19 @@ msgstr "मीटर"
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:133
-#: dashboards/project/data_processing/cluster_templates/tables.py:123
+#: dashboards/project/data_processing/cluster_templates/tables.py:124
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
 #: dashboards/project/data_processing/clusters/workflows/create.py:73
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
-#: dashboards/project/data_processing/data_plugins/tables.py:35
+#: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
-#: dashboards/project/data_processing/data_sources/tables.py:65
+#: dashboards/project/data_processing/data_sources/tables.py:66
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: dashboards/project/data_processing/data_sources/workflows/create.py:46
 #: dashboards/project/data_processing/job_binaries/forms.py:77
-#: dashboards/project/data_processing/job_binaries/tables.py:86
+#: dashboards/project/data_processing/job_binaries/tables.py:87
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
 #: dashboards/project/data_processing/jobs/tables.py:152
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
@@ -2195,7 +2196,7 @@ msgstr "मीटर"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:41
-#: dashboards/project/images/images/forms.py:194
+#: dashboards/project/images/images/forms.py:190
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
@@ -2209,17 +2210,17 @@ msgstr "मीटर"
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
 #: dashboards/project/volumes/backups/forms.py:35
 #: dashboards/project/volumes/backups/tables.py:109
-#: dashboards/project/volumes/snapshots/forms.py:27
+#: dashboards/project/volumes/snapshots/forms.py:28
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
-#: dashboards/project/volumes/volumes/forms.py:50
-#: dashboards/project/volumes/volumes/forms.py:474
-#: dashboards/project/volumes/volumes/forms.py:512
+#: dashboards/project/volumes/volumes/forms.py:51
+#: dashboards/project/volumes/volumes/forms.py:475
+#: dashboards/project/volumes/volumes/forms.py:515
 #: dashboards/project/volumes/volumes/tables.py:328
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
-#: dashboards/project/vpn/forms.py:141 dashboards/project/vpn/forms.py:211
-#: dashboards/project/vpn/tables.py:261 dashboards/project/vpn/workflows.py:28
+#: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
+#: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:28
 #: dashboards/project/vpn/workflows.py:113
 #: dashboards/project/vpn/workflows.py:212
 #: dashboards/project/vpn/workflows.py:309
@@ -2448,7 +2449,21 @@ msgstr "स्थानीय"
 msgid "Flat"
 msgstr "समतल"
 
-#: dashboards/admin/networks/forms.py:44
+#: dashboards/admin/networks/forms.py:30
+#: dashboards/router/nexus1000v/forms.py:49
+#: dashboards/router/nexus1000v/forms.py:69
+msgid "VLAN"
+msgstr "VLAN"
+
+#: dashboards/admin/networks/forms.py:30
+msgid "GRE"
+msgstr ""
+
+#: dashboards/admin/networks/forms.py:31
+msgid "VXLAN"
+msgstr ""
+
+#: dashboards/admin/networks/forms.py:45
 #: dashboards/project/networks/workflows.py:43
 #: dashboards/router/nexus1000v/tables.py:72
 #: dashboards/router/nexus1000v/tables.py:87
@@ -2456,34 +2471,34 @@ msgstr "समतल"
 msgid "Network Profile"
 msgstr "नेटवर्क प्रोफ़ाइल"
 
-#: dashboards/admin/networks/forms.py:48
+#: dashboards/admin/networks/forms.py:49
 msgid "Provider Network Type"
 msgstr "प्रदाता नेटवर्क किस्म"
 
-#: dashboards/admin/networks/forms.py:49
+#: dashboards/admin/networks/forms.py:50
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr ""
 
-#: dashboards/admin/networks/forms.py:57 dashboards/admin/networks/forms.py:64
-#: dashboards/admin/networks/forms.py:65
-#: dashboards/router/nexus1000v/forms.py:111
-#: dashboards/router/nexus1000v/forms.py:117
+#: dashboards/admin/networks/forms.py:58 dashboards/admin/networks/forms.py:65
+#: dashboards/admin/networks/forms.py:66
+#: dashboards/router/nexus1000v/forms.py:112
+#: dashboards/router/nexus1000v/forms.py:118
 msgid "Physical Network"
 msgstr "भौतिक संजाल"
 
-#: dashboards/admin/networks/forms.py:58
+#: dashboards/admin/networks/forms.py:59
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
 msgstr ""
 
-#: dashboards/admin/networks/forms.py:68 dashboards/admin/networks/forms.py:72
-#: dashboards/admin/networks/forms.py:73 dashboards/admin/networks/forms.py:74
+#: dashboards/admin/networks/forms.py:69 dashboards/admin/networks/forms.py:73
+#: dashboards/admin/networks/forms.py:74 dashboards/admin/networks/forms.py:75
 msgid "Segmentation ID"
 msgstr "विभाजन आईडी"
 
-#: dashboards/admin/networks/forms.py:78
-#: dashboards/admin/networks/forms.py:235
+#: dashboards/admin/networks/forms.py:79
+#: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/tables.py:97
 #: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/ports/forms.py:44
@@ -2510,7 +2525,7 @@ msgstr "विभाजन आईडी"
 #: dashboards/project/routers/forms.py:88
 #: dashboards/project/routers/ports/tables.py:102
 #: dashboards/project/routers/templates/routers/_detail_overview.html:15
-#: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:261
+#: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:263
 #: dashboards/project/vpn/workflows.py:33
 #: dashboards/project/vpn/workflows.py:419
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:68
@@ -2518,8 +2533,8 @@ msgstr "विभाजन आईडी"
 msgid "Admin State"
 msgstr "व्यवस्थापक स्थिति"
 
-#: dashboards/admin/networks/forms.py:79
-#: dashboards/admin/networks/forms.py:236
+#: dashboards/admin/networks/forms.py:80
+#: dashboards/admin/networks/forms.py:239
 #: dashboards/admin/networks/tables.py:93
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/forms.py:101
@@ -2533,20 +2548,20 @@ msgstr "व्यवस्थापक स्थिति"
 msgid "Shared"
 msgstr "साझा"
 
-#: dashboards/admin/networks/forms.py:81
-#: dashboards/admin/networks/forms.py:237
+#: dashboards/admin/networks/forms.py:82
+#: dashboards/admin/networks/forms.py:240
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/tables.py:194
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "बाहरी नेटवर्क "
 
-#: dashboards/admin/networks/forms.py:90 dashboards/identity/users/forms.py:58
+#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:58
 #: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr "परियोजना चुनें"
 
-#: dashboards/admin/networks/forms.py:113
+#: dashboards/admin/networks/forms.py:115
 #, python-format
 msgid ""
 "For VLAN networks, the VLAN VID on the physical network that realizes the "
@@ -2556,51 +2571,51 @@ msgid ""
 "%(vxlan_max)s."
 msgstr " For VLAN networks, the VLAN VID on the physical network that realizes the virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are %(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through %(vxlan_max)s."
 
-#: dashboards/admin/networks/forms.py:142
-#: dashboards/project/instances/workflows/create_instance.py:688
+#: dashboards/admin/networks/forms.py:145
+#: dashboards/project/instances/workflows/create_instance.py:695
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "एक प्रोफाइल चुनें"
 
-#: dashboards/admin/networks/forms.py:152
-#: dashboards/project/instances/workflows/create_instance.py:698
+#: dashboards/admin/networks/forms.py:155
+#: dashboards/project/instances/workflows/create_instance.py:705
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
 msgstr "नेटवर्क प्रोफाइल प्राप्त नहीं किया जा सकता है."
 
-#: dashboards/admin/networks/forms.py:183
+#: dashboards/admin/networks/forms.py:186
 #, python-format
 msgid "Network %s was successfully created."
 msgstr "नेटवर्क %s को सफलतापूर्वक बनाया गया"
 
-#: dashboards/admin/networks/forms.py:189
+#: dashboards/admin/networks/forms.py:192
 #, python-format
 msgid "Failed to create network %s"
 msgstr "संजाल %s निर्माण में विफल "
 
-#: dashboards/admin/networks/forms.py:219
+#: dashboards/admin/networks/forms.py:222
 #, python-format
 msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
 msgstr ""
 
-#: dashboards/admin/networks/forms.py:222
+#: dashboards/admin/networks/forms.py:225
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 
-#: dashboards/admin/networks/forms.py:225
+#: dashboards/admin/networks/forms.py:228
 #, python-format
 msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 
-#: dashboards/admin/networks/forms.py:249
+#: dashboards/admin/networks/forms.py:252
 #: dashboards/project/networks/forms.py:49
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "संजाल %s सफलतापूर्वक अद्यतन किया गया था."
 
-#: dashboards/admin/networks/forms.py:254
+#: dashboards/admin/networks/forms.py:257
 #: dashboards/project/networks/forms.py:54
 #, python-format
 msgid "Failed to update network %s"
@@ -2612,7 +2627,7 @@ msgstr "%s संजाल अद्यतन करने में विफ�
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:641
+#: dashboards/project/instances/workflows/create_instance.py:648
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:146
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -2683,7 +2698,7 @@ msgstr "DHCP प्रतिनिधि"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
-#: dashboards/project/instances/tables.py:617
+#: dashboards/project/instances/tables.py:619
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
@@ -2701,7 +2716,7 @@ msgstr "संजाल सूची प्राप्त नहीं कि�
 
 #: dashboards/admin/networks/views.py:90
 #: dashboards/admin/networks/views.py:139
-#: dashboards/admin/networks/agents/forms.py:61
+#: dashboards/admin/networks/agents/forms.py:62
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp प्रतिनिधि संजाल पुनः प्राप्त करने में असमर्थ."
 
@@ -2723,28 +2738,28 @@ msgstr "पोर्ट सूची प्राप्त नहीं कि�
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "संजाल \"%s\" के लिए जानकारी प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/networks/agents/forms.py:35
+#: dashboards/admin/networks/agents/forms.py:36
 msgid "New DHCP Agent"
 msgstr "नया DHCP प्रतिनिधि"
 
-#: dashboards/admin/networks/agents/forms.py:36
+#: dashboards/admin/networks/agents/forms.py:37
 msgid "Choose an DHCP Agent to attach to."
 msgstr "संलग्न करने के लिए एक DHCP प्रतिनिधि चुनें."
 
-#: dashboards/admin/networks/agents/forms.py:54
+#: dashboards/admin/networks/agents/forms.py:55
 msgid "Select a new agent"
 msgstr "नया एजेंट चयन करें"
 
-#: dashboards/admin/networks/agents/forms.py:56
+#: dashboards/admin/networks/agents/forms.py:57
 msgid "No other agents available."
 msgstr "कोई अन्य एजेंट उपलब्ध नहीं."
 
-#: dashboards/admin/networks/agents/forms.py:73
+#: dashboards/admin/networks/agents/forms.py:74
 #, python-format
 msgid "Agent %s was successfully added."
 msgstr "%s प्रतिनिधि सफलतापूर्वक जोड़ा गया."
 
-#: dashboards/admin/networks/agents/forms.py:79
+#: dashboards/admin/networks/agents/forms.py:80
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr ""
@@ -3295,8 +3310,8 @@ msgstr "रूटर विवरण"
 msgid "Update Router"
 msgstr "रॉटर अद्यतन करें"
 
-#: dashboards/admin/volumes/tabs.py:50 dashboards/admin/volumes/tabs.py:117
-#: dashboards/admin/volumes/snapshots/tables.py:51
+#: dashboards/admin/volumes/tabs.py:50 dashboards/admin/volumes/tabs.py:119
+#: dashboards/admin/volumes/snapshots/tables.py:52
 msgid "Unable to retrieve volume project information."
 msgstr "वॉल्यूम परियोजना सूचना पाने में असमर्थ."
 
@@ -3313,8 +3328,8 @@ msgstr "वॉल्यूम प्रकार प्राप्त करन
 msgid "Unable to retrieve QoS specs"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:109 dashboards/project/volumes/tabs.py:90
-#: dashboards/project/volumes/volumes/forms.py:201
+#: dashboards/admin/volumes/tabs.py:111 dashboards/project/volumes/tabs.py:90
+#: dashboards/project/volumes/volumes/forms.py:203
 msgid "Unable to retrieve volume snapshots."
 msgstr "वॉल्यूम स्नैपशॉट प्राप्त करने में असमर्थ."
 
@@ -3353,14 +3368,14 @@ msgstr "स्नैपशॉट स्थिति को अद्यतन �
 msgid "Update Status"
 msgstr "स्थिति अपडेट करें"
 
-#: dashboards/admin/volumes/snapshots/tables.py:61
+#: dashboards/admin/volumes/snapshots/tables.py:62
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:142
-#: dashboards/project/volumes/volumes/forms.py:47
-#: dashboards/project/volumes/volumes/forms.py:510
-#: dashboards/project/volumes/volumes/forms.py:531
-#: dashboards/project/volumes/volumes/forms.py:591
-#: dashboards/project/volumes/volumes/forms.py:639
+#: dashboards/project/volumes/volumes/forms.py:48
+#: dashboards/project/volumes/volumes/forms.py:512
+#: dashboards/project/volumes/volumes/forms.py:535
+#: dashboards/project/volumes/volumes/forms.py:595
+#: dashboards/project/volumes/volumes/forms.py:643
 msgid "Volume Name"
 msgstr "वॉल्यूम नाम"
 
@@ -3391,11 +3406,11 @@ msgstr "सूचना"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:138
-#: dashboards/project/instances/workflows/create_instance.py:98
-#: dashboards/project/instances/workflows/create_instance.py:364
+#: dashboards/project/instances/workflows/create_instance.py:99
+#: dashboards/project/instances/workflows/create_instance.py:371
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:219
+#: dashboards/project/volumes/volumes/forms.py:220
 msgid "Volume"
 msgstr "आयतन"
 
@@ -3432,7 +3447,7 @@ msgstr "GB"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:304
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
 #: dashboards/project/database_backups/tables.py:150
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
 #: dashboards/project/databases/tables.py:316
@@ -3519,14 +3534,14 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:226
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
 #: dashboards/project/data_processing/clusters/workflows/create.py:196
 #: dashboards/project/data_processing/data_sources/workflows/create.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:119
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:174
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:302
 #: dashboards/project/networks/workflows.py:335
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -3810,7 +3825,7 @@ msgstr "वॉल्यूम विवरण किस्म को पुन�
 msgid "Unable to retrieve QoS Specs."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:130
+#: dashboards/admin/volumes/volume_types/views.py:131
 msgid "Unable to retrieve QoS Spec association."
 msgstr ""
 
@@ -4088,7 +4103,7 @@ msgstr " उपयोगकर्ता सूची को प्राप्�
 #: dashboards/identity/domains/workflows.py:98
 #: dashboards/identity/domains/workflows.py:145
 #: dashboards/identity/domains/workflows.py:242
-#: dashboards/identity/projects/workflows.py:346
+#: dashboards/identity/projects/workflows.py:347
 msgid "Unable to retrieve role list."
 msgstr "भूमिका सूची को प्राप्त करने में असमर्थ."
 
@@ -4127,17 +4142,17 @@ msgid "Domain Groups"
 msgstr "डोमेन समूह"
 
 #: dashboards/identity/domains/workflows.py:230
-#: dashboards/identity/projects/workflows.py:335
+#: dashboards/identity/projects/workflows.py:336
 msgid "All Groups"
 msgstr "सभी समूह"
 
 #: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:337
+#: dashboards/identity/projects/workflows.py:338
 msgid "No groups found."
 msgstr "कोई समूह नहीं मिला."
 
 #: dashboards/identity/domains/workflows.py:233
-#: dashboards/identity/projects/workflows.py:338
+#: dashboards/identity/projects/workflows.py:339
 msgid "No groups."
 msgstr "कोई समूह नहीं."
 
@@ -4367,13 +4382,13 @@ msgid "View Usage"
 msgstr "उपयोग देखें "
 
 #: dashboards/identity/projects/tables.py:75
-#: dashboards/identity/projects/workflows.py:357
 #: dashboards/identity/projects/workflows.py:358
+#: dashboards/identity/projects/workflows.py:359
 msgid "Create Project"
 msgstr "परियोजना बनाएँ"
 
 #: dashboards/identity/projects/tables.py:87
-#: dashboards/identity/projects/workflows.py:510
+#: dashboards/identity/projects/workflows.py:511
 msgid "Edit Project"
 msgstr "परियोजना संपादित करें"
 
@@ -4449,7 +4464,7 @@ msgid "Domain Name"
 msgstr "डोमेन नाम"
 
 #: dashboards/identity/projects/workflows.py:146
-#: dashboards/identity/projects/workflows.py:493
+#: dashboards/identity/projects/workflows.py:494
 msgid "Project Information"
 msgstr "परियोजना सूचना"
 
@@ -4466,81 +4481,81 @@ msgstr "उपयोगकर्ता सूची को प्राप्त
 msgid "Project Members"
 msgstr "परियोजना के सदस्य"
 
-#: dashboards/identity/projects/workflows.py:329
-#: dashboards/identity/projects/workflows.py:336
+#: dashboards/identity/projects/workflows.py:330
+#: dashboards/identity/projects/workflows.py:337
 msgid "Project Groups"
 msgstr "परियोजना समूह"
 
-#: dashboards/identity/projects/workflows.py:359
+#: dashboards/identity/projects/workflows.py:360
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "नया परियोजना \"%s\" बनाये"
 
-#: dashboards/identity/projects/workflows.py:360
+#: dashboards/identity/projects/workflows.py:361
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "परियोजना \"%s\" बनाने में असमर्थ."
 
-#: dashboards/identity/projects/workflows.py:422
+#: dashboards/identity/projects/workflows.py:423
 msgid ", add project groups"
 msgstr ", परियोजना समूह जोड़ें"
 
-#: dashboards/identity/projects/workflows.py:426
+#: dashboards/identity/projects/workflows.py:427
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "परियोजना के  %(users_to_add)s सदस्यों %(group_msg)s को जोड़ने और परियोजना कोटा सेट करने में विफल."
 
-#: dashboards/identity/projects/workflows.py:457
+#: dashboards/identity/projects/workflows.py:458
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "परियोजना समूहों %s और अद्यतन परियोजना कोटा को जोड़ने में विफल."
 
-#: dashboards/identity/projects/workflows.py:485
+#: dashboards/identity/projects/workflows.py:486
 msgid "Unable to set project quotas."
 msgstr "परियोजना का कोटा निर्धारित करने में अक्षम."
 
-#: dashboards/identity/projects/workflows.py:495
+#: dashboards/identity/projects/workflows.py:496
 msgid "Edit the project details."
 msgstr "परियोजना विवरण संपादित करें."
 
-#: dashboards/identity/projects/workflows.py:512
+#: dashboards/identity/projects/workflows.py:513
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "परिवर्तित परियोजना \"%s\"."
 
-#: dashboards/identity/projects/workflows.py:513
+#: dashboards/identity/projects/workflows.py:514
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr " \"%s\" परियोजना को संशोधित करने में असमर्थ."
 
-#: dashboards/identity/projects/workflows.py:608
+#: dashboards/identity/projects/workflows.py:609
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "आप वर्तमान में लॉग इन कर रहे हैं परियोजना से अपने प्रशासनिक विशेषाधिकारों को रद्द नहीं कर सकते हैं. प्रशासनिक विशेषाधिकारों के साथ एक अन्य परियोजना के लिए स्विच या सीएलआई के माध्यम से मैन्युअल रूप से प्रशासनिक भूमिका निकाल दें."
 
-#: dashboards/identity/projects/workflows.py:643
+#: dashboards/identity/projects/workflows.py:644
 msgid ", update project groups"
 msgstr ", परियोजना समूहों का अद्यतन करें"
 
-#: dashboards/identity/projects/workflows.py:647
+#: dashboards/identity/projects/workflows.py:648
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "परियोजना के %(users_to_modify)s सदस्यों %(group_msg)s और अद्यतन परियोजना कोटा संशोधित करने में विफल."
 
-#: dashboards/identity/projects/workflows.py:720
+#: dashboards/identity/projects/workflows.py:721
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr " %s परियोजना के सदस्यों, अद्यतन परियोजना समूहों और अद्यतन परियोजना कोटा संशोधित करने में विफल."
 
-#: dashboards/identity/projects/workflows.py:753
+#: dashboards/identity/projects/workflows.py:754
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -4634,9 +4649,9 @@ msgid "No available projects"
 msgstr "कोई उपलब्ध परियोजनाओं नहीं "
 
 #: dashboards/identity/users/forms.py:66
-#: dashboards/project/instances/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:539
-#: dashboards/settings/password/forms.py:47
+#: dashboards/project/instances/forms.py:92
+#: dashboards/project/instances/workflows/create_instance.py:546
+#: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "पासवर्ड मेल नहीं खाते."
 
@@ -4644,7 +4659,7 @@ msgstr "पासवर्ड मेल नहीं खाते."
 #: dashboards/identity/users/forms.py:166
 #: dashboards/project/data_processing/job_binaries/forms.py:72
 #: dashboards/project/databases/workflows/create_instance.py:197
-#: dashboards/project/instances/forms.py:153
+#: dashboards/project/instances/forms.py:156
 msgid "Password"
 msgstr "पासवर्ड"
 
@@ -4813,7 +4828,7 @@ msgid "Data Processing"
 msgstr "डाटा प्रक्रमित कर रहा है"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:497
+#: dashboards/project/instances/workflows/create_instance.py:504
 msgid "Access & Security"
 msgstr "पहुँच और सुरक्षा"
 
@@ -4904,7 +4919,7 @@ msgstr "इस परियोजना के लिए आईपी आबं�
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:56
 #: dashboards/project/access_and_security/keypairs/tables.py:73
-#: dashboards/project/instances/tables.py:329
+#: dashboards/project/instances/tables.py:331
 #: dashboards/project/volumes/volumes/tables.py:124
 #: dashboards/project/volumes/volumes/tables.py:192
 msgid "(Quota exceeded)"
@@ -4933,7 +4948,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी को अलग किया: %s"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:152
-#: dashboards/project/instances/tables.py:611
+#: dashboards/project/instances/tables.py:613
 msgid "Unable to disassociate floating IP."
 msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी को अलग करने में असमर्थ"
 
@@ -5020,29 +5035,29 @@ msgstr "आईपी ​​पता %s जुड़े."
 msgid "Unable to associate IP address %s."
 msgstr "आईपी ​​पते को संबद्ध करने में असमर्थ %s."
 
-#: dashboards/project/access_and_security/keypairs/forms.py:33
+#: dashboards/project/access_and_security/keypairs/forms.py:34
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces and "
 "hyphens."
 msgstr "कुंजी युग्म नाम में सिर्फ एक अक्षर, संख्या, अंडरस्कोर, स्थान,  हाइफन ही हो सकते हैं."
 
-#: dashboards/project/access_and_security/keypairs/forms.py:41
-#: dashboards/project/access_and_security/keypairs/forms.py:51
+#: dashboards/project/access_and_security/keypairs/forms.py:40
+#: dashboards/project/access_and_security/keypairs/forms.py:50
 #: dashboards/project/access_and_security/keypairs/tables.py:82
-#: dashboards/project/instances/forms.py:113
+#: dashboards/project/instances/forms.py:116
 msgid "Key Pair Name"
 msgstr "कुंजी युग्म नाम"
 
-#: dashboards/project/access_and_security/keypairs/forms.py:54
+#: dashboards/project/access_and_security/keypairs/forms.py:53
 msgid "Public Key"
 msgstr "सार्वजनिक कुंजी"
 
-#: dashboards/project/access_and_security/keypairs/forms.py:65
+#: dashboards/project/access_and_security/keypairs/forms.py:64
 #, python-format
 msgid "Successfully imported public key: %s"
 msgstr "सफलतापूर्वक सार्वजनिक कुंजी आयातित: %s"
 
-#: dashboards/project/access_and_security/keypairs/forms.py:70
+#: dashboards/project/access_and_security/keypairs/forms.py:69
 msgid "Unable to import key pair."
 msgstr "कुंजी युग्म आयात करने में असमर्थ."
 
@@ -5575,7 +5590,7 @@ msgid "Unable to create container."
 msgstr "कंटेनर बनाने में असमर्थ."
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:566
+#: dashboards/project/instances/workflows/create_instance.py:573
 #: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "फ़ाइल"
@@ -5920,7 +5935,7 @@ msgid "Unable to upload cluster template file"
 msgstr "क्लस्टर टैम्प्लेट फ़ाइल अपलोड करने में अक्षम"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
-#: dashboards/project/data_processing/cluster_templates/tables.py:127
+#: dashboards/project/data_processing/cluster_templates/tables.py:128
 msgid "Cluster Templates"
 msgstr "क्लस्टर नमूना"
 
@@ -5974,31 +5989,31 @@ msgstr "टैम्पलेट बनाएँ"
 msgid "Configure Cluster Template"
 msgstr "क्लस्टर टैम्प्लेट विन्यस्त करें"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:115
+#: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:82
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
 msgid "Plugin"
 msgstr "प्लगइन"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:117
+#: dashboards/project/data_processing/cluster_templates/tables.py:118
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:84
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:85
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:26
 #: dashboards/project/data_processing/utils/workflow_helpers.py:175
 msgid "Hadoop Version"
 msgstr "हडूप संस्करण"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:119
+#: dashboards/project/data_processing/cluster_templates/tables.py:120
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:207
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:206
 #: dashboards/project/data_processing/clusters/tabs.py:86
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
 msgid "Node Groups"
@@ -6123,7 +6138,7 @@ msgstr "नोड गिनती"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:26
 #: dashboards/project/databases/workflows/create_instance.py:36
 #: dashboards/project/instances/templates/instances/_detail_overview.html:46
-#: dashboards/project/instances/workflows/create_instance.py:83
+#: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Flavor"
 msgstr "फ्लेवर"
 
@@ -6141,13 +6156,13 @@ msgstr "नमूना को निर्दिष्ट नहीं कि�
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:31
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:101
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:100
 msgid "Auto Security Group"
 msgstr "स्वतः सुरक्षा समूह "
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:33
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:41
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:86
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:87
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
 msgid "Node Processes"
 msgstr "नोड प्रक्रिया"
@@ -6184,7 +6199,7 @@ msgstr "नोड समूह जोड़ें"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:6
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:224
 msgid "Create Cluster Template"
 msgstr "क्लस्टर टैम्पलेट बनाएँ"
 
@@ -6217,7 +6232,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:305
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:304
 msgid "Could not create"
 msgstr "बना नहीं सका"
 
@@ -6231,22 +6246,22 @@ msgstr "टैम्प्लेट नाम"
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
-#: dashboards/project/instances/workflows/create_instance.py:134
+#: dashboards/project/instances/workflows/create_instance.py:135
 #: dashboards/project/loadbalancers/tables.py:337
 msgid "Details"
 msgstr "विवरण"
 
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:227
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:226
 #, python-format
 msgid "Created Cluster Template %s"
 msgstr "निर्मित क्लस्टर टैम्प्लेट %s"
 
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:310
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:309
 msgid "Cluster template creation failed"
 msgstr "क्लस्टर टैम्प्लेट निर्माण विफल"
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:119
+#: dashboards/project/data_processing/clusters/tables.py:120
 msgid "Clusters"
 msgstr "क्लस्टर"
 
@@ -6279,7 +6294,7 @@ msgstr "पंक्ति अद्यतन में असमर्थ"
 msgid "Configure Cluster"
 msgstr "क्लस्टर विन्यस्त करें"
 
-#: dashboards/project/data_processing/clusters/tables.py:115
+#: dashboards/project/data_processing/clusters/tables.py:116
 msgid "Instances Count"
 msgstr "इंस्टेंस गिनती"
 
@@ -6452,14 +6467,14 @@ msgstr "छवि अद्यतन करने में असमर्थ."
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:76
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
-#: dashboards/project/volumes/volumes/forms.py:207
+#: dashboards/project/volumes/volumes/forms.py:208
 msgid "Image"
 msgstr "बिंब"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:71
-#: dashboards/project/instances/forms.py:38
-#: dashboards/project/instances/forms.py:61
-#: dashboards/project/instances/workflows/create_instance.py:386
+#: dashboards/project/instances/forms.py:39
+#: dashboards/project/instances/forms.py:64
+#: dashboards/project/instances/workflows/create_instance.py:393
 msgid "Select Image"
 msgstr "बिंब चुनें"
 
@@ -6581,7 +6596,7 @@ msgid "Add custom tag"
 msgstr "पसंदीदा टैग जोड़ें"
 
 #: dashboards/project/data_processing/data_plugins/panel.py:22
-#: dashboards/project/data_processing/data_plugins/tables.py:39
+#: dashboards/project/data_processing/data_plugins/tables.py:40
 msgid "Plugins"
 msgstr "प्लगइन"
 
@@ -6590,7 +6605,7 @@ msgstr "प्लगइन"
 msgid "Title"
 msgstr "शीर्षक"
 
-#: dashboards/project/data_processing/data_plugins/tables.py:30
+#: dashboards/project/data_processing/data_plugins/tables.py:31
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
 msgid "Supported Versions"
 msgstr "समर्थित संस्करण"
@@ -6617,7 +6632,7 @@ msgid "Data Processing Plugins"
 msgstr "डाटा प्रक्रमन प्लगिन"
 
 #: dashboards/project/data_processing/data_sources/panel.py:22
-#: dashboards/project/data_processing/data_sources/tables.py:69
+#: dashboards/project/data_processing/data_sources/tables.py:70
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/data_sources.html:6
 msgid "Data Sources"
 msgstr "डाटा स्रोत"
@@ -6763,7 +6778,7 @@ msgid "Failed to fetch internal binary list"
 msgstr "आंतरिक द्विपदीय लाने में विफल"
 
 #: dashboards/project/data_processing/job_binaries/panel.py:22
-#: dashboards/project/data_processing/job_binaries/tables.py:90
+#: dashboards/project/data_processing/job_binaries/tables.py:91
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/job_binaries.html:6
 msgid "Job Binaries"
 msgstr "कार्य बाइनरीज़"
@@ -6784,7 +6799,7 @@ msgstr[1] "मिटाया हुआ कार्य द्विपदीय
 msgid "Download Job Binary"
 msgstr "कार्य द्विपदीय डाउनलोड करें"
 
-#: dashboards/project/data_processing/job_binaries/tables.py:84
+#: dashboards/project/data_processing/job_binaries/tables.py:85
 msgid "Url"
 msgstr "यूआरएल"
 
@@ -6863,7 +6878,7 @@ msgid "Job Binary Details"
 msgstr "कार्य द्विपदीय विवरण"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
-#: dashboards/project/data_processing/job_executions/tables.py:161
+#: dashboards/project/data_processing/job_executions/tables.py:162
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
 msgid "Job Executions"
 msgstr "कार्य निष्पादन"
@@ -6913,7 +6928,7 @@ msgstr ""
 msgid "Relaunch On New Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:143
+#: dashboards/project/data_processing/job_executions/tables.py:144
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 #: dashboards/project/data_processing/jobs/workflows/launch.py:56
@@ -6922,7 +6937,7 @@ msgstr ""
 msgid "Job"
 msgstr "कार्य"
 
-#: dashboards/project/data_processing/job_executions/tables.py:147
+#: dashboards/project/data_processing/job_executions/tables.py:148
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
 #: dashboards/project/data_processing/jobs/workflows/launch.py:104
 msgid "Cluster"
@@ -7228,7 +7243,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:782
+#: dashboards/project/instances/workflows/create_instance.py:791
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "लांच करें"
@@ -7268,7 +7283,7 @@ msgid "Unable to launch job."
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:92
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:93
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
 msgid "Node Group Templates"
 msgstr ""
@@ -7370,8 +7385,8 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:174
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:302
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:173
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:301
 msgid "Create Node Group Template"
 msgstr ""
 
@@ -7408,40 +7423,40 @@ msgstr ""
 msgid "Volumes size (GB)"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:88
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:87
 msgid "Unable to generate process choices."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:96
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Floating IP pool"
 msgstr "प्लावित आईपी पूल"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:103
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:102
 msgid "Create security group for this Node Group."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:111
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:110
 msgid "Launch instances in these security groups."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:116
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:115
 msgid "Processes"
 msgstr "प्रक्रिया"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:118
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:117
 msgid "Processes to be launched in node group"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:150
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:149
 msgid "Configure Node Group Template"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:176
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:283
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:282
 msgid "Select plugin and hadoop version"
 msgstr ""
 
@@ -7459,7 +7474,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:684
+#: dashboards/project/instances/workflows/create_instance.py:691
 msgid "Unable to retrieve networks."
 msgstr "नेटवर्क पुनः प्राप्त करने में असमर्थ."
 
@@ -7516,8 +7531,8 @@ msgstr[1] ""
 #: dashboards/project/databases/tables.py:200
 #: dashboards/project/databases/tables.py:217
 #: dashboards/project/databases/tables.py:223
-#: dashboards/project/instances/tables.py:732
-#: dashboards/project/instances/tables.py:739
+#: dashboards/project/instances/tables.py:734
+#: dashboards/project/instances/tables.py:741
 msgid "Not available"
 msgstr "उपलब्ध नहीं"
 
@@ -7665,14 +7680,14 @@ msgstr "अनुसूचित बैकअप \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:784
+#: dashboards/project/instances/workflows/create_instance.py:793
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr " %(count)s \"%(name)s\" नामित प्रारंभ करने में अक्षम"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:801
+#: dashboards/project/instances/workflows/create_instance.py:810
 msgid "instance"
 msgstr "इंस्टेंस"
 
@@ -7681,12 +7696,12 @@ msgid "Error creating database backup."
 msgstr "डेटाबेस बैकअप बनाने में त्रुटि."
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:596
+#: dashboards/project/volumes/volumes/forms.py:600
 msgid "Current Size (GB)"
 msgstr ""
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:600
+#: dashboards/project/volumes/volumes/forms.py:604
 msgid "New Size (GB)"
 msgstr ""
 
@@ -7753,9 +7768,9 @@ msgstr "उदाहरण पर डेटाबेस हटाने मे�
 #: dashboards/project/databases/tables.py:140
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/databases/workflows/create_instance.py:272
-#: dashboards/project/instances/tables.py:303
-#: dashboards/project/instances/tables.py:331
-#: dashboards/project/instances/workflows/create_instance.py:781
+#: dashboards/project/instances/tables.py:305
+#: dashboards/project/instances/tables.py:333
+#: dashboards/project/instances/workflows/create_instance.py:790
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "इंस्टांस लॉन्च करें"
@@ -8001,13 +8016,13 @@ msgstr "डाटाबेस लॉन्च करें "
 
 #: dashboards/project/databases/templates/databases/update.html:3
 #: dashboards/project/databases/templates/databases/update.html:6
-#: dashboards/project/instances/tables.py:347
+#: dashboards/project/instances/tables.py:349
 #: dashboards/project/instances/workflows/update_instance.py:132
 msgid "Edit Instance"
 msgstr "इंस्टांस संपादित करें "
 
 #: dashboards/project/databases/workflows/create_instance.py:37
-#: dashboards/project/instances/workflows/create_instance.py:84
+#: dashboards/project/instances/workflows/create_instance.py:85
 msgid "Size of image to launch."
 msgstr "लॉन्च करने के लिए बिंब का आकार."
 
@@ -8032,22 +8047,22 @@ msgid "Select datastore type and version"
 msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:645
+#: dashboards/project/instances/workflows/create_instance.py:652
 msgid "At least one network must be specified."
 msgstr "कम से कम एक नेटवर्क निर्दिष्ट किया जाना चाहिए."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:647
+#: dashboards/project/instances/workflows/create_instance.py:654
 msgid "Launch instance with these networks"
 msgstr "इन नेटवर्कों के साथ इंस्टेंस लॉन्च करें"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:669
+#: dashboards/project/instances/workflows/create_instance.py:676
 msgid "Networking"
 msgstr "संजालन"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:671
+#: dashboards/project/instances/workflows/create_instance.py:678
 msgid "Select networks for your instance."
 msgstr "अपने इंस्टेंस के लिए नेटवर्क का चयन करें."
 
@@ -8092,7 +8107,7 @@ msgid "Unable to find backup!"
 msgstr "बैकअप पाने में असमर्थ!"
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:783
+#: dashboards/project/instances/workflows/create_instance.py:792
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr " %(count)s \"%(name)s\" नामित शुभारंभ किया."
@@ -8696,78 +8711,78 @@ msgid "A local image to upload."
 msgstr "अपलोड करने के लिए स्थानीय बिंब।"
 
 #: dashboards/project/images/images/forms.py:76
-#: dashboards/project/images/images/forms.py:214
+#: dashboards/project/images/images/forms.py:210
 #: dashboards/project/images/images/tables.py:244
 msgid "Format"
 msgstr "प्रारूप"
 
 #: dashboards/project/images/images/forms.py:81
-#: dashboards/project/images/images/forms.py:209
+#: dashboards/project/images/images/forms.py:205
 msgid "Architecture"
 msgstr "आर्किटेक्चर"
 
-#: dashboards/project/images/images/forms.py:83
-#: dashboards/project/images/images/forms.py:216
+#: dashboards/project/images/images/forms.py:84
+#: dashboards/project/images/images/forms.py:212
 msgid "Minimum Disk (GB)"
 msgstr "न्यूनतम डिस्क (जीबी)"
 
-#: dashboards/project/images/images/forms.py:85
-#: dashboards/project/images/images/forms.py:218
+#: dashboards/project/images/images/forms.py:86
+#: dashboards/project/images/images/forms.py:214
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
 msgstr "बिंब बूट करने के लिए आवश्यक न्यूनतम डिस्क आकार. 0 को अनिर्दिष्ट, तो यह मान चूक (कोई न्यूनतम)."
 
-#: dashboards/project/images/images/forms.py:91
-#: dashboards/project/images/images/forms.py:224
+#: dashboards/project/images/images/forms.py:90
+#: dashboards/project/images/images/forms.py:220
 msgid "Minimum RAM (MB)"
 msgstr "न्यूनतम रैम (एमबी)"
 
-#: dashboards/project/images/images/forms.py:93
-#: dashboards/project/images/images/forms.py:226
+#: dashboards/project/images/images/forms.py:92
+#: dashboards/project/images/images/forms.py:222
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "बिंब बूट करने के लिए आवश्यक न्यूनतम स्मृति आकार. 0 को अनिर्दिष्ट, तो यह मान चूक (कोई न्यूनतम)."
 
-#: dashboards/project/images/images/forms.py:100
-#: dashboards/project/images/images/forms.py:233
+#: dashboards/project/images/images/forms.py:96
+#: dashboards/project/images/images/forms.py:229
 #: dashboards/project/images/images/tables.py:241
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "सुरक्षित"
 
-#: dashboards/project/images/images/forms.py:143
+#: dashboards/project/images/images/forms.py:139
 msgid "A image or external image location must be specified."
 msgstr "बिंब या बाहरी बिंब स्थान निर्दिष्ट किया जाना चाहिए."
 
-#: dashboards/project/images/images/forms.py:146
+#: dashboards/project/images/images/forms.py:142
 msgid "Can not specify both image and external image location."
 msgstr "बिंब और बिंब छवि स्थान दोनों निर्दिष्ट नहीं कर सकते."
 
-#: dashboards/project/images/images/forms.py:184
+#: dashboards/project/images/images/forms.py:180
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "आपकी बिंब %s के निर्माण के लिए कतारबद्ध किया गया है."
 
-#: dashboards/project/images/images/forms.py:188
+#: dashboards/project/images/images/forms.py:184
 msgid "Unable to create new image."
 msgstr "नई बिंब बनाने में असमर्थ."
 
-#: dashboards/project/images/images/forms.py:198
+#: dashboards/project/images/images/forms.py:194
 msgid "Kernel ID"
 msgstr "कर्नेल आईडी"
 
-#: dashboards/project/images/images/forms.py:204
+#: dashboards/project/images/images/forms.py:200
 msgid "Ramdisk ID"
 msgstr "रैमडिस्क आईडी"
 
-#: dashboards/project/images/images/forms.py:246
+#: dashboards/project/images/images/forms.py:242
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "बिंब को अद्यतन करने में असमर्थ \"%s\"."
 
-#: dashboards/project/images/images/forms.py:273
+#: dashboards/project/images/images/forms.py:269
 msgid "Image was successfully updated."
 msgstr "बिंब सफलतापूर्वक अद्यतन किया गया था."
 
@@ -8859,7 +8874,7 @@ msgid "Container Format"
 msgstr "कंटेनर प्रारूप"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:535
+#: dashboards/project/volumes/volumes/forms.py:539
 msgid "Disk Format"
 msgstr "डिस्क प्रारूप"
 
@@ -8890,7 +8905,7 @@ msgstr "बिंब विवरण:"
 #: dashboards/project/images/templates/images/snapshots/_create.html:9
 #: dashboards/project/images/templates/images/snapshots/_create.html:24
 #: dashboards/project/images/templates/images/snapshots/create.html:3
-#: dashboards/project/instances/tables.py:383
+#: dashboards/project/instances/tables.py:385
 #: dashboards/project/volumes/volumes/tables.py:173
 msgid "Create Snapshot"
 msgstr "स्नेपशॉट बनायें"
@@ -8929,74 +8944,74 @@ msgstr ""
 msgid "No available console found."
 msgstr ""
 
-#: dashboards/project/instances/forms.py:42
+#: dashboards/project/instances/forms.py:44
 msgid "Rebuild Password"
 msgstr "पासवर्ड पुन: निर्माण"
 
-#: dashboards/project/instances/forms.py:47
+#: dashboards/project/instances/forms.py:50
 msgid "Confirm Rebuild Password"
 msgstr "पासवर्ड पुन: निर्माण सुनिश्चित करें "
 
-#: dashboards/project/instances/forms.py:50
-#: dashboards/project/instances/workflows/create_instance.py:729
+#: dashboards/project/instances/forms.py:53
+#: dashboards/project/instances/workflows/create_instance.py:737
 msgid "Disk Partition"
 msgstr "डिस्क विभाजन"
 
-#: dashboards/project/instances/forms.py:63
-#: dashboards/project/instances/workflows/create_instance.py:388
+#: dashboards/project/instances/forms.py:66
+#: dashboards/project/instances/workflows/create_instance.py:395
 msgid "No images available"
 msgstr "कोई बिंब उपलब्ध नहीं"
 
-#: dashboards/project/instances/forms.py:75
-#: dashboards/project/instances/workflows/create_instance.py:746
+#: dashboards/project/instances/forms.py:78
+#: dashboards/project/instances/workflows/create_instance.py:755
 msgid "Automatic"
 msgstr "स्वचालित"
 
-#: dashboards/project/instances/forms.py:76
-#: dashboards/project/instances/workflows/create_instance.py:747
+#: dashboards/project/instances/forms.py:79
+#: dashboards/project/instances/workflows/create_instance.py:756
 msgid "Manual"
 msgstr "हस्तचालित"
 
-#: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:158
-#: dashboards/project/instances/workflows/create_instance.py:756
+#: dashboards/project/instances/forms.py:82
+#: dashboards/project/instances/workflows/create_instance.py:165
+#: dashboards/project/instances/workflows/create_instance.py:765
 msgid "Unable to retrieve extensions information."
 msgstr "एक्सटेंशन के बारे में सूचना पाने में असमर्थ."
 
-#: dashboards/project/instances/forms.py:103
+#: dashboards/project/instances/forms.py:106
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr " %s इंस्टेंस पुनर्निर्माण"
 
-#: dashboards/project/instances/forms.py:106
+#: dashboards/project/instances/forms.py:109
 msgid "Unable to rebuild instance."
 msgstr "इंस्टेंस के पुनर्निर्माण करने में असमर्थ."
 
-#: dashboards/project/instances/forms.py:114
+#: dashboards/project/instances/forms.py:117
 msgid "The Key Pair name that was associated with the instance"
 msgstr "इंस्टेंस के साथ जुड़े हुए कुंजी युग्म नाम"
 
-#: dashboards/project/instances/forms.py:121
+#: dashboards/project/instances/forms.py:124
 msgid "The instance password encrypted with your public key."
 msgstr "आपकी सार्वजनिक कुंजी के साथ एन्क्रिप्टेड इंस्टेंस पासवर्ड."
 
-#: dashboards/project/instances/forms.py:124
+#: dashboards/project/instances/forms.py:127
 msgid "Encrypted Password"
 msgstr "गोपित पासवर्ड"
 
-#: dashboards/project/instances/forms.py:139
+#: dashboards/project/instances/forms.py:142
 msgid "Instance Password is not set or is not yet available"
 msgstr "इंस्टांस पासवर्ड सेट नहीं या अभी तक उपलब्ध नहीं है"
 
-#: dashboards/project/instances/forms.py:145
+#: dashboards/project/instances/forms.py:148
 msgid "Private Key File"
 msgstr "निजी कुंजी फाइल"
 
-#: dashboards/project/instances/forms.py:149
+#: dashboards/project/instances/forms.py:152
 msgid "OR Copy/Paste your Private Key"
 msgstr "या कॉपी / अपने निजी कुंजी चिपकाएं"
 
-#: dashboards/project/instances/forms.py:157
+#: dashboards/project/instances/forms.py:160
 msgid "Unable to retrieve instance password."
 msgstr "इंस्टेंस पासवर्ड पुनः प्राप्त करने में असमर्थ."
 
@@ -9031,7 +9046,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/instances/tables.py:180
-#: dashboards/project/instances/tables.py:247
+#: dashboards/project/instances/tables.py:248
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] ""
@@ -9044,51 +9059,51 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/instances/tables.py:195
-#: dashboards/project/instances/tables.py:262
+#: dashboards/project/instances/tables.py:263
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:242
+#: dashboards/project/instances/tables.py:243
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:257
+#: dashboards/project/instances/tables.py:258
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:370
+#: dashboards/project/instances/tables.py:372
 msgid "Edit Security Groups"
 msgstr "सुरक्षा समूह संपादित करें "
 
-#: dashboards/project/instances/tables.py:396
+#: dashboards/project/instances/tables.py:398
 #: dashboards/project/instances/tabs.py:58
 msgid "Console"
 msgstr "कंसोल"
 
-#: dashboards/project/instances/tables.py:416
+#: dashboards/project/instances/tables.py:418
 msgid "View Log"
 msgstr "लॉग देखें"
 
-#: dashboards/project/instances/tables.py:433
+#: dashboards/project/instances/tables.py:435
 #: dashboards/project/instances/workflows/resize_instance.py:88
 msgid "Resize Instance"
 msgstr "इंस्टांस का आकार बदलें"
 
-#: dashboards/project/instances/tables.py:457
+#: dashboards/project/instances/tables.py:459
 msgid "Confirm Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट की पुष्टि करें"
 
-#: dashboards/project/instances/tables.py:470
+#: dashboards/project/instances/tables.py:472
 msgid "Revert Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट वापस लाएं"
 
-#: dashboards/project/instances/tables.py:483
+#: dashboards/project/instances/tables.py:485
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
@@ -9096,418 +9111,418 @@ msgstr "आकार बदलें / माइग्रेट वापस ल
 msgid "Rebuild Instance"
 msgstr "इंस्टांस पुन: निर्माण करें"
 
-#: dashboards/project/instances/tables.py:500
+#: dashboards/project/instances/tables.py:502
 msgid "Retrieve Password"
 msgstr "पासवर्ड की पनःप्राप्ति"
 
-#: dashboards/project/instances/tables.py:523
-#: dashboards/project/instances/tables.py:547
+#: dashboards/project/instances/tables.py:525
+#: dashboards/project/instances/tables.py:549
 msgid "Associate Floating IP"
 msgstr "अस्थायी आईपी जोड़ें"
 
-#: dashboards/project/instances/tables.py:566
+#: dashboards/project/instances/tables.py:568
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी: %s"
 
-#: dashboards/project/instances/tables.py:570
+#: dashboards/project/instances/tables.py:572
 msgid "Unable to associate floating IP."
 msgstr "अस्थायी आईपी संबद्ध करने में असमर्थ."
 
-#: dashboards/project/instances/tables.py:576
+#: dashboards/project/instances/tables.py:578
 msgid "Disassociate Floating IP"
 msgstr "जुड़े अस्थायी आईपी को अलग करें"
 
-#: dashboards/project/instances/tables.py:605
+#: dashboards/project/instances/tables.py:607
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी को अलग किया: %s"
 
-#: dashboards/project/instances/tables.py:608
+#: dashboards/project/instances/tables.py:610
 msgid "No floating IPs to disassociate."
 msgstr "अलग करने के लिए कोई अस्थायी आईपी नहीं "
 
-#: dashboards/project/instances/tables.py:618
+#: dashboards/project/instances/tables.py:620
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "कृपया बाद में फिर से कोशिश करें [त्रुटि: %s]."
 
-#: dashboards/project/instances/tables.py:620
+#: dashboards/project/instances/tables.py:622
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
 msgstr "चयनित उपलब्धता क्षेत्र में इस स्वाद के लिए पर्याप्त क्षमता नहीं है. बाद में फिर से कोशिश करें या एक अलग उपलब्धता क्षेत्र का चयन करें."
 
-#: dashboards/project/instances/tables.py:632
+#: dashboards/project/instances/tables.py:634
 #, python-format
 msgid "Failed to launch instance \"%s\""
 msgstr "\"%s\" इंस्टांस लॉन्च करने में विफल"
 
-#: dashboards/project/instances/tables.py:658
+#: dashboards/project/instances/tables.py:660
 msgid "Start Instance"
 msgid_plural "Start Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:666
+#: dashboards/project/instances/tables.py:668
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:687
+#: dashboards/project/instances/tables.py:689
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:696
+#: dashboards/project/instances/tables.py:698
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:723
+#: dashboards/project/instances/tables.py:725
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: dashboards/project/instances/tables.py:747
-#: dashboards/project/instances/tables.py:769
+#: dashboards/project/instances/tables.py:749
+#: dashboards/project/instances/tables.py:771
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "मिटाया"
 
-#: dashboards/project/instances/tables.py:748
+#: dashboards/project/instances/tables.py:750
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr "सक्रिय"
 
-#: dashboards/project/instances/tables.py:749
+#: dashboards/project/instances/tables.py:751
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "बंद"
 
-#: dashboards/project/instances/tables.py:751
+#: dashboards/project/instances/tables.py:753
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "निलंबित है"
 
-#: dashboards/project/instances/tables.py:752
+#: dashboards/project/instances/tables.py:754
 msgctxt "Current status of an Instance"
 msgid "Paused"
 msgstr "ठहरा हुआ"
 
-#: dashboards/project/instances/tables.py:753
+#: dashboards/project/instances/tables.py:755
 msgctxt "Current status of an Instance"
 msgid "Error"
 msgstr "त्रुटि"
 
-#: dashboards/project/instances/tables.py:755
+#: dashboards/project/instances/tables.py:757
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट"
 
-#: dashboards/project/instances/tables.py:757
+#: dashboards/project/instances/tables.py:759
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट की पुष्टि करने या वापस लाएं"
 
-#: dashboards/project/instances/tables.py:759
+#: dashboards/project/instances/tables.py:761
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट वापस लाएं"
 
-#: dashboards/project/instances/tables.py:760
+#: dashboards/project/instances/tables.py:762
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "रिबूट करें"
 
-#: dashboards/project/instances/tables.py:762
+#: dashboards/project/instances/tables.py:764
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "हार्ड रिबूट"
 
-#: dashboards/project/instances/tables.py:763
+#: dashboards/project/instances/tables.py:765
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "पासवर्ड"
 
-#: dashboards/project/instances/tables.py:764
+#: dashboards/project/instances/tables.py:766
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
 msgstr "पुनः निर्माण"
 
-#: dashboards/project/instances/tables.py:766
+#: dashboards/project/instances/tables.py:768
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr "उत्प्रवासित हो रहा है"
 
-#: dashboards/project/instances/tables.py:767
+#: dashboards/project/instances/tables.py:769
 msgctxt "Current status of an Instance"
 msgid "Build"
 msgstr "बिल्ड"
 
-#: dashboards/project/instances/tables.py:768
+#: dashboards/project/instances/tables.py:770
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "बचाव"
 
-#: dashboards/project/instances/tables.py:771
+#: dashboards/project/instances/tables.py:773
 msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:772
+#: dashboards/project/instances/tables.py:774
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:774
+#: dashboards/project/instances/tables.py:776
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:780
+#: dashboards/project/instances/tables.py:782
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "समय-सारणी"
 
-#: dashboards/project/instances/tables.py:782
+#: dashboards/project/instances/tables.py:784
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:784
+#: dashboards/project/instances/tables.py:786
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "संजालन"
 
-#: dashboards/project/instances/tables.py:785
+#: dashboards/project/instances/tables.py:787
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:787
+#: dashboards/project/instances/tables.py:789
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "Snapshotting"
 
-#: dashboards/project/instances/tables.py:789
+#: dashboards/project/instances/tables.py:791
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:791
+#: dashboards/project/instances/tables.py:793
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:793
+#: dashboards/project/instances/tables.py:795
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:795
+#: dashboards/project/instances/tables.py:797
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:797
+#: dashboards/project/instances/tables.py:799
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "कूटशब्द का अद्यतन"
 
-#: dashboards/project/instances/tables.py:799
+#: dashboards/project/instances/tables.py:801
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट की तयारी कर रहा हैं"
 
-#: dashboards/project/instances/tables.py:801
+#: dashboards/project/instances/tables.py:803
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "आकार बदलना या माइग्रेट हो रहा हैं"
 
-#: dashboards/project/instances/tables.py:803
+#: dashboards/project/instances/tables.py:805
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "आकार बदले या माइग्रेट करें"
 
-#: dashboards/project/instances/tables.py:805
+#: dashboards/project/instances/tables.py:807
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट होना पूर्ण हो रहा हैं"
 
-#: dashboards/project/instances/tables.py:807
+#: dashboards/project/instances/tables.py:809
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट वापिस लाएँ"
 
-#: dashboards/project/instances/tables.py:809
+#: dashboards/project/instances/tables.py:811
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट करने की पुष्टि कर रहा हैं "
 
-#: dashboards/project/instances/tables.py:810
+#: dashboards/project/instances/tables.py:812
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:812
+#: dashboards/project/instances/tables.py:814
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:813
+#: dashboards/project/instances/tables.py:815
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "ठहरें"
 
-#: dashboards/project/instances/tables.py:814
-#: dashboards/project/instances/tables.py:817
+#: dashboards/project/instances/tables.py:816
+#: dashboards/project/instances/tables.py:819
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr "पुनरारंभ किया जा रहा है."
 
-#: dashboards/project/instances/tables.py:816
+#: dashboards/project/instances/tables.py:818
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:819
+#: dashboards/project/instances/tables.py:821
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:821
+#: dashboards/project/instances/tables.py:823
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:822
+#: dashboards/project/instances/tables.py:824
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:824
+#: dashboards/project/instances/tables.py:826
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:826
+#: dashboards/project/instances/tables.py:828
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:828
+#: dashboards/project/instances/tables.py:830
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:830
+#: dashboards/project/instances/tables.py:832
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:831
+#: dashboards/project/instances/tables.py:833
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr "उत्प्रवासित हो रहा है"
 
-#: dashboards/project/instances/tables.py:832
+#: dashboards/project/instances/tables.py:834
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "मिटाया जा रहा है"
 
-#: dashboards/project/instances/tables.py:834
+#: dashboards/project/instances/tables.py:836
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:835
+#: dashboards/project/instances/tables.py:837
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "पुनर्भंडारण"
 
-#: dashboards/project/instances/tables.py:836
+#: dashboards/project/instances/tables.py:838
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:838
+#: dashboards/project/instances/tables.py:840
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:840
+#: dashboards/project/instances/tables.py:842
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:842
+#: dashboards/project/instances/tables.py:844
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:844
+#: dashboards/project/instances/tables.py:846
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:848
+#: dashboards/project/instances/tables.py:850
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "कोई स्थिति नहीं"
 
-#: dashboards/project/instances/tables.py:849
+#: dashboards/project/instances/tables.py:851
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "चल रहा है"
 
-#: dashboards/project/instances/tables.py:850
+#: dashboards/project/instances/tables.py:852
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "रोका हुआ"
 
-#: dashboards/project/instances/tables.py:851
+#: dashboards/project/instances/tables.py:853
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr "ठहरा हुआ"
 
-#: dashboards/project/instances/tables.py:852
+#: dashboards/project/instances/tables.py:854
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "बंद करें"
 
-#: dashboards/project/instances/tables.py:853
+#: dashboards/project/instances/tables.py:855
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr "बंद करें"
 
-#: dashboards/project/instances/tables.py:854
+#: dashboards/project/instances/tables.py:856
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr "क्रैश"
 
-#: dashboards/project/instances/tables.py:855
+#: dashboards/project/instances/tables.py:857
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "निलंबित है"
 
-#: dashboards/project/instances/tables.py:856
+#: dashboards/project/instances/tables.py:858
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:857
+#: dashboards/project/instances/tables.py:859
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "बिल्डिंग"
 
-#: dashboards/project/instances/tables.py:894
-#: dashboards/project/instances/workflows/create_instance.py:475
+#: dashboards/project/instances/tables.py:896
+#: dashboards/project/instances/workflows/create_instance.py:482
 msgid "Key Pair"
 msgstr "कुंजी युग्म"
 
@@ -9791,90 +9806,90 @@ msgstr "आप वैकल्पिक पुनर्निर्माण इ
 msgid "Instance Admin Password"
 msgstr "इंस्टांस व्यवस्थापक पासवर्ड"
 
-#: dashboards/project/instances/workflows/create_instance.py:51
+#: dashboards/project/instances/workflows/create_instance.py:52
 msgid "User"
 msgstr "उपयोगकर्ता"
 
-#: dashboards/project/instances/workflows/create_instance.py:65
+#: dashboards/project/instances/workflows/create_instance.py:66
 msgid "Project & User"
 msgstr "परियोजना और उपयोगकर्ता"
 
-#: dashboards/project/instances/workflows/create_instance.py:86
+#: dashboards/project/instances/workflows/create_instance.py:87
 msgid "Instance Count"
 msgstr "इंस्टांस गणना"
 
-#: dashboards/project/instances/workflows/create_instance.py:89
+#: dashboards/project/instances/workflows/create_instance.py:90
 msgid "Number of instances to launch."
 msgstr "लॉन्च करने के लिए अनेक इंस्टैंस"
 
-#: dashboards/project/instances/workflows/create_instance.py:91
+#: dashboards/project/instances/workflows/create_instance.py:92
 msgid "Instance Boot Source"
 msgstr "इंस्टांस बूट स्रोत"
 
-#: dashboards/project/instances/workflows/create_instance.py:92
+#: dashboards/project/instances/workflows/create_instance.py:93
 msgid "Choose Your Boot Source Type."
 msgstr "अपने बूट स्रोत प्रकार चुनें."
 
-#: dashboards/project/instances/workflows/create_instance.py:95
+#: dashboards/project/instances/workflows/create_instance.py:96
 msgid "Instance Snapshot"
 msgstr "इंस्टांस स्नैपशॉट"
 
-#: dashboards/project/instances/workflows/create_instance.py:100
+#: dashboards/project/instances/workflows/create_instance.py:101
 msgid "Volume Snapshot"
 msgstr "वॉल्यूम स्नैपशॉट"
 
-#: dashboards/project/instances/workflows/create_instance.py:111
+#: dashboards/project/instances/workflows/create_instance.py:112
 msgid "Device size (GB)"
 msgstr "डिवाइस का आकार (जीबी)"
 
-#: dashboards/project/instances/workflows/create_instance.py:115
+#: dashboards/project/instances/workflows/create_instance.py:116
 msgid "Volume size in gigabytes (integer value)."
 msgstr "गीगाबाइट में वॉल्यूम आकार (पूर्णांक मान)."
 
-#: dashboards/project/instances/workflows/create_instance.py:118
-#: dashboards/project/volumes/volumes/forms.py:400
+#: dashboards/project/instances/workflows/create_instance.py:119
+#: dashboards/project/volumes/volumes/forms.py:405
 msgid "Device Name"
 msgstr "युक्ति नाम"
 
-#: dashboards/project/instances/workflows/create_instance.py:121
+#: dashboards/project/instances/workflows/create_instance.py:122
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank"
 " to let the system choose a device name for you."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:127
+#: dashboards/project/instances/workflows/create_instance.py:128
 msgid "Delete on Terminate"
 msgstr "बर्खास्त पर हटाएं"
 
-#: dashboards/project/instances/workflows/create_instance.py:130
+#: dashboards/project/instances/workflows/create_instance.py:131
 msgid "Delete volume on instance terminate"
 msgstr "बर्खास्त इंस्टेंस पर वॉल्यूम हटाएं"
 
-#: dashboards/project/instances/workflows/create_instance.py:145
+#: dashboards/project/instances/workflows/create_instance.py:151
 msgid "Select source"
 msgstr "स्रोत चुनें"
 
-#: dashboards/project/instances/workflows/create_instance.py:146
+#: dashboards/project/instances/workflows/create_instance.py:152
 msgid "Boot from image"
 msgstr "बिंब से बूट करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:147
+#: dashboards/project/instances/workflows/create_instance.py:153
 msgid "Boot from snapshot"
 msgstr "स्नैपशॉट से बूट करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:150
+#: dashboards/project/instances/workflows/create_instance.py:156
 msgid "Boot from volume"
 msgstr "वॉल्यूम से बूट करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:156
+#: dashboards/project/instances/workflows/create_instance.py:163
 msgid "Boot from image (creates a new volume)"
 msgstr "बिंब से बूट करें (नया वॉल्यूम बनाता है)"
 
-#: dashboards/project/instances/workflows/create_instance.py:162
+#: dashboards/project/instances/workflows/create_instance.py:170
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "वॉल्यूम स्नैपशॉट से बूट करें (नया वॉल्यूम बनाता है)"
 
-#: dashboards/project/instances/workflows/create_instance.py:173
+#: dashboards/project/instances/workflows/create_instance.py:181
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -9885,240 +9900,240 @@ msgid_plural ""
 msgstr[0] "आप केवल उपलब्ध अपने कोटे %(avail)i के रूप में अनुरोध किया इंस्टेंस लॉन्च नहीं किया जा सकता है."
 msgstr[1] "आप केवल उपलब्ध अपने कोटे %(avail)i के रूप में अनुरोध किया %(req)i इंस्टेंस लॉन्च नहीं किया जा सकता है."
 
-#: dashboards/project/instances/workflows/create_instance.py:200
+#: dashboards/project/instances/workflows/create_instance.py:208
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:207
+#: dashboards/project/instances/workflows/create_instance.py:215
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:214
+#: dashboards/project/instances/workflows/create_instance.py:222
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:229
+#: dashboards/project/instances/workflows/create_instance.py:237
 msgid "You must set volume size"
 msgstr "आप हमेशा वॉल्यूम आकर सेट कर सकते हैं"
 
-#: dashboards/project/instances/workflows/create_instance.py:232
+#: dashboards/project/instances/workflows/create_instance.py:240
 msgid "Volume size must be greater than 0"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:235
+#: dashboards/project/instances/workflows/create_instance.py:243
 msgid "You must select an image."
 msgstr "आप एक बिंब का चयन करना होगा."
 
-#: dashboards/project/instances/workflows/create_instance.py:258
+#: dashboards/project/instances/workflows/create_instance.py:266
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "फ्लेवर %(flavor)s' के लिए अनुरोध बिंब बहुत छोटा है.\nन्यूनतम आवश्यकताओं: %(min_ram)s रैम की एमबी और %(min_disk)s जड़ डिस्क के जीबी."
 
-#: dashboards/project/instances/workflows/create_instance.py:275
+#: dashboards/project/instances/workflows/create_instance.py:283
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "वॉल्यूम आकार '%(image_name)s' छवि के लिए बहुत छोटा है और अधिक से अधिक या '%(smallest_size)d' जीबी के बराबर हो गया है."
 
-#: dashboards/project/instances/workflows/create_instance.py:286
-#: dashboards/project/instances/workflows/create_instance.py:303
+#: dashboards/project/instances/workflows/create_instance.py:294
+#: dashboards/project/instances/workflows/create_instance.py:311
 msgid "You must select a snapshot."
 msgstr "आप एक स्नैपशॉट का चयन करना होगा."
 
-#: dashboards/project/instances/workflows/create_instance.py:291
+#: dashboards/project/instances/workflows/create_instance.py:299
 msgid "You must select a volume."
 msgstr "आपको  वॉल्यूम का चयन करना होगा."
 
-#: dashboards/project/instances/workflows/create_instance.py:297
+#: dashboards/project/instances/workflows/create_instance.py:305
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "एक से अधिक इंस्टेंस को लांच करना केवल बिंब और इंस्टेंस स्नैपशॉट के लिए समर्थित है."
 
-#: dashboards/project/instances/workflows/create_instance.py:320
-#: dashboards/project/volumes/volumes/forms.py:271
+#: dashboards/project/instances/workflows/create_instance.py:328
+#: dashboards/project/volumes/volumes/forms.py:272
 msgid "Unable to retrieve availability zones."
 msgstr "उपलब्धता क्षेत्रों को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:326
-#: dashboards/project/volumes/volumes/forms.py:274
+#: dashboards/project/instances/workflows/create_instance.py:334
+#: dashboards/project/volumes/volumes/forms.py:275
 msgid "No availability zones found"
 msgstr "कोई उपलब्धता क्षेत्र नहीं मिला"
 
-#: dashboards/project/instances/workflows/create_instance.py:328
-#: dashboards/project/volumes/volumes/forms.py:276
+#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/volumes/volumes/forms.py:277
 msgid "Any Availability Zone"
 msgstr "कोई उपलब्धता क्षेत्र"
 
-#: dashboards/project/instances/workflows/create_instance.py:351
+#: dashboards/project/instances/workflows/create_instance.py:358
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "कोटा सूचना पाने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:361
-#: dashboards/project/volumes/volumes/forms.py:194
+#: dashboards/project/instances/workflows/create_instance.py:368
+#: dashboards/project/volumes/volumes/forms.py:195
 msgid "Snapshot"
 msgstr "स्नेपशॉट"
 
-#: dashboards/project/instances/workflows/create_instance.py:366
+#: dashboards/project/instances/workflows/create_instance.py:373
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:400
+#: dashboards/project/instances/workflows/create_instance.py:407
 msgid "Select Instance Snapshot"
 msgstr "इंस्टांस स्नैपशॉट चुनें "
 
-#: dashboards/project/instances/workflows/create_instance.py:402
+#: dashboards/project/instances/workflows/create_instance.py:409
 msgid "No snapshots available"
 msgstr "कोई स्नैपशॉट उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:414
-#: dashboards/project/volumes/volumes/forms.py:289
+#: dashboards/project/instances/workflows/create_instance.py:421
+#: dashboards/project/volumes/volumes/forms.py:290
 msgid "Unable to retrieve list of volumes."
 msgstr "संस्करणों की सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:416
+#: dashboards/project/instances/workflows/create_instance.py:423
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "वॉल्यूम चुनें"
 
-#: dashboards/project/instances/workflows/create_instance.py:418
+#: dashboards/project/instances/workflows/create_instance.py:425
 msgid "No volumes available"
 msgstr "कोई वॉल्यूम उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:429
+#: dashboards/project/instances/workflows/create_instance.py:436
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "वॉल्यूम स्नैपशॉट के सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:432
+#: dashboards/project/instances/workflows/create_instance.py:439
 msgid "Select Volume Snapshot"
 msgstr "वॉल्यूम स्नैपशॉट चुनें"
 
-#: dashboards/project/instances/workflows/create_instance.py:434
+#: dashboards/project/instances/workflows/create_instance.py:441
 msgid "No volume snapshots available"
 msgstr "कोई वॉल्यूम स्नैपशॉट उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:477
+#: dashboards/project/instances/workflows/create_instance.py:484
 msgid "Key pair to use for authentication."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:481
+#: dashboards/project/instances/workflows/create_instance.py:488
 msgid "Admin Pass"
 msgstr "व्यवस्थापक पास"
 
-#: dashboards/project/instances/workflows/create_instance.py:487
+#: dashboards/project/instances/workflows/create_instance.py:494
 msgid "Confirm Admin Pass"
 msgstr "डमिन कूटशब्द की पुष्टि करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:493
+#: dashboards/project/instances/workflows/create_instance.py:500
 msgid "Launch instance in these security groups."
 msgstr "इन सुरक्षा समूहों में इंस्टेंस लॉन्च करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:498
+#: dashboards/project/instances/workflows/create_instance.py:505
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "कुंजी जोड़े, सुरक्षा समूह, और अन्य तंत्र के माध्यम से अपने इंस्टेंस के लिए अभिगम नियंत्रण."
 
-#: dashboards/project/instances/workflows/create_instance.py:514
+#: dashboards/project/instances/workflows/create_instance.py:521
 msgid "Unable to retrieve key pairs."
 msgstr "कुंजी युग्मों को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/instances/workflows/create_instance.py:518
+#: dashboards/project/instances/workflows/create_instance.py:525
 msgid "Select a key pair"
 msgstr "कुंजी युग्म चुनें"
 
-#: dashboards/project/instances/workflows/create_instance.py:520
+#: dashboards/project/instances/workflows/create_instance.py:527
 msgid "No key pairs available"
 msgstr "कोई कुंजी युग्म उपलब्ध नहीं"
 
-#: dashboards/project/instances/workflows/create_instance.py:529
+#: dashboards/project/instances/workflows/create_instance.py:536
 msgid "Unable to retrieve list of security groups"
 msgstr "सुरक्षा समूहों की सूची को प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/workflows/create_instance.py:561
+#: dashboards/project/instances/workflows/create_instance.py:568
 msgid "Post-Creation"
 msgstr "पोस्ट निर्माण"
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:572
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "प्रत्यक्ष निवेश"
 
-#: dashboards/project/instances/workflows/create_instance.py:569
+#: dashboards/project/instances/workflows/create_instance.py:576
 msgid "Customization Script Source"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:573
+#: dashboards/project/instances/workflows/create_instance.py:580
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "इंस्टेंस के बनने के बाद निष्पादित होने वाले  स्क्रिप्ट या कमांड का सेट (अधिकतम 16kb)"
 
-#: dashboards/project/instances/workflows/create_instance.py:577
-#: dashboards/project/instances/workflows/create_instance.py:582
+#: dashboards/project/instances/workflows/create_instance.py:584
+#: dashboards/project/instances/workflows/create_instance.py:589
 msgid "Script File"
 msgstr "स्क्रिप्ट फ़ाइल"
 
-#: dashboards/project/instances/workflows/create_instance.py:586
-#: dashboards/project/instances/workflows/create_instance.py:591
+#: dashboards/project/instances/workflows/create_instance.py:593
+#: dashboards/project/instances/workflows/create_instance.py:598
 msgid "Script Data"
 msgstr "स्क्रिप्ट डाटा"
 
-#: dashboards/project/instances/workflows/create_instance.py:618
+#: dashboards/project/instances/workflows/create_instance.py:625
 msgid "File exceeds maximum size (16kb)"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:626
+#: dashboards/project/instances/workflows/create_instance.py:633
 #: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr " %(prefix)s पार्स करने में कोई समस्या हुई थी: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:653
+#: dashboards/project/instances/workflows/create_instance.py:660
 msgid "Policy Profiles"
 msgstr "नीति प्रोफाइल"
 
-#: dashboards/project/instances/workflows/create_instance.py:656
+#: dashboards/project/instances/workflows/create_instance.py:663
 msgid "Launch instance with this policy profile"
 msgstr "इस नीति प्रोफाइल के साथ इंस्टेंस लॉन्च करें"
 
-#: dashboards/project/instances/workflows/create_instance.py:730
+#: dashboards/project/instances/workflows/create_instance.py:738
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:733
+#: dashboards/project/instances/workflows/create_instance.py:742
 msgid "Configuration Drive"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:734
+#: dashboards/project/instances/workflows/create_instance.py:743
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:760
+#: dashboards/project/instances/workflows/create_instance.py:769
 msgid "Advanced Options"
 msgstr "उन्नत विकल्प"
 
-#: dashboards/project/instances/workflows/create_instance.py:798
+#: dashboards/project/instances/workflows/create_instance.py:807
 #, python-format
 msgid "%s instances"
 msgstr "%s इंस्टेंस"
 
-#: dashboards/project/instances/workflows/create_instance.py:857
+#: dashboards/project/instances/workflows/create_instance.py:867
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "पोर्ट प्रोफाइल आईडी के लिए नहीं बनाई गई (%s)."
@@ -10472,7 +10487,7 @@ msgstr "प्रदाता"
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/routers/ports/forms.py:29
-#: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:30
+#: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
 msgstr "सबनेट"
 
@@ -11037,7 +11052,7 @@ msgid "Create Router"
 msgstr "रूटर बनाएँ"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
-#: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:29
+#: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:29
 #: dashboards/router/dashboard.py:19
 msgid "Router"
 msgstr "रूटर"
@@ -11977,70 +11992,70 @@ msgstr "टैम्प्लेट का संपादन करें"
 msgid "Select a new template to re-launch a stack."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:229
-#: dashboards/project/stacks/forms.py:375
+#: dashboards/project/stacks/forms.py:230
+#: dashboards/project/stacks/forms.py:379
 msgid "Stack ID"
 msgstr "ढेर आईडी"
 
-#: dashboards/project/stacks/forms.py:231
-#: dashboards/project/stacks/forms.py:255
-#: dashboards/project/stacks/forms.py:377
+#: dashboards/project/stacks/forms.py:233
+#: dashboards/project/stacks/forms.py:257
+#: dashboards/project/stacks/forms.py:382
 #: dashboards/project/stacks/tables.py:101
 msgid "Stack Name"
 msgstr " ढेर नाम"
 
-#: dashboards/project/stacks/forms.py:240
+#: dashboards/project/stacks/forms.py:242
 msgid "Create Stack"
 msgstr "ढेर बनाएँ"
 
-#: dashboards/project/stacks/forms.py:256
+#: dashboards/project/stacks/forms.py:258
 msgid "Name of the stack to create."
 msgstr "बनाने के लिए ढेर का नाम."
 
-#: dashboards/project/stacks/forms.py:258
+#: dashboards/project/stacks/forms.py:261
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "नाम एक पत्र के साथ शुरू होगा और केवल अक्षर, संख्या, को रेखांकित करता है, उस समय और हाइफ़न हो सकती है."
 
-#: dashboards/project/stacks/forms.py:263
+#: dashboards/project/stacks/forms.py:266
 msgid "Creation Timeout (minutes)"
 msgstr "निर्माण समय समाप्त (मिनट)"
 
-#: dashboards/project/stacks/forms.py:264
+#: dashboards/project/stacks/forms.py:267
 msgid "Stack creation timeout in minutes."
 msgstr "मिनटों में निर्माण मध्यांतर हो चुकी है."
 
-#: dashboards/project/stacks/forms.py:266
+#: dashboards/project/stacks/forms.py:269
 msgid "Rollback On Failure"
 msgstr "विफलता पर रोलबैक"
 
-#: dashboards/project/stacks/forms.py:267
+#: dashboards/project/stacks/forms.py:270
 msgid "Enable rollback on create/update failure."
 msgstr "अद्यतन / विफलता बनाने पर रोलबैक सक्षम करें."
 
-#: dashboards/project/stacks/forms.py:280
+#: dashboards/project/stacks/forms.py:283
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "\"%s\" उपयोक्ता के लिये शब्दकूट "
 
-#: dashboards/project/stacks/forms.py:281
+#: dashboards/project/stacks/forms.py:284
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "आपरेशन ढेर के जीवन चक्र के दौरान प्रदर्शन किया जा करने के लिए यह आवश्यक है"
 
-#: dashboards/project/stacks/forms.py:364
+#: dashboards/project/stacks/forms.py:367
 msgid "Stack creation started."
 msgstr "ढेर निर्माण शुरू कर दिया."
 
-#: dashboards/project/stacks/forms.py:373
+#: dashboards/project/stacks/forms.py:376
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "अद्यतन ढेर पैरामीटर्स"
 
-#: dashboards/project/stacks/forms.py:406
+#: dashboards/project/stacks/forms.py:411
 msgid "Stack update started."
 msgstr "ढेर अद्यतन शुरू कर दिया."
 
@@ -12311,12 +12326,12 @@ msgstr "%(data_type)s के अनुसूचित विलोपन"
 msgid "Unable to retrieve backup details."
 msgstr "बैकअप विवरण को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/volumes/snapshots/forms.py:37
+#: dashboards/project/volumes/snapshots/forms.py:39
 #, python-format
 msgid "Updating volume snapshot \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/snapshots/forms.py:43
+#: dashboards/project/volumes/snapshots/forms.py:45
 msgid "Unable to update volume snapshot."
 msgstr "स्नैपशॉट को अद्यतन करने में असमर्थ."
 
@@ -12468,7 +12483,7 @@ msgid "Not attached"
 msgstr "संलग्न नहीं"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:54
-#: dashboards/project/volumes/volumes/forms.py:51
+#: dashboards/project/volumes/volumes/forms.py:52
 msgid "Volume Source"
 msgstr "वॉल्यूम स्रोत"
 
@@ -12597,144 +12612,144 @@ msgstr "वॉल्यूम बनाएँ"
 msgid "Create a Volume Snapshot"
 msgstr "वॉल्यूम स्नैपशॉट बनाएँ"
 
-#: dashboards/project/volumes/volumes/forms.py:57
+#: dashboards/project/volumes/volumes/forms.py:58
 msgid "Use snapshot as a source"
 msgstr "स्रोत के रूप में स्नैपशॉट का उपयोग"
 
-#: dashboards/project/volumes/volumes/forms.py:64
+#: dashboards/project/volumes/volumes/forms.py:65
 msgid "Use image as a source"
 msgstr "स्रोत के रूप में छवि का उपयोग करें"
 
-#: dashboards/project/volumes/volumes/forms.py:71
+#: dashboards/project/volumes/volumes/forms.py:72
 msgid "Use a volume as source"
 msgstr "स्रोत के रूप में वॉल्यूम का प्रयोग करें"
 
-#: dashboards/project/volumes/volumes/forms.py:86
+#: dashboards/project/volumes/volumes/forms.py:87
 msgid "Size (GB)"
 msgstr " आकार (जीबी)"
 
-#: dashboards/project/volumes/volumes/forms.py:99
+#: dashboards/project/volumes/volumes/forms.py:100
 msgid "No volume type"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:118
+#: dashboards/project/volumes/volumes/forms.py:120
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr "वॉल्यूम आकार (%sGB) के बराबर या स्नैपशॉट आकार से अधिक होना चाहिए"
 
-#: dashboards/project/volumes/volumes/forms.py:127
+#: dashboards/project/volumes/volumes/forms.py:128
 msgid "Unable to load the specified snapshot."
 msgstr "निर्दिष्ट स्नैपशॉट लोड करने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/forms.py:138
+#: dashboards/project/volumes/volumes/forms.py:139
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "वॉल्यूम आकार (%s) के बराबर या छवि आकार से अधिक होना चाहिए"
 
-#: dashboards/project/volumes/volumes/forms.py:146
+#: dashboards/project/volumes/volumes/forms.py:147
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGB)"
 msgstr "वॉल्यूम आकार (%sGB के) के बराबर या छवि न्यूनतम डिस्क आकार से अधिक होना चाहिए"
 
-#: dashboards/project/volumes/volumes/forms.py:157
+#: dashboards/project/volumes/volumes/forms.py:158
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "निर्दिष्ट छवि लोड करने में असमर्थ. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:166
+#: dashboards/project/volumes/volumes/forms.py:167
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "निर्दिष्ट वॉल्यूम लोड करने में असमर्थ. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:173
+#: dashboards/project/volumes/volumes/forms.py:174
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%s)"
 msgstr "वॉल्यूम आकार के बराबर या मूल वॉल्यूम आकार से अधिक होना चाहिए (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:195
+#: dashboards/project/volumes/volumes/forms.py:196
 msgid "Choose a snapshot"
 msgstr "स्नैपशॉट चुनें"
 
-#: dashboards/project/volumes/volumes/forms.py:208
+#: dashboards/project/volumes/volumes/forms.py:209
 msgid "Choose an image"
 msgstr "कोई छवि चुनें"
 
-#: dashboards/project/volumes/volumes/forms.py:220
+#: dashboards/project/volumes/volumes/forms.py:221
 msgid "Choose a volume"
 msgstr "वॉल्यूम चुनें"
 
-#: dashboards/project/volumes/volumes/forms.py:229
+#: dashboards/project/volumes/volumes/forms.py:230
 msgid "No source, empty volume"
 msgstr "कोई स्रोत नहीं, खाली वॉल्यूम"
 
-#: dashboards/project/volumes/volumes/forms.py:240
+#: dashboards/project/volumes/volumes/forms.py:241
 msgid "Image source must be specified"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:244
+#: dashboards/project/volumes/volumes/forms.py:245
 msgid "Snapshot source must be specified"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:248
+#: dashboards/project/volumes/volumes/forms.py:249
 msgid "Volume source must be specified"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:257
+#: dashboards/project/volumes/volumes/forms.py:258
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "उपलब्धता क्षेत्रों के विस्तार का समर्थन किया है, तो यह निर्धारित करने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/forms.py:311
+#: dashboards/project/volumes/volumes/forms.py:312
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr "वॉल्यूम आकार स्नैपशॉट आकार (%sGB) से कम नहीं हो सकता"
 
-#: dashboards/project/volumes/volumes/forms.py:323
+#: dashboards/project/volumes/volumes/forms.py:325
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "वॉल्यूम आकार छवि आकार (%s) से कम नहीं हो सकता"
 
-#: dashboards/project/volumes/volumes/forms.py:330
+#: dashboards/project/volumes/volumes/forms.py:333
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr "वॉल्यूम आकार छवि न्यूनतम डिस्क आकार (%sGB के) से कम नहीं हो सकता"
 
-#: dashboards/project/volumes/volumes/forms.py:340
+#: dashboards/project/volumes/volumes/forms.py:344
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "वॉल्यूम आकार स्रोत वॉल्यूम आकार (%sGB) से कम नहीं हो सकता"
 
-#: dashboards/project/volumes/volumes/forms.py:348
+#: dashboards/project/volumes/volumes/forms.py:353
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
 " quota available."
 msgstr "आप केवल  %(avail)iGB उपलब्ध अपने कोटे के रूप में की %(req)iGB मात्रा नहीं बनाया जा सकता."
 
-#: dashboards/project/volumes/volumes/forms.py:355
+#: dashboards/project/volumes/volumes/forms.py:360
 msgid "You are already using all of your available volumes."
 msgstr "आप पहले से ही अपने उपलब्ध संस्करणों के सभी प्रयोग कर रहे हैं."
 
-#: dashboards/project/volumes/volumes/forms.py:371
+#: dashboards/project/volumes/volumes/forms.py:376
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "\"%s\" वॉल्यूम बना रहा है"
 
-#: dashboards/project/volumes/volumes/forms.py:379
+#: dashboards/project/volumes/volumes/forms.py:384
 msgid "Unable to create volume."
 msgstr "वॉल्यूम बनाने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/forms.py:396
+#: dashboards/project/volumes/volumes/forms.py:401
 msgid "Attach to Instance"
 msgstr "इंस्टेंस के लिए संलग्न करें"
 
-#: dashboards/project/volumes/volumes/forms.py:397
+#: dashboards/project/volumes/volumes/forms.py:402
 msgid "Select an instance to attach to."
 msgstr "करने के लिए संलग्न करने के लिए एक उदाहरण का चयन करें."
 
-#: dashboards/project/volumes/volumes/forms.py:404
+#: dashboards/project/volumes/volumes/forms.py:409
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
@@ -12753,93 +12768,93 @@ msgstr " %(dev)s पर %(inst)s इंस्टेंस के लिए  %(vo
 msgid "Unable to attach volume."
 msgstr "वॉल्यूम संलग्न करने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/forms.py:489
+#: dashboards/project/volumes/volumes/forms.py:491
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
 msgstr " \"%s\" वॉल्यूम स्नैपशॉट बना रहा है"
 
-#: dashboards/project/volumes/volumes/forms.py:492
+#: dashboards/project/volumes/volumes/forms.py:494
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "संलग्न वॉल्यूम से स्नैपशॉट \"%s\" बनाने के लिए मजबूर."
 
-#: dashboards/project/volumes/volumes/forms.py:505
+#: dashboards/project/volumes/volumes/forms.py:507
 msgid "Unable to create volume snapshot."
 msgstr "वॉल्यूम स्नैपशॉट बनाने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/forms.py:520
+#: dashboards/project/volumes/volumes/forms.py:524
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr " वॉल्यूम \"%s\" अद्यतन हो रहा है"
 
-#: dashboards/project/volumes/volumes/forms.py:526
+#: dashboards/project/volumes/volumes/forms.py:530
 msgid "Unable to update volume."
 msgstr "वॉल्यूम को अद्यतन करने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/forms.py:540
+#: dashboards/project/volumes/volumes/forms.py:544
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "बाध्य करें"
 
-#: dashboards/project/volumes/volumes/forms.py:575
+#: dashboards/project/volumes/volumes/forms.py:579
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:582
+#: dashboards/project/volumes/volumes/forms.py:586
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:608
+#: dashboards/project/volumes/volumes/forms.py:612
 msgid "New size must be greater than current size."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:614
+#: dashboards/project/volumes/volumes/forms.py:618
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:628
+#: dashboards/project/volumes/volumes/forms.py:632
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:634
+#: dashboards/project/volumes/volumes/forms.py:638
 msgid "Unable to extend volume."
 msgstr "वॉल्यूम का विस्तार करने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/forms.py:643
+#: dashboards/project/volumes/volumes/forms.py:647
 msgid "Never"
 msgstr "कभी नहीं"
 
-#: dashboards/project/volumes/volumes/forms.py:644
+#: dashboards/project/volumes/volumes/forms.py:648
 msgid "On Demand"
 msgstr "मांग पर"
 
-#: dashboards/project/volumes/volumes/forms.py:645
+#: dashboards/project/volumes/volumes/forms.py:649
 msgid "Migration Policy"
 msgstr "उत्प्रवासन नीति"
 
-#: dashboards/project/volumes/volumes/forms.py:662
+#: dashboards/project/volumes/volumes/forms.py:666
 msgid "Unable to retrieve the volume type list."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:671
+#: dashboards/project/volumes/volumes/forms.py:675
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:687
+#: dashboards/project/volumes/volumes/forms.py:691
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:696
+#: dashboards/project/volumes/volumes/forms.py:700
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr ""
@@ -12956,8 +12971,8 @@ msgstr "वीपीएन सेवा %s सफलतापूर्वक अ
 msgid "Failed to update VPN Service %s"
 msgstr " %s वीपीएन सेवा अपडेट करने में विफल"
 
-#: dashboards/project/vpn/forms.py:73 dashboards/project/vpn/forms.py:144
-#: dashboards/project/vpn/tables.py:282 dashboards/project/vpn/tables.py:300
+#: dashboards/project/vpn/forms.py:73 dashboards/project/vpn/forms.py:145
+#: dashboards/project/vpn/tables.py:283 dashboards/project/vpn/tables.py:301
 #: dashboards/project/vpn/workflows.py:114
 #: dashboards/project/vpn/workflows.py:213
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
@@ -12965,12 +12980,12 @@ msgstr " %s वीपीएन सेवा अपडेट करने मे�
 msgid "Authorization algorithm"
 msgstr "प्राधिकरण एल्गोरिथ्म"
 
-#: dashboards/project/vpn/forms.py:74 dashboards/project/vpn/forms.py:145
+#: dashboards/project/vpn/forms.py:74 dashboards/project/vpn/forms.py:146
 msgid "sha1"
 msgstr "sha1"
 
-#: dashboards/project/vpn/forms.py:77 dashboards/project/vpn/forms.py:152
-#: dashboards/project/vpn/tables.py:285 dashboards/project/vpn/tables.py:303
+#: dashboards/project/vpn/forms.py:77 dashboards/project/vpn/forms.py:153
+#: dashboards/project/vpn/tables.py:286 dashboards/project/vpn/tables.py:304
 #: dashboards/project/vpn/workflows.py:115
 #: dashboards/project/vpn/workflows.py:215
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
@@ -12978,19 +12993,19 @@ msgstr "sha1"
 msgid "Encryption algorithm"
 msgstr "गोपन अलगोरिथम"
 
-#: dashboards/project/vpn/forms.py:78 dashboards/project/vpn/forms.py:153
+#: dashboards/project/vpn/forms.py:78 dashboards/project/vpn/forms.py:154
 msgid "3des"
 msgstr "3des"
 
-#: dashboards/project/vpn/forms.py:79 dashboards/project/vpn/forms.py:154
+#: dashboards/project/vpn/forms.py:79 dashboards/project/vpn/forms.py:155
 msgid "aes-128"
 msgstr "aes-128"
 
-#: dashboards/project/vpn/forms.py:80 dashboards/project/vpn/forms.py:155
+#: dashboards/project/vpn/forms.py:80 dashboards/project/vpn/forms.py:156
 msgid "aes-192"
 msgstr "aes-192"
 
-#: dashboards/project/vpn/forms.py:81 dashboards/project/vpn/forms.py:156
+#: dashboards/project/vpn/forms.py:81 dashboards/project/vpn/forms.py:157
 msgid "aes-256"
 msgstr "aes-256"
 
@@ -13011,7 +13026,7 @@ msgstr "v2"
 msgid "Lifetime units for IKE keys"
 msgstr "IKE कुंजी के लिए जीवनकाल इकाइयों"
 
-#: dashboards/project/vpn/forms.py:89 dashboards/project/vpn/forms.py:160
+#: dashboards/project/vpn/forms.py:89 dashboards/project/vpn/forms.py:161
 msgid "seconds"
 msgstr "सेकण्ड"
 
@@ -13019,13 +13034,13 @@ msgstr "सेकण्ड"
 msgid "Lifetime value for IKE keys"
 msgstr "IKE कुंजी के लिए जीवन मूल्य"
 
-#: dashboards/project/vpn/forms.py:94 dashboards/project/vpn/forms.py:165
+#: dashboards/project/vpn/forms.py:94 dashboards/project/vpn/forms.py:166
 #: dashboards/project/vpn/workflows.py:121
 #: dashboards/project/vpn/workflows.py:220
 msgid "Equal to or greater than 60"
 msgstr "60 से बड़ा है या समान है"
 
-#: dashboards/project/vpn/forms.py:96 dashboards/project/vpn/forms.py:167
+#: dashboards/project/vpn/forms.py:96 dashboards/project/vpn/forms.py:168
 #: dashboards/project/vpn/workflows.py:122
 #: dashboards/project/vpn/workflows.py:221
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:33
@@ -13033,15 +13048,15 @@ msgstr "60 से बड़ा है या समान है"
 msgid "Perfect Forward Secrecy"
 msgstr "बढ़िया अग्रेषित गोपनीयता"
 
-#: dashboards/project/vpn/forms.py:97 dashboards/project/vpn/forms.py:168
+#: dashboards/project/vpn/forms.py:97 dashboards/project/vpn/forms.py:169
 msgid "group2"
 msgstr "group2"
 
-#: dashboards/project/vpn/forms.py:98 dashboards/project/vpn/forms.py:169
+#: dashboards/project/vpn/forms.py:98 dashboards/project/vpn/forms.py:170
 msgid "group5"
 msgstr "group5"
 
-#: dashboards/project/vpn/forms.py:99 dashboards/project/vpn/forms.py:170
+#: dashboards/project/vpn/forms.py:99 dashboards/project/vpn/forms.py:171
 msgid "group14"
 msgstr "group14"
 
@@ -13050,169 +13065,169 @@ msgstr "group14"
 msgid "IKE Phase1 negotiation mode"
 msgstr "IKE Phase1 बातचीत मोड"
 
-#: dashboards/project/vpn/forms.py:123
+#: dashboards/project/vpn/forms.py:124
 #, python-format
 msgid "IKE Policy %s was successfully updated."
 msgstr "IKE नीति %s सफलतापूर्वक अपडेट किया गया था."
 
-#: dashboards/project/vpn/forms.py:129
+#: dashboards/project/vpn/forms.py:130
 #, python-format
 msgid "Failed to update IKE Policy %s"
 msgstr "IKE नीति अपडेट करने में विफल %s"
 
-#: dashboards/project/vpn/forms.py:148 dashboards/project/vpn/workflows.py:214
+#: dashboards/project/vpn/forms.py:149 dashboards/project/vpn/workflows.py:214
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:21
 msgid "Encapsulation mode"
 msgstr "सुरक्षात्मक प्रकार"
 
-#: dashboards/project/vpn/forms.py:149
+#: dashboards/project/vpn/forms.py:150
 msgid "tunnel"
 msgstr "टनल"
 
-#: dashboards/project/vpn/forms.py:150
+#: dashboards/project/vpn/forms.py:151
 msgid "transport"
 msgstr "परिवहन"
 
-#: dashboards/project/vpn/forms.py:159 dashboards/project/vpn/workflows.py:216
+#: dashboards/project/vpn/forms.py:160 dashboards/project/vpn/workflows.py:216
 msgid "Lifetime units"
 msgstr "जीवनकाल इकाइयों"
 
-#: dashboards/project/vpn/forms.py:164
+#: dashboards/project/vpn/forms.py:165
 msgid "Lifetime value"
 msgstr "जीवन मूल्य"
 
-#: dashboards/project/vpn/forms.py:172 dashboards/project/vpn/workflows.py:222
+#: dashboards/project/vpn/forms.py:173 dashboards/project/vpn/workflows.py:222
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:36
 msgid "Transform Protocol"
 msgstr "प्रोटोकॉल रूपांतरण"
 
-#: dashboards/project/vpn/forms.py:173
+#: dashboards/project/vpn/forms.py:174
 msgid "esp"
 msgstr "esp"
 
-#: dashboards/project/vpn/forms.py:174
+#: dashboards/project/vpn/forms.py:175
 msgid "ah"
 msgstr "ah"
 
-#: dashboards/project/vpn/forms.py:175
+#: dashboards/project/vpn/forms.py:176
 msgid "ah-esp"
 msgstr "ah-esp"
 
-#: dashboards/project/vpn/forms.py:194
+#: dashboards/project/vpn/forms.py:195
 #, python-format
 msgid "IPSec Policy %s was successfully updated."
 msgstr "IPSec नीति %s सफलतापूर्वक अपडेट किया गया था."
 
-#: dashboards/project/vpn/forms.py:200
+#: dashboards/project/vpn/forms.py:201
 #, python-format
 msgid "Failed to update IPSec Policy %s"
 msgstr " IPSec नीति अपडेट करने में विफल %s"
 
-#: dashboards/project/vpn/forms.py:213 dashboards/project/vpn/workflows.py:317
+#: dashboards/project/vpn/forms.py:215 dashboards/project/vpn/workflows.py:317
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:31
 msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
 msgstr "सहकर्मी गेटवे सार्वजनिक IPv4/IPv6 पता या FQDN"
 
-#: dashboards/project/vpn/forms.py:214 dashboards/project/vpn/workflows.py:318
+#: dashboards/project/vpn/forms.py:216 dashboards/project/vpn/workflows.py:318
 msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
 msgstr "वीपीएन कनेक्शन के लिए सहकर्मी गेटवे सार्वजनिक IPv4/IPv6 पता या FQDN"
 
-#: dashboards/project/vpn/forms.py:219 dashboards/project/vpn/workflows.py:323
+#: dashboards/project/vpn/forms.py:221 dashboards/project/vpn/workflows.py:323
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:34
 msgid "Peer router identity for authentication (Peer ID)"
 msgstr "प्रमाणीकरण के लिए सहकर्मी रूटर पहचान (सहकर्मी आईडी)"
 
-#: dashboards/project/vpn/forms.py:220 dashboards/project/vpn/workflows.py:324
+#: dashboards/project/vpn/forms.py:222 dashboards/project/vpn/workflows.py:324
 msgid ""
 "Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
 "key ID, or FQDN"
 msgstr "प्रमाणीकरण के लिए रूटर पहचान सहकर्मी. IPv4/IPv6 पता, ई - मेल, कुंजी आईडी, या FQDN हो सकता है"
 
-#: dashboards/project/vpn/forms.py:225 dashboards/project/vpn/workflows.py:329
+#: dashboards/project/vpn/forms.py:227 dashboards/project/vpn/workflows.py:329
 msgid "Remote peer subnet(s)"
 msgstr "दूरस्थ सहकर्मी सबनेट (ओं)"
 
-#: dashboards/project/vpn/forms.py:226 dashboards/project/vpn/workflows.py:330
+#: dashboards/project/vpn/forms.py:228 dashboards/project/vpn/workflows.py:330
 msgid ""
 "Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with"
 " commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
 msgstr "अगर जरूरत सीआईडीआर प्रारूप में मुखौटा (एस) के साथ दूरस्थ सहकर्मी सबनेट (ओं) पता (ते) कॉमा से अलग हो (जैसे 20.1.0.0/24, 21.1.0.0/24)"
 
-#: dashboards/project/vpn/forms.py:233 dashboards/project/vpn/workflows.py:337
+#: dashboards/project/vpn/forms.py:235 dashboards/project/vpn/workflows.py:337
 msgid "Pre-Shared Key (PSK) string"
 msgstr "पूर्व साझा कुंजी (पीएसके) स्ट्रिंग"
 
-#: dashboards/project/vpn/forms.py:236 dashboards/project/vpn/workflows.py:402
+#: dashboards/project/vpn/forms.py:238 dashboards/project/vpn/workflows.py:402
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "कनेक्शन के लिए अधिकतम संचार इकाई आकार"
 
-#: dashboards/project/vpn/forms.py:237 dashboards/project/vpn/workflows.py:404
+#: dashboards/project/vpn/forms.py:239 dashboards/project/vpn/workflows.py:404
 msgid ""
 "Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater"
 " than 1280 if the local subnet is IPv6."
 msgstr ""
 
-#: dashboards/project/vpn/forms.py:241 dashboards/project/vpn/workflows.py:407
+#: dashboards/project/vpn/forms.py:243 dashboards/project/vpn/workflows.py:407
 msgid "Dead peer detection actions"
 msgstr "मृत पीअर का पता लगाने क्रियाओं"
 
-#: dashboards/project/vpn/forms.py:242
+#: dashboards/project/vpn/forms.py:244
 msgid "hold"
 msgstr "पकड़ें"
 
-#: dashboards/project/vpn/forms.py:243
+#: dashboards/project/vpn/forms.py:245
 msgid "clear"
 msgstr "साफ करें"
 
-#: dashboards/project/vpn/forms.py:244
+#: dashboards/project/vpn/forms.py:246
 msgid "disabled"
 msgstr "निष्क्रिय"
 
-#: dashboards/project/vpn/forms.py:245
+#: dashboards/project/vpn/forms.py:247
 msgid "restart"
 msgstr "पुनःप्रारंभ करें"
 
-#: dashboards/project/vpn/forms.py:246
+#: dashboards/project/vpn/forms.py:248
 msgid "restart-by-peer"
 msgstr "पुनः आरंभ दर पीअर"
 
-#: dashboards/project/vpn/forms.py:249 dashboards/project/vpn/workflows.py:409
+#: dashboards/project/vpn/forms.py:251 dashboards/project/vpn/workflows.py:409
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:56
 msgid "Dead peer detection interval"
 msgstr "मृत पीअर का पता लगाने के अंतराल"
 
-#: dashboards/project/vpn/forms.py:250 dashboards/project/vpn/workflows.py:411
+#: dashboards/project/vpn/forms.py:252 dashboards/project/vpn/workflows.py:411
 msgid "Valid integer"
 msgstr "वैध पूर्णांक"
 
-#: dashboards/project/vpn/forms.py:253 dashboards/project/vpn/workflows.py:413
+#: dashboards/project/vpn/forms.py:255 dashboards/project/vpn/workflows.py:413
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:59
 msgid "Dead peer detection timeout"
 msgstr "मृत पीअर का पता लगाने के मध्यांतर"
 
-#: dashboards/project/vpn/forms.py:254 dashboards/project/vpn/workflows.py:415
+#: dashboards/project/vpn/forms.py:256 dashboards/project/vpn/workflows.py:415
 msgid "Valid integer greater than the DPD interval"
 msgstr "DPD के अंतराल से अधिक मान्य पूर्णांक"
 
-#: dashboards/project/vpn/forms.py:256 dashboards/project/vpn/workflows.py:416
+#: dashboards/project/vpn/forms.py:258 dashboards/project/vpn/workflows.py:416
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:50
 msgid "Initiator state"
 msgstr "प्रारंभक स्थिति "
 
-#: dashboards/project/vpn/forms.py:257
+#: dashboards/project/vpn/forms.py:259
 msgid "bi-directional"
 msgstr "द्विदैशिक"
 
-#: dashboards/project/vpn/forms.py:258
+#: dashboards/project/vpn/forms.py:260
 msgid "response-only"
 msgstr "प्रतिक्रिया केवल"
 
-#: dashboards/project/vpn/forms.py:285
+#: dashboards/project/vpn/forms.py:287
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
 msgstr "IPSec साइट कनेक्शन %s सफलतापूर्वक अद्यतन किया गया था."
 
-#: dashboards/project/vpn/forms.py:291
+#: dashboards/project/vpn/forms.py:293
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPSec साइट कनेक्शन %s अपडेट करने में विफल"
@@ -13310,70 +13325,70 @@ msgstr "IPSec नीति संपादित करें"
 msgid "Edit Connection"
 msgstr "कनेक्शन का संपादन करें"
 
-#: dashboards/project/vpn/tables.py:232
+#: dashboards/project/vpn/tables.py:233
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
 msgid "VPN Service"
 msgstr "VPN V"
 
-#: dashboards/project/vpn/tables.py:234
+#: dashboards/project/vpn/tables.py:235
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
 msgid "IKE Policy"
 msgstr " IKE नीति"
 
-#: dashboards/project/vpn/tables.py:236
+#: dashboards/project/vpn/tables.py:237
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
 msgid "IPSec Policy"
 msgstr "IPSec नीति "
 
-#: dashboards/project/vpn/tables.py:245 dashboards/project/vpn/tabs.py:27
+#: dashboards/project/vpn/tables.py:246 dashboards/project/vpn/tabs.py:27
 msgid "IPSec Site Connections"
 msgstr "IPSec साइट कनेक्शन"
 
-#: dashboards/project/vpn/tables.py:272 dashboards/project/vpn/tabs.py:47
+#: dashboards/project/vpn/tables.py:273 dashboards/project/vpn/tabs.py:48
 msgid "VPN Services"
 msgstr "VPN सेवाएँ"
 
-#: dashboards/project/vpn/tables.py:286 dashboards/project/vpn/tables.py:304
+#: dashboards/project/vpn/tables.py:287 dashboards/project/vpn/tables.py:305
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:290 dashboards/project/vpn/tabs.py:67
+#: dashboards/project/vpn/tables.py:291 dashboards/project/vpn/tabs.py:68
 msgid "IKE Policies"
 msgstr " IKE नीति"
 
-#: dashboards/project/vpn/tables.py:308 dashboards/project/vpn/tabs.py:87
+#: dashboards/project/vpn/tables.py:309 dashboards/project/vpn/tabs.py:88
 msgid "IPSec Policies"
 msgstr "IPSec नीति "
 
-#: dashboards/project/vpn/tabs.py:39
+#: dashboards/project/vpn/tabs.py:40
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "IPSec साइट कनेक्शन सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:59 dashboards/project/vpn/workflows.py:375
+#: dashboards/project/vpn/tabs.py:60 dashboards/project/vpn/workflows.py:375
 msgid "Unable to retrieve VPN Services list."
 msgstr "वीपीएन सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:79 dashboards/project/vpn/workflows.py:346
+#: dashboards/project/vpn/tabs.py:80 dashboards/project/vpn/workflows.py:346
 msgid "Unable to retrieve IKE Policies list."
 msgstr "IKE नीतियाँ सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:99 dashboards/project/vpn/workflows.py:361
+#: dashboards/project/vpn/tabs.py:100 dashboards/project/vpn/workflows.py:361
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "IPSec नीतियों सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/tabs.py:113
+#: dashboards/project/vpn/tabs.py:114
 msgid "IKE Policy Details"
 msgstr "IKE नीति विवरण"
 
-#: dashboards/project/vpn/tabs.py:128
+#: dashboards/project/vpn/tabs.py:129
 msgid "IPSec Policy Details"
 msgstr "IPSec नीति विवरण"
 
-#: dashboards/project/vpn/tabs.py:143
+#: dashboards/project/vpn/tabs.py:144
 msgid "VPN Service Details"
 msgstr "वीपीएन सेवा का विवरण"
 
-#: dashboards/project/vpn/tabs.py:158
+#: dashboards/project/vpn/tabs.py:159
 msgid "IPSec Site Connection Details"
 msgstr "IPSec साइट कनेक्शन विवरण"
 
@@ -13412,43 +13427,43 @@ msgstr "IPSec नीति को हटाने में असमर्थ: 
 msgid "Deleted IPSec Site Connection %s"
 msgstr "हटाए गए IPSec साइट कनेक्शन %s"
 
-#: dashboards/project/vpn/views.py:85
+#: dashboards/project/vpn/views.py:86
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "IPSec साइट कनेक्शन हटाने में असमर्थ: %s"
 
-#: dashboards/project/vpn/views.py:132
+#: dashboards/project/vpn/views.py:133
 msgid "Unable to retrieve IKE Policy details."
 msgstr "IKE नीति विवरण को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/views.py:164
+#: dashboards/project/vpn/views.py:165
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "IPSec नीति विवरण को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/views.py:199
+#: dashboards/project/vpn/views.py:200
 msgid "Unable to retrieve VPN Service details."
 msgstr "वीपीएन सेवा का विवरण प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/views.py:239
+#: dashboards/project/vpn/views.py:240
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "IPSec साइट कनेक्शन विवरण प्राप्त करने में असमर्थ."
 
-#: dashboards/project/vpn/views.py:282
+#: dashboards/project/vpn/views.py:283
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "वीपीएन सेवा का विवरण प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/vpn/views.py:311
+#: dashboards/project/vpn/views.py:312
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "IKE नीति विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/vpn/views.py:347
+#: dashboards/project/vpn/views.py:348
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "IPSec नीति विवरण को पुनः प्राप्त करने में असमर्थ. %s"
 
-#: dashboards/project/vpn/views.py:384
+#: dashboards/project/vpn/views.py:385
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "IPSec साइट कनेक्शन विवरण प्राप्त करने में असमर्थ. %s"
@@ -13664,11 +13679,6 @@ msgstr "परियोजनाओं प्राप्त नहीं कि
 msgid "Segment Type"
 msgstr "अनुभाग प्रकार"
 
-#: dashboards/router/nexus1000v/forms.py:49
-#: dashboards/router/nexus1000v/forms.py:69
-msgid "VLAN"
-msgstr "VLAN"
-
 #: dashboards/router/nexus1000v/forms.py:50
 msgid "Overlay"
 msgstr "ओवरले"
@@ -13680,7 +13690,7 @@ msgstr "धड़"
 #: dashboards/router/nexus1000v/forms.py:56
 #: dashboards/router/nexus1000v/forms.py:66
 #: dashboards/router/nexus1000v/forms.py:68
-#: dashboards/router/nexus1000v/forms.py:74
+#: dashboards/router/nexus1000v/forms.py:75
 #: dashboards/router/nexus1000v/tables.py:77
 msgid "Sub Type"
 msgstr "उप प्रकार"
@@ -13693,52 +13703,52 @@ msgstr "मूल VXLAN"
 msgid "Enhanced VXLAN"
 msgstr "बढ़ी हुई VXLAN"
 
-#: dashboards/router/nexus1000v/forms.py:76
-#: dashboards/router/nexus1000v/forms.py:82
-#: dashboards/router/nexus1000v/forms.py:84
+#: dashboards/router/nexus1000v/forms.py:77
+#: dashboards/router/nexus1000v/forms.py:83
+#: dashboards/router/nexus1000v/forms.py:85
 #: dashboards/router/nexus1000v/tables.py:79
 msgid "Segment Range"
 msgstr "अनुभाग रेंज"
 
-#: dashboards/router/nexus1000v/forms.py:85
+#: dashboards/router/nexus1000v/forms.py:86
 msgid "1-4093 for VLAN; 5000 and above for Overlay"
 msgstr ""
 
-#: dashboards/router/nexus1000v/forms.py:88
-#: dashboards/router/nexus1000v/forms.py:95
+#: dashboards/router/nexus1000v/forms.py:89
+#: dashboards/router/nexus1000v/forms.py:96
 #: dashboards/router/nexus1000v/tables.py:81
 msgid "Multicast IP Range"
 msgstr "मल्टीकास्ट आईपी रेंज"
 
-#: dashboards/router/nexus1000v/forms.py:96
+#: dashboards/router/nexus1000v/forms.py:97
 msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
 msgstr "मल्टीकास्ट IPv4 रेंज (जैसे 224.0.1.0-224.0.1.100)"
 
-#: dashboards/router/nexus1000v/forms.py:100
-#: dashboards/router/nexus1000v/forms.py:107
+#: dashboards/router/nexus1000v/forms.py:101
+#: dashboards/router/nexus1000v/forms.py:108
 msgid "Sub Type Value (Manual Input)"
 msgstr "उप प्रकार मान (मैनुअल इनपुट)"
 
-#: dashboards/router/nexus1000v/forms.py:109
+#: dashboards/router/nexus1000v/forms.py:110
 msgid "Enter parameter (e.g. GRE)"
 msgstr "पैरामीटर दर्ज करें (जैसे जीआरई)"
 
-#: dashboards/router/nexus1000v/forms.py:159
+#: dashboards/router/nexus1000v/forms.py:160
 #, python-format
 msgid "Network Profile %s was successfully created."
 msgstr "नेटवर्क प्रोफ़ाइल %s सफलतापूर्वक बनाया गया था."
 
-#: dashboards/router/nexus1000v/forms.py:166
+#: dashboards/router/nexus1000v/forms.py:167
 #, python-format
 msgid "Failed to create network profile %s"
 msgstr "%s नेटवर्क प्रोफाइल बनाने में विफल"
 
-#: dashboards/router/nexus1000v/forms.py:200
+#: dashboards/router/nexus1000v/forms.py:201
 #, python-format
 msgid "Network Profile %s was successfully updated."
 msgstr "नेटवर्क प्रोफ़ाइल %s सफलतापूर्वक अद्यतन किया गया था."
 
-#: dashboards/router/nexus1000v/forms.py:206
+#: dashboards/router/nexus1000v/forms.py:207
 #, python-format
 msgid "Failed to update network profile (%s)."
 msgstr "संजाल प्रोफ़ाइल (%s) अद्यतन करने में विफल."
@@ -13860,23 +13870,23 @@ msgstr "अद्यतन नेटवर्क प्रोफ़ाइल"
 msgid "Settings"
 msgstr "सेटिंग"
 
-#: dashboards/settings/password/forms.py:31
+#: dashboards/settings/password/forms.py:32
 msgid "Current password"
 msgstr "मौजूदा कूटशब्द"
 
-#: dashboards/settings/password/forms.py:33
+#: dashboards/settings/password/forms.py:35
 msgid "New password"
 msgstr "नया कूटशब्द"
 
-#: dashboards/settings/password/forms.py:38
+#: dashboards/settings/password/forms.py:41
 msgid "Confirm new password"
 msgstr "अपने नए कूटशब्द की पुष्टि करें"
 
-#: dashboards/settings/password/forms.py:67
+#: dashboards/settings/password/forms.py:70
 msgid "Unable to change password."
 msgstr "कूटशब्द को बदलने में असमर्थ."
 
-#: dashboards/settings/password/forms.py:70
+#: dashboards/settings/password/forms.py:73
 msgid "Changing password is not supported."
 msgstr "बदल रहा पासवर्ड समर्थित नहीं है."
 
