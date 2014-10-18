@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-16 22:36-0500\n"
+"POT-Creation-Date: 2014-10-17 15:04-0500\n"
 "PO-Revision-Date: 2014-10-16 11:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
@@ -69,205 +69,205 @@ msgstr "Wszystkie UDP"
 msgid "All ICMP"
 msgstr "Wszystkie ICMP"
 
-#: api/ceilometer.py:747
+#: api/ceilometer.py:745
 msgid "Unable to retrieve Ceilometer meterlist."
 msgstr "Nie można pobrać listy metryk Ceilometer."
 
-#: api/ceilometer.py:923
+#: api/ceilometer.py:921
 msgid "Duration of instance"
 msgstr "Czas trwania instancji"
 
-#: api/ceilometer.py:927
+#: api/ceilometer.py:925
 msgid "Duration of instance <type> (openstack types)"
 msgstr "Czas trwania instancji <type> (typy openstack)"
 
-#: api/ceilometer.py:932
+#: api/ceilometer.py:930
 msgid "Volume of RAM in MB"
 msgstr "Rozmiar RAM w MB"
 
-#: api/ceilometer.py:936
+#: api/ceilometer.py:934
 msgid "CPU time used"
 msgstr "Wykorzystany czas CPU"
 
-#: api/ceilometer.py:940
+#: api/ceilometer.py:938
 msgid "Average CPU utilization"
 msgstr "Średnie wykorzystanie CPU"
 
-#: api/ceilometer.py:944
+#: api/ceilometer.py:942
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "Liczba VCPU"
 
-#: api/ceilometer.py:948
+#: api/ceilometer.py:946
 msgid "Number of read requests"
 msgstr "Ilość żądań odczytu"
 
-#: api/ceilometer.py:952
+#: api/ceilometer.py:950
 msgid "Number of write requests"
 msgstr "Ilość żądań zapisu"
 
-#: api/ceilometer.py:956
+#: api/ceilometer.py:954
 msgid "Volume of reads in B"
 msgstr "Wolumen odczytów w bajtach"
 
-#: api/ceilometer.py:960
+#: api/ceilometer.py:958
 msgid "Volume of writes in B"
 msgstr "Wolumen zapisów w bajtach"
 
-#: api/ceilometer.py:964
+#: api/ceilometer.py:962
 msgid "Size of root disk in GB"
 msgstr "Rozmiar głównego dysku w GB"
 
-#: api/ceilometer.py:968
+#: api/ceilometer.py:966
 msgid "Size of ephemeral disk in GB"
 msgstr "Rozmiar ulotnego dysku w GB"
 
-#: api/ceilometer.py:973
+#: api/ceilometer.py:971
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "Ilość przychodzących bajtów na interfejsie sieciowym VM"
 
-#: api/ceilometer.py:978
+#: api/ceilometer.py:976
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "Ilość wychodzących bajtów z interfejsu sieciowego VM"
 
-#: api/ceilometer.py:983
+#: api/ceilometer.py:981
 msgid "Number of incoming packets for a VM interface"
 msgstr "Ilość przychodzących pakietów na interfejsie VM"
 
-#: api/ceilometer.py:988
+#: api/ceilometer.py:986
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Ilość wychodzących pakietów z interfejsu VM"
 
-#: api/ceilometer.py:1000
+#: api/ceilometer.py:998
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Czas działania instancji typu %s (odmiana OpenStack)"
 
-#: api/ceilometer.py:1020
+#: api/ceilometer.py:1018
 msgid "Duration of network"
 msgstr "Czas trwania sieci"
 
-#: api/ceilometer.py:1024
+#: api/ceilometer.py:1022
 msgid "Creation requests for this network"
 msgstr "Ilość żądań utworzenia dla tej sieci"
 
-#: api/ceilometer.py:1028
+#: api/ceilometer.py:1026
 msgid "Update requests for this network"
 msgstr "Ilość żądań aktualizacji dla tej sieci"
 
-#: api/ceilometer.py:1032
+#: api/ceilometer.py:1030
 msgid "Duration of subnet"
 msgstr "Czas trwania podsieci"
 
-#: api/ceilometer.py:1036
+#: api/ceilometer.py:1034
 msgid "Creation requests for this subnet"
 msgstr "Ilość żądań utworzenia dla tej podsieci"
 
-#: api/ceilometer.py:1040
+#: api/ceilometer.py:1038
 msgid "Update requests for this subnet"
 msgstr "Ilość żądań aktualizacji dla tej podsieci"
 
-#: api/ceilometer.py:1044
+#: api/ceilometer.py:1042
 msgid "Duration of port"
 msgstr "Czas trwania portu"
 
-#: api/ceilometer.py:1048
+#: api/ceilometer.py:1046
 msgid "Creation requests for this port"
 msgstr "Żądań utworzenia dla tego portu"
 
-#: api/ceilometer.py:1052
+#: api/ceilometer.py:1050
 msgid "Update requests for this port"
 msgstr "Żądań aktualizacji dla tego portu"
 
-#: api/ceilometer.py:1056
+#: api/ceilometer.py:1054
 msgid "Duration of router"
 msgstr "Czas trwania routera"
 
-#: api/ceilometer.py:1060
+#: api/ceilometer.py:1058
 msgid "Creation requests for this router"
 msgstr "Ilość żądań utworzenia dla tego routera"
 
-#: api/ceilometer.py:1064
+#: api/ceilometer.py:1062
 msgid "Update requests for this router"
 msgstr "Ilość żądań aktualizacji dla tego routera"
 
-#: api/ceilometer.py:1068
+#: api/ceilometer.py:1066
 msgid "Duration of floating ip"
 msgstr "Czas trwania pływającego adresu IP"
 
-#: api/ceilometer.py:1072
+#: api/ceilometer.py:1070
 msgid "Creation requests for this floating ip"
 msgstr "Ilość żądań utworzenia dla tego pływającego adresu IP"
 
-#: api/ceilometer.py:1076
+#: api/ceilometer.py:1074
 msgid "Update requests for this floating ip"
 msgstr "Ilość żądań aktualizacji dla tego pływającego adresu IP"
 
-#: api/ceilometer.py:1093
+#: api/ceilometer.py:1091
 msgid "Image existence check"
 msgstr "Sprawdzenie istnienia obrazu"
 
-#: api/ceilometer.py:1097
+#: api/ceilometer.py:1095
 msgid "Uploaded image size"
 msgstr "Rozmiar przesłanych obrazów"
 
-#: api/ceilometer.py:1101
+#: api/ceilometer.py:1099
 msgid "Number of update on the image"
 msgstr "Ilość aktualizacji tego obrazu"
 
-#: api/ceilometer.py:1105
+#: api/ceilometer.py:1103
 msgid "Number of upload of the image"
 msgstr "Ilość przesłań tego obrazu"
 
-#: api/ceilometer.py:1109
+#: api/ceilometer.py:1107
 msgid "Number of delete on the image"
 msgstr "Ilość usunięć tego obrazu"
 
-#: api/ceilometer.py:1113
+#: api/ceilometer.py:1111
 msgid "Image is downloaded"
 msgstr "Obraz został pobrany"
 
-#: api/ceilometer.py:1117
+#: api/ceilometer.py:1115
 msgid "Image is served out"
 msgstr "Obraz jest udostępniony"
 
-#: api/ceilometer.py:1134
+#: api/ceilometer.py:1132
 msgid "Duration of volume"
 msgstr "Czas trwania wolumenu"
 
-#: api/ceilometer.py:1138
+#: api/ceilometer.py:1136
 msgid "Size of volume"
 msgstr "Rozmiar wolumenu"
 
-#: api/ceilometer.py:1155
+#: api/ceilometer.py:1153
 msgid "Number of objects"
 msgstr "Ilość obiektów"
 
-#: api/ceilometer.py:1159
+#: api/ceilometer.py:1157
 msgid "Total size of stored objects"
 msgstr "Łączny rozmiar przechowywanych obiektów"
 
-#: api/ceilometer.py:1163
+#: api/ceilometer.py:1161
 msgid "Number of containers"
 msgstr "Ilość kontenerów"
 
-#: api/ceilometer.py:1167
+#: api/ceilometer.py:1165
 msgid "Number of incoming bytes"
 msgstr "Ilość przychodzących bajtów"
 
-#: api/ceilometer.py:1171
+#: api/ceilometer.py:1169
 msgid "Number of outgoing bytes"
 msgstr "Ilość wychodzących bajtów"
 
-#: api/ceilometer.py:1175
+#: api/ceilometer.py:1173
 msgid "Number of API requests against swift"
 msgstr "Ilość żądań API do swift"
 
-#: api/ceilometer.py:1192
+#: api/ceilometer.py:1190
 msgid "Amount of energy"
 msgstr "Ilość energii"
 
-#: api/ceilometer.py:1196
+#: api/ceilometer.py:1194
 msgid "Power consumption"
 msgstr "Zużycie energii"
 
@@ -284,7 +284,7 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "oba"
 
-#: api/cinder.py:212
+#: api/cinder.py:210
 msgid "Unknown instance"
 msgstr "Nieznana instancja"
 
@@ -293,16 +293,16 @@ msgstr "Nieznana instancja"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (silnik %(backend)s)"
 
-#: api/keystone.py:326
+#: api/keystone.py:325
 msgid "Identity service does not allow editing user data."
 msgstr "Usługa tożsamości nie pozwala na edycję danych użytkownika."
 
-#: api/keystone.py:351
+#: api/keystone.py:350
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Użytkownik %s nie posiada zdefiniowanych ról dla tego projektu."
 
-#: api/keystone.py:363 api/keystone.py:379
+#: api/keystone.py:362 api/keystone.py:378
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "Hasło zmienione. Proszę się zalogować ponownie aby kontynuować."
@@ -312,17 +312,17 @@ msgstr "Hasło zmienione. Proszę się zalogować ponownie aby kontynuować."
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "POZWÓL %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:853
+#: api/neutron.py:849
 msgid "Unable to connect to Neutron."
 msgstr "Nie można połączyć z Neutron."
 
-#: api/neutron.py:890
+#: api/neutron.py:886
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Nie można przetworzyć adresu IP %s."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1029
+#: api/neutron.py:1025
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -330,14 +330,14 @@ msgid ""
 msgstr "Żądana cecha „%(feature)s” nie jest znana. Należy upewnić się, że podano cechę zdefiniowaną w FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1047
+#: api/neutron.py:1043
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "Parametr „operation” dla get_feature_permission „%(feature)s” jest nieprawidłowy. Powinien być jednym z %(allowed)s"
 
-#: api/neutron.py:1062
+#: api/neutron.py:1058
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Nie można sprawdzić Neutron, rozszerzenie „%s” jest niewspierane"
@@ -372,17 +372,17 @@ msgstr "Nie można zmodyfikować %(num_groups_to_modify)d  grup zabezpieczeń in
 msgid "Failed to modify %d instance security groups"
 msgstr "Nie można zmodyfikować %d grup zabezpieczeń instancji."
 
-#: api/nova.py:752
+#: api/nova.py:750
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Nazwa: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:757
+#: api/nova.py:755
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Nie można ewakuować instancji: %s"
 
-#: api/swift.py:205
+#: api/swift.py:203
 msgid "The container cannot be deleted since it's not empty."
 msgstr "Kontener nie może zostać usunięty, ponieważ nie jest pusty."
 
@@ -422,7 +422,7 @@ msgstr "Administracja"
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:193
-#: dashboards/identity/projects/workflows.py:125
+#: dashboards/identity/projects/workflows.py:141
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:132
@@ -748,7 +748,7 @@ msgstr "Dodaj/usuń hosty z agregatu"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:512
+#: dashboards/identity/projects/workflows.py:528
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -1884,8 +1884,8 @@ msgstr "Informacje systemowe"
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:203
 #: dashboards/identity/projects/tables.py:205
-#: dashboards/identity/projects/workflows.py:131
-#: dashboards/identity/projects/workflows.py:491
+#: dashboards/identity/projects/workflows.py:147
+#: dashboards/identity/projects/workflows.py:507
 #: dashboards/identity/users/tables.py:178
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2167,7 +2167,7 @@ msgstr "Miernik"
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
 #: dashboards/identity/projects/tables.py:197
-#: dashboards/identity/projects/workflows.py:129
+#: dashboards/identity/projects/workflows.py:145
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:133
@@ -4071,7 +4071,7 @@ msgid "Domain Context cleared."
 msgstr "Wyczyszczono kontekst domeny."
 
 #: dashboards/identity/domains/tables.py:201
-#: dashboards/identity/projects/workflows.py:119
+#: dashboards/identity/projects/workflows.py:135
 #: dashboards/identity/users/forms.py:75
 #: dashboards/identity/users/forms.py:154
 msgid "Domain ID"
@@ -4106,8 +4106,8 @@ msgstr "Domeny zapewniają separację między użytkownikami oraz infrastruktur�
 
 #: dashboards/identity/domains/workflows.py:72
 #: dashboards/identity/domains/workflows.py:171
-#: dashboards/identity/projects/workflows.py:179
-#: dashboards/identity/projects/workflows.py:277
+#: dashboards/identity/projects/workflows.py:195
+#: dashboards/identity/projects/workflows.py:293
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Nie można znaleźć domyślnej roli „%s” w Keystone"
@@ -4117,7 +4117,7 @@ msgid "Unable to find default role."
 msgstr "Nie znaleziono domyślnej roli."
 
 #: dashboards/identity/domains/workflows.py:89
-#: dashboards/identity/projects/workflows.py:249
+#: dashboards/identity/projects/workflows.py:265
 #: dashboards/identity/users/views.py:56
 msgid "Unable to retrieve user list."
 msgstr "Nie można pobrać listy użytkowników."
@@ -4125,7 +4125,7 @@ msgstr "Nie można pobrać listy użytkowników."
 #: dashboards/identity/domains/workflows.py:98
 #: dashboards/identity/domains/workflows.py:145
 #: dashboards/identity/domains/workflows.py:242
-#: dashboards/identity/projects/workflows.py:347
+#: dashboards/identity/projects/workflows.py:363
 msgid "Unable to retrieve role list."
 msgstr "Nie można pobrać listy ról."
 
@@ -4139,22 +4139,22 @@ msgid "Domain Members"
 msgstr "Członkowie domeny"
 
 #: dashboards/identity/domains/workflows.py:133
-#: dashboards/identity/projects/workflows.py:238
+#: dashboards/identity/projects/workflows.py:254
 msgid "All Users"
 msgstr "Wszyscy użytkownicy"
 
 #: dashboards/identity/domains/workflows.py:135
-#: dashboards/identity/projects/workflows.py:240
+#: dashboards/identity/projects/workflows.py:256
 msgid "No users found."
 msgstr "Nie znaleziono użytkowników"
 
 #: dashboards/identity/domains/workflows.py:136
-#: dashboards/identity/projects/workflows.py:241
+#: dashboards/identity/projects/workflows.py:257
 msgid "No users."
 msgstr "Brak użytkowników."
 
 #: dashboards/identity/domains/workflows.py:161
-#: dashboards/identity/projects/workflows.py:263
+#: dashboards/identity/projects/workflows.py:279
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "Nie można pobrać listy grup. Proszę spróbować później."
 
@@ -4164,17 +4164,17 @@ msgid "Domain Groups"
 msgstr "Grupy domenowe"
 
 #: dashboards/identity/domains/workflows.py:230
-#: dashboards/identity/projects/workflows.py:336
+#: dashboards/identity/projects/workflows.py:352
 msgid "All Groups"
 msgstr "Wszystkie grupy"
 
 #: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:338
+#: dashboards/identity/projects/workflows.py:354
 msgid "No groups found."
 msgstr "Nie znaleziono grup."
 
 #: dashboards/identity/domains/workflows.py:233
-#: dashboards/identity/projects/workflows.py:339
+#: dashboards/identity/projects/workflows.py:355
 msgid "No groups."
 msgstr "Brak grup."
 
@@ -4410,13 +4410,13 @@ msgid "View Usage"
 msgstr "Wyświetl wykorzystanie"
 
 #: dashboards/identity/projects/tables.py:75
-#: dashboards/identity/projects/workflows.py:358
-#: dashboards/identity/projects/workflows.py:359
+#: dashboards/identity/projects/workflows.py:374
+#: dashboards/identity/projects/workflows.py:375
 msgid "Create Project"
 msgstr "Utwórz projekt"
 
 #: dashboards/identity/projects/tables.py:87
-#: dashboards/identity/projects/workflows.py:511
+#: dashboards/identity/projects/workflows.py:527
 msgid "Edit Project"
 msgstr "Edytuj projekt"
 
@@ -4469,123 +4469,125 @@ msgstr "Nie można pobrać szczegółów projektu."
 msgid "Injected File Content (Bytes)"
 msgstr "Wstrzyknięta zawartość pliku (bajty)"
 
-#: dashboards/identity/projects/workflows.py:87
-msgid "Quota"
-msgstr "Limit"
-
-#: dashboards/identity/projects/workflows.py:89
-msgid "Set maximum quotas for the project."
-msgstr "Ustawienie maksymalnych limitów dla projektu."
-
-#: dashboards/identity/projects/workflows.py:99
+#: dashboards/identity/projects/workflows.py:97
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s użyto"
 
-#: dashboards/identity/projects/workflows.py:104
+#: dashboards/identity/projects/workflows.py:102
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "Wartości limitów nie mogą być mniejsze niż obecne wartości zużycia: %s."
 
-#: dashboards/identity/projects/workflows.py:122
+#: dashboards/identity/projects/workflows.py:109
+#: dashboards/identity/projects/workflows.py:116
+msgid "Quota"
+msgstr "Limit"
+
+#: dashboards/identity/projects/workflows.py:111
+#: dashboards/identity/projects/workflows.py:118
+msgid "Set maximum quotas for the project."
+msgstr "Ustawienie maksymalnych limitów dla projektu."
+
+#: dashboards/identity/projects/workflows.py:138
 #: dashboards/identity/users/forms.py:78
 #: dashboards/identity/users/forms.py:157
 msgid "Domain Name"
 msgstr "Nazwa domeny"
 
-#: dashboards/identity/projects/workflows.py:146
-#: dashboards/identity/projects/workflows.py:494
+#: dashboards/identity/projects/workflows.py:162
+#: dashboards/identity/projects/workflows.py:510
 msgid "Project Information"
 msgstr "Informacje o projekcie"
 
-#: dashboards/identity/projects/workflows.py:147
+#: dashboards/identity/projects/workflows.py:163
 msgid "Create a project to organize users."
 msgstr "Utworzenie projektu pozwala na uporządkowanie użytkowników"
 
-#: dashboards/identity/projects/workflows.py:165
+#: dashboards/identity/projects/workflows.py:181
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "Nie można pobrać listy użytkowników. Proszę spróbować później."
 
-#: dashboards/identity/projects/workflows.py:232
-#: dashboards/identity/projects/workflows.py:239
+#: dashboards/identity/projects/workflows.py:248
+#: dashboards/identity/projects/workflows.py:255
 msgid "Project Members"
 msgstr "Członkowie projektu"
 
-#: dashboards/identity/projects/workflows.py:330
-#: dashboards/identity/projects/workflows.py:337
+#: dashboards/identity/projects/workflows.py:346
+#: dashboards/identity/projects/workflows.py:353
 msgid "Project Groups"
 msgstr "Grupy w projekcie"
 
-#: dashboards/identity/projects/workflows.py:360
+#: dashboards/identity/projects/workflows.py:376
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Utworzono nowy projekt „%s”."
 
-#: dashboards/identity/projects/workflows.py:361
+#: dashboards/identity/projects/workflows.py:377
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "Nie można utworzyć projektu „%s”."
 
-#: dashboards/identity/projects/workflows.py:423
+#: dashboards/identity/projects/workflows.py:439
 msgid ", add project groups"
 msgstr ", dodać grup projektów"
 
-#: dashboards/identity/projects/workflows.py:427
+#: dashboards/identity/projects/workflows.py:443
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "Nie można dodać %(users_to_add)s członków projektu %(group_msg)s oraz ustawić limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:458
+#: dashboards/identity/projects/workflows.py:474
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "Nie można dodać %s grup projektów oraz zaktualizować limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:486
+#: dashboards/identity/projects/workflows.py:502
 msgid "Unable to set project quotas."
 msgstr "Nie można ustawić limitów dla projektu."
 
-#: dashboards/identity/projects/workflows.py:496
+#: dashboards/identity/projects/workflows.py:512
 msgid "Edit the project details."
 msgstr "Edycja szczegółów projektu."
 
-#: dashboards/identity/projects/workflows.py:513
+#: dashboards/identity/projects/workflows.py:529
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Zmodyfikowano projekt „%s”."
 
-#: dashboards/identity/projects/workflows.py:514
+#: dashboards/identity/projects/workflows.py:530
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Nie można zmodyfikować projektu „%s”."
 
-#: dashboards/identity/projects/workflows.py:609
+#: dashboards/identity/projects/workflows.py:625
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "Nie można odwołać administracyjnych praw dostępu w projekcie, do którego jest się obecnie zalogowanym. Należy przełączyć się na innych projekt z uprawnieniami administracyjnymi lub ręcznie usunąć rolę administracyjną używając linii poleceń."
 
-#: dashboards/identity/projects/workflows.py:644
+#: dashboards/identity/projects/workflows.py:660
 msgid ", update project groups"
 msgstr ", zaktualizować grup projektów"
 
-#: dashboards/identity/projects/workflows.py:648
+#: dashboards/identity/projects/workflows.py:664
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "Nie można zmodyfikować %(users_to_modify)s członków projektu%(group_msg)s i zaktualizować limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:721
+#: dashboards/identity/projects/workflows.py:737
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "Nie można zmodyfikować %s członków projektu, zaktualizować grup projektów oraz limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:754
+#: dashboards/identity/projects/workflows.py:770
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -11654,12 +11656,12 @@ msgstr "Przekroczono limity dla zasobu router."
 msgid "Failed to create router \"%s\"."
 msgstr "Nie można utworzyć routera „%s”."
 
-#: dashboards/project/routers/forms.py:129
+#: dashboards/project/routers/forms.py:132
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Zaktualizowano router %s."
 
-#: dashboards/project/routers/forms.py:134
+#: dashboards/project/routers/forms.py:137
 #, python-format
 msgid "Failed to update router %s"
 msgstr "Nie można zaktualizować routera %s"
@@ -14151,7 +14153,7 @@ msgstr "Błędny format daty: ustawiono dzień dzisiejszy jako domyślny."
 msgid "Unable to retrieve network quota information."
 msgstr "Nie można pobrać informacji o limitach sieci."
 
-#: usage/base.py:186 usage/quotas.py:337
+#: usage/base.py:186 usage/quotas.py:354
 msgid "Unable to retrieve volume limit information."
 msgstr "Nie można pobrać informacji o limitach wolumenów."
 
@@ -14178,7 +14180,7 @@ msgstr "Nieprawidłowy przedział czasowy. Próba pobrania danych z przyszłośc
 msgid "Injected File Path Bytes"
 msgstr "Bajtów wstrzykniętych plików"
 
-#: usage/quotas.py:323
+#: usage/quotas.py:340
 msgid "Unable to retrieve compute limit information."
 msgstr "Nie można pobrać informacji o limitach usługi obliczeniowej."
 

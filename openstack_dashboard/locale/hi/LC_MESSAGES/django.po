@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-16 22:36-0500\n"
+"POT-Creation-Date: 2014-10-17 15:04-0500\n"
 "PO-Revision-Date: 2014-10-16 11:04+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
@@ -71,205 +71,205 @@ msgstr "सभी UDP"
 msgid "All ICMP"
 msgstr "सभी ICMP"
 
-#: api/ceilometer.py:747
+#: api/ceilometer.py:745
 msgid "Unable to retrieve Ceilometer meterlist."
 msgstr "सिलोमीटर सूचकांक को पुनः प्राप्त करने में असमर्थ. "
 
-#: api/ceilometer.py:923
+#: api/ceilometer.py:921
 msgid "Duration of instance"
 msgstr "इंस्टेंस की अवधि"
 
-#: api/ceilometer.py:927
+#: api/ceilometer.py:925
 msgid "Duration of instance <type> (openstack types)"
 msgstr "इंस्टेंस की अवधि <type> (ओपेनस्टैक प्रकार)"
 
-#: api/ceilometer.py:932
+#: api/ceilometer.py:930
 msgid "Volume of RAM in MB"
 msgstr "रैम का आयतन MB में "
 
-#: api/ceilometer.py:936
+#: api/ceilometer.py:934
 msgid "CPU time used"
 msgstr "उपयोग किया गया CPU समय"
 
-#: api/ceilometer.py:940
+#: api/ceilometer.py:938
 msgid "Average CPU utilization"
 msgstr "औसत CPU उपयोग"
 
-#: api/ceilometer.py:944
+#: api/ceilometer.py:942
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "VCPUs की संख्या"
 
-#: api/ceilometer.py:948
+#: api/ceilometer.py:946
 msgid "Number of read requests"
 msgstr "पाठ अनुरोधों की संख्या"
 
-#: api/ceilometer.py:952
+#: api/ceilometer.py:950
 msgid "Number of write requests"
 msgstr "लेखन अनुरोधों की संख्या"
 
-#: api/ceilometer.py:956
+#: api/ceilometer.py:954
 msgid "Volume of reads in B"
 msgstr "B में पाठ की मात्रा "
 
-#: api/ceilometer.py:960
+#: api/ceilometer.py:958
 msgid "Volume of writes in B"
 msgstr "B में लेखन की मात्रा"
 
-#: api/ceilometer.py:964
+#: api/ceilometer.py:962
 msgid "Size of root disk in GB"
 msgstr "मुख्य डिस्क का आकार मे.बा. में"
 
-#: api/ceilometer.py:968
+#: api/ceilometer.py:966
 msgid "Size of ephemeral disk in GB"
 msgstr "अस्थायी डिस्क का आकार मे.बा. में"
 
-#: api/ceilometer.py:973
+#: api/ceilometer.py:971
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "वीएम अंतरफलक के लिए संजाल पर आने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:978
+#: api/ceilometer.py:976
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "वीएम अंतरफलक के लिए संजाल पर जाने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:983
+#: api/ceilometer.py:981
 msgid "Number of incoming packets for a VM interface"
 msgstr "वीएम अंतरफलक के लिए आने वाले पैकेट की संख्या"
 
-#: api/ceilometer.py:988
+#: api/ceilometer.py:986
 msgid "Number of outgoing packets for a VM interface"
 msgstr "वीएम अंतरफलक के लिए जाने वाले पैकेट की संख्या"
 
-#: api/ceilometer.py:1000
+#: api/ceilometer.py:998
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "इंस्टेंस प्रकार की अवधि %s (ओपेनस्टैक फ्लेवर)"
 
-#: api/ceilometer.py:1020
+#: api/ceilometer.py:1018
 msgid "Duration of network"
 msgstr "संजाल की अवधि"
 
-#: api/ceilometer.py:1024
+#: api/ceilometer.py:1022
 msgid "Creation requests for this network"
 msgstr "इस संजाल के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1028
+#: api/ceilometer.py:1026
 msgid "Update requests for this network"
 msgstr "इस संजाल के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1032
+#: api/ceilometer.py:1030
 msgid "Duration of subnet"
 msgstr "सबनेट की अवधि "
 
-#: api/ceilometer.py:1036
+#: api/ceilometer.py:1034
 msgid "Creation requests for this subnet"
 msgstr "इस सबनेट के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1040
+#: api/ceilometer.py:1038
 msgid "Update requests for this subnet"
 msgstr "इस सबनेट के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1044
+#: api/ceilometer.py:1042
 msgid "Duration of port"
 msgstr "पोर्ट की अवधि"
 
-#: api/ceilometer.py:1048
+#: api/ceilometer.py:1046
 msgid "Creation requests for this port"
 msgstr "इस पोर्ट के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1052
+#: api/ceilometer.py:1050
 msgid "Update requests for this port"
 msgstr "इस पोर्ट के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1056
+#: api/ceilometer.py:1054
 msgid "Duration of router"
 msgstr "रूटर की अवधि"
 
-#: api/ceilometer.py:1060
+#: api/ceilometer.py:1058
 msgid "Creation requests for this router"
 msgstr "इस रूटर के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1064
+#: api/ceilometer.py:1062
 msgid "Update requests for this router"
 msgstr "इस रूटर के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1068
+#: api/ceilometer.py:1066
 msgid "Duration of floating ip"
 msgstr " उत्प्लावित ip की अवधि"
 
-#: api/ceilometer.py:1072
+#: api/ceilometer.py:1070
 msgid "Creation requests for this floating ip"
 msgstr "इस  उत्प्लावित ip के लिए निर्माण अनुरोध"
 
-#: api/ceilometer.py:1076
+#: api/ceilometer.py:1074
 msgid "Update requests for this floating ip"
 msgstr "इस उत्प्लावित ip के लिए अद्यतन अनुरोध"
 
-#: api/ceilometer.py:1093
+#: api/ceilometer.py:1091
 msgid "Image existence check"
 msgstr "बिंब की मौजूदगी जाँच"
 
-#: api/ceilometer.py:1097
+#: api/ceilometer.py:1095
 msgid "Uploaded image size"
 msgstr "अपलोड किये बिंब का आकर"
 
-#: api/ceilometer.py:1101
+#: api/ceilometer.py:1099
 msgid "Number of update on the image"
 msgstr "बिंब पर अद्यतन की संख्या "
 
-#: api/ceilometer.py:1105
+#: api/ceilometer.py:1103
 msgid "Number of upload of the image"
 msgstr "बिंब पर अपलोड की संख्या "
 
-#: api/ceilometer.py:1109
+#: api/ceilometer.py:1107
 msgid "Number of delete on the image"
 msgstr "बिंब पर मिटाव की संख्या "
 
-#: api/ceilometer.py:1113
+#: api/ceilometer.py:1111
 msgid "Image is downloaded"
 msgstr "बिंब डाउनलोड हो गया"
 
-#: api/ceilometer.py:1117
+#: api/ceilometer.py:1115
 msgid "Image is served out"
 msgstr "बिंब पूर्ण हो गया"
 
-#: api/ceilometer.py:1134
+#: api/ceilometer.py:1132
 msgid "Duration of volume"
 msgstr "खंड की अवधि"
 
-#: api/ceilometer.py:1138
+#: api/ceilometer.py:1136
 msgid "Size of volume"
 msgstr "खंड का आकार "
 
-#: api/ceilometer.py:1155
+#: api/ceilometer.py:1153
 msgid "Number of objects"
 msgstr "वस्तुओं की संख्या"
 
-#: api/ceilometer.py:1159
+#: api/ceilometer.py:1157
 msgid "Total size of stored objects"
 msgstr "भंडारित वस्तुओं का कुल आकार"
 
-#: api/ceilometer.py:1163
+#: api/ceilometer.py:1161
 msgid "Number of containers"
 msgstr "कंटेनरों की संख्या"
 
-#: api/ceilometer.py:1167
+#: api/ceilometer.py:1165
 msgid "Number of incoming bytes"
 msgstr "आने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:1171
+#: api/ceilometer.py:1169
 msgid "Number of outgoing bytes"
 msgstr "जाने वाले बाइट की संख्या"
 
-#: api/ceilometer.py:1175
+#: api/ceilometer.py:1173
 msgid "Number of API requests against swift"
 msgstr "स्विफ्ट के खिलाफ एपीआई अनुरोधों की संख्या"
 
-#: api/ceilometer.py:1192
+#: api/ceilometer.py:1190
 msgid "Amount of energy"
 msgstr "ऊर्जा की मात्रा"
 
-#: api/ceilometer.py:1196
+#: api/ceilometer.py:1194
 msgid "Power consumption"
 msgstr "ऊर्जा खपत"
 
@@ -286,7 +286,7 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "दोनों"
 
-#: api/cinder.py:212
+#: api/cinder.py:210
 msgid "Unknown instance"
 msgstr "अज्ञात इंस्टेंस"
 
@@ -295,16 +295,16 @@ msgstr "अज्ञात इंस्टेंस"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:326
+#: api/keystone.py:325
 msgid "Identity service does not allow editing user data."
 msgstr "पहचान सेवा उपयोगकर्ता डेटा का संपादन की अनुमति नहीं है."
 
-#: api/keystone.py:351
+#: api/keystone.py:350
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr " इस परियोजना के लिए उपयोगकर्ता %s का कोई परिभाषित भूमिका नहीं है."
 
-#: api/keystone.py:363 api/keystone.py:379
+#: api/keystone.py:362 api/keystone.py:378
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "कूटशब्द बदल गया. जारी रखने के लिए फिर से लॉग इन करें."
@@ -314,17 +314,17 @@ msgstr "कूटशब्द बदल गया. जारी रखने क
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "अनुमति दें %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:853
+#: api/neutron.py:849
 msgid "Unable to connect to Neutron."
 msgstr "न्यूट्रॉन से जुड़ नहीं सका."
 
-#: api/neutron.py:890
+#: api/neutron.py:886
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP पता %s के विश्लेषण में असमर्थ"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1029
+#: api/neutron.py:1025
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -332,14 +332,14 @@ msgid ""
 msgstr "अनुरोधित सुविधा  '%(feature)s' अज्ञात है. कृपया सुनिश्चित करें कि FEATURE_MAP में परिभाषित सुविधा निर्दिष्ट हैं "
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1047
+#: api/neutron.py:1043
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_feature_permission '%(feature)s' के लिए 'संचालन' पैरामीटर अवैध हैं.  यह %(allowed)s में से एक होना चाहिए."
 
-#: api/neutron.py:1062
+#: api/neutron.py:1058
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "समर्थित Neutron '%s' एक्सटेंशन की जांच करने में विफल"
@@ -374,17 +374,17 @@ msgstr "%(num_groups_to_modify)d इंस्टेंस सुरक्षा 
 msgid "Failed to modify %d instance security groups"
 msgstr "इंस्टेंस सुरक्षा समूहों %d को संशोधित करने में विफल"
 
-#: api/nova.py:752
+#: api/nova.py:750
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "नाम: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:757
+#: api/nova.py:755
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "इंस्टेंस को खाली करने में असफल: %s"
 
-#: api/swift.py:205
+#: api/swift.py:203
 msgid "The container cannot be deleted since it's not empty."
 msgstr "कंटेनर खाली नहीं होने के कारण नष्ट नहीं किया जा सकता है."
 
@@ -424,7 +424,7 @@ msgstr "प्रशासक"
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:193
-#: dashboards/identity/projects/workflows.py:125
+#: dashboards/identity/projects/workflows.py:141
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:132
@@ -748,7 +748,7 @@ msgstr "सकल से होस्ट जोड़ें / हटाये"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:512
+#: dashboards/identity/projects/workflows.py:528
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -1880,8 +1880,8 @@ msgstr "तंत्र जानकारी"
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:203
 #: dashboards/identity/projects/tables.py:205
-#: dashboards/identity/projects/workflows.py:131
-#: dashboards/identity/projects/workflows.py:491
+#: dashboards/identity/projects/workflows.py:147
+#: dashboards/identity/projects/workflows.py:507
 #: dashboards/identity/users/tables.py:178
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2161,7 +2161,7 @@ msgstr "मीटर"
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
 #: dashboards/identity/projects/tables.py:197
-#: dashboards/identity/projects/workflows.py:129
+#: dashboards/identity/projects/workflows.py:145
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:133
@@ -4049,7 +4049,7 @@ msgid "Domain Context cleared."
 msgstr "डोमेन संदर्भ साफ किया."
 
 #: dashboards/identity/domains/tables.py:201
-#: dashboards/identity/projects/workflows.py:119
+#: dashboards/identity/projects/workflows.py:135
 #: dashboards/identity/users/forms.py:75
 #: dashboards/identity/users/forms.py:154
 msgid "Domain ID"
@@ -4084,8 +4084,8 @@ msgstr ""
 
 #: dashboards/identity/domains/workflows.py:72
 #: dashboards/identity/domains/workflows.py:171
-#: dashboards/identity/projects/workflows.py:179
-#: dashboards/identity/projects/workflows.py:277
+#: dashboards/identity/projects/workflows.py:195
+#: dashboards/identity/projects/workflows.py:293
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "कीस्टोन में डिफ़ॉल्ट भूमिका \"%s\" नहीं मिल सका"
@@ -4095,7 +4095,7 @@ msgid "Unable to find default role."
 msgstr "तयशुदा भूमिका ढूँढ़ने में असमर्थ."
 
 #: dashboards/identity/domains/workflows.py:89
-#: dashboards/identity/projects/workflows.py:249
+#: dashboards/identity/projects/workflows.py:265
 #: dashboards/identity/users/views.py:56
 msgid "Unable to retrieve user list."
 msgstr " उपयोगकर्ता सूची को प्राप्त करने में असमर्थ. "
@@ -4103,7 +4103,7 @@ msgstr " उपयोगकर्ता सूची को प्राप्�
 #: dashboards/identity/domains/workflows.py:98
 #: dashboards/identity/domains/workflows.py:145
 #: dashboards/identity/domains/workflows.py:242
-#: dashboards/identity/projects/workflows.py:347
+#: dashboards/identity/projects/workflows.py:363
 msgid "Unable to retrieve role list."
 msgstr "भूमिका सूची को प्राप्त करने में असमर्थ."
 
@@ -4117,22 +4117,22 @@ msgid "Domain Members"
 msgstr "डोमेन सदस्य"
 
 #: dashboards/identity/domains/workflows.py:133
-#: dashboards/identity/projects/workflows.py:238
+#: dashboards/identity/projects/workflows.py:254
 msgid "All Users"
 msgstr " सभी उपयोक्ता"
 
 #: dashboards/identity/domains/workflows.py:135
-#: dashboards/identity/projects/workflows.py:240
+#: dashboards/identity/projects/workflows.py:256
 msgid "No users found."
 msgstr "कोई उपयोगकर्ता नहीं मिला."
 
 #: dashboards/identity/domains/workflows.py:136
-#: dashboards/identity/projects/workflows.py:241
+#: dashboards/identity/projects/workflows.py:257
 msgid "No users."
 msgstr "कोई उपयोक्ता नही."
 
 #: dashboards/identity/domains/workflows.py:161
-#: dashboards/identity/projects/workflows.py:263
+#: dashboards/identity/projects/workflows.py:279
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "समूह सूची को प्राप्त करने में असमर्थ. बाद में पुन: प्रयास करें."
 
@@ -4142,17 +4142,17 @@ msgid "Domain Groups"
 msgstr "डोमेन समूह"
 
 #: dashboards/identity/domains/workflows.py:230
-#: dashboards/identity/projects/workflows.py:336
+#: dashboards/identity/projects/workflows.py:352
 msgid "All Groups"
 msgstr "सभी समूह"
 
 #: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:338
+#: dashboards/identity/projects/workflows.py:354
 msgid "No groups found."
 msgstr "कोई समूह नहीं मिला."
 
 #: dashboards/identity/domains/workflows.py:233
-#: dashboards/identity/projects/workflows.py:339
+#: dashboards/identity/projects/workflows.py:355
 msgid "No groups."
 msgstr "कोई समूह नहीं."
 
@@ -4382,13 +4382,13 @@ msgid "View Usage"
 msgstr "उपयोग देखें "
 
 #: dashboards/identity/projects/tables.py:75
-#: dashboards/identity/projects/workflows.py:358
-#: dashboards/identity/projects/workflows.py:359
+#: dashboards/identity/projects/workflows.py:374
+#: dashboards/identity/projects/workflows.py:375
 msgid "Create Project"
 msgstr "परियोजना बनाएँ"
 
 #: dashboards/identity/projects/tables.py:87
-#: dashboards/identity/projects/workflows.py:511
+#: dashboards/identity/projects/workflows.py:527
 msgid "Edit Project"
 msgstr "परियोजना संपादित करें"
 
@@ -4439,123 +4439,125 @@ msgstr "परियोजना के विवरण को पुनः प�
 msgid "Injected File Content (Bytes)"
 msgstr "इंजेक्ट संचिका सामग्री (बाइट)"
 
-#: dashboards/identity/projects/workflows.py:87
-msgid "Quota"
-msgstr "कोटा"
-
-#: dashboards/identity/projects/workflows.py:89
-msgid "Set maximum quotas for the project."
-msgstr "परियोजना के लिए अधिकतम कोटा निर्धारित कर सकते हैं."
-
-#: dashboards/identity/projects/workflows.py:99
+#: dashboards/identity/projects/workflows.py:97
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s प्रयुक्त"
 
-#: dashboards/identity/projects/workflows.py:104
+#: dashboards/identity/projects/workflows.py:102
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:122
+#: dashboards/identity/projects/workflows.py:109
+#: dashboards/identity/projects/workflows.py:116
+msgid "Quota"
+msgstr "कोटा"
+
+#: dashboards/identity/projects/workflows.py:111
+#: dashboards/identity/projects/workflows.py:118
+msgid "Set maximum quotas for the project."
+msgstr "परियोजना के लिए अधिकतम कोटा निर्धारित कर सकते हैं."
+
+#: dashboards/identity/projects/workflows.py:138
 #: dashboards/identity/users/forms.py:78
 #: dashboards/identity/users/forms.py:157
 msgid "Domain Name"
 msgstr "डोमेन नाम"
 
-#: dashboards/identity/projects/workflows.py:146
-#: dashboards/identity/projects/workflows.py:494
+#: dashboards/identity/projects/workflows.py:162
+#: dashboards/identity/projects/workflows.py:510
 msgid "Project Information"
 msgstr "परियोजना सूचना"
 
-#: dashboards/identity/projects/workflows.py:147
+#: dashboards/identity/projects/workflows.py:163
 msgid "Create a project to organize users."
 msgstr "उपयोक्ता संगठित करने के लिए परियोजना बनाएँ."
 
-#: dashboards/identity/projects/workflows.py:165
+#: dashboards/identity/projects/workflows.py:181
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "उपयोगकर्ता सूची को प्राप्त करने में असमर्थ. बाद में पुन: प्रयास करें."
 
-#: dashboards/identity/projects/workflows.py:232
-#: dashboards/identity/projects/workflows.py:239
+#: dashboards/identity/projects/workflows.py:248
+#: dashboards/identity/projects/workflows.py:255
 msgid "Project Members"
 msgstr "परियोजना के सदस्य"
 
-#: dashboards/identity/projects/workflows.py:330
-#: dashboards/identity/projects/workflows.py:337
+#: dashboards/identity/projects/workflows.py:346
+#: dashboards/identity/projects/workflows.py:353
 msgid "Project Groups"
 msgstr "परियोजना समूह"
 
-#: dashboards/identity/projects/workflows.py:360
+#: dashboards/identity/projects/workflows.py:376
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "नया परियोजना \"%s\" बनाये"
 
-#: dashboards/identity/projects/workflows.py:361
+#: dashboards/identity/projects/workflows.py:377
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "परियोजना \"%s\" बनाने में असमर्थ."
 
-#: dashboards/identity/projects/workflows.py:423
+#: dashboards/identity/projects/workflows.py:439
 msgid ", add project groups"
 msgstr ", परियोजना समूह जोड़ें"
 
-#: dashboards/identity/projects/workflows.py:427
+#: dashboards/identity/projects/workflows.py:443
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "परियोजना के  %(users_to_add)s सदस्यों %(group_msg)s को जोड़ने और परियोजना कोटा सेट करने में विफल."
 
-#: dashboards/identity/projects/workflows.py:458
+#: dashboards/identity/projects/workflows.py:474
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "परियोजना समूहों %s और अद्यतन परियोजना कोटा को जोड़ने में विफल."
 
-#: dashboards/identity/projects/workflows.py:486
+#: dashboards/identity/projects/workflows.py:502
 msgid "Unable to set project quotas."
 msgstr "परियोजना का कोटा निर्धारित करने में अक्षम."
 
-#: dashboards/identity/projects/workflows.py:496
+#: dashboards/identity/projects/workflows.py:512
 msgid "Edit the project details."
 msgstr "परियोजना विवरण संपादित करें."
 
-#: dashboards/identity/projects/workflows.py:513
+#: dashboards/identity/projects/workflows.py:529
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "परिवर्तित परियोजना \"%s\"."
 
-#: dashboards/identity/projects/workflows.py:514
+#: dashboards/identity/projects/workflows.py:530
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr " \"%s\" परियोजना को संशोधित करने में असमर्थ."
 
-#: dashboards/identity/projects/workflows.py:609
+#: dashboards/identity/projects/workflows.py:625
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "आप वर्तमान में लॉग इन कर रहे हैं परियोजना से अपने प्रशासनिक विशेषाधिकारों को रद्द नहीं कर सकते हैं. प्रशासनिक विशेषाधिकारों के साथ एक अन्य परियोजना के लिए स्विच या सीएलआई के माध्यम से मैन्युअल रूप से प्रशासनिक भूमिका निकाल दें."
 
-#: dashboards/identity/projects/workflows.py:644
+#: dashboards/identity/projects/workflows.py:660
 msgid ", update project groups"
 msgstr ", परियोजना समूहों का अद्यतन करें"
 
-#: dashboards/identity/projects/workflows.py:648
+#: dashboards/identity/projects/workflows.py:664
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "परियोजना के %(users_to_modify)s सदस्यों %(group_msg)s और अद्यतन परियोजना कोटा संशोधित करने में विफल."
 
-#: dashboards/identity/projects/workflows.py:721
+#: dashboards/identity/projects/workflows.py:737
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr " %s परियोजना के सदस्यों, अद्यतन परियोजना समूहों और अद्यतन परियोजना कोटा संशोधित करने में विफल."
 
-#: dashboards/identity/projects/workflows.py:754
+#: dashboards/identity/projects/workflows.py:770
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -11550,12 +11552,12 @@ msgstr ""
 msgid "Failed to create router \"%s\"."
 msgstr " \"%s\" रूटर बनाने में विफल."
 
-#: dashboards/project/routers/forms.py:129
+#: dashboards/project/routers/forms.py:132
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "रॉटर %s सफलतापूर्वक अद्यतन किया गया था."
 
-#: dashboards/project/routers/forms.py:134
+#: dashboards/project/routers/forms.py:137
 #, python-format
 msgid "Failed to update router %s"
 msgstr ""
@@ -14021,7 +14023,7 @@ msgstr "अमान्य तिथि प्रारूप: डिफ़ॉ�
 msgid "Unable to retrieve network quota information."
 msgstr "नेटवर्क कोटा जानकारी प्राप्त करने में असमर्थ."
 
-#: usage/base.py:186 usage/quotas.py:337
+#: usage/base.py:186 usage/quotas.py:354
 msgid "Unable to retrieve volume limit information."
 msgstr "वॉल्यूम सीमा में सूचना को प्राप्त करने में असमर्थ."
 
@@ -14048,7 +14050,7 @@ msgstr "अमान्य समय अवधि. आप भविष्य स
 msgid "Injected File Path Bytes"
 msgstr "इंजेक्ट फ़ाइल पथ बाइट"
 
-#: usage/quotas.py:323
+#: usage/quotas.py:340
 msgid "Unable to retrieve compute limit information."
 msgstr "गणना सीमा में सूचना को प्राप्त करने में असमर्थ."
 
