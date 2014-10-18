@@ -963,7 +963,7 @@ class VolumeViewTests(test.TestCase):
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The create button is not disabled")
 
-    @test.create_stubs({cinder: ('volume_get',),
+    @test.create_stubs({cinder: ('volume_get', 'tenant_absolute_limits'),
                         api.nova: ('server_get',)})
     def test_detail_view(self):
         volume = self.cinder_volumes.first()
@@ -973,6 +973,8 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
 
