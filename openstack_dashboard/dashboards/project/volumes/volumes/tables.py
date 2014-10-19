@@ -146,7 +146,7 @@ class ExtendVolume(VolumePolicyTargetMixin, tables.LinkAction):
 
 class EditAttachments(tables.LinkAction):
     name = "attachments"
-    verbose_name = _("Edit Attachments")
+    verbose_name = _("Manage Attachments")
     url = "horizon:project:volumes:volumes:attach"
     classes = ("ajax-modal",)
     icon = "pencil"
