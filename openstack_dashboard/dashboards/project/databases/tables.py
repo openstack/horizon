@@ -166,8 +166,7 @@ class ResizeVolume(tables.LinkAction):
     classes = ("ajax-modal", "btn-resize")
 
     def allowed(self, request, instance=None):
-        return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTDOWN'))
+        return instance.status in ACTIVE_STATES
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
