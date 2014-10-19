@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 01:07-0500\n"
+"POT-Creation-Date: 2014-10-19 01:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -607,6 +607,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:141
+#: dashboards/project/instances/templates/instances/_detail_overview.html:96
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
@@ -747,6 +748,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:528
+#: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -1509,11 +1511,11 @@ msgid "RAM (total)"
 msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:47
-msgid "Storage (used)"
+msgid "Local Storage (used)"
 msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:52
-msgid "Storage (total)"
+msgid "Local Storage (total)"
 msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:70
@@ -1738,7 +1740,7 @@ msgid "Memory Usage"
 msgstr ""
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
-msgid "Disk Usage"
+msgid "Local Disk Usage"
 msgstr ""
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
@@ -4795,14 +4797,16 @@ msgid ""
 msgstr ""
 
 #: dashboards/identity/users/templates/users/_update.html:8
-#: dashboards/identity/users/templates/users/_update.html:33
-#: dashboards/identity/users/templates/users/update.html:3
-#: dashboards/identity/users/templates/users/update.html:7
-msgid "Update User"
+msgid "Edit User"
 msgstr ""
 
 #: dashboards/identity/users/templates/users/_update.html:18
 msgid "Edit the user's details, including the Primary Project and Role."
+msgstr ""
+
+#: dashboards/identity/users/templates/users/update.html:3
+#: dashboards/identity/users/templates/users/update.html:7
+msgid "Update User"
 msgstr ""
 
 #: dashboards/project/dashboard.py:22
@@ -9703,10 +9707,6 @@ msgstr ""
 msgid "No rules defined."
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:96
-msgid "Meta"
-msgstr ""
-
 #: dashboards/project/instances/templates/instances/_detail_overview.html:99
 msgid "Key Name"
 msgstr ""
@@ -10052,11 +10052,11 @@ msgid "Key pair to use for authentication."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:488
-msgid "Admin Pass"
+msgid "Admin Password"
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:494
-msgid "Confirm Admin Pass"
+msgid "Confirm Admin Password"
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:500
@@ -12921,7 +12921,7 @@ msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:149
-msgid "Edit Attachments"
+msgid "Manage Attachments"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:183
