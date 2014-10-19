@@ -95,6 +95,141 @@ class CreateForm(forms.SelfHandlingForm):
                    'data-source-no_source_type': _('Availability Zone'),
                    'data-source-image_source': _('Availability Zone')}))
 
+    def prepare_source_fields_if_snapshot_specified(self, request):
+        try:
+            snapshot = self.get_snapshot(request,
+                                         request.GET["snapshot_id"])
+            self.fields['name'].initial = snapshot.name
+            self.fields['size'].initial = snapshot.size
+            self.fields['snapshot_source'].choices = ((snapshot.id,
+                                                       snapshot),)
+            try:
+                # Set the volume type from the original volume
+                orig_volume = cinder.volume_get(request,
+                                                snapshot.volume_id)
+                self.fields['type'].initial = orig_volume.volume_type
+            except Exception:
+                pass
+            self.fields['size'].help_text = (
+                _('Volume size must be equal to or greater than the '
+                  'snapshot size (%sGB)') % snapshot.size)
+            del self.fields['image_source']
+            del self.fields['volume_source']
+            del self.fields['volume_source_type']
+            del self.fields['availability_zone']
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to load the specified snapshot.'))
+
+    def prepare_source_fields_if_image_specified(self, request):
+        self.fields['availability_zone'].choices = \
+            self.availability_zones(request)
+        try:
+            image = self.get_image(request,
+                                   request.GET["image_id"])
+            image.bytes = image.size
+            self.fields['name'].initial = image.name
+            min_vol_size = functions.bytes_to_gigabytes(
+                image.size)
+            size_help_text = (_('Volume size must be equal to or greater '
+                                'than the image size (%s)')
+                              % filesizeformat(image.size))
+            properties = getattr(image, 'properties', {})
+            min_disk_size = (getattr(image, 'min_disk', 0) or
+                             properties.get('min_disk', 0))
+            if (min_disk_size > min_vol_size):
+                min_vol_size = min_disk_size
+                size_help_text = (_('Volume size must be equal to or '
+                                    'greater than the image minimum '
+                                    'disk size (%sGB)')
+                                  % min_disk_size)
+            self.fields['size'].initial = min_vol_size
+            self.fields['size'].help_text = size_help_text
+            self.fields['image_source'].choices = ((image.id, image),)
+            del self.fields['snapshot_source']
+            del self.fields['volume_source']
+            del self.fields['volume_source_type']
+        except Exception:
+            msg = _('Unable to load the specified image. %s')
+            exceptions.handle(request, msg % request.GET['image_id'])
+
+    def prepare_source_fields_if_volume_specified(self, request):
+        self.fields['availability_zone'].choices = \
+            self.availability_zones(request)
+        volume = None
+        try:
+            volume = self.get_volume(request, request.GET["volume_id"])
+        except Exception:
+            msg = _('Unable to load the specified volume. %s')
+            exceptions.handle(request, msg % request.GET['volume_id'])
+
+        if volume is not None:
+            self.fields['name'].initial = volume.name
+            self.fields['description'].initial = volume.description
+            min_vol_size = volume.size
+            size_help_text = (_('Volume size must be equal to or greater '
+                                'than the origin volume size (%s)')
+                              % filesizeformat(volume.size))
+            self.fields['size'].initial = min_vol_size
+            self.fields['size'].help_text = size_help_text
+            self.fields['volume_source'].choices = ((volume.id, volume),)
+            self.fields['type'].initial = volume.type
+            del self.fields['snapshot_source']
+            del self.fields['image_source']
+            del self.fields['volume_source_type']
+
+    def prepare_source_fields_default(self, request):
+        source_type_choices = []
+        self.fields['availability_zone'].choices = \
+            self.availability_zones(request)
+
+        try:
+            snapshot_list = cinder.volume_snapshot_list(request)
+            snapshots = [s for s in snapshot_list
+                         if s.status == 'available']
+            if snapshots:
+                source_type_choices.append(("snapshot_source",
+                                            _("Snapshot")))
+                choices = [('', _("Choose a snapshot"))] + \
+                          [(s.id, s) for s in snapshots]
+                self.fields['snapshot_source'].choices = choices
+            else:
+                del self.fields['snapshot_source']
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to retrieve volume snapshots."))
+
+        images = utils.get_available_images(request,
+                                            request.user.tenant_id)
+        if images:
+            source_type_choices.append(("image_source", _("Image")))
+            choices = [('', _("Choose an image"))]
+            for image in images:
+                image.bytes = image.size
+                image.size = functions.bytes_to_gigabytes(image.bytes)
+                choices.append((image.id, image))
+            self.fields['image_source'].choices = choices
+        else:
+            del self.fields['image_source']
+
+        volumes = self.get_volumes(request)
+        if volumes:
+            source_type_choices.append(("volume_source", _("Volume")))
+            choices = [('', _("Choose a volume"))]
+            for volume in volumes:
+                choices.append((volume.id, volume))
+            self.fields['volume_source'].choices = choices
+        else:
+            del self.fields['volume_source']
+
+        if source_type_choices:
+            choices = ([('no_source_type',
+                         _("No source, empty volume"))] +
+                       source_type_choices)
+            self.fields['volume_source_type'].choices = choices
+        else:
+            del self.fields['volume_source_type']
+
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
         volume_types = cinder.volume_type_list(request)
@@ -103,136 +238,13 @@ class CreateForm(forms.SelfHandlingForm):
                                        for type in volume_types]
 
         if "snapshot_id" in request.GET:
-            try:
-                snapshot = self.get_snapshot(request,
-                                             request.GET["snapshot_id"])
-                self.fields['name'].initial = snapshot.name
-                self.fields['size'].initial = snapshot.size
-                self.fields['snapshot_source'].choices = ((snapshot.id,
-                                                           snapshot),)
-                try:
-                    # Set the volume type from the original volume
-                    orig_volume = cinder.volume_get(request,
-                                                    snapshot.volume_id)
-                    self.fields['type'].initial = orig_volume.volume_type
-                except Exception:
-                    pass
-                self.fields['size'].help_text = (
-                    _('Volume size must be equal to or greater than the '
-                      'snapshot size (%sGB)') % snapshot.size)
-                del self.fields['image_source']
-                del self.fields['volume_source']
-                del self.fields['volume_source_type']
-                del self.fields['availability_zone']
-            except Exception:
-                exceptions.handle(request,
-                                  _('Unable to load the specified snapshot.'))
+            self.prepare_source_fields_if_snapshot_specified(request)
         elif 'image_id' in request.GET:
-            self.fields['availability_zone'].choices = \
-                self.availability_zones(request)
-            try:
-                image = self.get_image(request,
-                                       request.GET["image_id"])
-                image.bytes = image.size
-                self.fields['name'].initial = image.name
-                min_vol_size = functions.bytes_to_gigabytes(
-                    image.size)
-                size_help_text = (_('Volume size must be equal to or greater '
-                                    'than the image size (%s)')
-                                  % filesizeformat(image.size))
-                properties = getattr(image, 'properties', {})
-                min_disk_size = (getattr(image, 'min_disk', 0) or
-                                 properties.get('min_disk', 0))
-                if (min_disk_size > min_vol_size):
-                    min_vol_size = min_disk_size
-                    size_help_text = (_('Volume size must be equal to or '
-                                        'greater than the image minimum '
-                                        'disk size (%sGB)')
-                                      % min_disk_size)
-                self.fields['size'].initial = min_vol_size
-                self.fields['size'].help_text = size_help_text
-                self.fields['image_source'].choices = ((image.id, image),)
-                del self.fields['snapshot_source']
-                del self.fields['volume_source']
-                del self.fields['volume_source_type']
-            except Exception:
-                msg = _('Unable to load the specified image. %s')
-                exceptions.handle(request, msg % request.GET['image_id'])
+            self.prepare_source_fields_if_image_specified(request)
         elif 'volume_id' in request.GET:
-            self.fields['availability_zone'].choices = \
-                self.availability_zones(request)
-            volume = None
-            try:
-                volume = self.get_volume(request, request.GET["volume_id"])
-            except Exception:
-                msg = _('Unable to load the specified volume. %s')
-                exceptions.handle(request, msg % request.GET['volume_id'])
-
-            if volume is not None:
-                self.fields['name'].initial = volume.name
-                self.fields['description'].initial = volume.description
-                min_vol_size = volume.size
-                size_help_text = (_('Volume size must be equal to or greater '
-                                    'than the origin volume size (%s)')
-                                  % filesizeformat(volume.size))
-                self.fields['size'].initial = min_vol_size
-                self.fields['size'].help_text = size_help_text
-                self.fields['volume_source'].choices = ((volume.id, volume),)
-                self.fields['type'].initial = volume.type
-                del self.fields['snapshot_source']
-                del self.fields['image_source']
-                del self.fields['volume_source_type']
+            self.prepare_source_fields_if_volume_specified(request)
         else:
-            source_type_choices = []
-            self.fields['availability_zone'].choices = \
-                self.availability_zones(request)
-
-            try:
-                snapshot_list = cinder.volume_snapshot_list(request)
-                snapshots = [s for s in snapshot_list
-                             if s.status == 'available']
-                if snapshots:
-                    source_type_choices.append(("snapshot_source",
-                                                _("Snapshot")))
-                    choices = [('', _("Choose a snapshot"))] + \
-                              [(s.id, s) for s in snapshots]
-                    self.fields['snapshot_source'].choices = choices
-                else:
-                    del self.fields['snapshot_source']
-            except Exception:
-                exceptions.handle(request,
-                                  _("Unable to retrieve volume snapshots."))
-
-            images = utils.get_available_images(request,
-                                                request.user.tenant_id)
-            if images:
-                source_type_choices.append(("image_source", _("Image")))
-                choices = [('', _("Choose an image"))]
-                for image in images:
-                    image.bytes = image.size
-                    image.size = functions.bytes_to_gigabytes(image.bytes)
-                    choices.append((image.id, image))
-                self.fields['image_source'].choices = choices
-            else:
-                del self.fields['image_source']
-
-            volumes = self.get_volumes(request)
-            if volumes:
-                source_type_choices.append(("volume_source", _("Volume")))
-                choices = [('', _("Choose a volume"))]
-                for volume in volumes:
-                    choices.append((volume.id, volume))
-                self.fields['volume_source'].choices = choices
-            else:
-                del self.fields['volume_source']
-
-            if source_type_choices:
-                choices = ([('no_source_type',
-                             _("No source, empty volume"))] +
-                           source_type_choices)
-                self.fields['volume_source_type'].choices = choices
-            else:
-                del self.fields['volume_source_type']
+            self.prepare_source_fields_default(request)
 
     def clean(self):
         cleaned_data = super(CreateForm, self).clean()
