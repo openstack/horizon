@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-14 23:28-0500\n"
-"PO-Revision-Date: 2014-10-14 07:54+0000\n"
+"POT-Creation-Date: 2014-10-18 20:37-0500\n"
+"PO-Revision-Date: 2014-10-19 01:37+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -91,50 +91,50 @@ msgstr "Отмена"
 msgid "Filter"
 msgstr "Фильтр"
 
-#: tables/actions.py:756
+#: tables/actions.py:758
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:758
+#: tables/actions.py:760
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:786 tables/base.py:1545
+#: tables/actions.py:788 tables/base.py:1543
 msgid "N/A"
 msgstr "Н/Д"
 
-#: tables/actions.py:815
+#: tables/actions.py:817
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Не разрешено: %(action)s: %(objs)s"
 
-#: tables/actions.py:822
+#: tables/actions.py:824
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Невозможно выполнить %(action)s: %(objs)s"
 
-#: tables/actions.py:828
+#: tables/actions.py:830
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:898
+#: tables/actions.py:900
 msgid "Delete"
 msgstr "Удалить"
 
-#: tables/actions.py:900
+#: tables/actions.py:902
 msgid "Deleted"
 msgstr "Удалено"
 
-#: tables/actions.py:931
+#: tables/actions.py:933
 msgid "Update"
 msgstr "Обновить"
 
-#: tables/actions.py:932
+#: tables/actions.py:934
 msgid "Updated"
 msgstr "Обновлено"
 
@@ -152,12 +152,12 @@ msgstr "Нет элементов для отображения."
 msgid "Actions"
 msgstr "Действия"
 
-#: tables/base.py:1304
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Нет совпадений для id \"%s\"."
 
-#: tables/base.py:1461
+#: tables/base.py:1459
 msgid "Please select a row before taking that action."
 msgstr "Выберите строку перед выполнением этого действия."
 
@@ -246,7 +246,7 @@ msgstr ""
 msgid "Add a row"
 msgstr "Добавить строку"
 
-#: templates/horizon/common/_formset_table_row.html:14
+#: templates/horizon/common/_formset_table_row.html:15
 #, python-format
 msgid "%(name)s: %(error)s"
 msgstr ""
@@ -452,8 +452,8 @@ msgid "%s PB"
 msgstr "%s ПБ"
 
 #: templatetags/sizeformat.py:77
-msgid "0 bytes"
-msgstr "0 байт"
+msgid "0 Bytes"
+msgstr ""
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31

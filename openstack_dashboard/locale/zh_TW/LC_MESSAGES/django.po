@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-17 15:04-0500\n"
-"PO-Revision-Date: 2014-10-16 11:21+0000\n"
+"POT-Creation-Date: 2014-10-18 20:37-0500\n"
+"PO-Revision-Date: 2014-10-19 01:38+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -605,6 +605,7 @@ msgstr "主機"
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:141
+#: dashboards/project/instances/templates/instances/_detail_overview.html:96
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
 msgid "Metadata"
@@ -745,6 +746,7 @@ msgstr "加入/移除主機到聚合中"
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:528
+#: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -1506,12 +1508,12 @@ msgid "RAM (total)"
 msgstr "隨機存取記憶體（總共）"
 
 #: dashboards/admin/hypervisors/tables.py:47
-msgid "Storage (used)"
-msgstr "儲存容量（使用中）"
+msgid "Local Storage (used)"
+msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:52
-msgid "Storage (total)"
-msgstr "儲存容量（總共）"
+msgid "Local Storage (total)"
+msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:249
@@ -1733,8 +1735,8 @@ msgid "Memory Usage"
 msgstr "記憶體使用量"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
-msgid "Disk Usage"
-msgstr "硬碟使用量"
+msgid "Local Disk Usage"
+msgstr ""
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -4740,15 +4742,17 @@ msgid ""
 msgstr "新增新使用者並且設定包括主要的專案及角色等相關的屬性。"
 
 #: dashboards/identity/users/templates/users/_update.html:8
-#: dashboards/identity/users/templates/users/_update.html:33
-#: dashboards/identity/users/templates/users/update.html:3
-#: dashboards/identity/users/templates/users/update.html:7
-msgid "Update User"
-msgstr "更新使用者"
+msgid "Edit User"
+msgstr ""
 
 #: dashboards/identity/users/templates/users/_update.html:18
 msgid "Edit the user's details, including the Primary Project and Role."
 msgstr "編輯使用者的詳細資訊，包括他們主要的專案及角色。"
+
+#: dashboards/identity/users/templates/users/update.html:3
+#: dashboards/identity/users/templates/users/update.html:7
+msgid "Update User"
+msgstr "更新使用者"
 
 #: dashboards/project/dashboard.py:22
 msgid "Compute"
@@ -9582,10 +9586,6 @@ msgstr "IP 位址"
 msgid "No rules defined."
 msgstr "沒有已定義的規則。"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:96
-msgid "Meta"
-msgstr "描述資料"
-
 #: dashboards/project/instances/templates/instances/_detail_overview.html:99
 msgid "Key Name"
 msgstr "密鑰名稱"
@@ -9930,12 +9930,12 @@ msgid "Key pair to use for authentication."
 msgstr "用於認證的密鑰對。"
 
 #: dashboards/project/instances/workflows/create_instance.py:488
-msgid "Admin Pass"
-msgstr "管理員密碼"
+msgid "Admin Password"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:494
-msgid "Confirm Admin Pass"
-msgstr "確認管理員密碼"
+msgid "Confirm Admin Password"
+msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:500
 msgid "Launch instance in these security groups."
@@ -12761,8 +12761,8 @@ msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
 msgstr "無法刪除儲存空間「%s」。一個或多個即時存檔依賴在它上。"
 
 #: dashboards/project/volumes/volumes/tables.py:149
-msgid "Edit Attachments"
-msgstr "編輯附件"
+msgid "Manage Attachments"
+msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:183
 msgid "Unable to retrieve tenant limits."
