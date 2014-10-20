@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:38+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-19 13:33-0500\n"
+"PO-Revision-Date: 2014-10-19 11:00+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2118,7 +2118,7 @@ msgid "Unable to retrieve host information."
 msgstr "ホスト情報を取得できません。"
 
 #: dashboards/admin/instances/views.py:167
-#: dashboards/project/databases/views.py:138
+#: dashboards/project/databases/views.py:146
 #: dashboards/project/instances/views.py:208
 #: dashboards/project/instances/views.py:322
 msgid "Unable to retrieve instance details."
@@ -4746,7 +4746,7 @@ msgstr "新しいユーザーを作成し、主プロジェクトやロールな
 
 #: dashboards/identity/users/templates/users/_update.html:8
 msgid "Edit User"
-msgstr ""
+msgstr "ユーザーの編集"
 
 #: dashboards/identity/users/templates/users/_update.html:18
 msgid "Edit the user's details, including the Primary Project and Role."
@@ -7789,7 +7789,7 @@ msgstr "データベースのサイズ情報を取得できません。"
 msgid "Unable to retrieve database instances."
 msgstr "データベースインスタンスを取得できません。"
 
-#: dashboards/project/databases/views.py:111
+#: dashboards/project/databases/views.py:114
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "データベースインスタンスの詳細を取得できません: %s"
@@ -9934,11 +9934,11 @@ msgstr "認証に使用するキーペア。"
 
 #: dashboards/project/instances/workflows/create_instance.py:488
 msgid "Admin Password"
-msgstr ""
+msgstr "管理者パスワード"
 
 #: dashboards/project/instances/workflows/create_instance.py:494
 msgid "Confirm Admin Password"
-msgstr ""
+msgstr "管理者パスワード（確認）"
 
 #: dashboards/project/instances/workflows/create_instance.py:500
 msgid "Launch instance in these security groups."
@@ -12765,7 +12765,7 @@ msgstr "ボリューム \"%s\" を削除できません。複数のスナップ�
 
 #: dashboards/project/volumes/volumes/tables.py:149
 msgid "Manage Attachments"
-msgstr ""
+msgstr "接続の管理"
 
 #: dashboards/project/volumes/volumes/tables.py:183
 msgid "Unable to retrieve tenant limits."
