@@ -1,5 +1,6 @@
 horizon.instances = {
   user_decided_length: false,
+  user_volume_size: false,
   networks_selected: [],
   networks_available: [],
 
@@ -207,19 +208,27 @@ horizon.addInitFunction(function () {
   function update_device_size() {
     var volume_size = horizon.Quota.getSelectedFlavor().disk;
     var image = horizon.Quota.getSelectedImage();
+    var size_field = $("#id_volume_size");
 
-    if(image !== undefined) {
-      if(image.min_disk > volume_size) {
-        volume_size = image.min_disk;
+    if (image !== undefined && image.min_disk > volume_size) {
+      volume_size = image.min_disk;
+    }
+
+    // If the user has manually changed the volume size, do not override
+    // unless user-defined value is too small.
+    if (horizon.instances.user_volume_size) {
+      var user_value = size_field.val();
+      if (user_value > volume_size) {
+        volume_size = user_value;
       }
     }
 
     // Make sure the new value is >= the minimum allowed (1GB)
-    if(volume_size < 1) {
+    if (volume_size < 1) {
       volume_size = 1;
     }
 
-    $("#id_volume_size").val(volume_size);
+    size_field.val(volume_size);
   }
 
   $(document).on('change', '.workflow #id_flavor', function (evt) {
@@ -228,6 +237,13 @@ horizon.addInitFunction(function () {
 
   $(document).on('change', '.workflow #id_image_id', function (evt) {
     update_device_size();
+  });
+
+  $(document).on('input', '.workflow #id_volume_size', function (evt) {
+    horizon.instances.user_volume_size = true;
+    // We only need to listen for the first user input to this field,
+    // so remove the listener after the first time it gets called.
+    $(document).off('input', '.workflow #id_volume_size');
   });
 
   horizon.instances.decrypt_password = function(encrypted_password, private_key) {
