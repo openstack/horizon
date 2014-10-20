@@ -1,0 +1,14 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans %}
+    When a volume is "unmanaged", the volume will no longer be visible within OpenStack. Note that the
+    volume will not be deleted from the Cinder host.
+    <br>
+    <br>
+    This is equivalent to the <tt>cinder unmanage</tt> command.
+    {% endblocktrans %}
+  </p>
+{% endblock %}

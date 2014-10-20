@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -23,6 +24,142 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard.api import cinder
+from openstack_dashboard.dashboards.project.volumes.volumes \
+    import forms as project_forms
+
+
+def validate_metadata(value):
+    error_msg = _('Invalid metadata entry. Use comma-separated'
+                  ' key=value pairs')
+
+    if value:
+        specs = value.split(",")
+        for spec in specs:
+            keyval = spec.split("=")
+            # ensure both sides of "=" exist, but allow blank value
+            if not len(keyval) == 2 or not keyval[0]:
+                raise ValidationError(error_msg)
+
+
+class ManageVolume(forms.SelfHandlingForm):
+    identifier = forms.CharField(
+        max_length=255,
+        label=_("Identifier"),
+        help_text=_("Name or other identifier for existing volume"))
+    id_type = forms.ChoiceField(
+        label=_("Identifier Type"),
+        help_text=_("Type of backend device identifier provided"))
+    host = forms.CharField(
+        max_length=255,
+        label=_("Host"),
+        help_text=_("Cinder host on which the existing volume resides; "
+                    "takes the form: host@backend-name#pool"))
+    name = forms.CharField(
+        max_length=255,
+        label=_("Volume Name"),
+        required=False,
+        help_text=_("Volume name to be assigned"))
+    description = forms.CharField(max_length=255, widget=forms.Textarea(
+        attrs={'class': 'modal-body-fixed-width', 'rows': 4}),
+        label=_("Description"), required=False)
+    metadata = forms.CharField(max_length=255, widget=forms.Textarea(
+        attrs={'class': 'modal-body-fixed-width', 'rows': 2}),
+        label=_("Metadata"), required=False,
+        help_text=_("Comma-separated key=value pairs"),
+        validators=[validate_metadata])
+    volume_type = forms.ChoiceField(
+        label=_("Volume Type"),
+        required=False)
+    availability_zone = forms.ChoiceField(
+        label=_("Availability Zone"),
+        required=False)
+
+    bootable = forms.BooleanField(
+        label=_("Bootable"),
+        required=False,
+        help_text=_("Specifies that the newly created volume "
+                    "should be marked as bootable"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(ManageVolume, self).__init__(request, *args, **kwargs)
+        self.fields['id_type'].choices = [("source-name", _("Name"))] + \
+                                         [("source-id", _("ID"))]
+        volume_types = cinder.volume_type_list(request)
+        self.fields['volume_type'].choices = [("", _("No volume type"))] + \
+                                             [(type.name, type.name)
+                                              for type in volume_types]
+        self.fields['availability_zone'].choices = \
+            project_forms.availability_zones(request)
+
+    def handle(self, request, data):
+        try:
+            az = data.get('availability_zone')
+
+            # assume user enters metadata with "key1=val1,key2=val2"
+            # convert to dictionary
+            metadataDict = {}
+            metadata = data.get('metadata')
+            if metadata:
+                metadata.replace(" ", "")
+                for item in metadata.split(','):
+                    key, value = item.split('=')
+                    metadataDict[key] = value
+
+            cinder.volume_manage(request,
+                                 host=data['host'],
+                                 identifier=data['identifier'],
+                                 id_type=data['id_type'],
+                                 name=data['name'],
+                                 description=data['description'],
+                                 volume_type=data['volume_type'],
+                                 availability_zone=az,
+                                 metadata=metadataDict,
+                                 bootable=data['bootable'])
+
+            # for success message, use identifier if user does not
+            # provide a volume name
+            volume_name = data['name']
+            if not volume_name:
+                volume_name = data['identifier']
+
+            messages.success(
+                request,
+                _('Successfully sent the request to manage volume: %s')
+                % volume_name)
+            return True
+        except Exception:
+            exceptions.handle(request, _("Unable to manage volume."))
+            return False
+
+
+class UnmanageVolume(forms.SelfHandlingForm):
+    name = forms.CharField(label=_("Volume Name"),
+                           required=False,
+                           widget=forms.TextInput(
+                           attrs={'readonly': 'readonly'}))
+    host = forms.CharField(label=_("Host"),
+                           required=False,
+                           widget=forms.TextInput(
+                           attrs={'readonly': 'readonly'}))
+    volume_id = forms.CharField(label=_("ID"),
+                                required=False,
+                                widget=forms.TextInput(
+                                    attrs={'readonly': 'readonly'}))
+
+    def __init__(self, request, *args, **kwargs):
+        super(UnmanageVolume, self).__init__(request, *args, **kwargs)
+
+    def handle(self, request, data):
+        try:
+            cinder.volume_unmanage(request, self.initial['volume_id'])
+            messages.success(
+                request,
+                _('Successfully sent the request to unmanage volume: %s')
+                % data['name'])
+            return True
+        except Exception:
+            exceptions.handle(request, _("Unable to unmanage volume."))
+            return False
 
 
 class CreateVolumeType(forms.SelfHandlingForm):
