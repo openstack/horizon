@@ -38,9 +38,10 @@
   {% for attachment in volume.attachments %}
       <dt>{% trans "Attached To" %}</dt>
       <dd>
-        {% url 'horizon:project:instances:detail' attachment.server_id as instance_url%}
-        <a href="{{ instance_url }}">{{ attachment.instance.name }}</a>
-        <span> {% trans "on" %} {{ attachment.device }}</span>
+        {% url 'horizon:project:instances:detail' attachment.server_id as instance_url %}
+        {% blocktrans with instance_name=attachment.instance.name device=attachment.device %}
+        <a href="{{ instance_url }}">{{ instance_name }}</a> on {{ device }}
+        {% endblocktrans %}
       </dd>
   {% empty %}
       <dt>{% trans "Attached To" %}</dt>

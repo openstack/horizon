@@ -125,14 +125,10 @@
     {% for volume in instance.volumes %}
         <dt>{% trans "Attached To" %}</dt>
         <dd>
-            <a href="{% url 'horizon:project:volumes:volumes:detail' volume.id %}">
-            {% if volume.name %}
-                {{ volume.name }}
-            {%  else %}
-                {{ volume.id }}
-            {% endif %}
-            </a>
-            <span> {% trans "on" %} {{ volume.device }}</span>
+            {% url 'horizon:project:volumes:volumes:detail' volume.id as volume_url %}
+            {% blocktrans with volume_label=volume.name|default:volume.id volume_device=volume.device %}
+            <a href="{{ volume_url }}">{{ volume_label }}</a> on {{ volume_device }}
+            {% endblocktrans %}
         </dd>
         {% empty %}
         <dt>{% trans "Volume" %}</dt>
