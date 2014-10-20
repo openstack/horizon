@@ -15,7 +15,7 @@ import logging
 
 from django.conf import settings
 
-# TODO(garcianavalon) until we create a propper package
+# NOTE(garcianavalon) until we create a propper package
 import sys
 sys.path.append('../../../python-fiwareclient')
 try:
@@ -23,13 +23,16 @@ try:
 except ImportError, e:
     raise ImportError(e,
                 'You dont have setup correctly the extended keystoneclient. \
-                ask Kike or look at the wiki in github!')
+                ask Kike(garcianavalon) or look at the wiki in github!')
 else:
     from keystoneclient import exceptions as ks_exceptions
+    from keystoneclient import session
+    from keystoneclient.auth.identity import v3
     from keystoneclient.v3 import client
+    from keystoneclient.v3.contrib.oauth2 import auth
 
 
-def fiwareclient(request=None):# TODO(garcianavalon) use this
+def fiwareclient(session=None,request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
 
     The IdM has its own admin account in the keystone server, and uses it to perform
@@ -39,20 +42,28 @@ def fiwareclient(request=None):# TODO(garcianavalon) use this
     Also adds the methods to operate with the OAuth2.0 extension.
     """
     # TODO(garcianavalon)caching and efficiency with the client object.
-    conf_params = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')
-    conf_params['AUTH_URL'] = getattr(settings,'OPENSTACK_KEYSTONE_URL')
-
-    keystone = client.Client(username=conf_params['USERNAME'],
-                            password=conf_params['PASSWORD'],
-                            project=conf_params['PROJECT'],
-                            auth_url=conf_params['AUTH_URL'])
+    if not session:
+        session = _password_session()
+    keystone = client.Client(session=session)
     return keystone
         
+def _oauth2_session(access_token_id):
+    a = auth.OAuth2(access_token=access_token_id)
+    return session.Session(auth=a)
+
+def _password_session():
+    conf_params = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')
+    conf_params['AUTH_URL'] = getattr(settings,'OPENSTACK_KEYSTONE_URL')
+    auth = v3.Password(auth_url=conf_params['AUTH_URL'],
+                    username=conf_params['USERNAME'],
+                    password=conf_params['PASSWORD'],
+                    project_id=conf_params['PROJECT'])
+    return session.Session(auth=auth)
 
 def _find_user(keystone,email=None,name=None):
     # FIXME(garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
     # exception so we do it by hand filtering the python dictionary, 
-    # which is extremely inneficient...
+    # which is extremely inneficient
     if name:
         user = keystone.users.find(name=name)
         return user
@@ -173,8 +184,10 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
                                 redirect_uri=redirect_uri)
     return access_token
 
-def obtain_keystone_token(request, access_token, project=None):
+def login_with_oauth(request, access_token, project=None):
     """ Use an OAuth2 access token to obtain a keystone token, scoped for
     the authorizing user in one of his projects.
     """
-    pass
+    # TODO(garcianavalon) find out if we need this method
+    session = _oauth2_session(access_token,project_id=project)
+    return fiwareclient(session=session,request=request)
