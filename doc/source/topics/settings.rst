@@ -293,7 +293,7 @@ If you do not have multiple regions you should use the ``OPENSTACK_HOST`` and
 
 Default:  ``"AUTO"``
 
-This settings specifies the type of in-browser VNC console used to access the
+This setting specifies the type of in-browser VNC console used to access the
 VMs.
 Valid values are  ``"AUTO"``(default), ``"VNC"``, ``"SPICE"``, ``"RDP"``
 and ``None`` (this latest value is available in version 2014.2(Juno) to allow
