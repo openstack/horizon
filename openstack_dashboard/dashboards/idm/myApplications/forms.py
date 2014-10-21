@@ -2,6 +2,8 @@ from django import shortcuts
 from django.conf import settings
 from django import forms 
 from django.utils.translation import ugettext_lazy as _
+# from PIL import Image CON ESTO DEBERÏA HABER UNA PROPIEDAD EN UPLOADEDFILE
+
 
 import horizon
 from horizon import exceptions
@@ -10,6 +12,7 @@ from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
+
 
 CHOICES=[('role1','Role 1'),
          ('role2','Role 2'),
@@ -27,9 +30,12 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 		return response
 	
 class UploadImageForm(forms.SelfHandlingForm):
-	file = forms.ImageField(required=False)
+	image = forms.ImageField(required=False)
 
 	def handle(self, request, data):
+		print(request.FILES['image'])
+		import pdb
+		pdb.set_trace()
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')
 		return response
 	
