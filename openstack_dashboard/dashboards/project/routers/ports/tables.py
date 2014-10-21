@@ -23,6 +23,7 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports \
     import tables as project_tables
+from openstack_dashboard import policy
 
 LOG = logging.getLogger(__name__)
 
@@ -36,7 +37,7 @@ def get_device_owner(port):
         return ' '
 
 
-class AddInterface(tables.LinkAction):
+class AddInterface(policy.PolicyTargetMixin, tables.LinkAction):
     name = "create"
     verbose_name = _("Add Interface")
     url = "horizon:project:routers:addinterface"
@@ -44,18 +45,12 @@ class AddInterface(tables.LinkAction):
     icon = "plus"
     policy_rules = (("network", "add_router_interface"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
-
     def get_link_url(self, datum=None):
         router_id = self.table.kwargs['router_id']
         return reverse(self.url, args=(router_id,))
 
 
-class RemoveInterface(tables.DeleteAction):
+class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -74,12 +69,6 @@ class RemoveInterface(tables.DeleteAction):
 
     failure_url = 'horizon:project:routers:detail'
     policy_rules = (("network", "remove_router_interface"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         try:

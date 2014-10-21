@@ -28,6 +28,11 @@ from openstack_dashboard.openstack.common import policy
 LOG = logging.getLogger(__name__)
 
 CONF = cfg.CONF
+# Policy Enforcer has been updated to take in a policy directory
+# as a config option. However, the default value in is set to
+# ['policy.d'] which causes the code to break. Set the default
+# value to empty list for now.
+CONF.policy_dirs = []
 
 _ENFORCER = None
 _BASE_PATH = getattr(settings, 'POLICY_FILES_PATH', '')
@@ -90,7 +95,7 @@ def check(actions, request, target={}):
     :param target: dictionary representing the object of the action
                       for object creation this should be a dictionary
                       representing the location of the object e.g.
-                      {'tenant_id': object.tenant_id}
+                      {'project_id': object.project_id}
     :returns: boolean if the user has permission or not for the actions.
     """
     user = auth_utils.get_user(request)
@@ -152,3 +157,29 @@ def _user_to_credentials(request, user):
                              'is_admin': user.is_superuser,
                              'roles': roles}
     return user._credentials
+
+
+class PolicyTargetMixin(object):
+    """Mixin that adds the get_policy_target function
+
+    policy_target_attrs - a tuple of tuples which defines
+        the relationship between attributes in the policy
+        target dict and attributes in the passed datum object.
+        policy_target_attrs can be overwritten by sub-classes
+        which do not use the default, so they can neatly define
+        their policy target information, without overriding the
+        entire get_policy_target function.
+    """
+
+    policy_target_attrs = (("project_id", "tenant_id"),
+                           ("user_id", "user_id"),
+                           ("domain_id", "domain_id"))
+
+    def get_policy_target(self, request, datum=None):
+        policy_target = {}
+        for policy_attr, datum_attr in self.policy_target_attrs:
+            if datum:
+                policy_target[policy_attr] = getattr(datum, datum_attr, None)
+            else:
+                policy_target[policy_attr] = None
+        return policy_target

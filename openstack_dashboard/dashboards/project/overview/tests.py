@@ -45,7 +45,7 @@ class UsageViewTests(test.TestCase):
     def _stub_cinder_api_calls(self):
         self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
-                        .AndReturn(self.cinder_limits['absolute'])
+            .AndReturn(self.cinder_limits['absolute'])
 
     def _stub_neutron_api_calls(self, neutron_sg_enabled=True):
         self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
@@ -59,7 +59,7 @@ class UsageViewTests(test.TestCase):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                           .AndReturn(self.floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         if neutron_sg_enabled:
             api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.q_secgroups.list())
@@ -86,10 +86,10 @@ class UsageViewTests(test.TestCase):
                                datetime.datetime(now.year,
                                                  now.month,
                                                  now.day, 23, 59, 59, 0)) \
-                    .AndReturn(usage_obj)
+                .AndReturn(usage_obj)
 
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
-                .AndReturn(self.limits['absolute'])
+            .AndReturn(self.limits['absolute'])
         self._stub_neutron_api_calls()
         self._stub_cinder_api_calls()
         self.mox.ReplayAll()
@@ -124,17 +124,17 @@ class UsageViewTests(test.TestCase):
             api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
                                datetime.datetime(now.year,
                                                  now.month,
-                                                1, 0, 0, 0, 0),
+                                                 1, 0, 0, 0, 0),
                                datetime.datetime(now.year,
                                                  now.month,
                                                  now.day, 23, 59, 59, 0)) \
                 .AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
-                           .AndReturn(self.limits['absolute'])
+            .AndReturn(self.limits['absolute'])
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-                           .MultipleTimes().AndReturn(False)
+            .MultipleTimes().AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
-                           .MultipleTimes().AndReturn(False)
+            .MultipleTimes().AndReturn(False)
 
         self.mox.ReplayAll()
 
@@ -164,9 +164,9 @@ class UsageViewTests(test.TestCase):
                            datetime.datetime(now.year,
                                              now.month,
                                              now.day, 23, 59, 59, 0)) \
-                           .AndRaise(exc)
+            .AndRaise(exc)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
-                           .AndReturn(self.limits['absolute'])
+            .AndReturn(self.limits['absolute'])
         self._stub_neutron_api_calls()
         self._stub_cinder_api_calls()
         self.mox.ReplayAll()
@@ -241,7 +241,7 @@ class UsageViewTests(test.TestCase):
                            self.tenant.id,
                            start, end).AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
-                           .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
         self._stub_neutron_api_calls()
         self._stub_cinder_api_calls()
         self.mox.ReplayAll()
@@ -322,7 +322,7 @@ class UsageViewTests(test.TestCase):
             api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.q_secgroups.list())
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
-                           .AndReturn(self.neutron_quotas.first())
+            .AndReturn(self.neutron_quotas.first())
         self.mox.ReplayAll()
 
         self._test_usage_with_neutron_check(neutron_sg_enabled)
@@ -385,15 +385,15 @@ class UsageViewTests(test.TestCase):
                            self.tenant.id,
                            start, end).AndReturn(usage_obj)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
-                           .AndReturn(self.limits['absolute'])
+            .AndReturn(self.limits['absolute'])
 
         if cinder_enabled:
             self._stub_cinder_api_calls()
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
-                           .MultipleTimes().AndReturn(False)
+            .MultipleTimes().AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
-                           .MultipleTimes().AndReturn(cinder_enabled)
+            .MultipleTimes().AndReturn(cinder_enabled)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))

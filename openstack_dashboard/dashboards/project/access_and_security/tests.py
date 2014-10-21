@@ -26,8 +26,12 @@ from horizon.workflows import views
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security \
     import api_access
+from openstack_dashboard.dashboards.project.access_and_security \
+    .security_groups import tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
+
+INDEX_URL = reverse('horizon:project:access_and_security:index')
 
 
 class AccessAndSecurityTests(test.TestCase):
@@ -46,6 +50,7 @@ class AccessAndSecurityTests(test.TestCase):
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
         quota_data = self.quota_usages.first()
+        quota_data['security_groups']['available'] = 10
 
         api.nova.server_list(
             IsA(http.HttpRequest)) \
@@ -77,8 +82,7 @@ class AccessAndSecurityTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:access_and_security:index')
-        res = self.client.get(url)
+        res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'project/access_and_security/index.html')
         self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
@@ -140,3 +144,81 @@ class AccessAndSecurityNeutronProxyTests(AccessAndSecurityTests):
     def setUp(self):
         super(AccessAndSecurityNeutronProxyTests, self).setUp()
         self.floating_ips = self.floating_ips_uuid
+
+
+class SecurityGroupTabTests(test.TestCase):
+    def setUp(self):
+        super(SecurityGroupTabTests, self).setUp()
+
+    @test.create_stubs({api.network: ('floating_ip_supported',
+                                      'tenant_floating_ip_list',
+                                      'security_group_list',
+                                      'floating_ip_pools_list',),
+                        api.nova: ('keypair_list',
+                                   'server_list',),
+                        quotas: ('tenant_quota_usages',),
+                        api.base: ('is_service_enabled',)})
+    def _test_create_button_disabled_when_quota_exceeded(self,
+                                                         network_enabled):
+        keypairs = self.keypairs.list()
+        floating_ips = self.floating_ips.list()
+        floating_pools = self.pools.list()
+        sec_groups = self.security_groups.list()
+        quota_data = self.quota_usages.first()
+        quota_data['security_groups']['available'] = 0
+
+        api.network.floating_ip_supported(
+            IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.network.tenant_floating_ip_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(floating_ips)
+        api.network.floating_ip_pools_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(floating_pools)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(sec_groups)
+        api.nova.keypair_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(keypairs)
+        api.nova.server_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn([self.servers.list(), False])
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)).MultipleTimes() \
+            .AndReturn(quota_data)
+
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest), 'network').MultipleTimes() \
+            .AndReturn(network_enabled)
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest), 'ec2').MultipleTimes() \
+            .AndReturn(False)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL +
+                              "?tab=access_security_tabs__security_groups_tab")
+
+        security_groups = res.context['security_groups_table'].data
+        self.assertItemsEqual(security_groups, self.security_groups.list())
+
+        create_link = tables.CreateGroup()
+        url = create_link.get_link_url()
+        classes = (list(create_link.get_default_classes())
+                   + list(create_link.classes))
+        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+                                 "Quota exceeded")
+        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
+            "id='security_groups__action_create'>" \
+            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            % (url, link_name, " ".join(classes), link_name)
+        self.assertContains(res, expected_string, html=True,
+                            msg_prefix="The create button is not disabled")
+
+    def test_create_button_disabled_when_quota_exceeded_neutron_disabled(self):
+        self._test_create_button_disabled_when_quota_exceeded(False)
+
+    def test_create_button_disabled_when_quota_exceeded_neutron_enabled(self):
+        self._test_create_button_disabled_when_quota_exceeded(True)

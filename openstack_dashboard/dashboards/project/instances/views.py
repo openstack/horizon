@@ -211,7 +211,7 @@ class UpdateView(workflows.WorkflowView):
     def get_initial(self):
         initial = super(UpdateView, self).get_initial()
         initial.update({'instance_id': self.kwargs['instance_id'],
-                'name': getattr(self.get_object(), 'name', '')})
+                        'name': getattr(self.get_object(), 'name', '')})
         return initial
 
 
@@ -253,7 +253,11 @@ class DetailView(tabs.TabView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["instance"] = self.get_data()
+        instance = self.get_data()
+        context["instance"] = instance
+        table = project_tables.InstancesTable(self.request)
+        context["url"] = reverse(self.redirect_url)
+        context["actions"] = table.render_row_actions(instance)
         return context
 
     @memoized.memoized_method
@@ -274,7 +278,7 @@ class DetailView(tabs.TabView):
             exceptions.handle(self.request,
                               _('Unable to retrieve details for '
                                 'instance "%s".') % instance_id,
-                                redirect=redirect)
+                              redirect=redirect)
             # Not all exception types handled above will result in a redirect.
             # Need to raise here just in case.
             raise exceptions.Http302(redirect)
@@ -327,15 +331,17 @@ class ResizeView(workflows.WorkflowView):
         except Exception:
             redirect = reverse("horizon:project:instances:index")
             exceptions.handle(self.request,
-                _('Unable to retrieve flavors.'), redirect=redirect)
+                              _('Unable to retrieve flavors.'),
+                              redirect=redirect)
 
     def get_initial(self):
         initial = super(ResizeView, self).get_initial()
         _object = self.get_object()
         if _object:
-            initial.update({'instance_id': self.kwargs['instance_id'],
-                'name': getattr(_object, 'name', None),
-                'old_flavor_id': _object.flavor['id'],
-                'old_flavor_name': getattr(_object, 'flavor_name', ''),
-                'flavors': self.get_flavors()})
+            initial.update(
+                {'instance_id': self.kwargs['instance_id'],
+                 'name': getattr(_object, 'name', None),
+                 'old_flavor_id': _object.flavor['id'],
+                 'old_flavor_name': getattr(_object, 'flavor_name', ''),
+                 'flavors': self.get_flavors()})
         return initial

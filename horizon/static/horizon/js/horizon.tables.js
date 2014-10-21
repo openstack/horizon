@@ -138,8 +138,10 @@ horizon.datatables = {
       var action_buttons = $(this).find(".table_actions button.btn-danger");
 
       // Buttons should be enabled only if there are checked checkboxes
-      action_buttons.toggleClass("disabled",
-                                 !checkboxes.filter(":checked").length);
+      if (checkboxes.length) {
+        action_buttons.toggleClass("disabled",
+          !checkboxes.filter(":checked").length);
+        }
     });
   },
 

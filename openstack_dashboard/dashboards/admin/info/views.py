@@ -36,6 +36,6 @@ class IndexView(tabs.TabbedTableView):
             context["version"] = version.version_info.version_string()
         except Exception:
             exceptions.handle(self.request,
-                _('Unable to retrieve version information.'))
+                              _('Unable to retrieve version information.'))
 
         return context

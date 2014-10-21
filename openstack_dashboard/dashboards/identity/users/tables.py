@@ -18,6 +18,7 @@ from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 
 ENABLE = 0
@@ -39,7 +40,7 @@ class CreateUserLink(tables.LinkAction):
         return api.keystone.keystone_can_edit_user()
 
 
-class EditUserLink(tables.LinkAction):
+class EditUserLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit")
     url = "horizon:identity:users:update"
@@ -47,15 +48,13 @@ class EditUserLink(tables.LinkAction):
     icon = "pencil"
     policy_rules = (("identity", "identity:update_user"),
                     ("identity", "identity:list_projects"),)
-
-    def get_policy_target(self, request, user):
-        return {"user_id": user.id}
+    policy_target_attrs = (("user_id", "id"),)
 
     def allowed(self, request, user):
         return api.keystone.keystone_can_edit_user()
 
 
-class ToggleEnabled(tables.BatchAction):
+class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
     name = "toggle"
 
     @staticmethod
@@ -89,11 +88,7 @@ class ToggleEnabled(tables.BatchAction):
         )
     classes = ("btn-toggle",)
     policy_rules = (("identity", "identity:update_user"),)
-
-    def get_policy_target(self, request, user=None):
-        if user:
-            return {"user_id": user.id}
-        return {}
+    policy_target_attrs = (("user_id", "id"),)
 
     def allowed(self, request, user=None):
         if not api.keystone.keystone_can_edit_user():

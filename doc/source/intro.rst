@@ -1,9 +1,6 @@
-===================
-Introducing Horizon
-===================
-
-.. contents:: Contents:
-   :local:
+==============
+Horizon Basics
+==============
 
 Values
 ======

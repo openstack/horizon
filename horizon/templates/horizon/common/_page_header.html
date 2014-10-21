@@ -1,6 +1,12 @@
 {% load i18n %}
 {% block page_header %}
   <div class='page-header'>
-    <h2>{{ title }}</h2>
+    <h1>{{ title }}</h1>
+    {% if actions %}
+      <form class='actions_column pull-right' action='{{ url }}' method="POST">
+        {% csrf_token %}
+        {{ actions }}
+      </form>
+    {% endif %}
   </div>
 {% endblock %}

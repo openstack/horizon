@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
-"PO-Revision-Date: 2014-09-14 00:03+0000\n"
+"POT-Creation-Date: 2014-10-09 22:05-0500\n"
+"PO-Revision-Date: 2014-10-09 23:37+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:454
+#: base.py:480
 msgid "Other"
 msgstr "Overig"
 
@@ -44,7 +44,7 @@ msgstr "Onbevoegd: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Onbevoegd. Meldt u zich opnieuw aan."
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr "Sessie verlopen."
 
@@ -61,17 +61,27 @@ msgstr "Selecteer een %s om te bladeren."
 msgid "Password is not accepted"
 msgstr "Wachtwoord is niet geaccepteerd"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Onjuist formaat voor IP adres"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "Ongeldige versie voor IP adres"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "Ongeldig subnet masker"
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "Indienen"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "Annuleren"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -93,61 +103,61 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:786 tables/base.py:1545
 msgid "N/A"
 msgstr "n.v.t."
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Het is u niet toegestaan om %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Niet in staat om %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:873
+#: tables/actions.py:898
 msgid "Delete"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
-#: tables/actions.py:875
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "Verwijderd"
 
-#: tables/actions.py:907
+#: tables/actions.py:931
 msgid "Update"
 msgstr "Bijwerken"
 
-#: tables/actions.py:908
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "Bijgewerkt"
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Het attribuut %(attr)s bestaat niet op %(obj)s."
 
-#: tables/base.py:965
+#: tables/base.py:967
 msgid "No items to display."
 msgstr "Geen artikelen om weer te geven."
 
-#: tables/base.py:1072
+#: tables/base.py:1076
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Acties"
 
-#: tables/base.py:1297
+#: tables/base.py:1304
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Geen overeenkomsten gevonden voor de id \"%s\"."
 
-#: tables/base.py:1448
+#: tables/base.py:1461
 msgid "Please select a row before taking that action."
 msgstr "Selecteer alstublieft een rij voor het uitvoeren van die actie."
 
@@ -197,7 +207,7 @@ msgstr "Waarschuwing: "
 
 #: templates/horizon/_messages.html:19
 msgid "Success: "
-msgstr "Succesvol: "
+msgstr "Gelukt: "
 
 #: templates/horizon/_messages.html:25
 msgid "Error: "
@@ -232,7 +242,7 @@ msgstr "Rij toevoegen"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr "Limiteer Samenvatting"
+msgstr "Beperk samenvatting"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
@@ -297,7 +307,7 @@ msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No existing metadata"
+msgid "No available metadata"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
@@ -319,11 +329,6 @@ msgstr ""
 msgid "Save"
 msgstr "Opslaan"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "Annuleren"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -340,11 +345,11 @@ msgstr[1] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "Samenvatting verbruik"
+msgstr "Samenvatting van verbruik"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage"
-msgstr "Selecteer een tijdsvlak om het gebruik uit te vragen"
+msgstr "Selecteer een tijdsvlak om het verbruik voor op te vragen"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -360,17 +365,13 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "Indienen"
-
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "De datum dient in het JJJJ-mm-dd formaat te zijn."
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances"
-msgstr "Actieve Exemplaren"
+msgstr "Actieve exemplaren"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM"
@@ -396,11 +397,11 @@ msgstr "Volgende"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
-msgstr "Geen Limiet"
+msgstr "Geen limiet"
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "Beschikbaar"
 
@@ -440,21 +441,35 @@ msgstr "%s PB"
 msgid "0 bytes"
 msgstr ""
 
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
 #: utils/filters.py:49
 msgid "Never"
 msgstr "Nooit"
 
 #: utils/validators.py:23 utils/validators.py:47
 msgid "Not a valid port number"
-msgstr "Geen valide poort nummer"
+msgstr "Geen geldig poortnummer"
 
 #: utils/validators.py:28
 msgid "Not a valid IP protocol number"
-msgstr "Geen valide IP protocol nummer"
+msgstr "Geen geldig IP protocolnummer"
 
 #: utils/validators.py:42
 msgid "One colon allowed in port range"
-msgstr "Een dubbele punt toegestaan in poortbereik"
+msgstr "Een dubbele punt is toegestaan in het poortbereik"
 
 #: utils/validators.py:49
 msgid "Port number must be integer"
@@ -462,7 +477,7 @@ msgstr "Poortnummer moet een geheel getal zijn"
 
 #: workflows/base.py:71
 msgid "Processing..."
-msgstr "Aan het verwerken..."
+msgstr "Bezig met verwerken..."
 
 #: workflows/base.py:475
 msgid "All available"

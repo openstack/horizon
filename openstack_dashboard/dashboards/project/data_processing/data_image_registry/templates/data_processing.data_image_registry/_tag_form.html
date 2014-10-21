@@ -5,7 +5,7 @@
     <h5>{% trans "Register tags required for the Plugin with specified Data Processing Version" %}</h5>
     <span class="row">
         <span class="col-sm-4 small-padding"><b>{% trans "Plugin" %}</b></span>
-        <span class="col-sm-3 small-padding"><b>{% trans "Version" %}</b></span>
+        <span class="col-sm-4 small-padding"><b>{% trans "Version" %}</b></span>
     </span>
     <span class="row">
         <span class="col-sm-4 small-padding">
@@ -15,7 +15,7 @@
                 {% endfor %}
             </select>
         </span>
-        <span class="col-sm-3 small-padding">
+        <span class="col-sm-4 small-padding">
             {% for plugin, version_dict in plugins.items %}
             <div id="version_group_{{ plugin }}" class="data_processing-version-choice" >
                 <select id="data_processing_version_{{ plugin }}" class="form-control">
@@ -31,7 +31,7 @@
         </span>
     </span>
     <span class="row">
-        <span class="col-sm-7 small-padding">
+        <span class="col-sm-8 small-padding">
             <input type="text" class="tag-input form-control" id="_sahara_image_tag"/>
         </span>
         <span class="col-sm-3 small-padding">

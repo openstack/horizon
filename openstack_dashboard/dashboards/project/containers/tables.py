@@ -13,17 +13,18 @@
 #    under the License.
 import logging
 
-from django.core.urlresolvers import reverse
 from django import shortcuts
 from django import template
 from django.template import defaultfilters as filters
 from django.utils import http
 from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
+from horizon.utils.urlresolvers import reverse  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
@@ -47,8 +48,7 @@ class ViewContainer(tables.LinkAction):
 
     def get_link_url(self, datum=None):
         obj_id = self.table.get_object_id(datum)
-        args = (http.urlquote(obj_id),)
-        return reverse(self.url, args=args)
+        return reverse(self.url, args=(obj_id,))
 
 
 class MakePublicContainer(tables.Action):
@@ -104,8 +104,22 @@ class MakePrivateContainer(tables.Action):
 
 
 class DeleteContainer(tables.DeleteAction):
-    data_type_singular = _("Container")
-    data_type_plural = _("Containers")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Container",
+            u"Delete Containers",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Container",
+            u"Deleted Containers",
+            count
+        )
+
     success_url = "horizon:project:containers:index"
 
     def delete(self, request, obj_id):
@@ -164,8 +178,7 @@ class CreatePseudoFolder(tables.LinkAction):
         else:
             container_name = self.table.kwargs['container_name']
         subfolders = self.table.kwargs.get('subfolder_path', '')
-        args = (http.urlquote(bit) for bit in
-                (container_name, subfolders) if bit)
+        args = (bit for bit in (container_name, subfolders) if bit)
         return reverse(self.url, args=args)
 
     def allowed(self, request, datum=None):
@@ -190,13 +203,12 @@ class UploadObject(tables.LinkAction):
         # Usable for both the container and object tables
         if getattr(datum, 'container', datum):
             # This is a container
-            container_name = http.urlquote(datum.name)
+            container_name = datum.name
         else:
             # This is a table action, and we already have the container name
             container_name = self.table.kwargs['container_name']
         subfolders = self.table.kwargs.get('subfolder_path', '')
-        args = (http.urlquote(bit) for bit in
-                (container_name, subfolders) if bit)
+        args = (bit for bit in (container_name, subfolders) if bit)
         return reverse(self.url, args=args)
 
     def allowed(self, request, datum=None):
@@ -216,7 +228,7 @@ def get_size_used(container):
 
 def get_container_link(container):
     return reverse("horizon:project:containers:index",
-                   args=(http.urlquote(wrap_delimiter(container.name)),))
+                   args=(wrap_delimiter(container.name),))
 
 
 class ContainerAjaxUpdateRow(tables.Row):
@@ -298,8 +310,7 @@ class ViewObject(tables.LinkAction):
 
     def get_link_url(self, obj):
         container_name = self.table.kwargs['container_name']
-        return reverse(self.url, args=(http.urlquote(container_name),
-                                       http.urlquote(obj.name)))
+        return reverse(self.url, args=(container_name, obj.name))
 
 
 class UpdateObject(tables.LinkAction):
@@ -312,14 +323,27 @@ class UpdateObject(tables.LinkAction):
 
     def get_link_url(self, obj):
         container_name = self.table.kwargs['container_name']
-        return reverse(self.url, args=(http.urlquote(container_name),
-                                       http.urlquote(obj.name)))
+        return reverse(self.url, args=(container_name, obj.name))
 
 
 class DeleteObject(tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Object",
+            u"Delete Objects",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Object",
+            u"Deleted Objects",
+            count
+        )
+
     name = "delete_object"
-    data_type_singular = _("Object")
-    data_type_plural = _("Objects")
     allowed_data_types = ("objects", "subfolders",)
 
     def delete(self, request, obj_id):
@@ -349,8 +373,7 @@ class CopyObject(tables.LinkAction):
 
     def get_link_url(self, obj):
         container_name = self.table.kwargs['container_name']
-        return reverse(self.url, args=(http.urlquote(container_name),
-                                       http.urlquote(obj.name)))
+        return reverse(self.url, args=(container_name, obj.name))
 
 
 class DownloadObject(tables.LinkAction):
@@ -362,8 +385,7 @@ class DownloadObject(tables.LinkAction):
 
     def get_link_url(self, obj):
         container_name = self.table.kwargs['container_name']
-        return reverse(self.url, args=(http.urlquote(container_name),
-                                       http.urlquote(obj.name)))
+        return reverse(self.url, args=(container_name, obj.name))
 
     def allowed(self, request, object):
         return object.bytes and object.bytes > 0
@@ -410,8 +432,8 @@ def get_size(obj):
 def get_link_subfolder(subfolder):
     container_name = subfolder.container_name
     return reverse("horizon:project:containers:index",
-                   args=(http.urlquote(wrap_delimiter(container_name)),
-                         http.urlquote(wrap_delimiter(subfolder.name))))
+                   args=(wrap_delimiter(container_name),
+                         wrap_delimiter(subfolder.name)))
 
 
 class ObjectsTable(tables.DataTable):

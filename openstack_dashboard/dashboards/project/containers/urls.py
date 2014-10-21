@@ -25,7 +25,8 @@ from openstack_dashboard.dashboards.project.containers import views
 VIEW_MOD = 'openstack_dashboard.dashboards.project.containers.views'
 
 # Swift containers and objects.
-urlpatterns = patterns(VIEW_MOD,
+urlpatterns = patterns(
+    VIEW_MOD,
     url(r'^((?P<container_name>.+?)/)?(?P<subfolder_path>(.+/)+)?$',
         views.ContainerView.as_view(), name='index'),
 
@@ -34,7 +35,7 @@ urlpatterns = patterns(VIEW_MOD,
         name='create'),
 
     url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)'
-            '?container_detail$',
+        '?container_detail$',
         views.ContainerDetailView.as_view(),
         name='container_detail'),
 
@@ -52,13 +53,13 @@ urlpatterns = patterns(VIEW_MOD,
         name='object_upload'),
 
     url(r'^(?P<container_name>.+?)/(?P<subfolder_path>(.+/)+)'
-            '?create_pseudo_folder',
+        '?create_pseudo_folder',
         views.CreatePseudoFolderView.as_view(),
         name='create_pseudo_folder'),
 
     url(r'^(?P<container_name>[^/]+)/'
-         r'(?P<subfolder_path>(.+/)+)?'
-         r'(?P<object_name>.+)/copy$',
+        r'(?P<subfolder_path>(.+/)+)?'
+        r'(?P<object_name>.+)/copy$',
         views.CopyView.as_view(),
         name='object_copy'),
 

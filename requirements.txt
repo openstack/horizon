@@ -9,36 +9,42 @@
 # PBR should always appear first
 pbr>=0.6,!=0.7,<1.0
 # Horizon Core Requirements
+Babel>=1.3
 Django>=1.4.2,<1.7
 django_compressor>=1.4
-django_openstack_auth>=1.1.6
-django-pyscss>=1.0.2  # BSD License (2 clause)
-eventlet>=0.15.1
+django_openstack_auth>=1.1.7
+django-pyscss>=1.0.3  # BSD License (2 clause)
+eventlet>=0.15.2
 httplib2>=0.7.5
 iso8601>=0.1.9
-kombu>=2.4.8
+kombu>=2.5.0
 # Horizon Utility Requirements
 # for SECURE_KEY generation
 lockfile>=0.8
 netaddr>=0.7.12
-pyscss>=1.2.0  # MIT License
+oslo.config>=1.4.0  # Apache-2.0
+oslo.i18n>=1.0.0  # Apache-2.0
+oslo.serialization>=1.0.0               # Apache-2.0
+oslo.utils>=1.0.0                       # Apache-2.0
+pyScss>=1.2.1,<1.3  # MIT License
 python-ceilometerclient>=1.0.6
-python-cinderclient>=1.0.7
+python-cinderclient>=1.1.0
 python-glanceclient>=0.14.0
 python-heatclient>=0.2.9
-python-keystoneclient>=0.10.0
+python-keystoneclient>=0.11.1
 python-neutronclient>=2.3.6,<3
 python-novaclient>=2.18.0
-python-saharaclient>=0.7.1
+python-saharaclient>=0.7.3
 python-swiftclient>=2.2.0
-python-troveclient>=1.0.4
-pytz>=2010h
+python-troveclient>=1.0.7
+pytz
 six>=1.7.0
 xstatic>=1.0.0  # MIT License
 xstatic-angular>=1.2.1.1  # MIT License
 xstatic-angular-cookies>=1.2.1.1  # MIT License
 xstatic-angular-mock>=1.2.1.1  # MIT License
 xstatic-bootstrap-datepicker>=1.3.1.0  # Apache 2.0 License
+xstatic-bootstrap-scss>=3  # Apache 2.0 License
 xstatic-d3>=3.1.6.2  # BSD License (3 clause)
 xstatic-hogan>=2.0.0.2  # Apache 2.0 License
 xstatic-font-awesome>=4.1.0  # SIL OFL 1.1 License, MIT License
@@ -47,6 +53,7 @@ xstatic-jquery>=1.7.2  # MIT License
 xstatic-jquery-migrate>=1.2.1.1  # MIT License
 xstatic-jquery.quicksearch>=2.0.3.1  # MIT License
 xstatic-jquery.tablesorter>=2.0.5b.0  # MIT License
+xstatic-jquery-ui>=1.10.1  # MIT License
 xstatic-jsencrypt>=2.0.0.2  # MIT License
 xstatic-qunit>=1.14.0.2  # MIT License
 xstatic-rickshaw>=1.5.0  # BSD License (prior)

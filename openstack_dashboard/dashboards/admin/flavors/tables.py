@@ -138,7 +138,7 @@ class FlavorsTable(tables.DataTable):
                            empty_value=False,
                            filters=(filters.yesno, filters.capfirst))
     extra_specs = tables.Column(get_extra_specs,
-                                verbose_name=_("Extra Specs"),
+                                verbose_name=_("Metadata"),
                                 link="horizon:admin:flavors:update_metadata",
                                 link_classes=("ajax-modal",),
                                 empty_value=False,

@@ -32,6 +32,7 @@ LOG = logging.getLogger(__name__)
 class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
     with_subnet = forms.BooleanField(initial=True, required=False,
                                      widget=forms.HiddenInput())
+    msg = _('Specify "Network Address"')
 
     class Meta:
         name = _("Subnet")
@@ -78,14 +79,14 @@ class CreateSubnet(network_workflows.CreateNetwork):
 
 class UpdateSubnetInfoAction(CreateSubnetInfoAction):
     cidr = forms.IPField(label=_("Network Address"),
-                          required=False,
-                          initial="",
-                          widget=forms.TextInput(
-                              attrs={'readonly': 'readonly'}),
-                          help_text=_("Network address in CIDR format "
-                                      "(e.g. 192.168.0.0/24)"),
-                          version=forms.IPv4 | forms.IPv6,
-                          mask=True)
+                         required=False,
+                         initial="",
+                         widget=forms.TextInput(
+                             attrs={'readonly': 'readonly'}),
+                         help_text=_("Network address in CIDR format "
+                                     "(e.g. 192.168.0.0/24)"),
+                         version=forms.IPv4 | forms.IPv6,
+                         mask=True)
     # NOTE(amotoki): When 'disabled' attribute is set for the ChoiceField
     # and ValidationError is raised for POST request, the initial value of
     # the ip_version ChoiceField is not set in the re-displayed form

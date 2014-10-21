@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import include  # noqa
+from django.conf.urls import include
 from django.conf.urls import patterns
 from django.conf.urls import url
 
@@ -24,7 +24,8 @@ from openstack_dashboard.dashboards.project.volumes import views
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import urls as volume_urls
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^\?tab=volumes_and_snapshots__snapshots_tab$',
         views.IndexView.as_view(), name='snapshots_tab'),

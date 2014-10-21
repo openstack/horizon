@@ -33,7 +33,7 @@ class UpdateVolumeStatusAction(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume",
-        "volume_extension:volume_admin_actions:reset_status"),)
+                     "volume_extension:volume_admin_actions:reset_status"),)
 
 
 class VolumesTable(volumes_tables.VolumesTable):

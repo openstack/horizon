@@ -26,6 +26,7 @@ from django.contrib.auth.models import Permission  # noqa
 from django.contrib.auth.models import User  # noqa
 from django.contrib.contenttypes.models import ContentType  # noqa
 from django.contrib.messages.storage import default_storage  # noqa
+from django.contrib.sessions.backends.base import SessionBase  # noqa
 from django.core.handlers import wsgi
 from django import http
 from django import test as django_test
@@ -58,24 +59,55 @@ from horizon import middleware
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 
+class SessionStore(SessionBase):
+    """Dict like object for simulating sessions in unittests."""
+
+    def load(self):
+        self.create()
+        return {}
+
+    def create(self):
+        self.modified = True
+
+    def save(self, must_create=False):
+        self._session_key = self._get_session_key()
+        self.modified = True
+
+    def exists(self, session_key=None):
+        return False
+
+    def delete(self, session_key=None):
+
+        self._session_key = ''
+        self._session_cache = {}
+        self.modified = True
+
+    def cycle_key(self):
+        self.save()
+
+    @classmethod
+    def clear_expired(cls):
+        pass
+
+
 class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
         req.user = User()
-        req.session = {}
+        req.session = SessionStore()
         req._messages = default_storage(req)
         return req
 
     def post(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).post(*args, **kwargs)
         req.user = User()
-        req.session = {}
+        req.session = SessionStore()
         req._messages = default_storage(req)
         return req
 
 
 @unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
-                     "The SKIP_UNITTESTS env variable is set.")
+                 "The SKIP_UNITTESTS env variable is set.")
 class TestCase(django_test.TestCase):
     """Specialized base test case class for Horizon which gives access to
     numerous additional features:
@@ -159,8 +191,8 @@ class TestCase(django_test.TestCase):
             msgs = [force_text(m.message)
                     for m in messages if msg_type in m.tags]
             assert len(msgs) == count, \
-                   "%s messages not as expected: %s" % (msg_type.title(),
-                                                        ", ".join(msgs))
+                "%s messages not as expected: %s" % (msg_type.title(),
+                                                     ", ".join(msgs))
 
 
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),

@@ -23,7 +23,7 @@ class LoadBalancer(horizon.Panel):
     slug = "loadbalancers"
     permissions = ('openstack.services.network',)
 
-    def can_access(self, context):
+    def allowed(self, context):
         request = context['request']
         if not request.user.has_perms(self.permissions):
             return False
@@ -31,7 +31,7 @@ class LoadBalancer(horizon.Panel):
                                           config_name='enable_lb',
                                           ext_name='lbaas'):
             return False
-        if not super(LoadBalancer, self).can_access(context):
+        if not super(LoadBalancer, self).allowed(context):
             return False
         return True
 

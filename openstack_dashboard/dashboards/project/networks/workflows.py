@@ -43,8 +43,12 @@ class CreateNetworkInfoAction(workflows.Action):
     net_profile_id = forms.ChoiceField(label=_("Network Profile"),
                                        required=False,
                                        widget=widget)
-    admin_state = forms.BooleanField(label=_("Admin State"),
-                                     initial=True, required=False)
+
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"),
+                                    help_text=_("The state to start"
+                                                " the network in."))
 
     def __init__(self, request, *args, **kwargs):
         super(CreateNetworkInfoAction, self).__init__(request,
@@ -87,6 +91,10 @@ class CreateSubnetInfoAction(workflows.Action):
                                      widget=forms.CheckboxInput(attrs={
                                          'class': 'switchable',
                                          'data-slug': 'with_subnet',
+                                         'data-hide-tab': 'create_network__'
+                                                          'createsubnetdetail'
+                                                          'action',
+                                         'data-hide-on-checked': 'false'
                                      }),
                                      initial=True,
                                      required=False)
@@ -113,14 +121,14 @@ class CreateSubnetInfoAction(workflows.Action):
                                    widget=forms.Select(attrs={
                                        'class': 'switchable switched',
                                        'data-slug': 'ipversion',
-                                       'data-switch-on': 'with_subnet',
+                                       'data-switch-on': 'with_subnet'
                                    }),
                                    label=_("IP Version"))
     gateway_ip = forms.IPField(
         label=_("Gateway IP"),
         widget=forms.TextInput(attrs={
             'class': 'switched',
-            'data-switch-on': 'with_subnet',
+            'data-switch-on': 'with_subnet gateway_ip'
         }),
         required=False,
         initial="",
@@ -136,10 +144,15 @@ class CreateSubnetInfoAction(workflows.Action):
         mask=False)
     no_gateway = forms.BooleanField(label=_("Disable Gateway"),
                                     widget=forms.CheckboxInput(attrs={
-                                        'class': 'switched',
+                                        'class': 'switched switchable',
+                                        'data-slug': 'gateway_ip',
                                         'data-switch-on': 'with_subnet',
+                                        'data-hide-on-checked': 'true'
                                     }),
-                                    initial=False, required=False)
+                                    initial=False,
+                                    required=False)
+    msg = _('Specify "Network Address" or '
+            'clear "Create Subnet" checkbox.')
 
     class Meta:
         name = _("Subnet")
@@ -162,9 +175,7 @@ class CreateSubnetInfoAction(workflows.Action):
         gateway_ip = cleaned_data.get('gateway_ip')
         no_gateway = cleaned_data.get('no_gateway')
         if not cidr:
-            msg = _('Specify "Network Address" or '
-                    'clear "Create Subnet" checkbox.')
-            raise forms.ValidationError(msg)
+            raise forms.ValidationError(self.msg)
         if cidr:
             subnet = netaddr.IPNetwork(cidr)
             if subnet.version != ip_version:
@@ -342,7 +353,7 @@ class CreateNetwork(workflows.Workflow):
     def _create_network(self, request, data):
         try:
             params = {'name': data['net_name'],
-                      'admin_state_up': data['admin_state']}
+                      'admin_state_up': (data['admin_state'] == 'True')}
             if api.neutron.is_port_profiles_supported():
                 params['net_profile_id'] = data['net_profile_id']
             network = api.neutron.network_create(request, **params)

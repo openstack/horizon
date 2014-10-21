@@ -62,8 +62,11 @@ class DownloadView(TemplateView):
 
 
 class GenerateView(View):
-    def get(self, request, keypair_name=None):
+    def get(self, request, keypair_name=None, optional=None):
         try:
+            if optional == "regenerate":
+                api.nova.keypair_delete(request, keypair_name)
+
             keypair = api.nova.keypair_create(request, keypair_name)
         except Exception:
             redirect = reverse('horizon:project:access_and_security:index')
@@ -72,8 +75,8 @@ class GenerateView(View):
                               redirect=redirect)
 
         response = http.HttpResponse(content_type='application/binary')
-        response['Content-Disposition'] = \
-                'attachment; filename=%s.pem' % slugify(keypair.name)
+        response['Content-Disposition'] = ('attachment; filename=%s.pem'
+                                           % slugify(keypair.name))
         response.write(keypair.private_key)
         response['Content-Length'] = str(len(response.content))
         return response

@@ -34,17 +34,17 @@ LOG = logging.getLogger(__name__)
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     tenant_id = forms.CharField(widget=forms.HiddenInput)
-    network_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
-    admin_state = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     failure_url = 'horizon:project:networks:index'
 
     def handle(self, request, data):
         try:
-            params = {'admin_state_up': data['admin_state'],
+            params = {'admin_state_up': (data['admin_state'] == 'True'),
                       'name': data['name']}
-            network = api.neutron.network_update(request, data['network_id'],
+            network = api.neutron.network_update(request,
+                                                 self.initial['network_id'],
                                                  **params)
             msg = _('Network %s was successfully updated.') % data['name']
             LOG.debug(msg)

@@ -99,7 +99,7 @@ class RolesViewTests(test.BaseAdminViewTests):
         role = self.roles.first()
 
         api.keystone.role_list(IsA(http.HttpRequest)) \
-                            .AndReturn(self.roles.list())
+            .AndReturn(self.roles.list())
         api.keystone.role_delete(IsA(http.HttpRequest),
                                  role.id).AndReturn(None)
 

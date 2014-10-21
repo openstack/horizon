@@ -103,7 +103,6 @@ class DetailView(tables.MultiTableView):
                      ports_tables.PortsTable,
                      agents_tables.DHCPAgentsTable)
     template_name = 'project/networks/detail.html'
-    failure_url = reverse_lazy('horizon:admin:networks:index')
 
     def get_subnets_data(self):
         try:
@@ -148,16 +147,16 @@ class DetailView(tables.MultiTableView):
             network = api.neutron.network_get(self.request, network_id)
             network.set_id_as_name_if_empty(length=0)
         except Exception:
-            redirect = self.failure_url
             exceptions.handle(self.request,
                               _('Unable to retrieve details for '
                                 'network "%s".') % network_id,
-                                redirect=redirect)
+                              redirect=self.get_redirect_url())
+
         return network
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["network"] = self._get_data()
+        network = self._get_data()
         # Needs to exclude agents table if dhcp-agent-scheduler extension
         # is not supported.
         try:
@@ -166,7 +165,16 @@ class DetailView(tables.MultiTableView):
             context['dhcp_agent_support'] = dhcp_agent_support
         except Exception:
             context['dhcp_agent_support'] = False
+
+        table = networks_tables.NetworksTable(self.request)
+        context["network"] = network
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(network)
         return context
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy('horizon:admin:networks:index')
 
 
 class UpdateView(user_views.UpdateView):

@@ -26,7 +26,10 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.loadbalancers \
     import forms as project_forms
 from openstack_dashboard.dashboards.project.loadbalancers \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.loadbalancers \
     import tabs as project_tabs
+from openstack_dashboard.dashboards.project.loadbalancers import utils
 from openstack_dashboard.dashboards.project.loadbalancers \
     import workflows as project_workflows
 
@@ -74,7 +77,7 @@ class IndexView(tabs.TabView):
                 except Exception as e:
                     exceptions.handle(request,
                                       _('Unable to locate VIP to delete. %s')
-                                        % e)
+                                      % e)
                 if vip_id is not None:
                     try:
                         api.lbaas.vip_delete(request, vip_id)
@@ -115,23 +118,109 @@ class AddMonitorView(workflows.WorkflowView):
 
 
 class PoolDetailsView(tabs.TabView):
-    tab_group_class = (project_tabs.PoolDetailsTabs)
+    tab_group_class = project_tabs.PoolDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        pid = self.kwargs['pool_id']
+
+        try:
+            pool = api.lbaas.pool_get(self.request, pid)
+        except Exception:
+            pool = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve pool details.'))
+        else:
+            for monitor in pool.health_monitors:
+                display_name = utils.get_monitor_display_name(monitor)
+                setattr(monitor, 'display_name', display_name)
+
+        return pool
+
+    def get_context_data(self, **kwargs):
+        context = super(PoolDetailsView, self).get_context_data(**kwargs)
+        pool = self.get_data()
+        context['pool'] = pool
+        table = project_tables.PoolsTable(self.request)
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(pool)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        pool = self.get_data()
+        return self.tab_group_class(self.request, pool=pool, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy("horizon:project:loadbalancers:index")
 
 
 class VipDetailsView(tabs.TabView):
-    tab_group_class = (project_tabs.VipDetailsTabs)
+    tab_group_class = project_tabs.VipDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
 
 
 class MemberDetailsView(tabs.TabView):
-    tab_group_class = (project_tabs.MemberDetailsTabs)
+    tab_group_class = project_tabs.MemberDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        mid = self.kwargs['member_id']
+        try:
+            return api.lbaas.member_get(self.request, mid)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve member details.'))
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberDetailsView, self).get_context_data(**kwargs)
+        member = self.get_data()
+        context['member'] = member
+        table = project_tables.MembersTable(self.request)
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(member)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        member = self.get_data()
+        return self.tab_group_class(request, member=member, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy("horizon:project:loadbalancers:index")
 
 
 class MonitorDetailsView(tabs.TabView):
-    tab_group_class = (project_tabs.MonitorDetailsTabs)
+    tab_group_class = project_tabs.MonitorDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        mid = self.kwargs['monitor_id']
+        try:
+            return api.lbaas.pool_health_monitor_get(self.request, mid)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve monitor details.'))
+
+    def get_context_data(self, **kwargs):
+        context = super(MonitorDetailsView, self).get_context_data(**kwargs)
+        monitor = self.get_data()
+        context['monitor'] = monitor
+        table = project_tables.MonitorsTable(self.request)
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(monitor)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        monitor = self.get_data()
+        return self.tab_group_class(request, monitor=monitor, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy("horizon:project:loadbalancers:index")
 
 
 class UpdatePoolView(forms.ModalFormView):

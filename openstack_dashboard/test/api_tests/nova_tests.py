@@ -114,12 +114,12 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
         novaclient.servers.get_rdp_console(server.id,
-                                             console_type).AndReturn(console)
+                                           console_type).AndReturn(console)
         self.mox.ReplayAll()
 
         ret_val = api.nova.server_rdp_console(self.request,
-                                                server.id,
-                                                console_type)
+                                              server.id,
+                                              console_type)
         self.assertIsInstance(ret_val, api.nova.RDPConsole)
 
     def test_server_list(self):

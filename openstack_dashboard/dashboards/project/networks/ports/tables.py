@@ -19,6 +19,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 
 def get_fixed_ips(port):
@@ -36,19 +37,13 @@ def get_attached(port):
         return _('Detached')
 
 
-class UpdatePort(tables.LinkAction):
+class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Port")
     url = "horizon:project:networks:editport"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("network", "update_port"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def get_link_url(self, port):
         network_id = self.table.kwargs['network_id']

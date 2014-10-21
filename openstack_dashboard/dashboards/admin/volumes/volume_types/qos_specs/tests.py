@@ -35,8 +35,8 @@ class QosSpecsTests(test.BaseAdminViewTests):
 
         res = self.client.get(index_url)
 
-        self.assertTemplateUsed(res,
-            'admin/volumes/volume_types/qos_specs/index.html')
+        self.assertTemplateUsed(
+            res, 'admin/volumes/volume_types/qos_specs/index.html')
         rows = res.context['table'].get_rows()
         specs = self.cinder_qos_specs.first().specs
         for row in rows:
@@ -50,9 +50,9 @@ class QosSpecsTests(test.BaseAdminViewTests):
         formData = {'name': 'qos-spec-1',
                     'consumer': 'back-end'}
         api.cinder.qos_spec_create(IsA(http.HttpRequest),
-                               formData['name'],
-                               {'consumer': formData['consumer']}).\
-                               AndReturn(self.cinder_qos_specs.first())
+                                   formData['name'],
+                                   {'consumer': formData['consumer']}).\
+            AndReturn(self.cinder_qos_specs.first())
         self.mox.ReplayAll()
 
         res = self.client.post(
@@ -75,9 +75,9 @@ class QosSpecsTests(test.BaseAdminViewTests):
             IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         api.cinder.qos_spec_list(IsA(http.HttpRequest)).\
-                                 AndReturn(self.cinder_qos_specs.list())
+            AndReturn(self.cinder_qos_specs.list())
         api.cinder.qos_spec_delete(IsA(http.HttpRequest),
-                                  str(qos_spec.id))
+                                   str(qos_spec.id))
         self.mox.ReplayAll()
 
         res = self.client.post(
@@ -96,7 +96,7 @@ class QosSpecsTests(test.BaseAdminViewTests):
         qos_spec = self.cinder_qos_specs.first()
         key = 'minIOPS'
         edit_url = reverse('horizon:admin:volumes:volume_types:qos_specs:edit',
-                            args=[qos_spec.id, key])
+                           args=[qos_spec.id, key])
         index_url = reverse(
             'horizon:admin:volumes:volume_types:qos_specs:index',
             args=[qos_spec.id])
@@ -105,7 +105,7 @@ class QosSpecsTests(test.BaseAdminViewTests):
         qos_spec.specs[key] = data['value']
 
         api.cinder.qos_spec_get(IsA(http.HttpRequest),
-                                     qos_spec.id)\
+                                qos_spec.id)\
             .AndReturn(qos_spec)
         api.cinder.qos_spec_get_keys(IsA(http.HttpRequest),
                                      qos_spec.id, raw=True)\

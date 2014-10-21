@@ -6,7 +6,7 @@ set -o errexit
 # Increment me any time the environment should be rebuilt.
 # This includes dependency changes, directory renames, etc.
 # Simple integer sequence: 1, 2, 3...
-environment_version=46
+environment_version=47
 #--------------------------------------------------------#
 
 function usage {
@@ -24,6 +24,7 @@ function usage {
   echo "  -m, --manage             Run a Django management command."
   echo "  --makemessages           Create/Update English translation files."
   echo "  --compilemessages        Compile all translation files."
+  echo "  --check-only             Do not update translation files (--makemessages only)."
   echo "  -p, --pep8               Just run pep8"
   echo "  -8, --pep8-changed [<basecommit>]"
   echo "                           Just run PEP8 and HACKING compliance check"
@@ -87,6 +88,7 @@ testargs=""
 with_coverage=0
 makemessages=0
 compilemessages=0
+check_only=0
 manage=0
 
 # Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
@@ -115,6 +117,7 @@ function process_option {
     -m|--manage) manage=1;;
     --makemessages) makemessages=1;;
     --compilemessages) compilemessages=1;;
+    --check-only) check_only=1;;
     --only-selenium) only_selenium=1;;
     --with-selenium) with_selenium=1;;
     --selenium-headless) selenium_headless=1;;
@@ -414,7 +417,7 @@ function run_integration_tests {
 }
 
 function run_makemessages {
-  OPTS="-l en --no-obsolete"
+  OPTS="-l en --no-obsolete --settings=openstack_dashboard.test.settings"
   DASHBOARD_OPTS="--extension=html,txt,csv --ignore=openstack"
   echo -n "horizon: "
   cd horizon
@@ -428,15 +431,20 @@ function run_makemessages {
   ${command_wrapper} $root/manage.py makemessages $DASHBOARD_OPTS $OPTS
   DASHBOARD_RESULT=$?
   cd ..
+  if [ $check_only -eq 1 ]; then
+    git checkout -- horizon/locale/en/LC_MESSAGES/django*.po
+    git checkout -- openstack_dashboard/locale/en/LC_MESSAGES/django.po
+  fi
   exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT))
 }
 
 function run_compilemessages {
+  OPTS="--settings=openstack_dashboard.test.settings"
   cd horizon
-  ${command_wrapper} $root/manage.py compilemessages
+  ${command_wrapper} $root/manage.py compilemessages $OPTS
   HORIZON_PY_RESULT=$?
   cd ../openstack_dashboard
-  ${command_wrapper} $root/manage.py compilemessages
+  ${command_wrapper} $root/manage.py compilemessages $OPTS
   DASHBOARD_RESULT=$?
   cd ..
   # English is the source language, so compiled catalogs are unnecessary.

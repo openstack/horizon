@@ -192,9 +192,9 @@ class CeilometerApiTests(test.APITestCase):
             AndReturn(statistics)
 
         api.ceilometer.CeilometerUsage\
-                .get_user(IsA(str)).AndReturn(user)
+            .get_user(IsA(str)).AndReturn(user)
         api.ceilometer.CeilometerUsage\
-                .get_tenant(IsA(str)).AndReturn(tenant)
+            .get_tenant(IsA(str)).AndReturn(tenant)
 
         self.mox.ReplayAll()
 
@@ -238,9 +238,9 @@ class CeilometerApiTests(test.APITestCase):
         ceilometerclient.resources.list(q=IsA(list)).AndReturn(resources)
 
         api.ceilometer.CeilometerUsage\
-                .get_user(IsA(str)).MultipleTimes().AndReturn(user)
+            .get_user(IsA(str)).MultipleTimes().AndReturn(user)
         api.ceilometer.CeilometerUsage\
-                .get_tenant(IsA(str)).MultipleTimes().AndReturn(tenant)
+            .get_tenant(IsA(str)).MultipleTimes().AndReturn(tenant)
 
         self.mox.ReplayAll()
 
@@ -291,9 +291,9 @@ class CeilometerApiTests(test.APITestCase):
             AndReturn(statistics)
 
         api.ceilometer.CeilometerUsage\
-                .get_user(IsA(str)).MultipleTimes().AndReturn(user)
+            .get_user(IsA(str)).MultipleTimes().AndReturn(user)
         api.ceilometer.CeilometerUsage\
-                .get_tenant(IsA(str)).MultipleTimes().AndReturn(tenant)
+            .get_tenant(IsA(str)).MultipleTimes().AndReturn(tenant)
 
         self.mox.ReplayAll()
 

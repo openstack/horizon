@@ -19,5 +19,6 @@ from openstack_dashboard.dashboards.admin.routers.ports import views
 
 PORTS = r'^(?P<port_id>[^/]+)/%s$'
 
-urlpatterns = patterns('horizon.dashboards.admin.networks.ports.views',
+urlpatterns = patterns(
+    'horizon.dashboards.admin.networks.ports.views',
     url(PORTS % 'detail', views.DetailView.as_view(), name='detail'))

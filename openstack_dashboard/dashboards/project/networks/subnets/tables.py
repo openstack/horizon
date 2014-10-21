@@ -17,12 +17,14 @@ import logging
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
 from horizon.utils import memoized
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -40,16 +42,35 @@ class CheckNetworkEditable(object):
         return True
 
 
-class DeleteSubnet(CheckNetworkEditable, tables.DeleteAction):
-    data_type_singular = _("Subnet")
-    data_type_plural = _("Subnets")
-    policy_rules = (("network", "delete_subnet"),)
+class SubnetPolicyTargetMixin(policy.PolicyTargetMixin):
 
     def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"network:project_id": project_id}
+        policy_target = super(SubnetPolicyTargetMixin, self)\
+            .get_policy_target(request, datum)
+        network = self.table._get_network()
+        policy_target["network:project_id"] = network.tenant_id
+        return policy_target
+
+
+class DeleteSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
+                   tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Subnet",
+            u"Delete Subnets",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Subnet",
+            u"Deleted Subnets",
+            count
+        )
+
+    policy_rules = (("network", "delete_subnet"),)
 
     def delete(self, request, obj_id):
         try:
@@ -63,7 +84,8 @@ class DeleteSubnet(CheckNetworkEditable, tables.DeleteAction):
             exceptions.handle(request, msg, redirect=redirect)
 
 
-class CreateSubnet(CheckNetworkEditable, tables.LinkAction):
+class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
+                   tables.LinkAction):
     name = "create"
     verbose_name = _("Create Subnet")
     url = "horizon:project:networks:addsubnet"
@@ -71,31 +93,19 @@ class CreateSubnet(CheckNetworkEditable, tables.LinkAction):
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        network = self.table._get_network()
-        if network:
-            project_id = getattr(network, 'tenant_id', None)
-        return {"network:project_id": project_id}
-
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
         return reverse(self.url, args=(network_id,))
 
 
-class UpdateSubnet(CheckNetworkEditable, tables.LinkAction):
+class UpdateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
+                   tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Subnet")
     url = "horizon:project:networks:editsubnet"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("network", "update_subnet"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"network:project_id": project_id}
 
     def get_link_url(self, subnet):
         network_id = self.table.kwargs['network_id']

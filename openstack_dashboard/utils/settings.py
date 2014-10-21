@@ -12,6 +12,7 @@
 
 import collections
 import logging
+import os
 import pkgutil
 
 from django.utils import importlib
@@ -44,7 +45,7 @@ def import_dashboard_config(modules):
                 dashboard = submodule.DASHBOARD
                 config[dashboard].update(submodule.__dict__)
             elif (hasattr(submodule, 'PANEL')
-                     or hasattr(submodule, 'PANEL_GROUP')):
+                  or hasattr(submodule, 'PANEL_GROUP')):
                 config[submodule.__name__] = submodule.__dict__
             else:
                 logging.warning("Skipping %s because it doesn't have DASHBOARD"
@@ -84,7 +85,19 @@ def update_dashboards(modules, horizon_config, installed_apps):
     deferred until the horizon autodiscover is completed, configurations are
     applied in alphabetical order of files where it was imported.
     """
+    config_dashboards = horizon_config.get('dashboards', [])
+    if config_dashboards or horizon_config.get('default_dashboard'):
+        logging.warning(
+            '"dashboards" and "default_dashboard" in (local_)settings is '
+            'DEPRECATED now and may be unsupported in some future release. '
+            'The preferred way to specify the order of dashboards and the '
+            'default dashboard is the pluggable dashboard mechanism (in %s).',
+            ', '.join([os.path.abspath(module.__path__[0])
+                       for module in modules])
+        )
+
     enabled_dashboards = []
+    disabled_dashboards = []
     exceptions = {}
     apps = []
     angular_modules = []
@@ -93,6 +106,8 @@ def update_dashboards(modules, horizon_config, installed_apps):
     update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
+            if config.get('DASHBOARD'):
+                disabled_dashboards.append(config.get('DASHBOARD'))
             continue
         apps.extend(config.get('ADD_INSTALLED_APPS', []))
         exceptions.update(config.get('ADD_EXCEPTIONS', {}))
@@ -109,9 +124,8 @@ def update_dashboards(modules, horizon_config, installed_apps):
             config.pop("__builtins__", None)
             panel_customization.append(config)
     # Preserve the dashboard order specified in settings
-    config_dashboards = horizon_config.get('dashboards', [])
     dashboards = ([d for d in config_dashboards
-                   if d in enabled_dashboards] +
+                   if d not in disabled_dashboards] +
                   [d for d in enabled_dashboards
                    if d not in config_dashboards])
 

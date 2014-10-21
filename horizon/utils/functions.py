@@ -39,7 +39,7 @@ def add_logout_reason(request, response, reason):
     lang = translation.get_language_from_request(request)
     with translation.override(lang):
         reason = unicode(reason).encode('utf-8')
-        response.set_cookie('logout_reason', reason, max_age=30)
+        response.set_cookie('logout_reason', reason, max_age=10)
 
 
 def logout_with_message(request, msg):

@@ -17,19 +17,21 @@
 #    under the License.
 
 from django.conf import settings
-from django.conf.urls import include  # noqa
+from django.conf.urls import include
 from django.conf.urls import patterns
 from django.conf.urls import url
 from django.views.generic import TemplateView  # noqa
 
 from horizon.test.jasmine import jasmine
 
-urlpatterns = patterns('horizon.views',
+urlpatterns = patterns(
+    'horizon.views',
     url(r'^home/$', 'user_home', name='user_home')
 )
 
 # Client-side i18n URLconf.
-urlpatterns += patterns('',
+urlpatterns += patterns(
+    '',
     url(r'^i18n/js/(?P<packages>\S+?)/$',
         'django.views.i18n.javascript_catalog',
         name='jsi18n'),
@@ -40,7 +42,8 @@ urlpatterns += patterns('',
 )
 
 if settings.DEBUG:
-    urlpatterns += patterns('',
+    urlpatterns += patterns(
+        '',
         url(r'^qunit/$',
             TemplateView.as_view(template_name="horizon/qunit.html"),
             name='qunit_tests'),

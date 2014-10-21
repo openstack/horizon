@@ -17,12 +17,14 @@ from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
+from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.volumes \
     .volumes import tables as volume_tables
@@ -39,40 +41,48 @@ class LaunchSnapshot(volume_tables.LaunchVolume):
                             "source_id": vol_id})
         return "?".join([base_url, params])
 
+    def allowed(self, request, snapshot=None):
+        if snapshot:
+            if (snapshot._volume and
+                    getattr(snapshot._volume, 'bootable', '') == 'true'):
+                return snapshot.status == "available"
+        return False
 
-class DeleteVolumeSnapshot(tables.DeleteAction):
-    data_type_singular = _("Volume Snapshot")
-    data_type_plural = _("Volume Snapshots")
-    action_past = _("Scheduled deletion of %(data_type)s")
+
+class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Volume Snapshot",
+            u"Delete Volume Snapshots",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Volume Snapshot",
+            u"Scheduled deletion of Volume Snapshots",
+            count
+        )
+
     policy_rules = (("volume", "volume:delete_snapshot"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum,
-                                 "os-extended-snapshot-attributes:project_id",
-                                 None)
-        return {"project_id": project_id}
+    policy_target_attrs = (("project_id",
+                            'os-extended-snapshot-attributes:project_id'),)
 
     def delete(self, request, obj_id):
         api.cinder.volume_snapshot_delete(request, obj_id)
 
 
-class EditVolumeSnapshot(tables.LinkAction):
+class EditVolumeSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Snapshot")
     url = "horizon:project:volumes:snapshots:update"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume", "volume:update_snapshot"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum,
-                                 "os-extended-snapshot-attributes:project_id",
-                                 None)
-        return {"project_id": project_id}
+    policy_target_attrs = (("project_id",
+                            'os-extended-snapshot-attributes:project_id'),)
 
     def allowed(self, request, snapshot=None):
         return snapshot.status == "available"

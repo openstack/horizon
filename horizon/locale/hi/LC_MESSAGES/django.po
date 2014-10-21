@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# richajha <richa.jha2@gmail.com>, 2014
+# Chandan kumar <chandankumar.093047@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
-"PO-Revision-Date: 2014-09-14 00:03+0000\n"
+"POT-Creation-Date: 2014-10-18 20:37-0500\n"
+"PO-Revision-Date: 2014-10-19 01:37+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:454
+#: base.py:480
 msgid "Other"
 msgstr "अन्य"
 
@@ -45,7 +45,7 @@ msgstr "अनधिकृत: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "अनधिकृत. फिर लॉग इन करने का प्रयास करें."
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr "सत्र का समय समाप्त हुआ."
 
@@ -62,17 +62,27 @@ msgstr "एक% s को ब्राउज़ करने के लिए च
 msgid "Password is not accepted"
 msgstr "पासवर्ड स्वीकार नहीं किया है"
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "IP पता के लिए गलत प्रारूप"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "IP पता के लिए अवैध प्रारूप संस्करण"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "अवैध सबनेट मास्क"
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "जमा करें"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "रद्द करें"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -82,19 +92,19 @@ msgstr "अवैध सबनेट मास्क"
 msgid "Filter"
 msgstr "छानना शुरू..."
 
-#: tables/actions.py:756
+#: tables/actions.py:758
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:758
+#: tables/actions.py:760
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:788 tables/base.py:1543
 msgid "N/A"
 msgstr "लागू नहीं"
 
@@ -113,42 +123,42 @@ msgstr "%(action)s की अनुमति नहीं है.: %(objs)s"
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:873
+#: tables/actions.py:900
 msgid "Delete"
 msgstr "मिटाएँ"
 
-#: tables/actions.py:875
+#: tables/actions.py:902
 msgid "Deleted"
 msgstr "मिटाया"
 
-#: tables/actions.py:907
+#: tables/actions.py:933
 msgid "Update"
 msgstr "अद्यतन"
 
-#: tables/actions.py:908
+#: tables/actions.py:934
 msgid "Updated"
 msgstr "अद्यतित"
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s पर %(attr)s  गुण मौज़ूद नहीं हैं."
 
-#: tables/base.py:965
+#: tables/base.py:967
 msgid "No items to display."
 msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
 
-#: tables/base.py:1072
+#: tables/base.py:1076
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "क्रियाएं"
 
-#: tables/base.py:1297
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "इस आइडी \"%s\" के लिए कोई मेल नहीं मिला."
 
-#: tables/base.py:1448
+#: tables/base.py:1459
 msgid "Please select a row before taking that action."
 msgstr "कृपया इस क्रिया को करने से पहले पंक्ति का चयन करें."
 
@@ -212,24 +222,34 @@ msgstr "सारांश"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] "%(counter)s सामाग्री दिखाएँ"
+msgstr[0] " %(counter)s मद प्रदर्शित"
+msgstr[1] " %(counter)s मद प्रदर्शित"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr ""
+msgstr "&laquo;&nbsp;पिछला"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
-msgstr ""
+msgstr "अगला&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_table_actions.html:38
 msgid "More Actions"
 msgstr "अधिक क्रिया"
 
+#: templates/horizon/common/_domain_page_header.html:6
+#, python-format
+msgid "%(context_name)s:"
+msgstr ""
+
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "पंक्ति जोड़ें"
+
+#: templates/horizon/common/_formset_table_row.html:15
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -282,28 +302,28 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr ""
+msgstr "\n        आप दाएँ स्तंभ से बाएँ स्तंभ तक आइटम जोड़कर मेटाडाटा निर्दिष्ट कर सकते हैं.\n        आप ग्लांस शब्दकोश में जोड़ा मेटाडाटा को चुन सकते हैं या आप अपनी\n        पसंद का एक कुंजी का उपयोग करने के लिए \"अन्य\" विकल्प का उपयोग\n       कर सकते हैं.\n     "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr ""
+msgstr "उपलब्ध मेटाडाटा"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "एक जैसे कुंजी की अनुमति नहीं है"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:59
 msgid "Invalid key name"
-msgstr ""
+msgstr "अवैध कुंजी नाम"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No existing metadata"
+msgid "No available metadata"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
-msgstr ""
+msgstr "मौजूदा मेटाडाटा "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:216
 msgid ""
@@ -313,39 +333,34 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr ""
+msgstr "\n        आप दाएँ स्तंभ से बाएँ स्तंभ तक आइटम जोड़कर स्रोत मेटाडाटा निर्दिष्ट कर सकते हैं.\n        आप ग्लांस शब्दकोश में जोड़ा मेटाडाटा को चुन सकते हैं या आप अपनी\n        पसंद का एक कुंजी का उपयोग करने के लिए \"अन्य\" विकल्प का उपयोग\n       कर सकते हैं.\n     "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
 msgid "Save"
 msgstr "सहेजें"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "रद्द करें"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] "सामाग्री %(nav_items)s दिखाएँ"
+msgstr[0] "%(nav_items)s मद प्रदर्शित"
+msgstr[1] "%(nav_items)s मद प्रदर्शित"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] "सामाग्री  %(content_items)s दिखाएँ"
+msgstr[0] " %(content_items)s मद प्रदर्शित"
+msgstr[1] " %(content_items)s मद प्रदर्शित"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
 msgstr "प्रयोग सार"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage"
-msgstr "उपयोग के बारें में जानने के लिए समयावधि सेट करें "
+msgid "Select a period of time to query its usage:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -359,31 +374,27 @@ msgstr "\n\n<label> से :</label> %(start)s"
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr ""
-
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "जमा करें"
+msgstr "\n      <label>तक:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "तिथि को  YYYY-mm-dd प्रारूप में होना चाहिए"
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances"
-msgstr "सक्रिय इंस्टेंस"
+msgid "Active Instances:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM"
-msgstr "सक्रिय रैम"
+msgid "Active RAM:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours"
-msgstr "इस अवधि में VCPU-Hours"
+msgid "This Period's VCPU-Hours:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours"
-msgstr "इस अवधि में GB-Hours"
+msgid "This Period's GB-Hours:"
+msgstr ""
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -397,11 +408,11 @@ msgstr "अगला"
 msgid "Horizon"
 msgstr "होरिजन"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "कोई सीमा नहीं"
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "उपलब्ध"
 
@@ -409,7 +420,7 @@ msgstr "उपलब्ध"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
+msgstr[0] "%(size)d बाइट"
 msgstr[1] "%(size)d बाइट"
 
 #: templatetags/sizeformat.py:57
@@ -438,8 +449,22 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 bytes"
+msgid "0 Bytes"
 msgstr ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Puppy बेचें "
+msgstr[1] "Puppies बेचें "
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "बेचा हुआ Puppy"
+msgstr[1] "बेचा हुआ Puppy"
 
 #: utils/filters.py:49
 msgid "Never"
