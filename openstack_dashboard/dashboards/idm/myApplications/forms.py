@@ -11,6 +11,7 @@ from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
 
+
 CHOICES=[('role1','Role 1'),
          ('role2','Role 2'),
          ('role3','Role 3' )]
@@ -27,9 +28,15 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 		return response
 	
 class UploadImageForm(forms.SelfHandlingForm):
-	file = forms.ImageField(required=False)
-
+	image = forms.ImageField(required=True)
+	
 	def handle(self, request, data):
+		print(request.FILES['image'])
+		image = request.FILES['image']
+		imageName = image.name
+		with open(settings.MEDIA_ROOT+'/'+imageName, 'wb+') as destination:
+			for chunk in image.chunks():
+				destination.write(chunk)
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')
 		return response
 	
