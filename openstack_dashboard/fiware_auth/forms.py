@@ -11,11 +11,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import csv
+
 from django import forms
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+
 from keystoneclient import exceptions as keystoneclient_exceptions   
 
 from openstack_dashboard import fiware_api
+
 
 class ConfirmPasswordForm(forms.Form):
     """Encapsulates the idea of two password fields and checking they are the same"""
@@ -76,10 +81,21 @@ class RegistrationForm(ConfirmPasswordForm):
             return username
 
     def clean_email(self):
-        """ Validate taht the email is not already in use"""
+        """ Validate that the email is not already in use and if its banned
+        on the black list or allowed in the white list, depending on the settings"""
 
         email = self.cleaned_data['email']
-
+        email_domain = email.split('@')[1]
+        list_name = getattr(settings,'EMAIL_LIST_TYPE',None)
+        if list_name:
+            f = open('openstack_dashboard/fiware_auth/'+list_name+'.txt','rb')
+            emails = [row.strip() for row in f]
+            if list_name == 'blacklist' and email_domain in emails:
+                raise forms.ValidationError(_("The email domain is blacklisted."),
+                                         code='invalid')
+            elif list_name== 'whitelist' and email_domain not in emails:
+                raise forms.ValidationError(_("The email domain is not whitelisted."),
+                                         code='invalid')
         try:
             existing = fiware_api.keystone.check_email(email)
             raise forms.ValidationError(_("The email is already in use."),
