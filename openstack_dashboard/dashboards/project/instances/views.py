@@ -261,6 +261,14 @@ class DetailView(tabs.TabView):
         try:
             instance_id = self.kwargs['instance_id']
             instance = api.nova.server_get(self.request, instance_id)
+            status_label = [label for (value, label) in
+                            project_tables.STATUS_DISPLAY_CHOICES
+                            if value.lower() ==
+                            (instance.status or '').lower()]
+            if status_label:
+                instance.status_label = status_label[0]
+            else:
+                instance.status_label = instance.status
             instance.volumes = api.nova.instance_volumes_list(self.request,
                                                               instance_id)
             # Sort by device name
