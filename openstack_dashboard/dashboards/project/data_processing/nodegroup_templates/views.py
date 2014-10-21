@@ -86,6 +86,11 @@ class ConfigureNodegroupTemplateView(workflows.WorkflowView):
         "project/data_processing.nodegroup_templates/configure.html")
     page_title = _("Create Node Group Template")
 
+    def get_initial(self):
+        initial = super(ConfigureNodegroupTemplateView, self).get_initial()
+        initial.update(self.kwargs)
+        return initial
+
 
 class CopyNodegroupTemplateView(workflows.WorkflowView):
     workflow_class = copy_flow.CopyNodegroupTemplate

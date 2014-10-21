@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+{% block title %}{% trans "Data Processing" %}{% endblock %}
+
+{% block page_header %}
+    {% include "horizon/common/_page_header.html" with title=_("Data Processing Guides") %}
+{% endblock page_header %}
+
+{% block main %}
+
+    <div class="guide">
+     <ul>
+      <li>
+          <div>
+             <div>{% blocktrans %}
+                 Each of the Data Processing frameworks require a cluster of machines
+                 in order to do the work they are assigned.  A cluster is
+                 formed by creating a set of Node Group Templates, combining
+                 those into a Cluster Template and then launching a Cluster.
+                 You can do each of those steps manually, or you can follow
+                 this guide to help take you through the steps of
+                 Cluster creation.
+             {% endblocktrans %}
+             </div>
+            <div>
+              <a id="cluster_guide_btn"
+                 class=" btn btn-default btn-small btn-create btn-inline"
+                 title="{% trans "Cluster Guide" %}"
+                 href="{% url 'horizon:project:data_processing.wizard:cluster_guide' %}">
+                  {% trans "Cluster Creation Guide" %}
+              </a>
+            </div>
+          </div>
+      </li>
+     </ul>
+
+{% endblock %}
