@@ -1,10 +1,10 @@
-import os
-
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django import forms
 from django.conf import settings
 from django import shortcuts
+
+# from PIL import Image
 
 from horizon import exceptions
 from horizon import messages

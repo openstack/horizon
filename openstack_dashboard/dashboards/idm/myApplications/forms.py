@@ -2,8 +2,6 @@ from django import shortcuts
 from django.conf import settings
 from django import forms 
 from django.utils.translation import ugettext_lazy as _
-# from PIL import Image CON ESTO DEBERÏA HABER UNA PROPIEDAD EN UPLOADEDFILE
-
 
 import horizon
 from horizon import exceptions
@@ -30,12 +28,15 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 		return response
 	
 class UploadImageForm(forms.SelfHandlingForm):
-	image = forms.ImageField(required=False)
-
+	image = forms.ImageField(required=True)
+	
 	def handle(self, request, data):
 		print(request.FILES['image'])
-		import pdb
-		pdb.set_trace()
+		image = request.FILES['image']
+		imageName = image.name
+		with open(settings.MEDIA_ROOT+'/'+imageName, 'wb+') as destination:
+			for chunk in image.chunks():
+				destination.write(chunk)
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')
 		return response
 	
