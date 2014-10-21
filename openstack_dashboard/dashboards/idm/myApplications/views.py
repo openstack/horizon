@@ -1,6 +1,10 @@
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django import forms
+from django.conf import settings
+from django import shortcuts
+
+# from PIL import Image
 
 from horizon import exceptions
 from horizon import messages
@@ -27,15 +31,11 @@ class CreateView(forms.ModalFormView):
 	template_name = 'idm/myApplications/create.html'
 	
 
+
 class UploadImageView(forms.ModalFormView):
 	form_class = application_forms.UploadImageForm
 	template_name = 'idm/myApplications/upload.html'
-
-	def get_context_data(self, **kwargs):
-		context = super(UploadImageView, self).get_context_data(**kwargs)
-		context['hola']='Hello'
-		return context
-
+	
 
 class RolesView(forms.ModalFormView):
 	form_class = application_forms.RolesApplicationForm

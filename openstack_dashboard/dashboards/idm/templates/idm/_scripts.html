@@ -15,11 +15,9 @@ function readURL(input) {
         
         reader.readAsDataURL(input.files[0]);
     }
-    console.log('Hace el cambio');
 }
 
-$("#id_file").change(function(){
-	console.log('Entra al cambio');
+$("#id_image").change(function(){
     readURL(this);
 });
     
