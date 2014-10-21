@@ -27,7 +27,8 @@ from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
 PROVIDER_TYPES = [('local', _('Local')), ('flat', _('Flat')),
-                  ('vlan', 'VLAN'), ('gre', 'GRE'), ('vxlan', 'VXLAN')]
+                  ('vlan', _('VLAN')), ('gre', _('GRE')),
+                  ('vxlan', _('VXLAN'))]
 SEGMENTATION_ID_RANGE = {'vlan': [1, 4094], 'gre': [0, (2 ** 32) - 1],
                          'vxlan': [0, (2 ** 24) - 1]}
 
@@ -73,8 +74,9 @@ class CreateNetwork(forms.SelfHandlingForm):
             'data-network_type-gre': _('Segmentation ID'),
             'data-network_type-vxlan': _('Segmentation ID')
         }))
-    admin_state = forms.BooleanField(label=_("Admin State"),
-                                     initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
     external = forms.BooleanField(label=_("External Network"),
@@ -109,18 +111,19 @@ class CreateNetwork(forms.SelfHandlingForm):
                 'vxlan': seg_id_range.get('vxlan',
                                           SEGMENTATION_ID_RANGE.get('vxlan'))
             }
-            seg_id_help = (_("For VLAN networks, the VLAN VID on the physical "
-                "network that realizes the virtual network. Valid VLAN VIDs "
-                "are %(vlan_min)s through %(vlan_max)s. For GRE or VXLAN "
-                "networks, the tunnel ID. Valid tunnel IDs for GRE networks "
-                "are %(gre_min)s through %(gre_max)s. For VXLAN networks, "
-                "%(vxlan_min)s through %(vxlan_max)s.") % {
-                    'vlan_min': self.seg_id_range['vlan'][0],
-                    'vlan_max': self.seg_id_range['vlan'][1],
-                    'gre_min': self.seg_id_range['gre'][0],
-                    'gre_max': self.seg_id_range['gre'][1],
-                    'vxlan_min': self.seg_id_range['vxlan'][0],
-                    'vxlan_max': self.seg_id_range['vxlan'][1]})
+            seg_id_help = (
+                _("For VLAN networks, the VLAN VID on the physical "
+                  "network that realizes the virtual network. Valid VLAN VIDs "
+                  "are %(vlan_min)s through %(vlan_max)s. For GRE or VXLAN "
+                  "networks, the tunnel ID. Valid tunnel IDs for GRE networks "
+                  "are %(gre_min)s through %(gre_max)s. For VXLAN networks, "
+                  "%(vxlan_min)s through %(vxlan_max)s.")
+                % {'vlan_min': self.seg_id_range['vlan'][0],
+                   'vlan_max': self.seg_id_range['vlan'][1],
+                   'gre_min': self.seg_id_range['gre'][0],
+                   'gre_max': self.seg_id_range['gre'][1],
+                   'vxlan_min': self.seg_id_range['vxlan'][0],
+                   'vxlan_max': self.seg_id_range['vxlan'][1]})
             self.fields['segmentation_id'].help_text = seg_id_help
 
             supported_provider_types = neutron_settings.get(
@@ -128,8 +131,9 @@ class CreateNetwork(forms.SelfHandlingForm):
             if supported_provider_types == ['*']:
                 network_type_choices = PROVIDER_TYPES
             else:
-                network_type_choices = [net_type for net_type in
-                    PROVIDER_TYPES if net_type[0] in supported_provider_types]
+                network_type_choices = [
+                    net_type for net_type in PROVIDER_TYPES
+                    if net_type[0] in supported_provider_types]
             if len(network_type_choices) == 0:
                 self._hide_provider_network_type()
             else:
@@ -164,7 +168,7 @@ class CreateNetwork(forms.SelfHandlingForm):
         try:
             params = {'name': data['name'],
                       'tenant_id': data['tenant_id'],
-                      'admin_state_up': data['admin_state'],
+                      'admin_state_up': (data['admin_state'] == 'True'),
                       'shared': data['shared'],
                       'router:external': data['external']}
             if api.neutron.is_port_profiles_supported():
@@ -229,10 +233,9 @@ class CreateNetwork(forms.SelfHandlingForm):
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     tenant_id = forms.CharField(widget=forms.HiddenInput)
-    network_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
-    admin_state = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     external = forms.BooleanField(label=_("External Network"), required=False)
     failure_url = 'horizon:admin:networks:index'
@@ -240,10 +243,11 @@ class UpdateNetwork(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             params = {'name': data['name'],
-                      'admin_state_up': data['admin_state'],
+                      'admin_state_up': (data['admin_state'] == 'True'),
                       'shared': data['shared'],
                       'router:external': data['external']}
-            network = api.neutron.network_update(request, data['network_id'],
+            network = api.neutron.network_update(request,
+                                                 self.initial['network_id'],
                                                  **params)
             msg = _('Network %s was successfully updated.') % data['name']
             LOG.debug(msg)

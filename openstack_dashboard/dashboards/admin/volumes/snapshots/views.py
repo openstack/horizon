@@ -59,5 +59,6 @@ class UpdateStatusView(forms.ModalFormView):
 class DetailView(views.DetailView):
     tab_group_class = vol_snapshot_tabs.SnapshotDetailsTabs
 
-    def get_redirect_url(self):
+    @staticmethod
+    def get_redirect_url():
         return reverse('horizon:admin:volumes:index')

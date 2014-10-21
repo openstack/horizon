@@ -369,8 +369,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self.domains.get(id=domain_id)
 
         api.keystone.user_get(IsA(http.HttpRequest),
-                     '1',
-                     admin=True).AndReturn(user)
+                              '1',
+                              admin=True).AndReturn(user)
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
             .AndReturn(domain)
         api.keystone.tenant_list(IgnoreArg(), domain=domain_id, user=user.id) \

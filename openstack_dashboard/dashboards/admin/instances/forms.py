@@ -50,8 +50,8 @@ class LiveMigrateForm(forms.SelfHandlingForm):
         host_list = [(host.host_name,
                       host.host_name)
                      for host in hosts
-                     if host.service.startswith('compute') and
-                         host.host_name != current_host]
+                     if (host.service.startswith('compute') and
+                         host.host_name != current_host)]
         if host_list:
             host_list.insert(0, ("", _("Select a new host")))
         else:

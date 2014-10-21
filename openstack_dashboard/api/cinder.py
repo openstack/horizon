@@ -23,6 +23,7 @@ from __future__ import absolute_import
 import logging
 
 from django.conf import settings
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from cinderclient.v1.contrib import list_extensions as cinder_list_extensions
@@ -44,7 +45,7 @@ DEFAULT_QUOTA_NAME = 'default'
 CONSUMER_CHOICES = (
     ('back-end', _('back-end')),
     ('front-end', _('front-end')),
-    ('both', _('both')),
+    ('both', pgettext_lazy('Both of front-end and back-end', u'both')),
 )
 
 VERSIONS = base.APIVersionManager("volume", preferred_version=1)
@@ -135,6 +136,7 @@ class QosSpec(object):
         self.value = val
 
 
+@memoized
 def cinderclient(request):
     api_version = VERSIONS.get_active_version()
 
@@ -158,8 +160,6 @@ def cinderclient(request):
     except exceptions.ServiceCatalogException:
         LOG.debug('no volume service configured.')
         raise
-    LOG.debug('cinderclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, cinder_url))
     c = api_version['client'].Client(request.user.username,
                                      request.user.token.id,
                                      project_id=request.user.tenant_id,
@@ -389,6 +389,10 @@ def volume_type_list_with_qos_associations(request):
             vol_type.associated_qos_spec = qos_spec.name
 
     return vol_types
+
+
+def default_quota_update(request, **kwargs):
+    cinderclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
 
 
 def volume_type_list(request):

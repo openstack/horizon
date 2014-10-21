@@ -23,7 +23,8 @@ from openstack_dashboard.dashboards.project.access_and_security.\
     floating_ips import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^associate/$', views.AssociateView.as_view(), name='associate'),
     url(r'^allocate/$', views.AllocateView.as_view(), name='allocate')
 )

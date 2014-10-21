@@ -68,7 +68,7 @@ class UpdateView(forms.ModalFormView):
     def get_object(self):
         try:
             return api.keystone.group_get(self.request,
-                self.kwargs['group_id'])
+                                          self.kwargs['group_id'])
         except Exception:
             redirect = reverse(constants.GROUPS_INDEX_URL)
             exceptions.handle(self.request,

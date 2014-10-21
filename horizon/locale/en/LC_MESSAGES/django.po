@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-14 01:02-0500\n"
+"POT-Creation-Date: 2014-10-19 01:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: base.py:454
+#: base.py:480
 msgid "Other"
 msgstr ""
 
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr ""
 
@@ -61,16 +61,26 @@ msgstr ""
 msgid "Password is not accepted"
 msgstr ""
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr ""
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr ""
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
+msgstr ""
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr ""
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
 msgstr ""
 
 #: tables/actions.py:460
@@ -81,19 +91,19 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:756
+#: tables/actions.py:758
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:758
+#: tables/actions.py:760
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:788 tables/base.py:1543
 msgid "N/A"
 msgstr ""
 
@@ -112,42 +122,42 @@ msgstr ""
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:873
+#: tables/actions.py:900
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:875
+#: tables/actions.py:902
 msgid "Deleted"
 msgstr ""
 
-#: tables/actions.py:907
+#: tables/actions.py:933
 msgid "Update"
 msgstr ""
 
-#: tables/actions.py:908
+#: tables/actions.py:934
 msgid "Updated"
 msgstr ""
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:965
+#: tables/base.py:967
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1072
+#: tables/base.py:1076
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1297
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1448
+#: tables/base.py:1459
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -225,8 +235,18 @@ msgstr ""
 msgid "More Actions"
 msgstr ""
 
+#: templates/horizon/common/_domain_page_header.html:6
+#, python-format
+msgid "%(context_name)s:"
+msgstr ""
+
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
+msgstr ""
+
+#: templates/horizon/common/_formset_table_row.html:15
+#, python-format
+msgid "%(name)s: %(error)s"
 msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
@@ -296,7 +316,7 @@ msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No existing metadata"
+msgid "No available metadata"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
@@ -320,11 +340,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr ""
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -344,7 +359,7 @@ msgid "Usage Summary"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage"
+msgid "Select a period of time to query its usage:"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:9
@@ -361,28 +376,24 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr ""
 
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr ""
-
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances"
+msgid "Active Instances:"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM"
+msgid "Active RAM:"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours"
+msgid "This Period's VCPU-Hours:"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours"
+msgid "This Period's GB-Hours:"
 msgstr ""
 
 #: templates/horizon/common/_workflow.html:40
@@ -397,11 +408,11 @@ msgstr ""
 msgid "Horizon"
 msgstr ""
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr ""
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr ""
 
@@ -438,8 +449,22 @@ msgid "%s PB"
 msgstr ""
 
 #: templatetags/sizeformat.py:77
-msgid "0 bytes"
+msgid "0 Bytes"
 msgstr ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: utils/filters.py:49
 msgid "Never"

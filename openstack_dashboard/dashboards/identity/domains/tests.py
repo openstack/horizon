@@ -250,10 +250,11 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['name'], domain.name)
         self.assertEqual(step.action.initial['description'],
                          domain.description)
-        self.assertQuerysetEqual(workflow.steps,
-                            ['<UpdateDomainInfo: update_domain>',
-                             '<UpdateDomainUsers: update_user_members>',
-                             '<UpdateDomainGroups: update_group_members>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<UpdateDomainInfo: update_domain>',
+             '<UpdateDomainUsers: update_user_members>',
+             '<UpdateDomainGroups: update_group_members>'])
 
     @test.create_stubs({api.keystone: ('domain_get',
                                        'domain_update',
@@ -320,12 +321,12 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         # admin user - try to remove all roles on current domain, warning
         api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
                                     domain=domain.id) \
-                           .AndReturn(roles)
+            .AndReturn(roles)
 
         # member user 1 - has role 1, will remove it
         api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
                                     domain=domain.id) \
-                           .AndReturn((roles[0],))
+            .AndReturn((roles[0],))
         # remove role 1
         api.keystone.remove_domain_user_role(IsA(http.HttpRequest),
                                              domain=domain.id,
@@ -340,7 +341,7 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         # member user 3 - has role 2
         api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
                                     domain=domain.id) \
-                           .AndReturn((roles[1],))
+            .AndReturn((roles[1],))
         # remove role 2
         api.keystone.remove_domain_user_role(IsA(http.HttpRequest),
                                              domain=domain.id,
@@ -355,7 +356,7 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         # member user 5 - do nothing
         api.keystone.roles_for_user(IsA(http.HttpRequest), '5',
                                     domain=domain.id) \
-                           .AndReturn([])
+            .AndReturn([])
 
         # Group assignments
         api.keystone.group_list(IsA(http.HttpRequest),
@@ -365,7 +366,7 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         api.keystone.roles_for_group(IsA(http.HttpRequest),
                                      group='1',
                                      domain=domain.id) \
-                           .AndReturn(roles)
+            .AndReturn(roles)
         for role in roles:
             api.keystone.remove_group_role(IsA(http.HttpRequest),
                                            role=role.id,
@@ -376,7 +377,7 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         api.keystone.roles_for_group(IsA(http.HttpRequest),
                                      group='2',
                                      domain=domain.id) \
-                           .AndReturn((roles[0],))
+            .AndReturn((roles[0],))
         # remove role 1
         api.keystone.remove_group_role(IsA(http.HttpRequest),
                                        role='1',
@@ -392,7 +393,7 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         api.keystone.roles_for_group(IsA(http.HttpRequest),
                                      group='3',
                                      domain=domain.id) \
-                           .AndReturn((roles[1],))
+            .AndReturn((roles[1],))
         # remove role 2
         api.keystone.remove_group_role(IsA(http.HttpRequest),
                                        role='2',

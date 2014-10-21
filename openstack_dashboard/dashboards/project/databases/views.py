@@ -96,7 +96,11 @@ class DetailView(horizon_tabs.TabbedTableView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["instance"] = self.get_data()
+        instance = self.get_data()
+        table = tables.InstancesTable(self.request)
+        context["instance"] = instance
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(instance)
         return context
 
     @memoized.memoized_method
@@ -107,10 +111,10 @@ class DetailView(horizon_tabs.TabbedTableView):
             instance = api.trove.instance_get(self.request, instance_id)
             instance.host = tables.get_host(instance)
         except Exception:
-            redirect = reverse('horizon:project:databases:index')
             msg = _('Unable to retrieve details '
                     'for database instance: %s') % instance_id
-            exceptions.handle(self.request, msg, redirect=redirect)
+            exceptions.handle(self.request, msg,
+                              redirect=self.get_redirect_url())
         try:
             instance.full_flavor = api.trove.flavor_get(
                 self.request, instance.flavor["id"])
@@ -122,6 +126,10 @@ class DetailView(horizon_tabs.TabbedTableView):
     def get_tabs(self, request, *args, **kwargs):
         instance = self.get_data()
         return self.tab_group_class(request, instance=instance, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse('horizon:project:databases:index')
 
 
 class ResizeVolumeView(horizon_forms.ModalFormView):

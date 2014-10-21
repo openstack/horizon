@@ -81,12 +81,12 @@ class Server(base.APIResourceWrapper):
     Preserves the request info so image name can later be retrieved.
     """
     _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
-             'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
-             'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
-             'tenant_id', 'user_id', 'created', 'OS-EXT-STS:power_state',
-             'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
-             'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone',
-             'OS-DCF:diskConfig']
+              'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
+              'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
+              'tenant_id', 'user_id', 'created', 'OS-EXT-STS:power_state',
+              'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
+              'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone',
+              'OS-DCF:diskConfig']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
@@ -142,8 +142,8 @@ class NovaUsage(base.APIResourceWrapper):
     """Simple wrapper around contrib/simple_usage.py."""
 
     _attrs = ['start', 'server_usages', 'stop', 'tenant_id',
-             'total_local_gb_usage', 'total_memory_mb_usage',
-             'total_vcpus_usage', 'total_hours']
+              'total_local_gb_usage', 'total_memory_mb_usage',
+              'total_vcpus_usage', 'total_hours']
 
     def get_summary(self):
         return {'instances': self.total_active_instances,
@@ -402,10 +402,10 @@ class FloatingIpManager(network_base.FloatingIpManager):
     def list_targets(self):
         return [FloatingIpTarget(s) for s in self.client.servers.list()]
 
-    def get_target_id_by_instance(self, instance_id):
+    def get_target_id_by_instance(self, instance_id, target_list=None):
         return instance_id
 
-    def list_target_id_by_instance(self, instance_id):
+    def list_target_id_by_instance(self, instance_id, target_list=None):
         return [instance_id, ]
 
     def is_simple_associate_supported(self):
@@ -415,11 +415,10 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return True
 
 
+@memoized
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    LOG.debug('novaclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, base.url_for(request, 'compute')))
     c = nova_client.Client(request.user.username,
                            request.user.token.id,
                            project_id=request.user.tenant_id,
@@ -433,8 +432,8 @@ def novaclient(request):
 
 
 def server_vnc_console(request, instance_id, console_type='novnc'):
-    return VNCConsole(novaclient(request).servers.get_vnc_console(instance_id,
-                                                  console_type)['console'])
+    return VNCConsole(novaclient(request).servers.get_vnc_console(
+        instance_id, console_type)['console'])
 
 
 def server_spice_console(request, instance_id, console_type='spice-html5'):
@@ -538,7 +537,7 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   security_groups, block_device_mapping=None,
                   block_device_mapping_v2=None, nics=None,
                   availability_zone=None, instance_count=1, admin_pass=None,
-                  disk_config=None, meta=None):
+                  disk_config=None, config_drive=None, meta=None):
     return Server(novaclient(request).servers.create(
         name, image, flavor, userdata=user_data,
         security_groups=security_groups,
@@ -546,7 +545,8 @@ def server_create(request, name, image, flavor, key_name, user_data,
         block_device_mapping_v2=block_device_mapping_v2,
         nics=nics, availability_zone=availability_zone,
         min_count=instance_count, admin_pass=admin_pass,
-        disk_config=disk_config, meta=meta), request)
+        disk_config=disk_config, config_drive=config_drive,
+        meta=meta), request)
 
 
 def server_delete(request, instance):
@@ -573,7 +573,7 @@ def server_list(request, search_opts=None, all_tenants=False):
     else:
         search_opts['project_id'] = request.user.tenant_id
     servers = [Server(s, request)
-                for s in c.servers.list(True, search_opts)]
+               for s in c.servers.list(True, search_opts)]
 
     has_more_data = False
     if paginate and len(servers) > page_size:
@@ -668,6 +668,10 @@ def default_quota_get(request, tenant_id):
     return base.QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
+def default_quota_update(request, **kwargs):
+    novaclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
+
+
 def usage_get(request, tenant_id, start, end):
     return NovaUsage(novaclient(request).usage.get(tenant_id, start, end))
 
@@ -695,13 +699,13 @@ def get_password(request, instance_id, private_key=None):
 
 def instance_volume_attach(request, volume_id, instance_id, device):
     return novaclient(request).volumes.create_server_volume(instance_id,
-                                                              volume_id,
-                                                              device)
+                                                            volume_id,
+                                                            device)
 
 
 def instance_volume_detach(request, instance_id, att_id):
     return novaclient(request).volumes.delete_server_volume(instance_id,
-                                                              att_id)
+                                                            att_id)
 
 
 def instance_volumes_list(request, instance_id):
@@ -847,3 +851,10 @@ def can_set_server_password():
 def instance_action_list(request, instance_id):
     return nova_instance_action.InstanceActionManager(
         novaclient(request)).list(instance_id)
+
+
+def can_set_mount_point():
+    """Return the Hypervisor's capability of setting mount points."""
+    hypervisor_features = getattr(
+        settings, "OPENSTACK_HYPERVISOR_FEATURES", {})
+    return hypervisor_features.get("can_set_mount_point", False)

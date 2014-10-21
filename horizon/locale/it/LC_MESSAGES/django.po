@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-13 12:34-0500\n"
-"PO-Revision-Date: 2014-09-14 00:03+0000\n"
+"POT-Creation-Date: 2014-10-09 22:05-0500\n"
+"PO-Revision-Date: 2014-10-09 23:37+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:454
+#: base.py:480
 msgid "Other"
 msgstr "Altro"
 
@@ -44,7 +44,7 @@ msgstr "Non autorizzato: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Non autorizzato. Ritentare il login."
 
-#: middleware.py:117
+#: middleware.py:97
 msgid "Session timed out."
 msgstr "Sessione scaduta."
 
@@ -61,17 +61,27 @@ msgstr "Selezionare un %s per sfogliare."
 msgid "Password is not accepted"
 msgstr "La password non è stata accettata."
 
-#: forms/fields.py:63
+#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Formato incorretto per l'indirizzo IP"
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "Versione dell'indirizzo IP non valida"
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "Maschera sottorete non valida."
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "Invia"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "Annulla"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -93,61 +103,61 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1532
+#: tables/actions.py:786 tables/base.py:1545
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Non si è autorizzati a %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Impossibile %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:873
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "Elimina"
 
-#: tables/actions.py:875
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "Eliminato"
 
-#: tables/actions.py:907
+#: tables/actions.py:931
 msgid "Update"
 msgstr "Aggiorna"
 
-#: tables/actions.py:908
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "Aggiornato"
 
-#: tables/base.py:354
+#: tables/base.py:355
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "L'attributo %(attr)s non esiste in %(obj)s"
 
-#: tables/base.py:965
+#: tables/base.py:967
 msgid "No items to display."
 msgstr "Nessun elemento da visualizzare"
 
-#: tables/base.py:1072
+#: tables/base.py:1076
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Azioni"
 
-#: tables/base.py:1297
+#: tables/base.py:1304
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nessuna corrispondenza restituita per l'identificativo \"%s\""
 
-#: tables/base.py:1448
+#: tables/base.py:1461
 msgid "Please select a row before taking that action."
 msgstr "Per cortesia, selezionare una riga prima di eseguire tale azione."
 
@@ -212,7 +222,7 @@ msgstr "Riepilogo"
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
-msgstr[1] "Visualizzando %(counter)s oggetti"
+msgstr[1] ""
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -236,7 +246,7 @@ msgstr "Riepilogo dei Limiti"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
-msgstr "Istanza"
+msgstr "Istanze"
 
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
@@ -263,7 +273,7 @@ msgstr "Floating IPs"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
-msgstr "Security Groups"
+msgstr "Gruppi di Protezione"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
@@ -297,7 +307,7 @@ msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No existing metadata"
+msgid "No available metadata"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
@@ -319,24 +329,19 @@ msgstr ""
 msgid "Save"
 msgstr "Salva"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:239
-#: templates/horizon/common/_workflow.html:49
-msgid "Cancel"
-msgstr "Annulla"
-
 #: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] ""
-msgstr[1] "Visualizzando %(nav_items)s oggetti"
+msgstr[1] ""
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] ""
-msgstr[1] "Visualizzando %(content_items)s oggetti"
+msgstr[1] ""
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -359,10 +364,6 @@ msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
 msgstr ""
-
-#: templates/horizon/common/_usage_summary.html:16
-msgid "Submit"
-msgstr "Invia"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
@@ -396,11 +397,11 @@ msgstr "Prossimo"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:126 templatetags/horizon.py:136
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
 msgid "No Limit"
 msgstr "Nessun Limite"
 
-#: templatetags/horizon.py:128 templatetags/horizon.py:130
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
 msgid "Available"
 msgstr "Disponibile"
 
@@ -409,7 +410,7 @@ msgstr "Disponibile"
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] ""
-msgstr[1] "%(size)d Bytes"
+msgstr[1] ""
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -439,6 +440,20 @@ msgstr "%s PB"
 #: templatetags/sizeformat.py:77
 msgid "0 bytes"
 msgstr ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
 
 #: utils/filters.py:49
 msgid "Never"

@@ -42,11 +42,13 @@ class NetworkTests(test.BaseAdminViewTests):
             api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
                                                          network.id)\
                 .AndReturn(self.agents.list())
-            api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                    'dhcp_agent_scheduler').AndReturn(True)
-
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+            api.neutron.is_extension_supported(
+                IsA(http.HttpRequest),
                 'dhcp_agent_scheduler').AndReturn(True)
+
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -60,8 +62,9 @@ class NetworkTests(test.BaseAdminViewTests):
     def test_index_network_list_exception(self):
         api.neutron.network_list(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.neutron)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -101,8 +104,12 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -184,8 +191,12 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -228,6 +239,12 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -468,8 +485,10 @@ class NetworkTests(test.BaseAdminViewTests):
         res = self.client.get(url)
 
         self.assertTemplateUsed(res, 'admin/networks/create.html')
-        self.assertContains(res, '<input type="hidden" name="network_type" '
-            'id="id_network_type" />', html=True)
+        self.assertContains(
+            res,
+            '<input type="hidden" name="network_type" id="id_network_type" />',
+            html=True)
 
     @test.create_stubs({api.neutron: ('list_extensions',),
                         api.keystone: ('tenant_list',)})
@@ -584,10 +603,12 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
                                                      network.id).\
             AndReturn(self.agents.list())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                'dhcp_agent_scheduler').AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
         api.neutron.network_list(IsA(http.HttpRequest))\
@@ -612,10 +633,12 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
                                                      network.id).\
             AndReturn(self.agents.list())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                'dhcp_agent_scheduler').AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
         api.neutron.network_list(IsA(http.HttpRequest))\
@@ -633,11 +656,15 @@ class NetworkTests(test.BaseAdminViewTests):
 
 class NetworkSubnetTests(test.BaseAdminViewTests):
 
-    @test.create_stubs({api.neutron: ('subnet_get',)})
+    @test.create_stubs({api.neutron: ('network_get', 'subnet_get',)})
     def test_subnet_detail(self):
+        network = self.networks.first()
         subnet = self.subnets.first()
+
+        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
+            .AndReturn(network)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(self.subnets.first())
+            .AndReturn(subnet)
 
         self.mox.ReplayAll()
 
@@ -657,7 +684,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:subnets:detail',
-                                      args=[subnet.id])
+                      args=[subnet.id])
         res = self.client.get(url)
 
         # admin DetailView is shared with userpanel one, so
@@ -796,7 +823,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
         form_data = tests.form_data_subnet(subnet, gateway_ip=gateway_ip,
-                                     allocation_pools=[])
+                                           allocation_pools=[])
         url = reverse('horizon:admin:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -839,7 +866,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
         form_data = tests.form_data_subnet(subnet, gateway_ip=gateway_ip,
-                                     allocation_pools=[])
+                                           allocation_pools=[])
         url = reverse('horizon:admin:networks:editsubnet',
                       args=[subnet.network_id, subnet.id])
         res = self.client.post(url, form_data)
@@ -942,6 +969,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(self.ports.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)

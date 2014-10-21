@@ -12,13 +12,13 @@
 
 import os
 
-import selenium
 from selenium.webdriver.support import ui
 import testtools
 import xvfbwrapper
 
 from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
+from openstack_dashboard.test.integration_tests import webdriver
 
 
 class BaseTestCase(testtools.TestCase):
@@ -30,7 +30,7 @@ class BaseTestCase(testtools.TestCase):
                 self.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
                 self.vdisplay.start()
             # Start the Selenium webdriver and setup configuration.
-            self.driver = selenium.webdriver.Firefox()
+            self.driver = webdriver.WebDriverWrapper()
             self.driver.maximize_window()
             self.conf = config.get_config()
             self.driver.implicitly_wait(self.conf.dashboard.page_timeout)

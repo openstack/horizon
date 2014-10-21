@@ -16,6 +16,7 @@ from django.conf import settings
 from heatclient import client as heat_client
 
 from horizon.utils import functions as utils
+from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 
 LOG = logging.getLogger(__name__)
@@ -29,13 +30,12 @@ def format_parameters(params):
     return parameters
 
 
+@memoized
 def heatclient(request, password=None):
     api_version = "1"
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     endpoint = base.url_for(request, 'orchestration')
-    LOG.debug('heatclient connection created using token "%s" and url "%s"' %
-              (request.user.token.id, endpoint))
     kwargs = {
         'token': request.user.token.id,
         'insecure': insecure,

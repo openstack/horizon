@@ -67,8 +67,8 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         cls.slug = getattr(opts, "slug", slugify(name))
         cls.permissions = getattr(opts, "permissions", ())
         cls.progress_message = getattr(opts,
-                                            "progress_message",
-                                            _("Processing..."))
+                                       "progress_message",
+                                       _("Processing..."))
         cls.help_text = getattr(opts, "help_text", "")
         cls.help_text_template = getattr(opts, "help_text_template", None)
         return cls
@@ -347,8 +347,8 @@ class Step(object):
                     except ImportError:
                         raise ImportError("Could not import %s from the "
                                           "module %s as a connection "
-                                             "handler on %s."
-                                             % (bits[-1], module_name, cls))
+                                          "handler on %s."
+                                          % (bits[-1], module_name, cls))
                     except AttributeError:
                         raise AttributeError("Could not import %s from the "
                                              "module %s as a connection "
@@ -673,7 +673,7 @@ class Workflow(html.HTMLElement):
         self._ordered_steps = [self._registry[step_class]
                                for step_class in ordered_step_classes
                                if has_permissions(self.request.user,
-                                          self._registry[step_class])]
+                                                  self._registry[step_class])]
 
     def _order_steps(self):
         steps = list(copy.copy(self.default_steps))
@@ -723,7 +723,7 @@ class Workflow(html.HTMLElement):
     def _trigger_handlers(self, key):
         responses = []
         handlers = [(step.slug, f) for step in self.steps
-                                   for f in step._handlers.get(key, [])]
+                    for f in step._handlers.get(key, [])]
         for slug, handler in handlers:
             responses.append((slug, handler(self.request, self.context)))
         return responses

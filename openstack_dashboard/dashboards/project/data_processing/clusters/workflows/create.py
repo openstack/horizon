@@ -72,7 +72,7 @@ class GeneralConfigAction(workflows.Action):
 
     description = forms.CharField(label=_("Description"),
                                   required=False,
-                                  widget=forms.Textarea)
+                                  widget=forms.Textarea(attrs={'rows': 4}))
     cluster_template = forms.ChoiceField(label=_("Cluster Template"),
                                          initial=(None, "None"))
 
@@ -118,8 +118,8 @@ class GeneralConfigAction(workflows.Action):
                                                               hadoop_version)
 
             return [(image.id, image.name) for image in all_images
-                    if set(details.required_image_tags).
-                        issubset(set(image.tags))]
+                    if (set(details.required_image_tags).
+                        issubset(set(image.tags)))]
         except Exception:
             exceptions.handle(request,
                               _("Unable to fetch image choices."))

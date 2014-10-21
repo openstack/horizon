@@ -52,8 +52,6 @@ TEMPLATE_DEBUG = DEBUG
 
 # Default OpenStack Dashboard configuration.
 HORIZON_CONFIG = {
-    'dashboards': ('project', 'admin', 'settings',),
-    'default_dashboard': 'project',
     'user_home': 'openstack_dashboard.views.get_user_home',
     'ajax_queue_limit': 10,
     'auto_fade_alerts': {
@@ -182,7 +180,8 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_router': True,
     'enable_quotas': True,
     'enable_ipv6': True,
-    'enable_distributed_router': True,
+    'enable_distributed_router': False,
+    'enable_ha_router': False,
     'enable_lb': True,
     'enable_firewall': True,
     'enable_vpn': True,
@@ -528,3 +527,10 @@ SECURITY_GROUP_RULES = {
 # to set this to True if you were running Nova Networking with
 # auto_assign_floating_ip = True.
 # SAHARA_AUTO_IP_ALLOCATION_ENABLED = False
+
+# The hash algorithm to use for authentication tokens. This must
+# match the hash algorithm that the identity server and the
+# auth_token middleware are using. Allowed values are the
+# algorithms supported by Python's hashlib library.
+# OPENSTACK_TOKEN_HASH_ALGORITHM = 'md5'
+

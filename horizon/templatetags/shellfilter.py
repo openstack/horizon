@@ -22,9 +22,9 @@ register = base.Library()
 def shellfilter(value):
     """Replace HTML chars for shell usage."""
     replacements = {'\\': '\\\\',
-                   '`': '\`',
-                   "'": "\\'",
-                   '"': '\\"'}
+                    '`': '\`',
+                    "'": "\\'",
+                    '"': '\\"'}
     for search, repl in replacements.items():
         value = value.replace(search, repl)
     return safestring.mark_safe(value)

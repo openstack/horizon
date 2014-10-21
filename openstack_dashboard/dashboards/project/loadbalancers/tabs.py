@@ -21,7 +21,6 @@ from horizon import tabs
 from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.loadbalancers import tables
-from openstack_dashboard.dashboards.project.loadbalancers import utils
 
 
 class PoolsTab(tabs.TableTab):
@@ -94,16 +93,7 @@ class PoolDetailsTab(tabs.Tab):
     template_name = "project/loadbalancers/_pool_details.html"
 
     def get_context_data(self, request):
-        pid = self.tab_group.kwargs['pool_id']
-        try:
-            pool = api.lbaas.pool_get(request, pid)
-        except Exception:
-            pool = []
-            exceptions.handle(request,
-                              _('Unable to retrieve pool details.'))
-        for monitor in pool.health_monitors:
-            display_name = utils.get_monitor_display_name(monitor)
-            setattr(monitor, 'display_name', display_name)
+        pool = self.tab_group.kwargs['pool']
         return {'pool': pool}
 
 
@@ -129,13 +119,7 @@ class MemberDetailsTab(tabs.Tab):
     template_name = "project/loadbalancers/_member_details.html"
 
     def get_context_data(self, request):
-        mid = self.tab_group.kwargs['member_id']
-        try:
-            member = api.lbaas.member_get(request, mid)
-        except Exception:
-            member = []
-            exceptions.handle(self.tab_group.request,
-                              _('Unable to retrieve member details.'))
+        member = self.tab_group.kwargs['member']
         return {'member': member}
 
 
@@ -145,13 +129,7 @@ class MonitorDetailsTab(tabs.Tab):
     template_name = "project/loadbalancers/_monitor_details.html"
 
     def get_context_data(self, request):
-        mid = self.tab_group.kwargs['monitor_id']
-        try:
-            monitor = api.lbaas.pool_health_monitor_get(request, mid)
-        except Exception:
-            monitor = []
-            exceptions.handle(self.tab_group.request,
-                              _('Unable to retrieve monitor details.'))
+        monitor = self.tab_group.kwargs['monitor']
         return {'monitor': monitor}
 
 

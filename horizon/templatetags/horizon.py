@@ -14,9 +14,13 @@
 
 from __future__ import absolute_import
 
+from horizon.contrib import bootstrap_datepicker
+
+from django.conf import settings
 from django import template
 from django.utils.datastructures import SortedDict
 from django.utils.encoding import force_text
+from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.base import Horizon  # noqa
@@ -37,7 +41,7 @@ def has_permissions(user, component):
 @register.filter
 def has_permissions_on_list(components, user):
     return [component for component
-                in components if has_permissions(user, component)]
+            in components if has_permissions(user, component)]
 
 
 @register.inclusion_tag('horizon/_accordion_nav.html', takes_context=True)
@@ -53,19 +57,19 @@ def horizon_nav(context):
         for group in panel_groups.values():
             allowed_panels = []
             for panel in group:
-                if callable(panel.nav) and panel.nav(context) and \
-                   panel.can_access(context):
+                if (callable(panel.nav) and panel.nav(context) and
+                        panel.can_access(context)):
                     allowed_panels.append(panel)
-                elif not callable(panel.nav) and panel.nav and \
-                         panel.can_access(context):
+                elif (not callable(panel.nav) and panel.nav and
+                        panel.can_access(context)):
                     allowed_panels.append(panel)
             if allowed_panels:
                 non_empty_groups.append((group.name, allowed_panels))
-        if callable(dash.nav) and dash.nav(context) and \
-           dash.can_access(context):
+        if (callable(dash.nav) and dash.nav(context) and
+                dash.can_access(context)):
             dashboards.append((dash, SortedDict(non_empty_groups)))
-        elif not callable(dash.nav) and dash.nav and \
-             dash.can_access(context):
+        elif (not callable(dash.nav) and dash.nav and
+                dash.can_access(context)):
             dashboards.append((dash, SortedDict(non_empty_groups)))
     return {'components': dashboards,
             'user': context['request'].user,
@@ -105,11 +109,11 @@ def horizon_dashboard_nav(context):
     for group in panel_groups.values():
         allowed_panels = []
         for panel in group:
-            if callable(panel.nav) and panel.nav(context) and \
-               panel.can_access(context):
+            if (callable(panel.nav) and panel.nav(context) and
+                    panel.can_access(context)):
                 allowed_panels.append(panel)
-            elif not callable(panel.nav) and panel.nav and \
-                 panel.can_access(context):
+            elif (not callable(panel.nav) and panel.nav and
+                    panel.can_access(context)):
                 allowed_panels.append(panel)
         if allowed_panels:
             non_empty_groups.append((group.name, allowed_panels))
@@ -170,3 +174,10 @@ def jstemplate(parser, token):
 @register.assignment_tag
 def load_config():
     return conf.HORIZON_CONFIG
+
+
+@register.assignment_tag
+def datepicker_locale():
+    locale_mapping = getattr(settings, 'DATEPICKER_LOCALES',
+                             bootstrap_datepicker.LOCALE_MAPPING)
+    return locale_mapping.get(translation.get_language(), 'en')

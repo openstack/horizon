@@ -25,7 +25,8 @@ from openstack_dashboard.dashboards.admin.instances import views
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.instances.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.admin.instances.views',
     url(r'^$', views.AdminIndexView.as_view(), name='index'),
     url(INSTANCES % 'update', views.AdminUpdateView.as_view(), name='update'),
     url(INSTANCES % 'detail', views.DetailView.as_view(), name='detail'),

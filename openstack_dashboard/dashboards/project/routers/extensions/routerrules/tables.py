@@ -16,16 +16,18 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import rulemanager
+from openstack_dashboard import policy
 
 from horizon import tables
 
 LOG = logging.getLogger(__name__)
 
 
-class AddRouterRule(tables.LinkAction):
+class AddRouterRule(policy.PolicyTargetMixin, tables.LinkAction):
     name = "create"
     verbose_name = _("Add Router Rule")
     url = "horizon:project:routers:addrouterrule"
@@ -33,28 +35,30 @@ class AddRouterRule(tables.LinkAction):
     icon = "plus"
     policy_rules = (("network", "update_router"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
-
     def get_link_url(self, datum=None):
         router_id = self.table.kwargs['router_id']
         return reverse(self.url, args=(router_id,))
 
 
-class RemoveRouterRule(tables.DeleteAction):
-    data_type_singular = _("Router Rule")
-    data_type_plural = _("Router Rules")
+class RemoveRouterRule(policy.PolicyTargetMixin, tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Router Rule",
+            u"Delete Router Rules",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Router Rule",
+            u"Deleted Router Rules",
+            count
+        )
+
     failure_url = 'horizon:project:routers:detail'
     policy_rules = (("network", "update_router"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def delete(self, request, obj_id):
         router_id = self.table.kwargs['router_id']

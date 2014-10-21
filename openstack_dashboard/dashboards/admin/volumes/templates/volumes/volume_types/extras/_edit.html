@@ -7,7 +7,7 @@
 
 
 {% block modal_id %}extra_spec_edit_modal{% endblock %}
-{% block modal-header %}{% trans "Edit Extra Spec Value" %}: {{ key }}{% endblock %}
+{% block modal-header %}{% blocktrans %}Edit Extra Spec Value: {{ key }}{% endblocktrans %}{% endblock %}
 
 {% block modal-body %}
 <div class="left">
@@ -16,7 +16,7 @@
     </fieldset>
 </div>
 <div class="right">
-    <h3>{% trans "Description" %}:</h3>
+    <h3>{% trans "Description:" %}</h3>
     <p>{% blocktrans with key=key %}Update the "extra spec" value for "{{ key }}"{% endblocktrans %}</p>
 </div>
 {% endblock %}

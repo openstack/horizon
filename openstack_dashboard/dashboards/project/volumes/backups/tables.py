@@ -85,7 +85,7 @@ class UpdateRow(tables.Row):
         backup = cinder.volume_backup_get(request, backup_id)
         try:
             backup.volume = cinder.volume_get(request,
-                                               backup.volume_id)
+                                              backup.volume_id)
         except Exception:
             pass
         return backup

@@ -18,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
+from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 from openstack_dashboard.api import sahara as saharaclient
 
@@ -46,7 +47,24 @@ class GeneralTab(tabs.Tab):
             flavor = {}
             exceptions.handle(request,
                               _("Unable to fetch flavor for template."))
-        return {"template": template, "flavor": flavor}
+
+        floating_ip_pool_name = None
+        if template.floating_ip_pool:
+            try:
+                floating_ip_pool_name = self._get_floating_ip_pool_name(
+                    request, template.floating_ip_pool)
+            except Exception:
+                exceptions.handle(request,
+                                  _("Unable to fetch floating ip pools."))
+
+        return {"template": template, "flavor": flavor,
+                "floating_ip_pool_name": floating_ip_pool_name}
+
+    def _get_floating_ip_pool_name(self, request, pool_id):
+        pools = [pool for pool in network.floating_ip_pools_list(
+            request) if pool.id == pool_id]
+
+        return pools[0].name if pools else pool_id
 
 
 class ConfigsTab(tabs.Tab):

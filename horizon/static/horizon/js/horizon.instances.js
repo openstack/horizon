@@ -1,5 +1,6 @@
 horizon.instances = {
   user_decided_length: false,
+  user_volume_size: false,
   networks_selected: [],
   networks_available: [],
 
@@ -200,19 +201,49 @@ horizon.addInitFunction(function () {
     $(modal).find("#id_source_type").change();
   });
 
+  /*
+   Update the device size value to reflect minimum allowed
+   for selected image and flavor
+   */
+  function update_device_size() {
+    var volume_size = horizon.Quota.getSelectedFlavor().disk;
+    var image = horizon.Quota.getSelectedImage();
+    var size_field = $("#id_volume_size");
 
-  // Handle field toggles for the Launch Instance volume type field
-  function update_image_id_fields (field) {
-    var $this = $(field),
-      volume_opt = $this.val();
-    var $option = $this.find("option:selected");
-    var $form = $this.closest('form');
-    var $volSize = $form.find('input#id_volume_size');
-    $volSize.val($option.data("volume_size"));
+    if (image !== undefined && image.min_disk > volume_size) {
+      volume_size = image.min_disk;
+    }
+
+    // If the user has manually changed the volume size, do not override
+    // unless user-defined value is too small.
+    if (horizon.instances.user_volume_size) {
+      var user_value = size_field.val();
+      if (user_value > volume_size) {
+        volume_size = user_value;
+      }
+    }
+
+    // Make sure the new value is >= the minimum allowed (1GB)
+    if (volume_size < 1) {
+      volume_size = 1;
+    }
+
+    size_field.val(volume_size);
   }
 
+  $(document).on('change', '.workflow #id_flavor', function (evt) {
+    update_device_size();
+  });
+
   $(document).on('change', '.workflow #id_image_id', function (evt) {
-    update_image_id_fields(this);
+    update_device_size();
+  });
+
+  $(document).on('input', '.workflow #id_volume_size', function (evt) {
+    horizon.instances.user_volume_size = true;
+    // We only need to listen for the first user input to this field,
+    // so remove the listener after the first time it gets called.
+    $(document).off('input', '.workflow #id_volume_size');
   });
 
   horizon.instances.decrypt_password = function(encrypted_password, private_key) {
@@ -243,7 +274,7 @@ horizon.addInitFunction(function () {
     The font-family is changed because with the default policy the major I
     and minor the l cannot be distinguished.
   */
-  $(document).on('show', '#password_instance_modal', function (evt) {
+  $(document).on('show.bs.modal', '#password_instance_modal', function (evt) {
     $("#id_decrypted_password").css("font-family","monospace");
     $("#id_decrypted_password").css("cursor","text");
     $("#id_encrypted_password").css("cursor","text");

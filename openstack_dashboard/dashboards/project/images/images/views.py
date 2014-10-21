@@ -33,6 +33,8 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.images.images \
     import forms as project_forms
 from openstack_dashboard.dashboards.project.images.images \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.images.images \
     import tabs as project_tabs
 
 
@@ -84,18 +86,25 @@ class DetailView(tabs.TabView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context["image"] = self.get_data()
+        image = self.get_data()
+        table = project_tables.ImagesTable(self.request)
+        context["image"] = image
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(image)
         return context
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy('horizon:project:images:index')
 
     @memoized.memoized_method
     def get_data(self):
         try:
             return api.glance.image_get(self.request, self.kwargs['image_id'])
         except Exception:
-            url = reverse('horizon:project:images:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve image details.'),
-                              redirect=url)
+                              redirect=self.get_redirect_url())
 
     def get_tabs(self, request, *args, **kwargs):
         image = self.get_data()

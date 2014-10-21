@@ -68,7 +68,7 @@ class SwiftApiTests(test.APITestCase):
         metadata = {'is_public': False}
         container = self.containers.first()
         headers = api.swift._metadata_to_header(metadata=(metadata))
-        swift_api = self.stub_swiftclient(expected_calls=2)
+        swift_api = self.stub_swiftclient()
         # Check for existence, then create
         exc = self.exceptions.swift
         swift_api.head_container(container.name).AndRaise(exc)
@@ -201,7 +201,7 @@ class SwiftApiTests(test.APITestCase):
         container = self.containers.first()
         obj = self.objects.first()
 
-        swift_api = self.stub_swiftclient(expected_calls=2)
+        swift_api = self.stub_swiftclient()
         swift_api.head_object(container.name, obj.name).AndReturn(container)
 
         exc = self.exceptions.swift

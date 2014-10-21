@@ -1,0 +1,517 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Amandeep Singh Saini <jimidar@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-18 20:37-0500\n"
+"PO-Revision-Date: 2014-10-19 01:37+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pa_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: base.py:480
+msgid "Other"
+msgstr "ਹੋਰ"
+
+#: decorators.py:53
+msgid "Please log in to continue."
+msgstr "ਜਾਰੀ ਰਹਿਣ ਲਈ ਕਿਰਪਾ ਕਰ ਕੇ ਲਾਗਇਨ ਕਰੋ।"
+
+#: decorators.py:85
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "ਤੁਸੀਂ %s ਤੇ ਦਖਲ ਦੇਣ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ"
+
+#: exceptions.py:163
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "ਇੱਕ %(resource)s ਪਹਿਲਾਂ ਹੀ \"%(name)s\" ਨਾਂ ਨਾਲ ਮੌਜੂਦ ਹੈ।"
+
+#: exceptions.py:287
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "ਅਣ-ਅਧਿਕਾਰਤ ਕੀਤਾ: %s"
+
+#: exceptions.py:290
+msgid "Unauthorized. Please try logging in again."
+msgstr "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰ ਕੇ ਦੁਬਾਰਾ ਲਾਗਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+#: middleware.py:97
+msgid "Session timed out."
+msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "ਨੈਵੀਗੇਸ਼ਨ ਚੀਜ਼"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "ਬਰਾਊਜ਼ ਕਰਨ ਲਈ ਇੱਕ %s ਚੁਣੋ।"
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਪਰਵਾਨਿਤ ਨਹੀਂ ਹੈ"
+
+#: forms/fields.py:64
+msgid "Incorrect format for IP address"
+msgstr "IP ਪਤੇ ਲਈ ਗਲਤ ਬਣਤਰ"
+
+#: forms/fields.py:65
+msgid "Invalid version for IP address"
+msgstr "IP ਪਤੇ ਲਈ ਅਢੁਕਵਾਂ ਸੰਸਕਰਣ"
+
+#: forms/fields.py:66
+msgid "Invalid subnet mask"
+msgstr "ਅਢੁਕਵਾਂ ਸਬਨੈੱਟ ਮਾਸਕ"
+
+#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+msgid "Submit"
+msgstr "ਦਾਖਲ ਕਰੋ"
+
+#: forms/views.py:82
+#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_workflow.html:49
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: tables/actions.py:460
+#: templates/horizon/common/_data_table_table_actions.html:16
+#: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_workflow_step_update_members.html:12
+#: templates/horizon/common/_workflow_step_update_members.html:21
+msgid "Filter"
+msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
+
+#: tables/actions.py:758
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#: tables/actions.py:760
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#: tables/actions.py:788 tables/base.py:1543
+msgid "N/A"
+msgstr "ਲਾਗੂ ਨਹੀਂ"
+
+#: tables/actions.py:817
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "ਤੁਹਾਨੂੰ %(action)s: ਦੀ ਮਨਜੂਰੀ ਨਹੀਂ ਹੈ: %(objs)s"
+
+#: tables/actions.py:824
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "%(action)s ਤੋਂ ਅਸਮਰੱਥ: %(objs)s"
+
+#: tables/actions.py:830
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
+
+#: tables/actions.py:900
+msgid "Delete"
+msgstr "ਮਿਟਾਉ"
+
+#: tables/actions.py:902
+msgid "Deleted"
+msgstr "ਮਿਟਾਇਆ ਗਿਆ"
+
+#: tables/actions.py:933
+msgid "Update"
+msgstr "ਅਪਡੇਟ ਕਰੋ"
+
+#: tables/actions.py:934
+msgid "Updated"
+msgstr "ਅਪਡੇਟ ਹੋਇਆ"
+
+#: tables/base.py:355
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(attr)s ਐਟਰੀਬਿਊਟ %(obj)s ਉੱਪਰ ਹੋਂਦ ਨਹੀੰ ਰਖ਼ਦਾ।"
+
+#: tables/base.py:967
+msgid "No items to display."
+msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
+
+#: tables/base.py:1076
+#: templates/horizon/common/_data_table_table_actions.html:40
+msgid "Actions"
+msgstr "ਕਾਰਵਾਈਆਂ"
+
+#: tables/base.py:1302
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "id \"%s\" ਲਈ ਕੁੱਝ ਵੀ ਮੇਲ ਖਾਂਦਾ ਵਾਪਿਸ ਨਹੀਂ ਹੋਇਆ।"
+
+#: tables/base.py:1459
+msgid "Please select a row before taking that action."
+msgstr "ਉਹ ਕਾਰਵਾਈ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਰਪਾ ਕਰ ਕੇ ਇੱਕ ਸਤਰ੍ਹ ਚੁਣੋ।"
+
+#: templates/_header.html:5
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "ਇਸ ਨਾਂ ਤੇ ਲਾਗਇਨ: %(username)s"
+
+#: templates/_header.html:7
+msgid "Help"
+msgstr "ਮਦਦ"
+
+#: templates/_header.html:9
+msgid "Sign Out"
+msgstr "ਸਾਈਨ ਆਊਟ"
+
+#: templates/splash.html:8 templates/auth/login.html:4
+msgid "Login"
+msgstr "ਲਾਗਇਨ"
+
+#: templates/auth/_login.html:5
+msgid "Log In"
+msgstr "ਲਾਗ ਇਨ"
+
+#: templates/auth/_login.html:15
+msgid "You do not have permission to access the resource:"
+msgstr "ਤੁਹਾਡੇ ਕੋਲ ਵਸੀਲੇ ਤੱਕ ਦਖਲ ਦੀ ਪਰਵਾਨਗੀ ਨਹੀਂ ਹੈ:"
+
+#: templates/auth/_login.html:17
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home "
+"page</a>"
+msgstr "ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਵਜੋਂ ਲਾਗਇਨ ਹੋਵੋ ਜਾਂ ਵਾਪਸ <a href=\"%(home_url)s\"> ਘਰ ਵਰਕਾ</a> ਤੇ ਜਾਉ।"
+
+#: templates/auth/_login.html:32
+msgid "Sign In"
+msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
+
+#: templates/horizon/_messages.html:7
+msgid "Info: "
+msgstr "ਜਾਣਕਾਰੀ: "
+
+#: templates/horizon/_messages.html:13
+msgid "Warning: "
+msgstr "ਚੇਤਾਵਨੀ: "
+
+#: templates/horizon/_messages.html:19
+msgid "Success: "
+msgstr "ਸਫਲਤਾ: "
+
+#: templates/horizon/_messages.html:25
+msgid "Error: "
+msgstr "ਗਲਤੀ: "
+
+#: templates/horizon/common/_data_table.html:54
+msgid "Summary"
+msgstr "ਸਾਰ"
+
+#: templates/horizon/common/_data_table.html:63
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "%(counter)s ਚੀਜ ਵਿਖਾਈ ਜਾ ਰਹੀ"
+msgstr[1] "%(counter)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
+
+#: templates/horizon/common/_data_table.html:68
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Prev"
+
+#: templates/horizon/common/_data_table.html:71
+msgid "Next&nbsp;&raquo;"
+msgstr "Next&nbsp;&raquo;"
+
+#: templates/horizon/common/_data_table_table_actions.html:38
+msgid "More Actions"
+msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
+
+#: templates/horizon/common/_domain_page_header.html:6
+#, python-format
+msgid "%(context_name)s:"
+msgstr ""
+
+#: templates/horizon/common/_formset_table.html:35
+msgid "Add a row"
+msgstr "ਇੱਕ ਸਤਰ੍ਹ ਜੋੜੋ"
+
+#: templates/horizon/common/_formset_table_row.html:15
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr ""
+
+#: templates/horizon/common/_limit_summary.html:4
+msgid "Limit Summary"
+msgstr "ਹੱਦ ਸਾਰ"
+
+#: templates/horizon/common/_limit_summary.html:7
+msgid "Instances"
+msgstr "ਇੰਸਟਾਂਸਜ਼"
+
+#: templates/horizon/common/_limit_summary.html:8
+#: templates/horizon/common/_limit_summary.html:15
+#: templates/horizon/common/_limit_summary.html:22
+#: templates/horizon/common/_limit_summary.html:29
+#: templates/horizon/common/_limit_summary.html:36
+#: templates/horizon/common/_limit_summary.html:43
+#: templates/horizon/common/_limit_summary.html:50
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(used)s </span> ਵਰਤੇ <span> %(available)s </span> ਵਿੱਚੋਂ"
+
+#: templates/horizon/common/_limit_summary.html:14
+msgid "VCPUs"
+msgstr "VCPUs"
+
+#: templates/horizon/common/_limit_summary.html:21
+msgid "RAM"
+msgstr "RAM"
+
+#: templates/horizon/common/_limit_summary.html:28
+msgid "Floating IPs"
+msgstr "ਫਲੋਟਿੰਗ IPs"
+
+#: templates/horizon/common/_limit_summary.html:35
+msgid "Security Groups"
+msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹ"
+
+#: templates/horizon/common/_limit_summary.html:42
+msgid "Volumes"
+msgstr "ਆਇਤਨ"
+
+#: templates/horizon/common/_limit_summary.html:49
+msgid "Volume Storage"
+msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
+
+#: templates/horizon/common/_modal_form_update_metadata.html:12
+msgid ""
+"\n"
+"        You can specify metadata by adding items from the left column to\n"
+"        the right column. You may select the metadata added to glance\n"
+"        dictionary or you can use the \"Other\" option using a key of\n"
+"        your choice.\n"
+"      "
+msgstr "\n        ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ।\n        ਤੁਸੀਂ ਗਲਾਂਸ ਸ਼ਬਦਕੋਸ਼ ਵਿੱਚ ਜੋੜੇ ਮੈਟਾਡਾਟਾ ਨੂੰ ਚੁਣ ਸਕਦੇ ਹੋ ਜਾਂ ਫਿਰ ਤੁਸੀਂ ਆਪਣੀ\n        ਪਸੰਦ ਦੀ ਕੋਈ ਚਾਬੀ ਵਰਤ ਕੇ \"ਹੋਰ\" ਚੋਣ ਵਰਤ\n        ਸਕਦੇ ਹੋ।\n      "
+
+#: templates/horizon/common/_modal_form_update_metadata.html:26
+msgid "Available Metadata"
+msgstr "ਉਪਲੱਬਧ ਮੈਟਾਡਾਟਾ"
+
+#: templates/horizon/common/_modal_form_update_metadata.html:56
+msgid "Duplicate keys are not allowed"
+msgstr "ਨਕਲ ਚਾਬੀਆਂ ਪਰਵਾਨਤ ਨਹੀਂ ਹਨ"
+
+#: templates/horizon/common/_modal_form_update_metadata.html:59
+msgid "Invalid key name"
+msgstr "ਅਢੁਕਵਾਂ ਚਾਬੀ ਨਾਂ"
+
+#: templates/horizon/common/_modal_form_update_metadata.html:88
+#: templates/horizon/common/_modal_form_update_metadata.html:200
+msgid "No available metadata"
+msgstr ""
+
+#: templates/horizon/common/_modal_form_update_metadata.html:99
+msgid "Existing Metadata"
+msgstr "ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ"
+
+#: templates/horizon/common/_modal_form_update_metadata.html:216
+msgid ""
+"\n"
+"          You can specify resource metadata by moving items from the left\n"
+"          column to the right column. In the left columns there are metadata\n"
+"          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
+"          to add metadata with the key of your choice.\n"
+"        "
+msgstr "\n          ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਵਸੀਲਾ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ।\n          ਖੱਬੀ ਪੱਟੀ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ।\n          ਆਪਣੀ ਪਸੰਦ ਦੀ ਚਾਬੀ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।\n        "
+
+#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: workflows/base.py:594
+msgid "Save"
+msgstr "ਸੰਭਾਲੋ"
+
+#: templates/horizon/common/_resource_browser.html:10
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] ""
+msgstr[1] "%(nav_items)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
+
+#: templates/horizon/common/_resource_browser.html:11
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] ""
+msgstr[1] "%(content_items)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
+
+#: templates/horizon/common/_usage_summary.html:3
+msgid "Usage Summary"
+msgstr "ਵਰਤੋਂ ਸਾਰ"
+
+#: templates/horizon/common/_usage_summary.html:7
+msgid "Select a period of time to query its usage:"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:9
+#, python-format
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s"
+msgstr "\n      <label>ਇਸ ਤੋਂ:</label> %(start)s"
+
+#: templates/horizon/common/_usage_summary.html:13
+#, python-format
+msgid ""
+"\n"
+"      <label>To:</label>%(end)s"
+msgstr "\n      <label>ਵੱਲ:</label>%(end)s"
+
+#: templates/horizon/common/_usage_summary.html:17
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "ਮਿਤੀ YYYY-mm-dd ਤਰਜ ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।"
+
+#: templates/horizon/common/_usage_summary.html:20
+msgid "Active Instances:"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:21
+msgid "Active RAM:"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:22
+msgid "This Period's VCPU-Hours:"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:23
+msgid "This Period's GB-Hours:"
+msgstr ""
+
+#: templates/horizon/common/_workflow.html:40
+msgid "Back"
+msgstr "ਪਿੱਛੇ"
+
+#: templates/horizon/common/_workflow.html:43
+msgid "Next"
+msgstr "ਅਗਲਾ"
+
+#: templatetags/branding.py:34
+msgid "Horizon"
+msgstr "Horizon"
+
+#: templatetags/horizon.py:130 templatetags/horizon.py:141
+msgid "No Limit"
+msgstr "ਕੋਈ ਹੱਦ ਨਹੀਂ"
+
+#: templatetags/horizon.py:133 templatetags/horizon.py:135
+msgid "Available"
+msgstr "ਉਪਲੱਬਧ"
+
+#: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
+#, python-format
+msgid "%(size)d Byte"
+msgid_plural "%(size)d Bytes"
+msgstr[0] "%(size)d ਬਾਈਟ"
+msgstr[1] "%(size)d ਬਾਈਟਾਂ"
+
+#: templatetags/sizeformat.py:57
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: templatetags/sizeformat.py:60
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#: templatetags/sizeformat.py:63
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: templatetags/sizeformat.py:66
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#: templatetags/sizeformat.py:68
+#, python-format
+msgid "%s PB"
+msgstr "%s PB"
+
+#: templatetags/sizeformat.py:77
+msgid "0 Bytes"
+msgstr ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:31
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: test/test_dashboards/dogs/puppies/tables.py:40
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: utils/filters.py:49
+msgid "Never"
+msgstr "ਕਦੇ ਨਹੀਂ"
+
+#: utils/validators.py:23 utils/validators.py:47
+msgid "Not a valid port number"
+msgstr "ਇੱਕ ਢੁਕਵਾਂ ਪੋਰਟ ਨੰਬਰ ਨਹੀਂ"
+
+#: utils/validators.py:28
+msgid "Not a valid IP protocol number"
+msgstr "ਇੱਕ ਢੁਕਵਾਂ IP ਜਾਬਤਾ ਅੰਕ ਨਹੀਂ"
+
+#: utils/validators.py:42
+msgid "One colon allowed in port range"
+msgstr "ਪੋਰਟ ਹੱਦ ਵਿੱਚ ਇੱਕ ਕੌਲਨ ਦੀ ਪਰਵਾਨਗੀ ਹੈ"
+
+#: utils/validators.py:49
+msgid "Port number must be integer"
+msgstr "ਪੋਰਟ ਨੰਬਰ ਦਾ ਅੰਕ ਹੋਣਾ ਲਾਜਮੀ ਹੈ"
+
+#: workflows/base.py:71
+msgid "Processing..."
+msgstr "...ਕਾਰਵਾਈ ਚੱਲ ਰਹੀ ਹੈ"
+
+#: workflows/base.py:475
+msgid "All available"
+msgstr "ਸਾਰੇ ਉਪਲੱਬਧ"
+
+#: workflows/base.py:476
+msgid "Members"
+msgstr "ਜੀਅ"
+
+#: workflows/base.py:477
+msgid "None available."
+msgstr "ਕੋਈ ਉਪਲੱਬਧ ਨਹੀਂ"
+
+#: workflows/base.py:478
+msgid "No members."
+msgstr "ਕੋਈ ਜੀਅ ਨਹੀਂ।"
+
+#: workflows/base.py:595
+#, python-format
+msgid "%s completed successfully."
+msgstr "%s ਸਫਲਤਾ ਪੂਰਵਕ ਪੂਰਾ ਹੋਇਆ।"
+
+#: workflows/base.py:596
+#, python-format
+msgid "%s did not complete."
+msgstr "%s ਪੂਰਾ ਨਹੀੰ ਹੋਇਆ।"

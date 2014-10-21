@@ -94,7 +94,7 @@ class SamplesView(django.views.generic.TemplateView):
         ret['settings'] = {}
 
         return HttpResponse(json.dumps(ret),
-            content_type='application/json')
+                            content_type='application/json')
 
 
 class ReportView(tables.MultiTableView):

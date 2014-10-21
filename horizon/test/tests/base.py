@@ -57,7 +57,7 @@ class RbacNoAccessPanel(horizon.Panel):
     name = "RBAC Panel No"
     slug = "rbac_panel_no"
 
-    def _can_access(self, request):
+    def allowed(self, context):
         return False
 
 
@@ -342,7 +342,7 @@ class GetUserHomeTests(BaseHorizonTests):
         conf.HORIZON_CONFIG._setup()
 
         self.assertEqual(self.test_user.username.upper(),
-                               base.Horizon.get_user_home(self.test_user))
+                         base.Horizon.get_user_home(self.test_user))
 
     def test_using_module_function(self):
         module_func = 'django.utils.encoding.force_text'
@@ -351,7 +351,7 @@ class GetUserHomeTests(BaseHorizonTests):
 
         self.test_user.username = 'testname'
         self.assertEqual(self.original_username,
-                               base.Horizon.get_user_home(self.test_user))
+                         base.Horizon.get_user_home(self.test_user))
 
     def test_using_url(self):
         fixed_url = "/url"
@@ -508,7 +508,7 @@ class RbacHorizonTests(test.TestCase):
                 dash.register(panel)
 
     def test_rbac_panels(self):
-        context = {'request': None}
+        context = {'request': self.request}
         cats = horizon.get_dashboard("cats")
         self.assertEqual(cats._registered_with, base.Horizon)
         self.assertQuerysetEqual(cats.get_panels(),

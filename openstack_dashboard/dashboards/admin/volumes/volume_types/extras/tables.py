@@ -12,6 +12,7 @@
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -19,8 +20,22 @@ from openstack_dashboard import api
 
 
 class ExtraSpecDelete(tables.DeleteAction):
-    data_type_singular = _("Extra Spec")
-    data_type_plural = _("Extra Specs")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Extra Spec",
+            u"Delete Extra Specs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Extra Spec",
+            u"Deleted Extra Specs",
+            count
+        )
 
     def delete(self, request, obj_ids):
         api.cinder.volume_type_extra_delete(request,

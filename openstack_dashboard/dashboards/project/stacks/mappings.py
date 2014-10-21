@@ -40,6 +40,8 @@ resource_urls = {
         'link': 'horizon:project:networks:detail'},
     "AWS::S3::Bucket": {
         'link': 'horizon:project:containers:index'},
+    "OS::Nova::Server": {
+        'link': 'horizon:project:instances:detail'},
     "OS::Quantum::Net": {
         'link': 'horizon:project:networks:detail'},
     "OS::Quantum::Port": {

@@ -43,8 +43,9 @@ class AddPoolAction(workflows.Action):
     subnet_id = forms.ChoiceField(label=_("Subnet"))
     protocol = forms.ChoiceField(label=_("Protocol"))
     lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"),
-                                    initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddPoolAction, self).__init__(request, *args, **kwargs)
@@ -124,6 +125,7 @@ class AddPoolStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(AddPoolStep, self).contribute(data, context)
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         if data:
             return context
 
@@ -187,8 +189,9 @@ class AddVipAction(workflows.Action):
         required=False, min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
                     "for the VIP or '-1' if the limit is not set"))
-    admin_state_up = forms.BooleanField(
-        label=_("Admin State"), initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddVipAction, self).__init__(request, *args, **kwargs)
@@ -246,6 +249,7 @@ class AddVipStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(AddVipStep, self).contribute(data, context)
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         return context
 
 
@@ -337,8 +341,9 @@ class AddMemberAction(workflows.Action):
                     "members and can be modified later."),
         validators=[validators.validate_port_range]
     )
-    admin_state_up = forms.BooleanField(label=_("Admin State"),
-                                        initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddMemberAction, self).__init__(request, *args, **kwargs)
@@ -410,6 +415,7 @@ class AddMemberStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(AddMemberStep, self).contribute(data, context)
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         return context
 
 
@@ -538,8 +544,9 @@ class AddMonitorAction(workflows.Action):
             'data-type-http': _('Expected HTTP Status Codes'),
             'data-type-https': _('Expected HTTP Status Codes')
         }))
-    admin_state_up = forms.BooleanField(label=_("Admin State"),
-                                        initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddMonitorAction, self).__init__(request, *args, **kwargs)
@@ -585,6 +592,7 @@ class AddMonitorStep(workflows.Step):
 
     def contribute(self, data, context):
         context = super(AddMonitorStep, self).contribute(data, context)
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         if data:
             return context
 

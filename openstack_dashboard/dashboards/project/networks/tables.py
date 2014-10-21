@@ -17,11 +17,14 @@ from django.core.urlresolvers import reverse
 from django import template
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 
 
 LOG = logging.getLogger(__name__)
@@ -37,34 +40,45 @@ class CheckNetworkEditable(object):
         return True
 
 
-class DeleteNetwork(CheckNetworkEditable, tables.DeleteAction):
-    data_type_singular = _("Network")
-    data_type_plural = _("Networks")
+class DeleteNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
+                    tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Network",
+            u"Delete Networks",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Network",
+            u"Deleted Networks",
+            count
+        )
+
     policy_rules = (("network", "delete_network"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
-
     def delete(self, request, network_id):
+        network_name = network_id
         try:
-            # Retrieve existing subnets belonging to the network.
-            subnets = api.neutron.subnet_list(request, network_id=network_id)
-            LOG.debug('Network %s has subnets: %s' %
-                      (network_id, [s.id for s in subnets]))
-            for s in subnets:
-                api.neutron.subnet_delete(request, s.id)
-                LOG.debug('Deleted subnet %s' % s.id)
-
+            # Retrieve the network list.
+            network = api.neutron.network_get(request, network_id,
+                                              expand_subnet=False)
+            network_name = network.name
+            LOG.debug('Network %(network_id)s has subnets: %(subnets)s',
+                      {'network_id': network_id, 'subnets': network.subnets})
+            for subnet_id in network.subnets:
+                api.neutron.subnet_delete(request, subnet_id)
+                LOG.debug('Deleted subnet %s', subnet_id)
             api.neutron.network_delete(request, network_id)
-            LOG.debug('Deleted network %s successfully' % network_id)
+            LOG.debug('Deleted network %s successfully', network_id)
         except Exception:
-            msg = _('Failed to delete network %s') % network_id
-            LOG.info(msg)
+            msg = _('Failed to delete network %s')
+            LOG.info(msg, network_id)
             redirect = reverse("horizon:project:networks:index")
-            exceptions.handle(request, msg, redirect=redirect)
+            exceptions.handle(request, msg % network_name, redirect=redirect)
 
 
 class CreateNetwork(tables.LinkAction):
@@ -75,8 +89,21 @@ class CreateNetwork(tables.LinkAction):
     icon = "plus"
     policy_rules = (("network", "create_network"),)
 
+    def allowed(self, request, datum=None):
+        usages = quotas.tenant_quota_usages(request)
+        if usages['networks']['available'] <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ["disabled"]
+                self.verbose_name = _("Create Network (Quota exceeded)")
+        else:
+            self.verbose_name = _("Create Network")
+            self.classes = [c for c in self.classes if c != "disabled"]
 
-class EditNetwork(CheckNetworkEditable, tables.LinkAction):
+        return True
+
+
+class EditNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
+                  tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Network")
     url = "horizon:project:networks:update"
@@ -84,26 +111,16 @@ class EditNetwork(CheckNetworkEditable, tables.LinkAction):
     icon = "pencil"
     policy_rules = (("network", "update_network"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
-
-class CreateSubnet(CheckNetworkEditable, tables.LinkAction):
+class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
+                   tables.LinkAction):
     name = "subnet"
     verbose_name = _("Add Subnet")
     url = "horizon:project:networks:addsubnet"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"network:project_id": project_id}
+    policy_target_attrs = (("network:project_id", "tenant_id"),)
 
 
 def get_subnets(network):

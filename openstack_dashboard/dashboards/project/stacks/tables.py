@@ -15,6 +15,7 @@ from django.http import Http404  # noqa
 from django.template.defaultfilters import title  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import messages
 from horizon import tables
@@ -47,8 +48,22 @@ class ChangeStackTemplate(tables.LinkAction):
 
 
 class DeleteStack(tables.DeleteAction):
-    data_type_singular = _("Stack")
-    data_type_plural = _("Stacks")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Stack",
+            u"Delete Stacks",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Stack",
+            u"Deleted Stacks",
+            count
+        )
+
     policy_rules = (("orchestration", "cloudformation:DeleteStack"),)
 
     def delete(self, request, stack_id):
@@ -169,14 +184,14 @@ class ResourcesTable(tables.DataTable):
                                      verbose_name=_("Stack Resource"),
                                      link=get_resource_url)
     physical_resource = tables.Column('physical_resource_id',
-                                     verbose_name=_("Resource"),
-                                     link=mappings.resource_to_url)
+                                      verbose_name=_("Resource"),
+                                      link=mappings.resource_to_url)
     resource_type = tables.Column("resource_type",
-                           verbose_name=_("Stack Resource Type"),)
+                                  verbose_name=_("Stack Resource Type"),)
     updated_time = tables.Column('updated_time',
-                              verbose_name=_("Date Updated"),
-                              filters=(filters.parse_isotime,
-                                       filters.timesince_or_never))
+                                 verbose_name=_("Date Updated"),
+                                 filters=(filters.parse_isotime,
+                                          filters.timesince_or_never))
     status = tables.Column("resource_status",
                            filters=(title, filters.replace_underscores),
                            verbose_name=_("Status"),

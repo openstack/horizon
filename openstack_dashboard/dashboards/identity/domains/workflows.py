@@ -32,7 +32,8 @@ LOG = logging.getLogger(__name__)
 
 class CreateDomainInfoAction(workflows.Action):
     name = forms.CharField(label=_("Name"))
-    description = forms.CharField(widget=forms.widgets.Textarea(),
+    description = forms.CharField(widget=forms.widgets.Textarea(
+                                  attrs={'rows': 4}),
                                   label=_("Description"),
                                   required=False)
     enabled = forms.BooleanField(label=_("Enabled"),
@@ -68,8 +69,8 @@ class UpdateDomainUsersAction(workflows.MembershipAction):
             if default_role is None:
                 default = getattr(settings,
                                   "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone') % \
-                        default
+                msg = (_('Could not find default role "%s" in Keystone') %
+                       default)
                 raise exceptions.NotFound(msg)
         except Exception:
             exceptions.handle(self.request,
@@ -167,8 +168,8 @@ class UpdateDomainGroupsAction(workflows.MembershipAction):
             if default_role is None:
                 default = getattr(settings,
                                   "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone') % \
-                        default
+                msg = (_('Could not find default role "%s" in Keystone') %
+                       default)
                 raise exceptions.NotFound(msg)
         except Exception:
             exceptions.handle(self.request,
@@ -318,7 +319,7 @@ class UpdateDomain(workflows.Workflow):
             # Get the users currently associated with this project so we
             # can diff against it.
             domain_members = api.keystone.user_list(request,
-                                                     domain=domain_id)
+                                                    domain=domain_id)
             users_to_modify = len(domain_members)
 
             for user in domain_members:
@@ -398,9 +399,10 @@ class UpdateDomain(workflows.Workflow):
                 users_to_modify -= users_added
             return True
         except Exception:
-            exceptions.handle(request, _('Failed to modify %s project '
-                                         'members and update domain groups.')
-                                       % users_to_modify)
+            exceptions.handle(request,
+                              _('Failed to modify %s project '
+                                'members and update domain groups.')
+                              % users_to_modify)
             return False
 
     def _update_domain_groups(self, request, domain_id, data):

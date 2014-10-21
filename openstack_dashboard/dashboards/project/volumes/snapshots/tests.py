@@ -152,7 +152,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res,
-                            "<h2>Volume Snapshot Details: %s</h2>" %
+                            "<h1>Volume Snapshot Details: %s</h1>" %
                             snapshot.name,
                             1, 200)
         self.assertContains(res, "<dd>test snapshot</dd>", 1, 200)

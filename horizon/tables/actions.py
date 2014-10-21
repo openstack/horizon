@@ -263,7 +263,7 @@ class Action(BaseAction):
         self.requires_input = kwargs.get('requires_input', True)
         self.verbose_name = kwargs.get('verbose_name', self.name.title())
         self.verbose_name_plural = kwargs.get('verbose_name_plural',
-            "%ss" % self.verbose_name)
+                                              "%ss" % self.verbose_name)
         self.allowed_data_types = kwargs.get('allowed_data_types', [])
         self.icon = kwargs.get('icon', None)
 
@@ -465,7 +465,8 @@ class FilterAction(BaseAction):
         self.icon = "search"
 
         if self.filter_type == 'server' and self.filter_choices is None:
-            raise NotImplementedError('A FilterAction object with the '
+            raise NotImplementedError(
+                'A FilterAction object with the '
                 'filter_type attribute set to "server" must also have a '
                 'filter_choices attribute.')
 
@@ -492,8 +493,8 @@ class FilterAction(BaseAction):
                 # and actions won't allow it. Need to be fixed in the future.
                 cls_name = self.__class__.__name__
                 raise NotImplementedError("You must define a %s method "
-                                            "for %s data type in %s." %
-                                            (func_name, data_type, cls_name))
+                                          "for %s data type in %s." %
+                                          (func_name, data_type, cls_name))
             _data = filter_func(table, data, filter_string)
             self.assign_type_string(table, _data, data_type)
             filtered_data.extend(_data)
@@ -686,7 +687,8 @@ class BatchAction(Action):
         self.success_url = kwargs.get('success_url', None)
         # If setting a default name, don't initialize it too early
         self.verbose_name = kwargs.get('verbose_name', self._get_action_name)
-        self.verbose_name_plural = kwargs.get('verbose_name_plural',
+        self.verbose_name_plural = kwargs.get(
+            'verbose_name_plural',
             lambda: self._get_action_name('plural'))
 
         self.current_present_action = 0

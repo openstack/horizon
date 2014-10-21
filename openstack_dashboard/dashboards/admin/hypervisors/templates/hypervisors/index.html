@@ -26,7 +26,7 @@
 
     <div class="d3_quota_bar">
     <div class="d3_pie_chart_usage" data-used="{% widthratio stats.local_gb_used stats.local_gb 100 %}"></div>
-     <strong>{% trans "Disk Usage" %} <br />
+     <strong>{% trans "Local Disk Usage" %} <br />
          {% blocktrans with used=stats.local_gb_used|diskgbformat available=stats.local_gb|diskgbformat %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
      </strong>
     </div>

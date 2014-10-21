@@ -39,8 +39,9 @@ class CreatePort(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.BooleanField(label=_("Admin State"),
-                                     initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     device_id = forms.CharField(max_length=100, label=_("Device ID"),
                                 help_text=_("Device ID attached to the port"),
                                 required=False)
@@ -61,7 +62,7 @@ class CreatePort(forms.SelfHandlingForm):
             # created for if admin user does not belong to the tenant.
             network = api.neutron.network_get(request, data['network_id'])
             data['tenant_id'] = network.tenant_id
-            data['admin_state_up'] = data['admin_state']
+            data['admin_state_up'] = (data['admin_state'] == 'True')
             del data['network_name']
             del data['admin_state']
             if 'mac_state' in data:
@@ -97,6 +98,7 @@ class UpdatePort(project_forms.UpdatePort):
         try:
             LOG.debug('params = %s' % data)
             extension_kwargs = {}
+            data['admin_state'] = (data['admin_state'] == 'True')
             if 'mac_state' in data:
                 extension_kwargs['mac_learning_enabled'] = data['mac_state']
             port = api.neutron.port_update(request, data['port_id'],

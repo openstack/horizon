@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chandan kumar <chandankumar.093047@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:24-0500\n"
-"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"POT-Creation-Date: 2014-10-18 20:37-0500\n"
+"PO-Revision-Date: 2014-10-18 14:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -18,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:281
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "लोड हो रहा है"
 
-#: static/horizon/js/horizon.d3linechart.js:386
-#: static/horizon/js/horizon.d3linechart.js:396
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
 msgstr "कोई आँकड़ा उपलब्ध नहीं."
 
-#: static/horizon/js/horizon.d3linechart.js:402
-#: static/horizon/js/horizon.modals.js:300
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -40,16 +41,16 @@ msgstr "एक त्रुटि हो गई. बाद में पुन: 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "सर्वर के साथ संवाद स्थापित करने में कोई समस्या थी, पुन: प्रयास करें."
 
-#: static/horizon/js/horizon.forms.js:154
+#: static/horizon/js/horizon.forms.js:195
 msgid "Filter"
 msgstr "छानना शुरू..."
 
-#: static/horizon/js/horizon.instances.js:232
+#: static/horizon/js/horizon.instances.js:248
 msgid "Could not read the file"
 msgstr "फ़ाइल को पढ़ नहीं सका"
 
-#: static/horizon/js/horizon.instances.js:238
-#: static/horizon/js/horizon.instances.js:265
+#: static/horizon/js/horizon.instances.js:254
+#: static/horizon/js/horizon.instances.js:281
 msgid "Could not decrypt the password"
 msgstr "पासवर्ड को डिक्रिप्ट नहीं कर सका"
 
@@ -61,23 +62,23 @@ msgstr "भूमिकाएं नहीं है"
 msgid "Roles"
 msgstr "भूमिका"
 
-#: static/horizon/js/horizon.messages.js:11
+#: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
 msgstr "खतरा: "
 
-#: static/horizon/js/horizon.messages.js:12
+#: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
 msgstr "चेतावनी: "
 
-#: static/horizon/js/horizon.messages.js:13
+#: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
 msgstr "सूचना: "
 
-#: static/horizon/js/horizon.messages.js:14
+#: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
 msgstr "सफलता:"
 
-#: static/horizon/js/horizon.messages.js:15
+#: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "त्रुटि: "
 
@@ -85,74 +86,98 @@ msgstr "त्रुटि: "
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: static/horizon/js/horizon.modals.js:208
-#: static/horizon/js/horizon.tables.js:200
+#: static/horizon/js/horizon.modals.js:225
+#: static/horizon/js/horizon.tables.js:223
 msgid "Working"
 msgstr "काम चालू है"
 
-#: static/horizon/js/horizon.modals.js:238
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
 msgstr "फार्म जमा करने में त्रुटि हुई. पुन: प्रयास करें."
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr "कोई नहीं"
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr "मिटाएँ"
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr "स्थिति"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr "आईडी"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr "अंतरफलक"
 
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
+msgstr ""
+
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
-msgstr "अंतरफलक"
+msgid "View Details"
+msgstr "विवरण देखें"
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
-msgstr "कंसोल खोलें"
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
+msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
-msgstr "विवरण  %s देखें"
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
+msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
 msgstr "अंतरफलक जोड़ें"
 
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
+msgstr ""
+
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:320
+#: static/horizon/js/horizon.tables.js:379
 msgid "No items to display."
 msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
 
 #: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:129
+#: static/horizon/js/horizon.tables.js:120
 msgid "An error occurred while updating."
 msgstr "अद्यतन करते समय एक त्रुटि हुई."
 
-#: static/horizon/js/horizon.tables.js:183
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "You have selected %s. "
 msgstr "आपने %s का चुनाव किया है. "
 
-#: static/horizon/js/horizon.tables.js:185
+#: static/horizon/js/horizon.tables.js:208
 #, c-format
 msgid "Confirm %s"
 msgstr "पुष्टि करें %s"
 
-#: static/horizon/js/horizon.tables.js:186
+#: static/horizon/js/horizon.tables.js:209
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "अपने चयन की पुष्टि करें. इस क्रिया को पूर्ववत नहीं किया जा सकता."
 
-#: static/horizon/js/horizon.tables.js:307
+#: static/horizon/js/horizon.tables.js:366
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] ""
-msgstr[1] "सामाग्री %s दिखाएँ"
+msgstr[0] " %s मद प्रदर्शित"
+msgstr[1] " %s मद प्रदर्शित"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169

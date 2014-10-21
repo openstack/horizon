@@ -101,7 +101,7 @@ class FloatingIPsTab(tabs.TableTab):
         except Exception:
             floating_ip_pools = []
             exceptions.handle(self.request,
-                             _('Unable to retrieve floating IP pools.'))
+                              _('Unable to retrieve floating IP pools.'))
         pool_dict = dict([(obj.id, obj.name) for obj in floating_ip_pools])
 
         instances = []
@@ -109,7 +109,7 @@ class FloatingIPsTab(tabs.TableTab):
             instances, has_more = nova.server_list(self.request)
         except Exception:
             exceptions.handle(self.request,
-                        _('Unable to retrieve instance list.'))
+                              _('Unable to retrieve instance list.'))
 
         instances_dict = dict([(obj.id, obj.name) for obj in instances])
 

@@ -40,8 +40,8 @@ PROJECT_USER_MEMBER_SLUG = "update_members"
 PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 
 
-class UpdateProjectQuotaAction(workflows.Action):
-    ifcb_label = _("Injected File Content Bytes")
+class ProjectQuotaAction(workflows.Action):
+    ifcb_label = _("Injected File Content (Bytes)")
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))
     cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
@@ -74,31 +74,29 @@ class UpdateProjectQuotaAction(workflows.Action):
     subnet = forms.IntegerField(min_value=-1, label=_("Subnets"))
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateProjectQuotaAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super(ProjectQuotaAction, self).__init__(request,
+                                                 *args,
+                                                 **kwargs)
         disabled_quotas = quotas.get_disabled_quotas(request)
         for field in disabled_quotas:
             if field in self.fields:
                 self.fields[field].required = False
                 self.fields[field].widget = forms.HiddenInput()
 
-    class Meta:
-        name = _("Quota")
-        slug = 'update_quotas'
-        help_text = _("Set maximum quotas for the project.")
 
+class UpdateProjectQuotaAction(ProjectQuotaAction):
     def clean(self):
         cleaned_data = super(UpdateProjectQuotaAction, self).clean()
-        usages = quotas.tenant_quota_usages(self.request)
+        usages = quotas.tenant_quota_usages(
+            self.request, tenant_id=self.initial['project_id'])
         # Validate the quota values before updating quotas.
         bad_values = []
         for key, value in cleaned_data.items():
             used = usages[key].get('used', 0)
             if value is not None and value >= 0 and used > value:
                 bad_values.append(_('%(used)s %(key)s used') %
-                                    {'used': used,
-                                     'key': quotas.QUOTA_NAMES.get(key, key)})
+                                  {'used': used,
+                                   'key': quotas.QUOTA_NAMES.get(key, key)})
         if bad_values:
             value_str = ", ".join(bad_values)
             msg = (_('Quota value(s) cannot be less than the current usage '
@@ -107,9 +105,27 @@ class UpdateProjectQuotaAction(workflows.Action):
             raise forms.ValidationError(msg)
         return cleaned_data
 
+    class Meta:
+        name = _("Quota")
+        slug = 'update_quotas'
+        help_text = _("Set maximum quotas for the project.")
+
+
+class CreateProjectQuotaAction(ProjectQuotaAction):
+    class Meta:
+        name = _("Quota")
+        slug = 'create_quotas'
+        help_text = _("Set maximum quotas for the project.")
+
 
 class UpdateProjectQuota(workflows.Step):
     action_class = UpdateProjectQuotaAction
+    depends_on = ("project_id",)
+    contributes = quotas.QUOTA_FIELDS
+
+
+class CreateProjectQuota(workflows.Step):
+    action_class = CreateProjectQuotaAction
     depends_on = ("project_id",)
     contributes = quotas.QUOTA_FIELDS
 
@@ -124,7 +140,8 @@ class CreateProjectInfoAction(workflows.Action):
                                   widget=forms.HiddenInput())
     name = forms.CharField(label=_("Name"),
                            max_length=64)
-    description = forms.CharField(widget=forms.widgets.Textarea(),
+    description = forms.CharField(widget=forms.widgets.Textarea(
+                                  attrs={'rows': 4}),
                                   label=_("Description"),
                                   required=False)
     enabled = forms.BooleanField(label=_("Enabled"),
@@ -175,8 +192,8 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
             if default_role is None:
                 default = getattr(settings,
                                   "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone') % \
-                        default
+                msg = (_('Could not find default role "%s" in Keystone') %
+                       default)
                 raise exceptions.NotFound(msg)
         except Exception:
             exceptions.handle(self.request,
@@ -273,8 +290,8 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
             if default_role is None:
                 default = getattr(settings,
                                   "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone') % \
-                        default
+                msg = (_('Could not find default role "%s" in Keystone') %
+                       default)
                 raise exceptions.NotFound(msg)
         except Exception:
             exceptions.handle(self.request,
@@ -311,18 +328,19 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
 
         # Figure out groups & roles
         if project_id:
-            for group in all_groups:
-                try:
-                    roles = api.keystone.roles_for_group(self.request,
-                                                         group=group.id,
-                                                         project=project_id)
-                except Exception:
-                    exceptions.handle(request,
-                                      err_msg,
-                                      redirect=reverse(INDEX_URL))
-                for role in roles:
-                    field_name = self.get_member_field_name(role.id)
-                    self.fields[field_name].initial.append(group.id)
+            try:
+                groups_roles = api.keystone.get_project_groups_roles(
+                    request, project_id)
+            except Exception:
+                exceptions.handle(request,
+                                  err_msg,
+                                  redirect=reverse(INDEX_URL))
+
+            for group_id in groups_roles:
+                roles_ids = groups_roles[group_id]
+                for role_id in roles_ids:
+                    field_name = self.get_member_field_name(role_id)
+                    self.fields[field_name].initial.append(group_id)
 
     class Meta:
         name = _("Project Groups")
@@ -360,7 +378,7 @@ class CreateProject(workflows.Workflow):
     success_url = "horizon:identity:projects:index"
     default_steps = (CreateProjectInfo,
                      UpdateProjectMembers,
-                     UpdateProjectQuota)
+                     CreateProjectQuota)
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
@@ -368,7 +386,7 @@ class CreateProject(workflows.Workflow):
             self.default_steps = (CreateProjectInfo,
                                   UpdateProjectMembers,
                                   UpdateProjectGroups,
-                                  UpdateProjectQuota)
+                                  CreateProjectQuota)
         super(CreateProject, self).__init__(request=request,
                                             context_seed=context_seed,
                                             entry_point=entry_point,
@@ -421,11 +439,11 @@ class CreateProject(workflows.Workflow):
                 group_msg = _(", add project groups")
             else:
                 group_msg = ""
-            exceptions.handle(request, _('Failed to add %(users_to_add)s '
-                                         'project members%(group_msg)s and '
-                                         'set project quotas.')
-                                      % {'users_to_add': users_to_add,
-                                         'group_msg': group_msg})
+            exceptions.handle(request,
+                              _('Failed to add %(users_to_add)s project '
+                                'members%(group_msg)s and set project quotas.')
+                              % {'users_to_add': users_to_add,
+                                 'group_msg': group_msg})
 
         if PROJECT_GROUP_ENABLED:
             # update project groups
@@ -642,11 +660,12 @@ class UpdateProject(workflows.Workflow):
                 group_msg = _(", update project groups")
             else:
                 group_msg = ""
-            exceptions.handle(request, _('Failed to modify %(users_to_modify)s'
-                                         ' project members%(group_msg)s and '
-                                         'update project quotas.')
-                                       % {'users_to_modify': users_to_modify,
-                                          'group_msg': group_msg})
+            exceptions.handle(request,
+                              _('Failed to modify %(users_to_modify)s'
+                                ' project members%(group_msg)s and '
+                                'update project quotas.')
+                              % {'users_to_modify': users_to_modify,
+                                 'group_msg': group_msg})
             return False
 
         if PROJECT_GROUP_ENABLED:

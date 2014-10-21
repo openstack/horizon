@@ -79,9 +79,9 @@ class ValidatorsTests(test.TestCase):
                      "1.2.3.4:1111:2222::5555//22",
                      "fe80::204:61ff:254.157.241.86/200",
                      # some valid IPv4 addresses
-                      "10.144.11.107/4",
-                      "255.255.255.255/0",
-                      "0.1.2.3/16")
+                     "10.144.11.107/4",
+                     "255.255.255.255/0",
+                     "0.1.2.3/16")
         ip = forms.IPField(mask=True, version=forms.IPv6)
         for cidr in GOOD_CIDRS:
             self.assertIsNone(ip.validate(cidr))
@@ -119,37 +119,37 @@ class ValidatorsTests(test.TestCase):
 
     def test_validate_IPs(self):
         GOOD_IPS_V4 = ("0.0.0.0",
-                      "10.144.11.107",
-                      "169.144.11.107",
-                      "172.100.11.107",
-                      "255.255.255.255",
-                      "0.1.2.3")
+                       "10.144.11.107",
+                       "169.144.11.107",
+                       "172.100.11.107",
+                       "255.255.255.255",
+                       "0.1.2.3")
         GOOD_IPS_V6 = ("",
-                      "::ffff:0:0",
-                      "2001:0db8::1428:57ab",
-                      "FEC0::",
-                      "fe80::204:61ff:254.157.241.86",
-                      "fe80::204:61ff:254.157.241.86",
-                      "2001:0DB8::CD30:0:0:0:0")
+                       "::ffff:0:0",
+                       "2001:0db8::1428:57ab",
+                       "FEC0::",
+                       "fe80::204:61ff:254.157.241.86",
+                       "fe80::204:61ff:254.157.241.86",
+                       "2001:0DB8::CD30:0:0:0:0")
         BAD_IPS_V4 = ("1111:2222:3333:4444:::",
-                     "::2222:3333:4444:5555:6666:7777:8888:",
-                     ":1111:2222:3333:4444::6666:1.2.3.4",
-                     "1111:2222::4444:5555:6666::8888",
-                     "1111:2222::4444:5555:6666:8888/",
-                     "1111:2222::4444:5555:6666::8888/130",
-                     "127.0.0.1/",
-                     "127.0.0.1/33",
-                     "127.0.0.1/-1")
+                      "::2222:3333:4444:5555:6666:7777:8888:",
+                      ":1111:2222:3333:4444::6666:1.2.3.4",
+                      "1111:2222::4444:5555:6666::8888",
+                      "1111:2222::4444:5555:6666:8888/",
+                      "1111:2222::4444:5555:6666::8888/130",
+                      "127.0.0.1/",
+                      "127.0.0.1/33",
+                      "127.0.0.1/-1")
         BAD_IPS_V6 = ("1111:2222:3333:4444:::",
-                     "::2222:3333:4444:5555:6666:7777:8888:",
-                     ":1111:2222:3333:4444::6666:1.2.3.4",
-                     "1111:2222::4444:5555:6666::8888",
-                     "1111:2222::4444:5555:6666:8888/",
-                     "1111:2222::4444:5555:6666::8888/130")
+                      "::2222:3333:4444:5555:6666:7777:8888:",
+                      ":1111:2222:3333:4444::6666:1.2.3.4",
+                      "1111:2222::4444:5555:6666::8888",
+                      "1111:2222::4444:5555:6666:8888/",
+                      "1111:2222::4444:5555:6666::8888/130")
         ipv4 = forms.IPField(required=True, version=forms.IPv4)
         ipv6 = forms.IPField(required=False, version=forms.IPv6)
         ipmixed = forms.IPField(required=False,
-                                 version=forms.IPv4 | forms.IPv6)
+                                version=forms.IPv4 | forms.IPv6)
 
         for ip_addr in GOOD_IPS_V4:
             self.assertIsNone(ipv4.validate(ip_addr))
@@ -170,9 +170,9 @@ class ValidatorsTests(test.TestCase):
         self.assertRaises(ValidationError, ipv4.validate, "")  # required=True
 
         iprange = forms.IPField(required=False,
-                                 mask=True,
-                                 mask_range_from=10,
-                                 version=forms.IPv4 | forms.IPv6)
+                                mask=True,
+                                mask_range_from=10,
+                                version=forms.IPv4 | forms.IPv6)
         self.assertRaises(ValidationError, iprange.validate,
                           "fe80::204:61ff:254.157.241.86/6")
         self.assertRaises(ValidationError, iprange.validate,

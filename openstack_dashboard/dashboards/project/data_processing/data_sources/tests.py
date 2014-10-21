@@ -31,8 +31,8 @@ class DataProcessingDataSourceTests(test.TestCase):
             .AndReturn(self.data_sources.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res,
-            'project/data_processing.data_sources/data_sources.html')
+        self.assertTemplateUsed(
+            res, 'project/data_processing.data_sources/data_sources.html')
         self.assertContains(res, 'Data Sources')
         self.assertContains(res, 'Name')
         self.assertContains(res, 'sampleOutput')
@@ -44,7 +44,7 @@ class DataProcessingDataSourceTests(test.TestCase):
             .AndReturn(self.data_sources.list()[0])
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(res,
-            'project/data_processing.data_sources/details.html')
+        self.assertTemplateUsed(
+            res, 'project/data_processing.data_sources/details.html')
         self.assertContains(res, 'sampleOutput')
         self.assertContains(res, 'Data Source Details')

@@ -15,6 +15,7 @@ import logging
 
 from django.conf import settings
 
+from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 
 from saharaclient import client as api_client
@@ -26,10 +27,12 @@ LOG = logging.getLogger(__name__)
 # "type" of Sahara service registered in keystone
 SAHARA_SERVICE = 'data_processing'
 
-SAHARA_AUTO_IP_ALLOCATION_ENABLED = getattr(settings,
+SAHARA_AUTO_IP_ALLOCATION_ENABLED = getattr(
+    settings,
     'SAHARA_AUTO_IP_ALLOCATION_ENABLED',
     False)
-VERSIONS = base.APIVersionManager(SAHARA_SERVICE,
+VERSIONS = base.APIVersionManager(
+    SAHARA_SERVICE,
     preferred_version=getattr(settings,
                               'OPENSTACK_API_VERSIONS',
                               {}).get(SAHARA_SERVICE, 1.1))
@@ -37,6 +40,7 @@ VERSIONS.load_supported_version(1.1, {"client": api_client,
                                       "version": 1.1})
 
 
+@memoized
 def client(request):
     return api_client.Client(VERSIONS.get_active_version()["version"],
                              sahara_url=base.url_for(request, SAHARA_SERVICE),
@@ -81,16 +85,17 @@ def plugin_get_version_details(request, plugin_name, hadoop_version):
 def plugin_convert_to_template(request, plugin_name, hadoop_version,
                                template_name, file_content):
     return client(request).plugins.convert_to_cluster_template(plugin_name,
-                                                       hadoop_version,
-                                                       template_name,
-                                                       file_content)
+                                                               hadoop_version,
+                                                               template_name,
+                                                               file_content)
 
 
 def nodegroup_template_create(request, name, plugin_name, hadoop_version,
                               flavor_id, description=None,
                               volumes_per_node=None, volumes_size=None,
                               node_processes=None, node_configs=None,
-                              floating_ip_pool=None):
+                              floating_ip_pool=None, security_groups=None,
+                              auto_security_group=False):
     return client(request).node_group_templates.create(name, plugin_name,
                                                        hadoop_version,
                                                        flavor_id, description,
@@ -98,7 +103,9 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
                                                        volumes_size,
                                                        node_processes,
                                                        node_configs,
-                                                       floating_ip_pool)
+                                                       floating_ip_pool,
+                                                       security_groups,
+                                                       auto_security_group)
 
 
 def nodegroup_template_list(request):

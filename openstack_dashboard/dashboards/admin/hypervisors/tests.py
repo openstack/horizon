@@ -42,7 +42,7 @@ class HypervisorViewTest(test.BaseAdminViewTests):
 
         hypervisors_tab = res.context['tab_group'].get_tab('hypervisor')
         self.assertItemsEqual(hypervisors_tab._tables['hypervisors'].data,
-                                 hypervisors)
+                              hypervisors)
 
         host_tab = res.context['tab_group'].get_tab('compute_host')
         host_table = host_tab._tables['compute_host']

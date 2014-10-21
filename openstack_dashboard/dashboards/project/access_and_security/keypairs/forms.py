@@ -30,17 +30,16 @@ from openstack_dashboard import api
 NEW_LINES = re.compile(r"\r|\n")
 
 KEYPAIR_NAME_REGEX = re.compile(r"^[\w\- ]+$", re.UNICODE)
-KEYPAIR_ERROR_MESSAGES = {'invalid': _('Key pair name may '
-                                   'only contain letters, '
-                                   'numbers, underscores, '
-                                   'spaces and hyphens.')}
+KEYPAIR_ERROR_MESSAGES = {
+    'invalid': _('Key pair name may only contain letters, '
+                 'numbers, underscores, spaces and hyphens.')}
 
 
 class CreateKeypair(forms.SelfHandlingForm):
     name = forms.RegexField(max_length=255,
-                           label=_("Key Pair Name"),
-                           regex=KEYPAIR_NAME_REGEX,
-                           error_messages=KEYPAIR_ERROR_MESSAGES)
+                            label=_("Key Pair Name"),
+                            regex=KEYPAIR_NAME_REGEX,
+                            error_messages=KEYPAIR_ERROR_MESSAGES)
 
     def handle(self, request, data):
         return True  # We just redirect to the download view.
@@ -48,9 +47,9 @@ class CreateKeypair(forms.SelfHandlingForm):
 
 class ImportKeypair(forms.SelfHandlingForm):
     name = forms.RegexField(max_length=255,
-                           label=_("Key Pair Name"),
-                           regex=KEYPAIR_NAME_REGEX,
-                           error_messages=KEYPAIR_ERROR_MESSAGES)
+                            label=_("Key Pair Name"),
+                            regex=KEYPAIR_NAME_REGEX,
+                            error_messages=KEYPAIR_ERROR_MESSAGES)
     public_key = forms.CharField(label=_("Public Key"), widget=forms.Textarea(
         attrs={'class': 'modal-body-fixed-width'}))
 
@@ -61,8 +60,9 @@ class ImportKeypair(forms.SelfHandlingForm):
             keypair = api.nova.keypair_import(request,
                                               data['name'],
                                               data['public_key'])
-            messages.success(request, _('Successfully imported public key: %s')
-                                       % data['name'])
+            messages.success(request,
+                             _('Successfully imported public key: %s')
+                             % data['name'])
             return keypair
         except Exception:
             exceptions.handle(request, ignore=True)
