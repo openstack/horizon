@@ -68,16 +68,26 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
     	return response
 
 class EditOrganizationForm(forms.SelfHandlingForm):
-    id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
+    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
     name = forms.CharField(label=_("Name"), max_length=64,required=False)
     description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
 
     def handle(self, request, data):
         try:
-            api.keystone.tenant_update(request, data['id'], name=data['name'], description=data['description'])
-            messages.success(request, _("Organization updated successfully."))
-            response = shortcuts.redirect('horizon:idm:organizations:index')
-            return response
+            print('handle')
+            print(request.POST)
+            if '_edit' in request.POST:
+                print('edit')
+                api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
+                messages.success(request, _("Organization updated successfully."))
+                response = shortcuts.redirect('horizon:idm:organizations:index')
+                return response
+            elif '_delete' in request.POST:
+                print('delete')
+                organization = data['orgID']
+                api.keystone.tenant_delete(request, organization)
+                response = shortcuts.redirect('horizon:idm:organizations:index')
+                return response
         except Exception:
             exceptions.handle(request, _('Unable to update organization.'))
 
