@@ -172,7 +172,7 @@ class PluginAndVersionMixin(object):
         for plugin in plugins:
             field_name = plugin.name + "_version"
             choice_field = forms.ChoiceField(
-                label=_("Hadoop Version"),
+                label=_("Version"),
                 choices=[(version, version) for version in plugin.versions],
                 widget=forms.Select(
                     attrs={"class": "plugin_version_choice "

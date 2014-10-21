@@ -115,7 +115,7 @@ class ClusterTemplatesTable(tables.DataTable):
     plugin_name = tables.Column("plugin_name",
                                 verbose_name=_("Plugin"))
     hadoop_version = tables.Column("hadoop_version",
-                                   verbose_name=_("Hadoop Version"))
+                                   verbose_name=_("Version"))
     node_groups = tables.Column(render_node_groups,
                                 verbose_name=_("Node Groups"),
                                 wrap_list=True,
