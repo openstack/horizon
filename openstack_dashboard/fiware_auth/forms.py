@@ -59,7 +59,7 @@ class RegistrationForm(ConfirmPasswordForm):
     registration backend.
 
     """
-    captcha = ReCaptchaField(attrs={'theme' : 'clean'})
+    captcha = ReCaptchaField(attrs={'theme' : 'white'})
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
                                 label=_("Username"),
