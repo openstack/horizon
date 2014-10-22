@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:38+0000\n"
+"POT-Creation-Date: 2014-10-21 23:36-0500\n"
+"PO-Revision-Date: 2014-10-22 02:09+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -607,7 +607,7 @@ msgstr "主机"
 #: dashboards/admin/flavors/tables.py:141
 #: dashboards/project/instances/templates/instances/_detail_overview.html:96
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
 msgid "Metadata"
 msgstr "元数据"
 
@@ -766,6 +766,7 @@ msgstr "增加或删除主机时错误"
 #: dashboards/admin/images/templates/images/_create.html:18
 #: dashboards/admin/images/templates/images/_update.html:18
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
+#: dashboards/admin/metering/templates/metering/_daily.html:18
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/_update.html:17
 #: dashboards/admin/networks/templates/networks/agents/_add.html:18
@@ -852,6 +853,7 @@ msgstr "主机聚合通过将主机组合来把可用区域划分成逻辑单元
 #: dashboards/admin/images/templates/images/_create.html:34
 #: dashboards/admin/images/templates/images/_update.html:25
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:24
+#: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
 #: dashboards/admin/networks/templates/networks/_update.html:24
 #: dashboards/admin/networks/templates/networks/agents/_add.html:25
@@ -1891,8 +1893,9 @@ msgstr "激活"
 msgid "Disabled"
 msgstr "已关闭"
 
-#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:25
-#: dashboards/admin/metering/views.py:149
+#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
+#: dashboards/admin/metering/tables.py:61
+#: dashboards/admin/metering/views.py:128
 #: dashboards/project/access_and_security/api_access/tables.py:53
 msgid "Service"
 msgstr "服务"
@@ -2009,6 +2012,7 @@ msgstr "实例热迁移"
 
 #: dashboards/admin/instances/tables.py:93
 #: dashboards/admin/instances/tables.py:127
+#: dashboards/admin/metering/tables.py:41
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:40
 #: dashboards/admin/networks/tables.py:86
@@ -2115,7 +2119,7 @@ msgid "Unable to retrieve host information."
 msgstr "无法获取主机信息。"
 
 #: dashboards/admin/instances/views.py:167
-#: dashboards/project/databases/views.py:138
+#: dashboards/project/databases/views.py:146
 #: dashboards/project/instances/views.py:208
 #: dashboards/project/instances/views.py:322
 msgid "Unable to retrieve instance details."
@@ -2135,17 +2139,86 @@ msgstr "动态迁移一个实例到特定的主机"
 msgid "All Instances"
 msgstr "所有云主机"
 
+#: dashboards/admin/metering/forms.py:24
+#: dashboards/admin/metering/templates/metering/stats.html:106
+msgid "Last day"
+msgstr "最近一天"
+
+#: dashboards/admin/metering/forms.py:25
+#: dashboards/admin/metering/templates/metering/stats.html:107
+msgid "Last week"
+msgstr "最近一周"
+
+#: dashboards/admin/metering/forms.py:26
+#: dashboards/admin/metering/templates/metering/stats.html:108
+msgid "Month to date"
+msgstr "月累计"
+
+#: dashboards/admin/metering/forms.py:27
+#: dashboards/admin/metering/templates/metering/stats.html:109
+msgid "Last 15 days"
+msgstr "最近15天"
+
+#: dashboards/admin/metering/forms.py:28
+#: dashboards/admin/metering/templates/metering/stats.html:110
+msgid "Last 30 days"
+msgstr "最近30天"
+
+#: dashboards/admin/metering/forms.py:29
+#: dashboards/admin/metering/templates/metering/stats.html:111
+msgid "Last year"
+msgstr "最近一年"
+
+#: dashboards/admin/metering/forms.py:30
+#: dashboards/admin/metering/templates/metering/stats.html:112
+#: dashboards/router/nexus1000v/forms.py:59
+msgid "Other"
+msgstr "其它"
+
+#: dashboards/admin/metering/forms.py:32
+msgid "Period"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:35
+msgid "From"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:39
+msgid "To"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:48
+msgid "Must specify start of period"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:58
+msgid "Start must be earlier than end of period."
+msgstr ""
+
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
 msgstr "资源使用情况"
 
 #: dashboards/admin/metering/tables.py:26
-#: dashboards/admin/metering/views.py:148
+#: dashboards/admin/metering/templates/metering/_daily.html:9
+#: dashboards/admin/metering/templates/metering/daily.html:3
+#: dashboards/admin/metering/templates/metering/daily.html:6
+msgid "Modify Usage Report Parameters"
+msgstr ""
+
+#: dashboards/admin/metering/tables.py:34 usage/tables.py:25
+msgid "Download CSV Summary"
+msgstr "下载 CSV 摘要"
+
+#: dashboards/admin/metering/tables.py:43
+#: dashboards/admin/metering/tables.py:62
+#: dashboards/admin/metering/views.py:127
 msgid "Meter"
 msgstr "计量"
 
-#: dashboards/admin/metering/tables.py:27
-#: dashboards/admin/metering/views.py:148
+#: dashboards/admin/metering/tables.py:44
+#: dashboards/admin/metering/tables.py:63
+#: dashboards/admin/metering/views.py:127
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/identity/domains/tables.py:200
 #: dashboards/identity/domains/workflows.py:37
@@ -2223,155 +2296,92 @@ msgstr "计量"
 msgid "Description"
 msgstr "描述"
 
-#: dashboards/admin/metering/tables.py:28
+#: dashboards/admin/metering/tables.py:45
+#: dashboards/admin/metering/tables.py:64
 msgid "Day"
 msgstr "天"
 
-#: dashboards/admin/metering/tables.py:30
-#: dashboards/admin/metering/views.py:149
+#: dashboards/admin/metering/tables.py:47
+#: dashboards/admin/metering/tables.py:66
+#: dashboards/admin/metering/views.py:128
 msgid "Value (Avg)"
 msgstr "值(平均)"
 
-#: dashboards/admin/metering/tabs.py:24
+#: dashboards/admin/metering/tables.py:55
+msgid "Daily Usage Report"
+msgstr ""
+
+#: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
 msgstr "统计数据"
 
-#: dashboards/admin/metering/tabs.py:41
+#: dashboards/admin/metering/tabs.py:38
 msgid "There are no meters defined yet."
 msgstr "没有定义任何计量。"
 
-#: dashboards/admin/metering/tabs.py:57
-msgid "Daily Report"
-msgstr "日报"
+#: dashboards/admin/metering/tabs.py:54
+msgid "Usage Report"
+msgstr "使用报告"
 
-#: dashboards/admin/metering/views.py:148
-#: dashboards/admin/overview/views.py:33 usage/tables.py:45
-msgid "Project Name"
-msgstr "项目名称"
+#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:145
+msgid "Nova"
+msgstr "Nova"
 
-#: dashboards/admin/metering/views.py:149
-msgid "Time"
-msgstr "时间"
+#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:146
+msgid "Neutron"
+msgstr "Neutron"
 
-#: dashboards/admin/metering/views.py:264
+#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:147
+msgid "Glance"
+msgstr "Glance"
+
+#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:148
+msgid "Cinder"
+msgstr "Cinder"
+
+#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:149
+msgid "Swift_meters"
+msgstr "Swift_meters"
+
+#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:150
+msgid "Kwapi"
+msgstr "Kwapi"
+
+#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:86
+msgid "Dates cannot be recognized."
+msgstr ""
+
+#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:169
 #: dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
 msgstr "无法获取项目列表。"
 
-#: dashboards/admin/metering/views.py:303
-msgid "Unable to retrieve statistics."
-msgstr "无法获取统计数据"
+#: dashboards/admin/metering/views.py:127
+#: dashboards/admin/overview/views.py:33 usage/tables.py:45
+msgid "Project Name"
+msgstr "项目名称"
 
-#: dashboards/admin/metering/views.py:310
-msgid "Nova"
-msgstr "Nova"
+#: dashboards/admin/metering/views.py:128
+msgid "Time"
+msgstr "时间"
 
-#: dashboards/admin/metering/views.py:311
-msgid "Neutron"
-msgstr "Neutron"
-
-#: dashboards/admin/metering/views.py:312
-msgid "Glance"
-msgstr "Glance"
-
-#: dashboards/admin/metering/views.py:313
-msgid "Cinder"
-msgstr "Cinder"
-
-#: dashboards/admin/metering/views.py:314
-msgid "Swift_meters"
-msgstr "Swift_meters"
-
-#: dashboards/admin/metering/views.py:315
-msgid "Kwapi"
-msgstr "Kwapi"
-
-#: dashboards/admin/metering/templates/metering/daily.html:6
-#: dashboards/admin/metering/templates/metering/stats.html:102
-msgid "Period:"
+#: dashboards/admin/metering/views.py:161
+msgid "Dates cannot be recognised."
 msgstr ""
 
-#: dashboards/admin/metering/templates/metering/daily.html:10
-#: dashboards/admin/metering/templates/metering/stats.html:106
-msgid "Last day"
-msgstr "最近一天"
-
-#: dashboards/admin/metering/templates/metering/daily.html:11
-#: dashboards/admin/metering/templates/metering/stats.html:107
-msgid "Last week"
-msgstr "最近一周"
-
-#: dashboards/admin/metering/templates/metering/daily.html:12
-#: dashboards/admin/metering/templates/metering/stats.html:108
-msgid "Month to date"
-msgstr "月累计"
-
-#: dashboards/admin/metering/templates/metering/daily.html:13
-#: dashboards/admin/metering/templates/metering/stats.html:109
-msgid "Last 15 days"
-msgstr "最近15天"
-
-#: dashboards/admin/metering/templates/metering/daily.html:14
-#: dashboards/admin/metering/templates/metering/stats.html:110
-msgid "Last 30 days"
-msgstr "最近30天"
-
-#: dashboards/admin/metering/templates/metering/daily.html:15
-#: dashboards/admin/metering/templates/metering/stats.html:111
-msgid "Last year"
-msgstr "最近一年"
-
-#: dashboards/admin/metering/templates/metering/daily.html:16
-#: dashboards/admin/metering/templates/metering/stats.html:112
-#: dashboards/router/nexus1000v/forms.py:59
-msgid "Other"
-msgstr "其它"
-
-#: dashboards/admin/metering/templates/metering/daily.html:21
-#: dashboards/admin/metering/templates/metering/stats.html:117
-msgid "From:"
+#: dashboards/admin/metering/templates/metering/_daily.html:19
+msgid "Select a pre-defined period or specify date."
 msgstr ""
 
-#: dashboards/admin/metering/templates/metering/daily.html:28
-#: dashboards/admin/metering/templates/metering/stats.html:124
-msgid "To:"
+#: dashboards/admin/metering/templates/metering/_daily.html:24
+msgid "View Usage Report"
 msgstr ""
-
-#: dashboards/admin/metering/templates/metering/daily.html:35
-msgid "Limit project count:"
-msgstr ""
-
-#: dashboards/admin/metering/templates/metering/daily.html:42
-msgid "Generate Report"
-msgstr "生成报告"
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/templates/metering/index.html:6
 msgid "Resources Usage Overview"
 msgstr "资源使用概况"
-
-#: dashboards/admin/metering/templates/metering/report.html:4
-msgid "Usage Report"
-msgstr "使用报告"
-
-#: dashboards/admin/metering/templates/metering/report.html:7
-msgid "Daily Usage Report Per Project"
-msgstr "项目使用日报"
-
-#: dashboards/admin/metering/templates/metering/report.html:12
-#: usage/tables.py:25
-msgid "Download CSV Summary"
-msgstr "下载 CSV 摘要"
-
-#: dashboards/admin/metering/templates/metering/report.html:13
-#: dashboards/project/networks/templates/networks/create.html:13
-msgid "Back"
-msgstr "返回"
-
-#: dashboards/admin/metering/templates/metering/report.html:20
-msgid "No data available"
-msgstr "没有可用数据"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric:"
@@ -2428,6 +2438,18 @@ msgstr "最大"
 #: dashboards/admin/metering/templates/metering/stats.html:97
 msgid "Sum."
 msgstr "总和"
+
+#: dashboards/admin/metering/templates/metering/stats.html:102
+msgid "Period:"
+msgstr ""
+
+#: dashboards/admin/metering/templates/metering/stats.html:117
+msgid "From:"
+msgstr ""
+
+#: dashboards/admin/metering/templates/metering/stats.html:124
+msgid "To:"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/stats.html:136
 msgid "Statistics of all resources"
@@ -3389,7 +3411,7 @@ msgid "Info"
 msgstr "信息"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/instances/templates/instances/_detail_overview.html:138
+#: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/instances/workflows/create_instance.py:99
 #: dashboards/project/instances/workflows/create_instance.py:371
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
@@ -5952,13 +5974,18 @@ msgid "Plugin"
 msgstr "插件"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:118
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:85
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:26
 #: dashboards/project/data_processing/utils/workflow_helpers.py:175
-msgid "Hadoop Version"
-msgstr "Hadoop版本"
+msgid "Version"
+msgstr "版本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:120
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
@@ -6000,24 +6027,16 @@ msgstr "无法获取集群模板。"
 msgid "This Cluster Template will be created for:"
 msgstr "这个集群模板将被创建给："
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
-msgid "Hadoop version"
-msgstr "Hadoop版本"
-
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:12
 msgid ""
-"The Cluster Template object should specify Node Group Templates that will be used to build a Hadoop Cluster.\n"
+"The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quotNode Groups&quot tab."
-msgstr "Cluster Template对象应该指定说明用来创建Hadoop集群的Node Group Templates。\n你可以通过在&quotNode Groups&quot 标签上增加Node Group Templates来增加Node Groups"
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
-"You may set <b>cluster</b> scoped Hadoop configurations on corresponding "
-"tabs."
-msgstr "你可以在相应的标签上设置<b>集群</b>来限定Hadoop配置"
+"You may set <b>cluster</b> scoped configurations on corresponding tabs."
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:19
 msgid ""
@@ -6026,8 +6045,8 @@ msgid ""
 msgstr "Cluster Template对象可以指定一系列任务在anti-affinity组上。\n这样这些任务就不会在同一个物理主机上启动多个。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_create_general_help.html:3
-msgid "Select a plugin and Hadoop version for a new Cluster template."
-msgstr "为新的Cluster template选择一个插件和一个Hadoop版本"
+msgid "Select a plugin and version for a new Cluster template."
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
@@ -6281,8 +6300,8 @@ msgstr "集群可以通过已有的集群模板来创建"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:15
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
-"Hadoop Cluster."
-msgstr "集群对象应该指定用来创建Hadoop集群的实例的镜像"
+"Cluster."
+msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:18
 msgid "User has to choose a keypair to have access to clusters instances."
@@ -6293,8 +6312,8 @@ msgid " Done"
 msgstr "完成"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
-msgid "Select a plugin and Hadoop version for a new Cluster."
-msgstr "为新的集群选择一个插件和一个Hadoop版本"
+msgid "Select a plugin and version for a new Cluster."
+msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:3
 msgid "Cluster Overview"
@@ -6414,7 +6433,7 @@ msgstr "更新镜像失败"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:76
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
 #: dashboards/project/volumes/volumes/forms.py:208
 msgid "Image"
 msgstr "镜像"
@@ -6528,10 +6547,6 @@ msgstr "可以点击标签名字旁边的叉来删除没用的标签"
 msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
 msgstr "指定数据处理版本必须的插件注册标签"
-
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
-msgid "Version"
-msgstr "版本"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:30
 msgid "Add plugin tags"
@@ -7276,13 +7291,13 @@ msgstr "数据处理提供了多种不同的存储路径选择。你可以选择
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
-"When processes are selected, you may set <b>node</b> scoped Hadoop "
-"configurations on corresponding tabs."
-msgstr "当任务处理流程被选定，你可以在Hadoop相应的配置标签那设置 <b>结点</b>"
+"When processes are selected, you may set <b>node</b> scoped configurations "
+"on corresponding tabs."
+msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
-msgid "Select a plugin and Hadoop version for a new Node group template."
-msgstr "为一个新的结点群组模板选择一个新的插件和Hadoop版本。"
+msgid "Select a plugin and version for a new Node group template."
+msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:57
 msgid "HDFS placement"
@@ -7786,7 +7801,7 @@ msgstr "无法获取数据库大小信息。"
 msgid "Unable to retrieve database instances."
 msgstr "无法获取数据库实例。"
 
-#: dashboards/project/databases/views.py:111
+#: dashboards/project/databases/views.py:114
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "无法获取数据库实例%s的详细信息。"
@@ -9602,17 +9617,20 @@ msgstr "云硬盘已连接"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
 #: dashboards/project/volumes/volumes/tables.py:360
 msgid "Attached To"
 msgstr "连接到"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:135
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:43
-msgid "on"
-msgstr "on"
+#: dashboards/project/instances/templates/instances/_detail_overview.html:129
+#, python-format
+msgid ""
+"\n"
+"            <a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s\n"
+"            "
+msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:139
+#: dashboards/project/instances/templates/instances/_detail_overview.html:135
 msgid "No volumes attached."
 msgstr "未连接云硬盘"
 
@@ -10967,13 +10985,23 @@ msgstr "小"
 msgid "Normal"
 msgstr "正常"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:40
-msgid "There are no networks, routers, or connected instances to display."
-msgstr "没有可以显示的网络，路由或者连接的云主机。"
+#: dashboards/project/network_topology/templates/network_topology/index.html:28
+msgid "Launch Instance (Quota exceeded)"
+msgstr ""
 
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:97
 msgid "Create Network (Quota exceeded)"
 msgstr ""
+
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/routers/tables.py:88
+msgid "Create Router (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
+msgid "There are no networks, routers, or connected instances to display."
+msgstr "没有可以显示的网络，路由或者连接的云主机。"
 
 #: dashboards/project/networks/tables.py:118
 msgid "Add Subnet"
@@ -11308,6 +11336,10 @@ msgstr ""
 msgid "Segmentation ID:"
 msgstr ""
 
+#: dashboards/project/networks/templates/networks/create.html:13
+msgid "Back"
+msgstr "返回"
+
 #: dashboards/project/networks/templates/networks/create.html:17
 #: dashboards/project/stacks/templates/stacks/_change_template.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:25
@@ -11469,10 +11501,6 @@ msgstr[0] ""
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "无法删除路由\"%s\""
-
-#: dashboards/project/routers/tables.py:88
-msgid "Create Router (Quota exceeded)"
-msgstr ""
 
 #: dashboards/project/routers/tables.py:107
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
@@ -12360,11 +12388,19 @@ msgstr "云硬盘概览"
 msgid "Attachments"
 msgstr "连接的设备"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:42
+#, python-format
+msgid ""
+"\n"
+"        <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
+"        "
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
 msgstr "未连接"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:54
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:55
 #: dashboards/project/volumes/volumes/forms.py:52
 msgid "Volume Source"
 msgstr "云硬盘源自"
@@ -13931,3 +13967,19 @@ msgstr "磁盘GB小时数"
 #: usage/tables.py:55 usage/tables.py:84
 msgid "Usage"
 msgstr "用量"
+
+#: utils/metering.py:26
+msgid "To date to must be greater than From date."
+msgstr ""
+
+#: utils/metering.py:52
+msgid "From-date is not recognized"
+msgstr ""
+
+#: utils/metering.py:60
+msgid "To-date is not recognized"
+msgstr ""
+
+#: utils/metering.py:68
+msgid "The time delta must be an integer representing days."
+msgstr ""

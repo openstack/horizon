@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:38+0000\n"
+"POT-Creation-Date: 2014-10-21 23:36-0500\n"
+"PO-Revision-Date: 2014-10-22 02:09+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -611,7 +611,7 @@ msgstr "Hosts"
 #: dashboards/admin/flavors/tables.py:141
 #: dashboards/project/instances/templates/instances/_detail_overview.html:96
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:67
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
 msgid "Metadata"
 msgstr "Metadatos"
 
@@ -770,6 +770,7 @@ msgstr "Error al añadir o eliminar servidores"
 #: dashboards/admin/images/templates/images/_create.html:18
 #: dashboards/admin/images/templates/images/_update.html:18
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
+#: dashboards/admin/metering/templates/metering/_daily.html:18
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/_update.html:17
 #: dashboards/admin/networks/templates/networks/agents/_add.html:18
@@ -856,6 +857,7 @@ msgstr "La agregación de hosts divide una zona de disponibilidad en unidades me
 #: dashboards/admin/images/templates/images/_create.html:34
 #: dashboards/admin/images/templates/images/_update.html:25
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:24
+#: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
 #: dashboards/admin/networks/templates/networks/_update.html:24
 #: dashboards/admin/networks/templates/networks/agents/_add.html:25
@@ -1899,8 +1901,9 @@ msgstr "Habilitado"
 msgid "Disabled"
 msgstr "Deshabilitado"
 
-#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:25
-#: dashboards/admin/metering/views.py:149
+#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
+#: dashboards/admin/metering/tables.py:61
+#: dashboards/admin/metering/views.py:128
 #: dashboards/project/access_and_security/api_access/tables.py:53
 msgid "Service"
 msgstr "Servicio"
@@ -2019,6 +2022,7 @@ msgstr "Migrar en vivo instancia"
 
 #: dashboards/admin/instances/tables.py:93
 #: dashboards/admin/instances/tables.py:127
+#: dashboards/admin/metering/tables.py:41
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:40
 #: dashboards/admin/networks/tables.py:86
@@ -2125,7 +2129,7 @@ msgid "Unable to retrieve host information."
 msgstr "No ha sido posible recuperar la información del anfitrión."
 
 #: dashboards/admin/instances/views.py:167
-#: dashboards/project/databases/views.py:138
+#: dashboards/project/databases/views.py:146
 #: dashboards/project/instances/views.py:208
 #: dashboards/project/instances/views.py:322
 msgid "Unable to retrieve instance details."
@@ -2145,17 +2149,86 @@ msgstr "Migrar en vivo una instancia a un anfitrión específico."
 msgid "All Instances"
 msgstr "Todas las instancias"
 
+#: dashboards/admin/metering/forms.py:24
+#: dashboards/admin/metering/templates/metering/stats.html:106
+msgid "Last day"
+msgstr "Último día"
+
+#: dashboards/admin/metering/forms.py:25
+#: dashboards/admin/metering/templates/metering/stats.html:107
+msgid "Last week"
+msgstr "Última semana"
+
+#: dashboards/admin/metering/forms.py:26
+#: dashboards/admin/metering/templates/metering/stats.html:108
+msgid "Month to date"
+msgstr "Mes a datar"
+
+#: dashboards/admin/metering/forms.py:27
+#: dashboards/admin/metering/templates/metering/stats.html:109
+msgid "Last 15 days"
+msgstr "Últimos 15 días"
+
+#: dashboards/admin/metering/forms.py:28
+#: dashboards/admin/metering/templates/metering/stats.html:110
+msgid "Last 30 days"
+msgstr "Últimos 30 días"
+
+#: dashboards/admin/metering/forms.py:29
+#: dashboards/admin/metering/templates/metering/stats.html:111
+msgid "Last year"
+msgstr "Último año"
+
+#: dashboards/admin/metering/forms.py:30
+#: dashboards/admin/metering/templates/metering/stats.html:112
+#: dashboards/router/nexus1000v/forms.py:59
+msgid "Other"
+msgstr "Otro"
+
+#: dashboards/admin/metering/forms.py:32
+msgid "Period"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:35
+msgid "From"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:39
+msgid "To"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:48
+msgid "Must specify start of period"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:58
+msgid "Start must be earlier than end of period."
+msgstr ""
+
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
 msgstr "Uso de los recursos"
 
 #: dashboards/admin/metering/tables.py:26
-#: dashboards/admin/metering/views.py:148
+#: dashboards/admin/metering/templates/metering/_daily.html:9
+#: dashboards/admin/metering/templates/metering/daily.html:3
+#: dashboards/admin/metering/templates/metering/daily.html:6
+msgid "Modify Usage Report Parameters"
+msgstr ""
+
+#: dashboards/admin/metering/tables.py:34 usage/tables.py:25
+msgid "Download CSV Summary"
+msgstr "Descargar resumen en CSV"
+
+#: dashboards/admin/metering/tables.py:43
+#: dashboards/admin/metering/tables.py:62
+#: dashboards/admin/metering/views.py:127
 msgid "Meter"
 msgstr "Medidor"
 
-#: dashboards/admin/metering/tables.py:27
-#: dashboards/admin/metering/views.py:148
+#: dashboards/admin/metering/tables.py:44
+#: dashboards/admin/metering/tables.py:63
+#: dashboards/admin/metering/views.py:127
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/identity/domains/tables.py:200
 #: dashboards/identity/domains/workflows.py:37
@@ -2233,155 +2306,92 @@ msgstr "Medidor"
 msgid "Description"
 msgstr "Descripción "
 
-#: dashboards/admin/metering/tables.py:28
+#: dashboards/admin/metering/tables.py:45
+#: dashboards/admin/metering/tables.py:64
 msgid "Day"
 msgstr "Día"
 
-#: dashboards/admin/metering/tables.py:30
-#: dashboards/admin/metering/views.py:149
+#: dashboards/admin/metering/tables.py:47
+#: dashboards/admin/metering/tables.py:66
+#: dashboards/admin/metering/views.py:128
 msgid "Value (Avg)"
 msgstr "Valor (medio)"
 
-#: dashboards/admin/metering/tabs.py:24
+#: dashboards/admin/metering/tables.py:55
+msgid "Daily Usage Report"
+msgstr ""
+
+#: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
 msgstr "Estadísticas "
 
-#: dashboards/admin/metering/tabs.py:41
+#: dashboards/admin/metering/tabs.py:38
 msgid "There are no meters defined yet."
 msgstr "No hay medidores definidos todavía."
 
-#: dashboards/admin/metering/tabs.py:57
-msgid "Daily Report"
-msgstr "Informe diario"
+#: dashboards/admin/metering/tabs.py:54
+msgid "Usage Report"
+msgstr "Informe de uso"
 
-#: dashboards/admin/metering/views.py:148
-#: dashboards/admin/overview/views.py:33 usage/tables.py:45
-msgid "Project Name"
-msgstr "Nombre del proyecto"
+#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:145
+msgid "Nova"
+msgstr "Nova"
 
-#: dashboards/admin/metering/views.py:149
-msgid "Time"
-msgstr "Tiempo"
+#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:146
+msgid "Neutron"
+msgstr "Neutron"
 
-#: dashboards/admin/metering/views.py:264
+#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:147
+msgid "Glance"
+msgstr "Glance"
+
+#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:148
+msgid "Cinder"
+msgstr "Cinder"
+
+#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:149
+msgid "Swift_meters"
+msgstr "Medidores de Swift"
+
+#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:150
+msgid "Kwapi"
+msgstr "Kwapi"
+
+#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:86
+msgid "Dates cannot be recognized."
+msgstr ""
+
+#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:169
 #: dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
 msgstr "No ha sido posible obtener la lista de proyectos."
 
-#: dashboards/admin/metering/views.py:303
-msgid "Unable to retrieve statistics."
-msgstr "No ha sido posible obtener las estadísticas."
+#: dashboards/admin/metering/views.py:127
+#: dashboards/admin/overview/views.py:33 usage/tables.py:45
+msgid "Project Name"
+msgstr "Nombre del proyecto"
 
-#: dashboards/admin/metering/views.py:310
-msgid "Nova"
-msgstr "Nova"
+#: dashboards/admin/metering/views.py:128
+msgid "Time"
+msgstr "Tiempo"
 
-#: dashboards/admin/metering/views.py:311
-msgid "Neutron"
-msgstr "Neutron"
+#: dashboards/admin/metering/views.py:161
+msgid "Dates cannot be recognised."
+msgstr ""
 
-#: dashboards/admin/metering/views.py:312
-msgid "Glance"
-msgstr "Glance"
+#: dashboards/admin/metering/templates/metering/_daily.html:19
+msgid "Select a pre-defined period or specify date."
+msgstr ""
 
-#: dashboards/admin/metering/views.py:313
-msgid "Cinder"
-msgstr "Cinder"
-
-#: dashboards/admin/metering/views.py:314
-msgid "Swift_meters"
-msgstr "Medidores de Swift"
-
-#: dashboards/admin/metering/views.py:315
-msgid "Kwapi"
-msgstr "Kwapi"
-
-#: dashboards/admin/metering/templates/metering/daily.html:6
-#: dashboards/admin/metering/templates/metering/stats.html:102
-msgid "Period:"
-msgstr "Periodo:"
-
-#: dashboards/admin/metering/templates/metering/daily.html:10
-#: dashboards/admin/metering/templates/metering/stats.html:106
-msgid "Last day"
-msgstr "Último día"
-
-#: dashboards/admin/metering/templates/metering/daily.html:11
-#: dashboards/admin/metering/templates/metering/stats.html:107
-msgid "Last week"
-msgstr "Última semana"
-
-#: dashboards/admin/metering/templates/metering/daily.html:12
-#: dashboards/admin/metering/templates/metering/stats.html:108
-msgid "Month to date"
-msgstr "Mes a datar"
-
-#: dashboards/admin/metering/templates/metering/daily.html:13
-#: dashboards/admin/metering/templates/metering/stats.html:109
-msgid "Last 15 days"
-msgstr "Últimos 15 días"
-
-#: dashboards/admin/metering/templates/metering/daily.html:14
-#: dashboards/admin/metering/templates/metering/stats.html:110
-msgid "Last 30 days"
-msgstr "Últimos 30 días"
-
-#: dashboards/admin/metering/templates/metering/daily.html:15
-#: dashboards/admin/metering/templates/metering/stats.html:111
-msgid "Last year"
-msgstr "Último año"
-
-#: dashboards/admin/metering/templates/metering/daily.html:16
-#: dashboards/admin/metering/templates/metering/stats.html:112
-#: dashboards/router/nexus1000v/forms.py:59
-msgid "Other"
-msgstr "Otro"
-
-#: dashboards/admin/metering/templates/metering/daily.html:21
-#: dashboards/admin/metering/templates/metering/stats.html:117
-msgid "From:"
-msgstr "Desde:"
-
-#: dashboards/admin/metering/templates/metering/daily.html:28
-#: dashboards/admin/metering/templates/metering/stats.html:124
-msgid "To:"
-msgstr "Hasta:"
-
-#: dashboards/admin/metering/templates/metering/daily.html:35
-msgid "Limit project count:"
-msgstr "Contador de limite del proyecto:"
-
-#: dashboards/admin/metering/templates/metering/daily.html:42
-msgid "Generate Report"
-msgstr "Generar informe"
+#: dashboards/admin/metering/templates/metering/_daily.html:24
+msgid "View Usage Report"
+msgstr ""
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/templates/metering/index.html:6
 msgid "Resources Usage Overview"
 msgstr "Visión general sobre el uso de los recursos"
-
-#: dashboards/admin/metering/templates/metering/report.html:4
-msgid "Usage Report"
-msgstr "Informe de uso"
-
-#: dashboards/admin/metering/templates/metering/report.html:7
-msgid "Daily Usage Report Per Project"
-msgstr "Informe de uso diario por proyecto"
-
-#: dashboards/admin/metering/templates/metering/report.html:12
-#: usage/tables.py:25
-msgid "Download CSV Summary"
-msgstr "Descargar resumen en CSV"
-
-#: dashboards/admin/metering/templates/metering/report.html:13
-#: dashboards/project/networks/templates/networks/create.html:13
-msgid "Back"
-msgstr "Anterior"
-
-#: dashboards/admin/metering/templates/metering/report.html:20
-msgid "No data available"
-msgstr "No hay datos disponibles"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric:"
@@ -2438,6 +2448,18 @@ msgstr "Máximo"
 #: dashboards/admin/metering/templates/metering/stats.html:97
 msgid "Sum."
 msgstr "Total"
+
+#: dashboards/admin/metering/templates/metering/stats.html:102
+msgid "Period:"
+msgstr "Periodo:"
+
+#: dashboards/admin/metering/templates/metering/stats.html:117
+msgid "From:"
+msgstr "Desde:"
+
+#: dashboards/admin/metering/templates/metering/stats.html:124
+msgid "To:"
+msgstr "Hasta:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:136
 msgid "Statistics of all resources"
@@ -3407,7 +3429,7 @@ msgid "Info"
 msgstr "Info"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/instances/templates/instances/_detail_overview.html:138
+#: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/instances/workflows/create_instance.py:99
 #: dashboards/project/instances/workflows/create_instance.py:371
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
@@ -6008,13 +6030,18 @@ msgid "Plugin"
 msgstr "Plugin"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:118
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:85
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:26
 #: dashboards/project/data_processing/utils/workflow_helpers.py:175
-msgid "Hadoop Version"
-msgstr "Versión de Haddop"
+msgid "Version"
+msgstr "Versión"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:120
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
@@ -6056,24 +6083,16 @@ msgstr "No ha sido posible obtener la plantilla de clúster"
 msgid "This Cluster Template will be created for:"
 msgstr "Esta plantilla de clúster se creará para:"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
-msgid "Hadoop version"
-msgstr "Versión de Hadoop"
-
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:12
 msgid ""
-"The Cluster Template object should specify Node Group Templates that will be used to build a Hadoop Cluster.\n"
+"The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quotNode Groups&quot tab."
-msgstr "El objeto plantilla de agrupación (Cluster Template) especifica las plantillas de nodos de grupos que serán usadas para construir la agrupación Hadoop (Hadoop Cluster).\nPuede agregar grupos de nodos usando las plantillas de grupo de nodo en las tablas &quotNode Groups&quot. "
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
-"You may set <b>cluster</b> scoped Hadoop configurations on corresponding "
-"tabs."
-msgstr "Puedes fijar los valores de las configuraciones en el ámbito <b> clúster </ b> de Hadoop en las fichas correspondientes."
+"You may set <b>cluster</b> scoped configurations on corresponding tabs."
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:19
 msgid ""
@@ -6082,8 +6101,8 @@ msgid ""
 msgstr "El objeto plantilla de Cluster puede especificar una lista de procesos en el grupo anti-afinidad.\nEso significa que estos procesos no pueden ser lanzados más de una vez en un solo host."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_create_general_help.html:3
-msgid "Select a plugin and Hadoop version for a new Cluster template."
-msgstr "Selecciona un plugin y la versión de Hadoop para una nueva plantilla Clúster."
+msgid "Select a plugin and version for a new Cluster template."
+msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
@@ -6339,8 +6358,8 @@ msgstr "El Clúster se puede iniciar utilizando plantillas de clúster existente
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:15
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
-"Hadoop Cluster."
-msgstr "El objeto Clúster debe especificar una Imagen OpenStack para arrancar instancias para el Clúster Hadoop."
+"Cluster."
+msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:18
 msgid "User has to choose a keypair to have access to clusters instances."
@@ -6351,8 +6370,8 @@ msgid " Done"
 msgstr "Hecho"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
-msgid "Select a plugin and Hadoop version for a new Cluster."
-msgstr "Selecciona plugin y versión de Hadoop para un nuevo Clúster"
+msgid "Select a plugin and version for a new Cluster."
+msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:3
 msgid "Cluster Overview"
@@ -6472,7 +6491,7 @@ msgstr "Fallo al actualizar imagen."
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:76
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:57
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
 #: dashboards/project/volumes/volumes/forms.py:208
 msgid "Image"
 msgstr "Imagen"
@@ -6588,10 +6607,6 @@ msgstr "Etiquetas innecesarias pueden ser removidas al hacer clic en la cruz cer
 msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
 msgstr "Las etiquetas de registro solicitadas para el Plugin con la Version de procesamiento de Datos especificos "
-
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
-msgid "Version"
-msgstr "Versión"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:30
 msgid "Add plugin tags"
@@ -7346,13 +7361,13 @@ msgstr "El procesamiento de datos provee opciones diferentes de ubicaciones de a
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
-"When processes are selected, you may set <b>node</b> scoped Hadoop "
-"configurations on corresponding tabs."
-msgstr "Cuando los procesos son seleccionados, deberas configurar <b>node</b> del ambito Hadoop en las tablas de configuración correspondiente."
+"When processes are selected, you may set <b>node</b> scoped configurations "
+"on corresponding tabs."
+msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
-msgid "Select a plugin and Hadoop version for a new Node group template."
-msgstr "Seleccionar un plugin y una version de Hadoop para una nueva plantilla de grupo de nodo."
+msgid "Select a plugin and version for a new Node group template."
+msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:57
 msgid "HDFS placement"
@@ -7864,7 +7879,7 @@ msgstr "No ha sido posible obtener la información del tamaño de la base de dat
 msgid "Unable to retrieve database instances."
 msgstr "No ha sido posible obtener las instancias de la base de datos."
 
-#: dashboards/project/databases/views.py:111
+#: dashboards/project/databases/views.py:114
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "No ha sido posible obtener los detalles de la instancia de la base de datos: \"%s\"."
@@ -9701,17 +9716,20 @@ msgstr "Volúmenes asociados"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:126
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:46
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
 #: dashboards/project/volumes/volumes/tables.py:360
 msgid "Attached To"
 msgstr "Asociado a"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:135
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:43
-msgid "on"
-msgstr "en"
+#: dashboards/project/instances/templates/instances/_detail_overview.html:129
+#, python-format
+msgid ""
+"\n"
+"            <a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s\n"
+"            "
+msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:139
+#: dashboards/project/instances/templates/instances/_detail_overview.html:135
 msgid "No volumes attached."
 msgstr "No hay volúmenes asociados"
 
@@ -11075,13 +11093,23 @@ msgstr "Pequeño"
 msgid "Normal"
 msgstr "Normal"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:40
-msgid "There are no networks, routers, or connected instances to display."
-msgstr "No hay redes, routers o instancias conectadas que mostrar."
+#: dashboards/project/network_topology/templates/network_topology/index.html:28
+msgid "Launch Instance (Quota exceeded)"
+msgstr ""
 
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
 #: dashboards/project/networks/tables.py:97
 msgid "Create Network (Quota exceeded)"
 msgstr ""
+
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/routers/tables.py:88
+msgid "Create Router (Quota exceeded)"
+msgstr ""
+
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
+msgid "There are no networks, routers, or connected instances to display."
+msgstr "No hay redes, routers o instancias conectadas que mostrar."
 
 #: dashboards/project/networks/tables.py:118
 msgid "Add Subnet"
@@ -11416,6 +11444,10 @@ msgstr ""
 msgid "Segmentation ID:"
 msgstr ""
 
+#: dashboards/project/networks/templates/networks/create.html:13
+msgid "Back"
+msgstr "Anterior"
+
 #: dashboards/project/networks/templates/networks/create.html:17
 #: dashboards/project/stacks/templates/stacks/_change_template.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:25
@@ -11579,10 +11611,6 @@ msgstr[1] ""
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "No ha sido posible borrar el router \"%s\""
-
-#: dashboards/project/routers/tables.py:88
-msgid "Create Router (Quota exceeded)"
-msgstr ""
 
 #: dashboards/project/routers/tables.py:107
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
@@ -12480,11 +12508,19 @@ msgstr "Vista general de volúmenes"
 msgid "Attachments"
 msgstr "Asociaciones"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:42
+#, python-format
+msgid ""
+"\n"
+"        <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
+"        "
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
 msgstr "No asociado"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:54
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:55
 #: dashboards/project/volumes/volumes/forms.py:52
 msgid "Volume Source"
 msgstr "Origen del volumen"
@@ -14065,3 +14101,19 @@ msgstr "Horas disco GB"
 #: usage/tables.py:55 usage/tables.py:84
 msgid "Usage"
 msgstr "Uso"
+
+#: utils/metering.py:26
+msgid "To date to must be greater than From date."
+msgstr ""
+
+#: utils/metering.py:52
+msgid "From-date is not recognized"
+msgstr ""
+
+#: utils/metering.py:60
+msgid "To-date is not recognized"
+msgstr ""
+
+#: utils/metering.py:68
+msgid "The time delta must be an integer representing days."
+msgstr ""

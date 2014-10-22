@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-09 22:05-0500\n"
-"PO-Revision-Date: 2014-10-09 23:37+0000\n"
+"POT-Creation-Date: 2014-10-21 23:36-0500\n"
+"PO-Revision-Date: 2014-10-19 01:37+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -91,50 +91,50 @@ msgstr "Annulla"
 msgid "Filter"
 msgstr "Filtro"
 
-#: tables/actions.py:756
+#: tables/actions.py:758
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:758
+#: tables/actions.py:760
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:786 tables/base.py:1545
+#: tables/actions.py:788 tables/base.py:1543
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:815
+#: tables/actions.py:817
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Non si è autorizzati a %(action)s: %(objs)s"
 
-#: tables/actions.py:822
+#: tables/actions.py:824
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Impossibile %(action)s: %(objs)s"
 
-#: tables/actions.py:828
+#: tables/actions.py:830
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:898
+#: tables/actions.py:900
 msgid "Delete"
 msgstr "Elimina"
 
-#: tables/actions.py:900
+#: tables/actions.py:902
 msgid "Deleted"
 msgstr "Eliminato"
 
-#: tables/actions.py:931
+#: tables/actions.py:933
 msgid "Update"
 msgstr "Aggiorna"
 
-#: tables/actions.py:932
+#: tables/actions.py:934
 msgid "Updated"
 msgstr "Aggiornato"
 
@@ -152,12 +152,12 @@ msgstr "Nessun elemento da visualizzare"
 msgid "Actions"
 msgstr "Azioni"
 
-#: tables/base.py:1304
+#: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nessuna corrispondenza restituita per l'identificativo \"%s\""
 
-#: tables/base.py:1461
+#: tables/base.py:1459
 msgid "Please select a row before taking that action."
 msgstr "Per cortesia, selezionare una riga prima di eseguire tale azione."
 
@@ -236,9 +236,19 @@ msgstr ""
 msgid "More Actions"
 msgstr ""
 
+#: templates/horizon/common/_domain_page_header.html:6
+#, python-format
+msgid "%(context_name)s:"
+msgstr ""
+
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "Aggiungi una linea"
+
+#: templates/horizon/common/_formset_table_row.html:15
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -348,8 +358,8 @@ msgid "Usage Summary"
 msgstr "Riepilogo dell'Utilizzo"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage"
-msgstr "Seleziona un periodo temporale per esaminarne l'utilizzo"
+msgid "Select a period of time to query its usage:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -370,20 +380,20 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "La data deve essere nel formato YYYY-mm-dd."
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances"
-msgstr "Istanze attive"
+msgid "Active Instances:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM"
-msgstr "RAM Attiva"
+msgid "Active RAM:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours"
-msgstr "VCPU/ora per questo periodo"
+msgid "This Period's VCPU-Hours:"
+msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours"
-msgstr "GB/ora per questo periodo"
+msgid "This Period's GB-Hours:"
+msgstr ""
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -438,7 +448,7 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 bytes"
+msgid "0 Bytes"
 msgstr ""
 
 #. Translators: test code, don't really have to translate
