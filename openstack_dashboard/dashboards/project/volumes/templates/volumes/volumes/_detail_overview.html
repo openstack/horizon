@@ -68,9 +68,13 @@
   <h4>{% trans "Metadata" %}</h4>
   <hr class="header_rule">
   <dl>
-  {% for key, value in volume.metadata.items %}
-    <dt>{{ key }}</dt>
-    <dd>{{ value }}</dd>
-  {% endfor %}
+  {% if volume.metadata.items %}
+      {% for key, value in volume.metadata.items %}
+          <dt>{{ key }}</dt>
+          <dd>{{ value }}</dd>
+      {% endfor %}
+  {% else %}
+      <dd>{% trans "None" %}</dd>
+  {% endif %}
   </dl>
 </div>
