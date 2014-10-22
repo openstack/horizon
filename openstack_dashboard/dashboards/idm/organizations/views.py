@@ -112,8 +112,6 @@ class EditOrganizationView(forms.ModalFormView):
         organization = self.get_object()
         context['organization']=organization
         return context
-        
-        # organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
 
     def get_initial(self):
         organization = self.get_object()
@@ -121,6 +119,4 @@ class EditOrganizationView(forms.ModalFormView):
                 'name': organization.name,
                 'description': organization.description}
 
-    # def deleteOrganization(request,organization):
-    #     api.keystone.tenant_delete(request, organization)
-        
+   
