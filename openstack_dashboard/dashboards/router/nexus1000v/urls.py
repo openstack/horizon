@@ -9,9 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Abishek Subramanian, Cisco Systems, Inc.
-# @author: Sergey Sudakovich,   Cisco Systems, Inc.
 
 from django.conf.urls import patterns
 from django.conf.urls import url
@@ -19,7 +16,8 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.router.nexus1000v import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     # Network Profile
     url(r'^network_profile/create$', views.CreateNetworkProfileView.as_view(),

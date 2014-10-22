@@ -11,8 +11,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Tatiana Mazur
 
 import logging
 
@@ -36,11 +34,14 @@ class UpdateVPNService(forms.SelfHandlingForm):
         widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     description = forms.CharField(
         required=False, max_length=80, label=_("Description"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     failure_url = 'horizon:project:vpn:index'
 
     def handle(self, request, context):
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             data = {'vpnservice': {'name': context['name'],
                                    'description': context['description'],
@@ -107,16 +108,17 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
     def handle(self, request, context):
         try:
             data = {'ikepolicy':
-                {'name': context['name'],
-                 'description': context['description'],
-                 'auth_algorithm': context['auth_algorithm'],
-                 'encryption_algorithm': context['encryption_algorithm'],
-                 'ike_version': context['ike_version'],
-                 'lifetime': {'units': context['lifetime_units'],
-                              'value': context['lifetime_value']},
-                 'pfs': context['pfs'],
-                 'phase1_negotiation_mode': context['phase1_negotiation_mode'],
-                 }}
+                    {'name': context['name'],
+                     'description': context['description'],
+                     'auth_algorithm': context['auth_algorithm'],
+                     'encryption_algorithm': context['encryption_algorithm'],
+                     'ike_version': context['ike_version'],
+                     'lifetime': {'units': context['lifetime_units'],
+                                  'value': context['lifetime_value']},
+                     'pfs': context['pfs'],
+                     'phase1_negotiation_mode':
+                     context['phase1_negotiation_mode'],
+                     }}
             ikepolicy = api.vpn.ikepolicy_update(
                 request, context['ikepolicy_id'], **data)
             msg = (_('IKE Policy %s was successfully updated.')
@@ -178,16 +180,16 @@ class UpdateIPSecPolicy(forms.SelfHandlingForm):
     def handle(self, request, context):
         try:
             data = {'ipsecpolicy':
-                {'name': context['name'],
-                 'description': context['description'],
-                 'auth_algorithm': context['auth_algorithm'],
-                 'encapsulation_mode': context['encapsulation_mode'],
-                 'encryption_algorithm': context['encryption_algorithm'],
-                 'lifetime': {'units': context['lifetime_units'],
-                              'value': context['lifetime_value']},
-                 'pfs': context['pfs'],
-                 'transform_protocol': context['transform_protocol'],
-                 }}
+                    {'name': context['name'],
+                     'description': context['description'],
+                     'auth_algorithm': context['auth_algorithm'],
+                     'encapsulation_mode': context['encapsulation_mode'],
+                     'encryption_algorithm': context['encryption_algorithm'],
+                     'lifetime': {'units': context['lifetime_units'],
+                                  'value': context['lifetime_value']},
+                     'pfs': context['pfs'],
+                     'transform_protocol': context['transform_protocol'],
+                     }}
             ipsecpolicy = api.vpn.ipsecpolicy_update(
                 request, context['ipsecpolicy_id'], **data)
             msg = (_('IPSec Policy %s was successfully updated.')
@@ -204,7 +206,8 @@ class UpdateIPSecPolicy(forms.SelfHandlingForm):
 
 class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
     name = forms.CharField(max_length=80, label=_("Name"), required=False)
-    ipsecsiteconnection_id = forms.CharField(label=_("ID"),
+    ipsecsiteconnection_id = forms.CharField(
+        label=_("ID"),
         widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     description = forms.CharField(
         required=False, max_length=80, label=_("Description"))
@@ -255,27 +258,30 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
         label=_("Initiator state"),
         choices=[('bi-directional', _('bi-directional')),
                  ('response-only', _('response-only'))])
-    admin_state_up = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"))
 
     failure_url = 'horizon:project:vpn:index'
 
     def handle(self, request, context):
+        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             data = {'ipsec_site_connection':
-                {'name': context['name'],
-                 'description': context['description'],
-                 'peer_address': context['peer_address'],
-                 'peer_id': context['peer_id'],
-                 'peer_cidrs': context[
-                     'peer_cidrs'].replace(" ", "").split(","),
-                 'psk': context['psk'],
-                 'mtu': context['mtu'],
-                 'dpd': {'action': context['dpd_action'],
-                         'interval': context['dpd_interval'],
-                         'timeout': context['dpd_timeout']},
-                 'initiator': context['initiator'],
-                 'admin_state_up': context['admin_state_up'],
-                 }}
+                    {'name': context['name'],
+                     'description': context['description'],
+                     'peer_address': context['peer_address'],
+                     'peer_id': context['peer_id'],
+                     'peer_cidrs': context[
+                         'peer_cidrs'].replace(" ", "").split(","),
+                     'psk': context['psk'],
+                     'mtu': context['mtu'],
+                     'dpd': {'action': context['dpd_action'],
+                             'interval': context['dpd_interval'],
+                             'timeout': context['dpd_timeout']},
+                     'initiator': context['initiator'],
+                     'admin_state_up': context['admin_state_up'],
+                     }}
             ipsecsiteconnection = api.vpn.ipsecsiteconnection_update(
                 request, context['ipsecsiteconnection_id'], **data)
             msg = (_('IPSec Site Connection %s was successfully updated.')

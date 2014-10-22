@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import csv
+from captcha.fields import ReCaptchaField
 
 from django import forms
 from django.conf import settings
@@ -21,6 +21,7 @@ from keystoneclient import exceptions as keystoneclient_exceptions
 
 from openstack_dashboard import fiware_api
 
+    
 
 class ConfirmPasswordForm(forms.Form):
     """Encapsulates the idea of two password fields and checking they are the same"""
@@ -58,6 +59,7 @@ class RegistrationForm(ConfirmPasswordForm):
     registration backend.
 
     """
+    captcha = ReCaptchaField(attrs={'theme' : 'clean'})
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
                                 label=_("Username"),
@@ -67,7 +69,7 @@ class RegistrationForm(ConfirmPasswordForm):
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
-        self.fields.keyOrder = ['username', 'email', 'password1', 'password2']
+        self.fields.keyOrder = ['username', 'email', 'password1', 'password2', 'captcha']
     
     def clean_username(self):
         """ Validate that the username is not already in use."""

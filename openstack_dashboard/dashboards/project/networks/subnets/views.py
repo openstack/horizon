@@ -26,6 +26,8 @@ from horizon import workflows
 from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.networks.subnets \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.networks.subnets \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.networks.subnets import utils
 from openstack_dashboard.dashboards.project.networks.subnets \
@@ -90,7 +92,7 @@ class UpdateView(workflows.WorkflowView):
                  for p in subnet['allocation_pools']]
         initial['allocation_pools'] = '\n'.join(pools)
         routes = ['%s,%s' % (r['destination'], r['nexthop'])
-                 for r in subnet['host_routes']]
+                  for r in subnet['host_routes']]
         initial['host_routes'] = '\n'.join(routes)
 
         return initial
@@ -99,3 +101,39 @@ class UpdateView(workflows.WorkflowView):
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.SubnetDetailTabs
     template_name = 'project/networks/subnets/detail.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        subnet_id = self.kwargs['subnet_id']
+        try:
+            subnet = api.neutron.subnet_get(self.request, subnet_id)
+        except Exception:
+            subnet = []
+            msg = _('Unable to retrieve subnet details.')
+            exceptions.handle(self.request, msg,
+                              redirect=self.get_redirect_url())
+        else:
+            if subnet.ip_version == 6:
+                ipv6_modes = utils.get_ipv6_modes_menu_from_attrs(
+                    subnet.ipv6_ra_mode, subnet.ipv6_address_mode)
+                subnet.ipv6_modes_desc = utils.IPV6_MODE_MAP.get(ipv6_modes)
+
+        return subnet
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        subnet = self.get_data()
+        table = project_tables.SubnetsTable(self.request,
+                                            network_id=subnet.network_id)
+        context["subnet"] = subnet
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(subnet)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        subnet = self.get_data()
+        return self.tab_group_class(request, subnet=subnet, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse('horizon:project:networks:index')

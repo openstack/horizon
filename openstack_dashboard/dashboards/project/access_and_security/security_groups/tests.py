@@ -81,14 +81,14 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_update_security_groups_get(self):
         sec_group = self.security_groups.first()
         api.network.security_group_get(IsA(http.HttpRequest),
-                                        sec_group.id).AndReturn(sec_group)
+                                       sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:access_and_security:'
                                       'security_groups:update',
                                       args=[sec_group.id]))
-        self.assertTemplateUsed(res,
-                'project/access_and_security/security_groups/_update.html')
+        self.assertTemplateUsed(
+            res, 'project/access_and_security/security_groups/_update.html')
         self.assertEqual(res.context['security_group'].name,
                          sec_group.name)
 
@@ -97,12 +97,12 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_update_security_groups_post(self):
         sec_group = self.security_groups.get(name="other_group")
         api.network.security_group_update(IsA(http.HttpRequest),
-                                       str(sec_group.id),
-                                       sec_group.name,
-                                       sec_group.description) \
+                                          str(sec_group.id),
+                                          sec_group.name,
+                                          sec_group.description) \
             .AndReturn(sec_group)
         api.network.security_group_get(IsA(http.HttpRequest),
-                                        sec_group.id).AndReturn(sec_group)
+                                       sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateGroup',
@@ -118,15 +118,15 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def test_create_security_groups_get(self):
         res = self.client.get(SG_CREATE_URL)
-        self.assertTemplateUsed(res,
-                    'project/access_and_security/security_groups/create.html')
+        self.assertTemplateUsed(
+            res, 'project/access_and_security/security_groups/create.html')
 
     @test.create_stubs({api.network: ('security_group_create',)})
     def test_create_security_groups_post(self):
         sec_group = self.security_groups.first()
         api.network.security_group_create(IsA(http.HttpRequest),
-                                       sec_group.name,
-                                       sec_group.description) \
+                                          sec_group.name,
+                                          sec_group.description) \
             .AndReturn(sec_group)
         self.mox.ReplayAll()
 
@@ -140,8 +140,8 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_create_security_groups_post_exception(self):
         sec_group = self.security_groups.first()
         api.network.security_group_create(IsA(http.HttpRequest),
-                                       sec_group.name,
-                                       sec_group.description) \
+                                          sec_group.name,
+                                          sec_group.description) \
             .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
@@ -162,8 +162,8 @@ class SecurityGroupsViewTests(test.TestCase):
                     'name': fail_name,
                     'description': sec_group.description}
         res = self.client.post(SG_CREATE_URL, formData)
-        self.assertTemplateUsed(res,
-                    'project/access_and_security/security_groups/create.html')
+        self.assertTemplateUsed(
+            res, 'project/access_and_security/security_groups/create.html')
         self.assertContains(res, "ASCII")
 
     @test.create_stubs({api.network: ('security_group_get',)})
@@ -174,16 +174,16 @@ class SecurityGroupsViewTests(test.TestCase):
                                        sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
         res = self.client.get(self.detail_url)
-        self.assertTemplateUsed(res,
-                'project/access_and_security/security_groups/detail.html')
+        self.assertTemplateUsed(
+            res, 'project/access_and_security/security_groups/detail.html')
 
     @test.create_stubs({api.network: ('security_group_get',)})
     def test_detail_get_exception(self):
         sec_group = self.security_groups.first()
 
         api.network.security_group_get(IsA(http.HttpRequest),
-                                    sec_group.id) \
-                .AndRaise(self.exceptions.nova)
+                                       sec_group.id) \
+            .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
 

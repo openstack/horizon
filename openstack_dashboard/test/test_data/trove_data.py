@@ -167,10 +167,10 @@ def data(TEST):
 
     version1 = datastores.\
         DatastoreVersion(datastores.DatastoreVersions(None),
-                            VERSION_ONE)
+                         VERSION_ONE)
     version2 = datastores.\
         DatastoreVersion(datastores.DatastoreVersions(None),
-                            VERSION_TWO)
+                         VERSION_TWO)
 
     TEST.databases = utils.TestDataContainer()
     TEST.database_backups = utils.TestDataContainer()

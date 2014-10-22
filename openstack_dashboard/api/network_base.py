@@ -111,18 +111,30 @@ class FloatingIpManager(object):
         pass
 
     @abc.abstractmethod
-    def get_target_id_by_instance(self, instance_id):
+    def get_target_id_by_instance(self, instance_id, target_list=None):
         """Returns a target ID of floating IP association.
 
         Based on a backend implementation.
+
+        :param instance_id: ID of target VM instance
+        :param target_list: (optional) a list returned by list_targets().
+            If specified, looking up is done against the specified list
+            to save extra API calls to a back-end. Otherwise a target
+            information is retrieved from a back-end inside the method.
         """
         pass
 
     @abc.abstractmethod
-    def list_target_id_by_instance(self, instance_id):
+    def list_target_id_by_instance(self, instance_id, target_list=None):
         """Returns a list of instance's target IDs of floating IP association.
 
         Based on the backend implementation
+
+        :param instance_id: ID of target VM instance
+        :param target_list: (optional) a list returned by list_targets().
+            If specified, looking up is done against the specified list
+            to save extra API calls to a back-end. Otherwise target list
+            is retrieved from a back-end inside the method.
         """
         pass
 

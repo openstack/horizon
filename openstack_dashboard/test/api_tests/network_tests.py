@@ -406,8 +406,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
     def test_security_group_create(self):
         secgroup = self.api_q_secgroups.list()[1]
         body = {'security_group':
-                    {'name': secgroup['name'],
-                     'description': secgroup['description']}}
+                {'name': secgroup['name'],
+                 'description': secgroup['description']}}
         self.qclient.create_security_group(body) \
             .AndReturn({'security_group': copy.deepcopy(secgroup)})
         self.mox.ReplayAll()
@@ -421,8 +421,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         secgroup['name'] = 'newname'
         secgroup['description'] = 'new description'
         body = {'security_group':
-                    {'name': secgroup['name'],
-                     'description': secgroup['description']}}
+                {'name': secgroup['name'],
+                 'description': secgroup['description']}}
         self.qclient.update_security_group(secgroup['id'], body) \
             .AndReturn({'security_group': secgroup})
         self.mox.ReplayAll()
@@ -693,9 +693,14 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
     def test_floating_ip_target_list(self):
         ports = self.api_ports.list()
+        # Port on the first subnet is connected to a router
+        # attached to external network in neutron_data.
+        subnet_id = self.subnets.first().id
         target_ports = [(self._get_target_id(p),
                          self._get_target_name(p)) for p in ports
-                        if not p['device_owner'].startswith('network:')]
+                        if (not p['device_owner'].startswith('network:') and
+                            subnet_id in [ip['subnet_id']
+                                          for ip in p['fixed_ips']])]
         filters = {'tenant_id': self.request.user.tenant_id}
         self.qclient.list_ports(**filters).AndReturn({'ports': ports})
         servers = self.servers.list()
@@ -703,6 +708,15 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         novaclient.servers = self.mox.CreateMockAnything()
         search_opts = {'project_id': self.request.user.tenant_id}
         novaclient.servers.list(True, search_opts).AndReturn(servers)
+
+        search_opts = {'router:external': True}
+        ext_nets = [n for n in self.api_networks.list()
+                    if n['router:external']]
+        self.qclient.list_networks(**search_opts) \
+            .AndReturn({'networks': ext_nets})
+        self.qclient.list_routers().AndReturn({'routers':
+                                               self.api_routers.list()})
+
         self.mox.ReplayAll()
 
         rets = api.network.floating_ip_target_list(self.request)
@@ -732,3 +746,23 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
                                                               '1')
         self.assertEqual(self._get_target_id(candidates[0]), ret[0])
         self.assertEqual(len(candidates), len(ret))
+
+    def test_floating_ip_target_get_by_instance_with_preloaded_target(self):
+        target_list = [{'name': 'name11', 'id': 'id11', 'instance_id': 'vm1'},
+                       {'name': 'name21', 'id': 'id21', 'instance_id': 'vm2'},
+                       {'name': 'name22', 'id': 'id22', 'instance_id': 'vm2'}]
+        self.mox.ReplayAll()
+
+        ret = api.network.floating_ip_target_get_by_instance(
+            self.request, 'vm2', target_list)
+        self.assertEqual('id21', ret)
+
+    def test_target_floating_ip_port_by_instance_with_preloaded_target(self):
+        target_list = [{'name': 'name11', 'id': 'id11', 'instance_id': 'vm1'},
+                       {'name': 'name21', 'id': 'id21', 'instance_id': 'vm2'},
+                       {'name': 'name22', 'id': 'id22', 'instance_id': 'vm2'}]
+        self.mox.ReplayAll()
+
+        ret = api.network.floating_ip_target_list_by_instance(
+            self.request, 'vm2', target_list)
+        self.assertEqual(['id21', 'id22'], ret)

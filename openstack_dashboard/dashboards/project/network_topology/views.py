@@ -26,6 +26,7 @@ from django.views.generic import TemplateView  # noqa
 from django.views.generic import View  # noqa
 
 from openstack_dashboard import api
+from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.network_topology.instances \
     import tables as instances_tables
@@ -101,17 +102,25 @@ class NetworkTopologyView(TemplateView):
 
         return has_permission
 
+    def _quota_exceeded(self, quota):
+        usages = quotas.tenant_quota_usages(self.request)
+        available = usages[quota]['available']
+        return available <= 0
+
     def get_context_data(self, **kwargs):
         context = super(NetworkTopologyView, self).get_context_data(**kwargs)
         network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
 
         context['launch_instance_allowed'] = self._has_permission(
             (("compute", "compute:create"),))
+        context['instance_quota_exceeded'] = self._quota_exceeded('instances')
         context['create_network_allowed'] = self._has_permission(
             (("network", "create_network"),))
+        context['network_quota_exceeded'] = self._quota_exceeded('networks')
         context['create_router_allowed'] = (
             network_config.get('enable_router', True) and
             self._has_permission((("network", "create_router"),)))
+        context['router_quota_exceeded'] = self._quota_exceeded('routers')
         context['console_type'] = getattr(
             settings, 'CONSOLE_TYPE', 'AUTO')
         return context
@@ -220,7 +229,7 @@ class JSONView(View):
                     'name': router.name,
                     'status': router.status,
                     'external_gateway_info': router.external_gateway_info}
-            for router in neutron_routers]
+                   for router in neutron_routers]
         self.add_resource_url('horizon:project:routers:detail', routers)
         return routers
 

@@ -11,8 +11,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: KC Wang, Big Switch Networks
 
 from mox import IsA  # noqa
 
@@ -382,6 +380,73 @@ class FirewallTests(test.TestCase):
         form_data = data.copy()
         form_data['destination_ip_address'] = ''
         form_data['source_port'] = ''
+
+        res = self.client.post(
+            reverse(self.UPDATERULE_PATH, args=(rule.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.fwaas: ('rule_get', 'rule_update')})
+    def test_update_protocol_any_rule_post(self):
+        # protocol any means protocol == None in neutron context.
+        rule = self.fw_rules.get(protocol=None)
+
+        api.fwaas.rule_get(IsA(http.HttpRequest), rule.id).AndReturn(rule)
+
+        data = {'name': 'new name',
+                'description': 'new desc',
+                'protocol': 'ICMP',
+                'action': 'ALLOW',
+                'shared': False,
+                'enabled': True,
+                'source_ip_address': rule.source_ip_address,
+                'destination_ip_address': None,
+                'source_port': None,
+                'destination_port': rule.destination_port,
+                }
+
+        api.fwaas.rule_update(IsA(http.HttpRequest), rule.id, **data)\
+            .AndReturn(rule)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+        form_data['destination_ip_address'] = ''
+        form_data['source_port'] = ''
+
+        res = self.client.post(
+            reverse(self.UPDATERULE_PATH, args=(rule.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.fwaas: ('rule_get', 'rule_update')})
+    def test_update_rule_protocol_to_ANY_post(self):
+        rule = self.fw_rules.first()
+
+        api.fwaas.rule_get(IsA(http.HttpRequest), rule.id).AndReturn(rule)
+
+        data = {'name': 'new name',
+                'description': 'new desc',
+                'protocol': None,
+                'action': 'ALLOW',
+                'shared': False,
+                'enabled': True,
+                'source_ip_address': rule.source_ip_address,
+                'destination_ip_address': None,
+                'source_port': None,
+                'destination_port': rule.destination_port,
+                }
+        api.fwaas.rule_update(IsA(http.HttpRequest), rule.id, **data)\
+            .AndReturn(rule)
+
+        self.mox.ReplayAll()
+
+        form_data = data.copy()
+        form_data['destination_ip_address'] = ''
+        form_data['source_port'] = ''
+        form_data['protocol'] = 'ANY'
 
         res = self.client.post(
             reverse(self.UPDATERULE_PATH, args=(rule.id,)), form_data)

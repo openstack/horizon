@@ -150,7 +150,7 @@ location you desire, e.g.::
         make_option("-H", "--hostname",
                     dest="hostname",
                     help=("Use with the --apache option to define the server's"
-                         " hostname (default : %s)") % context['VHOSTNAME'],
+                          " hostname (default : %s)") % context['VHOSTNAME'],
                     metavar="HOSTNAME"),
         make_option("--logdir",
                     dest="logdir",
@@ -172,7 +172,7 @@ location you desire, e.g.::
         make_option("-p", "--project",
                     dest="project",
                     help=("Use with the --apache option to define the project "
-                         "name (default : %s)") % context['PROJECT_NAME'],
+                          "name (default : %s)") % context['PROJECT_NAME'],
                     metavar="PROJECT"),
         make_option("-s", "--ssl",
                     default=False, action="store_true", dest="ssl",

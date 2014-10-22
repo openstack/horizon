@@ -23,8 +23,9 @@ LOG = logging.getLogger(__name__)
 
 class PluginsTable(tables.DataTable):
     title = tables.Column("title",
-        verbose_name=_("Title"),
-        link=("horizon:project:data_processing.data_plugins:details"))
+                          verbose_name=_("Title"),
+                          link=("horizon:project:data_processing."
+                                "data_plugins:details"))
 
     versions = tables.Column("versions",
                              verbose_name=_("Supported Versions"),

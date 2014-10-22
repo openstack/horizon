@@ -25,13 +25,13 @@
 
   <div class="launchButtons">
   {% if launch_instance_allowed %}
-  <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal"><span class="glyphicon glyphicon-cloud-upload"></span> {%trans "Launch Instance" %}</a>
+  <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal {% if instance_quota_exceeded %}disabled{% endif %}"><span class="glyphicon glyphicon-cloud-upload"></span> {% if instance_quota_exceeded %}{% trans "Launch Instance (Quota exceeded)"%}{% else %}{% trans "Launch Instance"%}{% endif %}</a>
   {% endif %}
   {% if create_network_allowed %}
-  <a href="{% url 'horizon:project:network_topology:createnetwork' %}" id="networks__action_create" class="btn btn-default btn-sm ajax-modal"><span class="glyphicon glyphicon-plus"></span> {%trans "Create Network" %}</a>
+      <a href="{% url 'horizon:project:network_topology:createnetwork' %}" id="networks__action_create" class="btn btn-default btn-sm ajax-modal {% if network_quota_exceeded %}disabled{% endif %}"><span class="glyphicon glyphicon-plus"></span> {% if network_quota_exceeded %}{% trans "Create Network (Quota exceeded)"%}{% else %}{% trans "Create Network"%}{% endif %}</a>
   {% endif %}
   {% if create_router_allowed %}
-  <a href="{% url 'horizon:project:network_topology:createrouter' %}" id="Routers__action_create" class="btn btn-default btn-sm ajax-modal"><span class="glyphicon glyphicon-plus"></span> {%trans "Create Router" %}</a>
+      <a href="{% url 'horizon:project:network_topology:createrouter' %}" id="Routers__action_create" class="btn btn-default btn-sm ajax-modal {% if router_quota_exceeded %}disabled{% endif %}"><span class="glyphicon glyphicon-plus"></span> {% if router_quota_exceeded %}{% trans "Create Router (Quota exceeded)"%}{% else %}{% trans "Create Router"%}{% endif %}</a>
   {% endif %}
   </div>
 </div>

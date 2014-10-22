@@ -13,7 +13,7 @@
     <dl>
         <dt>{% trans "Plugin" %}</dt>
         <dd><a href="{% url 'horizon:project:data_processing.data_plugins:details' template.plugin_name %}">{{ template.plugin_name }}</a></dd>
-        <dt>{% trans "Hadoop Version" %}</dt>
+        <dt>{% trans "Version" %}</dt>
         <dd>{{ template.hadoop_version }}</dd>
     </dl>
     <dl>
@@ -39,7 +39,7 @@
                     {% if service_conf %}
                     <ul>
                     {% for conf_name, conf_value in service_conf.items %}
-                        <li>{{ conf_name }}:&nbsp{{ conf_value }}</li>
+                        <li>{% blocktrans %}{{ conf_name }}: {{ conf_value }}{% endblocktrans %}</li>
                     {% endfor %}
                     </ul>
                     {% else %}

@@ -31,8 +31,8 @@ class DataProcessingJobExecutionTests(test.TestCase):
             .AndReturn(self.job_executions.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res,
-            'project/data_processing.job_executions/job_executions.html')
+        self.assertTemplateUsed(
+            res, 'project/data_processing.job_executions/job_executions.html')
         self.assertContains(res, 'Executions')
 
     @test.create_stubs({api.sahara: ('job_execution_get',)})
@@ -41,6 +41,6 @@ class DataProcessingJobExecutionTests(test.TestCase):
             .AndReturn(self.job_executions.list()[0])
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(res,
-            'project/data_processing.job_executions/details.html')
+        self.assertTemplateUsed(
+            res, 'project/data_processing.job_executions/details.html')
         self.assertContains(res, 'RUNNING')

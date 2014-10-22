@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# sercanaydogan <sercanaydogan@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 00:24-0500\n"
-"PO-Revision-Date: 2014-07-02 05:25+0000\n"
+"POT-Creation-Date: 2014-10-18 20:37-0500\n"
+"PO-Revision-Date: 2014-10-18 14:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:281
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "Yükleniyor"
 
-#: static/horizon/js/horizon.d3linechart.js:386
-#: static/horizon/js/horizon.d3linechart.js:396
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
 msgstr "Veri yok."
 
-#: static/horizon/js/horizon.d3linechart.js:402
-#: static/horizon/js/horizon.modals.js:300
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -40,16 +41,16 @@ msgstr "Bir hata oluştu. Lütfen tekrar deneyin."
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyin."
 
-#: static/horizon/js/horizon.forms.js:154
+#: static/horizon/js/horizon.forms.js:195
 msgid "Filter"
 msgstr "Filtre"
 
-#: static/horizon/js/horizon.instances.js:232
+#: static/horizon/js/horizon.instances.js:248
 msgid "Could not read the file"
 msgstr "Dosya okunamadı"
 
-#: static/horizon/js/horizon.instances.js:238
-#: static/horizon/js/horizon.instances.js:265
+#: static/horizon/js/horizon.instances.js:254
+#: static/horizon/js/horizon.instances.js:281
 msgid "Could not decrypt the password"
 msgstr "Şifre Çözülemedi"
 
@@ -61,23 +62,23 @@ msgstr "Roller yok"
 msgid "Roles"
 msgstr "Roller"
 
-#: static/horizon/js/horizon.messages.js:11
+#: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
 msgstr "Tehlike:"
 
-#: static/horizon/js/horizon.messages.js:12
+#: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
 msgstr "Uyarı:"
 
-#: static/horizon/js/horizon.messages.js:13
+#: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
 msgstr "Dikkat:"
 
-#: static/horizon/js/horizon.messages.js:14
+#: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
 msgstr "Sonuç:"
 
-#: static/horizon/js/horizon.messages.js:15
+#: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "Hata:"
 
@@ -85,73 +86,97 @@ msgstr "Hata:"
 msgid "Cancel"
 msgstr "İptal"
 
-#: static/horizon/js/horizon.modals.js:208
-#: static/horizon/js/horizon.tables.js:200
+#: static/horizon/js/horizon.modals.js:225
+#: static/horizon/js/horizon.tables.js:223
 msgid "Working"
 msgstr "Çalışıyor"
 
-#: static/horizon/js/horizon.modals.js:238
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
 msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr "Yok"
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr "Sil"
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr "DURUM"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr "KİMLİK"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr "Arayüzler"
 
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
+msgstr ""
+
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
-msgstr "Arayüz"
+msgid "View Details"
+msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
-msgstr "aonsolu aç"
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
+msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
-msgstr "Ayrıntıların %s göster"
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
+msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
+msgstr "Arayüz ekle"
+
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:320
+#: static/horizon/js/horizon.tables.js:379
 msgid "No items to display."
 msgstr "Görüntülenecek öğe yok."
 
 #: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:129
+#: static/horizon/js/horizon.tables.js:120
 msgid "An error occurred while updating."
 msgstr "Güncelleme sırasında bir hata oluştu."
 
-#: static/horizon/js/horizon.tables.js:183
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "You have selected %s. "
 msgstr "Seçili %s var."
 
-#: static/horizon/js/horizon.tables.js:185
+#: static/horizon/js/horizon.tables.js:208
 #, c-format
 msgid "Confirm %s"
 msgstr "%s Onayla"
 
-#: static/horizon/js/horizon.tables.js:186
+#: static/horizon/js/horizon.tables.js:209
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "Lütfen seçiminizi onaylayın. Bu işlem geri alınamaz."
 
-#: static/horizon/js/horizon.tables.js:307
+#: static/horizon/js/horizon.tables.js:366
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] ""
+msgstr[0] "%s adet gösteriliyor"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169

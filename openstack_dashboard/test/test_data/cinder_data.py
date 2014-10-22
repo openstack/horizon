@@ -67,46 +67,50 @@ def data(TEST):
     TEST.cinder_services.add(service_2)
 
     # Volumes - Cinder v1
-    volume = volumes.Volume(volumes.VolumeManager(None),
-                            {'id': "11023e92-8008-4c8b-8059-7f2293ff3887",
-                             'status': 'available',
-                             'size': 40,
-                             'display_name': 'Volume name',
-                             'display_description': 'Volume description',
-                             'created_at': '2014-01-27 10:30:00',
-                             'volume_type': None,
-                             'attachments': []})
-    nameless_volume = volumes.Volume(volumes.VolumeManager(None),
-                         dict(id="4b069dd0-6eaa-4272-8abc-5448a68f1cce",
-                              status='available',
-                              size=10,
-                              display_name='',
-                              display_description='',
-                              device="/dev/hda",
-                              created_at='2010-11-21 18:34:25',
-                              volume_type='vol_type_1',
-                              attachments=[]))
-    other_volume = volumes.Volume(volumes.VolumeManager(None),
-                            {'id': "21023e92-8008-1234-8059-7f2293ff3889",
-                             'status': 'in-use',
-                             'size': 10,
-                             'display_name': u'my_volume',
-                             'display_description': '',
-                             'created_at': '2013-04-01 10:30:00',
-                             'volume_type': None,
-                             'attachments': [{"id": "1", "server_id": '1',
-                                            "device": "/dev/hda"}]})
-    volume_with_type = volumes.Volume(volumes.VolumeManager(None),
-                            {'id': "7dcb47fd-07d9-42c2-9647-be5eab799ebe",
-                             'name': 'my_volume2',
-                             'status': 'in-use',
-                             'size': 10,
-                             'display_name': u'my_volume2',
-                             'display_description': '',
-                             'created_at': '2013-04-01 10:30:00',
-                             'volume_type': 'vol_type_2',
-                             'attachments': [{"id": "2", "server_id": '2',
-                                            "device": "/dev/hdb"}]})
+    volume = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "11023e92-8008-4c8b-8059-7f2293ff3887",
+         'status': 'available',
+         'size': 40,
+         'display_name': 'Volume name',
+         'display_description': 'Volume description',
+         'created_at': '2014-01-27 10:30:00',
+         'volume_type': None,
+         'attachments': []})
+    nameless_volume = volumes.Volume(
+        volumes.VolumeManager(None),
+        {"id": "4b069dd0-6eaa-4272-8abc-5448a68f1cce",
+         "status": 'available',
+         "size": 10,
+         "display_name": '',
+         "display_description": '',
+         "device": "/dev/hda",
+         "created_at": '2010-11-21 18:34:25',
+         "volume_type": 'vol_type_1',
+         "attachments": []})
+    other_volume = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "21023e92-8008-1234-8059-7f2293ff3889",
+         'status': 'in-use',
+         'size': 10,
+         'display_name': u'my_volume',
+         'display_description': '',
+         'created_at': '2013-04-01 10:30:00',
+         'volume_type': None,
+         'attachments': [{"id": "1", "server_id": '1',
+                          "device": "/dev/hda"}]})
+    volume_with_type = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "7dcb47fd-07d9-42c2-9647-be5eab799ebe",
+         'name': 'my_volume2',
+         'status': 'in-use',
+         'size': 10,
+         'display_name': u'my_volume2',
+         'display_description': '',
+         'created_at': '2013-04-01 10:30:00',
+         'volume_type': 'vol_type_2',
+         'attachments': [{"id": "2", "server_id": '2',
+                          "device": "/dev/hdb"}]})
 
     volume.bootable = 'true'
     nameless_volume.bootable = 'true'
@@ -127,60 +131,64 @@ def data(TEST):
     TEST.cinder_volume_types.add(vol_type1, vol_type2)
 
     # Volumes - Cinder v2
-    volume_v2 = volumes_v2.Volume(volumes_v2.VolumeManager(None),
-                            {'id': "31023e92-8008-4c8b-8059-7f2293ff1234",
-                             'name': 'v2_volume',
-                             'description': "v2 Volume Description",
-                             'status': 'available',
-                             'size': 20,
-                             'created_at': '2014-01-27 10:30:00',
-                             'volume_type': None,
-                             'bootable': 'true',
-                             'attachments': []})
+    volume_v2 = volumes_v2.Volume(
+        volumes_v2.VolumeManager(None),
+        {'id': "31023e92-8008-4c8b-8059-7f2293ff1234",
+         'name': 'v2_volume',
+         'description': "v2 Volume Description",
+         'status': 'available',
+         'size': 20,
+         'created_at': '2014-01-27 10:30:00',
+         'volume_type': None,
+         'bootable': 'true',
+         'attachments': []})
     volume_v2.bootable = 'true'
 
     TEST.cinder_volumes.add(api.cinder.Volume(volume_v2))
 
-    snapshot = vol_snaps.Snapshot(vol_snaps.SnapshotManager(None),
-                        {'id': '5f3d1c33-7d00-4511-99df-a2def31f3b5d',
-                         'display_name': 'test snapshot',
-                         'display_description': 'volume snapshot',
-                         'size': 40,
-                         'status': 'available',
-                         'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
-    snapshot2 = vol_snaps_v2.Snapshot(vol_snaps_v2.SnapshotManager(None),
-                        {'id': 'c9d0881a-4c0b-4158-a212-ad27e11c2b0f',
-                         'name': '',
-                         'description': 'v2 volume snapshot description',
-                         'size': 80,
-                         'status': 'available',
-                         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+    snapshot = vol_snaps.Snapshot(
+        vol_snaps.SnapshotManager(None),
+        {'id': '5f3d1c33-7d00-4511-99df-a2def31f3b5d',
+         'display_name': 'test snapshot',
+         'display_description': 'volume snapshot',
+         'size': 40,
+         'status': 'available',
+         'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
+    snapshot2 = vol_snaps_v2.Snapshot(
+        vol_snaps_v2.SnapshotManager(None),
+        {'id': 'c9d0881a-4c0b-4158-a212-ad27e11c2b0f',
+         'name': '',
+         'description': 'v2 volume snapshot description',
+         'size': 80,
+         'status': 'available',
+         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
     snapshot.bootable = 'true'
     snapshot2.bootable = 'true'
 
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot2))
+    TEST.cinder_volume_snapshots.first()._volume = volume
 
-    volume_backup1 = vol_backups.VolumeBackup(vol_backups.
-                                              VolumeBackupManager(None),
-                     {'id': 'a374cbb8-3f99-4c3f-a2ef-3edbec842e31',
-                     'name': 'backup1',
-                     'description': 'volume backup 1',
-                     'size': 10,
-                     'status': 'available',
-                     'container_name': 'volumebackups',
-                     'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
+    volume_backup1 = vol_backups.VolumeBackup(
+        vol_backups.VolumeBackupManager(None),
+        {'id': 'a374cbb8-3f99-4c3f-a2ef-3edbec842e31',
+         'name': 'backup1',
+         'description': 'volume backup 1',
+         'size': 10,
+         'status': 'available',
+         'container_name': 'volumebackups',
+         'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
 
-    volume_backup2 = vol_backups.VolumeBackup(vol_backups.
-                                              VolumeBackupManager(None),
-                     {'id': 'c321cbb8-3f99-4c3f-a2ef-3edbec842e52',
-                     'name': 'backup2',
-                     'description': 'volume backup 2',
-                     'size': 20,
-                     'status': 'available',
-                     'container_name': 'volumebackups',
-                     'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+    volume_backup2 = vol_backups.VolumeBackup(
+        vol_backups.VolumeBackupManager(None),
+        {'id': 'c321cbb8-3f99-4c3f-a2ef-3edbec842e52',
+         'name': 'backup2',
+         'description': 'volume backup 2',
+         'size': 20,
+         'status': 'available',
+         'container_name': 'volumebackups',
+         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
     TEST.cinder_volume_backups.add(volume_backup1)
     TEST.cinder_volume_backups.add(volume_backup2)
@@ -228,12 +236,14 @@ def data(TEST):
     TEST.cinder_limits = limits
 
     # QOS Specs
-    qos_spec1 = qos_specs.QoSSpecs(qos_specs.QoSSpecsManager(None),
+    qos_spec1 = qos_specs.QoSSpecs(
+        qos_specs.QoSSpecsManager(None),
         {"id": "418db45d-6992-4674-b226-80aacad2073c",
          "name": "high_iops",
          "consumer": "back-end",
          "specs": {"minIOPS": "1000", "maxIOPS": '100000'}})
-    qos_spec2 = qos_specs.QoSSpecs(qos_specs.QoSSpecsManager(None),
+    qos_spec2 = qos_specs.QoSSpecs(
+        qos_specs.QoSSpecsManager(None),
         {"id": "6ed7035f-992e-4075-8ed6-6eff19b3192d",
          "name": "high_bws",
          "consumer": "back-end",

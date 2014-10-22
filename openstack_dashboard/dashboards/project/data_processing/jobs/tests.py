@@ -32,7 +32,7 @@ class DataProcessingJobTests(test.TestCase):
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res,
-            'project/data_processing.jobs/jobs.html')
+                                'project/data_processing.jobs/jobs.html')
         self.assertContains(res, 'Jobs')
         self.assertContains(res, 'Name')
 
@@ -43,5 +43,5 @@ class DataProcessingJobTests(test.TestCase):
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
         self.assertTemplateUsed(res,
-            'project/data_processing.jobs/details.html')
+                                'project/data_processing.jobs/details.html')
         self.assertContains(res, 'pigjob')

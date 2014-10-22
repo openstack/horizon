@@ -15,7 +15,8 @@ from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.metering import views
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.metering.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.admin.metering.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^samples$', views.SamplesView.as_view(), name='samples'),
     url(r'^report$', views.ReportView.as_view(), name='report'),

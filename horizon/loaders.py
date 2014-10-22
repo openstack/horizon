@@ -29,7 +29,7 @@ class TemplateLoader(BaseLoader):
     is_usable = True
 
     def get_template_sources(self, template_name):
-        bits = template_name.split(os.path.sep, 2)
+        bits = template_name.split('/', 2)
         if len(bits) == 3:
             dash_name, panel_name, remainder = bits
             key = os.path.join(dash_name, panel_name)

@@ -15,6 +15,8 @@
 from datetime import datetime  # noqa
 import string
 
+import babel
+import babel.dates
 from django.conf import settings
 from django import shortcuts
 from django.utils import encoding
@@ -43,6 +45,14 @@ class UserSettingsForm(forms.SelfHandlingForm):
                                   help_text=_("Number of items to show per "
                                               "page"))
 
+    @staticmethod
+    def _sorted_zones():
+        d = datetime(datetime.today().year, 1, 1)
+        zones = [(tz, pytz.timezone(tz).localize(d).strftime('%z'))
+                 for tz in pytz.common_timezones]
+        zones.sort(key=lambda zone: int(zone[1]))
+        return zones
+
     def __init__(self, *args, **kwargs):
         super(UserSettingsForm, self).__init__(*args, **kwargs)
 
@@ -61,19 +71,27 @@ class UserSettingsForm(forms.SelfHandlingForm):
         self.fields['language'].choices = languages
 
         # Timezones
-        d = datetime(datetime.today().year, 1, 1)
         timezones = []
-        for tz in pytz.common_timezones:
+        language = translation.get_language()
+        current_locale = translation.to_locale(language)
+        babel_locale = babel.Locale.parse(current_locale)
+        for tz, offset in self._sorted_zones():
             try:
-                utc_offset = pytz.timezone(tz).localize(d).strftime('%z')
-                utc_offset = " (UTC %s:%s)" % (utc_offset[:3], utc_offset[3:])
+                utc_offset = _("UTC %(hour)s:%(min)s") % {"hour": offset[:3],
+                                                          "min": offset[3:]}
             except Exception:
                 utc_offset = ""
 
-            if tz != "UTC":
-                tz_name = "%s%s" % (tz, utc_offset)
+            if tz == "UTC":
+                tz_name = _("UTC")
+            elif tz == "GMT":
+                tz_name = _("GMT")
             else:
-                tz_name = tz
+                tz_label = babel.dates.get_timezone_location(
+                    tz, locale=babel_locale)
+                # Translators:  UTC offset and timezone label
+                tz_name = _("%(offset)s: %(label)s") % {"offset": utc_offset,
+                                                        "label": tz_label}
             timezones.append((tz, tz_name))
 
         self.fields['timezone'].choices = timezones

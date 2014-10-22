@@ -10,7 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import include  # noqa
+from django.conf.urls import include
 from django.conf.urls import patterns
 from django.conf.urls import url
 
@@ -23,19 +23,20 @@ from openstack_dashboard.dashboards.admin.volumes.volume_types \
 
 VIEWS_MOD = ('openstack_dashboard.dashboards.admin.volumes.volume_types.views')
 
-urlpatterns = patterns('VIEWS_MOD',
+urlpatterns = patterns(
+    'VIEWS_MOD',
     url(r'^create_type$', views.CreateVolumeTypeView.as_view(),
-            name='create_type'),
+        name='create_type'),
     url(r'^create_qos_spec$', views.CreateQosSpecView.as_view(),
-            name='create_qos_spec'),
+        name='create_qos_spec'),
     url(r'^(?P<type_id>[^/]+)/manage_qos_spec_association/$',
-            views.ManageQosSpecAssociationView.as_view(),
-            name='manage_qos_spec_association'),
+        views.ManageQosSpecAssociationView.as_view(),
+        name='manage_qos_spec_association'),
     url(r'^(?P<qos_spec_id>[^/]+)/edit_qos_spec_consumer/$',
-            views.EditQosSpecConsumerView.as_view(),
-            name='edit_qos_spec_consumer'),
+        views.EditQosSpecConsumerView.as_view(),
+        name='edit_qos_spec_consumer'),
     url(r'^(?P<type_id>[^/]+)/extras/',
-            include(extras_urls, namespace='extras')),
+        include(extras_urls, namespace='extras')),
     url(r'^qos_specs/',
-            include(qos_specs_urls, namespace='qos_specs')),
+        include(qos_specs_urls, namespace='qos_specs')),
 )

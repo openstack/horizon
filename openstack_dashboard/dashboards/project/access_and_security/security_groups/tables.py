@@ -20,6 +20,8 @@ from django.utils.translation import ungettext_lazy
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 from openstack_dashboard.utils import filters
 
 
@@ -27,7 +29,7 @@ POLICY_CHECK = getattr(settings, "POLICY_CHECK_FUNCTION",
                        lambda policy, request, target: True)
 
 
-class DeleteGroup(tables.DeleteAction):
+class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
     def action_present(count):
@@ -44,12 +46,6 @@ class DeleteGroup(tables.DeleteAction):
             u"Deleted Security Groups",
             count
         )
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, security_group=None):
         policy_target = self.get_policy_target(request, security_group)
@@ -82,21 +78,24 @@ class CreateGroup(tables.LinkAction):
         else:
             policy = (("compute", "compute_extension:security_groups"),)
 
+        usages = quotas.tenant_quota_usages(request)
+        if usages['security_groups']['available'] <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ["disabled"]
+                self.verbose_name = _("Create Security Group (Quota exceeded)")
+        else:
+            self.verbose_name = _("Create Security Group")
+            self.classes = [c for c in self.classes if c != "disabled"]
+
         return POLICY_CHECK(policy, request, target={})
 
 
-class EditGroup(tables.LinkAction):
+class EditGroup(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Security Group")
     url = "horizon:project:access_and_security:security_groups:update"
     classes = ("ajax-modal",)
     icon = "pencil"
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, security_group=None):
         policy_target = self.get_policy_target(request, security_group)
@@ -113,17 +112,11 @@ class EditGroup(tables.LinkAction):
         return security_group.name != 'default'
 
 
-class ManageRules(tables.LinkAction):
+class ManageRules(policy.PolicyTargetMixin, tables.LinkAction):
     name = "manage_rules"
     verbose_name = _("Manage Rules")
     url = "horizon:project:access_and_security:security_groups:detail"
     icon = "pencil"
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, security_group=None):
         policy_target = self.get_policy_target(request, security_group)

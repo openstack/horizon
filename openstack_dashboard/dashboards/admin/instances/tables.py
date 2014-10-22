@@ -15,6 +15,7 @@
 
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils import filters
@@ -22,26 +23,33 @@ from horizon.utils import filters
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.instances \
     import tables as project_tables
+from openstack_dashboard import policy
 
 
 class AdminEditInstance(project_tables.EditInstance):
     url = "horizon:admin:instances:update"
 
 
-class MigrateInstance(tables.BatchAction):
+class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
-    action_present = _("Migrate")
-    action_past = _("Scheduled migration (pending confirmation) of")
-    data_type_singular = _("Instance")
-    data_type_plural = _("Instances")
     classes = ("btn-migrate", "btn-danger")
     policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Migrate Instance",
+            u"Migrate Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled migration (pending confirmation) of Instance",
+            u"Scheduled migration (pending confirmation) of Instances",
+            count
+        )
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES
@@ -52,19 +60,14 @@ class MigrateInstance(tables.BatchAction):
         api.nova.server_migrate(request, obj_id)
 
 
-class LiveMigrateInstance(tables.LinkAction):
+class LiveMigrateInstance(policy.PolicyTargetMixin,
+                          tables.LinkAction):
     name = "live_migrate"
     verbose_name = _("Live Migrate Instance")
     url = "horizon:admin:instances:live_migrate"
     classes = ("ajax-modal", "btn-migrate", "btn-danger")
     policy_rules = (
         ("compute", "compute_extension:admin_actions:migrateLive"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES)
@@ -142,13 +145,13 @@ class AdminInstancesTable(tables.DataTable):
                          verbose_name=_("Size"),
                          classes=('nowrap-col',),
                          attrs={'data-type': 'size'})
-    status = tables.Column("status",
-                           filters=(title, filters.replace_underscores),
-                           verbose_name=_("Status"),
-                           status=True,
-                           status_choices=STATUS_CHOICES,
-                           display_choices=
-                               project_tables.STATUS_DISPLAY_CHOICES)
+    status = tables.Column(
+        "status",
+        filters=(title, filters.replace_underscores),
+        verbose_name=_("Status"),
+        status=True,
+        status_choices=STATUS_CHOICES,
+        display_choices=project_tables.STATUS_DISPLAY_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
                          filters=(title, filters.replace_underscores),
@@ -159,7 +162,7 @@ class AdminInstancesTable(tables.DataTable):
                           filters=(title, filters.replace_underscores),
                           verbose_name=_("Power State"))
     created = tables.Column("created",
-                            verbose_name=_("Uptime"),
+                            verbose_name=_("Time since created"),
                             filters=(filters.parse_isotime,
                                      filters.timesince_sortable),
                             attrs={'data-type': 'timesince'})

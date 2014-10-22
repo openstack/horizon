@@ -22,7 +22,8 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.admin.images import views
 
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.images.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.admin.images.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<image_id>[^/]+)/update/$',

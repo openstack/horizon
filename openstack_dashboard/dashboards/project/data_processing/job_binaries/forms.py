@@ -63,7 +63,8 @@ class JobBinaryCreateForm(forms.SelfHandlingForm):
 
     job_binary_script = forms.CharField(label=_("Script text"),
                                         required=False,
-                                        widget=forms.Textarea())
+                                        widget=forms.Textarea(
+                                            attrs={'rows': 4}))
 
     job_binary_username = forms.CharField(label=_("Username"),
                                           required=False)

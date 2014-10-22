@@ -12,6 +12,7 @@
 
 import json
 
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -110,30 +111,26 @@ class UpdateMetadataView(forms.ModalFormView):
         context = super(UpdateMetadataView, self).get_context_data(**kwargs)
 
         aggregate = self.get_object()
-        try:
-            context['existing_metadata'] = json.dumps(aggregate.metadata)
-        except Exception:
-            msg = _('Unable to retrieve aggregate metadata.')
-            exceptions.handle(self.request, msg)
+        context['existing_metadata'] = json.dumps(aggregate.metadata)
 
         resource_type = 'OS::Nova::Aggregate'
-        metadata = {}
+        namespaces = []
         try:
             # metadefs_namespace_list() returns a tuple with list as 1st elem
-            metadata["namespaces"] = [
+            namespaces = [
                 api.glance.metadefs_namespace_get(self.request, x.namespace,
                                                   resource_type)
                 for x in api.glance.metadefs_namespace_list(
                     self.request,
-                    filters={"resource_types": [resource_type]}
+                    filters={'resource_types': [resource_type]}
                 )[0]
             ]
 
-            context['available_metadata'] = json.dumps(metadata)
         except Exception:
             msg = _('Unable to retrieve available metadata for aggregate.')
             exceptions.handle(self.request, msg)
 
+        context['available_metadata'] = json.dumps({'namespaces': namespaces})
         context['id'] = self.kwargs['id']
         return context
 
@@ -141,13 +138,12 @@ class UpdateMetadataView(forms.ModalFormView):
     def get_object(self):
         aggregate_id = self.kwargs['id']
         try:
-            aggregate = api.nova.aggregate_get(self.request, aggregate_id)
+            return api.nova.aggregate_get(self.request, aggregate_id)
         except Exception:
             msg = _('Unable to retrieve the aggregate to be '
                     'updated.')
-            exceptions.handle(self.request, msg)
-        else:
-            return aggregate
+            exceptions.handle(
+                self.request, msg, redirect=reverse(INDEX_URL))
 
 
 class ManageHostsView(workflows.WorkflowView):

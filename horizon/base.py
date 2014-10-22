@@ -27,7 +27,7 @@ import logging
 import os
 
 from django.conf import settings
-from django.conf.urls import include  # noqa
+from django.conf.urls import include
 from django.conf.urls import patterns
 from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured  # noqa
@@ -54,6 +54,23 @@ def _decorate_urlconf(urlpatterns, decorator, *args, **kwargs):
             pattern._callback = decorator(pattern.callback, *args, **kwargs)
         if getattr(pattern, 'url_patterns', []):
             _decorate_urlconf(pattern.url_patterns, decorator, *args, **kwargs)
+
+
+def access_cached(func):
+    def inner(self, context):
+        session = context['request'].session
+        try:
+            if session['allowed']['valid_for'] != session.get('token'):
+                raise KeyError()
+        except KeyError:
+            session['allowed'] = {"valid_for": session.get('token')}
+
+        key = "%s.%s" % (self.__class__.__module__, self.__class__.__name__)
+        if key not in session['allowed']:
+            session['allowed'][key] = func(self, context)
+            session.modified = True
+        return session['allowed'][key]
+    return inner
 
 
 class NotRegistered(Exception):
@@ -90,8 +107,17 @@ class HorizonComponent(object):
                 urlpatterns = patterns('')
         return urlpatterns
 
+    @access_cached
     def can_access(self, context):
-        """Checks to see that the user has role based access to this component.
+        """Return whether the user has role based access to this component.
+
+        This method is not intended to be overridden.
+        The result of the method is stored in per-session cache.
+        """
+        return self.allowed(context)
+
+    def allowed(self, context):
+        """Checks if the user is allowed to access this component.
 
         This method should be overridden to return the result of
         any policy checks required for the user to access this component
@@ -170,10 +196,10 @@ class Registry(object):
             parent = self._registered_with._registerable_class.__name__
             raise NotRegistered('%(type)s with slug "%(slug)s" is not '
                                 'registered with %(parent)s "%(name)s".'
-                                    % {"type": class_name,
-                                       "slug": cls,
-                                       "parent": parent,
-                                       "name": self.slug})
+                                % {"type": class_name,
+                                   "slug": cls,
+                                   "parent": parent,
+                                   "name": self.slug})
         else:
             slug = getattr(cls, "slug", cls)
             raise NotRegistered('%(type)s with slug "%(slug)s" is not '
@@ -484,13 +510,15 @@ class Dashboard(Registry, HorizonComponent):
                 continue
             url_slug = panel.slug.replace('.', '/')
             urlpatterns += patterns('',
-                    url(r'^%s/' % url_slug, include(panel._decorated_urls)))
+                                    url(r'^%s/' % url_slug,
+                                        include(panel._decorated_urls)))
         # Now the default view, which should come last
         if not default_panel:
             raise NotRegistered('The default panel "%s" is not registered.'
                                 % self.default_panel)
         urlpatterns += patterns('',
-                url(r'', include(default_panel._decorated_urls)))
+                                url(r'',
+                                    include(default_panel._decorated_urls)))
 
         # Require login if not public.
         if not self.public:
@@ -568,7 +596,7 @@ class Dashboard(Registry, HorizonComponent):
                 del loaders.panel_template_dirs[key]
         return success
 
-    def can_access(self, context):
+    def allowed(self, context):
         """Checks for role based access for this dashboard.
 
         Checks for access to any panels in the dashboard and of the the
@@ -809,7 +837,8 @@ class Site(Registry, HorizonComponent):
         # Compile the dynamic urlconf.
         for dash in self._registry.values():
             urlpatterns += patterns('',
-                    url(r'^%s/' % dash.slug, include(dash._decorated_urls)))
+                                    url(r'^%s/' % dash.slug,
+                                        include(dash._decorated_urls)))
 
         # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.namespace, self.slug

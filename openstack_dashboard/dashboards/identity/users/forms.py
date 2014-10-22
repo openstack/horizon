@@ -130,19 +130,19 @@ class CreateUserForm(BaseUserForm):
                              % data['name'])
             if data['project'] and data['role_id']:
                 roles = api.keystone.roles_for_user(request,
-                                        new_user.id,
-                                        data['project']) or []
+                                                    new_user.id,
+                                                    data['project']) or []
                 assigned = [role for role in roles if role.id == str(
                     data['role_id'])]
                 if not assigned:
                     try:
                         api.keystone.add_tenant_user_role(request,
-                                                        data['project'],
-                                                        new_user.id,
-                                                        data['role_id'])
+                                                          data['project'],
+                                                          new_user.id,
+                                                          data['role_id'])
                     except Exception:
                         exceptions.handle(request,
-                                        _('Unable to add user '
+                                          _('Unable to add user '
                                             'to primary project.'))
             return new_user
         except Exception:
@@ -158,7 +158,7 @@ class UpdateUserForm(BaseUserForm):
                                   required=False,
                                   widget=forms.HiddenInput())
     id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
-    name = forms.CharField(label=_("User Name"))
+    name = forms.CharField(max_length=255, label=_("User Name"))
     email = forms.EmailField(
         label=_("Email"),
         required=False)

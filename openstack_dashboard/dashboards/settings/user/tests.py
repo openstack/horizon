@@ -26,10 +26,10 @@ class UserSettingsTest(test.TestCase):
     def test_timezone_offset_is_displayed(self):
         res = self.client.get(INDEX_URL)
 
-        self.assertContains(res, "Australia/Melbourne (UTC +11:00)")
-        self.assertContains(res, "Europe/Moscow (UTC +04:00)")
-        self.assertContains(res, "Atlantic/Stanley (UTC -03:00)")
-        self.assertContains(res, "Pacific/Honolulu (UTC -10:00)")
+        self.assertContains(res, "UTC +11:00: Australia (Melbourne) Time")
+        self.assertContains(res, "UTC +04:00: Russia (Moscow) Time")
+        self.assertContains(res, "UTC -03:00: Falkland Islands Time")
+        self.assertContains(res, "UTC -10:00: United States (Honolulu) Time")
 
     def test_display_language(self):
         # Add an unknown language to LANGUAGES list

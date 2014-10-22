@@ -516,10 +516,12 @@ class LoadBalancerTests(test.TestCase):
                                     'subnet_id':
                                     '3f7c5d79-ee55-47b0-9213-8e669fb03009'}],
                      'network_id': '72c3ab6c-c80f-4341-9dc5-210fa31ac6c2'})
-                api.neutron.port_list(IsA(http.HttpRequest),
+                api.neutron.port_list(
+                    IsA(http.HttpRequest),
                     device_id=server1.id).AndReturn([port1, port2])
             else:
-                api.neutron.port_list(IsA(http.HttpRequest),
+                api.neutron.port_list(
+                    IsA(http.HttpRequest),
                     device_id=server1.id).AndReturn([port1, ])
 
         form_data = {'pool_id': member.pool_id,

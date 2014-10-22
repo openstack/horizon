@@ -64,7 +64,7 @@ class GeneralConfigAction(workflows.Action):
 
     job_description = forms.CharField(label=_("Description"),
                                       required=False,
-                                      widget=forms.Textarea)
+                                      widget=forms.Textarea(attrs={'rows': 4}))
 
     def populate_job_type_choices(self, request, context):
         choices = [("Pig", _("Pig")), ("Hive", _("Hive")),

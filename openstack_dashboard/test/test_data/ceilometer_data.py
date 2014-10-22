@@ -38,21 +38,21 @@ def data(TEST):
 
     # users
     ceilometer_user_dict1 = {'id': "1",
-                 'name': 'user',
-                 'email': 'test@example.com',
-                 'password': 'password',
-                 'token': 'test_token',
-                 'project_id': '1',
-                 'enabled': True,
-                 'domain_id': "1"}
+                             'name': 'user',
+                             'email': 'test@example.com',
+                             'password': 'password',
+                             'token': 'test_token',
+                             'project_id': '1',
+                             'enabled': True,
+                             'domain_id': "1"}
     ceilometer_user_dict2 = {'id': "2",
-                 'name': 'user2',
-                 'email': 'test2@example.com',
-                 'password': 'password',
-                 'token': 'test_token',
-                 'project_id': '2',
-                 'enabled': True,
-                 'domain_id': "2"}
+                             'name': 'user2',
+                             'email': 'test2@example.com',
+                             'password': 'password',
+                             'token': 'test_token',
+                             'project_id': '2',
+                             'enabled': True,
+                             'domain_id': "2"}
     TEST.ceilometer_users.add(users.User(None,
                                          ceilometer_user_dict1))
     TEST.ceilometer_users.add(users.User(None,
@@ -122,25 +122,25 @@ def data(TEST):
 
     # samples
     sample_dict_1 = {'resource_id': 'fake_resource_id',
-                   'project_id': 'fake_project_id',
-                   'user_id': 'fake_user_id',
-                   'counter_name': 'image',
-                   'counter_type': 'gauge',
-                   'counter_unit': 'image',
-                   'counter_volume': 1,
-                   'timestamp': '2012-12-21T11:00:55.000000',
-                   'metadata': {'name1': 'value1', 'name2': 'value2'},
-                    'message_id': 'fake_message_id'}
+                     'project_id': 'fake_project_id',
+                     'user_id': 'fake_user_id',
+                     'counter_name': 'image',
+                     'counter_type': 'gauge',
+                     'counter_unit': 'image',
+                     'counter_volume': 1,
+                     'timestamp': '2012-12-21T11:00:55.000000',
+                     'metadata': {'name1': 'value1', 'name2': 'value2'},
+                     'message_id': 'fake_message_id'}
     sample_dict_2 = {'resource_id': 'fake_resource_id2',
-                   'project_id': 'fake_project_id',
-                   'user_id': 'fake_user_id',
-                   'counter_name': 'image',
-                   'counter_type': 'gauge',
-                   'counter_unit': 'image',
-                   'counter_volume': 1,
-                   'timestamp': '2012-12-21T11:00:55.000000',
-                   'metadata': {'name1': 'value1', 'name2': 'value2'},
-                    'message_id': 'fake_message_id'}
+                     'project_id': 'fake_project_id',
+                     'user_id': 'fake_user_id',
+                     'counter_name': 'image',
+                     'counter_type': 'gauge',
+                     'counter_unit': 'image',
+                     'counter_volume': 1,
+                     'timestamp': '2012-12-21T11:00:55.000000',
+                     'metadata': {'name1': 'value1', 'name2': 'value2'},
+                     'message_id': 'fake_message_id'}
     sample_1 = samples.Sample(samples.SampleManager(None), sample_dict_1)
     sample_2 = samples.Sample(samples.SampleManager(None), sample_dict_2)
     TEST.samples.add(sample_1)
@@ -148,29 +148,29 @@ def data(TEST):
 
     # meters
     meter_dict_1 = {'name': 'instance',
-                  'type': 'gauge',
-                  'unit': 'instance',
-                  'resource_id': 'fake_resource_id',
-                  'project_id': 'fake_project_id',
-                  'user_id': 'fake_user_id'}
+                    'type': 'gauge',
+                    'unit': 'instance',
+                    'resource_id': 'fake_resource_id',
+                    'project_id': 'fake_project_id',
+                    'user_id': 'fake_user_id'}
     meter_dict_2 = {'name': 'instance',
-                  'type': 'gauge',
-                  'unit': 'instance',
-                  'resource_id': 'fake_resource_id',
-                  'project_id': 'fake_project_id',
-                  'user_id': 'fake_user_id'}
+                    'type': 'gauge',
+                    'unit': 'instance',
+                    'resource_id': 'fake_resource_id',
+                    'project_id': 'fake_project_id',
+                    'user_id': 'fake_user_id'}
     meter_dict_3 = {'name': 'disk.read.bytes',
-                  'type': 'gauge',
-                  'unit': 'instance',
-                  'resource_id': 'fake_resource_id',
-                  'project_id': 'fake_project_id',
-                  'user_id': 'fake_user_id'}
+                    'type': 'gauge',
+                    'unit': 'instance',
+                    'resource_id': 'fake_resource_id',
+                    'project_id': 'fake_project_id',
+                    'user_id': 'fake_user_id'}
     meter_dict_4 = {'name': 'disk.write.bytes',
-                  'type': 'gauge',
-                  'unit': 'instance',
-                  'resource_id': 'fake_resource_id',
-                  'project_id': 'fake_project_id',
-                  'user_id': 'fake_user_id'}
+                    'type': 'gauge',
+                    'unit': 'instance',
+                    'resource_id': 'fake_resource_id',
+                    'project_id': 'fake_project_id',
+                    'user_id': 'fake_user_id'}
     meter_1 = meters.Meter(meters.MeterManager(None), meter_dict_1)
     meter_2 = meters.Meter(meters.MeterManager(None), meter_dict_2)
     meter_3 = meters.Meter(meters.MeterManager(None), meter_dict_3)
@@ -182,15 +182,15 @@ def data(TEST):
 
     # statistic
     statistic_dict_1 = {'min': 1,
-                 'max': 9,
-                 'avg': 4.55,
-                 'sum': 45,
-                 'count': 10,
-                 'duration_start': '2012-12-21T11:00:55.000000',
-                 'duration_end': '2012-12-21T11:00:55.000000',
-                 'period': 7200,
-                 'period_start': '2012-12-21T11:00:55.000000',
-                 'period_end': '2012-12-21T11:00:55.000000'}
+                        'max': 9,
+                        'avg': 4.55,
+                        'sum': 45,
+                        'count': 10,
+                        'duration_start': '2012-12-21T11:00:55.000000',
+                        'duration_end': '2012-12-21T11:00:55.000000',
+                        'period': 7200,
+                        'period_start': '2012-12-21T11:00:55.000000',
+                        'period_end': '2012-12-21T11:00:55.000000'}
     statistic_1 = statistics.Statistics(statistics.StatisticsManager(None),
                                         statistic_dict_1)
     TEST.statistics.add(statistic_1)

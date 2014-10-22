@@ -74,14 +74,14 @@ def floating_ip_target_list(request):
     return NetworkClient(request).floating_ips.list_targets()
 
 
-def floating_ip_target_get_by_instance(request, instance_id):
+def floating_ip_target_get_by_instance(request, instance_id, cache=None):
     return NetworkClient(request).floating_ips.get_target_id_by_instance(
-        instance_id)
+        instance_id, cache)
 
 
-def floating_ip_target_list_by_instance(request, instance_id):
+def floating_ip_target_list_by_instance(request, instance_id, cache=None):
     floating_ips = NetworkClient(request).floating_ips
-    return floating_ips.list_target_id_by_instance(instance_id)
+    return floating_ips.list_target_id_by_instance(instance_id, cache)
 
 
 def floating_ip_simple_associate_supported(request):

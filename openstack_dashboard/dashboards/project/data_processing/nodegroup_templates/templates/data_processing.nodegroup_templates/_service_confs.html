@@ -9,7 +9,7 @@
             <ul>
                 {% for conf_name, conf_val in config.items %}
                     <li>
-                        {{ conf_name }}:&nbsp{{ conf_val }}
+                        {% blocktrans %}{{ conf_name }}: {{ conf_value }}{% endblocktrans %}
                     </li>
                 {% endfor %}
             </ul>

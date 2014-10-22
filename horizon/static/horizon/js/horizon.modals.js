@@ -167,6 +167,7 @@ horizon.modals.init_wizard = function () {
 
 
 horizon.addInitFunction(function() {
+
   // Bind handler for initializing new modals.
   $('#modal_wrapper').on('new_modal', function (evt, modal) {
     horizon.modals.initModal(modal);
@@ -220,6 +221,7 @@ horizon.addInitFunction(function() {
       data: formData,
       beforeSend: function () {
         $("#modal_wrapper .modal").last().modal("hide");
+        $('.ajax-modal, .dropdown-toggle').attr('disabled', true);
         horizon.modals.modal_spinner(gettext("Working"));
       },
       complete: function () {
@@ -231,6 +233,9 @@ horizon.addInitFunction(function() {
         var redirect_header = jqXHR.getResponseHeader("X-Horizon-Location"),
           add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
           json_data, field_to_update;
+        if (redirect_header === null) {
+            $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+        }
         $form.closest(".modal").modal("hide");
         if (redirect_header) {
           location.href = redirect_header;
@@ -249,6 +254,7 @@ horizon.addInitFunction(function() {
         if (jqXHR.getResponseHeader('logout')) {
           location.href = jqXHR.getResponseHeader("X-Horizon-Location");
         } else {
+          $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
           $form.closest(".modal").modal("hide");
           horizon.alert("danger", gettext("There was an error submitting the form. Please try again."));
         }
@@ -287,6 +293,7 @@ horizon.addInitFunction(function() {
   });
 
   horizon.modals.addModalInitFunction(horizon.datatables.validate_button);
+  horizon.modals.addModalInitFunction(horizon.utils.loadAngular);
 
   // Load modals for ajax-modal links.
   $(document).on('click', '.ajax-modal', function (evt) {
@@ -341,14 +348,12 @@ horizon.addInitFunction(function() {
 
   /* Manage the modal "stack" */
 
-  // When a new modal is opened, hide any that are already in the stack.
+  // After a modal has been shown, hide any other modals that are already in
+  // the stack. Only one modal can be visible at the same time.
   $(document).on("show.bs.modal", ".modal", function () {
-    var container = $("#modal_wrapper"),
-      modal_stack = container.find(".modal"),
-      $this = $(this);
+    var modal_stack = $("#modal_wrapper .modal");
     modal_stack.splice(modal_stack.length - 1, 1);
     modal_stack.modal("hide");
-    horizon.utils.loadAngular(container);
   });
 
   // After a modal has been fully hidden, remove it to avoid confusion.

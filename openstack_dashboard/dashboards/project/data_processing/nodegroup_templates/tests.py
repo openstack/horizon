@@ -34,8 +34,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res,
-            'project/data_processing.nodegroup_templates/'
-            'nodegroup_templates.html')
+                                'project/data_processing.nodegroup_templates/'
+                                'nodegroup_templates.html')
         self.assertContains(res, 'Node Group Templates')
         self.assertContains(res, 'Name')
         self.assertContains(res, 'Plugin')

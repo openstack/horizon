@@ -12,9 +12,13 @@
   <dl>
     <dt>{% trans "Resource ID" %}</dt>
     <dd>
+      {% if resource_url %}
       <a href="{{ resource_url }}">
           {{ resource.physical_resource_id }}
       </a>
+      {% else %}
+      {{ resource.physical_resource_id }}
+      {% endif %}
     </dd>
   </dl>
   <dl>
@@ -34,7 +38,9 @@
     <dt>{% trans "Last Updated" %}</dt>
     <dd>{{ resource.updated_time|parse_isotime|timesince_or_never }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ resource.resource_status|title|replace_underscores }}: {{ resource.resource_status_reason }}</dd>
+    <dd>
+      {% blocktrans with resource_status=resource.resource_status|title|replace_underscores resource_status_reason=resource.resource_status_reason %}{{ resource_status }}: {{ resource_status_reason }}{% endblocktrans %}
+    </dd>
   </dl>
 </div>
 

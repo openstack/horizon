@@ -23,7 +23,8 @@ from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<security_group_id>[^/]+)/$',
         views.DetailView.as_view(),

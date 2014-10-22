@@ -35,7 +35,7 @@ class ParseDateNode(template.Node):
         datetime.
         """
         formats = ["%Y-%m-%dT%H:%M:%S.%f", "%Y-%m-%d %H:%M:%S.%f",
-                "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S"]
+                   "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S"]
         if datestring:
             for format in formats:
                 try:

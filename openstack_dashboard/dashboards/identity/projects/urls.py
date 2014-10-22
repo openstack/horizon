@@ -22,7 +22,8 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.identity.projects import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create$', views.CreateProjectView.as_view(), name='create'),
     url(r'^(?P<tenant_id>[^/]+)/update/$',

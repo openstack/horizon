@@ -38,7 +38,7 @@ class FormsetCell(horizon_tables.Cell):
         else:
             if self.field.errors:
                 self.attrs['class'] = (self.attrs.get('class', '') +
-                    ' error form-group')
+                                       ' error form-group')
                 self.attrs['title'] = ' '.join(
                     unicode(error) for error in self.field.errors)
 
@@ -64,7 +64,7 @@ class FormsetRow(horizon_tables.Row):
 
     def render(self):
         return loader.render_to_string(self.template_path,
-            {"row": self, "form": self.form})
+                                       {"row": self, "form": self.form})
 
 
 class FormsetDataTableMixin(object):
@@ -138,7 +138,7 @@ class FormsetDataTableMixin(object):
                 formset = self.get_formset()
                 formset.is_valid()
             for datum, form in itertools.izip_longest(self.filtered_data,
-                                                        formset):
+                                                      formset):
                 row = self._meta.row_class(self, datum, form)
                 if self.get_object_id(datum) == self.current_item_id:
                     self.selected = True

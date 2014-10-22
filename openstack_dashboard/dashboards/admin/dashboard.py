@@ -22,7 +22,7 @@ class SystemPanels(horizon.PanelGroup):
     name = _("System")
     panels = ('overview', 'metering', 'hypervisors', 'aggregates',
               'instances', 'volumes', 'flavors', 'images',
-              'networks', 'routers', 'info')
+              'networks', 'routers', 'defaults', 'info')
 
 
 class Admin(horizon.Dashboard):

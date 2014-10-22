@@ -21,7 +21,8 @@ from openstack_dashboard.dashboards.admin.routers import views
 ROUTER_URL = r'^(?P<router_id>[^/]+)/%s'
 
 
-urlpatterns = patterns('horizon.dashboards.admin.routers.views',
+urlpatterns = patterns(
+    'horizon.dashboards.admin.routers.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(ROUTER_URL % '$',
         views.DetailView.as_view(),

@@ -42,8 +42,8 @@ class UpdateAggregateForm(forms.SelfHandlingForm):
             aggregate['availability_zone'] = availability_zone
         try:
             api.nova.aggregate_update(request, id, aggregate)
-            message = _('Successfully updated aggregate: "%s."') \
-                      % data['name']
+            message = (_('Successfully updated aggregate: "%s."')
+                       % data['name'])
             messages.success(request, message)
         except Exception:
             exceptions.handle(request,

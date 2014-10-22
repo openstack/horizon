@@ -157,9 +157,9 @@ def keystoneclient(request, admin=False):
     # Admin vs. non-admin clients are cached separately for token matching.
     cache_attr = "_keystoneclient_admin" if admin \
         else backend.KEYSTONE_CLIENT_ATTR
-    if hasattr(request, cache_attr) and (not user.token.id
-            or getattr(request, cache_attr).auth_token == user.token.id):
-        LOG.debug("Using cached client for token: %s" % user.token.id)
+    if (hasattr(request, cache_attr) and
+        (not user.token.id or
+         getattr(request, cache_attr).auth_token == user.token.id)):
         conn = getattr(request, cache_attr)
     else:
         endpoint = _get_endpoint_url(request, endpoint_type)
@@ -321,8 +321,8 @@ def user_update(request, user, **data):
     error = None
 
     if not keystone_can_edit_user():
-        raise keystone_exceptions.ClientException(405, _("Identity service "
-                                    "does not allow editing user data."))
+        raise keystone_exceptions.ClientException(
+            405, _("Identity service does not allow editing user data."))
 
     # The v2 API updates user model, password and default project separately
     if VERSIONS.active < 3:
@@ -459,6 +459,29 @@ def add_group_user(request, group_id, user_id):
 def remove_group_user(request, group_id, user_id):
     manager = keystoneclient(request, admin=True).users
     return manager.remove_from_group(group=group_id, user=user_id)
+
+
+def get_project_groups_roles(request, project):
+    """Gets the groups roles in a given project.
+
+    :param request: the request entity containing the login user information
+    :param project: the project to filter the groups roles. It accepts both
+                    project object resource or project ID
+
+    :returns group_roles: a dictionary mapping the groups and their roles in
+                          given project
+
+    """
+    groups_roles = collections.defaultdict(list)
+    project_role_assignments = role_assignments_list(request,
+                                                     project=project)
+    for role_assignment in project_role_assignments:
+        if not hasattr(role_assignment, 'group'):
+            continue
+        group_id = role_assignment.group['id']
+        role_id = role_assignment.role['id']
+        groups_roles[group_id].append(role_id)
+    return groups_roles
 
 
 def role_assignments_list(request, project=None, user=None, role=None,

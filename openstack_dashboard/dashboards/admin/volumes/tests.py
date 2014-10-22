@@ -31,9 +31,9 @@ class VolumeTests(test.BaseAdminViewTests):
             'all_tenants': True}).AndReturn(self.cinder_volumes.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}) \
-                       .AndReturn([self.servers.list(), False])
+            .AndReturn([self.servers.list(), False])
         keystone.tenant_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.tenants.list(), False])
+            .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:volumes:index'))
@@ -56,7 +56,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
         res = self.client.post(
             reverse('horizon:admin:volumes:volumes:update_status',
-                args=(volume.id,)),
+                    args=(volume.id,)),
             formData)
         self.assertNoFormErrors(res)
 
@@ -74,8 +74,8 @@ class VolumeTests(test.BaseAdminViewTests):
             'horizon:admin:volumes:volume_types_tab'))
 
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res,
-            'admin/volumes/volume_types/volume_types_tables.html')
+        self.assertTemplateUsed(
+            res, 'admin/volumes/volume_types/volume_types_tables.html')
         volume_types = res.context['volume_types_table'].data
         self.assertItemsEqual(volume_types, self.volume_types.list())
         qos_specs = res.context['qos_specs_table'].data

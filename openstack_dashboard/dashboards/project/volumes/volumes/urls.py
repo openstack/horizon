@@ -23,7 +23,8 @@ from openstack_dashboard.dashboards.project.volumes.backups \
 
 VIEWS_MOD = ('openstack_dashboard.dashboards.project.volumes.volumes.views')
 
-urlpatterns = patterns(VIEWS_MOD,
+urlpatterns = patterns(
+    VIEWS_MOD,
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<volume_id>[^/]+)/extend/$',
         views.ExtendView.as_view(),

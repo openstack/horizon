@@ -21,10 +21,10 @@ from horizon.workflows import views
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.test import helpers as test
-
+from openstack_dashboard.dashboards.project.networks import tables
 from openstack_dashboard.dashboards.project.networks import workflows
-
+from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
 INDEX_URL = reverse('horizon:project:networks:index')
 
@@ -95,8 +95,11 @@ def _str_host_routes(host_routes):
 
 class NetworkTests(test.TestCase):
 
-    @test.create_stubs({api.neutron: ('network_list',)})
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_index(self):
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = 5
         api.neutron.network_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
@@ -104,21 +107,29 @@ class NetworkTests(test.TestCase):
         api.neutron.network_list(
             IsA(http.HttpRequest),
             shared=True).AndReturn([])
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-
         self.assertTemplateUsed(res, 'project/networks/index.html')
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
 
-    @test.create_stubs({api.neutron: ('network_list',)})
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
     def test_index_network_list_exception(self):
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = 5
         api.neutron.network_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
-            shared=False).AndRaise(self.exceptions.neutron)
+            shared=False).MultipleTimes().AndRaise(self.exceptions.neutron)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -710,11 +721,16 @@ class NetworkTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_list',
-                                      'subnet_list',
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'network_list',
                                       'network_delete')})
     def test_delete_network_no_subnet(self):
         network = self.networks.first()
+        network.subnets = []
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id,
+                                expand_subnet=False)\
+            .AndReturn(network)
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=network.tenant_id,
                                  shared=False)\
@@ -722,33 +738,33 @@ class NetworkTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True)\
             .AndReturn([])
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
-            .AndReturn([])
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
         self.mox.ReplayAll()
 
         form_data = {'action': 'networks__delete__%s' % network.id}
         res = self.client.post(INDEX_URL, form_data)
-
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_list',
-                                      'subnet_list',
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'network_list',
                                       'network_delete',
                                       'subnet_delete')})
     def test_delete_network_with_subnet(self):
         network = self.networks.first()
-        subnet = self.subnets.first()
+        network.subnets = [subnet.id for subnet in network.subnets]
+        subnet_id = network.subnets[0]
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id,
+                                expand_subnet=False)\
+            .AndReturn(network)
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=network.tenant_id,
                                  shared=False)\
             .AndReturn([network])
         api.neutron.network_list(IsA(http.HttpRequest), shared=True)\
             .AndReturn([])
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
-            .AndReturn([subnet])
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
+        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
         self.mox.ReplayAll()
@@ -758,13 +774,18 @@ class NetworkTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_list',
-                                      'subnet_list',
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'network_list',
                                       'network_delete',
                                       'subnet_delete')})
     def test_delete_network_exception(self):
         network = self.networks.first()
-        subnet = self.subnets.first()
+        network.subnets = [subnet.id for subnet in network.subnets]
+        subnet_id = network.subnets[0]
+        api.neutron.network_get(IsA(http.HttpRequest),
+                                network.id,
+                                expand_subnet=False)\
+            .AndReturn(network)
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=network.tenant_id,
                                  shared=False)\
@@ -772,9 +793,7 @@ class NetworkTests(test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest),
                                  shared=True)\
             .AndReturn([])
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network.id)\
-            .AndReturn([subnet])
-        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
+        api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)\
             .AndRaise(self.exceptions.neutron)
 
@@ -788,11 +807,15 @@ class NetworkTests(test.TestCase):
 
 class NetworkSubnetTests(test.TestCase):
 
-    @test.create_stubs({api.neutron: ('subnet_get',)})
+    @test.create_stubs({api.neutron: ('network_get', 'subnet_get',)})
     def test_subnet_detail(self):
+        network = self.networks.first()
         subnet = self.subnets.first()
+
+        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
+            .AndReturn(network)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(self.subnets.first())
+            .AndReturn(subnet)
 
         self.mox.ReplayAll()
 
@@ -1609,6 +1632,9 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning')\
+            .AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:networks:ports:detail',
@@ -1741,3 +1767,44 @@ class NetworkPortTests(test.TestCase):
         redir_url = reverse('horizon:project:networks:detail',
                             args=[port.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
+
+
+class NetworkViewTests(test.TestCase):
+
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_button_disabled_when_quota_exceeded(self):
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = 0
+
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            shared=False).AndReturn(self.networks.list())
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn([])
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'project/networks/index.html')
+
+        networks = res.context['networks_table'].data
+        self.assertItemsEqual(networks, self.networks.list())
+
+        create_link = tables.CreateNetwork()
+        url = create_link.get_link_url()
+        classes = (list(create_link.get_default_classes())
+                   + list(create_link.classes))
+        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+                                 "Quota exceeded")
+        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
+            "id='networks__action_create'>" \
+            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            % (url, link_name, " ".join(classes), link_name)
+        self.assertContains(res, expected_string, html=True,
+                            msg_prefix="The create button is not disabled")

@@ -1,4 +1,8 @@
 {% load compress %}
+{% load datepicker_locale from horizon %}
+
+{% datepicker_locale as DATEPICKER_LOCALE %}
+
 {% compress js %}
 <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.js' type='text/javascript' charset="utf-8"></script>
 <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery-migrate.js' type='text/javascript' charset="utf-8"></script>
@@ -8,6 +12,11 @@
 {% endcompress %}
 
 <script type='text/javascript' charset='utf-8'>
+    // make translation info available on client
+    horizon.languageCode = '{{ LANGUAGE_CODE }}';
+    horizon.languageBidi = '{{ LANGUAGE_BIDI }}';
+    horizon.datepickerLocale = '{{ DATEPICKER_LOCALE }}';
+
     /* Load angular modules extensions list before we include angular/horizon.js */
     var angularModuleExtension = {{ HORIZON_CONFIG.angular_modules|default:"[]"|safe }};
 </script>

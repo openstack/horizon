@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="table_actions clearfix">
+{% block table_actions %}
+  {% for action in row_actions %}
+    {%  include "horizon/common/_data_table_row_action_row.html" %}
+  {% endfor %}
+{% endblock table_actions %}
+</div>
