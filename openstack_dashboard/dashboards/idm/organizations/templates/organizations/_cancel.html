@@ -6,7 +6,7 @@
 {% block form_action %}{% url 'horizon:idm:organizations:edit' organization.id %}{% endblock %}
 
 {% block modal_id %}edit_organization_modal{% endblock %}
-{% block modal-header %}Edit organization{% endblock %}
+{% block modal-header %}Delete organization{% endblock %}
 
 {% block modal-body %}
 <div style="display: none;" >
@@ -18,3 +18,5 @@
 <button type="submit" name="_delete">{% trans "Delete Organization" %}</button>
 {% endblock %}
 
+{% block modal-footer %}
+{% endblock %}

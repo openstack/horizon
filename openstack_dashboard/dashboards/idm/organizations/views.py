@@ -42,16 +42,6 @@ from openstack_dashboard.dashboards.idm.organizations \
     import forms as organization_forms
 
 
-PROJECT_INFO_FIELDS = ("domain_id",
-                       "domain_name",
-                       "name",
-                       "description",
-                       "enabled")
-
-INDEX_URL = "horizon:idm:organizations:index"
-
-
-
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = organization_tabs.PanelTabs
