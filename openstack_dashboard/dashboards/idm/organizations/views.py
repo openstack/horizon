@@ -42,16 +42,6 @@ from openstack_dashboard.dashboards.idm.organizations \
     import forms as organization_forms
 
 
-PROJECT_INFO_FIELDS = ("domain_id",
-                       "domain_name",
-                       "name",
-                       "description",
-                       "enabled")
-
-INDEX_URL = "horizon:idm:organizations:index"
-
-
-
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = organization_tabs.PanelTabs
@@ -109,54 +99,14 @@ class EditOrganizationView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(EditOrganizationView, self).get_context_data(**kwargs)
-        context['organization']=self.get_object()
-        #context['delete']=self.deleteOrganization()
+        organization = self.get_object()
+        context['organization']=organization
         return context
-        # organization_id =self.kwargs['organization_id']
-        # organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
 
     def get_initial(self):
         organization = self.get_object()
-        return {'id': organization.id,
+        return {'orgID': organization.id,
                 'name': organization.name,
                 'description': organization.description}
 
-    def deleteOrganization(self):
-        organization = self.get_object()
-        #api.keystone.delete.tenant(org)
-        #
-
-
-
-
-
-    # def get_initial(self):
-    #     initial = super(UpdateOrganizationView, self).get_initial()
-
-    #     organization_id = self.kwargs['tenant_id']
-    #     initial['organization_id'] = organization_id
-
-    #     try:
-    #         # get initial organization info
-    #         organization_info = api.keystone.tenant_get(self.request, organization_id,
-    #                                                admin=True)
-    #         for field in PROJECT_INFO_FIELDS:
-    #             initial[field] = getattr(organization_info, field, None)
-
-    #         # Retrieve the domain name where the organization belong
-    #         if keystone.VERSIONS.active >= 3:
-    #             try:
-    #                 domain = api.keystone.domain_get(self.request,
-    #                                                  initial["domain_id"])
-    #                 initial["domain_name"] = domain.name
-    #             except Exception:
-    #                 exceptions.handle(self.request,
-    #                     _('Unable to retrieve organization domain.'),
-    #                     redirect=reverse(INDEX_URL))
-    #     except Exception:
-    #         exceptions.handle(self.request,
-    #                           _('Unable to retrieve organization details.'),
-    #                           redirect=reverse(INDEX_URL))
-    #     return initial         
-
-    
+   

@@ -6,23 +6,17 @@
 {% block form_action %}{% url 'horizon:idm:organizations:edit' organization.id %}{% endblock %}
 
 {% block modal_id %}edit_organization_modal{% endblock %}
-{% block modal-header %}
-Edit organization
-{% endblock %}
+{% block modal-header %}Delete organization{% endblock %}
 
 {% block modal-body %}
-<div >
-  <fieldset>
+<div style="display: none;" >
+  <fieldset >
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
 </div>
+
+<button type="submit" name="_delete">{% trans "Delete Organization" %}</button>
 {% endblock %}
 
 {% block modal-footer %}
-	<button type="submit" name="_edit">{% trans "Save" %}</button>	
 {% endblock %}
-
-
-
-
-    
