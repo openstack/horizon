@@ -26,7 +26,7 @@ from django.conf import settings
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from cinderclient.v1.contrib import list_extensions as cinder_list_extensions
+from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
 from horizon.utils.memoized import memoized  # noqa
@@ -48,14 +48,7 @@ CONSUMER_CHOICES = (
     ('both', pgettext_lazy('Both of front-end and back-end', u'both')),
 )
 
-VERSIONS = base.APIVersionManager("volume", preferred_version=1)
-
-try:
-    from cinderclient.v1 import client as cinder_client_v1
-    VERSIONS.load_supported_version(1, {"client": cinder_client_v1,
-                                        "version": 1})
-except ImportError:
-    pass
+VERSIONS = base.APIVersionManager("volume", preferred_version=2)
 
 try:
     from cinderclient.v2 import client as cinder_client_v2
@@ -145,18 +138,13 @@ def cinderclient(request):
     cinder_url = ""
     try:
         # The cinder client assumes that the v2 endpoint type will be
-        # 'volumev2'. However it also allows 'volume' type as a
-        # fallback if the requested version is 2 and there is no
-        # 'volumev2' endpoint.
+        # 'volumev2'.
         if api_version['version'] == 2:
             try:
                 cinder_url = base.url_for(request, 'volumev2')
             except exceptions.ServiceCatalogException:
                 LOG.warning("Cinder v2 requested but no 'volumev2' service "
-                            "type available in Keystone catalog. Falling back "
-                            "to 'volume'.")
-        if cinder_url == "":
-            cinder_url = base.url_for(request, 'volume')
+                            "type available in Keystone catalog.")
     except exceptions.ServiceCatalogException:
         LOG.debug('no volume service configured.')
         raise
@@ -237,10 +225,6 @@ def volume_delete(request, volume_id):
 
 
 def volume_retype(request, volume_id, new_type, migration_policy):
-
-    if not retype_supported():
-        raise exceptions.NotAvailable
-
     return cinderclient(request).volumes.retype(volume_id,
                                                 new_type,
                                                 migration_policy)
@@ -513,10 +497,3 @@ def extension_supported(request, extension_name):
         if extension.name == extension_name:
             return True
     return False
-
-
-@memoized
-def retype_supported():
-    """retype is only supported after cinder v2.
-    """
-    return version_get() >= 2

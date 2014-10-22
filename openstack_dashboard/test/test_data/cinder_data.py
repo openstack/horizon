@@ -12,16 +12,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from cinderclient.v1 import availability_zones
-from cinderclient.v1 import quotas
-from cinderclient.v1 import services
-from cinderclient.v1 import volume_snapshots as vol_snaps
-from cinderclient.v1 import volume_types
-from cinderclient.v1 import volumes
+from cinderclient.v2 import availability_zones
 from cinderclient.v2 import qos_specs
+from cinderclient.v2 import quotas
+from cinderclient.v2 import services
 from cinderclient.v2 import volume_backups as vol_backups
-from cinderclient.v2 import volume_snapshots as vol_snaps_v2
-from cinderclient.v2 import volumes as volumes_v2
+from cinderclient.v2 import volume_snapshots as vol_snaps
+from cinderclient.v2 import volume_types
+from cinderclient.v2 import volumes
 
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas as usage_quotas
@@ -131,8 +129,8 @@ def data(TEST):
     TEST.cinder_volume_types.add(vol_type1, vol_type2)
 
     # Volumes - Cinder v2
-    volume_v2 = volumes_v2.Volume(
-        volumes_v2.VolumeManager(None),
+    volume_v2 = volumes.Volume(
+        volumes.VolumeManager(None),
         {'id': "31023e92-8008-4c8b-8059-7f2293ff1234",
          'name': 'v2_volume',
          'description': "v2 Volume Description",
@@ -154,8 +152,8 @@ def data(TEST):
          'size': 40,
          'status': 'available',
          'volume_id': '11023e92-8008-4c8b-8059-7f2293ff3887'})
-    snapshot2 = vol_snaps_v2.Snapshot(
-        vol_snaps_v2.SnapshotManager(None),
+    snapshot2 = vol_snaps.Snapshot(
+        vol_snaps.SnapshotManager(None),
         {'id': 'c9d0881a-4c0b-4158-a212-ad27e11c2b0f',
          'name': '',
          'description': 'v2 volume snapshot description',
