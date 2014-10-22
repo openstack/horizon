@@ -52,6 +52,7 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
             fields["nodegroup_name"].initial = template.name + "-copy"
             fields["description"].initial = template.description
             fields["flavor"].initial = template.flavor_id
+            fields["availability_zone"].initial = template.availability_zone
 
             storage = "cinder_volume" if template.volumes_per_node > 0 \
                 else "ephemeral_drive"

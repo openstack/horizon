@@ -42,6 +42,13 @@ class GeneralConfigAction(workflows.Action):
 
     flavor = forms.ChoiceField(label=_("OpenStack Flavor"))
 
+    availability_zone = forms.ChoiceField(
+        label=_("Availability Zone"),
+        help_text=_("Launch instances in this availability zone."),
+        required=False,
+        widget=forms.Select(attrs={"class": "availability_zone_field"})
+    )
+
     storage = forms.ChoiceField(
         label=_("Storage location"),
         help_text=_("Choose a storage location"),
@@ -92,7 +99,7 @@ class GeneralConfigAction(workflows.Action):
             pool_choices.insert(0, (None, "Do not assign floating IPs"))
 
             self.fields['floating_ip_pool'] = forms.ChoiceField(
-                label=_("Floating IP pool"),
+                label=_("Floating IP Pool"),
                 choices=pool_choices,
                 required=False)
 
@@ -136,6 +143,14 @@ class GeneralConfigAction(workflows.Action):
         if flavors:
             return nova_utils.sort_flavor_list(request, flavors)
         return []
+
+    def populate_availability_zone_choices(self, request, context):
+        # The default is None, i.e. not specifying any availability zone
+        az_list = [(None, _('No availability zone specified'))]
+        az_list.extend([(az.zoneName, az.zoneName)
+                        for az in nova_utils.availability_zone_list(request)
+                        if az.zoneState['available']])
+        return az_list
 
     def get_help_text(self):
         extra = dict()
@@ -257,7 +272,8 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 node_configs=configs_dict,
                 floating_ip_pool=context.get("general_floating_ip_pool"),
                 security_groups=context["general_groups"],
-                auto_security_group=context["general_autogroup"])
+                auto_security_group=context["general_autogroup"],
+                availability_zone=context["general_availability_zone"])
             return True
         except api_base.APIException as e:
             self.error_description = str(e)
