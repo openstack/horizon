@@ -14,6 +14,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
+from openstack_dashboard.api import nova
 from openstack_dashboard.dashboards.admin import dashboard
 
 
@@ -21,6 +22,13 @@ class Aggregates(horizon.Panel):
     name = _("Host Aggregates")
     slug = 'aggregates'
     permissions = ('openstack.services.compute',)
+
+    def can_access(self, context):
+        # extend basic permission-based check with a check to see whether
+        # the Aggregates extension is even enabled in nova
+        if not nova.extension_supported('Aggregates', context['request']):
+            return False
+        return super(Aggregates, self).can_access(context)
 
 
 dashboard.Admin.register(Aggregates)

@@ -12,6 +12,8 @@
 
 import json
 
+import mock
+
 from django.core.urlresolvers import reverse
 from django import http
 from mox import IsA  # noqa
@@ -175,6 +177,13 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
 
 class AggregatesViewTests(test.BaseAdminViewTests):
+
+    @mock.patch('openstack_dashboard.api.nova.extension_supported',
+                mock.Mock(return_value=False))
+    def test_panel_not_available(self):
+        self.patchers['aggregates'].stop()
+        res = self.client.get(reverse('horizon:admin:overview:index'))
+        self.assertNotIn('Host Aggregates', res.content)
 
     @test.create_stubs({api.nova: ('aggregate_details_list',
                                    'availability_zone_list',), })
