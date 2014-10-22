@@ -370,4 +370,11 @@ horizon.addInitFunction(function() {
       }
     }
   });
+
+  // Make modals draggable
+  $(document).on("show.bs.modal", ".modal", function () {
+    $(".modal-content").draggable({
+      handle: ".modal-header"
+    });
+  });
 });
