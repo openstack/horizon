@@ -10,30 +10,27 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django import template
+
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import messages
 from horizon import tabs
 
-from openstack_dashboard import api
 from openstack_dashboard.api import ceilometer
 
+from openstack_dashboard.dashboards.admin.metering import \
+    tables as metering_tables
 
-class GlobalStatsTab(tabs.Tab):
+from openstack_dashboard.utils import metering
+
+
+class GlobalStatsTab(tabs.TableTab):
     name = _("Stats")
     slug = "stats"
     template_name = ("admin/metering/stats.html")
     preload = False
-
-    @staticmethod
-    def _get_flavor_names(request):
-        try:
-            flavors = api.nova.flavor_list(request, None)
-            return [f.name for f in flavors]
-        except Exception:
-            return ['m1.tiny', 'm1.small', 'm1.medium',
-                    'm1.large', 'm1.xlarge']
+    table_classes = (metering_tables.UsageTable,)
 
     def get_context_data(self, request):
         meters = ceilometer.Meters(request)
@@ -53,17 +50,66 @@ class GlobalStatsTab(tabs.Tab):
         return context
 
 
-class DailyReportTab(tabs.Tab):
-    name = _("Daily Report")
-    slug = "daily_report"
-    template_name = ("admin/metering/daily.html")
+class UsageReportTab(tabs.TableTab):
+    name = _("Usage Report")
+    slug = "usage_report"
+    template_name = "horizon/common/_detail_table.html"
+    table_classes = (metering_tables.ReportTable,)
 
-    def get_context_data(self, request):
-        context = template.RequestContext(request)
-        return context
+    def get_report_table_data(self):
+        meters = ceilometer.Meters(self.request)
+        services = {
+            _('Nova'): meters.list_nova(),
+            _('Neutron'): meters.list_neutron(),
+            _('Glance'): meters.list_glance(),
+            _('Cinder'): meters.list_cinder(),
+            _('Swift_meters'): meters.list_swift(),
+            _('Kwapi'): meters.list_kwapi(),
+        }
+        report_rows = []
+
+        date_options = self.request.session.get('period', 7)
+        date_from = self.request.session.get('date_from', '')
+        date_to = self.request.session.get('date_to', '')
+
+        try:
+            date_from, date_to = metering.calc_date_args(date_from,
+                                                         date_to,
+                                                         date_options)
+        except Exception:
+            exceptions.handle(self.request, _('Dates cannot be recognized.'))
+        try:
+            project_aggregates = metering.ProjectAggregatesQuery(self.request,
+                                                                 date_from,
+                                                                 date_to,
+                                                                 3600 * 24)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve project list.'))
+        for meter in meters._cached_meters.values():
+            service = None
+            for name, m_list in services.items():
+                if meter in m_list:
+                    service = name
+                    break
+            res, unit = project_aggregates.query(meter.name)
+
+            for re in res:
+                values = re.get_meter(meter.name.replace(".", "_"))
+                if values:
+                    for value in values:
+                        row = {"name": 'none',
+                               "project": re.id,
+                               "meter": meter.name,
+                               "description": meter.description,
+                               "service": service,
+                               "time": value._apiresource.period_end,
+                               "value": value._apiresource.avg}
+                        report_rows.append(row)
+        return report_rows
 
 
 class CeilometerOverviewTabs(tabs.TabGroup):
     slug = "ceilometer_overview"
-    tabs = (DailyReportTab, GlobalStatsTab, )
+    tabs = (UsageReportTab, GlobalStatsTab,)
     sticky = True
