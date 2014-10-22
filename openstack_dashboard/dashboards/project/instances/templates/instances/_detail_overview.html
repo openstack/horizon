@@ -12,7 +12,7 @@
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ instance.status|title }}</dd>
+    <dd>{{ instance.status_label|title }}</dd>
     <dt>{% trans "Availability Zone" %}</dt>
     <dd>{{ instance.availability_zone|default:"-" }}</dd>
     <dt>{% trans "Created" %}</dt>
