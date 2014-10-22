@@ -2,8 +2,6 @@
 $icon-font-path: "../../bootstrap/fonts/bootstrap/";
 $font-size-base: 13px;
 $modal-md: 732px;
-$nav-tabs-active-link-hover-bg: #555;
-$nav-tabs-active-link-hover-color: #fff;
 
 @import "/bootstrap/scss/bootstrap";
 @import "/horizon/lib/bootstrap_datepicker/datepicker.css";
@@ -1274,7 +1272,7 @@ tr.terminated {
       padding-top: 4px;
       padding-bottom: 4px;
       &:hover {
-        border-color: $nav-tabs-border-color $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color ;
+        border-color: $nav-tabs-border-color $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color;
       }
     }
     &.active > a {
@@ -1282,7 +1280,9 @@ tr.terminated {
       &:hover,
       &:focus {
         font-weight: bold;
-        border-color: $nav-tabs-active-link-hover-bg;
+        background-color: #555;
+        border-color: #555;
+        color: #fff;
       }
     }
   }
