@@ -27,7 +27,14 @@
       {% if not table.is_browser_table %}
       <tr>
         {% for column in columns %}
-          <th {{ column.attr_string|safe }}>{{ column }}</th>
+          <th {{ column.attr_string|safe }}>
+            {{ column }}
+            {% if column.help_text %}
+              <span class="help-icon" data-toggle="tooltip" title="{{ column.help_text }}">
+                <span class="glyphicon glyphicon-question-sign"></span>
+              </span>
+            {% endif %}
+          </th>
         {% endfor %}
       </tr>
       {% endif %}
