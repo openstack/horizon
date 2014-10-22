@@ -71,14 +71,30 @@ class EditOrganizationForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
     name = forms.CharField(label=_("Name"), max_length=64,required=False)
     description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
+    city = forms.CharField(label=_("City"), max_length=64,required=False)
+    email = forms.EmailField(label=_("E-mail"),required=False)
+    website=forms.URLField(label=_("Website"),required=False)
+    avatar = forms.ImageField(required=False)
 
     def handle(self, request, data):
         try:
             if '_edit' in request.POST:
-                api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
-                messages.success(request, _("Organization updated successfully."))
-                response = shortcuts.redirect('horizon:idm:organizations:index')
-                return response
+                if request.FILES('avatar'):
+                    avatar = request.FILES['avatar']
+                    avatarName = data['name']
+                    with open(settings.MEDIA_ROOT+'/'+'OrganizationAvatars' + avatarName, 'wb+') as destination:
+                        for chunk in image.chunks():
+                            destination.write(chunk)
+                    response = shortcuts.redirect('horizon:idm:organizations:index')
+                    return response
+                try:
+                    api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
+                    messages.success(request, _("Organization updated successfully."))
+                    response = shortcuts.redirect('horizon:idm:organizations:index')
+                    return response
+                except Exception:
+                    response = shortcuts.redirect('horizon:idm:organizations:index')
+                    return response
             elif '_delete' in request.POST:
                 organization = data['orgID']
                 api.keystone.tenant_delete(request, organization)
