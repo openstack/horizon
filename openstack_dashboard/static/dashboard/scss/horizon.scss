@@ -845,9 +845,11 @@ div.table_cell_wrapper {
  * the bootstrap style when necessary by setting the odd/even classes.
  */
 .table-striped.datatable tbody {
+  td {
+    background-clip: padding-box;
+  }
   tr.odd td {
     background-color: $table-bg-odd;
-    background-clip: padding-box;
   }
   tr.even td {
     background-color: inherit;
@@ -856,7 +858,6 @@ div.table_cell_wrapper {
   tr.even:hover td,
   tr:hover th {
     background-color: $table-bg-hover;
-    background-clip: padding-box;
   }
 }
 
@@ -1098,6 +1099,7 @@ td.select {
   padding: 10px;
   position: relative;
   width: 200px;
+  background-clip: padding-box;
 }
 
 form.actions_column {
