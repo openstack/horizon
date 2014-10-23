@@ -151,7 +151,7 @@ horizon.instances = {
   }
 };
 
-horizon.addInitFunction(function () {
+horizon.addInitFunction(horizon.instances.init = function () {
   $(document).on('submit', '#tail_length', function (evt) {
     horizon.instances.user_decided_length = true;
     horizon.instances.getConsoleLog(true);

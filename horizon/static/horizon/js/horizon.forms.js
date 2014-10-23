@@ -195,7 +195,7 @@ horizon.forms.init_examples = function (el) {
   $el.find(".table_search input").attr("placeholder", gettext("Filter"));
 };
 
-horizon.addInitFunction(function () {
+horizon.addInitFunction(horizon.forms.init = function () {
   horizon.forms.prevent_multiple_submission($('body'));
   horizon.modals.addModalInitFunction(horizon.forms.prevent_multiple_submission);
 

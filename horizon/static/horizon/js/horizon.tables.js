@@ -513,7 +513,7 @@ horizon.datatables.set_table_fixed_filter = function (parent) {
   });
 };
 
-horizon.addInitFunction(function() {
+horizon.addInitFunction(horizon.datatables.init = function() {
   horizon.datatables.validate_button();
   horizon.datatables.disable_buttons();
   $('table.datatable').each(function (idx, el) {
