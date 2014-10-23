@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-21 23:36-0500\n"
-"PO-Revision-Date: 2014-10-22 02:09+0000\n"
+"POT-Creation-Date: 2014-10-22 17:59-0500\n"
+"PO-Revision-Date: 2014-10-22 22:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -450,7 +450,7 @@ msgstr "管理员"
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:64
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:315
+#: dashboards/project/databases/tables.py:314
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:33
 #: dashboards/project/firewalls/forms.py:98
@@ -516,6 +516,9 @@ msgstr "名称"
 #: dashboards/admin/aggregates/forms.py:30
 #: dashboards/admin/aggregates/tables.py:130
 #: dashboards/admin/aggregates/workflows.py:27
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
 #: dashboards/project/instances/tables.py:904
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:78
@@ -545,7 +548,7 @@ msgstr "元数据成功更新。"
 msgid "Unable to update the aggregate metadata."
 msgstr "无法更新聚合元数据。"
 
-#: dashboards/admin/aggregates/panel.py:21
+#: dashboards/admin/aggregates/panel.py:22
 #: dashboards/admin/aggregates/tables.py:142
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
@@ -1006,7 +1009,7 @@ msgstr "虚拟内核"
 #: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:149
 #: dashboards/project/databases/panel.py:23
-#: dashboards/project/databases/tables.py:270
+#: dashboards/project/databases/tables.py:269
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
@@ -1080,10 +1083,10 @@ msgstr "浮动IP"
 #: dashboards/identity/projects/workflows.py:67
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:140
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:24
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:108
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:115
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
 #: dashboards/project/instances/workflows/create_instance.py:497
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1518,7 +1521,7 @@ msgid "Local Storage (total)"
 msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/databases/tables.py:249
+#: dashboards/project/databases/tables.py:248
 #: dashboards/project/databases/workflows/create_instance.py:35
 #: dashboards/project/instances/tables.py:865
 #: dashboards/project/instances/tables.py:887
@@ -1611,7 +1614,7 @@ msgstr[0] ""
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:43
-#: dashboards/project/databases/tables.py:254
+#: dashboards/project/databases/tables.py:253
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:10
@@ -1644,8 +1647,8 @@ msgstr "域"
 #: dashboards/project/database_backups/tables.py:161
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
 #: dashboards/project/database_backups/templates/database_backups/details.html:71
-#: dashboards/project/databases/tables.py:264
-#: dashboards/project/databases/tables.py:328
+#: dashboards/project/databases/tables.py:263
+#: dashboards/project/databases/tables.py:327
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:253
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -1866,6 +1869,8 @@ msgid "Update Image Metadata"
 msgstr "更新镜像元数据"
 
 #: dashboards/admin/info/panel.py:27
+#: dashboards/admin/info/templates/info/index.html:3
+#: dashboards/admin/info/templates/info/index.html:6
 msgid "System Information"
 msgstr "系统信息"
 
@@ -1952,11 +1957,6 @@ msgstr "无法获取版本信息"
 #, python-format
 msgid "Reason: %(disabled_reason)s"
 msgstr ""
-
-#: dashboards/admin/info/templates/info/index.html:3
-#: dashboards/admin/info/templates/info/index.html:6
-msgid "System Info"
-msgstr "系统信息"
 
 #: dashboards/admin/info/templates/info/index.html:14
 #, python-format
@@ -2065,7 +2065,7 @@ msgstr "IP 地址"
 #: dashboards/project/containers/tables.py:446
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:256
+#: dashboards/project/databases/tables.py:255
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:894
@@ -2121,7 +2121,7 @@ msgstr "无法获取主机信息。"
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:146
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:322
+#: dashboards/project/instances/views.py:330
 msgid "Unable to retrieve instance details."
 msgstr "无法获取云主机详情。"
 
@@ -2177,15 +2177,15 @@ msgstr "其它"
 
 #: dashboards/admin/metering/forms.py:32
 msgid "Period"
-msgstr ""
+msgstr "时期"
 
 #: dashboards/admin/metering/forms.py:35
 msgid "From"
-msgstr ""
+msgstr "自"
 
 #: dashboards/admin/metering/forms.py:39
 msgid "To"
-msgstr ""
+msgstr "至"
 
 #: dashboards/admin/metering/forms.py:48
 msgid "Must specify start of period"
@@ -3453,10 +3453,10 @@ msgstr "GB"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:303
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:319
 #: dashboards/project/database_backups/tables.py:150
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
-#: dashboards/project/databases/tables.py:316
+#: dashboards/project/databases/tables.py:315
 #: dashboards/project/databases/templates/databases/_detail_overview.html:34
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
@@ -3546,8 +3546,8 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:119
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:174
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:302
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:189
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:318
 #: dashboards/project/networks/workflows.py:335
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -4271,7 +4271,7 @@ msgstr "添加..."
 #: dashboards/identity/users/forms.py:161
 #: dashboards/identity/users/tables.py:167
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:281
+#: dashboards/project/databases/tables.py:280
 msgid "User Name"
 msgstr "用户名"
 
@@ -4692,7 +4692,7 @@ msgstr "无法更新此用户。"
 #: dashboards/identity/users/tables.py:185
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/identity/users/templates/users/index.html:6
-#: dashboards/project/databases/tables.py:287
+#: dashboards/project/databases/tables.py:286
 #: dashboards/project/databases/tabs.py:47
 msgid "Users"
 msgstr "用户"
@@ -4952,7 +4952,8 @@ msgstr "已映射固定IP地址"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:186
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:25
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:102
 msgid "Floating IP Pool"
 msgstr "浮动IP池"
 
@@ -5726,7 +5727,7 @@ msgid "Copy"
 msgstr "复制"
 
 #: dashboards/project/containers/tables.py:381
-#: dashboards/project/databases/tables.py:318
+#: dashboards/project/databases/tables.py:317
 msgid "Download"
 msgstr "下载"
 
@@ -5969,7 +5970,7 @@ msgstr "配置集群模板"
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:30
 msgid "Plugin"
 msgstr "插件"
 
@@ -5982,7 +5983,7 @@ msgstr "插件"
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:85
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:26
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
 #: dashboards/project/data_processing/utils/workflow_helpers.py:175
 msgid "Version"
 msgstr "版本"
@@ -6064,14 +6065,14 @@ msgid "no processes"
 msgstr "没有过程"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:46
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:51
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:60
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
 msgid "Node Configurations"
 msgstr "节点配置"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:42
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:54
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:59
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:68
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:62
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
@@ -6080,7 +6081,7 @@ msgid "%(conf_name)s: %(conf_value)s"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:58
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:66
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
@@ -6122,26 +6123,26 @@ msgstr "没有指定实例类型"
 msgid "Template not specified"
 msgstr "没有指定模板"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:31
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:100
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:107
 msgid "Auto Security Group"
 msgstr "自动安全组"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:33
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:38
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:41
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:87
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:53
 msgid "Node Processes"
 msgstr "节点处理"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:43
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:48
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:51
 msgid "Node processes are not specified"
 msgstr "节点处理没有被指定"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:68
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:71
 msgid "Node configurations are not specified"
 msgstr "没有指定结点配置"
@@ -6201,7 +6202,7 @@ msgstr "为集群模板选择一个插件和一个Hadoop版本"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:304
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:320
 msgid "Could not create"
 msgstr "不能创建"
 
@@ -7299,24 +7300,24 @@ msgstr ""
 msgid "Select a plugin and version for a new Node group template."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:57
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:63
 msgid "HDFS placement"
 msgstr "HDFS位置"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:59
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:65
 msgid "Cinder volumes"
 msgstr "Cinder卷"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:60
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:66
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:60
 msgid "Volumes per node"
 msgstr "卷/节点"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:62
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:68
 msgid "Volumes size"
 msgstr "卷大小"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:65
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:71
 msgid "Ephemeral drive"
 msgstr "临时驱动"
 
@@ -7336,8 +7337,8 @@ msgstr "隐藏所有配置项"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:173
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:301
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:188
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:317
 msgid "Create Node Group Template"
 msgstr "创建节点组模板"
 
@@ -7354,7 +7355,7 @@ msgstr "节点组模板详细信息"
 msgid "Node Group Template copy %s created"
 msgstr "节点组模板复制 %s 已创建"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:77
+#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:78
 msgid "Unable to fetch plugin details."
 msgstr "无法获取插件详情"
 
@@ -7362,52 +7363,56 @@ msgstr "无法获取插件详情"
 msgid "OpenStack Flavor"
 msgstr "OpenStack虚拟机类型"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
+msgid "Launch instances in this availability zone."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
 msgid "Storage location"
 msgstr "存储位置"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:54
 msgid "Choose a storage location"
 msgstr "选择一个存储位置"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:60
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:67
 msgid "Volumes size (GB)"
 msgstr "卷大小 (GB)"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:87
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:94
 msgid "Unable to generate process choices."
 msgstr "无法生成处理选项。"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
-msgid "Floating IP pool"
-msgstr "浮动IP池"
-
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:102
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
 msgid "Create security group for this Node Group."
 msgstr "为该节点组创建安全组"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:110
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:117
 msgid "Launch instances in these security groups."
 msgstr "在这些安全组下启动实例"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:115
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:122
 msgid "Processes"
 msgstr "处理"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:117
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:124
 msgid "Processes to be launched in node group"
 msgstr "结点群组上启动的任务进程"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:149
+msgid "No availability zone specified"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:164
 msgid "Configure Node Group Template"
 msgstr "配置结点群组模板"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:190
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr "创建结点群组模板%s"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:282
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:298
 msgid "Select plugin and hadoop version"
 msgstr "选择插件和hadoop 版本"
 
@@ -7444,7 +7449,7 @@ msgstr "插件名称"
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:167
 #: dashboards/project/database_backups/templates/database_backups/index.html:6
-#: dashboards/project/databases/tables.py:334
+#: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tabs.py:104
 msgid "Backups"
 msgstr "备份"
@@ -7476,10 +7481,10 @@ msgstr[0] ""
 
 #: dashboards/project/database_backups/tables.py:129
 #: dashboards/project/database_backups/tables.py:135
-#: dashboards/project/databases/tables.py:194
-#: dashboards/project/databases/tables.py:200
-#: dashboards/project/databases/tables.py:217
-#: dashboards/project/databases/tables.py:223
+#: dashboards/project/databases/tables.py:193
+#: dashboards/project/databases/tables.py:199
+#: dashboards/project/databases/tables.py:216
+#: dashboards/project/databases/tables.py:222
 #: dashboards/project/instances/tables.py:734
 #: dashboards/project/instances/tables.py:741
 msgid "Not available"
@@ -7487,7 +7492,7 @@ msgstr "不可用"
 
 #: dashboards/project/database_backups/tables.py:147
 #: dashboards/project/database_backups/templates/database_backups/details.html:25
-#: dashboards/project/databases/tables.py:251
+#: dashboards/project/databases/tables.py:250
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/databases/workflows/create_instance.py:42
 msgid "Datastore"
@@ -7495,13 +7500,13 @@ msgstr "数据存储"
 
 #: dashboards/project/database_backups/tables.py:149
 #: dashboards/project/database_backups/templates/database_backups/details.html:27
-#: dashboards/project/databases/tables.py:253
+#: dashboards/project/databases/tables.py:252
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
 msgstr "数据存储版本"
 
 #: dashboards/project/database_backups/tables.py:155
-#: dashboards/project/databases/tables.py:322
+#: dashboards/project/databases/tables.py:321
 msgid "Incremental"
 msgstr "增量"
 
@@ -7722,7 +7727,7 @@ msgstr "启动云主机"
 msgid "Resize Volume"
 msgstr "调整卷大小"
 
-#: dashboards/project/databases/tables.py:208
+#: dashboards/project/databases/tables.py:207
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:12
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:12
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:12
@@ -7731,12 +7736,12 @@ msgstr "调整卷大小"
 msgid "Not Assigned"
 msgstr "没有分配"
 
-#: dashboards/project/databases/tables.py:213
+#: dashboards/project/databases/tables.py:212
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s 内存"
 
-#: dashboards/project/databases/tables.py:231
+#: dashboards/project/databases/tables.py:230
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -7757,27 +7762,27 @@ msgstr "%(name)s | %(RAM)s 内存"
 msgid "-"
 msgstr "-"
 
-#: dashboards/project/databases/tables.py:259
+#: dashboards/project/databases/tables.py:258
 #: dashboards/project/databases/templates/databases/_detail_overview.html:31
 #: dashboards/project/databases/workflows/create_instance.py:38
 msgid "Volume Size"
 msgstr "云硬盘大小"
 
-#: dashboards/project/databases/tables.py:282
+#: dashboards/project/databases/tables.py:281
 msgid "Allowed Host"
 msgstr "允许的主机"
 
-#: dashboards/project/databases/tables.py:283
-#: dashboards/project/databases/tables.py:300
+#: dashboards/project/databases/tables.py:282
+#: dashboards/project/databases/tables.py:299
 #: dashboards/project/databases/tabs.py:77
 msgid "Databases"
 msgstr "数据库"
 
-#: dashboards/project/databases/tables.py:296
+#: dashboards/project/databases/tables.py:295
 msgid "Database Name"
 msgstr "数据库名称"
 
-#: dashboards/project/databases/tables.py:320
+#: dashboards/project/databases/tables.py:319
 msgid "Backup File"
 msgstr "备份文件"
 
@@ -9474,6 +9479,10 @@ msgstr "无法检索云主机类型。"
 msgid "Unable to sort instance flavors."
 msgstr "无法对云主机类型排序."
 
+#: dashboards/project/instances/utils.py:72
+msgid "Unable to retrieve Nova availability zones."
+msgstr ""
+
 #: dashboards/project/instances/views.py:70
 msgid "Unable to retrieve instances."
 msgstr "无法获取云主机。"
@@ -9493,17 +9502,17 @@ msgstr "无法获得云主机 \"%s\"SPICE控制台"
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\"RDP控制台"
 
-#: dashboards/project/instances/views.py:279
+#: dashboards/project/instances/views.py:287
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "无法获取云主机 \"%s\" 的详情。"
 
-#: dashboards/project/instances/views.py:290
+#: dashboards/project/instances/views.py:298
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "无法从Neutron获取云主机 \"%s\" 的IP地址。"
 
-#: dashboards/project/instances/views.py:334
+#: dashboards/project/instances/views.py:342
 msgid "Unable to retrieve flavors."
 msgstr "无法获取云主机类型列表。"
 
