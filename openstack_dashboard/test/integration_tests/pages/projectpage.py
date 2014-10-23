@@ -27,7 +27,7 @@ class ProjectPage(basepage.BasePage):
 
     def go_to_accesssecurity_page(self):
         access_security_locator_flag = self.is_element_visible(
-            self.navaccordion._project_access_security_locator)
+            *self.navaccordion._project_access_security_locator)
         if not access_security_locator_flag:
             self.navaccordion.project_bar.click()
         self.navaccordion.access_security.click()
