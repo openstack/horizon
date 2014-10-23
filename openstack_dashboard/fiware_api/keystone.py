@@ -26,7 +26,7 @@ def fiware_keystoneclient():
     operations like create users, projects, etc. when there is no user with admin rights
     (for example, when user registration) to overcome the Keystone limitations.
     """
-    #TODO(garcianavalon)caching and efficiency
+    # TODO(garcianavalon)caching and efficiency
     keystone = client.Client(username=CREDENTIALS['USERNAME'], 
                                 password=CREDENTIALS['PASSWORD'], 
                                 project_name=CREDENTIALS['PROJECT'], 
@@ -34,7 +34,7 @@ def fiware_keystoneclient():
     return keystone
 
 def _find_user(keystone,email=None,name=None):
-    # (garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
+    # NOTE(garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
     # exception so we do it by hand filtering the python dictionary, 
     # which is extremely inneficient...
     if name:
@@ -49,10 +49,8 @@ def _find_user(keystone,email=None,name=None):
         msg = "No user matching email=%s." % email
         raise keystoneclient_exceptions.NotFound(404, msg)
 
-def _grant_admin_role(keystone, user, project):
-    # TODO(garciavalon) this admin role name depends on the keystone instalation,
-    # document this or load it as a config option
-    role = keystone.roles.find(name='admin')
+def _grant_role(keystone, role, user, project):
+    role = keystone.roles.find(name=role)
     keystone.roles.grant(role,user=user,project=project)
     return role
 
@@ -65,7 +63,8 @@ def register_user(name,email,password):
                                     password=password,
                                     email=email,
                                     default_project=default_project)
-    role = _grant_admin_role(keystone, new_user, default_project)
+    # TODO(garcianavalon) expose the role as a config option
+    role = _grant_role(keystone, '_member_', new_user, default_project)
     return new_user
     
 def activate_user(user_id):
