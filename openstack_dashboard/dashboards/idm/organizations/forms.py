@@ -16,6 +16,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import os
 
 from django import shortcuts
 from django.conf import settings
@@ -28,6 +29,7 @@ from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
 
+AVATAR_ROOT = os.path.abspath(os.path.join(settings.MEDIA_ROOT, 'OrganizationAvatars'))
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
@@ -83,17 +85,40 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
 
 class EditOrganizationForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
-    name = forms.CharField(label=_("Name"), max_length=64, required=False)
-    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=False)
+    name = forms.CharField(label=_("Name"), max_length=64,required=False)
+    description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
+    city = forms.CharField(label=_("City"), max_length=64,required=False)
+    email = forms.EmailField(label=_("E-mail"),required=False)
+    website=forms.URLField(label=_("Website"),required=False)
+    image = forms.ImageField(required=False)
+
 
     def handle(self, request, data):
         try:
             if '_edit' in request.POST:
-                api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
-                messages.success(request, _("Organization updated successfully."))
-                response = shortcuts.redirect('horizon:idm:organizations:index')
-                return response
+                if request.FILES:
+                    print('cambiar avatar')
+                    image = request.FILES['image']
+                    avatarName = data['name']
+                    with open(AVATAR_ROOT+'/' + avatarName, 'wb+') as destination:
+                        for chunk in image.chunks():
+                            destination.write(chunk)
+                    messages.success(request, _("Organization updated successfully."))
+                    response = shortcuts.redirect('horizon:idm:organizations:index')
+                    return response
+                else:
+                    print('no hay avatar')
+                    try:
+                        print(data['name'])
+                        api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
+                        messages.success(request, _("Organization updated successfully."))
+                        response = shortcuts.redirect('horizon:idm:organizations:index')
+                        return response
+                    except Exception:
+                        response = shortcuts.redirect('horizon:idm:organizations:index')
+                        return response
             elif '_delete' in request.POST:
+                print('delete')
                 organization = data['orgID']
                 api.keystone.tenant_delete(request, organization)
                 messages.success(request, _("Organization deleted successfully."))
