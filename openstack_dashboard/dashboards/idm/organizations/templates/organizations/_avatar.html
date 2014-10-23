@@ -20,11 +20,11 @@
 					{% include 'horizon/common/_form_field.html' with field=field %}
 				{% endif %}
 				</div>
-				{% if field.name == 'avatar'  %}
+				{% if field.name == 'image'  %}
 					{% include 'horizon/common/_form_field.html' with field=field %}
 				{% endif %}
 			{% endfor %} 
-			<!-- <img id="avatar-update" src="#" alt="your image" width="800" height="500" style="display: none;" /> -->
+			<img id="avatar-update" src="#" alt="your image" width="800" height="500" style="display: none;" />
 	</div>
   </fieldset>
 </div>

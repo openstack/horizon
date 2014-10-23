@@ -90,7 +90,7 @@ class EditOrganizationForm(forms.SelfHandlingForm):
     city = forms.CharField(label=_("City"), max_length=64,required=False)
     email = forms.EmailField(label=_("E-mail"),required=False)
     website=forms.URLField(label=_("Website"),required=False)
-    avatar = forms.ImageField(required=False)
+    image = forms.ImageField(required=False)
 
 
     def handle(self, request, data):
@@ -98,10 +98,10 @@ class EditOrganizationForm(forms.SelfHandlingForm):
             if '_edit' in request.POST:
                 if request.FILES:
                     print('cambiar avatar')
-                    avatar = request.FILES['avatar']
+                    image = request.FILES['image']
                     avatarName = data['name']
                     with open(AVATAR_ROOT+'/' + avatarName, 'wb+') as destination:
-                        for chunk in avatar.chunks():
+                        for chunk in image.chunks():
                             destination.write(chunk)
                     messages.success(request, _("Organization updated successfully."))
                     response = shortcuts.redirect('horizon:idm:organizations:index')
