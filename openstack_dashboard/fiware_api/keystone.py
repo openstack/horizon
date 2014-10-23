@@ -59,13 +59,13 @@ def _grant_admin_role(keystone, user, project):
 def register_user(name,email,password):
     keystone = fiware_keystoneclient()
     default_domain = keystone.domains.get(CREDENTIALS['DOMAIN'])
-    default_project = keystone.projects.create(name,domain=default_domain)
+    default_project = keystone.projects.create(name, domain=default_domain)
     new_user = keystone.users.create(name,
                                     domain=default_domain,
                                     password=password,
                                     email=email,
                                     default_project=default_project)
-    role = _grant_admin_role(keystone,new_user,default_project)
+    role = _grant_admin_role(keystone, new_user, default_project)
     return new_user
     
 def activate_user(user_id):

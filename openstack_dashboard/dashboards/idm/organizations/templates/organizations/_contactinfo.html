@@ -14,6 +14,11 @@
   	<div class="fieldWrapper" id="imgInp">
 		{% include 'horizon/common/_form_errors.html' with form=form %}
 			{% for field in form.visible_fields %}
+				<div style="display:none;">
+				{% if field.name == 'name'  %}
+					{% include 'horizon/common/_form_field.html' with field=field %}
+				{% endif %}
+				</div>
 				{% if field.name == 'email'  %}
 					{% include 'horizon/common/_form_field.html' with field=field %}
 				{% endif %}
