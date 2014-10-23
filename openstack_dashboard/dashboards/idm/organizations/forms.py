@@ -79,23 +79,30 @@ class EditOrganizationForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             if '_edit' in request.POST:
+                print('entrar edit')
                 if request.FILES('avatar'):
+                    print('cambiar avatar')
                     avatar = request.FILES['avatar']
                     avatarName = data['name']
-                    with open(settings.MEDIA_ROOT+'/'+'OrganizationAvatars' + avatarName, 'wb+') as destination:
-                        for chunk in image.chunks():
-                            destination.write(chunk)
+                    print('avatar')
+                    print('avatarName')
+                    # with open(settings.MEDIA_ROOT+'/'+'OrganizationAvatars' + avatarName, 'wb+') as destination:
+                    #     for chunk in image.chunks():
+                    #         destination.write(chunk)
                     response = shortcuts.redirect('horizon:idm:organizations:index')
                     return response
-                try:
-                    api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
-                    messages.success(request, _("Organization updated successfully."))
-                    response = shortcuts.redirect('horizon:idm:organizations:index')
-                    return response
-                except Exception:
-                    response = shortcuts.redirect('horizon:idm:organizations:index')
-                    return response
+                else:
+                    print('no hay avatar')
+                    try:
+                        api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
+                        messages.success(request, _("Organization updated successfully."))
+                        response = shortcuts.redirect('horizon:idm:organizations:index')
+                        return response
+                    except Exception:
+                        response = shortcuts.redirect('horizon:idm:organizations:index')
+                        return response
             elif '_delete' in request.POST:
+                print('delete')
                 organization = data['orgID']
                 api.keystone.tenant_delete(request, organization)
                 messages.success(request, _("Organization deleted successfully."))
