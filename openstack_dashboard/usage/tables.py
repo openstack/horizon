@@ -45,6 +45,8 @@ class GlobalUsageTable(BaseUsageTable):
     project = tables.Column('project_name', verbose_name=_("Project Name"))
     disk_hours = tables.Column('disk_gb_hours',
                                verbose_name=_("Disk GB Hours"),
+                               help_text=_("Total disk usage (GB * "
+                                           "Hours Used) for the project"),
                                filters=(lambda v: floatformat(v, 2),))
 
     def get_object_id(self, datum):
