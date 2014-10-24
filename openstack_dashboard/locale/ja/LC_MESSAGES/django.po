@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-22 17:59-0500\n"
-"PO-Revision-Date: 2014-10-22 23:40+0000\n"
+"POT-Creation-Date: 2014-10-23 02:04-0500\n"
+"PO-Revision-Date: 2014-10-23 11:41+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -7368,7 +7368,7 @@ msgstr "OpenStack フレーバー"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
 msgid "Launch instances in this availability zone."
-msgstr ""
+msgstr "指定したアベイラビリティーゾーンでインスタンスを起動します。"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
 msgid "Storage location"
@@ -7404,7 +7404,7 @@ msgstr "このノードグループで起動するプロセス"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:149
 msgid "No availability zone specified"
-msgstr ""
+msgstr "アベイラビリティーゾーンの指定なし"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:164
 msgid "Configure Node Group Template"

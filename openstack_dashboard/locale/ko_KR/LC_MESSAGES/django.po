@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-22 17:59-0500\n"
-"PO-Revision-Date: 2014-10-22 22:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-23 02:04-0500\n"
+"PO-Revision-Date: 2014-10-23 16:00+0000\n"
+"Last-Translator: jaekwon.park <jaekwon.park@rockplace.co.kr>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1515,11 +1516,11 @@ msgstr "RAM (전체)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "로컬 저장소 (사용됨)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "로컬 조장소 (전체)"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:248
@@ -1742,7 +1743,7 @@ msgstr "메모리 사용량"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "로컬 디스크 사용량"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -1957,7 +1958,7 @@ msgstr "버전 정보를 찾지 못했습니다."
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 #, python-format
 msgid "Reason: %(disabled_reason)s"
-msgstr ""
+msgstr "Reason: %(disabled_reason)s"
 
 #: dashboards/admin/info/templates/info/index.html:14
 #, python-format
@@ -2190,11 +2191,11 @@ msgstr "To"
 
 #: dashboards/admin/metering/forms.py:48
 msgid "Must specify start of period"
-msgstr ""
+msgstr "기간의 시작을 정해야 합니다."
 
 #: dashboards/admin/metering/forms.py:58
 msgid "Start must be earlier than end of period."
-msgstr ""
+msgstr "시작은 종료 기간 이전이어야 합니다."
 
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
@@ -2310,7 +2311,7 @@ msgstr "값 (평균)"
 
 #: dashboards/admin/metering/tables.py:55
 msgid "Daily Usage Report"
-msgstr ""
+msgstr "일일 사용량 보고서"
 
 #: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
@@ -2350,7 +2351,7 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:86
 msgid "Dates cannot be recognized."
-msgstr ""
+msgstr "날짜를 인식 할 수 없습니다."
 
 #: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:169
 #: dashboards/admin/overview/views.py:65
@@ -2369,15 +2370,15 @@ msgstr "시간"
 
 #: dashboards/admin/metering/views.py:161
 msgid "Dates cannot be recognised."
-msgstr ""
+msgstr "날짜를 인식 할 수 없습니다."
 
 #: dashboards/admin/metering/templates/metering/_daily.html:19
 msgid "Select a pre-defined period or specify date."
-msgstr ""
+msgstr "미리 정의된 기간이나 날짜를 선택하세요."
 
 #: dashboards/admin/metering/templates/metering/_daily.html:24
 msgid "View Usage Report"
-msgstr ""
+msgstr "사용량 보고서 보기"
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/templates/metering/index.html:6
@@ -2472,7 +2473,7 @@ msgstr "VLAN"
 
 #: dashboards/admin/networks/forms.py:30
 msgid "GRE"
-msgstr ""
+msgstr "GRE"
 
 #: dashboards/admin/networks/forms.py:31
 msgid "VXLAN"
@@ -3516,7 +3517,7 @@ msgstr "연결"
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:107
 msgid "Create QoS Spec"
-msgstr ""
+msgstr "QOS 사양 생성:"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
 msgid ""
@@ -3685,7 +3686,7 @@ msgstr "사양 편집"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
 msgid "QoS Spec: "
-msgstr ""
+msgstr "QOS 사양:"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
 #, python-format
@@ -3795,12 +3796,12 @@ msgstr "관리사양"
 #: dashboards/admin/volumes/volume_types/tables.py:118
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
-msgstr[0] ""
+msgstr[0] "QOS 사양 삭제"
 
 #: dashboards/admin/volumes/volume_types/tables.py:126
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
-msgstr[0] ""
+msgstr[0] "삭제된 QOS 사양"
 
 #: dashboards/admin/volumes/volume_types/tables.py:138
 msgid "Edit Consumer"
@@ -3813,11 +3814,11 @@ msgstr "사용자"
 
 #: dashboards/admin/volumes/volume_types/tables.py:161
 msgid "QoS Specs"
-msgstr ""
+msgstr "QOS 사양"
 
 #: dashboards/admin/volumes/volume_types/views.py:69
 msgid "Unable to retrieve QoS Spec details."
-msgstr ""
+msgstr "QOS 사양의 세부 정보를 찾지 못했습니다."
 
 #: dashboards/admin/volumes/volume_types/views.py:101
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
@@ -3826,7 +3827,7 @@ msgstr "볼륨 타입에 대한 세부 정보를 찾지 못했습니다."
 
 #: dashboards/admin/volumes/volume_types/views.py:111
 msgid "Unable to retrieve QoS Specs."
-msgstr ""
+msgstr "QOS 사양의 정보을 찾지 못했습니다."
 
 #: dashboards/admin/volumes/volume_types/views.py:131
 msgid "Unable to retrieve QoS Spec association."
@@ -3932,11 +3933,11 @@ msgstr "정의되지 않은"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:64
 msgid "Unable to retrieve QoS spec list."
-msgstr ""
+msgstr "QOS 사양 목록을 찾지 못했습니다."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Unable to retrieve QoS spec details."
-msgstr ""
+msgstr "QOS 사양의 세부 정보를 찾지 못했습니다."
 
 #: dashboards/admin/volumes/volumes/forms.py:36
 #, python-format
@@ -3972,11 +3973,11 @@ msgstr "\"%s\"에 대한 볼륨 상태를 업데이트 할 수 없습니다."
 #: dashboards/admin/volumes/volumes/forms.py:98
 #, python-format
 msgid "Successfully created QoS Spec: %s"
-msgstr ""
+msgstr "QOS 사양을 성공적으로 생성했습니다: %s"
 
 #: dashboards/admin/volumes/volumes/forms.py:103
 msgid "Unable to create QoS Spec."
-msgstr ""
+msgstr "QOS 사양을 생성할 수 없습니다. "
 
 #: dashboards/admin/volumes/volumes/views.py:61
 #: dashboards/project/volumes/volumes/views.py:66
@@ -4766,7 +4767,7 @@ msgstr "새 사용자를 생성하고 기본 프로젝트와 롤을 포함한 �
 
 #: dashboards/identity/users/templates/users/_update.html:8
 msgid "Edit User"
-msgstr ""
+msgstr "사용자 편집"
 
 #: dashboards/identity/users/templates/users/_update.html:18
 msgid "Edit the user's details, including the Primary Project and Role."
@@ -5465,7 +5466,7 @@ msgstr "룰 템플릿을 지정하거나 사용자 정의 룰을 사용할 수 �
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid "Open Port/Port Range:"
-msgstr ""
+msgstr "열린 포트/포트 범위:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid ""
@@ -5477,7 +5478,7 @@ msgstr "TCP와 UDP 룰을 설정하려면, 단일 포트 또는 특정 범위의
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid "Remote:"
-msgstr ""
+msgstr "원격:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid ""
@@ -5784,7 +5785,7 @@ msgstr "접근:"
 #: dashboards/project/containers/templates/containers/_copy.html:8
 #, python-format
 msgid "Copy Object: %(object_name)s"
-msgstr ""
+msgstr "오브젝트 복사: %(object_name)s"
 
 #: dashboards/project/containers/templates/containers/_copy.html:18
 msgid ""
@@ -5823,7 +5824,7 @@ msgstr "컨테이너에 가상 폴더 만들기"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
 #: dashboards/project/containers/templates/containers/_upload.html:23
 msgid "Pseudo-folder:"
-msgstr ""
+msgstr "가상폴더:"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
 #: dashboards/project/containers/templates/containers/_upload.html:23
@@ -5860,7 +5861,7 @@ msgstr "오브젝트 수정"
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
 msgid "Object:"
-msgstr ""
+msgstr "오브젝트:"
 
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
@@ -5874,7 +5875,7 @@ msgstr "오브젝트는 오픈스택의 오브젝트 스토리지 시스템에 �
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "File:"
-msgstr ""
+msgstr "파일:"
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "A new uploaded file will replace the content of the current object"
@@ -6079,7 +6080,7 @@ msgstr "노드 구성"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
-msgstr ""
+msgstr "%(conf_name)s: %(conf_value)s"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
@@ -6097,7 +6098,7 @@ msgstr "클러스터 구성을 지정하지 않았습니다."
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:7
 #, python-format
 msgid "Node Group: %(node_group_name)s"
-msgstr ""
+msgstr "노드 그룹: %(node_group_name)s"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
@@ -6343,7 +6344,7 @@ msgstr "키패어"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:86
 #, python-format
 msgid "%(key)s: %(val)s"
-msgstr ""
+msgstr "%(key)s: %(val)s"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
@@ -6352,7 +6353,7 @@ msgstr "클러스터 인스턴스"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
 #, python-format
 msgid "Name: %(node_group_name)s"
-msgstr ""
+msgstr "이름: %(node_group_name)s"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
 msgid "Number of Nodes"
@@ -6950,7 +6951,7 @@ msgstr "잡 구성"
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
 #, python-format
 msgid "%(group)s:"
-msgstr ""
+msgstr "%(group)s:"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
@@ -7366,7 +7367,7 @@ msgstr "OpenStack Flavor"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
 msgid "Launch instances in this availability zone."
-msgstr ""
+msgstr "현재 가용성 존에서 인스턴스를 실행합니다."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
 msgid "Storage location"
@@ -7402,7 +7403,7 @@ msgstr "노드 그룹에서 프로세스 실행"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:149
 msgid "No availability zone specified"
-msgstr ""
+msgstr "가용성 존이 지정되지 않았습니다."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:164
 msgid "Configure Node Group Template"
@@ -9482,7 +9483,7 @@ msgstr "인스턴스 flavor를 분류할 수 없습니다."
 
 #: dashboards/project/instances/utils.py:72
 msgid "Unable to retrieve Nova availability zones."
-msgstr ""
+msgstr "nova에서 가용성 존을 찾을 수 없습니다."
 
 #: dashboards/project/instances/views.py:70
 msgid "Unable to retrieve instances."
@@ -9638,7 +9639,7 @@ msgid ""
 "\n"
 "            <a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s\n"
 "            "
-msgstr ""
+msgstr "\n            <a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s\n            "
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:135
 msgid "No volumes attached."
@@ -9959,11 +9960,11 @@ msgstr "키 페어는 인승에 사용합니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:488
 msgid "Admin Password"
-msgstr ""
+msgstr "관리자 비밀번호"
 
 #: dashboards/project/instances/workflows/create_instance.py:494
 msgid "Confirm Admin Password"
-msgstr ""
+msgstr "관리자 비밀 번호 확인"
 
 #: dashboards/project/instances/workflows/create_instance.py:500
 msgid "Launch instance in these security groups."
@@ -10942,12 +10943,12 @@ msgstr "포트 ID"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:42
 #, python-format
 msgid "Type: %(persistence_type)s"
-msgstr ""
+msgstr "Type: %(persistence_type)s"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:47
 #, python-format
 msgid "Cookie Name: %(cookie_name)s"
-msgstr ""
+msgstr "Cookie Name: %(cookie_name)s"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:6
@@ -11336,15 +11337,15 @@ msgstr "관리 네트워크"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
 msgid "Network Type:"
-msgstr ""
+msgstr "네트워크 타입"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:24
 msgid "Physical Network:"
-msgstr ""
+msgstr "물리적인 네트워크"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:25
 msgid "Segmentation ID:"
-msgstr ""
+msgstr "구분 ID:"
 
 #: dashboards/project/networks/templates/networks/create.html:13
 msgid "Back"
@@ -11730,7 +11731,7 @@ msgstr "게이트웨이를 설정하지 못했습니다."
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:27
 msgid "Connected External Network:"
-msgstr ""
+msgstr "외부 네트워크 연결합니다."
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
@@ -11763,12 +11764,12 @@ msgstr "소스"
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #, python-format
 msgid "Subnet: %(dest_subnetname)s"
-msgstr ""
+msgstr "Subnet: %(dest_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:45
 #, python-format
 msgid "Subnet: %(row_source_subnetname)s"
-msgstr ""
+msgstr "Subnet: %(row_source_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:93
 msgid "Rule Conflict"
@@ -11787,15 +11788,15 @@ msgstr "룰 충돌"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:99
 msgid "Source:"
-msgstr ""
+msgstr "소스:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Destination:"
-msgstr ""
+msgstr "대상:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:101
 msgid "Action:"
-msgstr ""
+msgstr "동작:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
@@ -12105,7 +12106,7 @@ msgstr "스택 개요"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:28
 #, python-format
 msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr ""
+msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:34
 msgid "Outputs"
@@ -12142,7 +12143,7 @@ msgstr "리소스 ID"
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:42
 #, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr ""
+msgstr "%(resource_status)s: %(resource_status_reason)s"
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:48
 msgid "Resource Metadata"
@@ -12288,7 +12289,7 @@ msgstr "볼륨 백업 생성"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup:"
-msgstr ""
+msgstr "볼륨 백업"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid ""
@@ -12306,7 +12307,7 @@ msgstr "어떤 컨테이너 이름을 제공하지 않으면, volumebackups라�
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:5
 #, python-format
 msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr ""
+msgstr "볼륨 백업 개요: %(backup_display_name)s"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
@@ -12315,7 +12316,7 @@ msgstr "볼륨 백업 복구"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Restore Backup:"
-msgstr ""
+msgstr "백업에서 복구:"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Select a volume to restore to."
@@ -12404,7 +12405,7 @@ msgid ""
 "\n"
 "        <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
 "        "
-msgstr ""
+msgstr "\n        <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n        "
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
@@ -13729,7 +13730,7 @@ msgstr "네트워크 프로필의 이름을 선택하십시오."
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
 msgid "Segment Type:"
-msgstr ""
+msgstr "구분 타입:"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
 msgid " Segment types available are VLAN, Overlay and Trunk."
@@ -13749,7 +13750,7 @@ msgstr "사용 가능한 서브 타입은 Overlay와 Trunk 세그먼트를 위�
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
 msgid "Segment Range:"
-msgstr ""
+msgstr "구분 범위:"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
 msgid ""
