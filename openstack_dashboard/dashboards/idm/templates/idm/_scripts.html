@@ -21,7 +21,20 @@ $("#id_image").change(function(){
     readURL(this);
 });
     
+// $(document).ready(function() {
+// 	url = "/static/dashboard/img/logos/small/user.png"
+// 	$.get(url)
+//     .done(function() { 
+//         $('#org-avatar').attr("src","/static/dashboard/img/logos/small/group.png")
+//         console.log('done')
+//     }).fail(function() { 
+//     	//Poner imagen de cada organización. Pasar como nombre 
+//        $('#org-avatar').attr("src","/static/dashboard/img/logos/small/user.png")
+//        console.log('fail')
+//     })
+	
+	
+// });
 
 </script>
-<!--<script src='{{ STATIC_URL }}idm/js/uploadavatar.js' type='text/javascript' charset='utf-8'></script>-->
 {% endblock %}

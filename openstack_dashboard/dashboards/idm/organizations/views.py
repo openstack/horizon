@@ -15,10 +15,13 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import os
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+from django.core.files import File
 
 from horizon import exceptions
 from horizon import messages
@@ -29,7 +32,6 @@ from horizon import tabs
 from horizon import forms
 
 from openstack_dashboard import api
-from openstack_dashboard.api import keystone
 from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.idm.organizations \
@@ -41,12 +43,25 @@ from openstack_dashboard.dashboards.idm.organizations \
 from openstack_dashboard.dashboards.idm.organizations \
     import forms as organization_forms
 
+AVATAR_ROOT = os.path.abspath(os.path.join(settings.MEDIA_ROOT, 'OrganizationAvatars'))
 
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = organization_tabs.PanelTabs
     template_name = 'idm/organizations/index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['source'] = 'pepe'
+
+        return context
+
+
+# with open('/tmp/hello.world', 'w') as f:
+# ...     myfile = File(f)
+# ...     myfile.write('Hello World')
+# ...
+# >>> myfile.closed
 
 class CreateOrganizationView(forms.ModalFormView):
     form_class = organization_forms.CreateOrganizationForm

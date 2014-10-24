@@ -97,19 +97,16 @@ class EditOrganizationForm(forms.SelfHandlingForm):
         try:
             if '_edit' in request.POST:
                 if request.FILES:
-                    print('cambiar avatar')
                     image = request.FILES['image']
                     avatarName = data['name']
-                    with open(AVATAR_ROOT+'/' + avatarName, 'wb+') as destination:
+                    with open(AVATAR_ROOT+'/' + avatarName + '.jpg', 'wb+') as destination:
                         for chunk in image.chunks():
                             destination.write(chunk)
                     messages.success(request, _("Organization updated successfully."))
                     response = shortcuts.redirect('horizon:idm:organizations:index')
                     return response
                 else:
-                    print('no hay avatar')
                     try:
-                        print(data['name'])
                         api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
                         messages.success(request, _("Organization updated successfully."))
                         response = shortcuts.redirect('horizon:idm:organizations:index')
@@ -118,7 +115,6 @@ class EditOrganizationForm(forms.SelfHandlingForm):
                         response = shortcuts.redirect('horizon:idm:organizations:index')
                         return response
             elif '_delete' in request.POST:
-                print('delete')
                 organization = data['orgID']
                 api.keystone.tenant_delete(request, organization)
                 messages.success(request, _("Organization deleted successfully."))
