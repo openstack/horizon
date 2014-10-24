@@ -1,0 +1,132 @@
+@mixin btn-icon-inline_edit($x, $y, $top: 1px, $left: 5px, $icons: None) {
+  padding: 9px 12px 9px 12px;
+  position: relative;
+  border-radius: 0px;
+
+  &:before {
+    display: inline-block;
+    content: "";
+    width: 18px;
+    height: 20px;
+    margin-top: 0px;
+    *margin-right: .3em;
+    line-height: 14px;
+    background-image: url($icons);
+    background-position: $x $y;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: $top;
+    left: $left;
+  }
+}
+
+td.inline_edit_available div.table_cell_wrapper .table_cell_action button.ajax-inline-edit {
+  @include btn-icon-inline_edit(0, -72px, 2px, 4px);
+  position: relative;
+  display: block;
+  background: none;
+  border: 0 none;
+}
+
+@mixin status-icon($x, $y, $top: 1px, $left: 5px, $icons: None) {
+  padding: 9px 12px 9px 12px;
+  position: relative;
+  border-radius: 0px;
+
+  &:before {
+    display: inline-block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin-top: 0px;
+    *margin-right: .3em;
+    line-height: 14px;
+    background-image: url($icons);
+    background-position: $x $y;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: $top;
+    left: $left;
+  }
+}
+
+div.table_cell_wrapper {
+   min-height: 18px;
+   position: relative;
+
+  .inline-edit-label {
+    display: inline;
+  }
+
+  .inline-edit-form {
+    float: left;
+  }
+
+  .inline-edit-actions, .table_cell_action {
+    float: right;
+    width: 20px;
+    margin: 0;
+
+    button.ajax-inline-edit {
+      padding: 10px;
+      position: relative;
+      display: none;
+      background: none;
+      border: 0 none;
+    }
+  }
+
+  .table_cell_action {
+    width: auto;
+
+    margin: auto 0px 0px 0px;
+    display: none;
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    z-index: 99;
+  }
+
+  .inline-edit-error {
+    .error {
+      @include status-icon(-144px, -120px, 0px, 0px);
+      position: absolute;
+      width: 18px;
+      height: 20px;
+
+      top: 20px;
+      left: 2px;
+      padding: 0;
+    }
+  }
+  .inline-edit-status {
+    .success {
+      @include status-icon(-288px, 0px, 0px, 0px);
+      padding: 0;
+      position:absolute;
+      top: 2px;
+      right: 18px;
+
+      width: 18px;
+      height: 20px;
+      z-index: 100;
+    }
+    .loading {
+      @include status-icon(0px, 0px, 0px, 0px, '../img/spinner.gif');
+      padding: 0;
+      position:absolute;
+      top: 0px;
+      right: 24px;
+
+      width: 18px;
+      height: 20px;
+      z-index: 100;
+    }
+  }
+  .inline-edit-status.inline-edit-mod {
+    .loading {
+      top: 15px;
+      right: 34px;
+    }
+  }
+}
