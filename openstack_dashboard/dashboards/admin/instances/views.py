@@ -73,6 +73,24 @@ class AdminIndexView(tables.DataTableView):
         marker = self.request.GET.get(
             project_tables.AdminInstancesTable._meta.pagination_param, None)
         search_opts = self.get_filters({'marker': marker, 'paginate': True})
+        # Gather our tenants to correlate against IDs
+        try:
+            tenants, has_more = api.keystone.tenant_list(self.request)
+        except Exception:
+            tenants = []
+            msg = _('Unable to retrieve instance project information.')
+            exceptions.handle(self.request, msg)
+
+        if 'project' in search_opts:
+            ten_filter_ids = [t.id for t in tenants
+                              if t.name == search_opts['project']]
+            del search_opts['project']
+            if len(ten_filter_ids) > 0:
+                search_opts['tenant_id'] = ten_filter_ids[0]
+            else:
+                self._more = False
+                return []
+
         try:
             instances, self._more = api.nova.server_list(
                 self.request,
@@ -98,14 +116,6 @@ class AdminIndexView(tables.DataTableView):
             except Exception:
                 # If fails to retrieve flavor list, creates an empty list.
                 flavors = []
-
-            # Gather our tenants to correlate against IDs
-            try:
-                tenants, has_more = api.keystone.tenant_list(self.request)
-            except Exception:
-                tenants = []
-                msg = _('Unable to retrieve instance project information.')
-                exceptions.handle(self.request, msg)
 
             full_flavors = SortedDict([(f.id, f) for f in flavors])
             tenant_dict = SortedDict([(t.id, t) for t in tenants])

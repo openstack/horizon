@@ -1184,17 +1184,20 @@ class DataTable(object):
             if self._meta.filter and self._meta._filter_action:
                 action = self._meta._filter_action
                 filter_string = self.get_filter_string()
+                filter_field = self.get_filter_field()
                 request_method = self.request.method
                 needs_preloading = (not filter_string
                                     and request_method == 'GET'
                                     and action.needs_preloading)
                 valid_method = (request_method == action.method)
-                if valid_method or needs_preloading:
-                    filter_field = self.get_filter_field()
+                not_api_filter = (filter_string
+                                  and not action.is_api_filter(filter_field))
+
+                if valid_method or needs_preloading or not_api_filter:
                     if self._meta.mixed_data_type:
                         self._filtered_data = action.data_type_filter(
                             self, self.data, filter_string)
-                    elif not action.is_api_filter(filter_field):
+                    else:
                         self._filtered_data = action.filter(
                             self, self.data, filter_string)
         return self._filtered_data
