@@ -44,14 +44,25 @@ class IndexView(tables.DataTableView):
         return getattr(self, "_more", False)
 
     def get_data(self):
-        marker = self.request.GET.get(
-            images_tables.ImagesTable._meta.pagination_param, None)
+        prev_marker = self.request.GET.get(
+            images_tables.ImagesTable._meta.prev_pagination_param, None)
+
+        if prev_marker is not None:
+            marker = prev_marker
+        else:
+            marker = self.request.GET.get(
+                images_tables.ImagesTable._meta.pagination_param, None)
+        reversed_order = prev_marker is not None
         try:
-            (images, self._more, self._prev) = api.glance.image_list_detailed(
+            images, self._more, self._prev = api.glance.image_list_detailed(
                 self.request,
                 marker=marker,
-                paginate=True)
+                paginate=True,
+                sort_dir='asc',
+                sort_key='name',
+                reversed_order=reversed_order)
         except Exception:
             images = []
+            self._prev = self._more = False
             exceptions.handle(self.request, _("Unable to retrieve images."))
         return images
