@@ -1,8 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'idm/base.html' %}
 {% load i18n %}
 
 {% block main %}
   {% include "idm/organizations/_edit.html" %}
+  {% include "idm/organizations/_contactinfo.html" %}
+  {% include "idm/organizations/_avatar.html" %}
   {% include "idm/organizations/_cancel.html" %}
+
 
 {% endblock %}
