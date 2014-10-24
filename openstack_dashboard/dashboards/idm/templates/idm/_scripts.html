@@ -11,6 +11,7 @@ function readURL(input) {
         reader.onload = function (e) {
             $('#avatar-update').attr('src', e.target.result);
             $('#avatar-update').attr('style', "");
+            $('#avatar-update').Jcrop();
         }
         
         reader.readAsDataURL(input.files[0]);
@@ -20,6 +21,9 @@ function readURL(input) {
 $("#id_image").change(function(){
     readURL(this);
 });
+
+
+
     
 
 </script>

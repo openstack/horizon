@@ -12,6 +12,7 @@ from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
 
 
+
 CHOICES=[('role1','Role 1'),
          ('role2','Role 2'),
          ('role3','Role 3' )]
@@ -29,7 +30,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 	
 class UploadImageForm(forms.SelfHandlingForm):
 	image = forms.ImageField(required=True)
-	
+		
 	def handle(self, request, data):
 		print(request.FILES['image'])
 		image = request.FILES['image']
