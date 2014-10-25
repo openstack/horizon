@@ -151,12 +151,16 @@ class TestCase(horizon_helpers.TestCase):
         middleware.HorizonMiddleware().process_request(self.request)
         AuthenticationMiddleware().process_request(self.request)
         self.patchers = {}
+        self.add_panel_mocks()
+        os.environ["HORIZON_TEST_RUN"] = "True"
+
+    def add_panel_mocks(self):
+        """Global mocks on panels that get called on all views."""
         self.patchers['aggregates'] = mock.patch(
             'openstack_dashboard.dashboards.admin'
             '.aggregates.panel.Aggregates.can_access',
             mock.Mock(return_value=True))
         self.patchers['aggregates'].start()
-        os.environ["HORIZON_TEST_RUN"] = "True"
 
     def tearDown(self):
         self.mox.UnsetStubs()
