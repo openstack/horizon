@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-22 17:59-0500\n"
+"POT-Creation-Date: 2014-10-24 13:00-0500\n"
 "PO-Revision-Date: 2014-10-22 22:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
@@ -400,7 +400,7 @@ msgstr "管理员"
 #: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
 #: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
 #: dashboards/admin/info/tables.py:170 dashboards/admin/instances/tables.py:95
-#: dashboards/admin/instances/tables.py:138
+#: dashboards/admin/instances/tables.py:128
 #: dashboards/admin/networks/forms.py:38
 #: dashboards/admin/networks/forms.py:234
 #: dashboards/admin/networks/ports/forms.py:40
@@ -1004,7 +1004,7 @@ msgstr "虚拟内核"
 #: dashboards/admin/defaults/workflows.py:42
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
-#: dashboards/admin/instances/tables.py:172
+#: dashboards/admin/instances/tables.py:162
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:149
@@ -1610,7 +1610,7 @@ msgstr[0] ""
 #: dashboards/admin/hypervisors/compute/tables.py:65
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
-#: dashboards/admin/instances/tables.py:134
+#: dashboards/admin/instances/tables.py:124
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:43
@@ -1631,7 +1631,7 @@ msgstr "域"
 #: dashboards/admin/hypervisors/compute/tables.py:67
 #: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
-#: dashboards/admin/instances/tables.py:151
+#: dashboards/admin/instances/tables.py:141
 #: dashboards/admin/networks/tables.py:95
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/networks/ports/tables.py:97
@@ -1785,7 +1785,7 @@ msgid "Max. Size (MB)"
 msgstr "容量最大值 (MB)"
 
 #: dashboards/admin/images/tables.py:71
-#: dashboards/admin/instances/tables.py:140
+#: dashboards/admin/instances/tables.py:130
 #: dashboards/project/images/images/tables.py:227
 #: dashboards/project/instances/tables.py:889
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
@@ -2011,7 +2011,7 @@ msgid "Live Migrate Instance"
 msgstr "实例热迁移"
 
 #: dashboards/admin/instances/tables.py:93
-#: dashboards/admin/instances/tables.py:127
+#: dashboards/admin/instances/tables.py:117
 #: dashboards/admin/metering/tables.py:41
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:40
@@ -2051,7 +2051,7 @@ msgstr "镜像ID ="
 msgid "Flavor ID ="
 msgstr "实例类型ID ="
 
-#: dashboards/admin/instances/tables.py:142
+#: dashboards/admin/instances/tables.py:132
 #: dashboards/project/access_and_security/floating_ips/tables.py:179
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
@@ -2060,7 +2060,7 @@ msgstr "实例类型ID ="
 msgid "IP Address"
 msgstr "IP 地址"
 
-#: dashboards/admin/instances/tables.py:145
+#: dashboards/admin/instances/tables.py:135
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
 #: dashboards/project/containers/tables.py:446
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
@@ -2078,47 +2078,47 @@ msgstr "IP 地址"
 msgid "Size"
 msgstr "配置"
 
-#: dashboards/admin/instances/tables.py:156
+#: dashboards/admin/instances/tables.py:146
 #: dashboards/project/instances/tables.py:906
 msgid "Task"
 msgstr "任务"
 
-#: dashboards/admin/instances/tables.py:163
+#: dashboards/admin/instances/tables.py:153
 #: dashboards/project/instances/tables.py:913
 msgid "Power State"
 msgstr "电源状态"
 
-#: dashboards/admin/instances/tables.py:165
+#: dashboards/admin/instances/tables.py:155
 #: dashboards/project/instances/tables.py:916 usage/tables.py:75
 msgid "Time since created"
 msgstr "从创建以来"
 
-#: dashboards/admin/instances/views.py:84
+#: dashboards/admin/instances/views.py:81
+#: dashboards/admin/networks/views.py:49
+msgid "Unable to retrieve instance project information."
+msgstr "无法获取云主机项目信息。"
+
+#: dashboards/admin/instances/views.py:102
 #: dashboards/project/access_and_security/tabs.py:112
 #: dashboards/project/access_and_security/floating_ips/workflows.py:91
 msgid "Unable to retrieve instance list."
 msgstr "无法查询云主机列表。"
 
-#: dashboards/admin/instances/views.py:92
+#: dashboards/admin/instances/views.py:110
 #: dashboards/project/instances/views.py:78
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "无法从Neutron获取IP地址。"
 
-#: dashboards/admin/instances/views.py:107
-#: dashboards/admin/networks/views.py:49
-msgid "Unable to retrieve instance project information."
-msgstr "无法获取云主机项目信息。"
-
-#: dashboards/admin/instances/views.py:124
+#: dashboards/admin/instances/views.py:134
 #: dashboards/project/instances/views.py:119
 msgid "Unable to retrieve instance size information."
 msgstr "无法查询云主机配置信息。"
 
-#: dashboards/admin/instances/views.py:157
+#: dashboards/admin/instances/views.py:167
 msgid "Unable to retrieve host information."
 msgstr "无法获取主机信息。"
 
-#: dashboards/admin/instances/views.py:167
+#: dashboards/admin/instances/views.py:177
 #: dashboards/project/databases/views.py:146
 #: dashboards/project/instances/views.py:208
 #: dashboards/project/instances/views.py:330
@@ -3232,6 +3232,7 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #: dashboards/project/routers/templates/routers/_detail_overview.html:10
 #: dashboards/project/routers/templates/routers/_detail_overview.html:12
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:77
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:7
