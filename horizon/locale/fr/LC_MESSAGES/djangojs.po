@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-18 14:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-24 13:00-0500\n"
+"PO-Revision-Date: 2014-10-24 08:10+0000\n"
+"Last-Translator: Frédéric <frosmont@free.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,20 +37,20 @@ msgid "An error occurred. Please try again later."
 msgstr "Une erreur s'est produite. Veuillez réessayer ultérieurement."
 
 #: static/horizon/js/horizon.firewalls.js:30
-#: static/horizon/js/horizon.instances.js:30
+#: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Problème de communication avec le serveur, veuillez réessayer."
 
-#: static/horizon/js/horizon.forms.js:195
+#: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "Filtrer"
 
-#: static/horizon/js/horizon.instances.js:248
+#: static/horizon/js/horizon.instances.js:264
 msgid "Could not read the file"
 msgstr "Le fichier n'a pu être lu"
 
-#: static/horizon/js/horizon.instances.js:254
-#: static/horizon/js/horizon.instances.js:281
+#: static/horizon/js/horizon.instances.js:270
+#: static/horizon/js/horizon.instances.js:297
 msgid "Could not decrypt the password"
 msgstr "Le mot de passe n'a pu être déchiffré"
 
@@ -87,7 +87,7 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.tables.js:226
 msgid "Working"
 msgstr "Traitement en cours..."
 
@@ -118,11 +118,11 @@ msgstr "Interfaces"
 
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "Delete Interface"
-msgstr ""
+msgstr "Supprimer l'Interface"
 
 #: static/horizon/js/horizon.networktopology.js:537
 msgid "Open Console"
-msgstr ""
+msgstr "Ouvrir une Console"
 
 #: static/horizon/js/horizon.networktopology.js:538
 msgid "View Details"
@@ -130,11 +130,11 @@ msgstr "Voir les détails"
 
 #: static/horizon/js/horizon.networktopology.js:541
 msgid "Delete Router"
-msgstr ""
+msgstr "Supprimer un Routeur"
 
 #: static/horizon/js/horizon.networktopology.js:542
 msgid "View Router Details"
-msgstr ""
+msgstr "Voir les Détails du Routeur"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
@@ -142,14 +142,14 @@ msgstr "Ajouter une interface"
 
 #: static/horizon/js/horizon.networktopology.js:551
 msgid "Terminate Instance"
-msgstr ""
+msgstr "Terminer l'Instance"
 
 #: static/horizon/js/horizon.networktopology.js:552
 msgid "View Instance Details"
-msgstr ""
+msgstr "Voir les Détails de l'Instance"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:379
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
 
@@ -158,21 +158,21 @@ msgstr "Aucun élément à afficher."
 msgid "An error occurred while updating."
 msgstr "Une erreur s'est produite durant la mise à jour."
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:209
 #, c-format
 msgid "You have selected %s. "
 msgstr "Vous avez sélectionné %s."
 
-#: static/horizon/js/horizon.tables.js:208
+#: static/horizon/js/horizon.tables.js:211
 #, c-format
 msgid "Confirm %s"
 msgstr "Confirmez %s"
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:212
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "Confirmez votre sélection. Cette action ne peut pas être annulée."
 
-#: static/horizon/js/horizon.tables.js:366
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
