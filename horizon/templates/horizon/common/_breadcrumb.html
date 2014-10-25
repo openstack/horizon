@@ -3,7 +3,7 @@
 {% with subfolders=breadcrumb.get_subfolders %}
 <ul class="breadcrumb">
   <li>
-    Folder Path: <a href="{% url breadcrumb.url breadcrumb.root|add:'/' %}">{{ breadcrumb.root }}</a> <span class="divider">/</span>
+    Folder Path: <a href="{% url breadcrumb.url breadcrumb.root|add:'/' %}">{{ breadcrumb.root }}</a>
   </li>
   {% for subfolder, path in subfolders %}
   <li>
@@ -12,7 +12,7 @@
   {% endif %}
       {{ subfolder }}
   {% if not forloop.last %}
-    </a> <span class="divider">/</span>
+    </a>
   {% endif %}
   </li>
   {% endfor %}
