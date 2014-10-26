@@ -4,14 +4,15 @@
 # 
 # Translators:
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
+# 김용복 <ruo91@yongbok.net>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-24 13:00-0500\n"
-"PO-Revision-Date: 2014-10-23 16:00+0000\n"
-"Last-Translator: jaekwon.park <jaekwon.park@rockplace.co.kr>\n"
+"POT-Creation-Date: 2014-10-25 08:40-0500\n"
+"PO-Revision-Date: 2014-10-25 11:31+0000\n"
+"Last-Translator: 김용복 <ruo91@yongbok.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2206,7 +2207,7 @@ msgstr "리소스 사용"
 #: dashboards/admin/metering/templates/metering/daily.html:3
 #: dashboards/admin/metering/templates/metering/daily.html:6
 msgid "Modify Usage Report Parameters"
-msgstr ""
+msgstr "사용 보고서 매개 변수 수정"
 
 #: dashboards/admin/metering/tables.py:34 usage/tables.py:25
 msgid "Download CSV Summary"
@@ -3195,7 +3196,7 @@ msgstr "인터페이스"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #, python-format
 msgid "Router Overview: %(router_name)s"
-msgstr ""
+msgstr "Router Overview: %(router_name)s"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:50
@@ -3289,7 +3290,7 @@ msgstr "외부 게이트웨이 정보"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:28
 #, python-format
 msgid "Connected External Network: %(router_gw_info_network)s"
-msgstr ""
+msgstr "연결된 외부 네트워크: %(router_gw_info_network)s"
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
 #: dashboards/project/routers/tables.py:98
