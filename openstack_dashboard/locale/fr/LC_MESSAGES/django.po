@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-24 13:00-0500\n"
-"PO-Revision-Date: 2014-10-24 13:51+0000\n"
+"POT-Creation-Date: 2014-10-25 08:40-0500\n"
+"PO-Revision-Date: 2014-10-26 20:40+0000\n"
 "Last-Translator: Frédéric <frosmont@free.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -3521,7 +3521,7 @@ msgid ""
 "    This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt>\n"
 "    commands.\n"
 "    "
-msgstr ""
+msgstr "\nAjouter, modifier ou supprimer la spécification QoS associée avec le type de volume.\n<br>\n<br>\n\"Aucun\" indique qu'aucune Spécification QoS n'est actuellement associée. Inversement, en positionnant\nla Spécification QoS à \"Aucun\" supprimera l'association courante.\n<br>\n<br>\nCeci est équivalent aux commandes  <tt>cinder qos-associate</tt> et <tt>cinder qos-disassociate</tt>."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:107
@@ -3550,7 +3550,7 @@ msgid ""
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "     "
-msgstr ""
+msgstr "\nLes Spécifications QoS peuvent être associées avec des types de volumes.\nElles servent à correspondre à un ensemble de capacités de service de qualité demandé\npar le propriétaire du volume. Ceci est équivalent à\nla commande <tt>cinder qos-create</tt>. Dès que les,Spécifications QoS sont créées,\ncliquer sur le bouton \"Gérer Spécifications\" pour gérer les spécifications de clé-valeur pour les spécifications QoS.\n<br>\n<br>\nChaque entité de Spécification QoS  aura une valeur \"Utilisateur\" qui indiquera où l'\nadministrateur voudra imposé une politique QoS. Cette valeur peut être \"frontal\"\n(Nova Compute), \"sauvegarde\" (Cinder back-end), ou les deux."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:36
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:25
@@ -3603,7 +3603,7 @@ msgid ""
 "    administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "    "
-msgstr ""
+msgstr "\nChaque entité de Spécifications QOS aura une valeur \"utilisateur\" qui indique où\nl'administrateur voudra faire exécuter la politique QOS. Cette valeur peut-être \"frontale\"\n(Nova Compute), \"sauvegarde\" (Cinder back-end) ou les deux."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
 msgid "Modify Consumer"
@@ -6089,7 +6089,7 @@ msgstr "Ce modèle de cluster sera créé pour:"
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quotNode Groups&quot tab."
-msgstr ""
+msgstr "L'objet modèle de cluster doit spécifier les modèles des groupes de noeud qui seront utilisés pour construire le cluster.\nVous pouvez ajouter les groupes de nœuds en utilisant les modèles de groupes de nœuds via l'onglet \"Groupes de noeud\"."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
@@ -7365,7 +7365,7 @@ msgstr "Le Traitement des Données propose différentes options d'emplacement de
 msgid ""
 "When processes are selected, you may set <b>node</b> scoped configurations "
 "on corresponding tabs."
-msgstr ""
+msgstr "Quand les processus sont sélectionnés, vous pouvez positionner les <b>noeuds</b>dédiés aux configurations sur les onglets correspondants."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and version for a new Node group template."
@@ -9063,8 +9063,8 @@ msgstr[1] "Instances de Redémarrage Logiciel"
 #: dashboards/project/instances/tables.py:158
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instance redémarrée logiciellement"
+msgstr[1] "Instances redémarrées logiciellement"
 
 #: dashboards/project/instances/tables.py:175
 msgid "Pause Instance"
@@ -14114,7 +14114,7 @@ msgstr "Usage"
 
 #: utils/metering.py:26
 msgid "To date to must be greater than From date."
-msgstr ""
+msgstr "Jusqu'à-la-date doit être plus grand que depuis-la-date."
 
 #: utils/metering.py:52
 msgid "From-date is not recognized"
@@ -14122,7 +14122,7 @@ msgstr "A-partir-de-la-date n'est pas reconnu"
 
 #: utils/metering.py:60
 msgid "To-date is not recognized"
-msgstr ""
+msgstr "Jusqu'à-la-date n'est pas reconnu"
 
 #: utils/metering.py:68
 msgid "The time delta must be an integer representing days."
