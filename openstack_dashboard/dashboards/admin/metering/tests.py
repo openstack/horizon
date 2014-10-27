@@ -35,14 +35,14 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         # getting all resources and with statistics
         res = self.client.get(reverse('horizon:admin:metering:index') +
-            "?tab=ceilometer_overview__stats")
+                              "?tab=ceilometer_overview__stats")
         self.assertTemplateUsed(res, 'admin/metering/index.html')
         self.assertTemplateUsed(res, 'admin/metering/stats.html')
 
     def test_report_page(self):
         # getting report page with no api access
         res = self.client.get(reverse('horizon:admin:metering:index') +
-            "?tab=ceilometer_overview__daily_report")
+                              "?tab=ceilometer_overview__daily_report")
         self.assertTemplateUsed(res, 'admin/metering/index.html')
         self.assertTemplateUsed(res, 'admin/metering/daily.html')
 
@@ -81,7 +81,8 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         # get all statistics of project aggregates
-        res = self.client.get(reverse('horizon:admin:metering:samples') +
+        res = self.client.get(
+            reverse('horizon:admin:metering:samples') +
             "?meter=memory&group_by=project&stats_attr=avg&date_options=7")
 
         self.assertEqual(res._headers['content-type'],
@@ -112,7 +113,8 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         # get all statistics of project aggregates
-        res = self.client.get(reverse('horizon:admin:metering:samples') +
+        res = self.client.get(
+            reverse('horizon:admin:metering:samples') +
             "?meter=memory&group_by=project&stats_attr=max&date_options=7")
 
         self.assertEqual(res._headers['content-type'],
@@ -141,7 +143,8 @@ class MeteringViewTests(test.APITestCase, test.BaseAdminViewTests):
 
         # getting all resources and with statistics, I have only
         # 'storage.objects' defined in test data
-        res = self.client.get(reverse('horizon:admin:metering:samples') +
+        res = self.client.get(
+            reverse('horizon:admin:metering:samples') +
             "?meter=storage.objects&stats_attr=avg&date_options=7")
 
         self.assertEqual(res._headers['content-type'],

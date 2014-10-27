@@ -121,7 +121,7 @@ class DatabaseTests(test.TestCase):
 
     @test.create_stubs({
         api.trove: ('flavor_list', 'backup_list',
-                        'datastore_list', 'datastore_version_list')})
+                    'datastore_list', 'datastore_version_list')})
     def test_launch_instance(self):
         api.trove.flavor_list(IsA(http.HttpRequest))\
             .AndReturn(self.flavors.list())
@@ -131,8 +131,8 @@ class DatabaseTests(test.TestCase):
         api.trove.datastore_list(IsA(http.HttpRequest))\
             .AndReturn(self.datastores.list())
         # Mock datastore versions
-        api.trove.datastore_version_list(IsA(http.HttpRequest),
-            IsA(str)).AndReturn(self.datastore_versions.list())
+        api.trove.datastore_version_list(IsA(http.HttpRequest), IsA(str))\
+            .AndReturn(self.datastore_versions.list())
         self.mox.ReplayAll()
         res = self.client.get(LAUNCH_URL)
         self.assertTemplateUsed(res, 'project/databases/launch.html')
@@ -144,7 +144,7 @@ class DatabaseTests(test.TestCase):
         self.mox.ReplayAll()
 
         toSuppress = ["openstack_dashboard.dashboards.project.databases."
-                           "workflows.create_instance",
+                      "workflows.create_instance",
                       "horizon.workflows.base"]
 
         # Suppress expected log messages in the test output
@@ -179,8 +179,8 @@ class DatabaseTests(test.TestCase):
             .AndReturn(self.datastores.list())
 
         # Mock datastore versions
-        api.trove.datastore_version_list(IsA(http.HttpRequest),
-            IsA(str)).AndReturn(self.datastore_versions.list())
+        api.trove.datastore_version_list(IsA(http.HttpRequest), IsA(str))\
+            .AndReturn(self.datastore_versions.list())
 
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -235,8 +235,8 @@ class DatabaseTests(test.TestCase):
             .AndReturn(self.datastores.list())
 
         # Mock datastore versions
-        api.trove.datastore_version_list(IsA(http.HttpRequest),
-            IsA(str)).AndReturn(self.datastore_versions.list())
+        api.trove.datastore_version_list(IsA(http.HttpRequest), IsA(str))\
+            .AndReturn(self.datastore_versions.list())
 
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
@@ -388,5 +388,5 @@ class DatabaseTests(test.TestCase):
             'new_size': database_size,
         }
         res = self.client.post(url, post)
-        self.assertContains(res,
-             "New size for volume must be greater than current size.")
+        self.assertContains(
+            res, "New size for volume must be greater than current size.")

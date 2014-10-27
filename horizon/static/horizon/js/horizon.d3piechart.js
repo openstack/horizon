@@ -27,6 +27,17 @@ var FRGRND = "#006CCF";
 var FULL = "#D0342B";
 var NEARLY_FULL = "#FFA500";
 var STROKE = "#CCCCCC";
+var BLUE_SHADES = [
+  "#01002C",
+  "#011554",
+  "#00388A",
+  "#1366CE",
+  "#007CF8",
+  "#45911E",
+  "#41A0FE",
+  "#89BAF4",
+  "#B9DBFE"
+];
 
 
 function create_vis(chart) {
@@ -129,7 +140,7 @@ horizon.d3_pie_chart_usage = {
 
 
 horizon.d3_pie_chart_distribution = {
-  colors: d3.scale.category20(),
+  colors: BLUE_SHADES,
 
   init: function() {
     var self = this;
@@ -188,7 +199,9 @@ horizon.d3_pie_chart_distribution = {
         .append("path")
         .attr("class","arc")
         .attr("d", arc)
-        .style("fill", function(d) { return self.colors(d.data.key); })
+        .style("fill", function(d) {
+          return self.colors[self.data.indexOf(d.data)];
+        })
         .style("stroke", STROKE)
         .style("stroke-width", 1)
         .transition()
@@ -223,7 +236,16 @@ horizon.d3_pie_chart_distribution = {
     legend.append("rect")
       .attr("width", 18)
       .attr("height", 18)
-      .style("fill", self.colors);
+      .style("fill", function(d) {
+        var item;
+        for (var i = 0; i < self.data.length; i++) {
+          if (self.data[i].key == d) {
+            item = self.data[i];
+            break;
+          }
+        }
+        return self.colors[self.data.indexOf(item)];
+      });
 
     legend.append("text")
       .attr("x", 24)

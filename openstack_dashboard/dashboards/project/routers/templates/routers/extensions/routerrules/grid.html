@@ -27,7 +27,7 @@
          <th>
             {{ dest.networkname }}<br/>
             {% if dest.subnetname|length > 0 %}
-             {% trans "Subnet" %}: {{ dest.subnetname }}</br>
+              {% blocktrans with dest_subnetname=dest.subnetname %}Subnet: {{ dest_subnetname }}{% endblocktrans %}</br>
             {% endif %}
             {{ dest.cidr }}
          </th>
@@ -41,7 +41,8 @@
 <td>
 <b>{{ row.source.networkname }}
 {% if row.source.subnetname|length > 0 %}
-    <br/>{% trans "Subnet" %}: {{ row.source.subnetname }}
+    <br/>
+    {% blocktrans with row_source_subnetname=row.source.subnetname %}Subnet: {{ row_source_subnetname }}{% endblocktrans %}
 {% endif %}
 <br/>
 {{ row.source.cidr }}
@@ -95,9 +96,9 @@
                    <p>{% blocktrans %}A more specific rule affects a portion of this traffic so a rule cannot be automatically generated to control the behavior of the entire source/destination combination.{% endblocktrans %}</p>
                    <hr>
                    <h4>{% trans "Conflicting Rule" %}</h4>
-                   <b>{% trans "Source" %}:</b> {{ dest.conflicting_rule.source }}<br>
-                   <b>{% trans "Destination" %}:</b> {{ dest.conflicting_rule.destination }}<br>
-                   <b>{% trans "Action" %}:</b> {{ dest.conflicting_rule.action }}<br>
+                   <b>{% trans "Source:" %}</b> {{ dest.conflicting_rule.source }}<br>
+                   <b>{% trans "Destination:" %}</b> {{ dest.conflicting_rule.destination }}<br>
+                   <b>{% trans "Action:" %}</b> {{ dest.conflicting_rule.action }}<br>
                  </div>
                  <div class="modal-footer">
                    <a href="#" class="btn" data-dismiss="modal">{% trans "Close" %}</a>

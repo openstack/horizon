@@ -44,12 +44,12 @@ class AdminHypervisorsTable(tables.DataTable):
                            filters=(sizeformat.mb_float_format,))
 
     local_used = tables.Column('local_gb_used',
-                               verbose_name=_("Storage (used)"),
+                               verbose_name=_("Local Storage (used)"),
                                attrs={'data-type': 'size'},
                                filters=(sizeformat.diskgbformat,))
 
     local = tables.Column('local_gb',
-                          verbose_name=_("Storage (total)"),
+                          verbose_name=_("Local Storage (total)"),
                           attrs={'data-type': 'size'},
                           filters=(sizeformat.diskgbformat,))
 

@@ -25,11 +25,12 @@ class EvacuateHostForm(forms.SelfHandlingForm):
     current_host = forms.CharField(label=_("Current Host"),
                                    widget=forms.TextInput(
                                        attrs={'readonly': 'readonly'}))
-    target_host = forms.ChoiceField(label=_("Target Host"),
-                         help_text=_("Choose a Host to evacuate servers to."))
+    target_host = forms.ChoiceField(
+        label=_("Target Host"),
+        help_text=_("Choose a Host to evacuate servers to."))
 
     on_shared_storage = forms.BooleanField(label=_("Shared Storage"),
-                                          initial=False, required=False)
+                                           initial=False, required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(EvacuateHostForm, self).__init__(request, *args, **kwargs)

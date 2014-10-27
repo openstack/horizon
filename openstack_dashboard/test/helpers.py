@@ -99,7 +99,7 @@ class RequestFactoryWithMessages(RequestFactory):
 
 
 @unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
-                     "The SKIP_UNITTESTS env variable is set.")
+                 "The SKIP_UNITTESTS env variable is set.")
 class TestCase(horizon_helpers.TestCase):
     """Specialized base test case class for Horizon.
 
@@ -160,8 +160,8 @@ class TestCase(horizon_helpers.TestCase):
         del os.environ["HORIZON_TEST_RUN"]
 
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
-                        service_catalog=None, tenant_name=None, roles=None,
-                        authorized_tenants=None, enabled=True, domain_id=None):
+                      service_catalog=None, tenant_name=None, roles=None,
+                      authorized_tenants=None, enabled=True, domain_id=None):
         def get_user(request):
             return user.User(id=id,
                              token=token,
@@ -198,7 +198,7 @@ class TestCase(horizon_helpers.TestCase):
             return True
         errors = response.context[context_name]._errors
         assert len(errors) == 0, \
-               "Unexpected errors were found on the form: %s" % errors
+            "Unexpected errors were found on the form: %s" % errors
 
     def assertFormErrors(self, response, count=0, message=None,
                          context_name="form"):
@@ -405,8 +405,8 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
         del os.environ["HORIZON_TEST_RUN"]
 
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
-                        service_catalog=None, tenant_name=None, roles=None,
-                        authorized_tenants=None, enabled=True):
+                      service_catalog=None, tenant_name=None, roles=None,
+                      authorized_tenants=None, enabled=True):
         def get_user(request):
             return user.User(id=id,
                              token=token,

@@ -22,9 +22,10 @@ from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-
+from openstack_dashboard.usage import quotas
 
 JSON_URL = reverse('horizon:project:network_topology:json')
+INDEX_URL = reverse('horizon:project:network_topology:index')
 
 
 class NetworkTopologyTests(test.TestCase):
@@ -49,9 +50,9 @@ class NetworkTopologyTests(test.TestCase):
         api.nova.server_list(
             IsA(http.HttpRequest)).AndReturn([self.servers.list(), False])
         tenant_networks = [net for net in self.networks.list()
-                          if not net['router:external']]
+                           if not net['router:external']]
         external_networks = [net for net in self.networks.list()
-                            if net['router:external']]
+                             if net['router:external']]
         api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest),
             self.tenant.id).AndReturn(tenant_networks)
@@ -148,3 +149,65 @@ class NetworkTopologyTests(test.TestCase):
                  'network_id': ext_net.id,
                  'fixed_ips': []})
         self.assertEqual(expect_port_urls, data['ports'])
+
+
+class NetworkTopologyCreateTests(test.TestCase):
+
+    def _test_new_button_disabled_when_quota_exceeded(
+            self, expected_string, networks_quota=10,
+            routers_quota=10, instances_quota=10):
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = networks_quota
+        quota_data['routers']['available'] = routers_quota
+        quota_data['instances']['available'] = instances_quota
+
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'project/network_topology/index.html')
+
+        self.assertContains(res, expected_string, html=True,
+                            msg_prefix="The create button is not disabled")
+
+    @test.create_stubs({quotas: ('tenant_quota_usages',)})
+    def test_create_network_button_disabled_when_quota_exceeded(self):
+        url = reverse('horizon:project:network_topology:createnetwork')
+        classes = 'btn btn-default btn-sm ajax-modal'
+        link_name = "Create Network (Quota exceeded)"
+        expected_string = "<a href='%s' class='%s disabled' "\
+            "id='networks__action_create'>" \
+            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            % (url, classes, link_name)
+
+        self._test_new_button_disabled_when_quota_exceeded(
+            expected_string, networks_quota=0)
+
+    @test.create_stubs({quotas: ('tenant_quota_usages',)})
+    def test_create_router_button_disabled_when_quota_exceeded(self):
+        url = reverse('horizon:project:network_topology:createrouter')
+        classes = 'btn btn-default btn-sm ajax-modal'
+        link_name = "Create Router (Quota exceeded)"
+        expected_string = "<a href='%s' class='%s disabled' "\
+            "id='Routers__action_create'>" \
+            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            % (url, classes, link_name)
+
+        self._test_new_button_disabled_when_quota_exceeded(
+            expected_string, routers_quota=0)
+
+    @test.create_stubs({quotas: ('tenant_quota_usages',)})
+    def test_launch_instance_button_disabled_when_quota_exceeded(self):
+        url = reverse('horizon:project:network_topology:launchinstance')
+        classes = 'btn btn-default btn-sm btn-launch ajax-modal'
+        link_name = "Launch Instance (Quota exceeded)"
+        expected_string = "<a href='%s' class='%s disabled' "\
+            "id='instances__action_launch'>" \
+            "<span class='glyphicon glyphicon-cloud-upload'></span>%s</a>" \
+            % (url, classes, link_name)
+
+        self._test_new_button_disabled_when_quota_exceeded(
+            expected_string, instances_quota=0)

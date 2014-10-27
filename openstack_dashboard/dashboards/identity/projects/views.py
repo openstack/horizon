@@ -150,14 +150,14 @@ class CreateProjectView(workflows.WorkflowView):
             except Exception:
                 error_msg = _('Unable to retrieve default Neutron quota '
                               'values.')
-                self.add_error_to_step(error_msg, 'update_quotas')
+                self.add_error_to_step(error_msg, 'create_quotas')
 
             for field in quotas.QUOTA_FIELDS:
                 initial[field] = quota_defaults.get(field).limit
 
         except Exception:
             error_msg = _('Unable to retrieve default quota values.')
-            self.add_error_to_step(error_msg, 'update_quotas')
+            self.add_error_to_step(error_msg, 'create_quotas')
 
         return initial
 
@@ -186,16 +186,16 @@ class UpdateProjectView(workflows.WorkflowView):
                     initial["domain_name"] = domain.name
                 except Exception:
                     exceptions.handle(self.request,
-                        _('Unable to retrieve project domain.'),
-                        redirect=reverse(INDEX_URL))
+                                      _('Unable to retrieve project domain.'),
+                                      redirect=reverse(INDEX_URL))
 
             # get initial project quota
             quota_data = quotas.get_tenant_quota_data(self.request,
                                                       tenant_id=project_id)
             if api.base.is_service_enabled(self.request, 'network') and \
                     api.neutron.is_quotas_extension_supported(self.request):
-                quota_data += api.neutron.tenant_quota_get(self.request,
-                                                          tenant_id=project_id)
+                quota_data += api.neutron.tenant_quota_get(
+                    self.request, tenant_id=project_id)
             for field in quotas.QUOTA_FIELDS:
                 initial[field] = quota_data.get(field).limit
         except Exception:

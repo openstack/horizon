@@ -39,13 +39,13 @@ class SnapshotsViewTests(test.TestCase):
                       args=[server.id])
         res = self.client.get(url)
         self.assertTemplateUsed(res,
-                        'project/images/snapshots/create.html')
+                                'project/images/snapshots/create.html')
 
     def test_create_get_server_exception(self):
         server = self.servers.first()
         self.mox.StubOutWithMock(api.nova, 'server_get')
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
-                    .AndRaise(self.exceptions.nova)
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images:snapshots:create',

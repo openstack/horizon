@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import base64
 import json
 import logging
 
@@ -56,7 +57,7 @@ class SelectPluginAction(workflows.Action):
         for plugin in plugins:
             field_name = plugin.name + "_version"
             choice_field = forms.ChoiceField(
-                label=_("Hadoop version"),
+                label=_("Version"),
                 choices=[(version, version) for version in plugin.versions],
                 widget=forms.Select(
                     attrs={"class": "plugin_version_choice "
@@ -97,7 +98,7 @@ class GeneralConfigAction(workflows.Action):
 
     description = forms.CharField(label=_("Description"),
                                   required=False,
-                                  widget=forms.Textarea)
+                                  widget=forms.Textarea(attrs={'rows': 4}))
 
     anti_affinity = aa.anti_affinity_field()
 
@@ -168,9 +169,8 @@ class ConfigureNodegroupsAction(workflows.Action):
         plugin, hadoop_version = whelpers.\
             get_plugin_and_hadoop_version(request)
 
-        self.templates = saharaclient.nodegroup_template_find(request,
-            plugin_name=plugin,
-            hadoop_version=hadoop_version)
+        self.templates = saharaclient.nodegroup_template_find(
+            request, plugin_name=plugin, hadoop_version=hadoop_version)
 
         deletable = request.REQUEST.get("deletable", dict())
 
@@ -180,17 +180,20 @@ class ConfigureNodegroupsAction(workflows.Action):
                 group_name = "group_name_" + str(id)
                 template_id = "template_id_" + str(id)
                 count = "count_" + str(id)
+                serialized = "serialized_" + str(id)
                 self.groups.append({"name": request.POST[group_name],
                                     "template_id": request.POST[template_id],
                                     "count": request.POST[count],
                                     "id": id,
                                     "deletable": deletable.get(
-                                        request.POST[group_name], "true")})
+                                        request.POST[group_name], "true"),
+                                    "serialized": request.POST[serialized]})
 
                 whelpers.build_node_group_fields(self,
                                                  group_name,
                                                  template_id,
-                                                 count)
+                                                 count,
+                                                 serialized)
 
     def clean(self):
         cleaned_data = super(ConfigureNodegroupsAction, self).clean()
@@ -229,12 +232,10 @@ class ConfigureClusterTemplate(whelpers.ServiceParametersWorkflow,
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
         ConfigureClusterTemplate._cls_registry = set([])
 
-        sahara = saharaclient.client(request)
-        hlps = helpers.Helpers(sahara)
+        hlps = helpers.Helpers(request)
 
         plugin, hadoop_version = whelpers.\
             get_plugin_and_hadoop_version(request)
-
         general_parameters = hlps.get_cluster_general_configs(
             plugin,
             hadoop_version)
@@ -273,9 +274,16 @@ class ConfigureClusterTemplate(whelpers.ServiceParametersWorkflow,
                 template_id = context['ng_template_id_' + str(id)]
                 count = context['ng_count_' + str(id)]
 
-                ng = {"name": name,
-                      "node_group_template_id": template_id,
-                      "count": count}
+                raw_ng = context.get("ng_serialized_" + str(id))
+
+                if raw_ng and raw_ng != 'null':
+                    ng = json.loads(base64.urlsafe_b64decode(str(raw_ng)))
+                else:
+                    ng = dict()
+                ng["name"] = name
+                ng["count"] = count
+                if template_id and template_id != u'None':
+                    ng["node_group_template_id"] = template_id
                 node_groups.append(ng)
 
             plugin, hadoop_version = whelpers.\

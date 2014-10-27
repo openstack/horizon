@@ -33,7 +33,9 @@ class UpdatePort(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.BooleanField(label=_("Admin State"), required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                    label=_("Admin State"))
     failure_url = 'horizon:project:networks:detail'
 
     def __init__(self, request, *args, **kwargs):
@@ -43,6 +45,7 @@ class UpdatePort(forms.SelfHandlingForm):
                 label=_("Mac Learning State"), required=False)
 
     def handle(self, request, data):
+        data['admin_state'] = (data['admin_state'] == 'True')
         try:
             LOG.debug('params = %s' % data)
             extension_kwargs = {}

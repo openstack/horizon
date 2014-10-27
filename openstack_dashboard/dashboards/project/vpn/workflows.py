@@ -11,8 +11,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Tatiana Mazur
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -30,8 +28,10 @@ class AddVPNServiceAction(workflows.Action):
         max_length=80, label=_("Description"))
     router_id = forms.ChoiceField(label=_("Router"))
     subnet_id = forms.ChoiceField(label=_("Subnet"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"),
-                                        initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"),
+                                       help_text=_("The state to start in."))
 
     def __init__(self, request, *args, **kwargs):
         super(AddVPNServiceAction, self).__init__(request, *args, **kwargs)
@@ -414,8 +414,10 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
         initial=120,
         help_text=_("Valid integer greater than the DPD interval"))
     initiator = forms.ChoiceField(label=_("Initiator state"))
-    admin_state_up = forms.BooleanField(label=_("Admin State"),
-                                        initial=True, required=False)
+    # TODO(amotoki): make UP/DOWN translatable
+    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+                                       label=_("Admin State"),
+                                       help_text=_("The state to start in."))
 
     def __init__(self, request, *args, **kwargs):
         super(AddIPSecSiteConnectionOptionalAction, self).__init__(

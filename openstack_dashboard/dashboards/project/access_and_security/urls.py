@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import include  # noqa
+from django.conf.urls import include
 from django.conf.urls import patterns
 from django.conf.urls import url
 
@@ -31,7 +31,8 @@ from openstack_dashboard.dashboards.project.access_and_security.\
 from openstack_dashboard.dashboards.project.access_and_security import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'api_access/', include(api_access_urls, namespace='api_access')),
     url(r'keypairs/', include(keypair_urls, namespace='keypairs')),

@@ -34,7 +34,7 @@ class CreateVolumeType(forms.SelfHandlingForm):
             volume_type = cinder.volume_type_create(request,
                                                     data['name'])
             messages.success(request, _('Successfully created volume type: %s')
-                                      % data['name'])
+                             % data['name'])
             return volume_type
         except Exception:
             exceptions.handle(request,
@@ -80,7 +80,7 @@ class UpdateStatus(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request,
                               _('Unable to update volume status to "%s".') %
-                             new_status)
+                              new_status)
             return False
 
 
@@ -94,10 +94,11 @@ class CreateQosSpec(forms.SelfHandlingForm):
             qos_spec = cinder.qos_spec_create(request,
                                               data['name'],
                                               {'consumer': data['consumer']})
-            messages.success(request, _('Successfully created QOS Spec: %s')
-                                      % data['name'])
+            messages.success(request,
+                             _('Successfully created QoS Spec: %s')
+                             % data['name'])
             return qos_spec
         except Exception:
             exceptions.handle(request,
-                              _('Unable to create QOS Spec.'))
+                              _('Unable to create QoS Spec.'))
             return False

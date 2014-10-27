@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Yury Sakarinen, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 03:25-0500\n"
-"PO-Revision-Date: 2014-08-13 14:01+0000\n"
+"POT-Creation-Date: 2014-10-18 20:37-0500\n"
+"PO-Revision-Date: 2014-10-18 14:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:303
+#: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "Загрузка"
 
-#: static/horizon/js/horizon.d3linechart.js:386
-#: static/horizon/js/horizon.d3linechart.js:396
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
 msgstr "Нет данных."
 
-#: static/horizon/js/horizon.d3linechart.js:402
-#: static/horizon/js/horizon.modals.js:322
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
-msgstr "Произошла ошибка. Пожалуйста повторите попытку позже."
+msgstr "Произошла ошибка. Повторите попытку."
 
 #: static/horizon/js/horizon.firewalls.js:30
 #: static/horizon/js/horizon.instances.js:30
 msgid "There was a problem communicating with the server, please try again."
-msgstr "Обнаружена проблема при соединении с сервером, пожалуйста повторите попытку."
+msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."
 
-#: static/horizon/js/horizon.forms.js:193
+#: static/horizon/js/horizon.forms.js:195
 msgid "Filter"
 msgstr "Фильтр"
 
-#: static/horizon/js/horizon.instances.js:233
+#: static/horizon/js/horizon.instances.js:248
 msgid "Could not read the file"
-msgstr "Невозможно прочитать файл"
+msgstr "Не удалось прочитать файл"
 
-#: static/horizon/js/horizon.instances.js:239
-#: static/horizon/js/horizon.instances.js:266
+#: static/horizon/js/horizon.instances.js:254
+#: static/horizon/js/horizon.instances.js:281
 msgid "Could not decrypt the password"
-msgstr "Невозможно расшифровать пароль"
+msgstr "Не удалось расшифровать пароль"
 
 #: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
@@ -61,104 +62,128 @@ msgstr "Нет ролей"
 msgid "Roles"
 msgstr "Роли"
 
-#: static/horizon/js/horizon.messages.js:11
+#: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
 msgstr "Опасность:"
 
-#: static/horizon/js/horizon.messages.js:12
+#: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
 msgstr "Внимание:"
 
-#: static/horizon/js/horizon.messages.js:13
+#: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
 msgstr "Примечание:"
 
-#: static/horizon/js/horizon.messages.js:14
+#: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
 msgstr "Успешно:"
 
-#: static/horizon/js/horizon.messages.js:15
+#: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "Ошибка:"
 
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "Отмена"
 
-#: static/horizon/js/horizon.modals.js:224
-#: static/horizon/js/horizon.tables.js:191
+#: static/horizon/js/horizon.modals.js:225
+#: static/horizon/js/horizon.tables.js:223
 msgid "Working"
 msgstr "Обработка"
 
-#: static/horizon/js/horizon.modals.js:254
+#: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
-msgstr "Обнаружена ошибка при отправке формы. Пожалуйста повторите попытку."
+msgstr "При отправке формы произошла ошибка. Повторите попытку."
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr "Нет"
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr "Удалить"
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr "ID"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr "Интерфейсы"
 
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
+msgstr ""
+
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
-msgstr "Интерфейс"
+msgid "View Details"
+msgstr "Просмотреть Детали"
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
-msgstr "открыть консоль"
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
+msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
-msgstr "подробности %s"
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
+msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
-msgstr "Добавить интерфейс"
+msgstr "Добавить Интерфейс"
+
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
+msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:347
+#: static/horizon/js/horizon.tables.js:379
 msgid "No items to display."
 msgstr "Нет элементов для отображения."
 
 #: static/horizon/js/horizon.tables.js:52
 #: static/horizon/js/horizon.tables.js:120
 msgid "An error occurred while updating."
-msgstr "В процессе обновления произошла ошибка."
+msgstr "Во время обновления произошла ошибка."
 
-#: static/horizon/js/horizon.tables.js:174
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "You have selected %s. "
-msgstr "Вы выбрали %s."
+msgstr "Выбрано %s."
 
-#: static/horizon/js/horizon.tables.js:176
+#: static/horizon/js/horizon.tables.js:208
 #, c-format
 msgid "Confirm %s"
 msgstr "Подтвердите %s"
 
-#: static/horizon/js/horizon.tables.js:177
+#: static/horizon/js/horizon.tables.js:209
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr "Пожалуйста подтвердите ваш выбор. Действие не может быть отменено."
+msgstr "Подтвердите ваш выбор. Действие не может быть отменено."
 
-#: static/horizon/js/horizon.tables.js:334
+#: static/horizon/js/horizon.tables.js:366
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] "Показано %s элементов"
+msgstr[0] "Отображено %s значение"
+msgstr[1] "Отображено %s значений"
+msgstr[2] "Отображено %s значений"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169
 msgid "Not authorized to do this operation."
-msgstr "Не разрешено делать эту операцию."
+msgstr "Нет прав для выполнения."
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."

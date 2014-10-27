@@ -11,9 +11,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Yingjun Li <liyingjun1988@gmail.com>
-#
 
 import logging
 
@@ -35,7 +32,8 @@ class AddDHCPAgent(forms.SelfHandlingForm):
     network_name = forms.CharField(label=_("Network Name"),
                                    widget=forms.TextInput(
                                    attrs={'readonly': 'readonly'}))
-    agent = forms.ChoiceField(label=_("New DHCP Agent"),
+    agent = forms.ChoiceField(
+        label=_("New DHCP Agent"),
         help_text=_("Choose an DHCP Agent to attach to."))
 
     def __init__(self, request, *args, **kwargs):

@@ -25,12 +25,50 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports \
     import forms as project_forms
 from openstack_dashboard.dashboards.project.networks.ports \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.networks.ports \
     import tabs as project_tabs
 
 
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.PortDetailTabs
     template_name = 'project/networks/ports/detail.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        port_id = self.kwargs['port_id']
+
+        try:
+            port = api.neutron.port_get(self.request, port_id)
+        except Exception:
+            port = []
+            redirect = self.get_redirect_url()
+            msg = _('Unable to retrieve port details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+        if (api.neutron.is_extension_supported(self.request, 'mac-learning')
+                and not hasattr(port, 'mac_state')):
+            port.mac_state = api.neutron.OFF_STATE
+
+        return port
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        port = self.get_data()
+        table = project_tables.PortsTable(self.request,
+                                          network_id=port.network_id)
+        context["port"] = port
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(port)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        port = self.get_data()
+        return self.tab_group_class(request, port=port, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse('horizon:project:networks:index')
 
 
 class UpdateView(forms.ModalFormView):

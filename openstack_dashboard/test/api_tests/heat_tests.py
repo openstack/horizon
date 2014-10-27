@@ -45,8 +45,8 @@ class HeatApiTests(test.APITestCase):
         heatclient = self.stub_heatclient()
         heatclient.stacks = self.mox.CreateMockAnything()
         heatclient.stacks.list(limit=limit,
-                           sort_dir=sort_dir,
-                           sort_key=sort_key,) \
+                               sort_dir=sort_dir,
+                               sort_key=sort_key,) \
             .AndReturn(iter(api_stacks))
         self.mox.ReplayAll()
 
@@ -67,8 +67,8 @@ class HeatApiTests(test.APITestCase):
         heatclient = self.stub_heatclient()
         heatclient.stacks = self.mox.CreateMockAnything()
         heatclient.stacks.list(limit=page_size + 1,
-                           sort_dir=sort_dir,
-                           sort_key=sort_key,) \
+                               sort_dir=sort_dir,
+                               sort_key=sort_key,) \
             .AndReturn(iter(api_stacks))
         self.mox.ReplayAll()
 
@@ -91,8 +91,8 @@ class HeatApiTests(test.APITestCase):
         heatclient = self.stub_heatclient()
         heatclient.stacks = self.mox.CreateMockAnything()
         heatclient.stacks.list(limit=page_size + 1,
-                           sort_dir=sort_dir,
-                           sort_key=sort_key,) \
+                               sort_dir=sort_dir,
+                               sort_key=sort_key,) \
             .AndReturn(iter(api_stacks))
         self.mox.ReplayAll()
 
@@ -188,7 +188,7 @@ class HeatApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         returned_stack = api.heat.stack_update(self.request,
-                                            stack_id,
-                                            **form_data)
+                                               stack_id,
+                                               **form_data)
         from heatclient.v1 import stacks
         self.assertIsInstance(returned_stack, stacks.Stack)

@@ -17,7 +17,8 @@ from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.roles import views
 
-urlpatterns = patterns('openstack_dashboard.dashboards.identity.roles.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.identity.roles.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<role_id>[^/]+)/update/$',
         views.UpdateView.as_view(), name='update'),

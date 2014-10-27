@@ -18,6 +18,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from keystoneclient import exceptions
 
@@ -87,9 +88,23 @@ class EditDomainLink(tables.LinkAction):
 
 
 class DeleteDomainsAction(tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Domain",
+            u"Delete Domains",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Domain",
+            u"Deleted Domains",
+            count
+        )
+
     name = "delete"
-    data_type_singular = _("Domain")
-    data_type_plural = _("Domains")
     policy_rules = (('identity', 'identity:delete_domain'),)
 
     def allowed(self, request, datum):
@@ -153,8 +168,8 @@ class SetDomainContext(tables.Action):
                 request.session['domain_context'] = obj_id
                 request.session['domain_context_name'] = domain.name
                 messages.success(request,
-                                _('Domain Context updated to Domain %s.') %
-                                domain.name)
+                                 _('Domain Context updated to Domain %s.') %
+                                 domain.name)
             except Exception:
                 messages.error(request,
                                _('Unable to set Domain Context.'))

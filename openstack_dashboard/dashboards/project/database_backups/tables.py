@@ -15,6 +15,7 @@
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as d_filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils import filters
@@ -74,8 +75,21 @@ class DownloadBackup(tables.LinkAction):
 
 
 class DeleteBackup(tables.DeleteAction):
-    data_type_singular = _("Backup")
-    data_type_plural = _("Backups")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Backup",
+            u"Delete Backups",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Backup",
+            u"Deleted Backups",
+            count
+        )
 
     def delete(self, request, obj_id):
         api.trove.backup_delete(request, obj_id)

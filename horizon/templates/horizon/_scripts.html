@@ -1,5 +1,8 @@
 {% load compress %}
 {% load url from future %}
+{% load datepicker_locale from horizon %}
+
+{% datepicker_locale as DATEPICKER_LOCALE %}
 
 {% comment %} Django's JavaScript i18n Implementation {% endcomment %}
 <script type="text/javascript" src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
@@ -22,7 +25,7 @@
 <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.tablesorter.js" type="text/javascript" charset="utf-8"></script>
 <script src="{{ STATIC_URL }}horizon/lib/spin.js" type="text/javascript" charset="utf-8"></script>
 <script src="{{ STATIC_URL }}horizon/lib/spin.jquery.js" type="text/javascript" charset="utf-8"></script>
-<script src="{{ STATIC_URL }}horizon/lib/jquery/jquery-ui-1.9.2.custom.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{ STATIC_URL }}horizon/lib/jquery-ui/ui/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
 <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.bootstrap.wizard.js" type="text/javascript" charset="utf-8"></script>
 
 <script src="{{ STATIC_URL }}horizon/lib/d3.js" type="text/javascript" charset="utf-8"></script>
@@ -61,6 +64,11 @@
 
 {% comment %} Client-side Templates (These should *not* be inside the "compress" tag.) {% endcomment %}
 {% include "horizon/client_side/templates.html" %}
+
+{% comment %}Locale sensitive js needs to be included outisde the "compress" tag{% endcomment %}
+{% if DATEPICKER_LOCALE and DATEPICKER_LOCALE != 'en' %}
+<script src='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/locales/bootstrap-datepicker.{{ DATEPICKER_LOCALE }}.js' type='text/javascript' charset='utf-8'></script>
+{% endif %}
 
 {% comment %}Go!{% endcomment %}
 <script type='text/javascript' charset='utf-8'>

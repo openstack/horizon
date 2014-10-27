@@ -23,6 +23,7 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.admin.overview import views
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', views.GlobalOverview.as_view(), name='index'),
 )

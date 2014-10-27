@@ -59,7 +59,7 @@ class BackupDetailsAction(workflows.Action):
         try:
             backups = api.trove.backup_list(request)
             choices = [(b.id, b.name) for b in backups
-                if b.status == 'COMPLETED']
+                       if b.status == 'COMPLETED']
         except Exception:
             choices = []
             msg = _("Unable to list database backups for parent.")

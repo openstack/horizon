@@ -15,6 +15,7 @@ import logging
 
 from django import template
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -47,11 +48,23 @@ class RegisterImage(tables.LinkAction):
 
 
 class UnregisterImages(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Unregister Image",
+            u"Unregister Images",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Unregistered Image",
+            u"Unregistered Images",
+            count
+        )
+
     name = "Unregister"
-    action_present = _("Unregister")
-    action_past = _("Unregistered")
-    data_type_singular = _("Image")
-    data_type_plural = _("Images")
     classes = ('btn-danger', 'btn-terminate')
 
     def action(self, request, obj_id):

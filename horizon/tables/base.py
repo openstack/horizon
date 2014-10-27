@@ -677,7 +677,7 @@ class Cell(html.HTMLElement):
                                  form_field_attributes)
             table._data_cache[column][table.get_object_id(datum)] = data
         elif column.auto == "actions":
-            data = table.render_row_actions(datum)
+            data = table.render_row_actions(datum, pull_right=False)
             table._data_cache[column][table.get_object_id(datum)] = data
         else:
             data = column.get_data(datum)
@@ -769,7 +769,7 @@ class Cell(html.HTMLElement):
         """Returns a flattened string of the cell's CSS classes."""
         if not self.url:
             self.column.classes = [cls for cls in self.column.classes
-                                    if cls != "anchor"]
+                                   if cls != "anchor"]
         column_class_string = self.column.get_final_attrs().get('class', "")
         classes = set(column_class_string.split(" "))
         if self.column.status:
@@ -945,8 +945,8 @@ class DataTableOptions(object):
     """
     def __init__(self, options):
         self.name = getattr(options, 'name', self.__class__.__name__)
-        verbose_name = getattr(options, 'verbose_name', None) \
-                                    or self.name.title()
+        verbose_name = (getattr(options, 'verbose_name', None)
+                        or self.name.title())
         self.verbose_name = verbose_name
         self.columns = getattr(options, 'columns', None)
         self.status_columns = getattr(options, 'status_columns', [])
@@ -983,16 +983,18 @@ class DataTableOptions(object):
         self.template = getattr(options,
                                 'template',
                                 'horizon/common/_data_table.html')
-        self.row_actions_template = \
-                        'horizon/common/_data_table_row_actions.html'
+        self.row_actions_dropdown_template = ('horizon/common/_data_table_'
+                                              'row_actions_dropdown.html')
+        self.row_actions_row_template = ('horizon/common/_data_table_'
+                                         'row_actions_row.html')
         self.table_actions_template = \
-                        'horizon/common/_data_table_table_actions.html'
+            'horizon/common/_data_table_table_actions.html'
         self.context_var_name = unicode(getattr(options,
                                                 'context_var_name',
                                                 'table'))
         self.actions_column = getattr(options,
-                                     'actions_column',
-                                     len(self.row_actions) > 0)
+                                      'actions_column',
+                                      len(self.row_actions) > 0)
         self.multi_select = getattr(options,
                                     'multi_select',
                                     len(self.table_actions) > 0)
@@ -1185,13 +1187,11 @@ class DataTable(object):
                 if valid_method or needs_preloading:
                     filter_field = self.get_filter_field()
                     if self._meta.mixed_data_type:
-                        self._filtered_data = action.data_type_filter(self,
-                                                                self.data,
-                                                                filter_string)
+                        self._filtered_data = action.data_type_filter(
+                            self, self.data, filter_string)
                     elif not action.is_api_filter(filter_field):
-                        self._filtered_data = action.filter(self,
-                                                            self.data,
-                                                            filter_string)
+                        self._filtered_data = action.filter(
+                            self, self.data, filter_string)
         return self._filtered_data
 
     def slugify_name(self):
@@ -1297,11 +1297,11 @@ class DataTable(object):
                 matches.append(datum)
         if len(matches) > 1:
             raise ValueError("Multiple matches were returned for that id: %s."
-                           % matches)
+                             % matches)
         if not matches:
             raise exceptions.Http302(self.get_absolute_url(),
                                      _('No match returned for the id "%s".')
-                                       % lookup)
+                                     % lookup)
         return matches[0]
 
     @property
@@ -1389,15 +1389,21 @@ class DataTable(object):
         self.set_multiselect_column_visibility(len(bound_actions) > 0)
         return table_actions_template.render(context)
 
-    def render_row_actions(self, datum):
+    def render_row_actions(self, datum, pull_right=True, row=False):
         """Renders the actions specified in ``Meta.row_actions`` using the
-        current row data.
+        current row data. If `row` is True, the actions are rendered in a row
+        of buttons. Otherwise they are rendered in a dropdown box.
         """
-        template_path = self._meta.row_actions_template
+        if row:
+            template_path = self._meta.row_actions_row_template
+        else:
+            template_path = self._meta.row_actions_dropdown_template
+
         row_actions_template = template.loader.get_template(template_path)
         bound_actions = self.get_row_actions(datum)
         extra_context = {"row_actions": bound_actions,
-                         "row_id": self.get_object_id(datum)}
+                         "row_id": self.get_object_id(datum),
+                         "pull_right": pull_right}
         context = template.RequestContext(self.request, extra_context)
         return row_actions_template.render(context)
 
@@ -1602,7 +1608,7 @@ class DataTable(object):
         table_name, action_name, obj_id = self.check_handler(request)
         if table_name == self.name and action_name:
             action_names = [action.name for action in
-                self.base_actions.values() if not action.preempt]
+                            self.base_actions.values() if not action.preempt]
             # do not run preemptive actions here
             if action_name in action_names:
                 return self.take_action(action_name, obj_id)

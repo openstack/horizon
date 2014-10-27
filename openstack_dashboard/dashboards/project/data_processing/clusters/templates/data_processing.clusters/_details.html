@@ -23,7 +23,7 @@
     <dl>
         <dt>{% trans "Plugin" %}</dt>
         <dd><a href="{% url 'horizon:project:data_processing.data_plugins:details' cluster.plugin_name %}">{{ cluster.plugin_name }}</a></dd>
-        <dt>{% trans "Hadoop Version" %}</dt>
+        <dt>{% trans "Version" %}</dt>
         <dd>{{ cluster.hadoop_version }}</dd>
     </dl>
     <dl>
@@ -34,7 +34,7 @@
             <dd>{% trans "Template not specified" %}</dd>
         {% endif %}
         <dt>{% trans "Base Image" %}</dt>
-        <dd>{{ base_image.name }}</dd>
+        <dd><a href="{% url 'horizon:project:images:images:detail' base_image.id %}">{{ base_image.name }}</a></dd>
         {% if network %}
         <dt>{% trans "Neutron Management Network" %}</dt>
         <dd>{{ network }}</dd>
@@ -65,7 +65,7 @@
                     {% if service_conf %}
                     <ul>
                     {% for conf_name, conf_value in service_conf.items %}
-                        <li>{{ conf_name }}:&nbsp{{ conf_value }}</li>
+                        <li>{% blocktrans %}{{ conf_name }}: {{ conf_value }}{% endblocktrans %}</li>
                     {% endfor %}
                     </ul>
                     {% else %}
@@ -82,7 +82,9 @@
         {% for info_key, info_val in cluster.info.items %}
         <dt>{{ info_key }}</dt>
             {% for key, val in info_val.items %}
-                <dd>{{ key }}:&nbsp{% autoescape off %}{{ val }}{% endautoescape %}</dd>
+                <dd>
+                  {% autoescape off %}{% blocktrans %}{{ key }}: {{ val }}{% endblocktrans %}{% endautoescape %}
+                </dd>
             {% endfor %}
         {% endfor %}
     </dl>

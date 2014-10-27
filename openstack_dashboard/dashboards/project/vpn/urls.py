@@ -11,15 +11,14 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Tatiana Mazur
 
 from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.vpn import views
 
-urlpatterns = patterns('openstack_dashboard.dashboards.project.vpn.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.project.vpn.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^addikepolicy$',
         views.AddIKEPolicyView.as_view(), name='addikepolicy'),

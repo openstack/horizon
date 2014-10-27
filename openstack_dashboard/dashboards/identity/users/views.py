@@ -83,7 +83,7 @@ class UpdateView(forms.ModalFormView):
     def get_object(self):
         try:
             return api.keystone.user_get(self.request, self.kwargs['user_id'],
-                admin=True)
+                                         admin=True)
         except Exception:
             redirect = reverse("horizon:identity:users:index")
             exceptions.handle(self.request,
@@ -103,11 +103,11 @@ class UpdateView(forms.ModalFormView):
         if api.keystone.VERSIONS.active >= 3:
             try:
                 domain = api.keystone.domain_get(self.request,
-                                                    domain_id)
+                                                 domain_id)
                 domain_name = domain.name
             except Exception:
                 exceptions.handle(self.request,
-                    _('Unable to retrieve project domain.'))
+                                  _('Unable to retrieve project domain.'))
         return {'domain_id': domain_id,
                 'domain_name': domain_name,
                 'id': user.id,

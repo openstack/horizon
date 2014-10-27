@@ -25,7 +25,8 @@ from openstack_dashboard.dashboards.project.images.images import views
 VIEWS_MOD = 'openstack_dashboard.dashboards.project.images.images.views'
 
 
-urlpatterns = patterns(VIEWS_MOD,
+urlpatterns = patterns(
+    VIEWS_MOD,
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<image_id>[^/]+)/update/$',
         views.UpdateView.as_view(), name='update'),

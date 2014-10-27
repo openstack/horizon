@@ -70,9 +70,10 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
         self.assertTemplateUsed(res, constants.AGGREGATES_CREATE_VIEW_TEMPLATE)
         self.assertEqual(workflow.name, workflows.CreateAggregateWorkflow.name)
-        self.assertQuerysetEqual(workflow.steps,
-                        ['<SetAggregateInfoStep: set_aggregate_info>',
-                        '<AddHostsToAggregateStep: add_host_to_aggregate>'])
+        self.assertQuerysetEqual(
+            workflow.steps,
+            ['<SetAggregateInfoStep: set_aggregate_info>',
+             '<AddHostsToAggregateStep: add_host_to_aggregate>'])
 
     @test.create_stubs({api.nova: ('host_list', 'aggregate_details_list',
                                    'aggregate_create'), })
@@ -95,8 +96,8 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
 
         if not expected_error_message:
             self.assertNoFormErrors(res)
-            self.assertRedirectsNoFollow(res,
-                    reverse(constants.AGGREGATES_INDEX_URL))
+            self.assertRedirectsNoFollow(
+                res, reverse(constants.AGGREGATES_INDEX_URL))
         else:
             self.assertFormErrors(res, error_count, expected_error_message)
 
@@ -211,8 +212,8 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
         if not expected_error_message:
             self.assertNoFormErrors(res)
-            self.assertRedirectsNoFollow(res,
-                    reverse(constants.AGGREGATES_INDEX_URL))
+            self.assertRedirectsNoFollow(
+                res, reverse(constants.AGGREGATES_INDEX_URL))
         else:
             self.assertFormErrors(res, error_count, expected_error_message)
 
@@ -387,9 +388,9 @@ class ManageHostsTests(test.BaseAdminViewTests):
         form_data = {'manageaggregatehostsaction_role_member':
                      [host.host_name]}
         self._test_manage_hosts_update(host,
-                                         aggregate,
-                                         form_data,
-                                         addAggregate=False)
+                                       aggregate,
+                                       form_data,
+                                       addAggregate=False)
 
     def test_manage_hosts_update_nothing_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -397,9 +398,9 @@ class ManageHostsTests(test.BaseAdminViewTests):
         form_data = {'manageaggregatehostsaction_role_member':
                      []}
         self._test_manage_hosts_update(None,
-                                         aggregate,
-                                         form_data,
-                                         addAggregate=False)
+                                       aggregate,
+                                       form_data,
+                                       addAggregate=False)
 
     def test_manage_hosts_update_add_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -408,9 +409,9 @@ class ManageHostsTests(test.BaseAdminViewTests):
         form_data = {'manageaggregatehostsaction_role_member':
                      [host.host_name]}
         self._test_manage_hosts_update(host,
-                                         aggregate,
-                                         form_data,
-                                         addAggregate=True)
+                                       aggregate,
+                                       form_data,
+                                       addAggregate=True)
 
     def test_manage_hosts_update_add_not_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -420,9 +421,9 @@ class ManageHostsTests(test.BaseAdminViewTests):
         form_data = {'manageaggregatehostsaction_role_member':
                      [host1.host_name, host3.host_name]}
         self._test_manage_hosts_update(host3,
-                                         aggregate,
-                                         form_data,
-                                         addAggregate=True)
+                                       aggregate,
+                                       form_data,
+                                       addAggregate=True)
 
     def test_manage_hosts_update_clean_not_empty_aggregate(self):
         aggregate = self.aggregates.first()
@@ -430,10 +431,10 @@ class ManageHostsTests(test.BaseAdminViewTests):
         form_data = {'manageaggregatehostsaction_role_member':
                      []}
         self._test_manage_hosts_update(None,
-                                         aggregate,
-                                         form_data,
-                                         addAggregate=False,
-                                         cleanAggregates=True)
+                                       aggregate,
+                                       form_data,
+                                       addAggregate=False,
+                                       cleanAggregates=True)
 
 
 class HostAggregateMetadataTests(test.BaseAdminViewTests):

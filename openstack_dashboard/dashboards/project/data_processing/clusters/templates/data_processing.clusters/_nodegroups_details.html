@@ -7,7 +7,7 @@
 <div class="status row detail">
     {% for node_group in cluster.node_groups %}
         <dl class="well">
-            <h4>{% trans "Name" %}: {{ node_group.name }}</h4>
+            <h4>{% blocktrans with node_group_name=node_group.name %}Name: {{ node_group_name }}{% endblocktrans %}</h4>
             <dt>{% trans "Number of Nodes" %}</dt>
             <dd>{{ node_group.count }}</dd>
 
@@ -16,7 +16,7 @@
 
             {% if node_group.floating_ip_pool %}
             <dt>{% trans "Floating IP Pool" %}</dt>
-            <dd>{{ node_group.floating_ip_pool }}</dd>
+            <dd><a href="{% url 'horizon:project:networks:detail' node_group.floating_ip_pool %}">{{ node_group.floating_ip_pool_name }}</a></dd>
             {% endif %}
 
             <dt>{% trans "Template" %}</dt>
@@ -25,6 +25,18 @@
             {% else %}
                 <dd>{% trans "Template not specified" %}</dd>
             {% endif %}
+
+            <dt>{% trans "Auto Security Group" %}</dt>
+            <dd>{{ node_group.auto_security_group|yesno }}</dd>
+
+            <dt>{% trans "Security Groups" %}</dt>
+            <dd>
+                <ul class="list-bullet">
+                    {% for group in node_group.security_groups %}
+                        <li>{{ group }}</li>
+                    {% endfor %}
+                </ul>
+            </dd>
 
             <dt>{% trans "Node Processes" %}</dt>
             {% if node_group.node_processes %}
@@ -47,7 +59,7 @@
                         {% if service_conf %}
                         <ul>
                         {% for conf_name, conf_value in service_conf.items %}
-                            <li>{{ conf_name }}:&nbsp{{ conf_value }}</li>
+                            <li>{% blocktrans %}{{ conf_name }}: {{ conf_value }}{% endblocktrans %}</li>
                         {% endfor %}
                         </ul>
                         {% else %}

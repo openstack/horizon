@@ -16,7 +16,6 @@ import logging
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
-from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
 import django.views
 
@@ -84,10 +83,9 @@ class DownloadJobBinaryView(django.views.generic.View):
             exceptions.handle(self.request,
                               _('Unable to fetch job binary: %(exc)s'),
                               redirect=redirect)
-
         response = http.HttpResponse(content_type='application/binary')
-        response['Content-Disposition'] = \
-            'attachment; filename=%s' % defaultfilters.slugify(jb.name)
+        response['Content-Disposition'] = (
+            'attachment; filename="%s"' % jb.name)
         response.write(data)
         response['Content-Length'] = str(len(data))
         return response

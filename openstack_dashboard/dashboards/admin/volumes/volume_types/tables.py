@@ -12,6 +12,7 @@
 
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -37,7 +38,7 @@ class ViewVolumeTypeExtras(tables.LinkAction):
 
 class ManageQosSpecAssociation(tables.LinkAction):
     name = "associate"
-    verbose_name = _("Manage QOS Spec Association")
+    verbose_name = _("Manage QoS Spec Association")
     url = "horizon:admin:volumes:volume_types:manage_qos_spec_association"
     classes = ("ajax-modal",)
     icon = "pencil"
@@ -45,8 +46,21 @@ class ManageQosSpecAssociation(tables.LinkAction):
 
 
 class DeleteVolumeType(tables.DeleteAction):
-    data_type_singular = _("Volume Type")
-    data_type_plural = _("Volume Types")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Volume Type",
+            u"Delete Volume Types",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Volume Type",
+            u"Deleted Volume Types",
+            count
+        )
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, obj_id):
@@ -56,7 +70,7 @@ class DeleteVolumeType(tables.DeleteAction):
 class VolumeTypesTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_("Name"))
     assoc_qos_spec = tables.Column("associated_qos_spec",
-                                   verbose_name=_("Associated QOS Spec"))
+                                   verbose_name=_("Associated QoS Spec"))
 
     def get_object_display(self, vol_type):
         return vol_type.name
@@ -90,7 +104,7 @@ def render_spec_keys(qos_spec):
 
 class CreateQosSpec(tables.LinkAction):
     name = "create"
-    verbose_name = _("Create QOS Spec")
+    verbose_name = _("Create QoS Spec")
     url = "horizon:admin:volumes:volume_types:create_qos_spec"
     classes = ("ajax-modal",)
     icon = "plus"
@@ -98,8 +112,21 @@ class CreateQosSpec(tables.LinkAction):
 
 
 class DeleteQosSpecs(tables.DeleteAction):
-    data_type_singular = _("QOS Spec")
-    data_type_plural = _("QOS Specs")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete QoS Spec",
+            u"Delete QoS Specs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted QoS Spec",
+            u"Deleted QoS Specs",
+            count
+        )
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, qos_spec_id):
@@ -131,6 +158,6 @@ class QosSpecsTable(tables.DataTable):
 
     class Meta:
         name = "qos_specs"
-        verbose_name = _("QOS Specs")
+        verbose_name = _("QoS Specs")
         table_actions = (CreateQosSpec, DeleteQosSpecs,)
         row_actions = (ManageQosSpec, EditConsumer, DeleteQosSpecs)

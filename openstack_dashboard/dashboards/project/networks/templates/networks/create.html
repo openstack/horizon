@@ -1,0 +1,26 @@
+{% extends 'horizon/common/_workflow.html' %}
+{% load i18n %}
+
+{% block modal-footer %}
+  {% if workflow.wizard %}
+  <div class="row">
+
+    <div class="col-sm-1">
+        <a href="{% url 'horizon:project:networks:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+    </div>
+
+    <div class="col-sm-5 back">
+        <button type="button" class="btn btn-default button-previous">&laquo; {% trans "Back" %}</button>
+    </div>
+
+    <div class="col-sm-6 next">
+        <button type="button" class="btn btn-primary button-next">{% trans "Next" %} &raquo;</button>
+      <button type="submit" class="btn btn-primary button-final">{{ workflow.finalize_button_name }}</button>
+    </div>
+
+  </div>
+  {% else %}
+    <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
+    {% if modal %}<a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+  {% endif %}
+{% endblock %}

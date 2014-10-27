@@ -30,7 +30,7 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
         api.cinder.volume_type_get(IsA(http.HttpRequest),
                                    vol_type.id).AndReturn(vol_type)
         api.cinder.volume_type_extra_get(IsA(http.HttpRequest),
-                                          vol_type.id).AndReturn(extras)
+                                         vol_type.id).AndReturn(extras)
         self.mox.ReplayAll()
         url = reverse('horizon:admin:volumes:volume_types:extras:index',
                       args=[vol_type.id])
@@ -101,7 +101,7 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
         vol_type = self.cinder_volume_types.first()
         key = 'foo'
         edit_url = reverse('horizon:admin:volumes:volume_types:extras:edit',
-                             args=[vol_type.id, key])
+                           args=[vol_type.id, key])
         index_url = reverse('horizon:admin:volumes:volume_types:extras:index',
                             args=[vol_type.id])
 
@@ -128,10 +128,10 @@ class VolTypeExtrasTests(test.BaseAdminViewTests):
         extras = [api.cinder.VolTypeExtraSpec(vol_type.id, 'k1', 'v1')]
         formData = {'action': 'extras__delete__k1'}
         index_url = reverse('horizon:admin:volumes:volume_types:extras:index',
-                             args=[vol_type.id])
+                            args=[vol_type.id])
 
         api.cinder.volume_type_extra_get(IsA(http.HttpRequest),
-                                          vol_type.id).AndReturn(extras)
+                                         vol_type.id).AndReturn(extras)
         api.cinder.volume_type_extra_delete(IsA(http.HttpRequest),
                                             vol_type.id,
                                             'k1').AndReturn(vol_type)

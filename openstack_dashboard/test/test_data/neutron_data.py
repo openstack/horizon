@@ -116,7 +116,10 @@ def data(TEST):
                         'segment_range': '3000-3100',
                         'id':
                         '00000000-1111-1111-1111-000000000000',
-                        'project': network_dict['tenant_id']}
+                        'project': TEST.networks.get(name="net1")['tenant_id'],
+                        # vlan profiles have no sub_type or multicast_ip_range
+                        'multicast_ip_range': None,
+                        'sub_type': None}
 
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))
@@ -176,6 +179,20 @@ def data(TEST):
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
+
+    port_dict = {'admin_state_up': True,
+                 'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
+                 'device_owner': 'network:router_interface',
+                 'fixed_ips': [{'ip_address': '10.0.0.1',
+                                'subnet_id': subnet_dict['id']}],
+                 'id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
+                 'mac_address': 'fa:16:3e:9c:d5:7f',
+                 'name': '',
+                 'network_id': network_dict['id'],
+                 'status': 'ACTIVE',
+                 'tenant_id': network_dict['tenant_id']}
+    TEST.api_ports.add(port_dict)
+    TEST.ports.add(neutron.Port(port_dict))
 
     # 2nd network.
     network_dict = {'admin_state_up': True,
@@ -579,13 +596,13 @@ def data(TEST):
 
     # 2nd member.
     member_dict = {'id': '41ac1f8d-6d9c-49a4-a1bf-41955e651f91',
-                  'tenant_id': '1',
-                  'pool_id': pool_dict['id'],
-                  'address': '10.0.0.12',
-                  'protocol_port': 80,
-                  'weight': 10,
-                  'status': 'ACTIVE',
-                  'admin_state_up': True}
+                   'tenant_id': '1',
+                   'pool_id': pool_dict['id'],
+                   'address': '10.0.0.12',
+                   'protocol_port': 80,
+                   'weight': 10,
+                   'status': 'ACTIVE',
+                   'admin_state_up': True}
     TEST.api_members.add(member_dict)
     TEST.members.add(lbaas.Member(member_dict))
 
@@ -642,10 +659,14 @@ def data(TEST):
                    "alias": "dvr",
                    "description":
                    "Enables configuration of Distributed Virtual Routers."}
+    extension_5 = {"name": "HA Router extension",
+                   "alias": "l3-ha",
+                   "description": "Add HA capability to routers."}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
     TEST.api_extensions.add(extension_3)
     TEST.api_extensions.add(extension_4)
+    TEST.api_extensions.add(extension_5)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
@@ -755,77 +776,78 @@ def data(TEST):
 
     # 1st IPSecPolicy
     ipsecpolicy_dict = {'id': '8376e1dd-2b1c-4346-b23c-6989e75ecdb8',
-                      'tenant_id': '1',
-                      'name': 'ipsecpolicy_1',
-                      'description': 'ipsecpolicy description',
-                      'auth_algorithm': 'sha1',
-                      'encapsulation_mode': 'tunnel',
-                      'encryption_algorithm': '3des',
-                      'lifetime': {'units': 'seconds', 'value': 3600},
-                      'pfs': 'group5',
-                      'transform_protocol': 'esp',
-                      'ipsecsiteconns': TEST.ipsecsiteconnections.list()}
+                        'tenant_id': '1',
+                        'name': 'ipsecpolicy_1',
+                        'description': 'ipsecpolicy description',
+                        'auth_algorithm': 'sha1',
+                        'encapsulation_mode': 'tunnel',
+                        'encryption_algorithm': '3des',
+                        'lifetime': {'units': 'seconds', 'value': 3600},
+                        'pfs': 'group5',
+                        'transform_protocol': 'esp',
+                        'ipsecsiteconns': TEST.ipsecsiteconnections.list()}
     TEST.api_ipsecpolicies.add(ipsecpolicy_dict)
     TEST.ipsecpolicies.add(vpn.IPSecPolicy(ipsecpolicy_dict))
 
     # 2nd IPSecPolicy
     ipsecpolicy_dict = {'id': '8376e1dd-2b1c-4346-b23c-6989e75ecdb9',
-                      'tenant_id': '1',
-                      'name': 'ipsecpolicy_2',
-                      'description': 'ipsecpolicy description',
-                      'auth_algorithm': 'sha1',
-                      'encapsulation_mode': 'tunnel',
-                      'encryption_algorithm': '3des',
-                      'lifetime': {'units': 'seconds', 'value': 3600},
-                      'pfs': 'group5',
-                      'transform_protocol': 'esp',
-                      'ipsecsiteconns': []}
+                        'tenant_id': '1',
+                        'name': 'ipsecpolicy_2',
+                        'description': 'ipsecpolicy description',
+                        'auth_algorithm': 'sha1',
+                        'encapsulation_mode': 'tunnel',
+                        'encryption_algorithm': '3des',
+                        'lifetime': {'units': 'seconds', 'value': 3600},
+                        'pfs': 'group5',
+                        'transform_protocol': 'esp',
+                        'ipsecsiteconns': []}
     TEST.api_ipsecpolicies.add(ipsecpolicy_dict)
     TEST.ipsecpolicies.add(vpn.IPSecPolicy(ipsecpolicy_dict))
 
     # 1st IPSecSiteConnection
     ipsecsiteconnection_dict = {'id': 'dd1dd3a0-f349-49be-b013-245e147763d6',
-                          'tenant_id': '1',
-                          'name': 'ipsec_connection_1',
-                          'description': 'vpn connection description',
-                          'dpd': {'action': 'hold',
-                                  'interval': 30,
-                                  'timeout': 120},
-                          'ikepolicy_id': ikepolicy_dict['id'],
-                          'initiator': 'bi-directional',
-                          'ipsecpolicy_id': ipsecpolicy_dict['id'],
-                          'mtu': 1500,
-                          'peer_address':
-                              '2607:f0d0:4545:3:200:f8ff:fe21:67cf',
-                          'peer_cidrs': ['20.1.0.0/24', '21.1.0.0/24'],
-                          'peer_id': '2607:f0d0:4545:3:200:f8ff:fe21:67cf',
-                          'psk': 'secret',
-                          'vpnservice_id': vpnservice_dict['id'],
-                          'admin_state_up': True,
-                          'status': 'Active'}
+                                'tenant_id': '1',
+                                'name': 'ipsec_connection_1',
+                                'description': 'vpn connection description',
+                                'dpd': {'action': 'hold',
+                                        'interval': 30,
+                                        'timeout': 120},
+                                'ikepolicy_id': ikepolicy_dict['id'],
+                                'initiator': 'bi-directional',
+                                'ipsecpolicy_id': ipsecpolicy_dict['id'],
+                                'mtu': 1500,
+                                'peer_address':
+                                '2607:f0d0:4545:3:200:f8ff:fe21:67cf',
+                                'peer_cidrs': ['20.1.0.0/24', '21.1.0.0/24'],
+                                'peer_id':
+                                    '2607:f0d0:4545:3:200:f8ff:fe21:67cf',
+                                'psk': 'secret',
+                                'vpnservice_id': vpnservice_dict['id'],
+                                'admin_state_up': True,
+                                'status': 'Active'}
     TEST.api_ipsecsiteconnections.add(ipsecsiteconnection_dict)
     TEST.ipsecsiteconnections.add(
         vpn.IPSecSiteConnection(ipsecsiteconnection_dict))
 
     # 2nd IPSecSiteConnection
     ipsecsiteconnection_dict = {'id': 'dd1dd3a0-f349-49be-b013-245e147763d7',
-                          'tenant_id': '1',
-                          'name': 'ipsec_connection_2',
-                          'description': 'vpn connection description',
-                          'dpd': {'action': 'hold',
-                                  'interval': 30,
-                                  'timeout': 120},
-                          'ikepolicy_id': ikepolicy_dict['id'],
-                          'initiator': 'bi-directional',
-                          'ipsecpolicy_id': ipsecpolicy_dict['id'],
-                          'mtu': 1500,
-                          'peer_address': '172.0.0.2',
-                          'peer_cidrs': ['20.1.0.0/24'],
-                          'peer_id': '172.0.0.2',
-                          'psk': 'secret',
-                          'vpnservice_id': vpnservice_dict['id'],
-                          'admin_state_up': True,
-                          'status': 'Active'}
+                                'tenant_id': '1',
+                                'name': 'ipsec_connection_2',
+                                'description': 'vpn connection description',
+                                'dpd': {'action': 'hold',
+                                        'interval': 30,
+                                        'timeout': 120},
+                                'ikepolicy_id': ikepolicy_dict['id'],
+                                'initiator': 'bi-directional',
+                                'ipsecpolicy_id': ipsecpolicy_dict['id'],
+                                'mtu': 1500,
+                                'peer_address': '172.0.0.2',
+                                'peer_cidrs': ['20.1.0.0/24'],
+                                'peer_id': '172.0.0.2',
+                                'psk': 'secret',
+                                'vpnservice_id': vpnservice_dict['id'],
+                                'admin_state_up': True,
+                                'status': 'Active'}
     TEST.api_ipsecsiteconnections.add(ipsecsiteconnection_dict)
     TEST.ipsecsiteconnections.add(
         vpn.IPSecSiteConnection(ipsecsiteconnection_dict))
@@ -879,7 +901,7 @@ def data(TEST):
                   'tenant_id': '1',
                   'name': 'rule3',
                   'description': 'rule3 description',
-                  'protocol': 'icmp',
+                  'protocol': None,
                   'action': 'allow',
                   'source_ip_address': '1.2.3.0/24',
                   'source_port': '80',
@@ -971,7 +993,9 @@ def data(TEST):
                         'multicast_ip_range': '144.0.0.0-144.0.0.100',
                         'id':
                         '00000000-2222-2222-2222-000000000000',
-                        'project': '1'}
+                        'project': '1',
+                        # overlay profiles have no physical_network
+                        'physical_network': None}
 
     TEST.api_net_profiles.add(net_profile_dict)
     TEST.net_profiles.add(neutron.Profile(net_profile_dict))

@@ -11,9 +11,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: Tatiana Mazur
-
 
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -29,6 +26,7 @@ from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.vpn \
     import forms as vpn_forms
+from openstack_dashboard.dashboards.project.vpn import tables as vpn_tables
 from openstack_dashboard.dashboards.project.vpn import tabs as vpn_tabs
 from openstack_dashboard.dashboards.project.vpn \
     import workflows as vpn_workflows
@@ -83,7 +81,8 @@ class IndexView(tabs.TabView):
                                      _('Deleted IPSec Site Connection %s')
                                      % obj_id)
                 except Exception as e:
-                    exceptions.handle(request,
+                    exceptions.handle(
+                        request,
                         _('Unable to delete IPSec Site Connection: %s') % e)
 
         return self.get(request, *args, **kwargs)
@@ -122,23 +121,145 @@ class AddIPSecPolicyView(workflows.WorkflowView):
 
 
 class IKEPolicyDetailsView(tabs.TabView):
-    tab_group_class = (vpn_tabs.IKEPolicyDetailsTabs)
+    tab_group_class = vpn_tabs.IKEPolicyDetailsTabs
     template_name = 'project/vpn/details_tabs.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        pid = self.kwargs['ikepolicy_id']
+        try:
+            return api.vpn.ikepolicy_get(self.request, pid)
+        except Exception:
+            msg = _('Unable to retrieve IKE Policy details.')
+            exceptions.handle(self.request, msg,
+                              redirect=self.get_redirect_url())
+
+    def get_context_data(self, **kwargs):
+        context = super(IKEPolicyDetailsView, self).get_context_data(**kwargs)
+        ikepolicy = self.get_data()
+        table = vpn_tables.IKEPoliciesTable(self.request)
+        context["ikepolicy"] = ikepolicy
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(ikepolicy)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        ikepolicy = self.get_data()
+        return self.tab_group_class(request, ikepolicy=ikepolicy, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy('horizon:project:vpn:index')
 
 
 class IPSecPolicyDetailsView(tabs.TabView):
-    tab_group_class = (vpn_tabs.IPSecPolicyDetailsTabs)
+    tab_group_class = vpn_tabs.IPSecPolicyDetailsTabs
     template_name = 'project/vpn/details_tabs.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        pid = self.kwargs['ipsecpolicy_id']
+        try:
+            return api.vpn.ipsecpolicy_get(self.request, pid)
+        except Exception:
+            msg = _('Unable to retrieve IPSec Policy details.')
+            exceptions.handle(self.request, msg,
+                              redirect=self.get_redirect_url())
+
+    def get_context_data(self, **kwargs):
+        context = super(IPSecPolicyDetailsView, self).get_context_data(
+            **kwargs)
+        ipsecpolicy = self.get_data()
+        table = vpn_tables.IPSecPoliciesTable(self.request)
+        context["ipsecpolicy"] = ipsecpolicy
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(ipsecpolicy)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        ipsecpolicy = self.get_data()
+        return self.tab_group_class(request, ipsecpolicy=ipsecpolicy, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy('horizon:project:vpn:index')
 
 
 class VPNServiceDetailsView(tabs.TabView):
-    tab_group_class = (vpn_tabs.VPNServiceDetailsTabs)
+    tab_group_class = vpn_tabs.VPNServiceDetailsTabs
     template_name = 'project/vpn/details_tabs.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        sid = self.kwargs['vpnservice_id']
+
+        try:
+            vpnservice = api.vpn.vpnservice_get(self.request, sid)
+        except Exception:
+            vpnservice = []
+            msg = _('Unable to retrieve VPN Service details.')
+            exceptions.handle(self.request, msg,
+                              redirect=self.get_redirect_url())
+        try:
+            connections = api.vpn.ipsecsiteconnection_list(
+                self.request, vpnservice_id=sid)
+            vpnservice.vpnconnections = connections
+        except Exception:
+            vpnservice.vpnconnections = []
+
+        return vpnservice
+
+    def get_context_data(self, **kwargs):
+        context = super(VPNServiceDetailsView, self).get_context_data(**kwargs)
+        vpnservice = self.get_data()
+        table = vpn_tables.VPNServicesTable(self.request)
+        context["vpnservice"] = vpnservice
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(vpnservice)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        vpnservice = self.get_data()
+        return self.tab_group_class(request, vpnservice=vpnservice, **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy('horizon:project:vpn:index')
 
 
 class IPSecSiteConnectionDetailsView(tabs.TabView):
-    tab_group_class = (vpn_tabs.IPSecSiteConnectionDetailsTabs)
+    tab_group_class = vpn_tabs.IPSecSiteConnectionDetailsTabs
     template_name = 'project/vpn/details_tabs.html'
+
+    @memoized.memoized_method
+    def get_data(self):
+        cid = self.kwargs['ipsecsiteconnection_id']
+        try:
+            return api.vpn.ipsecsiteconnection_get(self.request, cid)
+        except Exception:
+            msg = _('Unable to retrieve IPSec Site Connection details.')
+            exceptions.handle(self.request, msg,
+                              redirect=self.get_redirect_url())
+
+    def get_context_data(self, **kwargs):
+        context = super(IPSecSiteConnectionDetailsView, self).get_context_data(
+            **kwargs)
+        ipsecsiteconnection = self.get_data()
+        table = vpn_tables.IPSecSiteConnectionsTable(self.request)
+        context["ipsecsiteconnection"] = ipsecsiteconnection
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(ipsecsiteconnection)
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        ipsecsiteconnection = self.get_data()
+        return self.tab_group_class(request,
+                                    ipsecsiteconnection=ipsecsiteconnection,
+                                    **kwargs)
+
+    @staticmethod
+    def get_redirect_url():
+        return reverse_lazy('horizon:project:vpn:index')
 
 
 class UpdateVPNServiceView(forms.ModalFormView):

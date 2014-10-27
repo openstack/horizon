@@ -30,17 +30,15 @@ For a more in-depth look at Horizon and its architecture, see the
 
 To learn what you need to know to get going, see the :doc:`quickstart`.
 
-Getting Started With Horizon
-============================
+Using Horizon
+=============
 
 How to use Horizon in your own projects.
 
 .. toctree::
    :maxdepth: 1
 
-   intro
-   quickstart
-   topics/tutorial
+   topics/install
    topics/deployment
    topics/settings
    topics/customizing
@@ -60,6 +58,9 @@ Brief guides to areas of interest and importance when developing Horizon.
 .. toctree::
    :maxdepth: 1
 
+   intro
+   quickstart
+   topics/tutorial
    contributing
    testing
 
@@ -96,6 +97,7 @@ In-depth documentation for Horizon and its APIs.
    ref/decorators
    ref/exceptions
    ref/test
+   ref/local_conf
 
 Source Code Reference
 ---------------------

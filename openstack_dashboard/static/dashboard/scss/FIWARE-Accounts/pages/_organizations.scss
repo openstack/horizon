@@ -1,0 +1,17 @@
+#edit_organization_modal{
+   @extend .well;
+  .modal-header{
+    padding: 0;
+    margin-bottom: 15px;
+    h3{
+      margin: 0;
+    }
+  }
+}
+.edit_organization_modal{
+  textarea {
+    min-height: 40px;
+    max-height: 55px;
+    resize: none;
+  }
+}

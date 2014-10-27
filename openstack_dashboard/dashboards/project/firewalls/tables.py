@@ -11,14 +11,14 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-#
-# @author: KC Wang, Big Switch Networks
 
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
+from openstack_dashboard import policy
 
 
 class AddRuleLink(tables.LinkAction):
@@ -47,62 +47,78 @@ class AddFirewallLink(tables.LinkAction):
     policy_rules = (("network", "create_firewall"),)
 
 
-class DeleteRuleLink(tables.DeleteAction):
+class DeleteRuleLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deleterule"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Rule")
-    data_type_plural = _("Rules")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Rule",
+            u"Delete Rules",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Rule",
+            u"Scheduled deletion of Rules",
+            count
+        )
+
     policy_rules = (("network", "delete_firewall_rule"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
-
-class DeletePolicyLink(tables.DeleteAction):
+class DeletePolicyLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletepolicy"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Policy")
-    data_type_plural = _("Policies")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Policy",
+            u"Delete Policies",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Policy",
+            u"Scheduled deletion of Policies",
+            count
+        )
+
     policy_rules = (("network", "delete_firewall_policy"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
-
-class DeleteFirewallLink(tables.DeleteAction):
+class DeleteFirewallLink(policy.PolicyTargetMixin,
+                         tables.DeleteAction):
     name = "deletefirewall"
-    action_present = _("Delete")
-    action_past = _("Scheduled deletion of %(data_type)s")
-    data_type_singular = _("Firewall")
-    data_type_plural = _("Firewalls")
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Firewall",
+            u"Delete Firewalls",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Scheduled deletion of Firewall",
+            u"Scheduled deletion of Firewalls",
+            count
+        )
+
     policy_rules = (("network", "delete_firewall"),)
 
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
-
-class UpdateRuleLink(tables.LinkAction):
+class UpdateRuleLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "updaterule"
     verbose_name = _("Edit Rule")
     classes = ("ajax-modal", "btn-update",)
     policy_rules = (("network", "update_firewall_rule"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def get_link_url(self, rule):
         base_url = reverse("horizon:project:firewalls:updaterule",
@@ -110,17 +126,11 @@ class UpdateRuleLink(tables.LinkAction):
         return base_url
 
 
-class UpdatePolicyLink(tables.LinkAction):
+class UpdatePolicyLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "updatepolicy"
     verbose_name = _("Edit Policy")
     classes = ("ajax-modal", "btn-update",)
     policy_rules = (("network", "update_firewall_policy"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:updatepolicy",
@@ -128,17 +138,11 @@ class UpdatePolicyLink(tables.LinkAction):
         return base_url
 
 
-class UpdateFirewallLink(tables.LinkAction):
+class UpdateFirewallLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "updatefirewall"
     verbose_name = _("Edit Firewall")
     classes = ("ajax-modal", "btn-update",)
     policy_rules = (("network", "update_firewall"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
 
     def get_link_url(self, firewall):
         base_url = reverse("horizon:project:firewalls:updatefirewall",
@@ -146,18 +150,13 @@ class UpdateFirewallLink(tables.LinkAction):
         return base_url
 
 
-class InsertRuleToPolicyLink(tables.LinkAction):
+class InsertRuleToPolicyLink(policy.PolicyTargetMixin,
+                             tables.LinkAction):
     name = "insertrule"
     verbose_name = _("Insert Rule")
     classes = ("ajax-modal", "btn-update",)
     policy_rules = (("network", "get_firewall_policy"),
-        ("network", "insert_rule"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
+                    ("network", "insert_rule"),)
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:insertrule",
@@ -165,18 +164,13 @@ class InsertRuleToPolicyLink(tables.LinkAction):
         return base_url
 
 
-class RemoveRuleFromPolicyLink(tables.LinkAction):
+class RemoveRuleFromPolicyLink(policy.PolicyTargetMixin,
+                               tables.LinkAction):
     name = "removerule"
     verbose_name = _("Remove Rule")
     classes = ("ajax-modal", "btn-danger",)
     policy_rules = (("network", "get_firewall_policy"),
-        ("network", "remove_rule"),)
-
-    def get_policy_target(self, request, datum=None):
-        project_id = None
-        if datum:
-            project_id = getattr(datum, 'tenant_id', None)
-        return {"project_id": project_id}
+                    ("network", "remove_rule"),)
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:removerule",
@@ -219,7 +213,7 @@ class RulesTable(tables.DataTable):
                            filters=(filters.upper,),
                            verbose_name=_("Action"))
     enabled = tables.Column("enabled",
-                           verbose_name=_("Enabled"))
+                            verbose_name=_("Enabled"))
     firewall_policy_id = tables.Column(get_policy_name,
                                        link=get_policy_link,
                                        verbose_name=_("In Policy"))

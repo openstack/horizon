@@ -61,8 +61,9 @@ class APIResourceWrapperTests(test.TestCase):
 
     def test_get_invalid_attribute(self):
         resource = APIResource.get_instance()
-        self.assertNotIn('missing', resource._attrs,
-                msg="Test assumption broken.  Find new missing attribute")
+        self.assertNotIn(
+            'missing', resource._attrs,
+            msg="Test assumption broken.  Find new missing attribute")
         with self.assertRaises(AttributeError):
             resource.missing
 
@@ -89,8 +90,9 @@ class APIDictWrapperTests(test.TestCase):
 
     def test_get_invalid_item(self):
         resource = APIDict.get_instance()
-        self.assertNotIn('missing', resource._attrs,
-                msg="Test assumption broken.  Find new missing attribute")
+        self.assertNotIn(
+            'missing', resource._attrs,
+            msg="Test assumption broken.  Find new missing attribute")
         with self.assertRaises(AttributeError):
             resource.missing
         with self.assertRaises(KeyError):

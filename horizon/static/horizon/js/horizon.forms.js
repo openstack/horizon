@@ -86,7 +86,7 @@ horizon.forms = {
   },
 
   datepicker: function() {
-    var startDate = $('input#id_start').datepicker()
+    var startDate = $('input#id_start').datepicker({ language: horizon.datepickerLocale })
       .on('changeDate', function(ev) {
         if (ev.dates[0].valueOf() > endDate.dates[0].valueOf()) {
           var newDate = new Date(ev.dates[0]);
@@ -100,6 +100,7 @@ horizon.forms = {
       }).data('datepicker');
 
     var endDate = $('input#id_end').datepicker({
+      language: horizon.datepickerLocale,
       startDate: startDate ? startDate.dates[0] : null
     }).on('changeDate', function(ev) {
         endDate.hide();
@@ -225,7 +226,7 @@ horizon.addInitFunction(function () {
   // Bind handler for swapping labels on "switchable" select fields.
   $(document).on("change", 'select.switchable', function (evt) {
     var $fieldset = $(evt.target).closest('fieldset'),
-      $switchables = $fieldset.find('.switchable');
+      $switchables = $fieldset.find('select.switchable');
 
     $switchables.each(function (index, switchable) {
       var $switchable = $(switchable),
@@ -264,13 +265,34 @@ horizon.addInitFunction(function () {
 
     $switchables.each(function (index, switchable) {
       var $switchable = $(switchable),
+        visible = $switchable.is(':visible'),
         slug = $switchable.data('slug'),
-        checked = $switchable.prop('checked');
+        checked = $switchable.prop('checked'),
+        hide_tab = $switchable.data('hide-tab'),
+        hide_on = $switchable.data('hideOnChecked');
+
+      // If checkbox is hidden then do not apply any further logic
+      if (!visible) return;
+
+      // If the checkbox has hide-tab attribute then hide/show the tab
+      if (hide_tab) {
+        if(checked == hide_on) {
+          // If the checkbox is not checked then hide the tab
+          $('*[data-target="#'+ hide_tab +'"]').parent().hide();
+          $('.button-next').hide();
+          $('.button-final').show();
+        } else if (!$('*[data-target="#'+ hide_tab +'"]').parent().is(':visible')) {
+          // If the checkbox is checked and the tab is currently hidden then show the tab again
+          $('*[data-target="#'+ hide_tab +'"]').parent().show();
+          $('.button-final').hide();
+          $('.button-next').show();
+        }
+      }
 
       function handle_switched_field(index, input){
         var $input = $(input);
 
-        if ( checked ) {
+        if (checked != hide_on) {
           $input.closest('.form-group').show();
           // Add the required class to form group to show a (*) next to label
           if ($input.data('is-required')) {

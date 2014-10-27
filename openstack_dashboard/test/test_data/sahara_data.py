@@ -24,6 +24,7 @@ from saharaclient.api import plugins
 
 def data(TEST):
     TEST.plugins = utils.TestDataContainer()
+    TEST.plugins_configs = utils.TestDataContainer()
     TEST.nodegroup_templates = utils.TestDataContainer()
     TEST.cluster_templates = utils.TestDataContainer()
     TEST.clusters = utils.TestDataContainer()
@@ -42,6 +43,58 @@ def data(TEST):
     plugin1 = plugins.Plugin(plugins.PluginManager(None), plugin1_dict)
 
     TEST.plugins.add(plugin1)
+
+    plugin_config1_dict = {
+        "node_processes": {
+            "HDFS": [
+                "namenode",
+                "datanode",
+                "secondarynamenode"
+            ],
+            "MapReduce": [
+                "tasktracker",
+                "jobtracker"
+            ]
+        },
+        "description": "This plugin provides an ability to launch vanilla "
+                       "Apache Hadoop cluster without any management "
+                       "consoles.",
+        "versions": [
+            "1.2.1"
+        ],
+        "required_image_tags": [
+            "vanilla",
+            "1.2.1"
+        ],
+        "configs": [
+            {
+                "default_value": "/tmp/hadoop-${user.name}",
+                "name": "hadoop.tmp.dir",
+                "priority": 2,
+                "config_type": "string",
+                "applicable_target": "HDFS",
+                "is_optional": True,
+                "scope": "node",
+                "description": "A base for other temporary directories."
+            },
+            {
+                "default_value": True,
+                "name": "hadoop.native.lib",
+                "priority": 2,
+                "config_type": "bool",
+                "applicable_target": "HDFS",
+                "is_optional": True,
+                "scope": "node",
+                "description": "Should native hadoop libraries, if present, "
+                               "be used."
+            },
+        ],
+        "title": "Vanilla Apache Hadoop",
+        "name": "vanilla"
+    }
+
+    TEST.plugins_configs.add(plugins.Plugin(plugins.PluginManager(None),
+                                            plugin_config1_dict))
 
     # Nodegroup_Templates.
     ngt1_dict = {
@@ -279,9 +332,23 @@ def data(TEST):
         "url": "internal-db://80121dea-f8bd-4ad3-bcc7-096f4bfc722d"
     }
 
+    job_binary2_dict = {
+        "created_at": "2014-10-10 13:12:15.583631",
+        "description": "Test for spaces in name",
+        "id": "abcdef56-1234-abcd-abcd-defabcdaedcb",
+        "name": "example with spaces.pig",
+        "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
+        "updated_at": None,
+        "url": "internal-db://abcdef56-1234-abcd-abcd-defabcdaedcb"
+    }
+
     job_binary1 = job_binaries.JobBinaries(
         job_binaries.JobBinariesManager(None), job_binary1_dict)
+    job_binary2 = job_binaries.JobBinaries(
+        job_binaries.JobBinariesManager(None), job_binary2_dict)
+
     TEST.job_binaries.add(job_binary1)
+    TEST.job_binaries.add(job_binary2)
 
     # Jobs.
     job1_dict = {

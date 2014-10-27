@@ -14,11 +14,12 @@
 import openstack_dashboard.dashboards.project.data_processing. \
     utils.workflow_helpers as work_helpers
 
+from openstack_dashboard.api import sahara as saharaclient
+
 
 class Helpers(object):
-    def __init__(self, sahara_client):
-        self.sahara = sahara_client
-        self.plugins = self.sahara.plugins
+    def __init__(self, request):
+        self.request = request
 
     def _get_node_processes(self, plugin):
         processes = []
@@ -28,7 +29,9 @@ class Helpers(object):
         return [(proc_name, proc_name) for proc_name in processes]
 
     def get_node_processes(self, plugin_name, hadoop_version):
-        plugin = self.plugins.get_version_details(plugin_name, hadoop_version)
+        plugin = saharaclient.plugin_get_version_details(self.request,
+                                                         plugin_name,
+                                                         hadoop_version)
 
         return self._get_node_processes(plugin)
 
@@ -43,17 +46,23 @@ class Helpers(object):
         return parameters
 
     def get_cluster_general_configs(self, plugin_name, hadoop_version):
-        plugin = self.plugins.get_version_details(plugin_name, hadoop_version)
+        plugin = saharaclient.plugin_get_version_details(self.request,
+                                                         plugin_name,
+                                                         hadoop_version)
 
         return self._extract_parameters(plugin.configs, 'cluster', "general")
 
     def get_general_node_group_configs(self, plugin_name, hadoop_version):
-        plugin = self.plugins.get_version_details(plugin_name, hadoop_version)
+        plugin = saharaclient.plugin_get_version_details(self.request,
+                                                         plugin_name,
+                                                         hadoop_version)
 
         return self._extract_parameters(plugin.configs, 'node', 'general')
 
     def get_targeted_node_group_configs(self, plugin_name, hadoop_version):
-        plugin = self.plugins.get_version_details(plugin_name, hadoop_version)
+        plugin = saharaclient.plugin_get_version_details(self.request,
+                                                         plugin_name,
+                                                         hadoop_version)
 
         parameters = {}
 
@@ -64,7 +73,9 @@ class Helpers(object):
         return parameters
 
     def get_targeted_cluster_configs(self, plugin_name, hadoop_version):
-        plugin = self.plugins.get_version_details(plugin_name, hadoop_version)
+        plugin = saharaclient.plugin_get_version_details(self.request,
+                                                         plugin_name,
+                                                         hadoop_version)
 
         parameters = {}
 

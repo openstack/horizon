@@ -1,7 +1,9 @@
 {% load i18n sizeformat parse_date %}
 {% load url from future %}
 
-<h3>{% trans "Volume Backup Overview" %}: {{backup.display_name }}</h3>
+<h3>
+  {% blocktrans with backup_display_name=backup.display_name %}Volume Backup Overview: {{ backup_display_name }}{% endblocktrans %}
+</h3>
 
 <div class="info row-fluid detail">
   <h4>{% trans "Info" %}</h4>

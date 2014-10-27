@@ -22,5 +22,6 @@ from django.conf.urls import url
 from openstack_dashboard.dashboards.admin.info import views
 
 
-urlpatterns = patterns('openstack_dashboard.dashboards.admin.info.views',
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.admin.info.views',
     url(r'^$', views.IndexView.as_view(), name='index'))
