@@ -94,7 +94,7 @@ def memoized(func):
             # we can't cache anything and simply always call the decorated
             # function.
             warnings.warn(
-                "The key %r is not hashable and cannot be memoized." % key,
+                "The key %r is not hashable and cannot be memoized." % (key,),
                 UnhashableKeyWarning, 2)
             value = func(*args, **kwargs)
         return value
