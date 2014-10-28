@@ -46,6 +46,7 @@ class ConfirmPasswordForm(forms.Form):
                                             code='invalid')
         return data
 
+
 class RegistrationForm(ConfirmPasswordForm):
     """
     Form for registering a new user account.
@@ -59,7 +60,11 @@ class RegistrationForm(ConfirmPasswordForm):
     registration backend.
 
     """
-    captcha = ReCaptchaField(attrs={'theme' : 'white'})
+
+    captcha = ReCaptchaField(attrs={
+                    'theme' : 'custom',
+                    'custom_theme_widget': 'recaptcha_widget'
+                })
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
                                 label=_("Username"),
