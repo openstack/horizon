@@ -15,6 +15,7 @@
 #    under the License.
 
 from django.test.utils import override_settings
+import six
 
 import cinderclient as cinder_client
 
@@ -57,6 +58,28 @@ class CinderApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         api.cinder.volume_snapshot_list(self.request)
+
+    def test_absolute_limits_with_negative_values(self):
+        values = {"maxTotalVolumes": -1, "totalVolumesUsed": -1}
+        expected_results = {"maxTotalVolumes": float("inf"),
+                            "totalVolumesUsed": 0}
+
+        limits = self.mox.CreateMockAnything()
+        limits.absolute = []
+        for key, val in six.iteritems(values):
+            limit = self.mox.CreateMockAnything()
+            limit.name = key
+            limit.value = val
+            limits.absolute.append(limit)
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.limits = self.mox.CreateMockAnything()
+        cinderclient.limits.get().AndReturn(limits)
+        self.mox.ReplayAll()
+
+        ret_val = api.cinder.tenant_absolute_limits(self.request)
+        for key in expected_results.keys():
+            self.assertEqual(expected_results[key], ret_val[key])
 
 
 class CinderApiVersionTests(test.TestCase):
