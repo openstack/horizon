@@ -362,7 +362,7 @@ Default::
     {
         "data_processing": 1.1,
         "identity": 2.0,
-        "volume": 1
+        "volume": 2
     }
 
 Overrides for OpenStack API versions. Use this setting to force the
