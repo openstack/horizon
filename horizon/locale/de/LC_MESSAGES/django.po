@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
+"POT-Creation-Date: 2014-10-28 19:13-0500\n"
+"PO-Revision-Date: 2014-10-28 22:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "Abschicken"
 
 #: forms/views.py:82
-#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_modal_form_update_metadata.html:236
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -104,7 +104,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:788 tables/base.py:1552
 msgid "N/A"
 msgstr "Nicht verfügbar"
 
@@ -139,26 +139,26 @@ msgstr "Aktualisieren"
 msgid "Updated"
 msgstr "Aktualisiert"
 
-#: tables/base.py:355
+#: tables/base.py:361
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Das Attribut %(attr)s existiert nicht für %(obj)s."
 
-#: tables/base.py:967
+#: tables/base.py:973
 msgid "No items to display."
 msgstr "Kein Eintrag zum anzeigen."
 
-#: tables/base.py:1076
+#: tables/base.py:1082
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Aktionen"
 
-#: tables/base.py:1302
+#: tables/base.py:1311
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Keine Übereinstimmung für die ID \"%s\"."
 
-#: tables/base.py:1459
+#: tables/base.py:1468
 msgid "Please select a row before taking that action."
 msgstr "Bitte wählen Sie vor dem Ausführen dieser Aktion eine Zeile aus."
 
@@ -214,22 +214,22 @@ msgstr "Erfolg:"
 msgid "Error: "
 msgstr "Fehler:"
 
-#: templates/horizon/common/_data_table.html:54
+#: templates/horizon/common/_data_table.html:61
 msgid "Summary"
 msgstr "Zusammenfassung"
 
-#: templates/horizon/common/_data_table.html:63
+#: templates/horizon/common/_data_table.html:70
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "Zeige %(counter)s Eintrag"
 msgstr[1] "Zeige %(counter)s Einträge"
 
-#: templates/horizon/common/_data_table.html:68
+#: templates/horizon/common/_data_table.html:75
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Zurück"
 
-#: templates/horizon/common/_data_table.html:71
+#: templates/horizon/common/_data_table.html:78
 msgid "Next&nbsp;&raquo;"
 msgstr "Weiter&nbsp;&raquo;"
 
@@ -312,20 +312,16 @@ msgstr "Verfügbare Metadaten"
 msgid "Duplicate keys are not allowed"
 msgstr "Doppelte Schlüssel sind nicht erlaubt"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:59
-msgid "Invalid key name"
-msgstr "Ungültiger Schlüsselname"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:88
-#: templates/horizon/common/_modal_form_update_metadata.html:200
+#: templates/horizon/common/_modal_form_update_metadata.html:85
+#: templates/horizon/common/_modal_form_update_metadata.html:197
 msgid "No available metadata"
 msgstr "Keine Metadaten vorhanden"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:99
+#: templates/horizon/common/_modal_form_update_metadata.html:96
 msgid "Existing Metadata"
 msgstr "Existierende Metadaten"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:216
+#: templates/horizon/common/_modal_form_update_metadata.html:213
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -335,7 +331,7 @@ msgid ""
 "        "
 msgstr "\nSie können Ressource-Metadaten angeben in dem Sie Einträge von der linken Spalten zur rechten Spalte verschieben. In der linken Spalte sind Metadatenangaben aus dem Glance Metadaten Katalog. Wählen Sie die Option \"Other\" um eine Bezeichnung Ihrer Wahl zu benutzen."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Speichern"

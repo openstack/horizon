@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
+"POT-Creation-Date: 2014-10-28 19:13-0500\n"
+"PO-Revision-Date: 2014-10-28 22:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +78,7 @@ msgid "Submit"
 msgstr "Kirim"
 
 #: forms/views.py:82
-#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_modal_form_update_metadata.html:236
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Batal"
@@ -103,7 +103,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:788 tables/base.py:1552
 msgid "N/A"
 msgstr "Tidak Tersedia"
 
@@ -138,26 +138,26 @@ msgstr "Perbaharui"
 msgid "Updated"
 msgstr "Sudah di perbaharui"
 
-#: tables/base.py:355
+#: tables/base.py:361
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Atribut  %(attr)s  tidak tersedia di %(obj)s."
 
-#: tables/base.py:967
+#: tables/base.py:973
 msgid "No items to display."
 msgstr "Tidak ada yang ditampilkan"
 
-#: tables/base.py:1076
+#: tables/base.py:1082
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Lakukan"
 
-#: tables/base.py:1302
+#: tables/base.py:1311
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Tidak ada hasil yang berhubungan dengan id \"%s\"."
 
-#: tables/base.py:1459
+#: tables/base.py:1468
 msgid "Please select a row before taking that action."
 msgstr "Mohon pilih baris terlebih dahulu."
 
@@ -213,21 +213,21 @@ msgstr "Berhasil:"
 msgid "Error: "
 msgstr "Kesalahan:"
 
-#: templates/horizon/common/_data_table.html:54
+#: templates/horizon/common/_data_table.html:61
 msgid "Summary"
 msgstr "Ringkasan"
 
-#: templates/horizon/common/_data_table.html:63
+#: templates/horizon/common/_data_table.html:70
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
 
-#: templates/horizon/common/_data_table.html:68
+#: templates/horizon/common/_data_table.html:75
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Prev"
 
-#: templates/horizon/common/_data_table.html:71
+#: templates/horizon/common/_data_table.html:78
 msgid "Next&nbsp;&raquo;"
 msgstr "Next&nbsp;&raquo;"
 
@@ -310,20 +310,16 @@ msgstr "Metadata yang tersedia"
 msgid "Duplicate keys are not allowed"
 msgstr "Tidak diijinkan untuk \"key\" yang sama"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:59
-msgid "Invalid key name"
-msgstr "Kesalahan pada nama \"key\""
-
-#: templates/horizon/common/_modal_form_update_metadata.html:88
-#: templates/horizon/common/_modal_form_update_metadata.html:200
+#: templates/horizon/common/_modal_form_update_metadata.html:85
+#: templates/horizon/common/_modal_form_update_metadata.html:197
 msgid "No available metadata"
 msgstr ""
 
-#: templates/horizon/common/_modal_form_update_metadata.html:99
+#: templates/horizon/common/_modal_form_update_metadata.html:96
 msgid "Existing Metadata"
 msgstr "Metadata yang sudah ada"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:216
+#: templates/horizon/common/_modal_form_update_metadata.html:213
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -333,7 +329,7 @@ msgid ""
 "        "
 msgstr "\nAnda dapat menentukan sumber metadata dengan memindahkan item dari kolom kiri ke kolom kanan.\nPada kolom kiri adalah definisi metadata dari Katalog Metadata Glance.\nGunakan pilihan \"Lainnya\" untuk menambahkan metadata sesuai dengan yang anda pilih."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Simpan"

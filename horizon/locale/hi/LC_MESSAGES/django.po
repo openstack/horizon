@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
+"POT-Creation-Date: 2014-10-28 19:13-0500\n"
+"PO-Revision-Date: 2014-10-28 22:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "जमा करें"
 
 #: forms/views.py:82
-#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_modal_form_update_metadata.html:236
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "रद्द करें"
@@ -104,7 +104,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:788 tables/base.py:1552
 msgid "N/A"
 msgstr "लागू नहीं"
 
@@ -139,26 +139,26 @@ msgstr "अद्यतन"
 msgid "Updated"
 msgstr "अद्यतित"
 
-#: tables/base.py:355
+#: tables/base.py:361
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s पर %(attr)s  गुण मौज़ूद नहीं हैं."
 
-#: tables/base.py:967
+#: tables/base.py:973
 msgid "No items to display."
 msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
 
-#: tables/base.py:1076
+#: tables/base.py:1082
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "क्रियाएं"
 
-#: tables/base.py:1302
+#: tables/base.py:1311
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "इस आइडी \"%s\" के लिए कोई मेल नहीं मिला."
 
-#: tables/base.py:1459
+#: tables/base.py:1468
 msgid "Please select a row before taking that action."
 msgstr "कृपया इस क्रिया को करने से पहले पंक्ति का चयन करें."
 
@@ -214,22 +214,22 @@ msgstr "सफलता:"
 msgid "Error: "
 msgstr "त्रुटि: "
 
-#: templates/horizon/common/_data_table.html:54
+#: templates/horizon/common/_data_table.html:61
 msgid "Summary"
 msgstr "सारांश"
 
-#: templates/horizon/common/_data_table.html:63
+#: templates/horizon/common/_data_table.html:70
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] " %(counter)s मद प्रदर्शित"
 msgstr[1] " %(counter)s मद प्रदर्शित"
 
-#: templates/horizon/common/_data_table.html:68
+#: templates/horizon/common/_data_table.html:75
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;पिछला"
 
-#: templates/horizon/common/_data_table.html:71
+#: templates/horizon/common/_data_table.html:78
 msgid "Next&nbsp;&raquo;"
 msgstr "अगला&nbsp;&raquo;"
 
@@ -312,20 +312,16 @@ msgstr "उपलब्ध मेटाडाटा"
 msgid "Duplicate keys are not allowed"
 msgstr "एक जैसे कुंजी की अनुमति नहीं है"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:59
-msgid "Invalid key name"
-msgstr "अवैध कुंजी नाम"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:88
-#: templates/horizon/common/_modal_form_update_metadata.html:200
+#: templates/horizon/common/_modal_form_update_metadata.html:85
+#: templates/horizon/common/_modal_form_update_metadata.html:197
 msgid "No available metadata"
 msgstr ""
 
-#: templates/horizon/common/_modal_form_update_metadata.html:99
+#: templates/horizon/common/_modal_form_update_metadata.html:96
 msgid "Existing Metadata"
 msgstr "मौजूदा मेटाडाटा "
 
-#: templates/horizon/common/_modal_form_update_metadata.html:216
+#: templates/horizon/common/_modal_form_update_metadata.html:213
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -335,7 +331,7 @@ msgid ""
 "        "
 msgstr "\n        आप दाएँ स्तंभ से बाएँ स्तंभ तक आइटम जोड़कर स्रोत मेटाडाटा निर्दिष्ट कर सकते हैं.\n        आप ग्लांस शब्दकोश में जोड़ा मेटाडाटा को चुन सकते हैं या आप अपनी\n        पसंद का एक कुंजी का उपयोग करने के लिए \"अन्य\" विकल्प का उपयोग\n       कर सकते हैं.\n     "
 
-#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: workflows/base.py:594
 msgid "Save"
 msgstr "सहेजें"

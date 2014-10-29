@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-24 13:00-0500\n"
-"PO-Revision-Date: 2014-10-24 08:10+0000\n"
-"Last-Translator: Frédéric <frosmont@free.fr>\n"
+"POT-Creation-Date: 2014-10-28 19:13-0500\n"
+"PO-Revision-Date: 2014-10-28 22:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "Envoyer"
 
 #: forms/views.py:82
-#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_modal_form_update_metadata.html:236
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Annuler"
@@ -312,20 +312,16 @@ msgstr "Métadonnée Disponible"
 msgid "Duplicate keys are not allowed"
 msgstr "Les clés dupliquées ne sont pas autorisées"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:59
-msgid "Invalid key name"
-msgstr "Nom de clé invalide"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:88
-#: templates/horizon/common/_modal_form_update_metadata.html:200
+#: templates/horizon/common/_modal_form_update_metadata.html:85
+#: templates/horizon/common/_modal_form_update_metadata.html:197
 msgid "No available metadata"
 msgstr "Pas de métadonnée disponible"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:99
+#: templates/horizon/common/_modal_form_update_metadata.html:96
 msgid "Existing Metadata"
 msgstr "Métadonnée existante"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:216
+#: templates/horizon/common/_modal_form_update_metadata.html:213
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -335,7 +331,7 @@ msgid ""
 "        "
 msgstr "\nVous pouvez spécifier les ressources de métadonnées en déplaçant les items de la colonne\nde gauche à la colonne de droite. Dans les colonnes de gauche il y a les définitions\ndes métadonnées depuis le Catalogue de Métadonnées Glance. Utiliser l'option \"Autre\" pour ajouter des métadonnées avec la clé de votre choix."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Enregistrer"

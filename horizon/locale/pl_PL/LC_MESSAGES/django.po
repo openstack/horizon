@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
+"POT-Creation-Date: 2014-10-28 19:13-0500\n"
+"PO-Revision-Date: 2014-10-28 22:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +78,7 @@ msgid "Submit"
 msgstr "Wyślij"
 
 #: forms/views.py:82
-#: templates/horizon/common/_modal_form_update_metadata.html:239
+#: templates/horizon/common/_modal_form_update_metadata.html:236
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Anuluj"
@@ -103,7 +103,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:788 tables/base.py:1552
 msgid "N/A"
 msgstr "n.d."
 
@@ -138,26 +138,26 @@ msgstr "Aktualizuj"
 msgid "Updated"
 msgstr "Zaktualizowany"
 
-#: tables/base.py:355
+#: tables/base.py:361
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Atrybut %(attr)s nie istnieje dla %(obj)s."
 
-#: tables/base.py:967
+#: tables/base.py:973
 msgid "No items to display."
 msgstr "Brak pozycji do wyświetlenia."
 
-#: tables/base.py:1076
+#: tables/base.py:1082
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Czynności"
 
-#: tables/base.py:1302
+#: tables/base.py:1311
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nie znaleziono wyników dla identyfikatora „%s”."
 
-#: tables/base.py:1459
+#: tables/base.py:1468
 msgid "Please select a row before taking that action."
 msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
 
@@ -213,11 +213,11 @@ msgstr "Powodzenie:"
 msgid "Error: "
 msgstr "Błąd:"
 
-#: templates/horizon/common/_data_table.html:54
+#: templates/horizon/common/_data_table.html:61
 msgid "Summary"
 msgstr "Podsumowanie"
 
-#: templates/horizon/common/_data_table.html:63
+#: templates/horizon/common/_data_table.html:70
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
@@ -225,11 +225,11 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: templates/horizon/common/_data_table.html:68
+#: templates/horizon/common/_data_table.html:75
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Poprzednie"
 
-#: templates/horizon/common/_data_table.html:71
+#: templates/horizon/common/_data_table.html:78
 msgid "Next&nbsp;&raquo;"
 msgstr "Następne&nbsp;&raquo;"
 
@@ -312,20 +312,16 @@ msgstr "Dostępne metadane"
 msgid "Duplicate keys are not allowed"
 msgstr "Ponowne użycie nazwy klucza jest niedozwolone."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:59
-msgid "Invalid key name"
-msgstr "Blędna nazwa klucza."
-
-#: templates/horizon/common/_modal_form_update_metadata.html:88
-#: templates/horizon/common/_modal_form_update_metadata.html:200
+#: templates/horizon/common/_modal_form_update_metadata.html:85
+#: templates/horizon/common/_modal_form_update_metadata.html:197
 msgid "No available metadata"
 msgstr ""
 
-#: templates/horizon/common/_modal_form_update_metadata.html:99
+#: templates/horizon/common/_modal_form_update_metadata.html:96
 msgid "Existing Metadata"
 msgstr "Istniejące metadane"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:216
+#: templates/horizon/common/_modal_form_update_metadata.html:213
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -335,7 +331,7 @@ msgid ""
 "        "
 msgstr "\nMożna podać metadane zasobów poprzez przesunięcie pozycji z lewej\nkolumny do prawej. W lewej kolumnie znajdują się definicje metadanych z Katalogu Metadanych Glance. W celu podania własnego klucza\nnależy wykorzystać opcję „Inne”."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:238
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Zapisz"
