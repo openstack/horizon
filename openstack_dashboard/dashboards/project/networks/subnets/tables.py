@@ -25,6 +25,7 @@ from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 
 
 LOG = logging.getLogger(__name__)
@@ -96,6 +97,18 @@ class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
         return reverse(self.url, args=(network_id,))
+
+    def allowed(self, request, datum=None):
+        usages = quotas.tenant_quota_usages(request)
+        if usages['subnets']['available'] <= 0:
+            if 'disabled' not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = _('Create Subnet (Quota exceeded)')
+        else:
+            self.verbose_name = _('Create Subnet')
+            self.classes = [c for c in self.classes if c != 'disabled']
+
+        return True
 
 
 class UpdateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,

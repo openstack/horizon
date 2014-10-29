@@ -122,6 +122,18 @@ class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
     policy_rules = (("network", "create_subnet"),)
     policy_target_attrs = (("network:project_id", "tenant_id"),)
 
+    def allowed(self, request, datum=None):
+        usages = quotas.tenant_quota_usages(request)
+        if usages['subnets']['available'] <= 0:
+            if 'disabled' not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = _('Add Subnet (Quota exceeded)')
+        else:
+            self.verbose_name = _('Add Subnet')
+            self.classes = [c for c in self.classes if c != 'disabled']
+
+        return True
+
 
 def get_subnets(network):
     template_name = 'project/networks/_network_ips.html'

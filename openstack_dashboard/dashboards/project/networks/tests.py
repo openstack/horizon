@@ -21,7 +21,10 @@ from horizon.workflows import views
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.networks import tables
+from openstack_dashboard.dashboards.project.networks.subnets import tables\
+    as subnets_tables
+from openstack_dashboard.dashboards.project.networks import tables\
+    as networks_tables
 from openstack_dashboard.dashboards.project.networks import workflows
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
@@ -100,6 +103,7 @@ class NetworkTests(test.TestCase):
     def test_index(self):
         quota_data = self.quota_usages.first()
         quota_data['networks']['available'] = 5
+        quota_data['subnets']['available'] = 5
         api.neutron.network_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
@@ -123,6 +127,7 @@ class NetworkTests(test.TestCase):
     def test_index_network_list_exception(self):
         quota_data = self.quota_usages.first()
         quota_data['networks']['available'] = 5
+        quota_data['subnets']['available'] = 5
         api.neutron.network_list(
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id,
@@ -141,18 +146,22 @@ class NetworkTests(test.TestCase):
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
-                                      'is_extension_supported',)})
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
     def test_network_detail(self):
         self._test_network_detail()
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
-                                      'is_extension_supported',)})
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
     def test_network_detail_with_mac_learning(self):
         self._test_network_detail(mac_learning=True)
 
     def _test_network_detail(self, mac_learning=False):
+        quota_data = self.quota_usages.first()
+        quota_data['subnets']['available'] = 5
         network_id = self.networks.first().id
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
@@ -165,6 +174,9 @@ class NetworkTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:networks:detail',
@@ -208,19 +220,24 @@ class NetworkTests(test.TestCase):
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
-                                      'is_extension_supported',)})
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
     def test_network_detail_subnet_exception(self):
         self._test_network_detail_subnet_exception()
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
-                                      'is_extension_supported',)})
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
     def test_network_detail_subnet_exception_with_mac_learning(self):
         self._test_network_detail_subnet_exception(mac_learning=True)
 
     def _test_network_detail_subnet_exception(self, mac_learning=False):
         network_id = self.networks.first().id
+        quota_data = self.quota_usages.first()
+        quota_data['networks']['available'] = 5
+        quota_data['subnets']['available'] = 5
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
             AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
@@ -228,11 +245,12 @@ class NetworkTests(test.TestCase):
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
             AndReturn([self.ports.first()])
         # Called from SubnetTable
-        api.neutron.network_get(IsA(http.HttpRequest), network_id).\
-            AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:networks:detail',
@@ -247,19 +265,23 @@ class NetworkTests(test.TestCase):
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
-                                      'is_extension_supported',)})
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
     def test_network_detail_port_exception(self):
         self._test_network_detail_port_exception()
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
-                                      'is_extension_supported',)})
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
     def test_network_detail_port_exception_with_mac_learning(self):
         self._test_network_detail_port_exception(mac_learning=True)
 
     def _test_network_detail_port_exception(self, mac_learning=False):
         network_id = self.networks.first().id
+        quota_data = self.quota_usages.first()
+        quota_data['subnets']['available'] = 5
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
             AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
@@ -272,6 +294,9 @@ class NetworkTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:networks:detail',
@@ -1771,11 +1796,11 @@ class NetworkPortTests(test.TestCase):
 
 class NetworkViewTests(test.TestCase):
 
-    @test.create_stubs({api.neutron: ('network_list',),
-                        quotas: ('tenant_quota_usages',)})
-    def test_create_button_disabled_when_quota_exceeded(self):
+    def _test_create_button_disabled_when_quota_exceeded(
+            self, expected_string, network_quota=5, subnet_quota=5):
         quota_data = self.quota_usages.first()
-        quota_data['networks']['available'] = 0
+        quota_data['networks']['available'] = network_quota
+        quota_data['subnets']['available'] = subnet_quota
 
         api.neutron.network_list(
             IsA(http.HttpRequest),
@@ -1796,7 +1821,13 @@ class NetworkViewTests(test.TestCase):
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
 
-        create_link = tables.CreateNetwork()
+        self.assertContains(res, expected_string, html=True,
+                            msg_prefix="The create button is not disabled")
+
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_network_create_button_disabled_when_quota_exceeded_index(self):
+        create_link = networks_tables.CreateNetwork()
         url = create_link.get_link_url()
         classes = (list(create_link.get_default_classes())
                    + list(create_link.classes))
@@ -1804,6 +1835,76 @@ class NetworkViewTests(test.TestCase):
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='networks__action_create'>" \
+            "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
+            % (url, link_name, " ".join(classes), link_name)
+
+        self._test_create_button_disabled_when_quota_exceeded(expected_string,
+                                                              network_quota=0)
+
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_subnet_create_button_disabled_when_quota_exceeded_index(self):
+        network_id = self.networks.first().id
+
+        create_link = networks_tables.CreateSubnet()
+        url = reverse(create_link.get_link_url(), args=[network_id])
+        classes = (list(create_link.get_default_classes())
+                   + list(create_link.classes))
+        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+                                 "Quota exceeded")
+        expected_string = "<a href='%s' class='%s disabled' "\
+            "id='networks__row_%s__action_subnet'>%s</a>" \
+            % (url, " ".join(classes), network_id, link_name)
+
+        self._test_create_button_disabled_when_quota_exceeded(expected_string,
+                                                              subnet_quota=0)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_subnet_create_button_disabled_when_quota_exceeded_detail(self):
+        network_id = self.networks.first().id
+        quota_data = self.quota_usages.first()
+        quota_data['subnets']['available'] = 0
+
+        api.neutron.network_get(
+            IsA(http.HttpRequest), network_id)\
+            .MultipleTimes().AndReturn(self.networks.first())
+        api.neutron.subnet_list(
+            IsA(http.HttpRequest), network_id=network_id)\
+            .AndReturn(self.subnets.list())
+        api.neutron.port_list(
+            IsA(http.HttpRequest), network_id=network_id)\
+            .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'mac-learning')\
+            .AndReturn(False)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:project:networks:detail',
+                                      args=[network_id]))
+        self.assertTemplateUsed(res, 'project/networks/detail.html')
+
+        subnets = res.context['subnets_table'].data
+        self.assertItemsEqual(subnets, self.subnets.list())
+
+        class FakeTable():
+            kwargs = {'network_id': network_id}
+        create_link = subnets_tables.CreateSubnet()
+        create_link.table = FakeTable()
+        url = create_link.get_link_url()
+        classes = (list(create_link.get_default_classes())
+                   + list(create_link.classes))
+        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+                                 "Quota exceeded")
+        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
+            "id='subnets__action_create'>" \
             "<span class='glyphicon glyphicon-plus'></span>%s</a>" \
             % (url, link_name, " ".join(classes), link_name)
         self.assertContains(res, expected_string, html=True,
