@@ -25,6 +25,27 @@ from openstack_dashboard import api
 from openstack_dashboard import policy
 
 
+class RescopeTokenToProject(tables.LinkAction):
+    name = "rescope"
+    verbose_name = _("Set as Active Project")
+    url = "switch_tenants"
+
+    def allowed(self, request, project):
+        # allow rescoping token to any project the user has a role on,
+        # authorized_tenants, and that they are not currently scoped to
+        return next((True for proj in request.user.authorized_tenants
+                     if proj.id == project.id and
+                     project.id != request.user.project_id), False)
+
+    def get_link_url(self, project):
+        # redirects to the switch_tenants url which then will redirect
+        # back to this page
+        dash_url = reverse("horizon:identity:projects:index")
+        base_url = reverse(self.url, args=[project.id])
+        param = urlencode({"next": dash_url})
+        return "?".join([base_url, param])
+
+
 class UpdateMembersLink(tables.LinkAction):
     name = "users"
     verbose_name = _("Modify Users")
@@ -211,7 +232,8 @@ class TenantsTable(tables.DataTable):
         verbose_name = _("Projects")
         row_class = UpdateRow
         row_actions = (UpdateMembersLink, UpdateGroupsLink, UpdateProject,
-                       UsageLink, ModifyQuotas, DeleteTenantsAction)
+                       UsageLink, ModifyQuotas, DeleteTenantsAction,
+                       RescopeTokenToProject)
         table_actions = (TenantFilterAction, CreateProject,
                          DeleteTenantsAction)
         pagination_param = "tenant_marker"
