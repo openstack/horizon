@@ -156,7 +156,7 @@ class UserFilterAction(tables.FilterAction):
         q = filter_string.lower()
         return [user for user in users
                 if q in user.name.lower()
-                or q in getattr(user, 'email', '').lower()]
+                or q in (getattr(user, 'email', None) or '').lower()]
 
 
 class UsersTable(tables.DataTable):
