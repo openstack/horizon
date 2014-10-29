@@ -14,8 +14,21 @@
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
 </div>
+  <div class="panel panel-default panel-delete" id="accordion">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#panel-delete">
+          Are you sure you want to delete the organization?
+        </a>
+      </h4>
+    </div>
+    <div id="panel-delete" class="panel-collapse collapse">
+      <div class="panel-body">
+        <button type="submit" name="_delete">{% trans "Delete Organization" %}</button>
+      </div>
+    </div>
+  </div>
 
-<button type="submit" name="_delete">{% trans "Delete Organization" %}</button>
 {% endblock %}
 
 {% block modal-footer %}
