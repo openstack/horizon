@@ -93,14 +93,14 @@ class RegistrationForm(ConfirmPasswordForm):
 
         email = self.cleaned_data['email']
         email_domain = email.split('@')[1]
-        list_name = getattr(settings,'EMAIL_LIST_TYPE',None)
+        list_name = getattr(settings, 'EMAIL_LIST_TYPE', None)
         if list_name:
-            f = open('openstack_dashboard/fiware_auth/'+list_name+'.txt','rb')
+            f = open('openstack_dashboard/fiware_auth/'+list_name+'.txt', 'rb')
             emails = [row.strip() for row in f]
             if list_name == 'blacklist' and email_domain in emails:
                 raise forms.ValidationError(_("The email domain is blacklisted."),
                                          code='invalid')
-            elif list_name== 'whitelist' and email_domain not in emails:
+            elif list_name == 'whitelist' and email_domain not in emails:
                 raise forms.ValidationError(_("The email domain is not whitelisted."),
                                          code='invalid')
         try:

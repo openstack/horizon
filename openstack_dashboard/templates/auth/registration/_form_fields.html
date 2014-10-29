@@ -1,0 +1,10 @@
+{# NOTE(garcianavalon): Override of the default horizon/common/_form_fields.html to add a different template for the reCAPTCHA widget. I decided to do it here to avoid overriding horizon/common/_form_field.html to add an if for the reCAPTCHA field because this field is only used in the registration process. If the reCAPTCHA widget wants to be used in more places maybe is best to take a different aproach, for example use a custom widget instead of a template to render it or override horizon/common/_form_field.html #}
+{% include 'horizon/common/_form_errors.html' with form=form %}
+{% for field in form.visible_fields %}
+    {%if field.name == 'captcha' %}
+        {% include "auth/registration/_recaptcha.html" with field=field %}
+    {% else %}
+        {% include 'horizon/common/_form_field.html' with field=field %}
+    {% endif %}
+
+{% endfor %}

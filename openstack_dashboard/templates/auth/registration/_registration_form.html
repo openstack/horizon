@@ -7,18 +7,9 @@
   {% block form_action %}{% url 'fiware_auth_register' %}{% endblock %}
   {% block modal-body %}
 
-      {% include "horizon/common/_form_fields.html" %}
-      <div id="recaptcha_widget" style="display:none">
-        <div id="recaptcha_image"></div>
-        <div class="input-group">
-          <input type="text" class="form-control" id="recaptcha_response_field" name="recaptcha_response_field" />
-          <div class="input-group-addon"><div><a href="javascript:Recaptcha.reload()" class="fa fa-refresh"></a></div></div>
-          <div class="input-group-addon"><div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')" class="fa fa-volume-up"></a></div></div>
-          <div class="input-group-addon"><div><a href="javascript:Recaptcha.showhelp()" class="fa fa-question-circle"></a></div></div>
-        </div>
-        <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
 
-      </div>
+    {% include "auth/registration/_form_fields.html" %}
+      
 
   {% endblock %}
   {% block modal-footer %}
