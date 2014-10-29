@@ -30,31 +30,37 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 	
 class UploadImageForm(forms.SelfHandlingForm):
 	image = forms.ImageField(required=True)
-	# x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-	# y1 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
-	# x2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
-	# y2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+	x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+	y1 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+	x2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+	y2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
 		
 	def handle(self, request, data):
-		# x1=self.cleaned_data['x1']
-		# x2=self.cleaned_data['x2']
-		# y1=self.cleaned_data['y1']
-		# y2=self.cleaned_data['y2']
-		
+		x1=self.cleaned_data['x1'] 
+		x2=self.cleaned_data['x2']
+		y1=self.cleaned_data['y1']
+		y2=self.cleaned_data['y2']
+				
 		
 		image = request.FILES['image'] 
 		imageName = image.name
 		
 		img = Image.open(image)
-		width, height = img.size   # Get dimensions
-		left = width/4
-		top = height/4
-		right = 3 * width/4
-		bottom = 3 * height/4
-		import pdb
-		pdb.set_trace()
-		print(img)
-		output_img=img.crop((left,top,right,bottom))
+
+		if x1 > x2:
+			left = x2
+			right = x1
+		else:
+			left = x1
+			right = x2
+		if y1 > y2:
+			bottom = y2
+			top = y1
+		else:
+			bottom = y1
+			top = y2
+
+		output_img=img.crop((left,bottom,right,top))
 		output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName)
 		
 
