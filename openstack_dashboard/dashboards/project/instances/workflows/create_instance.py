@@ -290,7 +290,9 @@ class SetInstanceDetailsAction(workflows.Action):
                                 [msg])
 
         elif source_type == 'instance_snapshot_id':
-            if not cleaned_data['instance_snapshot_id']:
+            # using the array form of get blows up with KeyError
+            # if instance_snapshot_id is nil
+            if not cleaned_data.get('instance_snapshot_id'):
                 msg = _("You must select a snapshot.")
                 self._errors['instance_snapshot_id'] = self.error_class([msg])
 

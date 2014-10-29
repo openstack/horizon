@@ -2021,6 +2021,98 @@ class InstanceTests(helpers.TestCase):
         self.test_launch_instance_post_no_images_available(
             test_with_profile=True)
 
+    @helpers.create_stubs({
+        api.glance: ('image_list_detailed',),
+        api.neutron: ('network_list',
+                      'profile_list',
+                      'port_create',),
+        api.nova: ('extension_supported',
+                   'flavor_list',
+                   'keypair_list',
+                   'availability_zone_list',
+                   'server_create',),
+        api.network: ('security_group_list',),
+        cinder: ('volume_list',
+                 'volume_snapshot_list',),
+        quotas: ('tenant_quota_usages',)})
+    def test_launch_instance_post_boot_from_snapshot(
+        self,
+        test_with_profile=False,
+    ):
+        flavor = self.flavors.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        avail_zone = self.availability_zones.first()
+        quota_usages = self.quota_usages.first()
+
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IsA(http.HttpRequest),
+                                       filters={'is_public': True,
+                                                'status': 'active'}) \
+            .AndReturn([[], False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
+            .AndReturn([[], False, False])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+            .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+            .AndReturn(self.networks.list()[1:])
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.keypairs.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.availability_zones.list())
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                                     IsA(http.HttpRequest)).AndReturn(True)
+
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+
+        cinder.volume_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+            .AndReturn(quota_usages)
+
+        self.mox.ReplayAll()
+
+        bad_snapshot_id = 'a-bogus-id'
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'instance_snapshot_id',
+                     'instance_snapshot_id': bad_snapshot_id,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'script_source': 'raw',
+                     'availability_zone': avail_zone.zoneName,
+                     'network': self.networks.first().id,
+                     'volume_id': '',
+                     'volume_snapshot_id': '',
+                     'image_id': '',
+                     'device_name': 'vda',
+                     'count': 1,
+                     'profile': '',
+                     'customization_script': ''}
+
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.post(url, form_data)
+
+        self.assertFormErrors(res, 1, "You must select a snapshot.")
+
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'profile_list',),
