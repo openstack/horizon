@@ -3,13 +3,13 @@ from django.conf import settings
 from django import forms 
 from django.utils.translation import ugettext_lazy as _
 
-import horizon
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
+from PIL import Image 
 
 
 
@@ -30,14 +30,34 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 	
 class UploadImageForm(forms.SelfHandlingForm):
 	image = forms.ImageField(required=True)
+	# x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+	# y1 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+	# x2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+	# y2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
 		
 	def handle(self, request, data):
-		print(request.FILES['image'])
-		image = request.FILES['image']
+		# x1=self.cleaned_data['x1']
+		# x2=self.cleaned_data['x2']
+		# y1=self.cleaned_data['y1']
+		# y2=self.cleaned_data['y2']
+		
+		
+		image = request.FILES['image'] 
 		imageName = image.name
-		with open(settings.MEDIA_ROOT+'/'+imageName, 'wb+') as destination:
-			for chunk in image.chunks():
-				destination.write(chunk)
+		
+		img = Image.open(image)
+		width, height = img.size   # Get dimensions
+		left = width/4
+		top = height/4
+		right = 3 * width/4
+		bottom = 3 * height/4
+		import pdb
+		pdb.set_trace()
+		print(img)
+		output_img=img.crop((left,top,right,bottom))
+		output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName)
+		
+
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')
 		return response
 	

@@ -11,7 +11,10 @@ function readURL(input) {
         reader.onload = function (e) {
             $('#avatar-update').attr('src', e.target.result);
             $('#avatar-update').attr('style', "");
-            $('#avatar-update').Jcrop();
+            $('#avatar-update').Jcrop({
+                onChange: showCoords,
+                onSelect: showCoords
+            });
         }
         
         reader.readAsDataURL(input.files[0]);
@@ -22,7 +25,13 @@ $("#id_image").change(function(){
     readURL(this);
 });
 
-
+function showCoords(c)
+{
+    $('#id_x1').val(c.x);
+    $('#id_y1').val(c.y);
+    $('#id_x2').val(c.x2);
+    $('#id_y2').val(c.y2);
+};
 
     
 
