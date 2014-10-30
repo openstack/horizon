@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 19:13-0500\n"
-"PO-Revision-Date: 2014-10-28 12:21+0000\n"
+"POT-Creation-Date: 2014-10-29 15:01-0500\n"
+"PO-Revision-Date: 2014-10-29 14:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -421,7 +421,7 @@ msgstr "Beheerder"
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
-#: dashboards/identity/projects/tables.py:193
+#: dashboards/identity/projects/tables.py:214
 #: dashboards/identity/projects/workflows.py:141
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
@@ -478,10 +478,10 @@ msgstr "Beheerder"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:134
+#: dashboards/project/networks/tables.py:146
 #: dashboards/project/networks/ports/forms.py:34
 #: dashboards/project/networks/ports/tables.py:55
-#: dashboards/project/networks/subnets/tables.py:116
+#: dashboards/project/networks/subnets/tables.py:129
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
@@ -1090,7 +1090,7 @@ msgstr "Vlottende IPs"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:115
 #: dashboards/project/instances/templates/instances/_detail_overview.html:77
-#: dashboards/project/instances/workflows/create_instance.py:497
+#: dashboards/project/instances/workflows/create_instance.py:499
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1530,7 +1530,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:865
 #: dashboards/project/instances/tables.py:887
 #: dashboards/project/instances/workflows/create_instance.py:81
-#: dashboards/project/overview/views.py:32 usage/tables.py:72
+#: dashboards/project/overview/views.py:32 usage/tables.py:74
 msgid "Instance Name"
 msgstr "Exemplaarnaam"
 
@@ -1668,7 +1668,7 @@ msgstr "Zone"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
-#: dashboards/project/networks/tables.py:140
+#: dashboards/project/networks/tables.py:152
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
@@ -1886,8 +1886,8 @@ msgstr ""
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
-#: dashboards/identity/projects/tables.py:203
-#: dashboards/identity/projects/tables.py:205
+#: dashboards/identity/projects/tables.py:224
+#: dashboards/identity/projects/tables.py:226
 #: dashboards/identity/projects/workflows.py:147
 #: dashboards/identity/projects/workflows.py:507
 #: dashboards/identity/users/tables.py:178
@@ -2098,7 +2098,7 @@ msgid "Power State"
 msgstr "Energietoestand"
 
 #: dashboards/admin/instances/tables.py:155
-#: dashboards/project/instances/tables.py:916 usage/tables.py:75
+#: dashboards/project/instances/tables.py:916 usage/tables.py:77
 msgid "Time since created"
 msgstr ""
 
@@ -2234,7 +2234,7 @@ msgstr "Meter"
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
-#: dashboards/identity/projects/tables.py:197
+#: dashboards/identity/projects/tables.py:218
 #: dashboards/identity/projects/workflows.py:145
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -2539,7 +2539,7 @@ msgstr "Segment ID"
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:39
-#: dashboards/project/networks/tables.py:142
+#: dashboards/project/networks/tables.py:154
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/networks/ports/tables.py:61
@@ -2566,7 +2566,7 @@ msgstr "Beheertoestand"
 #: dashboards/project/firewalls/workflows.py:238
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:138
+#: dashboards/project/networks/tables.py:150
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "Gedeeld"
@@ -2595,13 +2595,13 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:695
+#: dashboards/project/instances/workflows/create_instance.py:697
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "Selecteer een profiel"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:705
+#: dashboards/project/instances/workflows/create_instance.py:707
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
@@ -2650,9 +2650,9 @@ msgstr "Bijwerken van netwerk %s is mislukt"
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:648
+#: dashboards/project/instances/workflows/create_instance.py:650
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:146
+#: dashboards/project/networks/tables.py:158
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
@@ -2708,7 +2708,7 @@ msgid "Network Name"
 msgstr "Netwerknaam"
 
 #: dashboards/admin/networks/tables.py:90
-#: dashboards/project/networks/tables.py:137
+#: dashboards/project/networks/tables.py:149
 msgid "Subnets Associated"
 msgstr "Gekoppelde subnetten"
 
@@ -2756,7 +2756,7 @@ msgstr "Poortlijst kan niet worden opgehaald."
 #: dashboards/admin/networks/views.py:151
 #: dashboards/admin/networks/subnets/tables.py:107
 #: dashboards/project/networks/views.py:132
-#: dashboards/project/networks/subnets/tables.py:130
+#: dashboards/project/networks/subnets/tables.py:143
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Niet in staat om de details voor netwerk \"%s\" op te halen."
@@ -2951,34 +2951,35 @@ msgid "Unable to retrieve port details."
 msgstr "Niet in staat om de poortdetails op te halen."
 
 #: dashboards/admin/networks/subnets/tables.py:37
-#: dashboards/project/networks/subnets/tables.py:60
+#: dashboards/project/networks/subnets/tables.py:61
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/admin/networks/subnets/tables.py:45
-#: dashboards/project/networks/subnets/tables.py:68
+#: dashboards/project/networks/subnets/tables.py:69
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/admin/networks/subnets/tables.py:56
-#: dashboards/project/networks/subnets/tables.py:79
+#: dashboards/project/networks/subnets/tables.py:80
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Verwijderen van subnet %s mislukt"
 
 #: dashboards/admin/networks/subnets/tables.py:66
 #: dashboards/project/networks/workflows.py:90
-#: dashboards/project/networks/subnets/tables.py:90
+#: dashboards/project/networks/subnets/tables.py:91
+#: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/subnets/workflows.py:56
 msgid "Create Subnet"
 msgstr "Creëer subnet"
 
 #: dashboards/admin/networks/subnets/tables.py:79
-#: dashboards/project/networks/subnets/tables.py:104
+#: dashboards/project/networks/subnets/tables.py:117
 #: dashboards/project/networks/subnets/workflows.py:160
 msgid "Edit Subnet"
 msgstr "Subnet bewerken"
@@ -2993,21 +2994,21 @@ msgstr "CIDR"
 
 #: dashboards/admin/networks/subnets/tables.py:94
 #: dashboards/project/networks/workflows.py:126
-#: dashboards/project/networks/subnets/tables.py:119
+#: dashboards/project/networks/subnets/tables.py:132
 #: dashboards/project/networks/subnets/workflows.py:100
 msgid "IP Version"
 msgstr "IP versie"
 
 #: dashboards/admin/networks/subnets/tables.py:95
 #: dashboards/project/networks/workflows.py:128
-#: dashboards/project/networks/subnets/tables.py:120
+#: dashboards/project/networks/subnets/tables.py:133
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
 msgstr "Gateway IP"
 
 #: dashboards/admin/networks/subnets/tables.py:114
 #: dashboards/identity/projects/workflows.py:74
-#: dashboards/project/networks/subnets/tables.py:137 usage/quotas.py:78
+#: dashboards/project/networks/subnets/tables.py:150 usage/quotas.py:78
 msgid "Subnets"
 msgstr "Subnetten"
 
@@ -3262,7 +3263,7 @@ msgid "None"
 msgstr "Geen"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:202
+#: dashboards/identity/projects/tables.py:223
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
@@ -3431,7 +3432,7 @@ msgstr "Informatie"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/instances/workflows/create_instance.py:99
-#: dashboards/project/instances/workflows/create_instance.py:371
+#: dashboards/project/instances/workflows/create_instance.py:373
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:220
@@ -4019,12 +4020,12 @@ msgstr "Domeinen"
 
 #: dashboards/identity/domains/tables.py:38
 #: dashboards/identity/groups/tables.py:91
-#: dashboards/identity/projects/tables.py:30
+#: dashboards/identity/projects/tables.py:51
 msgid "Modify Users"
 msgstr "Gebruikers aanpassen"
 
 #: dashboards/identity/domains/tables.py:54
-#: dashboards/identity/projects/tables.py:46
+#: dashboards/identity/projects/tables.py:67
 msgid "Modify Groups"
 msgstr "Groepen aanpassen"
 
@@ -4394,45 +4395,49 @@ msgid "Group Management: "
 msgstr "Groepsbeheer:"
 
 #: dashboards/identity/projects/panel.py:27
-#: dashboards/identity/projects/tables.py:211
+#: dashboards/identity/projects/tables.py:232
 #: dashboards/identity/projects/templates/projects/index.html:3
 #: dashboards/identity/projects/templates/projects/index.html:6
 #: templates/403.html:25 templates/404.html:24
 msgid "Projects"
 msgstr "Projecten"
 
-#: dashboards/identity/projects/tables.py:64
+#: dashboards/identity/projects/tables.py:30
+msgid "Set as Active Project"
+msgstr ""
+
+#: dashboards/identity/projects/tables.py:85
 msgid "View Usage"
 msgstr "Bekijk verbruik"
 
-#: dashboards/identity/projects/tables.py:75
+#: dashboards/identity/projects/tables.py:96
 #: dashboards/identity/projects/workflows.py:374
 #: dashboards/identity/projects/workflows.py:375
 msgid "Create Project"
 msgstr "Creëer project"
 
-#: dashboards/identity/projects/tables.py:87
+#: dashboards/identity/projects/tables.py:108
 #: dashboards/identity/projects/workflows.py:527
 msgid "Edit Project"
 msgstr "Project bewerken"
 
-#: dashboards/identity/projects/tables.py:99
+#: dashboards/identity/projects/tables.py:120
 msgid "Modify Quotas"
 msgstr "Quota's aanpassen"
 
-#: dashboards/identity/projects/tables.py:116
+#: dashboards/identity/projects/tables.py:137
 msgid "Delete Project"
 msgid_plural "Delete Projects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/identity/projects/tables.py:124
+#: dashboards/identity/projects/tables.py:145
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/identity/projects/tables.py:184
+#: dashboards/identity/projects/tables.py:205
 msgid "This name is already taken."
 msgstr "Deze naam is al in gebruik."
 
@@ -4676,7 +4681,7 @@ msgstr "Geen projecten beschikbaar"
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:546
+#: dashboards/project/instances/workflows/create_instance.py:548
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "Wachtwoorden komen niet overeen."
@@ -4856,7 +4861,7 @@ msgid "Data Processing"
 msgstr ""
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:504
+#: dashboards/project/instances/workflows/create_instance.py:506
 msgid "Access & Security"
 msgstr "Toegang & Beveiliging"
 
@@ -5628,7 +5633,7 @@ msgid "Unable to create container."
 msgstr "Niet in staat om de houder te creëren."
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:573
+#: dashboards/project/instances/workflows/create_instance.py:575
 #: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "Bestand"
@@ -6096,7 +6101,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:12
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quotNode Groups&quot tab."
+"    You can add Node Groups using Node Group Templates on a &quot;Node Groups&quot; tab."
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
@@ -6515,7 +6520,7 @@ msgstr "Afbeelding"
 #: dashboards/project/data_processing/data_image_registry/forms.py:71
 #: dashboards/project/instances/forms.py:39
 #: dashboards/project/instances/forms.py:64
-#: dashboards/project/instances/workflows/create_instance.py:393
+#: dashboards/project/instances/workflows/create_instance.py:395
 msgid "Select Image"
 msgstr "Selecteer afbeelding"
 
@@ -7280,7 +7285,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:791
+#: dashboards/project/instances/workflows/create_instance.py:793
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Starten"
@@ -7515,7 +7520,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:691
+#: dashboards/project/instances/workflows/create_instance.py:693
 msgid "Unable to retrieve networks."
 msgstr "Niet in staat om de netwerken op te halen."
 
@@ -7721,14 +7726,14 @@ msgstr "Gepland archief \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:793
+#: dashboards/project/instances/workflows/create_instance.py:795
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Niet in staat om %(count)s te starten genaamd \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:810
+#: dashboards/project/instances/workflows/create_instance.py:812
 msgid "instance"
 msgstr "Exemplaar"
 
@@ -7811,7 +7816,7 @@ msgstr "Fout bij het verwijderen van de database op exemplaar."
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
-#: dashboards/project/instances/workflows/create_instance.py:790
+#: dashboards/project/instances/workflows/create_instance.py:792
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Start exemplaar"
@@ -8088,22 +8093,22 @@ msgid "Select datastore type and version"
 msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:652
+#: dashboards/project/instances/workflows/create_instance.py:654
 msgid "At least one network must be specified."
 msgstr "Minimaal één netwerk dient te worden gespecificeerd."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:654
+#: dashboards/project/instances/workflows/create_instance.py:656
 msgid "Launch instance with these networks"
 msgstr "Start exemplaar met deze netwerken"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:676
+#: dashboards/project/instances/workflows/create_instance.py:678
 msgid "Networking"
 msgstr "Netwerken"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:678
+#: dashboards/project/instances/workflows/create_instance.py:680
 msgid "Select networks for your instance."
 msgstr "Selecteer netwerken voor uw exemplaar."
 
@@ -8148,7 +8153,7 @@ msgid "Unable to find backup!"
 msgstr "Niet in staat om het archief te vinden!"
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:792
+#: dashboards/project/instances/workflows/create_instance.py:794
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Gestart %(count)s genoemd \"%(name)s\"."
@@ -8994,28 +8999,28 @@ msgid "Confirm Rebuild Password"
 msgstr "Bevestig herbouw wachtwoord"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:737
+#: dashboards/project/instances/workflows/create_instance.py:739
 msgid "Disk Partition"
 msgstr "Schijfpartitie"
 
 #: dashboards/project/instances/forms.py:66
-#: dashboards/project/instances/workflows/create_instance.py:395
+#: dashboards/project/instances/workflows/create_instance.py:397
 msgid "No images available"
 msgstr "Geen afbeeldingen beschikbaar"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:755
+#: dashboards/project/instances/workflows/create_instance.py:757
 msgid "Automatic"
 msgstr "Automatisch"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:756
+#: dashboards/project/instances/workflows/create_instance.py:758
 msgid "Manual"
 msgstr "Handmatig"
 
 #: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:165
-#: dashboards/project/instances/workflows/create_instance.py:765
+#: dashboards/project/instances/workflows/create_instance.py:767
 msgid "Unable to retrieve extensions information."
 msgstr "Niet in staat om de uitbreidingsinformatie op te halen."
 
@@ -9563,7 +9568,7 @@ msgid "Building"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:896
-#: dashboards/project/instances/workflows/create_instance.py:482
+#: dashboards/project/instances/workflows/create_instance.py:484
 msgid "Key Pair"
 msgstr "Sleutelpaar"
 
@@ -9987,197 +9992,197 @@ msgid ""
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "De volumegrootte is te klein voor de '%(image_name)s' afbeelding en moet minimaal '%(smallest_size)d' GB groot zijn."
 
-#: dashboards/project/instances/workflows/create_instance.py:294
-#: dashboards/project/instances/workflows/create_instance.py:311
+#: dashboards/project/instances/workflows/create_instance.py:296
+#: dashboards/project/instances/workflows/create_instance.py:313
 msgid "You must select a snapshot."
 msgstr "U moet een momentopname selecteren."
 
-#: dashboards/project/instances/workflows/create_instance.py:299
+#: dashboards/project/instances/workflows/create_instance.py:301
 msgid "You must select a volume."
 msgstr "U moet een volume selecteren."
 
-#: dashboards/project/instances/workflows/create_instance.py:305
+#: dashboards/project/instances/workflows/create_instance.py:307
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "Het starten van meerdere exemplaren wordt alleen ondersteund voor afbeeldingen en momentopnamen."
 
-#: dashboards/project/instances/workflows/create_instance.py:328
+#: dashboards/project/instances/workflows/create_instance.py:330
 #: dashboards/project/volumes/volumes/forms.py:272
 msgid "Unable to retrieve availability zones."
 msgstr "Niet in staat om de beschikbaarheidszones op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:334
+#: dashboards/project/instances/workflows/create_instance.py:336
 #: dashboards/project/volumes/volumes/forms.py:275
 msgid "No availability zones found"
 msgstr "Geen beschikbaarheidszones gevonden"
 
-#: dashboards/project/instances/workflows/create_instance.py:336
+#: dashboards/project/instances/workflows/create_instance.py:338
 #: dashboards/project/volumes/volumes/forms.py:277
 msgid "Any Availability Zone"
 msgstr "Elke beschikbaarheidszone"
 
-#: dashboards/project/instances/workflows/create_instance.py:358
+#: dashboards/project/instances/workflows/create_instance.py:360
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "Niet in staat om de quotainformatie op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:368
+#: dashboards/project/instances/workflows/create_instance.py:370
 #: dashboards/project/volumes/volumes/forms.py:195
 msgid "Snapshot"
 msgstr "Momentopname"
 
-#: dashboards/project/instances/workflows/create_instance.py:373
+#: dashboards/project/instances/workflows/create_instance.py:375
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:407
+#: dashboards/project/instances/workflows/create_instance.py:409
 msgid "Select Instance Snapshot"
 msgstr "Selecteer een exemplaar momentopname"
 
-#: dashboards/project/instances/workflows/create_instance.py:409
+#: dashboards/project/instances/workflows/create_instance.py:411
 msgid "No snapshots available"
 msgstr "Geen momentopnamen beschikbaar."
 
-#: dashboards/project/instances/workflows/create_instance.py:421
+#: dashboards/project/instances/workflows/create_instance.py:423
 #: dashboards/project/volumes/volumes/forms.py:290
 msgid "Unable to retrieve list of volumes."
 msgstr "Niet in staat om de volumelijst op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:423
+#: dashboards/project/instances/workflows/create_instance.py:425
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "Selecteer volume"
 
-#: dashboards/project/instances/workflows/create_instance.py:425
+#: dashboards/project/instances/workflows/create_instance.py:427
 msgid "No volumes available"
 msgstr "Geen volumen beschikbaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:436
+#: dashboards/project/instances/workflows/create_instance.py:438
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Niet in staat om de lijst met volume momentopnamen op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:439
+#: dashboards/project/instances/workflows/create_instance.py:441
 msgid "Select Volume Snapshot"
 msgstr "Selecteer volume momentopname"
 
-#: dashboards/project/instances/workflows/create_instance.py:441
+#: dashboards/project/instances/workflows/create_instance.py:443
 msgid "No volume snapshots available"
 msgstr "Geen volume momentopnamen beschikbaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:484
+#: dashboards/project/instances/workflows/create_instance.py:486
 msgid "Key pair to use for authentication."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:488
+#: dashboards/project/instances/workflows/create_instance.py:490
 msgid "Admin Password"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:494
+#: dashboards/project/instances/workflows/create_instance.py:496
 msgid "Confirm Admin Password"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:500
+#: dashboards/project/instances/workflows/create_instance.py:502
 msgid "Launch instance in these security groups."
 msgstr "Start exemplaar in deze beveiligingsgroep."
 
-#: dashboards/project/instances/workflows/create_instance.py:505
+#: dashboards/project/instances/workflows/create_instance.py:507
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "Beheers toegang tot uw exemplaar middels sleutelparen, beveiligingsgroepen en andere mechanismen."
 
-#: dashboards/project/instances/workflows/create_instance.py:521
+#: dashboards/project/instances/workflows/create_instance.py:523
 msgid "Unable to retrieve key pairs."
 msgstr "Kon de sleutelparen niet ophalen."
 
-#: dashboards/project/instances/workflows/create_instance.py:525
+#: dashboards/project/instances/workflows/create_instance.py:527
 msgid "Select a key pair"
 msgstr "Selecteer een sleutelpaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:527
+#: dashboards/project/instances/workflows/create_instance.py:529
 msgid "No key pairs available"
 msgstr "Geen sleutelparen beschikbaar"
 
-#: dashboards/project/instances/workflows/create_instance.py:536
+#: dashboards/project/instances/workflows/create_instance.py:538
 msgid "Unable to retrieve list of security groups"
 msgstr "Niet in staat om de beveiligingsgroepenlijst op te halen."
 
-#: dashboards/project/instances/workflows/create_instance.py:568
+#: dashboards/project/instances/workflows/create_instance.py:570
 msgid "Post-Creation"
 msgstr "Post-creatie"
 
-#: dashboards/project/instances/workflows/create_instance.py:572
+#: dashboards/project/instances/workflows/create_instance.py:574
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "Directe invoer"
 
-#: dashboards/project/instances/workflows/create_instance.py:576
+#: dashboards/project/instances/workflows/create_instance.py:578
 msgid "Customization Script Source"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:580
+#: dashboards/project/instances/workflows/create_instance.py:582
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Een script of set commando's dat uitgevoerd wordt nadat het exemplaar is gebouwd (maximaal 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:584
-#: dashboards/project/instances/workflows/create_instance.py:589
+#: dashboards/project/instances/workflows/create_instance.py:586
+#: dashboards/project/instances/workflows/create_instance.py:591
 msgid "Script File"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:593
-#: dashboards/project/instances/workflows/create_instance.py:598
+#: dashboards/project/instances/workflows/create_instance.py:595
+#: dashboards/project/instances/workflows/create_instance.py:600
 msgid "Script Data"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:625
+#: dashboards/project/instances/workflows/create_instance.py:627
 msgid "File exceeds maximum size (16kb)"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:633
+#: dashboards/project/instances/workflows/create_instance.py:635
 #: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Er heeft een fout opgetreden bij het verwerken van %(prefix)s: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:660
+#: dashboards/project/instances/workflows/create_instance.py:662
 msgid "Policy Profiles"
 msgstr "Beleidsprofielen"
 
-#: dashboards/project/instances/workflows/create_instance.py:663
+#: dashboards/project/instances/workflows/create_instance.py:665
 msgid "Launch instance with this policy profile"
 msgstr "Start exemplaar met dit beleidsprofiel"
 
-#: dashboards/project/instances/workflows/create_instance.py:738
+#: dashboards/project/instances/workflows/create_instance.py:740
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:742
+#: dashboards/project/instances/workflows/create_instance.py:744
 msgid "Configuration Drive"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:743
+#: dashboards/project/instances/workflows/create_instance.py:745
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:769
+#: dashboards/project/instances/workflows/create_instance.py:771
 msgid "Advanced Options"
 msgstr "Geavanceerde opties"
 
-#: dashboards/project/instances/workflows/create_instance.py:807
+#: dashboards/project/instances/workflows/create_instance.py:809
 #, python-format
 msgid "%s instances"
 msgstr "%s exemplaren"
 
-#: dashboards/project/instances/workflows/create_instance.py:867
+#: dashboards/project/instances/workflows/create_instance.py:869
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Poort niet gecreëerd voor profiel-id (%s)."
@@ -11136,8 +11141,13 @@ msgid "There are no networks, routers, or connected instances to display."
 msgstr "Er zijn geen netwerken, routers of verbonden exemplaren om weer te geven."
 
 #: dashboards/project/networks/tables.py:118
+#: dashboards/project/networks/tables.py:132
 msgid "Add Subnet"
 msgstr "Subnet toevoegen"
+
+#: dashboards/project/networks/tables.py:130
+msgid "Add Subnet (Quota exceeded)"
+msgstr ""
 
 #: dashboards/project/networks/views.py:85
 msgid "Unable to retrieve network details."
@@ -11158,7 +11168,7 @@ msgid "Subnet Name"
 msgstr "Subnetnaam"
 
 #: dashboards/project/networks/workflows.py:108
-#: dashboards/project/networks/subnets/tables.py:118
+#: dashboards/project/networks/subnets/tables.py:131
 #: dashboards/project/networks/subnets/workflows.py:81
 msgid "Network Address"
 msgstr "Netwerkadres"
@@ -11356,6 +11366,10 @@ msgstr "Aangekoppeld apparaat"
 #: dashboards/project/networks/ports/views.py:92
 msgid "Unable to retrieve port details"
 msgstr "Niet in staat om de poortdetails op te halen"
+
+#: dashboards/project/networks/subnets/tables.py:106
+msgid "Create Subnet (Quota exceeded)"
+msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
@@ -14056,7 +14070,7 @@ msgid "Help"
 msgstr "Help"
 
 #: templates/_header.html:20
-msgid "Filter selections"
+msgid "More Projects"
 msgstr ""
 
 #: templates/_header.html:40
@@ -14083,7 +14097,7 @@ msgstr "Ongeldig datumformaat: Vandaag als standaard gebruikt."
 msgid "Unable to retrieve network quota information."
 msgstr "Niet in staat om de netwerkquotainformatie op te halen."
 
-#: usage/base.py:186 usage/quotas.py:354
+#: usage/base.py:186 usage/quotas.py:367
 msgid "Unable to retrieve volume limit information."
 msgstr "Niet in staat om de volume limietinformatie op te halen."
 
@@ -14110,7 +14124,7 @@ msgstr "Ongeldige tijdsperiode. U vraagt gegevens uit de toekomst die mogelijk n
 msgid "Injected File Path Bytes"
 msgstr "Geinjecteerde bestandspad Bytes"
 
-#: usage/quotas.py:340
+#: usage/quotas.py:353
 msgid "Unable to retrieve compute limit information."
 msgstr "Niet in staat om de rekendienst limietinformatie op te halen."
 
@@ -14122,7 +14136,11 @@ msgstr "VCPU uren"
 msgid "Disk GB Hours"
 msgstr "Schijf GB uren"
 
-#: usage/tables.py:55 usage/tables.py:84
+#: usage/tables.py:48
+msgid "Total disk usage (GB * Hours Used) for the project"
+msgstr ""
+
+#: usage/tables.py:57 usage/tables.py:86
 msgid "Usage"
 msgstr "Verbruik"
 
