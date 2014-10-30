@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% block title %}{% trans "Roles" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Roles") %}
+{% endblock page_header %}
 
 {% block main %}
-  {% include "idm/myApplications/_roles.html" %}
+  <div class="panel panel-default applications">
+    <div class="panel-heading">
+      {{ table.render_table_actions }}
+    </div> 
+    <div class="panel-body">
+      {{ table.render}}
+    </div>
+    <div class="panel-footer">
+      <a href="{% url 'horizon:idm:myApplications:index' %}">Finish</a>
+    </div>
+  </div>
 {% endblock %}
+

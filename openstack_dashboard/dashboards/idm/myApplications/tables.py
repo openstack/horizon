@@ -10,17 +10,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.core.urlresolvers import reverse
-from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
-from horizon import exceptions
 from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard import policy
-
 
 class CreateApplication(tables.LinkAction):
     name = "create_application"
@@ -64,5 +60,62 @@ class PurchasedApplicationsTable(tables.DataTable):
         pagination_param = "tenant_marker"
         table_actions = (CreateApplication, )
         multi_select = False
-        
-        
+ 
+
+class CreateRoleLink(tables.LinkAction):
+    name = "create"
+    verbose_name = _("Create Role")
+    url = "horizon:identity:roles:create"
+    classes = ("ajax-modal",)
+    icon = "plus"
+    policy_rules = (("identity", "identity:create_role"),)
+
+    def allowed(self, request, role):
+        return api.keystone.keystone_can_edit_role()
+
+class EditRoleLink(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit")
+    url = "horizon:identity:roles:update"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("identity", "identity:update_role"),)
+
+    def allowed(self, request, role):
+        return api.keystone.keystone_can_edit_role()
+
+class DeleteRolesAction(tables.DeleteAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Role",
+            u"Delete Roles",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Role",
+            u"Deleted Roles",
+            count
+        )
+    policy_rules = (("identity", "identity:delete_role"),)
+
+    def allowed(self, request, role):
+        return api.keystone.keystone_can_edit_role()
+
+    def delete(self, request, obj_id):
+        api.keystone.role_delete(request, obj_id)
+
+
+class RolesTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Role Name'))
+    id = tables.Column('id', verbose_name=_('Role ID'))
+
+    class Meta:
+        name = "roles"
+        verbose_name = _("Roles")
+        row_actions = ()
+        table_actions = (EditRoleLink, CreateRoleLink, DeleteRolesAction)
+
