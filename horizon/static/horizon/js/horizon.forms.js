@@ -268,16 +268,19 @@ horizon.addInitFunction(horizon.forms.init = function () {
 
       // If the checkbox has hide-tab attribute then hide/show the tab
       if (hide_tab) {
+        var $btnfinal = $('.button-final');
         if(checked == hide_on) {
           // If the checkbox is not checked then hide the tab
           $('*[data-target="#'+ hide_tab +'"]').parent().hide();
           $('.button-next').hide();
-          $('.button-final').show();
+          $btnfinal.show();
+          $btnfinal.data('show-on-tab', $fieldset.prop('id'));
         } else if (!$('*[data-target="#'+ hide_tab +'"]').parent().is(':visible')) {
           // If the checkbox is checked and the tab is currently hidden then show the tab again
           $('*[data-target="#'+ hide_tab +'"]').parent().show();
-          $('.button-final').hide();
+          $btnfinal.hide();
           $('.button-next').show();
+          $btnfinal.removeData('show-on-tab');
         }
       }
 
@@ -308,6 +311,20 @@ horizon.addInitFunction(horizon.forms.init = function () {
   // Queue up the for new modals, too.
   horizon.modals.addModalInitFunction(function (modal) {
     $(modal).find('input.switchable').trigger('change');
+  });
+
+  $document.on('shown.bs.tab', function(evt) {
+    var $fieldset = $('fieldset.active');
+    var $btnfinal = $('.button-final');
+    if ($btnfinal.data('show-on-tab')) {
+      if ($fieldset.prop('id') == $btnfinal.data('show-on-tab')) {
+        $('.button-next').hide();
+        $btnfinal.show();
+      } else {
+        $btnfinal.hide();
+        $('.button-next').show();
+      }
+    }
   });
 
   // Handle field toggles for the Create Volume source type field
