@@ -11,6 +11,11 @@ function readURL(input) {
         reader.onload = function (e) {
             $('#avatar-update').attr('src', e.target.result);
             $('#avatar-update').attr('style', "");
+            $('#avatar-update').Jcrop({
+                onChange: showCoords,
+                onSelect: showCoords,
+                aspectRatio: 1,
+            });
         }
         
         reader.readAsDataURL(input.files[0]);
@@ -20,6 +25,37 @@ function readURL(input) {
 $("#id_image").change(function(){
     readURL(this);
 });
+
+function showCoords(c){
+    // $('#x').val(c.x);
+    // $('#y').val(c.y);
+    // $('#x2').val(c.x2);
+    // $('#y2').val(c.y2);
+    // $('#w').val(c.w);
+    // $('#h').val(c.h);
+
+
+    // $("#id_x1").val($('#x').val()); 
+    // $("#id_y1").val($('#y').val());
+    // $("#id_x2").val($('#x2').val()); 
+    // $("#id_y2").val($('#y2').val());
+
+    $("#id_x1").val(c.x); 
+    $("#id_y1").val(c.y);
+    $("#id_x2").val(c.x2); 
+    $("#id_y2").val(c.y2);
+
+    console.log('x1: '+ $('#id_x1').val());
+    console.log('x2: '+ $('#id_x2').val());
+    console.log('y1: '+ $('#id_y1').val());
+    console.log('y2: '+ $('#id_y2').val());
+    // $('#id_x1').val(c.x);
+    // $('#id_y1').val(c.y);
+    // $('#id_x2').val(c.x2);
+    // $('#id_y2').val(c.y2);
+
+}
+
     
 
 </script>
