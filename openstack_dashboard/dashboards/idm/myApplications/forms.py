@@ -47,19 +47,7 @@ class UploadImageForm(forms.SelfHandlingForm):
 		
 		img = Image.open(image)
 
-		if x1 > x2:
-			left = x2
-			right = x1
-		else:
-			left = x1
-			right = x2
-		if y1 > y2:
-			bottom = y2
-			top = y1
-		else:
-			bottom = y1
-			top = y2
-
+		
 		output_img=img.crop((x1,y1,x2,y2))
 		output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName)
 
