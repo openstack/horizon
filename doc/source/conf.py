@@ -47,6 +47,8 @@ def write_autodoc_index():
         print("SEARCHING %s" % sourcedir)
         for root, dirs, files in os.walk("."):
             for filename in files:
+                if filename == 'tests.py':
+                    continue
                 if filename.endswith(".py"):
                     # remove the pieces of the root
                     elements = root.split(os.path.sep)
@@ -62,10 +64,14 @@ def write_autodoc_index():
         return modlist
 
     RSTDIR = os.path.abspath(os.path.join(BASE_DIR, "sourcecode"))
-    SRCS = {'horizon': ROOT,
-            'openstack_dashboard': ROOT}
+    SRCS = [('horizon', ROOT),
+            ('openstack_dashboard', ROOT)]
 
-    EXCLUDED_MODULES = ('horizon.tests', 'openstack_dashboard.tests',)
+    EXCLUDED_MODULES = ('horizon.test',
+                        'openstack_dashboard.enabled',
+                        'openstack_dashboard.test',
+                        'openstack_dashboard.openstack.common',
+                        )
     CURRENT_SOURCES = {}
 
     if not(os.path.exists(RSTDIR)):
@@ -73,11 +79,18 @@ def write_autodoc_index():
     CURRENT_SOURCES[RSTDIR] = ['autoindex.rst']
 
     INDEXOUT = open(os.path.join(RSTDIR, "autoindex.rst"), "w")
-    INDEXOUT.write("=================\n")
-    INDEXOUT.write("Source Code Index\n")
-    INDEXOUT.write("=================\n")
+    INDEXOUT.write("""
+=================
+Source Code Index
+=================
 
-    for modulename, path in SRCS.items():
+.. contents::
+   :depth: 1
+   :local:
+
+""")
+
+    for modulename, path in SRCS:
         sys.stdout.write("Generating source documentation for %s\n" %
                          modulename)
         INDEXOUT.write("\n%s\n" % modulename.capitalize())
