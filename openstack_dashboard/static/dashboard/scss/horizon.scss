@@ -837,11 +837,9 @@ form label {
 
 .static_page {
   float: left;
-  background-color: $body-bg;
-  border: 1px solid $border-color;
-}
-.static_page > form {
-  margin-bottom: 0;
+  > form {
+    margin-bottom: 0;
+  }
 }
 
 .left {
