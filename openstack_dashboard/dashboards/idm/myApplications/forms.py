@@ -36,34 +36,15 @@ class UploadImageForm(forms.SelfHandlingForm):
 	y2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
 		
 	def handle(self, request, data):
-		
-				
-		
-		image = request.FILES['image'] 
-		imageName = image.name
-		
-		img = Image.open(image)
-
-		# if x1 > x2:
-		# 	left = x2
-		# 	right = x1
-		# else:
-		# 	left = x1
-		# 	right = x2
-		# if y1 > y2:
-		# 	bottom = y2
-		# 	top = y1
-		# else:
-		# 	bottom = y1
-		# 	top = y2
-
-		# import pdb
-		# pdb.set_trace()
-
 		x1=self.cleaned_data['x1'] 
 		x2=self.cleaned_data['x2']
 		y1=self.cleaned_data['y1']
 		y2=self.cleaned_data['y2']
+				
+		image = request.FILES['image'] 
+		imageName = image.name
+		
+		img = Image.open(image)
 
 		x1 = int(x1)
 		x2 = int(x2)
@@ -72,9 +53,6 @@ class UploadImageForm(forms.SelfHandlingForm):
 
 		output_img=img.crop((x1,y1,x2,y2))
 		output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName)
-
-		
-		
 
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')
 		return response
