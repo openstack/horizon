@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'openstack_dashboard.dashboards.identity',
     'openstack_dashboard.dashboards.settings',
     'openstack_dashboard.dashboards.router',
+    'openstack_dashboard.fiware_auth',
 )
 
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
@@ -203,3 +204,18 @@ POLICY_FILES = {
 
 # The openstack_auth.user.Token object isn't JSON-serializable ATM
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+# TODO(garcianavalon) probably remove this
+#KEYSTONE ADMIN ACCOUNT FOR THE IdM
+OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS = {
+    'USERNAME': 'idm',
+    'PASSWORD': 'idm',
+    'PROJECT': 'idm',
+    'DOMAIN': 'default',
+}
+#USER REGISTRATION
+RESET_PASSWORD_DAYS = 1
+ACCOUNT_ACTIVATION_DAYS = 1
+# if you want to use domain filtering you can set this to whitelist or
+# blacklist. Comment the line for no filtering
+EMAIL_LIST_TYPE = 'whitelist'

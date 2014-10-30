@@ -1,0 +1,29 @@
+{% load form_helpers %}
+
+<div class="form-group{% if field.errors %} has-error{% endif %} {{ field.css_classes }}">
+  {% if field.auto_id %}
+    <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
+    {% if field.help_text %}
+      <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="fa fa-question-circle"></span></span>
+    {% endif %}
+  {% endif %}
+
+  <div id="recaptcha_widget" style="display:none" class="{{ classes.value }} {{ field|wrapper_classes }}">
+    {{ field|add_bootstrap_class }}
+    <div id="recaptcha_image"></div>
+    <div class="input-group">
+      <input type="text" class="form-control" id="recaptcha_response_field" name="recaptcha_response_field" />
+      {% comment "NOTE(garcianavalon) we are showing the errors using the field.errors below" %}
+        <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
+      {% endcomment %}
+      <div class="input-group-addon"><div><a href="javascript:Recaptcha.reload()" class="fa fa-refresh"></a></div></div>
+      <div class="input-group-addon"><div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')" class="fa fa-volume-up"></a></div></div>
+      <div class="input-group-addon"><div><a href="javascript:Recaptcha.showhelp()" class="fa fa-question-circle"></a></div></div>
+      {% for error in field.errors %}
+        <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div> 
+
+    

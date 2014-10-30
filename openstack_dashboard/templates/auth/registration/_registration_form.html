@@ -7,7 +7,9 @@
   {% block form_action %}{% url 'fiware_auth_register' %}{% endblock %}
   {% block modal-body %}
 
-      {% include "horizon/common/_form_fields.html" %}
+
+    {% include "auth/registration/_form_fields.html" %}
+      
 
   {% endblock %}
   {% block modal-footer %}
