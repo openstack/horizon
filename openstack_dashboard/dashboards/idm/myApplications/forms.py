@@ -60,8 +60,11 @@ class UploadImageForm(forms.SelfHandlingForm):
 			bottom = y1
 			top = y2
 
-		output_img=img.crop((left,bottom,right,top))
+		output_img=img.crop((x1,y1,x2,y2))
 		output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName)
+
+		# import pdb
+		# pdb.set_trace()
 		
 
 		response = shortcuts.redirect('horizon:idm:myApplications:roles')
