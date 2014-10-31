@@ -68,6 +68,7 @@
   h4{
     margin-bottom: 10px;
     clear: both;
+    min-height: 10px;
   }
   a{
     float: right;
@@ -79,9 +80,6 @@
       margin: 0 !important;
       background: rgba(0, 0, 0, 0);
       border: none;
-      a{
-        padding: 8px 7px;
-      }
     }
   }
 }
@@ -91,7 +89,14 @@
     clear: both;
   } 
 }
-
+#add_permission{
+  .modal-content{
+    padding: 10px 15px;
+    .panel-body{
+      padding: 10px;
+    }
+  }
+}
 
 .relation_list{
   @include make-sm-column(5, $gutter: $grid-gutter-width);
@@ -104,4 +109,7 @@
   @include make-md-column(6, $gutter: $grid-gutter-width);
   @include make-lg-column(6, $gutter: $grid-gutter-width);
   border-left: 1px solid $gray-light;
+  .alert{
+    margin-top: 10px;
+  }
 }
