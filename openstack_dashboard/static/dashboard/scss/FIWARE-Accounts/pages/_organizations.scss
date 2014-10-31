@@ -14,4 +14,8 @@
     max-height: 55px;
     resize: none;
   }
+  button{
+    @extend .btn;
+    @extend .btn-primary;
+  }
 }
