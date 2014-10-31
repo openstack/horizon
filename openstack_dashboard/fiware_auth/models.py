@@ -16,8 +16,9 @@ import logging
 import uuid
 
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
 from django.db import models
+from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
@@ -27,6 +28,21 @@ from horizon import exceptions
 from openstack_dashboard import fiware_api
 
 LOG = logging.getLogger(__name__)
+
+
+class TemplatedEmailMixin(object):
+    # TODO(garcianavalon) as settings
+    EMAIL_HTML_TEMPLATE = ''
+    EMAIL_TEXT_TEMPLATE = ''
+    def send_html_email(self, to, from_email, subject, content):
+        context = {
+            'content':content
+        }
+        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, context)
+        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, context)
+        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
 
 class ModelWithTimeStamps(models.Model):
     created = models.DateTimeField(editable=False)
@@ -41,7 +57,7 @@ class ModelWithTimeStamps(models.Model):
 
 class RegistrationManager(models.Manager):
 
-    def activate_user(self,request,activation_key):
+    def activate_user(self, request, activation_key):
         try:
             profile = self.get(activation_key=activation_key)
         except self.model.DoesNotExist:
@@ -53,7 +69,7 @@ class RegistrationManager(models.Manager):
             if user:
                 profile.activation_key = self.model.ACTIVATED
                 profile.save()
-                messages.success(request,_('User "%s" was successfully activated.') % user.name)
+                messages.success(request, _('User "%s" was successfully activated.') %user.name)
                 return user
 
     def create_profile(self, user):
@@ -63,7 +79,7 @@ class RegistrationManager(models.Manager):
                            user_email=user.email,
                            activation_key=activation_key)
 
-    def create_inactive_user(self,request,**cleaned_data):
+    def create_inactive_user(self, request, **cleaned_data):
         try:
             LOG.info('Creating user with name "%s"' % cleaned_data['username'])
 
@@ -87,19 +103,19 @@ class RegistrationManager(models.Manager):
         except Exception:
             exceptions.handle(request, _('Unable to create user.'))
 
-    def resend_email(self,request,email):
+    def resend_email(self, request, email):
         try:
             profile = self.get(user_email=email)
         except self.model.DoesNotExist:
             msg = _('Sorry. You have specified an email address that is not registered \
                  to any our our user accounts. If your problem persits, please contact: \
                  fiware-lab-help@lists.fi-ware.org')
-            messages.error(request,msg)
+            messages.error(request, msg)
             return False
 
         if profile.activation_key == self.model.ACTIVATED:
             msg = _('Email was already confirmed, please try signing in')
-            messages.error(request,msg)
+            messages.error(request, msg)
             return False
 
         # generate a new key and send
@@ -109,19 +125,19 @@ class RegistrationManager(models.Manager):
         profile.send_activation_email()
 
         msg = _('Resended confirmation instructions to %s') %email
-        messages.success(request,msg)
+        messages.success(request, msg)
         return True
 
 
-class RegistrationProfile(ModelWithTimeStamps):
+class RegistrationProfile(ModelWithTimeStamps, TemplatedEmailMixin):
     """
     A simple profile which stores an activation key for use during
     user account registration. 
     """
     ACTIVATED = u"ALREADY_ACTIVATED"
 
-    user_name = models.CharField(_('user name'),max_length=20)
-    user_id = models.CharField(_('user id'),max_length=20)
+    user_name = models.CharField(_('user name'), max_length=20)
+    user_id = models.CharField(_('user id'), max_length=20)
     user_email = models.CharField(_('user email'), max_length=40)
     activation_key = models.CharField(_('activation key'), max_length=40)
     
@@ -138,49 +154,51 @@ class RegistrationProfile(ModelWithTimeStamps):
         return base_date + expiration_date <= timezone.now()
 
     def send_activation_email(self):
+        # TODO(garcianavalon) subject, message and from_email as settings/files
         subject = 'Welcome to FIWARE'
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
-        #TODO(garcianavalon) message...
-        message = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key=%s to activate' %self.activation_key
+        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key=%s to activate' %self.activation_key
         #send a mail for activation
-        send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
-        	[self.user_email], fail_silently=False)
+        self.send_html_email(to=self.user_email, 
+                            from_email='admin@fiware-idm-test.dit.upm.es',
+                            subject=subject, 
+                            content=content)
 
 
 class ResetPasswordManager(models.Manager):
 
-    def create_profile(self,email):
+    def create_profile(self, email):
         reset_password_token = uuid.uuid4().get_hex()
         return self.create(reset_password_token=reset_password_token,
                             user_email=email)
 
-    def create_reset_password_token(self,request,email):
+    def create_reset_password_token(self, request, email):
 
         registration_profile = self.create_profile(email)
         registration_profile.send_reset_email(email)
 
-        messages.success(request,_('Reset mail send to %s') % email)
+        messages.success(request, _('Reset mail send to %s') % email)
 
-    def reset_password(self,request,token,new_password):
+    def reset_password(self, request, token, new_password):
         try:
             profile = self.get(reset_password_token=token)
         except self.model.DoesNotExist:
-            messages.error(request,_('Reset password token is invalid'))
+            messages.error(request, _('Reset password token is invalid'))
             return None
 
         if not profile.reset_password_token_expired():
             user_email = profile.user_email
             #change the user password in the keystone backend
-            user = fiware_api.keystone.change_password(user_email,new_password)
+            user = fiware_api.keystone.change_password(user_email, new_password)
             if user:
                 profile.reset_password_token = self.model.USED
                 profile.save()
-                messages.success(request,_('password successfully changed.'))
+                messages.success(request, _('password successfully changed.'))
                 return user
 
 
-class ResetPasswordProfile(ModelWithTimeStamps):
+class ResetPasswordProfile(ModelWithTimeStamps, TemplatedEmailMixin):
     """Holds the key to reset the user password"""
 
     reset_password_token = models.CharField(_('reset password token'), max_length=40)
@@ -189,19 +207,21 @@ class ResetPasswordProfile(ModelWithTimeStamps):
 
     objects = ResetPasswordManager()
 
-    def send_reset_email(self,email):
+    def send_reset_email(self, email):
+        # TODO(garcianavalon) subject, message and from_email as settings/files
         subject = 'Reset password instructions - FIWARE'
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
-        #TODO(garcianavalon) message...
-        message = 'Hello! Go to http://localhost:8000/password/reset/?reset_password_token=%s to reset it!' %self.reset_password_token
+        content = 'Hello! Go to http://localhost:8000/password/reset/?reset_password_token=%s to reset it!' %self.reset_password_token
         #send a mail for activation
-        send_mail(subject, message, 'admin@fiware-idm-test.dit.upm.es',
-            [email], fail_silently=False)
+        self.send_html_email(to=email, 
+                            from_email='admin@fiware-idm-test.dit.upm.es',
+                            subject=subject, 
+                            content=content)
 
     def reset_password_token_expired(self):
         if self.reset_password_token == self.USED:
             return True
         base_date = max([self.created, self.updated]) 
-        expiration_date = datetime.timedelta(days=settings.RESET_PASSWORD_DAYS  )
+        expiration_date = datetime.timedelta(days=settings.RESET_PASSWORD_DAYS)
         return base_date + expiration_date <= timezone.now()
