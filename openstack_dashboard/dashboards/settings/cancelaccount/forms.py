@@ -15,27 +15,24 @@
 from django.utils.translation import ugettext_lazy as _
 from django import shortcuts
 
-import horizon
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
-from openstack_auth.views import logout
+
 
 class BasicCancelForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
-        #the user's password to change the email, only to update the password
         user_is_editable = api.keystone.keystone_can_edit_user()
         if user_is_editable:
             try:
-                user_id=request.user.id
-                user = api.keystone.user_get(request,user_id)
-                api.keystone.user_update_enabled(request,user,enabled=False)
+                user_id = request.user.id
+                api.keystone.user_update_enabled(request, user_id, enabled=False)
                 msg = _("Account canceled succesfully")
-                messages.success(request,msg)
-                #Log the user out
+                messages.success(request, msg)
+                # Log the user out
                 response = shortcuts.redirect('logout') 
                 return response
             except Exception:   
