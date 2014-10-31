@@ -44,6 +44,9 @@ class UserSettingsForm(forms.SelfHandlingForm):
                                                     1000),
                                   help_text=_("Number of items to show per "
                                               "page"))
+    instance_log_length = forms.IntegerField(
+        label=_("Log Lines Per Instance"), min_value=1,
+        help_text=_("Number of log lines to be shown per instance"))
 
     @staticmethod
     def _sorted_zones():
@@ -115,6 +118,10 @@ class UserSettingsForm(forms.SelfHandlingForm):
         request.session['horizon_pagesize'] = data['pagesize']
         response.set_cookie('horizon_pagesize', data['pagesize'],
                             expires=_one_year())
+
+        request.session['instance_log_length'] = data['instance_log_length']
+        response.set_cookie('instance_log_length',
+                            data['instance_log_length'], expires=_one_year())
 
         with translation.override(lang_code):
             messages.success(request,
