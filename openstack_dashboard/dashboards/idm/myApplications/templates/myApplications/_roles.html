@@ -12,6 +12,7 @@
 
 {% block modal-body %}
 <div class="site-client-roles">
+    {% include "horizon/common/_form_fields.html" %}
 	<section class="relation_list">
 		<h4>
 			Roles
@@ -108,20 +109,20 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-								<label>name</label>
+								<label class="control-label">name</label>
 								<input class="form-control" type="text">
 							</div>
 							<div class="form-group">
-								<label>description</label>
+								<label class="control-label">description</label>
 								<textarea class="form-control" rows="6"></textarea>
 							</div>
 							<span id="first-option">		
 								<div class="form-group">
-									<label>HTTP actions</label>
+									<label class="control-label">HTTP actions</label>
 									<input class="form-control" type="text">
 								</div>
 								<div class="form-group">	
-									<label>Resource</label>
+									<label class="control-label">Resource</label>
 									<input class="form-control" type="text">
 								</div>
 							</span>		        	        	
@@ -153,7 +154,7 @@
 								</div>
 								<div id="moreoptions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 									<div class="panel-body">
-										<label>XACML rule</label>
+										<label class="control-label">XACML rule</label>
 										<textarea class="form-control" rows="6"> </textarea>
 									</div>
 								</div>

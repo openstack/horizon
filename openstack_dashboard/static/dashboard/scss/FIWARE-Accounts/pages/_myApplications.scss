@@ -102,6 +102,10 @@
   @include make-sm-column(5, $gutter: $grid-gutter-width);
   @include make-md-column(5, $gutter: $grid-gutter-width);
   @include make-lg-column(5, $gutter: $grid-gutter-width); 
+  @media (max-width: $screen-sm-min){
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .permissions_list{
@@ -109,6 +113,12 @@
   @include make-md-column(6, $gutter: $grid-gutter-width);
   @include make-lg-column(6, $gutter: $grid-gutter-width);
   border-left: 1px solid $gray-light;
+  @media (max-width: $screen-sm-min){
+    border-left: none;
+    margin-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
   .alert{
     margin-top: 10px;
   }

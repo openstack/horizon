@@ -53,6 +53,10 @@
         float: left;
         margin: 0 1rem;
       }
+      h2,
+      i{
+        color: #8E8E8E;
+      }
       &:hover{
         h2,
         i{
@@ -60,7 +64,6 @@
         }
       }
       i{
-        color: #5B5B5F;
         font-size: 1.3rem;
         @media (max-width: $screen-sm-min){
           float: left;
