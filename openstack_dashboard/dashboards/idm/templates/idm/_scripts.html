@@ -15,6 +15,8 @@ function readURL(input) {
                 onChange: showCoords,
                 onSelect: showCoords,
                 aspectRatio: 1,
+                setSelect:   [ 100, 100, 50, 50 ]
+
             });
         }
         
@@ -31,7 +33,11 @@ function showCoords(c){
     $("#id_y1").val(c.y);
     $("#id_x2").val(c.x2); 
     $("#id_y2").val(c.y2);
-
+    console.log('entra');
+    console.log("x1: "+$("#id_x1").val());
+    console.log("x2: "+$("#id_x2").val());
+    console.log("y1: "+$("#id_y1").val());
+    console.log("y2: "+$("#id_y2").val());
    
 }
 

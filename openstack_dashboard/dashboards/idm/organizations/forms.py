@@ -29,6 +29,8 @@ from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
 
+from PIL import Image
+
 AVATAR_ROOT = os.path.abspath(os.path.join(settings.MEDIA_ROOT, 'OrganizationAvatars'))
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
@@ -91,17 +93,41 @@ class EditOrganizationForm(forms.SelfHandlingForm):
     email = forms.EmailField(label=_("E-mail"),required=False)
     website=forms.URLField(label=_("Website"),required=False)
     image = forms.ImageField(required=False)
+    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    y1 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+    x2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+    y2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
 
 
     def handle(self, request, data):
         try:
             if '_edit' in request.POST:
                 if request.FILES:
+                    # x1=data['x1'] 
+                    # x2=data['x2']
+                    # y1=data['y1']
+                    # y2=data['y2']
+
                     image = request.FILES['image']
                     avatarName = data['name']
-                    with open(AVATAR_ROOT+'/' + avatarName + '.jpg', 'wb+') as destination:
-                        for chunk in image.chunks():
-                            destination.write(chunk)
+
+                    img = Image.open(image)
+
+                    import pdb
+                    pdb.set_trace()
+
+                    # x1 = int(x1)
+                    # x2 = int(x2)
+                    # y1 = int(y1)
+                    # y2 = int(y2)
+                    x1 = 0
+                    x2 = 50
+                    y1 = 0
+                    y2 = 50
+
+                    output_img = img.crop((x1,y1,x2,y2))
+                    output_img.save(settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"+avatarName)
+
                     messages.success(request, _("Organization updated successfully."))
                     response = shortcuts.redirect('horizon:idm:organizations:index')
                     return response
