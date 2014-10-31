@@ -17,7 +17,7 @@ from keystoneclient.v3 import client
 from keystoneclient import exceptions as keystoneclient_exceptions    
 
 CREDENTIALS = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')
-CREDENTIALS['AUTH_URL'] = getattr(settings,'OPENSTACK_KEYSTONE_URL')
+CREDENTIALS['AUTH_URL'] = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
 
 def fiware_keystoneclient():
     """Encapsulates all the logic for communicating with the keystone server.
@@ -33,7 +33,7 @@ def fiware_keystoneclient():
                                 auth_url=CREDENTIALS['AUTH_URL'])
     return keystone
 
-def _find_user(keystone,email=None,name=None):
+def _find_user(keystone, email=None, name=None):
     # NOTE(garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
     # exception so we do it by hand filtering the python dictionary, 
     # which is extremely inneficient...
@@ -51,10 +51,10 @@ def _find_user(keystone,email=None,name=None):
 
 def _grant_role(keystone, role, user, project):
     role = keystone.roles.find(name=role)
-    keystone.roles.grant(role,user=user,project=project)
+    keystone.roles.grant(role, user=user, project=project)
     return role
 
-def register_user(name,email,password):
+def register_user(name, email, password):
     keystone = fiware_keystoneclient()
     default_domain = keystone.domains.get(CREDENTIALS['DOMAIN'])
     default_project = keystone.projects.create(name, domain=default_domain)
@@ -71,22 +71,22 @@ def activate_user(user_id):
     keystone = fiware_keystoneclient()
     #default_domain = _get_default_domain(keystone)
     user = keystone.users.get(user_id)
-    project = keystone.projects.update(user.default_project_id,enabled=True)
-    user = keystone.users.update(user,enabled=True)
+    project = keystone.projects.update(user.default_project_id, enabled=True)
+    user = keystone.users.update(user, enabled=True)
     return user
 
-def change_password(user_email,new_password):
+def change_password(user_email, new_password):
     keystone = fiware_keystoneclient()
-    user = _find_user(keystone,email=user_email)
-    user = keystone.users.update(user,password=new_password,enabled=True)
+    user = _find_user(keystone, email=user_email)
+    user = keystone.users.update(user, password=new_password, enabled=True)
     return user
 
 def check_user(name):
     keystone = fiware_keystoneclient()
-    user = _find_user(keystone,name=name)
+    user = _find_user(keystone, name=name)
     return user
 
 def check_email(email):
     keystone = fiware_keystoneclient()
-    user = _find_user(keystone,email=email)
+    user = _find_user(keystone, email=email)
     return user
