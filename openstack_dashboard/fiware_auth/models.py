@@ -27,14 +27,15 @@ from horizon import exceptions
 
 from openstack_dashboard import fiware_api
 
-LOG = logging.getLogger(__name__)
 
+LOG = logging.getLogger(__name__)
 
 class TemplatedEmailMixin(object):
     # TODO(garcianavalon) as settings
-    EMAIL_HTML_TEMPLATE = ''
-    EMAIL_TEXT_TEMPLATE = ''
+    EMAIL_HTML_TEMPLATE = 'email/base_email.html'
+    EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
     def send_html_email(self, to, from_email, subject, content):
+        # TODO(garcianavalon) pass the context dict as param is better or use kwargs
         context = {
             'content':content
         }
@@ -43,6 +44,7 @@ class TemplatedEmailMixin(object):
         msg = EmailMultiAlternatives(subject, text_content, from_email, to)
         msg.attach_alternative(html_content, "text/html")
         msg.send()
+
 
 class ModelWithTimeStamps(models.Model):
     created = models.DateTimeField(editable=False)
@@ -54,6 +56,7 @@ class ModelWithTimeStamps(models.Model):
             self.created = timezone.now()
         self.updated = timezone.now()
         return super(ModelWithTimeStamps, self).save(*args, **kwargs)
+
 
 class RegistrationManager(models.Manager):
 
@@ -160,7 +163,7 @@ class RegistrationProfile(ModelWithTimeStamps, TemplatedEmailMixin):
         subject = ''.join(subject.splitlines())
         content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key=%s to activate' %self.activation_key
         #send a mail for activation
-        self.send_html_email(to=self.user_email, 
+        self.send_html_email(to=[self.user_email], 
                             from_email='admin@fiware-idm-test.dit.upm.es',
                             subject=subject, 
                             content=content)
@@ -214,7 +217,7 @@ class ResetPasswordProfile(ModelWithTimeStamps, TemplatedEmailMixin):
         subject = ''.join(subject.splitlines())
         content = 'Hello! Go to http://localhost:8000/password/reset/?reset_password_token=%s to reset it!' %self.reset_password_token
         #send a mail for activation
-        self.send_html_email(to=email, 
+        self.send_html_email(to=[email], 
                             from_email='admin@fiware-idm-test.dit.upm.es',
                             subject=subject, 
                             content=content)
