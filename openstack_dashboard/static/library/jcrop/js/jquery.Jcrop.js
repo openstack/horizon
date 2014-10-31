@@ -1288,3 +1288,4 @@ $.fn.Jcrop = function(options,callback)/*{{{*/
 /*}}}*/
 
 })(jQuery);
+
