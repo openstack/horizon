@@ -10,33 +10,28 @@
 {% block modal-header %}Change your avatar{% endblock %}
 
 {% block modal-body %}
-<div >
-  <fieldset>
-  	<div class="fieldWrapper" id="imgInp">
-		{% include 'horizon/common/_form_errors.html' with form=form %}
-			{% for field in form.visible_fields %}
-				<div style="display:none;">
-				{% if field.name == 'name'  %}
-					{% include 'horizon/common/_form_field.html' with field=field %}
-				{% endif %}
-				</div>
-				{% if field.name == 'image'  %}
-					{% include 'horizon/common/_form_field.html' with field=field %}
-				{% endif %}
-			{% endfor %}
-		
-		{{ form.x1 }}
-		{{ form.x2 }}
-		{{ form.y1 }}
-		{{ form.y2 }} 
+	<fieldset>
+	{% include 'horizon/common/_form_errors.html' with form=form %}
+		<div class="fieldWrapper" id="imgInp">
+			{{ form.image }} 
 			
+		</div>	
+		<div class="fieldWrapper" style="display:none;">
+			{{ form.name }}
+		</div>
+
+		<div>
+			{{ form.x1 }}
+			{{ form.x2 }}
+			{{ form.y1 }}
+			{{ form.y2 }}
+		</div>
+
+	</fieldset> 
+	<div>
+		<img id="avatar-update" src="#" alt="your image"  style="display: none;" />
 	</div>
-		
-  </fieldset>
-  <div>
-  	<img id="avatar-update" src="#" alt="your image" width="800" height="500" style="display: none;" />
-  </div>
-</div>
+
 {% endblock %}
 
 {% block modal-footer %}

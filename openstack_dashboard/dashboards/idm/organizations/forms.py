@@ -93,21 +93,22 @@ class EditOrganizationForm(forms.SelfHandlingForm):
     email = forms.EmailField(label=_("E-mail"),required=False)
     website=forms.URLField(label=_("Website"),required=False)
     image = forms.ImageField(required=False)
-    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y1 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
-    x2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
-    y2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
+    x1 = forms.DecimalField()
+    y1 = forms.DecimalField()
+    x2 = forms.DecimalField()
+    y2 = forms.DecimalField()
 
 
     def handle(self, request, data):
         try:
             if '_edit' in request.POST:
                 if request.FILES:
-                    # x1=data['x1'] 
-                    # x2=data['x2']
-                    # y1=data['y1']
-                    # y2=data['y2']
 
+                    x1=self.data['x1']
+                    x2=self.data['x2']
+                    y1=self.data['y1']
+                    y2=self.data['y2']
+                   
                     image = request.FILES['image']
                     avatarName = data['name']
 
@@ -116,17 +117,13 @@ class EditOrganizationForm(forms.SelfHandlingForm):
                     import pdb
                     pdb.set_trace()
 
-                    # x1 = int(x1)
-                    # x2 = int(x2)
-                    # y1 = int(y1)
-                    # y2 = int(y2)
-                    x1 = 0
-                    x2 = 50
-                    y1 = 0
-                    y2 = 50
-
+                    x1 = int(x1)
+                    x2 = int(x2)
+                    y1 = int(y1)
+                    y2 = int(y2)
+                
                     output_img = img.crop((x1,y1,x2,y2))
-                    output_img.save(settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"+avatarName)
+                    output_img.save(settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"+avatarName, 'JPEG')
 
                     messages.success(request, _("Organization updated successfully."))
                     response = shortcuts.redirect('horizon:idm:organizations:index')
