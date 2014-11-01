@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 15:01-0500\n"
-"PO-Revision-Date: 2014-10-29 14:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-30 03:30-0500\n"
+"PO-Revision-Date: 2014-10-30 10:31+0000\n"
+"Last-Translator: Frédéric <frosmont@free.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4406,7 +4406,7 @@ msgstr "Projets"
 
 #: dashboards/identity/projects/tables.py:30
 msgid "Set as Active Project"
-msgstr ""
+msgstr "Positionné comme Projet Actif"
 
 #: dashboards/identity/projects/tables.py:85
 msgid "View Usage"
@@ -6104,7 +6104,7 @@ msgstr "Ce modèle de cluster sera créé pour:"
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quot;Node Groups&quot; tab."
-msgstr ""
+msgstr "L'objet Modèle de Cluster doit spécifier les Modèles de Groupe de Nœuds qui seront utilisés pour construire un Cluster.\nVous pouvez ajouter des Groupes de Nœuds en utilisant les Modèles de Groupe de Nœuds sur l'onglet &quot;Groupes de Noeuds&quot."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
@@ -11149,7 +11149,7 @@ msgstr "Ajouter un sous-réseau"
 
 #: dashboards/project/networks/tables.py:130
 msgid "Add Subnet (Quota exceeded)"
-msgstr ""
+msgstr "Ajouter un Sous Réseau (Quota dépassé)"
 
 #: dashboards/project/networks/views.py:85
 msgid "Unable to retrieve network details."
@@ -11371,7 +11371,7 @@ msgstr "Impossible de récupérer les détails du port"
 
 #: dashboards/project/networks/subnets/tables.py:106
 msgid "Create Subnet (Quota exceeded)"
-msgstr ""
+msgstr "Créer un Sous Réseau (Quota dépassé)"
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
@@ -14073,7 +14073,7 @@ msgstr "Aide"
 
 #: templates/_header.html:20
 msgid "More Projects"
-msgstr ""
+msgstr "Plus de Projets"
 
 #: templates/_header.html:40
 msgid "Sign Out"
@@ -14140,7 +14140,7 @@ msgstr "Go Heures Disque"
 
 #: usage/tables.py:48
 msgid "Total disk usage (GB * Hours Used) for the project"
-msgstr ""
+msgstr "Utilisation totale du disque (Go*Heures utilisés) pour le projet"
 
 #: usage/tables.py:57 usage/tables.py:86
 msgid "Usage"
