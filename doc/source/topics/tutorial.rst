@@ -319,7 +319,7 @@ group which has one tab. The completed code should look like the following::
                 error_message = _('Unable to get instances')
                 exceptions.handle(self.request, error_message)
 
-                return instances[]
+                return []
 
     class MypanelTabs(tabs.TabGroup):
         slug = "mypanel_tabs"
