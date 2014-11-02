@@ -53,13 +53,13 @@ class UseremailTests(test.TestCase):
                                             password=None,).AndReturn(None)
         self.mox.ReplayAll()
 
-        formData = {
+        form_data = {
             'method': 'EmailForm',
             'email': 'user@test.com',
             'password': user.password
         }
 
-        response = self.client.post(INDEX_URL, formData)
+        response = self.client.post(INDEX_URL, form_data)
         self.assertNoFormErrors(response)
         # don't pass response to assertMessageCount because it's a redirect,
         # leave it default (None) to check the internal request object
@@ -75,13 +75,13 @@ class UseremailTests(test.TestCase):
                                  admin=False).AndReturn(user)
         self.mox.ReplayAll()
 
-        formData = {
+        form_data = {
             'method': 'EmailForm',
             'email': 'BADEMAIL',
             'password': user.password
         }
 
-        response = self.client.post(INDEX_URL, formData)
+        response = self.client.post(INDEX_URL, form_data)
         self.assertFormError(response, "form", 'email', ['Enter a valid email address.'])
         self.assertNoMessages()
 
@@ -109,13 +109,13 @@ class UseremailTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        formData = {
+        form_data = {
             'method': 'EmailForm',
             'email': 'user@test.com',
             'password': 'wrongpassword'
         }
 
-        response = self.client.post(INDEX_URL, formData)
+        response = self.client.post(INDEX_URL, form_data)
         # The password error is not a form error because is an error that
         # appears processing the form
         self.assertNoFormErrors(response)
@@ -131,13 +131,13 @@ class UseremailTests(test.TestCase):
                                  admin=False).AndReturn(user)
         self.mox.ReplayAll()
 
-        formData = {
+        form_data = {
             'method': 'EmailForm',
             'email': '',
             'password': ''
         }
 
-        response = self.client.post(INDEX_URL, formData)
+        response = self.client.post(INDEX_URL, form_data)
         self.assertFormError(response, 'form', 'email', ['This field is required.'])
         self.assertFormError(response, 'form', 'password', ['This field is required.'])
         self.assertNoMessages() 
