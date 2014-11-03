@@ -85,64 +85,142 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
        	response = shortcuts.redirect('horizon:idm:organizations:index')
     	return response
 
-class EditOrganizationForm(forms.SelfHandlingForm):
-    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
+# class EditOrganizationForm(forms.SelfHandlingForm):
+#     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+#     name = forms.CharField(label=_("Name"), max_length=64,required=False)
+#     description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
+#     city = forms.CharField(label=_("City"), max_length=64,required=False)
+#     email = forms.EmailField(label=_("E-mail"),required=False)
+#     website=forms.URLField(label=_("Website"),required=False)
+#     image = forms.ImageField(required=False)
+#     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+#     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+#     x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+#     y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+
+
+#     def handle(self, request, data):
+#         try:
+#             if '_edit' in request.POST:
+#                 if request.FILES:
+
+#                     x1=self.cleaned_data['x1']
+#                     x2=self.cleaned_data['x2']
+#                     y1=self.cleaned_data['y1']
+#                     y2=self.cleaned_data['y2']
+                   
+#                     image = request.FILES['image']
+#                     avatarName = data['name']
+
+#                     img = Image.open(image)
+
+#                     import pdb
+#                     pdb.set_trace()
+
+#                     x1 = int(x1)
+#                     x2 = int(x2)
+#                     y1 = int(y1)
+#                     y2 = int(y2)
+                
+#                     output_img = img.crop((x1,y1,x2,y2))
+#                     output_img.save(settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"+avatarName, 'JPEG')
+
+#                     messages.success(request, _("Organization updated successfully."))
+#                     response = shortcuts.redirect('horizon:idm:organizations:index')
+#                     return response
+#                 else:
+#                     try:
+#                         api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
+#                         messages.success(request, _("Organization updated successfully."))
+#                         response = shortcuts.redirect('horizon:idm:organizations:index')
+#                         return response
+#                     except Exception:
+#                         response = shortcuts.redirect('horizon:idm:organizations:index')
+#                         return response
+#             elif '_delete' in request.POST:
+#                 organization = data['orgID']
+#                 api.keystone.tenant_delete(request, organization)
+#                 messages.success(request, _("Organization deleted successfully."))
+#                 response = shortcuts.redirect('horizon:idm:organizations:index')
+#                 return response
+#         except Exception:
+#             exceptions.handle(request, _('Unable to update organization.'))
+
+class InfoForm(forms.SelfHandlingForm):
+    # action="url1/"
+    # title = 'Information'
+    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     name = forms.CharField(label=_("Name"), max_length=64,required=False)
     description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
     city = forms.CharField(label=_("City"), max_length=64,required=False)
-    email = forms.EmailField(label=_("E-mail"),required=False)
-    website=forms.URLField(label=_("Website"),required=False)
-    image = forms.ImageField(required=False)
-    x1 = forms.DecimalField()
-    y1 = forms.DecimalField()
-    x2 = forms.DecimalField()
-    y2 = forms.DecimalField()
-
 
     def handle(self, request, data):
         try:
-            if '_edit' in request.POST:
-                if request.FILES:
-
-                    x1=self.data['x1']
-                    x2=self.data['x2']
-                    y1=self.data['y1']
-                    y2=self.data['y2']
-                   
-                    image = request.FILES['image']
-                    avatarName = data['name']
-
-                    img = Image.open(image)
-
-                    import pdb
-                    pdb.set_trace()
-
-                    x1 = int(x1)
-                    x2 = int(x2)
-                    y1 = int(y1)
-                    y2 = int(y2)
-                
-                    output_img = img.crop((x1,y1,x2,y2))
-                    output_img.save(settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"+avatarName, 'JPEG')
-
-                    messages.success(request, _("Organization updated successfully."))
-                    response = shortcuts.redirect('horizon:idm:organizations:index')
-                    return response
-                else:
-                    try:
-                        api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
-                        messages.success(request, _("Organization updated successfully."))
-                        response = shortcuts.redirect('horizon:idm:organizations:index')
-                        return response
-                    except Exception:
-                        response = shortcuts.redirect('horizon:idm:organizations:index')
-                        return response
-            elif '_delete' in request.POST:
-                organization = data['orgID']
-                api.keystone.tenant_delete(request, organization)
-                messages.success(request, _("Organization deleted successfully."))
-                response = shortcuts.redirect('horizon:idm:organizations:index')
-                return response
+            api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
+            messages.success(request, _("Organization updated successfully."))
+            response = shortcuts.redirect('horizon:idm:organizations:index')
+            return response
         except Exception:
-            exceptions.handle(request, _('Unable to update organization.'))
+            response = shortcuts.redirect('horizon:idm:organizations:index')
+            return response
+
+class ContactForm(forms.SelfHandlingForm):
+    # action="url2/"
+    # title = 'Contact Information'
+    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    email = forms.EmailField(label=_("E-mail"),required=False)
+    website=forms.URLField(label=_("Website"),required=False)
+
+    def handle(self, requestm, data):
+        response = shortcuts.redirect('horizon:idm:organizations:index')
+        return response
+
+class AvatarForm(forms.SelfHandlingForm):
+    # action="url3/"
+    # title = 'Avatar Update'
+    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(),required=False)
+    image = forms.ImageField(required=False)
+    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+
+    def handle(self, requestm, data):
+        x1=self.cleaned_data['x1']
+        x2=self.cleaned_data['x2']
+        y1=self.cleaned_data['y1']
+        y2=self.cleaned_data['y2']
+
+        image = request.FILES['image']
+        avatarName = data['name']
+
+        img = Image.open(image)
+
+        x1 = int(x1)
+        x2 = int(x2)
+        y1 = int(y1)
+        y2 = int(y2)
+
+        output_img = img.crop((x1,y1,x2,y2))
+        output_img.save(settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"+avatarName, 'JPEG')
+
+        messages.success(request, _("Organization updated successfully."))
+        response = shortcuts.redirect('horizon:idm:organizations:index')
+        return response
+        
+class CancelForm(forms.SelfHandlingForm):
+    # action="url4/"
+    # title = 'Cancel'
+    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(),required=False)
+
+    def handle(self, requestm, data):
+        organization = data['orgID']
+        api.keystone.tenant_delete(request, organization)
+        messages.success(request, _("Organization deleted successfully."))
+        response = shortcuts.redirect('horizon:idm:organizations:index')
+        return response
+        
+
 

@@ -22,6 +22,7 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 from django.core.files import File
+from django.views.generic.base import TemplateView
 
 from horizon import exceptions
 from horizon import messages
@@ -36,8 +37,6 @@ from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
-from openstack_dashboard.dashboards.idm.organizations \
-    import workflows as organization_workflows
 from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
 from openstack_dashboard.dashboards.idm.organizations \
@@ -56,12 +55,6 @@ class IndexView(tabs.TabbedTableView):
 
         return context
 
-
-# with open('/tmp/hello.world', 'w') as f:
-# ...     myfile = File(f)
-# ...     myfile.write('Hello World')
-# ...
-# >>> myfile.closed
 
 class CreateOrganizationView(forms.ModalFormView):
     form_class = organization_forms.CreateOrganizationForm
@@ -99,9 +92,60 @@ class DetailOrganizationView(tables.MultiTableView):
         context['organization.name'] = organization.name
         return context
 
-class EditOrganizationView(forms.ModalFormView):
-    form_class = organization_forms.EditOrganizationForm
+# class EditOrganizationView(forms.ModalFormView):
+#     form_class = organization_forms.EditOrganizationForm
+#     template_name = 'idm/organizations/edit.html'
+
+#     @memoized.memoized_method
+#     def get_object(self):
+#         try:
+#             return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
+#         except Exception:
+#             redirect = reverse("horizon:idm:organizations:index")
+#             exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
+
+#     def get_context_data(self, **kwargs):
+#         # Call the base implementation first to get a context
+#         context = super(EditOrganizationView, self).get_context_data(**kwargs)
+#         organization = self.get_object()
+#         context['organization']=organization
+#         return context
+
+#     def get_initial(self):
+#         organization = self.get_object()
+#         return {'orgID': organization.id,
+#                 'name': organization.name,
+#                 'description': organization.description}
+
+class MultiFormView(TemplateView):
     template_name = 'idm/organizations/edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MultiFormView, self).get_context_data(**kwargs)
+        info = organization_forms.InfoForm
+        contact = organization_forms.ContactForm
+        avatar = organization_forms.AvatarForm
+        cancel = organization_forms.CancelForm
+        context['forms'] = [ info, contact, avatar, cancel]
+ 
+        info.action = 'url1/'
+        contact.action='url2/'
+        avatar.action = 'url3/'
+        cancel.action = 'url4/'
+        info.title = 'info'
+        contact.title = 'contact'
+        avatar.title = 'avatar'
+        cancel.title = 'cancel'
+       
+        return context
+
+class HandleForm(forms.ModalFormView):
+    template_name = ''
+    http_method_not_allowed=('GET')
+
+
+class InfoFormView(HandleForm):
+    form_class = organization_forms.InfoForm
 
     @memoized.memoized_method
     def get_object(self):
@@ -113,7 +157,7 @@ class EditOrganizationView(forms.ModalFormView):
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
-        context = super(EditOrganizationView, self).get_context_data(**kwargs)
+        context = super(InfoFormView, self).get_context_data(**kwargs)
         organization = self.get_object()
         context['organization']=organization
         return context
@@ -124,4 +168,17 @@ class EditOrganizationView(forms.ModalFormView):
                 'name': organization.name,
                 'description': organization.description}
 
-   
+class ContactFormView(HandleForm):
+    form_class = organization_forms.ContactForm
+
+    #NOTE(sorube13): when keystone impletment extra information about each organization,
+    # implement the same methods as above
+
+class AvatarFormView(HandleForm):
+    form_class = organization_forms.AvatarForm
+
+    #NOTE(sorube13): when keystone impletment extra information about each organization,
+    # implement the same methods as above
+
+class CancelFormView(HandleForm):
+    form_class = organization_forms.CancelForm

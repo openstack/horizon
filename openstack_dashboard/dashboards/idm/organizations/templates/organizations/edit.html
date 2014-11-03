@@ -2,9 +2,15 @@
 {% load i18n %}
 
 {% block main %}
+{% for form in forms %}
 
-  {% include "idm/organizations/_avatar.html" %}
- 
+{{ forms.action }}
+{{ forms.title }}
+{{ action }}
+{{ title }}
 
+
+
+  {% endfor %}
 
 {% endblock %}
