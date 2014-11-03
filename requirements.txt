@@ -34,7 +34,7 @@ python-heatclient>=0.2.9
 python-keystoneclient>=0.11.1
 python-neutronclient>=2.3.6,<3
 python-novaclient>=2.18.0
-python-saharaclient>=0.7.3
+python-saharaclient>=0.7.5
 python-swiftclient>=2.2.0
 python-troveclient>=1.0.7
 pytz
