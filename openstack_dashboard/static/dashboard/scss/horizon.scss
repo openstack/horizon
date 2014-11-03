@@ -625,7 +625,11 @@ table form {
 
 .table_actions .table_search,
 .table_actions .table_filter {
-  display: inline-block;
+   display: inline-flex;
+   display: -ms-inline-flexbox;
+   -ms-flex-direction: row;
+   display: -webkit-inline-flex;
+   display: -moz-inline-flex;
 }
 
 .table_search {
@@ -670,6 +674,11 @@ td.loading {
 }
 
 .table_header .table_actions {
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+  -ms-flex-direction: row;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
   min-width: 0;
 }
 
@@ -678,6 +687,7 @@ td.loading {
 .table_header .table_actions .table_search button {
   display: inline-block;
   float: none;
+  max-height: 32px;
 }
 
 .table_header .table_actions .table_search select {
