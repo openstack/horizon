@@ -281,7 +281,7 @@ def ceilometerclient(request):
     return ceilometer_client.Client('2', endpoint,
                                     token=(lambda: request.user.token.id),
                                     insecure=insecure,
-                                    ca_file=cacert)
+                                    cacert=cacert)
 
 
 def resource_list(request, query=None, ceilometer_usage_object=None):
