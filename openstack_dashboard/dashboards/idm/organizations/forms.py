@@ -159,10 +159,10 @@ class InfoForm(forms.SelfHandlingForm):
             print('entra al handle')
             api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
             messages.success(request, _("Organization updated successfully."))
-            response = shortcuts.redirect('horizon:idm:organizations:index')
+            response = shortcuts.redirect('horizon:idm:myApplications:index')
             return response
         except Exception:
-            response = shortcuts.redirect('horizon:idm:organizations:index')
+            response = shortcuts.redirect('horizon:idm:myApplications:index')
             return response
 
 class ContactForm(forms.SelfHandlingForm):

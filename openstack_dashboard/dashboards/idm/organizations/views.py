@@ -49,11 +49,6 @@ class IndexView(tabs.TabbedTableView):
     tab_group_class = organization_tabs.PanelTabs
     template_name = 'idm/organizations/index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
-        context['source'] = 'pepe'
-
-        return context
 
 
 class CreateOrganizationView(forms.ModalFormView):
@@ -121,14 +116,35 @@ class DetailOrganizationView(tables.MultiTableView):
 class MultiFormView(TemplateView):
     template_name = 'idm/organizations/edit.html'
 
+
     def get_context_data(self, **kwargs):
         context = super(MultiFormView, self).get_context_data(**kwargs)
         info = organization_forms.InfoForm(self)
         contact = organization_forms.ContactForm(self)
+        organization = self.get_object()
+        context['organization'] = organization
         # avatar = organization_forms.AvatarForm
         # cancel = organization_forms.CancelForm
         context['form'] = [ info, contact]       
         return context
+
+    @memoized.memoized_method
+    def get_object(self):
+        try:
+            return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
+        except Exception:
+            redirect = reverse("horizon:idm:organizations:index")
+            exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
+
+
+
+    def get_initial(self):
+        initial = super(MultiFormView, self).get_initial()
+        organization = self.get_object()
+        initial['orgID'] = organization_id
+        initial['name'] = organization.name
+        initial['description']=organization.description
+        return initial
 
 class HandleForm(forms.ModalFormView):
     template_name = 'idm/organizations/url1.html'
@@ -146,6 +162,23 @@ class InfoFormView(HandleForm):
             redirect = reverse("horizon:idm:organizations:index")
             exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
 
+
+    def get_initial(self):
+        initial = super(MultiFormView, self).get_initial()
+        organization = self.get_object()
+        initial['orgID'] = organization_id
+        initial['name'] = organization.name
+        initial['description']=organization.description
+        return initial
+
+    # @memoized.memoized_method
+    # def get_object(self):
+    #     try:
+    #         return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
+    #     except Exception:
+    #         redirect = reverse("horizon:idm:organizations:index")
+    #         exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
+
     # def get_context_data(self, **kwargs):
     #     # Call the base implementation first to get a context
     #     context = super(InfoFormView, self).get_context_data(**kwargs)
@@ -153,14 +186,14 @@ class InfoFormView(HandleForm):
     #     context['organization']=organization
     #     return context
 
-    def get_initial(self):
-        organization = self.get_object()
-        return {'orgID': organization.id,
-                'name': organization.name,
-                'description': organization.description}
+    # def get_initial(self):
+    #     organization = self.get_object()
+    #     return {'orgID': organization.id,
+    #             'name': organization.name,
+    #             'description': organization.description}
 
-# class ContactFormView(HandleForm):
-#     form_class = organization_forms.ContactForm
+class ContactFormView(HandleForm):
+    form_class = organization_forms.ContactForm
 
     #NOTE(sorube13): when keystone impletment extra information about each organization,
     # implement the same methods as above
