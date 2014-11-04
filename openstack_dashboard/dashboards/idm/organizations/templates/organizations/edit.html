@@ -2,15 +2,16 @@
 {% load i18n %}
 
 {% block main %}
-{% for form in forms %}
-
-{{ forms.action }}
-{{ forms.title }}
-{{ action }}
-{{ title }}
+{% for form in form %}
+<div class="panel panel-default">
+	<div class="panel-body">
 
 
 
-  {% endfor %}
+{% include "idm/organizations/_edit.html" %}
+</div>
+</div>
+{% endfor%}
+
 
 {% endblock %}

@@ -6,11 +6,11 @@
 
 
 {% block form_class %}{% endblock %}
-{% block form_action %}{{ form.action }}{% endblock %}
+{% block form_action %}{{form.action}}{% endblock %}
 
 {% block modal_id %}edit{% endblock %}
 {% block modal-header %}
-EDIT
+{{form.title}}
 {% endblock %}
 
 {% block modal-body %}
@@ -22,7 +22,7 @@ EDIT
 {% endblock %}
 
 {% block modal-footer %}
-    <button type="submit" class="btn btn-primary">{% trans "Create Organization" %}</button>
+    <button type="submit" class="btn btn-primary">{% trans "Update Organization" %}</button>
     
 {% endblock %}
 

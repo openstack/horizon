@@ -117,34 +117,25 @@ class DetailOrganizationView(tables.MultiTableView):
 #                 'name': organization.name,
 #                 'description': organization.description}
 
+
 class MultiFormView(TemplateView):
     template_name = 'idm/organizations/edit.html'
 
     def get_context_data(self, **kwargs):
         context = super(MultiFormView, self).get_context_data(**kwargs)
-        info = organization_forms.InfoForm
-        contact = organization_forms.ContactForm
-        avatar = organization_forms.AvatarForm
-        cancel = organization_forms.CancelForm
-        context['forms'] = [ info, contact, avatar, cancel]
- 
-        info.action = 'url1/'
-        contact.action='url2/'
-        avatar.action = 'url3/'
-        cancel.action = 'url4/'
-        info.title = 'info'
-        contact.title = 'contact'
-        avatar.title = 'avatar'
-        cancel.title = 'cancel'
-       
+        info = organization_forms.InfoForm(self)
+        contact = organization_forms.ContactForm(self)
+        # avatar = organization_forms.AvatarForm
+        # cancel = organization_forms.CancelForm
+        context['form'] = [ info, contact]       
         return context
 
 class HandleForm(forms.ModalFormView):
-    template_name = ''
-    http_method_not_allowed=('GET')
+    template_name = 'idm/organizations/url1.html'
+    http_method_not_allowed=['get']
 
 
-class InfoFormView(HandleForm):
+class InfoFormView(HandleForm):    
     form_class = organization_forms.InfoForm
 
     @memoized.memoized_method
@@ -155,12 +146,12 @@ class InfoFormView(HandleForm):
             redirect = reverse("horizon:idm:organizations:index")
             exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
 
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super(InfoFormView, self).get_context_data(**kwargs)
-        organization = self.get_object()
-        context['organization']=organization
-        return context
+    # def get_context_data(self, **kwargs):
+    #     # Call the base implementation first to get a context
+    #     context = super(InfoFormView, self).get_context_data(**kwargs)
+    #     organization = self.get_object()
+    #     context['organization']=organization
+    #     return context
 
     def get_initial(self):
         organization = self.get_object()
@@ -168,17 +159,21 @@ class InfoFormView(HandleForm):
                 'name': organization.name,
                 'description': organization.description}
 
-class ContactFormView(HandleForm):
-    form_class = organization_forms.ContactForm
+# class ContactFormView(HandleForm):
+#     form_class = organization_forms.ContactForm
 
     #NOTE(sorube13): when keystone impletment extra information about each organization,
     # implement the same methods as above
 
-class AvatarFormView(HandleForm):
-    form_class = organization_forms.AvatarForm
+# class AvatarFormView(forms.ModalFormView):
+#     template_name = ''
+#     http_method_not_allowed=('GET')
+#     form_class = organization_forms.AvatarForm
 
-    #NOTE(sorube13): when keystone impletment extra information about each organization,
-    # implement the same methods as above
+#     #NOTE(sorube13): when keystone impletment extra information about each organization,
+#     # implement the same methods as above
 
-class CancelFormView(HandleForm):
-    form_class = organization_forms.CancelForm
+# class CancelFormView(forms.ModalFormView):
+#     template_name = ''
+#     http_method_not_allowed=('GET')
+#     form_class = organization_forms.CancelForm
