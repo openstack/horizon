@@ -1,15 +1,22 @@
-from django.core.urlresolvers import reverse
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import messages
 from horizon import tables
-from horizon.utils import memoized
 
 from openstack_dashboard import api
-from openstack_dashboard.api import keystone
-from openstack_dashboard import policy
-
+from openstack_dashboard.dashboards.idm import utils as idm_utils
 from openstack_dashboard.dashboards.idm.home import tables as home_tables
 
 ORGANIZATION_INFO_FIELDS = ("domain_id",
@@ -19,24 +26,6 @@ ORGANIZATION_INFO_FIELDS = ("domain_id",
                            "enabled")
 
 INDEX_URL = "horizon:idm:home:index"
-
-class TenantContextMixin(object):
-    @memoized.memoized_method
-    def get_object(self):
-        tenant_id = self.kwargs['tenant_id']
-        try:
-            return api.keystone.tenant_get(self.request, tenant_id, admin=True)
-        except Exception:
-            exceptions.handle(self.request,
-                              _('Unable to retrieve project information.'),
-                              redirect=reverse(INDEX_URL))
-
-    def get_context_data(self, **kwargs):
-        context = super(TenantContextMixin, self).get_context_data(**kwargs)
-        context['tenant'] = self.get_object()
-        return context
-
-
 
 class IndexView(tables.MultiTableView):
     table_classes = (home_tables.TenantsTable,
@@ -63,7 +52,7 @@ class IndexView(tables.MultiTableView):
             exceptions.handle(self.request,
                               _("Unable to retrieve project information."))
     
-        return tenants
+        return idm_utils.filter_own_tenant(self.request.user, tenants)
 
     def get_applications_data(self):
         applications = []
