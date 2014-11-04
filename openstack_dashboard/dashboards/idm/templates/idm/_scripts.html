@@ -10,12 +10,13 @@ function readURL(input) {
         
         reader.onload = function (e) {
             $('#avatar-update').attr('src', e.target.result);
-            $('#avatar-update').attr('style', "");
             $('#avatar-update').Jcrop({
                 onChange: showCoords,
                 onSelect: showCoords,
                 aspectRatio: 1,
-                setSelect:   [ 100, 100, 50, 50 ]
+                setSelect:   [ 100, 100, 50, 50 ],
+                boxWidth: 650,
+
             });
         }
         
