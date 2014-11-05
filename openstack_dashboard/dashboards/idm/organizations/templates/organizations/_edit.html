@@ -7,6 +7,7 @@
 
 {% block form_class %}{% endblock %}
 {% block form_action %}{{form.action}}{% endblock %}
+{% block form_enctype %}multipart/form-data{% endblock %}
 
 {% block modal_id %}edit{% endblock %}
 {% block modal-header %}
@@ -19,10 +20,21 @@
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
 </div>
+{% if form.title == 'Avatar Update'%}
+<div>
+	<img id="avatar-update" src="/static/dashboard/img/logos/original/group.png" alt="your image"   />
+</div>
+{% endif %}
+
 {% endblock %}
 
+
 {% block modal-footer %}
-    <button type="submit" class="btn btn-primary">{% trans "Update Organization" %}</button>
+{% if form.title == 'Cancel'%}
+    <button type="submit" class="btn btn-primary">{% trans "Delete Organization" %} </button>
+{% else %}
+<button type="submit" class="btn btn-primary">{% trans "Update Organization" %} </button>
+{% endif %}
     
 {% endblock %}
 

@@ -87,47 +87,11 @@ class DetailOrganizationView(tables.MultiTableView):
         context['organization.name'] = organization.name
         return context
 
-# class EditOrganizationView(forms.ModalFormView):
-#     form_class = organization_forms.EditOrganizationForm
-#     template_name = 'idm/organizations/edit.html'
-
-#     @memoized.memoized_method
-#     def get_object(self):
-#         try:
-#             return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
-#         except Exception:
-#             redirect = reverse("horizon:idm:organizations:index")
-#             exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
-
-#     def get_context_data(self, **kwargs):
-#         # Call the base implementation first to get a context
-#         context = super(EditOrganizationView, self).get_context_data(**kwargs)
-#         organization = self.get_object()
-#         context['organization']=organization
-#         return context
-
-#     def get_initial(self):
-#         organization = self.get_object()
-#         return {'orgID': organization.id,
-#                 'name': organization.name,
-#                 'description': organization.description}
 
 
 class MultiFormView(TemplateView):
     template_name = 'idm/organizations/edit.html'
 
-
-    def get_context_data(self, **kwargs):
-        context = super(MultiFormView, self).get_context_data(**kwargs)
-        info = organization_forms.InfoForm(self)
-        contact = organization_forms.ContactForm(self)
-        organization = self.get_object()
-        context['organization'] = organization
-        # avatar = organization_forms.AvatarForm
-        # cancel = organization_forms.CancelForm
-        context['form'] = [ info, contact]       
-        return context
-
     @memoized.memoized_method
     def get_object(self):
         try:
@@ -138,38 +102,49 @@ class MultiFormView(TemplateView):
 
 
 
-    def get_initial(self):
-        initial = super(MultiFormView, self).get_initial()
+    def get_context_data(self, **kwargs):
+        context = super(MultiFormView, self).get_context_data(**kwargs)
         organization = self.get_object()
-        initial['orgID'] = organization_id
-        initial['name'] = organization.name
-        initial['description']=organization.description
-        return initial
+        context['organization'] = organization
+
+        #Crerate forms
+        info = organization_forms.InfoForm(self)
+        contact = organization_forms.ContactForm(self)
+        avatar = organization_forms.AvatarForm(self)
+        cancel = organization_forms.CancelForm(self)
+
+        #Actions and titles
+        info.action = 'info/'
+        info.title = 'Information'
+        contact.action="contact/"
+        contact.title = 'Contact Information'
+        avatar.action="avatar/"
+        avatar.title = 'Avatar Update'
+        cancel.action="cancel/"
+        cancel.title = 'Cancel'
+
+        #Initial value for forms 
+        info.fields["orgID"].initial = organization.id
+        info.fields["name"].initial = organization.name
+        info.fields["description"].initial = organization.description
+        contact.fields["orgID"].initial = organization.id        
+        avatar.fields["orgID"].initial = organization.id        
+        avatar.fields["name"].initial = organization.name        
+        cancel.fields["orgID"].initial = organization.id
+
+        context['form'] = [ info, contact, avatar, cancel]       
+        return context
 
 class HandleForm(forms.ModalFormView):
-    template_name = 'idm/organizations/url1.html'
+    template_name = ''
     http_method_not_allowed=['get']
 
 
 class InfoFormView(HandleForm):    
     form_class = organization_forms.InfoForm
-
-    @memoized.memoized_method
-    def get_object(self):
-        try:
-            return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
-        except Exception:
-            redirect = reverse("horizon:idm:organizations:index")
-            exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
+    http_method_not_allowed=['get']
 
 
-    def get_initial(self):
-        initial = super(MultiFormView, self).get_initial()
-        organization = self.get_object()
-        initial['orgID'] = organization_id
-        initial['name'] = organization.name
-        initial['description']=organization.description
-        return initial
 
     # @memoized.memoized_method
     # def get_object(self):
@@ -179,34 +154,25 @@ class InfoFormView(HandleForm):
     #         redirect = reverse("horizon:idm:organizations:index")
     #         exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
 
-    # def get_context_data(self, **kwargs):
-    #     # Call the base implementation first to get a context
-    #     context = super(InfoFormView, self).get_context_data(**kwargs)
-    #     organization = self.get_object()
-    #     context['organization']=organization
-    #     return context
+
 
     # def get_initial(self):
+    #     initial = super(MultiFormView, self).get_initial()
     #     organization = self.get_object()
-    #     return {'orgID': organization.id,
-    #             'name': organization.name,
-    #             'description': organization.description}
+    #     initial['orgID'] = organization_id
+    #     initial['name'] = organization.name
+    #     initial['description']=organization.description
+    #     return initial
+
+   
 
 class ContactFormView(HandleForm):
     form_class = organization_forms.ContactForm
 
-    #NOTE(sorube13): when keystone impletment extra information about each organization,
-    # implement the same methods as above
+   
+class AvatarFormView(forms.ModalFormView):
+    form_class = organization_forms.AvatarForm
 
-# class AvatarFormView(forms.ModalFormView):
-#     template_name = ''
-#     http_method_not_allowed=('GET')
-#     form_class = organization_forms.AvatarForm
 
-#     #NOTE(sorube13): when keystone impletment extra information about each organization,
-#     # implement the same methods as above
-
-# class CancelFormView(forms.ModalFormView):
-#     template_name = ''
-#     http_method_not_allowed=('GET')
-#     form_class = organization_forms.CancelForm
+class CancelFormView(forms.ModalFormView):
+    form_class = organization_forms.CancelForm
