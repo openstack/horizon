@@ -112,6 +112,73 @@ class VolumeViewTests(test.TestCase):
                                  'extension_supported'),
                         api.glance: ('image_list_detailed',),
                         quotas: ('tenant_limit_usages',)})
+    def test_create_volume_without_name(self):
+        volume = self.cinder_volumes.first()
+        volume_type = self.volume_types.first()
+        az = self.cinder_availability_zones.first().zoneName
+        usage_limit = {'maxTotalVolumeGigabytes': 250,
+                       'gigabytesUsed': 20,
+                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'maxTotalVolumes': 6}
+        formData = {'name': '',
+                    'description': u'This is a volume I am making for a test.',
+                    'method': u'CreateForm',
+                    'type': volume_type.name,
+                    'size': 50,
+                    'snapshot_source': '',
+                    'availability_zone': az}
+
+        cinder.volume_type_list(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.list())
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+            AndReturn(usage_limit)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+            AndReturn(self.cinder_volume_snapshots.list())
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
+            .AndReturn([self.images.list(), False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
+            .AndReturn([[], False, False])
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+
+        cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
+            .AndReturn(True)
+        cinder.volume_list(IsA(
+            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+
+        cinder.volume_create(IsA(http.HttpRequest),
+                             formData['size'],
+                             formData['name'],
+                             formData['description'],
+                             formData['type'],
+                             metadata={},
+                             snapshot_id=None,
+                             image_id=None,
+                             availability_zone=formData['availability_zone'],
+                             source_volid=None)\
+            .AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:volumes:create')
+        res = self.client.post(url, formData)
+
+        redirect_url = VOLUME_VOLUMES_TAB_URL
+        self.assertRedirectsNoFollow(res, redirect_url)
+
+    @test.create_stubs({cinder: ('volume_create',
+                                 'volume_snapshot_list',
+                                 'volume_type_list',
+                                 'volume_list',
+                                 'availability_zone_list',
+                                 'extension_supported'),
+                        api.glance: ('image_list_detailed',),
+                        quotas: ('tenant_limit_usages',)})
     def test_create_volume_dropdown(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
@@ -1051,6 +1118,28 @@ class VolumeViewTests(test.TestCase):
 
         formData = {'method': 'UpdateForm',
                     'name': volume.name,
+                    'description': volume.description}
+
+        url = reverse('horizon:project:volumes:volumes:update',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_update',
+                                 'volume_get',)})
+    def test_update_volume_without_name(self):
+        volume = self.cinder_volumes.get(name="my_volume")
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_update(IsA(http.HttpRequest),
+                             volume.id,
+                             '',
+                             volume.description)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateForm',
+                    'name': '',
                     'description': volume.description}
 
         url = reverse('horizon:project:volumes:volumes:update',
