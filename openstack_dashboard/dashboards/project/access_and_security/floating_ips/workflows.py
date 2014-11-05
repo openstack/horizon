@@ -141,13 +141,24 @@ class IPAssociationWorkflow(workflows.Workflow):
     default_steps = (AssociateIP,)
 
     def format_status_message(self, message):
-        return message % self.context.get('ip_address', 'unknown IP address')
+        if "%s" in message:
+            return message % self.context.get('ip_address',
+                                              _('unknown IP address'))
+        else:
+            return message
 
     def handle(self, request, data):
         try:
             api.network.floating_ip_associate(request,
                                               data['ip_id'],
                                               data['instance_id'])
+        except neutron_exc.Conflict:
+            msg = _('The requested instance port is already'
+                    ' associated with another floating IP.')
+            exceptions.handle(request, msg)
+            self.failure_message = msg
+            return False
+
         except Exception:
             exceptions.handle(request)
             return False
