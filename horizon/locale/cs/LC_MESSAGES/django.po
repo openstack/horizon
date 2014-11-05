@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 19:13-0500\n"
-"PO-Revision-Date: 2014-10-28 22:51+0000\n"
+"POT-Creation-Date: 2014-10-30 03:30-0500\n"
+"PO-Revision-Date: 2014-11-04 20:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: base.py:480
+#: base.py:480 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "Ostatní"
 
@@ -87,6 +87,8 @@ msgstr "Zrušit"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:28
+#: templates/horizon/common/_modal_form_update_metadata.html:98
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
@@ -466,7 +468,7 @@ msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Prodaných štěňat"
 
 #: utils/filters.py:49
 msgid "Never"
