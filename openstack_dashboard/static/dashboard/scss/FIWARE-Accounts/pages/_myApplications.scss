@@ -34,13 +34,94 @@
   }
 }
 
-#avatar-update {
-  width: 60%;
-  margin-top: 15px;
+
+
+
+
+.site-client-roles{
+  @include make-sm-column(12, $gutter: $grid-gutter-width);
+  @include make-md-column(12, $gutter: $grid-gutter-width);
+  @include make-lg-column(12, $gutter: $grid-gutter-width);
+  padding: 25px 0 0px;
+  margin: 0 0 20px;
+}
+.site-client-roles{  
+  .list-group-item{
+    min-height: 46px !important;
+    margin-left: 0;
+    width: 100%;
+
+    span{
+      float: right;
+      a:first-child{margin-right:4px;}
+    }
+
+    .btn{
+      padding: 8px;
+    }
+  }
 }
 
-.site-client-roles{ 
-  .radio{
-    float: none;
+.site_client_roles header{
+    position: absolute;
+    margin-top: -23px;
+}
+#new_relation{
+  h4{
+    margin-bottom: 10px;
+    clear: both;
+    min-height: 10px;
+  }
+  a{
+    float: right;
+  }
+  .input-group{
+    clear: both;
+    .input-group-addon{
+      padding: 0 !important;
+      margin: 0 !important;
+      background: rgba(0, 0, 0, 0);
+      border: none;
+    }
+  }
+}
+#new_permission{
+  .btn-link{
+    float: right;
+    clear: both;
+  } 
+}
+#add_permission{
+  .modal-content{
+    padding: 10px 15px;
+    .panel-body{
+      padding: 10px;
+    }
+  }
+}
+
+.relation_list{
+  @include make-sm-column(5, $gutter: $grid-gutter-width);
+  @include make-md-column(5, $gutter: $grid-gutter-width);
+  @include make-lg-column(5, $gutter: $grid-gutter-width); 
+  @media (max-width: $screen-sm-min){
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.permissions_list{
+  @include make-sm-column(6, $gutter: $grid-gutter-width);
+  @include make-md-column(6, $gutter: $grid-gutter-width);
+  @include make-lg-column(6, $gutter: $grid-gutter-width);
+  border-left: 1px solid $gray-light;
+  @media (max-width: $screen-sm-min){
+    border-left: none;
+    margin-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .alert{
+    margin-top: 10px;
   }
 }

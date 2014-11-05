@@ -33,7 +33,7 @@ else:
     from keystoneclient.v3.contrib.oauth2 import auth
 
 
-def fiwareclient(session=None,request=None):# TODO(garcianavalon) use this
+def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
 
     The IdM has its own admin account in the keystone server, and uses it to perform

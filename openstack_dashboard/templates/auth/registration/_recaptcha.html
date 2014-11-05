@@ -11,27 +11,19 @@
   <div id="recaptcha_widget" style="display:none" class="{{ classes.value }} {{ field|wrapper_classes }}">
     {{ field|add_bootstrap_class }}
     <div id="recaptcha_image"></div>
-    <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
-
-    {% comment "NOTE(garcianavalon) we are showing the errors using the field.errors below" %}
-      <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
-    {% endcomment %}
-
-    <span class="recaptcha_only_if_image">Enter the words above:</span>
-    <span class="recaptcha_only_if_audio">Enter the numbers you hear:</span>
-
-    <div><a href="javascript:Recaptcha.reload()">Get another CAPTCHA</a></div>
-    <div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')">Get an audio CAPTCHA</a></div>
-    <div class="recaptcha_only_if_audio"><a href="javascript:Recaptcha.switch_type('image')">Get an image CAPTCHA</a></div>
-
-    <div><a href="javascript:Recaptcha.showhelp()">Help</a></div>
-
-    {% for error in field.errors %}
-      <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
-    {% endfor %}
+    <div class="input-group">
+      <input type="text" class="form-control" id="recaptcha_response_field" name="recaptcha_response_field" />
+      {% comment "NOTE(garcianavalon) we are showing the errors using the field.errors below" %}
+        <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
+      {% endcomment %}
+      <div class="input-group-addon"><div><a href="javascript:Recaptcha.reload()" class="fa fa-refresh"></a></div></div>
+      <div class="input-group-addon"><div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')" class="fa fa-volume-up"></a></div></div>
+      <div class="input-group-addon"><div><a href="javascript:Recaptcha.showhelp()" class="fa fa-question-circle"></a></div></div>
+      {% for error in field.errors %}
+        <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
+      {% endfor %}
+    </div>
   </div>
-</div>
-
-        
+</div> 
 
     

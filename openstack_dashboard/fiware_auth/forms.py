@@ -26,10 +26,12 @@ from openstack_dashboard import fiware_api
 class ConfirmPasswordForm(forms.Form):
     """Encapsulates the idea of two password fields and checking they are the same"""
     password1 = forms.CharField(widget=forms.PasswordInput,
-                                label=_("Password"))
+                                label=_("Password"),
+                                required=True)
     
     password2 = forms.CharField(widget=forms.PasswordInput,
-                                label=_("Password (again)"))
+                                label=_("Password (again)"),
+                                required=True)
 
     def clean(self):
         """
@@ -60,6 +62,7 @@ class RegistrationForm(ConfirmPasswordForm):
     registration backend.
 
     """
+
     captcha = ReCaptchaField(attrs={
                     'theme' : 'custom',
                     'custom_theme_widget': 'recaptcha_widget'
@@ -69,7 +72,8 @@ class RegistrationForm(ConfirmPasswordForm):
                                 label=_("Username"),
                                 error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
     
-    email = forms.EmailField(label=_("E-mail"))
+    email = forms.EmailField(label=_("E-mail"),
+                            required=True)
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -111,7 +115,8 @@ class RegistrationForm(ConfirmPasswordForm):
 
 
 class EmailForm(forms.Form):
-    email = forms.EmailField(label=_("E-mail"))
+    email = forms.EmailField(label=_("E-mail"),
+                            required=True)
  
 class ChangePasswordForm(ConfirmPasswordForm):
     pass

@@ -166,16 +166,20 @@
     }
   }
 }
-.simple_captcha{
-  border-top: 1px solid #E2E2E2;
-  border-bottom: 1px solid #E2E2E2;
-  padding: 4px 0;
-  margin-bottom: 11px;
-  .simple_captcha_image{
-    display: block;
-    margin: 0 auto 2px;
+#recaptcha_image{
+  width: 100% !important;
+  margin-bottom: 10px;
+  img{
+    width: 100%;
   }
 }
+
+.input-group .input-group-addon {
+  padding: 11px 6px !important;
+  border: none !important;
+  border-left: 1px solid #C2C2C2 !important;
+}
+
 
 
 
@@ -198,4 +202,12 @@
   }
 }
 
+
+
+.glyphicon{
+  @extend .fa;
+}
+.glyphicon-eye-open{
+  @extend .fa-eye;
+}
 

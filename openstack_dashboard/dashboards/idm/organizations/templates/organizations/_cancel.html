@@ -15,7 +15,19 @@
   </fieldset>
 </div>
 
-<button type="submit" name="_delete">{% trans "Delete Organization" %}</button>
+  <div class="panel panel-default destroy_organization">
+    <a class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#destroy_organization" class="panel-heading">
+      <h4 class="panel-title">
+        Are you sure you want to delete the organization?
+      </h4>
+    </a>
+    <div id="destroy_organization" class="panel-collapse collapse">
+      <div class="panel-body">
+        <a type="submit" data-confirm="Are you sure?" data-method="delete" rel="nofollow" name="_delete">{% trans "Delete Organization" %}</a>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
 
 {% block modal-footer %}
