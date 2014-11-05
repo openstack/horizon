@@ -1,0 +1,6 @@
+Dear FIWARE Lab user,
+
+{{ content }}
+
+2014 © FIWARE
+http://www.fi-ware.org/
