@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 03:30-0500\n"
-"PO-Revision-Date: 2014-10-30 06:50+0000\n"
+"PO-Revision-Date: 2014-11-04 06:41+0000\n"
 "Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -2603,7 +2603,7 @@ msgstr "无法获取网络配置概要"
 #: dashboards/admin/networks/forms.py:186
 #, python-format
 msgid "Network %s was successfully created."
-msgstr "成果创建 %s 网络。"
+msgstr "成功创建 %s 网络。"
 
 #: dashboards/admin/networks/forms.py:192
 #, python-format
@@ -13683,7 +13683,7 @@ msgstr "输入参数(例如GRE)"
 #: dashboards/router/nexus1000v/forms.py:160
 #, python-format
 msgid "Network Profile %s was successfully created."
-msgstr "成果创建 %s 网络配置概要。"
+msgstr "成功创建 %s 网络配置概要。"
 
 #: dashboards/router/nexus1000v/forms.py:167
 #, python-format

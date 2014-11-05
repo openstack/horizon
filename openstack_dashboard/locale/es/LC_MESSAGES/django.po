@@ -4,14 +4,15 @@
 # 
 # Translators:
 # cametiope <aldohcasa@hotmail.com>, 2014
+# egongu90 <dabarren@gmail.com>, 2014
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 15:01-0500\n"
-"PO-Revision-Date: 2014-10-29 14:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-30 03:30-0500\n"
+"PO-Revision-Date: 2014-11-03 13:01+0000\n"
+"Last-Translator: egongu90 <dabarren@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4328,14 +4329,14 @@ msgstr "Miembros del grupo"
 #: dashboards/identity/groups/tables.py:212
 msgid "Add User"
 msgid_plural "Add Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Añadir Usuario"
+msgstr[1] "Añadir Usuarios"
 
 #: dashboards/identity/groups/tables.py:220
 msgid "Added User"
 msgid_plural "Added Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Usuario Añadido"
+msgstr[1] "Usuarios Añadidos"
 
 #: dashboards/identity/groups/tables.py:254
 msgid "Non-Members"
@@ -5520,7 +5521,7 @@ msgstr "Las reglas definen el tráfico permitido a las instancias asociadas al g
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid "Rule:"
-msgstr ""
+msgstr "Regla:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
@@ -5542,7 +5543,7 @@ msgstr "Para las reglas de TCP y UDP puede optar por abrir un solo puerto o un r
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid "Remote:"
-msgstr ""
+msgstr "Remoto:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid ""
@@ -5929,7 +5930,7 @@ msgstr "Editar objeto"
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
 msgid "Object:"
-msgstr ""
+msgstr "Objeto:"
 
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
@@ -5943,7 +5944,7 @@ msgstr "Un objeto es la entidad de almacenamiento básica que representa un fich
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "File:"
-msgstr ""
+msgstr "Fichero:"
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "A new uploaded file will replace the content of the current object"
