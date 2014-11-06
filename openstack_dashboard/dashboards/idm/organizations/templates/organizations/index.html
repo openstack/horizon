@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'idm/base.html' %}
 {% load i18n %}
 {% block title %}{% trans "Organizations" %}{% endblock %}
 
@@ -9,7 +9,8 @@
 {% block main %}
 
 <div id="organizations">
+
 	{{ tab_group.render }}
-	</div>
+</div>
 
 {% endblock %}

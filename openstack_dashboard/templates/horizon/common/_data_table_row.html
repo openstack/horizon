@@ -1,5 +1,10 @@
+
    <div class="avatar">
-       <img src="/static/dashboard/img/logos/small/user.png">
+      {%if row.table.name = 'mytenants' or row.table.name = 'tenants' %}
+        
+          
+         <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
+        {% endif %}
     </div>
 {% for cell in row %}  
     <div class="data">
