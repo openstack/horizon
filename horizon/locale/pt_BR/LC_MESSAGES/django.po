@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 03:30-0500\n"
-"PO-Revision-Date: 2014-10-31 15:39+0000\n"
+"PO-Revision-Date: 2014-11-06 02:51+0000\n"
 "Last-Translator: Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -388,11 +388,11 @@ msgstr "RAM ativa:"
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgstr "VCPU-Horas desse Período:"
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
-msgstr ""
+msgstr "GB-Horas desse Período:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -454,15 +454,15 @@ msgstr "0 Bytes"
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Vender Puppy"
+msgstr[1] "Vender Puppies"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Puppy Vendido"
+msgstr[1] "Puppies Vendidos"
 
 #: utils/filters.py:49
 msgid "Never"

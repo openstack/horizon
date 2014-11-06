@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 03:30-0500\n"
-"PO-Revision-Date: 2014-11-04 01:13+0000\n"
+"PO-Revision-Date: 2014-11-06 02:51+0000\n"
 "Last-Translator: Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -3523,7 +3523,7 @@ msgid ""
 "    This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt>\n"
 "    commands.\n"
 "    "
-msgstr ""
+msgstr "\n    Adicionar, modificar ou remover a Especificação de QoS associada com esse tipo de volume.\n    <br>\n    <br>\n    \"None\" indica que nenhuma Especificação de QoS está atualmente associada. Reciprocamente, definir\n    a Especificação de QoS Spec para \"None\" removerá a associação atual.\n    <br>\n    <br>\n    Isto é equivalente aos comandos <tt>cinder qos-associate</tt> e <tt>cinder qos-disassociate</tt>.\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:108
@@ -3552,7 +3552,7 @@ msgid ""
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "     "
-msgstr ""
+msgstr "\n      Especificações de QoS pode ser associadas com tipos de volume.\n      Isso é usado para mapear em um conjunto de recursos de qualidade de serviço requisitados\n      pelo proprietário do volume. Isto é equivalente ao comando\n      <tt>cinder qos-create</tt>. Uma vez que a Especificação de QoS é criada,\n      clique no botão \"Gerenciar Especificações\" para gerenciar as especificações chave-valor da Especificação de QoS.\n      <br>\n      <br>\n      Cada entidade de Especificação de QoS terá um valor \"Consumidor\" que indica onde o\n      administrador gostaria que a política de QoS fosse aplicada. Esse valor pode ser \"front-end\"\n      (Nova Compute), \"back-end\" (Cinder back-end), ou \"both\".\n     "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:36
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:25
@@ -3605,7 +3605,7 @@ msgid ""
 "    administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "    "
-msgstr ""
+msgstr "\n    Cada entidade de Especificações de QoS terão um valor \"Consumidor\" que indica onde o\n    administrador gostaria que a política de QoS fosse aplicada. Esse valor pode ser \"front-end\"\n    (Nova Compute), \"back-end\" (Cinder back-end), ou \"both\".\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
 msgid "Modify Consumer"
@@ -5736,14 +5736,14 @@ msgstr "Acesso privado do Container atualizado com sucesso."
 #: dashboards/project/containers/tables.py:110
 msgid "Delete Container"
 msgid_plural "Delete Containers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Excluir Contêiner"
+msgstr[1] "Excluir Contêineres"
 
 #: dashboards/project/containers/tables.py:118
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Contêiner Excluído"
+msgstr[1] "Contêineres Excluídos"
 
 #: dashboards/project/containers/tables.py:132
 msgid "Unable to delete container."
@@ -5958,7 +5958,7 @@ msgstr "Atualizar objeto"
 #: dashboards/project/containers/templates/containers/_upload.html:11
 #, python-format
 msgid "Upload Object To Container: %(container_name)s"
-msgstr ""
+msgstr "Enviar Objeto para Contêiner: %(container_name)s"
 
 #: dashboards/project/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
@@ -6104,7 +6104,7 @@ msgstr "Este modelo de Cluseter será criado para:"
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quot;Node Groups&quot; tab."
-msgstr ""
+msgstr "O objeto de modelo de Cluster deveria especificar modelos de Grupos de Nós que serão usados para criar um Cluster.\n    Você pode adicionar Grupos de Nós usando os modelos de Grupos de Nós em uma aba &quot;Grupos de Nós&quot;."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
@@ -6376,7 +6376,7 @@ msgstr "Cluster pode ser lançado usando modelos cluster existente."
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
 "Cluster."
-msgstr ""
+msgstr "O objeto de Cluster deveria especificar a Imagem OpenStack para iniciar as instâncias do Cluster."
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:18
 msgid "User has to choose a keypair to have access to clusters instances."
@@ -6559,8 +6559,8 @@ msgstr "Registrar Imagem"
 #: dashboards/project/data_processing/data_image_registry/tables.py:54
 msgid "Unregister Image"
 msgid_plural "Unregister Images"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Imagem não-registrada"
+msgstr[1] "Imagens não-registradas"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:62
 msgid "Unregistered Image"
@@ -7386,11 +7386,11 @@ msgstr "Processamento de Dados oferece diferentes opções de localização de a
 msgid ""
 "When processes are selected, you may set <b>node</b> scoped configurations "
 "on corresponding tabs."
-msgstr ""
+msgstr "Quando processos estão selecionados, você pode definir as configurações de escopo do <b>nó</b> nas abas correspondentes."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and version for a new Node group template."
-msgstr ""
+msgstr "Selecione um plugin e versão para o novo modelo de grupo de Nó"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:63
 msgid "HDFS placement"
@@ -7457,7 +7457,7 @@ msgstr "OpenStack Flavor"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
 msgid "Launch instances in this availability zone."
-msgstr ""
+msgstr "Disparar instâncias nessa nessa zona de disponibilidade."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
 msgid "Storage location"
@@ -7493,7 +7493,7 @@ msgstr "Processos a serem lançados no node group"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:149
 msgid "No availability zone specified"
-msgstr ""
+msgstr "Nenhuma zona de disponibilidade especificada"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:164
 msgid "Configure Node Group Template"
@@ -9066,26 +9066,26 @@ msgstr "Não foi possível recuperar a senha da instância."
 #: dashboards/project/instances/tables.py:119
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Reiniciar Instância à força"
+msgstr[1] "Reiniciar Instâncias à força"
 
 #: dashboards/project/instances/tables.py:127
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instância Reiniciada à força"
+msgstr[1] "Instâncias Reiniciadas à força"
 
 #: dashboards/project/instances/tables.py:150
 msgid "Soft Reboot Instance"
 msgid_plural "Soft Reboot Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Reiniciar Instância"
+msgstr[1] "Reiniciar Instâncias"
 
 #: dashboards/project/instances/tables.py:158
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instância Reiniciada"
+msgstr[1] "Instâncias Reiniciadas"
 
 #: dashboards/project/instances/tables.py:175
 msgid "Pause Instance"
@@ -9906,7 +9906,7 @@ msgstr "Nome do Dispositivo"
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank"
 " to let the system choose a device name for you."
-msgstr ""
+msgstr "Ponto de montagem do Volume (por exemplo, 'vda' monta em '/dev/vda'). Deixe esse campo em branco para que sistema escolha um nome de dispositivo para você."
 
 #: dashboards/project/instances/workflows/create_instance.py:128
 msgid "Delete on Terminate"
