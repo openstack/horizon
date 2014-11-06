@@ -12,11 +12,11 @@
 
 {% block modal-body %}
 <div class="site-client-roles">
-    {% include "horizon/common/_form_fields.html" %}
 	<section class="relation_list">
 		<h4>
 			Roles
 		</h4>
+
 		<ul class="list-group">
 			<li class="list-group-item checkbox">
 				<label>
@@ -26,6 +26,17 @@
 					<a href="." class="fa fa-pencil"></a>
 					<a href="." class="fa fa-close"></a>
 				</span>
+			</li>
+			<li class="list-group-item checkbox">
+			<!-- si se puede editar quedaría así -->
+			    <div class="edit_name">
+			        <div class="input-group">
+					    <input id="relation_custom_name" class="form-control" type="text" placeholder="name of role.">
+						<div class="input-group-addon">
+						    <a class="fa fa-check"></a>
+						</div>
+					</div>
+			    </div>
 			</li>
 			<li class="list-group-item checkbox">
 				<label>
@@ -80,16 +91,28 @@
 				<label>
 					<input type="checkbox"> Type of permission
 				</label>
+				<!-- sólo tiene que aparecer si se ha creado este permiso -->
+				<span>
+					<a href="." class="fa fa-close"></a>
+				</span>
 			</li>
 			<li class="list-group-item checkbox">
 				<label>
 					<input type="checkbox"> Type of permission
 				</label>
+				<!-- sólo tiene que aparecer si se ha creado este permiso -->
+				<span>
+					<a href="." class="fa fa-close"></a>
+				</span>
 			</li>
 			<li class="list-group-item checkbox">
 				<label>
 					<input type="checkbox"> Type of permission
 				</label>
+				<!-- sólo tiene que aparecer si se ha creado este permiso -->
+				<span>
+					<a href="." class="fa fa-close"></a>
+				</span>
 			</li>
 		</ul>
 
