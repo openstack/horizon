@@ -17,8 +17,9 @@ from django.conf import settings
 from openstack_dashboard import api
 
 # NOTE(garcianavalon) until we create a propper package
-import sys
-sys.path.append('../../../python-fiwareclient')
+# we are adding the package to PYTHONPATH
+# in .profile (or .bash_profile)
+# export PYTHONPATH=$PYTHONPATH:/home/user/Development/python-keystoneclient
 try:
     from keystoneclient.v3.contrib.oauth2 import core
 except ImportError, e:
@@ -213,6 +214,7 @@ def login_with_oauth(request, access_token, project=None):
     """ Use an OAuth2 access token to obtain a keystone token, scoped for
     the authorizing user in one of his projects.
     """
+    pass
     # TODO(garcianavalon) find out if we need this method
     # session = _oauth2_session(access_token, project_id=project)
     # return fiwareclient(session=session,request=request)
