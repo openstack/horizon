@@ -68,6 +68,33 @@ class BaseFormFieldRegion(baseregion.BaseRegion):
         return 'required' in classes
 
 
+class CheckBoxFormFieldRegion(BaseFormFieldRegion):
+    """Checkbox field."""
+
+    _element_locator = (by.By.CSS_SELECTOR,
+                        'div > label > input[type=checkbox]')
+
+    def is_marked(self):
+        return self.element.is_selected()
+
+    def mark(self):
+        if not self.is_marked():
+            self.element.click()
+
+    def unmark(self):
+        if self.is_marked():
+            self.element.click()
+
+
+class ChooseFileFormFieldRegion(BaseFormFieldRegion):
+    """Choose file field."""
+
+    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=file]')
+
+    def choose(self, path):
+        self.element.send_keys(path)
+
+
 class BaseTextFormFieldRegion(BaseFormFieldRegion):
 
     _element_locator = None
@@ -91,6 +118,12 @@ class PasswordInputFormFieldRegion(BaseTextFormFieldRegion):
     """Password text input box."""
 
     _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=password]')
+
+
+class TextAreaFormFieldRegion(BaseTextFormFieldRegion):
+    """Multi-line text input box."""
+
+    _element_locator = (by.By.CSS_SELECTOR, 'div > textarea')
 
 
 class IntegerFormFieldRegion(BaseFormFieldRegion):
