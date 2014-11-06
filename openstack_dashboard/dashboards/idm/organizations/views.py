@@ -42,7 +42,7 @@ from openstack_dashboard.dashboards.idm.organizations \
 from openstack_dashboard.dashboards.idm.organizations \
     import forms as organization_forms
 
-AVATAR_ROOT = os.path.abspath(os.path.join(settings.MEDIA_ROOT, 'OrganizationAvatars'))
+AVATAR_ROOT = os.path.abspath(os.path.join(settings.MEDIA_ROOT, 'OrganizationAvatar'))
 
 
 class IndexView(tabs.TabbedTableView):
@@ -84,7 +84,7 @@ class DetailOrganizationView(tables.MultiTableView):
         organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
         context['contact_info'] = organization.description
         context['organization.id'] = organization.id
-        context['organization.name'] = organization.name
+        context['organization_name'] = organization.name
         return context
 
 
@@ -107,11 +107,17 @@ class MultiFormView(TemplateView):
         organization = self.get_object()
         context['organization'] = organization
 
-        #Crerate forms
-        info = organization_forms.InfoForm(self)
-        contact = organization_forms.ContactForm(self)
-        avatar = organization_forms.AvatarForm(self)
-        cancel = organization_forms.CancelForm(self)
+        #Existing data from organizations
+        initial_data = {
+            "orgID": organization.id,
+            "name": organization.name,
+            "description": organization.description,
+        }
+        #Create forms
+        info = organization_forms.InfoForm(self.request,initial=initial_data)
+        contact = organization_forms.ContactForm(self.request,initial=initial_data)
+        avatar = organization_forms.AvatarForm(self.request,initial=initial_data)
+        cancel = organization_forms.CancelForm(self.request,initial=initial_data)
 
         #Actions and titles
         info.action = 'info/'
@@ -122,15 +128,6 @@ class MultiFormView(TemplateView):
         avatar.title = 'Avatar Update'
         cancel.action="cancel/"
         cancel.title = 'Cancel'
-
-        #Initial value for forms 
-        info.fields["orgID"].initial = organization.id
-        info.fields["name"].initial = organization.name
-        info.fields["description"].initial = organization.description
-        contact.fields["orgID"].initial = organization.id        
-        avatar.fields["orgID"].initial = organization.id        
-        avatar.fields["name"].initial = organization.name        
-        cancel.fields["orgID"].initial = organization.id
 
         context['form'] = [ info, contact, avatar, cancel]       
         return context
@@ -143,28 +140,6 @@ class HandleForm(forms.ModalFormView):
 class InfoFormView(HandleForm):    
     form_class = organization_forms.InfoForm
     http_method_not_allowed=['get']
-
-
-
-    # @memoized.memoized_method
-    # def get_object(self):
-    #     try:
-    #         return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
-    #     except Exception:
-    #         redirect = reverse("horizon:idm:organizations:index")
-    #         exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
-
-
-
-    # def get_initial(self):
-    #     initial = super(MultiFormView, self).get_initial()
-    #     organization = self.get_object()
-    #     initial['orgID'] = organization_id
-    #     initial['name'] = organization.name
-    #     initial['description']=organization.description
-    #     return initial
-
-   
 
 class ContactFormView(HandleForm):
     form_class = organization_forms.ContactForm

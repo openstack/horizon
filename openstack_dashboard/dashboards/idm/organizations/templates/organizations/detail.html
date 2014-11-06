@@ -8,7 +8,7 @@
 <div id="detailOrganization">
     <header>
         <h3 class="name">
-            Name of Organization <a href="{% url 'horizon:idm:organizations:edit' organization_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+            {{ organization_name }} <a href="{% url 'horizon:idm:organizations:edit' organization_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
         </h3>
         <!--crear la carga de la imagen -->
         <div class="logo">
@@ -50,7 +50,7 @@
         <div class="panel-body">
             {{ applications_table.render}}
             <!-- texto que debe aparecer cuando no haya nada -->
-            <p class="empty"> Name of organization has not any application.</p>
+            <p class="empty"> {{organization_name}} does not have any applications.</p>
         </div>   
     </div>
 
