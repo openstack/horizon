@@ -114,7 +114,10 @@ all of the boilerplate associated with writing these types of actions and
 provides consistent error handling, logging, and user-facing interaction.
 
 It is worth noting that ``BatchAction`` and ``DeleteAction`` are extensions
-of the standard ``Action`` class.
+of the standard ``Action`` class. Some ``BatchAction`` or ``DeleteAction``
+classes may cause some unrecoverable results, like deleted images or
+unrecoverable instances. It may be helpful to specify specific help_text to
+explain the concern to the user, such as "Deleted images are not recoverable".
 
 Preemptive actions
 ------------------

@@ -174,6 +174,7 @@ horizon.datatables.confirm = function (action) {
     $modal_parent = $(action).closest('.modal'),
     name_array = [],
     closest_table_id, action_string, name_string,
+    help_text,
     title, body, modal, form;
   if($action.hasClass("disabled")) {
     return;
@@ -198,8 +199,9 @@ horizon.datatables.confirm = function (action) {
     }
     name_string = interpolate(gettext("You have selected %s. "), [name_string]);
   }
+  help_text = $(action).attr("help_text");
   title = interpolate(gettext("Confirm %s"), [action_string]);
-  body = name_string + gettext("Please confirm your selection. This action cannot be undone.");
+  body = name_string + gettext("Please confirm your selection. ") + help_text;
   modal = horizon.modals.create(title, body, action_string);
   modal.modal();
   if($modal_parent.length) {
