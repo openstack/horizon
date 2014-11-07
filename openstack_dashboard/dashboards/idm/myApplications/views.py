@@ -19,6 +19,7 @@ from horizon import tables
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm.myApplications \
             import tables as application_tables
 from openstack_dashboard.dashboards.idm.myApplications \
@@ -49,7 +50,8 @@ class RolesView(tables.DataTableView):
     def get_data(self):
         roles = []
         try:
-            roles = api.keystone.role_list(self.request)
+            #roles = api.keystone.role_list(self.request)
+            roles = fiware_api.keystone.role_list(self.request)
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve roles list.'))

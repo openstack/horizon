@@ -14,24 +14,29 @@
 import logging
 
 from django.conf import settings
+
 from openstack_dashboard import api
 
-# NOTE(garcianavalon) until we create a propper package
-# we are adding the package to PYTHONPATH
-# in .profile (or .bash_profile)
-# export PYTHONPATH=$PYTHONPATH:/home/user/Development/python-keystoneclient
+# TODO(garcianavalon) for now, the way we handle the fact that we are using
+# a custom keystoneclient is by adding the package as a git submodule and
+# importing it right here while we keep the default keystoneclient as a
+# dependency. In the future and prior to relase we have to remove the
+# default keystoneclient dependency in requirements.txt and install globally
+# (in .venv/lib/pythonx.y/site_packages/keystoneclient or whatever folder in
+# PYTHONPATH we want) the custom keystoneclient (aka fiwareclient) so it's the
+# ony one used in the whole project
 try:
-    from keystoneclient.v3.contrib.oauth2 import core
+    from fiwareclient.keystoneclient.v3.contrib.oauth2 import core
 except ImportError, e:
     raise ImportError(e,
                 'You dont have setup correctly the extended keystoneclient. \
-                ask Kike(garcianavalon) or look at the wiki in github!')
+                ask garcianavalon (Kike) or look at the wiki at github')
 else:
-    from keystoneclient import exceptions as ks_exceptions
-    from keystoneclient import session
-    from keystoneclient.auth.identity import v3
-    from keystoneclient.v3 import client
-    from keystoneclient.v3.contrib.oauth2 import auth
+    from fiwareclient.keystoneclient import exceptions as ks_exceptions
+    from fiwareclient.keystoneclient import session
+    from fiwareclient.keystoneclient.auth.identity import v3
+    from fiwareclient.keystoneclient.v3 import client
+    from fiwareclient.keystoneclient.v3.contrib.oauth2 import auth
 
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
@@ -60,7 +65,9 @@ def _password_session():
     auth = v3.Password(auth_url=conf_params['AUTH_URL'],
                     username=conf_params['USERNAME'],
                     password=conf_params['PASSWORD'],
-                    project_id=conf_params['PROJECT'])
+                    project_name=conf_params['PROJECT'],
+                    user_domain_id=conf_params['DOMAIN'],
+                    project_domain_id=conf_params['DOMAIN'])
     return session.Session(auth=auth)
 
 # USER REGISTRATION
@@ -123,25 +130,66 @@ def check_email(email):
     return user
 
 # ROLES AND PERMISSIONS
-def create_role(request, name, is_editable=True, application=None, **kwargs):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+# TODO(garcianavalon) we are using the idm account to create the roles instead
+# of the current user account. To fix this we need first to solve the multiple
+# keystoneclients issue (see the top of this file). 
+# NOTE(garcianavalon) request is passed as an argument
+# looking into the future integration, no use for it now
+def role_list(request):
+    manager = fiwareclient().fiware_roles.roles
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+    return manager.list()
+
+def role_create(request, name, is_editable=True, application=None, **kwargs):
+    manager = fiwareclient().fiware_roles.roles
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
     return manager.create(name=name,
                 is_editable=is_editable,
                 application=application,
                 **kwargs)
 
-def update_role(request, role, name=None, is_editable=True, 
+def role_update(request, role, name=None, is_editable=True, 
                 application=None, **kwargs):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+    manager = fiwareclient().fiware_roles.roles
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
     return manager.update(role, 
                         name=name,
                         is_editable=is_editable,
                         application=application,
                         **kwargs)
         
-def delete_role(request, role):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+def role_delete(request, role):
+    manager = fiwareclient().fiware_roles.roles
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
     return manager.delete(role)
+
+def permission_list(request):
+    manager = fiwareclient().fiware_roles.permissions
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+    return manager.list()
+
+def permission_create(request, name, is_editable=True, application=None, **kwargs):
+    manager = fiwareclient().fiware_roles.permissions
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+    return manager.create(name=name,
+                is_editable=is_editable,
+                application=application,
+                **kwargs)
+
+def permission_update(request, permission, name=None, is_editable=True, 
+                application=None, **kwargs):
+    manager = fiwareclient().fiware_roles.permissions
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+    return manager.update(permission, 
+                        name=name,
+                        is_editable=is_editable,
+                        application=application,
+                        **kwargs)
+        
+def permission_delete(request, permission):
+    manager = fiwareclient().fiware_roles.permissions
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+    return manager.delete(permission)
 
 # OAUTH2 FLOW
 
