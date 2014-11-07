@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
 # LIU Yulong <dragon889@163.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 03:30-0500\n"
-"PO-Revision-Date: 2014-11-04 06:41+0000\n"
-"Last-Translator: LIU Yulong <dragon889@163.com>\n"
+"PO-Revision-Date: 2014-11-06 08:42+0000\n"
+"Last-Translator: ChangBo Guo(gcb) <glongwave@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1515,11 +1516,11 @@ msgstr "内存(总计)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "本地存储(已使用)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "本地存储(总共）"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:248
@@ -1601,12 +1602,12 @@ msgstr "无法疏散主机: %s."
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:6
 msgid "Evacuate Host"
 msgid_plural "Evacuate Hosts"
-msgstr[0] ""
+msgstr[0] "疏散主机"
 
 #: dashboards/admin/hypervisors/compute/tables.py:35
 msgid "Evacuated Host"
 msgid_plural "Evacuated Hosts"
-msgstr[0] ""
+msgstr[0] "疏散的主机"
 
 #: dashboards/admin/hypervisors/compute/tables.py:65
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
@@ -1743,7 +1744,7 @@ msgstr "内存使用情况"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "本地磁盘使用"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -1958,7 +1959,7 @@ msgstr "无法获取版本信息"
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 #, python-format
 msgid "Reason: %(disabled_reason)s"
-msgstr ""
+msgstr "原因:%(disabled_reason)s"
 
 #: dashboards/admin/info/templates/info/index.html:14
 #, python-format
@@ -2000,7 +2001,7 @@ msgstr "实例热迁移到主机\"%s\"失败"
 #: dashboards/admin/instances/tables.py:41
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
-msgstr[0] ""
+msgstr[0] "迁移实例"
 
 #: dashboards/admin/instances/tables.py:49
 msgid "Scheduled migration (pending confirmation) of Instance"
@@ -2191,11 +2192,11 @@ msgstr "至"
 
 #: dashboards/admin/metering/forms.py:48
 msgid "Must specify start of period"
-msgstr ""
+msgstr "必须指定起始时间段"
 
 #: dashboards/admin/metering/forms.py:58
 msgid "Start must be earlier than end of period."
-msgstr ""
+msgstr "起始时间必须早于结束时间"
 
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
@@ -2206,7 +2207,7 @@ msgstr "资源使用情况"
 #: dashboards/admin/metering/templates/metering/daily.html:3
 #: dashboards/admin/metering/templates/metering/daily.html:6
 msgid "Modify Usage Report Parameters"
-msgstr ""
+msgstr "修改使用报告参数"
 
 #: dashboards/admin/metering/tables.py:34 usage/tables.py:25
 msgid "Download CSV Summary"
@@ -2311,7 +2312,7 @@ msgstr "值(平均)"
 
 #: dashboards/admin/metering/tables.py:55
 msgid "Daily Usage Report"
-msgstr ""
+msgstr "每日使用报告"
 
 #: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
@@ -2351,7 +2352,7 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:86
 msgid "Dates cannot be recognized."
-msgstr ""
+msgstr "日期不能被识别"
 
 #: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:169
 #: dashboards/admin/overview/views.py:65
@@ -2370,7 +2371,7 @@ msgstr "时间"
 
 #: dashboards/admin/metering/views.py:161
 msgid "Dates cannot be recognised."
-msgstr ""
+msgstr "日期不能被识别"
 
 #: dashboards/admin/metering/templates/metering/_daily.html:19
 msgid "Select a pre-defined period or specify date."
@@ -2378,7 +2379,7 @@ msgstr ""
 
 #: dashboards/admin/metering/templates/metering/_daily.html:24
 msgid "View Usage Report"
-msgstr ""
+msgstr "查看使用报告"
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/templates/metering/index.html:6
@@ -11530,12 +11531,12 @@ msgstr "更新路由 %s 失败"
 #: dashboards/project/routers/tables.py:39
 msgid "Delete Router"
 msgid_plural "Delete Routers"
-msgstr[0] ""
+msgstr[0] "删除路由"
 
 #: dashboards/project/routers/tables.py:47
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
-msgstr[0] ""
+msgstr[0] "删除的路由"
 
 #: dashboards/project/routers/tables.py:61
 #: dashboards/project/routers/tables.py:67
@@ -11554,12 +11555,12 @@ msgstr "设置网关"
 #: dashboards/project/routers/tables.py:123
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
-msgstr[0] ""
+msgstr[0] "清除网关"
 
 #: dashboards/project/routers/tables.py:131
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
-msgstr[0] ""
+msgstr[0] "已清除网关"
 
 #: dashboards/project/routers/tables.py:147
 #, python-format
@@ -11651,12 +11652,12 @@ msgstr "增加路由规则"
 #: dashboards/project/routers/extensions/routerrules/tables.py:47
 msgid "Delete Router Rule"
 msgid_plural "Delete Router Rules"
-msgstr[0] ""
+msgstr[0] "删除路由规则"
 
 #: dashboards/project/routers/extensions/routerrules/tables.py:55
 msgid "Deleted Router Rule"
 msgid_plural "Deleted Router Rules"
-msgstr[0] ""
+msgstr[0] "已删除路由规则"
 
 #: dashboards/project/routers/extensions/routerrules/tabs.py:59
 msgid "Router Rules Grid"
@@ -11743,12 +11744,12 @@ msgstr "增加接口"
 #: dashboards/project/routers/ports/tables.py:57
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
-msgstr[0] ""
+msgstr[0] "删除接口"
 
 #: dashboards/project/routers/ports/tables.py:65
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
-msgstr[0] ""
+msgstr[0] "已删除接口"
 
 #: dashboards/project/routers/ports/tables.py:84
 #, python-format
@@ -11761,7 +11762,7 @@ msgstr "无法设置网关"
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:27
 msgid "Connected External Network:"
-msgstr ""
+msgstr "已连接外部网络"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
@@ -11794,12 +11795,12 @@ msgstr "源"
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #, python-format
 msgid "Subnet: %(dest_subnetname)s"
-msgstr ""
+msgstr "子网: %(dest_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:45
 #, python-format
 msgid "Subnet: %(row_source_subnetname)s"
-msgstr ""
+msgstr "子网:%(row_source_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:93
 msgid "Rule Conflict"
@@ -11818,15 +11819,15 @@ msgstr "冲突规则"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:99
 msgid "Source:"
-msgstr ""
+msgstr "源"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Destination:"
-msgstr ""
+msgstr "目的地"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:101
 msgid "Action:"
-msgstr ""
+msgstr "动作"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
@@ -12035,12 +12036,12 @@ msgstr "改变栈模板"
 #: dashboards/project/stacks/tables.py:54
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
-msgstr[0] ""
+msgstr[0] "删除堆栈"
 
 #: dashboards/project/stacks/tables.py:62
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
-msgstr[0] ""
+msgstr[0] "已删除堆栈"
 
 #: dashboards/project/stacks/tables.py:139
 #: dashboards/project/stacks/tables.py:184
@@ -12291,7 +12292,7 @@ msgstr "无法更新云硬盘快照"
 #: dashboards/project/volumes/snapshots/tables.py:56
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
-msgstr[0] ""
+msgstr[0] "删除卷快照"
 
 #: dashboards/project/volumes/snapshots/tables.py:64
 msgid "Scheduled deletion of Volume Snapshot"
@@ -13940,7 +13941,7 @@ msgstr "帮助"
 
 #: templates/_header.html:20
 msgid "More Projects"
-msgstr ""
+msgstr "更多项目"
 
 #: templates/_header.html:40
 msgid "Sign Out"
@@ -14027,4 +14028,4 @@ msgstr ""
 
 #: utils/metering.py:68
 msgid "The time delta must be an integer representing days."
-msgstr ""
+msgstr "时间差必须为表示天数的整数"
