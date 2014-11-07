@@ -139,10 +139,24 @@ class StackResourcesTab(tabs.Tab):
                     request, data=resources, stack=stack), }
 
 
+class StackTemplateTab(tabs.Tab):
+    name = _("Template")
+    slug = "stack_template"
+    template_name = "project/stacks/_stack_template.html"
+
+    def allowed(self, request):
+        return policy.check(
+            (("orchestration", "cloudformation:DescribeStacks"),),
+            request)
+
+    def get_context_data(self, request):
+        return {"stack_template": self.tab_group.kwargs['stack_template']}
+
+
 class StackDetailTabs(tabs.TabGroup):
     slug = "stack_details"
     tabs = (StackTopologyTab, StackOverviewTab, StackResourcesTab,
-            StackEventsTab)
+            StackEventsTab, StackTemplateTab)
     sticky = True
 
 

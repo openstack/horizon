@@ -14,6 +14,8 @@ import json
 import logging
 from operator import attrgetter
 
+import yaml
+
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
@@ -216,9 +218,22 @@ class DetailView(tabs.TabView):
             msg = _("Unable to retrieve stack.")
             exceptions.handle(request, msg, redirect=self.get_redirect_url())
 
+    @memoized.memoized_method
+    def get_template(self, request, **kwargs):
+        try:
+            stack_template = api.heat.template_get(
+                request,
+                kwargs['stack_id'])
+            return yaml.safe_dump(stack_template, indent=2)
+        except Exception:
+            msg = _("Unable to retrieve stack template.")
+            exceptions.handle(request, msg, redirect=self.get_redirect_url())
+
     def get_tabs(self, request, **kwargs):
         stack = self.get_data(request, **kwargs)
-        return self.tab_group_class(request, stack=stack, **kwargs)
+        stack_template = self.get_template(request, **kwargs)
+        return self.tab_group_class(
+            request, stack=stack, stack_template=stack_template, **kwargs)
 
     @staticmethod
     def get_redirect_url():
