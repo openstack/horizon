@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 15:01-0500\n"
-"PO-Revision-Date: 2014-10-29 14:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-30 03:30-0500\n"
+"PO-Revision-Date: 2014-11-07 15:32+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2205,7 +2205,7 @@ msgstr ""
 
 #: dashboards/admin/metering/forms.py:58
 msgid "Start must be earlier than end of period."
-msgstr ""
+msgstr "Start muss vor dem Ende des Zeitraumes liegen."
 
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
@@ -2361,7 +2361,7 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:86
 msgid "Dates cannot be recognized."
-msgstr ""
+msgstr "Datumsangaben können nicht erkannt werden."
 
 #: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:169
 #: dashboards/admin/overview/views.py:65
@@ -2380,7 +2380,7 @@ msgstr "Zeit"
 
 #: dashboards/admin/metering/views.py:161
 msgid "Dates cannot be recognised."
-msgstr ""
+msgstr "Datumsangaben können nicht erkannt werden."
 
 #: dashboards/admin/metering/templates/metering/_daily.html:19
 msgid "Select a pre-defined period or specify date."
@@ -2483,7 +2483,7 @@ msgstr "VLAN"
 
 #: dashboards/admin/networks/forms.py:30
 msgid "GRE"
-msgstr ""
+msgstr "GRE"
 
 #: dashboards/admin/networks/forms.py:31
 msgid "VXLAN"
@@ -2793,14 +2793,14 @@ msgstr "Fehler beim Hinzufügen des Agenten %(agent_name)s für das Netzwerk %(n
 #: dashboards/admin/networks/agents/tables.py:36
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "DHCP Agent löschen"
+msgstr[1] "DHCP Agenten löschen"
 
 #: dashboards/admin/networks/agents/tables.py:44
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter DHCP Agent"
+msgstr[1] "Gelöschte DHCP Agenten"
 
 #: dashboards/admin/networks/agents/tables.py:57
 #, python-format
@@ -2884,14 +2884,14 @@ msgstr "Port %s konnte nicht aktualisiert werden."
 #: dashboards/admin/networks/ports/tables.py:36
 msgid "Delete Port"
 msgid_plural "Delete Ports"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Port löschen"
+msgstr[1] "Ports löschen"
 
 #: dashboards/admin/networks/ports/tables.py:44
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Port"
+msgstr[1] "Gelöschte Ports"
 
 #: dashboards/admin/networks/ports/tables.py:55
 #, python-format
@@ -2957,15 +2957,15 @@ msgstr "Port-Details können nicht abgerufen werden."
 #: dashboards/project/networks/subnets/tables.py:61
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Subnetz löschen"
+msgstr[1] "Subnetze löschen"
 
 #: dashboards/admin/networks/subnets/tables.py:45
 #: dashboards/project/networks/subnets/tables.py:69
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Subnetz"
+msgstr[1] "Gelöschte Subnetze"
 
 #: dashboards/admin/networks/subnets/tables.py:56
 #: dashboards/project/networks/subnets/tables.py:80
@@ -3354,7 +3354,7 @@ msgstr "Datenträgertypen können nicht abgerufen werden"
 
 #: dashboards/admin/volumes/tabs.py:87
 msgid "Unable to retrieve QoS specs"
-msgstr ""
+msgstr "QoS Spezifikationen können nicht abgerufen werden"
 
 #: dashboards/admin/volumes/tabs.py:111 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:203
@@ -3509,7 +3509,7 @@ msgstr "\nDer Status einer Datenträger-Schattenkopie wird normalerweise automat
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:6
 msgid "Associate QoS Spec with Volume Type"
-msgstr ""
+msgstr "QoS Spezifikation mit Datenträgertyp verbinden"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
 msgid ""
@@ -3537,7 +3537,7 @@ msgstr "Zuweisen"
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:107
 msgid "Create QoS Spec"
-msgstr ""
+msgstr "QoS Spezifikation erstellen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
 msgid ""
@@ -3618,7 +3618,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:6
 msgid "Create a QoS Spec"
-msgstr ""
+msgstr "QoS Spezifikation erstellen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -3641,7 +3641,7 @@ msgstr "Neues \"extra spec\" Schlüssel-Wert Paar für Datenträgertyp erzeugen.
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:10
 #, python-format
 msgid "Edit Extra Spec Value: %(key)s"
-msgstr ""
+msgstr "Bearbeite zusätzliche Spezifikationswert: %(key)s"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:20
 #, python-format
@@ -3706,7 +3706,7 @@ msgstr "Spezifikation bearbeiten"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
 msgid "QoS Spec: "
-msgstr ""
+msgstr "QoS Spezifikation"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
 #, python-format
@@ -3746,25 +3746,25 @@ msgstr "Datenträgerdetails:"
 
 #: dashboards/admin/volumes/volume_types/forms.py:25
 msgid "QoS Spec to be associated"
-msgstr ""
+msgstr "Zu verbindende QoS Spezifikation"
 
 #: dashboards/admin/volumes/volume_types/forms.py:26
 msgid "Choose associated QoS Spec."
-msgstr ""
+msgstr "Verbundene QoS Spezifikation auswählen"
 
 #: dashboards/admin/volumes/volume_types/forms.py:71
 msgid ""
 "New associated QoS Spec must be different than the current associated QoS "
 "Spec."
-msgstr ""
+msgstr "Die neu zu verbindende QoS Spezifikation muss sich von der aktuell verbundenen unterscheiden."
 
 #: dashboards/admin/volumes/volume_types/forms.py:103
 msgid "Successfully updated QoS Spec association."
-msgstr ""
+msgstr "Verbindung der QoS Spezifikation erfolgreich aktualisiert."
 
 #: dashboards/admin/volumes/volume_types/forms.py:107
 msgid "Error updating QoS Spec association."
-msgstr ""
+msgstr "Fehler beim Aktualisieren der Verbindung der QoS Spezifikation."
 
 #: dashboards/admin/volumes/volume_types/forms.py:113
 msgid "QoS Spec Consumer"
@@ -3798,18 +3798,18 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/tables.py:52
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Datenträgertyp löschen"
+msgstr[1] "Datenträgertypen löschen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:60
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Datenträgertyp"
+msgstr[1] "Gelöschte Datenträgertypen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Associated QoS Spec"
-msgstr ""
+msgstr "Verbundene QoS Spezifikation"
 
 #: dashboards/admin/volumes/volume_types/tables.py:93
 msgid "Manage Specs"
@@ -3818,14 +3818,14 @@ msgstr "Spezifikationen verwalten"
 #: dashboards/admin/volumes/volume_types/tables.py:118
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lösche QoS Spezifikation"
+msgstr[1] "Lösche QoS Spezifikationen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:126
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte QoS Spezifikation"
+msgstr[1] "Gelöschte QoS Spezifikationen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:138
 msgid "Edit Consumer"
@@ -3838,11 +3838,11 @@ msgstr "Benutzer"
 
 #: dashboards/admin/volumes/volume_types/tables.py:161
 msgid "QoS Specs"
-msgstr ""
+msgstr "QoS Spezifikationen"
 
 #: dashboards/admin/volumes/volume_types/views.py:69
 msgid "Unable to retrieve QoS Spec details."
-msgstr ""
+msgstr "QoS Spezifikationsdetails können nicht abgerufen werden"
 
 #: dashboards/admin/volumes/volume_types/views.py:101
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
@@ -3851,11 +3851,11 @@ msgstr "Details zum Datenträgertyp können nicht abgerufen werden."
 
 #: dashboards/admin/volumes/volume_types/views.py:111
 msgid "Unable to retrieve QoS Specs."
-msgstr ""
+msgstr "QoS Spezifikationen können nicht abgerufen werden"
 
 #: dashboards/admin/volumes/volume_types/views.py:131
 msgid "Unable to retrieve QoS Spec association."
-msgstr ""
+msgstr "Verbindung der QoS Spezifikation kann nicht abgerufen werden."
 
 #: dashboards/admin/volumes/volume_types/extras/forms.py:23
 #: dashboards/admin/volumes/volume_types/extras/tables.py:69
@@ -3896,14 +3896,14 @@ msgstr "Extra Spezifikation für Datenträgertyp  kann nicht bearbeitet werden."
 #: dashboards/admin/volumes/volume_types/extras/tables.py:27
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Extra-Spezifikation löschen"
+msgstr[1] "Extra-Spezifikationen löschen"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:35
 msgid "Deleted Extra Spec"
 msgid_plural "Deleted Extra Specs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Extra-Spezifikation"
+msgstr[1] "Gelöschte Extra-Spezifikationen"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
