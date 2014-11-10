@@ -55,6 +55,24 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.assertEqual(1, len(actions_host_down))
         self.assertEqual('evacuate', actions_host_down[0].name)
 
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'hypervisor_stats',
+                                   'service_list')})
+    def test_service_list_unavailable(self):
+        """test that error message should be returned when
+        nova.service_list isn't available
+        """
+        hypervisors = self.hypervisors.list()
+        stats = self.hypervisors.stats
+        api.nova.hypervisor_list(IsA(http.HttpRequest)).AndReturn(hypervisors)
+        api.nova.hypervisor_stats(IsA(http.HttpRequest)).AndReturn(stats)
+        api.nova.service_list(IsA(http.HttpRequest)).AndRaise(
+            self.exceptions.nova)
+        self.mox.ReplayAll()
+
+        resp = self.client.get(reverse('horizon:admin:hypervisors:index'))
+        self.assertMessageCount(resp, error=1, warning=0)
+
 
 class HypervisorDetailViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('hypervisor_search',)})

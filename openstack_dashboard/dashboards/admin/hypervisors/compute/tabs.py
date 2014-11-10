@@ -33,3 +33,4 @@ class ComputeHostTab(tabs.TableTab):
         except Exception:
             msg = _('Unable to get nova services list.')
             exceptions.handle(self.tab_group.request, msg)
+            return []
