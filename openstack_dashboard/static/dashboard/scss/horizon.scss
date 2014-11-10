@@ -1,18 +1,13 @@
-// bootstrap overrides:
-$icon-font-path: "../../bootstrap/fonts/bootstrap/";
-$font-size-base: 13px;
-$modal-md: 732px;
-
+@import "variables";
 @import "/bootstrap/scss/bootstrap";
+
 @import "/horizon/lib/bootstrap_datepicker/datepicker.css";
-@import "_variables";
-@import "_accordion_nav";
-@import "_inline_edit";
+@import "accordion_nav";
+@import "inline_edit";
 
 // Components
 @import "components/resource_browser";
 @import "components/topbar";
-
 
 /* new clearfix */
 .clearfix:after {
