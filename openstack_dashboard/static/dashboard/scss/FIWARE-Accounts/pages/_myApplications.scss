@@ -4,25 +4,45 @@
   .modal-header{
     padding: 0;
     margin-bottom: 15px;
+    border-bottom: 1px solid transparent;
     h3{
       margin: 0;
-      .steps-group div{
-        display: inline-block;
-        margin-right: 100px;
-        border-bottom: 5px solid $gray-light;
-        color: $gray-light;
-        padding-bottom: 3px;
-        font-size: 2rem;
-        &:last-child{
-          margin-right: 0px;
+      position: absolute;
+      .steps-group {
+        position: relative;
+        z-index: 100;
+        .step{
+          display: inline-block;
+          background-color: $white;
+          margin-right: 100px;
+          border: 2px solid $gray-light;
+          color: $gray-light;
+          padding: 6px 0 0;
+          height: 28px;
+          width: 28px;
+          text-align: center;
+          font-size: 14px;
+          @include border-top-radius (27px);
+          @include border-bottom-radius (27px);
+          &:last-child{
+            margin-right: 0px;
+          }
+        }
+        .line{
+          position: relative;
+          z-index: 1;
+          height: 1px;
+          margin-top: -13px;
+          width: 259px;
+          background-color: $gray-light;
         }
       }
       .steps-group .completed{
         color: darken($gray-light, 20%);
-        border-bottom: 5px solid darken($gray-light, 20%);
+        border: 2px solid darken($gray-light, 20%);
       }
       div.active {
-        border-bottom: 5px solid $brand-secundary;
+        border: 2px solid $brand-secundary;
         color: $brand-primary;
       }
     }
@@ -43,7 +63,7 @@
   padding: 25px 0 0px;
   margin: 0 0 20px;
 }
-.site-client-roles{  
+.site-client-roles{
   .list-group-item{
     min-height: 46px !important;
     margin-left: 0;
@@ -87,7 +107,7 @@
   .btn-link{
     float: right;
     clear: both;
-  } 
+  }
 }
 #add_permission{
   .modal-content{
@@ -101,7 +121,7 @@
 .relation_list{
   @include make-sm-column(5, $gutter: $grid-gutter-width);
   @include make-md-column(5, $gutter: $grid-gutter-width);
-  @include make-lg-column(5, $gutter: $grid-gutter-width); 
+  @include make-lg-column(5, $gutter: $grid-gutter-width);
   @media (max-width: $screen-sm-min){
     padding-left: 0;
     padding-right: 0;
