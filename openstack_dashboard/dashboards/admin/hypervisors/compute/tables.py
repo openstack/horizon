@@ -58,7 +58,7 @@ class ComputeHostFilterAction(tables.FilterAction):
     def filter(self, table, services, filter_string):
         q = filter_string.lower()
 
-        return filter(lambda service: q in service.type.lower(), services)
+        return filter(lambda service: q in service.host.lower(), services)
 
 
 class ComputeHostTable(tables.DataTable):
