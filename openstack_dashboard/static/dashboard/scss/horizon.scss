@@ -1,13 +1,22 @@
-@import "variables";
-@import "/horizon/lib/font-awesome/scss/font-awesome"; // Configured in _variables.scss.
-@import "/bootstrap/scss/bootstrap"; // Configured in _variables.scss.
-@import "/horizon/lib/bootstrap_datepicker/datepicker.css";
-@import "accordion_nav";
-@import "inline_edit";
+// Pure CSS Vendor
+@import "/horizon/lib/bootstrap_datepicker/datepicker3.css";
+@import "/horizon/lib/rickshaw.css";
 
-// Components
+// Horizon Variables
+@import "variables";
+
+// Vendor Components
+@import "/bootstrap/scss/bootstrap";
+@import "/horizon/lib/font-awesome/scss/font-awesome.scss";
+
+// Dashboard Components
 @import "components/resource_browser";
 @import "components/topbar";
+@import "components/accordion_nav";
+@import "components/inline_edit";
+@import "components/charts";
+@import "components/workflow";
+
 
 /* new clearfix */
 .clearfix:after {

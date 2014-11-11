@@ -1,4 +1,7 @@
+/* This import is required for using bootstrap variables as value
+to our variables */
 @import "/bootstrap/scss/bootstrap/variables";
+
 
 /* Bootstrap variables overrides */
 
@@ -7,12 +10,14 @@ $font-size-base: 13px;
 $modal-md: 732px;
 $gray-light: #cccccc;
 
+
 /* Horizon Custom Variables */
 
 $sidebar-background-color: #f9f9f9;
 $sidebar-width: 220px;
 $border-color: #dddddd;
 $table-bg-odd: #f9f9f9;
+
 
 /* Workflows */
 
@@ -56,3 +61,12 @@ $rbrowser-footer-background-color: #f1f1f1;
 
 // Font-awesome path to the icon fonts
 $fa-font-path: "/static/horizon/lib/font-awesome/fonts";
+
+/* Charts */
+
+$overview_chart_height: 81px;
+
+
+/* Accordion Navigation */
+
+$accordionBorderColor: #e5e5e5;
