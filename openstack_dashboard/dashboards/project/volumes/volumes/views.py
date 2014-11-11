@@ -16,8 +16,11 @@
 Views for managing volumes.
 """
 
+import json
+
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
+from django.utils import encoding
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -29,6 +32,7 @@ from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard import exceptions as dashboard_exception
 from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.volumes \
@@ -97,9 +101,48 @@ class CreateView(forms.ModalFormView):
         context = super(CreateView, self).get_context_data(**kwargs)
         try:
             context['usages'] = quotas.tenant_limit_usages(self.request)
+            context['volume_types'] = self._get_volume_types()
         except Exception:
             exceptions.handle(self.request)
         return context
+
+    def _get_volume_types(self):
+        try:
+            volume_types = cinder.volume_type_list(self.request)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume type list.'))
+
+        # check if we have default volume type so we can present the
+        # description of no volume type differently
+        default_type = None
+        try:
+            default_type = cinder.volume_type_default(self.request)
+        except dashboard_exception.NOT_FOUND:
+            pass
+
+        if default_type is not None:
+            d_name = getattr(default_type, "name", "")
+            message =\
+                _("If \"No volume type\" is selected, the default "
+                  "volume type \"%(name)s\" will be set for the "
+                  "created volume.")
+            params = {'name': d_name}
+            no_type_description = encoding.force_text(message % params)
+        else:
+            message = \
+                _("If \"No volume type\" is selected, the volume will be "
+                  "created without a volume type.")
+
+            no_type_description = encoding.force_text(message)
+
+        type_descriptions = [{'name': 'no_type',
+                              'description': no_type_description}] + \
+                            [{'name': type.name,
+                              'description': getattr(type, "description", "")}
+                             for type in volume_types]
+
+        return json.dumps(type_descriptions)
 
 
 class ExtendView(forms.ModalFormView):

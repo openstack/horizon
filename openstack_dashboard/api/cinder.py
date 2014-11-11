@@ -448,6 +448,24 @@ def volume_type_list_with_qos_associations(request):
     return vol_types
 
 
+def volume_type_get_with_qos_association(request, volume_type_id):
+    vol_type = volume_type_get(request, volume_type_id)
+    vol_type.associated_qos_spec = ""
+
+    # get all currently defined qos specs
+    qos_specs = qos_spec_list(request)
+    for qos_spec in qos_specs:
+        # get all volume types this qos spec is associated with
+        assoc_vol_types = qos_spec_get_associations(request, qos_spec.id)
+        for assoc_vol_type in assoc_vol_types:
+            if vol_type.id == assoc_vol_type.id:
+                # update volume type to hold this association info
+                vol_type.associated_qos_spec = qos_spec.name
+                return vol_type
+
+    return vol_type
+
+
 def default_quota_update(request, **kwargs):
     cinderclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
 
@@ -456,8 +474,18 @@ def volume_type_list(request):
     return cinderclient(request).volume_types.list()
 
 
-def volume_type_create(request, name):
-    return cinderclient(request).volume_types.create(name)
+def volume_type_create(request, name, description=None):
+    return cinderclient(request).volume_types.create(name, description)
+
+
+def volume_type_update(request, volume_type_id, name=None, description=None):
+    return cinderclient(request).volume_types.update(volume_type_id,
+                                                     name,
+                                                     description)
+
+
+def volume_type_default(request):
+    return cinderclient(request).volume_types.default()
 
 
 def volume_type_delete(request, volume_type_id):

@@ -2,7 +2,16 @@
 
 <h3>{% trans "Description:" %}</h3>
 
-<p>{% block title %}{% trans "Volumes are block devices that can be attached to instances." %}{% endblock %}</p>
+<p>{% blocktrans %}
+   Volumes are block devices that can be attached to instances.
+   {% endblocktrans %}
+</p>
+
+<div id="id_show_volume_type_desc_div">
+    <h3>{% trans "Volume Type Description:" %}</h3>
+    <h4><b><span id="id_show_volume_type_name"></span></b></h4>
+    <p id="id_show_volume_type_desc"></p>
+</div>
 
 <h3>{% block head %}{% trans "Volume Limits" %}{% endblock %}</h3>
 
@@ -22,13 +31,20 @@
 <div id={% block type_id %}"quota_volumes"{% endblock %} data-progress-indicator-step-by="1" data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %} data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %} class="quota_bar">
 </div>
 
-
 <script type="text/javascript" charset="utf-8">
   if(typeof horizon.Quota !== 'undefined') {
     horizon.Quota.init();
   } else {
     addHorizonLoadEvent(function() {
       horizon.Quota.init();
+    });
+  }
+
+  if(typeof horizon.Volumes !== 'undefined'){
+      horizon.Volumes.initWithTypes({{ volume_types|safe|default:"{}" }});
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.Volumes.initWithTypes({{ volume_types|safe|default:"{}" }});
     });
   }
 </script>

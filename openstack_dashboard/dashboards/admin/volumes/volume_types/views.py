@@ -116,6 +116,45 @@ class CreateVolumeTypeEncryptionView(forms.ModalFormView):
                 'volume_type_id': self.kwargs['volume_type_id']}
 
 
+class EditVolumeTypeView(forms.ModalFormView):
+    form_class = volume_types_forms.EditVolumeType
+    template_name = 'admin/volumes/volume_types/update_volume_type.html'
+    success_url = 'horizon:admin:volumes:volume_types_tab'
+    cancel_url = 'horizon:admin:volumes:volume_types_tab'
+    submit_label = _('Edit')
+
+    def get_success_url(self):
+        return reverse(self.success_url)
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            volume_type_id = self.kwargs['type_id']
+            volume_type = api.cinder.volume_type_get(self.request,
+                                                     volume_type_id)
+        except Exception:
+            error_message = _(
+                'Unable to retrieve volume type for: "%s"') \
+                % volume_type_id
+            exceptions.handle(self.request,
+                              error_message,
+                              redirect=self.success_url)
+
+        return volume_type
+
+    def get_context_data(self, **kwargs):
+        context = super(EditVolumeTypeView, self).get_context_data(**kwargs)
+        context['volume_type'] = self.get_data()
+
+        return context
+
+    def get_initial(self):
+        volume_type = self.get_data()
+        return {'id': self.kwargs['type_id'],
+                'name': volume_type.name,
+                'description': getattr(volume_type, 'description', "")}
+
+
 class CreateQosSpecView(forms.ModalFormView):
     form_class = volumes_forms.CreateQosSpec
     modal_header = _("Create QoS Spec")
