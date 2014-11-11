@@ -149,7 +149,8 @@ class NetworksTable(tables.DataTable):
                             verbose_name=_("Subnets Associated"),)
     shared = tables.Column("shared", verbose_name=_("Shared"),
                            filters=(filters.yesno, filters.capfirst))
-    status = tables.Column("status", verbose_name=_("Status"))
+    status = tables.Column("status", verbose_name=_("Status"),
+                           filters=(filters.title,))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"))
 
