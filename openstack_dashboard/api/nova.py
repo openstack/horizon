@@ -656,6 +656,14 @@ def server_stop(request, instance_id):
     novaclient(request).servers.stop(instance_id)
 
 
+def server_lock(request, instance_id):
+    novaclient(request).servers.lock(instance_id)
+
+
+def server_unlock(request, instance_id):
+    novaclient(request).servers.unlock(instance_id)
+
+
 def tenant_quota_get(request, tenant_id):
     return base.QuotaSet(novaclient(request).quotas.get(tenant_id))
 

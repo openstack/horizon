@@ -709,6 +709,68 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
         api.nova.server_stop(request, obj_id)
 
 
+class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
+    name = "lock"
+    policy_rules = (("compute", "compute_extension:admin_actions:lock"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Lock Instance",
+            u"Lock Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Locked Instance",
+            u"Locked Instances",
+            count
+        )
+
+    # TODO(akrivoka): When the lock status is added to nova, revisit this
+    # to only allow unlocked instances to be locked
+    def allowed(self, request, instance):
+        if not api.nova.extension_supported('AdminActions', request):
+            return False
+        return True
+
+    def action(self, request, obj_id):
+        api.nova.server_lock(request, obj_id)
+
+
+class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
+    name = "unlock"
+    policy_rules = (("compute", "compute_extension:admin_actions:unlock"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Unlock Instance",
+            u"Unlock Instances",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Unlocked Instance",
+            u"Unlocked Instances",
+            count
+        )
+
+    # TODO(akrivoka): When the lock status is added to nova, revisit this
+    # to only allow locked instances to be unlocked
+    def allowed(self, request, instance):
+        if not api.nova.extension_supported('AdminActions', request):
+            return False
+        return True
+
+    def action(self, request, obj_id):
+        api.nova.server_unlock(request, obj_id)
+
+
 def get_ips(instance):
     template_name = 'project/instances/_instance_ips.html'
     context = {"instance": instance}
@@ -930,5 +992,6 @@ class InstancesTable(tables.DataTable):
                        SimpleDisassociateIP, EditInstance,
                        DecryptInstancePassword, EditInstanceSecurityGroups,
                        ConsoleLink, LogLink, TogglePause, ToggleSuspend,
-                       ResizeLink, SoftRebootInstance, RebootInstance,
+                       ResizeLink, LockInstance, UnlockInstance,
+                       SoftRebootInstance, RebootInstance,
                        StopInstance, RebuildInstance, TerminateInstance)

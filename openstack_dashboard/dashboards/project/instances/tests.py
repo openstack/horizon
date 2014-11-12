@@ -653,6 +653,115 @@ class InstanceTests(helpers.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @helpers.create_stubs({api.nova: ('server_lock',
+                                      'server_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_lock_instance(self):
+        servers = self.servers.list()
+        server = servers[0]
+
+        api.nova.extension_supported('AdminActions', IsA(
+            http.HttpRequest)).MultipleTimes().AndReturn(True)
+        api.glance.image_list_detailed(IgnoreArg()).AndReturn((
+            self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(
+            IsA(http.HttpRequest),
+            search_opts=search_opts).AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_lock(IsA(http.HttpRequest), server.id)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__lock__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.nova: ('server_lock',
+                                      'server_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_lock_instance_exception(self):
+        servers = self.servers.list()
+        server = servers[0]
+
+        api.nova.extension_supported('AdminActions', IsA(
+            http.HttpRequest)).MultipleTimes().AndReturn(True)
+        api.glance.image_list_detailed(IgnoreArg()).AndReturn((
+            self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(
+            IsA(http.HttpRequest),
+            search_opts=search_opts).AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_lock(IsA(http.HttpRequest), server.id).AndRaise(
+            self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__lock__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.nova: ('server_unlock',
+                                      'server_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_unlock_instance(self):
+        servers = self.servers.list()
+        server = servers[0]
+        api.nova.extension_supported('AdminActions', IsA(
+            http.HttpRequest)).MultipleTimes().AndReturn(True)
+        api.glance.image_list_detailed(IgnoreArg()).AndReturn((
+            self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(
+            IsA(http.HttpRequest),
+            search_opts=search_opts).AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_unlock(IsA(http.HttpRequest), server.id)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__unlock__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.nova: ('server_unlock',
+                                      'server_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_unlock_instance_exception(self):
+        servers = self.servers.list()
+        server = servers[0]
+
+        api.nova.extension_supported('AdminActions', IsA(
+            http.HttpRequest)).MultipleTimes().AndReturn(True)
+        api.glance.image_list_detailed(IgnoreArg()).AndReturn((
+            self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(
+            IsA(http.HttpRequest),
+            search_opts=search_opts).AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_unlock(IsA(http.HttpRequest), server.id).AndRaise(
+            self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__unlock__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @helpers.create_stubs({
         api.nova: (
             "server_get",
