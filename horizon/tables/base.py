@@ -943,6 +943,11 @@ class DataTableOptions(object):
         Boolean to control whether or not to show the table's footer.
         Default: ``True``.
 
+    .. attribute:: hidden_title
+
+        Boolean to control whether or not to show the table's title.
+        Default: ``True``.
+
     .. attribute:: permissions
 
         A list of permission names which this table requires in order to be
@@ -968,6 +973,7 @@ class DataTableOptions(object):
         self.pagination_param = getattr(options, 'pagination_param', 'marker')
         self.browser_table = getattr(options, 'browser_table', None)
         self.footer = getattr(options, 'footer', True)
+        self.hidden_title = getattr(options, 'hidden_title', True)
         self.no_data_message = getattr(options,
                                        "no_data_message",
                                        _("No items to display."))
@@ -1253,7 +1259,8 @@ class DataTable(object):
     def render(self):
         """Renders the table using the template from the table options."""
         table_template = template.loader.get_template(self._meta.template)
-        extra_context = {self._meta.context_var_name: self}
+        extra_context = {self._meta.context_var_name: self,
+                         'hidden_title': self._meta.hidden_title}
         context = template.RequestContext(self.request, extra_context)
         return table_template.render(context)
 

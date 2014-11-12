@@ -80,6 +80,7 @@ class VolumeTypesTable(tables.DataTable):
 
     class Meta:
         name = "volume_types"
+        hidden_title = False
         verbose_name = _("Volume Types")
         table_actions = (CreateVolumeType, DeleteVolumeType,)
         row_actions = (ViewVolumeTypeExtras,
@@ -158,6 +159,7 @@ class QosSpecsTable(tables.DataTable):
 
     class Meta:
         name = "qos_specs"
+        hidden_title = False
         verbose_name = _("QoS Specs")
         table_actions = (CreateQosSpec, DeleteQosSpecs,)
         row_actions = (ManageQosSpec, EditConsumer, DeleteQosSpecs)
