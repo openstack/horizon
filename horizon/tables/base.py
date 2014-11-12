@@ -183,9 +183,9 @@ class Column(html.HTMLElement):
     .. attribute:: truncate
 
         An integer for the maximum length of the string in this column. If the
-        data in this column is larger than the supplied number, the data for
-        this column will be truncated and an ellipsis will be appended to the
-        truncated data.
+        length of the data in this column is larger than the supplied number,
+        the data for this column will be truncated and an ellipsis will be
+        appended to the truncated data.
         Defaults to ``None``.
 
     .. attribute:: link_classes
@@ -532,7 +532,7 @@ class Row(html.HTMLElement):
 
     def load_cells(self, datum=None):
         """Load the row's data (either provided at initialization or as an
-        argument to this function), initiailize all the cells contained
+        argument to this function), initialize all the cells contained
         by this row, and set the appropriate row properties which require
         the row's data to be determined.
 
@@ -647,6 +647,12 @@ class Cell(html.HTMLElement):
             self.attrs['data-cell-name'] = column.name
             self.attrs['data-update-url'] = self.get_ajax_update_url()
         self.inline_edit_mod = False
+        # add tooltip to cells if the truncate variable is set
+        if column.truncate:
+            data = getattr(datum, column.name, '') or ''
+            if len(data) > column.truncate:
+                self.attrs['data-toggle'] = 'tooltip'
+                self.attrs['title'] = data
         self.data = self.get_data(datum, column, row)
 
     def get_data(self, datum, column, row):
