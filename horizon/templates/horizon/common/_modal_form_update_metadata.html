@@ -25,7 +25,7 @@
               <div class="form-group has-feedback">
                 <strong>{% trans "Available Metadata" %}</strong>
                 <input class="form-control input-sm"
-                       type="text" placeholder="Filter"
+                       type="text" placeholder="{% trans "Filter" %}"
                        ng-model="treeFilter"/>
                 <span class="glyphicon glyphicon-search form-control-feedback">
                 </span>
@@ -35,7 +35,7 @@
           <ul class="list-group" ng-cloak>
             <li class="list-group-item">
               <div class="input-group input-group-sm">
-                <span class="input-group-addon">Other</span>
+                <span class="input-group-addon">{% trans "Other" %}</span>
                 <input class="form-control" type="text" name="customItem"
                        ng-model="customItem.value"
                        ng-model-options="{updateOn: 'default focus blur', debounce: {default: 500, focus: 0, blur: 0}}"
@@ -98,7 +98,7 @@
               <div class="form-group has-feedback">
                 <strong>{% trans "Existing Metadata" %}</strong>
                 <input class="form-control input-sm"
-                       type="text" placeholder="Filter"
+                       type="text" placeholder="{% trans "Filter" %}"
                        ng-model="listFilter"/>
               <span class="glyphicon glyphicon-search form-control-feedback">
               </span>
