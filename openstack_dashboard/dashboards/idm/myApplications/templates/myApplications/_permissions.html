@@ -1,0 +1,19 @@
+<h4>Permissions in {{ role.name }} role</h4>
+    <ul class="list-group">
+      <li class="list-group-item checkbox">
+        <label>
+          <input type="checkbox"> Type of permission
+        </label>
+        <!-- sólo tiene que aparecer si se ha creado este permiso -->
+        <span>
+          <a href="." class="fa fa-close"></a>
+        </span>
+      </li>
+    </ul>
+
+    <div id="new_permission">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#add_permission">
+        + New Permission
+      </button>
+    </div>

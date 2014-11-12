@@ -21,4 +21,7 @@ urlpatterns = patterns('',
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^upload/$', views.UploadImageView.as_view(), name='upload'),
     url(r'^roles/$', views.RolesView.as_view(), name='roles'),
+    #url(r'^roles/(?P<role_id>[^/]+)/update/$',
+    #    views.UpdateRoleView.as_view(), name='roles_update'),
+    #url(r'^roles/create/$', views.CreateRoleView.as_view(), name='roles_create'),
 )

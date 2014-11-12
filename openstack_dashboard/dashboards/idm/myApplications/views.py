@@ -12,13 +12,13 @@
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from django.views.generic.base import TemplateView
 
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
 
-from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm.myApplications \
             import tables as application_tables
@@ -43,17 +43,39 @@ class UploadImageView(forms.ModalFormView):
     template_name = 'idm/myApplications/upload.html'
     
 
-class RolesView(tables.DataTableView):
+class RolesView(tables.MultiTableView):
+    """ Logic for the asynchronous widget to manage roles and permissions at the
+    application level.
+    """
     template_name = 'idm/myApplications/roles.html'
-    table_class = application_tables.RolesTable
-    
-    def get_data(self):
+    table_classes = (application_tables.RolesTable,
+                     application_tables.PermissionsTable)
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(RolesView, self).get_context_data(**kwargs)
+    #     try:
+    #         context['roles'] = fiware_api.keystone.role_list(self.request)
+    #         context['selected_role'] = context['roles'][0] 
+    #     except Exception:
+    #         exceptions.handle(self.request,
+    #                           _('Unable to retrieve roles list.'))
+    #     return context
+    def get_roles_data(self):
         roles = []
         try:
-            #roles = api.keystone.role_list(self.request)
             roles = fiware_api.keystone.role_list(self.request)
         except Exception:
             exceptions.handle(self.request,
-                              _('Unable to retrieve roles list.'))
+                               _('Unable to retrieve roles list.'))
+    
         return roles
 
+    def get_permissions_data(self):
+        permissions = []
+        try:
+            permissions = fiware_api.keystone.permission_list(self.request)
+        except Exception:
+            exceptions.handle(self.request,
+                               _('Unable to retrieve permissions list.'))
+    
+        return permissions

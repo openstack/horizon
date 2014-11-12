@@ -16,7 +16,7 @@ function readURL(input) {
                 aspectRatio: 1,
                 setSelect:   [ 100, 100, 50, 50 ],
                 boxWidth: 650,
-                
+
             });
         }
         
@@ -33,12 +33,29 @@ function showCoords(c){
     $("#id_y1").val(c.y);
     $("#id_x2").val(c.x2); 
     $("#id_y2").val(c.y2);
-
+    console.log('entra');
+    console.log("x1: "+$("#id_x1").val());
+    console.log("x2: "+$("#id_x2").val());
+    console.log("y1: "+$("#id_y1").val());
+    console.log("y2: "+$("#id_y2").val());
    
 }
 
     
+// $(document).ready(function() {
+// 	url = "/static/dashboard/img/logos/small/user.png"
+// 	$.get(url)
+//     .done(function() { 
+//         $('#org-avatar').attr("src","/static/dashboard/img/logos/small/group.png")
+//         console.log('done')
+//     }).fail(function() { 
+//     	//Poner imagen de cada organización. Pasar como nombre 
+//        $('#org-avatar').attr("src","/static/dashboard/img/logos/small/user.png")
+//        console.log('fail')
+//     })
+	
+	
+// });
 
 </script>
-<!--<script src='{{ STATIC_URL }}idm/js/uploadavatar.js' type='text/javascript' charset='utf-8'></script>-->
 {% endblock %}

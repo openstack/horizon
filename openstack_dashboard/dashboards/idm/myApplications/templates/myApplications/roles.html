@@ -1,22 +1,53 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{% trans "Roles" %}{% endblock %}
+{% block title %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Roles") %}
+  {% include "idm/myApplications/_step-3.html" %}
 {% endblock page_header %}
 
 {% block main %}
-  <div class="panel panel-default applications">
-    <div class="panel-heading">
-      {{ table.render_table_actions }}
-    </div> 
-    <div class="panel-body">
-      {{ table.render}}
+  
+  <div class="site-client-roles">
+  <section class="relation_list">
+    <h4>{{ roles_table.name }}</h4>
+    {{ roles_table.render}}
+    {% comment %}
+    <ul class="list-group">
+      {% for role in roles %}
+        {% include "idm/myApplications/_role.html" with role=role %}
+      {% endfor %}
+    </ul>
+    {% endcomment %}
+    <div id="new_relation">
+      <h4  id="headingOne" role="tab" class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          + New role
+        </a>
+      </h4>
+      <div id="collapseOne" class="form-group collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="input-group">
+          <input class="form-control" type="email" placeholder="Write the name of role.">
+          <div class="input-group-addon"><a class="btn btn-primary">Save</a></div>
+        </div>
+
+      </div>
     </div>
-    <div class="panel-footer">
-      <a href="{% url 'horizon:idm:myApplications:index' %}">Finish</a>
-    </div>
-  </div>
+  </section>
+
+  <section class="permissions_list">
+    {% if selected_role %}
+      {% include "idm/myApplications/_permissions.html" with role=selected_role %}
+    {% else %}
+      <!-- sólo tiene que aparecer cuando no se tenga seleccionado un rol -->
+      <div class="alert alert-info">
+        Manage the permissions of your contacts and create new roles
+      </div>
+    {% endif %}
+  </section>
+</div>
+
+<button type="submit" class="btn btn-primary">{% trans "Finish" %}</button>
 {% endblock %}
+
 

@@ -10,13 +10,17 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from keystoneclient.exceptions import Conflict  # noqa
+
+from horizon import exceptions
 from horizon import forms
 from horizon import tables
 
-from openstack_dashboard import api
+from openstack_dashboard import fiware_api
 
 class CreateApplication(tables.LinkAction):
     name = "create_application"
@@ -36,7 +40,7 @@ class ProvidingApplicationsTable(tables.DataTable):
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(),
                                     required=False))
-    
+    clickable = True
     class Meta:
         name = "providing_table"
         verbose_name = _("Providing Applications")
@@ -53,38 +57,42 @@ class PurchasedApplicationsTable(tables.DataTable):
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(),
                                     required=False))
-    
+    clickable = True
     class Meta:
         name = "purchased_table"
         verbose_name = _("Purchased Applications")
         pagination_param = "tenant_marker"
         table_actions = (CreateApplication, )
         multi_select = False
- 
 
-class CreateRoleLink(tables.LinkAction):
-    name = "create"
-    verbose_name = _("Create Role")
-    url = "horizon:identity:roles:create"
-    classes = ("ajax-modal",)
-    icon = "plus"
-    policy_rules = (("identity", "identity:create_role"),)
+# class CreateRoleLink(tables.LinkAction):
+#     name = "create"
+#     verbose_name = _("Create Role")
+#     url = "horizon:identity:roles:create"
+#     classes = ("ajax-modal",)
+#     icon = "plus"
+#     policy_rules = (("identity", "identity:create_role"),)
 
-    def allowed(self, request, role):
-        return api.keystone.keystone_can_edit_role()
+#     def allowed(self, request, role):
+#         return api.keystone.keystone_can_edit_role()
 
-class EditRoleLink(tables.LinkAction):
-    name = "edit"
-    verbose_name = _("Edit")
-    url = "horizon:identity:roles:update"
-    classes = ("ajax-modal",)
-    icon = "pencil"
-    policy_rules = (("identity", "identity:update_role"),)
 
-    def allowed(self, request, role):
-        return api.keystone.keystone_can_edit_role()
+# class EditRoleLink(tables.LinkAction):
+#     name = "edit"
+#     verbose_name = _("Edit")
+#     url = "horizon:identity:roles:update"
+#     classes = ("ajax-modal",)
+#     icon = "pencil"
+#     policy_rules = (("identity", "identity:update_role"),)
+
+#     def allowed(self, request, role):
+#         return api.keystone.keystone_can_edit_role()
+
 
 class DeleteRolesAction(tables.DeleteAction):
+
+    icon = "cross"
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -100,22 +108,74 @@ class DeleteRolesAction(tables.DeleteAction):
             u"Deleted Roles",
             count
         )
-    policy_rules = (("identity", "identity:delete_role"),)
+    #policy_rules = (("identity", "identity:delete_role"),)
 
     def allowed(self, request, role):
-        return api.keystone.keystone_can_edit_role()
+        #return api.keystone.keystone_can_edit_role()
+        # TODO(garcianavalon) implement roles/policies for this
+        return True
 
     def delete(self, request, obj_id):
-        api.keystone.role_delete(request, obj_id)
+        fiware_api.keystone.role_delete(request, obj_id)
 
+class UpdateRoleRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, role_id):
+        role_info = fiware_api.keystone.role_get(request, role_id)
+        return role_info
+
+class UpdateRoleCell(tables.UpdateAction):
+
+    def allowed(self, request, role, cell):
+        # return api.keystone.keystone_can_edit_role() and \
+        #     policy.check((("identity", "identity:update_role"),),
+        #                  request)
+        # TODO(garcianavalon) implement roles/policies for this
+        return True
+
+    def update_cell(self, request, datum, role_id,
+                    cell_name, new_cell_value):
+        # inline update role info
+        try:
+            role_obj = datum
+            # updating changed value by new value
+            setattr(role_obj, cell_name, new_cell_value)
+            fiware_api.keystone.role_update(
+                request,
+                role_id,
+                name=role_obj.name)
+            # TODO(garcianavalon) application relation, permissions
+        except Conflict:
+            # Returning a nice error message about name conflict. The message
+            # from exception is not that clear for the users.
+            message = _("A role with this name already exists")
+            raise ValidationError(message)
+        except Exception:
+            exceptions.handle(request, _('Error updating role'))
+            return False
+        return True
 
 class RolesTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Role Name'))
+    name = tables.Column('name', 
+                        form_field=forms.CharField(max_length=64),
+                        update_action=UpdateRoleCell)
     id = tables.Column('id', verbose_name=_('Role ID'))
 
     class Meta:
         name = "roles"
         verbose_name = _("Roles")
+        row_class = UpdateRoleRow
+        row_actions = (DeleteRolesAction,)
+        table_actions = ()
+
+class PermissionsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Permission Name'))
+    id = tables.Column('id', verbose_name=_('Permission ID'))
+
+    class Meta:
+        name = "permissions"
+        verbose_name = _("Permissions")
         row_actions = ()
-        table_actions = (EditRoleLink, CreateRoleLink, DeleteRolesAction)
+        table_actions = ()
 

@@ -10,6 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import os
+from PIL import Image 
+
 from django import shortcuts
 from django.conf import settings
 from django import forms
@@ -17,6 +20,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
 from horizon.utils import functions as utils
+
+
+DEFAULT_AVATAR = os.path.abspath(os.path.join(settings.ROOT_PATH, '..', 
+            'openstack_dashboard/static/dashboard/img/logos/original/group.png'))
 
 
 class CreateApplicationForm(forms.SelfHandlingForm):
@@ -32,31 +39,35 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         return response
     
 class UploadImageForm(forms.SelfHandlingForm):
-	image = forms.ImageField(required=True)
-	x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-	y1 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
-	x2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
-	y2 = forms.DecimalField(widget=forms.HiddenInput(),required=False)
-		
-	def handle(self, request, data):
-		x1=self.cleaned_data['x1'] 
-		x2=self.cleaned_data['x2']
-		y1=self.cleaned_data['y1']
-		y2=self.cleaned_data['y2']
-				
-		image = request.FILES['image'] 
-		imageName = image.name
-		
-		img = Image.open(image)
+    image = forms.ImageField(required=False)
+    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+        
+    def handle(self, request, data):
+        if request.FILES:
+            x1 = self.cleaned_data['x1'] 
+            x2 = self.cleaned_data['x2']
+            y1 = self.cleaned_data['y1']
+            y2 = self.cleaned_data['y2']
 
-		x1 = int(x1)
-		x2 = int(x2)
-		y1 = int(y1)
-		y2 = int(y2)
+            image = request.FILES['image'] 
+            imageName = image.name
+            
+            img = Image.open(image)
 
-		output_img=img.crop((x1,y1,x2,y2))
-		output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName)
+            x1 = int(x1)
+            x2 = int(x2)
+            y1 = int(y1)
+            y2 = int(y2)
 
-		response = shortcuts.redirect('horizon:idm:myApplications:roles')
-		return response
+            output_img = img.crop((x1, y1, x2, y2))
+        else:
+            output_img = Image.open(DEFAULT_AVATAR)
+            imageName = 'avatarApp'
+            
+        output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
 
+        response = shortcuts.redirect('horizon:idm:myApplications:roles')
+        return response

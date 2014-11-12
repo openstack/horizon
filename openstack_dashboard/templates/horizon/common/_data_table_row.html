@@ -1,19 +1,9 @@
-   <div class="avatar">
-       <img src="/static/dashboard/img/logos/small/user.png">
-    </div>
+{%if row.table.name = 'mytenants' or row.table.name = 'tenants' %}
+  <div class="avatar cell">
+     <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
+  </div>
+{% endif %}
+
 {% for cell in row %}  
-    <div class="data">
-    {% if cell.column.name == 'name'%}
-        {{ cell.column.name }} : {{ cell.value }}
-        {% if row.table.name != "members" %}
-          <button class="btn btn-link">switch</button>
-        {% endif %}
-
-	{% else %}
-        {{ cell.column.name }} : {{ cell.value }}
-
-	{% endif %}
-	</div>
-
+  {% include "horizon/common/_data_table_cell.html" %}
 {% endfor %}
- 

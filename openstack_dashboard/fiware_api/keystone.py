@@ -135,6 +135,11 @@ def check_email(email):
 # keystoneclients issue (see the top of this file). 
 # NOTE(garcianavalon) request is passed as an argument
 # looking into the future integration, no use for it now
+def role_get(request, role):
+    manager = fiwareclient().fiware_roles.roles
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
+    return manager.get(role)
+
 def role_list(request):
     manager = fiwareclient().fiware_roles.roles
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
@@ -162,6 +167,11 @@ def role_delete(request, role):
     manager = fiwareclient().fiware_roles.roles
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
     return manager.delete(role)
+
+def permission_get(request, permission):
+    manager = fiwareclient().fiware_permissions.permissions
+    #manager = api.keystone.keystoneclient(request, admin=True).fiware_permissions
+    return manager.get(permission)
 
 def permission_list(request):
     manager = fiwareclient().fiware_roles.permissions

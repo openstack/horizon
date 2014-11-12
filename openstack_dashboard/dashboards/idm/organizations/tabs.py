@@ -1,13 +1,24 @@
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import messages
 from horizon import tabs
 
 from openstack_dashboard import api
-from openstack_dashboard.api import keystone
 from openstack_dashboard import policy
-from openstack_dashboard.dashboards.idm.organizations import tables
-
+from openstack_dashboard.dashboards.idm import utils as idm_utils
 from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
 
@@ -15,7 +26,7 @@ from openstack_dashboard.dashboards.idm.organizations \
 class TenantsTab(tabs.TableTab):
     name = _("Other")
     slug = "tenants_tab"
-    table_classes = (tables.TenantsTable,)
+    table_classes = (organization_tables.TenantsTable,)
     template_name = ("horizon/common/_detail_table.html")
     preload = False
 
@@ -57,12 +68,13 @@ class TenantsTab(tabs.TableTab):
             msg = \
                 _("Insufficient privilege level to view organization information.")
             messages.info(self.request, msg)
-        return tenants
+        return idm_utils.filter_own_tenant(self.request.user, tenants)
+
 
 class MyTenantsTab(tabs.TableTab):
     name = _("Owned")
     slug = "my_tenants_tab"
-    table_classes = (tables.MyTenantsTable,)
+    table_classes = (organization_tables.MyTenantsTable,)
     template_name = ("horizon/common/_detail_table.html")
     preload = False
 
@@ -85,9 +97,8 @@ class MyTenantsTab(tabs.TableTab):
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve organization information."))
-        return tenants
+        return idm_utils.filter_own_tenant(self.request.user, tenants)
 
-        
 
 class PanelTabs(tabs.TabGroup):
     slug = "panel_tabs"
