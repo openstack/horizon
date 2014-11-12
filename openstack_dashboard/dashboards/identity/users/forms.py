@@ -199,13 +199,16 @@ class UpdateUserForm(BaseUserForm):
 
         data.pop('domain_id')
         data.pop('domain_name')
-
         try:
             if "email" in data:
                 data['email'] = data['email'] or None
             response = api.keystone.user_update(request, user, **data)
             messages.success(request,
                              _('User has been updated successfully.'))
+        except exceptions.Conflict:
+            msg = _('User name "%s" is already used.') % data['name']
+            messages.error(request, msg)
+            return False
         except Exception:
             response = exceptions.handle(request, ignore=True)
             messages.error(request, _('Unable to update the user.'))

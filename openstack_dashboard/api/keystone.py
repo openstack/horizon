@@ -333,6 +333,8 @@ def user_update(request, user, **data):
         # Update user details
         try:
             user = manager.update(user, **data)
+        except keystone_exceptions.Conflict:
+            raise exceptions.Conflict()
         except Exception:
             error = exceptions.handle(request, ignore=True)
 
@@ -372,7 +374,10 @@ def user_update(request, user, **data):
     else:
         if not data['password']:
             data.pop('password')
-        user = manager.update(user, **data)
+        try:
+            user = manager.update(user, **data)
+        except keystone_exceptions.Conflict:
+            raise exceptions.Conflict()
         if data.get('password') and user.id == request.user.id:
             return utils.logout_with_message(
                 request,
