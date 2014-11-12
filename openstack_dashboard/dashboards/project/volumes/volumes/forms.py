@@ -45,7 +45,8 @@ DEFAULT_CONTAINER_FORMAT = 'bare'
 
 
 class CreateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Volume Name"))
+    name = forms.CharField(max_length=255, label=_("Volume Name"),
+                           required=False)
     description = forms.CharField(max_length=255, widget=forms.Textarea(
         attrs={'class': 'modal-body-fixed-width', 'rows': 4}),
         label=_("Description"), required=False)
@@ -509,7 +510,8 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
 
 class UpdateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Volume Name"))
+    name = forms.CharField(max_length=255, label=_("Volume Name"),
+                           required=False)
     description = forms.CharField(max_length=255,
                                   widget=forms.Textarea(attrs={'rows': 4}),
                                   label=_("Description"),
