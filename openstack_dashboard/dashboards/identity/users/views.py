@@ -23,6 +23,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters  # noqa
+from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
@@ -146,3 +147,44 @@ class CreateView(forms.ModalFormView):
         return {'domain_id': domain.id,
                 'domain_name': domain.name,
                 'role_id': getattr(default_role, "id", None)}
+
+
+class DetailView(generic.TemplateView):
+    template_name = 'identity/users/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        user = self.get_data()
+        table = project_tables.UsersTable(self.request)
+        domain_id = getattr(user, "domain_id", None)
+        domain_name = ''
+        if api.keystone.VERSIONS.active >= 3:
+            try:
+                domain = api.keystone.domain_get(self.request, domain_id)
+                domain_name = domain.name
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve project domain.'))
+
+        context["user"] = user
+        context["domain_id"] = domain_id
+        context["domain_name"] = domain_name
+        context["page_title"] = _("User Details: %s") % user.name
+        context["url"] = self.get_redirect_url()
+        context["actions"] = table.render_row_actions(user)
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            user_id = self.kwargs['user_id']
+            user = api.keystone.user_get(self.request, user_id)
+        except Exception:
+            redirect = self.get_redirect_url()
+            exceptions.handle(self.request,
+                              _('Unable to retrieve user details.'),
+                              redirect=redirect)
+        return user
+
+    def get_redirect_url(self):
+        return reverse('horizon:identity:users:index')

@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<h3>{% trans "User Overview" %}</h3>
+
+<div class="info detail">
+    <h4>{% trans "Info" %}</h4>
+    <hr class="header_rule">
+    <dl>
+        {% if domain_id %}
+            <dt>{% trans "Domain ID" %}</dt>
+            <dd>{{ domain_id }}</dd>
+        {% endif %}
+        {% if domain_name %}
+            <dt>{% trans "Domain Name" %}</dt>
+            <dd>{{ domain_name }}</dd>
+        {% endif %}
+        <dt>{% trans "User Name" %}</dt>
+        <dd>{{ user.name }}</dd>
+        <dt>{% trans "ID" %}</dt>
+        <dd>{{ user.id }}</dd>
+        <dt>{% trans "Email" %}</dt>
+        <dd>{{ user.email|default:_("None") }}</dd>
+        <dt>{% trans "Enabled" %}</dt>
+        <dd>{{ user.enabled }}</dd>
+        <dt>{% trans "Project ID" %}</dt>
+        <dd>{{ user.project_id }}</dd>
+    </dl>
+</div>
+

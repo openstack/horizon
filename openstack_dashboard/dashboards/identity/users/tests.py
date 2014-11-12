@@ -31,6 +31,7 @@ from openstack_dashboard.test import helpers as test
 USERS_INDEX_URL = reverse('horizon:identity:users:index')
 USER_CREATE_URL = reverse('horizon:identity:users:create')
 USER_UPDATE_URL = reverse('horizon:identity:users:update', args=[1])
+USER_DETAIL_URL = reverse('horizon:identity:users:detail', args=[1])
 
 
 class UsersViewTests(test.BaseAdminViewTests):
@@ -548,6 +549,33 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertEqual(list(res.context['messages'])[0].message,
                          u'You are not allowed to delete user: %s'
                          % self.request.user.username)
+
+    @test.create_stubs({api.keystone: ('user_get',)})
+    def test_detail_view(self):
+        user = self.users.get(id="1")
+
+        api.keystone.user_get(IsA(http.HttpRequest), '1').AndReturn(user)
+        self.mox.ReplayAll()
+
+        res = self.client.get(USER_DETAIL_URL, args=[user.id])
+
+        self.assertTemplateUsed(res, 'identity/users/detail.html')
+        self.assertEqual(res.context['user'].name, user.name)
+        self.assertEqual(res.context['user'].id, user.id)
+        self.assertContains(res, "<h1>User Details: %s</h1>" % user.name,
+                            1, 200)
+
+    @test.create_stubs({api.keystone: ('user_get',)})
+    def test_detail_view_with_exception(self):
+        user = self.users.get(id="1")
+
+        api.keystone.user_get(IsA(http.HttpRequest), '1').\
+            AndRaise(self.exceptions.keystone)
+        self.mox.ReplayAll()
+
+        res = self.client.get(USER_DETAIL_URL, args=[user.id])
+
+        self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
 
 class SeleniumTests(test.SeleniumAdminTestCase):

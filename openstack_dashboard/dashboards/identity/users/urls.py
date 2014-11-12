@@ -21,9 +21,15 @@ from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.users import views
 
+
+VIEWS_MOD = 'openstack_dashboard.dashboards.identity.users.views'
+
+
 urlpatterns = patterns(
-    'openstack_dashboard.dashboards.identity.users.views',
+    VIEWS_MOD,
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<user_id>[^/]+)/update/$',
         views.UpdateView.as_view(), name='update'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'))
+    url(r'^create/$', views.CreateView.as_view(), name='create'),
+    url(r'^(?P<user_id>[^/]+)/detail/$',
+        views.DetailView.as_view(), name='detail'))
