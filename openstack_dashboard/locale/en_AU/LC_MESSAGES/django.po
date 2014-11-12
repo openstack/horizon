@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 15:01-0500\n"
-"PO-Revision-Date: 2014-10-29 14:36+0000\n"
+"POT-Creation-Date: 2014-11-11 18:45-0600\n"
+"PO-Revision-Date: 2014-11-11 16:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
@@ -288,21 +288,21 @@ msgstr "both"
 msgid "Unknown instance"
 msgstr "Unknown instance"
 
-#: api/keystone.py:96
+#: api/keystone.py:97
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:325
+#: api/keystone.py:326
 msgid "Identity service does not allow editing user data."
 msgstr "Identity service does not allow editing user data."
 
-#: api/keystone.py:350
+#: api/keystone.py:351
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "User %s has no role defined for that project."
 
-#: api/keystone.py:362 api/keystone.py:378
+#: api/keystone.py:363 api/keystone.py:379
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "Password changed. Please log in again to continue."
@@ -522,9 +522,9 @@ msgstr "Name"
 #: dashboards/project/instances/tables.py:904
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:78
-#: dashboards/project/volumes/volumes/forms.py:89
-#: dashboards/project/volumes/volumes/forms.py:94
+#: dashboards/project/volumes/volumes/forms.py:90
 #: dashboards/project/volumes/volumes/forms.py:95
+#: dashboards/project/volumes/volumes/forms.py:96
 #: dashboards/project/volumes/volumes/tables.py:360
 msgid "Availability Zone"
 msgstr "Availability Zone"
@@ -1492,10 +1492,10 @@ msgstr "Hostname"
 #: dashboards/project/loadbalancers/workflows.py:485
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:100
-#: dashboards/project/volumes/volumes/forms.py:80
-#: dashboards/project/volumes/volumes/forms.py:85
+#: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:86
-#: dashboards/project/volumes/volumes/forms.py:646
+#: dashboards/project/volumes/volumes/forms.py:87
+#: dashboards/project/volumes/volumes/forms.py:648
 #: dashboards/project/volumes/volumes/tables.py:355
 msgid "Type"
 msgstr "Type"
@@ -1797,7 +1797,7 @@ msgstr "Max. Size (MB)"
 #: dashboards/project/instances/tables.py:889
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/instances/workflows/create_instance.py:105
-#: dashboards/project/volumes/volumes/forms.py:538
+#: dashboards/project/volumes/volumes/forms.py:540
 msgid "Image Name"
 msgstr "Image Name"
 
@@ -2288,9 +2288,9 @@ msgstr "Meter"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
-#: dashboards/project/volumes/volumes/forms.py:51
-#: dashboards/project/volumes/volumes/forms.py:475
-#: dashboards/project/volumes/volumes/forms.py:515
+#: dashboards/project/volumes/volumes/forms.py:52
+#: dashboards/project/volumes/volumes/forms.py:476
+#: dashboards/project/volumes/volumes/forms.py:517
 #: dashboards/project/volumes/volumes/tables.py:326
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
@@ -3354,7 +3354,7 @@ msgid "Unable to retrieve QoS specs"
 msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:111 dashboards/project/volumes/tabs.py:90
-#: dashboards/project/volumes/volumes/forms.py:203
+#: dashboards/project/volumes/volumes/forms.py:204
 msgid "Unable to retrieve volume snapshots."
 msgstr "Unable to retrieve volume snapshots."
 
@@ -3397,10 +3397,10 @@ msgstr "Update Status"
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:142
 #: dashboards/project/volumes/volumes/forms.py:48
-#: dashboards/project/volumes/volumes/forms.py:512
-#: dashboards/project/volumes/volumes/forms.py:535
-#: dashboards/project/volumes/volumes/forms.py:595
-#: dashboards/project/volumes/volumes/forms.py:643
+#: dashboards/project/volumes/volumes/forms.py:513
+#: dashboards/project/volumes/volumes/forms.py:537
+#: dashboards/project/volumes/volumes/forms.py:597
+#: dashboards/project/volumes/volumes/forms.py:645
 msgid "Volume Name"
 msgstr "Volume Name"
 
@@ -3435,7 +3435,7 @@ msgstr "Info"
 #: dashboards/project/instances/workflows/create_instance.py:373
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:220
+#: dashboards/project/volumes/volumes/forms.py:221
 msgid "Volume"
 msgstr "Volume"
 
@@ -5051,7 +5051,7 @@ msgid "Select a port"
 msgstr "Select a port"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:110
-#: dashboards/project/volumes/volumes/forms.py:440
+#: dashboards/project/volumes/volumes/forms.py:441
 msgid "Select an instance"
 msgstr "Select an instance"
 
@@ -5060,7 +5060,7 @@ msgid "No ports available"
 msgstr "No ports available"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:116
-#: dashboards/project/volumes/volumes/forms.py:442
+#: dashboards/project/volumes/volumes/forms.py:443
 msgid "No instances available"
 msgstr "No instances available"
 
@@ -5970,6 +5970,7 @@ msgstr "Cluster Template Name"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
+#: dashboards/project/stacks/tabs.py:143
 msgid "Template"
 msgstr "Template"
 
@@ -6513,7 +6514,7 @@ msgstr "Failed to update image."
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:76
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
-#: dashboards/project/volumes/volumes/forms.py:208
+#: dashboards/project/volumes/volumes/forms.py:209
 msgid "Image"
 msgstr "Image"
 
@@ -7742,12 +7743,12 @@ msgid "Error creating database backup."
 msgstr "Error creating database backup."
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:600
+#: dashboards/project/volumes/volumes/forms.py:602
 msgid "Current Size (GB)"
 msgstr "Current Size (GB)"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:604
+#: dashboards/project/volumes/volumes/forms.py:606
 msgid "New Size (GB)"
 msgstr "New Size (GB)"
 
@@ -8868,7 +8869,7 @@ msgstr "Unable to retrieve image details."
 
 #: dashboards/project/images/snapshots/forms.py:33
 #: dashboards/project/volumes/snapshots/forms.py:25
-#: dashboards/project/volumes/volumes/forms.py:472
+#: dashboards/project/volumes/volumes/forms.py:473
 msgid "Snapshot Name"
 msgstr "Snapshot Name"
 
@@ -8920,7 +8921,7 @@ msgid "Container Format"
 msgstr "Container Format"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:539
+#: dashboards/project/volumes/volumes/forms.py:541
 msgid "Disk Format"
 msgstr "Disk Format"
 
@@ -9896,7 +9897,7 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Volume size in gigabytes (integer value)."
 
 #: dashboards/project/instances/workflows/create_instance.py:119
-#: dashboards/project/volumes/volumes/forms.py:405
+#: dashboards/project/volumes/volumes/forms.py:406
 msgid "Device Name"
 msgstr "Device Name"
 
@@ -10008,17 +10009,17 @@ msgid ""
 msgstr "Launching multiple instances is only supported for images and instance snapshots."
 
 #: dashboards/project/instances/workflows/create_instance.py:330
-#: dashboards/project/volumes/volumes/forms.py:272
+#: dashboards/project/volumes/volumes/forms.py:273
 msgid "Unable to retrieve availability zones."
 msgstr "Unable to retrieve availability zones."
 
 #: dashboards/project/instances/workflows/create_instance.py:336
-#: dashboards/project/volumes/volumes/forms.py:275
+#: dashboards/project/volumes/volumes/forms.py:276
 msgid "No availability zones found"
 msgstr "No availability zones found"
 
 #: dashboards/project/instances/workflows/create_instance.py:338
-#: dashboards/project/volumes/volumes/forms.py:277
+#: dashboards/project/volumes/volumes/forms.py:278
 msgid "Any Availability Zone"
 msgstr "Any Availability Zone"
 
@@ -10029,7 +10030,7 @@ msgid "Unable to retrieve quota information."
 msgstr "Unable to retrieve quota information."
 
 #: dashboards/project/instances/workflows/create_instance.py:370
-#: dashboards/project/volumes/volumes/forms.py:195
+#: dashboards/project/volumes/volumes/forms.py:196
 msgid "Snapshot"
 msgstr "Snapshot"
 
@@ -10047,7 +10048,7 @@ msgid "No snapshots available"
 msgstr "No snapshots available"
 
 #: dashboards/project/instances/workflows/create_instance.py:423
-#: dashboards/project/volumes/volumes/forms.py:290
+#: dashboards/project/volumes/volumes/forms.py:291
 msgid "Unable to retrieve list of volumes."
 msgstr "Unable to retrieve list of volumes."
 
@@ -12215,21 +12216,25 @@ msgstr "Resources"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "Unable to get resources for stack \"%s\"."
 
-#: dashboards/project/stacks/views.py:79
+#: dashboards/project/stacks/views.py:81
 msgid "Unable to retrieve stack list."
 msgstr "Unable to retrieve stack list."
 
-#: dashboards/project/stacks/views.py:111
-#: dashboards/project/stacks/views.py:188
-#: dashboards/project/stacks/views.py:216
+#: dashboards/project/stacks/views.py:113
+#: dashboards/project/stacks/views.py:190
+#: dashboards/project/stacks/views.py:218
 msgid "Unable to retrieve stack."
 msgstr "Unable to retrieve stack."
 
-#: dashboards/project/stacks/views.py:247
+#: dashboards/project/stacks/views.py:229
+msgid "Unable to retrieve stack template."
+msgstr ""
+
+#: dashboards/project/stacks/views.py:262
 msgid "Unable to retrieve resource."
 msgstr "Unable to retrieve resource."
 
-#: dashboards/project/stacks/views.py:260
+#: dashboards/project/stacks/views.py:275
 msgid "Unable to retrieve metadata."
 msgstr "Unable to retrieve metadata."
 
@@ -12293,6 +12298,10 @@ msgstr ""
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:48
 msgid "Resource Metadata"
 msgstr "Resource Metadata"
+
+#: dashboards/project/stacks/templates/stacks/_stack_template.html:3
+msgid "Stack Template"
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/_update.html:19
 msgid ""
@@ -12559,7 +12568,7 @@ msgid "Not attached"
 msgstr "Not attached"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:55
-#: dashboards/project/volumes/volumes/forms.py:52
+#: dashboards/project/volumes/volumes/forms.py:53
 msgid "Volume Source"
 msgstr "Volume Source"
 
@@ -12688,249 +12697,249 @@ msgstr "Create a Volume"
 msgid "Create a Volume Snapshot"
 msgstr "Create a Volume Snapshot"
 
-#: dashboards/project/volumes/volumes/forms.py:58
+#: dashboards/project/volumes/volumes/forms.py:59
 msgid "Use snapshot as a source"
 msgstr "Use snapshot as a source"
 
-#: dashboards/project/volumes/volumes/forms.py:65
+#: dashboards/project/volumes/volumes/forms.py:66
 msgid "Use image as a source"
 msgstr "Use image as a source"
 
-#: dashboards/project/volumes/volumes/forms.py:72
+#: dashboards/project/volumes/volumes/forms.py:73
 msgid "Use a volume as source"
 msgstr "Use a volume as source"
 
-#: dashboards/project/volumes/volumes/forms.py:87
+#: dashboards/project/volumes/volumes/forms.py:88
 msgid "Size (GB)"
 msgstr "Size (GB)"
 
-#: dashboards/project/volumes/volumes/forms.py:100
+#: dashboards/project/volumes/volumes/forms.py:101
 msgid "No volume type"
 msgstr "No volume type"
 
-#: dashboards/project/volumes/volumes/forms.py:120
+#: dashboards/project/volumes/volumes/forms.py:121
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr "Volume size must be equal to or greater than the snapshot size (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:128
+#: dashboards/project/volumes/volumes/forms.py:129
 msgid "Unable to load the specified snapshot."
 msgstr "Unable to load the specified snapshot."
 
-#: dashboards/project/volumes/volumes/forms.py:139
+#: dashboards/project/volumes/volumes/forms.py:140
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "Volume size must be equal to or greater than the image size (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:147
+#: dashboards/project/volumes/volumes/forms.py:148
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGB)"
 msgstr "Volume size must be equal to or greater than the image minimum disk size (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:158
+#: dashboards/project/volumes/volumes/forms.py:159
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "Unable to load the specified image. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:167
+#: dashboards/project/volumes/volumes/forms.py:168
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Unable to load the specified volume. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:174
+#: dashboards/project/volumes/volumes/forms.py:175
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%s)"
 msgstr "Volume size must be equal to or greater than the origin volume size (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:196
+#: dashboards/project/volumes/volumes/forms.py:197
 msgid "Choose a snapshot"
 msgstr "Choose a snapshot"
 
-#: dashboards/project/volumes/volumes/forms.py:209
+#: dashboards/project/volumes/volumes/forms.py:210
 msgid "Choose an image"
 msgstr "Choose an image"
 
-#: dashboards/project/volumes/volumes/forms.py:221
+#: dashboards/project/volumes/volumes/forms.py:222
 msgid "Choose a volume"
 msgstr "Choose a volume"
 
-#: dashboards/project/volumes/volumes/forms.py:230
+#: dashboards/project/volumes/volumes/forms.py:231
 msgid "No source, empty volume"
 msgstr "No source, empty volume"
 
-#: dashboards/project/volumes/volumes/forms.py:241
+#: dashboards/project/volumes/volumes/forms.py:242
 msgid "Image source must be specified"
 msgstr "Image source must be specified"
 
-#: dashboards/project/volumes/volumes/forms.py:245
+#: dashboards/project/volumes/volumes/forms.py:246
 msgid "Snapshot source must be specified"
 msgstr "Snapshot source must be specified"
 
-#: dashboards/project/volumes/volumes/forms.py:249
+#: dashboards/project/volumes/volumes/forms.py:250
 msgid "Volume source must be specified"
 msgstr "Volume source must be specified"
 
-#: dashboards/project/volumes/volumes/forms.py:258
+#: dashboards/project/volumes/volumes/forms.py:259
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Unable to determine if availability zones extension is supported."
 
-#: dashboards/project/volumes/volumes/forms.py:312
+#: dashboards/project/volumes/volumes/forms.py:313
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr "The volume size cannot be less than the snapshot size (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:325
+#: dashboards/project/volumes/volumes/forms.py:326
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "The volume size cannot be less than the image size (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:333
+#: dashboards/project/volumes/volumes/forms.py:334
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr "The volume size cannot be less than the image minimum disk size (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:344
+#: dashboards/project/volumes/volumes/forms.py:345
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "The volume size cannot be less than the source volume size (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:353
+#: dashboards/project/volumes/volumes/forms.py:354
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
 " quota available."
 msgstr "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your quota available."
 
-#: dashboards/project/volumes/volumes/forms.py:360
+#: dashboards/project/volumes/volumes/forms.py:361
 msgid "You are already using all of your available volumes."
 msgstr "You are already using all of your available volumes."
 
-#: dashboards/project/volumes/volumes/forms.py:376
+#: dashboards/project/volumes/volumes/forms.py:377
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "Creating volume \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:384
+#: dashboards/project/volumes/volumes/forms.py:385
 msgid "Unable to create volume."
 msgstr "Unable to create volume."
 
-#: dashboards/project/volumes/volumes/forms.py:401
+#: dashboards/project/volumes/volumes/forms.py:402
 msgid "Attach to Instance"
 msgstr "Attach to Instance"
 
-#: dashboards/project/volumes/volumes/forms.py:402
+#: dashboards/project/volumes/volumes/forms.py:403
 msgid "Select an instance to attach to."
 msgstr "Select an instance to attach to."
 
-#: dashboards/project/volumes/volumes/forms.py:409
+#: dashboards/project/volumes/volumes/forms.py:410
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr "Actual device name may differ due to hypervisor settings. If not specified, then hypervisor will select a device name."
 
-#: dashboards/project/volumes/volumes/forms.py:448
+#: dashboards/project/volumes/volumes/forms.py:449
 msgid "Unknown instance (None)"
 msgstr "Unknown instance (None)"
 
-#: dashboards/project/volumes/volumes/forms.py:458
+#: dashboards/project/volumes/volumes/forms.py:459
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 
-#: dashboards/project/volumes/volumes/forms.py:467
+#: dashboards/project/volumes/volumes/forms.py:468
 msgid "Unable to attach volume."
 msgstr "Unable to attach volume."
 
-#: dashboards/project/volumes/volumes/forms.py:491
+#: dashboards/project/volumes/volumes/forms.py:492
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Creating volume snapshot \"%s\"."
 
-#: dashboards/project/volumes/volumes/forms.py:494
+#: dashboards/project/volumes/volumes/forms.py:495
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Forcing to create snapshot \"%s\" from attached volume."
 
-#: dashboards/project/volumes/volumes/forms.py:507
+#: dashboards/project/volumes/volumes/forms.py:508
 msgid "Unable to create volume snapshot."
 msgstr "Unable to create volume snapshot."
 
-#: dashboards/project/volumes/volumes/forms.py:524
+#: dashboards/project/volumes/volumes/forms.py:526
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Updating volume \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:530
+#: dashboards/project/volumes/volumes/forms.py:532
 msgid "Unable to update volume."
 msgstr "Unable to update volume."
 
-#: dashboards/project/volumes/volumes/forms.py:544
+#: dashboards/project/volumes/volumes/forms.py:546
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Force"
 
-#: dashboards/project/volumes/volumes/forms.py:579
+#: dashboards/project/volumes/volumes/forms.py:581
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr "Successfully sent the request to upload volume to image for volume: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:586
+#: dashboards/project/volumes/volumes/forms.py:588
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Unable to upload volume to image for volume: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:612
+#: dashboards/project/volumes/volumes/forms.py:614
 msgid "New size must be greater than current size."
 msgstr "New size must be greater than current size."
 
-#: dashboards/project/volumes/volumes/forms.py:618
+#: dashboards/project/volumes/volumes/forms.py:620
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your quota available."
 
-#: dashboards/project/volumes/volumes/forms.py:632
+#: dashboards/project/volumes/volumes/forms.py:634
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Extending volume: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:638
+#: dashboards/project/volumes/volumes/forms.py:640
 msgid "Unable to extend volume."
 msgstr "Unable to extend volume."
 
-#: dashboards/project/volumes/volumes/forms.py:647
+#: dashboards/project/volumes/volumes/forms.py:649
 msgid "Never"
 msgstr "Never"
 
-#: dashboards/project/volumes/volumes/forms.py:648
+#: dashboards/project/volumes/volumes/forms.py:650
 msgid "On Demand"
 msgstr "On Demand"
 
-#: dashboards/project/volumes/volumes/forms.py:649
+#: dashboards/project/volumes/volumes/forms.py:651
 msgid "Migration Policy"
 msgstr "Migration Policy"
 
-#: dashboards/project/volumes/volumes/forms.py:666
+#: dashboards/project/volumes/volumes/forms.py:668
 msgid "Unable to retrieve the volume type list."
 msgstr "Unable to retrieve the volume type list."
 
-#: dashboards/project/volumes/volumes/forms.py:675
+#: dashboards/project/volumes/volumes/forms.py:677
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr "New volume type must be different from the original volume type \"%s\"."
 
-#: dashboards/project/volumes/volumes/forms.py:691
+#: dashboards/project/volumes/volumes/forms.py:693
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr "Successfully sent the request to change the volume type to \"%(vtype)s\" for volume: \"%(name)s\""
 
-#: dashboards/project/volumes/volumes/forms.py:700
+#: dashboards/project/volumes/volumes/forms.py:702
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Unable to change the volume type for volume: \"%s\""
@@ -13942,7 +13951,7 @@ msgstr "Cisco Nexus 1000V"
 msgid "Update Network Profile"
 msgstr "Update Network Profile"
 
-#: dashboards/settings/dashboard.py:22 templates/_header.html:33
+#: dashboards/settings/dashboard.py:22 templates/_header.html:37
 msgid "Settings"
 msgstr "Settings"
 
@@ -14065,7 +14074,7 @@ msgid ""
 "help, contact your local administrator."
 msgstr "An unexpected error has occurred. Try refreshing the page. If that doesn't help, contact your local administrator."
 
-#: templates/500.html:74 templates/_header.html:35
+#: templates/500.html:74 templates/_header.html:44
 msgid "Help"
 msgstr "Help"
 
@@ -14073,7 +14082,7 @@ msgstr "Help"
 msgid "More Projects"
 msgstr ""
 
-#: templates/_header.html:40
+#: templates/_header.html:52
 msgid "Sign Out"
 msgstr "Sign Out"
 

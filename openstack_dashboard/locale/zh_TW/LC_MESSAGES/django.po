@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-29 15:01-0500\n"
-"PO-Revision-Date: 2014-10-29 14:36+0000\n"
+"POT-Creation-Date: 2014-11-11 18:45-0600\n"
+"PO-Revision-Date: 2014-11-11 16:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -288,21 +288,21 @@ msgstr "兩者"
 msgid "Unknown instance"
 msgstr "未知的執行實例"
 
-#: api/keystone.py:96
+#: api/keystone.py:97
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s（%(backend)s 後端）"
 
-#: api/keystone.py:325
+#: api/keystone.py:326
 msgid "Identity service does not allow editing user data."
 msgstr "身份伺服器不允許編輯使用者資料。"
 
-#: api/keystone.py:350
+#: api/keystone.py:351
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "使用者 %s 在那專案中沒有被定義角色。"
 
-#: api/keystone.py:362 api/keystone.py:378
+#: api/keystone.py:363 api/keystone.py:379
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "密碼已變更。請再登入一次以繼續。"
@@ -522,9 +522,9 @@ msgstr "名稱"
 #: dashboards/project/instances/tables.py:904
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:78
-#: dashboards/project/volumes/volumes/forms.py:89
-#: dashboards/project/volumes/volumes/forms.py:94
+#: dashboards/project/volumes/volumes/forms.py:90
 #: dashboards/project/volumes/volumes/forms.py:95
+#: dashboards/project/volumes/volumes/forms.py:96
 #: dashboards/project/volumes/volumes/tables.py:360
 msgid "Availability Zone"
 msgstr "可用區域"
@@ -1488,10 +1488,10 @@ msgstr "主機名稱"
 #: dashboards/project/loadbalancers/workflows.py:485
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:100
-#: dashboards/project/volumes/volumes/forms.py:80
-#: dashboards/project/volumes/volumes/forms.py:85
+#: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:86
-#: dashboards/project/volumes/volumes/forms.py:646
+#: dashboards/project/volumes/volumes/forms.py:87
+#: dashboards/project/volumes/volumes/forms.py:648
 #: dashboards/project/volumes/volumes/tables.py:355
 msgid "Type"
 msgstr "類型"
@@ -1791,7 +1791,7 @@ msgstr "最大容量（GB）"
 #: dashboards/project/instances/tables.py:889
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/instances/workflows/create_instance.py:105
-#: dashboards/project/volumes/volumes/forms.py:538
+#: dashboards/project/volumes/volumes/forms.py:540
 msgid "Image Name"
 msgstr "映像檔名稱"
 
@@ -2280,9 +2280,9 @@ msgstr "量測器"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
-#: dashboards/project/volumes/volumes/forms.py:51
-#: dashboards/project/volumes/volumes/forms.py:475
-#: dashboards/project/volumes/volumes/forms.py:515
+#: dashboards/project/volumes/volumes/forms.py:52
+#: dashboards/project/volumes/volumes/forms.py:476
+#: dashboards/project/volumes/volumes/forms.py:517
 #: dashboards/project/volumes/volumes/tables.py:326
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
@@ -3338,7 +3338,7 @@ msgid "Unable to retrieve QoS specs"
 msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:111 dashboards/project/volumes/tabs.py:90
-#: dashboards/project/volumes/volumes/forms.py:203
+#: dashboards/project/volumes/volumes/forms.py:204
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取回儲存空間即時存檔。"
 
@@ -3381,10 +3381,10 @@ msgstr "更新狀態"
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:142
 #: dashboards/project/volumes/volumes/forms.py:48
-#: dashboards/project/volumes/volumes/forms.py:512
-#: dashboards/project/volumes/volumes/forms.py:535
-#: dashboards/project/volumes/volumes/forms.py:595
-#: dashboards/project/volumes/volumes/forms.py:643
+#: dashboards/project/volumes/volumes/forms.py:513
+#: dashboards/project/volumes/volumes/forms.py:537
+#: dashboards/project/volumes/volumes/forms.py:597
+#: dashboards/project/volumes/volumes/forms.py:645
 msgid "Volume Name"
 msgstr "儲存空間名稱"
 
@@ -3419,7 +3419,7 @@ msgstr "資訊"
 #: dashboards/project/instances/workflows/create_instance.py:373
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:220
+#: dashboards/project/volumes/volumes/forms.py:221
 msgid "Volume"
 msgstr "儲存空間"
 
@@ -5009,7 +5009,7 @@ msgid "Select a port"
 msgstr "選擇一個接口"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:110
-#: dashboards/project/volumes/volumes/forms.py:440
+#: dashboards/project/volumes/volumes/forms.py:441
 msgid "Select an instance"
 msgstr "選擇一個執行實例"
 
@@ -5018,7 +5018,7 @@ msgid "No ports available"
 msgstr "無可用的接口"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:116
-#: dashboards/project/volumes/volumes/forms.py:442
+#: dashboards/project/volumes/volumes/forms.py:443
 msgid "No instances available"
 msgstr "無可用的執行實例"
 
@@ -5918,6 +5918,7 @@ msgstr "叢集樣板名稱"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:30
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
+#: dashboards/project/stacks/tabs.py:143
 msgid "Template"
 msgstr "樣板"
 
@@ -6457,7 +6458,7 @@ msgstr "更新映像檔時失敗。"
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:76
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
-#: dashboards/project/volumes/volumes/forms.py:208
+#: dashboards/project/volumes/volumes/forms.py:209
 msgid "Image"
 msgstr "映像檔"
 
@@ -7672,12 +7673,12 @@ msgid "Error creating database backup."
 msgstr "新增資料庫備份出錯。"
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:600
+#: dashboards/project/volumes/volumes/forms.py:602
 msgid "Current Size (GB)"
 msgstr "目前容量（GB）"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:604
+#: dashboards/project/volumes/volumes/forms.py:606
 msgid "New Size (GB)"
 msgstr "新容量（GB）"
 
@@ -8785,7 +8786,7 @@ msgstr "無法取回映像檔詳細資訊。"
 
 #: dashboards/project/images/snapshots/forms.py:33
 #: dashboards/project/volumes/snapshots/forms.py:25
-#: dashboards/project/volumes/volumes/forms.py:472
+#: dashboards/project/volumes/volumes/forms.py:473
 msgid "Snapshot Name"
 msgstr "即時存檔名稱"
 
@@ -8837,7 +8838,7 @@ msgid "Container Format"
 msgstr "容器格式"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:539
+#: dashboards/project/volumes/volumes/forms.py:541
 msgid "Disk Format"
 msgstr "硬碟格式"
 
@@ -9799,7 +9800,7 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "儲存空間的 GB 容量（整數值）。"
 
 #: dashboards/project/instances/workflows/create_instance.py:119
-#: dashboards/project/volumes/volumes/forms.py:405
+#: dashboards/project/volumes/volumes/forms.py:406
 msgid "Device Name"
 msgstr "裝置名稱"
 
@@ -9910,17 +9911,17 @@ msgid ""
 msgstr "只提供映像檔和執行實例的即時存檔發動多個執行實例。"
 
 #: dashboards/project/instances/workflows/create_instance.py:330
-#: dashboards/project/volumes/volumes/forms.py:272
+#: dashboards/project/volumes/volumes/forms.py:273
 msgid "Unable to retrieve availability zones."
 msgstr "無法取回可用區域。"
 
 #: dashboards/project/instances/workflows/create_instance.py:336
-#: dashboards/project/volumes/volumes/forms.py:275
+#: dashboards/project/volumes/volumes/forms.py:276
 msgid "No availability zones found"
 msgstr "找不到可用區域"
 
 #: dashboards/project/instances/workflows/create_instance.py:338
-#: dashboards/project/volumes/volumes/forms.py:277
+#: dashboards/project/volumes/volumes/forms.py:278
 msgid "Any Availability Zone"
 msgstr "任何可用區域"
 
@@ -9931,7 +9932,7 @@ msgid "Unable to retrieve quota information."
 msgstr "無法取回配額資訊。"
 
 #: dashboards/project/instances/workflows/create_instance.py:370
-#: dashboards/project/volumes/volumes/forms.py:195
+#: dashboards/project/volumes/volumes/forms.py:196
 msgid "Snapshot"
 msgstr "即時存檔"
 
@@ -9949,7 +9950,7 @@ msgid "No snapshots available"
 msgstr "無可用的即時存檔"
 
 #: dashboards/project/instances/workflows/create_instance.py:423
-#: dashboards/project/volumes/volumes/forms.py:290
+#: dashboards/project/volumes/volumes/forms.py:291
 msgid "Unable to retrieve list of volumes."
 msgstr "無法取回儲存空間列表。"
 
@@ -12099,21 +12100,25 @@ msgstr "資源"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "無法獲得機櫃「%s」的資源。"
 
-#: dashboards/project/stacks/views.py:79
+#: dashboards/project/stacks/views.py:81
 msgid "Unable to retrieve stack list."
 msgstr "無法取回機櫃列表。"
 
-#: dashboards/project/stacks/views.py:111
-#: dashboards/project/stacks/views.py:188
-#: dashboards/project/stacks/views.py:216
+#: dashboards/project/stacks/views.py:113
+#: dashboards/project/stacks/views.py:190
+#: dashboards/project/stacks/views.py:218
 msgid "Unable to retrieve stack."
 msgstr "無法取回機櫃。"
 
-#: dashboards/project/stacks/views.py:247
+#: dashboards/project/stacks/views.py:229
+msgid "Unable to retrieve stack template."
+msgstr ""
+
+#: dashboards/project/stacks/views.py:262
 msgid "Unable to retrieve resource."
 msgstr "無法取回資源。"
 
-#: dashboards/project/stacks/views.py:260
+#: dashboards/project/stacks/views.py:275
 msgid "Unable to retrieve metadata."
 msgstr "無法取回描述資料。"
 
@@ -12177,6 +12182,10 @@ msgstr ""
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:48
 msgid "Resource Metadata"
 msgstr "資源描述資料"
+
+#: dashboards/project/stacks/templates/stacks/_stack_template.html:3
+msgid "Stack Template"
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/_update.html:19
 msgid ""
@@ -12441,7 +12450,7 @@ msgid "Not attached"
 msgstr "未附加"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:55
-#: dashboards/project/volumes/volumes/forms.py:52
+#: dashboards/project/volumes/volumes/forms.py:53
 msgid "Volume Source"
 msgstr "儲存空間來源"
 
@@ -12570,249 +12579,249 @@ msgstr "新增一個儲存空間"
 msgid "Create a Volume Snapshot"
 msgstr "新增一個儲存空間即時存檔"
 
-#: dashboards/project/volumes/volumes/forms.py:58
+#: dashboards/project/volumes/volumes/forms.py:59
 msgid "Use snapshot as a source"
 msgstr "以即時存檔為來源"
 
-#: dashboards/project/volumes/volumes/forms.py:65
+#: dashboards/project/volumes/volumes/forms.py:66
 msgid "Use image as a source"
 msgstr "以映像檔為來源"
 
-#: dashboards/project/volumes/volumes/forms.py:72
+#: dashboards/project/volumes/volumes/forms.py:73
 msgid "Use a volume as source"
 msgstr "以儲存空間為來源"
 
-#: dashboards/project/volumes/volumes/forms.py:87
+#: dashboards/project/volumes/volumes/forms.py:88
 msgid "Size (GB)"
 msgstr "容量（GB）"
 
-#: dashboards/project/volumes/volumes/forms.py:100
+#: dashboards/project/volumes/volumes/forms.py:101
 msgid "No volume type"
 msgstr "無儲存空間類型"
 
-#: dashboards/project/volumes/volumes/forms.py:120
+#: dashboards/project/volumes/volumes/forms.py:121
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr "儲存空間容量必須大於等於即時存檔容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:128
+#: dashboards/project/volumes/volumes/forms.py:129
 msgid "Unable to load the specified snapshot."
 msgstr "無法讀取指定的即時存檔。"
 
-#: dashboards/project/volumes/volumes/forms.py:139
+#: dashboards/project/volumes/volumes/forms.py:140
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "儲存空間容量必須大於等於映像檔容量（%s）"
 
-#: dashboards/project/volumes/volumes/forms.py:147
+#: dashboards/project/volumes/volumes/forms.py:148
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGB)"
 msgstr "儲存空間容量必須大於等於映像檔最小硬碟容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:158
+#: dashboards/project/volumes/volumes/forms.py:159
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "無法讀取指定的映像檔。%s"
 
-#: dashboards/project/volumes/volumes/forms.py:167
+#: dashboards/project/volumes/volumes/forms.py:168
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "無法讀取指定的儲存空間。%s"
 
-#: dashboards/project/volumes/volumes/forms.py:174
+#: dashboards/project/volumes/volumes/forms.py:175
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%s)"
 msgstr "儲存空間容量必須大於等於原始的儲存空間容量（%s）"
 
-#: dashboards/project/volumes/volumes/forms.py:196
+#: dashboards/project/volumes/volumes/forms.py:197
 msgid "Choose a snapshot"
 msgstr "選擇一個即時存檔"
 
-#: dashboards/project/volumes/volumes/forms.py:209
+#: dashboards/project/volumes/volumes/forms.py:210
 msgid "Choose an image"
 msgstr "選擇一個映像檔"
 
-#: dashboards/project/volumes/volumes/forms.py:221
+#: dashboards/project/volumes/volumes/forms.py:222
 msgid "Choose a volume"
 msgstr "選擇一個儲存空間"
 
-#: dashboards/project/volumes/volumes/forms.py:230
+#: dashboards/project/volumes/volumes/forms.py:231
 msgid "No source, empty volume"
 msgstr "無來源，空的儲存空間"
 
-#: dashboards/project/volumes/volumes/forms.py:241
+#: dashboards/project/volumes/volumes/forms.py:242
 msgid "Image source must be specified"
 msgstr "必須指定映像檔來源"
 
-#: dashboards/project/volumes/volumes/forms.py:245
+#: dashboards/project/volumes/volumes/forms.py:246
 msgid "Snapshot source must be specified"
 msgstr "必須指定即時存檔來源"
 
-#: dashboards/project/volumes/volumes/forms.py:249
+#: dashboards/project/volumes/volumes/forms.py:250
 msgid "Volume source must be specified"
 msgstr "必須指定儲存空間來源"
 
-#: dashboards/project/volumes/volumes/forms.py:258
+#: dashboards/project/volumes/volumes/forms.py:259
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "無法偵測已支援的可用區域擴充套件。"
 
-#: dashboards/project/volumes/volumes/forms.py:312
+#: dashboards/project/volumes/volumes/forms.py:313
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr "儲存空間容量不能小於即時存檔容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:325
+#: dashboards/project/volumes/volumes/forms.py:326
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "儲存空間容量不能小於映像檔容量（%s）"
 
-#: dashboards/project/volumes/volumes/forms.py:333
+#: dashboards/project/volumes/volumes/forms.py:334
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr "儲存空間容量不能小於映像檔最小硬碟容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:344
+#: dashboards/project/volumes/volumes/forms.py:345
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "儲存空間容量不能小於來源的儲存空間容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:353
+#: dashboards/project/volumes/volumes/forms.py:354
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
 " quota available."
 msgstr "您只擁有 %(avail)iGB 配額可用以致於您不能新增一個 %(req)iGB 儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:360
+#: dashboards/project/volumes/volumes/forms.py:361
 msgid "You are already using all of your available volumes."
 msgstr "您已經用掉您所有可用的儲存空間了。"
 
-#: dashboards/project/volumes/volumes/forms.py:376
+#: dashboards/project/volumes/volumes/forms.py:377
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "正在新增儲存空間「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:384
+#: dashboards/project/volumes/volumes/forms.py:385
 msgid "Unable to create volume."
 msgstr "無法新增儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:401
+#: dashboards/project/volumes/volumes/forms.py:402
 msgid "Attach to Instance"
 msgstr "附加到執行實例"
 
-#: dashboards/project/volumes/volumes/forms.py:402
+#: dashboards/project/volumes/volumes/forms.py:403
 msgid "Select an instance to attach to."
 msgstr "選擇一個執行實例來附加。"
 
-#: dashboards/project/volumes/volumes/forms.py:409
+#: dashboards/project/volumes/volumes/forms.py:410
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr "實際的裝置名稱可能由於虛擬機器管理程式的設定而有所不同。若未指定，虛擬機器管理程式會自己選擇裝置名稱。"
 
-#: dashboards/project/volumes/volumes/forms.py:448
+#: dashboards/project/volumes/volumes/forms.py:449
 msgid "Unknown instance (None)"
 msgstr "未知的執行實例（無）"
 
-#: dashboards/project/volumes/volumes/forms.py:458
+#: dashboards/project/volumes/volumes/forms.py:459
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "附加儲存空間 %(vol)s 到執行實例 %(inst)s 上的 %(dev)s。"
 
-#: dashboards/project/volumes/volumes/forms.py:467
+#: dashboards/project/volumes/volumes/forms.py:468
 msgid "Unable to attach volume."
 msgstr "無法附加儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:491
+#: dashboards/project/volumes/volumes/forms.py:492
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
 msgstr "正在新增儲存空間即時存檔「%s」。"
 
-#: dashboards/project/volumes/volumes/forms.py:494
+#: dashboards/project/volumes/volumes/forms.py:495
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "正在強制從附加的儲存空間新增即時存檔「%s」。"
 
-#: dashboards/project/volumes/volumes/forms.py:507
+#: dashboards/project/volumes/volumes/forms.py:508
 msgid "Unable to create volume snapshot."
 msgstr "無法新增儲存空間即時存檔。"
 
-#: dashboards/project/volumes/volumes/forms.py:524
+#: dashboards/project/volumes/volumes/forms.py:526
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "正在更新儲存空間「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:530
+#: dashboards/project/volumes/volumes/forms.py:532
 msgid "Unable to update volume."
 msgstr "無法更新儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:544
+#: dashboards/project/volumes/volumes/forms.py:546
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "強制"
 
-#: dashboards/project/volumes/volumes/forms.py:579
+#: dashboards/project/volumes/volumes/forms.py:581
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr "已成功為儲存空間傳送上傳儲存空間到映像檔的請求給：「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:586
+#: dashboards/project/volumes/volumes/forms.py:588
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "無法為儲存空間上傳儲存空間到映像檔：「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:612
+#: dashboards/project/volumes/volumes/forms.py:614
 msgid "New size must be greater than current size."
 msgstr "新容量必須大於目前的容量。"
 
-#: dashboards/project/volumes/volumes/forms.py:618
+#: dashboards/project/volumes/volumes/forms.py:620
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr "您只擁有 %(avail)iGB 配額可用以致於您不能擴充儲存空間到 %(req)iGB。"
 
-#: dashboards/project/volumes/volumes/forms.py:632
+#: dashboards/project/volumes/volumes/forms.py:634
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "正在擴充儲存空間：「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:638
+#: dashboards/project/volumes/volumes/forms.py:640
 msgid "Unable to extend volume."
 msgstr "無法擴充儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:647
+#: dashboards/project/volumes/volumes/forms.py:649
 msgid "Never"
 msgstr "永不"
 
-#: dashboards/project/volumes/volumes/forms.py:648
+#: dashboards/project/volumes/volumes/forms.py:650
 msgid "On Demand"
 msgstr "必要時轉移"
 
-#: dashboards/project/volumes/volumes/forms.py:649
+#: dashboards/project/volumes/volumes/forms.py:651
 msgid "Migration Policy"
 msgstr "轉移政策"
 
-#: dashboards/project/volumes/volumes/forms.py:666
+#: dashboards/project/volumes/volumes/forms.py:668
 msgid "Unable to retrieve the volume type list."
 msgstr "無法取回儲存空間類型列表。"
 
-#: dashboards/project/volumes/volumes/forms.py:675
+#: dashboards/project/volumes/volumes/forms.py:677
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr "新的儲存空間類型必須不同於原來的儲存空間類型「%s」。"
 
-#: dashboards/project/volumes/volumes/forms.py:691
+#: dashboards/project/volumes/volumes/forms.py:693
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr "已成功為儲存空間傳送變更儲存空間類型至「%(vtype)s」的請求：「%(name)s」"
 
-#: dashboards/project/volumes/volumes/forms.py:700
+#: dashboards/project/volumes/volumes/forms.py:702
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "無法為儲存空間變更儲存空間類型：「%s」"
@@ -13810,7 +13819,7 @@ msgstr "Cisco Nexus 1000V"
 msgid "Update Network Profile"
 msgstr "更新網路基本資料"
 
-#: dashboards/settings/dashboard.py:22 templates/_header.html:33
+#: dashboards/settings/dashboard.py:22 templates/_header.html:37
 msgid "Settings"
 msgstr "設定"
 
@@ -13933,7 +13942,7 @@ msgid ""
 "help, contact your local administrator."
 msgstr "發生了一個意外錯誤。試著重整頁面。若這沒有幫助，請聯絡您的在地管理員。"
 
-#: templates/500.html:74 templates/_header.html:35
+#: templates/500.html:74 templates/_header.html:44
 msgid "Help"
 msgstr "幫助"
 
@@ -13941,7 +13950,7 @@ msgstr "幫助"
 msgid "More Projects"
 msgstr ""
 
-#: templates/_header.html:40
+#: templates/_header.html:52
 msgid "Sign Out"
 msgstr "登出"
 
