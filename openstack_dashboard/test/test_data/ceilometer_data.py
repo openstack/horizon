@@ -108,7 +108,7 @@ def data(TEST):
         user_id="fake_user_id",
         timestamp='2012-07-02T10:42:00.000000',
         metadata={'tag': 'self.counter3', 'display_name': 'test-server'},
-        links=[{'url': 'test_url', 'rel': 'intance'}],
+        links=[{'url': 'test_url', 'rel': 'instance'}],
     )
     resource_1 = resources.Resource(resources.ResourceManager(None),
                                     resource_dict_1)
