@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<div class="resource_type row detail">
+  <h4>{% trans "Resource Type" %}</h4>
+  <hr class="header_rule">
+  <dl>
+    <dd>{{ r_type }}</dd>
+  </dl>
+</div>
+
+<div class="attributes row detail">
+  <h4>{% trans "Attributes" %}</h4>
+  <pre>{{ r_type_attributes }}
+  </pre>
+</div>
+
+<div class="properties row detail">
+  <h4>{% trans "Properties" %}</h4>
+  <pre>{{ r_type_properties }}
+  </pre>
+</div>
