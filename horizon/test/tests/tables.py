@@ -580,12 +580,19 @@ class DataTableTests(test.TestCase):
         update_string = "action=row_update&amp;table=my_table&amp;obj_id="
         self.assertContains(resp, update_string, 3)
         self.assertContains(resp, "data-update-interval", 3)
+        # Verify no table heading
+        self.assertNotContains(resp, "<h3 class='table_title'")
         # Verify our XSS protection
         self.assertContains(resp, '<a href="http://example.com/" '
                                   'data-tip="click for dialog" '
                                   'data-type="modal dialog" '
                                   'class="link-modal">'
                                   '&lt;strong&gt;evil&lt;/strong&gt;</a>', 1)
+        # Hidden Title = False shows the table title
+        self.table._meta.hidden_title = False
+        resp = http.HttpResponse(self.table.render())
+        self.assertContains(resp, "<h3 class='table_title'", 1)
+
         # Filter = False hides the search box
         self.table._meta.filter = False
         table_actions = self.table.render_table_actions()

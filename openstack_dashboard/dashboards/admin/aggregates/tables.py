@@ -139,6 +139,7 @@ class HostAggregatesTable(tables.DataTable):
 
     class Meta:
         name = "host_aggregates"
+        hidden_title = False
         verbose_name = _("Host Aggregates")
         table_actions = (AggregateFilterAction,
                          CreateAggregateAction,
@@ -166,6 +167,7 @@ class AvailabilityZonesTable(tables.DataTable):
 
     class Meta:
         name = "availability_zones"
+        hidden_title = False
         verbose_name = _("Availability Zones")
         table_actions = (AvailabilityZoneFilterAction,)
         multi_select = False
