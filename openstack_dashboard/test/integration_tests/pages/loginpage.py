@@ -31,19 +31,19 @@ class LoginPage(pageobject.PageObject):
 
     def is_login_page(self):
         return self.is_the_current_page() and \
-            self.is_element_visible(*self._login_submit_button_locator)
+            self._is_element_visible(*self._login_submit_button_locator)
 
     @property
     def username(self):
-        return self.get_element(*self._login_username_field_locator)
+        return self._get_element(*self._login_username_field_locator)
 
     @property
     def password(self):
-        return self.get_element(*self._login_password_field_locator)
+        return self._get_element(*self._login_password_field_locator)
 
     @property
     def login_button(self):
-        return self.get_element(*self._login_submit_button_locator)
+        return self._get_element(*self._login_submit_button_locator)
 
     def _click_on_login_button(self):
         self.login_button.click()

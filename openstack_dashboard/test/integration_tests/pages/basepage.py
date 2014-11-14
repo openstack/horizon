@@ -12,6 +12,7 @@
 
 from selenium.webdriver.common import by
 
+from openstack_dashboard.test.integration_tests import basewebobject
 from openstack_dashboard.test.integration_tests.pages import pageobject
 
 
@@ -22,7 +23,7 @@ class BasePage(pageobject.PageObject):
 
     @property
     def heading(self):
-        return self.get_element(*self._heading_locator)
+        return self._get_element(*self._heading_locator)
 
     @property
     def topbar(self):
@@ -50,7 +51,7 @@ class BasePage(pageobject.PageObject):
         self.topbar.user_dropdown_menu.click()
         self.topbar.help_link.click()
 
-    class TopBarRegion(pageobject.PageObject):
+    class TopBarRegion(basewebobject.BaseWebObject):
         _user_indicator_locator = (by.By.CSS_SELECTOR,
                                    '#profile_editor_switcher > '
                                    'a.dropdown-toggle > div')
@@ -67,37 +68,37 @@ class BasePage(pageobject.PageObject):
 
         @property
         def user(self):
-            return self.get_element(*self._user_indicator_locator)
+            return self._get_element(*self._user_indicator_locator)
 
         @property
         def brand(self):
-            return self.get_element(*self._openstack_brand_locator)
+            return self._get_element(*self._openstack_brand_locator)
 
         @property
         def logout_link(self):
-            return self.get_element(*self._logout_link_locator)
+            return self._get_element(*self._logout_link_locator)
 
         @property
         def user_dropdown_menu(self):
-            return self.get_element(*self._user_dropdown_menu_locator)
+            return self._get_element(*self._user_dropdown_menu_locator)
 
         @property
         def settings_link(self):
-            return self.get_element(*self._settings_link_locator)
+            return self._get_element(*self._settings_link_locator)
 
         @property
         def help_link(self):
-            return self.get_element(*self._help_link_locator)
+            return self._get_element(*self._help_link_locator)
 
         @property
         def is_logout_visible(self):
-            return self.is_element_visible(*self._logout_link_locator)
+            return self._is_element_visible(*self._logout_link_locator)
 
         @property
         def is_logged_in(self):
-            return self.is_element_visible(*self._user_indicator_locator)
+            return self._is_element_visible(*self._user_indicator_locator)
 
-    class NavigationAccordionRegion(pageobject.PageObject):
+    class NavigationAccordionRegion(basewebobject.BaseWebObject):
         # TODO(sunlim): change Xpath to CSS
         _project_bar_locator = (
             by.By.XPATH,
@@ -108,14 +109,14 @@ class BasePage(pageobject.PageObject):
 
         @property
         def project_bar(self):
-            return self.get_element(*self._project_bar_locator)
+            return self._get_element(*self._project_bar_locator)
 
         def _click_on_project_bar(self):
             self.project_bar.click()
 
         @property
         def access_security(self):
-            return self.get_element(*self._project_access_security_locator)
+            return self._get_element(*self._project_access_security_locator)
 
         def _click_on_access_security(self):
             self.access_security.click()

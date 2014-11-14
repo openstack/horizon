@@ -10,18 +10,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-# TODO(dkorn): add handle_popup method
-
-import selenium.common.exceptions as Exceptions
-import selenium.webdriver.support.ui as Support
+from openstack_dashboard.test.integration_tests import basewebobject
 
 
-class PageObject(object):
+class PageObject(basewebobject.BaseWebObject):
     """Base class for page objects."""
     def __init__(self, driver, conf):
         """Constructor."""
-        self.driver = driver
-        self.conf = conf
+        super(PageObject, self).__init__(driver, conf)
         self.login_url = self.conf.dashboard.login_url
         self._page_title = None
 
@@ -42,39 +38,9 @@ class PageObject(object):
     def close_window(self):
         return self.driver.close()
 
-    def go_to_login_page(self):
-        self.driver.get(self.login_url)
-        self.is_the_current_page()
-
-    def is_element_present(self, *locator):
-        try:
-            self.driver.find_element(*locator)
-            return True
-        except Exceptions.NoSuchElementException:
-            return False
-
-    def is_element_visible(self, *locator):
-        try:
-            return self.driver.find_element(*locator).is_displayed()
-        except (Exceptions.NoSuchElementException,
-                Exceptions.ElementNotVisibleException):
-            return False
-
     def return_to_previous_page(self):
         self.driver.back()
 
-    def get_element(self, *locator):
-        return self.driver.find_element(*locator)
-
-    def fill_field_element(self, data, field_element):
-        field_element.clear()
-        field_element.send_keys(data)
-        return field_element
-
-    def select_dropdown(self, value, element):
-        select = Support.Select(element)
-        select.select_by_visible_text(value)
-
-    def select_dropdown_by_value(self, value, element):
-        select = Support.Select(element)
-        select.select_by_value(value)
+    def go_to_login_page(self):
+        self.driver.get(self.login_url)
+        self.is_the_current_page()

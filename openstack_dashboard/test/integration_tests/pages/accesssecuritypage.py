@@ -31,7 +31,7 @@ class AccessSecurityPage(basepage.BasePage):
 
     @property
     def keypair_link(self):
-        return self.get_element(*self._keypair_link_locator)
+        return self._get_element(*self._keypair_link_locator)
 
     def _click_on_keypair_link(self):
         self.keypair_link.click()
