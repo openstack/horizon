@@ -150,7 +150,8 @@ class AdminInstancesTable(tables.DataTable):
                          display_choices=project_tables.TASK_DISPLAY_CHOICES)
     state = tables.Column(project_tables.get_power_state,
                           filters=(title, filters.replace_underscores),
-                          verbose_name=_("Power State"))
+                          verbose_name=_("Power State"),
+                          display_choices=project_tables.POWER_DISPLAY_CHOICES)
     created = tables.Column("created",
                             verbose_name=_("Time since created"),
                             filters=(filters.parse_isotime,
