@@ -401,7 +401,7 @@ horizon.Quota = {
         scope.disableFlavorsForImage();
       };
 
-      $('#id_flavor').on('change', eventCallback);
+      $('#id_flavor').on('keyup change', eventCallback);
       $('#id_count').on('keyup', eventCallback);
       $('#id_image_id').on('change', imageChangeCallback);
     }
