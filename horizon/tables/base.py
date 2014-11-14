@@ -194,7 +194,7 @@ class Column(html.HTMLElement):
         is displayed as a link.
         This is left for backward compatibility. Deprecated in favor of the
         link_attributes attribute.
-        Example: ``classes=('link-foo', 'link-bar')``.
+        Example: ``link_classes=('link-foo', 'link-bar')``.
         Defaults to ``None``.
 
     .. attribute:: wrap_list
