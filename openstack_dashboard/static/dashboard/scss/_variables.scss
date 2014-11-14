@@ -10,6 +10,7 @@ $gray-light: #cccccc;
 /* Horizon Custom Variables */
 
 $sidebar-background-color: #f9f9f9;
+$sidebar-width: 220px;
 $border-color: #dddddd;
 $table-bg-odd: #f9f9f9;
 
@@ -53,4 +54,5 @@ $rbrowser-footer-background-color: #f1f1f1;
 // Note: the content-wrapper background colors are determined by
 //       .table-striped-datatable styles.
 
-$sidebar-width: 220px;
+// Font-awesome path to the icon fonts
+$fa-font-path: "/static/horizon/lib/font-awesome/fonts";

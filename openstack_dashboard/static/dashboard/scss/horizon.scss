@@ -1,6 +1,6 @@
 @import "variables";
-@import "/bootstrap/scss/bootstrap";
-
+@import "/horizon/lib/font-awesome/scss/font-awesome"; // Configured in _variables.scss.
+@import "/bootstrap/scss/bootstrap"; // Configured in _variables.scss.
 @import "/horizon/lib/bootstrap_datepicker/datepicker.css";
 @import "accordion_nav";
 @import "inline_edit";
