@@ -144,7 +144,7 @@ class AdminInstancesTable(tables.DataTable):
         display_choices=project_tables.STATUS_DISPLAY_CHOICES)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
-                         filters=(title, filters.replace_underscores),
+                         empty_value=project_tables.TASK_DISPLAY_NONE,
                          status=True,
                          status_choices=TASK_STATUS_CHOICES,
                          display_choices=project_tables.TASK_DISPLAY_CHOICES)
