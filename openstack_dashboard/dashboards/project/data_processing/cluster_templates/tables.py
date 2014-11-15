@@ -57,7 +57,7 @@ class CopyTemplate(tables.LinkAction):
     classes = ("ajax-modal", )
 
 
-class DeleteTemplate(tables.BatchAction):
+class DeleteTemplate(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -74,11 +74,7 @@ class DeleteTemplate(tables.BatchAction):
             count
         )
 
-    name = "delete_cluster_template"
-    verbose_name = _("Delete Template")
-    classes = ("btn-terminate", "btn-danger")
-
-    def action(self, request, template_id):
+    def delete(self, request, template_id):
         saharaclient.cluster_template_delete(request, template_id)
 
 

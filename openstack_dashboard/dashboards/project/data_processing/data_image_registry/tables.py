@@ -47,7 +47,7 @@ class RegisterImage(tables.LinkAction):
     icon = "plus"
 
 
-class UnregisterImages(tables.BatchAction):
+class UnregisterImages(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -64,10 +64,7 @@ class UnregisterImages(tables.BatchAction):
             count
         )
 
-    name = "Unregister"
-    classes = ('btn-danger', 'btn-terminate')
-
-    def action(self, request, obj_id):
+    def delete(self, request, obj_id):
         saharaclient.image_unregister(request, obj_id)
 
 

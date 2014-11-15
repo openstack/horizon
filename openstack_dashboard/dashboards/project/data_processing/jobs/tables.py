@@ -33,7 +33,7 @@ class CreateJob(tables.LinkAction):
     icon = "plus"
 
 
-class DeleteJob(tables.BatchAction):
+class DeleteJob(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -50,10 +50,7 @@ class DeleteJob(tables.BatchAction):
             count
         )
 
-    name = "delete"
-    classes = ('btn-danger', 'btn-terminate')
-
-    def action(self, request, obj_id):
+    def delete(self, request, obj_id):
         saharaclient.job_delete(request, obj_id)
 
 
