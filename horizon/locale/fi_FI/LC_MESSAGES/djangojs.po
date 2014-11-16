@@ -3,110 +3,110 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2014
+# Toni Willberg <twillber@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 10:33-0600\n"
-"PO-Revision-Date: 2014-11-13 09:38+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
+"PO-Revision-Date: 2014-11-14 22:23+0000\n"
+"Last-Translator: Toni Willberg <twillber@redhat.com>\n"
+"Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/horizon/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: fi_FI\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
 #: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
-msgstr "Načítání"
+msgstr "Ladataan"
 
 #: static/horizon/js/horizon.d3linechart.js:394
 #: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
-msgstr "Data nejsou dostupná."
+msgstr "Ei dataa saatavilla."
 
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
-msgstr "Vyskytla se chyba. Prosím zkuste to znovu později."
+msgstr "Tapahtui virhe. Yritä myöhemmin uudelleen."
 
 #: static/horizon/js/horizon.firewalls.js:30
 #: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
-msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
+msgstr "Palvelinyhteydessä tapahtui virhe, yritä myöhemmin uudelleen."
 
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
-msgstr "Filtr"
+msgstr "Suodain"
 
 #: static/horizon/js/horizon.instances.js:264
 msgid "Could not read the file"
-msgstr "Soubor nelze přečíst"
+msgstr "Tiedostoa ei voitu lukea"
 
 #: static/horizon/js/horizon.instances.js:270
 #: static/horizon/js/horizon.instances.js:297
 msgid "Could not decrypt the password"
-msgstr "Heslo nelze dešifrovat"
+msgstr "Salasanaa ei voitu purkaa"
 
 #: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
-msgstr "Žádné role"
+msgstr "Ei rooleja"
 
 #: static/horizon/js/horizon.membership.js:222
 msgid "Roles"
-msgstr "Role"
+msgstr "Roolit"
 
 #: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
-msgstr "Nebezpečí:"
+msgstr "Vaara:"
 
 #: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
-msgstr "Varování:"
+msgstr "Varoitus:"
 
 #: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
-msgstr "Oznámení:"
+msgstr "Huomautus:"
 
 #: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
-msgstr "Úspěch:"
+msgstr "Onnistui:"
 
 #: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
-msgstr "Chyba:"
+msgstr "Virhe:"
 
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr "Keskeytä"
 
 #: static/horizon/js/horizon.modals.js:225
 #: static/horizon/js/horizon.tables.js:226
 msgid "Working"
-msgstr "Zpracovávání"
+msgstr "Käsitellään"
 
 #: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
-msgstr "Při odesílání formuláře nastal problém. Zkuste to prosím znovu."
+msgstr "Lomakkeen lähetys epäonnistui. Yritä uudelleen."
 
 #: static/horizon/js/horizon.networktopology.js:511
 #: static/horizon/js/horizon.networktopology.js:517
 msgid "None"
-msgstr "Žádný"
+msgstr "Tyhjä"
 
 #: static/horizon/js/horizon.networktopology.js:530
 msgid "Delete"
-msgstr "Smazat"
+msgstr "Poista"
 
 #: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
-msgstr "STAV"
+msgstr "TILA"
 
 #: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
@@ -114,77 +114,76 @@ msgstr "ID"
 
 #: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
-msgstr "Rozhraní"
+msgstr "Verkkosovitin"
 
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "Delete Interface"
-msgstr "Smazat rozhraní"
+msgstr "Poista verkkosovitin"
 
 #: static/horizon/js/horizon.networktopology.js:537
 msgid "Open Console"
-msgstr "Otevřít konzoli"
+msgstr "Avaa konsoli"
 
 #: static/horizon/js/horizon.networktopology.js:538
 msgid "View Details"
-msgstr "Zobrazit podrobnosti"
+msgstr "Näytä tiedot"
 
 #: static/horizon/js/horizon.networktopology.js:541
 msgid "Delete Router"
-msgstr "Smazat směrovač"
+msgstr "Poista reititin"
 
 #: static/horizon/js/horizon.networktopology.js:542
 msgid "View Router Details"
-msgstr "Zobrazit podrobnosti směrovače"
+msgstr "Näytä reitittimen tiedot"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
-msgstr "Přidat rozhraní"
+msgstr "lisää Portti"
 
 #: static/horizon/js/horizon.networktopology.js:551
 msgid "Terminate Instance"
-msgstr "Ukončit instanci"
+msgstr "Tuhoa instanssi"
 
 #: static/horizon/js/horizon.networktopology.js:552
 msgid "View Instance Details"
-msgstr "Zobrazit podrobnosti instance"
+msgstr "Näytä instanssin tiedot"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
-msgstr "Žádné položky k zobrazení."
+msgstr "Ei näytettävää."
 
 #: static/horizon/js/horizon.tables.js:52
 #: static/horizon/js/horizon.tables.js:120
 msgid "An error occurred while updating."
-msgstr "Při aktualizaci nastal problém."
+msgstr "Päivitys epäonnistui."
 
 #: static/horizon/js/horizon.tables.js:209
 #, c-format
 msgid "You have selected %s. "
-msgstr "Vybrali jste %s."
+msgstr "Olet valinnut %s."
 
 #: static/horizon/js/horizon.tables.js:211
 #, c-format
 msgid "Confirm %s"
-msgstr "Potvrdit %s"
+msgstr "Vahvista %s"
 
 #: static/horizon/js/horizon.tables.js:212
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr "Potvrďte prosím váš výběr. Toto nelze vrátit."
+msgstr "Vahvista valintasi. Tätä ei voi peruuttaa."
 
 #: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Zobrazena %s položka"
-msgstr[1] "Zobrazeny %s položky"
-msgstr[2] "Zobrazeno %s položek"
+msgstr[0] "Näytetään %s kohde"
+msgstr[1] "Näytetään %s kohdetta"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169
 msgid "Not authorized to do this operation."
-msgstr "Nemáte oprávnění provést tuto operaci."
+msgstr "Sinulla ei ole oikeutta tähän toimintoon."
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
-msgstr "Hesla se neshodují."
+msgstr "Salasana ei täsmää"
