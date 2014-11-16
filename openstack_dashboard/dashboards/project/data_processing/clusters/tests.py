@@ -35,3 +35,19 @@ class DataProcessingClusterTests(test.TestCase):
             res, 'project/data_processing.clusters/clusters.html')
         self.assertContains(res, 'Clusters')
         self.assertContains(res, 'Name')
+
+    @test.create_stubs({api.sahara: ('cluster_list',
+                                     'cluster_delete')})
+    def test_delete(self):
+        cluster = self.clusters.first()
+        api.sahara.cluster_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.clusters.list())
+        api.sahara.cluster_delete(IsA(http.HttpRequest), cluster.id)
+        self.mox.ReplayAll()
+
+        form_data = {'action': 'clusters__delete__%s' % cluster.id}
+        res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertMessageCount(success=1)

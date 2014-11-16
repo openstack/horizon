@@ -44,3 +44,19 @@ class DataProcessingJobExecutionTests(test.TestCase):
         self.assertTemplateUsed(
             res, 'project/data_processing.job_executions/details.html')
         self.assertContains(res, 'RUNNING')
+
+    @test.create_stubs({api.sahara: ('job_execution_list',
+                                     'job_execution_delete')})
+    def test_delete(self):
+        job_exec = self.job_executions.first()
+        api.sahara.job_execution_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.job_executions.list())
+        api.sahara.job_execution_delete(IsA(http.HttpRequest), job_exec.id)
+        self.mox.ReplayAll()
+
+        form_data = {'action': 'job_executions__delete__%s' % job_exec.id}
+        res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertMessageCount(success=1)
