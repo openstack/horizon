@@ -66,17 +66,17 @@ class PurchasedApplicationsTable(tables.DataTable):
         table_actions = (CreateApplication, )
         multi_select = False
 
-class CreateRoleLink(tables.LinkAction):
-    name = "new_role"
-    verbose_name = _("New role")
-    url = "horizon:idm:myApplications:roles_create"
-    classes = ("ajax-modal",)
-    icon = "plus"
-    #policy_rules = (("identity", "identity:create_role"),)
+# class CreateRoleLink(tables.LinkAction):
+#     name = "new_role"
+#     verbose_name = _("New role")
+#     url = "horizon:idm:myApplications:roles_create"
+#     classes = ("ajax-modal",)
+#     icon = "plus"
+#     #policy_rules = (("identity", "identity:create_role"),)
 
-    def allowed(self, request, role):
-        # TODO(garcianavalon) implement roles/policies for this
-        return True
+#     def allowed(self, request, role):
+#         # TODO(garcianavalon) implement roles/policies for this
+#         return True
 
 # class CreateRoleAction(idm_tables.InlineCreateAction):
 #     name = "new_role"
@@ -180,7 +180,7 @@ class RolesTable(tables.DataTable):
         verbose_name = _("Roles")
         row_class = UpdateRoleRow
         row_actions = (DeleteRolesAction,)
-        table_actions = (CreateRoleLink,)
+        table_actions = ()
 
 class PermissionsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Permission Name'))

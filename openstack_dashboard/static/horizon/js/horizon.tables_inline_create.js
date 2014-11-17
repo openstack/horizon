@@ -1,271 +1,405 @@
-/**
-* Rewrite of horizon.tables_inline_edit.js to use list-groups and list-group-items
-* instead of tables
-*/
-horizon.inline_edit = {
-  get_action_id: function (action_div_element) {
-    return [
-      action_div_element.parents("div.inline_edit_available").first().data("object-id"),
-      "__",
-      action_div_element.data("action-name")
-    ].join('');
-  },
-  get_object_container: function (action_div_element) {
-    // global action object container
-    if (!window.action_object_container) {
-      window.action_object_container = [];
-    }
-    return window.action_object_container;
-  },
-  get_action_object: function (action_div_element) {
-    var action_id = horizon.inline_edit.get_action_id(action_div_element);
-    var id = "action__" + action_id;
-    var container = horizon.inline_edit.get_object_container(action_div_element);
-    var action_object;
-    if (container && container[id]){
-      // if action object exists, I will reuse it
-      action_object = container[id];
-      action_object.reset_with(action_div_element);
-      return action_object;
-    } else {
-      // or I will create new action object
-      action_object = new horizon.inline_edit.Cell(action_div_element);
-      // saving action object to global container
-      container[id] = action_object;
-      return action_object;
-    }
-  },
-  Cell: function (action_div_element){
-    var self = this;
+/*
+ * Rewrite of horizon.modals.js to be able to use inline-create forms loaded
+ * thorugh ajax.
+ */
 
-    // setting initial attributes
-    self.reset_with = function(action_div_element){
-      self.action_div_element = action_div_element;
-      self.form_element = action_div_element.find("input, textarea");
-      self.url = action_div_element.data('update-url');
-      self.inline_edit_mod = false;
-      self.successful_update = false;
-    };
-    self.reset_with(action_div_element);
-
-    self.refresh = function () {
-      horizon.ajax.queue({
-        url: self.url,
-        data: {'inline_edit_mod': self.inline_edit_mod},
-        beforeSend: function () {
-          self.start_loading();
-        },
-        complete: function () {
-          // Bug in Jquery tool-tip, if I hover tool-tip, then confirm the field with
-          // enter and the action is reloaded, tool-tip stays. So just to be sure, I am
-          // removing tool-tips manually
-          $(".tooltip.fade.top.in").remove();
-          self.stop_loading();
-
-          if (self.successful_update) {
-            // if action was updated successfully, I will show fading check sign
-            var success = $('<div class="success"></div>');
-            self.action_div_element.find('.inline-edit-status').append(success);
-
-            var background_color = self.action_div_element.css('background-color');
-
-            // edit pencil will disappear and appear again once the check sign has faded
-            // also green background will disappear
-            self.action_div_element.addClass("no-transition");
-            self.action_div_element.addClass("success");
-            self.action_div_element.removeClass("no-transition");
-
-            self.action_div_element.removeClass("inline_edit_available");
-
-            success.fadeOut(1300, function () {
-              self.action_div_element.addClass("inline_edit_available");
-              self.action_div_element.removeClass("success");
-            });
-          }
-        },
-        error: function(jqXHR, status, errorThrown) {
-          if (jqXHR.status === 401){
-            var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
-            if (redir_url){
-              location.href = redir_url;
-            } else {
-              horizon.alert("error", gettext("Not authorized to do this operation."));
-            }
-          }
-          else {
-            if (!horizon.ajax.get_messages(jqXHR)) {
-              // Generic error handler. Really generic.
-              horizon.alert("error", gettext("An error occurred. Please try again later."));
-            }
-          }
-        },
-        success: function (data, textStatus, jqXHR) {
-          var action_div_element = $(data);
-          self.form_element = self.get_form_element(action_div_element);
-
-          if (self.inline_edit_mod) {
-            // if action is in inline edit mode
-            var table_action_wrapper = action_div_element.find(".table_action_wrapper");
-
-            width = self.action_div_element.outerWidth();
-            height = self.action_div_element.outerHeight();
-
-            action_div_element.width(width);
-            action_div_element.height(height);
-            action_div_element.css('margin', 0).css('padding', 0);
-            table_action_wrapper.css('margin', 0).css('padding', 0);
-
-            if (self.form_element.attr('type') === 'checkbox'){
-              var inline_edit_form = action_div_element.find(".inline-edit-form");
-              inline_edit_form.css('padding-top', '11px').css('padding-left', '4px');
-              inline_edit_form.width(width - 40);
-            } else {
-              // setting CSS of element, so the action remains the same size in editing mode
-              self.form_element.width(width - 40);
-              self.form_element.height(height - 2);
-              self.form_element.css('margin', 0).css('padding', 0);
-            }
-          }
-          // saving old action_div_element for cancel and loading purposes
-          self.cached_presentation_view = self.action_div_element;
-          // replacing old td with the new td element returned from the server
-          self.rewrite_action(action_div_element);
-          // focusing the form element inside the action
-          if (self.inline_edit_mod) {
-            self.form_element.focus();
-          }
-        }
-      });
-    };
-    self.update = function(post_data){
-      // make the update request
-      horizon.ajax.queue({
-        type: 'POST',
-        url: self.url,
-        data: post_data,
-        beforeSend: function () {
-          self.start_loading();
-        },
-        complete: function () {
-          if (!self.successful_update){
-            self.stop_loading();
-          }
-        },
-        error: function(jqXHR, status, errorThrown) {
-          if (jqXHR.status === 400){
-            // make place for error icon, only if the error icon is not already present
-            if (self.action_div_element.find(".inline-edit-error .error").length <= 0) {
-              self.form_element.css('padding-left', '20px');
-              self.form_element.width(self.form_element.width() - 20);
-            }
-            // obtain the error message from response body
-            error_message = $.parseJSON(jqXHR.responseText).message;
-            // insert the error icon
-            var error = $('<div title="' + error_message + '" class="error"></div>');
-            self.action_div_element.find(".inline-edit-error").html(error);
-            error.tooltip({'placement':'top'});
-          }
-          else if (jqXHR.status === 401){
-            var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
-            if (redir_url){
-              location.href = redir_url;
-            } else {
-              horizon.alert("error", gettext("Not authorized to do this operation."));
-            }
-          }
-          else {
-            if (!horizon.ajax.get_messages(jqXHR)) {
-              // Generic error handler. Really generic.
-              horizon.alert("error", gettext("An error occurred. Please try again later."));
-            }
-          }
-        },
-        success: function (data, textStatus, jqXHR) {
-          // if update was successful
-          self.successful_update = true;
-          self.refresh();
-        }
-      });
-    };
-    self.cancel = function() {
-      self.rewrite_action(self.cached_presentation_view);
-      self.stop_loading();
-    };
-    self.get_form_element = function(action_div_element){
-      return action_div_element.find("input, textarea");
-    };
-    self.rewrite_action = function(action_div_element){
-      self.action_div_element.replaceWith(action_div_element);
-      self.action_div_element = action_div_element;
-    };
-    self.start_loading = function() {
-      self.action_div_element.addClass("no-transition");
-
-      var spinner = $('<div class="loading"></div>');
-      self.action_div_element.find('.inline-edit-status').append(spinner);
-      self.action_div_element.addClass("loading");
-      self.action_div_element.removeClass("inline_edit_available");
-      self.get_form_element(self.action_div_element).attr("disabled", "disabled");
-    };
-    self.stop_loading = function() {
-      self.action_div_element.find('div.inline-edit-status div.loading').remove();
-      self.action_div_element.removeClass("loading");
-      self.action_div_element.addClass("inline_edit_available");
-      self.get_form_element(self.action_div_element).removeAttr("disabled");
-    };
-  }
+/* Namespace for core functionality related to modal dialogs.
+ *
+ * Modals in Horizon are treated as a "stack", e.g new ones are added to the
+ * top of the stack, and they are always removed in a last-in-first-out
+ * order. This allows for things like swapping between modals as part of a
+ * workflow, for confirmations, etc.
+ *
+ * When a new modal is loaded into the DOM, it fires a "new_modal" event which
+ * event handlers can listen for. However, for consistency, it is better to
+ * add methods which should be run on instantiation of any new modal to be
+ * applied via the horizon.inline_create.addModalInitFunction method.
+ */
+horizon.inline_create = {
+  // Storage for our current jqXHR object.
+  _request: null,
+  spinner: null,
+  _init_functions: []
 };
+
+/*horizon.inline_create.addModalInitFunction = function (f) {
+  horizon.inline_create._init_functions.push(f);
+};
+
+horizon.inline_create.initModal = function (modal) {
+  $(horizon.inline_create._init_functions).each(function (index, f) {
+    f(modal);
+  });
+};
+*/
+/*/* Creates a modal dialog from the client-side template. *
+horizon.inline_create.create = function (title, body, confirm, cancel) {
+  if (!cancel) {
+    cancel = gettext("Cancel");
+  }
+  var template = horizon.templates.compiled_templates["#modal_template"],
+    params = {title: title, body: body, confirm: confirm, cancel: cancel},
+    modal = $(template.render(params)).appendTo("#inline_modal_wrapper");
+  return modal;
+};*/
+
+/*horizon.inline_create.success = function (data, textStatus, jqXHR) {
+  var modal;
+  console.log(data+','+textStatus)
+  //$('#inline_modal_wrapper').append(data);
+  //modal = $('.modal:last');
+  //modal.modal();
+  $('#collapseOne').collapse()
+  //$(modal).trigger("new_modal", modal);
+  return modal;
+};  */
+
+horizon.inline_create.modal_spinner = function (text) {
+  // Adds a spinner with the desired text in a modal window.
+  var template = horizon.templates.compiled_templates["#spinner-modal"];
+  horizon.inline_create.spinner = $(template.render({text: text}));
+  horizon.inline_create.spinner.appendTo("#inline_modal_wrapper");
+  horizon.inline_create.spinner.modal({backdrop: 'static'});
+  horizon.inline_create.spinner.find(".modal-body").spin(horizon.conf.spinner_options.modal);
+};
+
+/*horizon.inline_create.init_wizard = function () {
+  // If workflow is in wizard mode, initialize wizard.
+  var _max_visited_step = 0;
+  var _validate_steps = function (start, end) {
+    var $form = $('.workflow > form'),
+      response = {};
+
+    if (typeof end === 'undefined') {
+      end = start;
+    }
+
+    // Clear old errors.
+    $form.find('td.actions div.alert-danger').remove();
+    $form.find('.form-group.error').each(function () {
+      var $group = $(this);
+      $group.removeClass('error');
+      $group.find('span.help-block.error').remove();
+    });
+
+    // Send the data for validation.
+    $.ajax({
+      type: 'POST',
+      url: $form.attr('action'),
+      headers: {
+        'X-Horizon-Validate-Step-Start': start,
+        'X-Horizon-Validate-Step-End': end
+      },
+      data: $form.serialize(),
+      dataType: 'json',
+      async: false,
+      success: function (data) { response = data; }
+    });
+
+    // Handle errors.
+    if (response.has_errors) {
+      var first_field = true;
+
+      $.each(response.errors, function (step_slug, step_errors) {
+        var step_id = response.workflow_slug + '__' + step_slug,
+          $fieldset = $form.find('#' + step_id);
+        $.each(step_errors, function (field, errors) {
+          var $field;
+          if (field === '__all__') {
+            // Add global errors.
+            $.each(errors, function (index, error) {
+              $fieldset.find('td.actions').prepend(
+                '<div class="alert alert-message alert-danger">' +
+                error + '</div>');
+            });
+            $fieldset.find('input,  select, textarea').first().focus();
+            return;
+          }
+          // Add field errors.
+          $field = $fieldset.find('[name="' + field + '"]');
+          $field.closest('.form-group').addClass('error');
+          $.each(errors, function (index, error) {
+            $field.before(
+              '<span class="help-block error">' +
+              error + '</span>');
+          });
+          // Focus the first invalid field.
+          if (first_field) {
+            $field.focus();
+            first_field = false;
+          }
+        });
+      });
+
+      return false;
+    }
+  };
+
+  $('.workflow.wizard').bootstrapWizard({
+    tabClass: 'wizard-tabs',
+    nextSelector: '.button-next',
+    previousSelector: '.button-previous',
+    onTabShow: function (tab, navigation, index) {
+      var $navs = navigation.find('li');
+      var total = $navs.length;
+      var current = index;
+      var $footer = $('.modal-footer');
+      _max_visited_step = Math.max(_max_visited_step, current);
+      if (current + 1 >= total) {
+        $footer.find('.button-next').hide();
+        $footer.find('.button-final').show();
+      } else {
+        $footer.find('.button-next').show();
+        $footer.find('.button-final').hide();
+      }
+      $navs.each(function(i) {
+        $this = $(this);
+        if (i <= _max_visited_step) {
+          $this.addClass('done');
+        } else {
+          $this.removeClass('done');
+        }
+      });
+    },
+    onNext: function ($tab, $nav, index) {
+      return _validate_steps(index - 1);
+    },
+    onTabClick: function ($tab, $nav, current, index) {
+      // Validate if moving forward, but move backwards without validation
+      return (index <= current ||
+              _validate_steps(current, index - 1) !== false);
+    }
+  });
+};*/
 
 
 horizon.addInitFunction(function() {
-  $('ul.list-group').on('click', '.ajax-inline-edit', function (evt) {
-    var $this = $(this);
-    var action_div_element = $this.parents('div.inline_edit_available').first();
-
-    var action = horizon.inline_edit.get_action_object(action_div_element);
-    action.inline_edit_mod = true;
-    action.refresh();
-
-    evt.preventDefault();
+  /*// Bind handler for initializing new modals.
+  $('#inline_modal_wrapper').on('new_modal', function (evt, modal) {
+    horizon.inline_create.initModal(modal);
   });
 
-  var submit_form = function(evt, el){
-    var $submit = $(el);
-    var action_div_element = $submit.parents('div.inline_edit_available').first();
-    var post_data = $submit.parents('form').first().serialize();
-
-    var action = horizon.inline_edit.get_action_object(action_div_element);
-    action.update(post_data);
-
+  // Bind "cancel" button handler.
+  $(document).on('click', '.modal .cancel', function (evt) {
+    $(this).closest('.modal').modal('hide');
     evt.preventDefault();
-  };
+  });*/
 
-  $('ul.list-group').on('click', '.inline-edit-submit', function (evt) {
-    submit_form(evt, this);
-  });
+  // AJAX form submissions from modals. Makes validation happen in-modal.
+  $(document).on('submit', '#create_role_form', function (evt) {
+    console.log('intercepted submit');
+    var $form = $(this),
+      form = this,
+      $button = $form.find(".modal-footer .btn-primary"),
+      update_field_id = $form.attr("data-add-to-field"),
+      headers = {},
+      modalFileUpload = $form.attr("enctype") === "multipart/form-data",
+      formData, ajaxOpts, featureFileList, featureFormData;
 
-  $('ul.list-group').on('keypress', '.inline-edit-form', function (evt) {
-    if (evt.which === 13 && !evt.shiftKey) {
-      submit_form(evt, this);
+    if (modalFileUpload) {
+      featureFileList = $("<input type='file'/>").get(0).files !== undefined;
+      featureFormData = window.FormData !== undefined;
+
+      if (!featureFileList || !featureFormData) {
+        // Test whether browser supports HTML5 FileList and FormData interfaces,
+        // which make XHR file upload possible. If not, it doesn't
+        // support setting custom headers in AJAX requests either, so
+        // modal forms won't work in them (namely, IE9).
+        return;
+      } else {
+        formData = new window.FormData(form);
+      }
+    } else {
+      formData = $form.serialize();
     }
-  });
-
-  $('ul.list-group').on('click', '.inline-edit-cancel', function (evt) {
-    var $cancel = $(this);
-    var action_div_element = $cancel.parents('div.inline_edit_available').first();
-
-    var action = horizon.inline_edit.get_action_object(action_div_element);
-    action.cancel();
-
     evt.preventDefault();
+
+    // Prevent duplicate form POSTs
+    $button.prop("disabled", true);
+
+    if (update_field_id) {
+      headers["X-Horizon-Add-To-Field"] = update_field_id;
+    }
+
+    ajaxOpts = {
+      type: "POST",
+      url: $form.attr('action'),
+      headers: headers,
+      data: formData,
+      beforeSend: function () {
+        console.log('before send');
+        //$("#inline_modal_wrapper .modal").last().modal("hide");
+        //$('.ajax-modal, .dropdown-toggle').attr('disabled', true);
+        horizon.inline_create.modal_spinner(gettext("Working"));
+      },
+      complete: function () {
+        horizon.inline_create.spinner.modal('hide');
+        //$("#inline_modal_wrapper .modal").last().modal("show");
+        $button.removeAttr('disabled');
+      },
+      success: function (data, textStatus, jqXHR) {
+        console.log('success');
+
+        var redirect_header = jqXHR.getResponseHeader("X-Horizon-Location"),
+          add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
+          json_data, field_to_update;
+        if (redirect_header === null) {
+            $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+        }
+        /*//$form.closest(".modal").modal("hide");
+        if (redirect_header) {
+          console.log('redirect')
+          location.href = redirect_header;
+        }*/
+        //else if (add_to_field_header) {
+        if (add_to_field_header) {
+          console.log('add to field')
+          json_data = $.parseJSON(data);
+          field_to_update = $("#" + add_to_field_header);
+          console.log(json_data)
+          var row_template = '<li class="list-group-item">' +
+                '<div class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=roles&amp;cell_name=name&amp;obj_id='+json_data[0]+'">'+
+                  '<div class="data">' +json_data[1] +'</div>'+
+                  '<button class="ajax-inline-edit"><span class="fa fa-pencil"></span></button>'+
+                  '<div class="inline-edit-status"></div>'+
+                '</div>'+
+                '<div class="actions_column">'+
+                  '<div class="data">'+
+                    '<button class="btn btn-default btn-sm btn-danger" id="roles__row_'+json_data[0]+'__action_delete" name="action" value="roles__delete__'+json_data[0]+'" type="submit"><span class="fa fa-remove"></span></button>'+
+                  '</div></div></li>';
+          field_to_update.append(row_template);
+          field_to_update.change();
+          field_to_update.val(json_data[0]);
+
+          $('#create_role_form :submit').removeClass("disabled").removeAttr('disabled');
+          $('#collapseOne').collapse('hide')
+          $('#id_name').val('')
+        } else {
+          console.log('else')
+          horizon.inline_create.success(data, textStatus, jqXHR);
+        }
+      },
+      error: function (jqXHR, status, errorThrown) {
+        console.log('error');
+
+        if (jqXHR.getResponseHeader('logout')) {
+          location.href = jqXHR.getResponseHeader("X-Horizon-Location");
+        } else {
+          $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+          $form.closest(".modal").modal("hide");
+          horizon.alert("danger", gettext("There was an error submitting the form. Please try again."));
+        }
+      }
+    };
+
+    if (modalFileUpload) {
+      ajaxOpts.contentType = false;  // tell jQuery not to process the data
+      ajaxOpts.processData = false;  // tell jQuery not to set contentType
+    }
+    $.ajax(ajaxOpts);
+    console.log('ajax!');
   });
 
-  $('ul.list-group').on('mouseenter', '.inline_edit_available', function (evt) {
-    $(this).find(".table_action_action").fadeIn(100);
+  /*// Position modal so it's in-view even when scrolled down.
+  $(document).on('show.bs.modal', '.modal', function (evt) {
+    // Filter out indirect triggers of "show" from (for example) tabs.
+    if ($(evt.target).hasClass("modal")) {
+      var scrollShift = $('body').scrollTop() || $('html').scrollTop(),
+        $this = $(this),
+        topVal = $this.css('top');
+      $this.css('top', scrollShift + parseInt(topVal, 10));
+    }
+    // avoid closing the modal when escape is pressed on a select input
+    $("select", evt.target).keyup(function (e) {
+      if (e.keyCode === 27) {
+        // remove the focus on the select, so double escape close the modal
+        e.target.blur();
+        e.stopPropagation();
+      }
+    });
+  });*/
+  console.log('loaded!');
+  /*// Focus the first usable form field in the modal for accessibility.
+  horizon.inline_create.addModalInitFunction(function (modal) {
+    $(modal).find(":text, select, textarea").filter(":visible:first").focus();
   });
+  */
+ /* horizon.inline_create.addModalInitFunction(horizon.datatables.validate_button);
+  horizon.inline_create.addModalInitFunction(horizon.utils.loadAngular);*/
 
-  $('ul.list-group').on('mouseleave', '.inline_edit_available', function (evt) {
-    $(this).find(".table_action_action").fadeOut(200);
-  });
+  /*// Load modals for ajax-modal links.
+  $(document).on('click', '.ajax-modal', function (evt) {
+    var $this = $(this);
+    // If there's an existing modal request open, cancel it out.
+    if (horizon.inline_create._request && typeof(horizon.inline_create._request.abort) !== undefined) {
+      horizon.inline_create._request.abort();
+    }
+
+    horizon.inline_create._request = $.ajax($this.attr('data-create-url'), {
+      beforeSend: function () {
+        horizon.inline_create.modal_spinner(gettext("Loading"));
+      },
+      complete: function () {
+        // Clear the global storage;
+        horizon.inline_create._request = null;
+        horizon.inline_create.spinner.modal('hide');
+      },
+      error: function(jqXHR, status, errorThrown) {
+        if (jqXHR.status === 401){
+          var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
+          if (redir_url){
+            location.href = redir_url;
+          } else {
+            location.reload(true);
+          }
+        }
+        else {
+          if (!horizon.ajax.get_messages(jqXHR)) {
+            // Generic error handler. Really generic.
+            horizon.alert("danger", gettext("An error occurred. Please try again later."));
+          }
+        }
+      },
+      success: function (data, textStatus, jqXHR) {
+        var update_field_id = $this.attr('data-add-to-field'),
+          modal,
+          form;
+        modal = horizon.inline_create.success(data, textStatus, jqXHR);
+        if (update_field_id) {
+          form = modal.find("form");
+          if (form.length) {
+            form.attr("data-add-to-field", update_field_id);
+          }
+        }
+      }
+    });
+    evt.preventDefault();
+  });*/
+
+
+  /*/* Manage the modal "stack" *
+
+  // After a modal has been shown, hide any other modals that are already in
+  // the stack. Only one modal can be visible at the same time.
+  $(document).on("show.bs.modal", ".modal", function () {
+    var modal_stack = $("#inline_modal_wrapper .modal");
+    modal_stack.splice(modal_stack.length - 1, 1);
+    modal_stack.modal("hide");
+  });*/
+/*
+  // After a modal has been fully hidden, remove it to avoid confusion.
+  // Note: the modal should only be removed if it is the "top" of the stack of
+  // modals, e.g. it's the one currently being interacted with and isn't just
+  // temporarily being hidden.
+  $(document).on('hidden.bs.modal', '.modal', function () {
+    var $this = $(this),
+      modal_stack = $("#inline_modal_wrapper .modal");
+    if ($this[0] === modal_stack.last()[0] || $this.hasClass("loading")) {
+      $this.remove();
+      if (!$this.hasClass("loading")) {
+        $("#inline_modal_wrapper .modal").last().modal("show");
+      }
+    }
+  });*/
+  
 });
-

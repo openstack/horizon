@@ -43,7 +43,8 @@ class UploadImageView(forms.ModalFormView):
     form_class = application_forms.UploadImageForm
     template_name = 'idm/myApplications/upload.html'
     
-
+# NOTE(garcianavalon) from horizon.forms.views
+ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
 class RolesView(tables.MultiTableView):
     """ Logic for the asynchronous widget to manage roles and permissions at the
     application level.
@@ -80,6 +81,13 @@ class RolesView(tables.MultiTableView):
                                _('Unable to retrieve permissions list.'))
     
         return permissions
+
+    def get_context_data(self, **kwargs):
+        # NOTE(garcianavalon) add the CreateRoleForm to the view for inline create
+        context = super(RolesView, self).get_context_data(**kwargs)
+        context['form'] = application_forms.CreateRoleForm(self.request)
+        context['add_to_field'] = 'roles'
+        return context
 
 class CreateRoleView(forms.ModalFormView):
     form_class = application_forms.CreateRoleForm

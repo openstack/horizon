@@ -31,7 +31,16 @@
       </div>
       {% endcomment %}
       <div id="new_relation">
-        {{ roles_table.render_table_actions }}
+       {% comment %} {{ roles_table.render_table_actions }}{% endcomment %}
+        <div id="new_relation">
+      <h4  id="headingOne" role="tab" class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          + New role
+        </a>
+      </h4>
+      <div id="collapseOne" class="form-group collapse" role="tabpanel" aria-labelledby="headingOne">    
+        {% include "idm/myApplications/_role_create.html" %}
+      </div>
       </div>
   </section>
 
