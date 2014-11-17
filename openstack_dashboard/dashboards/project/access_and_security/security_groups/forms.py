@@ -196,11 +196,11 @@ class AddRule(forms.SelfHandlingForm):
                                choices=[('cidr', _('CIDR')),
                                         ('sg', _('Security Group'))],
                                help_text=_('To specify an allowed IP '
-                                           'range, select "CIDR". To '
-                                           'allow access from all '
+                                           'range, select &quot;CIDR&quot;. '
+                                           'To allow access from all '
                                            'members of another security '
-                                           'group select "Security '
-                                           'Group".'),
+                                           'group select &quot;Security '
+                                           'Group&quot;.'),
                                widget=forms.Select(attrs={
                                    'class': 'switchable',
                                    'data-slug': 'remote'}))
