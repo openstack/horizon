@@ -215,7 +215,7 @@ horizon.addInitFunction(function() {
     evt.preventDefault();
 
     // Prevent duplicate form POSTs
-    $button.prop("disabled", true);
+   // $button.prop("disabled", true);
 
     if (update_field_id) {
       headers["X-Horizon-Add-To-Field"] = update_field_id;
@@ -235,7 +235,7 @@ horizon.addInitFunction(function() {
       complete: function () {
         horizon.inline_create.spinner.modal('hide');
         //$("#inline_modal_wrapper .modal").last().modal("show");
-        $button.removeAttr('disabled');
+        //$button.removeAttr('disabled');
       },
       success: function (data, textStatus, jqXHR) {
         console.log('success');
@@ -271,9 +271,9 @@ horizon.addInitFunction(function() {
           field_to_update.change();
           field_to_update.val(json_data[0]);
 
-          $('#create_role_form :submit').removeClass("disabled").removeAttr('disabled');
-          $('#collapseOne').collapse('hide')
-          $('#id_name').val('')
+          //$('#create_role_form :submit').removeClass("disabled");
+          $('#collapseOne').collapse('hide');
+          $('#id_name').val('');
         } else {
           console.log('else')
           horizon.inline_create.success(data, textStatus, jqXHR);
@@ -285,17 +285,17 @@ horizon.addInitFunction(function() {
         if (jqXHR.getResponseHeader('logout')) {
           location.href = jqXHR.getResponseHeader("X-Horizon-Location");
         } else {
-          $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+         // $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
           $form.closest(".modal").modal("hide");
           horizon.alert("danger", gettext("There was an error submitting the form. Please try again."));
         }
       }
     };
 
-    if (modalFileUpload) {
+    /*if (modalFileUpload) {
       ajaxOpts.contentType = false;  // tell jQuery not to process the data
       ajaxOpts.processData = false;  // tell jQuery not to set contentType
-    }
+    }*/
     $.ajax(ajaxOpts);
     console.log('ajax!');
   });
@@ -403,3 +403,5 @@ horizon.addInitFunction(function() {
   });*/
   
 });
+
+$("#roles_inline_create").on("submit")
