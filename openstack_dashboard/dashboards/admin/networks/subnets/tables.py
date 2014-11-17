@@ -15,6 +15,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -93,6 +94,7 @@ class SubnetsTable(tables.DataTable):
     cidr = tables.Column("cidr", verbose_name=_("CIDR"))
     ip_version = tables.Column("ipver_str", verbose_name=_("IP Version"))
     gateway_ip = tables.Column("gateway_ip", verbose_name=_("Gateway IP"))
+    failure_url = reverse_lazy('horizon:admin:networks:index')
 
     def get_object_display(self, subnet):
         return subnet.id
