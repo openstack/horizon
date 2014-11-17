@@ -11,6 +11,7 @@
 # under the License.
 
 from django import forms
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import TemplateView
 
@@ -79,3 +80,16 @@ class RolesView(tables.MultiTableView):
                                _('Unable to retrieve permissions list.'))
     
         return permissions
+
+class CreateRoleView(forms.ModalFormView):
+    form_class = application_forms.CreateRoleForm
+    template_name = 'idm/myApplications/role_create.html'
+    success_url = reverse_lazy('horizon:idm:myApplications:roles_index')
+
+    # def get_initial(self):
+    #     # Set the application of the role
+    #     application = fiware_api.keystone.get_default_application(self.request)
+    #     default_role = api.keystone.get_default_role(self.request)
+    #     return {'application_id': application.id,
+    #             'application_name': application.name,
+    #             'role_id': getattr(default_role, "id", None)}

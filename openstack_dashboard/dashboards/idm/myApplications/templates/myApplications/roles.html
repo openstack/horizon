@@ -12,13 +12,7 @@
   <section class="relation_list">
     <h4>{{ roles_table.name }}</h4>
     {{ roles_table.render}}
-    {% comment %}
-    <ul class="list-group">
-      {% for role in roles %}
-        {% include "idm/myApplications/_role.html" with role=role %}
-      {% endfor %}
-    </ul>
-    {% endcomment %}
+    {% comment %} 
     <div id="new_relation">
       <h4  id="headingOne" role="tab" class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -26,13 +20,19 @@
         </a>
       </h4>
       <div id="collapseOne" class="form-group collapse" role="tabpanel" aria-labelledby="headingOne">
+      
+        {% comment %} 
         <div class="input-group">
           <input class="form-control" type="email" placeholder="Write the name of role.">
           <div class="input-group-addon"><a class="btn btn-primary">Save</a></div>
-        </div>
-
+        </div> 
+        % endcomment %}
+        
       </div>
-    </div>
+      {% endcomment %}
+      <div id="new_relation">
+        {{ roles_table.render_table_actions }}
+      </div>
   </section>
 
   <section class="permissions_list">

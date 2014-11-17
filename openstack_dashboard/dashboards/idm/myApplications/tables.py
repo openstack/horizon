@@ -21,6 +21,7 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import fiware_api
+from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 class CreateApplication(tables.LinkAction):
     name = "create_application"
@@ -65,17 +66,29 @@ class PurchasedApplicationsTable(tables.DataTable):
         table_actions = (CreateApplication, )
         multi_select = False
 
-# class CreateRoleLink(tables.LinkAction):
-#     name = "create"
-#     verbose_name = _("Create Role")
-#     url = "horizon:identity:roles:create"
-#     classes = ("ajax-modal",)
+class CreateRoleLink(tables.LinkAction):
+    name = "new_role"
+    verbose_name = _("New role")
+    url = "horizon:idm:myApplications:roles_create"
+    classes = ("ajax-modal",)
+    icon = "plus"
+    #policy_rules = (("identity", "identity:create_role"),)
+
+    def allowed(self, request, role):
+        # TODO(garcianavalon) implement roles/policies for this
+        return True
+
+# class CreateRoleAction(idm_tables.InlineCreateAction):
+#     name = "new_role"
+#     verbose_name = _("New role")
+#     url = "horizon:idm:myApplications:roles_create"
 #     icon = "plus"
-#     policy_rules = (("identity", "identity:create_role"),)
+#     classes = ("ajax-inline-create",)
 
-#     def allowed(self, request, role):
-#         return api.keystone.keystone_can_edit_role()
-
+#     def create(self, request, obj_data):
+#         import pdb; pdb.set_trace()
+#         name = obj_data['name']
+#         fiware_api.keystone.role_create(request, name)
 
 # class EditRoleLink(tables.LinkAction):
 #     name = "edit"
@@ -167,7 +180,7 @@ class RolesTable(tables.DataTable):
         verbose_name = _("Roles")
         row_class = UpdateRoleRow
         row_actions = (DeleteRolesAction,)
-        table_actions = ()
+        table_actions = (CreateRoleLink,)
 
 class PermissionsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Permission Name'))

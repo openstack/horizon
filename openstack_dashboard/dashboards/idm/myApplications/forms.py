@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
 import os
 from PIL import Image 
 
@@ -18,10 +19,14 @@ from django.conf import settings
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import forms
 from horizon.utils import functions as utils
+from horizon import messages
 
+from openstack_dashboard import fiware_api
 
+LOG = logging.getLogger(__name__)
 DEFAULT_AVATAR = os.path.abspath(os.path.join(settings.ROOT_PATH, '..', 
             'openstack_dashboard/static/dashboard/img/logos/original/group.png'))
 
@@ -71,3 +76,23 @@ class UploadImageForm(forms.SelfHandlingForm):
 
         response = shortcuts.redirect('horizon:idm:myApplications:roles')
         return response
+
+
+class CreateRoleForm(forms.SelfHandlingForm):
+    # application_id = forms.CharField(label=_("Domain ID"),
+    #                             required=True,
+    #                             widget=forms.HiddenInput())
+    name = forms.CharField(max_length=255, label=_("Role Name"))
+    no_autocomplete = True
+
+    def handle(self, request, data):
+        try:
+            LOG.info('Creating role with name "%s"' % data['name'])
+            new_role = fiware_api.keystone.role_create(request,
+                                                name=data['name'])
+            messages.success(request,
+                             _('Role "%s" was successfully created.')
+                             % data['name'])
+            return new_role
+        except Exception:
+            exceptions.handle(request, _('Unable to create role.'))
