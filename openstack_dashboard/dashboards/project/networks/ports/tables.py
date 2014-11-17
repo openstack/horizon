@@ -69,6 +69,7 @@ class PortsTable(tables.DataTable):
         name = "ports"
         verbose_name = _("Ports")
         row_actions = (UpdatePort,)
+        hidden_title = False
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         super(PortsTable, self).__init__(request, data=data,

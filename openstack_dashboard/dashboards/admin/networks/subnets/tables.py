@@ -114,3 +114,4 @@ class SubnetsTable(tables.DataTable):
         verbose_name = _("Subnets")
         table_actions = (CreateSubnet, DeleteSubnet)
         row_actions = (UpdateSubnet, DeleteSubnet,)
+        hidden_title = False

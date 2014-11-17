@@ -100,3 +100,4 @@ class DHCPAgentsTable(tables.DataTable):
         verbose_name = _("DHCP Agents")
         table_actions = (AddDHCPAgent, DeleteDHCPAgent)
         row_actions = (DeleteDHCPAgent,)
+        hidden_title = False

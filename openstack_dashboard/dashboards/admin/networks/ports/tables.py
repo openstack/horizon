@@ -105,6 +105,7 @@ class PortsTable(tables.DataTable):
         verbose_name = _("Ports")
         table_actions = (CreatePort, DeletePort)
         row_actions = (UpdatePort, DeletePort,)
+        hidden_title = False
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         super(PortsTable, self).__init__(request, data=data,
