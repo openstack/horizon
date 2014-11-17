@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-30 03:30-0500\n"
-"PO-Revision-Date: 2014-10-31 22:00+0000\n"
+"POT-Creation-Date: 2014-11-14 10:33-0600\n"
+"PO-Revision-Date: 2014-11-14 22:20+0000\n"
 "Last-Translator: Toni Willberg <twillber@redhat.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/horizon/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Et ole oikeutettu päästäksesi %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr ""
+msgstr "%(resource)s nimellä \"%(name)s\" on jo olemassa."
 
 #: exceptions.py:287
 #, python-format
@@ -51,12 +51,12 @@ msgstr "Yhteys oli käyttämättä liian kauan."
 
 #: browsers/base.py:88
 msgid "Navigation Item"
-msgstr "Navigaatio yksikkö"
+msgstr "Navigaatioyksikkö"
 
 #: browsers/views.py:41
 #, python-format
 msgid "Select a %s to browse."
-msgstr "valitse %s selataksesi."
+msgstr "Valitse %s selataksesi."
 
 #: conf/default.py:41
 msgid "Password is not accepted"
@@ -64,7 +64,7 @@ msgstr "Salasanaa ei hyväksytty"
 
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
-msgstr "Väärä formaatti IP-osoitteelle."
+msgstr "Väärä formaatti IP-osoitteelle"
 
 #: forms/fields.py:65
 msgid "Invalid version for IP address"
@@ -72,7 +72,7 @@ msgstr "Väärä versio IP-osoitteesta"
 
 #: forms/fields.py:66
 msgid "Invalid subnet mask"
-msgstr "Väärä aliverkonpeite."
+msgstr "Väärä aliverkon peite"
 
 #: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
@@ -92,7 +92,7 @@ msgstr "Keskeytä"
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
-msgstr "Filtteri"
+msgstr "Suodatin"
 
 #: tables/actions.py:758
 #, python-format
@@ -106,14 +106,14 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1552
+#: tables/actions.py:788 tables/base.py:1565
 msgid "N/A"
 msgstr "N/A"
 
 #: tables/actions.py:817
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr ""
+msgstr "Toiminto %(action)s ei ole sallittu: %(objs)s"
 
 #: tables/actions.py:824
 #, python-format
@@ -146,21 +146,21 @@ msgstr "Päivitetty"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Arvoa %(attr)s ei löydy %(obj)s. "
 
-#: tables/base.py:973
+#: tables/base.py:985
 msgid "No items to display."
 msgstr "Ei näytettävää."
 
-#: tables/base.py:1082
+#: tables/base.py:1094
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Toiminnot"
 
-#: tables/base.py:1311
+#: tables/base.py:1324
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "ID \"%s\" ei palauttanut osumia."
 
-#: tables/base.py:1468
+#: tables/base.py:1481
 msgid "Please select a row before taking that action."
 msgstr "Valitse rivi ennen toiminnon tekemistä."
 
@@ -187,14 +187,14 @@ msgstr "Kirjaudu"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
-msgstr ""
+msgstr "Sinulla ei ole oikeutta käyttää resurssia:"
 
 #: templates/auth/_login.html:17
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr ""
+msgstr "Kirjaudu toisena käyttäjänä tai mene takaisin <a href=\"%(home_url)s\">kotisivulle</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
@@ -216,22 +216,22 @@ msgstr "Onnistui:"
 msgid "Error: "
 msgstr "Virhe:"
 
-#: templates/horizon/common/_data_table.html:61
+#: templates/horizon/common/_data_table.html:63
 msgid "Summary"
-msgstr "yhteenveto"
+msgstr "Yhteenveto"
 
-#: templates/horizon/common/_data_table.html:70
+#: templates/horizon/common/_data_table.html:72
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "Näytetään %(counter)s kohde"
 msgstr[1] "Näytetään %(counter)s kohdetta"
 
-#: templates/horizon/common/_data_table.html:75
+#: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Edellinen"
 
-#: templates/horizon/common/_data_table.html:78
+#: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
 msgstr "Seuraava&nbsp;&raquo;"
 
@@ -255,7 +255,7 @@ msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr ""
+msgstr "Rajoitusten yhteenveto"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
@@ -270,7 +270,7 @@ msgstr "Instanssit"
 #: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "Käytetty <span> %(used)s </span> / <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
@@ -282,7 +282,7 @@ msgstr "RAM"
 
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
-msgstr "Vapaat IP:t"
+msgstr "Kelluvat IP:t"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -294,7 +294,7 @@ msgstr "Verkkolevyt"
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr ""
+msgstr "Volume Storage"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:12
 msgid ""
@@ -304,24 +304,24 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr ""
+msgstr "\nVoit määritellä metatiedot lisäämällä kohteita vasemmasta sarakkeesta\noikean puoleiseen sarakkeeseen. Voit valita avainsanan Glancen hakemistosta\ntai voit käyttää \"Muu\" -optiota valitaksesi oman avainsanansi."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
-msgstr ""
+msgstr "Käytettävissä oleva metatieto"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Avaimen pitää olla uniikki"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:85
 #: templates/horizon/common/_modal_form_update_metadata.html:197
 msgid "No available metadata"
-msgstr ""
+msgstr "Metatietoa ei ole saatavilla"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:96
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Olemassa oleva metatieto"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:213
 msgid ""
@@ -331,7 +331,7 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr ""
+msgstr "\nVoit määritellä resurssin metatiedot siirtämällä kohteita vasemmasta\nsarakkeesta oikean puoleiseen sarakkeeseen. Vasemmassa sarakkeessa on metatiedon\nmääritelmät Glancen metatietokatalogista. Käytä \"Muu\" optiota\nlisätäksesi metatietoa haluamallasi avainsanalla."
 
 #: templates/horizon/common/_modal_form_update_metadata.html:235
 #: workflows/base.py:594
@@ -354,7 +354,7 @@ msgstr[1] "Näytetään %(content_items)s kohdetta"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "Käyttökatsaus"
+msgstr "Käytön yhteenveto"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
@@ -376,7 +376,7 @@ msgstr "\n<label>Päättyy:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
-msgstr "Päivämäärän muoto pitää olla YYYY-mm-dd."
+msgstr "Päivämäärän muoto pitää olla VVVV-kk-pv."
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances:"
@@ -454,15 +454,15 @@ msgstr "0 Tavua"
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Myy Koiranpentu"
+msgstr[1] "Myy Koiranpentuja"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Myyty Koiranpentu"
+msgstr[1] "Myydyt Koiranpennut"
 
 #: utils/filters.py:49
 msgid "Never"
@@ -502,7 +502,7 @@ msgstr "Ei mitään saatavilla."
 
 #: workflows/base.py:478
 msgid "No members."
-msgstr "Ei käyttäjiä"
+msgstr "Ei käyttäjiä."
 
 #: workflows/base.py:595
 #, python-format

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-11 18:45-0600\n"
-"PO-Revision-Date: 2014-11-11 16:23+0000\n"
+"POT-Creation-Date: 2014-11-14 10:33-0600\n"
+"PO-Revision-Date: 2014-11-13 03:49+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -374,12 +374,12 @@ msgstr "%(num_groups_to_modify)d इंस्टेंस सुरक्षा 
 msgid "Failed to modify %d instance security groups"
 msgstr "इंस्टेंस सुरक्षा समूहों %d को संशोधित करने में विफल"
 
-#: api/nova.py:750
+#: api/nova.py:758
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "नाम: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:755
+#: api/nova.py:763
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "इंस्टेंस को खाली करने में असफल: %s"
@@ -414,7 +414,7 @@ msgstr "प्रशासक"
 #: dashboards/admin/volumes/snapshots/tables.py:59
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/volume_types/tables.py:71
-#: dashboards/admin/volumes/volume_types/tables.py:146
+#: dashboards/admin/volumes/volume_types/tables.py:147
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/forms.py:88
 #: dashboards/admin/volumes/volumes/tables.py:41
@@ -521,7 +521,7 @@ msgstr "नाम"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
-#: dashboards/project/instances/tables.py:904
+#: dashboards/project/instances/tables.py:966
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:78
 #: dashboards/project/volumes/volumes/forms.py:90
@@ -551,7 +551,7 @@ msgid "Unable to update the aggregate metadata."
 msgstr "सकल मेटाडेटा अपडेट करने में असमर्थ."
 
 #: dashboards/admin/aggregates/panel.py:22
-#: dashboards/admin/aggregates/tables.py:142
+#: dashboards/admin/aggregates/tables.py:143
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
@@ -606,7 +606,7 @@ msgid "Services Down"
 msgstr "सेवाएँ डाउन"
 
 #: dashboards/admin/aggregates/tables.py:132
-#: dashboards/admin/aggregates/tables.py:156
+#: dashboards/admin/aggregates/tables.py:157
 msgid "Hosts"
 msgstr "होस्ट"
 
@@ -618,17 +618,17 @@ msgstr "होस्ट"
 msgid "Metadata"
 msgstr "मेटाडाटा"
 
-#: dashboards/admin/aggregates/tables.py:154
+#: dashboards/admin/aggregates/tables.py:155
 msgid "Availability Zone Name"
 msgstr "उपलब्धता क्षेत्र नाम"
 
-#: dashboards/admin/aggregates/tables.py:160
+#: dashboards/admin/aggregates/tables.py:161
 #: dashboards/admin/volumes/snapshots/forms.py:24
 #: dashboards/admin/volumes/volumes/forms.py:54
 msgid "Available"
 msgstr "उपलब्ध"
 
-#: dashboards/admin/aggregates/tables.py:169
+#: dashboards/admin/aggregates/tables.py:171
 msgid "Availability Zones"
 msgstr "उपलब्धता क्षेत्र"
 
@@ -1017,7 +1017,7 @@ msgstr "VCPUs"
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:923
+#: dashboards/project/instances/tables.py:985
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1529,10 +1529,10 @@ msgstr ""
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:248
 #: dashboards/project/databases/workflows/create_instance.py:35
-#: dashboards/project/instances/tables.py:865
-#: dashboards/project/instances/tables.py:887
+#: dashboards/project/instances/tables.py:927
+#: dashboards/project/instances/tables.py:949
 #: dashboards/project/instances/workflows/create_instance.py:81
-#: dashboards/project/overview/views.py:32 usage/tables.py:74
+#: dashboards/project/overview/views.py:32 usage/tables.py:75
 msgid "Instance Name"
 msgstr "इंस्टैंस नाम"
 
@@ -1663,7 +1663,7 @@ msgstr "क्षेत्र"
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:233
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
-#: dashboards/project/instances/tables.py:899
+#: dashboards/project/instances/tables.py:961
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:277
 #: dashboards/project/loadbalancers/tables.py:311
@@ -1777,7 +1777,7 @@ msgstr "बिंब नाम ="
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:98
-#: dashboards/project/instances/tables.py:866
+#: dashboards/project/instances/tables.py:928
 msgid "Status ="
 msgstr "स्थिति ="
 
@@ -1796,7 +1796,7 @@ msgstr "अधिकतम आकार (MB)"
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:130
 #: dashboards/project/images/images/tables.py:227
-#: dashboards/project/instances/tables.py:889
+#: dashboards/project/instances/tables.py:951
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/instances/workflows/create_instance.py:105
 #: dashboards/project/volumes/volumes/forms.py:540
@@ -2053,12 +2053,12 @@ msgid "IPv6 Address ="
 msgstr "IPv6 पता ="
 
 #: dashboards/admin/instances/tables.py:99
-#: dashboards/project/instances/tables.py:867
+#: dashboards/project/instances/tables.py:929
 msgid "Image ID ="
 msgstr "बिंब ID ="
 
 #: dashboards/admin/instances/tables.py:100
-#: dashboards/project/instances/tables.py:868
+#: dashboards/project/instances/tables.py:930
 msgid "Flavor ID ="
 msgstr "फ्लैवर ID ="
 
@@ -2066,7 +2066,7 @@ msgstr "फ्लैवर ID ="
 #: dashboards/project/access_and_security/floating_ips/tables.py:192
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: dashboards/project/instances/tables.py:891
+#: dashboards/project/instances/tables.py:953
 #: dashboards/project/loadbalancers/tables.py:302
 msgid "IP Address"
 msgstr "IP पता"
@@ -2079,7 +2079,7 @@ msgstr "IP पता"
 #: dashboards/project/databases/tables.py:255
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:894
+#: dashboards/project/instances/tables.py:956
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
@@ -2090,17 +2090,17 @@ msgid "Size"
 msgstr "आकार"
 
 #: dashboards/admin/instances/tables.py:146
-#: dashboards/project/instances/tables.py:906
+#: dashboards/project/instances/tables.py:968
 msgid "Task"
 msgstr "कार्य"
 
 #: dashboards/admin/instances/tables.py:153
-#: dashboards/project/instances/tables.py:913
+#: dashboards/project/instances/tables.py:975
 msgid "Power State"
 msgstr "पॉवर की स्थिति"
 
 #: dashboards/admin/instances/tables.py:155
-#: dashboards/project/instances/tables.py:916 usage/tables.py:77
+#: dashboards/project/instances/tables.py:978 usage/tables.py:78
 msgid "Time since created"
 msgstr "निर्माण के समय से समय"
 
@@ -3343,7 +3343,7 @@ msgid "Unable to retrieve volume project information."
 msgstr "वॉल्यूम परियोजना सूचना पाने में असमर्थ."
 
 #: dashboards/admin/volumes/tabs.py:65
-#: dashboards/admin/volumes/volume_types/tables.py:83
+#: dashboards/admin/volumes/volume_types/tables.py:84
 msgid "Volume Types"
 msgstr "वॉल्यूम प्रकार"
 
@@ -3443,7 +3443,7 @@ msgstr "आयतन"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:7
-#: dashboards/admin/volumes/volume_types/tables.py:149
+#: dashboards/admin/volumes/volume_types/tables.py:150
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
@@ -3534,7 +3534,7 @@ msgstr "एसोसियेट"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:107
+#: dashboards/admin/volumes/volume_types/tables.py:108
 msgid "Create QoS Spec"
 msgstr ""
 
@@ -3810,32 +3810,32 @@ msgstr[1] ""
 msgid "Associated QoS Spec"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:93
+#: dashboards/admin/volumes/volume_types/tables.py:94
 msgid "Manage Specs"
 msgstr "स्पेक प्रबंधित करें"
 
-#: dashboards/admin/volumes/volume_types/tables.py:118
+#: dashboards/admin/volumes/volume_types/tables.py:119
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:126
+#: dashboards/admin/volumes/volume_types/tables.py:127
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:138
+#: dashboards/admin/volumes/volume_types/tables.py:139
 msgid "Edit Consumer"
 msgstr "उपभोक्ता संपादित करें"
 
-#: dashboards/admin/volumes/volume_types/tables.py:147
+#: dashboards/admin/volumes/volume_types/tables.py:148
 #: dashboards/admin/volumes/volumes/forms.py:89
 msgid "Consumer"
 msgstr "ग्राहक"
 
-#: dashboards/admin/volumes/volume_types/tables.py:161
+#: dashboards/admin/volumes/volume_types/tables.py:163
 msgid "QoS Specs"
 msgstr ""
 
@@ -7580,8 +7580,8 @@ msgstr[1] ""
 #: dashboards/project/databases/tables.py:199
 #: dashboards/project/databases/tables.py:216
 #: dashboards/project/databases/tables.py:222
-#: dashboards/project/instances/tables.py:734
-#: dashboards/project/instances/tables.py:741
+#: dashboards/project/instances/tables.py:796
+#: dashboards/project/instances/tables.py:803
 msgid "Not available"
 msgstr "उपलब्ध नहीं"
 
@@ -9233,344 +9233,368 @@ msgid_plural "Shut Off Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:725
+#: dashboards/project/instances/tables.py:719
+msgid "Lock Instance"
+msgid_plural "Lock Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:727
+msgid "Locked Instance"
+msgid_plural "Locked Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:750
+msgid "Unlock Instance"
+msgid_plural "Unlock Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:758
+msgid "Unlocked Instance"
+msgid_plural "Unlocked Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:787
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: dashboards/project/instances/tables.py:749
-#: dashboards/project/instances/tables.py:771
+#: dashboards/project/instances/tables.py:811
+#: dashboards/project/instances/tables.py:833
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "मिटाया"
 
-#: dashboards/project/instances/tables.py:750
+#: dashboards/project/instances/tables.py:812
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr "सक्रिय"
 
-#: dashboards/project/instances/tables.py:751
+#: dashboards/project/instances/tables.py:813
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "बंद"
 
-#: dashboards/project/instances/tables.py:753
+#: dashboards/project/instances/tables.py:815
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "निलंबित है"
 
-#: dashboards/project/instances/tables.py:754
+#: dashboards/project/instances/tables.py:816
 msgctxt "Current status of an Instance"
 msgid "Paused"
 msgstr "ठहरा हुआ"
 
-#: dashboards/project/instances/tables.py:755
+#: dashboards/project/instances/tables.py:817
 msgctxt "Current status of an Instance"
 msgid "Error"
 msgstr "त्रुटि"
 
-#: dashboards/project/instances/tables.py:757
+#: dashboards/project/instances/tables.py:819
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट"
 
-#: dashboards/project/instances/tables.py:759
+#: dashboards/project/instances/tables.py:821
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट की पुष्टि करने या वापस लाएं"
 
-#: dashboards/project/instances/tables.py:761
+#: dashboards/project/instances/tables.py:823
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
 msgstr "आकार बदलें / माइग्रेट वापस लाएं"
 
-#: dashboards/project/instances/tables.py:762
+#: dashboards/project/instances/tables.py:824
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "रिबूट करें"
 
-#: dashboards/project/instances/tables.py:764
+#: dashboards/project/instances/tables.py:826
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "हार्ड रिबूट"
 
-#: dashboards/project/instances/tables.py:765
+#: dashboards/project/instances/tables.py:827
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "पासवर्ड"
 
-#: dashboards/project/instances/tables.py:766
+#: dashboards/project/instances/tables.py:828
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
 msgstr "पुनः निर्माण"
 
-#: dashboards/project/instances/tables.py:768
+#: dashboards/project/instances/tables.py:830
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr "उत्प्रवासित हो रहा है"
 
-#: dashboards/project/instances/tables.py:769
+#: dashboards/project/instances/tables.py:831
 msgctxt "Current status of an Instance"
 msgid "Build"
 msgstr "बिल्ड"
 
-#: dashboards/project/instances/tables.py:770
+#: dashboards/project/instances/tables.py:832
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "बचाव"
 
-#: dashboards/project/instances/tables.py:773
+#: dashboards/project/instances/tables.py:835
 msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:774
+#: dashboards/project/instances/tables.py:836
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:776
+#: dashboards/project/instances/tables.py:838
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:782
+#: dashboards/project/instances/tables.py:844
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "समय-सारणी"
 
-#: dashboards/project/instances/tables.py:784
+#: dashboards/project/instances/tables.py:846
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:786
+#: dashboards/project/instances/tables.py:848
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "संजालन"
 
-#: dashboards/project/instances/tables.py:787
+#: dashboards/project/instances/tables.py:849
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:789
+#: dashboards/project/instances/tables.py:851
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "Snapshotting"
 
-#: dashboards/project/instances/tables.py:791
+#: dashboards/project/instances/tables.py:853
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:793
+#: dashboards/project/instances/tables.py:855
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:795
+#: dashboards/project/instances/tables.py:857
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:797
+#: dashboards/project/instances/tables.py:859
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:799
+#: dashboards/project/instances/tables.py:861
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "कूटशब्द का अद्यतन"
 
-#: dashboards/project/instances/tables.py:801
+#: dashboards/project/instances/tables.py:863
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट की तयारी कर रहा हैं"
 
-#: dashboards/project/instances/tables.py:803
+#: dashboards/project/instances/tables.py:865
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "आकार बदलना या माइग्रेट हो रहा हैं"
 
-#: dashboards/project/instances/tables.py:805
+#: dashboards/project/instances/tables.py:867
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "आकार बदले या माइग्रेट करें"
 
-#: dashboards/project/instances/tables.py:807
+#: dashboards/project/instances/tables.py:869
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट होना पूर्ण हो रहा हैं"
 
-#: dashboards/project/instances/tables.py:809
+#: dashboards/project/instances/tables.py:871
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट वापिस लाएँ"
 
-#: dashboards/project/instances/tables.py:811
+#: dashboards/project/instances/tables.py:873
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट करने की पुष्टि कर रहा हैं "
 
-#: dashboards/project/instances/tables.py:812
+#: dashboards/project/instances/tables.py:874
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr "पुनः प्रारंभ करें"
 
-#: dashboards/project/instances/tables.py:814
+#: dashboards/project/instances/tables.py:876
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:815
+#: dashboards/project/instances/tables.py:877
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "ठहरें"
 
-#: dashboards/project/instances/tables.py:816
-#: dashboards/project/instances/tables.py:819
+#: dashboards/project/instances/tables.py:878
+#: dashboards/project/instances/tables.py:881
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr "पुनरारंभ किया जा रहा है."
 
-#: dashboards/project/instances/tables.py:818
+#: dashboards/project/instances/tables.py:880
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:821
+#: dashboards/project/instances/tables.py:883
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:823
+#: dashboards/project/instances/tables.py:885
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:824
+#: dashboards/project/instances/tables.py:886
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:826
+#: dashboards/project/instances/tables.py:888
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:828
+#: dashboards/project/instances/tables.py:890
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:830
+#: dashboards/project/instances/tables.py:892
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:832
+#: dashboards/project/instances/tables.py:894
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:833
+#: dashboards/project/instances/tables.py:895
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr "उत्प्रवासित हो रहा है"
 
-#: dashboards/project/instances/tables.py:834
+#: dashboards/project/instances/tables.py:896
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "मिटाया जा रहा है"
 
-#: dashboards/project/instances/tables.py:836
+#: dashboards/project/instances/tables.py:898
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:837
+#: dashboards/project/instances/tables.py:899
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "पुनर्भंडारण"
 
-#: dashboards/project/instances/tables.py:838
+#: dashboards/project/instances/tables.py:900
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:840
+#: dashboards/project/instances/tables.py:902
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:842
+#: dashboards/project/instances/tables.py:904
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:844
+#: dashboards/project/instances/tables.py:906
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:846
+#: dashboards/project/instances/tables.py:908
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:850
+#: dashboards/project/instances/tables.py:912
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "कोई स्थिति नहीं"
 
-#: dashboards/project/instances/tables.py:851
+#: dashboards/project/instances/tables.py:913
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "चल रहा है"
 
-#: dashboards/project/instances/tables.py:852
+#: dashboards/project/instances/tables.py:914
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "रोका हुआ"
 
-#: dashboards/project/instances/tables.py:853
+#: dashboards/project/instances/tables.py:915
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr "ठहरा हुआ"
 
-#: dashboards/project/instances/tables.py:854
+#: dashboards/project/instances/tables.py:916
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "बंद करें"
 
-#: dashboards/project/instances/tables.py:855
+#: dashboards/project/instances/tables.py:917
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr "बंद करें"
 
-#: dashboards/project/instances/tables.py:856
+#: dashboards/project/instances/tables.py:918
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr "क्रैश"
 
-#: dashboards/project/instances/tables.py:857
+#: dashboards/project/instances/tables.py:919
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "निलंबित है"
 
-#: dashboards/project/instances/tables.py:858
+#: dashboards/project/instances/tables.py:920
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:859
+#: dashboards/project/instances/tables.py:921
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "बिल्डिंग"
 
-#: dashboards/project/instances/tables.py:896
+#: dashboards/project/instances/tables.py:958
 #: dashboards/project/instances/workflows/create_instance.py:484
 msgid "Key Pair"
 msgstr "कुंजी युग्म"
@@ -14151,7 +14175,7 @@ msgstr "डिस्क जीबी घंटे"
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr ""
 
-#: usage/tables.py:57 usage/tables.py:86
+#: usage/tables.py:58 usage/tables.py:88
 msgid "Usage"
 msgstr "प्रयोग"
 
