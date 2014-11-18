@@ -34,7 +34,7 @@ class CreateJobBinary(tables.LinkAction):
     icon = "plus"
 
 
-class DeleteJobBinary(tables.BatchAction):
+class DeleteJobBinary(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -51,10 +51,7 @@ class DeleteJobBinary(tables.BatchAction):
             count
         )
 
-    name = "delete"
-    classes = ('btn-danger', 'btn-terminate')
-
-    def action(self, request, obj_id):
+    def delete(self, request, obj_id):
         jb = saharaclient.job_binary_get(request, obj_id)
         (jb_type, jb_internal_id) = jb.url.split("://")
         if jb_type == "internal-db":

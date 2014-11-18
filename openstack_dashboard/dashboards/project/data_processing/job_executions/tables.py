@@ -27,7 +27,7 @@ from openstack_dashboard.dashboards.project.data_processing. \
 LOG = logging.getLogger(__name__)
 
 
-class DeleteJobExecution(tables.BatchAction):
+class DeleteJobExecution(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -44,10 +44,7 @@ class DeleteJobExecution(tables.BatchAction):
             count
         )
 
-    name = "delete"
-    classes = ('btn-danger', 'btn-terminate')
-
-    def action(self, request, obj_id):
+    def delete(self, request, obj_id):
         saharaclient.job_execution_delete(request, obj_id)
 
 
