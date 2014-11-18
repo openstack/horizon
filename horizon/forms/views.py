@@ -61,6 +61,22 @@ class ModalFormView(ModalFormMixin, generic.FormView):
     /en/dev/ref/class-based-views/generic-editing/#formview>`_ class for
     more details.
 
+    .. attribute: modal_id (recommended)
+
+        The HTML element id of this modal.
+
+    .. attribute: modal_header (recommended)
+
+        The title of this modal.
+
+    .. attribute: form_id (recommended)
+
+        The HTML element id of the form in this modal.
+
+    .. attribute: submit_url (required)
+
+        The url for a submit action.
+
     .. attribute: submit_label (optional)
 
         The label for the submit button. This label defaults to ``Submit``.
@@ -78,12 +94,21 @@ class ModalFormView(ModalFormMixin, generic.FormView):
         if ommitted. Note that the cancel_url redirect is nullified when
         shown in a modal dialog.
     """
+
+    modal_id = None
+    modal_header = ""
+    form_id = None
+    submit_url = None
     submit_label = _("Submit")
     cancel_label = _("Cancel")
     cancel_url = None
 
     def get_context_data(self, **kwargs):
         context = super(ModalFormView, self).get_context_data(**kwargs)
+        context['modal_id'] = self.modal_id
+        context['modal_header'] = self.modal_header
+        context['form_id'] = self.form_id
+        context['submit_url'] = self.submit_url
         context['submit_label'] = self.submit_label
         context['cancel_label'] = self.cancel_label
         context['cancel_url'] = self.get_cancel_url()
