@@ -8,51 +8,42 @@
 
 {% block main %}
   
-  <div class="site-client-roles">
-  <section class="relation_list">
+<div class="site-client-roles">
+  <section id="relation_list">
     <h4>{{ roles_table.name }}</h4>
     {{ roles_table.render}}
-    {% comment %} 
-    <div id="new_relation">
+    <div>
       <h4  id="headingOne" role="tab" class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           + New role
         </a>
       </h4>
-      <div id="collapseOne" class="form-group collapse" role="tabpanel" aria-labelledby="headingOne">
-      
-        {% comment %} 
-        <div class="input-group">
-          <input class="form-control" type="email" placeholder="Write the name of role.">
-          <div class="input-group-addon"><a class="btn btn-primary">Save</a></div>
-        </div> 
-        % endcomment %}
-        
+      <div id="collapseOne" class="form-group collapse" role="tabpanel">    
+        {% include "idm/myApplications/_role_create.html" with form=roles_form add_to_field=roles_add_to_field %}
       </div>
-      {% endcomment %}
-      <div id="new_relation">
-       {% comment %} {{ roles_table.render_table_actions }}{% endcomment %}
-        <div id="new_relation">
-      <h4  id="headingOne" role="tab" class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          + New role
-        </a>
-      </h4>
-      <div id="collapseOne" class="form-group collapse" role="tabpanel" aria-labelledby="headingOne">    
-        {% include "idm/myApplications/_role_create.html" %}
-      </div>
-      </div>
+    </div>
   </section>
 
-  <section class="permissions_list">
-    {% if selected_role %}
-      {% include "idm/myApplications/_permissions.html" with role=selected_role %}
-    {% else %}
+  <section id="permissions_list">
       <!-- sólo tiene que aparecer cuando no se tenga seleccionado un rol -->
       <div class="alert alert-info">
         Manage the permissions of your contacts and create new roles
       </div>
-    {% endif %}
+      <div>
+        <h4>Permissions in role</h4>
+        <ul class="list-group" id="permissions">
+        </ul>
+      </div>
+      <div>
+        <h4  id="headingOne" role="tab" class="panel-title">
+          <a data-toggle="collapse" href="#collapse_permissions" aria-expanded="true" aria-controls="collapse_permissions">
+            + New permission
+          </a>
+        </h4>
+        <div id="collapse_permissions" class="form-group collapse" role="tabpanel">    
+          {% include "idm/myApplications/_permission_create.html" with form=permissions_form add_to_field=permissions_add_to_field%}
+        </div>
+      </div>
   </section>
 </div>
 

@@ -24,4 +24,6 @@ urlpatterns = patterns('',
     #url(r'^roles/(?P<role_id>[^/]+)/update/$',
     #    views.UpdateRoleView.as_view(), name='roles_update'),
     url(r'^roles/create/$', views.CreateRoleView.as_view(), name='roles_create'),
+    url(r'^permissions/create/$', 
+        views.CreatePermissionView.as_view(), name='permissions_create'),
 )

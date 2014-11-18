@@ -1,9 +1,11 @@
 {%if row.table.name = 'mytenants' or row.table.name = 'tenants' %}
-  <div class="avatar cell">
+  <div class="avatar">
      <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
   </div>
 {% endif %}
-
+{%if row.table.add_radiobuttons %}
+    <input type="radio" name="radio_{{ row.table.name }}" value="{{ row.datum.id }}" />
+{% endif %}
 {% for cell in row %}  
   {% include "horizon/common/_data_table_cell.html" %}
 {% endfor %}

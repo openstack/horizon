@@ -61,7 +61,7 @@ horizon.inline_create.modal_spinner = function (text) {
   horizon.inline_create.spinner.appendTo("#inline_modal_wrapper");
   horizon.inline_create.spinner.modal({backdrop: 'static'});
   horizon.inline_create.spinner.find(".modal-body").spin(horizon.conf.spinner_options.modal);
-};
+};  
 
 /*horizon.inline_create.init_wizard = function () {
   // If workflow is in wizard mode, initialize wizard.
@@ -186,36 +186,20 @@ horizon.addInitFunction(function() {
   });*/
 
   // AJAX form submissions from modals. Makes validation happen in-modal.
-  $(document).on('submit', '#create_role_form', function (evt) {
+  $('input.ajax-inline-create').on('click', function (evt) {
     console.log('intercepted submit');
-    var $form = $(this),
-      form = this,
-      $button = $form.find(".modal-footer .btn-primary"),
+    var $button = $(this),
+      $form = $button.parents("form.ajax-inline-create"),
       update_field_id = $form.attr("data-add-to-field"),
       headers = {},
-      modalFileUpload = $form.attr("enctype") === "multipart/form-data",
       formData, ajaxOpts, featureFileList, featureFormData;
 
-    if (modalFileUpload) {
-      featureFileList = $("<input type='file'/>").get(0).files !== undefined;
-      featureFormData = window.FormData !== undefined;
 
-      if (!featureFileList || !featureFormData) {
-        // Test whether browser supports HTML5 FileList and FormData interfaces,
-        // which make XHR file upload possible. If not, it doesn't
-        // support setting custom headers in AJAX requests either, so
-        // modal forms won't work in them (namely, IE9).
-        return;
-      } else {
-        formData = new window.FormData(form);
-      }
-    } else {
-      formData = $form.serialize();
-    }
+    formData = $form.serialize();
     evt.preventDefault();
 
     // Prevent duplicate form POSTs
-   // $button.prop("disabled", true);
+    $button.prop("disabled", true);
 
     if (update_field_id) {
       headers["X-Horizon-Add-To-Field"] = update_field_id;
@@ -243,9 +227,9 @@ horizon.addInitFunction(function() {
         var redirect_header = jqXHR.getResponseHeader("X-Horizon-Location"),
           add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
           json_data, field_to_update;
-        if (redirect_header === null) {
+        /*if (redirect_header === null) {
             $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
-        }
+        }*/
         /*//$form.closest(".modal").modal("hide");
         if (redirect_header) {
           console.log('redirect')

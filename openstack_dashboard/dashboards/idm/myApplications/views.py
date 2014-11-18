@@ -85,8 +85,11 @@ class RolesView(tables.MultiTableView):
     def get_context_data(self, **kwargs):
         # NOTE(garcianavalon) add the CreateRoleForm to the view for inline create
         context = super(RolesView, self).get_context_data(**kwargs)
-        context['form'] = application_forms.CreateRoleForm(self.request)
-        context['add_to_field'] = 'roles'
+        context['inline_forms'] = True
+        context['roles_form'] = application_forms.CreateRoleForm(self.request)
+        context['roles_add_to_field'] = 'roles'
+        context['permissions_form'] = application_forms.CreatePermissionForm(self.request)
+        context['permissions_add_to_field'] = 'permissions'
         return context
 
 class CreateRoleView(forms.ModalFormView):
@@ -94,10 +97,7 @@ class CreateRoleView(forms.ModalFormView):
     template_name = 'idm/myApplications/role_create.html'
     success_url = reverse_lazy('horizon:idm:myApplications:roles_index')
 
-    # def get_initial(self):
-    #     # Set the application of the role
-    #     application = fiware_api.keystone.get_default_application(self.request)
-    #     default_role = api.keystone.get_default_role(self.request)
-    #     return {'application_id': application.id,
-    #             'application_name': application.name,
-    #             'role_id': getattr(default_role, "id", None)}
+class CreatePermissionView(forms.ModalFormView):
+    form_class = application_forms.CreatePermissionForm
+    template_name = 'idm/myApplications/permission_create.html'
+    success_url = reverse_lazy('horizon:idm:myApplications:roles_index')

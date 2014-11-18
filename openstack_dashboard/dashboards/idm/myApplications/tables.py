@@ -174,7 +174,8 @@ class RolesTable(tables.DataTable):
                         form_field=forms.CharField(max_length=64),
                         update_action=UpdateRoleCell)
     id = tables.Column('id', verbose_name=_('Role ID'))
-
+    add_radiobuttons = True
+    
     class Meta:
         name = "roles"
         verbose_name = _("Roles")
