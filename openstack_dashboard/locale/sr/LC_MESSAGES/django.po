@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 10:33-0600\n"
-"PO-Revision-Date: 2014-11-13 03:49+0000\n"
+"POT-Creation-Date: 2014-11-17 21:35-0600\n"
+"PO-Revision-Date: 2014-11-17 05:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -1008,7 +1008,7 @@ msgstr "VCPUs"
 #: dashboards/admin/defaults/workflows.py:42
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
-#: dashboards/admin/instances/tables.py:162
+#: dashboards/admin/instances/tables.py:163
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:149
@@ -2105,7 +2105,7 @@ msgstr "Zadatak"
 msgid "Power State"
 msgstr "Stanje rada"
 
-#: dashboards/admin/instances/tables.py:155
+#: dashboards/admin/instances/tables.py:156
 #: dashboards/project/instances/tables.py:978 usage/tables.py:78
 msgid "Time since created"
 msgstr ""
@@ -5302,9 +5302,10 @@ msgstr "Sigurnosna grupa"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:198
 msgid ""
-"To specify an allowed IP range, select \"CIDR\". To allow access from all "
-"members of another security group select \"Security Group\"."
-msgstr "Da odredite dozvoljen opseg IP, odaberite \"CIDR\". Da dozvolite pristup od svih članova druge sigurnosne grupe odaberite \"Sigurnosna Ggrupa\"."
+"To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
+"from all members of another security group select &quot;Security "
+"Group&quot;."
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:211
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"

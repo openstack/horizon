@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Andreas Jaeger <jaegerandi@gmail.com>, 2014
+# Ettore Atalan <atalanttore@googlemail.com>, 2014
 # Robert Simai, 2014
 # Thorsten Michels, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 10:33-0600\n"
-"PO-Revision-Date: 2014-11-13 03:49+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-11-17 21:35-0600\n"
+"PO-Revision-Date: 2014-11-17 12:31+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1009,7 +1010,7 @@ msgstr "VCPUs"
 #: dashboards/admin/defaults/workflows.py:42
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
-#: dashboards/admin/instances/tables.py:162
+#: dashboards/admin/instances/tables.py:163
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:149
@@ -1521,11 +1522,11 @@ msgstr "RAM (gesamt)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "Lokaler Speicher (belegt)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "Lokaler Speicher (insgesamt)"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:248
@@ -1736,7 +1737,7 @@ msgstr "Hypervisor-Zusammenfassung"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:15
 msgid "VCPU Usage"
-msgstr "VCPU-Verwendung"
+msgstr "VCPU-Auslastung"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:16
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:23
@@ -1747,11 +1748,11 @@ msgstr "<span> %(used)s </span> von <span> %(available)s </span> benutzt"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:22
 msgid "Memory Usage"
-msgstr "Speicherverwendung"
+msgstr "Speicherbelegung"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "Lokale Festplattenbelegung"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -2100,7 +2101,7 @@ msgstr "Aufgabe"
 msgid "Power State"
 msgstr "Zustand"
 
-#: dashboards/admin/instances/tables.py:155
+#: dashboards/admin/instances/tables.py:156
 #: dashboards/project/instances/tables.py:978 usage/tables.py:78
 msgid "Time since created"
 msgstr "Zeit seit Erzeugung"
@@ -2321,7 +2322,7 @@ msgstr "Wert (Mittel)"
 
 #: dashboards/admin/metering/tables.py:55
 msgid "Daily Usage Report"
-msgstr ""
+msgstr "Tagesauslastungsbericht"
 
 #: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
@@ -2333,7 +2334,7 @@ msgstr "Es sind noch keine Zähler definiert worden."
 
 #: dashboards/admin/metering/tabs.py:54
 msgid "Usage Report"
-msgstr "Verwendungsbericht"
+msgstr "Auslastungsbericht"
 
 #: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:145
 msgid "Nova"
@@ -2388,12 +2389,12 @@ msgstr ""
 
 #: dashboards/admin/metering/templates/metering/_daily.html:24
 msgid "View Usage Report"
-msgstr ""
+msgstr "Auslastungsbericht ansehen"
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/templates/metering/index.html:6
 msgid "Resources Usage Overview"
-msgstr "Ressourcenverwendung Überblick"
+msgstr "Ressourcenverwendung Übersicht"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric:"
@@ -2425,7 +2426,7 @@ msgstr "Energie (Kwapi)"
 
 #: dashboards/admin/metering/templates/metering/stats.html:79
 msgid "Group by:"
-msgstr ""
+msgstr "Gruppieren nach:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:83
 msgid "--"
@@ -3117,7 +3118,7 @@ msgstr "Gelöscht"
 #: dashboards/admin/overview/templates/overview/usage.csv:1
 #: dashboards/project/overview/templates/overview/usage.csv:1
 msgid "Usage Report For Period"
-msgstr "Verwendungsbericht für den Zeitraum"
+msgstr "Auslastungsbericht für den Zeitraum"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:2
 #: dashboards/project/overview/templates/overview/usage.csv:3
@@ -3127,7 +3128,7 @@ msgstr "Aktive Instanzen"
 #: dashboards/admin/overview/templates/overview/usage.csv:3
 #: dashboards/project/overview/templates/overview/usage.csv:4
 msgid "Total VCPU Usage (Hours)"
-msgstr "Gesamte VCPU-Verwendung (Stunden)"
+msgstr "Gesamte VCPU-Auslastung (Stunden)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:4
 #: dashboards/project/overview/templates/overview/usage.csv:5
@@ -3142,15 +3143,15 @@ msgstr "Gesamte Festplattengröße (GB)"
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
 msgid "Total Disk Usage (Hours)"
-msgstr "Gesamte Festplattenverwendung (Stunden)"
+msgstr "Gesamte Festplattenauslastung (Stunden)"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
-msgstr "Verwendungsübersicht"
+msgstr "Auslastungsübersicht"
 
 #: dashboards/admin/overview/templates/overview/usage.html:12
 msgid "Monitoring:"
-msgstr ""
+msgstr "Überwachung:"
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:59
 #: dashboards/admin/routers/templates/routers/index.html:3
@@ -3214,7 +3215,7 @@ msgstr "Schnittstellen"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #, python-format
 msgid "Router Overview: %(router_name)s"
-msgstr ""
+msgstr "Routerübersicht: %(router_name)s"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:50
@@ -3308,7 +3309,7 @@ msgstr "Information zum externen Gateway"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:28
 #, python-format
 msgid "Connected External Network: %(router_gw_info_network)s"
-msgstr ""
+msgstr "Verbundenes externes Netzwerk: %(router_gw_info_network)s"
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
 #: dashboards/project/routers/tables.py:98
@@ -3665,7 +3666,7 @@ msgstr "Schließen"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:8
 #, python-format
 msgid "Volume Type: %(volume_type_name)s "
-msgstr ""
+msgstr "Volumentyp: %(volume_type_name)s "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:4
 msgid "Edit Volume Type Extra Spec"
@@ -3674,7 +3675,7 @@ msgstr "Extra Spezifikation für Datenträgertyp bearbeiten"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:7
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
-msgstr ""
+msgstr "Volumentyp: %(volume_type_name)s"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
@@ -4271,14 +4272,14 @@ msgstr "Gruppe bearbeiten"
 #: dashboards/identity/groups/tables.py:65
 msgid "Delete Group"
 msgid_plural "Delete Groups"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gruppe löschen"
+msgstr[1] "Gruppen löschen"
 
 #: dashboards/identity/groups/tables.py:73
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Gruppe"
+msgstr[1] "Gelöschte Gruppen"
 
 #: dashboards/identity/groups/tables.py:118
 msgid "Group ID"
@@ -4287,14 +4288,14 @@ msgstr "Gruppen ID"
 #: dashboards/identity/groups/tables.py:141
 msgid "Remove User"
 msgid_plural "Remove Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Benutzer entfernen"
+msgstr[1] "Benutzer entfernen"
 
 #: dashboards/identity/groups/tables.py:149
 msgid "Removed User"
 msgid_plural "Removed Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Entfernter Benutzer"
+msgstr[1] "Entfernte Benutzer"
 
 #: dashboards/identity/groups/tables.py:175
 msgid "Add..."
@@ -4329,14 +4330,14 @@ msgstr "Gruppenmitglieder"
 #: dashboards/identity/groups/tables.py:212
 msgid "Add User"
 msgid_plural "Add Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Benutzer hinzufügen"
+msgstr[1] "Benutzer hinzufügen"
 
 #: dashboards/identity/groups/tables.py:220
 msgid "Added User"
 msgid_plural "Added Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hinzugefügter Benutzer"
+msgstr[1] "Hinzugefügt Benutzer"
 
 #: dashboards/identity/groups/tables.py:254
 msgid "Non-Members"
@@ -4411,7 +4412,7 @@ msgstr ""
 
 #: dashboards/identity/projects/tables.py:85
 msgid "View Usage"
-msgstr "Verwendung anzeigen"
+msgstr "Auslastung anzeigen"
 
 #: dashboards/identity/projects/tables.py:96
 #: dashboards/identity/projects/workflows.py:374
@@ -4431,14 +4432,14 @@ msgstr "Kontingente bearbeiten"
 #: dashboards/identity/projects/tables.py:137
 msgid "Delete Project"
 msgid_plural "Delete Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Projekt löschen"
+msgstr[1] "Projekte löschen"
 
 #: dashboards/identity/projects/tables.py:145
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Projekt"
+msgstr[1] "Gelöschte Projekte"
 
 #: dashboards/identity/projects/tables.py:205
 msgid "This name is already taken."
@@ -4642,14 +4643,14 @@ msgstr "Rolle erstellen"
 #: dashboards/identity/roles/tables.py:51
 msgid "Delete Role"
 msgid_plural "Delete Roles"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Rolle löschen"
+msgstr[1] "Rollen löschen"
 
 #: dashboards/identity/roles/tables.py:59
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Rolle"
+msgstr[1] "Gelöschte Rollen"
 
 #: dashboards/identity/roles/tables.py:82
 msgid "Role ID"
@@ -4752,26 +4753,26 @@ msgstr "Benutzer erstellen"
 #: dashboards/identity/users/tables.py:64
 msgid "Enable User"
 msgid_plural "Enable Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Benutzer aktivieren"
+msgstr[1] "Benutzer aktivieren"
 
 #: dashboards/identity/users/tables.py:69
 msgid "Disable User"
 msgid_plural "Disable Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Benutzer deaktivieren"
+msgstr[1] "Benutzer deaktivieren"
 
 #: dashboards/identity/users/tables.py:79
 msgid "Enabled User"
 msgid_plural "Enabled Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aktivierter Benutzer"
+msgstr[1] "Aktivierte Benutzer"
 
 #: dashboards/identity/users/tables.py:84
 msgid "Disabled User"
 msgid_plural "Disabled Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deaktivierter Benutzer"
+msgstr[1] "Deaktivierte Benutzer"
 
 #: dashboards/identity/users/tables.py:114
 msgid "You cannot disable the user you are currently logged in as."
@@ -4781,15 +4782,15 @@ msgstr "Sie können den Benutzer, mit dem Sie eingeloggt sind, nicht sperren."
 #: dashboards/project/databases/tables.py:90
 msgid "Delete User"
 msgid_plural "Delete Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Benutzer löschen"
+msgstr[1] "Benutzer löschen"
 
 #: dashboards/identity/users/tables.py:137
 #: dashboards/project/databases/tables.py:98
 msgid "Deleted User"
 msgid_plural "Deleted Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Benutzer"
+msgstr[1] "Gelöschte Benutzer"
 
 #: dashboards/identity/users/views.py:65
 msgid "Unable to retrieve user information."
@@ -5110,14 +5111,14 @@ msgstr "Schlüsselpaar kann nicht importiert werden."
 #: dashboards/project/access_and_security/keypairs/tables.py:31
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Schlüsselpaar löschen"
+msgstr[1] "Schlüsselpaare löschen"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:39
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Schlüsselpaar"
+msgstr[1] "Gelöschte Schlüsselpaare"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:8
@@ -5261,9 +5262,10 @@ msgstr "Sicherheitsgruppe"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:198
 msgid ""
-"To specify an allowed IP range, select \"CIDR\". To allow access from all "
-"members of another security group select \"Security Group\"."
-msgstr "Um einen erlaubten IP-Bereich anzugeben, wählen Sie \"CIDR\". Um Zugriff für alle Mitglieder einer anderen Sicherheitsgruppe zu erlauben, wählen Sie \"Sicherheitsgruppe\"."
+"To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
+"from all members of another security group select &quot;Security "
+"Group&quot;."
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:211
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
@@ -5363,14 +5365,14 @@ msgstr "Regel konnte nicht zur Sicherheitsgruppe hinzugefügt werden. "
 #: dashboards/project/access_and_security/security_groups/tables.py:37
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sicherheitsgruppe löschen"
+msgstr[1] "Sicherheitsgruppen löschen"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:45
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Sicherheitsgruppe"
+msgstr[1] "Gelöschte Sicherheitsgruppen"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:70
 #: dashboards/project/access_and_security/security_groups/tables.py:87
@@ -5410,14 +5412,14 @@ msgstr "Regel hinzufügen"
 #: dashboards/project/firewalls/tables.py:56
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Regel löschen"
+msgstr[1] "Regeln löschen"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:176
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Regel"
+msgstr[1] "Gelöschte Regeln"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:230
 msgid "Any"
@@ -5521,7 +5523,7 @@ msgstr "Regeln legen fest, welcher Datenverkehr zu Instanzen in einer Sicherheit
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid "Rule:"
-msgstr ""
+msgstr "Regel:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:20
 msgid ""
@@ -5531,7 +5533,7 @@ msgstr "Sie können eine Regelvorlage angeben oder angepasste Regeln verwenden. 
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid "Open Port/Port Range:"
-msgstr ""
+msgstr "Port/Portbereich öffnen:"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:21
 msgid ""
@@ -5737,14 +5739,14 @@ msgstr "Container wurde erfolgreich als privat markiert."
 #: dashboards/project/containers/tables.py:110
 msgid "Delete Container"
 msgid_plural "Delete Containers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Container löschen"
+msgstr[1] "Container löschen"
 
 #: dashboards/project/containers/tables.py:118
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Container"
+msgstr[1] "Gelöschte Container"
 
 #: dashboards/project/containers/tables.py:132
 msgid "Unable to delete container."
@@ -5784,14 +5786,14 @@ msgstr "Container Details"
 #: dashboards/project/containers/tables.py:333
 msgid "Delete Object"
 msgid_plural "Delete Objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Objekt löschen"
+msgstr[1] "Objekte löschen"
 
 #: dashboards/project/containers/tables.py:341
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Objekt"
+msgstr[1] "Gelöschte Objekte"
 
 #: dashboards/project/containers/tables.py:368
 msgid "Copy"
@@ -5854,7 +5856,7 @@ msgstr "Zugriff:"
 #: dashboards/project/containers/templates/containers/_copy.html:8
 #, python-format
 msgid "Copy Object: %(object_name)s"
-msgstr ""
+msgstr "Objekt: %(object_name)s kopieren"
 
 #: dashboards/project/containers/templates/containers/_copy.html:18
 msgid ""
@@ -5893,7 +5895,7 @@ msgstr "Pseudo-Ordner in Container erzeugen"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
 #: dashboards/project/containers/templates/containers/_upload.html:23
 msgid "Pseudo-folder:"
-msgstr ""
+msgstr "Pseudo-Ordner:"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
 #: dashboards/project/containers/templates/containers/_upload.html:23
@@ -5930,7 +5932,7 @@ msgstr "Bearbeite Objekt"
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
 msgid "Object:"
-msgstr ""
+msgstr "Objekt:"
 
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
@@ -5944,7 +5946,7 @@ msgstr "Ein Objekt ist die grundlegende Speicherentität, repräsentiert durch e
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "File:"
-msgstr ""
+msgstr "Datei:"
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "A new uploaded file will replace the content of the current object"
@@ -6017,15 +6019,15 @@ msgstr "Vorlage kopieren"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:56
 msgid "Delete Template"
 msgid_plural "Delete Templates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Vorlage löschen"
+msgstr[1] "Vorlagen löschen"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:64
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Vorlage"
+msgstr[1] "Gelöschte Vorlagen"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:87
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
@@ -6152,7 +6154,7 @@ msgstr "Node Konfigurationen"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
-msgstr ""
+msgstr "%(conf_name)s: %(conf_value)s"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
@@ -6170,7 +6172,7 @@ msgstr "Cluster-Konfigurationen wurden nicht angegeben."
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:7
 #, python-format
 msgid "Node Group: %(node_group_name)s"
-msgstr ""
+msgstr "Knotengruppe: %(node_group_name)s"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
@@ -6418,7 +6420,7 @@ msgstr "Schlüsselpaar"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:86
 #, python-format
 msgid "%(key)s: %(val)s"
-msgstr ""
+msgstr "%(key)s: %(val)s"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
@@ -6427,7 +6429,7 @@ msgstr "Cluster Instanzen"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
 #, python-format
 msgid "Name: %(node_group_name)s"
-msgstr ""
+msgstr "Name: %(node_group_name)s"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
 msgid "Number of Nodes"
@@ -6694,14 +6696,14 @@ msgstr "Datenquelle erstellen"
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Delete Data source"
 msgid_plural "Delete Data sources"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Datenquelle löschen"
+msgstr[1] "Datenquellen löschen"
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
 msgid "Deleted Data source"
 msgid_plural "Deleted Data sources"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Datenquelle"
+msgstr[1] "Gelöschte Datenquellen"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
@@ -7041,7 +7043,7 @@ msgstr "Aufgaben Konfiguration"
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
 #, python-format
 msgid "%(group)s:"
-msgstr ""
+msgstr "%(group)s:"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
@@ -7065,14 +7067,14 @@ msgstr "Aufgabe erstellen"
 #: dashboards/project/data_processing/jobs/tables.py:40
 msgid "Delete Job"
 msgid_plural "Delete Jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aufgabe löschen"
+msgstr[1] "Aufgaben löschen"
 
 #: dashboards/project/data_processing/jobs/tables.py:48
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Aufgabe"
+msgstr[1] "Gelöschte Aufgaben"
 
 #: dashboards/project/data_processing/jobs/tables.py:78
 msgid "Launch On Existing Cluster"
@@ -7566,14 +7568,14 @@ msgstr "Sicherungskopie herunterladen"
 #: dashboards/project/database_backups/tables.py:81
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Datensicherung löschen"
+msgstr[1] "Datensicherungen löschen"
 
 #: dashboards/project/database_backups/tables.py:89
 msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Datensicherung"
+msgstr[1] "Gelöschte Datensicherungen"
 
 #: dashboards/project/database_backups/tables.py:129
 #: dashboards/project/database_backups/tables.py:135
@@ -7786,14 +7788,14 @@ msgstr[1] ""
 #: dashboards/project/databases/tables.py:62
 msgid "Restart Instance"
 msgid_plural "Restart Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz neu starten"
+msgstr[1] "Instanzen neu starten"
 
 #: dashboards/project/databases/tables.py:70
 msgid "Restarted Instance"
 msgid_plural "Restarted Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Neu gestartete Instanz"
+msgstr[1] "Neu gestartete Instanzen"
 
 #: dashboards/project/databases/tables.py:108
 msgid "Error deleting database user."
@@ -7802,14 +7804,14 @@ msgstr "Fehler beim Löschen des Datenbankbenutzers."
 #: dashboards/project/databases/tables.py:116
 msgid "Delete Database"
 msgid_plural "Delete Databases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Datenbank löschen"
+msgstr[1] "Datenbanken löschen"
 
 #: dashboards/project/databases/tables.py:124
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Datenbank"
+msgstr[1] "Gelöschte Datenbanken"
 
 #: dashboards/project/databases/tables.py:134
 msgid "Error deleting database on instance."
@@ -8388,8 +8390,8 @@ msgstr[1] ""
 #: dashboards/project/firewalls/tables.py:101
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Firewall löschen"
+msgstr[1] "Firewalls löschen"
 
 #: dashboards/project/firewalls/tables.py:109
 msgid "Scheduled deletion of Firewall"
@@ -8839,14 +8841,14 @@ msgstr "Abbild wurde erfolgreich aktualisiert."
 #: dashboards/project/images/images/tables.py:63
 msgid "Delete Image"
 msgid_plural "Delete Images"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abbild löschen"
+msgstr[1] "Abbilder löschen"
 
 #: dashboards/project/images/images/tables.py:71
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Abbild"
+msgstr[1] "Gelöschte Abbilder"
 
 #: dashboards/project/images/images/tables.py:119
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -9092,28 +9094,28 @@ msgstr[1] ""
 #: dashboards/project/instances/tables.py:175
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz pausieren"
+msgstr[1] "Instanzen pausieren"
 
 #: dashboards/project/instances/tables.py:180
 #: dashboards/project/instances/tables.py:248
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz fortsetzen"
+msgstr[1] "Instanzen fortsetzen"
 
 #: dashboards/project/instances/tables.py:190
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pausierte Instanz"
+msgstr[1] "Pausierte Instanzen"
 
 #: dashboards/project/instances/tables.py:195
 #: dashboards/project/instances/tables.py:263
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fortgesetzte Instanz"
+msgstr[1] "Fortgesetzte Instanzen"
 
 #: dashboards/project/instances/tables.py:243
 msgid "Suspend Instance"
@@ -9211,14 +9213,14 @@ msgstr "Fehler beim Starten der Instanz \"%s\""
 #: dashboards/project/instances/tables.py:660
 msgid "Start Instance"
 msgid_plural "Start Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz starten"
+msgstr[1] "Instanzen starten"
 
 #: dashboards/project/instances/tables.py:668
 msgid "Started Instance"
 msgid_plural "Started Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gestartete Instanz"
+msgstr[1] "Gestartete Instanzen"
 
 #: dashboards/project/instances/tables.py:689
 msgctxt "Action to perform (the instance is currently running)"
@@ -9237,26 +9239,26 @@ msgstr[1] ""
 #: dashboards/project/instances/tables.py:719
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz sperren"
+msgstr[1] "Instanzen sperren"
 
 #: dashboards/project/instances/tables.py:727
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gesperrte Instanz"
+msgstr[1] "Gesperrte Instanzen"
 
 #: dashboards/project/instances/tables.py:750
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz entsperren"
+msgstr[1] "Instanzen entsperren"
 
 #: dashboards/project/instances/tables.py:758
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Entsperrte Instanz"
+msgstr[1] "Entsperrte Instanzen"
 
 #: dashboards/project/instances/tables.py:787
 #, python-format
@@ -10106,11 +10108,11 @@ msgstr "Für die Authentifizierung zu nutzendes Schlüsselpaar."
 
 #: dashboards/project/instances/workflows/create_instance.py:490
 msgid "Admin Password"
-msgstr ""
+msgstr "Administratorpasswort"
 
 #: dashboards/project/instances/workflows/create_instance.py:496
 msgid "Confirm Admin Password"
-msgstr ""
+msgstr "Administratorpasswort bestätigen"
 
 #: dashboards/project/instances/workflows/create_instance.py:502
 msgid "Launch instance in these security groups."
@@ -10499,14 +10501,14 @@ msgstr[1] ""
 #: dashboards/project/loadbalancers/tables.py:155
 msgid "Delete Member"
 msgid_plural "Delete Members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mitglied löschen"
+msgstr[1] "Mitglieder löschen"
 
 #: dashboards/project/loadbalancers/tables.py:163
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Geplante Löschung eines Mitglieds"
+msgstr[1] "Geplante Löschung von Mitgliedern"
 
 #: dashboards/project/loadbalancers/tables.py:171
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:8
@@ -11097,7 +11099,7 @@ msgstr "Port ID"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:42
 #, python-format
 msgid "Type: %(persistence_type)s"
-msgstr ""
+msgstr "Typ: %(persistence_type)s"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:47
 #, python-format
@@ -11500,7 +11502,7 @@ msgstr "Provider-Netzwerk"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
 msgid "Network Type:"
-msgstr ""
+msgstr "Netzwerktyp:"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:24
 msgid "Physical Network:"
@@ -11663,14 +11665,14 @@ msgstr "Aktualisierung des Routers %s fehlgeschlagen"
 #: dashboards/project/routers/tables.py:39
 msgid "Delete Router"
 msgid_plural "Delete Routers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Router löschen"
+msgstr[1] "Router löschen"
 
 #: dashboards/project/routers/tables.py:47
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschter Router"
+msgstr[1] "Gelöschte Router"
 
 #: dashboards/project/routers/tables.py:61
 #: dashboards/project/routers/tables.py:67
@@ -11882,14 +11884,14 @@ msgstr "Schnittstelle hinzufügen"
 #: dashboards/project/routers/ports/tables.py:57
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Schnittstelle löschen"
+msgstr[1] "Schnittstellen löschen"
 
 #: dashboards/project/routers/ports/tables.py:65
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschte Schnittstelle"
+msgstr[1] "Gelöschte Schnittstellen"
 
 #: dashboards/project/routers/ports/tables.py:84
 #, python-format
@@ -11902,7 +11904,7 @@ msgstr "Kann den Gateway nicht setzen."
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:27
 msgid "Connected External Network:"
-msgstr ""
+msgstr "Verbundenes externes Netzwerk"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
@@ -11935,12 +11937,12 @@ msgstr "Quelle"
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #, python-format
 msgid "Subnet: %(dest_subnetname)s"
-msgstr ""
+msgstr "Subnetz: %(dest_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:45
 #, python-format
 msgid "Subnet: %(row_source_subnetname)s"
-msgstr ""
+msgstr "Subnetz: %(row_source_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:93
 msgid "Rule Conflict"
@@ -11959,15 +11961,15 @@ msgstr "Regel für Konflikte"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:99
 msgid "Source:"
-msgstr ""
+msgstr "Quelle:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Destination:"
-msgstr ""
+msgstr "Ziel:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:101
 msgid "Action:"
-msgstr ""
+msgstr "Aktion:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
@@ -12283,7 +12285,7 @@ msgstr "Stack Übersicht"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:28
 #, python-format
 msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr ""
+msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:34
 msgid "Outputs"
@@ -12320,7 +12322,7 @@ msgstr "Resource ID"
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:42
 #, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr ""
+msgstr "%(resource_status)s: %(resource_status_reason)s"
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:48
 msgid "Resource Metadata"
@@ -12472,7 +12474,7 @@ msgstr "Datenträger-Sicherung erzeugen"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid "Volume Backup:"
-msgstr ""
+msgstr "Volumensicherung:"
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
 msgid ""
@@ -12490,7 +12492,7 @@ msgstr "Wird kein Containername angegeben, so wird ein Standardcontainer mit Nam
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:5
 #, python-format
 msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr ""
+msgstr "Volumensicherungsübersicht: %(backup_display_name)s"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
@@ -12499,7 +12501,7 @@ msgstr "Datenträger Sicherungskopie wiederherstellen"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Restore Backup:"
-msgstr ""
+msgstr "Sicherung wiederherstellen:"
 
 #: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
 msgid "Select a volume to restore to."
@@ -12588,7 +12590,7 @@ msgid ""
 "\n"
 "        <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
 "        "
-msgstr ""
+msgstr "\n        <a href=\"%(instance_url)s\">%(instance_name)s</a> auf %(device)s\n        "
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
@@ -12978,14 +12980,14 @@ msgstr "Starten als Instanz"
 #: dashboards/project/volumes/volumes/tables.py:67
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Volumen löschen"
+msgstr[1] "Volumina löschen"
 
 #: dashboards/project/volumes/volumes/tables.py:75
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Geplante Löschung eines Volumens"
+msgstr[1] "Geplante Löschung von Volumina"
 
 #: dashboards/project/volumes/volumes/tables.py:88
 #, python-format
@@ -12994,7 +12996,7 @@ msgstr "Datenträger \"%s\" kann nicht gelöscht werden. Eine oder mehrere Schat
 
 #: dashboards/project/volumes/volumes/tables.py:149
 msgid "Manage Attachments"
-msgstr ""
+msgstr "Anhänge verwalten"
 
 #: dashboards/project/volumes/volumes/tables.py:183
 msgid "Unable to retrieve tenant limits."
@@ -13367,8 +13369,8 @@ msgstr "Füge IPSec Site Verbindung hinzu"
 #: dashboards/project/vpn/tables.py:70
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "VPN-Dienst löschen"
+msgstr[1] "VPN-Dienste löschen"
 
 #: dashboards/project/vpn/tables.py:78
 msgid "Scheduled deletion of VPN Service"
@@ -13880,14 +13882,14 @@ msgstr "Netzwerkprofil erstellen."
 #: dashboards/router/nexus1000v/tables.py:39
 msgid "Delete Network Profile"
 msgid_plural "Delete Network Profiles"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Netzwerkprofil löschen"
+msgstr[1] "Netzwerkprofile löschen"
 
 #: dashboards/router/nexus1000v/tables.py:47
 msgid "Deleted Network Profile"
 msgid_plural "Deleted Network Profiles"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gelöschtes Netzwerkprofil"
+msgstr[1] "Gelöschte Netzwerkprofile"
 
 #: dashboards/router/nexus1000v/tables.py:56
 #, python-format
@@ -14107,7 +14109,7 @@ msgstr "Hilfe"
 
 #: templates/_header.html:20
 msgid "More Projects"
-msgstr ""
+msgstr "Weitere Projekte"
 
 #: templates/_header.html:52
 msgid "Sign Out"
@@ -14174,7 +14176,7 @@ msgstr "Festplatte GB Stunden"
 
 #: usage/tables.py:48
 msgid "Total disk usage (GB * Hours Used) for the project"
-msgstr ""
+msgstr "Gesamte Festplattenauslastung (GB * ausgelastete Stunden) für das Projekt"
 
 #: usage/tables.py:58 usage/tables.py:88
 msgid "Usage"
