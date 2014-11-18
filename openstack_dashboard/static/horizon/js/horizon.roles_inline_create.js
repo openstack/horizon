@@ -302,7 +302,7 @@ horizon.addInitFunction(function() {
       }
     });
   });*/
-  console.log('loaded!');
+  console.log('loaded roles_inline_create.js!');
   /*// Focus the first usable form field in the modal for accessibility.
   horizon.inline_create.addModalInitFunction(function (modal) {
     $(modal).find(":text, select, textarea").filter(":visible:first").focus();

@@ -10,10 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import json
+
 from django import forms
 from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic.base import TemplateView
 
 from horizon import exceptions
 from horizon import forms
@@ -53,15 +55,6 @@ class RolesView(tables.MultiTableView):
     table_classes = (application_tables.RolesTable,
                      application_tables.PermissionsTable)
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(RolesView, self).get_context_data(**kwargs)
-    #     try:
-    #         context['roles'] = fiware_api.keystone.role_list(self.request)
-    #         context['selected_role'] = context['roles'][0] 
-    #     except Exception:
-    #         exceptions.handle(self.request,
-    #                           _('Unable to retrieve roles list.'))
-    #     return context
     def get_roles_data(self):
         roles = []
         try:

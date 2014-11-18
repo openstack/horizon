@@ -66,42 +66,6 @@ class PurchasedApplicationsTable(tables.DataTable):
         table_actions = (CreateApplication, )
         multi_select = False
 
-# class CreateRoleLink(tables.LinkAction):
-#     name = "new_role"
-#     verbose_name = _("New role")
-#     url = "horizon:idm:myApplications:roles_create"
-#     classes = ("ajax-modal",)
-#     icon = "plus"
-#     #policy_rules = (("identity", "identity:create_role"),)
-
-#     def allowed(self, request, role):
-#         # TODO(garcianavalon) implement roles/policies for this
-#         return True
-
-# class CreateRoleAction(idm_tables.InlineCreateAction):
-#     name = "new_role"
-#     verbose_name = _("New role")
-#     url = "horizon:idm:myApplications:roles_create"
-#     icon = "plus"
-#     classes = ("ajax-inline-create",)
-
-#     def create(self, request, obj_data):
-#         import pdb; pdb.set_trace()
-#         name = obj_data['name']
-#         fiware_api.keystone.role_create(request, name)
-
-# class EditRoleLink(tables.LinkAction):
-#     name = "edit"
-#     verbose_name = _("Edit")
-#     url = "horizon:identity:roles:update"
-#     classes = ("ajax-modal",)
-#     icon = "pencil"
-#     policy_rules = (("identity", "identity:update_role"),)
-
-#     def allowed(self, request, role):
-#         return api.keystone.keystone_can_edit_role()
-
-
 class DeleteRolesAction(tables.DeleteAction):
 
     icon = "cross"
@@ -174,7 +138,6 @@ class RolesTable(tables.DataTable):
                         form_field=forms.CharField(max_length=64),
                         update_action=UpdateRoleCell)
     id = tables.Column('id', verbose_name=_('Role ID'))
-    add_radiobuttons = True
     
     class Meta:
         name = "roles"
@@ -183,13 +146,83 @@ class RolesTable(tables.DataTable):
         row_actions = (DeleteRolesAction,)
         table_actions = ()
 
+
+class DeletePermissionsAction(tables.DeleteAction):
+
+    icon = "cross"
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Permission",
+            u"Delete Permissions",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Permission",
+            u"Deleted Permissions",
+            count
+        )
+    #policy_rules = (("identity", "identity:delete_role"),)
+
+    def allowed(self, request, permission):
+        #return api.keystone.keystone_can_edit_permission()
+        # TODO(garcianavalon) implement permissions/policies for this
+        return True
+
+    def delete(self, request, obj_id):
+        fiware_api.keystone.permission_delete(request, obj_id)
+
+class UpdatePermissionRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, permission_id):
+        permission_info = fiware_api.keystone.permission_get(request, permission_id)
+        return permission_info
+
+class UpdatePermissionCell(tables.UpdateAction):
+
+    def allowed(self, request, permission, cell):
+        # return api.keystone.keystone_can_edit_permission() and \
+        #     policy.check((("identity", "identity:update_permission"),),
+        #                  request)
+        # TODO(garcianavalon) implement permissions/policies for this
+        return True
+
+    def update_cell(self, request, datum, permission_id,
+                    cell_name, new_cell_value):
+        # inline update permission info
+        try:
+            permission_obj = datum
+            # updating changed value by new value
+            setattr(permission_obj, cell_name, new_cell_value)
+            fiware_api.keystone.permission_update(
+                request,
+                permission_id,
+                name=permission_obj.name)
+            # TODO(garcianavalon) application relation, permissions
+        except Conflict:
+            # Returning a nice error message about name conflict. The message
+            # from exception is not that clear for the users.
+            message = _("A permission with this name already exists")
+            raise ValidationError(message)
+        except Exception:
+            exceptions.handle(request, _('Error updating permission'))
+            return False
+        return True
+
 class PermissionsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Permission Name'))
+    name = tables.Column('name', 
+                        form_field=forms.CharField(max_length=64),
+                        update_action=UpdatePermissionCell)
     id = tables.Column('id', verbose_name=_('Permission ID'))
 
     class Meta:
         name = "permissions"
         verbose_name = _("Permissions")
-        row_actions = ()
+        row_class = UpdatePermissionRow
+        row_actions = (DeletePermissionsAction,)
         table_actions = ()
-

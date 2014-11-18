@@ -9,7 +9,7 @@
 {% block main %}
   
 <div class="site-client-roles">
-  <section id="relation_list">
+  <section id="relation_list" class="relation_list">
     <h4>{{ roles_table.name }}</h4>
     {{ roles_table.render}}
     <div>
@@ -24,16 +24,9 @@
     </div>
   </section>
 
-  <section id="permissions_list">
-      <!-- sólo tiene que aparecer cuando no se tenga seleccionado un rol -->
-      <div class="alert alert-info">
-        Manage the permissions of your contacts and create new roles
-      </div>
-      <div>
-        <h4>Permissions in role</h4>
-        <ul class="list-group" id="permissions">
-        </ul>
-      </div>
+  <section id="permissions_list" class="permissions_list">
+      <h4>{{ permissions_table.name }}</h4>
+      {{ permissions_table.render}}
       <div>
         <h4  id="headingOne" role="tab" class="panel-title">
           <a data-toggle="collapse" href="#collapse_permissions" aria-expanded="true" aria-controls="collapse_permissions">
