@@ -12,11 +12,13 @@
 
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils import filters as utils_filters
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 
 class EvacuateHost(tables.LinkAction):
@@ -35,6 +37,50 @@ class EvacuateHost(tables.LinkAction):
             return False
 
         return self.datum.state == "down"
+
+
+class DisableService(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "disable"
+    verbose_name = _("Disable Service")
+    url = "horizon:admin:hypervisors:compute:disable_service"
+    classes = ("ajax-modal", "btn-confirm")
+    policy_rules = (("compute", "compute_extension:services"),)
+
+    def allowed(self, request, service):
+        if not api.nova.extension_supported('AdminActions', request):
+            return False
+
+        return service.status == "enabled"
+
+
+class EnableService(policy.PolicyTargetMixin, tables.BatchAction):
+    name = "enable"
+    policy_rules = (("compute", "compute_extension:services"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Enable Service",
+            u"Enable Services",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Enabled Service",
+            u"Enabled Services",
+            count
+        )
+
+    def allowed(self, request, service):
+        if not api.nova.extension_supported('AdminActions', request):
+            return False
+
+        return service.status == "disabled"
+
+    def action(self, request, obj_id):
+        api.nova.service_enable(request, obj_id, 'nova-compute')
 
 
 class ComputeHostFilterAction(tables.FilterAction):
@@ -62,4 +108,4 @@ class ComputeHostTable(tables.DataTable):
         verbose_name = _("Compute Host")
         table_actions = (ComputeHostFilterAction,)
         multi_select = False
-        row_actions = (EvacuateHost,)
+        row_actions = (EvacuateHost, DisableService, EnableService)

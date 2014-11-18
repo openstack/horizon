@@ -95,3 +95,68 @@ class EvacuateHostViewTest(test.BaseAdminViewTests):
         dest_url = reverse('horizon:admin:hypervisors:index')
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, dest_url)
+
+
+class DisableServiceViewTest(test.BaseAdminViewTests):
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'hypervisor_stats')})
+    def test_index(self):
+        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:hypervisors:compute:disable_service',
+                      args=[hypervisor])
+        res = self.client.get(url)
+        template = 'admin/hypervisors/compute/disable_service.html'
+        self.assertTemplateUsed(res, template)
+
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'hypervisor_stats',
+                                   'service_disable')})
+    def test_successful_post(self):
+        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        services = [service for service in self.services.list()
+                    if service.binary == 'nova-compute']
+
+        api.nova.service_disable(IsA(http.HttpRequest),
+                                 services[0].host,
+                                 'nova-compute',
+                                 reason='test disable').AndReturn(True)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:hypervisors:compute:disable_service',
+                      args=[hypervisor])
+
+        form_data = {'host': services[0].host,
+                     'reason': 'test disable'}
+
+        res = self.client.post(url, form_data)
+        dest_url = reverse('horizon:admin:hypervisors:index')
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(success=1)
+        self.assertRedirectsNoFollow(res, dest_url)
+
+    @test.create_stubs({api.nova: ('hypervisor_list',
+                                   'hypervisor_stats',
+                                   'service_disable')})
+    def test_failing_nova_call_post(self):
+        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        services = [service for service in self.services.list()
+                    if service.binary == 'nova-compute']
+
+        api.nova.service_disable(
+            IsA(http.HttpRequest), services[0].host, 'nova-compute',
+            reason='test disable').AndRaise(self.exceptions.nova)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:hypervisors:compute:disable_service',
+                      args=[hypervisor])
+
+        form_data = {'host': services[0].host,
+                     'reason': 'test disable'}
+
+        res = self.client.post(url, form_data)
+        dest_url = reverse('horizon:admin:hypervisors:index')
+        self.assertMessageCount(error=1)
+        self.assertRedirectsNoFollow(res, dest_url)

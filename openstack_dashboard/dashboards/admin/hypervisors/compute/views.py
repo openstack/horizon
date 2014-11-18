@@ -51,3 +51,20 @@ class EvacuateHostView(forms.ModalFormView):
         initial.update({'current_host': current_host,
                         'hosts': hosts})
         return initial
+
+
+class DisableServiceView(forms.ModalFormView):
+    form_class = project_forms.DisableServiceForm
+    template_name = 'admin/hypervisors/compute/disable_service.html'
+    context_object_name = 'compute_host'
+    success_url = reverse_lazy("horizon:admin:hypervisors:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(DisableServiceView, self).get_context_data(**kwargs)
+        context["compute_host"] = self.kwargs['compute_host']
+        return context
+
+    def get_initial(self):
+        initial = super(DisableServiceView, self).get_initial()
+        initial.update({'host': self.kwargs['compute_host']})
+        return initial

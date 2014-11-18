@@ -792,6 +792,18 @@ def service_list(request, binary=None):
     return novaclient(request).services.list(binary=binary)
 
 
+def service_enable(request, host, binary):
+    return novaclient(request).services.enable(host, binary)
+
+
+def service_disable(request, host, binary, reason=None):
+    if reason:
+        return novaclient(request).services.disable_log_reason(host,
+                                                               binary, reason)
+    else:
+        return novaclient(request).services.disable(host, binary)
+
+
 def aggregate_details_list(request):
     result = []
     c = novaclient(request)
