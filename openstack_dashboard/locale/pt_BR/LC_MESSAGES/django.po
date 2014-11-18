@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 10:33-0600\n"
-"PO-Revision-Date: 2014-11-13 09:38+0000\n"
-"Last-Translator: Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>\n"
+"POT-Creation-Date: 2014-11-17 21:35-0600\n"
+"PO-Revision-Date: 2014-11-17 05:48+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1008,7 +1008,7 @@ msgstr "vCPUs"
 #: dashboards/admin/defaults/workflows.py:42
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
-#: dashboards/admin/instances/tables.py:162
+#: dashboards/admin/instances/tables.py:163
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:149
@@ -2099,7 +2099,7 @@ msgstr "Tarefa"
 msgid "Power State"
 msgstr "Estado de energia"
 
-#: dashboards/admin/instances/tables.py:155
+#: dashboards/admin/instances/tables.py:156
 #: dashboards/project/instances/tables.py:978 usage/tables.py:78
 msgid "Time since created"
 msgstr "Tempo desde a criação"
@@ -5260,9 +5260,10 @@ msgstr "Grupo de Segurança"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:198
 msgid ""
-"To specify an allowed IP range, select \"CIDR\". To allow access from all "
-"members of another security group select \"Security Group\"."
-msgstr "Para especificar uma faixa de IPs, selecione \"CIDR\". Para permitir acesso de todos membros de outro grupo de segurança selecione \"Grupo de segurança\"."
+"To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
+"from all members of another security group select &quot;Security "
+"Group&quot;."
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:211
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"

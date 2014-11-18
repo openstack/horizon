@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 10:33-0600\n"
-"PO-Revision-Date: 2014-11-13 03:49+0000\n"
+"POT-Creation-Date: 2014-11-17 21:35-0600\n"
+"PO-Revision-Date: 2014-11-17 05:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -1008,7 +1008,7 @@ msgstr "VCPUs"
 #: dashboards/admin/defaults/workflows.py:42
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
-#: dashboards/admin/instances/tables.py:162
+#: dashboards/admin/instances/tables.py:163
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/data_processing/clusters/tabs.py:149
@@ -2099,7 +2099,7 @@ msgstr "कार्य"
 msgid "Power State"
 msgstr "पॉवर की स्थिति"
 
-#: dashboards/admin/instances/tables.py:155
+#: dashboards/admin/instances/tables.py:156
 #: dashboards/project/instances/tables.py:978 usage/tables.py:78
 msgid "Time since created"
 msgstr "निर्माण के समय से समय"
@@ -5260,9 +5260,10 @@ msgstr " सुरक्षा समूह "
 
 #: dashboards/project/access_and_security/security_groups/forms.py:198
 msgid ""
-"To specify an allowed IP range, select \"CIDR\". To allow access from all "
-"members of another security group select \"Security Group\"."
-msgstr "अनुमति दी आईपी श्रेणी निर्दिष्ट करने के लिए, \"सीआईडीआर\" का चयन करें. अन्य सुरक्षा समूह के सभी सदस्यों से पहुँच की अनुमति देने के लिए, \"सुरक्षा समूह\" का चयन करें"
+"To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
+"from all members of another security group select &quot;Security "
+"Group&quot;."
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:211
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
