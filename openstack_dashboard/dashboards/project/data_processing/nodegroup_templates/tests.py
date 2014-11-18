@@ -56,3 +56,19 @@ class DataProcessingNodeGroupTests(test.TestCase):
                                 'details.html')
         self.assertContains(res, 'sample-template')
         self.assertContains(res, 'Template Overview')
+
+    @test.create_stubs({api.sahara: ('nodegroup_template_list',
+                                     'nodegroup_template_delete')})
+    def test_delete(self):
+        ngt = self.nodegroup_templates.first()
+        api.sahara.nodegroup_template_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.nodegroup_templates.list())
+        api.sahara.nodegroup_template_delete(IsA(http.HttpRequest), ngt.id)
+        self.mox.ReplayAll()
+
+        form_data = {'action': 'nodegroup_templates__delete__%s' % ngt.id}
+        res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertMessageCount(success=1)
