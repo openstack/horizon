@@ -38,16 +38,16 @@ class DeleteJobBinary(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Job binary",
-            u"Delete Job binaries",
+            u"Delete Job Binary",
+            u"Delete Job Binaries",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Job binary",
-            u"Deleted Job binaries",
+            u"Deleted Job Binary",
+            u"Deleted Job Binaries",
             count
         )
 

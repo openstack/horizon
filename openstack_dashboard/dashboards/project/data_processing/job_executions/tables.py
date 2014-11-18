@@ -31,16 +31,16 @@ class DeleteJobExecution(tables.BatchAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Job execution",
-            u"Delete Job executions",
+            u"Delete Job Execution",
+            u"Delete Job Executions",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Job execution",
-            u"Deleted Job executions",
+            u"Deleted Job Execution",
+            u"Deleted Job Executions",
             count
         )
 
