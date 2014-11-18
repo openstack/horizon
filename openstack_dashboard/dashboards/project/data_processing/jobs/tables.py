@@ -55,22 +55,6 @@ class DeleteJob(tables.DeleteAction):
 
 
 class LaunchJobExistingCluster(tables.LinkAction):
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Launch Job",
-            u"Launch Jobs",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Launched Job",
-            u"Launched Jobs",
-            count
-        )
-
     name = "launch-job-existing"
     verbose_name = _("Launch On Existing Cluster")
     url = "horizon:project:data_processing.jobs:launch-job"
@@ -84,22 +68,6 @@ class LaunchJobExistingCluster(tables.LinkAction):
 
 
 class LaunchJobNewCluster(tables.LinkAction):
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Launch Job",
-            u"Launch Jobs",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Launched Job",
-            u"Launched Jobs",
-            count
-        )
-
     name = "launch-job-new"
     verbose_name = _("Launch On New Cluster")
     url = "horizon:project:data_processing.jobs:launch-job-new-cluster"
@@ -113,22 +81,6 @@ class LaunchJobNewCluster(tables.LinkAction):
 
 
 class ChoosePlugin(tables.LinkAction):
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Launch Job",
-            u"Launch Jobs",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Launched Job",
-            u"Launched Jobs",
-            count
-        )
-
     name = "launch-job-new"
     verbose_name = _("Launch On New Cluster")
     url = "horizon:project:data_processing.jobs:choose-plugin"

@@ -12,7 +12,6 @@
 
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 from horizon.utils import filters as utils_filters
@@ -21,22 +20,6 @@ from openstack_dashboard import api
 
 
 class EvacuateHost(tables.LinkAction):
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Evacuate Host",
-            u"Evacuate Hosts",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Evacuated Host",
-            u"Evacuated Hosts",
-            count
-        )
-
     name = "evacuate"
     verbose_name = _("Evacuate Host")
     url = "horizon:admin:hypervisors:compute:evacuate_host"
