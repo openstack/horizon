@@ -53,9 +53,14 @@ class DeleteRouter(policy.PolicyTargetMixin, tables.DeleteAction):
     policy_rules = (("network", "delete_router"),)
 
     def delete(self, request, obj_id):
-        obj = self.table.get_object_by_id(obj_id)
-        name = self.table.get_object_display(obj)
         try:
+            # detach all interfaces before attempting to delete the router
+            search_opts = {'device_owner': 'network:router_interface',
+                           'device_id': obj_id}
+            ports = api.neutron.port_list(request, **search_opts)
+            for port in ports:
+                api.neutron.router_remove_interface(request, obj_id,
+                                                    port_id=port.id)
             api.neutron.router_delete(request, obj_id)
         except q_ext.NeutronClientException as e:
             msg = _('Unable to delete router "%s"') % e
@@ -64,6 +69,8 @@ class DeleteRouter(policy.PolicyTargetMixin, tables.DeleteAction):
             redirect = reverse(self.redirect_url)
             raise exceptions.Http302(redirect, message=msg)
         except Exception:
+            obj = self.table.get_object_by_id(obj_id)
+            name = self.table.get_object_display(obj)
             msg = _('Unable to delete router "%s"') % name
             LOG.info(msg)
             exceptions.handle(request, msg)

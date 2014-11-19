@@ -21,19 +21,6 @@ from openstack_dashboard.dashboards.project.routers import tables as r_tables
 
 class DeleteRouter(r_tables.DeleteRouter):
     redirect_url = "horizon:admin:routers:index"
-    policy_rules = (("network", "delete_router"),)
-
-    def delete(self, request, obj_id):
-        search_opts = {'device_owner': 'network:router_interface',
-                       'device_id': obj_id}
-        ports = api.neutron.port_list(request, **search_opts)
-        for port in ports:
-            api.neutron.router_remove_interface(request, obj_id,
-                                                port_id=port.id)
-        super(DeleteRouter, self).delete(request, obj_id)
-
-    def allowed(self, request, router=None):
-        return True
 
 
 class EditRouter(r_tables.EditRouter):

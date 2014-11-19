@@ -16,6 +16,7 @@ import copy
 from django.core.urlresolvers import reverse
 from django import http
 
+from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa
 
 from openstack_dashboard import api
@@ -145,6 +146,89 @@ class RouterTests(test.TestCase):
                                       ':routers:detail' % self.DASHBOARD,
                                       args=[router.id]))
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'port_list', 'router_delete',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_router_delete(self):
+        router = self.routers.first()
+        quota_data = self.quota_usages.first()
+        quota_data['routers']['available'] = 5
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn(self.routers.list())
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+        self._mock_external_network_list()
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn(self.routers.list())
+        self._mock_external_network_list()
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn(self.routers.list())
+        self._mock_external_network_list()
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=router.id, device_owner=IgnoreArg())\
+            .AndReturn([])
+        api.neutron.router_delete(IsA(http.HttpRequest), router.id)
+        self.mox.ReplayAll()
+
+        res = self.client.get(self.INDEX_URL)
+
+        formData = {'action': 'Routers__delete__' + router.id}
+        res = self.client.post(self.INDEX_URL, formData, follow=True)
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(response=res, success=1)
+        self.assertIn('Deleted Router: ' + router.name, res.content)
+
+    @test.create_stubs({api.neutron: ('router_list', 'network_list',
+                                      'port_list', 'router_remove_interface',
+                                      'router_delete',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_router_with_interface_delete(self):
+        router = self.routers.first()
+        ports = self.ports.list()
+        quota_data = self.quota_usages.first()
+        quota_data['routers']['available'] = 5
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn(self.routers.list())
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+        self._mock_external_network_list()
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn(self.routers.list())
+        self._mock_external_network_list()
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn(self.routers.list())
+        self._mock_external_network_list()
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=router.id, device_owner=IgnoreArg())\
+            .AndReturn(ports)
+        for port in ports:
+            api.neutron.router_remove_interface(IsA(http.HttpRequest),
+                                                router.id, port_id=port.id)
+        api.neutron.router_delete(IsA(http.HttpRequest), router.id)
+        self.mox.ReplayAll()
+
+        res = self.client.get(self.INDEX_URL)
+
+        formData = {'action': 'Routers__delete__' + router.id}
+        res = self.client.post(self.INDEX_URL, formData, follow=True)
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(response=res, success=1)
+        self.assertIn('Deleted Router: ' + router.name, res.content)
 
 
 class RouterActionTests(test.TestCase):
