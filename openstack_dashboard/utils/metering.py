@@ -120,6 +120,8 @@ class MeterQuery(ProjectAggregatesQuery):
         filterfunc = kwargs.pop('filterfunc', None)
         super(MeterQuery, self).__init__(*args, **kwargs)
         self.filterfunc = filterfunc
+        # Resetting the tenant based filter set in base class
+        self.queries = None
 
     def query(self, meter):
         def filter_by_meter_name(resource):

@@ -20,6 +20,7 @@ from ceilometerclient.v2 import statistics
 from keystoneclient.v2_0 import tenants
 from keystoneclient.v2_0 import users
 
+from openstack_dashboard.api import ceilometer
 from openstack_dashboard.test.test_data import utils
 
 
@@ -27,6 +28,7 @@ def data(TEST):
     TEST.ceilometer_users = utils.TestDataContainer()
     TEST.ceilometer_tenants = utils.TestDataContainer()
     TEST.resources = utils.TestDataContainer()
+    TEST.api_resources = utils.TestDataContainer()
     TEST.samples = utils.TestDataContainer()
     TEST.meters = utils.TestDataContainer()
     TEST.statistics = utils.TestDataContainer()
@@ -110,15 +112,41 @@ def data(TEST):
         metadata={'tag': 'self.counter3', 'display_name': 'test-server'},
         links=[{'url': 'test_url', 'rel': 'instance'}],
     )
+    resource_dict_4 = dict(
+        resource_id='fake_resource_id3',
+        project_id='fake_project_id',
+        user_id="fake_user_id",
+        timestamp='2012-07-02T10:42:00.000000',
+        metadata={'tag': 'self.counter3', 'display_name': 'test-server'},
+        links=[{'url': 'test_url', 'rel': 'memory'}],
+    )
+
     resource_1 = resources.Resource(resources.ResourceManager(None),
                                     resource_dict_1)
     resource_2 = resources.Resource(resources.ResourceManager(None),
                                     resource_dict_2)
     resource_3 = resources.Resource(resources.ResourceManager(None),
                                     resource_dict_3)
+    resource_4 = resources.Resource(resources.ResourceManager(None),
+                                    resource_dict_4)
+
     TEST.resources.add(resource_1)
     TEST.resources.add(resource_2)
     TEST.resources.add(resource_3)
+
+    # Having a separate set of fake objects for openstack_dashboard
+    # api Resource class. This is required because of additional methods
+    # defined in openstack_dashboard.api.ceilometer.Resource
+
+    api_resource_1 = ceilometer.Resource(resource_1)
+    api_resource_2 = ceilometer.Resource(resource_2)
+    api_resource_3 = ceilometer.Resource(resource_3)
+    api_resource_4 = ceilometer.Resource(resource_4)
+
+    TEST.api_resources.add(api_resource_1)
+    TEST.api_resources.add(api_resource_2)
+    TEST.api_resources.add(api_resource_3)
+    TEST.api_resources.add(api_resource_4)
 
     # samples
     sample_dict_1 = {'resource_id': 'fake_resource_id',

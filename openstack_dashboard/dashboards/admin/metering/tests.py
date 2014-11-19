@@ -139,3 +139,38 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
 
         self._verify_series(res._container[0], 9.0, '2012-12-21T11:00:55',
                             expected_names)
+
+    @test.create_stubs({api.keystone: ('tenant_list',),
+                        api.ceilometer: ('meter_list',
+                                         'resource_list',
+                                         'statistic_list'
+                                         ), })
+    def test_stats_for_line_chart_no_group(self):
+        api.ceilometer.meter_list(IsA(http.HttpRequest))\
+            .AndReturn(self.testdata.meters.list())
+        api.ceilometer.resource_list(IsA(http.HttpRequest), query=None,
+                                     ceilometer_usage_object=None)\
+            .AndReturn(self.testdata.api_resources.list())
+        api.ceilometer.statistic_list(IsA(http.HttpRequest),
+                                      'memory', period=IsA(int),
+                                      query=IsA(list))\
+            .MultipleTimes().AndReturn(self.testdata.statistics.list())
+        api.keystone.tenant_list(IsA(http.HttpRequest),
+                                 domain=None,
+                                 paginate=False) \
+            .AndReturn([self.testdata.tenants.list(), False])
+
+        self.mox.ReplayAll()
+
+        # get all statistics of the meter
+        res = self.client.get(
+            reverse('horizon:admin:metering:samples') +
+            "?meter=memory&stats_attr=max&date_options=7")
+
+        self.assertEqual(res._headers['content-type'],
+                         ('Content-Type', 'application/json'))
+
+        expected_names = ['fake_resource_id3']
+
+        self._verify_series(res._container[0], 9.0, '2012-12-21T11:00:55',
+                            expected_names)
