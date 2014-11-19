@@ -21,7 +21,6 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard import fiware_api
-from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 class CreateApplication(tables.LinkAction):
     name = "create_application"
