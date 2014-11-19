@@ -21,8 +21,10 @@ from django import http
 from django import shortcuts
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from horizon import exceptions
+from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
@@ -31,31 +33,16 @@ from openstack_dashboard import api
 LOG = logging.getLogger(__name__)
 
 
-def download_ec2_bundle(request):
+def _get_ec2_credentials(request):
     tenant_id = request.user.tenant_id
-    tenant_name = request.user.tenant_name
+    all_keys = api.keystone.list_ec2_credentials(request,
+                                                 request.user.id)
 
-    # Gather or create our EC2 credentials
-    try:
-        credentials = api.nova.get_x509_credentials(request)
-        cacert = api.nova.get_x509_root_certificate(request)
-
-        all_keys = api.keystone.list_ec2_credentials(request,
-                                                     request.user.id)
-        keys = None
-        for key in all_keys:
-            if key.tenant_id == tenant_id:
-                keys = key
-        if keys is None:
-            keys = api.keystone.create_ec2_credentials(request,
-                                                       request.user.id,
-                                                       tenant_id)
-    except Exception:
-        exceptions.handle(request,
-                          _('Unable to fetch EC2 credentials.'),
-                          redirect=request.build_absolute_uri())
-
-    # Get our S3 endpoint if it exists
+    key = next((x for x in all_keys if x.tenant_id == tenant_id), None)
+    if not key:
+        key = api.keystone.create_ec2_credentials(request,
+                                                  request.user.id,
+                                                  tenant_id)
     try:
         s3_endpoint = api.base.url_for(request,
                                        's3',
@@ -63,7 +50,6 @@ def download_ec2_bundle(request):
     except exceptions.ServiceCatalogException:
         s3_endpoint = None
 
-    # Get our EC2 endpoint (it should exist since we just got creds for it)
     try:
         ec2_endpoint = api.base.url_for(request,
                                         'ec2',
@@ -71,11 +57,36 @@ def download_ec2_bundle(request):
     except exceptions.ServiceCatalogException:
         ec2_endpoint = None
 
-    # Build the context
-    context = {'ec2_access_key': keys.access,
-               'ec2_secret_key': keys.secret,
-               'ec2_endpoint': ec2_endpoint,
-               's3_endpoint': s3_endpoint}
+    return {'ec2_access_key': key.access,
+            'ec2_secret_key': key.secret,
+            'ec2_endpoint': ec2_endpoint,
+            's3_endpoint': s3_endpoint}
+
+
+def _get_openrc_credentials(request):
+    keystone_url = api.base.url_for(request,
+                                    'identity',
+                                    endpoint_type='publicURL')
+    credentials = dict(tenant_id=request.user.tenant_id,
+                       tenant_name=request.user.tenant_name,
+                       auth_url=keystone_url,
+                       user=request.user,
+                       region=getattr(request.user, 'services_region') or "")
+    return credentials
+
+
+def download_ec2_bundle(request):
+    tenant_name = request.user.tenant_name
+
+    # Gather or create our EC2 credentials
+    try:
+        credentials = api.nova.get_x509_credentials(request)
+        cacert = api.nova.get_x509_root_certificate(request)
+        context = _get_ec2_credentials(request)
+    except Exception:
+        exceptions.handle(request,
+                          _('Unable to fetch EC2 credentials.'),
+                          redirect=request.build_absolute_uri())
 
     # Create our file bundle
     template = 'project/access_and_security/api_access/ec2rc.sh.template'
@@ -102,24 +113,9 @@ def download_ec2_bundle(request):
 
 
 def download_rc_file(request):
-    tenant_id = request.user.tenant_id
-    tenant_name = request.user.tenant_name
-    region = request.user.services_region
-    if region is None:
-        region = ""
-
     template = 'project/access_and_security/api_access/openrc.sh.template'
-
     try:
-        keystone_url = api.base.url_for(request,
-                                        'identity',
-                                        endpoint_type='publicURL')
-
-        context = {'user': request.user,
-                   'auth_url': keystone_url,
-                   'tenant_id': tenant_id,
-                   'tenant_name': tenant_name,
-                   'region': region}
+        context = _get_openrc_credentials(request)
 
         response = shortcuts.render(request,
                                     template,
@@ -127,7 +123,7 @@ def download_rc_file(request):
                                     content_type="text/plain")
         response['Content-Disposition'] = ('attachment; '
                                            'filename="%s-openrc.sh"'
-                                           % tenant_name)
+                                           % context['tenant_name'])
         response['Content-Length'] = str(len(response.content))
         return response
 
@@ -135,3 +131,22 @@ def download_rc_file(request):
         LOG.exception("Exception in DownloadOpenRCForm.")
         messages.error(request, _('Error Downloading RC File: %s') % e)
         return shortcuts.redirect(request.build_absolute_uri())
+
+
+class CredentialsView(forms.ModalFormMixin, generic.TemplateView):
+    template_name = 'project/access_and_security/api_access/credentials.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CredentialsView, self).get_context_data(**kwargs)
+        try:
+            context['openrc_creds'] = _get_openrc_credentials(self.request)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to get openrc credentials'))
+        if api.base.is_service_enabled(self.request, 'ec2'):
+            try:
+                context['ec2_creds'] = _get_ec2_credentials(self.request)
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to get EC2 credentials'))
+        return context

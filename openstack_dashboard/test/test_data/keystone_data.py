@@ -364,5 +364,6 @@ def data(TEST):
     TEST.tokens.unscoped_token = unscoped_token
 
     access_secret = ec2.EC2(ec2.CredentialsManager, {"access": "access",
-                                                     "secret": "secret"})
+                                                     "secret": "secret",
+                                                     "tenant_id": tenant.id})
     TEST.ec2.add(access_secret)
