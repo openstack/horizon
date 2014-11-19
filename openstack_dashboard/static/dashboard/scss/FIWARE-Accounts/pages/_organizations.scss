@@ -19,3 +19,19 @@
     @extend .btn-primary;
   }
 }
+#organizations{
+  .tab-pane{ 
+    .list-group-item{
+      @include switch-hover;
+      .name{
+        display: inline;
+      }
+      .btn-link{
+        display: inline-block !important;
+      }
+    }
+  }
+  .sortable{
+    @extend .data;
+  }
+}

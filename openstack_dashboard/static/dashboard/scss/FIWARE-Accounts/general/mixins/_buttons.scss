@@ -1,0 +1,11 @@
+@mixin switch-hover{
+    &:hover{
+        button.btn-link{
+          	float: none;
+          	display: block;
+          	clear: both;
+          	margin-left: 0;
+          	opacity: 1;
+        }
+    }
+}

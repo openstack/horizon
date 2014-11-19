@@ -249,7 +249,7 @@ horizon.addInitFunction(function() {
                 '</div>'+
                 '<div class="actions_column">'+
                   '<div class="data">'+
-                    '<button class="btn btn-default btn-sm btn-danger" id="roles__row_'+json_data[0]+'__action_delete" name="action" value="roles__delete__'+json_data[0]+'" type="submit"><span class="fa fa-remove"></span></button>'+
+                    '<button class="btn btn-sm btn-link" id="roles__row_'+json_data[0]+'__action_delete" name="action" value="roles__delete__'+json_data[0]+'" type="submit"><span class="fa fa-remove"></span></button>'+
                   '</div></div></li>';
           field_to_update.append(row_template);
           field_to_update.change();

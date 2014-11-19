@@ -4,25 +4,24 @@
   {% with columns=table.get_columns rows=table.get_rows %}
     {% block table %}
       
-      <ul class="list-group" id="{{ table.slugify_name }}">
+      <div class="list-group" id="{{ table.slugify_name }}">
         {% block table_body %}
           {% for row in rows %}
-            <li class="list-group-item">
               {% if row.table.clickable == True %}
                  <a class="list-group-item" href="{% url 'horizon:idm:organizations:detail' row.datum.id %}">
                   {{ row.render }}
-                </a>
+              
               {% else %}
                 
                   {{ row.render }}
                 
               {% endif %}
-            </li>
+            </a>
           {% endfor %}
         {% endblock table_body %}
         {% block table_footer %}
         {% endblock table_footer %}
-      </ul>
+      </div>
     {% endblock table %}
   {% endwith %}
 

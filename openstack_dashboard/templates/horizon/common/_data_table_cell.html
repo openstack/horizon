@@ -34,20 +34,19 @@
         {% else %}
 
           {% if cell.column.name == 'name'%}
-            <div class="data">
+            <div class="name">
               {{ cell.value }}
             </div>
-              {% if row.table.switch == True %}
-                <button class="btn btn-link">switch</button>
-              {% endif %}
+            {% if row.table.switch == True %}
+              <button class="btn btn-link">switch</button>
+            {% endif %}
             
-          {% else %}
-            <div class="data">
-              {{ cell.value }}
-            </div>
-          {% endif %}  
+            {% else %}
+              <div class="description">
+                {{ cell.value }}
+              </div>
+            {% endif %}  
+          {% endif %}
         {% endif %}
-      
-    {% endif %}
   </div>
 {% endif %}
