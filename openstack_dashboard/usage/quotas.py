@@ -24,6 +24,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import network
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
+from openstack_dashboard.exceptions import neutronclient  # noqa
 
 
 LOG = logging.getLogger(__name__)
@@ -200,7 +201,10 @@ def tenant_quota_usages(request):
         usages.add_quota(quota)
 
     # Get our usages.
-    floating_ips = network.tenant_floating_ip_list(request)
+    try:
+        floating_ips = network.tenant_floating_ip_list(request)
+    except neutronclient.NeutronClientException:
+        floating_ips = []
     flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
     instances, has_more = nova.server_list(request)
     # Fetch deleted flavors if necessary.
