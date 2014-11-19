@@ -215,7 +215,8 @@ class UpdateView(forms.ModalFormView):
         volume = self.get_object()
         return {'volume_id': self.kwargs["volume_id"],
                 'name': volume.name,
-                'description': volume.description}
+                'description': volume.description,
+                'bootable': volume.is_bootable}
 
 
 class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):

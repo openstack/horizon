@@ -1091,6 +1091,7 @@ class VolumeViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_update',
+                                 'volume_set_bootable',
                                  'volume_get',)})
     def test_update_volume(self):
         volume = self.cinder_volumes.get(name="my_volume")
@@ -1100,12 +1101,16 @@ class VolumeViewTests(test.TestCase):
                              volume.id,
                              volume.name,
                              volume.description)
+        cinder.volume_set_bootable(IsA(http.HttpRequest),
+                                   volume.id,
+                                   False)
 
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateForm',
                     'name': volume.name,
-                    'description': volume.description}
+                    'description': volume.description,
+                    'bootable': False}
 
         url = reverse('horizon:project:volumes:volumes:update',
                       args=[volume.id])
@@ -1113,6 +1118,7 @@ class VolumeViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_update',
+                                 'volume_set_bootable',
                                  'volume_get',)})
     def test_update_volume_without_name(self):
         volume = self.cinder_volumes.get(name="my_volume")
@@ -1122,12 +1128,43 @@ class VolumeViewTests(test.TestCase):
                              volume.id,
                              '',
                              volume.description)
+        cinder.volume_set_bootable(IsA(http.HttpRequest),
+                                   volume.id,
+                                   False)
 
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateForm',
                     'name': '',
-                    'description': volume.description}
+                    'description': volume.description,
+                    'bootable': False}
+
+        url = reverse('horizon:project:volumes:volumes:update',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_update',
+                                 'volume_set_bootable',
+                                 'volume_get',)})
+    def test_update_volume_bootable_flag(self):
+        volume = self.cinder_bootable_volumes.get(name="my_volume")
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_update(IsA(http.HttpRequest),
+                             volume.id,
+                             volume.name,
+                             'update bootable flag')
+        cinder.volume_set_bootable(IsA(http.HttpRequest),
+                                   volume.id,
+                                   True)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateForm',
+                    'name': volume.name,
+                    'description': 'update bootable flag',
+                    'bootable': True}
 
         url = reverse('horizon:project:volumes:volumes:update',
                       args=[volume.id])
