@@ -1,6 +1,46 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% block title %}{% endblock %}
+
+{% block page_header %}
+  {% include "idm/myApplications/_step-3.html" %}
+{% endblock page_header %}
 
 {% block main %}
-  {% include "idm/myApplications/_roles.html" %}
+  
+<div class="site-client-roles">
+  <section id="relation_list" class="relation_list">
+    <h4>{{ roles_table.name }}</h4>
+    {{ roles_table.render}}
+    <div>
+      <h4  id="headingOne" role="tab" class="panel-title">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          + New role
+        </a>
+      </h4>
+      <div id="collapseOne" class="form-group collapse" role="tabpanel">    
+        {% include "idm/myApplications/_role_create.html" with form=roles_form add_to_field=roles_add_to_field %}
+      </div>
+    </div>
+  </section>
+
+  <section id="permissions_list" class="permissions_list">
+      <h4>{{ permissions_table.name }}</h4>
+      {{ permissions_table.render}}
+      <div>
+        <h4  id="headingOne" role="tab" class="panel-title">
+          <a data-toggle="collapse" href="#collapse_permissions" aria-expanded="true" aria-controls="collapse_permissions">
+            + New permission
+          </a>
+        </h4>
+        <div id="collapse_permissions" class="form-group collapse" role="tabpanel">    
+          {% include "idm/myApplications/_permission_create.html" with form=permissions_form add_to_field=permissions_add_to_field%}
+        </div>
+      </div>
+  </section>
+</div>
+
+<button type="submit" class="btn btn-primary">{% trans "Finish" %}</button>
 {% endblock %}
+
+

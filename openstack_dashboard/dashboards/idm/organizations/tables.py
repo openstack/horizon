@@ -151,7 +151,6 @@ from openstack_dashboard import policy
 #             return False
 #         return True
 
-
 class TenantsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
                          form_field=forms.CharField(max_length=64))
@@ -162,7 +161,8 @@ class TenantsTable(tables.DataTable):
                                     widget=forms.Textarea(),
                                     required=False))
                                 # update_action=UpdateCell)
-    
+    clickable = True
+    switch = True
     class Meta:
         name = "tenants"
         verbose_name = _("Organizations")
@@ -181,14 +181,15 @@ class MyTenantsTable(tables.DataTable):
                                     widget=forms.Textarea(),
                                     required=False))
                                 # update_action=UpdateCell)
-    
+    clickable = True
+    switch = True
     class Meta:
         name = "mytenants"
         verbose_name = _("My Organizations")
         # row_class = UpdateRow
         # table_actions = (TenantFilterAction, CreateOrganization)
         pagination_param = "my_tenant_marker"
-        columns =('name','description')
+        columns = ('name', 'description')
         footer = False
         multi_select = False
        
@@ -196,7 +197,7 @@ class MyTenantsTable(tables.DataTable):
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Member'))
-
+    clickable = True
     class Meta:
         name = "members"
         verbose_name = _("Members")
@@ -205,7 +206,7 @@ class MembersTable(tables.DataTable):
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('application', verbose_name=_('Applications'))
-
+    clickable = True
     class Meta:
         name = "applications"
         verbose_name = _("Applications")

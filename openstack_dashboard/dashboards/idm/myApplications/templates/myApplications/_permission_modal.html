@@ -1,0 +1,85 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:permission_create' %}{% endblock %}
+{% block form_enctype %}multipart/form-data{% endblock %}
+
+{% block modal_id %}upload_image_modal{% endblock %}
+{% block modal-header %}
+    {% include "idm/myApplications/_step-2.html" %}
+{% endblock %}
+
+{% block modal-body %}
+<!-- Modal -->
+      <div class="modal fade" id="add_permission" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h3 class="modal-title" id="myModalLabel">New permission</h3>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label class="control-label">name</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="form-group">
+                <label class="control-label">description</label>
+                <textarea class="form-control" rows="6"></textarea>
+              </div>
+              <span id="first-option">    
+                <div class="form-group">
+                  <label class="control-label">HTTP actions</label>
+                  <input class="form-control" type="text">
+                </div>
+                <div class="form-group">  
+                  <label class="control-label">Resource</label>
+                  <input class="form-control" type="text">
+                </div>
+              </span>                       
+                            <!-- está sacado del Idm pero aquí no funciona, a ver que te parece -->
+              <script language="javascript" type="text/javascript" >
+
+                  $("#accordion-togglerer").click(function(e){
+
+                  if($("#accordion-togglerer").attr("title")==="Add advanced rule"){
+                    $("#accordion-togglerer").html("Add standard rule");
+                    $("#accordion-togglerer").attr("title", "Add standard rule");
+                      $( "#first-option" ).hide();
+                  }
+                  else{
+                    $("#accordion-togglerer").html("Add advanced rule");
+                    $("#accordion-togglerer").attr("title", "Add advanced rule");
+                    $( "#first-option" ).show();
+                  }
+                  return true;
+                });
+              </script>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a class="expand" data-toggle="collapse" data-parent="#accordion1" href="#moreoptions">
+                      <span id="accordion-togglerer" class="showMore accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#moreoptions" title="Add advanced rule">Add advanced rule</span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="moreoptions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <label class="control-label">XACML rule</label>
+                    <textarea class="form-control" rows="6"> </textarea>
+                  </div>
+                </div>
+              </div>
+                        </div>
+          </div>
+        </div>
+      </div> 
+
+{% endblock %}
+
+{% block modal-footer %}
+    <button type="button" class="btn btn-primary">Save changes</button>
+{% endblock %}
+

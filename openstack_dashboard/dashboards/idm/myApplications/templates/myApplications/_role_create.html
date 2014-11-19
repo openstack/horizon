@@ -1,0 +1,21 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}create_role_form{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:roles_create' %}{% endblock %}
+{% block form_class %}{% if inline_forms %}ajax-inline-create{% endif %}{% endblock %}
+
+{% block modal-header %}{% endblock %}
+
+{% block modal-body %}
+    <fieldset>
+        {% include "horizon/common/_form_fields.html"%}
+    </fieldset>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right {% if inline_forms%}ajax-inline-create always-enabled{% endif %}" 
+    type="{% if inline_forms %}button{% else%}submit{% endif %}" 
+    value="{% trans "Save" %}" />
+{% endblock %}
