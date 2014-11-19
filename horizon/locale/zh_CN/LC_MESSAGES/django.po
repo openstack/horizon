@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 21:35-0600\n"
-"PO-Revision-Date: 2014-11-18 05:43+0000\n"
+"POT-Creation-Date: 2014-11-18 19:44-0600\n"
+"PO-Revision-Date: 2014-11-18 06:50+0000\n"
 "Last-Translator: Xiao Xi LIU <liuxx@cn.ibm.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -452,13 +452,13 @@ msgstr "0字节"
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
+msgstr[0] "出售小狗"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
+msgstr[0] "已售出的小狗"
 
 #: utils/filters.py:49
 msgid "Never"

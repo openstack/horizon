@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 21:35-0600\n"
-"PO-Revision-Date: 2014-11-17 05:48+0000\n"
+"POT-Creation-Date: 2014-11-18 19:44-0600\n"
+"PO-Revision-Date: 2014-11-18 14:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -405,7 +405,7 @@ msgstr "Beheerder"
 #: dashboards/admin/networks/forms.py:234
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/ports/tables.py:91
-#: dashboards/admin/networks/subnets/tables.py:91
+#: dashboards/admin/networks/subnets/tables.py:92
 #: dashboards/admin/routers/tables.py:54
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
@@ -427,23 +427,23 @@ msgstr "Beheerder"
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:132
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
-#: dashboards/project/data_processing/cluster_templates/tables.py:112
+#: dashboards/project/data_processing/cluster_templates/tables.py:108
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
-#: dashboards/project/data_processing/clusters/tables.py:108
+#: dashboards/project/data_processing/clusters/tables.py:105
 #: dashboards/project/data_processing/clusters/tabs.py:134
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
-#: dashboards/project/data_processing/data_sources/tables.py:60
+#: dashboards/project/data_processing/data_sources/tables.py:57
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
 #: dashboards/project/data_processing/data_sources/workflows/create.py:28
 #: dashboards/project/data_processing/job_binaries/forms.py:48
-#: dashboards/project/data_processing/job_binaries/tables.py:82
+#: dashboards/project/data_processing/job_binaries/tables.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
-#: dashboards/project/data_processing/jobs/tables.py:149
+#: dashboards/project/data_processing/jobs/tables.py:146
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:80
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:76
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:107
 #: dashboards/project/database_backups/tables.py:145
@@ -1276,7 +1276,7 @@ msgstr "Wisselgeheugenschijf"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:7
-#: dashboards/project/data_processing/job_executions/tables.py:138
+#: dashboards/project/data_processing/job_executions/tables.py:135
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:8
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
@@ -1486,7 +1486,7 @@ msgstr "Gastheer naam"
 #: dashboards/admin/routers/ports/tables.py:32
 #: dashboards/project/access_and_security/security_groups/forms.py:173
 #: dashboards/project/access_and_security/security_groups/forms.py:180
-#: dashboards/project/data_processing/data_sources/tables.py:64
+#: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:229
 #: dashboards/project/loadbalancers/workflows.py:485
@@ -1647,9 +1647,9 @@ msgstr "Zone"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:46
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
-#: dashboards/project/data_processing/clusters/tables.py:112
+#: dashboards/project/data_processing/clusters/tables.py:109
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
-#: dashboards/project/data_processing/job_executions/tables.py:153
+#: dashboards/project/data_processing/job_executions/tables.py:150
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
 #: dashboards/project/database_backups/tables.py:161
 #: dashboards/project/database_backups/templates/database_backups/details.html:30
@@ -2239,7 +2239,7 @@ msgstr "Meter"
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:133
-#: dashboards/project/data_processing/cluster_templates/tables.py:124
+#: dashboards/project/data_processing/cluster_templates/tables.py:120
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
@@ -2247,13 +2247,13 @@ msgstr "Meter"
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
-#: dashboards/project/data_processing/data_sources/tables.py:66
+#: dashboards/project/data_processing/data_sources/tables.py:63
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: dashboards/project/data_processing/data_sources/workflows/create.py:46
 #: dashboards/project/data_processing/job_binaries/forms.py:77
-#: dashboards/project/data_processing/job_binaries/tables.py:87
+#: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
-#: dashboards/project/data_processing/jobs/tables.py:152
+#: dashboards/project/data_processing/jobs/tables.py:149
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/data_processing/jobs/workflows/create.py:65
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
@@ -2754,7 +2754,7 @@ msgid "Port list can not be retrieved."
 msgstr "Poortlijst kan niet worden opgehaald."
 
 #: dashboards/admin/networks/views.py:151
-#: dashboards/admin/networks/subnets/tables.py:107
+#: dashboards/admin/networks/subnets/tables.py:109
 #: dashboards/project/networks/views.py:132
 #: dashboards/project/networks/subnets/tables.py:143
 #, python-format
@@ -2950,27 +2950,27 @@ msgstr "Overzicht"
 msgid "Unable to retrieve port details."
 msgstr "Niet in staat om de poortdetails op te halen."
 
-#: dashboards/admin/networks/subnets/tables.py:37
+#: dashboards/admin/networks/subnets/tables.py:38
 #: dashboards/project/networks/subnets/tables.py:61
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/networks/subnets/tables.py:45
+#: dashboards/admin/networks/subnets/tables.py:46
 #: dashboards/project/networks/subnets/tables.py:69
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/networks/subnets/tables.py:56
+#: dashboards/admin/networks/subnets/tables.py:57
 #: dashboards/project/networks/subnets/tables.py:80
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Verwijderen van subnet %s mislukt"
 
-#: dashboards/admin/networks/subnets/tables.py:66
+#: dashboards/admin/networks/subnets/tables.py:67
 #: dashboards/project/networks/workflows.py:90
 #: dashboards/project/networks/subnets/tables.py:91
 #: dashboards/project/networks/subnets/tables.py:108
@@ -2978,13 +2978,13 @@ msgstr "Verwijderen van subnet %s mislukt"
 msgid "Create Subnet"
 msgstr "Creëer subnet"
 
-#: dashboards/admin/networks/subnets/tables.py:79
+#: dashboards/admin/networks/subnets/tables.py:80
 #: dashboards/project/networks/subnets/tables.py:117
 #: dashboards/project/networks/subnets/workflows.py:160
 msgid "Edit Subnet"
 msgstr "Subnet bewerken"
 
-#: dashboards/admin/networks/subnets/tables.py:93
+#: dashboards/admin/networks/subnets/tables.py:94
 #: dashboards/project/access_and_security/security_groups/forms.py:196
 #: dashboards/project/access_and_security/security_groups/forms.py:208
 #: dashboards/project/access_and_security/security_groups/forms.py:218
@@ -2992,21 +2992,21 @@ msgstr "Subnet bewerken"
 msgid "CIDR"
 msgstr "CIDR"
 
-#: dashboards/admin/networks/subnets/tables.py:94
+#: dashboards/admin/networks/subnets/tables.py:95
 #: dashboards/project/networks/workflows.py:126
 #: dashboards/project/networks/subnets/tables.py:132
 #: dashboards/project/networks/subnets/workflows.py:100
 msgid "IP Version"
 msgstr "IP versie"
 
-#: dashboards/admin/networks/subnets/tables.py:95
+#: dashboards/admin/networks/subnets/tables.py:96
 #: dashboards/project/networks/workflows.py:128
 #: dashboards/project/networks/subnets/tables.py:133
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "Gateway IP"
 msgstr "Gateway IP"
 
-#: dashboards/admin/networks/subnets/tables.py:114
+#: dashboards/admin/networks/subnets/tables.py:116
 #: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/networks/subnets/tables.py:150 usage/quotas.py:78
 msgid "Subnets"
@@ -5078,6 +5078,15 @@ msgstr "IP adres %s aangekoppeld."
 msgid "Unable to associate IP address %s."
 msgstr "Niet in staat om het IP adres %s aan te koppelen."
 
+#: dashboards/project/access_and_security/floating_ips/workflows.py:146
+msgid "unknown IP address"
+msgstr ""
+
+#: dashboards/project/access_and_security/floating_ips/workflows.py:156
+msgid ""
+"The requested instance port is already associated with another floating IP."
+msgstr ""
+
 #: dashboards/project/access_and_security/keypairs/forms.py:34
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces and "
@@ -5980,7 +5989,7 @@ msgid "Unable to upload cluster template file"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
-#: dashboards/project/data_processing/cluster_templates/tables.py:128
+#: dashboards/project/data_processing/cluster_templates/tables.py:124
 msgid "Cluster Templates"
 msgstr ""
 
@@ -6011,7 +6020,6 @@ msgid "Copy Template"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:64
-#: dashboards/project/data_processing/cluster_templates/tables.py:78
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:56
 msgid "Delete Template"
 msgid_plural "Delete Templates"
@@ -6025,42 +6033,42 @@ msgid_plural "Deleted Templates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:87
+#: dashboards/project/data_processing/cluster_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
 msgid "Create Template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:96
+#: dashboards/project/data_processing/cluster_templates/tables.py:92
 msgid "Configure Cluster Template"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:116
+#: dashboards/project/data_processing/cluster_templates/tables.py:112
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:83
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:30
 msgid "Plugin"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:118
+#: dashboards/project/data_processing/cluster_templates/tables.py:114
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:85
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:81
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
 #: dashboards/project/data_processing/utils/workflow_helpers.py:175
 msgid "Version"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:120
+#: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:206
@@ -6204,7 +6212,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:38
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:41
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:87
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:53
 msgid "Node Processes"
 msgstr ""
@@ -6303,7 +6311,7 @@ msgid "Cluster template creation failed"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:120
+#: dashboards/project/data_processing/clusters/tables.py:117
 msgid "Clusters"
 msgstr ""
 
@@ -6326,17 +6334,17 @@ msgid_plural "Deleted Clusters"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:84
+#: dashboards/project/data_processing/clusters/tables.py:81
 msgid "Unable to update row"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:94
+#: dashboards/project/data_processing/clusters/tables.py:91
 #: dashboards/project/data_processing/clusters/workflows/create.py:177
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:116
+#: dashboards/project/data_processing/clusters/tables.py:113
 msgid "Instances Count"
 msgstr ""
 
@@ -6513,7 +6521,7 @@ msgid "Failed to update image."
 msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
-#: dashboards/project/data_processing/data_image_registry/tables.py:76
+#: dashboards/project/data_processing/data_image_registry/tables.py:73
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
 #: dashboards/project/volumes/volumes/forms.py:209
 msgid "Image"
@@ -6540,7 +6548,7 @@ msgid "Unable to fetch available images."
 msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/panel.py:22
-#: dashboards/project/data_processing/data_image_registry/tables.py:84
+#: dashboards/project/data_processing/data_image_registry/tables.py:81
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:6
 msgid "Image Registry"
 msgstr ""
@@ -6568,7 +6576,7 @@ msgid_plural "Unregistered Images"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/data_image_registry/tables.py:80
+#: dashboards/project/data_processing/data_image_registry/tables.py:77
 msgid "Tags"
 msgstr ""
 
@@ -6676,7 +6684,7 @@ msgid "Data Processing Plugins"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/panel.py:22
-#: dashboards/project/data_processing/data_sources/tables.py:70
+#: dashboards/project/data_processing/data_sources/tables.py:67
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/data_sources.html:6
 msgid "Data Sources"
 msgstr ""
@@ -6690,14 +6698,14 @@ msgid "Create Data Source"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/tables.py:38
-msgid "Delete Data source"
-msgid_plural "Delete Data sources"
+msgid "Delete Data Source"
+msgid_plural "Delete Data Sources"
 msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
-msgid "Deleted Data source"
-msgid_plural "Deleted Data sources"
+msgid "Deleted Data Source"
+msgid_plural "Deleted Data Sources"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -6822,28 +6830,28 @@ msgid "Failed to fetch internal binary list"
 msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/panel.py:22
-#: dashboards/project/data_processing/job_binaries/tables.py:91
+#: dashboards/project/data_processing/job_binaries/tables.py:88
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/job_binaries.html:6
 msgid "Job Binaries"
 msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/tables.py:41
-msgid "Delete Job binary"
-msgid_plural "Delete Job binaries"
+msgid "Delete Job Binary"
+msgid_plural "Delete Job Binaries"
 msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/data_processing/job_binaries/tables.py:49
-msgid "Deleted Job binary"
-msgid_plural "Deleted Job binaries"
+msgid "Deleted Job Binary"
+msgid_plural "Deleted Job Binaries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/job_binaries/tables.py:74
+#: dashboards/project/data_processing/job_binaries/tables.py:71
 msgid "Download Job Binary"
 msgstr ""
 
-#: dashboards/project/data_processing/job_binaries/tables.py:85
+#: dashboards/project/data_processing/job_binaries/tables.py:82
 msgid "Url"
 msgstr "URL"
 
@@ -6922,28 +6930,28 @@ msgid "Job Binary Details"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
-#: dashboards/project/data_processing/job_executions/tables.py:162
+#: dashboards/project/data_processing/job_executions/tables.py:159
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
 msgid "Job Executions"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:34
-msgid "Delete Job execution"
-msgid_plural "Delete Job executions"
+msgid "Delete Job Execution"
+msgid_plural "Delete Job Executions"
 msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:42
-msgid "Deleted Job execution"
-msgid_plural "Deleted Job executions"
+msgid "Deleted Job Execution"
+msgid_plural "Deleted Job Executions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:58
-#: dashboards/project/data_processing/job_executions/tables.py:87
-#: dashboards/project/data_processing/jobs/tables.py:64
-#: dashboards/project/data_processing/jobs/tables.py:93
-#: dashboards/project/data_processing/jobs/tables.py:122
+#: dashboards/project/data_processing/job_executions/tables.py:55
+#: dashboards/project/data_processing/job_executions/tables.py:84
+#: dashboards/project/data_processing/jobs/tables.py:61
+#: dashboards/project/data_processing/jobs/tables.py:90
+#: dashboards/project/data_processing/jobs/tables.py:119
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:6
 #: dashboards/project/data_processing/jobs/workflows/launch.py:330
@@ -6954,25 +6962,25 @@ msgid_plural "Launch Jobs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:66
-#: dashboards/project/data_processing/job_executions/tables.py:95
-#: dashboards/project/data_processing/jobs/tables.py:72
-#: dashboards/project/data_processing/jobs/tables.py:101
-#: dashboards/project/data_processing/jobs/tables.py:130
+#: dashboards/project/data_processing/job_executions/tables.py:63
+#: dashboards/project/data_processing/job_executions/tables.py:92
+#: dashboards/project/data_processing/jobs/tables.py:69
+#: dashboards/project/data_processing/jobs/tables.py:98
+#: dashboards/project/data_processing/jobs/tables.py:127
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:72
+#: dashboards/project/data_processing/job_executions/tables.py:69
 msgid "Relaunch On Existing Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:101
+#: dashboards/project/data_processing/job_executions/tables.py:98
 msgid "Relaunch On New Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:144
+#: dashboards/project/data_processing/job_executions/tables.py:141
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 #: dashboards/project/data_processing/jobs/workflows/launch.py:56
@@ -6981,7 +6989,7 @@ msgstr ""
 msgid "Job"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:148
+#: dashboards/project/data_processing/job_executions/tables.py:145
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
 #: dashboards/project/data_processing/jobs/workflows/launch.py:104
 msgid "Cluster"
@@ -7047,7 +7055,7 @@ msgid "Job Execution Details"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/panel.py:22
-#: dashboards/project/data_processing/jobs/tables.py:156
+#: dashboards/project/data_processing/jobs/tables.py:153
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
 msgid "Jobs"
 msgstr ""
@@ -7072,12 +7080,12 @@ msgid_plural "Deleted Jobs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/jobs/tables.py:78
+#: dashboards/project/data_processing/jobs/tables.py:75
 msgid "Launch On Existing Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/tables.py:107
-#: dashboards/project/data_processing/jobs/tables.py:136
+#: dashboards/project/data_processing/jobs/tables.py:104
+#: dashboards/project/data_processing/jobs/tables.py:133
 msgid "Launch On New Cluster"
 msgstr ""
 
@@ -7327,7 +7335,7 @@ msgid "Unable to launch job."
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:93
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:89
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
 msgid "Node Group Templates"
 msgstr ""
@@ -7335,10 +7343,6 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:37
 msgid "Configure Template"
 msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:70
-msgid "Delete"
-msgstr "Verwijderen"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:43
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:84
