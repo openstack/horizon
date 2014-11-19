@@ -5,37 +5,42 @@
 <div class="membership {{ step.slug }}_membership dropdown_fix" data-show-roles="{{ step.show_roles }}">
   <div class="header">
     <div class="help_text">{{ step.help_text }}</div>
-    <div class="left">
-      <div class="fake_table fake_table_header fake_{{ step.slug }}_table">
-        <span class="members_title">{{ step.available_list_title }}</span>
-        <div class="form-group has-feedback">
-          <input type="text" name="available_{{ step.slug }}_filter" id="available_{{ step.slug }}" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "Filter" %}">
-          <span class="fa fa-search search-icon form-control-feedback"></span>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="fake_table fake_table_header fake_{{ step.slug }}_table clearfix">
+          <span class="members_title">{{ step.available_list_title }}</span>
+          <div class="form-group has-feedback">
+            <input type="text" name="available_{{ step.slug }}_filter" id="available_{{ step.slug }}" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "Filter" %}">
+            <span class="fa fa-search search-icon form-control-feedback"></span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="right">
-      <div class="fake_table fake_table_header fake_{{ step.slug }}_table">
-        <span class="members_title">{{ step.members_list_title }}</span>
-        <div class="form-group has-feedback">
-          <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "Filter" %}">
-          <span class="fa fa-search search-icon form-control-feedback"></span>
+      <div class="col-xs-6">
+        <div class="fake_table fake_table_header fake_{{ step.slug }}_table clearfix">
+          <span class="members_title">{{ step.members_list_title }}</span>
+          <div class="form-group has-feedback">
+            <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "Filter" %}">
+            <span class="fa fa-search search-icon form-control-feedback"></span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="left filterable {{ step.slug }}_filterable">
-    <div class="fake_table fake_{{ step.slug }}_table" id="available_{{ step.slug }}">
-      <ul class="available_members available_{{ step.slug }}"></ul>
-      <ul class="no_results" id="no_available_{{ step.slug }}"><li>{{ step.no_available_text }}</li></ul>
+  <div class="row">
+    <div class="col-xs-6 filterable {{ step.slug }}_filterable">
+      <div class="fake_table fake_{{ step.slug }}_table" id="available_{{ step.slug }}">
+        <ul class="available_members available_{{ step.slug }}"></ul>
+        <ul class="no_results" id="no_available_{{ step.slug }}"><li>{{ step.no_available_text }}</li></ul>
+      </div>
     </div>
-  </div>
 
-  <div class="right filterable {{ step.slug }}_filterable">
-    <div class="fake_table fake_{{ step.slug }}_table" id="{{ step.slug }}_members">
-      <ul class="members {{ step.slug }}_members"></ul>
-      <ul class="no_results" id="no_{{ step.slug }}_members"><li>{{ step.no_members_text }}</li></ul>
+    <div class="col-xs-6 filterable {{ step.slug }}_filterable">
+      <div class="fake_table fake_{{ step.slug }}_table" id="{{ step.slug }}_members">
+        <ul class="members {{ step.slug }}_members"></ul>
+        <ul class="no_results" id="no_{{ step.slug }}_members"><li>{{ step.no_members_text }}</li></ul>
+      </div>
     </div>
   </div>
 </div>

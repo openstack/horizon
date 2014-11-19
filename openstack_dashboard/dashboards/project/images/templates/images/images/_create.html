@@ -9,30 +9,23 @@
 
 {% block modal-header %}{% trans "Create An Image" %}{% endblock %}
 
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>
-       {% if HORIZON_IMAGES_ALLOW_UPLOAD %}
-            {% trans "Images can be provided via an HTTP URL or be uploaded from your local file system. Compressed image binaries are supported (.zip and .tar.gz.)" %}
-       {% else %}
-            {% trans "Currently only images available via an HTTP URL are supported. The image location must be accessible to the Image Service. Compressed image binaries are supported (.zip and .tar.gz.)" %}
-       {% endif %}
-    </p>
-    <p>
-       <strong>{% trans "Please note: " %}</strong>
-       {% if HORIZON_IMAGES_ALLOW_UPLOAD %}
-           {% trans "If you select an image via an HTTP URL, the Image Location field MUST be a valid and direct URL to the image binary; it must also be accessible to the Image Service. URLs that redirect or serve error pages will result in unusable images." %}
-       {% else %}
-           {% trans "The Image Location field MUST be a valid and direct URL to the image binary. URLs that redirect or serve error pages will result in unusable images." %}
-       {% endif %}
-    </p>
-</div>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>
+     {% if HORIZON_IMAGES_ALLOW_UPLOAD %}
+          {% trans "Images can be provided via an HTTP URL or be uploaded from your local file system. Compressed image binaries are supported (.zip and .tar.gz.)" %}
+     {% else %}
+          {% trans "Currently only images available via an HTTP URL are supported. The image location must be accessible to the Image Service. Compressed image binaries are supported (.zip and .tar.gz.)" %}
+     {% endif %}
+  </p>
+  <p>
+     <strong>{% trans "Please note: " %}</strong>
+     {% if HORIZON_IMAGES_ALLOW_UPLOAD %}
+         {% trans "If you select an image via an HTTP URL, the Image Location field MUST be a valid and direct URL to the image binary; it must also be accessible to the Image Service. URLs that redirect or serve error pages will result in unusable images." %}
+     {% else %}
+         {% trans "The Image Location field MUST be a valid and direct URL to the image binary. URLs that redirect or serve error pages will result in unusable images." %}
+     {% endif %}
+  </p>
 {% endblock %}
 
 {% block modal-footer %}

@@ -1,23 +1,11 @@
 @import '_variables';
 
 .workflow {
-  ul.nav-tabs {
-    padding: 0 13px;
-  }
-
-  td {
-    &.actions {
-      vertical-align: top;
-      width: 308px;
-      padding-right: 10px;
-    }
-
-    &.help_text {
-      vertical-align: top;
-      width: 340px;
-      padding-left: 10px;
-      border-left: 1px solid $border-color;
-    }
+  .tab-content {
+    border-left: 0 none;
+    border-right: 0 none;
+    border-bottom: 0 none;
+    padding-top: 10px;
   }
 
   fieldset > table {
