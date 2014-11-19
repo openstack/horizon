@@ -11,6 +11,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import copy
 
 import uuid
 
@@ -288,6 +289,50 @@ class NeutronApiTests(test.APITestCase):
             api.neutron.is_extension_supported(self.request, 'quotas'))
         self.assertFalse(
             api.neutron.is_extension_supported(self.request, 'doesntexist'))
+
+    def test_router_static_route_list(self):
+        router = {'router': self.api_routers_with_routes.first()}
+        router_id = self.api_routers_with_routes.first()['id']
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.show_router(router_id).AndReturn(router)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.router_static_route_list(self.request, router_id)
+        self.assertIsInstance(ret_val[0], api.neutron.RouterStaticRoute)
+
+    def test_router_static_route_remove(self):
+        router = {'router': self.api_routers_with_routes.first()}
+        router_id = self.api_routers_with_routes.first()['id']
+        post_router = copy.deepcopy(router)
+        route = api.neutron.RouterStaticRoute(post_router['router']
+                                              ['routes'].pop())
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.show_router(router_id).AndReturn(router)
+        body = {'router': {'routes': post_router['router']['routes']}}
+        neutronclient.update_router(router_id, body=body)\
+                     .AndReturn(post_router)
+        self.mox.ReplayAll()
+
+        api.neutron.router_static_route_remove(self.request,
+                                               router_id, route.id)
+
+    def test_router_static_route_add(self):
+        router = {'router': self.api_routers_with_routes.first()}
+        router_id = self.api_routers_with_routes.first()['id']
+        post_router = copy.deepcopy(router)
+        route = {'nexthop': '10.0.0.5', 'destination': '40.0.1.0/24'}
+        post_router['router']['routes'].insert(0, route)
+        body = {'router': {'routes': post_router['router']['routes']}}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.show_router(router_id).AndReturn(router)
+        neutronclient.update_router(router_id, body=body)\
+                     .AndReturn(post_router)
+        self.mox.ReplayAll()
+
+        api.neutron.router_static_route_add(self.request, router_id, route)
 
     # NOTE(amotoki): "dvr" permission tests check most of
     # get_feature_permission features.

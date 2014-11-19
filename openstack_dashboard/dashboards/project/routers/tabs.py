@@ -16,6 +16,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
 
+from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
+    import tabs as er_tabs
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import tabs as rr_tabs
 from openstack_dashboard.dashboards.project.routers.ports import tables as ptbl
@@ -42,6 +44,6 @@ class InterfacesTab(tabs.TableTab):
 
 class RouterDetailTabs(tabs.TabGroup):
     slug = "router_details"
-    tabs = (OverviewTab, InterfacesTab, rr_tabs.RulesGridTab,
-            rr_tabs.RouterRulesTab)
+    tabs = (OverviewTab, InterfacesTab, er_tabs.ExtraRoutesTab,
+            rr_tabs.RulesGridTab, rr_tabs.RouterRulesTab)
     sticky = True

@@ -15,6 +15,8 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
+from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
+    import views as er_views
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import views as rr_views
 from openstack_dashboard.dashboards.project.routers.ports \
@@ -41,6 +43,9 @@ urlpatterns = patterns(
     url(ROUTER_URL % 'addrouterrule',
         rr_views.AddRouterRuleView.as_view(),
         name='addrouterrule'),
+    url(ROUTER_URL % 'addrouterroute',
+        er_views.AddRouterRouteView.as_view(),
+        name='addrouterroute'),
     url(ROUTER_URL % 'setgateway',
         port_views.SetGatewayView.as_view(),
         name='setgateway'),
