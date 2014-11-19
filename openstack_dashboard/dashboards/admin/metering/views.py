@@ -21,6 +21,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tabs
 from horizon.utils import csvbase
+from horizon.utils import units
 
 from openstack_dashboard.api import ceilometer
 
@@ -46,11 +47,11 @@ class SamplesView(django.views.generic.TemplateView):
     template_name = "admin/metering/samples.csv"
 
     @staticmethod
-    def _series_for_meter(aggregates,
-                          resource_name,
-                          meter_name,
-                          stats_name,
-                          unit):
+    def series_for_meter(aggregates,
+                         resource_name,
+                         meter_name,
+                         stats_name,
+                         unit):
         """Construct datapoint series for a meter from resource aggregates."""
         series = []
         for resource in aggregates:
@@ -63,6 +64,39 @@ class SamplesView(django.views.generic.TemplateView):
                     value = float(getattr(statistic, stats_name))
                     point['data'].append({'x': date, 'y': value})
                 series.append(point)
+        return series
+
+    @staticmethod
+    def normalize_series_by_unit(series):
+        """Transform series' values into a more human readable form:
+        1) Determine the data point with the maximum value
+        2) Decide the unit appropriate for this value (normalize it)
+        3) Convert other values to this new unit, if necessary
+        """
+        if not series:
+            return series
+
+        source_unit = target_unit = series[0]['unit']
+
+        if not units.is_supported(source_unit):
+            return series
+
+        # Find the data point with the largest value and normalize it to
+        # determine its unit - that will be the new unit
+        maximum = max([d['y'] for point in series for d in point['data']])
+        unit = units.normalize(maximum, source_unit)[1]
+
+        # If unit needs to be changed, set the new unit for all data points
+        # and convert all values to that unit
+        if units.is_larger(unit, target_unit):
+            target_unit = unit
+            for i, point in enumerate(series[:]):
+                if point['unit'] != target_unit:
+                    series[i]['unit'] = target_unit
+                    for j, d in enumerate(point['data'][:]):
+                        series[i]['data'][j]['y'] = units.convert(
+                            d['y'], source_unit, target_unit, fmt=True)[0]
+
         return series
 
     def get(self, request, *args, **kwargs):
@@ -94,19 +128,18 @@ class SamplesView(django.views.generic.TemplateView):
             query = utils_metering.MeterQuery(request, date_from,
                                               date_to, 3600 * 24)
 
-        resources, unit = query.query(meter_name)
+        resources, unit = query.query(meter)
         resource_name = 'id' if group_by == "project" else 'resource_id'
-        series = self._series_for_meter(resources,
-                                        resource_name,
-                                        meter_name,
-                                        stats_attr,
-                                        unit)
-        ret = {}
-        ret['series'] = series
-        ret['settings'] = {}
+        series = self.series_for_meter(resources,
+                                       resource_name,
+                                       meter_name,
+                                       stats_attr,
+                                       unit)
 
-        return HttpResponse(json.dumps(ret),
-                            content_type='application/json')
+        series = self.normalize_series_by_unit(series)
+        ret = {'series': series, 'settings': {}}
+
+        return HttpResponse(json.dumps(ret), content_type='application/json')
 
 
 class CsvReportView(django.views.generic.View):

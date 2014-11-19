@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import decimal
 import math
 import re
 
@@ -72,3 +73,55 @@ def get_page_size(request, default=20):
 def natural_sort(attr):
     return lambda x: [int(s) if s.isdigit() else s for s in
                       re.split(r'(\d+)', getattr(x, attr, x))]
+
+
+def get_keys(tuple_of_tuples):
+    """Processes a tuple of 2-element tuples and returns a tuple containing
+    first component of each tuple.
+    """
+    return tuple([t[0] for t in tuple_of_tuples])
+
+
+def value_for_key(tuple_of_tuples, key):
+    """Processes a tuple of 2-element tuples and returns the value
+    corresponding to the given key. If not value is found, the key is returned.
+    """
+    for t in tuple_of_tuples:
+        if t[0] == key:
+            return t[1]
+    else:
+        return key
+
+
+def next_key(tuple_of_tuples, key):
+    """Processes a tuple of 2-element tuples and returns the key which comes
+    after the given key.
+    """
+    for i, t in enumerate(tuple_of_tuples):
+        if t[0] == key:
+            try:
+                return tuple_of_tuples[i + 1][0]
+            except IndexError:
+                return None
+
+
+def previous_key(tuple_of_tuples, key):
+    """Processes a tuple of 2-element tuples and returns the key which comes
+    before the given key.
+    """
+    for i, t in enumerate(tuple_of_tuples):
+        if t[0] == key:
+            try:
+                return tuple_of_tuples[i - 1][0]
+            except IndexError:
+                return None
+
+
+def format_value(value):
+    """Returns the given value rounded to one decimal place if it is a
+    decimal, or integer if it is an integer.
+    """
+    value = decimal.Decimal(str(value))
+    if int(value) == value:
+        return int(value)
+    return round(value, 1)
