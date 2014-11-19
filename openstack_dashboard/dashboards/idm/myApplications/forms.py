@@ -74,7 +74,7 @@ class UploadImageForm(forms.SelfHandlingForm):
             
         output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
 
-        response = shortcuts.redirect('horizon:idm:myApplications:roles')
+        response = shortcuts.redirect('horizon:idm:myApplications:roles_index')
         return response
 
 
