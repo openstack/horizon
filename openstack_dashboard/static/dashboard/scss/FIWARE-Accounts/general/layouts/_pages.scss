@@ -70,6 +70,12 @@ textarea {
   }
 }
 
+.panel{
+  .empty{
+    @extend .alert;
+    @extend .alert-info;
+  }
+}
 
 #organizations,
 #myApplications{
