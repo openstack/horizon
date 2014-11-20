@@ -116,7 +116,7 @@ class UpdateInstanceInfoAction(workflows.Action):
         return True
 
     class Meta:
-        name = _("Info")
+        name = _("Information")
         slug = 'instance_info'
         help_text = _("Edit the instance details.")
 
