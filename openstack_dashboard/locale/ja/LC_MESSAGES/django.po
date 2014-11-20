@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-18 19:44-0600\n"
-"PO-Revision-Date: 2014-11-18 14:55+0000\n"
+"POT-Creation-Date: 2014-11-19 17:40-0600\n"
+"PO-Revision-Date: 2014-11-19 23:50+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -409,7 +409,7 @@ msgstr "管理"
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/ports/tables.py:91
 #: dashboards/admin/networks/subnets/tables.py:92
-#: dashboards/admin/routers/tables.py:54
+#: dashboards/admin/routers/tables.py:41
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/snapshots/tables.py:59
@@ -489,7 +489,7 @@ msgstr "管理"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/forms.py:85
-#: dashboards/project/routers/tables.py:180
+#: dashboards/project/routers/tables.py:187
 #: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -1669,7 +1669,7 @@ msgstr "ゾーン"
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:184
+#: dashboards/project/routers/tables.py:191
 #: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:113
@@ -1904,8 +1904,8 @@ msgstr "無効"
 
 #: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/tables.py:61
-#: dashboards/admin/metering/views.py:128
-#: dashboards/project/access_and_security/api_access/tables.py:53
+#: dashboards/admin/metering/views.py:161
+#: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
 msgstr "サービス"
 
@@ -2020,7 +2020,7 @@ msgstr "インスタンスのライブマイグレーション"
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:40
 #: dashboards/admin/networks/tables.py:86
-#: dashboards/admin/routers/tables.py:52
+#: dashboards/admin/routers/tables.py:39
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:44
 #: dashboards/project/dashboard.py:75
@@ -2216,13 +2216,13 @@ msgstr "サマリー (CSV) のダウンロード"
 
 #: dashboards/admin/metering/tables.py:43
 #: dashboards/admin/metering/tables.py:62
-#: dashboards/admin/metering/views.py:127
+#: dashboards/admin/metering/views.py:160
 msgid "Meter"
 msgstr "メーター"
 
 #: dashboards/admin/metering/tables.py:44
 #: dashboards/admin/metering/tables.py:63
-#: dashboards/admin/metering/views.py:127
+#: dashboards/admin/metering/views.py:160
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/identity/domains/tables.py:200
 #: dashboards/identity/domains/workflows.py:37
@@ -2307,7 +2307,7 @@ msgstr "日"
 
 #: dashboards/admin/metering/tables.py:47
 #: dashboards/admin/metering/tables.py:66
-#: dashboards/admin/metering/views.py:128
+#: dashboards/admin/metering/views.py:161
 msgid "Value (Avg)"
 msgstr "値 (平均)"
 
@@ -2327,50 +2327,52 @@ msgstr "まだ定義されたメーターがありません。"
 msgid "Usage Report"
 msgstr "使用状況レポート"
 
-#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:145
+#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:178
 msgid "Nova"
 msgstr "Nova"
 
-#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:146
+#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:179
 msgid "Neutron"
 msgstr "Neutron"
 
-#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:147
+#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:180
 msgid "Glance"
 msgstr "Glance"
 
-#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:148
+#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:181
 msgid "Cinder"
 msgstr "Cinder"
 
-#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:149
+#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:182
 msgid "Swift_meters"
 msgstr "Swift_meters"
 
-#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:150
+#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:183
 msgid "Kwapi"
 msgstr "Kwapi"
 
-#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:86
+#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:120
 msgid "Dates cannot be recognized."
 msgstr "日付を認識できません"
 
-#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:169
+#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:202
 #: dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
 msgstr "プロジェクト一覧を取得できません。"
 
-#: dashboards/admin/metering/views.py:127
-#: dashboards/admin/overview/views.py:33 usage/tables.py:45
+#: dashboards/admin/metering/views.py:160
+#: dashboards/admin/overview/views.py:33
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
+#: usage/tables.py:45
 msgid "Project Name"
 msgstr "プロジェクト名"
 
-#: dashboards/admin/metering/views.py:128
+#: dashboards/admin/metering/views.py:161
 msgid "Time"
 msgstr "時刻"
 
-#: dashboards/admin/metering/views.py:161
+#: dashboards/admin/metering/views.py:194
 msgid "Dates cannot be recognised."
 msgstr "日付を認識できません"
 
@@ -2569,7 +2571,7 @@ msgstr "共有"
 #: dashboards/admin/networks/forms.py:82
 #: dashboards/admin/networks/forms.py:240
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:194
+#: dashboards/project/routers/tables.py:201
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "外部ネットワーク"
@@ -3136,13 +3138,13 @@ msgstr "使用状況"
 msgid "Monitoring:"
 msgstr "監視:"
 
-#: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:59
+#: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
 #: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:212
+#: dashboards/project/routers/tables.py:219
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
@@ -3251,6 +3253,7 @@ msgstr "なし"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
 #: dashboards/identity/projects/tables.py:223
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
@@ -3272,7 +3275,7 @@ msgstr "プロジェクト ID"
 #: dashboards/project/routers/forms.py:47
 #: dashboards/project/routers/forms.py:105
 #: dashboards/project/routers/forms.py:111
-#: dashboards/project/routers/tables.py:188
+#: dashboards/project/routers/tables.py:195
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "分散ルータ"
@@ -3295,7 +3298,7 @@ msgid "Connected External Network: %(router_gw_info_network)s"
 msgstr "接続された外部ネットワーク: %(router_gw_info_network)s"
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
-#: dashboards/project/routers/tables.py:98
+#: dashboards/project/routers/tables.py:105
 #: dashboards/project/routers/templates/routers/_update.html:8
 msgid "Edit Router"
 msgstr "ルーターの編集"
@@ -3639,6 +3642,7 @@ msgstr "ボリューム種別の追加スペック"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:13
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:14
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:61
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
@@ -4276,6 +4280,7 @@ msgstr "追加..."
 #: dashboards/identity/users/forms.py:81
 #: dashboards/identity/users/forms.py:161
 #: dashboards/identity/users/tables.py:167
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
 #: dashboards/project/databases/tables.py:280
 msgid "User Name"
@@ -4863,27 +4868,39 @@ msgstr "EC2 認証情報のダウンロード"
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC ファイルのダウンロード"
 
-#: dashboards/project/access_and_security/api_access/tables.py:56
+#: dashboards/project/access_and_security/api_access/tables.py:53
+msgid "View Credentials"
+msgstr ""
+
+#: dashboards/project/access_and_security/api_access/tables.py:64
 msgid "Service Endpoint"
 msgstr "サービスエンドポイント"
 
-#: dashboards/project/access_and_security/api_access/tables.py:60
+#: dashboards/project/access_and_security/api_access/tables.py:68
 msgid "API Endpoints"
 msgstr "API エンドポイント"
 
-#: dashboards/project/access_and_security/api_access/views.py:55
+#: dashboards/project/access_and_security/api_access/views.py:88
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 認証情報を取得できません。"
 
-#: dashboards/project/access_and_security/api_access/views.py:91
+#: dashboards/project/access_and_security/api_access/views.py:102
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "zip ファイルの書き込みに失敗しました: %(exc)s"
 
-#: dashboards/project/access_and_security/api_access/views.py:136
+#: dashboards/project/access_and_security/api_access/views.py:132
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "RC ファイルのダウンロードに失敗しました:  %s"
+
+#: dashboards/project/access_and_security/api_access/views.py:145
+msgid "Unable to get openrc credentials"
+msgstr ""
+
+#: dashboards/project/access_and_security/api_access/views.py:151
+msgid "Unable to get EC2 credentials"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
 #: dashboards/project/access_and_security/floating_ips/tables.py:199
@@ -5041,12 +5058,12 @@ msgstr "IP アドレス %s を割り当てられません。"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:146
 msgid "unknown IP address"
-msgstr ""
+msgstr "不明な IP アドレス"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:156
 msgid ""
 "The requested instance port is already associated with another floating IP."
-msgstr ""
+msgstr "要求されたインスタンスのポートはすでに別の Floating IP に関連付けられています。"
 
 #: dashboards/project/access_and_security/keypairs/forms.py:34
 msgid ""
@@ -5399,6 +5416,35 @@ msgstr "%s (このグループ)"
 #: dashboards/project/access_and_security/templates/access_and_security/index.html:6
 msgid "Access &amp; Security"
 msgstr "アクセスとセキュリティー"
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:5
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:3
+msgid "User Credentials"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:26
+msgid "Authentication URL"
+msgstr "認証 URL"
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:36
+msgid "EC2 URL"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:39
+msgid "S3 URL"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:43
+msgid "EC2 Access Key"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:49
+msgid "EC2 Secret Key"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:6
+msgid "User Credentials Details"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:9
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/allocate.html:3
@@ -6645,12 +6691,12 @@ msgstr "データソースの作成"
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Delete Data Source"
 msgid_plural "Delete Data Sources"
-msgstr[0] ""
+msgstr[0] "データソースの削除"
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
 msgid "Deleted Data Source"
 msgid_plural "Deleted Data Sources"
-msgstr[0] ""
+msgstr[0] "データソースを削除しました"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
@@ -6781,12 +6827,12 @@ msgstr "ジョブバイナリー"
 #: dashboards/project/data_processing/job_binaries/tables.py:41
 msgid "Delete Job Binary"
 msgid_plural "Delete Job Binaries"
-msgstr[0] ""
+msgstr[0] "ジョブバイナリーの削除"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:49
 msgid "Deleted Job Binary"
 msgid_plural "Deleted Job Binaries"
-msgstr[0] ""
+msgstr[0] "ジョブバイナリーを削除しました"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:71
 msgid "Download Job Binary"
@@ -6879,12 +6925,12 @@ msgstr "ジョブ実行"
 #: dashboards/project/data_processing/job_executions/tables.py:34
 msgid "Delete Job Execution"
 msgid_plural "Delete Job Executions"
-msgstr[0] ""
+msgstr[0] "ジョブ実行の削除"
 
 #: dashboards/project/data_processing/job_executions/tables.py:42
 msgid "Deleted Job Execution"
 msgid_plural "Deleted Job Executions"
-msgstr[0] ""
+msgstr[0] "ジョブ実行を削除しました"
 
 #: dashboards/project/data_processing/job_executions/tables.py:55
 #: dashboards/project/data_processing/job_executions/tables.py:84
@@ -11014,8 +11060,8 @@ msgstr "ネットワークトポロジー"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:77
-#: dashboards/project/routers/tables.py:90
+#: dashboards/project/routers/tables.py:84
+#: dashboards/project/routers/tables.py:97
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 #: dashboards/project/routers/templates/routers/create.html:3
@@ -11055,7 +11101,7 @@ msgid "Create Network (Quota exceeded)"
 msgstr "ネットワークの作成 (クォータを超過しました)"
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:88
+#: dashboards/project/routers/tables.py:95
 msgid "Create Router (Quota exceeded)"
 msgstr "ルーターの作成 (クォータを超過しました)"
 
@@ -11565,13 +11611,13 @@ msgid "Deleted Router"
 msgid_plural "Deleted Routers"
 msgstr[0] "ルーターを削除しました"
 
-#: dashboards/project/routers/tables.py:61
-#: dashboards/project/routers/tables.py:67
+#: dashboards/project/routers/tables.py:66
+#: dashboards/project/routers/tables.py:74
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "ルーター \"%s\" を更新できません。"
 
-#: dashboards/project/routers/tables.py:107
+#: dashboards/project/routers/tables.py:114
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
@@ -11579,23 +11625,23 @@ msgstr "ルーター \"%s\" を更新できません。"
 msgid "Set Gateway"
 msgstr "ゲートウェイの設定"
 
-#: dashboards/project/routers/tables.py:123
+#: dashboards/project/routers/tables.py:130
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
 msgstr[0] "ゲートウェイの削除"
 
-#: dashboards/project/routers/tables.py:131
+#: dashboards/project/routers/tables.py:138
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
 msgstr[0] "ゲートウェイを削除しました"
 
-#: dashboards/project/routers/tables.py:147
+#: dashboards/project/routers/tables.py:154
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "ルーター \"%(name)s\" のゲートウェイを削除できません: \"%(msg)s\""
 
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:192
+#: dashboards/project/routers/tables.py:199
 msgid "HA mode"
 msgstr "HA モード"
 

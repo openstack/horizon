@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-18 19:44-0600\n"
-"PO-Revision-Date: 2014-11-18 14:55+0000\n"
+"POT-Creation-Date: 2014-11-19 17:40-0600\n"
+"PO-Revision-Date: 2014-11-19 23:37+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -407,7 +407,7 @@ msgstr "Администратор"
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/ports/tables.py:91
 #: dashboards/admin/networks/subnets/tables.py:92
-#: dashboards/admin/routers/tables.py:54
+#: dashboards/admin/routers/tables.py:41
 #: dashboards/admin/routers/ports/tables.py:26
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/snapshots/tables.py:59
@@ -487,7 +487,7 @@ msgstr "Администратор"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: dashboards/project/routers/forms.py:85
-#: dashboards/project/routers/tables.py:180
+#: dashboards/project/routers/tables.py:187
 #: dashboards/project/routers/ports/tables.py:94
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -1679,7 +1679,7 @@ msgstr "Зона"
 #: dashboards/project/networks/ports/tables.py:59
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:184
+#: dashboards/project/routers/tables.py:191
 #: dashboards/project/routers/ports/tables.py:98
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:113
@@ -1914,8 +1914,8 @@ msgstr "Выключено"
 
 #: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/tables.py:61
-#: dashboards/admin/metering/views.py:128
-#: dashboards/project/access_and_security/api_access/tables.py:53
+#: dashboards/admin/metering/views.py:161
+#: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
 msgstr "Служба"
 
@@ -2034,7 +2034,7 @@ msgstr "Живая миграция машины"
 #: dashboards/admin/metering/templates/metering/stats.html:84
 #: dashboards/admin/networks/forms.py:40
 #: dashboards/admin/networks/tables.py:86
-#: dashboards/admin/routers/tables.py:52
+#: dashboards/admin/routers/tables.py:39
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:44
 #: dashboards/project/dashboard.py:75
@@ -2230,13 +2230,13 @@ msgstr "Загрузить сводку в CSV"
 
 #: dashboards/admin/metering/tables.py:43
 #: dashboards/admin/metering/tables.py:62
-#: dashboards/admin/metering/views.py:127
+#: dashboards/admin/metering/views.py:160
 msgid "Meter"
 msgstr "Метрика"
 
 #: dashboards/admin/metering/tables.py:44
 #: dashboards/admin/metering/tables.py:63
-#: dashboards/admin/metering/views.py:127
+#: dashboards/admin/metering/views.py:160
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/identity/domains/tables.py:200
 #: dashboards/identity/domains/workflows.py:37
@@ -2321,7 +2321,7 @@ msgstr "День"
 
 #: dashboards/admin/metering/tables.py:47
 #: dashboards/admin/metering/tables.py:66
-#: dashboards/admin/metering/views.py:128
+#: dashboards/admin/metering/views.py:161
 msgid "Value (Avg)"
 msgstr "Значение (Сред.)"
 
@@ -2341,50 +2341,52 @@ msgstr "Метрик пока нет."
 msgid "Usage Report"
 msgstr "Сводка использования"
 
-#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:145
+#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:178
 msgid "Nova"
 msgstr "Nova"
 
-#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:146
+#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:179
 msgid "Neutron"
 msgstr "Neutron"
 
-#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:147
+#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:180
 msgid "Glance"
 msgstr "Glance"
 
-#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:148
+#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:181
 msgid "Cinder"
 msgstr "Cinder"
 
-#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:149
+#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:182
 msgid "Swift_meters"
 msgstr "Метрики Swift"
 
-#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:150
+#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:183
 msgid "Kwapi"
 msgstr "Kwapi"
 
-#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:86
+#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:120
 msgid "Dates cannot be recognized."
 msgstr ""
 
-#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:169
+#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:202
 #: dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
 msgstr "Не удалось получить список проектов."
 
-#: dashboards/admin/metering/views.py:127
-#: dashboards/admin/overview/views.py:33 usage/tables.py:45
+#: dashboards/admin/metering/views.py:160
+#: dashboards/admin/overview/views.py:33
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
+#: usage/tables.py:45
 msgid "Project Name"
 msgstr "Имя проекта"
 
-#: dashboards/admin/metering/views.py:128
+#: dashboards/admin/metering/views.py:161
 msgid "Time"
 msgstr "Время"
 
-#: dashboards/admin/metering/views.py:161
+#: dashboards/admin/metering/views.py:194
 msgid "Dates cannot be recognised."
 msgstr ""
 
@@ -2583,7 +2585,7 @@ msgstr "Общая"
 #: dashboards/admin/networks/forms.py:82
 #: dashboards/admin/networks/forms.py:240
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:194
+#: dashboards/project/routers/tables.py:201
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "Внешняя сеть"
@@ -3166,13 +3168,13 @@ msgstr "Обзор использования"
 msgid "Monitoring:"
 msgstr ""
 
-#: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:59
+#: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
 #: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:212
+#: dashboards/project/routers/tables.py:219
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
@@ -3281,6 +3283,7 @@ msgstr "Нет"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
 #: dashboards/identity/projects/tables.py:223
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
@@ -3302,7 +3305,7 @@ msgstr " ID проекта"
 #: dashboards/project/routers/forms.py:47
 #: dashboards/project/routers/forms.py:105
 #: dashboards/project/routers/forms.py:111
-#: dashboards/project/routers/tables.py:188
+#: dashboards/project/routers/tables.py:195
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "Распространенный"
@@ -3325,7 +3328,7 @@ msgid "Connected External Network: %(router_gw_info_network)s"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
-#: dashboards/project/routers/tables.py:98
+#: dashboards/project/routers/tables.py:105
 #: dashboards/project/routers/templates/routers/_update.html:8
 msgid "Edit Router"
 msgstr "Изменить маршрутизатор"
@@ -3669,6 +3672,7 @@ msgstr "Дополнительные параметры типа диска"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:13
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:14
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:61
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
@@ -4330,6 +4334,7 @@ msgstr "Добавить..."
 #: dashboards/identity/users/forms.py:81
 #: dashboards/identity/users/forms.py:161
 #: dashboards/identity/users/tables.py:167
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
 #: dashboards/project/databases/tables.py:280
 msgid "User Name"
@@ -4941,27 +4946,39 @@ msgstr "Загрузить ключи EC2"
 msgid "Download OpenStack RC File"
 msgstr "Загрузить RC файл OpenStack"
 
-#: dashboards/project/access_and_security/api_access/tables.py:56
+#: dashboards/project/access_and_security/api_access/tables.py:53
+msgid "View Credentials"
+msgstr ""
+
+#: dashboards/project/access_and_security/api_access/tables.py:64
 msgid "Service Endpoint"
 msgstr "Точка доступа сервиса"
 
-#: dashboards/project/access_and_security/api_access/tables.py:60
+#: dashboards/project/access_and_security/api_access/tables.py:68
 msgid "API Endpoints"
 msgstr "Точка доступа к API"
 
-#: dashboards/project/access_and_security/api_access/views.py:55
+#: dashboards/project/access_and_security/api_access/views.py:88
 msgid "Unable to fetch EC2 credentials."
 msgstr "Невозможно получить ключи EC2"
 
-#: dashboards/project/access_and_security/api_access/views.py:91
+#: dashboards/project/access_and_security/api_access/views.py:102
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Ошибка записи zip файла: %(exc)s"
 
-#: dashboards/project/access_and_security/api_access/views.py:136
+#: dashboards/project/access_and_security/api_access/views.py:132
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "Ошибка загрузки RC файла: %s"
+
+#: dashboards/project/access_and_security/api_access/views.py:145
+msgid "Unable to get openrc credentials"
+msgstr ""
+
+#: dashboards/project/access_and_security/api_access/views.py:151
+msgid "Unable to get EC2 credentials"
+msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
 #: dashboards/project/access_and_security/floating_ips/tables.py:199
@@ -5493,6 +5510,35 @@ msgstr "%s (сейчас)"
 #: dashboards/project/access_and_security/templates/access_and_security/index.html:6
 msgid "Access &amp; Security"
 msgstr "Доступ и безопасность"
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:5
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:3
+msgid "User Credentials"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:26
+msgid "Authentication URL"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:36
+msgid "EC2 URL"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:39
+msgid "S3 URL"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:43
+msgid "EC2 Access Key"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:49
+msgid "EC2 Secret Key"
+msgstr ""
+
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:6
+msgid "User Credentials Details"
+msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:9
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/allocate.html:3
@@ -11232,8 +11278,8 @@ msgstr "Сетевая топология"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:77
-#: dashboards/project/routers/tables.py:90
+#: dashboards/project/routers/tables.py:84
+#: dashboards/project/routers/tables.py:97
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 #: dashboards/project/routers/templates/routers/create.html:3
@@ -11273,7 +11319,7 @@ msgid "Create Network (Quota exceeded)"
 msgstr ""
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
-#: dashboards/project/routers/tables.py:88
+#: dashboards/project/routers/tables.py:95
 msgid "Create Router (Quota exceeded)"
 msgstr ""
 
@@ -11787,13 +11833,13 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/routers/tables.py:61
-#: dashboards/project/routers/tables.py:67
+#: dashboards/project/routers/tables.py:66
+#: dashboards/project/routers/tables.py:74
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Невозможно удалить маршрутизатор \"%s\""
 
-#: dashboards/project/routers/tables.py:107
+#: dashboards/project/routers/tables.py:114
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
@@ -11801,27 +11847,27 @@ msgstr "Невозможно удалить маршрутизатор \"%s\""
 msgid "Set Gateway"
 msgstr "Установить шлюз"
 
-#: dashboards/project/routers/tables.py:123
+#: dashboards/project/routers/tables.py:130
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/routers/tables.py:131
+#: dashboards/project/routers/tables.py:138
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/routers/tables.py:147
+#: dashboards/project/routers/tables.py:154
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "Невозможно очистить шлюз для маршрутизатора \"%(name)s\": \"%(msg)s\""
 
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:192
+#: dashboards/project/routers/tables.py:199
 msgid "HA mode"
 msgstr "Режим HA"
 
