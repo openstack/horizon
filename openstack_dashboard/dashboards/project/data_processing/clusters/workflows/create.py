@@ -117,13 +117,17 @@ class GeneralConfigAction(workflows.Action):
                                                               plugin,
                                                               hadoop_version)
 
-            return [(image.id, image.name) for image in all_images
-                    if (set(details.required_image_tags).
-                        issubset(set(image.tags)))]
+            choices = [(image.id, image.name) for image in all_images
+                       if (set(details.required_image_tags).
+                           issubset(set(image.tags)))]
         except Exception:
             exceptions.handle(request,
                               _("Unable to fetch image choices."))
-            return []
+            choices = []
+        if not choices:
+            choices.append(("", _("No Images Available")))
+
+        return choices
 
     def populate_keypair_choices(self, request, context):
         try:
@@ -148,6 +152,8 @@ class GeneralConfigAction(workflows.Action):
                    if (template.hadoop_version == hadoop_version and
                        template.plugin_name == plugin)]
 
+        if not choices:
+            choices.append(("", _("No Templates Available")))
         # cluster_template_id comes from cluster templates table, when
         # Create Cluster from template is clicked there
         selected_template_id = request.REQUEST.get("cluster_template_id", None)
