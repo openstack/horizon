@@ -3,11 +3,13 @@
    @extend .well;
   .modal-header{
     padding: 0;
+    min-height: 32px;
     margin-bottom: 15px;
     border-bottom: 1px solid transparent;
     h3{
       margin: 0;
       position: absolute;
+
       .steps-group {
         position: relative;
         z-index: 100;
@@ -24,6 +26,8 @@
           font-size: 14px;
           @include border-top-radius (27px);
           @include border-bottom-radius (27px);
+          position: relative;
+          z-index: 2;
           &:last-child{
             margin-right: 0px;
           }
@@ -31,19 +35,21 @@
         .line{
           position: relative;
           z-index: 1;
-          height: 1px;
-          margin-top: -13px;
-          width: 259px;
+          height: 2px;
+          margin-top: -15px;
+          width: 293px;
           background-color: $gray-light;
+          position: relative;
+          z-index: 1;
         }
       }
       .steps-group .completed{
-        color: darken($gray-light, 20%);
-        border: 2px solid darken($gray-light, 20%);
+        color: darken($gray-light, 20%) !important;
+        border: 2px solid darken($gray-light, 20%) !important;
       }
       div.active {
-        border: 2px solid $brand-secundary;
-        color: $brand-primary;
+        border: 2px solid $brand-secundary !important;
+        color: $brand-primary !important;
       }
     }
   }
