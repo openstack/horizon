@@ -22,12 +22,25 @@ from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets \
     import workflows as project_workflows
+from openstack_dashboard.dashboards.project.networks import workflows \
+    as net_workflows
 
 
 LOG = logging.getLogger(__name__)
 
 
+class CreateSubnetInfoAction(project_workflows.CreateSubnetInfoAction):
+    check_subnet_range = False
+
+
+class CreateSubnetInfo(project_workflows.CreateSubnetInfo):
+    action_class = CreateSubnetInfoAction
+
+
 class CreateSubnet(project_workflows.CreateSubnet):
+    default_steps = (CreateSubnetInfo,
+                     net_workflows.CreateSubnetDetail)
+
     def get_success_url(self):
         return reverse("horizon:admin:networks:detail",
                        args=(self.context.get('network_id'),))
@@ -53,6 +66,17 @@ class CreateSubnet(project_workflows.CreateSubnet):
         return True if subnet else False
 
 
+class UpdateSubnetInfoAction(project_workflows.UpdateSubnetInfoAction):
+    check_subnet_range = False
+
+
+class UpdateSubnetInfo(project_workflows.UpdateSubnetInfo):
+    action_class = UpdateSubnetInfoAction
+
+
 class UpdateSubnet(project_workflows.UpdateSubnet):
     success_url = "horizon:admin:networks:detail"
     failure_url = "horizon:admin:networks:detail"
+
+    default_steps = (UpdateSubnetInfo,
+                     project_workflows.UpdateSubnetDetail)

@@ -784,3 +784,15 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 # before loading any data into the admin views, set the following attribute to
 # True
 #ADMIN_FILTER_DATA_FIRST=False
+
+# Dict used to restrict user private subnet cidr range.
+# An empty list means that user input will not be restricted
+# for a corresponding IP version. By default, there is
+# no restriction for IPv4 or IPv6. To restrict
+# user private subnet cidr range set ALLOWED_PRIVATE_SUBNET_CIDR
+# to something like
+#ALLOWED_PRIVATE_SUBNET_CIDR = {
+#    'ipv4': ['10.0.0.0/8', '192.168.0.0/16'],
+#    'ipv6': ['fc00::/7']
+#}
+ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}

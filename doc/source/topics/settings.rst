@@ -1610,6 +1610,19 @@ Ignore all listed Nova extensions, and behave as if they were unsupported.
 Can be used to selectively disable certain costly extensions for performance
 reasons.
 
+``ALLOWED_PRIVATE_SUBNET_CIDR``
+-------------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``{'ipv4': [], 'ipv6': []}``
+
+Dict used to restrict user private subnet cidr range.
+An empty list means that user input will not be restricted
+for a corresponding IP version. By default, there is
+no restriction for both IPv4 and IPv6.
+
+Example: ``{'ipv4': ['192.168.0.0/16', '10.0.0.0/8'], 'ipv6': ['fc00::/7',]}``
 
 ``ADMIN_FILTER_DATA_FIRST``
 ---------------------------
