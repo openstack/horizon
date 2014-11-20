@@ -258,6 +258,9 @@ class DetailView(tabs.TabView):
         table = project_tables.InstancesTable(self.request)
         context["url"] = reverse(self.redirect_url)
         context["actions"] = table.render_row_actions(instance)
+        context["page_title"] = _("Instance Details: "
+                                  "%(instance_name)s") % {'instance_name':
+                                                          instance.name}
         return context
 
     @memoized.memoized_method

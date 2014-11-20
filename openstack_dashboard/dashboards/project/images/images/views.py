@@ -91,6 +91,9 @@ class DetailView(tabs.TabView):
         context["image"] = image
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(image)
+        context["page_title"] = _("Image Details: "
+                                  "%(image_name)s") % {'image_name':
+                                                       image.name}
         return context
 
     @staticmethod

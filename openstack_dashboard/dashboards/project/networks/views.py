@@ -142,6 +142,9 @@ class DetailView(tables.MultiTableView):
         table = project_tables.NetworksTable(self.request)
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(network)
+        context["page_title"] = _("Network Detail: "
+                                  "%(network_name)s") % {'network_name':
+                                                         network.name}
         return context
 
     @staticmethod

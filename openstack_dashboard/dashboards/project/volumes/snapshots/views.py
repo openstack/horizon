@@ -69,6 +69,9 @@ class DetailView(tabs.TabView):
         context["snapshot"] = snapshot
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(snapshot)
+        context["page_title"] = _("Volume Snapshot Details: "
+                                  "%(snapshot_name)s") % {'snapshot_name':
+                                                          snapshot.name}
         return context
 
     @memoized.memoized_method

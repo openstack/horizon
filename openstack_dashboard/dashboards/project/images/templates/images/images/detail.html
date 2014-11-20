@@ -4,7 +4,7 @@
 {% block title %}{% trans "Image Details"%}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Image Details: ")|add:image.name|default:_("Image Details:") %}
+  {% include "horizon/common/_page_header.html" with title=page_title %}
 {% endblock page_header %}
 
 {% block main %}

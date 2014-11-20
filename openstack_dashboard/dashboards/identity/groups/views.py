@@ -114,7 +114,11 @@ class ManageMembersView(GroupManageMixin, tables.DataTableView):
 
     def get_context_data(self, **kwargs):
         context = super(ManageMembersView, self).get_context_data(**kwargs)
-        context['group'] = self._get_group()
+        group = self._get_group()
+        context['group'] = group
+        context['page_title'] = _("Group Management: "
+                                  "%(group_name)s") % {'group_name':
+                                                       group.name}
         return context
 
     def get_data(self):
