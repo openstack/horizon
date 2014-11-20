@@ -163,7 +163,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
                'floating_ip_pool': None,
                'security_groups': [],
                'auto_security_group': True,
-               'availability_zone': None}) \
+               'availability_zone': None,
+               'is_proxy_gateway': False}) \
             .AndReturn(True)
 
         self.mox.ReplayAll()

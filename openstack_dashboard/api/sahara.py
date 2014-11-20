@@ -125,7 +125,8 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
                               floating_ip_pool=None, security_groups=None,
                               auto_security_group=False,
                               availability_zone=False,
-                              volumes_availability_zone=False):
+                              volumes_availability_zone=False,
+                              is_proxy_gateway=False):
     return client(request).node_group_templates.create(
         name,
         plugin_name,
@@ -140,7 +141,8 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
         security_groups,
         auto_security_group,
         availability_zone,
-        volumes_availability_zone)
+        volumes_availability_zone,
+        is_proxy_gateway)
 
 
 def nodegroup_template_list(request, search_opts=None):
@@ -166,7 +168,8 @@ def nodegroup_template_update(request, ngt_id, name, plugin_name,
                               node_configs=None, floating_ip_pool=None,
                               security_groups=None, auto_security_group=False,
                               availability_zone=False,
-                              volumes_availability_zone=False):
+                              volumes_availability_zone=False,
+                              is_proxy_gateway=False):
     return client(request).node_group_templates.update(
         ngt_id,
         name,
@@ -182,7 +185,8 @@ def nodegroup_template_update(request, ngt_id, name, plugin_name,
         security_groups,
         auto_security_group,
         availability_zone,
-        volumes_availability_zone)
+        volumes_availability_zone,
+        is_proxy_gateway)
 
 
 def cluster_template_create(request, name, plugin_name, hadoop_version,
