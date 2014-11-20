@@ -1,4 +1,4 @@
-{% load i18n %}{% trans "Usage Report For Period" %}:,{{ usage.start|date:"b. d Y" }},{{ usage.end|date:"b. d Y" }}
+{% load i18n %}{% trans "Usage Report For Period" %}:,{{ usage.start|date:"Y-m-d" }},{{ usage.end|date:"Y-m-d" }}
 {% trans "Project ID" %}:,{{ usage.project_id }}
 {% trans "Active Instances" %}:,{{ usage.summary.instances }}
 {% trans "Total VCPU Usage (Hours)" %}:,{{ usage.summary.vcpu_hours|floatformat:2 }}
