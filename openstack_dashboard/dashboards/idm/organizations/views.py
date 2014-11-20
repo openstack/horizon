@@ -63,9 +63,9 @@ class DetailOrganizationView(tables.MultiTableView):
     
     def get_members_data(self):        
         user = []
-        user_id=self.request.user.id
+        user_id = self.request.user.id
         try:
-            user_info = api.keystone.user_get(self.request,self.request.user.id)
+            user_info = api.keystone.user_get(self.request, self.request.user.id)
             user.append(user_info)
             
         except Exception:
@@ -80,7 +80,7 @@ class DetailOrganizationView(tables.MultiTableView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(DetailOrganizationView, self).get_context_data(**kwargs)
-        organization_id =self.kwargs['organization_id']
+        organization_id = self.kwargs['organization_id']
         organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
         context['contact_info'] = organization.description
         context['organization.id'] = organization.id
@@ -114,32 +114,32 @@ class MultiFormView(TemplateView):
             "description": organization.description,
         }
         #Create forms
-        info = organization_forms.InfoForm(self.request,initial=initial_data)
-        contact = organization_forms.ContactForm(self.request,initial=initial_data)
-        avatar = organization_forms.AvatarForm(self.request,initial=initial_data)
-        cancel = organization_forms.CancelForm(self.request,initial=initial_data)
+        info = organization_forms.InfoForm(self.request, initial=initial_data)
+        contact = organization_forms.ContactForm(self.request, initial=initial_data)
+        avatar = organization_forms.AvatarForm(self.request, initial=initial_data)
+        cancel = organization_forms.CancelForm(self.request, initial=initial_data)
 
         #Actions and titles
         info.action = 'info/'
         info.title = 'Information'
-        contact.action="contact/"
+        contact.action = "contact/"
         contact.title = 'Contact Information'
-        avatar.action="avatar/"
+        avatar.action = "avatar/"
         avatar.title = 'Avatar Update'
-        cancel.action="cancel/"
+        cancel.action = "cancel/"
         cancel.title = 'Cancel'
 
-        context['form'] = [ info, contact, avatar, cancel]       
+        context['form'] = [info, contact, avatar, cancel]       
         return context
 
 class HandleForm(forms.ModalFormView):
     template_name = ''
-    http_method_not_allowed=['get']
+    http_method_not_allowed = ['get']
 
 
 class InfoFormView(HandleForm):    
     form_class = organization_forms.InfoForm
-    http_method_not_allowed=['get']
+    http_method_not_allowed = ['get']
 
 class ContactFormView(HandleForm):
     form_class = organization_forms.ContactForm

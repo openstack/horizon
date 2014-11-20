@@ -241,16 +241,17 @@ horizon.addInitFunction(function() {
           json_data = $.parseJSON(data);
           field_to_update = $("#" + add_to_field_header);
           console.log(json_data)
-          var row_template = '<li class="list-group-item">' +
+          var row_template =
                 '<div class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=roles&amp;cell_name=name&amp;obj_id='+json_data[0]+'">'+
-                  '<div class="data">' +json_data[1] +'</div>'+
+                  '<div class="data">' + json_data[1] +'</div>'+
                   '<button class="ajax-inline-edit"><span class="fa fa-pencil"></span></button>'+
                   '<div class="inline-edit-status"></div>'+
                 '</div>'+
                 '<div class="actions_column">'+
-                  '<div class="data">'+
-                    '<button class="btn btn-sm btn-link" id="roles__row_'+json_data[0]+'__action_delete" name="action" value="roles__delete__'+json_data[0]+'" type="submit"><span class="fa fa-remove"></span></button>'+
-                  '</div></div></li>';
+                  '<div class="description">' +
+                    '<button class="btn btn-default btn-sm btn-danger" id="roles__row_'+json_data[0]+'__action_delete" name="action" value="roles__delete__'+json_data[0]+'" type="submit"><span class="fa fa-remove"></span></button>'+
+                  '</div>' + 
+                '</div>';
           field_to_update.append(row_template);
           field_to_update.change();
           field_to_update.val(json_data[0]);
@@ -387,5 +388,3 @@ horizon.addInitFunction(function() {
   });*/
   
 });
-
-$("#roles_inline_create").on("submit")

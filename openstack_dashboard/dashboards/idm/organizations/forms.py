@@ -21,6 +21,7 @@ import os
 from django import shortcuts
 from django.conf import settings
 from django import forms 
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -88,33 +89,32 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
 
 class InfoForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), max_length=64,required=False)
-    description = forms.CharField(label=_("Description"),widget=forms.widgets.Textarea, required=False)
-    city = forms.CharField(label=_("City"), max_length=64,required=False)
+    name = forms.CharField(label=_("Name"), max_length=64, required=False)
+    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=False)
+    city = forms.CharField(label=_("City"), max_length=64, required=False)
 
     def handle(self, request, data):
         try:
-            print('entra al handle')
             api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
             messages.success(request, _("Organization updated successfully."))
-            response = shortcuts.redirect('horizon:idm:organizations:index')
+            response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
             return response
         except Exception:
-            response = shortcuts.redirect('horizon:idm:organizations:index')
+            response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
             return response
 
 class ContactForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    email = forms.EmailField(label=_("E-mail"),required=False)
-    website=forms.URLField(label=_("Website"),required=False)
+    email = forms.EmailField(label=_("E-mail"), required=False)
+    website = forms.URLField(label=_("Website"), required=False)
 
     def handle(self, request, data):
-        response = shortcuts.redirect('horizon:idm:organizations:index')
+        response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
 
 class AvatarForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(),required=False)
+    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
     image = forms.ImageField(required=False)
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
@@ -124,10 +124,10 @@ class AvatarForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         if request.FILES:
 
-            x1=self.cleaned_data['x1'] 
-            x2=self.cleaned_data['x2']
-            y1=self.cleaned_data['y1']
-            y2=self.cleaned_data['y2']
+            x1 = self.cleaned_data['x1'] 
+            x2 = self.cleaned_data['x2']
+            y1 = self.cleaned_data['y1']
+            y2 = self.cleaned_data['y2']
                     
             image = request.FILES['image'] 
 
@@ -138,22 +138,22 @@ class AvatarForm(forms.SelfHandlingForm):
             y1 = int(y1)
             y2 = int(y2)
 
-            output_img=img.crop((x1,y1,x2,y2))
+            output_img = img.crop((x1, y1, x2, y2))
         else:
 
             output_img = Image.open(DEFAULT_AVATAR)
 
         imageName = self.data['name']
         
-        output_img.save(settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"+imageName, 'JPEG')
+        output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
 
         messages.success(request, _("Organization deleted successfully."))
-        response = shortcuts.redirect('horizon:idm:organizations:index')
+        response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
         
 class CancelForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(),required=False)
+    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
 
     def handle(self, request, data):
         organization = data['orgID']

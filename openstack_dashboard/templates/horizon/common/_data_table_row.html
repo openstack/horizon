@@ -3,6 +3,7 @@
      <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/group.png">
   </div>
 {% endif %}
+
 {% for cell in row %}  
   {% include "horizon/common/_data_table_cell.html" %}
 {% endfor %}

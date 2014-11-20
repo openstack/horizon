@@ -34,7 +34,7 @@
         {% else %}
 
           {% if cell.column.name == 'name'%}
-            <div class="name">
+            <div class="name" {{ cell.attr_string|safe }}>
               {{ cell.value }}
             </div>
             {% if row.table.switch == True %}
@@ -42,7 +42,7 @@
             {% endif %}
             
             {% else %}
-              <div class="description">
+              <div class="description" {{ cell.attr_string|safe }}>
                 {{ cell.value }}
               </div>
             {% endif %}  

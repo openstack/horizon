@@ -218,7 +218,7 @@ horizon.inline_edit = {
 
 
 horizon.addInitFunction(function() {
-  $('ul.list-group').on('click', '.ajax-inline-edit', function (evt) {
+  $('div.list-group').on('click', '.ajax-inline-edit', function (evt) {
     var $this = $(this);
     var cell_div_element = $this.parents('div.inline_edit_available').first();
 
@@ -240,17 +240,17 @@ horizon.addInitFunction(function() {
     evt.preventDefault();
   };
 
-  $('ul.list-group').on('click', '.inline-edit-submit', function (evt) {
+  $('div.list-group').on('click', '.inline-edit-submit', function (evt) {
     submit_form(evt, this);
   });
 
-  $('ul.list-group').on('keypress', '.inline-edit-form', function (evt) {
+  $('div.list-group').on('keypress', '.inline-edit-form', function (evt) {
     if (evt.which === 13 && !evt.shiftKey) {
       submit_form(evt, this);
     }
   });
 
-  $('ul.list-group').on('click', '.inline-edit-cancel', function (evt) {
+  $('div.list-group').on('click', '.inline-edit-cancel', function (evt) {
     var $cancel = $(this);
     var cell_div_element = $cancel.parents('div.inline_edit_available').first();
 
@@ -260,11 +260,11 @@ horizon.addInitFunction(function() {
     evt.preventDefault();
   });
 
-  $('ul.list-group').on('mouseenter', '.inline_edit_available', function (evt) {
+  $('div.list-group').on('mouseenter', '.inline_edit_available', function (evt) {
     $(this).find(".table_cell_action").fadeIn(100);
   });
 
-  $('ul.list-group').on('mouseleave', '.inline_edit_available', function (evt) {
+  $('div.list-group').on('mouseleave', '.inline_edit_available', function (evt) {
     $(this).find(".table_cell_action").fadeOut(200);
   });
 });
