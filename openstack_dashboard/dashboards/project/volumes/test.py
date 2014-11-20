@@ -45,6 +45,8 @@ class VolumeAndSnapshotsTests(test.TestCase):
             AndReturn(volumes)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
+        api.cinder.volume_snapshot_list(
+            IsA(http.HttpRequest), search_opts=None).AndReturn(vol_snaps)
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(vol_snaps)
         api.cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
@@ -52,8 +54,8 @@ class VolumeAndSnapshotsTests(test.TestCase):
             api.cinder.volume_backup_list(IsA(http.HttpRequest)).\
                 AndReturn(vol_backups)
             api.cinder.volume_list(IsA(http.HttpRequest)).AndReturn(volumes)
-        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes(). \
-            AndReturn(self.cinder_limits['absolute'])
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).\
+            MultipleTimes().AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
