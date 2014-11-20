@@ -176,6 +176,23 @@ class HeatApiTests(test.APITestCase):
         template = api.heat.template_get(self.request, stack_id)
         self.assertEqual(mock_data_template.data, template.data)
 
+    def test_stack_create(self):
+        api_stacks = self.stacks.list()
+        stack = api_stacks[0]
+
+        heatclient = self.stub_heatclient()
+        heatclient.stacks = self.mox.CreateMockAnything()
+        form_data = {'timeout_mins': 600}
+        password = 'secret'
+        heatclient.stacks.create(**form_data).AndReturn(stack)
+        self.mox.ReplayAll()
+
+        returned_stack = api.heat.stack_create(self.request,
+                                               password,
+                                               **form_data)
+        from heatclient.v1 import stacks
+        self.assertIsInstance(returned_stack, stacks.Stack)
+
     def test_stack_update(self):
         api_stacks = self.stacks.list()
         stack = api_stacks[0]
@@ -184,11 +201,13 @@ class HeatApiTests(test.APITestCase):
         heatclient = self.stub_heatclient()
         heatclient.stacks = self.mox.CreateMockAnything()
         form_data = {'timeout_mins': 600}
+        password = 'secret'
         heatclient.stacks.update(stack_id, **form_data).AndReturn(stack)
         self.mox.ReplayAll()
 
         returned_stack = api.heat.stack_update(self.request,
                                                stack_id,
+                                               password,
                                                **form_data)
         from heatclient.v1 import stacks
         self.assertIsInstance(returned_stack, stacks.Stack)
