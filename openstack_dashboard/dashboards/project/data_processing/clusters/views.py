@@ -40,7 +40,11 @@ class ClustersView(tables.DataTableView):
 
     def get_data(self):
         try:
-            clusters = saharaclient.cluster_list(self.request)
+            search_opts = {}
+            filter = self.get_server_filter_info(self.request)
+            if filter['value'] and filter['field']:
+                search_opts = {filter['field']: filter['value']}
+            clusters = saharaclient.cluster_list(self.request, search_opts)
         except Exception:
             clusters = []
             exceptions.handle(self.request,

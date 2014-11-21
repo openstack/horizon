@@ -41,7 +41,12 @@ class NodegroupTemplatesView(tables.DataTableView):
 
     def get_data(self):
         try:
-            data = saharaclient.nodegroup_template_list(self.request)
+            search_opts = {}
+            filter = self.get_server_filter_info(self.request)
+            if filter['value'] and filter['field']:
+                search_opts = {filter['field']: filter['value']}
+            data = saharaclient.nodegroup_template_list(self.request,
+                                                        search_opts)
         except Exception:
             data = []
             exceptions.handle(self.request,

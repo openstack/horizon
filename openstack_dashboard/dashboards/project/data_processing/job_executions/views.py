@@ -30,13 +30,26 @@ LOG = logging.getLogger(__name__)
 
 
 class JobExecutionsView(tables.DataTableView):
+    SEARCH_MAPPING = {"cluster": "cluster.name",
+                      "job": "job.name"}
+
     table_class = je_tables.JobExecutionsTable
     template_name = (
         'project/data_processing.job_executions/job_executions.html')
 
     def get_data(self):
         try:
-            jobs = saharaclient.job_execution_list(self.request)
+            search_opts = {}
+            filter = self.get_server_filter_info(self.request)
+            if filter['value'] and filter['field']:
+                if filter['field'] in self.SEARCH_MAPPING:
+                    # Handle special cases for cluster and job
+                    # since they are in different database tables.
+                    search_opts = {
+                        self.SEARCH_MAPPING[filter['field']]: filter['value']}
+                else:
+                    search_opts = {filter['field']: filter['value']}
+            jobs = saharaclient.job_execution_list(self.request, search_opts)
         except Exception:
             jobs = []
             exceptions.handle(self.request,

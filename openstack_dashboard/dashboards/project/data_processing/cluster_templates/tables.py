@@ -26,6 +26,14 @@ from openstack_dashboard.api import sahara as saharaclient
 LOG = logging.getLogger(__name__)
 
 
+class ClusterTemplatesFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (('name', _("Name"), True),
+                      ('plugin', _("Plugin"), True),
+                      ('hadoop_version', _("Version"), True),
+                      ('description', _("Description")))
+
+
 class UploadFile(tables.LinkAction):
     name = 'upload_file'
     verbose_name = _("Upload Template")
@@ -125,7 +133,8 @@ class ClusterTemplatesTable(tables.DataTable):
         table_actions = (UploadFile,
                          CreateClusterTemplate,
                          ConfigureClusterTemplate,
-                         DeleteTemplate,)
+                         DeleteTemplate,
+                         ClusterTemplatesFilterAction,)
 
         row_actions = (CreateCluster,
                        CopyTemplate,

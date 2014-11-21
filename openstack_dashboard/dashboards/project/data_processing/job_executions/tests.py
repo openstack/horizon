@@ -27,7 +27,7 @@ DETAILS_URL = reverse(
 class DataProcessingJobExecutionTests(test.TestCase):
     @test.create_stubs({api.sahara: ('job_execution_list',)})
     def test_index(self):
-        api.sahara.job_execution_list(IsA(http.HttpRequest)) \
+        api.sahara.job_execution_list(IsA(http.HttpRequest), {}) \
             .AndReturn(self.job_executions.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
@@ -49,7 +49,7 @@ class DataProcessingJobExecutionTests(test.TestCase):
                                      'job_execution_delete')})
     def test_delete(self):
         job_exec = self.job_executions.first()
-        api.sahara.job_execution_list(IsA(http.HttpRequest)) \
+        api.sahara.job_execution_list(IsA(http.HttpRequest), {}) \
             .AndReturn(self.job_executions.list())
         api.sahara.job_execution_delete(IsA(http.HttpRequest), job_exec.id)
         self.mox.ReplayAll()

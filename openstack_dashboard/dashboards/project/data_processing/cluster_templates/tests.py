@@ -27,7 +27,7 @@ DETAILS_URL = reverse(
 class DataProcessingClusterTemplateTests(test.TestCase):
     @test.create_stubs({api.sahara: ('cluster_template_list',)})
     def test_index(self):
-        api.sahara.cluster_template_list(IsA(http.HttpRequest)) \
+        api.sahara.cluster_template_list(IsA(http.HttpRequest), {}) \
             .AndReturn(self.cluster_templates.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
@@ -85,7 +85,7 @@ class DataProcessingClusterTemplateTests(test.TestCase):
                                      'cluster_template_delete')})
     def test_delete(self):
         ct = self.cluster_templates.first()
-        api.sahara.cluster_template_list(IsA(http.HttpRequest)) \
+        api.sahara.cluster_template_list(IsA(http.HttpRequest), {}) \
             .AndReturn(self.cluster_templates.list())
         api.sahara.cluster_template_delete(IsA(http.HttpRequest), ct.id)
         self.mox.ReplayAll()
