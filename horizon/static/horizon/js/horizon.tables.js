@@ -131,17 +131,13 @@ horizon.datatables = {
     });
   },
 
-  validate_button: function () {
-    // Disable form button if checkbox are not checked
-    $("form").each(function (i) {
+  validate_button: function ($form) {
+    // Enable or disable table batch action buttons based on row selection.
+    $form = $form || $(".table_wrapper > form");
+    $form.each(function () {
       var checkboxes = $(this).find(".table-row-multi-select:checkbox");
-      var action_buttons = $(this).find(".table_actions button.btn-danger");
-
-      // Buttons should be enabled only if there are checked checkboxes
-      if (checkboxes.length) {
-        action_buttons.toggleClass("disabled",
-          !checkboxes.filter(":checked").length);
-        }
+      var action_buttons = $(this).find('.table_actions button[data-batch-action="true"]');
+      action_buttons.toggleClass("disabled", !checkboxes.filter(":checked").length);
     });
   },
 
@@ -161,15 +157,9 @@ horizon.datatables = {
       var any_unchecked = $table.find("tbody .table-row-multi-select:checkbox").not(":checked");
       $multi_select_checkbox.prop('checked', any_unchecked.length === 0);
     });
-    // Enable dangerous buttons only if one or more checkbox is checked.
+    // Enable/disable table batch action buttons when row selection changes.
     $("div.table_wrapper, #modal_wrapper").on("click", '.table-row-multi-select:checkbox', function (evt) {
-      var $form = $(this).closest("form");
-      var any_checked = $form.find("tbody .table-row-multi-select:checkbox").is(":checked");
-      if(any_checked) {
-        $form.find(".table_actions button.btn-danger").removeClass("disabled");
-      }else {
-        $form.find(".table_actions button.btn-danger").addClass("disabled");
-      }
+      horizon.datatables.validate_button($(this).closest("form"));
     });
   },
 
@@ -545,7 +535,9 @@ horizon.addInitFunction(horizon.datatables.init = function() {
   horizon.tabs.addTabLoadFunction(horizon.datatables.set_table_fixed_filter);
   horizon.tabs.addTabLoadFunction(horizon.datatables.initialize_checkboxes_behavior);
   horizon.tabs.addTabLoadFunction(horizon.datatables.initialize_table_tooltips);
-  horizon.tabs.addTabLoadFunction(horizon.datatables.validate_button);
+  horizon.tabs.addTabLoadFunction(function(tab) {
+    horizon.datatables.validate_button($(tab).find(".table_wrapper > form"));
+  });
 
   horizon.datatables.update();
 });
