@@ -22,7 +22,7 @@ openstack.nose_plugin>=0.7
 oslosphinx>=2.2.0  # Apache-2.0
 selenium
 sphinx>=1.1.2,!=1.2.0,!=1.3b1,<1.3
-testtools>=0.9.36,!=1.2.0,!=1.4.0
+testtools>=0.9.36,!=1.2.0
 unittest2
 # This also needs xvfb library installed on your OS
 xvfbwrapper>=0.1.3 #license: MIT
