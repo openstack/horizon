@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 19:13-0500\n"
-"PO-Revision-Date: 2014-10-28 22:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-11-20 22:42-0600\n"
+"PO-Revision-Date: 2014-11-21 02:00+0000\n"
+"Last-Translator: Xiao Xi LIU <liuxx@cn.ibm.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:480
+#: base.py:480 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "其他"
 
@@ -86,6 +87,8 @@ msgstr "取消"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:28
+#: templates/horizon/common/_modal_form_update_metadata.html:98
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
@@ -103,7 +106,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1552
+#: tables/actions.py:788 tables/base.py:1565
 msgid "N/A"
 msgstr "N/A"
 
@@ -143,21 +146,21 @@ msgstr "已更新"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 不存在 %(attr)s 屬性。"
 
-#: tables/base.py:973
+#: tables/base.py:985
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
 
-#: tables/base.py:1082
+#: tables/base.py:1094
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:1311
+#: tables/base.py:1324
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "沒有符合識別號「%s」的結果。"
 
-#: tables/base.py:1468
+#: tables/base.py:1481
 msgid "Please select a row before taking that action."
 msgstr "執行動作前請選擇一個欄位。"
 
@@ -213,21 +216,21 @@ msgstr "成功："
 msgid "Error: "
 msgstr "錯誤："
 
-#: templates/horizon/common/_data_table.html:61
+#: templates/horizon/common/_data_table.html:63
 msgid "Summary"
 msgstr "摘要"
 
-#: templates/horizon/common/_data_table.html:70
+#: templates/horizon/common/_data_table.html:72
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
+msgstr[0] "正在顯示 %(counter)s 項"
 
-#: templates/horizon/common/_data_table.html:75
+#: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;上一頁"
 
-#: templates/horizon/common/_data_table.html:78
+#: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
 msgstr "下一頁&nbsp;&raquo;"
 
@@ -238,7 +241,7 @@ msgstr "更多動作"
 #: templates/horizon/common/_domain_page_header.html:6
 #, python-format
 msgid "%(context_name)s:"
-msgstr ""
+msgstr "%(context_name)s："
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
@@ -247,7 +250,7 @@ msgstr "加入一列"
 #: templates/horizon/common/_formset_table_row.html:15
 #, python-format
 msgid "%(name)s: %(error)s"
-msgstr ""
+msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -313,7 +316,7 @@ msgstr "不允許重覆的鍵"
 #: templates/horizon/common/_modal_form_update_metadata.html:85
 #: templates/horizon/common/_modal_form_update_metadata.html:197
 msgid "No available metadata"
-msgstr ""
+msgstr "無可用的描述資料"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:96
 msgid "Existing Metadata"
@@ -338,13 +341,13 @@ msgstr "儲存"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
+msgstr[0] "正在顯示 %(nav_items)s 項"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
+msgstr[0] "正在顯示 %(content_items)s 項"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -352,7 +355,7 @@ msgstr "使用量摘要"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
-msgstr ""
+msgstr "選擇一段時期查詢其間的使用量："
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -374,19 +377,19 @@ msgstr "日期的格式應該為 YY-mm-dd。"
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances:"
-msgstr ""
+msgstr "有效的執行實例："
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM:"
-msgstr ""
+msgstr "有效的RAM："
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgstr "此段時期的VCPU-小時數："
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
-msgstr ""
+msgstr "此段時期的GB-小時數："
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -412,7 +415,7 @@ msgstr "可用"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
+msgstr[0] "%(size)d 位元組"
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -441,19 +444,19 @@ msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
 msgid "0 Bytes"
-msgstr ""
+msgstr "0 位元組"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
+msgstr[0] "售賣小狗"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
+msgstr[0] "已賣出小狗"
 
 #: utils/filters.py:49
 msgid "Never"
