@@ -222,12 +222,12 @@ class CreateSubnetDetailAction(workflows.Action):
         }),
         initial=utils.IPV6_DEFAULT_MODE,
         required=False,
-        help_text=_("It specifies how IPv6 address and additional information "
+        help_text=_("Specifies how IPv6 addresses and additional information "
                     "are configured. We can specify SLAAC/DHCPv6 stateful/"
                     "DHCPv6 stateless provided by OpenStack, "
                     "or specify no option. "
-                    "'No option selected' means addresses are configured "
-                    "manually or configured by non-OpenStack system."))
+                    "'No options specified' means addresses are configured "
+                    "manually or configured by a non-OpenStack system."))
     allocation_pools = forms.CharField(
         widget=forms.Textarea(attrs={'rows': 4}),
         label=_("Allocation Pools"),
