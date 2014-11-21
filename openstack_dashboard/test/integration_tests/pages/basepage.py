@@ -44,6 +44,7 @@ class BasePage(pageobject.PageObject):
         self.topbar.brand.click()
 
     def log_out(self):
+        self.topbar.user_dropdown_menu.click()
         self.topbar.logout_link.click()
         return self.go_to_login_page()
 
@@ -52,23 +53,20 @@ class BasePage(pageobject.PageObject):
         self.topbar.help_link.click()
 
     class TopBarRegion(basewebobject.BaseWebObject):
-        _user_indicator_locator = (by.By.CSS_SELECTOR,
-                                   '#profile_editor_switcher > '
-                                   'a.dropdown-toggle > div')
         _user_dropdown_menu_locator = (by.By.CSS_SELECTOR,
-                                       '#profile_editor_switcher >'
-                                       ' a.dropdown-toggle')
+                                       'div#profile_editor_switcher'
+                                       ' > button')
         _settings_link_locator = (by.By.CSS_SELECTOR,
                                   'a[href*="/settings/"]')
         _help_link_locator = (by.By.CSS_SELECTOR,
-                              'ul#editor_list li:nth-of-type(3) > a')
+                              'ul#editor_list li:nth-of-type(2) > a')
         _logout_link_locator = (by.By.CSS_SELECTOR,
                                 'a[href*="/auth/logout/"]')
         _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
 
         @property
         def user(self):
-            return self._get_element(*self._user_indicator_locator)
+            return self._get_element(*self._user_dropdown_menu_locator)
 
         @property
         def brand(self):
@@ -96,7 +94,7 @@ class BasePage(pageobject.PageObject):
 
         @property
         def is_logged_in(self):
-            return self._is_element_visible(*self._user_indicator_locator)
+            return self._is_element_visible(*self._user_dropdown_menu_locator)
 
     class NavigationAccordionRegion(basewebobject.BaseWebObject):
         # TODO(sunlim): change Xpath to CSS
