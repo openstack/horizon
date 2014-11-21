@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-19 17:40-0600\n"
-"PO-Revision-Date: 2014-11-19 23:37+0000\n"
+"POT-Creation-Date: 2014-11-20 22:42-0600\n"
+"PO-Revision-Date: 2014-11-21 04:42+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -440,7 +440,7 @@ msgstr "Администратор"
 #: dashboards/project/data_processing/job_binaries/forms.py:48
 #: dashboards/project/data_processing/job_binaries/tables.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
-#: dashboards/project/data_processing/jobs/tables.py:146
+#: dashboards/project/data_processing/jobs/tables.py:98
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
 #: dashboards/project/data_processing/jobs/workflows/create.py:55
@@ -1601,26 +1601,15 @@ msgstr "Начинаем эвакуацию из %(current)s в %(target)s."
 msgid "Failed to evacuate host: %s."
 msgstr "Не удалось эвакуировать хост: %s"
 
-#: dashboards/admin/hypervisors/compute/tables.py:27
-#: dashboards/admin/hypervisors/compute/tables.py:41
+#: dashboards/admin/hypervisors/compute/tables.py:24
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:3
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:6
 msgid "Evacuate Host"
-msgid_plural "Evacuate Hosts"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr ""
 
-#: dashboards/admin/hypervisors/compute/tables.py:35
-msgid "Evacuated Host"
-msgid_plural "Evacuated Hosts"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: dashboards/admin/hypervisors/compute/tables.py:65
+#: dashboards/admin/hypervisors/compute/tables.py:48
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:124
@@ -1636,12 +1625,12 @@ msgstr[2] ""
 msgid "Host"
 msgstr "Узел"
 
-#: dashboards/admin/hypervisors/compute/tables.py:66
+#: dashboards/admin/hypervisors/compute/tables.py:49
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
 msgid "Zone"
 msgstr "Зона"
 
-#: dashboards/admin/hypervisors/compute/tables.py:67
+#: dashboards/admin/hypervisors/compute/tables.py:50
 #: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
 #: dashboards/admin/instances/tables.py:141
@@ -1700,18 +1689,18 @@ msgstr "Зона"
 msgid "Status"
 msgstr "Статус"
 
-#: dashboards/admin/hypervisors/compute/tables.py:68
+#: dashboards/admin/hypervisors/compute/tables.py:51
 #: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
 #: dashboards/admin/info/tables.py:173 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "Состояние"
 
-#: dashboards/admin/hypervisors/compute/tables.py:70
+#: dashboards/admin/hypervisors/compute/tables.py:53
 #: dashboards/admin/networks/agents/tables.py:94
 msgid "Updated At"
 msgstr "Обновлено"
 
-#: dashboards/admin/hypervisors/compute/tables.py:79
+#: dashboards/admin/hypervisors/compute/tables.py:62
 #: dashboards/admin/hypervisors/compute/tabs.py:24
 msgid "Compute Host"
 msgstr "Вычислительный хост"
@@ -2262,7 +2251,7 @@ msgstr "Метрика"
 #: dashboards/project/data_processing/job_binaries/forms.py:77
 #: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
-#: dashboards/project/data_processing/jobs/tables.py:149
+#: dashboards/project/data_processing/jobs/tables.py:101
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/data_processing/jobs/workflows/create.py:65
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
@@ -2550,7 +2539,7 @@ msgstr "ID сегмента"
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:39
-#: dashboards/project/networks/tables.py:154
+#: dashboards/project/networks/tables.py:155
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/networks/ports/tables.py:61
@@ -2663,7 +2652,7 @@ msgstr "Не удалось обновить сеть %s"
 #: dashboards/project/databases/workflows/create_instance.py:131
 #: dashboards/project/instances/workflows/create_instance.py:650
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:158
+#: dashboards/project/networks/tables.py:159
 #: dashboards/project/networks/templates/networks/index.html:3
 #: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
@@ -3446,8 +3435,8 @@ msgstr "Обзор снимка диска"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:9
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
-msgid "Info"
-msgstr "Информация"
+msgid "Information"
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:134
@@ -3580,7 +3569,7 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/clusters/workflows/create.py:196
+#: dashboards/project/data_processing/clusters/workflows/create.py:202
 #: dashboards/project/data_processing/data_sources/workflows/create.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:119
@@ -6109,7 +6098,7 @@ msgstr "Загрузить шаблон"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:6
 #: dashboards/project/data_processing/clusters/workflows/create.py:54
-#: dashboards/project/data_processing/clusters/workflows/create.py:195
+#: dashboards/project/data_processing/clusters/workflows/create.py:201
 msgid "Launch Cluster"
 msgstr "Запустить кластер"
 
@@ -6442,7 +6431,7 @@ msgid "Unable to update row"
 msgstr "Не удалось обновить строку"
 
 #: dashboards/project/data_processing/clusters/tables.py:91
-#: dashboards/project/data_processing/clusters/workflows/create.py:177
+#: dashboards/project/data_processing/clusters/workflows/create.py:183
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr "Настроить кластер"
@@ -6578,20 +6567,28 @@ msgstr "Ключевая пара используемая для аутенти
 msgid "Unable to fetch image choices."
 msgstr "Невозможно получить выбор образа"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:134
+#: dashboards/project/data_processing/clusters/workflows/create.py:128
+msgid "No Images Available"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:138
 msgid "Unable to fetch keypair choices."
 msgstr "Невозможно получить выбор пары ключей"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:136
+#: dashboards/project/data_processing/clusters/workflows/create.py:140
 msgid "No keypair"
 msgstr "Нет пары ключей"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:197
+#: dashboards/project/data_processing/clusters/workflows/create.py:156
+msgid "No Templates Available"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/workflows/create.py:203
 #, python-format
 msgid "Created Cluster %s"
 msgstr "Созданный кластер %s"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:229
+#: dashboards/project/data_processing/clusters/workflows/create.py:235
 msgid "Unable to create the cluster"
 msgstr "Не удалось создать кластер"
 
@@ -7060,9 +7057,6 @@ msgstr[2] ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:55
 #: dashboards/project/data_processing/job_executions/tables.py:84
-#: dashboards/project/data_processing/jobs/tables.py:61
-#: dashboards/project/data_processing/jobs/tables.py:90
-#: dashboards/project/data_processing/jobs/tables.py:119
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:6
 #: dashboards/project/data_processing/jobs/workflows/launch.py:330
@@ -7076,9 +7070,6 @@ msgstr[2] ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:63
 #: dashboards/project/data_processing/job_executions/tables.py:92
-#: dashboards/project/data_processing/jobs/tables.py:69
-#: dashboards/project/data_processing/jobs/tables.py:98
-#: dashboards/project/data_processing/jobs/tables.py:127
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] ""
@@ -7168,7 +7159,7 @@ msgid "Job Execution Details"
 msgstr "Данные выполнения задания"
 
 #: dashboards/project/data_processing/jobs/panel.py:22
-#: dashboards/project/data_processing/jobs/tables.py:153
+#: dashboards/project/data_processing/jobs/tables.py:105
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
 msgid "Jobs"
 msgstr "Задания"
@@ -7195,12 +7186,12 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/jobs/tables.py:75
+#: dashboards/project/data_processing/jobs/tables.py:59
 msgid "Launch On Existing Cluster"
 msgstr "Запустить на существующем кластере"
 
-#: dashboards/project/data_processing/jobs/tables.py:104
-#: dashboards/project/data_processing/jobs/tables.py:133
+#: dashboards/project/data_processing/jobs/tables.py:72
+#: dashboards/project/data_processing/jobs/tables.py:85
 msgid "Launch On New Cluster"
 msgstr "Запустить на новом кластере"
 
