@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 00:03-0600\n"
+"POT-Creation-Date: 2014-11-23 00:03-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11329,10 +11329,10 @@ msgstr ""
 
 #: dashboards/project/networks/workflows.py:225
 msgid ""
-"It specifies how IPv6 address and additional information are configured. We "
+"Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
-"specify no option. 'No option selected' means addresses are configured "
-"manually or configured by non-OpenStack system."
+"specify no option. 'No options specified' means addresses are configured "
+"manually or configured by a non-OpenStack system."
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:233

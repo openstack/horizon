@@ -5,13 +5,14 @@
 # Translators:
 # Ambroise Christea <ambroise.christea@cloudwatt.com>, 2014
 # Frédéric <frosmont@free.fr>, 2014
+# Maxime COQUEREL <max.coquerel@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 22:42-0600\n"
-"PO-Revision-Date: 2014-11-21 04:42+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-11-21 10:36-0600\n"
+"PO-Revision-Date: 2014-11-21 21:22+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3423,7 +3424,7 @@ msgstr "Aperçu de l'instantané de volume"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:134
@@ -4900,7 +4901,7 @@ msgstr "Télécharger le fichier RC d'OpenStack"
 
 #: dashboards/project/access_and_security/api_access/tables.py:53
 msgid "View Credentials"
-msgstr ""
+msgstr "Voir les paramètres du compte"
 
 #: dashboards/project/access_and_security/api_access/tables.py:64
 msgid "Service Endpoint"
@@ -4926,11 +4927,11 @@ msgstr "Erreur pendant le téléchargement du fichier RC : %s"
 
 #: dashboards/project/access_and_security/api_access/views.py:145
 msgid "Unable to get openrc credentials"
-msgstr ""
+msgstr "Impossible d'obtenir les identifiants du compte openrc"
 
 #: dashboards/project/access_and_security/api_access/views.py:151
 msgid "Unable to get EC2 credentials"
-msgstr ""
+msgstr "Impossible d'obtenir les identifiants du compte EC2"
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
 #: dashboards/project/access_and_security/floating_ips/tables.py:199
@@ -5090,7 +5091,7 @@ msgstr "Impossible d'associer l'adresse IP %s."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:146
 msgid "unknown IP address"
-msgstr ""
+msgstr "Adresse IP inconnue"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:156
 msgid ""
@@ -5458,7 +5459,7 @@ msgstr "Accès et Sécurité"
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:5
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:3
 msgid "User Credentials"
-msgstr ""
+msgstr "Paramètre utilisateur du compte"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:26
 msgid "Authentication URL"
@@ -5466,23 +5467,23 @@ msgstr "URL d'authentification"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:36
 msgid "EC2 URL"
-msgstr ""
+msgstr "URL EC2"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:39
 msgid "S3 URL"
-msgstr ""
+msgstr "URL S3"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:43
 msgid "EC2 Access Key"
-msgstr ""
+msgstr "La clé d'accès EC2"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:49
 msgid "EC2 Secret Key"
-msgstr ""
+msgstr "La clé secrète EC2"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:6
 msgid "User Credentials Details"
-msgstr ""
+msgstr "Détails des paramètres du compte utilisateur"
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:9
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/allocate.html:3
@@ -6516,7 +6517,7 @@ msgstr "Impossible de charger les choix d'image."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:128
 msgid "No Images Available"
-msgstr ""
+msgstr "Pas d'images disponible"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:138
 msgid "Unable to fetch keypair choices."
@@ -6528,7 +6529,7 @@ msgstr "Pas de paire de clés"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:156
 msgid "No Templates Available"
-msgstr ""
+msgstr "Pas de templates disponible"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:203
 #, python-format
@@ -6747,14 +6748,14 @@ msgstr "Créer une source de données"
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Delete Data Source"
 msgid_plural "Delete Data Sources"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Supprimer les Sources de Données"
+msgstr[1] "Supprimer les Sources de Données"
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
 msgid "Deleted Data Source"
 msgid_plural "Deleted Data Sources"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sources de Données Supprimées"
+msgstr[1] "Sources de Données Supprimées"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
@@ -6885,13 +6886,13 @@ msgstr "Binaires de Tâche"
 #: dashboards/project/data_processing/job_binaries/tables.py:41
 msgid "Delete Job Binary"
 msgid_plural "Delete Job Binaries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sources de Données Supprimées"
+msgstr[1] "Supprimer les binaires de tâche"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:49
 msgid "Deleted Job Binary"
 msgid_plural "Deleted Job Binaries"
-msgstr[0] ""
+msgstr[0] "Binaires de tâche supprimés"
 msgstr[1] ""
 
 #: dashboards/project/data_processing/job_binaries/tables.py:71
@@ -6985,14 +6986,14 @@ msgstr "Exécution des tâches"
 #: dashboards/project/data_processing/job_executions/tables.py:34
 msgid "Delete Job Execution"
 msgid_plural "Delete Job Executions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Supprimer les exécutions de tâche"
+msgstr[1] "Supprimer les exécutions de tâche"
 
 #: dashboards/project/data_processing/job_executions/tables.py:42
 msgid "Deleted Job Execution"
 msgid_plural "Deleted Job Executions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Exécutions de tâches supprimés"
+msgstr[1] "Exécutions de tâches supprimés"
 
 #: dashboards/project/data_processing/job_executions/tables.py:55
 #: dashboards/project/data_processing/job_executions/tables.py:84
@@ -9280,26 +9281,26 @@ msgstr[1] "Instances Éteintes"
 #: dashboards/project/instances/tables.py:719
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Verrouiller les Instances"
+msgstr[1] "Verrouiller les Instances"
 
 #: dashboards/project/instances/tables.py:727
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instances verrouillées "
+msgstr[1] "Instances verrouillées "
 
 #: dashboards/project/instances/tables.py:750
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Déverrouiller les Instances"
+msgstr[1] "Déverrouiller les Instances"
 
 #: dashboards/project/instances/tables.py:758
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instances déverrouillées"
+msgstr[1] "Instances déverrouillées"
 
 #: dashboards/project/instances/tables.py:787
 #, python-format
@@ -11301,11 +11302,11 @@ msgstr "Mode de Configuration d'Adresse IPv6"
 
 #: dashboards/project/networks/workflows.py:225
 msgid ""
-"It specifies how IPv6 address and additional information are configured. We "
+"Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
-" specify no option. 'No option selected' means addresses are configured "
-"manually or configured by non-OpenStack system."
-msgstr "Cela précise comment les adresses IPv6 et les informations additionnelles sont configurées. Nous pouvons spécifier SLAAC/DHCPv6 avec état/DHCPv6 sans état fournis par OpenStack ou spécifier pas d'option. 'Pas d'option sélectionnée' signifie que les adresses sont configurées manuellement ou configurées par un système non-OpenStack."
+" specify no option. 'No options specified' means addresses are configured "
+"manually or configured by a non-OpenStack system."
+msgstr ""
 
 #: dashboards/project/networks/workflows.py:233
 msgid "Allocation Pools"
