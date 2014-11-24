@@ -1,3 +1,0 @@
-[submodule "openstack_dashboard/fiware_api/fiwareclient"]
-	path = openstack_dashboard/fiware_api/fiwareclient
-	url = https://github.com/ging/python-keystoneclient

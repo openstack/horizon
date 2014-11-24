@@ -26,17 +26,17 @@ from openstack_dashboard import api
 # PYTHONPATH we want) the custom keystoneclient (aka fiwareclient) so it's the
 # ony one used in the whole project
 try:
-    from fiwareclient.keystoneclient.v3.contrib.oauth2 import core
+    from keystoneclient.v3.contrib.oauth2 import core
 except ImportError, e:
     raise ImportError(e,
                 'You dont have setup correctly the extended keystoneclient. \
                 ask garcianavalon (Kike) or look at the wiki at github')
 else:
-    from fiwareclient.keystoneclient import exceptions as ks_exceptions
-    from fiwareclient.keystoneclient import session
-    from fiwareclient.keystoneclient.auth.identity import v3
-    from fiwareclient.keystoneclient.v3 import client
-    from fiwareclient.keystoneclient.v3.contrib.oauth2 import auth
+    from keystoneclient import exceptions as ks_exceptions
+    from keystoneclient import session
+    from keystoneclient.auth.identity import v3
+    from keystoneclient.v3 import client
+    from keystoneclient.v3.contrib.oauth2 import auth
 
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
