@@ -201,22 +201,27 @@ def permission_delete(request, permission):
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
     return manager.delete(permission)
 
-# OAUTH2 FLOW
 
-def create_application(request, redirect_uris, scopes,
+# APPLICATIONS/CONSUMERS
+def application_create(request, name, redirect_uris, scopes=['all_info'],
                     client_type='confidential', description=None, 
                     grant_type='authorization_code'):
     """ Registers a new consumer in the Keystone OAuth2 extension.
 
-    In FIWARE applications is the name OAuth2 consumers/clients receive. 
+    In FIWARE applications is the name OAuth2 consumers/clients receive.
     """
-    manager = fiwareclient(request).oauth2.consumers
-    return manager.create(redirect_uris=redirect_uris,
-                            description=description,
-                            scopes=scopes,
-                            client_type=client_type,
-                            grant_type=grant_type)
-
+    manager = fiwareclient().oauth2.consumers
+    return manager.create(name=name,
+                        redirect_uris=redirect_uris,
+                        description=description,
+                        scopes=scopes,
+                        client_type=client_type,
+                        grant_type=grant_type)
+def application_list(request):
+    manager = fiwareclient().oauth2.consumers
+    return manager.list()
+    
+# OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
                                         redirect_uri, scope, state=None):
     """ Sends the consumer/client credentials to the authorization server to ask
