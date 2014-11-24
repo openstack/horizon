@@ -14,10 +14,14 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.http import Http404  # noqa
 from django.utils import http
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from saharaclient.api import base as api_base
+
+from horizon import messages
 from horizon import tables
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -104,9 +108,13 @@ class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, job_execution_id):
-        job_execution = saharaclient.job_execution_get(request,
-                                                       job_execution_id)
-        return job_execution
+        try:
+            return saharaclient.job_execution_get(request, job_execution_id)
+        except api_base.APIException as e:
+            if e.error_code == 404:
+                raise Http404
+            else:
+                messages.error(request, _("Unable to update row"))
 
 
 def get_job_link(job_execution):
