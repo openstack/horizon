@@ -11,11 +11,8 @@
 # under the License.
 
 from django.utils.translation import ugettext_lazy as _
-
-from horizon import exceptions
-from horizon import forms
+    
 from horizon import tables
-
 
 
 class GoToOrganizationTable(tables.LinkAction):
@@ -46,16 +43,14 @@ class CreateOrganization(tables.LinkAction):
     def get_link_url(self):
         base_url = '/idm/organizations/create'
         return base_url
-        
-
 
 
 class TenantsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'),
-                          form_field=forms.CharField(max_length=64))
+    name = tables.Column('name', verbose_name=_('Name'))
    
     clickable = True
     switch = True
+    show_avatar = True
     class Meta:
         name = "tenants"
         verbose_name = _("Organizations")
@@ -65,16 +60,11 @@ class TenantsTable(tables.DataTable):
     
 
 class ApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(max_length=64))
-    description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'),
-                                form_field=forms.CharField(
-                                    widget=forms.Textarea(),
-                                    required=False))
-
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', getattr(obj, 'redirect_uris', None)))
     
-    clickable = True
+    #clickable = True
+    show_avatar = True
     class Meta:
         name = "applications"
         verbose_name = _("Applications")

@@ -14,7 +14,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-from keystoneclient.exceptions import Conflict  # noqa
+from keystoneclient.exceptions import Conflict
 
 from horizon import exceptions
 from horizon import forms
@@ -33,14 +33,10 @@ class CreateApplication(tables.LinkAction):
 
 
 class ProvidingApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(max_length=64))
-    description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'),
-                                form_field=forms.CharField(
-                                    widget=forms.Textarea(),
-                                    required=False))
-    clickable = True
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', getattr(obj, 'redirect_uris', None)))
+    #clickable = True
+    show_avatar = True
     class Meta:
         name = "providing_table"
         verbose_name = _("Providing Applications")
@@ -50,14 +46,10 @@ class ProvidingApplicationsTable(tables.DataTable):
 
 
 class PurchasedApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(max_length=64))
-    description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'),
-                                form_field=forms.CharField(
-                                    widget=forms.Textarea(),
-                                    required=False))
-    clickable = True
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', getattr(obj, 'redirect_uris', None)))
+    #clickable = True
+    show_avatar = True
     class Meta:
         name = "purchased_table"
         verbose_name = _("Purchased Applications")

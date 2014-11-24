@@ -1,4 +1,4 @@
-{%if row.table.name = 'mytenants' or row.table.name = 'tenants' %}
+{% if row.table.show_avatar %}
   <div class="avatar">
      <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
   </div>
