@@ -43,10 +43,14 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         #create application
         #default_domain = api.keystone.get_default_domain(request)
         try:
+            extra = {
+                'url':data['url']
+            }
             fiware_api.keystone.application_create(request,
                                                 name=data['name'],
                                                 description=data['description'],
-                                                redirect_uris=[data['callbackurl']])
+                                                redirect_uris=[data['callbackurl']],
+                                                extra=extra)
         except Exception:
             exceptions.handle(request, _('Unable to register the application.'))
             return False

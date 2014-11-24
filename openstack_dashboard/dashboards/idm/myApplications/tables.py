@@ -34,7 +34,7 @@ class CreateApplication(tables.LinkAction):
 
 class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', getattr(obj, 'redirect_uris', None)))
+    url = tables.Column(lambda obj: obj.extra['url'])
     #clickable = True
     show_avatar = True
     class Meta:
@@ -47,7 +47,7 @@ class ProvidingApplicationsTable(tables.DataTable):
 
 class PurchasedApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', getattr(obj, 'redirect_uris', None)))
+    url = tables.Column(lambda obj: obj.extra['url'])
     #clickable = True
     show_avatar = True
     class Meta:

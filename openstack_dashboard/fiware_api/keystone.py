@@ -205,7 +205,7 @@ def permission_delete(request, permission):
 # APPLICATIONS/CONSUMERS
 def application_create(request, name, redirect_uris, scopes=['all_info'],
                     client_type='confidential', description=None, 
-                    grant_type='authorization_code'):
+                    grant_type='authorization_code', extra=None):
     """ Registers a new consumer in the Keystone OAuth2 extension.
 
     In FIWARE applications is the name OAuth2 consumers/clients receive.
@@ -216,7 +216,8 @@ def application_create(request, name, redirect_uris, scopes=['all_info'],
                         description=description,
                         scopes=scopes,
                         client_type=client_type,
-                        grant_type=grant_type)
+                        grant_type=grant_type,
+                        extra=extra)
 
 def application_list(request, user=None):
     manager = fiwareclient().oauth2.consumers
