@@ -109,10 +109,25 @@
     }
   }
 }
-#new_permission{
+.site-client-roles{
+  .data{
+    float: left;
+  }
   .btn-link{
     float: right;
-    clear: both;
+    border: rgba(0, 0, 0, 0);
+    &:hover{
+      border: transparent;
+      color: $brand-secundary;
+    }
+  }
+  .panel-title {
+    margin-bottom: 0;
+    text-align: right;
+    font-size: 15px;
+    padding-top: 10px;
+    color: inherit;
+    border-top: 1px solid #DDD;
   }
 }
 #add_permission{
