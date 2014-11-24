@@ -217,10 +217,11 @@ def application_create(request, name, redirect_uris, scopes=['all_info'],
                         scopes=scopes,
                         client_type=client_type,
                         grant_type=grant_type)
-def application_list(request):
+
+def application_list(request, user=None):
     manager = fiwareclient().oauth2.consumers
-    return manager.list()
-    
+    return manager.list(user=user)
+
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
                                         redirect_uri, scope, state=None):

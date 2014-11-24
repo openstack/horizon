@@ -16,16 +16,10 @@ from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import utils as idm_utils
 from openstack_dashboard.dashboards.idm.home import tables as home_tables
 
-ORGANIZATION_INFO_FIELDS = ("domain_id",
-                           "domain_name",
-                           "name",
-                           "description",
-                           "enabled")
-
-INDEX_URL = "horizon:idm:home:index"
 
 class IndexView(tables.MultiTableView):
     table_classes = (home_tables.TenantsTable,
@@ -56,8 +50,12 @@ class IndexView(tables.MultiTableView):
 
     def get_applications_data(self):
         applications = []
-        marker = self.request.GET.get(
-            home_tables.ApplicationsTable._meta.pagination_param, None)
-        domain_context = self.request.session.get('domain_context', None)
-        
+        try:
+            applications = fiware_api.keystone.application_list(
+                self.request)
+                #user=self.request.user.id)
+
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve application list."))
         return applications

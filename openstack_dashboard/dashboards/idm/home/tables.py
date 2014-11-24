@@ -77,7 +77,7 @@ class ApplicationsTable(tables.DataTable):
     clickable = True
     class Meta:
         name = "applications"
-        verbose_name = _("My Applications")
+        verbose_name = _("Applications")
         pagination_param = "tenant_marker"
         table_actions = (GoToApplicationsTable,)
         multi_select = False
