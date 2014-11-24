@@ -27,10 +27,24 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
-class RouterTests(test.TestCase):
-    DASHBOARD = 'project'
-    INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
-    DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
+class RouterMixin:
+    @test.create_stubs({
+        api.neutron: ('router_get', 'port_list',
+                      'network_get'),
+    })
+    def _get_detail(self, router):
+        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
+            .AndReturn(router)
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=router.id)\
+            .AndReturn([self.ports.first()])
+        self._mock_external_network_get(router)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:%s'
+                                      ':routers:detail' % self.DASHBOARD,
+                                      args=[router.id]))
+        return res
 
     def _mock_external_network_list(self, alter_ids=False):
         search_opts = {'router:external': True}
@@ -47,6 +61,21 @@ class RouterTests(test.TestCase):
         ext_net = self.networks.list()[2]
         api.neutron.network_get(IsA(http.HttpRequest), ext_net_id,
                                 expand_subnet=False).AndReturn(ext_net)
+
+    def _mock_network_list(self, tenant_id):
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=False,
+            tenant_id=tenant_id).AndReturn(self.networks.list())
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn([])
+
+
+class RouterTests(RouterMixin, test.TestCase):
+    DASHBOARD = 'project'
+    INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
+    DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list'),
                         quotas: ('tenant_quota_usages',)})
@@ -115,21 +144,9 @@ class RouterTests(test.TestCase):
         self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
         self.assertMessageCount(res, error=1)
 
-    @test.create_stubs({api.neutron: ('router_get', 'port_list',
-                                      'network_get')})
     def test_router_detail(self):
         router = self.routers.first()
-        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
-            .AndReturn(self.routers.first())
-        api.neutron.port_list(IsA(http.HttpRequest),
-                              device_id=router.id)\
-            .AndReturn([self.ports.first()])
-        self._mock_external_network_get(router)
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:%s'
-                                      ':routers:detail' % self.DASHBOARD,
-                                      args=[router.id]))
+        res = self._get_detail(router)
 
         self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
         ports = res.context['interfaces_table'].data
@@ -231,7 +248,7 @@ class RouterTests(test.TestCase):
         self.assertIn('Deleted Router: ' + router.name, res.content)
 
 
-class RouterActionTests(test.TestCase):
+class RouterActionTests(RouterMixin, test.TestCase):
     DASHBOARD = 'project'
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
@@ -471,15 +488,6 @@ class RouterActionTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
-    def _mock_network_list(self, tenant_id):
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=False,
-            tenant_id=tenant_id).AndReturn(self.networks.list())
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=True).AndReturn([])
-
     def _test_router_addinterface(self, raise_error=False):
         router = self.routers.first()
         subnet = self.subnets.first()
@@ -650,57 +658,23 @@ class RouterActionTests(test.TestCase):
         self.assertRedirectsNoFollow(res, detail_url)
 
 
-class RouterRuleTests(test.TestCase):
+class RouterRuleTests(RouterMixin, test.TestCase):
     DASHBOARD = 'project'
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
-    def _mock_external_network_get(self, router):
-        ext_net_id = router.external_gateway_info['network_id']
-        ext_net = self.networks.list()[2]
-        api.neutron.network_get(IsA(http.HttpRequest), ext_net_id,
-                                expand_subnet=False).AndReturn(ext_net)
-
-    def _mock_network_list(self, tenant_id):
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=False,
-            tenant_id=tenant_id).AndReturn(self.networks.list())
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=True).AndReturn([])
-
-    @test.create_stubs({api.neutron: ('router_get', 'port_list',
-                                      'network_get')})
     def test_extension_hides_without_rules(self):
         router = self.routers.first()
-        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
-            .AndReturn(self.routers.first())
-        api.neutron.port_list(IsA(http.HttpRequest),
-                              device_id=router.id)\
-            .AndReturn([self.ports.first()])
-        self._mock_external_network_get(router)
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:%s'
-                                      ':routers:detail' % self.DASHBOARD,
-                                      args=[router.id]))
+        res = self._get_detail(router)
 
         self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
         self.assertTemplateNotUsed(
             res,
             '%s/routers/extensions/routerrules/grid.html' % self.DASHBOARD)
 
-    @test.create_stubs({api.neutron: ('router_get', 'port_list',
-                                      'network_get', 'network_list')})
+    @test.create_stubs({api.neutron: ('network_list',)})
     def test_routerrule_detail(self):
         router = self.routers_with_rules.first()
-        api.neutron.router_get(IsA(http.HttpRequest), router.id)\
-            .AndReturn(self.routers_with_rules.first())
-        api.neutron.port_list(IsA(http.HttpRequest),
-                              device_id=router.id)\
-            .AndReturn([self.ports.first()])
-        self._mock_external_network_get(router)
         if self.DASHBOARD == 'project':
             api.neutron.network_list(
                 IsA(http.HttpRequest),
@@ -709,11 +683,7 @@ class RouterRuleTests(test.TestCase):
             api.neutron.network_list(
                 IsA(http.HttpRequest),
                 shared=True).AndReturn([])
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:%s'
-                                      ':routers:detail' % self.DASHBOARD,
-                                      args=[router.id]))
+        res = self._get_detail(router)
 
         self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
         if self.DASHBOARD == 'project':
@@ -830,19 +800,9 @@ class RouterRuleTests(test.TestCase):
         self.assertNoFormErrors(res)
 
 
-class RouterViewTests(test.TestCase):
+class RouterViewTests(RouterMixin, test.TestCase):
     DASHBOARD = 'project'
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
-
-    def _mock_external_network_list(self, alter_ids=False):
-        search_opts = {'router:external': True}
-        ext_nets = [n for n in self.networks.list() if n['router:external']]
-        if alter_ids:
-            for ext_net in ext_nets:
-                ext_net.id += 'some extra garbage'
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            **search_opts).AndReturn(ext_nets)
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list'),
                         quotas: ('tenant_quota_usages',)})
