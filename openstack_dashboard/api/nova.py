@@ -394,7 +394,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
         fip = self.client.floating_ips.get(floating_ip_id)
         self.client.servers.add_floating_ip(server.id, fip.ip)
 
-    def disassociate(self, floating_ip_id, port_id):
+    def disassociate(self, floating_ip_id):
         fip = self.client.floating_ips.get(floating_ip_id)
         server = self.client.servers.get(fip.instance_id)
         self.client.servers.remove_floating_ip(server.id, fip.ip)

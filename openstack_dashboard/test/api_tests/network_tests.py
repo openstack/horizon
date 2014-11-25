@@ -196,8 +196,7 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
         self.mox.ReplayAll()
 
         api.network.floating_ip_disassociate(self.request,
-                                             floating_ip.id,
-                                             server.id)
+                                             floating_ip.id)
 
     def test_floating_ip_target_list(self):
         servers = self.servers.list()
@@ -671,15 +670,11 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
     def test_floating_ip_disassociate(self):
         fip = self.api_q_floating_ips.list()[1]
-        assoc_port = self.api_ports.list()[1]
-        ip_address = assoc_port['fixed_ips'][0]['ip_address']
-        target_id = '%s_%s' % (assoc_port['id'], ip_address)
         self.qclient.update_floatingip(fip['id'],
                                        {'floatingip': {'port_id': None}})
         self.mox.ReplayAll()
 
-        api.network.floating_ip_disassociate(self.request, fip['id'],
-                                             target_id)
+        api.network.floating_ip_disassociate(self.request, fip['id'])
 
     def _get_target_id(self, port):
         param = {'id': port['id'],

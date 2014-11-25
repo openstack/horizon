@@ -152,7 +152,6 @@ class FloatingIpViewTests(test.TestCase):
                                       'tenant_floating_ip_list',)})
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
-        server = self.servers.first()
 
         api.nova.server_list(IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])
@@ -161,8 +160,7 @@ class FloatingIpViewTests(test.TestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
-                                             floating_ip.id,
-                                             server.id)
+                                             floating_ip.id)
         self.mox.ReplayAll()
 
         action = "floating_ips__disassociate__%s" % floating_ip.id
@@ -177,7 +175,6 @@ class FloatingIpViewTests(test.TestCase):
                                       'tenant_floating_ip_list',)})
     def test_disassociate_post_with_exception(self):
         floating_ip = self.floating_ips.first()
-        server = self.servers.first()
 
         api.nova.server_list(IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])
@@ -187,8 +184,7 @@ class FloatingIpViewTests(test.TestCase):
             .AndReturn(self.floating_ips.list())
 
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
-                                             floating_ip.id,
-                                             server.id) \
+                                             floating_ip.id) \
             .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 

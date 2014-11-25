@@ -397,7 +397,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
         self.client.update_floatingip(floating_ip_id,
                                       {'floatingip': update_dict})
 
-    def disassociate(self, floating_ip_id, port_id):
+    def disassociate(self, floating_ip_id):
         update_dict = {'port_id': None}
         self.client.update_floatingip(floating_ip_id,
                                       {'floatingip': update_dict})

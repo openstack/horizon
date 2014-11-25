@@ -65,9 +65,8 @@ def floating_ip_associate(request, floating_ip_id, port_id):
                                                          port_id)
 
 
-def floating_ip_disassociate(request, floating_ip_id, port_id):
-    return NetworkClient(request).floating_ips.disassociate(floating_ip_id,
-                                                            port_id)
+def floating_ip_disassociate(request, floating_ip_id):
+    return NetworkClient(request).floating_ips.disassociate(floating_ip_id)
 
 
 def floating_ip_target_list(request):

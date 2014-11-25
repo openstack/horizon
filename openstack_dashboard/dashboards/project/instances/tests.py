@@ -3355,7 +3355,7 @@ class InstanceTests(helpers.TestCase):
         api.network.tenant_floating_ip_list(
             IsA(http.HttpRequest)).AndReturn([fip])
         api.network.floating_ip_disassociate(
-            IsA(http.HttpRequest), fip.id, server.id)
+            IsA(http.HttpRequest), fip.id)
 
         self.mox.ReplayAll()
 
