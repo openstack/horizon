@@ -9,7 +9,7 @@ This page covers the basic installation of Horizon.
 System Requirements
 ===================
 
-* Python 2.7 (or 2.6)
+* Python 2.7
 * Django 1.6 (1.4 and 1.5 are supported too)
 * Minimum required set of running OpenStack services are:
 
