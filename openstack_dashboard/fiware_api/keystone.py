@@ -15,8 +15,6 @@ import logging
 
 from django.conf import settings
 
-from openstack_dashboard import api
-
 # TODO(garcianavalon) for now, the way we handle the fact that we are using
 # a custom keystoneclient is by adding the package as a git submodule and
 # importing it right here while we keep the default keystoneclient as a
@@ -222,6 +220,12 @@ def application_create(request, name, redirect_uris, scopes=['all_info'],
 def application_list(request, user=None):
     manager = fiwareclient().oauth2.consumers
     return manager.list(user=user)
+
+def application_get(request, application):
+    manager = fiwareclient().oauth2.consumers
+    return manager.get(application)
+
+
 
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
