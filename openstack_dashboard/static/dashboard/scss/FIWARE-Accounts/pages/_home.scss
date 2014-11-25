@@ -18,9 +18,9 @@
   .applications,
   .tenants {
     padding: 0;
-  }
-  .sortable{
-    @extend .data;
+    .sortable{
+      @extend .data;
+    }
   }
 }
 

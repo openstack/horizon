@@ -1,60 +1,60 @@
 #create_application_modal,
+#create_application_roles,
 #upload_image_modal{
   @extend .well;
   textarea {
     min-height: 40px;
   }
-}
+  .modal-header{
+    padding: 0;
+    min-height: 32px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid transparent;
+    h3{
+      margin: 0;
+      position: absolute;
 
-.modal-header{
-  padding: 0;
-  min-height: 32px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid transparent;
-  h3{
-    margin: 0;
-    position: absolute;
-
-    .steps-group {
-      position: relative;
-      z-index: 100;
-      .step{
-        display: inline-block;
-        background-color: $white;
-        margin-right: 100px;
-        border: 2px solid $gray-light;
-        color: $gray-light;
-        padding: 6px 0 0;
-        height: 28px;
-        width: 28px;
-        text-align: center;
-        font-size: 14px;
-        @include border-top-radius (27px);
-        @include border-bottom-radius (27px);
+      .steps-group {
         position: relative;
-        z-index: 2;
-        &:last-child{
-          margin-right: 0px;
+        z-index: 100;
+        .step{
+          display: inline-block;
+          background-color: $white;
+          margin-right: 100px;
+          border: 2px solid $gray-light;
+          color: $gray-light;
+          padding: 6px 0 0;
+          height: 28px;
+          width: 28px;
+          text-align: center;
+          font-size: 14px;
+          @include border-top-radius (27px);
+          @include border-bottom-radius (27px);
+          position: relative;
+          z-index: 2;
+          &:last-child{
+            margin-right: 0px;
+          }
+        }
+        .line{
+          position: relative;
+          z-index: 1;
+          height: 2px;
+          margin-top: -15px;
+          width: 293px;
+          background-color: $gray-light;
+          position: relative;
+          z-index: 1;
         }
       }
-      .line{
-        position: relative;
-        z-index: 1;
-        height: 2px;
-        margin-top: -15px;
-        width: 293px;
-        background-color: $gray-light;
-        position: relative;
-        z-index: 1;
+      .steps-group .completed{
+        color: darken($gray-light, 20%) !important;
+        border: 2px solid darken($gray-light, 20%) !important;
       }
-    }
-    .steps-group .completed{
-      color: darken($gray-light, 20%) !important;
-      border: 2px solid darken($gray-light, 20%) !important;
-    }
-    div.active {
-      border: 2px solid $brand-secundary !important;
-      color: $brand-primary !important;
+      div.active {
+        border: 2px solid $brand-secundary !important;
+        color: $brand-primary !important;
+      }
     }
   }
 }
@@ -111,6 +111,7 @@
     }
   }
 }
+
 .site-client-roles{
   .data{
     float: left;
