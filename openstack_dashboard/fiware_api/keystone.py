@@ -15,14 +15,7 @@ import logging
 
 from django.conf import settings
 
-# TODO(garcianavalon) for now, the way we handle the fact that we are using
-# a custom keystoneclient is by adding the package as a git submodule and
-# importing it right here while we keep the default keystoneclient as a
-# dependency. In the future and prior to relase we have to remove the
-# default keystoneclient dependency in requirements.txt and install globally
-# (in .venv/lib/pythonx.y/site_packages/keystoneclient or whatever folder in
-# PYTHONPATH we want) the custom keystoneclient (aka fiwareclient) so it's the
-# ony one used in the whole project
+# check that we have the correct version of the keystoneclient
 try:
     from keystoneclient.v3.contrib.oauth2 import core
 except ImportError, e:
@@ -36,6 +29,7 @@ else:
     from keystoneclient.v3 import client
     from keystoneclient.v3.contrib.oauth2 import auth
 
+LOG = logging.getLogger(__name__)
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
@@ -60,6 +54,8 @@ def _oauth2_session(access_token_id):
 def _password_session():
     conf_params = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')
     conf_params['AUTH_URL'] = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
+    LOG.debug('Creating a new keystoneclient password session to \
+        {0} for user: {1}'.format(conf_params['AUTH_URL'], conf_params['USERNAME']))
     auth = v3.Password(auth_url=conf_params['AUTH_URL'],
                     username=conf_params['USERNAME'],
                     password=conf_params['PASSWORD'],
@@ -129,8 +125,7 @@ def check_email(email):
 
 # ROLES AND PERMISSIONS
 # TODO(garcianavalon) we are using the idm account to create the roles instead
-# of the current user account. To fix this we need first to solve the multiple
-# keystoneclients issue (see the top of this file). 
+# of the current user account 
 # NOTE(garcianavalon) request is passed as an argument
 # looking into the future integration, no use for it now
 def role_get(request, role):
@@ -225,8 +220,6 @@ def application_get(request, application):
     manager = fiwareclient().oauth2.consumers
     return manager.get(application)
 
-
-
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
                                         redirect_uri, scope, state=None):
@@ -236,7 +229,9 @@ def request_authorization_for_application(request, application,
     :returns: a dict with all the data response from the provider, use it to populate
         a nice form for the user, for example.
     """
-    manager = fiwareclient(request).oauh2.authorization_codes
+    LOG.debug('Requesting authorization for application: {0} with redirect_uri: {1} \
+        and scope: {2}'.format(application, redirect_uri, scope))
+    manager = fiwareclient().oauh2.authorization_codes
     response_dict = manager.request_authorization(consumer=application, 
                                     redirect_uri=redirect_uri, 
                                     scope=scope, 
@@ -255,7 +250,8 @@ def authorize_application(request, user, application, scopes, redirect=False):
     :returns: an authorization_code object, following the same pattern as other 
         keystoneclient objects
     """
-    manager = fiwareclient(request).oauth2.authorization_codes
+    LOG.debug('Authorizing application: {0} by user: {1}'.format(application, user))
+    manager = fiwareclient().oauth2.authorization_codes
     authorization_code = manager.authorize(user=user, 
                                     consumer=application, 
                                     scopes=scopes, 
@@ -272,7 +268,8 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
 
     :returns: an access_token object
     """
-    manager = fiwareclient(request).oauth2.access_tokens
+    LOG.debug('Exchanging code: {0} by application: {1}'.format(code, consumer_id))
+    manager = fiwareclient().oauth2.access_tokens
     access_token = manager.create(consumer_id=consumer_id, 
                                 consumer_secret=consumer_secret, 
                                 authorization_code=code,
