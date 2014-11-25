@@ -26,17 +26,17 @@ from openstack_dashboard import api
 # PYTHONPATH we want) the custom keystoneclient (aka fiwareclient) so it's the
 # ony one used in the whole project
 try:
-    from fiwareclient.keystoneclient.v3.contrib.oauth2 import core
+    from keystoneclient.v3.contrib.oauth2 import core
 except ImportError, e:
     raise ImportError(e,
                 'You dont have setup correctly the extended keystoneclient. \
                 ask garcianavalon (Kike) or look at the wiki at github')
 else:
-    from fiwareclient.keystoneclient import exceptions as ks_exceptions
-    from fiwareclient.keystoneclient import session
-    from fiwareclient.keystoneclient.auth.identity import v3
-    from fiwareclient.keystoneclient.v3 import client
-    from fiwareclient.keystoneclient.v3.contrib.oauth2 import auth
+    from keystoneclient import exceptions as ks_exceptions
+    from keystoneclient import session
+    from keystoneclient.auth.identity import v3
+    from keystoneclient.v3 import client
+    from keystoneclient.v3.contrib.oauth2 import auth
 
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
@@ -201,22 +201,29 @@ def permission_delete(request, permission):
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
     return manager.delete(permission)
 
-# OAUTH2 FLOW
 
-def create_application(request, redirect_uris, scopes,
+# APPLICATIONS/CONSUMERS
+def application_create(request, name, redirect_uris, scopes=['all_info'],
                     client_type='confidential', description=None, 
-                    grant_type='authorization_code'):
+                    grant_type='authorization_code', extra=None):
     """ Registers a new consumer in the Keystone OAuth2 extension.
 
-    In FIWARE applications is the name OAuth2 consumers/clients receive. 
+    In FIWARE applications is the name OAuth2 consumers/clients receive.
     """
-    manager = fiwareclient(request).oauth2.consumers
-    return manager.create(redirect_uris=redirect_uris,
-                            description=description,
-                            scopes=scopes,
-                            client_type=client_type,
-                            grant_type=grant_type)
+    manager = fiwareclient().oauth2.consumers
+    return manager.create(name=name,
+                        redirect_uris=redirect_uris,
+                        description=description,
+                        scopes=scopes,
+                        client_type=client_type,
+                        grant_type=grant_type,
+                        extra=extra)
 
+def application_list(request, user=None):
+    manager = fiwareclient().oauth2.consumers
+    return manager.list(user=user)
+
+# OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
                                         redirect_uri, scope, state=None):
     """ Sends the consumer/client credentials to the authorization server to ask

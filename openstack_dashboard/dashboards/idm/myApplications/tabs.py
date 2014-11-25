@@ -12,8 +12,10 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tabs
 
+from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm.myApplications \
     import tables as applications_table
 
@@ -27,8 +29,14 @@ class ProvidingTab(tabs.TableTab):
 
     def get_providing_table_data(self):
         applications = []
+        try:
+            applications = fiware_api.keystone.application_list(
+                self.request)
+                #user=self.request.user.id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve application list."))
         return applications
-
 
 class PurchasedTab(tabs.TableTab):
     name = _("Purchased")

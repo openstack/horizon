@@ -14,15 +14,15 @@ import logging
 import os
 from PIL import Image 
 
+from django import forms
 from django import shortcuts
 from django.conf import settings
-from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon.utils import functions as utils
 from horizon import messages
+from horizon.utils import functions as utils
 
 from openstack_dashboard import fiware_api
 
@@ -40,6 +40,21 @@ class CreateApplicationForm(forms.SelfHandlingForm):
     callbackurl = forms.CharField(label=_("Callback URL"), required=False)
 
     def handle(self, request, data):
+        #create application
+        #default_domain = api.keystone.get_default_domain(request)
+        try:
+            extra = {
+                'url':data['url']
+            }
+            fiware_api.keystone.application_create(request,
+                                                name=data['name'],
+                                                description=data['description'],
+                                                redirect_uris=[data['callbackurl']],
+                                                extra=extra)
+        except Exception:
+            exceptions.handle(request, _('Unable to register the application.'))
+            return False
+    
         response = shortcuts.redirect('horizon:idm:myApplications:upload')
         return response
     
