@@ -15,8 +15,6 @@ import logging
 
 from django.conf import settings
 
-from openstack_dashboard import api
-
 # TODO(garcianavalon) for now, the way we handle the fact that we are using
 # a custom keystoneclient is by adding the package as a git submodule and
 # importing it right here while we keep the default keystoneclient as a
