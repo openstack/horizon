@@ -63,7 +63,7 @@ class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: obj.extra['url'])
     
-    #clickable = True
+    clickable = True
     show_avatar = True
     class Meta:
         name = "applications"
