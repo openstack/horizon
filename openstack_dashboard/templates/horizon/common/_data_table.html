@@ -8,7 +8,7 @@
         {% block table_body %}
         {% for row in rows %}
             {% if row.table.clickable == True %}
-                {% if row.table.name == "purchased_table" or row.table.name == "providing_table" %}
+                {% if row.table.name == "purchased_table" or row.table.name == "providing_table" or row.table.name == "applications" %}
                     <a class="list-group-item" href="{% url 'horizon:idm:myApplications:detail' row.datum.id %}">
                     {{ row.render }}
                 {% else %}
