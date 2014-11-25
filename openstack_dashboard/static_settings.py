@@ -55,7 +55,7 @@ STATICFILES_DIRS = [
         xstatic.main.XStatic(xstatic.pkg.hogan).base_dir),
     ('horizon/lib/font-awesome',
         xstatic.main.XStatic(xstatic.pkg.font_awesome).base_dir),
-    ('horizon/lib/jasmine-1.3.1',
+    ('horizon/lib/jasmine',
         xstatic.main.XStatic(xstatic.pkg.jasmine).base_dir),
     ('horizon/lib/jquery',
         xstatic.main.XStatic(xstatic.pkg.jquery).base_dir),
