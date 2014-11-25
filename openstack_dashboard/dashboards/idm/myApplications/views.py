@@ -22,6 +22,8 @@ from horizon import forms
 from horizon import tables
 from horizon import tabs
 
+from django.views.generic.base import TemplateView
+
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm.myApplications \
             import tables as application_tables
@@ -34,6 +36,7 @@ from openstack_dashboard.dashboards.idm.myApplications \
 class IndexView(tabs.TabbedTableView):
     tab_group_class = application_tabs.PanelTabs
     template_name = 'idm/myApplications/index.html'
+
 
   
 class CreateView(forms.ModalFormView):
@@ -94,3 +97,17 @@ class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
     template_name = 'idm/myApplications/permission_create.html'
     success_url = reverse_lazy('horizon:idm:myApplications:roles_index')
+
+class DetailApplicationView(TemplateView):
+    template_name = 'idm/myApplications/detail.html'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(DetailApplicationView, self).get_context_data(**kwargs)
+        application_id = self.kwargs['application_id']
+        application = fiware_api.keystone.application_get(self.request,application_id)
+        context['description'] = application.description
+        context['url'] = application.extra['url']
+        context['callbackURL'] = application.redirect_uris
+        context['application_name'] = application.name
+        return context

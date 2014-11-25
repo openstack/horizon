@@ -35,7 +35,8 @@ class CreateApplication(tables.LinkAction):
 class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: obj.extra['url'])
-    #clickable = True
+    #Comment
+    clickable = True
     show_avatar = True
     class Meta:
         name = "providing_table"
@@ -43,6 +44,8 @@ class ProvidingApplicationsTable(tables.DataTable):
         pagination_param = "tenant_marker"
         table_actions = (CreateApplication, )
         multi_select = False
+        
+
 
 
 class PurchasedApplicationsTable(tables.DataTable):
@@ -56,6 +59,9 @@ class PurchasedApplicationsTable(tables.DataTable):
         pagination_param = "tenant_marker"
         table_actions = (CreateApplication, )
         multi_select = False
+
+
+
 
 class DeleteRolesAction(tables.DeleteAction):
 
@@ -217,3 +223,4 @@ class PermissionsTable(tables.DataTable):
         row_class = UpdatePermissionRow
         row_actions = (DeletePermissionsAction,)
         table_actions = ()
+

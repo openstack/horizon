@@ -32,12 +32,12 @@ DEFAULT_AVATAR = os.path.abspath(os.path.join(settings.ROOT_PATH, '..',
 
 
 class CreateApplicationForm(forms.SelfHandlingForm):
-    name = forms.CharField(label=_("Name"), required=False)
+    name = forms.CharField(label=_("Name"), required=True)
     description = forms.CharField(label=_("Description"), 
                                 widget=forms.Textarea, 
-                                required=False)
-    url = forms.CharField(label=_("URL"), required=False)
-    callbackurl = forms.CharField(label=_("Callback URL"), required=False)
+                                required=True)
+    url = forms.CharField(label=_("URL"), required=True)
+    callbackurl = forms.CharField(label=_("Callback URL"), required=True)
 
     def handle(self, request, data):
         #create application
