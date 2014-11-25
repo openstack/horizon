@@ -227,6 +227,19 @@ def application_get(request, application):
     manager = fiwareclient().oauth2.consumers
     return manager.get(application)
 
+def application_update(request, consumer, name=None, description=None, client_type=None, 
+                redirect_uris=[], grant_type=None, scopes=[], **kwargs):
+    manager = fiwareclient().oauth2.consumers
+    return manager.update(
+                            consumer_id=base.getid(consumer),
+                            name=name,
+                            description=description,
+                            client_type=client_type,
+                            redirect_uris=redirect_uris,
+                            grant_type=grant_type,
+                            scopes=scopes,
+                            **kwargs)
+
 
 
 # OAUTH2 FLOW

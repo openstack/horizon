@@ -44,7 +44,8 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         #default_domain = api.keystone.get_default_domain(request)
         try:
             extra = {
-                'url':data['url']
+                'url':data['url'],
+                'img': "/static/dashboard/img/logos/small/user.png"
             }
             fiware_api.keystone.application_create(request,
                                                 name=data['name'],
@@ -131,3 +132,82 @@ class CreatePermissionForm(forms.SelfHandlingForm):
             return new_permission
         except Exception:
             exceptions.handle(request, _('Unable to create permission.'))
+
+class InfoForm(forms.SelfHandlingForm):
+    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    name = forms.CharField(label=_("Name"), max_length=64, required=False)
+    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=False)
+    url = forms.URLField(label=_("URL"),required=False)
+    callbackurl = forms.URLField(label=_("Callback URL"), required=False)
+
+    def handle(self, request, data):
+        extra = {
+            'url': data['url']
+        }
+        try:
+            fiware_api.keystone.application_update(request, data['appID'], name=data['name'], description=data['description'],
+                    redirect_uris=callbackurl,extra=extra)
+            messages.success(request, _("Application updated successfully."))
+            response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
+            return response
+        except Exception:
+            response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
+            return response
+
+# class RolesForm(forms.SelfHandlingForm):
+#     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+#     email = forms.EmailField(label=_("E-mail"), required=False)
+#     website = forms.URLField(label=_("Website"), required=False)
+
+#     def handle(self, request, data):
+#         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
+#         return response
+
+# class AvatarForm(forms.SelfHandlingForm):
+#     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+#     name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
+#     image = forms.ImageField(required=False)
+#     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+#     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+#     x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+#     y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+
+#     def handle(self, request, data):
+#         if request.FILES:
+
+#             x1 = self.cleaned_data['x1'] 
+#             x2 = self.cleaned_data['x2']
+#             y1 = self.cleaned_data['y1']
+#             y2 = self.cleaned_data['y2']
+                    
+#             image = request.FILES['image'] 
+
+#             img = Image.open(image)
+
+#             x1 = int(x1)
+#             x2 = int(x2)
+#             y1 = int(y1)
+#             y2 = int(y2)
+
+#             output_img = img.crop((x1, y1, x2, y2))
+#         else:
+
+#             output_img = Image.open(DEFAULT_AVATAR)
+
+#         imageName = self.data['name']
+        
+#         output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
+
+#         messages.success(request, _("Organization deleted successfully."))
+#         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
+#         return response
+        
+# class CancelForm(forms.SelfHandlingForm):
+#     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+#     name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
+
+#     def handle(self, request, data):
+#         organization = data['orgID']
+#         api.keystone.tenant_delete(request, organization)
+#         response = shortcuts.redirect('horizon:idm:organizations:index')
+#         return response
