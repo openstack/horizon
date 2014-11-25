@@ -223,6 +223,12 @@ def application_list(request, user=None):
     manager = fiwareclient().oauth2.consumers
     return manager.list(user=user)
 
+def application_get(request, application):
+    manager = fiwareclient().oauth2.consumers
+    return manager.get(application)
+
+
+
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
                                         redirect_uri, scope, state=None):

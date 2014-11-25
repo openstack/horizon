@@ -43,6 +43,8 @@ class ProvidingApplicationsTable(tables.DataTable):
         pagination_param = "tenant_marker"
         table_actions = (CreateApplication, )
         multi_select = False
+        
+
 
 
 class PurchasedApplicationsTable(tables.DataTable):
@@ -56,6 +58,9 @@ class PurchasedApplicationsTable(tables.DataTable):
         pagination_param = "tenant_marker"
         table_actions = (CreateApplication, )
         multi_select = False
+
+
+
 
 class DeleteRolesAction(tables.DeleteAction):
 
@@ -217,3 +222,4 @@ class PermissionsTable(tables.DataTable):
         row_class = UpdatePermissionRow
         row_actions = (DeletePermissionsAction,)
         table_actions = ()
+

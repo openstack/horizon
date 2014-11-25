@@ -4,17 +4,20 @@
   {% with columns=table.get_columns rows=table.get_rows %}
     {% block table %}
       
-      <div class="list-group" id="{{ table.slugify_name }}">
+    <div class="list-group" id="{{ table.slugify_name }}">
         {% block table_body %}
-          {% for row in rows %}
-              {% if row.table.clickable == True %}
-                 <a class="list-group-item" href="{% url 'horizon:idm:organizations:detail' row.datum.id %}">
-                  {{ row.render }}
-              
-              {% else %}
-                
-                  {{ row.render }}
-                
+        {% for row in rows %}
+            {% if row.table.clickable == True %}
+                {% if row.table.name == "purchased_table" or row.table.name == "providing_table" %}
+                    <a class="list-group-item" href="{% url 'horizon:idm:myApplications:detail' row.datum.id %}">
+                    {{ row.render }}
+                {% else %}
+                     <a class="list-group-item" href="{% url 'horizon:idm:organizations:detail' row.datum.id %}">
+                    {{ row.render }}
+                {% endif %}
+
+            {% else %}                
+                  {{ row.render }}                
               {% endif %}
             </a>
           {% endfor %}
