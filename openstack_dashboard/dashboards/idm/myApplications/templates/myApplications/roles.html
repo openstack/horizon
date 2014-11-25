@@ -3,16 +3,59 @@
 {% block title %}{% endblock %}
 
 {% block page_header %}
+<div class="modal-header"><h3>
   {% include "idm/myApplications/_step-3.html" %}
+  </h3>
+  </div>
 {% endblock page_header %}
 
 {% block main %}
 
 
+
+<div class="site-client-roles">
+  <section id="relation_list" class="relation_list">
+    <h4>{{ roles_table.name }}</h4>
+    {{ roles_table.render}}
+    <div>
+      <h4  id="headingOne" role="tab" class="panel-title">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          + New role
+        </a>
+      </h4>
+      <div id="collapseOne" class="form-group collapse" role="tabpanel">    
+        {% include "idm/myApplications/_role_create.html" with form=roles_form add_to_field=roles_add_to_field %}
+      </div>
+    </div>
+  </section>
+
+  <section id="permissions_list" class="permissions_list">
+      <h4>{{ permissions_table.name }}</h4>
+      {{ permissions_table.render}}
+      <div>
+        <h4  id="headingOne" role="tab" class="panel-title">
+          <a data-toggle="collapse" href="#collapse_permissions" aria-expanded="true" aria-controls="collapse_permissions">
+            + New permission
+          </a>
+        </h4>
+        <div id="collapse_permissions" class="form-group collapse" role="tabpanel">    
+          {% include "idm/myApplications/_permission_create.html" with form=permissions_form add_to_field=permissions_add_to_field%}
+        </div>
+      </div>
+  </section>
+</div>
+
+<button type="submit" class="btn btn-primary">{% trans "Finish" %}</button>
+{% endblock %}
+
+
+
+
+
 <!-- esto es el HTML que envió kique con algún cambio en el html
 
 NO BORRAR -- Si molesta dejar comentado hasta que pueda verlo bien desde el dit
--->
+
 
 
 <div class="site-client-roles">
@@ -238,44 +281,6 @@ NO BORRAR -- Si molesta dejar comentado hasta que pueda verlo bien desde el dit
     </div>
   </section>
 
-
-
-
-
-
-<div class="site-client-roles">
-  <section id="relation_list" class="relation_list">
-    <h4>{{ roles_table.name }}</h4>
-    {{ roles_table.render}}
-    <div>
-      <h4  id="headingOne" role="tab" class="panel-title">
-        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          + New role
-        </a>
-      </h4>
-      <div id="collapseOne" class="form-group collapse" role="tabpanel">    
-        {% include "idm/myApplications/_role_create.html" with form=roles_form add_to_field=roles_add_to_field %}
-      </div>
-    </div>
-  </section>
-
-  <section id="permissions_list" class="permissions_list">
-      <h4>{{ permissions_table.name }}</h4>
-      {{ permissions_table.render}}
-      <div>
-        <h4  id="headingOne" role="tab" class="panel-title">
-          <a data-toggle="collapse" href="#collapse_permissions" aria-expanded="true" aria-controls="collapse_permissions">
-            + New permission
-          </a>
-        </h4>
-        <div id="collapse_permissions" class="form-group collapse" role="tabpanel">    
-          {% include "idm/myApplications/_permission_create.html" with form=permissions_form add_to_field=permissions_add_to_field%}
-        </div>
-      </div>
-  </section>
-</div>
-
-<button type="submit" class="btn btn-primary">{% trans "Finish" %}</button>
-{% endblock %}
+-->
 
 
