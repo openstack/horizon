@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Applications" %}{% endblock %}
+
+{% block page_header %}{% endblock page_header %}
+
+{% block main %}
+<div id="detailApplication">
+    <header>
+        <h3 class="name">
+            {{ application_name }} 
+        </h3>
+        <!--crear la carga de la imagen -->
+        <div class="logo">
+            <img alt="application logo" src="{{ STATIC_URL }}dashboard/img/logos/original/group.png">
+        </div> 
+    </header>
+	<div class="panel panel-default">
+        <div class="description">
+            <h4 class="panel-heading">
+                Description
+            </h4>               
+    		<div class="panel-body">
+                <p>{{ description }}</p>
+            </div>
+        </div>
+
+        <div class="url">
+            <h4 class="panel-heading">
+                URL
+            </h4>               
+            <div class="panel-body">
+                <p>{{ url }}</p>
+            </div>
+        </div>
+
+        <div class="description">
+            <h4 class="panel-heading">
+                Description
+            </h4>               
+            <div class="panel-body">
+                <p>{{ callbackURL }}</p>
+            </div>
+        </div>
+
+           
+	</div>
+
+
+</div>
+{% endblock %}
+
