@@ -18,6 +18,7 @@ from openstack_dashboard.dashboards.idm.myApplications import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^(?P<application_id>[^/]+)/$', views.DetailApplicationView.as_view(), name='detail'), 
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^upload/$', views.UploadImageView.as_view(), name='upload'),
     url(r'^roles/$', views.RolesView.as_view(), name='roles_index'),
