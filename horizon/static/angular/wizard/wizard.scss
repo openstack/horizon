@@ -1,0 +1,205 @@
+.wizard {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $wizardHeight;
+  overflow: hidden;
+  font-weight: lighter;
+
+  .title {
+    height: $wizardTitleBarHeight;
+    line-height: $wizardTitleBarHeight - 6px;
+    vertical-align: bottom;
+    padding: 6px $WizardSidePadding 0 $WizardSidePadding;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+    font-weight: normal;
+  }
+
+  .nav {
+    display: inline-block;
+    top: 40px;
+    left: 0px;
+    bottom: 40px;
+    width: $wizardNavWidth;
+    padding: 10px 10px 10px $WizardSidePadding;
+
+    .nav-item {
+      position: relative;
+      display: block;
+      height: $WizardNavItemHeight;
+      width: $WizardNavItemWidth;
+      text-align: left;
+      padding-left: 10px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #bbb;
+      margin-top: -1px;
+      color: $WizardNavItemColor;
+      font-size: 12px;
+      border-radius: 0;
+
+      &[disabled] {
+        color: #444;
+        background: transparent;
+      }
+
+      &.current {
+        width: $WizardNavItemWidth + 10px;
+        background: #0083d1;
+        color: $WizardButtonColorHiLight;
+        border-color: $WizardNextBtnBgColor;
+
+        .status-indicator {
+          right: 10px;
+          color: inherit;
+        }
+      }
+
+      .status-indicator {
+        position: absolute;
+        right: 0;
+        top: 18px;
+        width: $WizardStatusIndicatorSize;
+        height: $WizardStatusIndicatorSize;
+        color: orange;
+      }
+    }
+  }
+
+  .step {
+    position: absolute;
+    top: $wizardTitleBarHeight;
+    left: $wizardNavWidth;
+    right: 40px;
+    bottom: $wizardToolBarHeight;
+    color: #888;
+
+    h1 {
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      text-align: left;
+      font-size: 18px;
+      font-weight: normal;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  .toolbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: $wizardToolBarHeight;
+    line-height: $wizardToolBarHeight;
+    vertical-align: middle;
+    background: #eee;
+    border-top: 1px solid #ccc;
+
+    .secondary-btn-grp {
+      position: absolute;
+      left: $WizardSidePadding;
+    }
+
+    .primary-btn-grp {
+      position: absolute;
+      right: $WizardSidePadding;
+    }
+
+    .secondary-btn-grp button {
+      margin-right: $WizardBtnGap - 3px; // white space character takes 3px
+    }
+
+    .primary-btn-grp button {
+      margin-left: $WizardBtnGap - 3px; // white space character takes 3px
+    }
+
+    .btn-wrap {
+      display: inline-block;
+    }
+
+    .btn-wrap.finish {
+      padding-left: 15px;
+      margin-left: 20px;
+      border-left: 2px solid #ddd;
+    }
+
+    .separator {
+      display: inline-block;
+      width: 0px;
+      margin-left: 20px;
+      margin-right: 15px;
+      border-left: 1px solid #ccc;
+      height: $wizardToolBarHeight;
+      vertical-align: top;
+    }
+
+    button {
+      height: $WizardToolbarBtnHeight;
+      line-height: $WizardToolbarBtnHeight - 2px;
+      vertical-align: baseline;
+      padding: 0 25px 2px 25px;
+      font-size: 14px;
+      color: #666;
+      border: 1px solid #ccc;
+      background: #fff;
+
+      &[disabled] {
+        color: #ccc;
+        border-color: #ddd;
+        background: #fff;
+      }
+
+      &.next {
+        color: $WizardButtonColorHiLight;
+        border-color: $WizardNextBtnBdColor;
+        background: $WizardNextBtnBgColor;
+
+        &[disabled] {
+          color: $WizardButtonColorHiLight;
+          border-color: $WizardFinishBtnDisabledBdColor;
+          background: $WizardFinishBtnDisabledBgColor;
+        }
+      }
+
+      &.finish {
+        color: $WizardButtonColorHiLight;
+        border-color: $WizardFinishBtnBdColor;
+        background: $WizardFinishBtnBgColor;
+
+        &[disabled] {
+          color: $WizardButtonColorHiLight;
+          border-color: $WizardFinishBtnDisabledBdColor;
+          background: $WizardFinishBtnDisabledBgColor;
+        }
+      }
+    }
+  }
+
+  .help-panel {
+    top: $wizardTitleBarHeight;
+    bottom: $wizardToolBarHeight;
+  }
+}
+
+.modal-dialog-wizard {
+  .modal-dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: auto;
+    margin: 30px 0 auto 0;
+  }
+
+  .modal-content {
+    border-radius: 0;
+  }
+}

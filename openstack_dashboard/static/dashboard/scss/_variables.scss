@@ -71,7 +71,6 @@ $overview_chart_height: 81px;
 
 $accordionBorderColor: #e5e5e5;
 
-
 /* Help panel */
 
 // theme
@@ -84,3 +83,29 @@ $helpPanelBtnBg: transparent !default;
 $helpPanelWidthDefault: 300px !default;
 $helpPanelBtnSize: 40px !default;
 $helpPanelBtnIconSize: 28px !default;
+
+/* Wizard */
+
+// theme
+$WizardNavItemColor: #444 !default;
+$WizardButtonColorHiLight: rgba(255, 255, 255, .8) !default;
+$WizardNextBtnBgColor: #0083d1 !default;
+$WizardNextBtnBdColor: darken($WizardNextBtnBgColor, 1%) !default;
+$WizardNextBtnDisabledBgColor: #ccc !default;
+$WizardNextBtnDisabledBdColor: darken($WizardNextBtnDisabledBgColor, 1%) !default;
+$WizardFinishBtnBgColor: #4b2 !default;
+$WizardFinishBtnBdColor: darken($WizardFinishBtnBgColor, 1%) !default;
+$WizardFinishBtnDisabledBgColor: #ccc !default;
+$WizardFinishBtnDisabledBdColor: darken($WizardFinishBtnDisabledBgColor, 1%) !default;
+
+// layout
+$wizardHeight: 500px !default;
+$wizardTitleBarHeight: 70px !default;
+$wizardToolBarHeight: 65px !default;
+$wizardNavWidth: 280px !default;
+$WizardNavItemHeight: 45px !default;
+$WizardNavItemWidth: 190px !default;
+$WizardSidePadding: 35px !default;
+$WizardStatusIndicatorSize: 24px !default;
+$WizardBtnGap: 5px !default;
+$WizardToolbarBtnHeight: 28px !default;
