@@ -29,7 +29,7 @@ else:
     from keystoneclient.v3 import client
     from keystoneclient.v3.contrib.oauth2 import auth
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('idm_logger')
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
