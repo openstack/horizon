@@ -56,7 +56,7 @@ def reset():
     _ENFORCER = None
 
 
-def check(actions, request, target={}):
+def check(actions, request, target=None):
     """Check user permission.
 
     Check if the user has permission to the action according
@@ -93,6 +93,8 @@ def check(actions, request, target={}):
                       {'tenant_id': object.tenant_id}
     :returns: boolean if the user has permission or not for the actions.
     """
+    if target is None:
+        target = {}
     user = auth_utils.get_user(request)
 
     # Several service policy engines default to a project id check for
