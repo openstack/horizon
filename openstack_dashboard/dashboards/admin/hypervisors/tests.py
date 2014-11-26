@@ -50,9 +50,9 @@ class HypervisorViewTest(test.BaseAdminViewTests):
                             if service.binary == 'nova-compute']
         self.assertItemsEqual(host_table.data, compute_services)
         actions_host_up = host_table.get_row_actions(host_table.data[0])
-        self.assertEqual(0, len(actions_host_up))
+        self.assertEqual(1, len(actions_host_up))
         actions_host_down = host_table.get_row_actions(host_table.data[1])
-        self.assertEqual(1, len(actions_host_down))
+        self.assertEqual(2, len(actions_host_down))
         self.assertEqual('evacuate', actions_host_down[0].name)
 
     @test.create_stubs({api.nova: ('hypervisor_list',

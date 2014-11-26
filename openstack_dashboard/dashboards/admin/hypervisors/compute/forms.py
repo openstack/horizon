@@ -67,3 +67,28 @@ class EvacuateHostForm(forms.SelfHandlingForm):
             msg = _('Failed to evacuate host: %s.') % data['current_host']
             exceptions.handle(request, message=msg, redirect=redirect)
             return False
+
+
+class DisableServiceForm(forms.SelfHandlingForm):
+    host = forms.CharField(label=_("Host"),
+                           widget=forms.TextInput(
+                           attrs={"readonly": "readonly"}))
+    reason = forms.CharField(max_length=255,
+                             label=_("Reason"),
+                             required=False)
+
+    def handle(self, request, data):
+        try:
+            host = data["host"]
+            reason = data["reason"]
+            api.nova.service_disable(request, host, "nova-compute",
+                                     reason=reason)
+            msg = _("Disabled compute service for host: %s.") % host
+            messages.success(request, msg)
+            return True
+        except Exception:
+            redirect = reverse('horizon:admin:hypervisors:index')
+            msg = _("Failed to disable compute service for host: %s.") % \
+                data["host"]
+            exceptions.handle(request, message=msg, redirect=redirect)
+            return False
