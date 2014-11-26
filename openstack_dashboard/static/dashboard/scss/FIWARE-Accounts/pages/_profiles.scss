@@ -1,16 +1,27 @@
+#detailApplication{
+  header .name{
+    color: $gray;
+  }
+  .logo{
+    margin-top: -7px !important;
+  }
+}
 #detailOrganization{
+  header .name{
+    color: $brand-secundary;
+  }
+}
+#detailOrganization,
+#detailApplication{
   header{
     position: relative;
-    .name{
-      color: $brand-secundary;
-      a{
-        margin-left: 1px;
-        border-left: 1px solid #CCC;
-        padding-left: 10px;
-        padding-top: 7px;
-        &:hover{
-          color: #C1C1C1;
-        }
+    .name a{
+      margin-left: 1px;
+      border-left: 1px solid #CCC;
+      padding-left: 10px;
+      padding-top: 7px;
+      &:hover{
+        color: #C1C1C1;
       }
     }
     .logo{
@@ -31,6 +42,9 @@
     border-bottom: 1px solid $brand-secundary;
     margin-top: 10px;
     margin-bottom: 6px;
+  }
+  p{
+    margin-bottom: 17px; 
   }
   p.empty{
     margin: 17px 0;
