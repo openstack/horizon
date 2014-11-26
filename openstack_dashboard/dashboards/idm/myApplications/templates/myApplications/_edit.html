@@ -1,0 +1,43 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_class %}{% endblock %}
+{% block form_action %}{{form.action}}{% endblock %}
+{% block form_enctype %}multipart/form-data{% endblock %}
+
+{% block modal_id %}edit{% endblock %}
+{% block modal-header %}
+{{form.title}}
+{% endblock %}
+
+{% block modal-body %}
+<div >
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+{% if form.title == 'Avatar Update'%}
+<div>
+	<img id="avatar-update" src="/static/dashboard/img/logos/original/user.png" alt="your image"   />
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+{% block modal-footer %}
+{% if form.title == 'Cancel'%}
+    <button type="submit" class="btn btn-primary">{% trans "Delete Application" %} </button>
+{% else %}
+<button type="submit" class="btn btn-primary">{% trans "Update Application" %} </button>
+{% endif %}
+    
+{% endblock %}
+
+
+
+
+
+    
+
