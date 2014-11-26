@@ -105,10 +105,10 @@ class DetailApplicationView(TemplateView):
         # Call the base implementation first to get a context
         context = super(DetailApplicationView, self).get_context_data(**kwargs)
         application_id = self.kwargs['application_id']
-        application = fiware_api.keystone.application_get(self.request,application_id)
+        application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
         context['url'] = application.extra['url']
-        context['callbackURL'] = application.redirect_uris
+        context['callbackURL'] = application.redirect_uris[0]
         context['application_name'] = application.name
         return context
 
