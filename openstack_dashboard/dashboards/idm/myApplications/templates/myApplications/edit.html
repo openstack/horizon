@@ -1,0 +1,16 @@
+{% extends 'idm/base.html' %}
+{% load i18n %}
+
+{% block main %}
+
+{% for form in form %}
+<div class="panel panel-default">
+	<div class="panel-body">
+
+{% include "idm/myApplications/_edit.html" %}
+	</div>
+</div>
+{% endfor%}
+
+
+{% endblock %}

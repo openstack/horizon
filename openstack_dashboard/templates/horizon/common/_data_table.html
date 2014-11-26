@@ -10,16 +10,19 @@
             {% if row.table.clickable == True %}
                 {% if row.table.name == "purchased_table" or row.table.name == "providing_table" or row.table.name == "applications" %}
                     <a class="list-group-item" href="{% url 'horizon:idm:myApplications:detail' row.datum.id %}">
-                    {{ row.render }}
+                      {{ row.render }}
+                    </a>
                 {% else %}
                      <a class="list-group-item" href="{% url 'horizon:idm:organizations:detail' row.datum.id %}">
-                    {{ row.render }}
+                      {{ row.render }}
+                    </a>
                 {% endif %}
 
-            {% else %}                
-                  {{ row.render }}                
-              {% endif %}
-            </a>
+            {% else %}
+              <div class="list-group-item">      
+                {{ row.render }}
+              </div>            
+            {% endif %}
           {% endfor %}
         {% endblock table_body %}
         {% block table_footer %}

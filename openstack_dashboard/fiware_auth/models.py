@@ -28,7 +28,7 @@ from horizon import exceptions
 from openstack_dashboard import fiware_api
 
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('idm_logger')
 
 class TemplatedEmailMixin(object):
     # TODO(garcianavalon) as settings
@@ -36,6 +36,7 @@ class TemplatedEmailMixin(object):
     EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
     def send_html_email(self, to, from_email, subject, content):
         # TODO(garcianavalon) pass the context dict as param is better or use kwargs
+        LOG.debug('Sending email to {0} with subject {1}'.format(to, subject))
         context = {
             'content':content
         }
@@ -64,15 +65,17 @@ class RegistrationManager(models.Manager):
         try:
             profile = self.get(activation_key=activation_key)
         except self.model.DoesNotExist:
+            LOG.debug('The activation key {0} doesn\'t exist'.format(activation_key))
             return False
         if not profile.activation_key_expired():
-            user_id = profile.user_id
+            
             #enable the user in the keystone backend
-            user = fiware_api.keystone.activate_user(user_id)
+            user = fiware_api.keystone.activate_user(profile.user_id)
             if user:
                 profile.activation_key = self.model.ACTIVATED
                 profile.save()
-                messages.success(request, _('User "%s" was successfully activated.') %user.name)
+                LOG.debug('User {0} was successfully activated.'.format(user.name))
+                #messages.success(request, _('User "%s" was successfully activated.') %user.name)
                 return user
 
     def create_profile(self, user):
@@ -84,8 +87,6 @@ class RegistrationManager(models.Manager):
 
     def create_inactive_user(self, request, **cleaned_data):
         try:
-            LOG.info('Creating user with name "%s"' % cleaned_data['username'])
-
             # We use the keystoneclient directly here because the keystone api
             # reuses the request (and therefor the session). We make the normal rest-api
             # calls, using our own user for our portal
@@ -94,22 +95,21 @@ class RegistrationManager(models.Manager):
                                         name=cleaned_data['username'],
                                         email=cleaned_data['email'],
                                         password=cleaned_data['password1'])
-            messages.success(request,
-                _('User "%s" was successfully created.') % cleaned_data['username'])
-
             registration_profile = self.create_profile(new_user)
-
             registration_profile.send_activation_email()
-
+            LOG.debug('User {0} was successfully created.'.format(cleaned_data['username']))
             return new_user
 
         except Exception:
-            exceptions.handle(request, _('Unable to create user.'))
+            msg = _('Unable to create user.')
+            LOG.warning(msg)
+            exceptions.handle(request, msg)
 
     def resend_email(self, request, email):
         try:
             profile = self.get(user_email=email)
         except self.model.DoesNotExist:
+            LOG.debug('The email address {0} is not registered'.format(email))
             msg = _('Sorry. You have specified an email address that is not registered \
                  to any our our user accounts. If your problem persits, please contact: \
                  fiware-lab-help@lists.fi-ware.org')
@@ -118,6 +118,7 @@ class RegistrationManager(models.Manager):
 
         if profile.activation_key == self.model.ACTIVATED:
             msg = _('Email was already confirmed, please try signing in')
+            LOG.debug('The email address {0} was already confirmed'.format(email))
             messages.error(request, msg)
             return False
 
@@ -187,6 +188,7 @@ class ResetPasswordManager(models.Manager):
         try:
             profile = self.get(reset_password_token=token)
         except self.model.DoesNotExist:
+            LOG.debug('Reset password token {0} is invalid'.format(token))
             messages.error(request, _('Reset password token is invalid'))
             return None
 

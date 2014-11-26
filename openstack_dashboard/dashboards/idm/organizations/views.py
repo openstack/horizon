@@ -50,7 +50,6 @@ class IndexView(tabs.TabbedTableView):
     template_name = 'idm/organizations/index.html'
 
 
-
 class CreateOrganizationView(forms.ModalFormView):
     form_class = organization_forms.CreateOrganizationForm
     template_name = 'idm/organizations/create.html'
@@ -86,7 +85,6 @@ class DetailOrganizationView(tables.MultiTableView):
         context['organization.id'] = organization.id
         context['organization_name'] = organization.name
         return context
-
 
 
 class MultiFormView(TemplateView):

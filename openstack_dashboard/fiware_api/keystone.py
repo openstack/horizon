@@ -15,14 +15,7 @@ import logging
 
 from django.conf import settings
 
-# TODO(garcianavalon) for now, the way we handle the fact that we are using
-# a custom keystoneclient is by adding the package as a git submodule and
-# importing it right here while we keep the default keystoneclient as a
-# dependency. In the future and prior to relase we have to remove the
-# default keystoneclient dependency in requirements.txt and install globally
-# (in .venv/lib/pythonx.y/site_packages/keystoneclient or whatever folder in
-# PYTHONPATH we want) the custom keystoneclient (aka fiwareclient) so it's the
-# ony one used in the whole project
+# check that we have the correct version of the keystoneclient
 try:
     from keystoneclient.v3.contrib.oauth2 import core
 except ImportError, e:
@@ -36,6 +29,7 @@ else:
     from keystoneclient.v3 import client
     from keystoneclient.v3.contrib.oauth2 import auth
 
+LOG = logging.getLogger('idm_logger')
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
@@ -60,6 +54,8 @@ def _oauth2_session(access_token_id):
 def _password_session():
     conf_params = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')
     conf_params['AUTH_URL'] = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
+    LOG.debug('Creating a new keystoneclient password session to \
+        {0} for user: {1}'.format(conf_params['AUTH_URL'], conf_params['USERNAME']))
     auth = v3.Password(auth_url=conf_params['AUTH_URL'],
                     username=conf_params['USERNAME'],
                     password=conf_params['PASSWORD'],
@@ -129,14 +125,13 @@ def check_email(email):
 
 # ROLES AND PERMISSIONS
 # TODO(garcianavalon) we are using the idm account to create the roles instead
-# of the current user account. To fix this we need first to solve the multiple
-# keystoneclients issue (see the top of this file). 
+# of the current user account 
 # NOTE(garcianavalon) request is passed as an argument
 # looking into the future integration, no use for it now
-def role_get(request, role):
+def role_get(request, role_id):
     manager = fiwareclient().fiware_roles.roles
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.get(role)
+    return manager.get(role_id)
 
 def role_list(request):
     manager = fiwareclient().fiware_roles.roles
@@ -161,15 +156,15 @@ def role_update(request, role, name=None, is_editable=True,
                         application=application,
                         **kwargs)
         
-def role_delete(request, role):
+def role_delete(request, role_id):
     manager = fiwareclient().fiware_roles.roles
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.delete(role)
+    return manager.delete(role_id)
 
-def permission_get(request, permission):
+def permission_get(request, permission_id):
     manager = fiwareclient().fiware_roles.permissions
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.get(permission)
+    return manager.get(permission_id)
 
 def permission_list(request):
     manager = fiwareclient().fiware_roles.permissions
@@ -194,10 +189,10 @@ def permission_update(request, permission, name=None, is_editable=True,
                         application=application,
                         **kwargs)
         
-def permission_delete(request, permission):
+def permission_delete(request, permission_id):
     manager = fiwareclient().fiware_roles.permissions
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.delete(permission)
+    return manager.delete(permission_id)
 
 
 # APPLICATIONS/CONSUMERS
@@ -221,10 +216,26 @@ def application_list(request, user=None):
     manager = fiwareclient().oauth2.consumers
     return manager.list(user=user)
 
-def application_get(request, application):
+def application_get(request, application_id):
     manager = fiwareclient().oauth2.consumers
-    return manager.get(application)
+    return manager.get(application_id)
 
+def application_update(request, consumer_id, name=None, description=None, client_type=None, 
+                redirect_uris=[], grant_type=None, scopes=[], **kwargs):
+    manager = fiwareclient().oauth2.consumers
+    return manager.update(consumer=consumer_id,
+                        name=name,
+                        description=description,
+                        client_type=client_type,
+                        redirect_uris=redirect_uris,
+                        grant_type=grant_type,
+                        scopes=scopes,
+                        **kwargs)
+    return manager.get(application_id)
+
+def application_delete(request, application_id):
+    manager = fiwareclient().oauth2.consumers
+    return manager.delete(application_id)
 
 
 # OAUTH2 FLOW
@@ -236,7 +247,9 @@ def request_authorization_for_application(request, application,
     :returns: a dict with all the data response from the provider, use it to populate
         a nice form for the user, for example.
     """
-    manager = fiwareclient(request).oauh2.authorization_codes
+    LOG.debug('Requesting authorization for application: {0} with redirect_uri: {1} \
+        and scope: {2}'.format(application, redirect_uri, scope))
+    manager = fiwareclient().oauh2.authorization_codes
     response_dict = manager.request_authorization(consumer=application, 
                                     redirect_uri=redirect_uri, 
                                     scope=scope, 
@@ -255,7 +268,8 @@ def authorize_application(request, user, application, scopes, redirect=False):
     :returns: an authorization_code object, following the same pattern as other 
         keystoneclient objects
     """
-    manager = fiwareclient(request).oauth2.authorization_codes
+    LOG.debug('Authorizing application: {0} by user: {1}'.format(application, user))
+    manager = fiwareclient().oauth2.authorization_codes
     authorization_code = manager.authorize(user=user, 
                                     consumer=application, 
                                     scopes=scopes, 
@@ -272,7 +286,8 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
 
     :returns: an access_token object
     """
-    manager = fiwareclient(request).oauth2.access_tokens
+    LOG.debug('Exchanging code: {0} by application: {1}'.format(code, consumer_id))
+    manager = fiwareclient().oauth2.access_tokens
     access_token = manager.create(consumer_id=consumer_id, 
                                 consumer_secret=consumer_secret, 
                                 authorization_code=code,
