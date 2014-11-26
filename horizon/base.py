@@ -459,7 +459,10 @@ class Dashboard(Registry, HorizonComponent):
         return all_panels
 
     def get_panel_group(self, slug):
-        return self._panel_groups[slug]
+        """Returns the specified :class:~horizon.PanelGroup
+        or None if not registered
+        """
+        return self._panel_groups.get(slug)
 
     def get_panel_groups(self):
         registered = copy.copy(self._registry)
