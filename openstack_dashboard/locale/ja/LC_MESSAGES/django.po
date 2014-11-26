@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 10:36-0600\n"
-"PO-Revision-Date: 2014-11-25 05:20+0000\n"
+"POT-Creation-Date: 2014-11-25 19:35-0600\n"
+"PO-Revision-Date: 2014-11-25 17:22+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -300,12 +300,12 @@ msgstr "%(type)s (%(backend)s バックエンド)"
 msgid "Identity service does not allow editing user data."
 msgstr "Identity Service ではユーザーデータの編集が許可されていません。"
 
-#: api/keystone.py:351
+#: api/keystone.py:353
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "ユーザー %s はこのプロジェクトではロールが定義されていません。"
 
-#: api/keystone.py:363 api/keystone.py:379
+#: api/keystone.py:365 api/keystone.py:384
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "パスワードが変更されました。続行するには、再度ログインしてください。"
@@ -1488,7 +1488,7 @@ msgstr "ホスト名"
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:229
-#: dashboards/project/loadbalancers/workflows.py:485
+#: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:81
@@ -2525,9 +2525,9 @@ msgstr "セグメント ID"
 #: dashboards/project/loadbalancers/forms.py:178
 #: dashboards/project/loadbalancers/forms.py:240
 #: dashboards/project/loadbalancers/workflows.py:48
-#: dashboards/project/loadbalancers/workflows.py:194
-#: dashboards/project/loadbalancers/workflows.py:346
-#: dashboards/project/loadbalancers/workflows.py:549
+#: dashboards/project/loadbalancers/workflows.py:195
+#: dashboards/project/loadbalancers/workflows.py:347
+#: dashboards/project/loadbalancers/workflows.py:550
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/tables.py:155
 #: dashboards/project/networks/workflows.py:49
@@ -3509,7 +3509,7 @@ msgstr "\nボリューム種別と関連付ける QoS スペックの追加、�
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:108
 #: dashboards/project/access_and_security/floating_ips/workflows.py:137
-#: dashboards/project/loadbalancers/workflows.py:666
+#: dashboards/project/loadbalancers/workflows.py:667
 msgid "Associate"
 msgstr "割り当て"
 
@@ -4688,11 +4688,16 @@ msgstr "ユーザーを主プロジェクトに追加できません。"
 msgid "Unable to create user."
 msgstr "ユーザーを作成できません。"
 
-#: dashboards/identity/users/forms.py:208
+#: dashboards/identity/users/forms.py:207
 msgid "User has been updated successfully."
 msgstr "ユーザーが正常に更新されました。"
 
-#: dashboards/identity/users/forms.py:211
+#: dashboards/identity/users/forms.py:209
+#, python-format
+msgid "User name \"%s\" is already used."
+msgstr "ユーザー名 \"%s\" はすでに使用されています。"
+
+#: dashboards/identity/users/forms.py:214
 msgid "Unable to update the user."
 msgstr "ユーザーを更新できません。"
 
@@ -4900,7 +4905,7 @@ msgstr "EC2 認証情報を取得できません"
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/tables.py:310
-#: dashboards/project/loadbalancers/workflows.py:300
+#: dashboards/project/loadbalancers/workflows.py:301
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
 msgid "Pool"
@@ -4943,7 +4948,7 @@ msgid_plural "Released Floating IPs"
 msgstr[0] "Floating IP を解放しました"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:130
-#: dashboards/project/loadbalancers/workflows.py:729
+#: dashboards/project/loadbalancers/workflows.py:730
 msgid "Disassociate"
 msgstr "割り当て解除"
 
@@ -5195,7 +5200,7 @@ msgstr "ポート範囲"
 #: dashboards/project/access_and_security/security_groups/forms.py:142
 #: dashboards/project/access_and_security/security_groups/forms.py:153
 #: dashboards/project/access_and_security/security_groups/forms.py:164
-#: dashboards/project/loadbalancers/workflows.py:168
+#: dashboards/project/loadbalancers/workflows.py:169
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 から 65535 までの整数値を入力してください。"
 
@@ -5562,9 +5567,9 @@ msgstr "このルールにより許可される通信のソースを指定する
 #: dashboards/project/firewalls/workflows.py:211
 #: dashboards/project/firewalls/workflows.py:289
 #: dashboards/project/loadbalancers/workflows.py:136
-#: dashboards/project/loadbalancers/workflows.py:259
-#: dashboards/project/loadbalancers/workflows.py:425
-#: dashboards/project/loadbalancers/workflows.py:603
+#: dashboards/project/loadbalancers/workflows.py:260
+#: dashboards/project/loadbalancers/workflows.py:426
+#: dashboards/project/loadbalancers/workflows.py:604
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -6732,9 +6737,9 @@ msgstr "データソースの概要"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:35
 #: dashboards/project/data_processing/job_binaries/forms.py:52
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
-#: dashboards/project/loadbalancers/workflows.py:525
-#: dashboards/project/loadbalancers/workflows.py:529
+#: dashboards/project/loadbalancers/workflows.py:526
 #: dashboards/project/loadbalancers/workflows.py:530
+#: dashboards/project/loadbalancers/workflows.py:531
 #: dashboards/project/stacks/forms.py:59
 msgid "URL"
 msgstr "URL"
@@ -8138,7 +8143,7 @@ msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:276
 #: dashboards/project/loadbalancers/workflows.py:44
-#: dashboards/project/loadbalancers/workflows.py:171
+#: dashboards/project/loadbalancers/workflows.py:172
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:28
 msgid "Protocol"
@@ -8146,7 +8151,7 @@ msgstr "プロトコル"
 
 #: dashboards/project/firewalls/forms.py:39
 #: dashboards/project/firewalls/workflows.py:38
-#: dashboards/project/loadbalancers/workflows.py:487
+#: dashboards/project/loadbalancers/workflows.py:488
 msgid "TCP"
 msgstr "TCP"
 
@@ -10258,29 +10263,29 @@ msgid "Failed to update pool %s"
 msgstr "プール %s を更新できません。"
 
 #: dashboards/project/loadbalancers/forms.py:81
-#: dashboards/project/loadbalancers/workflows.py:173
+#: dashboards/project/loadbalancers/workflows.py:174
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Session Persistence"
 msgstr "セッション永続性"
 
 #: dashboards/project/loadbalancers/forms.py:85
-#: dashboards/project/loadbalancers/workflows.py:180
+#: dashboards/project/loadbalancers/workflows.py:181
 msgid "Cookie Name"
 msgstr "クッキー名"
 
 #: dashboards/project/loadbalancers/forms.py:86
-#: dashboards/project/loadbalancers/workflows.py:181
+#: dashboards/project/loadbalancers/workflows.py:182
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "セッション永続性が APP_COOKIE の場合には必須です。それ以外の場合は無視されます。"
 
 #: dashboards/project/loadbalancers/forms.py:90
-#: dashboards/project/loadbalancers/workflows.py:189
+#: dashboards/project/loadbalancers/workflows.py:190
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:54
 msgid "Connection Limit"
 msgstr "最大接続数"
 
 #: dashboards/project/loadbalancers/forms.py:91
-#: dashboards/project/loadbalancers/workflows.py:190
+#: dashboards/project/loadbalancers/workflows.py:191
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
@@ -10289,7 +10294,7 @@ msgstr "この仮想 IP で許可する最大接続数。 上限を設定しな�
 #: dashboards/project/loadbalancers/forms.py:109
 #: dashboards/project/loadbalancers/forms.py:192
 #: dashboards/project/loadbalancers/tabs.py:40
-#: dashboards/project/loadbalancers/workflows.py:358
+#: dashboards/project/loadbalancers/workflows.py:359
 msgid "Unable to retrieve pools list."
 msgstr "プール一覧を取得できません。"
 
@@ -10298,7 +10303,7 @@ msgid "No session persistence"
 msgstr "セッション永続性なし"
 
 #: dashboards/project/loadbalancers/forms.py:130
-#: dashboards/project/loadbalancers/workflows.py:227
+#: dashboards/project/loadbalancers/workflows.py:228
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "クッキー名はセッション永続性が APP_COOKIE の場合には必須です。"
 
@@ -10314,7 +10319,7 @@ msgstr "VIP %s を更新できません。"
 
 #: dashboards/project/loadbalancers/forms.py:173
 #: dashboards/project/loadbalancers/tables.py:308
-#: dashboards/project/loadbalancers/workflows.py:331
+#: dashboards/project/loadbalancers/workflows.py:332
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
 msgstr "重み"
@@ -10335,36 +10340,36 @@ msgstr "メンバー %s の更新に失敗しました"
 
 #: dashboards/project/loadbalancers/forms.py:225
 #: dashboards/project/loadbalancers/tables.py:334
-#: dashboards/project/loadbalancers/workflows.py:496
+#: dashboards/project/loadbalancers/workflows.py:497
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "遅延"
 
 #: dashboards/project/loadbalancers/forms.py:226
-#: dashboards/project/loadbalancers/workflows.py:497
+#: dashboards/project/loadbalancers/workflows.py:498
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "メンバーの通常の状態確認を行う最小時間（秒単位）"
 
 #: dashboards/project/loadbalancers/forms.py:230
 #: dashboards/project/loadbalancers/tables.py:335
-#: dashboards/project/loadbalancers/workflows.py:501
+#: dashboards/project/loadbalancers/workflows.py:502
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
 msgid "Timeout"
 msgstr "タイムアウト"
 
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/workflows.py:502
+#: dashboards/project/loadbalancers/workflows.py:503
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "モニターが応答を待つ最大時間（秒単位）"
 
 #: dashboards/project/loadbalancers/forms.py:235
-#: dashboards/project/loadbalancers/workflows.py:506
+#: dashboards/project/loadbalancers/workflows.py:507
 msgid "Max Retries (1~10)"
 msgstr "最大試行回数 (1〜10)"
 
 #: dashboards/project/loadbalancers/forms.py:236
-#: dashboards/project/loadbalancers/workflows.py:507
+#: dashboards/project/loadbalancers/workflows.py:508
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
@@ -10390,17 +10395,17 @@ msgid "Add Pool"
 msgstr "プールの追加"
 
 #: dashboards/project/loadbalancers/tables.py:40
-#: dashboards/project/loadbalancers/workflows.py:258
+#: dashboards/project/loadbalancers/workflows.py:259
 msgid "Add VIP"
 msgstr "仮想 IP の追加"
 
 #: dashboards/project/loadbalancers/tables.py:58
-#: dashboards/project/loadbalancers/workflows.py:424
+#: dashboards/project/loadbalancers/workflows.py:425
 msgid "Add Member"
 msgstr "メンバーの追加"
 
 #: dashboards/project/loadbalancers/tables.py:67
-#: dashboards/project/loadbalancers/workflows.py:602
+#: dashboards/project/loadbalancers/workflows.py:603
 msgid "Add Monitor"
 msgstr "モニターの追加"
 
@@ -10473,7 +10478,7 @@ msgid "Edit Monitor"
 msgstr "モニターの編集"
 
 #: dashboards/project/loadbalancers/tables.py:233
-#: dashboards/project/loadbalancers/workflows.py:665
+#: dashboards/project/loadbalancers/workflows.py:666
 msgid "Associate Monitor"
 msgstr "モニターの割り当て"
 
@@ -10482,7 +10487,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "ヘルスモニターの取得に失敗しました。"
 
 #: dashboards/project/loadbalancers/tables.py:256
-#: dashboards/project/loadbalancers/workflows.py:728
+#: dashboards/project/loadbalancers/workflows.py:729
 msgid "Disassociate Monitor"
 msgstr "モニターの割り当て解除"
 
@@ -10516,8 +10521,8 @@ msgid "Pools"
 msgstr "プール"
 
 #: dashboards/project/loadbalancers/tables.py:306
-#: dashboards/project/loadbalancers/workflows.py:167
-#: dashboards/project/loadbalancers/workflows.py:338
+#: dashboards/project/loadbalancers/workflows.py:168
+#: dashboards/project/loadbalancers/workflows.py:339
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:25
 msgid "Protocol Port"
@@ -10672,19 +10677,19 @@ msgid "Unable to retrieve pool. %s"
 msgstr "プールを取得できません。 %s"
 
 #: dashboards/project/loadbalancers/workflows.py:55
-#: dashboards/project/loadbalancers/workflows.py:199
+#: dashboards/project/loadbalancers/workflows.py:200
 #: dashboards/project/vpn/workflows.py:40
 msgid "Select a Subnet"
 msgstr "サブネットの選択"
 
 #: dashboards/project/loadbalancers/workflows.py:60
-#: dashboards/project/loadbalancers/workflows.py:204
+#: dashboards/project/loadbalancers/workflows.py:205
 #: dashboards/project/vpn/workflows.py:46
 msgid "Unable to retrieve networks list."
 msgstr "ネットワーク一覧を取得できません。"
 
 #: dashboards/project/loadbalancers/workflows.py:67
-#: dashboards/project/loadbalancers/workflows.py:210
+#: dashboards/project/loadbalancers/workflows.py:211
 msgid "Select a Protocol"
 msgstr "プロトコルの選択"
 
@@ -10738,102 +10743,102 @@ msgstr "仮想 IP のサブネット"
 msgid "Specify a free IP address from the selected subnet"
 msgstr "選択したサブネットの未使用の IP アドレスを指定してください"
 
-#: dashboards/project/loadbalancers/workflows.py:214
+#: dashboards/project/loadbalancers/workflows.py:215
 msgid "No Session Persistence"
 msgstr "セッション永続性なし"
 
-#: dashboards/project/loadbalancers/workflows.py:232
+#: dashboards/project/loadbalancers/workflows.py:233
 msgid "Specify VIP"
 msgstr "仮想 IP の指定"
 
-#: dashboards/project/loadbalancers/workflows.py:234
+#: dashboards/project/loadbalancers/workflows.py:235
 msgid ""
 "Create a VIP for this pool. Assign a name, description, IP address, port, "
 "and maximum connections allowed for the VIP. Choose the protocol and session"
 " persistence method for the VIP. Admin State is UP (checked) by default."
 msgstr "このプールに仮想 IP を作成します。この仮想 IP の名前、説明、IP アドレス、ポート番号、許可する最大接続数を指定します。この仮想 IP で使用するプロトコルとセッション永続化方法を選んでください。管理状態はデフォルトで有効 (チェック済み) になっています。"
 
-#: dashboards/project/loadbalancers/workflows.py:260
+#: dashboards/project/loadbalancers/workflows.py:261
 #, python-format
 msgid "Added VIP \"%s\"."
 msgstr "仮想 IP \"%s\" を追加しました。"
 
-#: dashboards/project/loadbalancers/workflows.py:261
+#: dashboards/project/loadbalancers/workflows.py:262
 #, python-format
 msgid "Unable to add VIP \"%s\"."
 msgstr "仮想 IP \"%s\" を追加できません。"
 
-#: dashboards/project/loadbalancers/workflows.py:277
+#: dashboards/project/loadbalancers/workflows.py:278
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
 msgstr "指定されたプールを取得できません。仮想 IP \"%s\" を追加できません。"
 
-#: dashboards/project/loadbalancers/workflows.py:302
+#: dashboards/project/loadbalancers/workflows.py:303
 msgid "Member Source"
 msgstr "メンバーの指定方法"
 
-#: dashboards/project/loadbalancers/workflows.py:303
+#: dashboards/project/loadbalancers/workflows.py:304
 msgid "Select from active instances"
 msgstr "稼働中のインスタンスから選択"
 
-#: dashboards/project/loadbalancers/workflows.py:304
-#: dashboards/project/loadbalancers/workflows.py:321
+#: dashboards/project/loadbalancers/workflows.py:305
+#: dashboards/project/loadbalancers/workflows.py:322
 msgid "Specify member IP address"
 msgstr "メンバーの IP アドレスを指定"
 
-#: dashboards/project/loadbalancers/workflows.py:311
-#: dashboards/project/loadbalancers/workflows.py:317
+#: dashboards/project/loadbalancers/workflows.py:312
+#: dashboards/project/loadbalancers/workflows.py:318
 msgid "Member(s)"
 msgstr "メンバー"
 
-#: dashboards/project/loadbalancers/workflows.py:319
+#: dashboards/project/loadbalancers/workflows.py:320
 msgid "Select members for this pool "
 msgstr "このプールのメンバーを選択します。"
 
-#: dashboards/project/loadbalancers/workflows.py:320
-#: dashboards/project/loadbalancers/workflows.py:326
+#: dashboards/project/loadbalancers/workflows.py:321
+#: dashboards/project/loadbalancers/workflows.py:327
 msgid "Member address"
 msgstr "メンバーのアドレス"
 
-#: dashboards/project/loadbalancers/workflows.py:332
+#: dashboards/project/loadbalancers/workflows.py:333
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be modified later. Weight must be in the range 1 to 256."
 msgstr "このプールメンバーが他のメンバーと比較してどの程度リクエストを担当するかの相対値。\n同じ重みが選択した全メンバーに使用されますが、後から変更できます。重みは 1 から 256 の範囲でなければいけません。"
 
-#: dashboards/project/loadbalancers/workflows.py:339
+#: dashboards/project/loadbalancers/workflows.py:340
 msgid ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
 "all the selected members and can be modified later."
 msgstr "1 から 65535 までの整数値を入力してください。同じポート番号が選択した全メンバーに使用されますが、後から変更できます。"
 
-#: dashboards/project/loadbalancers/workflows.py:351
+#: dashboards/project/loadbalancers/workflows.py:352
 msgid "Select a Pool"
 msgstr "プールの選択"
 
-#: dashboards/project/loadbalancers/workflows.py:371
+#: dashboards/project/loadbalancers/workflows.py:372
 msgid "Unable to retrieve instances list."
 msgstr "インスタンスの一覧を取得できません。"
 
-#: dashboards/project/loadbalancers/workflows.py:375
+#: dashboards/project/loadbalancers/workflows.py:376
 msgid ""
 "No servers available. To add a member, you need at least one running "
 "instance."
 msgstr "指定できるサーバーがありません。メンバーを追加するには、実行中のインスタンスが少なくとも 1 つは必要です。"
 
-#: dashboards/project/loadbalancers/workflows.py:391
+#: dashboards/project/loadbalancers/workflows.py:392
 msgid "At least one member must be specified"
 msgstr "少なくともメンバーを1 つ指定する必要があります。"
 
-#: dashboards/project/loadbalancers/workflows.py:395
+#: dashboards/project/loadbalancers/workflows.py:396
 msgid "Member IP address must be specified"
 msgstr "メンバーの IP アドレスを指定しなければいけません。"
 
-#: dashboards/project/loadbalancers/workflows.py:400
+#: dashboards/project/loadbalancers/workflows.py:401
 msgid "Add New Member"
 msgstr "メンバーの追加"
 
-#: dashboards/project/loadbalancers/workflows.py:402
+#: dashboards/project/loadbalancers/workflows.py:403
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -10842,147 +10847,147 @@ msgid ""
 "Only one port can be associated with each instance."
 msgstr "選択したプールにメンバーを追加します。\n\nメンバーとしてプールに追加するインスタンスを一覧から選択してください (複数可)。このメンバーに対する重みを指定してください。メンバーが使用するポート番号を指定してください（例: 80）。\n\n1 つのインスタンスに関連付けられるポート番号は 1 つだけです。"
 
-#: dashboards/project/loadbalancers/workflows.py:426
+#: dashboards/project/loadbalancers/workflows.py:427
 msgid "Added member(s)."
 msgstr "メンバーを追加しました。"
 
-#: dashboards/project/loadbalancers/workflows.py:427
+#: dashboards/project/loadbalancers/workflows.py:428
 msgid "Unable to add member(s)"
 msgstr "メンバーを追加できません。"
 
-#: dashboards/project/loadbalancers/workflows.py:437
+#: dashboards/project/loadbalancers/workflows.py:438
 msgid "Unable to retrieve the specified pool."
 msgstr "指定されたプールを取得できません。"
 
-#: dashboards/project/loadbalancers/workflows.py:486
+#: dashboards/project/loadbalancers/workflows.py:487
 msgid "PING"
 msgstr "PING"
 
-#: dashboards/project/loadbalancers/workflows.py:488
+#: dashboards/project/loadbalancers/workflows.py:489
 msgid "HTTP"
 msgstr "HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:489
+#: dashboards/project/loadbalancers/workflows.py:490
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: dashboards/project/loadbalancers/workflows.py:512
+#: dashboards/project/loadbalancers/workflows.py:513
 msgid "GET"
 msgstr "GET"
 
-#: dashboards/project/loadbalancers/workflows.py:513
-#: dashboards/project/loadbalancers/workflows.py:518
+#: dashboards/project/loadbalancers/workflows.py:514
 #: dashboards/project/loadbalancers/workflows.py:519
+#: dashboards/project/loadbalancers/workflows.py:520
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
 msgid "HTTP Method"
 msgstr "HTTP メソッド"
 
-#: dashboards/project/loadbalancers/workflows.py:514
+#: dashboards/project/loadbalancers/workflows.py:515
 msgid "HTTP method used to check health status of a member"
 msgstr "メンバーの動作ステータスを確認するために使用する HTTP メソッド"
 
-#: dashboards/project/loadbalancers/workflows.py:537
-#: dashboards/project/loadbalancers/workflows.py:544
+#: dashboards/project/loadbalancers/workflows.py:538
 #: dashboards/project/loadbalancers/workflows.py:545
+#: dashboards/project/loadbalancers/workflows.py:546
 msgid "Expected HTTP Status Codes"
 msgstr "HTTP ステータスコードの期待値"
 
-#: dashboards/project/loadbalancers/workflows.py:538
+#: dashboards/project/loadbalancers/workflows.py:539
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
 "202), or range of values (e.g. 200-204)"
 msgstr "コードの期待値には、数値 (例: 200)、数値のリスト (例: 200, 202)、値の範囲 (例: 200-204) を指定できます"
 
-#: dashboards/project/loadbalancers/workflows.py:564
+#: dashboards/project/loadbalancers/workflows.py:565
 msgid "Please choose a HTTP method"
 msgstr "HTTP メソッドを選択してください"
 
-#: dashboards/project/loadbalancers/workflows.py:567
+#: dashboards/project/loadbalancers/workflows.py:568
 msgid "Please specify an URL"
 msgstr "URL を指定してください"
 
-#: dashboards/project/loadbalancers/workflows.py:570
+#: dashboards/project/loadbalancers/workflows.py:571
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "数値 (例: 200)、数値のリスト (例: 200, 202)、値の範囲 (例: 200-204) のいずれかを入力してください"
 
-#: dashboards/project/loadbalancers/workflows.py:577
+#: dashboards/project/loadbalancers/workflows.py:578
 msgid "Add New Monitor"
 msgstr "モニターの追加"
 
-#: dashboards/project/loadbalancers/workflows.py:579
+#: dashboards/project/loadbalancers/workflows.py:580
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "モニターテンプレートを作成します。\n\nモニタリング種別を選択してください。このモニターで必要となる遅延、タイムアウト、最大試行回数を指定してください。HTTP 系のモニタリングでは、メソッド、URL パス、成功時の HTTP コードの期待値を指定します。"
 
-#: dashboards/project/loadbalancers/workflows.py:604
+#: dashboards/project/loadbalancers/workflows.py:605
 msgid "Added monitor"
 msgstr "モニターが追加されました。"
 
-#: dashboards/project/loadbalancers/workflows.py:605
+#: dashboards/project/loadbalancers/workflows.py:606
 msgid "Unable to add monitor"
 msgstr "モニターを追加できません"
 
-#: dashboards/project/loadbalancers/workflows.py:615
+#: dashboards/project/loadbalancers/workflows.py:616
 msgid "Unable to add monitor."
 msgstr "モニターを追加できません。"
 
-#: dashboards/project/loadbalancers/workflows.py:620
-#: dashboards/project/loadbalancers/workflows.py:683
+#: dashboards/project/loadbalancers/workflows.py:621
+#: dashboards/project/loadbalancers/workflows.py:684
 msgid "Monitor"
 msgstr "モニター"
 
-#: dashboards/project/loadbalancers/workflows.py:626
+#: dashboards/project/loadbalancers/workflows.py:627
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "%s 用のモニターテンプレートの選択"
 
-#: dashboards/project/loadbalancers/workflows.py:629
-#: dashboards/project/loadbalancers/workflows.py:693
+#: dashboards/project/loadbalancers/workflows.py:630
+#: dashboards/project/loadbalancers/workflows.py:694
 msgid "Select a Monitor"
 msgstr "モニターを選択してください"
 
-#: dashboards/project/loadbalancers/workflows.py:641
-#: dashboards/project/loadbalancers/workflows.py:703
+#: dashboards/project/loadbalancers/workflows.py:642
+#: dashboards/project/loadbalancers/workflows.py:704
 msgid "Unable to retrieve monitors list."
 msgstr "モニター一覧を取得できません。"
 
-#: dashboards/project/loadbalancers/workflows.py:647
-#: dashboards/project/loadbalancers/workflows.py:709
+#: dashboards/project/loadbalancers/workflows.py:648
+#: dashboards/project/loadbalancers/workflows.py:710
 msgid "Association Details"
 msgstr "ヘルスモニターの関連付け"
 
-#: dashboards/project/loadbalancers/workflows.py:649
+#: dashboards/project/loadbalancers/workflows.py:650
 msgid "Associate a health monitor with target pool."
 msgstr "ヘルスモニターを対象のプールに関連付けます。"
 
-#: dashboards/project/loadbalancers/workflows.py:667
+#: dashboards/project/loadbalancers/workflows.py:668
 msgid "Associated monitor."
 msgstr "モニターを割り当てました。"
 
-#: dashboards/project/loadbalancers/workflows.py:668
-#: dashboards/project/loadbalancers/workflows.py:678
+#: dashboards/project/loadbalancers/workflows.py:669
+#: dashboards/project/loadbalancers/workflows.py:679
 msgid "Unable to associate monitor."
 msgstr "モニターを割り当てることができません。"
 
-#: dashboards/project/loadbalancers/workflows.py:690
+#: dashboards/project/loadbalancers/workflows.py:691
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s のヘルスモニターの選択"
 
-#: dashboards/project/loadbalancers/workflows.py:711
+#: dashboards/project/loadbalancers/workflows.py:712
 msgid "Disassociate a health monitor from target pool. "
 msgstr "対象のプールからヘルスモニターの関連付けを解除します。"
 
-#: dashboards/project/loadbalancers/workflows.py:730
+#: dashboards/project/loadbalancers/workflows.py:731
 msgid "Disassociated monitor."
 msgstr "モニターの割り当てを解除しました。"
 
-#: dashboards/project/loadbalancers/workflows.py:731
-#: dashboards/project/loadbalancers/workflows.py:741
+#: dashboards/project/loadbalancers/workflows.py:732
+#: dashboards/project/loadbalancers/workflows.py:742
 msgid "Unable to disassociate monitor."
 msgstr "モニターの割り当てを解除できません。"
 

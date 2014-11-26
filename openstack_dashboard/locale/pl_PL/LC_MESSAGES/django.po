@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 10:36-0600\n"
-"PO-Revision-Date: 2014-11-21 21:22+0000\n"
+"POT-Creation-Date: 2014-11-25 19:35-0600\n"
+"PO-Revision-Date: 2014-11-25 15:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -297,12 +297,12 @@ msgstr "%(type)s (silnik %(backend)s)"
 msgid "Identity service does not allow editing user data."
 msgstr "Usługa tożsamości nie pozwala na edycję danych użytkownika."
 
-#: api/keystone.py:351
+#: api/keystone.py:353
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Użytkownik %s nie posiada zdefiniowanych ról dla tego projektu."
 
-#: api/keystone.py:363 api/keystone.py:379
+#: api/keystone.py:365 api/keystone.py:384
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "Hasło zmienione. Proszę się zalogować ponownie aby kontynuować."
@@ -1493,7 +1493,7 @@ msgstr "Nazwa hosta"
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:229
-#: dashboards/project/loadbalancers/workflows.py:485
+#: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:81
@@ -2534,9 +2534,9 @@ msgstr "ID segmentacji"
 #: dashboards/project/loadbalancers/forms.py:178
 #: dashboards/project/loadbalancers/forms.py:240
 #: dashboards/project/loadbalancers/workflows.py:48
-#: dashboards/project/loadbalancers/workflows.py:194
-#: dashboards/project/loadbalancers/workflows.py:346
-#: dashboards/project/loadbalancers/workflows.py:549
+#: dashboards/project/loadbalancers/workflows.py:195
+#: dashboards/project/loadbalancers/workflows.py:347
+#: dashboards/project/loadbalancers/workflows.py:550
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/tables.py:155
 #: dashboards/project/networks/workflows.py:49
@@ -3534,7 +3534,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:108
 #: dashboards/project/access_and_security/floating_ips/workflows.py:137
-#: dashboards/project/loadbalancers/workflows.py:666
+#: dashboards/project/loadbalancers/workflows.py:667
 msgid "Associate"
 msgstr "Powiąż"
 
@@ -4749,11 +4749,16 @@ msgstr "Nie można dodać użytkownika do głównego projektu."
 msgid "Unable to create user."
 msgstr "Nie można utworzyć użytkownika."
 
-#: dashboards/identity/users/forms.py:208
+#: dashboards/identity/users/forms.py:207
 msgid "User has been updated successfully."
 msgstr "Zaktualizowano użytkownika"
 
-#: dashboards/identity/users/forms.py:211
+#: dashboards/identity/users/forms.py:209
+#, python-format
+msgid "User name \"%s\" is already used."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:214
 msgid "Unable to update the user."
 msgstr "Nie można zaktualizować użytkownika."
 
@@ -4973,7 +4978,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/tables.py:310
-#: dashboards/project/loadbalancers/workflows.py:300
+#: dashboards/project/loadbalancers/workflows.py:301
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
 msgid "Pool"
@@ -5020,7 +5025,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:130
-#: dashboards/project/loadbalancers/workflows.py:729
+#: dashboards/project/loadbalancers/workflows.py:730
 msgid "Disassociate"
 msgstr "Odwiąż"
 
@@ -5276,7 +5281,7 @@ msgstr "Zakres portu"
 #: dashboards/project/access_and_security/security_groups/forms.py:142
 #: dashboards/project/access_and_security/security_groups/forms.py:153
 #: dashboards/project/access_and_security/security_groups/forms.py:164
-#: dashboards/project/loadbalancers/workflows.py:168
+#: dashboards/project/loadbalancers/workflows.py:169
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Należy podać wartość całkowitą z przedziału 1 do 65535."
 
@@ -5651,9 +5656,9 @@ msgstr "Należy podać źródło ruchu dozwolone przez tą regułę. Można to z
 #: dashboards/project/firewalls/workflows.py:211
 #: dashboards/project/firewalls/workflows.py:289
 #: dashboards/project/loadbalancers/workflows.py:136
-#: dashboards/project/loadbalancers/workflows.py:259
-#: dashboards/project/loadbalancers/workflows.py:425
-#: dashboards/project/loadbalancers/workflows.py:603
+#: dashboards/project/loadbalancers/workflows.py:260
+#: dashboards/project/loadbalancers/workflows.py:426
+#: dashboards/project/loadbalancers/workflows.py:604
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -6845,9 +6850,9 @@ msgstr "Przegląd źródła danych"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:35
 #: dashboards/project/data_processing/job_binaries/forms.py:52
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
-#: dashboards/project/loadbalancers/workflows.py:525
-#: dashboards/project/loadbalancers/workflows.py:529
+#: dashboards/project/loadbalancers/workflows.py:526
 #: dashboards/project/loadbalancers/workflows.py:530
+#: dashboards/project/loadbalancers/workflows.py:531
 #: dashboards/project/stacks/forms.py:59
 msgid "URL"
 msgstr "URL"
@@ -8283,7 +8288,7 @@ msgstr "Uruchomiono %(count)s nazwanych „%(name)s”."
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:276
 #: dashboards/project/loadbalancers/workflows.py:44
-#: dashboards/project/loadbalancers/workflows.py:171
+#: dashboards/project/loadbalancers/workflows.py:172
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:28
 msgid "Protocol"
@@ -8291,7 +8296,7 @@ msgstr "Protokół"
 
 #: dashboards/project/firewalls/forms.py:39
 #: dashboards/project/firewalls/workflows.py:38
-#: dashboards/project/loadbalancers/workflows.py:487
+#: dashboards/project/loadbalancers/workflows.py:488
 msgid "TCP"
 msgstr "TCP"
 
@@ -10455,29 +10460,29 @@ msgid "Failed to update pool %s"
 msgstr "Nie można zaktualizować puli %s"
 
 #: dashboards/project/loadbalancers/forms.py:81
-#: dashboards/project/loadbalancers/workflows.py:173
+#: dashboards/project/loadbalancers/workflows.py:174
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Session Persistence"
 msgstr "Trwałość sesji"
 
 #: dashboards/project/loadbalancers/forms.py:85
-#: dashboards/project/loadbalancers/workflows.py:180
+#: dashboards/project/loadbalancers/workflows.py:181
 msgid "Cookie Name"
 msgstr "Nazwa ciasteczka"
 
 #: dashboards/project/loadbalancers/forms.py:86
-#: dashboards/project/loadbalancers/workflows.py:181
+#: dashboards/project/loadbalancers/workflows.py:182
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Wymagane dla trwałości sesji typu APP_COOKIE, w innych przypadkach ignorowane."
 
 #: dashboards/project/loadbalancers/forms.py:90
-#: dashboards/project/loadbalancers/workflows.py:189
+#: dashboards/project/loadbalancers/workflows.py:190
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:54
 msgid "Connection Limit"
 msgstr "Limit połączeń"
 
 #: dashboards/project/loadbalancers/forms.py:91
-#: dashboards/project/loadbalancers/workflows.py:190
+#: dashboards/project/loadbalancers/workflows.py:191
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
@@ -10486,7 +10491,7 @@ msgstr "Maksymalna liczba połączeń dozwolona dla VIP-a liub „-1” w przypa
 #: dashboards/project/loadbalancers/forms.py:109
 #: dashboards/project/loadbalancers/forms.py:192
 #: dashboards/project/loadbalancers/tabs.py:40
-#: dashboards/project/loadbalancers/workflows.py:358
+#: dashboards/project/loadbalancers/workflows.py:359
 msgid "Unable to retrieve pools list."
 msgstr "Nie można pobrać listy pul."
 
@@ -10495,7 +10500,7 @@ msgid "No session persistence"
 msgstr "Brak trwałości sesji"
 
 #: dashboards/project/loadbalancers/forms.py:130
-#: dashboards/project/loadbalancers/workflows.py:227
+#: dashboards/project/loadbalancers/workflows.py:228
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "Nazwa ciasteczka jest wymagana dla trwałości sesji typu APP_COOKIE."
 
@@ -10511,7 +10516,7 @@ msgstr "Nie można zaktualizować VIP-a %s"
 
 #: dashboards/project/loadbalancers/forms.py:173
 #: dashboards/project/loadbalancers/tables.py:308
-#: dashboards/project/loadbalancers/workflows.py:331
+#: dashboards/project/loadbalancers/workflows.py:332
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
 msgstr "Waga"
@@ -10532,36 +10537,36 @@ msgstr "Nie można zaktualizować członka %s"
 
 #: dashboards/project/loadbalancers/forms.py:225
 #: dashboards/project/loadbalancers/tables.py:334
-#: dashboards/project/loadbalancers/workflows.py:496
+#: dashboards/project/loadbalancers/workflows.py:497
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "Opóźnienie"
 
 #: dashboards/project/loadbalancers/forms.py:226
-#: dashboards/project/loadbalancers/workflows.py:497
+#: dashboards/project/loadbalancers/workflows.py:498
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "Minimalny odstęp czasu w sekundach pomiędzy testami członka"
 
 #: dashboards/project/loadbalancers/forms.py:230
 #: dashboards/project/loadbalancers/tables.py:335
-#: dashboards/project/loadbalancers/workflows.py:501
+#: dashboards/project/loadbalancers/workflows.py:502
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
 msgid "Timeout"
 msgstr "Limit czasu"
 
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/workflows.py:502
+#: dashboards/project/loadbalancers/workflows.py:503
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "Maksymalny czas oczekiwania w sekundach na odpowiedź z monitora"
 
 #: dashboards/project/loadbalancers/forms.py:235
-#: dashboards/project/loadbalancers/workflows.py:506
+#: dashboards/project/loadbalancers/workflows.py:507
 msgid "Max Retries (1~10)"
 msgstr "Maks. powtórzeń (1-10)"
 
 #: dashboards/project/loadbalancers/forms.py:236
-#: dashboards/project/loadbalancers/workflows.py:507
+#: dashboards/project/loadbalancers/workflows.py:508
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
@@ -10587,17 +10592,17 @@ msgid "Add Pool"
 msgstr "Dodaj pulę"
 
 #: dashboards/project/loadbalancers/tables.py:40
-#: dashboards/project/loadbalancers/workflows.py:258
+#: dashboards/project/loadbalancers/workflows.py:259
 msgid "Add VIP"
 msgstr "Dodaj VIP"
 
 #: dashboards/project/loadbalancers/tables.py:58
-#: dashboards/project/loadbalancers/workflows.py:424
+#: dashboards/project/loadbalancers/workflows.py:425
 msgid "Add Member"
 msgstr "Dodaj członka"
 
 #: dashboards/project/loadbalancers/tables.py:67
-#: dashboards/project/loadbalancers/workflows.py:602
+#: dashboards/project/loadbalancers/workflows.py:603
 msgid "Add Monitor"
 msgstr "Dodaj monitor"
 
@@ -10686,7 +10691,7 @@ msgid "Edit Monitor"
 msgstr "Edytuj monitor"
 
 #: dashboards/project/loadbalancers/tables.py:233
-#: dashboards/project/loadbalancers/workflows.py:665
+#: dashboards/project/loadbalancers/workflows.py:666
 msgid "Associate Monitor"
 msgstr "Powiąż monitor"
 
@@ -10695,7 +10700,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "Nie można pobrać monitorów stanu."
 
 #: dashboards/project/loadbalancers/tables.py:256
-#: dashboards/project/loadbalancers/workflows.py:728
+#: dashboards/project/loadbalancers/workflows.py:729
 msgid "Disassociate Monitor"
 msgstr "Odwiąż monitor"
 
@@ -10729,8 +10734,8 @@ msgid "Pools"
 msgstr "Pule"
 
 #: dashboards/project/loadbalancers/tables.py:306
-#: dashboards/project/loadbalancers/workflows.py:167
-#: dashboards/project/loadbalancers/workflows.py:338
+#: dashboards/project/loadbalancers/workflows.py:168
+#: dashboards/project/loadbalancers/workflows.py:339
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:25
 msgid "Protocol Port"
@@ -10885,19 +10890,19 @@ msgid "Unable to retrieve pool. %s"
 msgstr "Nie można pobrać puli. %s"
 
 #: dashboards/project/loadbalancers/workflows.py:55
-#: dashboards/project/loadbalancers/workflows.py:199
+#: dashboards/project/loadbalancers/workflows.py:200
 #: dashboards/project/vpn/workflows.py:40
 msgid "Select a Subnet"
 msgstr "Wybierz podsieć"
 
 #: dashboards/project/loadbalancers/workflows.py:60
-#: dashboards/project/loadbalancers/workflows.py:204
+#: dashboards/project/loadbalancers/workflows.py:205
 #: dashboards/project/vpn/workflows.py:46
 msgid "Unable to retrieve networks list."
 msgstr "Nie można pobrać listy sieci."
 
 #: dashboards/project/loadbalancers/workflows.py:67
-#: dashboards/project/loadbalancers/workflows.py:210
+#: dashboards/project/loadbalancers/workflows.py:211
 msgid "Select a Protocol"
 msgstr "Wybierz protokół"
 
@@ -10951,102 +10956,102 @@ msgstr "Podsieć VIP"
 msgid "Specify a free IP address from the selected subnet"
 msgstr "Należy podać wolny adres IP z wybranej podsieci."
 
-#: dashboards/project/loadbalancers/workflows.py:214
+#: dashboards/project/loadbalancers/workflows.py:215
 msgid "No Session Persistence"
 msgstr "Brak trwałości sesji"
 
-#: dashboards/project/loadbalancers/workflows.py:232
+#: dashboards/project/loadbalancers/workflows.py:233
 msgid "Specify VIP"
 msgstr "Podaj VIP"
 
-#: dashboards/project/loadbalancers/workflows.py:234
+#: dashboards/project/loadbalancers/workflows.py:235
 msgid ""
 "Create a VIP for this pool. Assign a name, description, IP address, port, "
 "and maximum connections allowed for the VIP. Choose the protocol and session"
 " persistence method for the VIP. Admin State is UP (checked) by default."
 msgstr "Tworzenie VIP dla tej puli. Należy podać nazwę, opis, adres IP, port oraz maksymalną liczbę połączeń dozwoloną dla tego VIP. Trzeba też wybrać protokół oraz metodę przypinania sesji dla VIP. Stan administracyjny jest domyślnie UP (zaznaczony)."
 
-#: dashboards/project/loadbalancers/workflows.py:260
+#: dashboards/project/loadbalancers/workflows.py:261
 #, python-format
 msgid "Added VIP \"%s\"."
 msgstr "Dodano VIP-a „%s”."
 
-#: dashboards/project/loadbalancers/workflows.py:261
+#: dashboards/project/loadbalancers/workflows.py:262
 #, python-format
 msgid "Unable to add VIP \"%s\"."
 msgstr "Nie można dodać VIP-a „%s”."
 
-#: dashboards/project/loadbalancers/workflows.py:277
+#: dashboards/project/loadbalancers/workflows.py:278
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
 msgstr "Nie można pobrać podanej puli. Nie można dodać VIP-a „%s”."
 
-#: dashboards/project/loadbalancers/workflows.py:302
+#: dashboards/project/loadbalancers/workflows.py:303
 msgid "Member Source"
 msgstr "Źródło członka"
 
-#: dashboards/project/loadbalancers/workflows.py:303
+#: dashboards/project/loadbalancers/workflows.py:304
 msgid "Select from active instances"
 msgstr "Wybierz z aktywnych instancji"
 
-#: dashboards/project/loadbalancers/workflows.py:304
-#: dashboards/project/loadbalancers/workflows.py:321
+#: dashboards/project/loadbalancers/workflows.py:305
+#: dashboards/project/loadbalancers/workflows.py:322
 msgid "Specify member IP address"
 msgstr "Należy podać adres IP członka."
 
-#: dashboards/project/loadbalancers/workflows.py:311
-#: dashboards/project/loadbalancers/workflows.py:317
+#: dashboards/project/loadbalancers/workflows.py:312
+#: dashboards/project/loadbalancers/workflows.py:318
 msgid "Member(s)"
 msgstr "Członkowie"
 
-#: dashboards/project/loadbalancers/workflows.py:319
+#: dashboards/project/loadbalancers/workflows.py:320
 msgid "Select members for this pool "
 msgstr "Wybierz członków z tej puli"
 
-#: dashboards/project/loadbalancers/workflows.py:320
-#: dashboards/project/loadbalancers/workflows.py:326
+#: dashboards/project/loadbalancers/workflows.py:321
+#: dashboards/project/loadbalancers/workflows.py:327
 msgid "Member address"
 msgstr "Adres członka"
 
-#: dashboards/project/loadbalancers/workflows.py:332
+#: dashboards/project/loadbalancers/workflows.py:333
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be modified later. Weight must be in the range 1 to 256."
 msgstr "Względna część żądań, którą ten członek będzie obsługiwał w porównaniu do innych.\nTa sama waga zostanie aplikowana do wszystkich wybranych członków i może zostać zmieniona później. Waga musi być z zakresu 1 do 256."
 
-#: dashboards/project/loadbalancers/workflows.py:339
+#: dashboards/project/loadbalancers/workflows.py:340
 msgid ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
 "all the selected members and can be modified later."
 msgstr "Należy podać wartość całkowitą pomiędzy 1 a 65535. Ten sam port zostanie wykorzystany dla wszystkich członków i może być zmieniony później."
 
-#: dashboards/project/loadbalancers/workflows.py:351
+#: dashboards/project/loadbalancers/workflows.py:352
 msgid "Select a Pool"
 msgstr "Wybierz pulę"
 
-#: dashboards/project/loadbalancers/workflows.py:371
+#: dashboards/project/loadbalancers/workflows.py:372
 msgid "Unable to retrieve instances list."
 msgstr "Nie można pobrać listy instancji."
 
-#: dashboards/project/loadbalancers/workflows.py:375
+#: dashboards/project/loadbalancers/workflows.py:376
 msgid ""
 "No servers available. To add a member, you need at least one running "
 "instance."
 msgstr "Brak dostępnych serwerów. Wymagana jest przynajmniej jedna działająca instancja, aby można było dodać członka."
 
-#: dashboards/project/loadbalancers/workflows.py:391
+#: dashboards/project/loadbalancers/workflows.py:392
 msgid "At least one member must be specified"
 msgstr "Należy podać przynajmniej jednego członka"
 
-#: dashboards/project/loadbalancers/workflows.py:395
+#: dashboards/project/loadbalancers/workflows.py:396
 msgid "Member IP address must be specified"
 msgstr "Adres IP członka musi zostać podany."
 
-#: dashboards/project/loadbalancers/workflows.py:400
+#: dashboards/project/loadbalancers/workflows.py:401
 msgid "Add New Member"
 msgstr "Dodaj nowego członka"
 
-#: dashboards/project/loadbalancers/workflows.py:402
+#: dashboards/project/loadbalancers/workflows.py:403
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -11055,147 +11060,147 @@ msgid ""
 "Only one port can be associated with each instance."
 msgstr "Dodanie członków do wybranej puli.\n\nNależy wybrać jedną lub więcej instancji, które mają zostać dodane do puli jako członkowie.\nWymagane są również waga i numer portu, na którym pracują wybrani członkowie, np. 80.\n\nTylko jeden port może być powiązany z każdą instancją."
 
-#: dashboards/project/loadbalancers/workflows.py:426
+#: dashboards/project/loadbalancers/workflows.py:427
 msgid "Added member(s)."
 msgstr "Dodano członków."
 
-#: dashboards/project/loadbalancers/workflows.py:427
+#: dashboards/project/loadbalancers/workflows.py:428
 msgid "Unable to add member(s)"
 msgstr "Nie można dodać członka/ów"
 
-#: dashboards/project/loadbalancers/workflows.py:437
+#: dashboards/project/loadbalancers/workflows.py:438
 msgid "Unable to retrieve the specified pool."
 msgstr "Nie można pobrać podanej puli."
 
-#: dashboards/project/loadbalancers/workflows.py:486
+#: dashboards/project/loadbalancers/workflows.py:487
 msgid "PING"
 msgstr "PING"
 
-#: dashboards/project/loadbalancers/workflows.py:488
+#: dashboards/project/loadbalancers/workflows.py:489
 msgid "HTTP"
 msgstr "HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:489
+#: dashboards/project/loadbalancers/workflows.py:490
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: dashboards/project/loadbalancers/workflows.py:512
+#: dashboards/project/loadbalancers/workflows.py:513
 msgid "GET"
 msgstr "GET"
 
-#: dashboards/project/loadbalancers/workflows.py:513
-#: dashboards/project/loadbalancers/workflows.py:518
+#: dashboards/project/loadbalancers/workflows.py:514
 #: dashboards/project/loadbalancers/workflows.py:519
+#: dashboards/project/loadbalancers/workflows.py:520
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
 msgid "HTTP Method"
 msgstr "Metoda HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:514
+#: dashboards/project/loadbalancers/workflows.py:515
 msgid "HTTP method used to check health status of a member"
 msgstr "Metoda HTTP wykorzystywana do sprawdzenia stanu zdrowia członka"
 
-#: dashboards/project/loadbalancers/workflows.py:537
-#: dashboards/project/loadbalancers/workflows.py:544
+#: dashboards/project/loadbalancers/workflows.py:538
 #: dashboards/project/loadbalancers/workflows.py:545
+#: dashboards/project/loadbalancers/workflows.py:546
 msgid "Expected HTTP Status Codes"
 msgstr "Oczekiwane kody stanu HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:538
+#: dashboards/project/loadbalancers/workflows.py:539
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
 "202), or range of values (e.g. 200-204)"
 msgstr "Oczekiwanykod może być pojedynczą wartością (np. 200), listą wartości (np. 200, 202) lub zakresem wartości (np. 200-204)"
 
-#: dashboards/project/loadbalancers/workflows.py:564
+#: dashboards/project/loadbalancers/workflows.py:565
 msgid "Please choose a HTTP method"
 msgstr "Należy wybrać metodę HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:567
+#: dashboards/project/loadbalancers/workflows.py:568
 msgid "Please specify an URL"
 msgstr "Należy podać adres URL"
 
-#: dashboards/project/loadbalancers/workflows.py:570
+#: dashboards/project/loadbalancers/workflows.py:571
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "Proszę podać pojedynczą wartość (np. 200), listę wartości (np, 200, 202) lub zakres wartości (np. 200-204)"
 
-#: dashboards/project/loadbalancers/workflows.py:577
+#: dashboards/project/loadbalancers/workflows.py:578
 msgid "Add New Monitor"
 msgstr "Dodanie nowego monitora"
 
-#: dashboards/project/loadbalancers/workflows.py:579
+#: dashboards/project/loadbalancers/workflows.py:580
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "Pozwala utworzyć szablon monitora.\n\nNależy wybrać typ monitorowania, podać opóźnienie, limit czasu oraz powtórzeń wymaganych przez monitor. Następnie należy podać metodę, ścieżkę URL oraz oczekiwane kody protokołu HTTP w przypadku poprawnego działania."
 
-#: dashboards/project/loadbalancers/workflows.py:604
+#: dashboards/project/loadbalancers/workflows.py:605
 msgid "Added monitor"
 msgstr "Dodano monitor"
 
-#: dashboards/project/loadbalancers/workflows.py:605
+#: dashboards/project/loadbalancers/workflows.py:606
 msgid "Unable to add monitor"
 msgstr "Nie można dodać monitora"
 
-#: dashboards/project/loadbalancers/workflows.py:615
+#: dashboards/project/loadbalancers/workflows.py:616
 msgid "Unable to add monitor."
 msgstr "Nie można dodać monitora."
 
-#: dashboards/project/loadbalancers/workflows.py:620
-#: dashboards/project/loadbalancers/workflows.py:683
+#: dashboards/project/loadbalancers/workflows.py:621
+#: dashboards/project/loadbalancers/workflows.py:684
 msgid "Monitor"
 msgstr "Monitor"
 
-#: dashboards/project/loadbalancers/workflows.py:626
+#: dashboards/project/loadbalancers/workflows.py:627
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "Wybór szablonu monitora dla %s"
 
-#: dashboards/project/loadbalancers/workflows.py:629
-#: dashboards/project/loadbalancers/workflows.py:693
+#: dashboards/project/loadbalancers/workflows.py:630
+#: dashboards/project/loadbalancers/workflows.py:694
 msgid "Select a Monitor"
 msgstr "Wybór monitora"
 
-#: dashboards/project/loadbalancers/workflows.py:641
-#: dashboards/project/loadbalancers/workflows.py:703
+#: dashboards/project/loadbalancers/workflows.py:642
+#: dashboards/project/loadbalancers/workflows.py:704
 msgid "Unable to retrieve monitors list."
 msgstr "Nie można pobrać listy monitorów."
 
-#: dashboards/project/loadbalancers/workflows.py:647
-#: dashboards/project/loadbalancers/workflows.py:709
+#: dashboards/project/loadbalancers/workflows.py:648
+#: dashboards/project/loadbalancers/workflows.py:710
 msgid "Association Details"
 msgstr "Szczegóły powiązania"
 
-#: dashboards/project/loadbalancers/workflows.py:649
+#: dashboards/project/loadbalancers/workflows.py:650
 msgid "Associate a health monitor with target pool."
 msgstr "Powiąż monitor stanu z pulą docelową."
 
-#: dashboards/project/loadbalancers/workflows.py:667
+#: dashboards/project/loadbalancers/workflows.py:668
 msgid "Associated monitor."
 msgstr "Powiązane monitory."
 
-#: dashboards/project/loadbalancers/workflows.py:668
-#: dashboards/project/loadbalancers/workflows.py:678
+#: dashboards/project/loadbalancers/workflows.py:669
+#: dashboards/project/loadbalancers/workflows.py:679
 msgid "Unable to associate monitor."
 msgstr "Nie można powiązać monitora."
 
-#: dashboards/project/loadbalancers/workflows.py:690
+#: dashboards/project/loadbalancers/workflows.py:691
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "Wybierz monitor stanu %s"
 
-#: dashboards/project/loadbalancers/workflows.py:711
+#: dashboards/project/loadbalancers/workflows.py:712
 msgid "Disassociate a health monitor from target pool. "
 msgstr "Odłącz monitor stanu od puli docelowej."
 
-#: dashboards/project/loadbalancers/workflows.py:730
+#: dashboards/project/loadbalancers/workflows.py:731
 msgid "Disassociated monitor."
 msgstr "Odwiązano monitor."
 
-#: dashboards/project/loadbalancers/workflows.py:731
-#: dashboards/project/loadbalancers/workflows.py:741
+#: dashboards/project/loadbalancers/workflows.py:732
+#: dashboards/project/loadbalancers/workflows.py:742
 msgid "Unable to disassociate monitor."
 msgstr "Nie można odwiązać monitora."
 

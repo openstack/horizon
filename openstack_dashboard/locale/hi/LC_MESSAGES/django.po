@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 10:36-0600\n"
-"PO-Revision-Date: 2014-11-21 21:22+0000\n"
+"POT-Creation-Date: 2014-11-25 19:35-0600\n"
+"PO-Revision-Date: 2014-11-25 15:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -299,12 +299,12 @@ msgstr "%(type)s (%(backend)s backend)"
 msgid "Identity service does not allow editing user data."
 msgstr "पहचान सेवा उपयोगकर्ता डेटा का संपादन की अनुमति नहीं है."
 
-#: api/keystone.py:351
+#: api/keystone.py:353
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr " इस परियोजना के लिए उपयोगकर्ता %s का कोई परिभाषित भूमिका नहीं है."
 
-#: api/keystone.py:363 api/keystone.py:379
+#: api/keystone.py:365 api/keystone.py:384
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "कूटशब्द बदल गया. जारी रखने के लिए फिर से लॉग इन करें."
@@ -1491,7 +1491,7 @@ msgstr "होस्टनाम"
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:229
-#: dashboards/project/loadbalancers/workflows.py:485
+#: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:100
 #: dashboards/project/volumes/volumes/forms.py:81
@@ -2530,9 +2530,9 @@ msgstr "विभाजन आईडी"
 #: dashboards/project/loadbalancers/forms.py:178
 #: dashboards/project/loadbalancers/forms.py:240
 #: dashboards/project/loadbalancers/workflows.py:48
-#: dashboards/project/loadbalancers/workflows.py:194
-#: dashboards/project/loadbalancers/workflows.py:346
-#: dashboards/project/loadbalancers/workflows.py:549
+#: dashboards/project/loadbalancers/workflows.py:195
+#: dashboards/project/loadbalancers/workflows.py:347
+#: dashboards/project/loadbalancers/workflows.py:550
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/tables.py:155
 #: dashboards/project/networks/workflows.py:49
@@ -3522,7 +3522,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
 #: dashboards/project/access_and_security/floating_ips/tables.py:108
 #: dashboards/project/access_and_security/floating_ips/workflows.py:137
-#: dashboards/project/loadbalancers/workflows.py:666
+#: dashboards/project/loadbalancers/workflows.py:667
 msgid "Associate"
 msgstr "एसोसियेट"
 
@@ -4719,11 +4719,16 @@ msgstr "प्राथमिक परियोजना के लिए उ�
 msgid "Unable to create user."
 msgstr "उपयोगकर्ता बनाने में असमर्थ."
 
-#: dashboards/identity/users/forms.py:208
+#: dashboards/identity/users/forms.py:207
 msgid "User has been updated successfully."
 msgstr "उपयोगकर्ता का सफलतापूर्वक अद्यतन किया गया है."
 
-#: dashboards/identity/users/forms.py:211
+#: dashboards/identity/users/forms.py:209
+#, python-format
+msgid "User name \"%s\" is already used."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:214
 msgid "Unable to update the user."
 msgstr "उपयोगकर्ता को अद्यतन करने में असमर्थ."
 
@@ -4937,7 +4942,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/tables.py:310
-#: dashboards/project/loadbalancers/workflows.py:300
+#: dashboards/project/loadbalancers/workflows.py:301
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
 msgid "Pool"
@@ -4982,7 +4987,7 @@ msgstr[0] "रिलीज किया फ्लोटिंग आईपी"
 msgstr[1] "रिलीज किया फ्लोटिंग आईपी"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:130
-#: dashboards/project/loadbalancers/workflows.py:729
+#: dashboards/project/loadbalancers/workflows.py:730
 msgid "Disassociate"
 msgstr "अलग करें"
 
@@ -5236,7 +5241,7 @@ msgstr "पोर्ट सीमा"
 #: dashboards/project/access_and_security/security_groups/forms.py:142
 #: dashboards/project/access_and_security/security_groups/forms.py:153
 #: dashboards/project/access_and_security/security_groups/forms.py:164
-#: dashboards/project/loadbalancers/workflows.py:168
+#: dashboards/project/loadbalancers/workflows.py:169
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 और 65535 के बीच एक पूर्णांक मान दर्ज करें."
 
@@ -5607,9 +5612,9 @@ msgstr "यदि आप इस नियम के द्वारा की �
 #: dashboards/project/firewalls/workflows.py:211
 #: dashboards/project/firewalls/workflows.py:289
 #: dashboards/project/loadbalancers/workflows.py:136
-#: dashboards/project/loadbalancers/workflows.py:259
-#: dashboards/project/loadbalancers/workflows.py:425
-#: dashboards/project/loadbalancers/workflows.py:603
+#: dashboards/project/loadbalancers/workflows.py:260
+#: dashboards/project/loadbalancers/workflows.py:426
+#: dashboards/project/loadbalancers/workflows.py:604
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -6789,9 +6794,9 @@ msgstr "डाटा स्रोत सारांश"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:35
 #: dashboards/project/data_processing/job_binaries/forms.py:52
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
-#: dashboards/project/loadbalancers/workflows.py:525
-#: dashboards/project/loadbalancers/workflows.py:529
+#: dashboards/project/loadbalancers/workflows.py:526
 #: dashboards/project/loadbalancers/workflows.py:530
+#: dashboards/project/loadbalancers/workflows.py:531
 #: dashboards/project/stacks/forms.py:59
 msgid "URL"
 msgstr "URL"
@@ -8211,7 +8216,7 @@ msgstr " %(count)s \"%(name)s\" नामित शुभारंभ किय�
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:276
 #: dashboards/project/loadbalancers/workflows.py:44
-#: dashboards/project/loadbalancers/workflows.py:171
+#: dashboards/project/loadbalancers/workflows.py:172
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:28
 msgid "Protocol"
@@ -8219,7 +8224,7 @@ msgstr "प्रोटोकाल"
 
 #: dashboards/project/firewalls/forms.py:39
 #: dashboards/project/firewalls/workflows.py:38
-#: dashboards/project/loadbalancers/workflows.py:487
+#: dashboards/project/loadbalancers/workflows.py:488
 msgid "TCP"
 msgstr "TCP"
 
@@ -10357,29 +10362,29 @@ msgid "Failed to update pool %s"
 msgstr "पूल %s अपडेट करने में विफल "
 
 #: dashboards/project/loadbalancers/forms.py:81
-#: dashboards/project/loadbalancers/workflows.py:173
+#: dashboards/project/loadbalancers/workflows.py:174
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
 msgid "Session Persistence"
 msgstr "सत्र निरंतरता"
 
 #: dashboards/project/loadbalancers/forms.py:85
-#: dashboards/project/loadbalancers/workflows.py:180
+#: dashboards/project/loadbalancers/workflows.py:181
 msgid "Cookie Name"
 msgstr "कुकी नाम"
 
 #: dashboards/project/loadbalancers/forms.py:86
-#: dashboards/project/loadbalancers/workflows.py:181
+#: dashboards/project/loadbalancers/workflows.py:182
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE दृढ़ता के लिए आवश्यक; अन्यथा नजरअंदाज कर दिया."
 
 #: dashboards/project/loadbalancers/forms.py:90
-#: dashboards/project/loadbalancers/workflows.py:189
+#: dashboards/project/loadbalancers/workflows.py:190
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:54
 msgid "Connection Limit"
 msgstr "कनेक्शन सीमा"
 
 #: dashboards/project/loadbalancers/forms.py:91
-#: dashboards/project/loadbalancers/workflows.py:190
+#: dashboards/project/loadbalancers/workflows.py:191
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
@@ -10388,7 +10393,7 @@ msgstr "वीआईपी के लिए अनुमति दी गई य
 #: dashboards/project/loadbalancers/forms.py:109
 #: dashboards/project/loadbalancers/forms.py:192
 #: dashboards/project/loadbalancers/tabs.py:40
-#: dashboards/project/loadbalancers/workflows.py:358
+#: dashboards/project/loadbalancers/workflows.py:359
 msgid "Unable to retrieve pools list."
 msgstr "पूल सूची को प्राप्त करने में असमर्थ."
 
@@ -10397,7 +10402,7 @@ msgid "No session persistence"
 msgstr "कोई सत्र निरंतरता नहीं"
 
 #: dashboards/project/loadbalancers/forms.py:130
-#: dashboards/project/loadbalancers/workflows.py:227
+#: dashboards/project/loadbalancers/workflows.py:228
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "कुकी नाम APP_COOKIE दृढ़ता के लिए आवश्यक है."
 
@@ -10413,7 +10418,7 @@ msgstr "VIP %s अपडेट करने में विफल "
 
 #: dashboards/project/loadbalancers/forms.py:173
 #: dashboards/project/loadbalancers/tables.py:308
-#: dashboards/project/loadbalancers/workflows.py:331
+#: dashboards/project/loadbalancers/workflows.py:332
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
 msgstr "भार"
@@ -10434,36 +10439,36 @@ msgstr "सदस्य %s अपडेट करने में विफल"
 
 #: dashboards/project/loadbalancers/forms.py:225
 #: dashboards/project/loadbalancers/tables.py:334
-#: dashboards/project/loadbalancers/workflows.py:496
+#: dashboards/project/loadbalancers/workflows.py:497
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
 msgstr "विलम्ब"
 
 #: dashboards/project/loadbalancers/forms.py:226
-#: dashboards/project/loadbalancers/workflows.py:497
+#: dashboards/project/loadbalancers/workflows.py:498
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "सदस्य की नियमित जांच के बीच ही सेकंड में कम से कम समय"
 
 #: dashboards/project/loadbalancers/forms.py:230
 #: dashboards/project/loadbalancers/tables.py:335
-#: dashboards/project/loadbalancers/workflows.py:501
+#: dashboards/project/loadbalancers/workflows.py:502
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
 msgid "Timeout"
 msgstr "समय समाप्ति"
 
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/workflows.py:502
+#: dashboards/project/loadbalancers/workflows.py:503
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "उत्तर के लिए प्रतीक्षा करने के लिए एक निगरानी के लिए सेकंड में अधिकतम समय"
 
 #: dashboards/project/loadbalancers/forms.py:235
-#: dashboards/project/loadbalancers/workflows.py:506
+#: dashboards/project/loadbalancers/workflows.py:507
 msgid "Max Retries (1~10)"
 msgstr "अधिकतम कोशिशों (1 ~ 10)"
 
 #: dashboards/project/loadbalancers/forms.py:236
-#: dashboards/project/loadbalancers/workflows.py:507
+#: dashboards/project/loadbalancers/workflows.py:508
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
@@ -10489,17 +10494,17 @@ msgid "Add Pool"
 msgstr "पुल जोड़ें"
 
 #: dashboards/project/loadbalancers/tables.py:40
-#: dashboards/project/loadbalancers/workflows.py:258
+#: dashboards/project/loadbalancers/workflows.py:259
 msgid "Add VIP"
 msgstr "VIP जोड़ें"
 
 #: dashboards/project/loadbalancers/tables.py:58
-#: dashboards/project/loadbalancers/workflows.py:424
+#: dashboards/project/loadbalancers/workflows.py:425
 msgid "Add Member"
 msgstr "सदस्य बनाएँ"
 
 #: dashboards/project/loadbalancers/tables.py:67
-#: dashboards/project/loadbalancers/workflows.py:602
+#: dashboards/project/loadbalancers/workflows.py:603
 msgid "Add Monitor"
 msgstr "मॉनिटर जोड़ें"
 
@@ -10580,7 +10585,7 @@ msgid "Edit Monitor"
 msgstr " मॉनिटर संपादित करें"
 
 #: dashboards/project/loadbalancers/tables.py:233
-#: dashboards/project/loadbalancers/workflows.py:665
+#: dashboards/project/loadbalancers/workflows.py:666
 msgid "Associate Monitor"
 msgstr "मॉनिटर जोड़ें"
 
@@ -10589,7 +10594,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "स्वास्थ्य मॉनिटर लाने में असफल."
 
 #: dashboards/project/loadbalancers/tables.py:256
-#: dashboards/project/loadbalancers/workflows.py:728
+#: dashboards/project/loadbalancers/workflows.py:729
 msgid "Disassociate Monitor"
 msgstr "मॉनिटर अलग करें "
 
@@ -10623,8 +10628,8 @@ msgid "Pools"
 msgstr "पुल"
 
 #: dashboards/project/loadbalancers/tables.py:306
-#: dashboards/project/loadbalancers/workflows.py:167
-#: dashboards/project/loadbalancers/workflows.py:338
+#: dashboards/project/loadbalancers/workflows.py:168
+#: dashboards/project/loadbalancers/workflows.py:339
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:25
 msgid "Protocol Port"
@@ -10779,19 +10784,19 @@ msgid "Unable to retrieve pool. %s"
 msgstr "पूल प्राप्त करने में असमर्थ. %s"
 
 #: dashboards/project/loadbalancers/workflows.py:55
-#: dashboards/project/loadbalancers/workflows.py:199
+#: dashboards/project/loadbalancers/workflows.py:200
 #: dashboards/project/vpn/workflows.py:40
 msgid "Select a Subnet"
 msgstr "सबनेट चयन करें"
 
 #: dashboards/project/loadbalancers/workflows.py:60
-#: dashboards/project/loadbalancers/workflows.py:204
+#: dashboards/project/loadbalancers/workflows.py:205
 #: dashboards/project/vpn/workflows.py:46
 msgid "Unable to retrieve networks list."
 msgstr "नेटवर्क सूची को प्राप्त करने में असमर्थ."
 
 #: dashboards/project/loadbalancers/workflows.py:67
-#: dashboards/project/loadbalancers/workflows.py:210
+#: dashboards/project/loadbalancers/workflows.py:211
 msgid "Select a Protocol"
 msgstr "प्रोटोकॉल चुनें"
 
@@ -10845,102 +10850,102 @@ msgstr ""
 msgid "Specify a free IP address from the selected subnet"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:214
+#: dashboards/project/loadbalancers/workflows.py:215
 msgid "No Session Persistence"
 msgstr "कोई सत्र निरंतरता नहीं"
 
-#: dashboards/project/loadbalancers/workflows.py:232
+#: dashboards/project/loadbalancers/workflows.py:233
 msgid "Specify VIP"
 msgstr "VIP निर्दिष्ट करें"
 
-#: dashboards/project/loadbalancers/workflows.py:234
+#: dashboards/project/loadbalancers/workflows.py:235
 msgid ""
 "Create a VIP for this pool. Assign a name, description, IP address, port, "
 "and maximum connections allowed for the VIP. Choose the protocol and session"
 " persistence method for the VIP. Admin State is UP (checked) by default."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:260
+#: dashboards/project/loadbalancers/workflows.py:261
 #, python-format
 msgid "Added VIP \"%s\"."
 msgstr "जोड़ा गया VIP \"%s\"."
 
-#: dashboards/project/loadbalancers/workflows.py:261
+#: dashboards/project/loadbalancers/workflows.py:262
 #, python-format
 msgid "Unable to add VIP \"%s\"."
 msgstr "VIP जोड़ने में असमर्थ \"%s\"."
 
-#: dashboards/project/loadbalancers/workflows.py:277
+#: dashboards/project/loadbalancers/workflows.py:278
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
 msgstr "निर्दिष्ट पूल प्राप्त करने में असमर्थ. VIP जोड़ने में असमर्थ \"%s\"."
 
-#: dashboards/project/loadbalancers/workflows.py:302
+#: dashboards/project/loadbalancers/workflows.py:303
 msgid "Member Source"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:303
+#: dashboards/project/loadbalancers/workflows.py:304
 msgid "Select from active instances"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:304
-#: dashboards/project/loadbalancers/workflows.py:321
+#: dashboards/project/loadbalancers/workflows.py:305
+#: dashboards/project/loadbalancers/workflows.py:322
 msgid "Specify member IP address"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:311
-#: dashboards/project/loadbalancers/workflows.py:317
+#: dashboards/project/loadbalancers/workflows.py:312
+#: dashboards/project/loadbalancers/workflows.py:318
 msgid "Member(s)"
 msgstr "सदस्य (ओं)"
 
-#: dashboards/project/loadbalancers/workflows.py:319
+#: dashboards/project/loadbalancers/workflows.py:320
 msgid "Select members for this pool "
 msgstr "इस पूल के लिए  सदस्यों का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:320
-#: dashboards/project/loadbalancers/workflows.py:326
+#: dashboards/project/loadbalancers/workflows.py:321
+#: dashboards/project/loadbalancers/workflows.py:327
 msgid "Member address"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:332
+#: dashboards/project/loadbalancers/workflows.py:333
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be modified later. Weight must be in the range 1 to 256."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:339
+#: dashboards/project/loadbalancers/workflows.py:340
 msgid ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
 "all the selected members and can be modified later."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:351
+#: dashboards/project/loadbalancers/workflows.py:352
 msgid "Select a Pool"
 msgstr "पूल चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:371
+#: dashboards/project/loadbalancers/workflows.py:372
 msgid "Unable to retrieve instances list."
 msgstr "इंस्टेंस सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:375
+#: dashboards/project/loadbalancers/workflows.py:376
 msgid ""
 "No servers available. To add a member, you need at least one running "
 "instance."
 msgstr " कोई सर्वर उपलब्ध नहीं. एक सदस्य जोड़ने के लिए, आप कम से कम एक चल इंस्टेंस की जरूरत है."
 
-#: dashboards/project/loadbalancers/workflows.py:391
+#: dashboards/project/loadbalancers/workflows.py:392
 msgid "At least one member must be specified"
 msgstr "कम से कम एक सदस्य निर्दिष्ट किया जाना चाहिए"
 
-#: dashboards/project/loadbalancers/workflows.py:395
+#: dashboards/project/loadbalancers/workflows.py:396
 msgid "Member IP address must be specified"
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:400
+#: dashboards/project/loadbalancers/workflows.py:401
 msgid "Add New Member"
 msgstr "नए सदस्य जोड़ें"
 
-#: dashboards/project/loadbalancers/workflows.py:402
+#: dashboards/project/loadbalancers/workflows.py:403
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -10949,147 +10954,147 @@ msgid ""
 "Only one port can be associated with each instance."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:426
+#: dashboards/project/loadbalancers/workflows.py:427
 msgid "Added member(s)."
 msgstr "जोड़े गए सदस्य (ओं)."
 
-#: dashboards/project/loadbalancers/workflows.py:427
+#: dashboards/project/loadbalancers/workflows.py:428
 msgid "Unable to add member(s)"
 msgstr "सदस्य को जोड़ने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:437
+#: dashboards/project/loadbalancers/workflows.py:438
 msgid "Unable to retrieve the specified pool."
 msgstr ""
 
-#: dashboards/project/loadbalancers/workflows.py:486
+#: dashboards/project/loadbalancers/workflows.py:487
 msgid "PING"
 msgstr "PING"
 
-#: dashboards/project/loadbalancers/workflows.py:488
+#: dashboards/project/loadbalancers/workflows.py:489
 msgid "HTTP"
 msgstr "HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:489
+#: dashboards/project/loadbalancers/workflows.py:490
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: dashboards/project/loadbalancers/workflows.py:512
+#: dashboards/project/loadbalancers/workflows.py:513
 msgid "GET"
 msgstr "GET"
 
-#: dashboards/project/loadbalancers/workflows.py:513
-#: dashboards/project/loadbalancers/workflows.py:518
+#: dashboards/project/loadbalancers/workflows.py:514
 #: dashboards/project/loadbalancers/workflows.py:519
+#: dashboards/project/loadbalancers/workflows.py:520
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
 msgid "HTTP Method"
 msgstr " एचटीटीपी विधि "
 
-#: dashboards/project/loadbalancers/workflows.py:514
+#: dashboards/project/loadbalancers/workflows.py:515
 msgid "HTTP method used to check health status of a member"
 msgstr "HTTP विधि एक सदस्य के स्वास्थ्य की स्थिति की जांच करने के लिए इस्तेमाल किया"
 
-#: dashboards/project/loadbalancers/workflows.py:537
-#: dashboards/project/loadbalancers/workflows.py:544
+#: dashboards/project/loadbalancers/workflows.py:538
 #: dashboards/project/loadbalancers/workflows.py:545
+#: dashboards/project/loadbalancers/workflows.py:546
 msgid "Expected HTTP Status Codes"
 msgstr "अपेक्षित HTTP स्थिति कोड"
 
-#: dashboards/project/loadbalancers/workflows.py:538
+#: dashboards/project/loadbalancers/workflows.py:539
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
 "202), or range of values (e.g. 200-204)"
 msgstr "अपेक्षित कोड एक एकल मान (उदाहरण के लिए 200), मानों की सूची (उदाहरण के लिए 200, 202), या मानों की श्रेणी (जैसे 200-204) हो सकता है"
 
-#: dashboards/project/loadbalancers/workflows.py:564
+#: dashboards/project/loadbalancers/workflows.py:565
 msgid "Please choose a HTTP method"
 msgstr "HTTP पद्धति चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:567
+#: dashboards/project/loadbalancers/workflows.py:568
 msgid "Please specify an URL"
 msgstr "यूआरएल निर्दिष्ट करें"
 
-#: dashboards/project/loadbalancers/workflows.py:570
+#: dashboards/project/loadbalancers/workflows.py:571
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "एकल मान (उदाहरण के लिए 200), मानों की सूची (उदाहरण के लिए 200, 202), या मानों की श्रेणी (जैसे 200-204) दर्ज करें"
 
-#: dashboards/project/loadbalancers/workflows.py:577
+#: dashboards/project/loadbalancers/workflows.py:578
 msgid "Add New Monitor"
 msgstr "नए मॉनिटर जोड़ें"
 
-#: dashboards/project/loadbalancers/workflows.py:579
+#: dashboards/project/loadbalancers/workflows.py:580
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "मॉनिटर टेम्पलेट बनाएँ.\n\nनिगरानी के प्रकार का चयन. देरी, मध्यांतर निर्दिष्ट करें, और मॉनिटर द्वारा आवश्यक सीमा को फिर से प्रयास. विधि, URL पथ, और सफलता पर उम्मीद HTTP कोड निर्दिष्ट करें."
 
-#: dashboards/project/loadbalancers/workflows.py:604
+#: dashboards/project/loadbalancers/workflows.py:605
 msgid "Added monitor"
 msgstr "जोड़ा गया मॉनिटर"
 
-#: dashboards/project/loadbalancers/workflows.py:605
+#: dashboards/project/loadbalancers/workflows.py:606
 msgid "Unable to add monitor"
 msgstr "मॉनिटर जोड़ने में असमर्थ"
 
-#: dashboards/project/loadbalancers/workflows.py:615
+#: dashboards/project/loadbalancers/workflows.py:616
 msgid "Unable to add monitor."
 msgstr "मॉनिटर जोड़ने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:620
-#: dashboards/project/loadbalancers/workflows.py:683
+#: dashboards/project/loadbalancers/workflows.py:621
+#: dashboards/project/loadbalancers/workflows.py:684
 msgid "Monitor"
 msgstr "मॉनीटर"
 
-#: dashboards/project/loadbalancers/workflows.py:626
+#: dashboards/project/loadbalancers/workflows.py:627
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr " %s के लिए एक निगरानी टेम्पलेट का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:629
-#: dashboards/project/loadbalancers/workflows.py:693
+#: dashboards/project/loadbalancers/workflows.py:630
+#: dashboards/project/loadbalancers/workflows.py:694
 msgid "Select a Monitor"
 msgstr "मॉनीटर चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:641
-#: dashboards/project/loadbalancers/workflows.py:703
+#: dashboards/project/loadbalancers/workflows.py:642
+#: dashboards/project/loadbalancers/workflows.py:704
 msgid "Unable to retrieve monitors list."
 msgstr "मॉनिटर सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:647
-#: dashboards/project/loadbalancers/workflows.py:709
+#: dashboards/project/loadbalancers/workflows.py:648
+#: dashboards/project/loadbalancers/workflows.py:710
 msgid "Association Details"
 msgstr "एसोसिएशन विवरण"
 
-#: dashboards/project/loadbalancers/workflows.py:649
+#: dashboards/project/loadbalancers/workflows.py:650
 msgid "Associate a health monitor with target pool."
 msgstr "लक्ष्य पूल के साथ एक स्वास्थ्य पर नजर रखने के एसोसिएट."
 
-#: dashboards/project/loadbalancers/workflows.py:667
+#: dashboards/project/loadbalancers/workflows.py:668
 msgid "Associated monitor."
 msgstr "जुड़ा हुआ मॉनिटर."
 
-#: dashboards/project/loadbalancers/workflows.py:668
-#: dashboards/project/loadbalancers/workflows.py:678
+#: dashboards/project/loadbalancers/workflows.py:669
+#: dashboards/project/loadbalancers/workflows.py:679
 msgid "Unable to associate monitor."
 msgstr "मॉनिटर संबद्ध करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:690
+#: dashboards/project/loadbalancers/workflows.py:691
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s के स्वास्थ्य की निगरानी का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:711
+#: dashboards/project/loadbalancers/workflows.py:712
 msgid "Disassociate a health monitor from target pool. "
 msgstr "लक्ष्य पूल से एक स्वास्थ्य की निगरानी अलग."
 
-#: dashboards/project/loadbalancers/workflows.py:730
+#: dashboards/project/loadbalancers/workflows.py:731
 msgid "Disassociated monitor."
 msgstr "अलग किया हुआ मॉनिटर"
 
-#: dashboards/project/loadbalancers/workflows.py:731
-#: dashboards/project/loadbalancers/workflows.py:741
+#: dashboards/project/loadbalancers/workflows.py:732
+#: dashboards/project/loadbalancers/workflows.py:742
 msgid "Unable to disassociate monitor."
 msgstr "मॉनीटर को अलग करने में असमर्थ."
 
