@@ -38,14 +38,17 @@ class TenantsTab(tabs.TableTab):
         my_tenants = []
         #domain_context = self.request.session.get('domain_context', None)
         try:
-            tenants, self._more = api.keystone.tenant_list(self.request)
+            tenants, self._more = api.keystone.tenant_list(self.request,
+                                                            admin=False)
             my_tenants, _more = api.keystone.tenant_list(self.request,
-                                            user=self.request.user.id)
+                                            user=self.request.user.id,
+                                            admin=False)
             tenants = [t for t in tenants if not t in my_tenants]
-        except Exception:
+        except Exception as e:
             self._more = False
             exceptions.handle(self.request,
-                              _("Unable to retrieve organization list."))
+                              _("Unable to retrieve organization list. \
+                                    Error message: {0}".format(e)))
         return idm_utils.filter_own_tenant(self.request.user, tenants)
         # if policy.check((("idm", "idm:list_organizations"),),
         #                 self.request):
