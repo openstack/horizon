@@ -396,6 +396,11 @@ LOGGING = {
             'handlers': ['null'],
             'propagate': False,
         },
+        'idm_logger': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     }
 }
 

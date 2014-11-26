@@ -22,7 +22,7 @@ from openstack_dashboard.fiware_auth import forms as fiware_forms
 from openstack_dashboard.fiware_auth import models as fiware_models
 
 
-LOG = logging.getLogger(__name__)
+LOG = logging.getLogger('idm_logger')
 
 class _RequestPassingFormView(FormView):
     """
@@ -83,7 +83,7 @@ class RegistrationView(_RequestPassingFormView):
     # We have to protect the entire "cleaned_data" dict because it contains the
     # password and confirm_password strings.
     def register(self, request, **cleaned_data):
-        LOG.info('Singup user {0}.'.format(request.user.username))
+        LOG.info('Singup user {0}.'.format(cleaned_data['username']))
         #delegate to the manager to create all the stuff
         new_user = fiware_models.RegistrationProfile.objects.create_inactive_user(request, **cleaned_data)
         return new_user
