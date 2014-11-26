@@ -35,40 +35,49 @@ class TenantsTab(tabs.TableTab):
 
     def get_tenants_data(self):
         tenants = []
-        marker = self.request.GET.get(
-            organization_tables.TenantsTable._meta.pagination_param, None)
-        domain_context = self.request.session.get('domain_context', None)
-        if policy.check((("idm", "idm:list_organizations"),),
-                        self.request):
-            try:
-                tenants, self._more = api.keystone.tenant_list(
-                    self.request,
-                    domain=domain_context,
-                    paginate=True,
-                    marker=marker)
-            except Exception:
-                self._more = False
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve organization list."))
-        elif policy.check((("idm", "idm:list_user_organizations"),),
-                          self.request):
-            try:
-                tenants, self._more = api.keystone.tenant_list(
-                    self.request,
-                    user=self.request.user.id,
-                    paginate=True,
-                    marker=marker,
-                    admin=False)
-            except Exception:
-                self._more = False
-                exceptions.handle(self.request,
-                                  _("Unable to retrieve organization information."))
-        else:
+        my_tenants = []
+        #domain_context = self.request.session.get('domain_context', None)
+        try:
+            tenants, self._more = api.keystone.tenant_list(self.request)
+            my_tenants, _more = api.keystone.tenant_list(self.request,
+                                            user=self.request.user.id)
+            tenants = [t for t in tenants if not t in my_tenants]
+        except Exception:
             self._more = False
-            msg = \
-                _("Insufficient privilege level to view organization information.")
-            messages.info(self.request, msg)
+            exceptions.handle(self.request,
+                              _("Unable to retrieve organization list."))
         return idm_utils.filter_own_tenant(self.request.user, tenants)
+        # if policy.check((("idm", "idm:list_organizations"),),
+        #                 self.request):
+        #     try:
+        #         tenants, self._more = api.keystone.tenant_list(
+        #             self.request,
+        #             domain=domain_context,
+        #             paginate=True,
+        #             marker=marker)
+        #     except Exception:
+        #         self._more = False
+        #         exceptions.handle(self.request,
+        #                           _("Unable to retrieve organization list."))
+        # elif policy.check((("idm", "idm:list_user_organizations"),),
+        #                   self.request):
+        #     try:
+        #         tenants, self._more = api.keystone.tenant_list(
+        #             self.request,
+        #             user=self.request.user.id,
+        #             paginate=True,
+        #             marker=marker,
+        #             admin=False)
+        #     except Exception:
+        #         self._more = False
+        #         exceptions.handle(self.request,
+        #                           _("Unable to retrieve organization information."))
+        # else:
+        #     self._more = False
+        #     msg = \
+        #         _("Insufficient privilege level to view organization information.")
+        #     messages.info(self.request, msg)
+        # return idm_utils.filter_own_tenant(self.request.user, tenants)
 
 
 class MyTenantsTab(tabs.TableTab):

@@ -133,10 +133,10 @@ def check_email(email):
 # keystoneclients issue (see the top of this file). 
 # NOTE(garcianavalon) request is passed as an argument
 # looking into the future integration, no use for it now
-def role_get(request, role):
+def role_get(request, role_id):
     manager = fiwareclient().fiware_roles.roles
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.get(role)
+    return manager.get(role_id)
 
 def role_list(request):
     manager = fiwareclient().fiware_roles.roles
@@ -161,15 +161,15 @@ def role_update(request, role, name=None, is_editable=True,
                         application=application,
                         **kwargs)
         
-def role_delete(request, role):
+def role_delete(request, role_id):
     manager = fiwareclient().fiware_roles.roles
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.delete(role)
+    return manager.delete(role_id)
 
-def permission_get(request, permission):
+def permission_get(request, permission_id):
     manager = fiwareclient().fiware_roles.permissions
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.get(permission)
+    return manager.get(permission_id)
 
 def permission_list(request):
     manager = fiwareclient().fiware_roles.permissions
@@ -194,10 +194,10 @@ def permission_update(request, permission, name=None, is_editable=True,
                         application=application,
                         **kwargs)
         
-def permission_delete(request, permission):
+def permission_delete(request, permission_id):
     manager = fiwareclient().fiware_roles.permissions
     #manager = api.keystone.keystoneclient(request, admin=True).fiware_roles
-    return manager.delete(permission)
+    return manager.delete(permission_id)
 
 
 # APPLICATIONS/CONSUMERS
@@ -221,9 +221,9 @@ def application_list(request, user=None):
     manager = fiwareclient().oauth2.consumers
     return manager.list(user=user)
 
-def application_get(request, application):
+def application_get(request, application_id):
     manager = fiwareclient().oauth2.consumers
-    return manager.get(application)
+    return manager.get(application_id)
 
 
 
