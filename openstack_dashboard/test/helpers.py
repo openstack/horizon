@@ -293,9 +293,10 @@ class APITestCase(TestCase):
         api.nova.novaclient = lambda request: self.stub_novaclient()
         api.neutron.neutronclient = lambda request: self.stub_neutronclient()
         api.cinder.cinderclient = lambda request: self.stub_cinderclient()
-        api.heat.heatclient = lambda request: self.stub_heatclient()
-        api.ceilometer.ceilometerclient = lambda request: \
-            self.stub_ceilometerclient()
+        api.heat.heatclient = (lambda request, password=None:
+                               self.stub_heatclient())
+        api.ceilometer.ceilometerclient = (lambda request:
+                                           self.stub_ceilometerclient())
         api.trove.troveclient = lambda request: self.stub_troveclient()
         api.sahara.client = lambda request: self.stub_saharaclient()
 
