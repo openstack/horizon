@@ -21,6 +21,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
 
 from django.views.generic.base import TemplateView
 
@@ -133,28 +134,24 @@ class MultiFormView(TemplateView):
             "appID": application.id,
             "name": application.name,
             "description": application.description,
-            "callback": application.redirect_uris,
+            "callbackurl": application.redirect_uris[0],
             "url": application.extra['url']
             # "img": application.extra['img']
         }
         #Create forms
         info = application_forms.InfoForm(self.request, initial=initial_data)
-        # roles = application_forms.RoleForm(self.request, initial=initial_data)
         avatar = application_forms.AvatarForm(self.request, initial=initial_data)
         cancel = application_forms.CancelForm(self.request, initial=initial_data)
 
         #Actions and titles
         info.action = 'info/'
         info.title = 'Information'
-        # roles.action = "roles/"
-        # roles.title = 'Roles Information'
         avatar.action = "avatar/"
         avatar.title = 'Avatar Update'
         cancel.action = "cancel/"
         cancel.title = 'Cancel'
 
-        context['form'] = [info, avatar, cancel] 
-        # context['form'] = [info, roles, avatar, cancel]       
+        context['form'] = [info, avatar, cancel]       
         return context
 
 class HandleForm(forms.ModalFormView):
@@ -164,9 +161,6 @@ class HandleForm(forms.ModalFormView):
 
 class InfoFormView(HandleForm):    
     form_class = application_forms.InfoForm
-
-# class RolesFormView(HandleForm):
-#     form_class = application_forms.RolesForm
 
    
 class AvatarFormView(forms.ModalFormView):
