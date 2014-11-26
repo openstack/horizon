@@ -41,50 +41,51 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
     
 
     def handle(self, request, data):
-    	#create organization
-    	default_domain = api.keystone.get_default_domain(request)
-    	try:
-    		desc = data['description']
-    		self.object = api.keystone.tenant_create(request,
-    											name=data['name'],
-    											description=desc,
-    											enabled=data['enabled'],
-    											domain=default_domain)
-    	except Exception:
-    		exceptions.handle(request, ignore=True)
-    		return False
+        #create organization
+        default_domain = api.keystone.get_default_domain(request)
+        try:
+            desc = data['description']
+            import pdb; pdb.set_trace()
+            self.object = api.keystone.tenant_create(request,
+                                                name=data['name'],
+                                                description=desc,
+                                                enabled=data['enabled'],
+                                                domain=default_domain)
+        except Exception:
+            exceptions.handle(request, ignore=True)
+            return False
 
-    	#Set organization and user id
-    	organization_id = self.object.id
-    	user_id = request.user.id
+        #Set organization and user id
+        organization_id = self.object.id
+        user_id = request.user.id
 
-    	#Find default role id
-    	try:
-    		default_role = api.keystone.get_default_role(self.request)
-    		if default_role is None:
-    			default = getattr(settings,
-    								"OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-    			msg = _('Could not find default role "%s" in Keystone') % \
-    					default
-    			raise exceptions.NotFound(msg)
-    	except Exception as e:
-    		exceptions.handle(self.request, 
-    							e.error,
-    							redirect=reverse('horizon:idm:organizations:index'))
-    		return False
-    	try:
-    		api.keystone.add_tenant_user_role(request,
-    										project=organization_id,
-    										user=user_id,
-    										role=default_role.id)
-    	except Exception:
-    		exceptions.handle(request,
-    								_('Failed to add %s organization to list')
-    								% data['name'])
-    		return False
+        #Find default role id
+        try:
+            default_role = api.keystone.get_default_role(self.request)
+            if default_role is None:
+                default = getattr(settings,
+                                    "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+                msg = _('Could not find default role "%s" in Keystone') % \
+                        default
+                raise exceptions.NotFound(msg)
+        except Exception as e:
+            exceptions.handle(self.request, 
+                                e.error,
+                                redirect=reverse('horizon:idm:organizations:index'))
+            return False
+        try:
+            api.keystone.add_tenant_user_role(request,
+                                            project=organization_id,
+                                            user=user_id,
+                                            role=default_role.id)
+        except Exception:
+            exceptions.handle(request,
+                                    _('Failed to add %s organization to list')
+                                    % data['name'])
+            return False
     
-       	response = shortcuts.redirect('horizon:idm:organizations:index')
-    	return response
+        response = shortcuts.redirect('horizon:idm:organizations:index')
+        return response
 
 
 class InfoForm(forms.SelfHandlingForm):

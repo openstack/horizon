@@ -68,8 +68,6 @@ class MyTenantsTable(tables.DataTable):
         footer = False
         multi_select = False
        
-
-
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Member'))
     clickable = True
