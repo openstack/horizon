@@ -40,7 +40,9 @@ def openstack(request):
     # Auth/Keystone context
     context.setdefault('authorized_tenants', [])
     if request.user.is_authenticated():
-        context['authorized_tenants'] = request.user.authorized_tenants
+        context['authorized_tenants'] = [
+            tenant for tenant in
+            request.user.authorized_tenants if tenant.enabled]
 
     # Region context/support
     available_regions = getattr(settings, 'AVAILABLE_REGIONS', [])
